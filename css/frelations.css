@@ -1,0 +1,25 @@
+/*And who would expect this?Kostis90gr writing a .css file*/
+li.relation {
+	border: thin ridge;
+	border-bottom-style: none;
+	opacity: 0;
+	background-color: #FFFFFF;
+	display: none;
+}
+
+li.relselected {
+	border: thin ridge;
+	border-bottom-style: none;
+	border-bottom: thin ridge;
+	color: #0033FF;
+	background-color: #99FF99;
+	display: list-item;
+}
+
+ul.daddy {
+	list-style-type: none;
+	cursor: pointer;
+	position: absolute;
+	z-index: 1;
+	padding-left: 19px;
+}

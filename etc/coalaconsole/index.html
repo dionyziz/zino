@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Coala console</title>
+		<link rel="stylesheet" type="text/css" href="coalaconsole.css" />
+		<script type="text/javascript" src="coalaconsole.js" />
+	</head>
+	<body>
+		<div class="heading">
+			<div class="banner" style="float:left">
+			</div>
+			<div class="text">
+				Coala console
+			</div>
+		</div>
+		<div class="body">
+			<div class="coalaform">
+				<form action="coala.php" id="coalaform">
+					<input type="hidden" name="ids" id="ids" />
+					<input type="hidden" name="p0" id="p0" />
+					<b>Unit path</b><br />
+					<input type="text" id="path" size="50" /><br /><br />
+					
+					<b>Call method</b><br />
+					<input type="radio" value="Cold" name="method" id="coldcall" a="true" /> Cold<br />
+					<input type="radio" value="Warm" name="method" id="warmcall" /> Warm<br /><br />
+					<b>Parameters</b><br /><br />
+					<div class="parameteresdiv">
+						<div class="spanparamname">Name:</div>
+						<input type="text" id="paramname_1" class="nameparam" />
+						<div class="spanparamvalue">Value:</div>
+						<input type="text" id="paramvalue_1" class="valueparam" />
+					</div><br />
+					<a href="" onclick="coalaconsole.addparam();return false;" class="link" style="font-weight:normal"><img src="../images/icon/add.png" style="border:none" /> Add parameter</a>
+					
+				</form><br /><br />
+				<a href="" class="link" onclick="coalaconsole.MakeCall();">Make call&#187;</a>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,83 @@
+html, body {
+	height: 100%;
+}
+body {
+	text-align: center;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	font-family: Verdana;
+	font-size: 75%;
+}
+h1 {
+	margin: 0 0 0.5em 0;
+	font-size: 135%;
+	font-weight: normal;
+	letter-spacing: -0.03em;
+	line-height: 1;
+	clear: left;
+	color: #4E463F;
+}
+a img {
+	border: 0 none transparent;
+}
+a, a:link, a:visited, a:active {
+	color: #1d5087;
+	text-decoration: none;
+}
+a:hover {
+	color: #5a89bb;
+	text-decoration: underline;
+}
+div.axel {
+	width: 910px;
+	height: 100%;
+	text-align: left;
+	margin: 0 auto 0 auto;
+	padding: 0;
+	background-color: white;
+	position: relative;
+}
+div.copy {
+	padding: 20px 0 10px 0;
+	font-size: 80%;
+	text-align: center;
+	color: #7e7e7e;
+}
+div.copy span {
+	color: #aeaeae;
+}
+div.copy span a {
+	color: #aeaeae;
+	text-decoration: underline;
+}
+input.bigtext {
+	border: solid 1px #888;
+	color: #666;
+	width: 300px;
+}
+input.mytext {
+	border: solid 1px #888;
+	color: #666;
+}
+a.operator, a.developer {
+	color: #ae4a4c !important;
+}
+a.journalist {
+	color: #63a8cc !important;
+}
+a.operator h2 {
+	display: none;
+}
+a.emoticons {
+	cursor: pointer;
+}
+a.emoticons:hover {
+	text-decoration: underline;
+}
+
+div.userinfo img.avatar {
+	border: 1px solid #cac7c5;
+	float: left;
+	margin-right: 5px;
+}

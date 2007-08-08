@@ -1,0 +1,122 @@
+div.content div.rectangles {
+	padding: 5px 70px 5px 70px;
+}
+div.content div.rectangles div.upperline {
+	height: 9px;
+}
+div.rectanglesopts img {
+	float:left;
+	margin-right: 5px;
+}
+div.opties {
+	margin: 20px 0px 20px 0px;
+}
+div.rectanglesopts {
+	border-left: 1px solid #d4d4d4;
+	border-right: 1px solid #d4d4d4;
+    background-color: #f8f7f3;
+    padding: 0 10px 0 10px;
+    _position: relative;
+    left: 3px;
+    _margin-right: 6px;
+}
+div.upperline {
+	background-color: #f8f7f3;
+    height: 9px;
+    overflow: hidden;
+}
+div.upperline div.middle {
+	border-top: 1px solid #cac9c7;
+	background-color: #f8f7f3;
+    height: 1px;
+}
+div.downline {
+	background-color: white;
+}
+div.middledowncss {
+    background-image: url( 'http://static.chit-chat.gr/images/repeat.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+    height: 15px;
+    background-color: #ffffff;
+}  
+div.leftupcorner {
+	float: left;
+	background-image: url( 'http://static.chit-chat.gr/images/left-up_corner.jpg' );
+	background-repeat: no-repeat;
+	width: 9px;
+	height: 9px;
+	padding: 0;
+	margin: 0;
+    _position: relative;
+    left: 3px;
+}
+div.rightupcorner {
+	float: right;
+	background-image: url( 'http://static.chit-chat.gr/images/right-up_corner.jpg' );
+	background-repeat: no-repeat;
+	width: 9px;
+	height: 9px;
+	padding: 0;
+	margin: 0;
+    _position: relative;
+    left: -3px;
+}
+div.leftdowncorner {
+	float: left;
+	background-image: url( 'http://static.chit-chat.gr/images/left-down_corner.jpg' );
+	background-repeat: no-repeat;
+	width: 9px;
+	height: 13px;
+	padding: 0;
+	margin: 0;
+    _position: relative;
+    left: 3px;
+}
+div.rightdowncorner {
+	float: right;
+	background-image: url( 'http://static.chit-chat.gr/images/right-down_corner.jpg' );
+	background-repeat: no-repeat;
+	width: 9px;
+	height: 13px;
+	padding: 0;
+	margin: 0;
+    _position: relative;
+    left: -3px;
+}
+span.directions {
+	font-weight: bold;
+	font-size: 90%;
+}
+span.tip {
+	font-size: 75%;
+	margin-bottom: 5px;
+	color: #848484;
+}
+div.rectanglesopts input {
+	margin: 8px 0 0 22px;
+	width: 360px;
+}
+div.rectanglesopts select {
+	margin: 8px 0 0 22px;
+	width: 360px;
+}
+span.littletip {
+	font-size: 75%;
+	float: right;
+	opacity: 0.25;
+}
+a.next , a.next:link  , a.next:active , a.next:visited {
+	color: #3568eb;
+	font-size: 150%;
+}
+a.next:hover {
+	text-decoration: none;
+	color: #1e52d8;
+}
+div.content h1 {
+	margin-left: 70px;
+}
+div.content h4 {
+	margin-left: 70px;
+}
