@@ -27,11 +27,14 @@
         }
         ?>
         <br /><br /><br />
+        <b>JSLINT: <span id="jslintnumerrors">no errors</span></b>
+        <br /><br />
         <dl id="jslintresults">
         </dl>
         <script type="text/javascript"><?php
             ob_start();
             ?>
+            var lintnumerrors = 0;
             function Lint( file, source ) {
                 var jssource;
                 var results = document.getElementById( 'jslintresults' );
@@ -134,6 +137,8 @@
                                     }
                                     table.appendChild( tr );
                                     ++j;
+                                    ++lintnumerrors;
+                                    document.getElementById( 'jslintnumerrors' ).firstChild.nodeValue = lintnumerrors + ((lintnumerrors == 1)? ' error': ' errors');
                                 }
                             }
                             parseresult.appendChild( table );
