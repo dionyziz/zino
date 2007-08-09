@@ -25,6 +25,7 @@
             }
         }
         ?>
+        <br /><br /><br />
         <dl id="jslintresults">
         </dl>
         <script type="text/javascript"><?php
@@ -62,7 +63,7 @@
                     table.appendChild( headlines );
                     var tr;
                     var td;
-                    for ( i in JSLINT.errors ) {
+                    for ( i = 0; i < JSLINT.errors.length; ++i ) {
                         tr = document.createElement( 'tr' );
                         td = document.createElement( 'td' );
                         td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
