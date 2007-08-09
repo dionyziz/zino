@@ -1,5 +1,5 @@
 var Friends = {
-	onappear : false;
+	onappear : false,
 	processing : false,
 	AddFriend : function ( friendid, type ) {
 		Friends.processing = true;
