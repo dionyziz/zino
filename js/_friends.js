@@ -92,19 +92,23 @@ var Friends = {
 		for ( var i in daddy.childNodes ) {
 			var child = daddy.childNodes[i];
 			if ( child.nodeType == 1 ) {
-				if ( child.title == '' ) {
-					if ( show ) {
-						child.style.display = "block";
+				var chosen = ( child.title == '' )?false:true;
+				
+				if ( show ) {
+					child.style.display = "block";
+					if( !chosen ) {
 						Animations.Create( child, "opacity", 1500, 0, 1, new Function(), Interpolators.Pulse );
 					}
-					else if ( !show ) {
-						Animations.Create( child, "opacity", 1000, 1, 0, (function(child,show) {
-										return function() {
-											child.style.display = "none";
-											child.style.opacity = 0; 
+				}
+				else if ( !show ) {
+					Animations.Create( child, "opacity", 1000, 1, 0, (function(child,show,chosen) {
+									return function() {
+										child.style.display = "none";
+										if( chosen ) {
+											child.style.opacity = 1;
 										}
-									})(child,show), Interpolators.Pulse );
-					}
+									}
+								})(child,show,chosen), Interpolators.Pulse );
 				}
 			}
 		}
