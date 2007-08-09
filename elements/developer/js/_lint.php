@@ -3,6 +3,7 @@
         global $page;
         global $rabbit_settings;
         
+        $page->SetTitle( 'JSLINT' );
         $page->AttachScript( 'js/jslint/fulljslint.js', 'javascript', true );
         $page->AttachStylesheet( 'css/jslint.css' );
         
