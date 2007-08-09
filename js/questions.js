@@ -63,15 +63,19 @@ var Questions = {
 					return function() { 
 						myform.onsubmit();
 						return false; 
-					}
-				})( qform );
+					};
+		})( qform );
 		qsubmit.alt = 'Επεξεργασία';
 		qsubmit.title = 'Επεξεργασία';
 		qsubmit.appendChild( imageaccept );
 		
 		var qcancel = d.createElement( 'a' );
 		qcancel.style.cursor = 'pointer';
-		qcancel.onclick = (function(id){ return function(){ Questions.cancelEdit(id);} })(id);
+		qcancel.onclick = (function(id){ 
+			return function(){ 
+				Questions.cancelEdit(id);
+			}; 
+		})(id);
 		qcancel.alt = 'Ακύρωση';
 		qcancel.title = 'Ακύρωση';
 		qcancel.appendChild( imagecancel );
