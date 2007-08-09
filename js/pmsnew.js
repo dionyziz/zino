@@ -179,7 +179,7 @@ var pms = {
 		sendbutton.onclick = ( function() {
 			return function() {
 				pms.SendPm();
-			}
+			};
 		})();
 		
 		var cancelbutton = document.createElement( 'input' );
@@ -189,7 +189,7 @@ var pms = {
 			return function() {
 				receiversinput.value = '';
 				pmtext.value = '';
-			}
+			};
 		})();
 		var actions = document.createElement( 'div' );
 		actions.appendChild( sendbutton );
@@ -283,4 +283,5 @@ var pms = {
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
-	}}
+	}
+}
