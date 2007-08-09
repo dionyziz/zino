@@ -53,7 +53,8 @@
                     var table = document.createElement( 'table' );
                     var headlines = document.createElement( 'tr' );
                     var th;
-                    for ( i in titles = [ 'error', 'source', 'line/char' ] ) {
+                    var titles = [ 'error', 'source', 'line/char' ];
+                    for ( i = 0; i < titles.length; ++i ) {
                         th = document.createElement( 'th' );
                         th.appendChild( document.createTextNode( titles[ i ] ) );
                         headlines.appendChild( th );
