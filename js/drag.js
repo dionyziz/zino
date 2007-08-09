@@ -149,6 +149,10 @@ var Drag = {
             'Callback_OnStart': callback_onstart,
             'Callback_OnEnd'  : callback_onend
         };
+        return Drag.Current.length - 1;
+    },
+    Destroy: function ( idx ) {
+        
     },
     GetMouseXY: function( e ) {
         // this function gets current mouse position

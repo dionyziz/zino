@@ -82,7 +82,8 @@
     		"graphs"			=> "graph/view",
 			"frel"	            => "relations/list",
 			"userbans"			=> "user/ban/list",
-            'test'              => 'test'
+            'test'              => 'test',
+            'jslint'            => 'developer/js/lint'
     	);
     }
 ?>
