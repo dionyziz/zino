@@ -109,4 +109,4 @@ var ProfileOptions = {
 			elements[ i ].appendChild( input );
 		}
 	}
-}
+};
