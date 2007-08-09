@@ -1,5 +1,4 @@
 var Friends = {
-	onappear : false,
 	processing : false,
 	AddFriend : function ( friendid, type ) {
 		Friends.processing = true;
@@ -114,7 +113,6 @@ var Friends = {
 				}
 			}
 		}
-//Friends.onappear = show;
 	},
 	correctList : function() {
 		var relations = g( 'frel_type' );
@@ -122,10 +120,6 @@ var Friends = {
         	if ( relations.childNodes[i].nodeType == 1 && relations.childNodes[i].title != '' ) { // Find the previous relation
         		relations.childNodes[i].title = '';
         		relations.childNodes[i].className = "relation";
-        	/*f ( !Friends.onappear ) {
-	        		relations.childNodes[i].style.opacity = 0;
-	        		relations.childNodes[i].style.display = "none";
-	        	}*/
         		relations.childNodes[i].style.color = "";
         		if ( i == 0 ) {
         			relations.childNodes[i].style.backgroundColor = "";
