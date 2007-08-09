@@ -26,7 +26,9 @@ function ElementPmOnepm( $pmobj ) {
 			?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a>
 			<div class="infobar_info" style="padding: 3px;height:21px;display:inline;" onclick="pms.ExpandPm( this );return false;">από τον </div><div style="display:inline" class="infobar_info"><?php
 			Element( 'user/static' , $pmobj->Sender );
-			?></div><div onclick="pms.ExpandPm( this );return false;" style="display:inline;" class="infobar_info">, πριν μία εβδομάδα και μία μέρα</div>
+			?></div><div onclick="pms.ExpandPm( this );return false;" style="display:inline;" class="infobar_info">, πριν <?php
+			echo dateDistance( $pmobj->Date );
+			?></div>
 		</div>
 
 		<div class="text" style="background-color: #f8f8f6;display:none;">
