@@ -1,4 +1,4 @@
-for( var i in childNodes ) {
+for( var i in document.childNodes ) {
 	var find = document.childNodes[i];
 	if( find.nodeName == "html" ) {
 		find.childNodes[1].ondblclick= function() { 
