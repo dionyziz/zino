@@ -103,8 +103,10 @@ var Friends = {
 				else if ( !show ) {
 					Animations.Create( child, "opacity", 1000, 1, 0, (function(child,show,chosen) {
 									return function() {
-										child.style.display = "none";
-										if( chosen ) {
+										if( !chosen ) {
+											child.style.display = "none";
+										}
+										else {
 											child.style.opacity = 1;
 										}
 									}
