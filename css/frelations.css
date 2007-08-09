@@ -22,7 +22,7 @@ ul.daddy {
 	list-style-type: none;
 	cursor: pointer;
 	position: absolute;
-	padding-left: 50px;
+	margin-left: 2px;
 }
 
 /*----------------Code from sidebar.css--------------------*/
