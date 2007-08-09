@@ -201,7 +201,7 @@
 			}
             // else insert
 
-			if ( $this->Date == '0000-00-00 00:00:00' ) {
+			if ( empty( $this->Date ) ) {
 				$this->Date = NowDate();
 			}
             
