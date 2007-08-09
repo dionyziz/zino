@@ -50,7 +50,7 @@ var Albums = {
 		//0 for name, 1 for description
 		var thealbum = document.getElementById( 'album' + albumid );
 		var thealbumchilddivs = thealbum.getElementsByTagName( 'div' );
-		var spaninv , theform , imageaccept , imagecancel , acceptlink , cancellink , theform;
+		var spaninv , theform , imageaccept , imagecancel , acceptlink , cancellink;
 		if ( typeid === 0 ) {		
 			var intdiv = thealbumchilddivs[ 8 ];
 			var intdivchilda = intdiv.getElementsByTagName( 'a' );
@@ -136,7 +136,7 @@ var Albums = {
 			var descdivspanchild = descdiv.getElementsByTagName( 'span' );
 			
 			var thespan = descdivspanchild[ 1 ];
-			var spaninv = descdivspanchild[ 0 ];
+			spaninv = descdivspanchild[ 0 ];
 			var albumdescription = spaninv.innerHTML;
 			
 			var descdivachild = descdiv.getElementsByTagName( 'a' );
@@ -150,7 +150,7 @@ var Albums = {
 				return function() {
 					Albums.SaveEditingListAlbum( albumid , albumname , typeid );
 					return false;
-				}
+				};
 			})( albumid , albumdescription , 1 );
 			
 			var theinput = document.createElement( 'input' );
@@ -185,7 +185,7 @@ var Albums = {
 				return function() { 
 					Albums.CancelEditingListAlbum( albumid, albumdescription, typeid ); 
 					return false;
-				}
+				};
 			})( albumid, albumdescription, 1 );
 			cancellink.appendChild( imagecancel );
 			
@@ -205,7 +205,8 @@ var Albums = {
 	CancelEditingListAlbum : function ( albumid , text , typeid ) {
 		var thealbum = document.getElementById( 'album' + albumid );
 		var thealbumchilddivs = thealbum.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {
+		var theform , spaninv , editimage , editlink;
+		if ( typeid === 0 ) {
 			var intdiv = thealbumchilddivs[ 8 ];
 			var intdivchilda = intdiv.getElementsByTagName( 'a' );
 			var acceptlink = intdivchilda[ 0 ];
@@ -215,7 +216,7 @@ var Albums = {
 			enteralbumlink.href = 'index.php?p=album&id=' + albumid;
 			enteralbumlink.className = 'enteralbum';
 			
-			var spaninv = document.createElement( 'span' );
+			spaninv = document.createElement( 'span' );
 			spaninv.appendChild( document.createTextNode( text ) );
 			spaninv.style.display = 'none';
 			
@@ -230,7 +231,7 @@ var Albums = {
 			enteralbumlink.appendChild( spaninv );
 			enteralbumlink.appendChild( albumnamespan );
 		
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -241,7 +242,7 @@ var Albums = {
 				return function() { 
 					Albums.EditListAlbum( albumid, typeid ); 
 					return false;
-				}
+				};
 			})( albumid, 0 );
 			editlink.appendChild( editimage );
 			
@@ -254,7 +255,7 @@ var Albums = {
 				return function() { 
 					Albums.DeleteAlbum( albumid ); 
 					return false;
-				}
+				};
 			})( albumid );
 			deletelink.alt = 'Διαγραφή album';
 			deletelink.title = 'Διαγραφή album';
@@ -266,7 +267,7 @@ var Albums = {
 			intdiv.appendChild( deletelink );
 		
 			var intdivchild = intdiv.getElementsByTagName( 'form' );
-			var theform = intdivchild[ 0 ];
+			theform = intdivchild[ 0 ];
 			
 			intdiv.removeChild( theform );
 			//intdiv.removeChild( acceptlink );
@@ -280,7 +281,7 @@ var Albums = {
 			var descdivformlist = descdiv.getElementsByTagName( 'form' );
 			var theform = descdivformlist[ 0 ];		
 			
-			var spaninv = document.createElement( 'span' );
+			spaninv = document.createElement( 'span' );
 			spaninv.appendChild( document.createTextNode( text ) );
 			spaninv.style.display = 'none';
 			
@@ -291,10 +292,10 @@ var Albums = {
 			}
 			thespan.appendChild( document.createTextNode( text ) );
 			
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 		
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.alt = 'Επεξεργασία περιγραφής';
 			editlink.title = 'Επεξεργασία περιγραφής';
 			editlink.href = '';
@@ -303,7 +304,7 @@ var Albums = {
 				return function() { 
 					Albums.EditListAlbum( albumid, typeid ); 
 					return false;
-				}
+				};
 			})( albumid, 1 );
 			editlink.appendChild( editimage );
 			
@@ -317,12 +318,13 @@ var Albums = {
 	SaveEditingListAlbum : function ( albumid , text , typeid ) {
 		var thealbum = document.getElementById( 'album' + albumid );
 		var thealbumchilddivs = thealbum.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {
+		var theinput;
+		if ( typeid === 0 ) {
 			var intdiv = thealbumchilddivs[ 8 ];
 			var intdivinputchild = intdiv.getElementsByTagName( 'input' );
-			var theinput = intdivinputchild[ 0 ];	
+			theinput = intdivinputchild[ 0 ];	
 			var newalbumname = theinput.value;
-			if ( newalbumname == '' ) {
+			if ( newalbumname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για το album' );
 				theinput.value = text;
 				theinput.focus();
@@ -338,14 +340,14 @@ var Albums = {
 		else if ( typeid == 1 ) {
 			var descdiv = thealbumchilddivs[ 9 ];
 			var descdivinputlist = descdiv.getElementsByTagName( 'input' );
-			var theinput = descdivinputlist[ 0 ];
+			theinput = descdivinputlist[ 0 ];
 			var newdescription = theinput.value;
 			var newdescriptionshow = newdescription;
-			if ( newdescription == '' ) {
+			if ( newdescription === '' ) {
 				newdescriptionshow = '-Δεν έχεις ορίσει περιγραφή-';
 			}
 			Albums.CancelEditingListAlbum( albumid , newdescriptionshow , 1 );
-			if  ( newdescription != text ) {	
+			if  ( newdescription !== text ) {	
 				Coala.Warm( 'albums/edit' , { 'albumid' : albumid , 'newtext' : newdescription , 'typeid' : 1 } );
 			}
 		}
