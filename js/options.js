@@ -20,7 +20,7 @@ var SetCat = {
 	submitchanges: function() {
 		document.getElementById( 'theuseropties' ).submit();
 	}
-}
+};
 
 var ProfileOptions = {
 	paused: false,
@@ -68,7 +68,7 @@ var ProfileOptions = {
 			input.name 		= elements[ i ].id.substring( 13 ); // user_options_foo -> user_foo
 			input.className = "user_options";
 			input.value		= content;
-			if ( content == "" ) {
+			if ( content === "" ) {
 				// input.value = "Δεν έχεις ορίσει";
 			}
 			input.style.backgroundColor = "transparent";
@@ -79,22 +79,22 @@ var ProfileOptions = {
 				return function() {
 					input.select(); 
 					ProfileOptions.Pause( input ); 
-				} 
+				};
 			} )( input );
 			input.onblur  = ( function( input ) { 
 				return function() { 
 					ProfileOptions.Save( input );  
-				} 
+				};
 			} )( input );
 			input.onmouseover = ( function( input ) { 
 				return function(){ 
 					ProfileOptions.CreateBox( input ); 
-				} 
+				};
 			} )( input );
 			input.onmouseout = ( function( input ){ 
 				return function() { 
 					ProfileOptions.DestroyBox( input ); 
-				} 
+				};
 			} )( input );
 			
 			input.onkeypress = ( function( input, ul ) {
@@ -103,7 +103,7 @@ var ProfileOptions = {
 						ProfileOptions.Save( input );
 						input.blur();
 					}
-				}
+				};
 			} )( input, ul );
 			
 			elements[ i ].appendChild( input );
