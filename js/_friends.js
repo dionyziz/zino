@@ -82,7 +82,7 @@ var Friends = {
 		var friendslink = g('friendsshowlink');
 		friendslink.className = (show)?"arrowup":"arrow";
 		friendslink.onclick = function() {
-						ShowAll( (show)?false:true );
+						Friends.ShowAll( (show)?false:true );
 						return false;
 					};
 		friendslink.title = (show)?"Απόκρυψη":"Προβολή";
