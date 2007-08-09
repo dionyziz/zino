@@ -131,7 +131,7 @@
                         	$page->AttachScript( 'js/_friends.js' );
 							?>
 							<a id="friendsshowlink" href="" onclick="ShowAll( true );return false;" class="arrow" title="Προβολή Σχέσεων"/>
-                            <ul class="daddy" id="frel_type" onmouseover="Friends.ShowAll(true);" onmouseout="Friends.ShowAll(false);"><?php
+                            <ul class="daddy" id="frel_type"><?php
                             if( $isfriend ) {
                             	$relid = $user->GetRelId( $theuser->Id() );
                             }
