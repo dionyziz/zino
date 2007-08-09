@@ -100,16 +100,15 @@ var Friends = {
 					}
 				}
 				else if ( !show ) {
-					Animations.Create( child, "opacity", 1000, 1, 0, (function(child,show,chosen) {
+					if( chosen ) {
+						Animations.Create( child, "opacity", 1000, 0, 1, new Function(), Interpolators.Pulse );
+					}
+					else {
+						Animations.Create( child, "opacity", 1000, 1, 0, ( function( child ) {
 									return function() {
-										if( !chosen ) {
-											child.style.display = "none";
-										}
-										else {
-											Animations.Create( child, "opacity", 400, 0, 1, new Function(), Interpolators.Pulse );
-										}
-									}
-								})(child,show,chosen), Interpolators.Pulse );
+										child.style.display = "none";
+								})( child ), Interpolators.Pulse );
+					}
 				}
 			}
 		}
