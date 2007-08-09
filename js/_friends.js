@@ -101,7 +101,9 @@ var Friends = {
 				}
 				else if ( !show ) {
 					if( chosen ) {
-						Animations.Create( child, "opacity", 1000, 0, 1, new Function(), Interpolators.Pulse );
+						Animations.Create( child, "opacity", 500, 1, 0, ( function ( child ) {
+									return function() {
+										Animations.Create( child, "opacity", 500, 0, 1, new Function(), Interpolators.Pulse ); }})(child), Interpolators.Pulse );
 					}
 					else {
 						Animations.Create( child, "opacity", 1000, 1, 0, ( function( child ) {
