@@ -63,6 +63,11 @@
                     table.appendChild( headlines );
                     var tr;
                     var td;
+                    var evidence;
+                    var chara;
+                    var prefix;
+                    var suffix;
+                    
                     for ( i = 0; i < JSLINT.errors.length; ++i ) {
                         if ( JSLINT.errors[ i ] !== null ) {
                             tr = document.createElement( 'tr' );
@@ -70,6 +75,23 @@
                             td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
+                            evidence = JSLINT.errors[ i ].evidence;
+                            chara = JSLINT.errors[ i ].character;
+                            chara -= 50;
+                            if ( chara < 0 ) {
+                                chara = 0;
+                                prefix = '';
+                            }
+                            else {
+                                prefix = '...';
+                            }
+                            if ( evidence.length > chara + 50 ) {
+                                suffix = '...';
+                            }
+                            else {
+                                suffix = '';
+                            }
+                            evidence = prefix + evidence.substr( chara, 50 ) + suffix;
                             td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
