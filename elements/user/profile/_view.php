@@ -155,7 +155,7 @@
                         	$page->AttachScript( 'js/animations.js' );
                         	$page->AttachScript( 'js/_friends.js' );
 							?>
-                            <ul class="daddy" id="frel_type" onblur="Friends.ShowAll( false );return false;"><?php
+                            <ul class="daddy" id="frel_type" onunfocus="Friends.ShowAll( false );return false;"><?php
                             if( $isfriend ) {
                             	$relid = $user->GetRelId( $theuser->Id() );
                             }
