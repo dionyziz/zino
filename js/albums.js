@@ -494,6 +494,7 @@ var Albums = {
 	CancelEditingSmallAlbum : function ( albumid , text , typeid ) {
 		var outerdiv = document.getElementById( 'smallheader' );
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
+		var thediv , theform , editimage , editlink;
 		if ( typeid === 0 ) {
 			var thediv = outerdivchilddiv[ 0 ];
 			var thedivchildform = thediv.getElementsByTagName( 'form' );
@@ -547,7 +548,7 @@ var Albums = {
 				return function() { 
 					Albums.EditSmallAlbum( albumid , typeid ); 
 					return false;
-				}
+				};
 			})( albumid , 1 );
 			editlink.alt = 'Επεξεργασία περιγραφής';
 			editlink.title = 'Επεξεργασία περιγραφής';
@@ -563,13 +564,14 @@ var Albums = {
 	SaveEditingSmallAlbum : function( albumid , text , typeid ) {
 		var outerdiv = document.getElementById( 'smallheader' );
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {
-			var thediv = outerdivchilddiv[ 0 ];
-			var thedivchildinput = thediv.getElementsByTagName( 'input' );
-			var theinput = thedivchildinput[ 0 ];
+		var thediv , thedivchildinput , theinput;
+		if ( typeid === 0 ) {
+			thediv = outerdivchilddiv[ 0 ];
+			thedivchildinput = thediv.getElementsByTagName( 'input' );
+			theinput = thedivchildinput[ 0 ];
 			var newalbumname = theinput.value;
 			
-			if ( newalbumname == '' ) {
+			if ( newalbumname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για το album' );
 				theinput.value = text;
 				theinput.focus();
@@ -584,12 +586,12 @@ var Albums = {
 			}
 		}
 		else if ( typeid == 1 ) {
-			var thediv = outerdivchilddiv[ 1 ];
-			var thedivchildinput = thediv.getElementsByTagName( 'input' );
-			var theinput = thedivchildinput[ 0 ];
+			thediv = outerdivchilddiv[ 1 ];
+			thedivchildinput = thediv.getElementsByTagName( 'input' );
+			theinput = thedivchildinput[ 0 ];
 			var newdescription = theinput.value;
 			var newdescriptionshow = newdescription;
-			if ( newdescription == '' ) {
+			if ( newdescription === '' ) {
 				newdescriptionshow = '-Δεν έχεις ορίσει περιγραφή-';
 			}
 			Albums.CancelEditingSmallAlbum( albumid , newdescriptionshow , 1 );
@@ -598,4 +600,4 @@ var Albums = {
 			}
 		}
 	}
-}
+};
