@@ -4,6 +4,7 @@
         global $rabbit_settings;
         
         $page->AttachScript( 'js/jslint/fulljslint.js', 'javascript', true );
+        $page->AttachStylesheet( 'css/jslint.css' );
         
         $jspath = $rabbit_settings[ 'rootdir' ] . '/js';
         $dir = opendir( $jspath );
@@ -36,15 +37,44 @@
                 var parseresult;
                 
                 filename = document.createElement( 'dt' );
-                filename.appendChild( document.createTextNode( file ) );
+                filelink = document.createElement( 'a' );
+                filelink.href = 'js/' + file;
+                filelink.appendChild( document.createTextNode( file ) );
+                filename.appendChild( filelink );
                 results.appendChild( filename );
                 jslintresult = JSLINT( source, {} );
                 parseresult = document.createElement( 'dd' );
                 if ( jslintresult === true ) {
+                    parseresult.className = 'pass';
                     parseresult.appendChild( document.createTextNode( 'PASS' ) );
                 }
                 else {
-                    parseresult.appendChild( document.createTextNode( 'FAIL' ) );
+                    parseresult.className = 'fail';
+                    var table = document.createElement( 'table' );
+                    var headlines = document.createElement( 'tr' );
+                    var th;
+                    for ( i in titles = [ 'error', 'source', 'line/char' ] ) {
+                        th = document.createElement( 'th' );
+                        th.appendChild( document.createTextNode( titles[ i ] ) );
+                        headlines.appendChild( th );
+                    }
+                    table.appendChild( headlines );
+                    var tr;
+                    var td;
+                    for ( i in JSLINT.errors ) {
+                        tr = document.createElement( 'tr' );
+                        td = document.createElement( 'td' );
+                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
+                        tr.appendChild( td );
+                        td = document.createElement( 'td' );
+                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
+                        tr.appendChild( td );
+                        td = document.createElement( 'td' );
+                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
+                        tr.appendChild( td );
+                        table.appendChild( tr );
+                    }
+                    parseresult.appendChild( table );
                 }
                 results.appendChild( parseresult );
             }
