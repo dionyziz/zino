@@ -8,4 +8,4 @@ var Categories = {
 	canceldeletion: function() {
 		document.getElementById( 'cancelkill' ).submit();
 	}
-}
+};
