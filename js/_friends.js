@@ -107,7 +107,7 @@ var Friends = {
 						Animations.Create( child, "opacity", 1000, 1, 0, ( function( child ) {
 									return function() {
 										child.style.display = "none";
-								})( child ), Interpolators.Pulse );
+								}})( child ), Interpolators.Pulse );
 					}
 				}
 			}
