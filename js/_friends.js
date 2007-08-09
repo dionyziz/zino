@@ -1,13 +1,7 @@
-for( var i in document.childNodes ) {
-	var find = document.childNodes[i];
-	if( find.nodeName == "html" ) {
-		find.childNodes[1].ondblclick= function() { 
+document.getElementsByTagName( 'body' )[0].ondblclick= function() { 
 						Friends.ShowAll(false);
 						return false;
 					};
-		break;
-	}
-}
 var Friends = {
 	onappear : false,
 	processing : false,
