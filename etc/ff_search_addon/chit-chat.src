@@ -4,11 +4,12 @@
 	version="7.1"
 	name="Chit-Chat"
 	description="Chit-Chat Search Engine AddOn"
-	action="http://www.chit-chat.gr/?p=search"
-	searchForm="http://www.chit-chat.gr/?p=search"
+	action="http://www.chit-chat.gr/"
+	searchForm="http://www.chit-chat.gr/"
         method="GET"
 >
 
+<input name="p" value="search">
 <input name="q" user>
 
 
