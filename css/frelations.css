@@ -23,3 +23,39 @@ ul.daddy {
 	z-index: 1;
 	padding-left: 19px;
 }
+
+/*----------------Code from sidebar.css--------------------*/
+a.arrow {
+	float: right;
+	background-repeat: no-repeat;
+	background-position: top right;
+	width: 16px;
+	height: 16px;
+	margin-right: 1px;
+}
+a.arrowup {
+	float: right;
+	background-repeat: no-repeat;
+	background-position: top right;
+	width: 16px;
+	height: 16px;
+	margin-right: 1px;
+	position: relative;
+	bottom: 4px;
+}
+a.arrow:link, a.arrow:visited, a.arrow:active {
+	background-image: url('http://static.chit-chat.gr/images/icons/dropdown.jpg');
+	background-position: 6 0;
+	position: relative;
+	top: 4px;
+}
+a.arrow:hover {
+	background-image: url('http://static.chit-chat.gr/images/icons/dropdownover.jpg');
+}
+a.arrowup:link, a.arrowup:visited, a.arrowup:active {
+	background-image: url('http://static.chit-chat.gr/images/icons/dropup.png');
+}
+a.arrowup:hover {
+	background-image: url('http://static.chit-chat.gr/images/icons/dropupover.png');
+} 
+/*-------------End code from sidebar.css------------------*/

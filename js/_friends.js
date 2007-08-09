@@ -78,6 +78,16 @@ var Friends = {
 		if ( Friends.processing ) {
 			return;
 		}
+		
+		var friendslink = g('friendsshowlink');
+		friendslink.className = (show)?"arrowup":"arrow";
+		friendslink.onclick = function() {
+						ShowAll( (show)?false:true );
+						return false;
+					};
+		friendslink.title = (show)?"Απόκρυψη":"Προβολή";
+		friendslink.title += " Σχέσεων";
+		
 		var daddy = g( 'frel_type' );
 		for ( var i in daddy.childNodes ) {
 			var child = daddy.childNodes[i];
