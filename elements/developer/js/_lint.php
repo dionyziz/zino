@@ -36,8 +36,6 @@
                 var filename;
                 var parseresult;
                 
-                alert( 'Linting: ' + file );
-                
                 jssource = jslintsources[ i ];
                 filename = document.createElement( 'dt' );
                 filename.appendChild( document.createTextNode( file ) );
@@ -60,14 +58,11 @@
             for ( i in jslintsources ) {
                 if ( i.substr( i.length - 3, 3 ) == '.js' ) {
                     setTimeout( function () {
-                        function ( file, source ) {
+                        return function ( file, source ) {
                             Lint( file, source );
                         }( i, jslintsources[ i ] );
                     }, j * 100 );
                     ++j;
-                }
-                else {
-                    alert( i + ': ' + i.substr( i.length - 3, 3 ) );
                 }
             }
             
