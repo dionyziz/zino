@@ -28,6 +28,7 @@ ul.daddy {
 /*----------------Code from sidebar.css--------------------*/
 a.arrow {
 	float: left;
+	position: relative;
 	background-repeat: no-repeat;
 	background-position: top right;
 	width: 16px;
