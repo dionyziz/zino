@@ -19,9 +19,7 @@
 		?><h3>Σχέσεις</h3><?php
 		
 		$relations = AllRelations();
-		
-		if( count( $relations ) ) {
-			?><br /><a id="newr" onclick="Relations.create();return false;" alt="Νέα Σχέση" title="Νέα Σχέση" style="cursor: pointer;">Δημιούργησε μια νέα σχέση</a>
+		?><br /><a id="newr" onclick="Relations.create();return false;" alt="Νέα Σχέση" title="Νέα Σχέση" style="cursor: pointer;">Δημιούργησε μια νέα σχέση</a>
 			<form id="newrform" action="do/relations/new" method="post" style="display: none;">
 			<fieldset style="width: 40px">
 			<legend><font color="#2412FE"><b>Δημιουργία Σχέσης</b></font></legend>
@@ -45,7 +43,7 @@
 			</div>
 			
 			<ul id="relations" style="list-style-type: none;"><?php
-			
+		if( count( $relations ) ) {	
 			foreach( $relations as $relation ) {
 				$id = $relation->Id;
 				?><li <?php
