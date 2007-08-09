@@ -17,11 +17,11 @@ var Albums = {
 		var title = document.getElementById( 'albumtitle' ).value;
 		var description = document.getElementById( 'albumdescription' ).value;
 		createalbum = true;
-		if ( title == "" ) {
+		if ( title === "" ) {
 			alert( 'Το album σας δεν έχει όνομα. Για να δημιουργηθεί ένα album πρέπει να ορίσεις ένα όνομα.' );
 			return;
 		}
-		if ( description == "" ) {
+		if ( description === "" ) {
 			if ( !confirm( 'Δεν έχεις ορίσει περιγραφή για το album σου. Θέλεις σίγουρα να προχωρήσεις στη δημιουργία του;' ) ) {
 				return;
 			}
@@ -35,7 +35,7 @@ var Albums = {
 			var albumnode = document.getElementById( 'album' + albumid  );
 			var parentnode = document.getElementById( 'albumcontainer' );
 			Animations.Create( albumnode , 'opacity' , 1500 , 1 , 0 , Interpolators.Sin );
-			Animations.Create( albumnode , 'width' , 900 , albumnode.offsetWidth , 0 , function () { parentnode.removeChild( albumnode ) } , Interpolators.Sin );
+			Animations.Create( albumnode , 'width' , 900 , albumnode.offsetWidth , 0 , function () { parentnode.removeChild( albumnode ); } , Interpolators.Sin );
 		}
 	}
 	,
@@ -50,7 +50,8 @@ var Albums = {
 		//0 for name, 1 for description
 		var thealbum = document.getElementById( 'album' + albumid );
 		var thealbumchilddivs = thealbum.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {		
+		var spaninv , theform , imageaccept , imagecancel , acceptlink , cancellink , theform;
+		if ( typeid === 0 ) {		
 			var intdiv = thealbumchilddivs[ 8 ];
 			var intdivchilda = intdiv.getElementsByTagName( 'a' );
 			
@@ -59,20 +60,20 @@ var Albums = {
 			//thefirstlinkspan = thefirstlinkchildspan[ 1 ];
 			//albumname = thefirstlink.innerHTML;
 			
-			var spaninv = thefirstlinkchildspan[ 0 ];
+			spaninv = thefirstlinkchildspan[ 0 ];
 			var albumname = spaninv.innerHTML;
 			
 			var editlink = intdivchilda[ 1 ];
 			var deletelink = intdivchilda[ 2 ];
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.method = '';
 			theform.action = '';
 			theform.onsubmit = (function( albumid , albumname , typeid ) {
 				return function() {
 					Albums.SaveEditingListAlbum( albumid , albumname , typeid );
 					return false;
-				}
+				};
 			})( albumid , albumname , 0 );
 			
 			var inputelement = document.createElement( 'input' );
@@ -80,13 +81,13 @@ var Albums = {
 			inputelement.value = albumname;
 			
 
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.onclick = (function ( myform ) {
 				return function () {
@@ -99,7 +100,7 @@ var Albums = {
 			acceptlink.className = 'editinfos';
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -107,7 +108,7 @@ var Albums = {
 				return function() { 
 					Albums.CancelEditingListAlbum( albumid, albumname, typeid ); 
 					return false;
-				}
+				};
 			})( albumid, albumname, 0 );
 			cancellink.className = 'editinfos';
 			cancellink.appendChild( imagecancel );
@@ -142,7 +143,7 @@ var Albums = {
 			var thelink = descdivachild[ 0 ];
 			//thelink is gonna be removed
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.method = '';
 			theform.action = '';
 			theform.onsubmit = (function ( albumid , albumname , typeid ) {
@@ -156,13 +157,13 @@ var Albums = {
 			theinput.value = albumdescription;
 			theinput.type = 'text';
 			
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 			
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.alt = 'Ενημέρωση';
 			acceptlink.title = 'Ενημέρωση';
@@ -175,7 +176,7 @@ var Albums = {
 			})( theform );
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
