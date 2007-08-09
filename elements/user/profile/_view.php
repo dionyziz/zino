@@ -122,6 +122,31 @@
                 
                 <div class="tabs" id="userprofile_tabs">
 					<div style="float:left;padding-top:9px;"><?php
+					if ( $user->Id() != $theuser->Id() ) {
+    					?><a href="?p=pms&amp;id=new&amp;to=<?php
+    					echo $theuser->Username();
+    					?>"><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" height="16" /></a><?php
+					}
+					if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
+						?><a href="?p=useradmin&amp;id=<?php
+						echo $theuser->Id();
+						?>"><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>icons/group_edit.png" title="Επεξεργασία Δικαιωμάτων" alt="Επεξεργασία Δικαιωμάτων" width="16" height="16" /></a><?php
+					}
+					if ( $user->IsSysOp() && $user->Id() != $theuser->Id() ) {
+						?><a href="?p=su&amp;name=<?php
+						echo $theuser->Username();
+						?>"><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>icons/user_go.png" title="Είσοδος ως <?php
+						echo $theuser->Username();
+						?>" alt="Είσοδος ως <?php
+						echo $theuser->Username();
+						?>" /></a><?php
+					}
 					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { 
 						$isfriend = $user->IsFriend( $theuser->Id() );
 						$relations = AllRelations();
@@ -180,31 +205,6 @@
 							?>>Καμία Σχέση</li>
 							</ul><a id="friendsshowlink" href="" onclick="Friends.ShowAll( true );return false;" class="arrow" title="Προβολή Σχέσεων"/><?php
 						} 
-					}
-					if ( $user->Id() != $theuser->Id() ) {
-    					?><a href="?p=pms&amp;id=new&amp;to=<?php
-    					echo $theuser->Username();
-    					?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" height="16" /></a><?php
-					}
-					if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
-						?><a href="?p=useradmin&amp;id=<?php
-						echo $theuser->Id();
-						?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/group_edit.png" title="Επεξεργασία Δικαιωμάτων" alt="Επεξεργασία Δικαιωμάτων" width="16" height="16" /></a><?php
-					}
-					if ( $user->IsSysOp() && $user->Id() != $theuser->Id() ) {
-						?><a href="?p=su&amp;name=<?php
-						echo $theuser->Username();
-						?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/user_go.png" title="Είσοδος ως <?php
-						echo $theuser->Username();
-						?>" alt="Είσοδος ως <?php
-						echo $theuser->Username();
-						?>" /></a><?php
 					}
 					?></div><?php
 					if ( $viewalbums ) {
