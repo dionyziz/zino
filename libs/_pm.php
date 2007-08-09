@@ -1,5 +1,11 @@
 <?php
 
+    /* 
+        Developer: Abresas 
+
+        Library for Personal Messages. (Unstable)
+    */
+
 	define( 'PM_MAX_RECEIVERS', 10 );
 
 	function PM_UserFolders() {
@@ -68,7 +74,7 @@
 		protected $mDbTable;
 		protected $mDb;
 		
-		protected function IsRead() {
+		public function IsRead() {
 			return $this->DelId >= 1;
 		}
         protected function SetText( $value ) {
