@@ -34,7 +34,7 @@ var Friends = {
         content.appendChild( role );
         content.appendChild( document.createTextNode( rank ) );
         content.appendChild( document.createElement( 'br' ) );
-        if ( hobbies != '' ) {
+        if ( hobbies !== '' ) {
             interests = document.createElement( 'b' );
             interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
             content.appendChild( interests );
@@ -75,4 +75,4 @@ var Friends = {
 	DeleteFriendCallback: function( friendid, userid ) {
 		alert( 'deletefriendcallback' );
 	}    
-}
+};
