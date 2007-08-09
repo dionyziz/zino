@@ -3,8 +3,8 @@
         global $page;
         global $rabbit_settings;
         
-        $page->AttachScript( 'js/jslint/fulljslint.js' );
-        $page->AttachScript( 'js/jslint/web.js' );
+        $page->AttachScript( 'js/jslint/fulljslint.js', 'javascript', true );
+        $page->AttachScript( 'js/jslint/web.js', 'javascript', true );
         
         $jspath = $rabbit_settings[ 'rootdir' ] . '/js';
         $dir = opendir( $jspath );
@@ -26,12 +26,39 @@
                     }
             }
         }
-        ?><script type="text/javascript"><?php
+        ?>
+        <dl id="jslintresults">
+        </dl>
+        <script type="text/javascript"><?php
             ob_start();
             ?>
-            var jslintsources = <?php
-            echo w_json_encode( $jslintsources );
-            ?>;
+            function Lint() {
+                var jslintsources = <?php
+                echo w_json_encode( $jslintsources );
+                ?>;
+                var jssource;
+                var jslintresult;
+                var results = document.getElementById( 'jslintresults' );
+                var filename;
+                var parseresult;
+                
+                for ( i in jslintsources ) {
+                    jssource = jslintsources[ i ];
+                    filename = document.createElement( 'dt' );
+                    filename.appendChild( document.createTextNode( jssource ) );
+                    results.appendChild( filename );
+                    jslintresult = JSLINT( jssource, {} );
+                    parseresult = document.createElement( 'dd' );
+                    if ( jslintresult === false ) {
+                        parseresult.appendChild( document.createTextNode( 'PASS' ) );
+                    }
+                    else {
+                        parseresult.appendChild( document.createTextNode( 'FAIL' ) );
+                    }
+                    results.appendChild( parseresult );
+                }
+            }
+            Lint();
             <?php
             echo htmlspecialchars( ob_get_clean() );
             ?>
