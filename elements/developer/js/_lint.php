@@ -78,7 +78,7 @@
                             if ( typeof JSLINT.errors[ i ].evidence == 'string' ) {
                                 evidence = JSLINT.errors[ i ].evidence;
                                 chara = JSLINT.errors[ i ].character;
-                                chara -= 50;
+                                chara -= 60;
                                 if ( chara < 0 ) {
                                     chara = 0;
                                     prefix = '';
@@ -86,14 +86,14 @@
                                 else {
                                     prefix = '...';
                                 }
-                                if ( evidence.length > chara + 50 ) {
+                                if ( evidence.length > chara + 60 ) {
                                     suffix = '...';
                                 }
                                 else {
                                     suffix = '';
                                 }
-                                evidence = prefix + evidence.substr( chara, 50 ) + suffix;
-                                td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
+                                evidence = prefix + evidence.substr( chara, 60 ) + suffix;
+                                td.appendChild( document.createTextNode( evidence );
                             }
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
