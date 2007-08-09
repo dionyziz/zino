@@ -27,7 +27,7 @@
         }
         ?>
         <br /><br /><br />
-        <b>JSLINT: <span id="jslintnumerrors">no errors</span></b>
+        <span id="jslintnumerrors">no errors</span> in total
         <br /><br />
         <dl id="jslintresults">
         </dl>
