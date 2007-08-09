@@ -25,15 +25,16 @@
 				}
 				
 				$parented = Subcategories();
-				$parentid = 0;
-				$maincategoriescnt = count( $parented[ 0 ] );
 				
-				if ( $maincategoriescnt == 0 ) {
+				if ( !is_array( $parented ) || count( $parented ) == 0 || count( $parented[ 0 ] )  == 0 ) {
 					?><br />&nbsp;&nbsp;Δεν υπάρχει καμία κατηγορία.<br /><br /><?php
+                    return true;
 				}
+
+				$maincategoriescnt = count( $parented[ 0 ] );
 							
 				$i = 0;
-				foreach( $parented[ $parentid ] as $category ) { // maincategories have 0 as parent
+				foreach( $parented[ 0 ] as $category ) { // maincategories have 0 as parent
 					if ( $i == 5 ) {
 						?><div id="morecategories" class="boxexpand"><?php // hide these categories. press the arrow to see 'em!
 					}
