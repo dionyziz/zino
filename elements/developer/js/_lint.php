@@ -39,6 +39,10 @@
                 filename = document.createElement( 'dt' );
                 filelink = document.createElement( 'a' );
                 filelink.href = 'js/' + file;
+                var loader = document.createElement( 'img' );
+                loader.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+                loader.style.cssFloat = 'right';
+                filename.appendChild( loader );
                 filelink.appendChild( document.createTextNode( file ) );
                 filename.appendChild( filelink );
                 results.appendChild( filename );
@@ -106,7 +110,7 @@
                                     td = document.createElement( 'td' );
                                     td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
                                     tr.appendChild( td );
-                                    if ( j % 2 == 1 ) {
+                                    if ( j % 2 == 0 ) {
                                         tr.className = 'l';
                                     }
                                     table.appendChild( tr );
@@ -114,6 +118,13 @@
                                 }
                             }
                             parseresult.appendChild( table );
+                            var prev;
+                            while ( prev = parseresult.previousSibling ) {
+                                if ( prev.nodeName == 'dt' ) {
+                                    // remove the AJAX loader
+                                    prev.removeChild( prev.getElementsByTagName( 'img' )[ 0 ] );
+                                }
+                            }
                         }
                     }
                 }( parseresult ), 50 );
@@ -129,7 +140,7 @@
                         return function () {
                             Lint( file, source );
                         };
-                    }( i, jslintsources[ i ] ), j * 50 );
+                    }( i, jslintsources[ i ] ), j * 200 );
                     ++j;
                 }
             }
