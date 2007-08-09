@@ -31,16 +31,14 @@
             ?>
             function Lint( file, source ) {
                 var jssource;
-                var jslintresult;
                 var results = document.getElementById( 'jslintresults' );
                 var filename;
                 var parseresult;
                 
-                jssource = jslintsources[ i ];
                 filename = document.createElement( 'dt' );
                 filename.appendChild( document.createTextNode( file ) );
                 results.appendChild( filename );
-                jslintresult = JSLINT( jssource, {} );
+                jslintresult = JSLINT( source, {} );
                 parseresult = document.createElement( 'dd' );
                 if ( jslintresult === true ) {
                     parseresult.appendChild( document.createTextNode( 'PASS' ) );
