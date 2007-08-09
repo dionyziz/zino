@@ -18,7 +18,9 @@ li.relselected {
 
 ul.daddy {
 	margin: 0px;
-	padding: 0px;
+	padding-bottom: 0px;
+	padding-right: 19px;
+	padding-top: 0px;
 	list-style-type: none;
 	cursor: pointer;
 	position: absolute;
