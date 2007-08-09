@@ -1,22 +1,22 @@
 <?php
     return array(
         'applicationname' => 'Chit-Chat',
-        'rootdir'         => '/var/www/vhosts/excalibur.qlabs.gr/httpdocs/sandbox',
-        'resourcesdir'    => '/var/www/vhosts/excalibur.qlabs.gr/httpdocs/resources',
+        'rootdir'         => '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs',
+        'resourcesdir'    => '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs/resources',
         'imagesurl'       => 'http://static.chit-chat.gr/images/',
         'production'      => false,
-        'hostname'        => 'excalibur.qlabs.gr',
-        'url'             => 'sandbox',
+        'hostname'        => 'beta.chit-chat.gr',
+        'url'             => '',
         'port'            => 80,
-        'webaddress'      => 'excalibur.qlabs.gr/sandbox',
+        'webaddress'      => 'https://beta.chit-chat.gr',
         'timezone'        => 'UTC',
         'language'        => 'el',
         'databases'       => array( // prefix all keys with "db"
             'db' => array(
-                'name'     => 'chitchat', // sandbox
+                'name'     => 'ccbeta', // sandbox
                 'hostname' => 'localhost',
-                'username' => 'chitchat',
-                'password' => '7paz?&aS',
+                'username' => 'ccbeta',
+                'password' => 'IkJ84nZT',
                 /*
                 'name'     => 'excalibur-sandbox', // Notice: 'excalibur-sandbox' is actually live!
                 'hostname' => 'localhost',
