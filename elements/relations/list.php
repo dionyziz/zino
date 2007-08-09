@@ -40,10 +40,10 @@
 			<div style="float: right;">
 			Ta top relations tha emfanizonte<br />
 			edo se ena table
-			</div>
-			
+			</div><?php
+		if( count( $relations ) ) {	?>
 			<ul id="relations" style="list-style-type: none;"><?php
-		if( count( $relations ) ) {	
+
 			foreach( $relations as $relation ) {
 				$id = $relation->Id;
 				?><li <?php
