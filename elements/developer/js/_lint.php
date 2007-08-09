@@ -118,12 +118,12 @@
                                 }
                             }
                             parseresult.appendChild( table );
-                            var prev;
-                            while ( prev = parseresult.previousSibling ) {
-                                if ( prev.nodeName == 'dt' ) {
-                                    // remove the AJAX loader
-                                    prev.removeChild( prev.getElementsByTagName( 'img' )[ 0 ] );
-                                }
+                        }
+                        var prev;
+                        while ( prev = parseresult.previousSibling ) {
+                            if ( prev.nodeName == 'dt' ) {
+                                // remove the AJAX loader
+                                prev.removeChild( prev.getElementsByTagName( 'img' )[ 0 ] );
                             }
                         }
                     }
@@ -140,7 +140,7 @@
                         return function () {
                             Lint( file, source );
                         };
-                    }( i, jslintsources[ i ] ), j * 200 );
+                    }( i, jslintsources[ i ] ), j * 100 );
                     ++j;
                 }
             }
