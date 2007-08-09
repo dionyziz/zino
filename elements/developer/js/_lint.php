@@ -32,7 +32,7 @@
         <script type="text/javascript"><?php
             ob_start();
             ?>
-            function Lint( filename, source ) {
+            function Lint( file, source ) {
                 var jssource;
                 var jslintresult;
                 var results = document.getElementById( 'jslintresults' );
@@ -41,7 +41,7 @@
                 
                 jssource = jslintsources[ i ];
                 filename = document.createElement( 'dt' );
-                filename.appendChild( document.createTextNode( filename ) );
+                filename.appendChild( document.createTextNode( file ) );
                 results.appendChild( filename );
                 jslintresult = JSLINT( jssource, {} );
                 parseresult = document.createElement( 'dd' );
