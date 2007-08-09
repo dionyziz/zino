@@ -9,7 +9,7 @@
         
 		$libs->Load( 'albums' );
 		$newalbumid = Albums_CreateAlbum( $albumname , $albumdescription );
-		?>location.href = 'http://<?php
+		?>location.href = '<?php
 		echo $rabbit_settings[ 'webaddress' ];
 		?>/index.php?p=album&id=<?php
 		echo $newalbumid;

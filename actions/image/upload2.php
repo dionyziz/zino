@@ -31,7 +31,7 @@
     		?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
     			document.location.href = <?php
-    			echo w_json_encode( 'http://' . $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;
     		</script></head><body></body></html><?php
     		exit();
@@ -45,7 +45,7 @@
     		?><script type="text/javascript">
     			alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
     			window.location.href = <?php
-    			echo w_json_encode( 'http://' . $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;
     		</script><?php
     		exit();
@@ -64,7 +64,7 @@
 			?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας.' );
     			window.location.href = <?php
-    			echo w_json_encode( 'http://' . $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;
     		</script></head><body></body></html><?php
 		}
@@ -103,7 +103,7 @@
     	}
     	?>
     	window.location.href = <?php
-    	echo w_json_encode( 'http://' . $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     	?>;</script></body></html><?php
     }
 ?>

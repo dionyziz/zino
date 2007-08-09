@@ -23,7 +23,7 @@
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>roxasend.jpg" alt="" />
 			</div>
-			<a href="http://<?php
+			<a href="<?php
             echo $rabbit_settings[ 'webaddress' ];
             ?>/"><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];

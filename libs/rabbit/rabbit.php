@@ -23,7 +23,7 @@
         $page->SetNaturalLanguage( $rabbit_settings[ 'language' ] );
         $page->SetBaseIncludePath( $rabbit_settings[ 'rootdir' ] );
         if ( method_exists( $page, 'SetBase' ) ) {
-            $page->SetBase( 'http://' . $rabbit_settings[ 'webaddress' ] . '/' );
+            $page->SetBase( $rabbit_settings[ 'webaddress' ] . '/' );
         }
         if ( method_exists( $page, 'SetWaterDump' ) ) {
             $page->SetWaterDump( $water->Enabled() );

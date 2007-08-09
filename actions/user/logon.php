@@ -19,7 +19,7 @@
     		$user->UpdateLastLogon();
     		$user->RenewAuthtoken();
     		$user->SetCookie();
-    		return Redirect( substr( $_SERVER[ 'HTTP_REFERER' ] , strlen( 'http://' . $rabbit_settings[ 'webaddress' ] . '/' ) ) );
+    		return Redirect( substr( $_SERVER[ 'HTTP_REFERER' ] , strlen( $rabbit_settings[ 'webaddress' ] . '/' ) ) );
     	}
     }
 ?>

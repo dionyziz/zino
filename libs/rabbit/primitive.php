@@ -23,9 +23,9 @@
     
     // load the debugging library
 	$water = require_once 'libs/rabbit/water.php';
-	$water->SetSetting( 'window_url'   , 'http://' . $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
+	$water->SetSetting( 'window_url'   , $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
 	$water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
-	$water->SetSetting( 'css_url'      , 'http://' . $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
+	$water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
 	$water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
     $water->SetSetting( 'calltracelvl' , 4 );
     

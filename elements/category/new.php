@@ -41,7 +41,7 @@
 				?>Η γενική κατηγορία που επιλέξατε δεν είναι έγκυρη!<?php
 			}
 			else if ( $norights || !$user->CanModifyCategories() ) {
-				header( 'Location: http://' . $xc_settings[ 'webaddress' ] );
+				header( 'Location: ' . $xc_settings[ 'webaddress' ] );
 				return;
 			}
 			else if ( $invalidcategory ) {

@@ -16,7 +16,7 @@
     	$msg = "Αγαπητέ χρήστη του " . $rabbit_settings[ 'applicationname' ] . ",\r\n\r\n
     	Εσείς (ή κάποιος άλλος) ζητήσατε να δημιουργήσουμε για σας
     	έναν νέο κωδικό πρόσβασης, επειδή ξεχάσατε τον παλιό σας
-    	κωδικό. \r\n\r\nΑκολουθήστε τον εξής σύνδεσμο για να αλλάξετε τον κωδικό σας:\r\nhttp://";
+    	κωδικό. \r\n\r\nΑκολουθήστε τον εξής σύνδεσμο για να αλλάξετε τον κωδικό σας:\r\n";
     	$msg .= $rabbit_settings[ 'webaddress' ];
         $msg .= "?p=chpasswd&uid=" . $user->Id() . "&oldpass=" . $user->Password();
         $msg .= "\r\n\r\nΕυχαριστούμε που χρησιμοποιείτε το " . $rabbit_settings[ 'applicationname' ] . "!!\r\n\r\nΗ Ομάδα του " . $rabbit_settings[ 'applicationname' ] . "\r\n\r\n
