@@ -93,7 +93,7 @@
                                     suffix = '';
                                 }
                                 evidence = prefix + evidence.substr( chara, 60 ) + suffix;
-                                td.appendChild( document.createTextNode( evidence );
+                                td.appendChild( document.createTextNode( evidence ) );
                             }
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
