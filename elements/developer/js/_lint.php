@@ -20,9 +20,7 @@
                     break;
                 default:
                     if ( !is_dir( $jspath . '/' . $file ) ) {
-                        $jslintsources[] = array(
-                            $file => file_get_contents( $jspath . '/' . $file )
-                        );
+                        $jslintsources[ $file ] = file_get_contents( $jspath . '/' . $file );
                     }
             }
         }
