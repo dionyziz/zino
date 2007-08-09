@@ -1,12 +1,16 @@
 <?php
 
-	class Pageviewer {		
+	class Pageviewer {
 		public function Get( $type, $keys ) {
 			global $db;
 			global $pageviews;
 			
 			if ( !is_array( $keys ) ) {
 				$keys = array( $key );
+			}
+
+			if ( count( $keys ) == 0 ) {
+				return array();
 			}
 			
 			foreach ( $keys as $i => $key ) {
