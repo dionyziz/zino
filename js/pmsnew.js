@@ -6,7 +6,7 @@ var pms = {
 	messagescontainer : document.getElementById( 'messages' ),
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
-		if ( pms.activefolder == 0 ) {
+		if ( pms.activefolder === 0 ) {
 			pms.node = document.getElementById( 'firstfolder' );
 			pms.activefolder = pms.node;
 		}
@@ -39,7 +39,7 @@ var pms = {
 		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
 		var textpm = messagesdivdivs[ 4 ];
 		var lowerlinepm = messagesdivdivs[ 6 ];
-		if ( pms.activepm != 0 ) {
+		if ( pms.activepm !== 0 ) {
 			//minimizing previous pm
 			var activepmdivdivs = pms.activepm.parentNode.parentNode.getElementsByTagName( 'div' );
 			var acttextpm = activepmdivdivs[ 4 ];
@@ -73,7 +73,7 @@ var pms = {
 		var newfolderlink = newfolderdivlinks[ 0 ];
 		newfolderlink.style.color = '#aaa8a8';
 		newfolderlink.style.fontWeight = 'bold';
-		if ( pms.activefolder == 0 ) {
+		if ( pms.activefolder === 0 ) {
 			pms.node = document.getElementById( 'firstfolder' );
 			pms.activefolder = pms.node;
 		}
@@ -86,7 +86,7 @@ var pms = {
 	}
 	,
 	CancelNewFolder : function () {
-		if ( pms.activefolder == 0 ) {
+		if ( pms.activefolder === 0 ) {
 			pms.node = document.getElementById( 'firstfolder' );
 			pms.activefolder = pms.node;
 		}
@@ -119,7 +119,7 @@ var pms = {
 			alert( 'Το όνομα του  φακέλου πρέπει να έχει πάνω από 2 γράμματα' );
 			inputbox.select();
 		}
-		else if ( foo == '' ) {
+		else if ( foo === '' ) {
 			alert( 'Το όνομα που επέλεξες δεν είναι έγκυρο' );
 		}
 		else {
@@ -143,12 +143,12 @@ var pms = {
 		receiversinput.type = 'text';
 		receiversinput.style.width = '250px';
 		receiversinput.style.color = '#9d9d9d';
-		if ( touser != '' ) {
+		if ( touser !== '' ) {
 			receiversinput.value = touser;
 		}
 		pms.messagescontainer.appendChild( receiversdiv );
 		
-		if ( answertext != '' ) {
+		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
 			textmargin.style.border = '1px dotted #b9b8b8';
 			textmargin.style.padding = '4px';
@@ -241,18 +241,19 @@ var pms = {
 		
 		var incomingdiv = document.getElementById( 'firstfolder' );
 		var incominglink = incomingdiv.firstChild;
+		var newtext;
 		incominglink.removeChild( incominglink.firstChild );
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
-				var newtext = document.createTextNode( 'Εισερχόμενα (' + unreadpms + ')' );
+				newtext = document.createTextNode( 'Εισερχόμενα (' + unreadpms + ')' );
 			}
 			else {
-				var newtext = document.createTextNode( 'Εισερχόμενα (' + specnumber + ')' );
+				newtext = document.createTextNode( 'Εισερχόμενα (' + specnumber + ')' );
 			}
 		}
 		else {
-			var newtext = document.createTextNode( 'Εισερχόμενα' );
+			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		incominglink.appendChild( newtext );
 	}
@@ -282,5 +283,5 @@ var pms = {
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
-	}
+	};
 }
