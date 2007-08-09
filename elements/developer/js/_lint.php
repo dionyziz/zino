@@ -32,33 +32,39 @@
         <script type="text/javascript"><?php
             ob_start();
             ?>
-            function Lint() {
-                var jslintsources = <?php
-                echo w_json_encode( $jslintsources );
-                ?>;
+            function Lint( filename, source ) {
                 var jssource;
                 var jslintresult;
                 var results = document.getElementById( 'jslintresults' );
                 var filename;
                 var parseresult;
                 
-                for ( i in jslintsources ) {
-                    jssource = jslintsources[ i ];
-                    filename = document.createElement( 'dt' );
-                    filename.appendChild( document.createTextNode( jssource ) );
-                    results.appendChild( filename );
-                    jslintresult = JSLINT( jssource, {} );
-                    parseresult = document.createElement( 'dd' );
-                    if ( jslintresult === false ) {
-                        parseresult.appendChild( document.createTextNode( 'PASS' ) );
-                    }
-                    else {
-                        parseresult.appendChild( document.createTextNode( 'FAIL' ) );
-                    }
-                    results.appendChild( parseresult );
+                jssource = jslintsources[ i ];
+                filename = document.createElement( 'dt' );
+                filename.appendChild( document.createTextNode( filename ) );
+                results.appendChild( filename );
+                jslintresult = JSLINT( jssource, {} );
+                parseresult = document.createElement( 'dd' );
+                if ( jslintresult === false ) {
+                    parseresult.appendChild( document.createTextNode( 'PASS' ) );
                 }
+                else {
+                    parseresult.appendChild( document.createTextNode( 'FAIL' ) );
+                }
+                results.appendChild( parseresult );
             }
-            Lint();
+            var jslintsources = <?php
+            echo w_json_encode( $jslintsources );
+            ?>;
+
+            j = 0;
+            for ( i in jslintsources ) {
+                setTimeout( function () {
+                    Lint( i, jslintsources[ i ] );
+                }, j * 1000 );
+                ++j;
+            }
+            
             <?php
             echo htmlspecialchars( ob_get_clean() );
             ?>
