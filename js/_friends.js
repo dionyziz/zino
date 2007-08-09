@@ -98,7 +98,7 @@ var Friends = {
 						Animations.Create( child, "opacity", 1500, 0, 1, new Function(), Interpolators.Pulse );
 					}
 					else if ( !show ) {
-						Animations.Create( child, "opacity", 1000, 1, 0.3, (function(child,show) {
+						Animations.Create( child, "opacity", 1000, 1, 0, (function(child,show) {
 										return function() {
 											child.style.display = "none";
 											child.style.opacity = 0; 
