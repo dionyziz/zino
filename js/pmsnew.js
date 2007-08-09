@@ -224,6 +224,7 @@ var pms = {
 			var lowerdiv = msgnodedivs[ 6 ];
 			lowerdiv.style.display = 'none';
 			delimg.style.display = 'none';
+			msgnode.style.margin = '0px';
 			Animations.Create( msgnode , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( msgnode , 'height' , 3000 , msgnode.offsetHeight , 0 , function() {
 					msgnode.parentNode.removeChild( msgnode );
