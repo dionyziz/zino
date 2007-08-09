@@ -114,7 +114,7 @@ var Friends = {
 				}
 			}
 		}
-		Friends.onappear = show;
+//Friends.onappear = show;
 	},
 	correctList : function() {
 		var relations = g( 'frel_type' );
@@ -122,10 +122,10 @@ var Friends = {
         	if ( relations.childNodes[i].nodeType == 1 && relations.childNodes[i].title != '' ) { // Find the previous relation
         		relations.childNodes[i].title = '';
         		relations.childNodes[i].className = "relation";
-        		if ( !Friends.onappear ) {
+        	/*f ( !Friends.onappear ) {
 	        		relations.childNodes[i].style.opacity = 0;
 	        		relations.childNodes[i].style.display = "none";
-	        	}
+	        	}*/
         		relations.childNodes[i].style.color = "";
         		if ( i == 0 ) {
         			relations.childNodes[i].style.backgroundColor = "";
