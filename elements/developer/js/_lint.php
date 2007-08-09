@@ -57,11 +57,11 @@
             j = 0;
             for ( i in jslintsources ) {
                 if ( i.substr( i.length - 3, 3 ) == '.js' ) {
-                    setTimeout( function () {
-                        return function ( file, source ) {
+                    setTimeout( function ( file, source ) {
+                        return function () {
                             Lint( file, source );
-                        }( i, jslintsources[ i ] );
-                    }, j * 100 );
+                        };
+                    }( i, jslintsources[ i ] ), j * 100 );
                     ++j;
                 }
             }
