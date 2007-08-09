@@ -68,6 +68,9 @@
 		protected $mDbTable;
 		protected $mDb;
 		
+		protected function IsRead() {
+			return $this->DelId >= 1;
+		}
         protected function SetText( $value ) {
             $this->mTextFormatted = array_shift( mformatpms( array( $value ) ) );
             $this->mText = $value;
@@ -197,6 +200,10 @@
                 return $change;
 			}
             // else insert
+
+			if ( $this->Date == '0000-00-00 00:00:00' ) {
+				$this->Date = NowDate();
+			}
             
             $sqlarray = array(
                 'pm_senderid' => $this->SenderId,
@@ -299,6 +306,7 @@
 			) );
 			
 			$this->User			= $pmuser;
+
 			$this->Sender 		= isset( $construct[ 'user_id' ] 		) ? New User( $construct ) 		: false;
 			$this->Folder 		= isset( $construct[ 'pmfolder_id' ]	) ? New PMFolder( $construct ) 	: false;
 			$this->Receivers 	= isset( $construct[ 'receivers' ] 		) ? $construct[ 'receivers' ] 	: false;
@@ -362,6 +370,8 @@
 						`pmif_folderid` = '" . $this->Id . "' AND
 						`pmif_userid` = '" . $user->Id() . "' AND
 						`pmif_delid` != '2'
+					ORDER BY 
+						`pm_id` DESC
 					$limit
 					;";
 					
