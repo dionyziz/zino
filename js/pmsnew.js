@@ -284,4 +284,4 @@ var pms = {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
 	}
-}
+};
