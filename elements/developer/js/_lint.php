@@ -78,6 +78,8 @@
                             var prefix;
                             var suffix;
                             var j = 0;
+                            const MAXLINELEN = 61; // assert( ( MAXLINELEN - 1 ) % 2 == 0 )
+                            const AREALEN = 5; // assert( ( AREALEN - 1 ) % 2 == 0 )
                             
                             for ( i = 0; i < JSLINT.errors.length; ++i ) {
                                 if ( JSLINT.errors[ i ] !== null ) {
@@ -89,7 +91,16 @@
                                     if ( typeof JSLINT.errors[ i ].evidence == 'string' ) {
                                         evidence = JSLINT.errors[ i ].evidence;
                                         chara = JSLINT.errors[ i ].character;
-                                        chara -= 60;
+                                        chara -= ( AREALEN - 1 ) / 2;
+                                        if ( chara < 0 ) {
+                                            chara = 0;
+                                        }
+                                        var leftpart = evidence.substr( 0, chara );
+                                        var rightpart = evidence.substr( chara + AREALEN, evidence.length );
+                                        var realevidence = evidence.substr( chara, AREALEN );
+                                        
+                                        chara = JSLINT.errors[ i ].character;
+                                        chara -= ( MAXLINELEN - 1 ) / 2;
                                         if ( chara < 0 ) {
                                             chara = 0;
                                             prefix = '';
@@ -97,14 +108,19 @@
                                         else {
                                             prefix = '...';
                                         }
-                                        if ( evidence.length > chara + 60 ) {
+                                        if ( evidence.length > chara + ( MAXLINELEN - 1 ) / 2 ) {
                                             suffix = '...';
                                         }
                                         else {
                                             suffix = '';
                                         }
-                                        evidence = prefix + evidence.substr( chara, 60 ) + suffix;
-                                        td.appendChild( document.createTextNode( evidence ) );
+                                        leftpart = prefix + leftpart.substr( chara, MAXLINELEN );
+                                        rightpart = rightpart.substr( 0, ( MAXLINELEN - 1 ) / 2 ) + suffix;
+                                        td.appendChild( document.createTextNode( leftpart ) );
+                                        var b = document.createElement( 'b' );
+                                        b.appendChild( document.createTextNode( realevidence ) );
+                                        td.appendChild( b );
+                                        td.appendChild( document.createTextNode( rightpart ) );
                                     }
                                     tr.appendChild( td );
                                     td = document.createElement( 'td' );
