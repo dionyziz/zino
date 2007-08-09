@@ -27,7 +27,8 @@
 				$parented = Subcategories();
 				
 				if ( !is_array( $parented ) || count( $parented ) == 0 || count( $parented[ 0 ] )  == 0 ) {
-					?><br />&nbsp;&nbsp;Δεν υπάρχει καμία κατηγορία.<br /><br /><?php
+					?><br />&nbsp;&nbsp;Δεν υπάρχει καμία κατηγορία.<br /><br />
+                    </div></div><?php
                     return true;
 				}
 
