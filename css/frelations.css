@@ -17,7 +17,6 @@ li.relselected {
 }
 
 ul.daddy {
-	float:left;
 	list-style-type: none;
 	cursor: pointer;
 	position: absolute;
