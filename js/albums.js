@@ -496,18 +496,18 @@ var Albums = {
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
 		var thediv , theform , editimage , editlink;
 		if ( typeid === 0 ) {
-			var thediv = outerdivchilddiv[ 0 ];
+			thediv = outerdivchilddiv[ 0 ];
 			var thedivchildform = thediv.getElementsByTagName( 'form' );
-			var theform = thedivchildform[ 0 ];
+			theform = thedivchildform[ 0 ];
 			
 			var theh2 = document.createElement( 'h2' );
 			var albumname = document.createTextNode( text );
 			theh2.appendChild( albumname );
 			
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( albumid , typeid ) { 
 				return function() { 
@@ -531,7 +531,7 @@ var Albums = {
 			var thesmall = thedivchildsmall[ 0 ];
 			
 			var thesmallchildform = thesmall.getElementsByTagName( 'form' );
-			var theform = thesmallchildform[ 0 ];		
+			theform = thesmallchildform[ 0 ];		
 
 			var thespan = document.createElement( 'span' );
 			thespan.className = 'details';
@@ -539,10 +539,10 @@ var Albums = {
 			var description = document.createTextNode( text );
 			thespan.appendChild( description );
 			
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( albumid , typeid ) { 
 				return function() { 
