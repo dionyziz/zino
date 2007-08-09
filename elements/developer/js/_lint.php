@@ -42,7 +42,7 @@
                 results.appendChild( filename );
                 jslintresult = JSLINT( jssource, {} );
                 parseresult = document.createElement( 'dd' );
-                if ( jslintresult === false ) {
+                if ( jslintresult === true ) {
                     parseresult.appendChild( document.createTextNode( 'PASS' ) );
                 }
                 else {
@@ -53,7 +53,7 @@
             var jslintsources = <?php
             echo w_json_encode( $jslintsources );
             ?>;
-
+            
             j = 0;
             for ( i in jslintsources ) {
                 if ( i.substr( i.length - 3, 3 ) == '.js' ) {
@@ -63,6 +63,9 @@
                         }( i, jslintsources[ i ] );
                     }, j * 100 );
                     ++j;
+                }
+                else {
+                    alert( i.substr( i.length - 3, 3 ) );
                 }
             }
             
