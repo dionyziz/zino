@@ -117,7 +117,7 @@
                                         leftpart = prefix + leftpart.substr( chara, MAXLINELEN );
                                         rightpart = rightpart.substr( 0, ( MAXLINELEN - 1 ) / 2 ) + suffix;
                                         td.appendChild( document.createTextNode( leftpart ) );
-                                        var b = document.createElement( 'b' );
+                                        var b = document.createElement( 'span' );
                                         b.appendChild( document.createTextNode( realevidence ) );
                                         td.appendChild( b );
                                         td.appendChild( document.createTextNode( rightpart ) );
