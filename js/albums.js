@@ -356,7 +356,7 @@ var Albums = {
 	EditSmallAlbum : function( albumid , typeid ) {
 		var outerdiv = document.getElementById( 'smallheader' );
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
-		var thediv , theform;
+		var thediv , theform , theinput , imageaccept , imagecancel , acceptlink , cancellink , editlink;
 		if ( typeid === 0 ) {
 			thediv = outerdivchilddiv[ 0 ];
 			var thedivchildh2 = thediv.getElementsByTagName( 'h2' );
@@ -372,17 +372,17 @@ var Albums = {
 					return false;
 				};
 			})( albumid , albumname , 0 );
-			var theinput = document.createElement( 'input' );
+			theinput = document.createElement( 'input' );
 			theinput.type = 'text';
 			theinput.value = albumname;
 			
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 			
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.onclick = (function ( myform ) {
 				return function () {
@@ -395,7 +395,7 @@ var Albums = {
 			acceptlink.className = 'editinfos';
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.onclick = (function( albumid , text, typeid ) { 
 				return function() { 
@@ -409,7 +409,7 @@ var Albums = {
 			cancellink.appendChild( imagecancel );
 			
 			var thedivchilda = thediv.getElementsByTagName( 'a' );
-			var editlink = thedivchilda[ 0 ];
+			editlink = thedivchilda[ 0 ];
 			
 			theform.appendChild( theinput );
 			theform.appendChild( acceptlink );
@@ -435,19 +435,19 @@ var Albums = {
 				return function() { 
 					Albums.SaveEditingSmallAlbum( albumid , text, typeid ); 
 					return false;
-				}
+				};
 			})( albumid , description , 1 );
-			var theinput = document.createElement( 'input' );
+			theinput = document.createElement( 'input' );
 			theinput.type = 'text';
 			theinput.value = description;
 
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 			
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.onclick = (function ( myform ) {
 				return function () {
@@ -460,13 +460,13 @@ var Albums = {
 			acceptlink.className = 'editinfos';
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.onclick = (function( albumid , text, typeid ) { 
 				return function() { 
 					Albums.CancelEditingSmallAlbum( albumid , text, typeid ); 
 					return false;
-				}
+				};
 			})( albumid , description, 1 );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -477,7 +477,7 @@ var Albums = {
 			var thesmall = thedivchildsmall[ 0 ];
 
 			var thesmallchilda = thesmall.getElementsByTagName( 'a' );
-			var editlink = thesmallchilda[ 0 ];
+			editlink = thesmallchilda[ 0 ];
 			
 			theform.appendChild( theinput );
 			theform.appendChild( acceptlink );
@@ -494,7 +494,7 @@ var Albums = {
 	CancelEditingSmallAlbum : function ( albumid , text , typeid ) {
 		var outerdiv = document.getElementById( 'smallheader' );
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var thediv = outerdivchilddiv[ 0 ];
 			var thedivchildform = thediv.getElementsByTagName( 'form' );
 			var theform = thedivchildform[ 0 ];
@@ -512,7 +512,7 @@ var Albums = {
 				return function() { 
 					Albums.EditSmallAlbum( albumid , typeid ); 
 					return false;
-				}
+				};
 			})( albumid , 0 );
 			editlink.alt = 'Επεξεργασία ονόματος';
 			editlink.title = 'Επεξεργασία ονόματος';
