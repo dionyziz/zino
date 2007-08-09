@@ -4,7 +4,6 @@
         global $rabbit_settings;
         
         $page->AttachScript( 'js/jslint/fulljslint.js', 'javascript', true );
-        $page->AttachScript( 'js/jslint/web.js', 'javascript', true );
         
         $jspath = $rabbit_settings[ 'rootdir' ] . '/js';
         $dir = opendir( $jspath );
