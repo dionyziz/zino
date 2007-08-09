@@ -8,11 +8,15 @@ var Coala = {
 	LazyCommit: null,
 	Cold: function ( unitid , parameters ) {
 		this._AppendRequest( unitid , parameters , 'cold' );
-		this.LazyCommit = setTimeout( 'Coala.Commit()' , 50 );
+		this.LazyCommit = setTimeout( function () {
+            Coala.Commit();
+        }, 50 );
 	},
 	Warm: function ( unitid , parameters ) {
 		this._AppendRequest( unitid , parameters , 'warm' );
-		this.LazyCommit = setTimeout( 'Coala.Commit()' , 50 );
+		this.LazyCommit = setTimeout( function () {
+            Coala.Commit();
+        }, 50 );
 	},
 	_AppendRequest: function ( unitid , parameters , type ) {
 		Coala.ThreadedRequests.push( 
@@ -24,7 +28,7 @@ var Coala = {
 		);
 	},
 	Commit: function () {
-		if ( Coala.ThreadedRequests.length == 0 ) {
+		if ( Coala.ThreadedRequests.length === 0 ) {
 			// nothing to commit
 			return;
 		}
@@ -80,11 +84,11 @@ var Coala = {
 		Coala.ThreadedRequests = [];
 	},
 	_PlaceRequest: function ( request , method ) {
-		if ( request == null ) {
+		if ( request === null ) {
 			request = {};
 		}
 		Socket = this._AJAXSocket(); // instanciate new socket object
-		if ( Socket == null ) {
+		if ( Socket === null ) {
 			// this shouldn't happen; browser is not XMLHTTP-compatible
 			return false;
 		}
@@ -132,9 +136,10 @@ var Coala = {
 		// main connect function, used to perform an XMLHTTP request
 		this.connect = function( sURL , sMethod , sVars , fnDone ) {
 			// if we don't have an xmlhttp object there's no point in requesting anything
-			if ( !xh )
+			if ( !xh ) {
 				// just return false
 				return false;
+            }
 			// okay, let's get started; operation hasn't been completed yet
 			bComplete = false;
 			// make sure the method is uppercase ("GET" or "POST")
@@ -169,7 +174,7 @@ var Coala = {
 				// okay, after we've set up everything, we can safely send the request
 				xh.send(sVars);
 			}
-			catch( z ) { 
+			catch ( z ) { 
 				// woops, something went wrong
 				return false; 
 			}
@@ -184,17 +189,17 @@ var Coala = {
 			// ActiveX, Msxml2.XMLHTTP
 			xh = new ActiveXObject( "Msxml2.XMLHTTP" ); 
 		}
-		catch (e) { 
+		catch ( e1 ) {
 			try { 
 				// ActiveX, Microsoft.XMLHTTP
 				xh = new ActiveXObject( "Microsoft.XMLHTTP" ); 
 			}
-			catch (e) { 
+			catch ( e2 ) { 
 				try { 
 					// non-ActiveX, normal class (used by everyone apart from microsoft ._.)
 					xh = new XMLHttpRequest(); 
 				}
-				catch (e) { 
+				catch ( e3 ) { 
 					// last catch, exceptions everywhere, can't create XMLHTTP
 					xh = false; 
 				}
@@ -202,8 +207,9 @@ var Coala = {
 		}
 		
 		// no xmlhttp object was created, the constructor should return null
-		if ( !xh )
+		if ( !xh ) {
 			return null;
+        }
 		
 		// return the newly created class
 		return this;

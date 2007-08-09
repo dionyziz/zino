@@ -16,7 +16,7 @@ var WYSIWYG = {
     },
     CreateReal: function ( which, fieldname ) {
         var doc = WYSIWYG.GetDocument( which );
-        if ( doc == false ) {
+        if ( doc === false ) {
             alert( 'WYSIWYG is not supported by your browser' );
             return;
         }

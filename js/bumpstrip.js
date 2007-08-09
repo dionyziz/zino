@@ -22,9 +22,12 @@ var Bumpstrip = {
                 stripie.appendChild( respawn );
             } );
         } , Interpolators.Sin );
-        setTimeout( 'Bumpstrip.Do()' , 5000 );
+        setTimeout( function () {
+            Bumpstrip.Do();
+        } , 5000 );
     }
 };
 
-setTimeout( 'Bumpstrip.Do()' , 5000 );
-     
+setTimeout( function () {
+    Bumpstrip.Do();
+} , 5000 );

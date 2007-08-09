@@ -89,12 +89,12 @@ var Interpolators = {
 	Sin: function ( x ) {
 		return Math.sin( x * Math.PI / 2 );
 	}
-}
+};
 
 var Animations = {
 	Current: [],
 	Create: function( node, attribute, time, start, end, callback_ondone, interpolator ) {
-		if ( interpolator == undefined ) {
+		if ( interpolator === undefined ) {
 			interpolator = Interpolators.Pulse;
 		}
 		if ( start === false ) {
@@ -135,13 +135,12 @@ var Animations = {
 				break;
 			case 'opacity':
 				object.style[ attribute ] = value;
-                if (object.style[ 'filter' ] !== null) {
-                    object.style[ 'filter' ] = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
+                if (object.style.filter !== null) {
+                    object.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
                 }
 				break;
             case 'fontsize':
                 object.style.fontSize = value;
-			default:
 		}
 	},
 	GetAttribute: function ( object , attribute ) {

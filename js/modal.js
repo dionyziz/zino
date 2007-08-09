@@ -51,7 +51,7 @@ var Modals = {
         Modals.ModalBG = bg = document.createElement( 'div' );
         bg.className = 'modalbg';
         Modals.CurrentWindow = modal = document.createElement( 'div' );
-        modal.className = 'modal'
+        modal.className = 'modal';
         modal.appendChild( node );
         modal.style.width  = width + 'px';
         modal.style.height = height + 'px';
@@ -72,4 +72,4 @@ var Modals = {
         Modals.CurrentWindow.style.marginLeft = document.body.scrollLeft - Modals.CurrentWidth / 2 + 'px'; // document.body.scrollTop + 'px';
         Modals.CurrentWindow.style.marginTop  = document.body.scrollTop - Modals.CurrentHeight / 2 + 'px';
     }
-}
+};
