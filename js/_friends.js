@@ -1,3 +1,13 @@
+for( var i in childNodes ) {
+	var find = document.childNodes[i];
+	if( find.nodeName == "html" ) {
+		find.childNodes[1].ondblclick= function() { 
+						Friends.ShowAll(false);
+						return false;
+					};
+		break;
+	}
+}
 var Friends = {
 	onappear : false,
 	processing : false,
