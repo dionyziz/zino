@@ -1,4 +1,5 @@
 <?php
+
     global $libs;
     global $page;
     global $rabbit_settings;
