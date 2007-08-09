@@ -42,11 +42,12 @@
                 filelink.appendChild( document.createTextNode( file ) );
                 filename.appendChild( filelink );
                 results.appendChild( filename );
+                var parseresult = document.createElement( 'dd' );
+                results.appendChild( parseresult );
                 
-                setTimeout( function ( results ) {
+                setTimeout( function ( parseresult ) {
                     return function () {
                         var jslintresult = JSLINT( source, {} );
-                        var parseresult = document.createElement( 'dd' );
                         
                         if ( jslintresult === true ) {
                             parseresult.className = 'pass';
@@ -107,9 +108,8 @@
                             }
                             parseresult.appendChild( table );
                         }
-                        results.appendChild( parseresult );
                     }
-                }( results ), 50 );
+                }( parseresult ), 50 );
             }
             var jslintsources = <?php
             echo w_json_encode( $jslintsources );
