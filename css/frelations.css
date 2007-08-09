@@ -26,7 +26,6 @@ ul.daddy {
 
 /*----------------Code from sidebar.css--------------------*/
 a.arrow {
-	float: right;
 	background-repeat: no-repeat;
 	background-position: top right;
 	width: 16px;
@@ -34,7 +33,6 @@ a.arrow {
 	margin-right: 1px;
 }
 a.arrowup {
-	float: right;
 	background-repeat: no-repeat;
 	background-position: top right;
 	width: 16px;
