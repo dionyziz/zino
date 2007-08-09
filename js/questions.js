@@ -31,7 +31,7 @@ var Questions = {
 		qform.id = 'editqform';
 		qform.onsubmit = (function( id ) {
 				return function() {
-					if( qinput.value != '' ) {
+					if( qinput.value !== '' ) {
 						Coala.Warm( 'question/editm', { 'eid' : id, 'question' : qinput.value } );
 						g( 'qraw_' + id ).firstChild.nodeValue = qinput.value;
 					}
@@ -40,12 +40,11 @@ var Questions = {
 					}
 					Questions.cancelEdit(id);
 					return false;
-				}
+				};
 			}) (id);
 		qform.onkeypress = function (e) {
 				return submitenter( qform, e );
-			}
-		
+		};
 		var qinput = d.createElement( 'input' );
 		qinput.size = '100';
 		qinput.type = 'text';
