@@ -36,6 +36,8 @@
                 var filename;
                 var parseresult;
                 
+                alert( 'Linting: ' + file );
+                
                 jssource = jslintsources[ i ];
                 filename = document.createElement( 'dt' );
                 filename.appendChild( document.createTextNode( file ) );
@@ -65,7 +67,7 @@
                     ++j;
                 }
                 else {
-                    alert( i.substr( i.length - 3, 3 ) );
+                    alert( i + ': ' + i.substr( i.length - 3, 3 ) );
                 }
             }
             
