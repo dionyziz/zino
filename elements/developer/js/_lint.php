@@ -35,7 +35,6 @@
                 var jssource;
                 var results = document.getElementById( 'jslintresults' );
                 var filename;
-                var parseresult;
                 
                 filename = document.createElement( 'dt' );
                 filelink = document.createElement( 'a' );
@@ -43,68 +42,74 @@
                 filelink.appendChild( document.createTextNode( file ) );
                 filename.appendChild( filelink );
                 results.appendChild( filename );
-                jslintresult = JSLINT( source, {} );
-                parseresult = document.createElement( 'dd' );
-                if ( jslintresult === true ) {
-                    parseresult.className = 'pass';
-                    parseresult.appendChild( document.createTextNode( 'PASS' ) );
-                }
-                else {
-                    parseresult.className = 'fail';
-                    var table = document.createElement( 'table' );
-                    var headlines = document.createElement( 'tr' );
-                    var th;
-                    var titles = [ 'error', 'source', 'line/char' ];
-                    for ( i = 0; i < titles.length; ++i ) {
-                        th = document.createElement( 'th' );
-                        th.appendChild( document.createTextNode( titles[ i ] ) );
-                        headlines.appendChild( th );
-                    }
-                    table.appendChild( headlines );
-                    var tr;
-                    var td;
-                    var evidence;
-                    var chara;
-                    var prefix;
-                    var suffix;
-                    
-                    for ( i = 0; i < JSLINT.errors.length; ++i ) {
-                        if ( JSLINT.errors[ i ] !== null ) {
-                            tr = document.createElement( 'tr' );
-                            td = document.createElement( 'td' );
-                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
-                            tr.appendChild( td );
-                            td = document.createElement( 'td' );
-                            if ( typeof JSLINT.errors[ i ].evidence == 'string' ) {
-                                evidence = JSLINT.errors[ i ].evidence;
-                                chara = JSLINT.errors[ i ].character;
-                                chara -= 60;
-                                if ( chara < 0 ) {
-                                    chara = 0;
-                                    prefix = '';
-                                }
-                                else {
-                                    prefix = '...';
-                                }
-                                if ( evidence.length > chara + 60 ) {
-                                    suffix = '...';
-                                }
-                                else {
-                                    suffix = '';
-                                }
-                                evidence = prefix + evidence.substr( chara, 60 ) + suffix;
-                                td.appendChild( document.createTextNode( evidence ) );
-                            }
-                            tr.appendChild( td );
-                            td = document.createElement( 'td' );
-                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
-                            tr.appendChild( td );
-                            table.appendChild( tr );
+                
+                setTimeout( function ( results ) {
+                    return function () {
+                        var jslintresult = JSLINT( source, {} );
+                        var parseresult = document.createElement( 'dd' );
+                        
+                        if ( jslintresult === true ) {
+                            parseresult.className = 'pass';
+                            parseresult.appendChild( document.createTextNode( 'PASS' ) );
                         }
+                        else {
+                            parseresult.className = 'fail';
+                            var table = document.createElement( 'table' );
+                            var headlines = document.createElement( 'tr' );
+                            var th;
+                            var titles = [ 'error', 'source', 'line/char' ];
+                            for ( i = 0; i < titles.length; ++i ) {
+                                th = document.createElement( 'th' );
+                                th.appendChild( document.createTextNode( titles[ i ] ) );
+                                headlines.appendChild( th );
+                            }
+                            table.appendChild( headlines );
+                            var tr;
+                            var td;
+                            var evidence;
+                            var chara;
+                            var prefix;
+                            var suffix;
+                            
+                            for ( i = 0; i < JSLINT.errors.length; ++i ) {
+                                if ( JSLINT.errors[ i ] !== null ) {
+                                    tr = document.createElement( 'tr' );
+                                    td = document.createElement( 'td' );
+                                    td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
+                                    tr.appendChild( td );
+                                    td = document.createElement( 'td' );
+                                    if ( typeof JSLINT.errors[ i ].evidence == 'string' ) {
+                                        evidence = JSLINT.errors[ i ].evidence;
+                                        chara = JSLINT.errors[ i ].character;
+                                        chara -= 60;
+                                        if ( chara < 0 ) {
+                                            chara = 0;
+                                            prefix = '';
+                                        }
+                                        else {
+                                            prefix = '...';
+                                        }
+                                        if ( evidence.length > chara + 60 ) {
+                                            suffix = '...';
+                                        }
+                                        else {
+                                            suffix = '';
+                                        }
+                                        evidence = prefix + evidence.substr( chara, 60 ) + suffix;
+                                        td.appendChild( document.createTextNode( evidence ) );
+                                    }
+                                    tr.appendChild( td );
+                                    td = document.createElement( 'td' );
+                                    td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
+                                    tr.appendChild( td );
+                                    table.appendChild( tr );
+                                }
+                            }
+                            parseresult.appendChild( table );
+                        }
+                        results.appendChild( parseresult );
                     }
-                    parseresult.appendChild( table );
-                }
-                results.appendChild( parseresult );
+                }( results ), 50 );
             }
             var jslintsources = <?php
             echo w_json_encode( $jslintsources );
@@ -117,7 +122,7 @@
                         return function () {
                             Lint( file, source );
                         };
-                    }( i, jslintsources[ i ] ), j * 100 );
+                    }( i, jslintsources[ i ] ), j * 50 );
                     ++j;
                 }
             }
