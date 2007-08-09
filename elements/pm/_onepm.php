@@ -25,7 +25,7 @@ function ElementPmOnepm( $pmobj ) {
 			echo $pmobj->Id;
 			?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
 			if ( !$pmobj->IsRead ) {
-				?><img style="float:left;padding: 2px 7px 1px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
+				?><img style="float:left;padding: 0px 4px 3px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
 			}
 			?><div class="infobar_info" style="padding: 3px;height:21px;display:inline;" onclick="pms.ExpandPm( this );return false;">από τον </div><div style="display:inline" class="infobar_info"><?php
 			Element( 'user/static' , $pmobj->Sender );
