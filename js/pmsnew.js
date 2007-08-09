@@ -283,5 +283,4 @@ var pms = {
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
-	};
-}
+	}}
