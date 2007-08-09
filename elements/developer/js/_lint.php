@@ -75,7 +75,7 @@
                             td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
-                            if ( JSLINT.errors[ i ].evidence !== null ) {
+                            if ( typeof JSLINT.errors[ i ].evidence == 'string' ) {
                                 evidence = JSLINT.errors[ i ].evidence;
                                 chara = JSLINT.errors[ i ].character;
                                 chara -= 50;
