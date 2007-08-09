@@ -23,4 +23,4 @@ var Frontpage = {
                 Animations.Create( g( 'newuheader' ) , 'opacity' , 2000 , 0.3 , 1 );
         }
     }
-}
+};
