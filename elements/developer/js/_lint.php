@@ -64,17 +64,19 @@
                     var tr;
                     var td;
                     for ( i = 0; i < JSLINT.errors.length; ++i ) {
-                        tr = document.createElement( 'tr' );
-                        td = document.createElement( 'td' );
-                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
-                        tr.appendChild( td );
-                        td = document.createElement( 'td' );
-                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
-                        tr.appendChild( td );
-                        td = document.createElement( 'td' );
-                        td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
-                        tr.appendChild( td );
-                        table.appendChild( tr );
+                        if ( JSLINT.errors[ i ] !== null ) {
+                            tr = document.createElement( 'tr' );
+                            td = document.createElement( 'td' );
+                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
+                            tr.appendChild( td );
+                            td = document.createElement( 'td' );
+                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
+                            tr.appendChild( td );
+                            td = document.createElement( 'td' );
+                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
+                            tr.appendChild( td );
+                            table.appendChild( tr );
+                        }
                     }
                     parseresult.appendChild( table );
                 }
