@@ -20,7 +20,7 @@
                 case '..':
                     break;
                 default:
-                    if ( !is_dir( $jspath . '/' . $file ) ) {
+                    if ( !is_dir( $jspath . '/' . $file ) && substr( $file, -3 ) == '.js' ) {
                         $jslintsources[ $file ] = file_get_contents( $jspath . '/' . $file );
                     }
             }
