@@ -52,7 +52,11 @@ var Places = {
 		var pcancel = d.createElement( 'input' );
 		pcancel.type = 'button';
 		pcancel.value = 'Ακύρωση';
-		pcancel.onclick = (function(id){ return function(){ Places.cancelEdit(id);} })(id);
+		pcancel.onclick = ( function( id ) { 
+            return function() { 
+                Places.cancelEdit( id );
+            };
+        } )( id );
 		
 		pform.appendChild( pid );
 		pform.appendChild( pinput );

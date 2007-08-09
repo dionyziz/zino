@@ -27,7 +27,7 @@ var UserTabs = {
 		document.getElementById( 'tab' + tabindex ).style.display = "";	
 		UserTabs.activated = tabindex;
 	}
-}
+};
 
 parentdiv = document.getElementById( 'userprofile_tabs' );
 children_divs = parentdiv.getElementsByTagName( 'div' );

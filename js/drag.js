@@ -107,7 +107,6 @@ var Drag = {
         }
         
         // breach
-        
         Animations.Create(
             Drag.Current[ idx ].Node, 'left', 500, Drag.Current[ idx ].Node.offsetLeft, Drag.Current[ idx ].InitX
         );

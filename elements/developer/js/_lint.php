@@ -52,7 +52,9 @@
                 
                 setTimeout( function ( parseresult ) {
                     return function () {
-                        var jslintresult = JSLINT( source, {} );
+                        var jslintresult = JSLINT( source, {
+                            'laxbreak': true
+                        } );
                         
                         if ( jslintresult === true ) {
                             parseresult.className = 'pass';
