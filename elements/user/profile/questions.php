@@ -62,36 +62,37 @@
 		$questions = $theuser->GetAnsweredQuestions();
 		
 		Question_FormatMulti( $questions );
-		
-		foreach ( $questions as $question ) {
-			?><br />
-			<div>
-				<div class="label"><?php
-					echo myucfirst( $question->Question() ); 
-				?></div>
-				
-				<div id="qedit_<?php 
-				echo $question->Id();
-				?>"><?php
-								
-				echo $question->AnswerFormatted();
-				if ( $theuser->Id() == $user->Id() ) { 
-					?> <a onclick="Profileq.Edit( '<?php 
-					echo $question->Id();
-					?>' );return false;" href="" title="Επεξεργασία ερώτησης"><img src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
-                    ?>icons/icon_wand.gif" style="width:16px;height:16px" alt="Επεξεργασία Ερώτησης" /></a><?php
-				} 
-				?></div>
-				
-				<div id="qraw_<?php
-				echo $question->Id();
-				?>" style="display:none"><?php
-				echo htmlspecialchars( $question->Answer() );
-				?></div>
-			</div><?php
-		} 
-		
+	    if ( is_array( $questions ) ) {
+            foreach ( $questions as $question ) {
+                ?><br />
+                <div>
+                    <div class="label"><?php
+                        echo myucfirst( $question->Question() ); 
+                    ?></div>
+                    
+                    <div id="qedit_<?php 
+                    echo $question->Id();
+                    ?>"><?php
+                                    
+                    echo $question->AnswerFormatted();
+                    if ( $theuser->Id() == $user->Id() ) { 
+                        ?> <a onclick="Profileq.Edit( '<?php 
+                        echo $question->Id();
+                        ?>' );return false;" href="" title="Επεξεργασία ερώτησης"><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>icons/icon_wand.gif" style="width:16px;height:16px" alt="Επεξεργασία Ερώτησης" /></a><?php
+                    } 
+                    ?></div>
+                    
+                    <div id="qraw_<?php
+                    echo $question->Id();
+                    ?>" style="display:none"><?php
+                    echo htmlspecialchars( $question->Answer() );
+                    ?></div>
+                </div><?php
+            }
+        }
+
 		$water->ProfileEnd();
 		
 		if ( $user->CanModifyCategories() ) {
