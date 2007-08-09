@@ -130,7 +130,6 @@
                         	$page->AttachScript( 'js/animations.js' );
                         	$page->AttachScript( 'js/_friends.js' );
 							?>
-							<a id="friendsshowlink" href="" onclick="Friends.ShowAll( true );return false;" class="arrow" title="Προβολή Σχέσεων"/>
                             <ul class="daddy" id="frel_type"><?php
                             if( $isfriend ) {
                             	$relid = $user->GetRelId( $theuser->Id() );
@@ -179,7 +178,7 @@
 								?>title="Επιλεγμένη Σχέση"<?php
 							}
 							?>>Καμία Σχέση</li>
-							</ul><?php
+							</ul><a id="friendsshowlink" href="" onclick="Friends.ShowAll( true );return false;" class="arrow" title="Προβολή Σχέσεων"/><?php
 						} 
 					}
 					if ( $user->Id() != $theuser->Id() ) {
