@@ -26,10 +26,15 @@
                     }
             }
         }
-        ?><script type="text/javascript">
+        ?><script type="text/javascript"><?php
+            ob_start();
+            ?>
             var jslintsources = <?php
             echo w_json_encode( $jslintsources );
             ?>;
+            <?php
+            echo htmlspecialchars( ob_get_clean() );
+            ?>
         </script><?php
     }
 ?>
