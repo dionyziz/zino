@@ -525,7 +525,7 @@ var Albums = {
 			thediv.removeChild( theform );
 		}
 		else if ( typeid == 1 ) {
-			var thediv = outerdivchilddiv[ 1 ];
+			thediv = outerdivchilddiv[ 1 ];
 			
 			var thedivchildsmall = thediv.getElementsByTagName( 'small' );
 			var thesmall = thedivchildsmall[ 0 ];
