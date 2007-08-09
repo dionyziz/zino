@@ -57,10 +57,14 @@
 
             j = 0;
             for ( i in jslintsources ) {
-                setTimeout( function () {
-                    Lint( i, jslintsources[ i ] );
-                }, j * 1000 );
-                ++j;
+                if ( i.substr( i.length - 3, 3 ) == '.js' ) {
+                    setTimeout( function () {
+                        function ( file, source ) {
+                            Lint( file, source );
+                        }
+                    }( i, jslintsources[ i ] ), j * 100 );
+                    ++j;
+                }
             }
             
             <?php
