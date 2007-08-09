@@ -27,13 +27,13 @@ ul.daddy {
 
 /*----------------Code from sidebar.css--------------------*/
 a.arrow {
-//	float: left;
+	float: left;
 	position: relative;
 	background-repeat: no-repeat;
 	background-position: top right;
 	width: 16px;
 	height: 16px;
-	margin-left: 90px;
+	margin-right: 1px;
 }
 a.arrowup {
 	float: left;
