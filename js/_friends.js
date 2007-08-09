@@ -1,4 +1,5 @@
 var Friends = {
+	onappear : false;
 	processing : false,
 	AddFriend : function ( friendid, type ) {
 		Friends.processing = true;
@@ -77,6 +78,9 @@ var Friends = {
 		if ( Friends.processing ) {
 			return;
 		}
+		if ( show == false && Friends.onappear == false ) {
+			return;
+		}
 		
 		var friendslink = g('friendsshowlink');
 		friendslink.className = (show)?"arrowup":"arrow";
@@ -114,6 +118,7 @@ var Friends = {
 				}
 			}
 		}
+		Friends.onappear = show;
 	},
 	correctList : function() {
 		var relations = g( 'frel_type' );
