@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^([a-zA-Z][a-z0-9_\.\-]+)$ static.php?file=$1 [L,QSA]
+RewriteRule ^([a-zA-Z][a-z0-9_\-]+[a-zA-Z]\.js)$ static.php?file=$1 [L,QSA]
