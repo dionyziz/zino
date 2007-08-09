@@ -61,8 +61,8 @@
                     setTimeout( function () {
                         function ( file, source ) {
                             Lint( file, source );
-                        }
-                    }( i, jslintsources[ i ] ), j * 100 );
+                        }( i, jslintsources[ i ] );
+                    }, j * 100 );
                     ++j;
                 }
             }
