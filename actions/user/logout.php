@@ -9,6 +9,6 @@
     	$user->RenewAuthtoken();
     	$user->SetCookie( true );
 
-    	return Redirect( substr( $_SERVER[ 'HTTP_REFERER' ] , strlen( $rabbit_settings[ 'webaddress' ] ) + 8 ) );
+    	return Redirect( substr( $_SERVER[ 'HTTP_REFERER' ] , strlen( $rabbit_settings[ 'webaddress' ] . '/' ) ) );
     }
 ?>
