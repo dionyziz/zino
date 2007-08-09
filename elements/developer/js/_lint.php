@@ -127,7 +127,7 @@
                                     }
                                     tr.appendChild( td );
                                     td = document.createElement( 'td' );
-                                    td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
+                                    td.appendChild( document.createTextNode( ( JSLINT.errors[ i ].line + 1 ) + '/' + JSLINT.errors[ i ].character ) );
                                     tr.appendChild( td );
                                     if ( j % 2 == 0 ) {
                                         tr.className = 'l';
