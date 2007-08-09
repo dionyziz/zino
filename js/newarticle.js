@@ -25,7 +25,7 @@ var NewArticle = {
 		return true;
 	},
 	Validate: function () {
-		if ( g( 'categoryid' ).selectedIndex == 0 ) {
+		if ( g( 'categoryid' ).selectedIndex === 0 ) {
 			return confirm( 'Έχεις επιλέξει το συγκεκριμένο άρθρο να μην ενταχθεί σε καμία κατηγορία.Κάνοντάς το αυτό, το άρθρο σου δεν θα εμφανιστεί μαζί με τα υπόλοιπα νέα άρθρα, άλλα ούτε και με τα δημοφιλή άρθρα. Θέλεις σίγουρα να συνεχίσεις;');
 		}
 		return true;
