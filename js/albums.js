@@ -279,7 +279,7 @@ var Albums = {
 			var descdiv = thealbumchilddivs[ 9 ];
 			
 			var descdivformlist = descdiv.getElementsByTagName( 'form' );
-			var theform = descdivformlist[ 0 ];		
+			theform = descdivformlist[ 0 ];		
 			
 			spaninv = document.createElement( 'span' );
 			spaninv.appendChild( document.createTextNode( text ) );
@@ -356,20 +356,21 @@ var Albums = {
 	EditSmallAlbum : function( albumid , typeid ) {
 		var outerdiv = document.getElementById( 'smallheader' );
 		var outerdivchilddiv = outerdiv.getElementsByTagName( 'div' );
-		if ( typeid == 0 ) {
-			var thediv = outerdivchilddiv[ 0 ];
+		var thediv , theform;
+		if ( typeid === 0 ) {
+			thediv = outerdivchilddiv[ 0 ];
 			var thedivchildh2 = thediv.getElementsByTagName( 'h2' );
 			var theh2 = thedivchildh2[ 0 ];
 			var albumname = theh2.innerHTML;
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.method = '';
 			theform.action = '';
 			theform.onsubmit = (function( albumid , text, typeid ) { 
 				return function() { 
 					Albums.SaveEditingSmallAlbum( albumid , text, typeid ); 
 					return false;
-				}
+				};
 			})( albumid , albumname , 0 );
 			var theinput = document.createElement( 'input' );
 			theinput.type = 'text';
@@ -400,7 +401,7 @@ var Albums = {
 				return function() { 
 					Albums.CancelEditingSmallAlbum( albumid , text, typeid ); 
 					return false;
-				}
+				};
 			})( albumid , albumname, 0 );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -421,13 +422,13 @@ var Albums = {
 		
 		}
 		else if ( typeid == 1 ) {
-			var thediv = outerdivchilddiv[ 1 ];
+			thediv = outerdivchilddiv[ 1 ];
 			
 			var thedivchildspan = thediv.getElementsByTagName( 'span' );
 			var spandescription = thedivchildspan[ 0 ];
 			var description = spandescription.innerHTML;
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.action = '';
 			theform.method = '';
 			theform.onsubmit = (function( albumid , text, typeid ) { 
