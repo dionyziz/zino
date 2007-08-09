@@ -59,6 +59,8 @@
                             var headlines = document.createElement( 'tr' );
                             var th;
                             var titles = [ 'error', 'source', 'line/char' ];
+                            var i;
+                            
                             for ( i = 0; i < titles.length; ++i ) {
                                 th = document.createElement( 'th' );
                                 th.appendChild( document.createTextNode( titles[ i ] ) );
@@ -71,6 +73,7 @@
                             var chara;
                             var prefix;
                             var suffix;
+                            var j = 0;
                             
                             for ( i = 0; i < JSLINT.errors.length; ++i ) {
                                 if ( JSLINT.errors[ i ] !== null ) {
@@ -103,7 +106,11 @@
                                     td = document.createElement( 'td' );
                                     td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
                                     tr.appendChild( td );
+                                    if ( j % 2 == 1 ) {
+                                        tr.className = 'l';
+                                    }
                                     table.appendChild( tr );
+                                    ++j;
                                 }
                             }
                             parseresult.appendChild( table );

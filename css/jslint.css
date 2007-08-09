@@ -37,9 +37,6 @@ dl#jslintresults dd.fail table tr td,
 dl#jslintresults dd.fail table tr th {
     padding: 3px;
 }
-dl#jslintresults dd.fail table tr.warning {
+dl#jslintresults dd.fail table tr.l {
     background-color: #ffffff;
-}
-dl#jslintresults dd.fail table tr.error {
-    background-color: #ffa0a0;
 }
