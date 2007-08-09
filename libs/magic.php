@@ -57,6 +57,10 @@
 		return $outputs;
 	}
 	function mformatanswers( $sources ) {
+        if ( !is_array( $sources ) ) {
+            return false;
+        }
+
         foreach ( $sources as $i => $source ) {
             $sources[ $i ] = htmlspecialchars( $sources[ $i ] );
             $sources[ $i ] = smileys( $sources[ $i ] );

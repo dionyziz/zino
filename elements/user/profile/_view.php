@@ -339,9 +339,11 @@
 		?></div>
 		<div style="display: none;" id="userprofile_viewingtabs"><?php
 			echo $viewingtabs;
-		?></div>
-		<div style="display: none;" id="userprofile_friendstab"><?php
-			echo $friendstab;
 		?></div><?php
+        if ( $viewfriends || $viewfans ) {
+		    ?><div style="display: none;" id="userprofile_friendstab"><?php
+		    	echo $friendstab;
+		    ?></div><?php
+        }
 	}
 ?>

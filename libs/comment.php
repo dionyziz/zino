@@ -557,6 +557,10 @@
 			$comments = $this->Get();
 			
 			$parented = array();
+            if ( !is_array( $comments ) ) {
+                return $parented;
+            }
+
 			foreach( $comments as $comment ) {
 				if ( !isset( $parented[ $comment->ParentId() ] ) || empty( $parented[ $comment->ParentId() ] ) ) {
 					$parented[ $comment->ParentId() ] = array( $comment );
@@ -654,7 +658,7 @@
 		    	}
             }
 
-        
+            $comments = array(); 
             foreach ( $rows as $row ) {
 			    $comments[] = new Comment( $row );
             }

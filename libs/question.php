@@ -1,7 +1,11 @@
 <?php
 
-	function Question_FormatMulti( &$questions ) {	
-		$texts = array();
+	function Question_FormatMulti( &$questions ) {
+        if ( !is_array( $questions ) ) {
+            return false;
+        }
+
+		$answers = array();
 		foreach ( $questions as $question ) {
 			$answers[ $question->Id() ] = $question->Answer();
 		}
