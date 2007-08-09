@@ -75,24 +75,26 @@
                             td.appendChild( document.createTextNode( JSLINT.errors[ i ].reason ) );
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
-                            evidence = JSLINT.errors[ i ].evidence;
-                            chara = JSLINT.errors[ i ].character;
-                            chara -= 50;
-                            if ( chara < 0 ) {
-                                chara = 0;
-                                prefix = '';
+                            if ( JSLINT.errors[ i ].evidence !== null ) {
+                                evidence = JSLINT.errors[ i ].evidence;
+                                chara = JSLINT.errors[ i ].character;
+                                chara -= 50;
+                                if ( chara < 0 ) {
+                                    chara = 0;
+                                    prefix = '';
+                                }
+                                else {
+                                    prefix = '...';
+                                }
+                                if ( evidence.length > chara + 50 ) {
+                                    suffix = '...';
+                                }
+                                else {
+                                    suffix = '';
+                                }
+                                evidence = prefix + evidence.substr( chara, 50 ) + suffix;
+                                td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
                             }
-                            else {
-                                prefix = '...';
-                            }
-                            if ( evidence.length > chara + 50 ) {
-                                suffix = '...';
-                            }
-                            else {
-                                suffix = '';
-                            }
-                            evidence = prefix + evidence.substr( chara, 50 ) + suffix;
-                            td.appendChild( document.createTextNode( JSLINT.errors[ i ].evidence ) );
                             tr.appendChild( td );
                             td = document.createElement( 'td' );
                             td.appendChild( document.createTextNode( JSLINT.errors[ i ].line + '/' + JSLINT.errors[ i ].character ) );
