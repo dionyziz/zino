@@ -34,8 +34,9 @@ var pms = {
 		pms.ShowFolder( folder , folderid );
 	}
 	,
-	ExpandPm : function( pmdiv ) {
+	ExpandPm : function( pmdiv , notread ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
+		//notread is true when the pm hasn't been read else it is true
 		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
 		var textpm = messagesdivdivs[ 4 ];
 		var lowerlinepm = messagesdivdivs[ 6 ];
@@ -56,6 +57,9 @@ var pms = {
 			lowerlinepm.style.display = 'none';
 		}
 		pms.activepm = pmdiv;
+		if ( notread ) {
+			Coala.Warm( 'pm/expandpm' , { pmdid : pmid } );
+		}
 	}
 	,
 	NewFolder : function() {
