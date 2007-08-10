@@ -8,6 +8,7 @@ function UnitPmExpandpm( tInteger $pmid ) {
 
 	$pm = new PM( $pmid );
 	if ( $pm->Sender->Id() == $user->Id() && !$pm->IsRead ) {
+		?>alert( 'changing read' );<?php
 		$pm->DelId = 1;		
 	}
 }
