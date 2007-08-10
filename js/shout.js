@@ -28,7 +28,7 @@ var Shoutbox = {
 						Coala.Warm( 'shout/edit', {'id':editid.value ,  'shouttext':edittext.value, 'callback':Shoutbox.cancelEdit});
 						Animations.SetAttribute( element , 'opacity' , 1 );
 						return false;
-					} 
+					};
 				} ) (id); // use cancelEdit() in order to change shoutedit
 
 		var imageaccept = document.createElement( 'img' );
@@ -67,7 +67,12 @@ var Shoutbox = {
 		editcancel.href = '';
 		editcancel.alt = 'Ακύρωση';
 		editcancel.title = 'Ακύρωση';
-		editcancel.onclick = (function( id, answer ){ return function(){ Shoutbox.cancelEdit(id, answer);return false;} })(id, text);
+		editcancel.onclick = (function( id, answer ){
+					return function(){ 
+						Shoutbox.cancelEdit(id, answer);
+						return false;
+					}; 
+				})(id, text);
 		editcancel.appendChild( imagecancel );
 
 		
@@ -98,7 +103,12 @@ var Shoutbox = {
 
     		var editsh = d.createElement( 'a' );
     		editsh.setAttribute("style","cursor: pointer;");
-    		editsh.onclick=(function( id ) { return function() { Shoutbox.Edit(id);return false;} })(id);
+    		editsh.onclick=(function( id ) {
+    						return function() { 
+    							Shoutbox.Edit(id);
+    							return false;
+    						};
+    					})(id);
     		editsh.href="";
     		editsh.title="Επεξεργασία Μικρού Νέου";
 
@@ -110,7 +120,12 @@ var Shoutbox = {
     		
     		var delsh = d.createElement( 'a' );
     		delsh.setAttribute("style","cursor: pointer;");
-    		delsh.onclick=(function( id ) { return function() { Shoutbox.deleteShout( id );return false;} })(id);
+    		delsh.onclick=(function( id ) {
+    						return function() {
+    							Shoutbox.deleteShout( id );
+    							return false;
+    						};
+    					})(id);
     		delsh.href="";
     		delsh.title="Διαγραφή Μικρού Νέου";
 
@@ -177,7 +192,6 @@ var Shoutbox = {
 				case 38: // Up
 				case 40: // Down
 					return true;
-					break;
 				default:
 					return false;
 			}
