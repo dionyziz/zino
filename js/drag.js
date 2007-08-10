@@ -44,8 +44,14 @@ var Drag = {
     Do: function ( e, idx ) {
         mouse = Drag.GetMouseXY( e );
         what = Drag.Current[ idx ].Node;
-        x = mouse[ 0 ] - Drag.Current[ idx ].X + Drag.Current[ idx ].InitX;
-        y = mouse[ 1 ] - Drag.Current[ idx ].Y + Drag.Current[ idx ].InitY;
+        if ( what.style.position == 'relative' ) {
+            x = mouse[ 0 ] - Drag.Current[ idx ].X;
+            y = mouse[ 1 ] - Drag.Current[ idx ].Y;
+        }
+        else {
+            x = mouse[ 0 ] - Drag.Current[ idx ].X + Drag.Current[ idx ].InitX;
+            y = mouse[ 1 ] - Drag.Current[ idx ].Y + Drag.Current[ idx ].InitY;
+        }
         what.style.left = x + 'px';
         what.style.top = y + 'px';
 
@@ -107,11 +113,23 @@ var Drag = {
         }
         
         // breach
+        if ( Drag.Current[ idx ].Node.style.position == 'relative' ) {
+            var startx = Drag.Current[ idx ].Node.style.left.substr( 0, Drag.Current[ idx ].Node.style.left.length - 2 );
+            var starty = Drag.Current[ idx ].Node.style.top.substr( 0, Drag.Current[ idx ].Node.style.top.length - 2 );
+            var endx = 0;
+            var endy = 0;
+        }
+        else {
+            var startx = Drag.Current[ idx ].Node.offsetLeft;
+            var starty = Drag.Current[ idx ].Node.offsetTop;
+            var endx = Drag.Current[ idx ].InitX;
+            var endy = Drag.Current[ idx ].InitY;
+        }
         Animations.Create(
-            Drag.Current[ idx ].Node, 'left', 500, Drag.Current[ idx ].Node.offsetLeft, Drag.Current[ idx ].InitX
+            Drag.Current[ idx ].Node, 'left', 500, startx, endx
         );
         Animations.Create(
-            Drag.Current[ idx ].Node, 'top', 500, Drag.Current[ idx ].Node.offsetTop, Drag.Current[ idx ].InitY
+            Drag.Current[ idx ].Node, 'top', 500, starty, endy
         );
     },
     Create: function ( what, droppables, callback_ondrop, callback_onstart, callback_onend, callback_onover, callback_onout ) {

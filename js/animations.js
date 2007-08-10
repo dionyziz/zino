@@ -39,14 +39,17 @@ var Tween = {
 					thing.Position = 1;
 					thing.Enabled = false;
 				}
-				value = thing.Start + thing.Interpolator( thing.Position ) * ( thing.End - thing.Start );
+				value = Tween.GetValue( thing.Start, thing.End, thing.Interpolator( thing.Position ) );
 				thing.Callback_OnProgress( value );
 				if ( thing.Position == 1 ) {
 					thing.Callback_OnDone();
 				}
 			}
 		}
-	}
+	},
+    GetValue: function( start, end, percentage ) { // traditional tween function here
+        return start + percentage * ( end - start );
+    }
 };
 
 var Interpolators = {
