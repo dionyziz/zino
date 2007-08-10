@@ -447,7 +447,7 @@ var Photos = {
 	,
 	CancelEditingSmallPhoto : function ( photoid , text , typeid , node ) {
 		var thediv = node;
-		var thedivchildform,theform,editimage,editlink
+		var thedivchildform,theform,editimage,editlink;
 		if ( typeid === 0 ) {
 			thedivchildform = thediv.getElementsByTagName( 'form' );
 			theform = thedivchildform[ 0 ];
