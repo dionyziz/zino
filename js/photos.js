@@ -551,11 +551,11 @@ var Photos = {
 		var pid = imageinfo.id;
 		var puserid = imageinfo.userid;
 		var pname = imageinfo.name;
-		var pmainimage = imageinfo[ 'mainimage' ];
-		var pwidth = imageinfo[ 'width' ];
-		var pheight = imageinfo[ 'height' ];
-		var albumid = imageinfo[ 'albumid' ];
-		var pnum = imageinfo[ 'imagesnum' ]; 
+		var pmainimage = imageinfo.mainimage;
+		var pwidth = imageinfo.width;
+		var pheight = imageinfo.height;
+		var albumid = imageinfo.albumid;
+		var pnum = imageinfo.imagesnum; 
 		//alert( ' pid :' + pid + ' pname: ' + pname + ' pmainimage: ' + pmainimage + ' pwidth: ' + pwidth + ' pheight: ' + pheight + ' albumid: ' + albumid + ' pnum: ' + pnum );
 		var photoviewdiv = document.createElement( 'div' );
 		photoviewdiv.className = 'photoview';
@@ -595,7 +595,7 @@ var Photos = {
 				return function() { 
 					Photos.EditListPhoto( photo , photoid , typeid ); 
 					return false;
-				}
+				};
 		})( photoviewdiv , pid, 0, this );
 		editlink.alt = 'Επεξεργασία ονόματος';
 		editlink.title = 'Επεξεργασία ονόματος';
@@ -612,7 +612,7 @@ var Photos = {
 			return function() { 
 				Albums.MainImage( albumid , photoid , node ); 
 				return false;
-			}
+			};
 		})( albumid , pid , photoviewdiv );
 		mainimagelink.alt = 'Ορισμός προεπιλεγμένης φωτογραφίας album';
 		mainimagelink.title = 'Ορισμός προεπιλεγμένης φωτογραφίας album';
@@ -628,7 +628,7 @@ var Photos = {
 			return function() { 
 				Photos.DeletePhoto( photo , photoid , albumid  ); 
 				return false;
-			}
+			};
 		})( photoviewdiv ,  pid , albumid );
 		deletelink.alt = 'Διαγραφή φωτογραφίας';
 		deletelink.title = 'Διαγραφή φωτογραφίας';
@@ -680,7 +680,7 @@ var Photos = {
 				return function() { 
 					Photos.EditListPhoto( photo, photoid , typeid ); 
 					return false;
-				}
+				};
 		})( photoviewdiv , pid, 1 );
 		
 		editlink2.className = 'editinfos';
@@ -705,11 +705,12 @@ var Photos = {
 		enterphotoimg.src = imagesrc;
 		
 		var element = g( 'album_photosnum' );
+		var photosnumber;
 		if ( element.firstChild ) {
-			var photosnumber = element.childNodes[ 0 ].nodeValue.split( " " )[ 0 ];
+			photosnumber = element.childNodes[ 0 ].nodeValue.split( " " )[ 0 ];
 		}
 		else {
-			var photosnumber = 0;
+			photosnumber = 0;
 		}
 		++photosnumber;
 		Photos.UpdatePhotoNumberSmall( photosnumber );
@@ -723,11 +724,12 @@ var Photos = {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις την φωτογραφία;' ) ) {
 			Coala.Warm( 'albums/photos/delete' , { 'photoid' : photoid } );
 			var element = g( 'album_photosnum' );
+			var photosnumber;
 			if ( element.firstChild ) {
-				var photosnumber = element.childNodes[ 0 ].nodeValue.split( " " )[ 0 ];
+				photosnumber = element.childNodes[ 0 ].nodeValue.split( " " )[ 0 ];
 			}
 			else {
-				var photosnumber = 0;
+				photosnumber = 0;
 			}
 			--photosnumber;
 			Photos.UpdatePhotoNumberSmall( photosnumber );
@@ -753,11 +755,12 @@ var Photos = {
 	}
 	,
 	UpdatePhotoNumberSmall : function ( newnumber ) {
+		var newnumbertext;
 		if ( newnumber == 1 ) {
-			var newnumbertext = ' φωτογραφία';
+			newnumbertext = ' φωτογραφία';
 		}
 		else {
-			var newnumbertext = ' φωτογραφίες';
+			newnumbertext = ' φωτογραφίες';
 		}
 		if ( document.getElementById( 'photonumber' ) ) {	
 			var photospan = document.getElementById( 'photonumber' );
@@ -829,7 +832,7 @@ var Photos = {
 				return function() { 
 					NewArticle.Stag( merlincode ); 
 					return false;
-				}
+				};
 		})( '[merlin:img ' + imageid + ']');
 		link.alt = '';
 		link.title = '';
@@ -845,4 +848,4 @@ var Photos = {
 		var frstchild = abovenode.firstChild;
 		frstchild.insertBefore( outerdiv , frstchild.firstChild );
 	}
-}
+};
