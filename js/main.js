@@ -24,16 +24,16 @@ function g(i){
 }
 function popup(url, name, width, height, returnWin, statusBar)
 {
-	var url = url || "";
-	var width = width || 500;
-	var name = name || "CC";
-	var height = height || 600;
+	url = url || "";
+	width = width || 500;
+	name = name || "CC";
+	height = height || 600;
 	var left = (screen.width - width)/2;
 	var top = (screen.height - height)/2.1;
 	var win = window.open(url, name, 'left = ' + left + ', top = ' + top + ', toolbar = 0, scrollbars = 1, location = 0, status = ' + (statusBar ? 1 : 0) + ', statusmenubar = 0, resizable = 1, width=' + width + ', height=' + height);
 	if ( returnWin ){
 		if (window.focus) {
-		win.focus()
+			win.focus();
 		}
 		return win;
 	}
@@ -91,7 +91,7 @@ function ShowMore( section, ext ) {
 			id = "moreonlineusers";
 			break;
 	}
-	if( g(id).style.display == "none" || g(id).style.display == "" ) { // this doesn't work without || g(id).style.display == ""
+	if( g(id).style.display == "none" || g(id).style.display === "" ) { // this doesn't work without || g(id).style.display == ""
 		g(id).style.display = "block";
 		g( section + "link").className = "arrowup";
 	}
@@ -103,13 +103,15 @@ function ShowMore( section, ext ) {
 
 function submitenter( myform, e ) {
 	var keycode;
-	if (window.event)
+	if (window.event) {
 		keycode = window.event.keyCode;
-	else if ( e )
+	}
+	else if ( e ) {
 		keycode = e.which;
-	else 
+	}
+	else {
 		return true;
-
+	}
 	if (keycode == 13) {
 		if ( typeof myform.onsubmit == 'function' ) {
 			myform.onsubmit();
@@ -130,20 +132,24 @@ var Userbox = {
 	,SetCookieTimeout: null
 	,AnimationStep: 0
 	,Animate: function() {
-		if( Userbox.Status == null ) {
+		if( Userbox.Status === null ) {
 			Userbox.FindStatus();
 		}
 		g('userbox').style.position = "absolute";
-		if( Userbox.Status == "hidden" )
+		if( Userbox.Status == "hidden" ) {
 			Userbox.Show();
-		else
+		}
+		else {
 			Userbox.Hide();
+		}
 	}
 	,FindStatus: function () {
-		if( g('userbox').style.top == "-51px" )
+		if( g('userbox').style.top == "-51px" ) {
 			Userbox.Status == "hidden";
-		else
+		}
+		else {
 			Userbox.Status == "shown";
+		}
 	}
 	,Hide: function () {
 		g('userboxhide').style.visibility = "hidden";
@@ -160,7 +166,7 @@ var Userbox = {
 		}
 	}
 	,Show: function () {
-		if( Userbox.onShowAnimation == false) {
+		if( Userbox.onShowAnimation === false) {
 			Userbox.onShowAnimation = true;
 			g('userboxshow').style.visibility = "hidden";
 			Userbox.ShowAnimation();
