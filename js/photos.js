@@ -1,7 +1,7 @@
 var Photos = {
 	EditListPhoto : function( photo , photoid , typeid ) {
 		var masterdiv = photo;
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var masterdivchilda = masterdiv.getElementsByTagName( 'a' );
 			var firstlink = masterdivchilda[ 0 ];
 			var secondlink = masterdivchilda[ 1 ];
@@ -18,7 +18,7 @@ var Photos = {
 				return function()  {
 					Photos.SaveEditingListPhoto( photo , photoid , text , typeid );
 					return false;
-				}
+				};
 			})( masterdiv , photoid , photoname , 0 );
 			var theinput = document.createElement( 'input' );
 			theinput.type = 'text';
@@ -49,7 +49,7 @@ var Photos = {
 				return function() {
 					Photos.CancelEditingListPhoto( photo , photoid , text , typeid );
 					return false;
-				}
+				};
 			})( masterdiv , photoid , photoname , 0 );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -95,7 +95,7 @@ var Photos = {
 				return function() {
 					Photos.SaveEditingListPhoto( photo , photoid , text , typeid );
 					return false;
-				}
+				};
 			})( masterdiv , photoid , photodescription , 1 );
 			var theinput = document.createElement( 'input' );
 			theinput.type = 'text';
@@ -125,7 +125,7 @@ var Photos = {
 				return function() {
 					Photos.CancelEditingListPhoto( photo , photoid , text , typeid );
 					return false;
-				}
+				};
 			})( masterdiv , photoid , photodescription , 1 );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -151,7 +151,7 @@ var Photos = {
 	,
 	CancelEditingListPhoto : function( photo , photoid , text , typeid ) {
 		var masterdiv = photo;
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var masterdivchildinput = masterdiv.getElementsByTagName( 'form' );
 			var firstinput = masterdivchildinput[ 0 ];
 			
@@ -187,7 +187,7 @@ var Photos = {
 				return function() { 
 					Photos.EditListPhoto( photo , photoid, typeid ); 
 					return false;
-				}
+				};
 			})( masterdiv ,  photoid, 0 );
 			editlink.alt = 'Επεξεργασία ονόματος';
 			editlink.title = 'Επεξεργασία περιγραφής';
@@ -206,7 +206,7 @@ var Photos = {
 				return function() { 
 					Photos.DeletePhoto( photo , photoid ); 
 					return false;
-				}
+				};
 			})( masterdiv ,  photoid );
 			deletelink.appendChild( deleteimage );
 			
@@ -256,7 +256,7 @@ var Photos = {
 				return function() {
 					Photos.EditListPhoto( photo , photoid , typeid );
 					return false;
-				}
+				};
 			})( masterdiv , photoid , 1 );
 			editlink.alt = 'Επεξεργασία περιγραφής';
 			editlink.title = 'Επεξεργασία περιγραφής';
@@ -276,12 +276,12 @@ var Photos = {
 	SaveEditingListPhoto : function( photo , photoid , text , typeid ) {
 		var thephoto = photo;
 		var thephotochildform = thephoto.getElementsByTagName( 'form' );
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var thefirstform = thephotochildform[ 0 ];
 			var thephotochildinput = thefirstform.getElementsByTagName( 'input' );
 			var theinput = thephotochildinput[ 0 ];
 			var newphotoname = theinput.value;
-			if ( newphotoname == '' ) {
+			if ( newphotoname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για την φωτογραφία' );
 				theinput.value = text;
 				theinput.focus();
@@ -300,7 +300,7 @@ var Photos = {
 			var theinput = thephotochildinput[ 0 ];
 			var newdescription = theinput.value;
 			var newphotodescriptionshow = newdescription;
-			if ( newdescription == '' ) {
+			if ( newdescription === '' ) {
 				newphotodescriptionshow = '-Δεν έχεις ορίσει περιγραφή-';
 			}
 			Photos.CancelEditingListPhoto( photo , photoid , newphotodescriptionshow , 1 );
@@ -312,7 +312,7 @@ var Photos = {
 	,
 	EditSmallPhoto : function ( photoid , typeid , node ) {
 		var thediv = node;
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var thedivchildh2 = thediv.getElementsByTagName( 'h2' );
 			var theh2 = thedivchildh2[ 0 ];
 			var photoname = theh2.innerHTML;
@@ -327,7 +327,7 @@ var Photos = {
 				return function() { 
 					Photos.SaveEditingSmallPhoto( photoid, text , typeid , node); 
 					return false;
-				}
+				};
 			})( photoid , photoname , 0 , thediv );
 			var theinput = document.createElement( 'input' );
 			theinput.type = 'text';
@@ -345,7 +345,7 @@ var Photos = {
 				return function() { 
 					Photos.SaveEditingSmallPhoto( photoid, text , typeid , node); 
 					return false;
-				}
+				};
 			})( photoid , photoname , 0 , thediv );
 			acceptlink.alt = 'Ενημέρωση';
 			acceptlink.title = 'Ενημέρωση';
@@ -358,7 +358,7 @@ var Photos = {
 				return function() { 
 					Photos.CancelEditingSmallPhoto( photoid, text , typeid , node ); 
 					return false;
-				}
+				};
 			})( photoid , photoname , 0 , thediv );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -390,7 +390,7 @@ var Photos = {
 				return function() { 
 					Photos.SaveEditingSmallPhoto( photoid, text , typeid , node ); 
 					return false;
-				}
+				};
 			})( photoid , photodescription , 1 , node );
 			var theinput = document.createElement( 'input' );
 			theinput.type = 'text';
@@ -421,7 +421,7 @@ var Photos = {
 				return function() { 
 					Photos.CancelEditingSmallPhoto( photoid, text , typeid , node ); 
 					return false;
-				}
+				};
 			})( photoid , photodescription , 1 , thediv );
 			cancellink.alt = 'Ακύρωση';
 			cancellink.title = 'Ακύρωση';
@@ -443,7 +443,7 @@ var Photos = {
 	,
 	CancelEditingSmallPhoto : function ( photoid , text , typeid , node ) {
 		var thediv = node;
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var thedivchildform = thediv.getElementsByTagName( 'form' );
 			var theform = thedivchildform[ 0 ];
 			
@@ -459,7 +459,7 @@ var Photos = {
 				return function() { 
 					Photos.EditSmallPhoto( photoid , typeid , node ); 
 					return false;
-				}
+				};
 			})( photoid , 0 , node );
 			editlink.alt = 'Επεξεργασία ονόματος';
 			editlink.title = 'Επεξεργασία περιγραφής';
@@ -490,7 +490,7 @@ var Photos = {
 				return function() { 
 					Photos.EditSmallPhoto( photoid , typeid , node ); 
 					return false;
-				}
+				};
 			})( photoid , 1 , thediv );
 			editlink.alt = 'Επεξεργασία ονόματος';
 			editlink.title = 'Επεξεργασία ονόματος';
@@ -505,11 +505,11 @@ var Photos = {
 	,
 	SaveEditingSmallPhoto : function ( photoid , text , typeid , node ) {
 		var thediv = node;
-		if ( typeid == 0 ) {
+		if ( typeid === 0 ) {
 			var thedivchildinput = thediv.getElementsByTagName( 'input' );		
 			var theinput = thedivchildinput[ 0 ];
 			var newphotoname = theinput.value;
-			if ( newphotoname == '' ) {
+			if ( newphotoname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για την φωτογραφία' );
 				theinput.value = text;
 				theinput.focus();
