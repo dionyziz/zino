@@ -11,6 +11,7 @@
         while ( $row = $res->FetchArray() ) {
             var_dump( $row );
         }
+        die();
         
         $userid = $id->Get();
         $name = $name->Get();
