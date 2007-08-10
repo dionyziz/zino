@@ -100,7 +100,7 @@ var Comments = {
 			
 			g( 'comment_' + id + '_toolbar' ).style.display = 'none';
 			g( 'comment_edit_' + id + '_toolbar' ).style.display = '';
-			var editform = g( 'comment_text_' + id).parentNode.insertBefore( editform, g( 'comment_text_' + id ).nextSibling );
+			editform = g( 'comment_text_' + id).parentNode.insertBefore( editform, g( 'comment_text_' + id ).nextSibling );
 			
 			Comments.onedit[ id ] = true;
 			
