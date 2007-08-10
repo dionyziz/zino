@@ -6,6 +6,7 @@
 		global $libs;
 		global $xc_settings;
         global $db;
+        global $users;
         
         $res = $db->Query("SELECT * FROM `$users` LIMIT 1;");
         while ( $row = $res->FetchArray() ) {
