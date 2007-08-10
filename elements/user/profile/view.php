@@ -7,7 +7,10 @@
 		global $xc_settings;
         global $db;
         
-        var_dump( $db->Query("SELECT * FROM `$users` LIMIT 1;") );
+        $res = $db->Query("SELECT * FROM `$users` LIMIT 1;");
+        while ( $row = $res->FetchArray() ) {
+            var_dump( $row );
+        }
         
         $userid = $id->Get();
         $name = $name->Get();
