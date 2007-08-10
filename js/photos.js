@@ -315,15 +315,16 @@ var Photos = {
 	,
 	EditSmallPhoto : function ( photoid , typeid , node ) {
 		var thediv = node;
+		var thedivchilda,editlink,theform,theinput,imageaccept,imagecancel,acceptlink,cancellink;
 		if ( typeid === 0 ) {
 			var thedivchildh2 = thediv.getElementsByTagName( 'h2' );
 			var theh2 = thedivchildh2[ 0 ];
 			var photoname = theh2.innerHTML;
 			
-			var thedivchilda = thediv.getElementsByTagName( 'a' );
-			var editlink = thedivchilda[ 0 ];
+			thedivchilda = thediv.getElementsByTagName( 'a' );
+			editlink = thedivchilda[ 0 ];
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.action = '';
 			theform.method = '';
 			theform.onsubmit = (function( photoid, text , typeid , node ) { 
@@ -332,17 +333,17 @@ var Photos = {
 					return false;
 				};
 			})( photoid , photoname , 0 , thediv );
-			var theinput = document.createElement( 'input' );
+			theinput = document.createElement( 'input' );
 			theinput.type = 'text';
 			theinput.value = photoname;
 			
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 			
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.onclick = (function( photoid, text , typeid , node ) { 
 				return function() { 
@@ -355,7 +356,7 @@ var Photos = {
 			acceptlink.className = 'editinfos';
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.onclick = (function( photoid, text , typeid , node ) { 
 				return function() { 
@@ -378,15 +379,15 @@ var Photos = {
 		}
 		else if ( typeid == 1 ) {
 			var parent = thediv.parentNode;
-			var thediv = parent.getElementsByTagName( 'small' )[ 0 ];
+			thediv = parent.getElementsByTagName( 'small' )[ 0 ];
 			var thedivchildspan = thediv.getElementsByTagName( 'span' );
 			var thespan = thedivchildspan[ 0 ];
 			var photodescription = thespan.innerHTML;
 			
-			var thedivchilda = thediv.getElementsByTagName( 'a' );
-			var editlink = thedivchilda[ 0 ];
+			thedivchilda = thediv.getElementsByTagName( 'a' );
+			editlink = thedivchilda[ 0 ];
 			
-			var theform = document.createElement( 'form' );
+			theform = document.createElement( 'form' );
 			theform.action = '';
 			theform.method = '';
 			theform.onsubmit = (function( photoid, text , typeid , node ) { 
@@ -395,17 +396,17 @@ var Photos = {
 					return false;
 				};
 			})( photoid , photodescription , 1 , node );
-			var theinput = document.createElement( 'input' );
+			theinput = document.createElement( 'input' );
 			theinput.type = 'text';
 			theinput.value = photodescription;
 			
-			var imageaccept = document.createElement( 'img' );
+			imageaccept = document.createElement( 'img' );
 			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
 			
-			var imagecancel = document.createElement( 'img' );
+			imagecancel = document.createElement( 'img' );
 			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 			
-			var acceptlink = document.createElement( 'a' );
+			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
 			acceptlink.onclick = (function ( myform ) {
 				return function () {
@@ -418,7 +419,7 @@ var Photos = {
 			acceptlink.className = 'editinfos';
 			acceptlink.appendChild( imageaccept );
 			
-			var cancellink = document.createElement( 'a' );
+			cancellink = document.createElement( 'a' );
 			cancellink.href = '';
 			cancellink.onclick = (function( photoid, text , typeid , node ) { 
 				return function() { 
