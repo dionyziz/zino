@@ -27,9 +27,10 @@ var Comments = {
 		}
 	},
 	Edit : function( id ) {
-		if ( Comments.onedit[ id ] == true )
+		if ( Comments.onedit[ id ] === true ) {
 			return;
-		else if ( Comments.onedit[ id ] == false ) {
+		}
+		else if ( Comments.onedit[ id ] === false ) {
 			Comments.EditCallback( id, "" );
 			return;
 		}
@@ -57,22 +58,22 @@ var Comments = {
 	},
 	EditCallback : function( id, text ) {
 		document.body.style.cursor = "default";
-		if( Comments.onedit[ id ] == null ) {
+		if( Comments.onedit[ id ] === null ) {
 			g( 'comment_text_' + id ).style.display = 'none';
 			
-			editid = document.createElement( 'input' );
+			var editid = document.createElement( 'input' );
 			editid.type = 'hidden';
 			editid.name = 'eid';
 			editid.value = id;
 			
-			editarea = document.createElement( 'textarea' );
+			var editarea = document.createElement( 'textarea' );
 			editarea.name = 'text';
 			editarea.appendChild( document.createTextNode( text ) );
 			editarea.style.width = '95%';
 			editarea.style.height = '100px';
 			editarea.id = 'select_comment_' + id;
 			
-			editform = document.createElement( 'form' );
+			var editform = document.createElement( 'form' );
 			editform.id = 'comment_editform_' + id;
 			editform.onsubmit = function () {
 							Coala.Warm( 'comments/edit', { 'eid':editid.value, 'text':editarea.value, 'callback' : Comments.replaceText } );
@@ -106,7 +107,7 @@ var Comments = {
 			g( 'select_comment_' + id ).focus();
 			g( 'select_comment_' + id ).select();
 		}
-		else if ( Comments.onedit[ id ] == false ) { // has previously canceled edit
+		else if ( Comments.onedit[ id ] === false ) { // has previously canceled edit
 			g( 'comment_text_' + id ).style.display = 'none';
 			g( 'comment_editform_' + id ).style.display = 'block';
 			
@@ -130,7 +131,7 @@ var Comments = {
 		textn.appendChild( divine );
 	},
 	checkEmpty : function( id ) {
-		if( g( 'select_comment_' + id ).value == '' ) {
+		if( g( 'select_comment_' + id ).value === '' ) {
 			alert( 'Δεν μπορείς να δημοσιεύσεις κενό σχόλιο' );
 		}
 		else {
@@ -147,7 +148,7 @@ var Comments = {
 		
 		element = g( 'comment_' + id + '_toolbar' );
 		
-		if ( Comments.onedit[ id ] == true ) {
+		if ( Comments.onedit[ id ] === true ) {
 			for ( i in element.childNodes ) {
 				child = element.childNodes[ i ];
 				if( child.nodeType == 1 ) {
@@ -207,7 +208,7 @@ var Comments = {
 		var temp = d.createElement( 'div' );
 		temp.innerHTML = newcomm;
 		
-		if ( parent == 0 ) { // New Comment
+		if ( parent === 0 ) { // New Comment
 			g( 'comment_new' ).getElementsByTagName( 'textarea' )[0].value='';
 			if ( type != 0 ) {
 				comments.insertBefore( temp.firstChild, comments.childNodes[1] );

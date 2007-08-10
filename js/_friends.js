@@ -23,7 +23,7 @@ var Friends = {
         selected.style.opacity = 1;
         selected.style.display = "list-item";
 	
-		if ( avatar != '' || rank != '' || hobbies != '' ) { // If the user didn't have a previous relation with you
+		if ( avatar !== '' || rank !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
 			var newfan = document.getElementById( 'newfan' );
 	        newfan.id = "fan_" + userid;
 	        var content = document.getElementById( 'newfancontent' );
@@ -40,7 +40,7 @@ var Friends = {
 	        content.appendChild( role );
 	        content.appendChild( document.createTextNode( rank ) );
 	        content.appendChild( document.createElement( 'br' ) );
-	        if ( hobbies != '' ) {
+	        if ( hobbies !== '' ) {
 	            var interests = document.createElement( 'b' );
 	            interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
 	            content.appendChild( interests );
