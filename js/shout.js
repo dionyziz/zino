@@ -152,19 +152,19 @@ var Shoutbox = {
 	,checkSize : function( e ) {
 		var key;
 		var targ;
-		if(!e) {
-			var e = window.event;
+		if ( !e ) {
+			e = window.event;
 		}
-		if( e.target ) {
+		if ( e.target ) {
 			targ = e.target;
 		}
-		else if( e.srcElement ) {
+		else if ( e.srcElement ) {
 			targ = e.srcElement;
 		}
-		if( e.keyCode ) {
+		if ( e.keyCode ) {
 			key = e.keyCode;
 		}
-		else if( e.which ) {
+		else if ( e.which ) {
 			key = e.which;
 		}
 		else {
@@ -175,14 +175,14 @@ var Shoutbox = {
 		var express = new RegExp("\r", "g");
 		var table = text.match(express);
 		var len;
-		if(table==null) {
+		if ( table==null ) {
 			len = text.length;
 		}
 		else {
 			len = text.length-table.length;
 		}
-		if( len >= 300 ) { // The text exceeded the 300 character limit
-			switch( key ) {
+		if ( len >= 300 ) { // The text exceeded the 300 character limit
+			switch ( key ) {
 				case 8: // Backspace
 				case 46: // Delete
 				case 37: // Left
