@@ -8,7 +8,7 @@
     	'nofilters'      	=> true,
     	'ushoutbox'      	=> 'shoutbox',
     	'cookiename'     	=> 'cc_login_7',
-        'cookiedomain'    	=> '.excalibur.qlabs.gr',
+        'cookiedomain'    	=> '.beta.chit-chat.gr',
         'staticimagesurl' 	=> 'http://static.chit-chat.gr/images/',
         'imagesurl'       	=> 'http://images.chit-chat.gr/',
 		'anonymouscomments' => false,
