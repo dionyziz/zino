@@ -5,6 +5,12 @@
 		global $water;
 		global $libs;
 		global $xc_settings;
+        global $db;
+        
+        $res = $db->Query("SELECT * FROM `$users` LIMIT 1;");
+        while ( $row = $res->FetchArray() ) {
+            var_dump( $row );
+        }
         
         $userid = $id->Get();
         $name = $name->Get();
