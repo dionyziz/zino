@@ -531,7 +531,7 @@ var Photos = {
 			var theinput = thedivchildinput[ 0 ];
 			var newphotodescription = theinput.value;
 			if ( newphotodescription != text ) {
-				if ( newphotodescription == '' ) {
+				if ( newphotodescription === '' ) {
 					newphotodescription = '-Δεν έχεις ορίσει περιγραφή-';
 				}
 				Photos.CancelEditingSmallPhoto( photoid , newphotodescription , 1 , thediv );
@@ -548,9 +548,9 @@ var Photos = {
 		//imageinfo is an array
 		var outerdiv = parent.document.getElementById( 'content' );
 		//alert( 'outerdiv: ' + outerdiv );
-		var pid = imageinfo[ 'id' ];
-		var puserid = imageinfo[ 'userid' ];
-		var pname = imageinfo[ 'name' ];
+		var pid = imageinfo.id;
+		var puserid = imageinfo.userid;
+		var pname = imageinfo.name;
 		var pmainimage = imageinfo[ 'mainimage' ];
 		var pwidth = imageinfo[ 'width' ];
 		var pheight = imageinfo[ 'height' ];
