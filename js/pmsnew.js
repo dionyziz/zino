@@ -34,7 +34,7 @@ var pms = {
 		pms.ShowFolder( folder , folderid );
 	}
 	,
-	ExpandPm : function( pmdiv , notread ) {
+	ExpandPm : function( pmdiv , notread , pmid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
 		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
