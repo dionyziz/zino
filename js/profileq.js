@@ -10,7 +10,15 @@ var Profileq = {
 		
 		var qform = d.createElement( 'form' );
 
-		qform.onsubmit = (function( id ){ return function(){ Animations.SetAttribute( element , 'opacity' , 0.5 );Coala.Warm( 'question/edit', {'id':qid.value , 'answer':qanswer.value, 'callback':Profileq.EditCallback });Profileq.EditCancel(id, qanswer.value);Animations.SetAttribute( element , 'opacity' , 1 );return false;} })(id);
+		qform.onsubmit = (function( id ){
+							return function(){
+								Animations.SetAttribute( element , 'opacity' , 0.5 );
+								Coala.Warm( 'question/edit', {'id':qid.value , 'answer':qanswer.value, 'callback':Profileq.EditCallback });
+								Profileq.EditCancel(id, qanswer.value);
+								Animations.SetAttribute( element , 'opacity' , 1 );
+								return false;
+							};
+						})(id);
 
 		var imageaccept = document.createElement( 'img' );
 		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
@@ -45,7 +53,12 @@ var Profileq = {
 		qcancel.href = '';
 		qcancel.alt = 'Ακύρωση';
 		qcancel.title = 'Ακύρωση';
-		qcancel.onclick = (function( id, answer ){ return function(){ Profileq.EditCancel(id, answer);return false;} })(id, answer);
+		qcancel.onclick = (function( id, answer ){
+							return function(){
+								Profileq.EditCancel(id, answer);
+								return false;
+							};
+						})(id, answer);
 		qcancel.appendChild( imagecancel );
 		
 		
@@ -64,7 +77,7 @@ var Profileq = {
 		}
 		
 		var l = document.createElement( 'a' );
-		l.onclick = function() { Profileq.Edit( id );return false;}
+		l.onclick = function() { Profileq.Edit( id );return false;};
 		l.href = "";
 		l.title = "Επεξεργασία ερώτησης";
 
@@ -86,13 +99,13 @@ var Profileq = {
 			element.removeChild(element.firstChild);
 		}
 		
-		var raw = g( 'qraw_' + id )
+		var raw = g( 'qraw_' + id );
 		while (raw.firstChild) {
 			raw.removeChild(raw.firstChild);
 		}
 		
 		var qeditlink = d.createElement( 'a' );
-		qeditlink.href = 'javascript: Profileq.Edit( ' + id + ' )';
+		qeditlink.href = 'Profileq.Edit( ' + id + ' )';
 		qeditlink.title = 'Επεξεργασία Ερώτησης';
 		var qeditimg = d.createElement( 'img' );
 		qeditimg.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
@@ -214,7 +227,7 @@ var Profileq = {
     Save : function( id ) {
         g('qanswer').blur();
         var answer=g('qanswer').value;
-		if( answer != '' ) {
+		if( answer !== '' ) {
 			Profileq.Wait( );
 			Coala.Warm( 'question/answer', {'questionid': id, 'answer':answer, 'callback' : Profileq.AnswerCallback, 'newquest' : Profileq.ShowNewQuestion } );
 			d.body.style.cursor = "default";
