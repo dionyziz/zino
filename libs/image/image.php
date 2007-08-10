@@ -488,6 +488,9 @@
 			$change = $db->Query( $sql );
 
 			if ( $change->Impact() ) {
+                $sql = "REPLACE INSERT INTO `merlin_images` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
+                $db->Query( $sql );
+
 				return $lastimgid;
 			}
             return 0;
