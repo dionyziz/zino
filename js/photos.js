@@ -152,6 +152,7 @@ var Photos = {
 	,
 	CancelEditingListPhoto : function( photo , photoid , text , typeid ) {
 		var masterdiv = photo;
+		var imageedit,editlink;
 		if ( typeid === 0 ) {
 			var masterdivchildinput = masterdiv.getElementsByTagName( 'form' );
 			var firstinput = masterdivchildinput[ 0 ];
@@ -179,10 +180,10 @@ var Photos = {
 			namelink.appendChild( namespaninv );
 			namelink.appendChild( namespan );
 			
-			var imageedit = document.createElement( 'img' );
+			imageedit = document.createElement( 'img' );
 			imageedit.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( photo , photoid, typeid ) { 
 				return function() { 
@@ -248,10 +249,10 @@ var Photos = {
 			
 
 			
-			var imageedit = document.createElement( 'img' );
+			imageedit = document.createElement( 'img' );
 			imageedit.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( photo , photoid , typeid ) {
 				return function() {
@@ -277,10 +278,11 @@ var Photos = {
 	SaveEditingListPhoto : function( photo , photoid , text , typeid ) {
 		var thephoto = photo;
 		var thephotochildform = thephoto.getElementsByTagName( 'form' );
+		var thefirstform,thephotochildinput,theinput;
 		if ( typeid === 0 ) {
-			var thefirstform = thephotochildform[ 0 ];
-			var thephotochildinput = thefirstform.getElementsByTagName( 'input' );
-			var theinput = thephotochildinput[ 0 ];
+			thefirstform = thephotochildform[ 0 ];
+			thephotochildinput = thefirstform.getElementsByTagName( 'input' );
+			theinput = thephotochildinput[ 0 ];
 			var newphotoname = theinput.value;
 			if ( newphotoname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για την φωτογραφία' );
@@ -296,9 +298,9 @@ var Photos = {
 			}
 		}
 		else if ( typeid == 1 ) {
-			var thefirstform = thephotochildform[ thephotochildform.length - 1 ];
-			var thephotochildinput = thefirstform.getElementsByTagName( 'input' );
-			var theinput = thephotochildinput[ 0 ];
+			thefirstform = thephotochildform[ thephotochildform.length - 1 ];
+			thephotochildinput = thefirstform.getElementsByTagName( 'input' );
+			theinput = thephotochildinput[ 0 ];
 			var newdescription = theinput.value;
 			var newphotodescriptionshow = newdescription;
 			if ( newdescription === '' ) {
