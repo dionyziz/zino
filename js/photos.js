@@ -447,17 +447,18 @@ var Photos = {
 	,
 	CancelEditingSmallPhoto : function ( photoid , text , typeid , node ) {
 		var thediv = node;
+		var thedivchildform,theform,editimage,editlink
 		if ( typeid === 0 ) {
-			var thedivchildform = thediv.getElementsByTagName( 'form' );
-			var theform = thedivchildform[ 0 ];
+			thedivchildform = thediv.getElementsByTagName( 'form' );
+			theform = thedivchildform[ 0 ];
 			
 			var theh2 = document.createElement( 'h2' );
 			theh2.appendChild( document.createTextNode( text ) );
 			
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( photoid, typeid , node ) { 
 				return function() { 
@@ -478,17 +479,17 @@ var Photos = {
 			var parent = thediv.parentNode;
 			thediv = parent.getElementsByTagName( 'small' )[ 0 ];
 			
-			var thedivchildform = thediv.getElementsByTagName( 'form' );
-			var theform = thedivchildform[ 0 ];
+			thedivchildform = thediv.getElementsByTagName( 'form' );
+			theform = thedivchildform[ 0 ];
 			
 			var thespan = document.createElement( 'span' );
 			thespan.appendChild( document.createTextNode( text ) );
 			thespan.className = 'details';
 			thespan.style.fontSize = '9pt';
-			var editimage = document.createElement( 'img' );
+			editimage = document.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
-			var editlink = document.createElement( 'a' );
+			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.onclick = (function( photoid, typeid , node ) { 
 				return function() { 
@@ -509,9 +510,10 @@ var Photos = {
 	,
 	SaveEditingSmallPhoto : function ( photoid , text , typeid , node ) {
 		var thediv = node;
+		var thedivchildinput,theinput;
 		if ( typeid === 0 ) {
-			var thedivchildinput = thediv.getElementsByTagName( 'input' );		
-			var theinput = thedivchildinput[ 0 ];
+			thedivchildinput = thediv.getElementsByTagName( 'input' );		
+			theinput = thedivchildinput[ 0 ];
 			var newphotoname = theinput.value;
 			if ( newphotoname === '' ) {
 				alert( 'Πρέπει να ορίσεις ένα όνομα για την φωτογραφία' );
@@ -531,8 +533,8 @@ var Photos = {
 			}
 		}
 		else if ( typeid == 1 ) {
-			var thedivchildinput = thediv.getElementsByTagName( 'input' );		
-			var theinput = thedivchildinput[ 0 ];
+			thedivchildinput = thediv.getElementsByTagName( 'input' );		
+			theinput = thedivchildinput[ 0 ];
 			var newphotodescription = theinput.value;
 			if ( newphotodescription != text ) {
 				if ( newphotodescription === '' ) {
@@ -766,15 +768,16 @@ var Photos = {
 		else {
 			newnumbertext = ' φωτογραφίες';
 		}
+		var photospan;
 		if ( document.getElementById( 'photonumber' ) ) {	
-			var photospan = document.getElementById( 'photonumber' );
+			photospan = document.getElementById( 'photonumber' );
 			if ( photospan.nextSibling ) {
 				newnumbertext += ',';
 			}
 			photospan.innerHTML = newnumber + newnumbertext;
 		}
 		else { 
-			var photospan = document.createElement( 'span' );
+			photospan = document.createElement( 'span' );
 			photospan.id = 'photonumber';
 			photospan.style.fontSize = '9pt';
 			var newtext = document.createTextNode( newnumber + newnumbertext );
