@@ -221,9 +221,11 @@ var pms = {
 			var msgnodedivs = msgnode.getElementsByTagName( 'div' );
 			var msgnodeimgs = msgnode.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
+			var delimg2 = msgnodeimgs[ 1 ];
 			var lowerdiv = msgnodedivs[ 6 ];
 			lowerdiv.style.display = 'none';
 			delimg.style.display = 'none';
+			delimg2.style.display = 'none';
 			msgnode.style.margin = '0px';
 			Animations.Create( msgnode , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( msgnode , 'height' , 3000 , msgnode.offsetHeight , 0 , function() {
