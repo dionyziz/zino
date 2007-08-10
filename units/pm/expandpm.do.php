@@ -7,7 +7,8 @@ function UnitPmExpandpm( tInteger $pmid ) {
 	$pmid = $pmid->Get();
 
 	$pm = new PM( $pmid );
-	if ( !$pm->IsRead ) {
+	if ( !$pm->IsRead ) {	
+		?>alert( 'doing' );<?php
 		$pm->DelId = 1;	
 	}
 }
