@@ -7,9 +7,7 @@ function UnitPmExpandpm( tInteger $pmid ) {
 	$pmid = $pmid->Get();
 	$pm = new PM( $pmid );
 	?>alert( '<?php echo $pmid; ?>' );<?php
-	?>alert( '<?php 
-	echo $pm->Id;
-	?>' );<?php
+	?>alert( '<?php echo "." . $pm->Id . "."; ?>' );<?php
 	if ( !$pm->IsRead ) {	
 		$pm->DelId = 1;	
 		//$pm->Save();
