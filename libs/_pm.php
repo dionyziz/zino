@@ -192,13 +192,13 @@
 							`pm_text = '" . $this->Text . "' AND
 							`pm_textformatted` = '" . $this->TextFormatted . "' AND
 							`pmif_id` = '" . $this->Id . "' AND
-							`pmif_userid` = '" . $this->UserId . "' AND
+							`pmif_userid` = '" . $this->User->Id() . "' AND
 							`pmif_folderid` = '" . $this->FolderId . "' AND
 							`pmif_delid` = '" . $this->DelId . "'
 						WHERE
 							`pm_id` = '" . $this->Id . "' AND
 							`pmif_id` = '" . $this->Id . "' AND
-							`pmif_userid` = '" . $this->UserId . "'
+							`pmif_userid` = '" . $this->User->Id() . "'
 						;";
 				
 				$change = $db->Query( $sql );
