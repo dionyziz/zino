@@ -60,7 +60,6 @@ var pms = {
 		if ( notread ) {
 			Coala.Warm( 'pm/expandpm' , { pmdid : pmid } );
 		}
-		alert( pmid );
 	}
 	,
 	NewFolder : function() {
