@@ -11,7 +11,7 @@ function UnitPmExpandpm( tInteger $pmid ) {
 	?> );<?php
 	if ( !$pm->IsRead ) {	
 		$pm->DelId = 1;	
-		$pm->Save();
+		//$pm->Save();
 	}
 }
 ?>
