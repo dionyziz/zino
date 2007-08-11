@@ -295,6 +295,7 @@
                     echo "alert( " . print_r( $construct ) . " );";
 				}
 				else {
+                    echo "alert( 'no results' );";
 					$construct = array();
 				}
 			}
