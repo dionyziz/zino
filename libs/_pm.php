@@ -284,7 +284,7 @@
 							`$pmfolders` ON `pmif_folderid` = `pmfolder_id` AND `pmif_userid` = `pmfolder_userid` AND `pmfolder_delid` = '0' 
 						WHERE
 							`pm_id` = '$construct' AND
-							( `pm_senderid` = '" . $pmuser->Id() . "' OR `pmif_userid` = '" . $pmuser->Id() . "' ) AND
+							( `pm_senderid` = '" . $pmuser->Id() . "' OR `pmif_userid` = '" . $pmuser->Id() . "' ) 
 						LIMIT
 							1;";
 				
