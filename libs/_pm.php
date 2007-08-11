@@ -288,14 +288,14 @@
 							`pmfolder_delid` = '0'
 						LIMIT
 							1;";
-							
+				
+                echo "alert( '$sql' );";
 				$res = $db->Query( $sql );
 				if ( $res->Results() ) {
 					$construct = $res->FetchArray();
                     echo "alert( " . print_r( $construct ) . " );";
 				}
 				else {
-                    echo "alert( 'no results' );";
 					$construct = array();
 				}
 			}
