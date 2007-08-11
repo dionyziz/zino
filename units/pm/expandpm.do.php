@@ -9,6 +9,7 @@ function UnitPmExpandpm( tInteger $pmid ) {
 	$pm = new PM( $pmid );
 	if ( !$pm->IsRead ) {	
 		$pm->DelId = 1;	
+		$pm->Save();
 	}
 }
 ?>
