@@ -27,7 +27,7 @@
             echo $rabbit_settings[ 'webaddress' ];
             ?>/"><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
-            ?>logo-dm.jpg" alt="Chit-Chat" class="logo" /></a>
+            ?>logo-xc.jpg" alt="Chit-Chat" class="logo" /></a>
 			<ul>
                 <li>
                     <form action="" method="get">
