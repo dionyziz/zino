@@ -23,6 +23,7 @@ ul.daddy {
 	cursor: pointer;
 	position: absolute;
 	padding-left: 20px;
+	z-index: 1;
 }
 
 /*----------------Code from sidebar.css--------------------*/
