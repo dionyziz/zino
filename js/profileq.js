@@ -266,7 +266,6 @@ var Profileq = {
 				child.style.display = 'none';
 			}
 		}
-	
 		var loading = d.createElement( 'span' );
 		loading.id = "loading";
 		loading.style.opacity = "0.5";
