@@ -23,6 +23,7 @@ ul.daddy {
 	cursor: pointer;
 	position: absolute;
 	padding-left: 20px;
+	z-index: 1
 }
 
 /*----------------Code from sidebar.css--------------------*/
@@ -34,6 +35,7 @@ a.arrow {
 	width: 16px;
 	height: 16px;
 	margin-right: 1px;
+	z-index: 1
 }
 a.arrowup {
 	float: left;
@@ -44,6 +46,7 @@ a.arrowup {
 	margin-right: 1px;
 	position: relative;
 	bottom: 4px;
+	z-index: 1
 }
 a.arrow:link, a.arrow:visited, a.arrow:active {
 	background-image: url('http://static.chit-chat.gr/images/icons/dropdown.jpg');
