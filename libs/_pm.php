@@ -281,15 +281,13 @@
 						FROM
 							`$pmmessages` INNER JOIN 
 							`$pmmessageinfolder` ON `pm_id` = `pmif_id` LEFT JOIN 
-							`$pmfolders` ON `pmif_folderid` = `pmfolder_id` AND `pmif_userid` = `pmfolder_userid`
+							`$pmfolders` ON `pmif_folderid` = `pmfolder_id` AND `pmif_userid` = `pmfolder_userid` AND `pmfolder_delid` = '0' 
 						WHERE
 							`pm_id` = '$construct' AND
 							( `pm_senderid` = '" . $pmuser->Id() . "' OR `pmif_userid` = '" . $pmuser->Id() . "' ) AND
-							`pmfolder_delid` = '0'
 						LIMIT
 							1;";
 				
-                echo 'alert( "' . $sql . '" );';
 				$res = $db->Query( $sql );
 				if ( $res->Results() ) {
 					$construct = $res->FetchArray();
