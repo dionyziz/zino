@@ -188,12 +188,12 @@
 				$sql = "UPDATE
 							`$pmmessages`, `$pmmessageinfolder`
 						SET
-							`pm_senderid` = '" . $this->SenderId . "' AND
-							`pm_text = '" . $this->Text . "' AND
-							`pm_textformatted` = '" . $this->TextFormatted . "' AND
-							`pmif_id` = '" . $this->Id . "' AND
-							`pmif_userid` = '" . $this->User->Id() . "' AND
-							`pmif_folderid` = '" . $this->FolderId . "' AND
+							`pm_senderid` = '" . $this->SenderId . "',
+							`pm_text = '" . $this->Text . "',
+							`pm_textformatted` = '" . $this->TextFormatted . "' ,
+							`pmif_id` = '" . $this->Id . "',
+							`pmif_userid` = '" . $this->User->Id() . "',
+							`pmif_folderid` = '" . $this->FolderId . "',
 							`pmif_delid` = '" . $this->DelId . "'
 						WHERE
 							`pm_id` = '" . $this->Id . "' AND
