@@ -188,17 +188,17 @@
 				$sql = "UPDATE
 							`$pmmessages`, `$pmmessageinfolder`
 						SET
-							`pm_senderid` = '" . $this->SenderId . "',
-							`pm_text = '" . $this->Text . "',
-							`pm_textformatted` = '" . $this->TextFormatted . "' ,
-							`pmif_id` = '" . $this->Id . "',
-							`pmif_userid` = '" . $this->User->Id() . "',
-							`pmif_folderid` = '" . $this->FolderId . "',
-							`pmif_delid` = '" . $this->DelId . "'
+							`pm_senderid` = '" . myescape( $this->SenderId ) . "',
+							`pm_text = '" . myescape( $this->Text ) . "',
+							`pm_textformatted` = '" . myescape( $this->TextFormatted ) . "',
+							`pmif_id` = '" . myescape( $this->Id ) . "',
+							`pmif_userid` = '" . myescape( $this->User->Id() ) . "',
+							`pmif_folderid` = '" . myescape( $this->FolderId ) . "',
+							`pmif_delid` = '" . myescape( $this->DelId ) . "'
 						WHERE
-							`pm_id` = '" . $this->Id . "' AND
-							`pmif_id` = '" . $this->Id . "' AND
-							`pmif_userid` = '" . $this->User->Id() . "'
+							`pm_id` = '" . myescape( $this->Id ) . "' AND
+							`pmif_id` = `pm_id` AND
+							`pmif_userid` = '" . myescape( $this->User->Id() ) . "'
 						;";
 				
 				$change = $db->Query( $sql );
