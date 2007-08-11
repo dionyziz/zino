@@ -291,7 +291,6 @@
 				$res = $db->Query( $sql );
 				if ( $res->Results() ) {
 					$construct = $res->FetchArray();
-                    echo "alert( " . print_r( $construct ) . " );";
 				}
 				else {
 					$construct = array();
