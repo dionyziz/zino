@@ -289,7 +289,7 @@
 						LIMIT
 							1;";
 				
-                echo "alert( \"$sql\" );";
+                echo 'alert( "' . $sql . '" );';
 				$res = $db->Query( $sql );
 				if ( $res->Results() ) {
 					$construct = $res->FetchArray();
