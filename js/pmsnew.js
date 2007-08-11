@@ -58,6 +58,7 @@ var pms = {
 		}
 		pms.activepm = pmdiv;
 		if ( notread ) {
+			alert( pmid );
 			Coala.Warm( 'pm/expandpm' , { pmdid : pmid } );
 		}
 	}
