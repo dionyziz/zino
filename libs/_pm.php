@@ -280,7 +280,7 @@
 							* 
 						FROM
 							`$pmmessages` INNER JOIN 
-							`$pmmessageinfolder` ON `pm_id` = `pmif_id` INNER JOIN 
+							`$pmmessageinfolder` ON `pm_id` = `pmif_id` LEFT JOIN 
 							`$pmfolders` ON `pmif_folderid` = `pmfolder_id` AND `pmif_userid` = `pmfolder_userid`
 						WHERE
 							`pm_id` = '$construct' AND
