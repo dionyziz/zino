@@ -47,7 +47,17 @@ var Tween = {
 			}
 		}
 	},
-    GetValue: function( start, end, percentage ) { // traditional tween function here
+    GetValue: function( start, end, percentage ) {
+        // multivalue tween
+        if ( start instanceof Array ) {
+            ret = [];
+            for ( i in start ) {
+                // RECURSE! to any depth
+                ret[ i ] = Tween.GetValue( start[ i ], end[ i ], percentage );
+            }
+            return ret;
+        }
+        // traditional tween function here
         return start + percentage * ( end - start );
     }
 };
@@ -103,6 +113,8 @@ var Animations = {
 		if ( start === false ) {
 			start = Animations.GetAttribute( node , attribute );
 		}
+        start = Animations.GetValue( start );
+        end   = Animations.GetValue( end   );
 		index = Animations.Current.length;
 		Animations.Current[ index ] = {
 			'Object': node,
@@ -120,6 +132,24 @@ var Animations = {
 		};
         return index;
 	},
+    GetValue: function ( target ) {
+        if ( typeof target == 'number' ) {
+            return target;
+        }
+        if ( typeof target == 'string' ) {
+            // #c010le
+            if ( target.substr( 0, 1 ) == '#' ) {
+                target = target.substr( 1, 6 );
+                return [
+                    parseInt( target.substr( 0, 2 ), 16 ),
+                    parseInt( target.substr( 2, 2 ), 16 ),
+                    parseInt( target.substr( 4, 2 ), 16 )
+                ];
+            }
+        }
+        // fallback
+        return target;
+    },
 	Break: function ( id ) {
 		return Tween.Break( Animations.Current[ id ].Tween );
 	},
@@ -142,7 +172,21 @@ var Animations = {
                     object.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
                 }
 				break;
-            case 'fontsize':
+            case 'background-color':
+                object.style.backgroundColor = 'rgb(' 
+                                                + Math.round( value[ 0 ] ) + ',' 
+                                                + Math.round( value[ 1 ] ) + ',' 
+                                                + Math.round( value[ 2 ] ) 
+                                                + ')';
+                break;
+            case 'color':
+                object.style.color = 'rgb(' 
+                                     + Math.round( value[ 0 ] ) + ',' 
+                                     + Math.round( value[ 1 ] ) + ',' 
+                                     + Math.round( value[ 2 ] ) 
+                                     + ')';
+                break;
+            case 'font-size':
                 object.style.fontSize = value;
 		}
 	},

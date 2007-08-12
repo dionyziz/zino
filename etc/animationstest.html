@@ -3,16 +3,20 @@
         <script type="text/javascript" src="../js/animations.js"></script>
     </head>
     <body>
-        <div id="foo" style="opacity:0;position:absolute;left:20px;top:50px;width:100px;height:100px;background-color:#1070b0;border:3px solid #333;text-align:center;color:white;font-family:Arial;font-weight:bold;font-size:12pt">
+        <div id="foo" style="opacity:1;position:absolute;left:20px;top:50px;width:100px;height:100px;background-color:#1070b0;border:3px solid #333;text-align:center;color:white;font-family:Arial;font-weight:bold;font-size:12pt">
             sweet
         </div>
         <script type="text/javascript">
             foo = document.getElementById( 'foo' );
+            /*
             Animations.Create( foo, "left", 3000, 20, 300, new Function(), Interpolators.Pulse );
             Animations.Create( foo, "width", 2000, 100, 200, new Function(), Interpolators.Sin );
             Animations.Create( foo, "height", 2000, 100, 200, new Function(), Interpolators.Sin );
             Animations.Create( foo, "opacity", 3000, 0, 1, new Function(), Interpolators.Pulse );
-            Animations.Create( foo, "fontsize", 3000, 12, 51, new Function(), Interpolators.Pulse );
+            Animations.Create( foo, "font-size", 3000, 12, 51, new Function(), Interpolators.Pulse );
+            */
+            Animations.Create( foo, "background-color", 10000, '#f0f000', '#1070b0', new Function(), Interpolators.Sin );
+            Animations.Create( foo, "color",            10000, '#1070b0', '#ffffff', new Function(), Interpolators.Sin );
         </script>
     </body>
 </html>
