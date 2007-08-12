@@ -18,23 +18,33 @@
                 foo_ = document.getElementById( 'foo' );
                 bar_ = document.getElementById( 'bar' );
                 baz_ = document.getElementById( 'baz' );
-                Drag.Create( 
-                    foo_ , [ bar_, baz_ ], 
-                    function ( draggable, droppable ) { // on drop
+                dragthing = Drag.Create( foo_ );
+                dragthing.AddDroppable( bar_ );
+                dragthing.AddDroppable( baz_ );
+                dragthing.SetOnDrop(
+                    function ( draggable, droppable ) {
                         Animations.Create( draggable, 'left', 500, draggable.offsetLeft, droppable.offsetLeft + droppable.offsetWidth / 2 - draggable.offsetWidth / 2 );
                         Animations.Create( draggable, 'top',  500, draggable.offsetTop, droppable.offsetTop + droppable.offsetHeight / 2 - draggable.offsetHeight / 2 );
-                    },
-                    function ( draggable ) { // on drag start
+                    }
+                );
+                dragthing.SetOnStart(
+                    function ( draggable ) {
                         draggable.style.opacity = '0.7';
-                    },
-                    function ( draggable ) { // on drag stop
+                    }
+                );
+                dragthing.SetOnEnd(
+                    function ( draggable ) {
                         draggable.style.opacity = '1';
-                    },
-                    function ( draggable, droppable ) { // on droppable over
+                    }
+                );
+                dragthing.SetOnOver(
+                    function ( draggable, droppable ) {
                         droppable.style.border = '3px solid #888';
                         droppable.style.fontSize = '20pt';
-                    },
-                    function ( draggable, droppable ) { // on droppable out
+                    }
+                );
+                dragthing.SetOnOut(
+                    function ( draggable, droppable ) {
                         droppable.style.border = '3px solid #333';
                         droppable.style.fontSize = '12pt';
                     }

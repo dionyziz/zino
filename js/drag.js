@@ -132,7 +132,27 @@ var Drag = {
             Drag.Current[ idx ].Node, 'top', 500, starty, endy
         );
     },
-    Create: function ( what, droppables, callback_ondrop, callback_onstart, callback_onend, callback_onover, callback_onout ) {
+    _AddDroppable: function ( idx, droppable ) {
+        Drag.Current[ idx ].Droppables.push( droppable );
+        Drag.Current[ idx ].DropPositions.push( Drag.FindPos( droppable ) );
+        Drag.Current[ idx ].DropOver.push( false );
+    },
+    _SetCallbackOnDrop: function ( idx, callback_ondrop ) {
+        Drag.Current[ idx ].Callback_OnDrop = callback_ondrop;
+    },
+    _SetCallbackOnStart: function ( idx, callback_onstart ) {
+        Drag.Current[ idx ].Callback_OnStart = callback_onstart;
+    },
+    _SetCallbackOnEnd: function ( idx, callback_onend ) {
+        Drag.Current[ idx ].Callback_OnEnd = callback_onend;
+    },
+    _SetCallbackOnOver: function ( idx, callback_onover ) {
+        Drag.Current[ idx ].Callback_OnOver = callback_onover;
+    },
+    _SetCallbackOnOut: function ( idx, callback_onout ) {
+        Drag.Current[ idx ].Callback_OnOut = callback_onout;
+    },
+    Create: function ( what ) { 
         what.onmousedown = (function ( idx ) {
             return function ( e ) {
                 Drag.Start( e , idx );
@@ -143,32 +163,47 @@ var Drag = {
                 Drag.Stop( e , idx );
             };
         }( Drag.Current.length );
-        droppositions = [];
-        for ( i in droppables ) {
-            droppositions[ i ] = Drag.FindPos( droppables[ i ] );
-        }
         dropover = [];
-        for ( i in droppables ) {
-            dropover[ i ] = false;
-        }
-        Drag.Current[ Drag.Current.length ] = {
-            'Node'            : what            ,
-            'X'               : 0               ,
-            'Y'               : 0               ,
-            'Active'          : false           ,
-            'Enabled'         : true            ,
-            'Droppables'      : droppables      ,
-            'DropPositions'   : droppositions   ,
-            'DropOver'        : dropover        ,
-            'Callback_OnDrop' : callback_ondrop ,
-            'Callback_OnOver' : callback_onover ,
-            'Callback_OnOut'  : callback_onout  ,
-            'Callback_OnStart': callback_onstart,
-            'Callback_OnEnd'  : callback_onend
+        idx = Drag.Current.push( {
+            'Node'            : what           ,
+            'X'               : 0              ,
+            'Y'               : 0              ,
+            'Active'          : false          ,
+            'Enabled'         : true           ,
+            'Droppables'      : []             ,
+            'DropPositions'   : []             ,
+            'DropOver'        : []             ,
+            'Callback_OnDrop' : function () {} ,
+            'Callback_OnOver' : function () {} ,
+            'Callback_OnOut'  : function () {} ,
+            'Callback_OnStart': function () {} ,
+            'Callback_OnEnd'  : function () {}
+        } ) - 1;
+        return {
+            'AddDroppable': function ( droppable ) {
+                Drag._AddDroppable( idx, droppable );
+            },
+            'SetOnDrop': function ( callback_ondrop ) {
+                Drag._SetCallbackOnDrop( idx, callback_ondrop );
+            },
+            'SetOnOver': function ( callback_onover ) {
+                Drag._SetCallbackOnOver( idx, callback_onover );
+            },
+            'SetOnOut': function ( callback_onout ) {
+                Drag._SetCallbackOnOut( idx, callback_onout );
+            },
+            'SetOnStart': function ( callback_onstart ) {
+                Drag._SetCallbackOnStart( idx, callback_onstart );
+            },
+            'SetOnEnd': function ( callback_onend ) {
+                Drag._SetCallbackOnEnd( idx, callback_onend );
+            },
+            'Destroy': function () {
+                Drag._Destroy( idx );
+            }
         };
-        return Drag.Current.length - 1;
     },
-    Destroy: function ( idx ) {
+    _Destroy: function ( idx ) {
         
     },
     GetMouseXY: function( e ) {
