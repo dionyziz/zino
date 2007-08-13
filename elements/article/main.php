@@ -97,8 +97,13 @@
 			</div>
 			<br />
 		</div>
-		<div class="body"><?php 
-			echo $articletext;
+		<div class="body"><?php
+			if ( is_array( $articletext ) ) {
+				echo $articletext[ 0 ];
+			}
+			else {
+				echo $articletext;
+			}
 		?></div><?php
 	}
 ?>
