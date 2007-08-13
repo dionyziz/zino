@@ -4,15 +4,20 @@
 	// merlin magic parsing script	
 	function mformatstories( $sources, $showemoticons = true ) {
         foreach ( $sources as $i => $source ) {
+        	echo "Ime mesa stn mformatstories: " . $sources[ $i ] . "<br />";
             $sources[ $i ] = htmlspecialchars( $sources[ $i ] );
+            echo "To perasa apo htmlspecialchars: " . $sources[ $i ] . "<br />";
     		if ( $showemoticons !== false 
                  && ( $showemoticons === true || $showemoticons[ $i ] ) ) {
     			$sources[ $i ] = smileys( $sources[ $i ] );
+    			echo "To perasa apo smileys: " . $sources[ $i ] . "<br />";
     		}
         }
         $outputs = magik_multi( $sources );
+        echo "To perasa apo magik_multi " . $outputs[0] . "<br />";
         foreach ( $outputs as $i => $output ) {
-    		$outputs[ $i ] = nl2br( $outputs[ $i ] );	
+    		$outputs[ $i ] = nl2br( $outputs[ $i ] );
+    		echo "Allaksa ta newline se br " . $outputs[ $i ] . "<br />";
     		$outputs[ $i ] = "<blockquote>" . $outputs[ $i ] . "</blockquote>";
         }
 		return $outputs;
