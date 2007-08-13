@@ -1,5 +1,6 @@
 <?php
     function ElementTest() {
+    	global $libs;
         var_dump(
             User_ByUsername(
                 array(
@@ -7,5 +8,6 @@
                 )
             )
         );
+        echo mformatstories( array( "Kostis90gr" ), true );
     }
 ?>
