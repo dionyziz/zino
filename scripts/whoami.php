@@ -1,5 +1,5 @@
 <?php
 
-    exec( 'whoami' );
+    echo exec( 'whoami' );
 
 ?>
