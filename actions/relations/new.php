@@ -10,7 +10,7 @@
     	$libs->Load( 'relations' );
     	
     	$type = $type->Get();
-    	if( $type == '' || strlen( $type ) > 30 ) {
+    	if( $type == '' || strlen( $type ) > 20 ) {
     		return;
     	}
     	$relation = New Relation();

@@ -25,7 +25,7 @@ var Relations = {
 		rform.id = 'editrform';
 		rform.onsubmit = (function( id ) {
 				return function() {
-					if( rinput.value != '' && rinput.value.length <= 30 ) {
+					if( rinput.value != '' && rinput.value.length <= 20 ) {
 						Coala.Warm( 'relations/edit', { 'rid' : id, 'rtype' : rinput.value } );
 						g( 'rraw_' + id ).firstChild.nodeValue = rinput.value;
 					}
@@ -33,7 +33,7 @@ var Relations = {
 						alert( "Δεν μπορείς να δημιουργήσεις κενή σχέση" );
 					}
 					else {
-						alert( "Δεν μπορεί μια σχέση να έχει όνομα μεγαλύτερο των 30 χαρακτήρων" );
+						alert( "Δεν μπορεί μια σχέση να έχει όνομα μεγαλύτερο των 20 χαρακτήρων" );
 					}
 					Relations.cancelEdit( id );
 						return false;
