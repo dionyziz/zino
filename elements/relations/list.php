@@ -23,7 +23,7 @@
 			<form id="newrform" action="do/relations/new" method="post" style="display: none;" >
 			<fieldset style="width: 40px">
 			<legend><font color="#2412FE"><b>Δημιουργία Σχέσης</b></font></legend>
-			<input type="text" id="type" name="type" class="bigtext" value="Γράψε εδώ την νέα Σχέση!" onfocus="((this.value=='Γράψε εδώ την νέα Σχέση!')?this.value='':this.value=this.value);" onkeypress="return Relations.checkSize( window.event );" />
+			<input type="text" id="type" name="type" class="bigtext" value="Γράψε εδώ την νέα Σχέση!" onfocus="((this.value=='Γράψε εδώ την νέα Σχέση!')?this.value='':this.value=this.value);" onkeypress="return Relations.checkSize( event );" />
 			<a onclick="g( 'newrform' ).submit();return false;" style="cursor: pointer;" alt="Δημιουργία" title="Δημιουργία"><img src="<?php 
 			echo $xc_settings[ 'staticimagesurl' ];
 			?>icons/accept.png" /></a>&nbsp;
