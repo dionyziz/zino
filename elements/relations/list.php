@@ -20,9 +20,9 @@
 		
 		$relations = AllRelations();
 		?><br /><a id="newr" onclick="Relations.create();return false;" alt="Νέα Σχέση" title="Νέα Σχέση" style="cursor: pointer;">Δημιούργησε μια νέα σχέση</a>
-			<form id="newrform" action="do/relations/new" method="post" style="display: none;" onsubmit="if( g( 'type' ).value.length > 20 ) {
+			<form id="newrform" action="do/relations/new" method="post" style="display: none;" onsubmit="function () {if( g( 'type' ).value.length > 20 ) {
 			alert( 'Δεν μπορεί μια σχέση να έχει όνομα μεγαλύτερο των 20 χαρακτήρων' );
-		}" onkeypress="function (e) { return submitenter( this, e ); }">
+		}return true;}" onkeypress="function (e) { return submitenter( this, e ); }">
 			<fieldset style="width: 40px">
 			<legend><font color="#2412FE"><b>Δημιουργία Σχέσης</b></font></legend>
 			<input type="text" id="type" name="type" class="bigtext" value="Γράψε εδώ την νέα Σχέση!" onfocus="((this.value=='Γράψε εδώ την νέα Σχέση!')?this.value='':this.value=this.value);" />
