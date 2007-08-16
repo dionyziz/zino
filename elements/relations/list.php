@@ -24,7 +24,7 @@
 			<fieldset style="width: 40px">
 			<legend><font color="#2412FE"><b>Δημιουργία Σχέσης</b></font></legend>
 			<input type="text" id="type" name="type" class="bigtext" value="Γράψε εδώ την νέα Σχέση!" onfocus="((this.value=='Γράψε εδώ την νέα Σχέση!') ? this.value='' : this.value=this.value);" onkeypress="function( e ) {
-											if( g( 'type ' ).value.length > 20 ) {
+											if( g( 'type' ).value.length > 20 ) {
 												return false;
 											}
 											return submitenter(this,e);
