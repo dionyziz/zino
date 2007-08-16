@@ -9,9 +9,5 @@
                 )
             )
         );*/
-        $arthro = New Article( 283 );
-        echo "<!--";
-        echo $arthro->SmallStory();
-        echo "-->";
     }
 ?>
