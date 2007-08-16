@@ -116,5 +116,49 @@ var Relations = {
 		g( 'newrform' ).type.value = "Γράψε εδώ την νέα Σχέση!";
 		Relations.onedit = false;
 	}
+	,checkSize : function( e ) {
+		var key;
+		var targ;
+		if ( !e ) {
+			e = window.event;
+		}
+		if ( e.target ) {
+			targ = e.target;
+		}
+		else if ( e.srcElement ) {
+			targ = e.srcElement;
+		}
+		if ( e.keyCode ) {
+			key = e.keyCode;
+		}
+		else if ( e.which ) {
+			key = e.which;
+		}
+		else {
+			alert( "Δεν ήταν δυνατό να προσδιοριστεί το κουμπί που πατήθηκε!Τι φυλλομετρητή χρησιμοποιείς;" );
+		}
+		var len = targ.value.length;
+		if ( len >= 20 ) { // The text exceeded the 300 character limit
+			switch ( key ) {
+				case 8: // Backspace
+				case 46: // Delete
+				case 37: // Left
+				case 39: // Right
+				case 36: // Home
+				case 35: //End
+				case 38: // Up
+				case 40: // Down
+					return true;
+				case 13: // Enter
+					g( 'newrform' ).submit();
+					return true;
+				default:
+					return false;
+			}
+		}
+		else {
+			return true;
+		}
+	}
 };
 		
