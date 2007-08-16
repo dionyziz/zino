@@ -76,17 +76,17 @@
 	}
 	function mformatsmallstories( $sources ) {
         foreach ( $sources as $i => $source ) {
-        	echo "Mpeno sto mformatsmallstories:<br />" . $source . "<br /><br />";
+        	echo "Mpeno sto mformatsmallstories:\r\n" . $source . "\r\n\r\n";
     		$sources[ $i ] = clearmerlin( $sources[ $i ] );
-    		echo "Skotosa ta merlin:<br />" . $source . "<br /><br />";
+    		echo "Skotosa ta merlin:\r\n" . $source . "\r\n\r\n";
     		$sources[ $i ] = strip_tags( $sources[ $i ] );
-    		echo "Ksegimnosa ta tags:<br />" . $source . "<br /><br />";
+    		echo "Ksegimnosa ta tags:\r\n" . $source . "\r\n\r\n";
     		$sources[ $i ] = utf8_substr( $sources[ $i ], 0, 700 );
-    		echo "Kati utf8 ekana:<br />" . $source . "<br /><br />";
+    		echo "Kati utf8 ekana:\r\n" . $source . "\r\n\r\n";
     		$sources[ $i ] = htmlspecialchars( $sources[ $i ] );
-    		echo "Specialistas xaraktiron:<br />" . $source . "<br /><br />";
+    		echo "Specialistas xaraktiron:\r\n" . $source . "\r\n\r\n";
     		$sources[ $i ] = smileys( $sources[ $i ] );
-    		echo "Pan i fatsoules:<br />" . $source . "<br /><br />";
+    		echo "Pan i fatsoules:\r\n" . $source . "\r\n\r\n";
         }
         
 		return $outputs = $sources;
