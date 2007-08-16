@@ -122,12 +122,6 @@ var Relations = {
 		if ( !e ) {
 			e = window.event;
 		}
-		if ( e.target ) {
-			targ = e.target;
-		}
-		else if ( e.srcElement ) {
-			targ = e.srcElement;
-		}
 		if ( e.keyCode ) {
 			key = e.keyCode;
 		}
@@ -137,7 +131,7 @@ var Relations = {
 		else {
 			alert( "Δεν ήταν δυνατό να προσδιοριστεί το κουμπί που πατήθηκε!Τι φυλλομετρητή χρησιμοποιείς;" );
 		}
-		var len = targ.value.length;
+		var len = g( 'type' ).value.length;
 		if ( len >= 20 ) { // The text exceeded the 300 character limit
 			switch ( key ) {
 				case 8: // Backspace
