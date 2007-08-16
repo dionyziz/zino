@@ -27,7 +27,9 @@
 											if( g( 'type' ).value.length > 20 ) {
 												return false;
 											}
-											return submitenter(this,e);
+											else {
+												return submitenter(this,e);
+											}
 										}
 			"/>
 			<a onclick="g( 'newrform' ).submit();return false;" style="cursor: pointer;" alt="Δημιουργία" title="Δημιουργία"><img src="<?php 
