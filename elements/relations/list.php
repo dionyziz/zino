@@ -21,7 +21,7 @@
 		$relations = AllRelations();
 		?><br /><a id="newr" onclick="Relations.create();return false;" alt="Νέα Σχέση" title="Νέα Σχέση" style="cursor: pointer;">Δημιούργησε μια νέα σχέση</a>
 			<form id="newrform" action="do/relations/new" method="post" style="display: none;" onsubmit="if( g( 'type' ).value.length > 20 ) {
-			alert( "Δεν μπορεί μια σχέση να έχει όνομα μεγαλύτερο των 20 χαρακτήρων" );
+			alert( 'Δεν μπορεί μια σχέση να έχει όνομα μεγαλύτερο των 20 χαρακτήρων' );
 		}">
 			<fieldset style="width: 40px">
 			<legend><font color="#2412FE"><b>Δημιουργία Σχέσης</b></font></legend>
