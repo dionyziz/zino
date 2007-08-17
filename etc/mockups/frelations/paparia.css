@@ -9,5 +9,6 @@ div.frelation {
 	padding-left: 50px;
 	padding-right: 50px;
 	z-index:1;
+	text-align:center;
 	cursor: hand;
 }
