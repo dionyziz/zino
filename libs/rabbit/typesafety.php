@@ -60,7 +60,7 @@
             }
         }
         public function rewind() {
-            return reset($this->var);
+            return reset($this->mValues);
         }
         public function current() {
             return current($this->mValues);
