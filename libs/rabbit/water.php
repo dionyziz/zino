@@ -397,10 +397,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			ksort( $this->mOutputProfiles );
 			
 			$json = w_json_encode( array(
-                'alerts' => $this->mOutputAlerts,
-                'profiles' => $this->mOutputProfiles,
-                'sql' => $this->mOutputSQL
-            ) );
+					'alerts' => $this->mOutputAlerts,
+					'profiles' => $this->mOutputProfiles,
+					'sql' => $this->mOutputSQL
+				 )
+				, $this->mSettings[ 'maxstring' ]
+			);
 			
 			// for allowing stand-alone debugging, we can process the page and only send back the debug JSON
 			// the permissions checks are done by the caller of this function so this is safe

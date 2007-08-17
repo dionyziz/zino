@@ -68,7 +68,7 @@
                   && $rabbit_settings[ 'port' ] < 65536        , "`port' setting must be in range 1 - 65535" );
         
         // webaddress should point to a valid URL
-        w_assert( ValidURL( 'http://' . $rabbit_settings[ 'webaddress' ] . '/' ) );
+        w_assert( ValidURL( $rabbit_settings[ 'webaddress' ] . '/' ) );
         
         // check if we're on the right site -- if not, redirect
         $httphost = $_SERVER[ 'HTTP_HOST' ];
@@ -77,7 +77,7 @@
     	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
     		header( 'HTTP/1.1 301 Moved Permanently' );
             // TODO: append part of the original URL to the redirection URL?
-    		header( 'Location: http://' . $rabbit_settings[ 'webaddress' ] . '/' );
+    		header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
     		exit();
     	}
     }
