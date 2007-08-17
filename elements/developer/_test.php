@@ -3,15 +3,24 @@
         global $libs;
         global $page;
         
+        $runtests = $testcases->Get();
+        
         $page->SetTitle( 'Unit Test' );
         $libs->Load( 'rabbit/unittest' );
-        $testcases = Test_GetTestcases()
-        ?><ul><?php
-        foreach ( $testcases as $testcase ) {
-            ?><li><?php
+        $validtests = Test_GetTestcases();
+        
+        ?><br />Select which tests to run:<br />
+        <form action="" method="get">
+        <ul><?php
+        foreach ( $validtests as $testcase ) {
+            ?><li><input type="checkbox" name="testcases" value="<?php
+            echo htmlspecialchars( $testcase->Name() );
+            ?>" /><?php
             echo $testcase->Name();
             ?></li><?php
         }
-        ?></ul><?php
+        ?></ul><br />
+        <input type="submit" value="Test!" />
+        </form><?php
     }
 ?>
