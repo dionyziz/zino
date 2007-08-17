@@ -93,20 +93,28 @@
             $this->mTestcases[] = $testcase;
         }
         public function Run() {
+            global $water;
+            
+            $water->Profile( 'Running ' . count( $this->mTestcases ) . ' testcases' );
             $this->mTestcaseResults = array();
             foreach ( $this->mTestcases as $i => $testcase ) {
+                $water->Profile( 'Running testcase ' . $testcase->Name() );
                 $obj = New ReflectionObject( $testcase );
                 $methods = $obj->getMethods();
                 $runresults = array();
                 foreach ( $methods as $method ) {
                     if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
+                        $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
                         call_user_func( array( $obj, $method->getName() ) ); // MAGIC
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
+                        $water->ProfileEnd();
                     }
                 }
                 $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
+                $water->ProfileEnd();
             }
+            $water->ProfileEnd();
         }
         public function GetResults() {
             return $this->mTestResults;
