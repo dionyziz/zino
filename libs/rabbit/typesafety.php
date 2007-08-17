@@ -52,6 +52,9 @@
             w_assert( $baseclass->isSubclassOf( New ReflectionClass( 'tBaseType' ) ), '$basetype, second parameter to tArray constructor from your custom type-safe type, is expected to be a string of a class name derived from tBaseType' );
             
             $this->mValues = array();
+            if ( empty( $values ) ) { // false
+                return;
+            }
             foreach ( $values as $value ) {
                 $this->mValues[] = New $basetype( $value ); // MAGIC!
             }
