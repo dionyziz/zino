@@ -5,7 +5,7 @@
         $libs->Load( 'rabbit/unittest' );
         $testcases = Test_GetTestcases()
         ?><ul><?php
-        foreach ( $tests as $testcase ) {
+        foreach ( $testcases as $testcase ) {
             ?><li><?php
             echo $testcase->Name();
             ?></li><?php
