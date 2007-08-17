@@ -1,5 +1,5 @@
 <?php
-	function ElementAdminWater() {
+	function ElementDeveloperWater() {
 		?><script type="text/javascript"><?php	
 		ob_start();
 		?>
