@@ -55,5 +55,5 @@
         }
     }
     
-    return New Test_Rabbit_TypeSafety();
+    return New TestRabbitTypeSafety();
 ?>
