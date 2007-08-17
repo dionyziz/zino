@@ -34,6 +34,7 @@
         <form action="" method="get">
         <ul><?php
         foreach ( $validtests as $i => $testcase ) {
+            $name = $testcase->Name();
             ?><li><input type="checkbox" name="runtests" value="<?php
             echo htmlspecialchars( $name );
             ?>" id="rabbit_test_<?php

@@ -82,10 +82,13 @@
     }
     
     class Tester {
-        protected $mTestcaseResults;
+        protected $mTestResults;
         protected $mTestcases;
         protected $mAssertResults;
         
+        public function Tester() {
+            $this->mTestcases = array();
+        }
         public function AddTestcase( Testcase $testcase ) {
             $this->mTestcases[] = $testcase;
         }
