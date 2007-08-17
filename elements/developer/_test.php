@@ -32,6 +32,7 @@
         
         ?><br />Select which test or tests to run:<br />
         <form action="" method="get">
+        <input type="hidden" name="p" value="unittest" />
         <ul><?php
         foreach ( $validtests as $i => $testcase ) {
             $name = $testcase->Name();
