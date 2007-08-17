@@ -3,7 +3,7 @@
         global $libs;
         global $page;
         
-        $page->Title = 'Unit Test';
+        $page->SetTitle( 'Unit Test' );
         $libs->Load( 'rabbit/unittest' );
         $testcases = Test_GetTestcases()
         ?><ul><?php
