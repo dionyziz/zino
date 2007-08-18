@@ -108,7 +108,6 @@
                         $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
                         call_user_func( array( $testcase, $method->getName() ) ); // MAGIC
-                        die( $method->getName() .'.' );
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                         $water->ProfileEnd();
                     }
