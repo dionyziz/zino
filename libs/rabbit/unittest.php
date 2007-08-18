@@ -24,6 +24,7 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
+            die( 'Asssssert==!!!' );
             $this->InformTester(
                 New AssertResult( $actual === $expected, $message, $actual, $expected )
             );
@@ -34,7 +35,6 @@
             );
         }
         protected function Assert( $actual, $message = '' ) {
-            die( 'Asssssert!!!' );
             return $this->AssertEquals( true, ( bool )$actual, $message ); // ==
         }
         protected function AssertTrue( $actual, $message = '' ) {
