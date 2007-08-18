@@ -106,7 +106,7 @@
                     if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
                         $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
-                        $method->invoke( $obj ); // MAGIC
+                        call_user_method( $method->getName(), $obj ); // MAGIC
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                         $water->ProfileEnd();
                     }
