@@ -78,7 +78,11 @@
                             ?> assertions)</span><?php
                         }
                         else {
-                            ?>: <span class="fail">FAIL</span><br /><ul class="assertresults"><?php
+                            ?>: <span class="fail">FAIL</span> <span class="subject">(<?php
+                            echo $runresults->NumSuccessfulAssertions();
+                            ?> out of <?php
+                            echo $runresults->NumAssertions();
+                            ?> assertions pass)</span><br /><ul class="assertresults"><?php
                             foreach ( $runresults as $assertresult ) {
                                 if ( !$assertresult->Success() ) {
                                     ?><li><b>Assertion failed:</b> <em class="message"><?php
