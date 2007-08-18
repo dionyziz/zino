@@ -2,6 +2,7 @@
     function ElementDeveloperTest( tStringArray $runtests ) {
         global $libs;
         global $page;
+        global $water;
         
         $libs->Load( 'rabbit/unittest' );
         $page->SetTitle( 'Unit Test' );
