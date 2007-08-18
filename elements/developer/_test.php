@@ -6,7 +6,7 @@
         
         $libs->Load( 'rabbit/unittest' );
         $page->SetTitle( 'Unit Test' );
-        $page->AttachStylesheet( 'rabbit/unittest.css' );
+        $page->AttachStylesheet( 'css/rabbit/unittest.css' );
         
         $validtests = Test_GetTestcases();
         $validtestsbyname = array();
