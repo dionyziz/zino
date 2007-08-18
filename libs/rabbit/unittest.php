@@ -106,7 +106,7 @@
                     if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
                         $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
-                        call_user_func( array( $obj, $method->getName() ) ); // MAGIC
+                        $method->invoke( $obj ); // MAGIC
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                         $water->ProfileEnd();
                     }
@@ -135,19 +135,19 @@
             return $this->mTestcase;
         }
         public function Results() {
-            return $this->mTestResults;
+            return $this->mRunResults;
         }
         public function rewind() {
-            return reset( $this->mTestResults );
+            return reset( $this->mRunResults );
         }
         public function current() {
-            return current( $this->mTestResults );
+            return current( $this->mRunResults );
         }
         public function key() {
-            return key( $this->mTestResults );
+            return key( $this->mRunResults );
         }
         public function next() {
-            return next( $this->mTestResults );
+            return next( $this->mRunResults );
         }
         public function valid() {
             return $this->current() !== false;
