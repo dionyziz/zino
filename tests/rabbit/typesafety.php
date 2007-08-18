@@ -58,6 +58,9 @@
             echo Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_CoalaPtr', array( 'ptr' => 'xxx' ) );
             $this->AssertEquals( ob_get_clean(), 'xxx' );
         }
+        public function TestArgumentOrder() {
+            $this->AssertEquals( 0.5, Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleFloat', array( 'hohohoinvalid' => 0.6 ) ) );
+        }
     }
     
     return New TestRabbitTypeSafety();
