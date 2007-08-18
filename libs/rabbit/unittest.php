@@ -107,8 +107,8 @@
                     if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
                         $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
-                        die( $method->getName() .'.' );
                         call_user_func( array( $testcase, $method->getName() ) ); // MAGIC
+                        die( $method->getName() .'.' );
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                         $water->ProfileEnd();
                     }
