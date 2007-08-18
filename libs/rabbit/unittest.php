@@ -104,11 +104,12 @@
                 $methods = $obj->getMethods();
                 $runresults = array();
                 foreach ( $methods as $method ) {
-                    if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
-                        $water->Profile( 'Running testrun ' . $method->getName() );
+                    $methodname = $method->getName();
+                    if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
+                        $water->Profile( 'Running testrun ' . $methodname );
                         $this->mAssertResults = array();
-                        call_user_func( array( $testcase, $method->getName() ) ); // MAGIC
-                        $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
+                        call_user_func( array( $testcase, $methodname ) ); // MAGIC
+                        $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                         $water->ProfileEnd();
                     }
                 }
