@@ -24,10 +24,10 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            die( 'Asssssert==!!!' );
-            $this->InformTester(
-                New AssertResult( $actual === $expected, $message, $actual, $expected )
-            );
+            /* $this->InformTester( */
+                New AssertResult( $actual === $expected, $message, $actual, $expected );
+            // );
+            die( 'xxx' );
         }
         protected function AssertNotEquals( $notexpected, $actual, $message = '' ) {
             $this->InformTester(
