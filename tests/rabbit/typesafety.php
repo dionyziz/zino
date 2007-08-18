@@ -31,6 +31,11 @@
             $this->Assert( class_exists( 'tBoolean'      ), 'tBoolean class does not exist'      );
             $this->Assert( class_exists( 'tString'       ), 'tString class does not exist'       );
             $this->Assert( class_exists( 'tCoalaPointer' ), 'tCoalaPointer class does not exist' );
+            $this->Assert( class_exists( 'tArray'        ), 'tArray class does not exist'        );
+            $this->Assert( class_exists( 'tIntegerArray' ), 'tIntegerArray class does not exist' );
+            $this->Assert( class_exists( 'tFloatArray'   ), 'tFloatArray class does not exist'   );
+            $this->Assert( class_exists( 'tBooleanArray' ), 'tBooleanArray class does not exist' );
+            $this->Assert( class_exists( 'tStringArray'  ), 'tStrinArray class does not exist'   );
         }
         public function TestFunctionsExist() {
             $this->Assert( function_exists( 'Rabbit_TypeSafe_Call' ), 'Rabbit_TypeSafe_Call function does not exist' );
