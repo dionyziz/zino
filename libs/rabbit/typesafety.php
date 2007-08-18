@@ -44,7 +44,6 @@
         protected $mValues;
         
         public function tArray( $values, $basetype ) {
-            die( var_dump( $values ) );
             w_assert( is_string( $basetype ), '$basetype, second parameter to tArray constructor from your custom type, must be a string' );
             w_assert( class_exists( $basetype ), '$basetype, second parameter to tArray constructor from your custom type, cannot be the empty string' );
             
