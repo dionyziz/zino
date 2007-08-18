@@ -133,6 +133,8 @@
     function Rabbit_TypeSafe_Call( $function , $req ) {
         global $water;
         
+        w_assert( is_array( $req ) );
+        
         // reflect!
         $basetype = New ReflectionClass( 'tBaseType' );
         $func = New ReflectionFunction( $function );
