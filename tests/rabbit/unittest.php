@@ -84,6 +84,8 @@
             $this->AssertEquals( 1, $runresult->NumSuccessfulAssertions(), 'Number of successful assertions returned does not match actual number of successful assertions in RunResult' );
             $this->AssertFalse( $runresult->Success() );
             
+            $this->Assert( false, 'Testing unit testing failure (boo)' );
+
             $runresult2 = New RunResult( array( $good, $good ), 'run2' );
             $this->AssertTrue( $runresult2->Success(), 'RunResult with only successful assertions must be successful' );
             $this->AssertEquals( $runresult2->NumSuccessfulAssertions(), $runresult2->NumAssertions(), 'Number of successful assertions in successful RunResult must equal the total number of assertions' );
@@ -102,6 +104,8 @@
             $this->Assert( method_exists( $testresult, 'NumSuccessfulRuns' ), 'TestcaseResult::NumSuccessfulRuns method does not exist' );
             $this->Assert( method_exists( $testresult, 'Results'           ), 'TestcaseResult::Results method does not exist'           );
             $this->Assert( method_exists( $testresult, 'Testcase'          ), 'TestcaseResult::Testcase method does not exist'          );
+            
+            $this->Assert( false, 'Testing unit testing failure' );
             
             $this->AssertEquals( $this, $testresult->Testcase(), 'Testcase rerturned by TestResult does not match the one passed' );
             $this->AssertFalse( $testresult->Success(), 'Testcase with unsuccessful testruns incorrectly marked as successful' );
