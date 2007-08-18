@@ -4,13 +4,13 @@
         ?><li><input type="checkbox" name="runtests[]" value="<?php
         echo htmlspecialchars( $name );
         ?>" id="rabbit_test_<?php
-        echo $i;
+        echo htmlspecialchars( $name );
         ?>"<?php
         if ( isset( $testsran[ $name ] ) ) {
             ?> checked="checked"<?php
         }
         ?> /><label for="rabbit_test_<?php
-        echo $i;
+        echo htmlspecialchars( $name );
         ?>"><?php
         echo htmlspecialchars( $name );
         ?></label><?php
