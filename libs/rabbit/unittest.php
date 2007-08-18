@@ -206,7 +206,7 @@
         public function NumAssertions() {
             return $this->mNumAssertions;
         }
-        public function RunResults( array $assertionresults, $runname ) {
+        public function RunResult( array $assertionresults, $runname ) {
             w_assert( is_string( $runname ) );
             w_assert( !empty( $runname ) );
             $this->mRunName = $runname;
