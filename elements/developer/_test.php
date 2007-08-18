@@ -26,6 +26,7 @@
             else {
                 $tester->AddTestcase( $validtestsbyname[ $testname ] );
                 $indexbyname[ $testname ] = $i;
+                ++$i;
             }
         }
         $tester->Run();
