@@ -15,22 +15,22 @@
         }
         protected function AssertNull( $actual, $message = '' ) {
             $this->InformTester(
-                New TestResult( is_null( $actual ), $message, $actual, null )
+                New AssertResult( is_null( $actual ), $message, $actual, null )
             );
         }
         protected function AssertNotNull( $actual, $message = '' ) {
             $this->InformTester(
-                New TestResult( !is_null( $actual ), $message, $actual, null )
+                New AssertResult( !is_null( $actual ), $message, $actual, null )
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
             $this->InformTester(
-                New TestResult( $actual === $expected, $message, $actual, $expected )
+                New AssertResult( $actual === $expected, $message, $actual, $expected )
             );
         }
         protected function AssertNotEquals( $notexpected, $actual, $message = '' ) {
             $this->InformTester(
-                New TestResult( $actual != $expected, $message, $actual, $expected )
+                New AssertResult( $actual != $expected, $message, $actual, $expected )
             );
         }
         protected function Assert( $actual, $message = '' ) {
