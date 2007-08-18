@@ -1,5 +1,5 @@
 <?php
-    function ElementDeveloperTest( tStringArray $runtests ) {
+    function ElementDeveloperTestView( tStringArray $runtests ) {
         global $libs;
         global $page;
         global $water;
