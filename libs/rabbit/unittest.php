@@ -34,6 +34,7 @@
             );
         }
         protected function Assert( $actual, $message = '' ) {
+            die( 'Asssssert!!!' );
             return $this->AssertEquals( true, ( bool )$actual, $message ); // ==
         }
         protected function AssertTrue( $actual, $message = '' ) {

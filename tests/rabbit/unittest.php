@@ -2,7 +2,6 @@
     final class TestRabbitUnittesting extends Testcase {
         public function TestAssertionsExist() {
             $this->Assert( method_exists( $this, 'Assert'          ), 'Testcase::Assert function does not exist'          ); // ha!
-            die( 'TestAssertionsExist!!!' );
             $this->Assert( method_exists( $this, 'AssertTrue'      ), 'Testcase::AssertTrue function does not exist'      );
             $this->Assert( method_exists( $this, 'AssertFalse'     ), 'Testcase::AssertFalse function does not exist'     );
             $this->Assert( method_exists( $this, 'AssertNull'      ), 'Testcase::AssertNull function does not exist'      );
