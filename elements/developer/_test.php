@@ -57,7 +57,7 @@
                 $testresult = $testcaseresults[ $indexbyname[ $name ] ];
                 if ( $testresult->Success() ) {
                     // testcase pass
-                    ?>: <span class="fail">PASS</span> <span class="subject">(<?php
+                    ?>: <span class="pass">PASS</span> <span class="subject">(<?php
                     echo $testresult->NumAssertions();
                     ?> assertions in <?php
                     echo $testresult->NumRuns();
