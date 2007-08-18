@@ -24,10 +24,9 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            /* $this->InformTester( */
-                New AssertResult( $actual === $expected, $message, $actual, $expected );
-            // );
-            die( 'xxx' );
+            $this->InformTester(
+                New AssertResult( $actual === $expected, $message, $actual, $expected )
+            );
         }
         protected function AssertNotEquals( $notexpected, $actual, $message = '' ) {
             $this->InformTester(
@@ -43,7 +42,8 @@
         protected function AssertFalse( $actual, $message = '' ) {
             return $this->AssertEquals( false, $actual, $message ); // ===
         }
-        protected function InformTester( TestResult $result ) {
+        protected function InformTester( AssertResult $result ) {
+            die( 'zzz' );
             $this->mTester->Inform( $result );
         }
         public function SetTester( Tester $tester ) {
