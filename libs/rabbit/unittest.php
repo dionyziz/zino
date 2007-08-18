@@ -106,7 +106,7 @@
                     if ( $method->isPublic() && substr( $method->getName(), 0, strlen( 'Test' ) ) == 'Test' ) {
                         $water->Profile( 'Running testrun ' . $method->getName() );
                         $this->mAssertResults = array();
-                        call_user_method( $method->getName(), $obj ); // MAGIC
+                        call_user_func( array( $obj, $method->getName() ) ); // MAGIC
                         $runresults[] = New RunResult( $this->mAssertResults, $method->getName() );
                         $water->ProfileEnd();
                     }
@@ -215,6 +215,7 @@
                 w_assert( $assertionresult instanceof AssertResult );
                 $this->mSuccess = $this->mSuccess && $assertionresult->Success();
             }
+            $this->mAssertionResults = $assertionresults;
         }
     }
     
