@@ -50,18 +50,18 @@
             echo htmlspecialchars( $name );
             ?></label><?php
             if ( isset( $runtestsbyname[ $name ] ) ) {
-                $testcaseresults = $testcaseresults[ $indexbyname[ $name ] ];
-                if ( $testcaseresults->Success() ) {
+                $testresult = $testcaseresults[ $indexbyname[ $name ] ];
+                if ( $testresult->Success() ) {
                     // testcase pass
                     ?>: <span style="color:#509060">PASS</span> (<?php
-                    echo $testcaseresults->NumAssertions();
+                    echo $testresult->NumAssertions();
                     ?> assertions in <?php
-                    echo $testcaseresults->NumRuns();
+                    echo $testresult->NumRuns();
                     ?> runs)<?php
                 }
                 else {
                     ?>: <span style="color:#906050">FAIL</span><br /><ol><?php
-                    foreach ( $testcaseresults[ $indexbyname[ $name ] ] as $runresults ) {
+                    foreach ( $testresult as $runresults ) {
                         ?><li><?php
                         echo $runresults->RunName();
                         if ( $runresults->Success() ) {
