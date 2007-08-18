@@ -105,7 +105,7 @@
             
             $this->AssertEquals( $this, $testresult->Testcase(), 'Testcase rerturned by TestResult does not match the one passed' );
             $this->AssertFalse( $testresult->Success(), 'Testcase with unsuccessful testruns incorrectly marked as successful' );
-            $this->AssertTrue( $testresult->Success(), 'Testcase with successful testruns incorrectly marked as unsuccessful' );
+            $this->AssertTrue( $testresult2->Success(), 'Testcase with successful testruns incorrectly marked as unsuccessful' );
             $this->AssertEquals( $badresult->NumAssertions() + $goodresult->NumAssertions(), $testresult->NumAssertions(), 'Number of assertions returned by TestcaseResult does not match the sum of the relevant test RunResults' );
             $this->AssertEquals( 1, $testresult->NumSuccessfulRuns(), 'Number of successful runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( 2, $testresult->NumRuns(), 'Total number of runs in TestcaseResult is inaccurate' );

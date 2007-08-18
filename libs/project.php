@@ -66,7 +66,7 @@
     		"emoticons"        	=> "media/emoticons/list" ,
     		"newadmins"		   	=> "admin/newadmins" ,
     		"debug"            	=> "developer/water" ,
-            'unittest'          => 'developer/test' ,
+            'unittest'          => 'developer/test/view' ,
     		"allshouts"		   	=> "shout/latest" ,
     		"album"			   	=> "album/view",
     		"allarticles"	   	=> "article/archive",
