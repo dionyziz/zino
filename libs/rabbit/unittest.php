@@ -43,7 +43,6 @@
             return $this->AssertEquals( false, $actual, $message ); // ===
         }
         protected function InformTester( AssertResult $result ) {
-            die( 'zzz' );
             $this->mTester->Inform( $result );
         }
         public function SetTester( Tester $tester ) {
