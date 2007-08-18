@@ -6,7 +6,8 @@
         
         $libs->Load( 'rabbit/unittest' );
         $page->SetTitle( 'Unit Test' );
-
+        $page->AttachStylesheet( 'rabbit/unittest.css' );
+        
         $validtests = Test_GetTestcases();
         $validtestsbyname = array();
         foreach ( $validtests as $testcase ) {
@@ -32,10 +33,11 @@
         $tester->Run();
         $testcaseresults = $tester->GetResults();
         
-        ?><br />Select which test or tests to run:<br />
-        <form action="" method="get">
+        ?>
+        <form action="" method="get" class="unittest">
+        <br /><br />Select which test or tests to run:<br />
         <input type="hidden" name="p" value="unittest" />
-        <ul><?php
+        <ul class="testcases"><?php
         foreach ( $validtests as $i => $testcase ) {
             $name = $testcase->Name();
             ?><li><input type="checkbox" name="runtests[]" value="<?php
@@ -55,44 +57,48 @@
                 $testresult = $testcaseresults[ $indexbyname[ $name ] ];
                 if ( $testresult->Success() ) {
                     // testcase pass
-                    ?>: <span style="color:#509060">PASS</span> (<?php
+                    ?>: <span class="fail">PASS</span> <span class="subject">(<?php
                     echo $testresult->NumAssertions();
                     ?> assertions in <?php
                     echo $testresult->NumRuns();
-                    ?> runs)<?php
+                    ?> runs)</span><?php
                 }
                 else {
-                    ?>: <span style="color:#906050">FAIL</span><br /><ol><?php
+                    ?>: <span class="fail">FAIL</span> <span class="subject">(<?php
+                    echo $testresult->NumSuccessfulRuns();
+                    ?> out of <?php
+                    echo $testresult->NumRuns();
+                    ?> runs pass)</span><br /><ol><?php
                     foreach ( $testresult as $runresults ) {
                         ?><li><?php
                         echo $runresults->RunName();
                         if ( $runresults->Success() ) {
-                            ?>: <span class="color:#509060">PASS</span> (<?php
+                            ?>: <span class="pass">PASS</span> <span class="subject">(<?php
                             echo $runresults->NumAssertions();
-                            ?> assertions)<?php
+                            ?> assertions)</span><?php
                         }
                         else {
-                            ?>: <span class="color:#906050">FAIL</span><br /><ul><?php
+                            ?>: <span class="fail">FAIL</span><br /><ul class="assertresults"><?php
                             foreach ( $runresults as $assertresult ) {
                                 if ( !$assertresult->Success() ) {
-                                    ?><ol><b>Assertion failed:</b> <?php
+                                    ?><li><b>Assertion failed:</b> <em class="message"><?php
                                     echo $assertresult->Message();
-                                    ?><br />
+                                    ?></em><br />
                                     <dl>
                                         <dt>Expected</dt>
-                                        <dd><?php
+                                        <dd class="expected"><?php
                                         ob_start();
                                         var_dump( $assertresult->Expected() );
                                         echo htmlspecialchars( ob_get_clean() );
                                         ?></dd>
                                         <dt>Actual</dt>
-                                        <dd><?php
+                                        <dd class="actual"><?php
                                         ob_start();
                                         var_dump( $assertresult->Actual() );
                                         echo htmlspecialchars( ob_get_clean() );
                                         ?></dd>
                                     </dl>
-                                    </ol><?php
+                                    </li><?php
                                 }
                             }
                             ?></ul><?php

@@ -131,6 +131,7 @@
         protected $mTestcase;
         protected $mSuccess;
         protected $mNumRuns;
+        protected $mNumSuccessfulRuns;
         protected $mNumAssertions;
         
         public function Testcase() {
@@ -157,6 +158,9 @@
         public function NumRuns() {
             return $this->mNumRuns;
         }
+        public function NumSuccessfulRuns() {
+            return $this->mNumSuccessfulRuns;
+        }
         public function NumAssertions() {
             return $this->mNumAssertions;
         }
@@ -165,11 +169,17 @@
         }
         public function TestcaseResult( Testcase $testcase, array $runresults ) {
             $this->mNumRuns = count( $runresults );
+            $this->mNumSuccessfulRuns = 0;
             $this->mNumAssertions = 0;
             $this->mSuccess = true;
             foreach ( $runresults as $runresult ) {
                 w_assert( $runresult instanceof RunResult );
-                $this->mSuccess = $this->mSuccess && $runresult->Success();
+                if ( $runresult->Success() ) {
+                    ++$this->mNumSuccessfulRuns;
+                }
+                else {
+                    $this->mSuccess = false;
+                }
                 $this->mNumAssertions += $runresult->NumAssertions();
             }
             $this->mTestcase = $testcase;
@@ -181,6 +191,7 @@
         protected $mAssertionResults;
         protected $mSuccess;
         protected $mRunName;
+        protected $mNumSuccessfulAssertions;
         protected $mNumAssertions;
         
         public function rewind() {
@@ -207,15 +218,24 @@
         public function NumAssertions() {
             return $this->mNumAssertions;
         }
+        public function NumSuccessfulAssertions() {
+            return $this->mNumSuccessfulAssertions;
+        }
         public function RunResult( array $assertionresults, $runname ) {
             w_assert( is_string( $runname ) );
             w_assert( !empty( $runname ) );
             $this->mRunName = $runname;
             $this->mNumAssertions = count( $assertionresults );
             $this->mSuccess = true;
+            $this->mNumSuccessfulAssertions = 0;
             foreach ( $assertionresults as $assertionresult ) {
                 w_assert( $assertionresult instanceof AssertResult );
-                $this->mSuccess = $this->mSuccess && $assertionresult->Success();
+                if ( $assertionresult->Success() ) {
+                    ++$this->mNumSuccessfulAssertions;
+                }
+                else {
+                    $this->mSuccess = false;
+                }
             }
             $this->mAssertionResults = $assertionresults;
         }
