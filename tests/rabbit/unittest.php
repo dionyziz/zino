@@ -32,6 +32,13 @@
             $foobar = array();
             $this->AssertNull( $foobar[ 'foobar' ], 'AssertNull should succeed with a non-defined array index' );
         }
+        public function TestClassesExist() {
+            $this->Assert( class_exists( 'Testcase'       ), 'Testcase class does not exist'       );
+            $this->Assert( class_exists( 'Tester'         ), 'Tester class does not exist'         );
+            $this->Assert( class_exists( 'TestcaseResult' ), 'TestcaseResult class does not exist' );
+            $this->Assert( class_exists( 'RunResult'      ), 'RunResult class does not exist'      );
+            $this->Assert( class_exists( 'AssertResult'   ), 'AssertResult class does not exist'   );
+        }
         public function TestAssertResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
@@ -47,13 +54,6 @@
             $this->AssertEquals( 'actual string 2', $good->Actual(), 'Unable to retrieve successful assertion actual value' );
             $this->AssertEquals( 'expected string 1', $bad->Expected(), 'Unable to retrieve unsuccessful assertion expected value' );
             $this->AssertEquals( 'expected string 2', $good->Expected(), 'Unable to retrieve successful assertion expected value' );
-        }
-        public function TestClassesExist() {
-            $this->Assert( class_exists( 'Testcase'       ), 'Testcase class does not exist'       );
-            $this->Assert( class_exists( 'Tester'         ), 'Tester class does not exist'         );
-            $this->Assert( class_exists( 'TestcaseResult' ), 'TestcaseResult class does not exist' );
-            $this->Assert( class_exists( 'RunResult'      ), 'RunResult class does not exist'      );
-            $this->Assert( class_exists( 'AssertResult'   ), 'AssertResult class does not exist'   );
         }
         public function TestRunResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
