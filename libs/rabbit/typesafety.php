@@ -55,6 +55,10 @@
             if ( empty( $values ) ) { // false
                 return;
             }
+            if ( !is_array( $values ) ) {
+                // single array value
+                $values = array( $values );
+            }
             foreach ( $values as $value ) {
                 $this->mValues[] = New $basetype( $value ); // MAGIC!
             }
