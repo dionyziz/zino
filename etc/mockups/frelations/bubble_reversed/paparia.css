@@ -1,0 +1,18 @@
+div.frelations {
+	background-image: url('part 2.png');
+	background-repeat: repeat-y;
+	z-index:1;
+	cursor: pointer;
+}
+
+div.frelation {
+	z-index:1;
+	cursor: hand;
+	color: #555555;
+}
+
+div.relselected {
+	z-index:1;
+	cursor: hand;
+	color: red;
+}
