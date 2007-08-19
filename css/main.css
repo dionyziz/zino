@@ -60,10 +60,12 @@ input.mytext {
 	border: solid 1px #888;
 	color: #666;
 }
+/*
 a.operator, a.developer {
 	color: #ae4a4c !important;
 }
-a.journalist {
+*/
+a.journalist, a.operator, a.developer {
 	color: #63a8cc !important;
 }
 a.operator h2 {
