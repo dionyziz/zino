@@ -660,26 +660,27 @@
 		global $db;
         global $users;
         global $images;
+		global $latestimages;
 		
 		$limit = mysql_escape_string( $limit );
 		
 		$sql = "SELECT
-					latest_imageid
+					`latest_imageid`
 				FROM
-					merlin_latestimages
+					`$latestimages`
 				ORDER BY
-					latest_imageid
+					`latest_imageid`
 				LIMIT
 					$limit";
 		
 		$res = $db->Query( $sql );
 		
-		$images = array();
+		$rows = array();
 		
 		while ( $row = $res->FetchArray() ) {
-            $images[] = New Image( $row );
+            $rows[] = New Image( $row );
         }
 		
-		return $images;
+		return $rows;
 	}
 ?>
