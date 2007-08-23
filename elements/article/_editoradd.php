@@ -28,7 +28,7 @@
 		<form action="do/article/editoradd" method="post">
 			<input type="hidden" name="id" value="<?php echo $id; ?>" />
 			<input type="text" name="u" value="" />
-			<input type="submit" value="Add" />
+			<input type="submit" value="Προσθήκη" />
 		</form><?php
 		
 		return true;

@@ -79,7 +79,7 @@
 				echo MakeDate( $revision[ 'revision_updated' ] );
 
 				if ( $revision[ 'revision_minor' ] == 'yes' ) {
-					?><strong>m</strong><?php
+					?><strong>μ</strong><?php
 				}
 			}
 			else {
@@ -95,7 +95,7 @@
 				}
 				?></a><?php 
 			}
-			?> - by <a href="user/<?php 
+			?> - από <a href="user/<?php 
 			echo htmlspecialchars( $revision[ 'user_name' ] );
 			?>"><?php 
 			echo htmlspecialchars( $revision[ 'user_name' ] );
@@ -121,7 +121,7 @@
             	<form action="do/article/revert" method="post">
             		<input type="hidden" name="id" value="<?php echo $id; ?>" />
             		<input type="hidden" name="r" value="<?php echo $revisionid; ?>" />
-            		<input type="submit" value="Revert" />
+            		<input type="submit" value="Επαναφορά" />
             	</form>
             </span><?php
 			?><h4>Έκδοση <?php
