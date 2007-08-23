@@ -10,9 +10,11 @@
         $page->AttachStylesheet( 'css/images.css' );
         $page->AttachScript( 'js/bumpstrip.js' );
         
-        $search = new Search_Images_Latest( 0 , true );
+        /*$search = new Search_Images_Latest( 0 , true );
         $search->SetLimit( 12 );
-        $latest = $search->Get();
+        $latest = $search->Get();*/
+		
+		$latest = Image_LatestUnique( 12 );
         
         ?><div class="bumpstrip" id="bumpstrip"><div class="strip">
             <?php
