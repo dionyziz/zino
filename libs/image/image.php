@@ -654,4 +654,31 @@
 			$this->SetLimit( 10 );
 		}
 	}
+	
+	function Image_LatestUnique( $limit ) {
+		global $db;
+        global $users;
+        global $images;
+		
+		$limit = mysql_escape_string( $limit );
+		
+		$sql = "SELECT
+					latest_imageid
+				FROM
+					merlin_latestimages
+				ORDER BY
+					latest_imageid
+				LIMIT
+					$limit";
+		
+		$res = $db->Query( $sql );
+		
+		$images = array();
+		
+		while ( $row = $res->FetchArray() ) {
+            $images[] = New Image( $row );
+        }
+		
+		return $images;
+	}
 ?>
