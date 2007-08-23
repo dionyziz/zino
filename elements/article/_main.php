@@ -13,9 +13,11 @@
 			?></h2><br />
 			<div>
 				<small><?php
+					foreach ( $articleeditors as $editor ) {
+						Element( "user/icon", $editor, true, true );
+                    }
 					?><span class="description">από <?php
 					while( $editor = array_shift( $articleeditors ) ) {
-						Element( "user/icon", $editor, true, true );
 						Element( "user/static", $editor );
 						if ( count( $articleeditors ) != 0 ) {
 							echo ", ";
