@@ -450,6 +450,7 @@
 	function submit_photo( $filename , $temp_location , $albumid = 0 , $description = '' , $resizeto = false ) {
 		global $user;
 		global $images;
+		global $latestimages;
         global $rabbit_settings;
 		global $db;
 		
@@ -488,7 +489,7 @@
 			$change = $db->Query( $sql );
 
 			if ( $change->Impact() ) {
-                $sql = "REPLACE INSERT INTO `merlin_images` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
+                $sql = "REPLACE INTO `$latestimages` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
                 $db->Query( $sql );
 
 				return $lastimgid;
