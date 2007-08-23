@@ -27,9 +27,14 @@
 		?><br /><br />
 		<form action="do/article/editoradd" method="post">
 			<input type="hidden" name="id" value="<?php echo $id; ?>" />
-			<input type="text" name="u" value="" />
+			Όνομα χρήστη: &nbsp;<input type="text" name="u" value="" />
 			<input type="submit" value="Προσθήκη" />
-		</form><?php
+		</form>
+		<br /><br />
+		Σημείωση: Όταν προστεθούν συγγραφείς, αυτοί θα έχουν πλήρη δικαιώματα επεξεργασίας και
+		θα μπορούν να προσθέσεουν και άλλους συγγραφείς.<br />
+		Δεν θα υπάρχει η δυνατότητα αναίρεσης αυτής της ενέργειας.
+		<?php
 		
 		return true;
 	}
