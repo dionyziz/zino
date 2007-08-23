@@ -8,6 +8,7 @@
         $id = $id->Get();
 
 		$libs->Load( 'article' );
+		$page->AttachStyleSheet( 'css/article.css' );
 
 		$article = New Article( $id );
 		if ( !$article->Exists() ) {
