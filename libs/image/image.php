@@ -668,6 +668,12 @@
 					`latest_imageid`
 				FROM
 					`$latestimages`
+				CROSS JOIN
+					`$images`
+				ON
+					`latest_imageid` = `image_id`
+				WHERE 
+					`image_albumid` != 0
 				ORDER BY
 					`latest_imageid`
 					DESC
