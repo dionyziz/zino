@@ -119,6 +119,12 @@
 				}
 				?><br /><br /><br />
 				<div>
+					<span class="label">Σχόλιο:</span>
+					<span class="input">
+						<input type="text" name="comment" style="width: 200px" value=""/>
+					</span>
+				</div>
+				<div>
 					<span class="label">Εικονίδιο:</span>
 					<span class="input">
 						<input type="text" name="icon" style="width: 50px" value="<?php

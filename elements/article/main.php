@@ -22,6 +22,13 @@
 							echo ", ";
 						}
 					}
+					if ( $articlemodifyuser ) { 
+						?> <a href="?p=editoradd&amp;id=<?php
+						echo $articleid;
+						?>"><img src="<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/add.png" alt="Προσθήκη" /></a><?php
+					}
 					?><span class="details">, πριν από <?php echo dateDistance( $articledate ); ?></span>
 					</span>
 					<br /><?php
@@ -91,6 +98,11 @@
 							<li><a href="" onclick="if (confirm('Θέλεις σίγουρα να διαγράψεις αυτό το άρθρο;')) {document.getElementById('deleteform').submit();};return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>icons/page_cross.gif" /> Διαγραφή</a></li>
+							<li><a href="?p=revisions&amp;id=<?php
+							echo $articleid;
+							?>"><img src="<?php
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/time.png" /> Ιστορικό</a></li>
 						</ul><?php
 					}
 				?></small>
