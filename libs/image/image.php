@@ -678,7 +678,7 @@
 		$rows = array();
 		
 		while ( $row = $res->FetchArray() ) {
-            $rows[] = New Image( $row );
+            $rows[] = New Image( $row[ 'latest_imageid' ] );
         }
 		
 		return $rows;
