@@ -670,6 +670,7 @@
 					`$latestimages`
 				ORDER BY
 					`latest_imageid`
+					DESC
 				LIMIT
 					$limit";
 		
