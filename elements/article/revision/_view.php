@@ -91,7 +91,7 @@
 				echo MakeDate( $revision[ 'revision_updated' ] );
 
 				if ( $revision[ 'revision_minor' ] == 'yes' ) {
-					?><strong>m</strong><?php
+					?><strong>μ</strong><?php
 				}
 				?></a><?php 
 			}
