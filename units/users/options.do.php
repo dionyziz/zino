@@ -10,7 +10,7 @@
 		$newpassword	= "";
 		$email			= $user->Email();
 		$gender			= $user->Gender();
-		$dob			= $user->DateOfBirthday();
+		$dob			= $user->DateOfBirth();
 		$hobbies		= $user->Hobbies();
 		$slogan			= $user->Subtitle();
 		$place			= $user->Place();
