@@ -36,6 +36,7 @@
                 	'faqcategories'		=> 'faqcategories',
                     'friendrel'		    => 'friendrel',
                 	'images'        	=> 'images',
+					'latestimages'		=> 'latestimages',
                 	'logs'          	=> 'logs',
                 	'memcachesql'   	=> 'memcache',
 					'pmfolders'			=> 'pmfolders',
