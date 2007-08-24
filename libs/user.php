@@ -2,6 +2,7 @@
 	global $libs;
     
     $libs->Load( 'image/image' ); // for usericons
+    $libs->Load( 'color' );
     
     function User_ByUsername( $usernames ) {
         global $db;
