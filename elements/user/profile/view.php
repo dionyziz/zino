@@ -118,7 +118,11 @@
 					echo $description;
 				?></span><br /><br />
                 
-                <div class="tabs" id="userprofile_tabs"><?php
+                <div class="tabs" id="userprofile_tabs"<?php
+                    if ( $user->Id() != $theuser->Id() ) {
+                        ?> style="padding-right:60px"<?php
+                    }
+                    ?>><?php
                     if ( $user->Id() == $theuser->Id() ) {
                         $page->AttachStylesheet( 'css/modal.css' );
                         $page->AttachScript( 'js/modal.js' );
@@ -226,7 +230,14 @@
 					$profilecommentsnum = $search->Length();
 					
 					echo $viewingtabs++;
-					?>" class="profile"><?php
+					?>" class="profile" style="background-color:rgb(<?php
+                    $rgb = Color_Decode( $user->ProfileColor() );
+                    echo $rgb[ 0 ];
+                    ?>,<?php
+                    echo $rgb[ 1 ];
+                    ?>,<?php
+                    echo $rgb[ 2 ];
+                    ?>);"><?php
 					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
 					?><div style="clear:both"></div>
 			        <br /><br />
