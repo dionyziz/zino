@@ -1,5 +1,5 @@
 var ColorPicker = {
-	Create : function () {
+	Create : function ( clickaria ) {
 		var table = document.createElement( 'table' );
 		table.border="0";
 		table.cellpadding="0";
@@ -11,9 +11,16 @@ var ColorPicker = {
 			for ( var i=0;i<60;++i ) {
 				var td = document.createElement( 'td' );
 				td.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-				td.onclick= function () {
-							ColorPicker.Preview( r, g, b, "preview" );
-						};
+				td.onmouseover= (function (r, g, b, preview) {
+								return function () {
+									ColorPicker.Preview( r, g, b, "preview" );
+								}
+							})(r,g,b,"preview");
+				td.onclick = (function ( r, g, b ) {
+								return function () {
+									clickaria( r, g, b );
+								}
+							})(r,g,b);
 				
 				var img = document.createElement( 'img' );
 				img.src = "http://webringworld.org/pics/blank.gif";
@@ -42,8 +49,8 @@ var ColorPicker = {
 		var tdd = document.createElement( 'td' );
 		tdd.id = "preview";
 		var imgd = document.createElement( 'img' );
-		imgd.width = "60";
-		imgd.height = "90";
+		imgd.width = "355";
+		imgd.height = "30";
 		imgd.src = "http://webringworld.org/pics/blank.gif";
 		tdd.appendChild(imgd);
 		trd.appendChild(tdd);
@@ -56,8 +63,7 @@ var ColorPicker = {
 		return div;
 	},
 	Preview : function( r, g, b, id ) {
-		alert("rgb(" + r + "," + g + "," + b + ")");
 		var ted = document.getElementById( id );
-		alert(ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")");
+		ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 	}
 };

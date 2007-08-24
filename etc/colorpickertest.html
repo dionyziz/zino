@@ -1,12 +1,14 @@
 <html>
 <head>
 <script type="text/javascript" src="../js/colorpicker.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/modal.css" />
 </head>
 <body onload="Run()">
 <div id="test"></div>
 <script type="text/javascript">
 function Run () {
-	document.getElementById( 'test' ).appendChild( ColorPicker.Create() );
+	Modals.Create( ColorPicker.Create( function( a,b,c ) { alert ( a + "," + b + "," + c ); } ), 361, 200 );
 }
 </script>
 </body>
