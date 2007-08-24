@@ -126,8 +126,11 @@
                     if ( $user->Id() == $theuser->Id() ) {
                         $page->AttachStylesheet( 'css/modal.css' );
                         $page->AttachScript( 'js/modal.js' );
+                        $page->AttachScript( 'js/colorpicker.js' );
                         ?>
-                        <a href="" id="paintbrush" onclick="return false" title="Αλλαγή χρωματικού συνδιασμού"><img src="http://static.chit-chat.gr/images/icons/paintbrush.png" /></a>
+                        <a href="" id="paintbrush" onclick="Profile.ChangeColor();return false" title="Αλλαγή χρωματικού συνδιασμού">
+                            <img src="http://static.chit-chat.gr/images/icons/paintbrush.png" />
+                        </a>
                         <?php
                     }
                     ?>

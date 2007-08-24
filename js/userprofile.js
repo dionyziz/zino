@@ -1,3 +1,12 @@
+var Profile = {
+    ChangeColor: function () {
+        ColorPicker.Create( function ( r, g, b ) {
+            Coala.Warm( "users/options/profilecolor", { 'r': r, 'g': g, 'b': b } );
+            document.getElementById( 'tab0' ).style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+        }, "Επίλεξε ένα χρώμα για το προφίλ σου:" );
+    }
+};
+
 // instant tab switching script
 var UserTabs = {
 	activated : 0,
