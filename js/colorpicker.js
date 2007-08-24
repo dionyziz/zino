@@ -17,7 +17,7 @@ var ColorPicker = {
 				img.width="2";
 				
 				td.appendChild( img );
-				tr.appendChild( td ):
+				tr.appendChild( td );
 			}
 			table.appendChild( tr );
 			alert("OK");
