@@ -4,13 +4,16 @@ var ColorPicker = {
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
-		var k,l,m;
-		k=l=m=0;
-		for( var y=0;y<40;++y ) {
+		var r,g,b;
+		r=g=b=0;
+		for( var y=0;y<27;++y ) {
 			var tr = document.createElement( 'tr' ); 
 			for ( var i=0;i<60;++i ) {
 				var td = document.createElement( 'td' );
-				td.style.backgroundColor = "rgb(" + k + "," + l + "," + m + ")";
+				td.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+				td.onmouseover= function () {
+							ColorPicker.Preview( r, g, b, "preview" );
+						};
 				
 				var img = document.createElement( 'img' );
 				img.src = "http://webringworld.org/pics/blank.gif";
@@ -20,20 +23,41 @@ var ColorPicker = {
 				td.appendChild( img );
 				tr.appendChild( td );
 				
-				if( m < 255 ) {
-					m+=26;
+				if( b < 255 ) {
+					b+=26;
 				}
-				else if( l < 255 ) {
-					l+=25;
-					m=0;
+				else if( g < 255 ) {
+					g+=25;
+					b=0;
 				}
-				else if( k < 255 ) {
-					k+=24;
-					l=m=0;
+				else if( r < 255 ) {
+					r+=24;
+					b=g=0;
 				}
 			}
 			table.appendChild( tr );
 		}
-		return table;
+		var tabled = document.createElement( 'table' );
+		var trd = document.createElement( 'tr' );
+		var tdd = document.createElement( 'td' );
+		tdd.id = "preview";
+		var imgd = document.createElement( 'img' );
+		imgd.width = "60";
+		imgd.height = "90";
+		imgd.src = "http://webringworld.org/pics/blank.gif";
+		tdd.appendChild(imgd);
+		trd.appendChild(tdd);
+		tabled.appendChild(trd);
+		
+		var div = document.createElement( 'div' );
+		div.appendChild( table );
+		div.appendChild( tabled );
+		
+		return div;
 	},
+	Preview : function( r, g, b, id ) {
+		alert("rgb(" + r + "," + g + "," + b + ")");
+		var ted = document.getElementById( id );
+		ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+	}
 };
