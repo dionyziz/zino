@@ -242,7 +242,7 @@
                         echo $rgb[ 1 ];
                         ?>/<?php
                         echo $rgb[ 2 ];
-                        ?>');"<?php
+                        ?>');width:100%;height:100%"<?php
                     }
                     ?>><?php
 					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
