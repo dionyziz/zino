@@ -34,14 +34,14 @@ var ColorPicker = {
 				td.style.width = "2px";
 				tr.appendChild( td );
 				
-				if( b < 255 ) {
+				if( b < 253 ) {
 					b+=26;
 				}
-				else if( g < 255 ) {
+				else if( g < 253 ) {
 					g+=25;
 					b=0;
 				}
-				else if( r < 255 ) {
+				else if( r < 253 ) {
 					r+=24;
 					b=g=0;
 				}
@@ -55,7 +55,7 @@ var ColorPicker = {
 		
 		var div = document.createElement( 'div' );
 		div.appendChild( table );
-		div.appendChild( tabled );
+		div.appendChild( dived );
 		
 		return div;
 	},
