@@ -4,6 +4,7 @@ var ColorPicker = {
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
+		table.style.borderCollapse = "collapse";
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( "Επέλεξε ένα χρώμα" ) );
 		table.appendChild( caption );
@@ -26,6 +27,7 @@ var ColorPicker = {
 				td.onclick = (function ( r, g, b ) {
 								return function () {
 									clickaria( r, g, b );
+									Modals.Destroy();
 								}
 							})(r,g,b);
 				
@@ -56,7 +58,7 @@ var ColorPicker = {
 		var tdd = document.createElement( 'td' );
 		tdd.id = "preview";
 		var imgd = document.createElement( 'img' );
-		imgd.width = "355";
+		imgd.width = "234";
 		imgd.height = "30";
 		imgd.src = "http://webringworld.org/pics/blank.gif";
 		tdd.appendChild(imgd);
