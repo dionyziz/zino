@@ -129,7 +129,7 @@
                         $page->AttachScript( 'js/colorpicker.js' );
                         ?>
                         <a href="" id="paintbrush" onclick="Profile.ChangeColor();return false" title="Αλλαγή χρωματικού συνδιασμού">
-                            <img src="http://static.chit-chat.gr/images/icons/paintbrush.png" />
+                            <img src="http://static.chit-chat.gr/images/icons/paintbrush.png" style="width:16px;height:16px" />
                         </a>
                         <?php
                     }
