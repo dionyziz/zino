@@ -1,12 +1,14 @@
 <html>
 <head>
-<script language="text/javascript" src="../js/colorpicker.js"></script>
+<script type="text/javascript" src="../js/colorpicker.js"></script>
 </head>
-<body>
+<body onload="Run()">
 <div id="test"></div>
-<script language="text/javascript">
-alert("y0");
-document.getElementById( 'test' ).appendChild( ColorPicker.Create() );
+<script type="text/javascript">
+function Run () {
+	alert("y0");
+	document.getElementById( 'test' ).appendChild( ColorPicker.Create() );
+}
 </script>
 </body>
 </html>

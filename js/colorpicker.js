@@ -1,5 +1,5 @@
 var ColorPicker = {
-	Create : function() {
+	Create : function () {
 		alert("Iparxo");
 		var table = document.createElement( 'table' );
 		table.border="0";
@@ -23,6 +23,5 @@ var ColorPicker = {
 			alert("OK");
 		}
 		document.getElementById( 'test' ).appendChild(table);
-		
 	}
 };
