@@ -11,7 +11,7 @@ var ColorPicker = {
 			for ( var i=0;i<60;++i ) {
 				var td = document.createElement( 'td' );
 				td.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-				td.onmouseover= function () {
+				td.onclick= function () {
 							ColorPicker.Preview( r, g, b, "preview" );
 						};
 				
