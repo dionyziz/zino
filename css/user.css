@@ -24,7 +24,7 @@ div.userprofile div.top div.tabs div {
 	float: right;
 }
 div.userprofile div.top div.tabs a#paintbrush {
-    padding-left: 60px;
+    margin-left: 60px;
     float: right;
 }
 div.userprofile div.top div.tabs {
