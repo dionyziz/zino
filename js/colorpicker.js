@@ -9,6 +9,7 @@ var ColorPicker = {
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
 		table.appendChild( caption );
+        caption.style.margin = "10px auto 10px auto";
 		var r,g,b;
 		r=g=b=0;
 		for( var y=0;y<27;++y ) {
@@ -54,7 +55,7 @@ var ColorPicker = {
 		dived.id = "preview";
 		dived.style.width = "240px";
 		dived.style.height = "30px";
-		dived.style.margin = "7px auto 0 auto";
+		dived.style.margin = "6px auto 0 auto";
 		if( dr && dg && db ) {
 			dived.style.backgroundColor = "rgb(" + dr + "," + dg + "," + db + ")";
 		}
@@ -63,7 +64,7 @@ var ColorPicker = {
 		div.appendChild( table );
 		div.appendChild( dived );
 		
-		Modals.Create( div, 400, 170 );
+		Modals.Create( div, 400, 190 );
 	},
 	Preview : function( r, g, b, id ) {
 		var ted = document.getElementById( id );
