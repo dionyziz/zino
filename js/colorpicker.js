@@ -23,12 +23,5 @@ var ColorPicker = {
 			table.appendChild( tr );
 		}
 		return table;
-	},
-	ConvertToHex : function ( num ) {
-		num = String(num);
-		var res;
-		for( var i = 0;i<num.length;++i ) {
-			
-			
 	}
 };
