@@ -8,7 +8,7 @@ var ColorPicker = {
 		k=l=m=0;
 		for( var y=0;y<40;++y ) {
 			var tr = document.createElement( 'tr' ); 
-			for ( var i=0;i<600;i+=10 ) {
+			for ( var i=0;i<60;++i ) {
 				var td = document.createElement( 'td' );
 				td.style.backgroundColor = "rgb(" + k + "," + l + "," + m + ")";
 				
@@ -21,16 +21,15 @@ var ColorPicker = {
 				tr.appendChild( td );
 				
 				if( m < 255 ) {
-					++m;
-					continue;
+					m+=26;
 				}
-				if( l < 255 ) {
-					++l;
-					continue;
+				else if( l < 255 ) {
+					l+=25;
+					m=0;
 				}
-				if( k < 255 ) {
-					++k;
-					continue;
+				else if( k < 255 ) {
+					k+=24;
+					l=m=0;
 				}
 			}
 			table.appendChild( tr );
