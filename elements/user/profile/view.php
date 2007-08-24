@@ -233,14 +233,18 @@
 					$profilecommentsnum = $search->Length();
 					
 					echo $viewingtabs++;
-					?>" class="profile" style="background-image:url('http://images.chit-chat.gr/gradient/<?php
-                    $rgb = Color_Decode( $user->ProfileColor() );
-                    echo $rgb[ 0 ];
-                    ?>/<?php
-                    echo $rgb[ 1 ];
-                    ?>/<?php
-                    echo $rgb[ 2 ];
-                    ?>');"><?php
+					?>" class="profile"<?php
+                    $rgb = Color_Decode( $theuser->ProfileColor() );
+                    if ( $rgb === false ) {
+                        ?>style="background-image:url('http://images.chit-chat.gr/gradient/<?php
+                        echo $rgb[ 0 ];
+                        ?>/<?php
+                        echo $rgb[ 1 ];
+                        ?>/<?php
+                        echo $rgb[ 2 ];
+                        ?>');"<?
+                    }
+                    ?>><?php
 					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
 					?><div style="clear:both"></div>
 			        <br /><br />
