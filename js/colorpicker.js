@@ -63,7 +63,7 @@ var ColorPicker = {
 		div.appendChild( table );
 		div.appendChild( dived );
 		
-		Modals.Create( div, 260, 170 );
+		Modals.Create( div, 300, 170 );
 	},
 	Preview : function( r, g, b, id ) {
 		var ted = document.getElementById( id );
