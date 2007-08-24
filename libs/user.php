@@ -693,6 +693,7 @@
 		private $mWeight;
 		private $mEyeColor;
 		private $mHairColor;
+        private $mProfileColor;
         private $mArticlesPopularity;
 		private $mNumSmallNews;
 		private $mNumImages;
@@ -1641,6 +1642,25 @@
 		public function HairColor() {
 			return $this->mHairColor;
 		}
+        public function SetProfileColor( $color ) {
+            global $db;
+            global $users;
+            
+            w_assert( is_int( $color ) );
+            
+            return $db->Query(
+                "UPDATE
+                    `$users`
+                SET
+                    `user_profilecolor` = " . $color . "
+                WHERE
+                    `user_id` = " . $this->Id() . "
+                LIMIT 1"
+            )->Impact();
+        }
+        public function ProfileColor() {
+            return $this->mProfileColor;
+        }
 		public function User( $construct ) {
 			global $db;
 			global $users;
@@ -1722,6 +1742,7 @@
 			$this->mWeight				= isset( $fetched_array[ "user_weight" ]			) ? $fetched_array[ "user_weight" ]				: "";
 			$this->mEyeColor			= isset( $fetched_array[ "user_eyecolor" ]			) ? $fetched_array[ "user_eyecolor" ]			: "";
 			$this->mHairColor			= isset( $fetched_array[ "user_haircolor" ]			) ? $fetched_array[ "user_haircolor" ]			: "";
+            $this->mProfileColor        = isset( $fetched_array[ "user_profilecolor" ]      ) ? $fetched_array[ "user_profilecolor" ]       : Color_Encode( 255, 255, 255 ) + 1;
 			$this->mNumSmallNews		= isset( $fetched_array[ "user_numsmallnews" ]		) ? $fetched_array[ "user_numsmallnews" ]		: 0;
 			$this->mPageviews		  	= isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
 			$this->mNumImages			= isset( $fetched_array[ "user_numimages" ]			) ? $fetched_array[ "user_numimages" ]			: 0;
