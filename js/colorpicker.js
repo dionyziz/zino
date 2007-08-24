@@ -1,10 +1,11 @@
 var ColorPicker = {
-	Create : function ( clickaria, titlos ) {
+	Create : function ( clickaria, titlos, dr, dg, db ) {
 		var table = document.createElement( 'table' );
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
+		table.style.margin = "auto";
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
 		table.appendChild( caption );
@@ -53,12 +54,17 @@ var ColorPicker = {
 		dived.id = "preview";
 		dived.style.width = "240px";
 		dived.style.height = "30px";
+		dived.style.marginLeft = "5px";
+		dived.style.marginTop = "3px";
+		if( dr && dg && db ) {
+			dived.style.backgroundColor = "rgb(" + dr + "," + dg + "," + db + ")";
+		}
 		
 		var div = document.createElement( 'div' );
 		div.appendChild( table );
 		div.appendChild( dived );
 		
-		Modals.Create( div, 240, 157 );
+		Modals.Create( div, 250, 162 );
 	},
 	Preview : function( r, g, b, id ) {
 		var ted = document.getElementById( id );
