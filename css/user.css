@@ -23,10 +23,14 @@ div.userprofile div.top div.tabs div {
 	padding: 0 0 0 0;
 	float: right;
 }
+div.userprofile div.top div.tabs a#paintbrush {
+    padding-left: 60px;
+    float: right;
+}
 div.userprofile div.top div.tabs {
 	clear: both;
 	margin: 0 -2px 0 -2px;
-	padding: 0 60px 10px 0px;
+	padding: 0 0 10px 0px;
 	background-position: bottom left;
 	background-repeat: no-repeat;
 	border-bottom: 1px solid #c7c7c7;

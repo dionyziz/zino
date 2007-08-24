@@ -119,6 +119,7 @@
 				?></span><br /><br />
                 
                 <div class="tabs" id="userprofile_tabs">
+                    <a href="" id="paintbrush" onclick="return false" title="Αλλαγή χρωματικού συνδιασμού"><img src="http://static.chit-chat.gr/images/icons/paintbrush.png" /></a>
 					<div style="float:left;padding-top:9px;"><?php
 					$isfriend = $user->IsFriend( $theuser->Id() );
 					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { 
@@ -200,7 +201,6 @@
 			</div>
 			<div id="alltabs">
 				<div id="tab<?php 
-					
 					$search = New Search_Comments();
 					$search->SetFilter( 'typeid', 1 );
 					$search->SetFilter( 'page', $theuser->Id(), 1 );
