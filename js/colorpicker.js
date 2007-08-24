@@ -30,13 +30,8 @@ var ColorPicker = {
 									Modals.Destroy();
 								}
 							})(r,g,b);
-				
-				var img = document.createElement( 'img' );
-				img.src = "http://webringworld.org/pics/blank.gif";
-				img.height="2";
-				img.width="2";
-				
-				td.appendChild( img );
+				td.style.height = "2px";
+				td.style.width = "2px";
 				tr.appendChild( td );
 				
 				if( b < 255 ) {
@@ -53,17 +48,10 @@ var ColorPicker = {
 			}
 			table.appendChild( tr );
 		}
-		var tabled = document.createElement( 'table' );
-		var trd = document.createElement( 'tr' );
-		var tdd = document.createElement( 'td' );
-		tdd.id = "preview";
-		var imgd = document.createElement( 'img' );
-		imgd.width = "234";
-		imgd.height = "30";
-		imgd.src = "http://webringworld.org/pics/blank.gif";
-		tdd.appendChild(imgd);
-		trd.appendChild(tdd);
-		tabled.appendChild(trd);
+		var dived = document.createElement( 'div' );
+		dived.style.width = "234px";
+		dived.style.height = "30px";
+		dived.id = "preview";
 		
 		var div = document.createElement( 'div' );
 		div.appendChild( table );
