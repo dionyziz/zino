@@ -134,6 +134,16 @@ div.userprofile div.profile div.info div.boxheader {
 }
 */
 
+div.userprofile div.profile {
+    background-image: url('http://static.chit-chat.gr/images/profile/blue.png');
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+div.userprofile div.profile div.info ul {
+    background-color: white;
+}
+
 div.userprofile div.profile div.info ul li dl.l {
     background-color: #ececec;
 }

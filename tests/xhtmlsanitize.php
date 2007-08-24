@@ -132,7 +132,7 @@
             $this->AssertEquals( 'Hello world!', $result, 'Undefined tags should be removed' );
             $sanitizer->SetSource( '<div>Hello   <em> <b> world </b> </em> ! </div>!!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello world!!!', $result, 'Undefined tags should be removed' );
+            $this->AssertEquals( 'Hello world ! !!', $result, 'Undefined tags should be removed' );
         }
         public function TestSimpleTag() {
             $sanitizer = New XHTMLSanitizer();
@@ -161,10 +161,10 @@
             $this->AssertEquals( 'Hello <b>world!</b>', $result, 'Unclosed tags should auto-close' );
             $sanitizer->SetSource( 'Hello <em>world!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello &ltem&gt;world!', $result, 'Disallowed tags should not auto-close' );
+            $this->AssertEquals( 'Hello world!', $result, 'Disallowed tags should not auto-close' );
             $sanitizer->SetSource( 'Hello <b><em><b>world!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello <b>&ltem&gt;<b>world!</b></b>', $result, 'Allowed tags should auto-close when nested and contain disallowed tags' );
+            $this->AssertEquals( 'Hello <b><b>world!</b></b>', $result, 'Allowed tags should auto-close when nested and contain disallowed tags' );
             $sanitizer->SetSource( 'Hello <b><b>world</b>!' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello <b><b>world</b>!</b>', $result, 'Allowed tags should auto-close when nested' );
@@ -226,15 +226,24 @@
             $sanitizer->AllowTag( New XHTMLSaneTag( 'lala' ) );
             $sanitizer->SetSource( '<koko><lala /> liruliru</koko>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&lt;koko&gt;&lt;lala /&gt; liruliru&lt;koko&gt;', $result, 'Invalid tags should not be allowed even if explicitly specified; appropriate warnings should be raised' );
+            $this->AssertEquals( '&lt;koko&gt;&lt;lala /&gt; liruliru&lt;koko&gt;', $result, 'Invalid tags (koko, lala, and so forth) should not be allowed even if explicitly specified; appropriate warnings should be raised' );
+            
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'dir' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'applet' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'isindex' ) );
+            $sanitizer->SetSource( '<dir>haha<applet>yes</applet></dir>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '&lt;dir&gt;haha&lt;applet&gt;yes&lt;/applet&gt;&lt;/dir&gt;', $result, 'Deprecated tags (dir, applet, isindex, and so forth) should not be allowed even if explicitly specified; appropriate warnings should be raised, distinguishing them from invalid tags' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'b' ) );
-            $sanitizer->AllowTag( New XHTMLSaneTag( 'scro[t' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'script' ) );
             $sanitizer->SetSource( '<b>haha</b><script>alert("XSS!");</script>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<b>haha</b>&lt;script&gt;alert("XSS!");&lt;script&gt;', $result, 'Insecure tags (script, link, style) should be disallowed even if explicitly specified; appropriate warnings should be raised' );
         }
         public function TestBlocks() {
+            // http://en.wikipedia.org/wiki/HTML_element#Block
+            
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->AllowTag( New XHTMLSaneTag( 'div' ) );
             $sanitizer->AllowTag( New XHTMLSaneTag( 'span' ) );
@@ -250,6 +259,33 @@
             $sanitizer->SetSource( '<div>Hello <span>my</span> friend</div>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<div>Hello my friend</div>', $result, 'Span within div consumption should preserve content' );
+            
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'form' ) );
+            $sanitizer->SetSource( '<span><form>Ye<span>aa</span>ah</form></span>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '<span>Ye<span>aa</span>ah</span>', $result, 'Block elements should not be allowed within inline; content should be preserved' );
+        }
+        public function TestNoAttributes() {
+            $sanitizer = New XHTMLSanitizer();
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'span' ) );
+            $sanitizer->SetSource( '<span class="standing">by the way</span>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '<span>by the way</span>', $result, 'Attributes not explicitly declared within allowed tags should be eliminated' );
+        }
+        public function TestSimpleAttributes() {
+            $span = New XHTMLSaneTag( 'span' );
+            $span->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
+            $sanitizer = New XHTMLSanitizer();
+            $sanitizer->AllowTag( $span );
+            $sanitizer->SetSource( '<span class="standing">by the way</span>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '<span class="standing">by the way</span>', $result, 'Attributes explicitly declared within allowed tags should remain unchanged' );
+            $sanitizer->SetSource( '<span class="">by the way</span>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '<span class="">by the way</span>', $result, 'Allowed attributes should remain unchanged even when empty' );
+            $sanitizer->SetSource( '<span class="" title="">by the way</span>' );
+            $result = $sanitizer->GetXHTML();
+            $this->AssertEquals( '<span class="">by the way</span>', $result, 'Allowed attributes should remain unchanged even when empty' );
         }
     }
     
