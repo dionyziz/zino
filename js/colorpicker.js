@@ -1,6 +1,8 @@
 var ColorPicker = {
 	Create : function ( clickaria, titlos, dr, dg, db ) {
 		var table = document.createElement( 'table' );
+        var tbody = document.createElement( 'tbody' );
+        table.appendChild( tbody );
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
@@ -49,7 +51,7 @@ var ColorPicker = {
 					b=g=0;
 				}
 			}
-			table.appendChild( tr );
+			tbody.appendChild( tr );
 		}
 		var dived = document.createElement( 'div' );
 		dived.id = "preview";
