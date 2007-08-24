@@ -233,14 +233,14 @@
 					$profilecommentsnum = $search->Length();
 					
 					echo $viewingtabs++;
-					?>" class="profile" style="background-color:rgb(<?php
+					?>" class="profile" style="background-image:url('http://images.chit-chat.gr/gradient/<?php
                     $rgb = Color_Decode( $user->ProfileColor() );
                     echo $rgb[ 0 ];
-                    ?>,<?php
+                    ?>/<?php
                     echo $rgb[ 1 ];
-                    ?>,<?php
+                    ?>/<?php
                     echo $rgb[ 2 ];
-                    ?>);"><?php
+                    ?>');"><?php
 					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
 					?><div style="clear:both"></div>
 			        <br /><br />
