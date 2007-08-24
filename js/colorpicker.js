@@ -1,18 +1,19 @@
+var numen = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f");
+
 var ColorPicker = {
 	Create : function () {
-		alert("Iparxo");
 		var table = document.createElement( 'table' );
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
-		for( var y=0;y<300;++y ) {
+		for( var y=0;y<40;++y ) {
 			var tr = document.createElement( 'tr' ); 
 			for ( var i=0;i<600;i+=10 ) {
 				var td = document.createElement( 'td' );
-				td.style.backgroundColor = "#000000";
+				td.style.backgroundColor = "#00ff00";
 				
 				var img = document.createElement( 'img' );
-				img.src = "keno.png";
+				img.src = "http://webringworld.org/pics/blank.gif";
 				img.height="2";
 				img.width="2";
 				
@@ -20,8 +21,14 @@ var ColorPicker = {
 				tr.appendChild( td );
 			}
 			table.appendChild( tr );
-			alert("OK");
 		}
-		document.getElementById( 'test' ).appendChild(table);
+		return table;
+	},
+	ConvertToHex : function ( num ) {
+		num = String(num);
+		var res;
+		for( var i = 0;i<num.length;++i ) {
+			
+			
 	}
 };
