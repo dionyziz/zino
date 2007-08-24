@@ -15,7 +15,14 @@
 				<li><dl>
 					<dt>ρόλος</dt>
 					<dd><?php
-						echo mystrtolower( $theuser->Rank() );
+                        switch ( $theuser->Username() ) {
+                            case '_daemon_':
+                                ?>The Fallen One<?php
+                                break;
+                            default:
+        						echo mystrtolower( $theuser->Rank() );
+                                break;
+                        }
 					?></dd>
 				</dl></li>
 				<li><dl class="l">
