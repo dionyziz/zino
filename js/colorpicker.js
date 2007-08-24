@@ -6,6 +6,7 @@ var ColorPicker = {
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
 		table.style.margin = "auto";
+        table.style.cursor = "pointer";
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
 		table.appendChild( caption );
@@ -19,7 +20,6 @@ var ColorPicker = {
 				td.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 				td.onmouseover= (function (r, g, b, preview) {
 								return function () {
-									document.body.style.cursor = "pointer";
 									ColorPicker.Preview( ColorPicker.fix( r ), ColorPicker.fix( g ), ColorPicker.fix( b ), "preview" );
 								}
 							})(r,g,b,"preview");
