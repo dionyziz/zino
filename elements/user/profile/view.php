@@ -242,7 +242,7 @@
                         echo $rgb[ 1 ];
                         ?>/<?php
                         echo $rgb[ 2 ];
-                        ?>');"<?
+                        ?>');"<?php
                     }
                     ?>><?php
 					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
