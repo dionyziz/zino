@@ -54,7 +54,7 @@ var ColorPicker = {
 		dived.id = "preview";
 		dived.style.width = "240px";
 		dived.style.height = "30px";
-		dived.style.margin = "3px auto 0 auto";
+		dived.style.margin = "7px auto 0 auto";
 		if( dr && dg && db ) {
 			dived.style.backgroundColor = "rgb(" + dr + "," + dg + "," + db + ")";
 		}
