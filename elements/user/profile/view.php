@@ -235,8 +235,8 @@
 					echo $viewingtabs++;
 					?>" class="profile"<?php
                     $rgb = Color_Decode( $theuser->ProfileColor() );
-                    if ( $rgb === false ) {
-                        ?>style="background-image:url('http://images.chit-chat.gr/gradient/<?php
+                    if ( $rgb !== false ) {
+                        ?> style="background-image:url('http://images.chit-chat.gr/gradient/<?php
                         echo $rgb[ 0 ];
                         ?>/<?php
                         echo $rgb[ 1 ];
