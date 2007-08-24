@@ -118,8 +118,15 @@
 					echo $description;
 				?></span><br /><br />
                 
-                <div class="tabs" id="userprofile_tabs">
-                    <a href="" id="paintbrush" onclick="return false" title="Αλλαγή χρωματικού συνδιασμού"><img src="http://static.chit-chat.gr/images/icons/paintbrush.png" /></a>
+                <div class="tabs" id="userprofile_tabs"><?php
+                    if ( $user->Id() == $theuser->Id() ) {
+                        $page->AttachStylesheet( 'css/modal.css' );
+                        $page->AttachScript( 'js/modal.js' );
+                        ?>
+                        <a href="" id="paintbrush" onclick="return false" title="Αλλαγή χρωματικού συνδιασμού"><img src="http://static.chit-chat.gr/images/icons/paintbrush.png" /></a>
+                        <?php
+                    }
+                    ?>
 					<div style="float:left;padding-top:9px;"><?php
 					$isfriend = $user->IsFriend( $theuser->Id() );
 					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { 

@@ -116,12 +116,14 @@ div.comments div.comment div.toolbar {
 	right: 9px;
 	bottom: 3px;
     width: 400px;
+    background-color: transparent;
 }
 div.comments div.comment div.toolbar ul {
 	display: block;
 	height: 16px;
 	margin: 0;
 	padding: 0;
+    background-color: transparent;
 }
 div.comments div.comment div.toolbar ul li {
 	display: inline;
