@@ -58,6 +58,6 @@ var ColorPicker = {
 	Preview : function( r, g, b, id ) {
 		alert("rgb(" + r + "," + g + "," + b + ")");
 		var ted = document.getElementById( id );
-		ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+		alert(ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")");
 	}
 };
