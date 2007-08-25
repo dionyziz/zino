@@ -426,7 +426,7 @@
 							  `latest_imageid` )
 						VALUES
 							( '" . $this->UserId() . "',
-							  '$imageid' );";	
+							  $imageid );";	
 							  
                 $db->Query( $sql );
 				}
