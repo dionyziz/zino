@@ -383,9 +383,41 @@
 		public function Delete() {
 			global $db;
 			global $images;
+			global $latestimages;
 			
 			$sql = "UPDATE `$images` SET `image_delid` = '1' WHERE `image_id` = '".$this->Id()."' LIMIT 1;";
 			$db->Query( $sql );
+			
+			//update latest images
+			$sql = "SELECT
+						`image_id`
+					FROM
+						`$images`
+					WHERE
+						`image_userid` = '" . $this->UserId() . "'
+					AND
+						`image_albumid` != 0
+					ORDER BY
+						`image_id`
+					DESC
+					LIMIT 1;";
+			
+			$res = $db->Query( $sql );
+		
+			if ( $row = $res->FetchArray() ) {
+			
+				$imageid = $row[ 'image_id' ];
+				
+				$sql = "REPLACE INTO
+							`$latestimages`
+							( `latest_userid`,
+							  `latest_imageid` )
+						VALUES
+							( '" . $this->UserId() . "',
+							  '$imageid' );";
+							  
+                $db->Query( $sql );
+	        }			
 		}
 		public function CommentKilled( ) {
 			global $db;
