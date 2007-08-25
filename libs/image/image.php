@@ -404,7 +404,22 @@
 			
 			$res = $db->Query( $sql );
 			
-			if ( !mysql_num_rows( $res ) ) {
+			if ( mysql_num_rows( $res ) == 1 ) {
+				
+				while( $row = $res->FetchArray() ) {
+				
+					$sql = "REPLACE INTO
+								`$latestimages`
+								( `latest_userid`,
+								  `latest_imageid` )
+							VALUES
+								( '" . $this->UserId() . "',
+								  '" . $row[ 'image_id' ] . "' );";	
+								  
+	                $db->Query( $sql );
+				}
+			}
+			else {
 				
 				$sql = "DELETE FROM
 							`$latestimages`
@@ -413,21 +428,6 @@
 						LIMIT 1;";
 						
 				$db->Query( $sql );
-			}
-			else {
-			
-				while( $row = $res->FetchArray() ) {
-				
-				$sql = "REPLACE INTO
-							`$latestimages`
-							( `latest_userid`,
-							  `latest_imageid` )
-						VALUES
-							( '" . $this->UserId() . "',
-							  '" . $row[ 'image_id' ] . "' );";	
-							  
-                $db->Query( $sql );
-				}
 			}
 		}
 		public function CommentKilled( ) {
