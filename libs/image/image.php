@@ -384,6 +384,7 @@
 			global $db;
 			global $images;
 			global $latestimages;
+			global $water;
 			
 			$sql = "UPDATE `$images` SET `image_delid` = '1' WHERE `image_id` = '".$this->Id()."' LIMIT 1;";
 			$db->Query( $sql );
@@ -403,6 +404,10 @@
 					LIMIT 1;";
 			
 			$res = $db->Query( $sql );
+			
+			$row_num = mysql_num_rows( $res );
+			
+			$water->Trace( 'Number of rows: ' . $row_num );
 			
 			if ( mysql_num_rows( $res ) == 0 ) {
 				
