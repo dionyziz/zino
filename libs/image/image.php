@@ -395,16 +395,14 @@
 						`$images`
 					WHERE
 						`image_userid` = '" . $this->UserId() . "'
-					AND
-						`image_albumid` != 0
 					ORDER BY
 						`image_id`
-					DESC
+						DESC
 					LIMIT 1;";
 			
 			$res = $db->Query( $sql );
 			
-			if ( mysql_num_rows( $res ) == 0) {
+			if ( mysql_num_rows( $res ) ) {
 				
 				$sql = "DELETE FROM
 							`$latestimages`
@@ -417,8 +415,6 @@
 			else {
 			
 				while( $row = $res->FetchArray() ) {
-			
-				$imageid = $row[ 'image_id' ];
 				
 				$sql = "REPLACE INTO
 							`$latestimages`
@@ -426,7 +422,7 @@
 							  `latest_imageid` )
 						VALUES
 							( '" . $this->UserId() . "',
-							  $imageid );";	
+							  '" . $row[ 'image_id' ] . "' );";	
 							  
                 $db->Query( $sql );
 				}
