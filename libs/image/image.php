@@ -395,6 +395,8 @@
 						`$images`
 					WHERE
 						`image_userid` = '" . $this->UserId() . "'
+					AND
+						`image_delid` = 0
 					ORDER BY
 						`image_id`
 						DESC
