@@ -414,10 +414,20 @@
 							  `latest_imageid` )
 						VALUES
 							( '" . $this->UserId() . "',
-							  '$imageid' );";
+							  '$imageid' );";	
 							  
                 $db->Query( $sql );
-	        }			
+	        }
+			else {
+			
+				$sql = "DELETE FROM
+							`$latestimages`
+						WHERE
+							`latest_imageid` = 	'".$this->Id()."'
+						LIMIT 1;";
+						
+				$db->Query( $sql );
+			}
 		}
 		public function CommentKilled( ) {
 			global $db;
