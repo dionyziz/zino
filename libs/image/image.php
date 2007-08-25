@@ -404,7 +404,7 @@
 			
 			$res = $db->Query( $sql );
 			
-			if ( !mysql_num_rows( $res ) ) {
+			if ( mysql_num_rows( $res ) == 0 ) {
 				
 				$sql = "DELETE FROM
 							`$latestimages`
@@ -417,16 +417,16 @@
 			else {
 			
 				while( $row = $res->FetchArray() ) {
-					
-					$sql = "REPLACE INTO
-								`$latestimages`
-								( `latest_userid`,
-								  `latest_imageid` )
-							VALUES
-								( '" . $this->UserId() . "',
-								  '" . $row[ 'image_id' ] . "' );";	
-								  
-		            $db->Query( $sql );
+				
+				$sql = "REPLACE INTO
+							`$latestimages`
+							( `latest_userid`,
+							  `latest_imageid` )
+						VALUES
+							( '" . $this->UserId() . "',
+							  '" . $row[ 'image_id' ] . "' );";	
+							  
+                $db->Query( $sql );
 				}
 			}
 		}
