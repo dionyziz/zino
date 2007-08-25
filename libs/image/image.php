@@ -403,8 +403,20 @@
 					LIMIT 1;";
 			
 			$res = $db->Query( $sql );
-		
-			if ( $row = $res->FetchArray() ) {
+			
+			if ( mysql_num_rows( $res ) == 0) {
+				
+				$sql = "DELETE FROM
+							`$latestimages`
+						WHERE
+							`latest_imageid` = 	'" . $this->Id() . "'
+						LIMIT 1;";
+						
+				$db->Query( $sql );
+			}
+			else {
+			
+				while( $row = $res->FetchArray() ) {
 			
 				$imageid = $row[ 'image_id' ];
 				
@@ -417,16 +429,7 @@
 							  '$imageid' );";	
 							  
                 $db->Query( $sql );
-	        }
-			else {
-			
-				$sql = "DELETE FROM
-							`$latestimages`
-						WHERE
-							`latest_imageid` = 	'".$this->Id()."'
-						LIMIT 1;";
-						
-				$db->Query( $sql );
+				}
 			}
 		}
 		public function CommentKilled( ) {
