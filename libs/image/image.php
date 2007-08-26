@@ -404,7 +404,7 @@
 			
 			$res = $db->Query( $sql );
 			
-			if ( mysql_num_rows( $res ) == 0 ) {
+			if ( !$res->Results() ) {
 				
 				$sql = "DELETE FROM
 							`$latestimages`
