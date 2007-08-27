@@ -37,6 +37,29 @@
             $this->Assert( class_exists( 'tBooleanArray' ), 'tBooleanArray class does not exist' );
             $this->Assert( class_exists( 'tStringArray'  ), 'tStrinArray class does not exist'   );
         }
+        public function TestBaseTypesDefaults() {
+            $int = New tInteger( '' );
+            $this->Assert( is_int( $int->Get() ) );
+            $this->Assert( $int->Get() === 0 );
+            $float = New tFloat( '' );
+            $this->Assert( is_float( $float->Get() ) );
+            $this->Assert( $float->Get() === 0 );
+            $boolean = New tBoolean( '' );
+            $this->Assert( is_bool( $boolean->Get() ) );
+            $this->Assert( $boolean->Get() === false );
+            $string = New tString( '' );
+            $this->Assert( $string->Get() === '' );
+        }
+        public function TestStringToType() {
+            $int = New tInteger( 'bwahahah' );
+            $this->Assert( is_int( $int->Get() ) );
+            $this->AssertEquals( 0, $int->Get() );
+            $float = New tFloat( 'hoho' );
+            $this->Assert( is_float( $float->Get() ) );
+            $this->AssertEquals( 0, $float->Get() );
+            $boolean = New tBoolean( 'yes' );
+            $this->AssertEquals( true, $boolean->Get() );
+        }
         public function TestFunctionsExist() {
             $this->Assert( function_exists( 'Rabbit_TypeSafe_Call' ), 'Rabbit_TypeSafe_Call function does not exist' );
         }
@@ -60,6 +83,14 @@
         }
         public function TestArgumentOrder() {
             $this->AssertEquals( 0.5, Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleFloat', array( 'hohohoinvalid' => 0.6 ) ) );
+            $this->AssertEquals( 
+                array( 3, 0, true, '' ), 
+                Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleMultiple', array( 'int' => 3, 'bool' => true ) ) 
+            );
+            $this->AssertEquals(
+                array( 0, 0, false, '' ),
+                Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleMultiple', array() )
+            );
         }
     }
     
