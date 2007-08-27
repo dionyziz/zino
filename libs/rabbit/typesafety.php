@@ -28,7 +28,15 @@
     
     final class tBoolean extends tBaseType {
         public function tBoolean( $value ) {
-            $this->mValue = ( bool )$value;
+            if ( $value == 'yes' || $value == 'true' || $value == '1' ) {
+                $this->mValue = true;
+            }
+            else if ( $value == 'no' || $value == 'false' || $value == '0' ) {
+                $this->mValue = false;
+            }
+            else {
+                $this->mValue = ( bool )$value;
+            }
             $this->tBaseType( $value );
         }
     }
