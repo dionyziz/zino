@@ -13,6 +13,7 @@
 		switch( $change ) {
 			case 1: // OK
 				?>var id = <?php echo $commentid; ?>;
+				var daddy = <?php echo $daddy; ?>;
 				var comment = document.getElementById( 'comment_loading_delete_' + id );
 				comment.style.display = "none";
 				
@@ -33,9 +34,7 @@
 				comment.parentNode.insertBefore( undo, comment.nextSibling );
 				
 				if( daddy != 0 ) {
-					Comments.showDeleteButton( <?php
-					echo $daddy;
-					?> );
+					Comments.showDeleteButton( daddy );
 				}	
 				<?php
 				break;

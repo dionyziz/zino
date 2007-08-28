@@ -13,15 +13,14 @@
 		$comment->UndoDelete();
 		
 		?>var id = <?php echo $commentid; ?>;
+		var daddy = <?php echo $daddy; ?>
 		
 		g( 'comment_' + id ).style.display = 'block';
 		
 		g( 'comment_undo_delete_' + id ).style.display = 'none';
 		
 		if( daddy != 0 ) {
-			Comments.hideDeleteButton( <?php 
-			echo $daddy; 
-			?> );
+			Comments.hideDeleteButton( daddy );
 		}
 		
 		<?php
