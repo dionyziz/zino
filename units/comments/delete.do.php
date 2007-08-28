@@ -8,14 +8,15 @@
 		$libs->Load( 'comment' );
 		
 		$comment = New Comment( $commentid );
+		$daddy = $comment->ParentId();
 		$change = $comment->Kill();
 		switch( $change ) {
 			case 1: // OK
 				?>id = <?php echo $commentid; ?>;
-				comment = document.getElementById( 'comment_loading_delete_' + id );
+				var comment = document.getElementById( 'comment_loading_delete_' + id );
 				comment.style.display = "none";
 				
-				undo = d.createElement( "div" );
+				var undo = d.createElement( "div" );
 				undo.id = 'comment_undo_delete_' + id;
 				undo.style.width = '100%';
 				undo.style.textAlign = 'center';
@@ -23,13 +24,44 @@
 				undo.style.cursor = 'pointer';
 				undo.appendChild( d.createTextNode( "Το σχόλιο διεγράφη. " ) );
 				
-				undoLink = d.createElement( "a" );
+				var undoLink = d.createElement( "a" );
 				undoLink.onclick = ( function( id ) { return function() { Comments.UndoDelete( id ); return false; } } )( id );
 				undoLink.appendChild( d.createTextNode( "Αναίρεση διαγραφής" ) );
 				
 				undo.appendChild( undoLink );
 				
 				comment.parentNode.insertBefore( undo, comment.nextSibling );
+				
+				var numcom = g( id + "_children" ).firstChild;
+				var num = parseInt( numcom.nodeValue );
+				--num;
+				numcom.nodeValue = num;
+				
+				if( num == 0 ) {
+					var lili = d.createElement( 'li' );
+					var link = d.createElement( 'a' );
+					link.style.cursor = "pointer";
+					link.onclick = function() {
+							Comments.Delete( <?php
+							echo $daddy;
+							?> );
+							return false;
+						};
+					
+					link.appendChild( d.createTextNode( "Διαγραφή" ) );
+					lili.appendChild( link );
+					
+					var toolbar = g( 'comment_' + <?php
+						echo $daddy;
+						?> + '_toolbar' );
+					if( toolbar.childNodes.length == 3 ) {
+						toolbar.insertBefore( lili, toolbar.childNodes[2] );
+					}
+					else {
+						toolbar.appendChild( lili );
+					}
+				}
+					
 				<?php
 				break;
 			case 2: // Already deleted
