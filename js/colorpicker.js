@@ -7,7 +7,7 @@ var ColorPicker = {
 		table.cellpadding="0";
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
-		table.style.margin = "auto";
+		table.style.marginTop = "5px";
         table.style.cursor = "pointer";
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );

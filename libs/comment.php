@@ -142,7 +142,7 @@
 			
 			if ( $user->IsSysOp() ) {
 				$this->Update( $this->TextRaw(), $this->User()->Id(), $newstoryid );
-				foreach ( $this->ChildComments() as $childcomment ) {
+				foreach ( $this->ChildComments( true ) as $childcomment ) {
 					$childcomment->Update( $childcomment->TextRaw(), $childcomment->User()->Id(), $newstoryid );
 				}
 			}
@@ -283,7 +283,7 @@
 				}
 			}
 		}
-		public function ChildComments() {
+		public function ChildComments( $want_children ) {
 			global $db;
 			global $comments;
 			
@@ -294,9 +294,11 @@
 			while ( $sqlcomment = $res->FetchArray() ) {
 				$comment = New Comment( $sqlcomment );
 				$comments[] = $comment;
-				$childcomments = $comment->ChildComments();
-				foreach( $childcomments as $childcomment ) {
-					$comments[] = $childcomment;
+				if( $want_children ) {
+					$childcomments = $comment->ChildComments( true );
+					foreach( $childcomments as $childcomment ) {
+						$comments[] = $childcomment;
+					}
 				}
 			}
 			
