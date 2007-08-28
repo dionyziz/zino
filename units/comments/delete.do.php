@@ -35,6 +35,7 @@
 				var numcom = g( id + "_children" ).firstChild;
 				var num = parseInt( numcom.nodeValue );
 				--num;
+				alert( num );
 				numcom.nodeValue = num;
 				
 				if( num == 0 ) {
