@@ -27,6 +27,12 @@
 		Element( 'comment/view', $comment, $indent->Get() );
 		$newcomm = preg_replace('/&nbsp;+/', ' ', ob_get_clean()); // Prevent the &nbsp; cause an undefined entity error
 		
+		if( $indent->Get() != 0 ) {
+			?>Comments.hideDeleteButton( <?php
+			echo $parent;
+			?> );<?php
+		}
+		
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $newcomm );
