@@ -28,7 +28,7 @@
 			if( num == 1 ) {
 				var toolbar = g( 'comment_' + daddy + '_toolbar' );
 				for( var i in toolbar.childNodes ) {
-					if( toolbar.childNodes[i].firstChild.firstChild.firstChild.nodeValue == "Διαγραφή" ) {
+					if( toolbar.childNodes[i].firstChild.firstChild.nodeValue == "Διαγραφή" ) {
 						toolbar.removeChild( toolbar.childNodes[i] );
 						break;
 					}
