@@ -1,7 +1,9 @@
 <?php
     function ElementTest() {
     	global $libs;
-    	$libs->Load( 'article' );
+    	global $comments;
+    	echo $comments;
+    	
         /*var_dump(
             User_ByUsername(
                 array(
