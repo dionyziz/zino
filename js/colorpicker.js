@@ -7,7 +7,7 @@ var ColorPicker = {
 		table.cellpadding="0";
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
-		table.style.marginTop = "5px";
+		table.style.margin = "auto";
         table.style.cursor = "pointer";
 		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
@@ -76,4 +76,3 @@ var ColorPicker = {
 		return ( num > 255 )?255:num;
 	}
 };
-
