@@ -58,7 +58,7 @@ var Comments = {
 	},
 	EditCallback : function( id, text ) {
 		document.body.style.cursor = "default";
-		if( Comments.onedit[ id ] === null ) {
+		if( Comments.onedit[ id ] === null || Comments.onedit[ id ] === undefined ) {
 			g( 'comment_text_' + id ).style.display = 'none';
 			
 			var editid = document.createElement( 'input' );
