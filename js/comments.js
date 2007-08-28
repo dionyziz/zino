@@ -25,6 +25,7 @@ var Comments = {
 			comment = document.getElementById( 'comments' ).insertBefore( comment, document.getElementById( 'comment_' + nodeid).nextSibling );
 			comment.getElementsByTagName( 'textarea' )[ 0 ].focus();
 		}
+		Comments.hideDeleteButton( nodeid, false );
 	},
 	Edit : function( id ) {
 		if ( Comments.onedit[ id ] === true ) {
@@ -288,11 +289,13 @@ var Comments = {
 		}
 		element.removeChild( g('loading' ) );
 	},
-	hideDeleteButton : function( daddy ) {
+	hideDeleteButton : function( daddy, dec ) {
 		var numcom = g( daddy + "_children" ).firstChild;
 		var num = parseInt( numcom.nodeValue );
-		++num;
-		numcom.nodeValue = num;
+		if( dec ) {
+			++num;
+			numcom.nodeValue = num;
+		}
 		
 		if( num == 1 ) {
 			var toolbar = g( 'comment_' + daddy + '_toolbar' );

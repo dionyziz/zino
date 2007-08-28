@@ -20,7 +20,7 @@
 		g( 'comment_undo_delete_' + id ).style.display = 'none';
 		
 		if( daddy != 0 ) {
-			Comments.hideDeleteButton( daddy );
+			Comments.hideDeleteButton( daddy, true );
 		}
 		
 		<?php

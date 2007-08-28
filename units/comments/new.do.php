@@ -30,7 +30,7 @@
 		if( $indent->Get() != 0 ) {
 			?>Comments.hideDeleteButton( <?php
 			echo $parent;
-			?> );<?php
+			?>, true );<?php
 		}
 		
 		echo $callback;
