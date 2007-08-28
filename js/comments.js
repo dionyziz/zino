@@ -297,7 +297,7 @@ var Comments = {
 			numcom.nodeValue = num;
 		}
 		
-		if( num == 1 ) {
+		if( num == 1 || num == 0 ) {
 			var toolbar = g( 'comment_' + daddy + '_toolbar' );
 			for( var i in toolbar.childNodes ) {
 				if( toolbar.childNodes[i].firstChild.firstChild.nodeValue == "Διαγραφή" ) {
