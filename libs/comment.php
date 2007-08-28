@@ -290,19 +290,19 @@
 			$sql = "SELECT * FROM `$comments` WHERE `comment_parentid` = '" . $this->Id() . "' AND `comment_delid` = '0';";
 			$res = $db->Query( $sql );
 			
-			$comments = array();
+			$commentsfoo = array();
 			while ( $sqlcomment = $res->FetchArray() ) {
 				$comment = New Comment( $sqlcomment );
-				$comments[] = $comment;
+				$commentsfoo[] = $comment;
 				if( $want_children ) {
 					$childcomments = $comment->ChildComments( true );
 					foreach( $childcomments as $childcomment ) {
-						$comments[] = $childcomment;
+						$commentsfoo[] = $childcomment;
 					}
 				}
 			}
 			
-			return $comments;
+			return $commentsfoo;
 		}
         public function Exists() {
             return $this->mId > 0;
