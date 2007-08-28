@@ -922,7 +922,7 @@
 					if ( isset( $bulkdata ) ) {
 						$row[ 'bulk_text' ] = $bulkdata[ $row[ 'revision_textid' ] ];
 					}
-					if ( isset( $pageviewdata ) ) {
+					if ( isset( $pageviewdata ) && isset( $pageviewdata[ $row[ 'article_id' ] ] ) ) {
 						$row[ 'pageviews' ] = $pageviewdata[ $row[ 'article_id' ] ];
 					}
 					if ( isset( $editorsdata ) ) {
