@@ -732,7 +732,7 @@
                 . 'Update Library</a></td></tr></table>'
                 . '<table><tr><td><img src="images/root.png" alt="" /></td><td>Music Root: </td><td><b>'
                 . 'D:\music</b></td></tr></table><br /></div>',
-                $sanitizer->GetXHTML, 'Real world example 3 failed'
+                $sanitizer->GetXHTML(), 'Real world example 3 failed'
             );
         }
     }
