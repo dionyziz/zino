@@ -12,7 +12,8 @@
 		$change = $comment->Kill();
 		switch( $change ) {
 			case 1: // OK
-				?>id = <?php echo $commentid; ?>;
+				?>var id = <?php echo $commentid; ?>;
+				var daddy = <?php echo $daddy; ?>;
 				var comment = document.getElementById( 'comment_loading_delete_' + id );
 				comment.style.display = "none";
 				
@@ -32,38 +33,33 @@
 				
 				comment.parentNode.insertBefore( undo, comment.nextSibling );
 				
-				var numcom = g( <?php
-				echo $daddy;
-				?> + "_children" ).firstChild;
-				var num = parseInt( numcom.nodeValue );
-				--num;
-				numcom.nodeValue = num;
-				
-				if( num == 0 ) {
-					var lili = d.createElement( 'li' );
-					var link = d.createElement( 'a' );
-					link.style.cursor = "pointer";
-					link.onclick = function() {
-							Comments.Delete( <?php
-							echo $daddy;
-							?> );
-							return false;
-						};
+				if( daddy != 0 ) {
+					var numcom = g( daddy + "_children" ).firstChild;
+					var num = parseInt( numcom.nodeValue );
+					--num;
+					numcom.nodeValue = num;
 					
-					link.appendChild( d.createTextNode( "Διαγραφή" ) );
-					lili.appendChild( link );
-					
-					var toolbar = g( 'comment_' + <?php
-						echo $daddy;
-						?> + '_toolbar' );
-					if( toolbar.childNodes.length == 3 ) {
-						toolbar.insertBefore( lili, toolbar.childNodes[2] );
+					if( num == 0 ) {
+						var lili = d.createElement( 'li' );
+						var link = d.createElement( 'a' );
+						link.style.cursor = "pointer";
+						link.onclick = function() {
+								Comments.Delete( daddy );
+								return false;
+							};
+						
+						link.appendChild( d.createTextNode( "Διαγραφή" ) );
+						lili.appendChild( link );
+						
+						var toolbar = g( 'comment_' + daddy + '_toolbar' );
+						if( toolbar.childNodes.length == 3 ) {
+							toolbar.insertBefore( lili, toolbar.childNodes[2] );
+						}
+						else {
+							toolbar.appendChild( lili );
+						}
 					}
-					else {
-						toolbar.appendChild( lili );
-					}
-				}
-					
+				}	
 				<?php
 				break;
 			case 2: // Already deleted
