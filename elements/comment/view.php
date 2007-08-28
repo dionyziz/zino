@@ -95,9 +95,7 @@
 				<div id="<?php
 				echo $comment->Id();
 				?>_children" style="display: none"><?php
-				echo count( $comment->ChildComments( false ) );
-				?>
-				</div>
+				echo count( $comment->ChildComments( false ) );?></div>
 			</div>
 		</div><?php
 	}
