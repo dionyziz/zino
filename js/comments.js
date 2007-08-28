@@ -287,5 +287,48 @@ var Comments = {
 			return;
 		}
 		element.removeChild( g('loading' ) );
+	},
+	hideDeleteButton : function( daddy ) {
+		var numcom = g( daddy + "_children" ).firstChild;
+		var num = parseInt( numcom.nodeValue );
+		++num;
+		numcom.nodeValue = num;
+		
+		if( num == 1 ) {
+			var toolbar = g( 'comment_' + daddy + '_toolbar' );
+			for( var i in toolbar.childNodes ) {
+				if( toolbar.childNodes[i].firstChild.firstChild.nodeValue == "Διαγραφή" ) {
+					toolbar.removeChild( toolbar.childNodes[i] );
+					break;
+				}
+			}
+		}
+	},
+	showDeleteButton : function( daddy ) {
+		var numcom = g( daddy + "_children" ).firstChild;
+		var num = parseInt( numcom.nodeValue );
+		--num;
+		numcom.nodeValue = num;
+		
+		if( num == 0 ) {
+			var lili = d.createElement( 'li' );
+			var link = d.createElement( 'a' );
+			link.style.cursor = "pointer";
+			link.onclick = function() {
+					Comments.Delete( daddy );
+					return false;
+				};
+			
+			link.appendChild( d.createTextNode( "Διαγραφή" ) );
+			lili.appendChild( link );
+			
+			var toolbar = g( 'comment_' + daddy + '_toolbar' );
+			if( toolbar.childNodes.length == 3 ) {
+				toolbar.insertBefore( lili, toolbar.childNodes[2] );
+			}
+			else {
+				toolbar.appendChild( lili );
+			}
+		}
 	}
 };
