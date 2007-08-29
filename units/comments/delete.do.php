@@ -34,7 +34,7 @@
 				comment.parentNode.insertBefore( undo, comment.nextSibling );
 				
 				if( daddy != 0 ) {
-					Comments.showDeleteButton( daddy );
+					Comments.showDeleteButton( daddy, true );
 				}	
 				<?php
 				break;

@@ -165,7 +165,9 @@ var Comments = {
 		Comments.onedit[ id ] = false;
 	},
 	cancelReply : function( comment ) {
-		alert( comment.id );
+		var parentid = comment.id.substring( 14, comment.id.length );
+		Comments.showDeleteButton( parentid, false );
+		
 		comment.parentNode.removeChild( comment );
 	},
 	DeleteModal : function( id ) {
@@ -297,8 +299,10 @@ var Comments = {
 			++num;
 			numcom.nodeValue = num;
 		}
-
-		if( num == 1 || num == 0 ) {
+		
+		var maxi = ( dec )?1:0;
+		
+		if( num == maxi ) {
 			var toolbar = g( 'comment_' + daddy + '_toolbar' );
 			for( var i=0;i<toolbar.childNodes.length;++i ) {
 				if( toolbar.childNodes[i].firstChild.firstChild.nodeValue == "Διαγραφή" ) {
@@ -308,13 +312,17 @@ var Comments = {
 			}
 		}
 	},
-	showDeleteButton : function( daddy ) {
+	showDeleteButton : function( daddy, dec ) {
 		var numcom = g( daddy + "_children" ).firstChild;
 		var num = parseInt( numcom.nodeValue );
-		--num;
-		numcom.nodeValue = num;
+		if( dec ) {
+			--num;
+			numcom.nodeValue = num;
+		}
 		
-		if( num == 0 ) {
+		var maxi = ( dec )?0:1;
+		
+		if( num == maxi ) {
 			var lili = d.createElement( 'li' );
 			var link = d.createElement( 'a' );
 			link.style.cursor = "pointer";
