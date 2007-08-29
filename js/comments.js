@@ -165,6 +165,7 @@ var Comments = {
 		Comments.onedit[ id ] = false;
 	},
 	cancelReply : function( comment ) {
+		alert( comment.firstChild.firstChild.nodeValue);
 		comment.parentNode.removeChild( comment );
 	},
 	DeleteModal : function( id ) {
