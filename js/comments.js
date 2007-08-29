@@ -296,7 +296,7 @@ var Comments = {
 			++num;
 			numcom.nodeValue = num;
 		}
-		
+		alert( daddy );
 		if( num == 1 || num == 0 ) {
 			var toolbar = g( 'comment_' + daddy + '_toolbar' );
 			for( var i in toolbar.childNodes ) {
