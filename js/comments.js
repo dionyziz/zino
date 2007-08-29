@@ -299,7 +299,7 @@ var Comments = {
 
 		if( num == 1 || num == 0 ) {
 			var toolbar = g( 'comment_' + daddy + '_toolbar' );
-			alert( toolbar.childNodes.length;
+			alert( toolbar.childNodes.length );
 			for( var i in toolbar.childNodes ) {
 				alert( i );
 				if( toolbar.childNodes[i].firstChild.firstChild.nodeValue == "Διαγραφή" ) {
