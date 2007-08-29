@@ -320,9 +320,7 @@ var Comments = {
 			numcom.nodeValue = num;
 		}
 		
-		var maxi = ( dec )?0:1;
-		
-		if( num == maxi ) {
+		if( num == 0 ) {
 			var lili = d.createElement( 'li' );
 			var link = d.createElement( 'a' );
 			link.style.cursor = "pointer";
