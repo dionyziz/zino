@@ -40,7 +40,16 @@
     function PageviewsLastMonth() {
         global $db;
 
-        $sql = "SELECT COUNT( * ) AS pageviews FROM `merlin_logs` WHERE `log_date` > NOW() - INTERVAL 1 MONTH;";
+        $sql = "SELECT 
+                    COUNT(*) AS pageviews 
+                FROM 
+                    `merlin_logs`
+                WHERE
+                    `log_date` >= NOW() - INTERVAL 1 MONTH
+                    AND ( `log_requesturi` LIKE '%/?%'
+                    OR `log_requesturi` LIKE '%/index.php%' 
+                    OR `log_requesturi` LIKE '%/' )
+                ;";
 
         $fetched = $db->Query( $sql )->FetchArray();
         return $fetched[ 'pageviews' ];
@@ -56,6 +65,9 @@
                     `merlin_logs`
                 WHERE 
                     `log_date` > NOW( ) - INTERVAL $num MONTH 
+                    AND ( `log_requesturi` LIKE '%/?%'
+                    OR `log_requesturi` LIKE '%/index.php%' 
+                    OR `log_requesturi` LIKE '%/' )
                 GROUP BY 
                     month 
                 ORDER BY 

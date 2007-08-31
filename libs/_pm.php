@@ -189,7 +189,7 @@
 							`$pmmessages`, `$pmmessageinfolder`
 						SET
 							`pm_senderid` = '" . myescape( $this->SenderId ) . "',
-							`pm_text = '" . myescape( $this->Text ) . "',
+							`pm_text` = '" . myescape( $this->Text ) . "',
 							`pm_textformatted` = '" . myescape( $this->TextFormatted ) . "',
 							`pmif_id` = '" . myescape( $this->Id ) . "',
 							`pmif_userid` = '" . myescape( $this->User->Id() ) . "',
