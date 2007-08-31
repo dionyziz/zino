@@ -16,8 +16,7 @@
 						</div>
 						<div class="rectanglesopts" style="min-height:70px;"><br /><?php
 							Element( 'user/display' , $friend );
-							?><br /><b>Ρόλος:</b> <?php
-							echo $friend->Rank(); ?><br /><?php
+                            ?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								echo htmlspecialchars( $friend->Hobbies() ); 

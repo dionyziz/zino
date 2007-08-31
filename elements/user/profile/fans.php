@@ -29,11 +29,8 @@
 						if ( $user->Id() == $fan->Id() ) { 
 							?>id="newfancontent" <?php
 						}
-						?>>
-							<br /><?php
+						?>><br /><?php
 							Element( 'user/display' , $fan );
-							?><br /><b>Ρόλος:</b> <?php
-							echo $fan->Rank();
 							?><br /><?php
 							if ( $fan->Hobbies() != "" ) {
 								?><div style="overflow:hidden;width:90%;"><b>Ενδιαφέροντα:</b> <?php
