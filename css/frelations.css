@@ -5,9 +5,9 @@ div.frelations {
 	z-index:1;
 	cursor: pointer;
 	text-transform: lowercase;
-	text-indent: 22px;
+/*	text-indent: 22px;
 	font-family: Verdana;
-	font-size: 75%;
+	font-size: 75%;*/
 	position: absolute;
 }
 
