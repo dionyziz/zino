@@ -186,10 +186,10 @@
                             }
                             ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
                             </div><br />
+                            <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/>
                             <?php
 						}
-					}
-			/*		<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/>
+					}	
 		/*			if ( $user->Id() != $theuser->Id() ) {
     					?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
     					echo $theuser->Username();

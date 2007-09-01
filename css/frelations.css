@@ -15,7 +15,6 @@ div.frelation {
 	z-index:1;
 	cursor: hand;
 	color: #7a7cee;
-	position: fixed;
 }
 
 div.relselected {
@@ -23,5 +22,4 @@ div.relselected {
 	cursor: hand;
 	color: #7a7cee;
 	text-decoration: underline;
-	position: fixed;
 }
