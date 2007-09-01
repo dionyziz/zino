@@ -14,11 +14,16 @@
 		private $mDataMax;
 		private $mDataAvg;
 		private $mTimeLength;
+        private $mHighlightLast;
 		private $mIm;
 		
 		public function Graph( $caption ) {
 			$this->mCaption = $caption;
+            $this->mHighlightLast = false;
 		}
+        public function HighlightLast() {
+            $this->mHighlightLast = true;
+        }
 		public function SetSmoothing( $smooth ) {
 			++$smooth;
 			
@@ -89,7 +94,8 @@
 				$y2 = ACTUAL_HEIGHT - ( ( ACTUAL_HEIGHT - 16 ) * $pageviews / $this->mDataMax );
 				imageline( $this->mIm, $x1, $y1, $x2, $y2, imagecolorallocate( $this->mIm, 0, 0, 0 ) );
 				$oldpageviews = $pageviews;
-			}
+		    }
+            $lastpageviews = $oldpageviews;
 			
 			imagefilltoborder( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH / 2 , 1 , imagecolorallocate( $this->mIm, 0, 0, 0 ) , imagecolorallocate( $this->mIm, 255, 220, 132 ) );
 			
@@ -161,6 +167,12 @@
 			
 	        // average line
 			imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , ACTUAL_HEIGHT - ACTUAL_HEIGHT * $this->mDataAvg / $this->mDataMax , $this->mGraphWidth - 1 , ACTUAL_HEIGHT - ACTUAL_HEIGHT * $this->mDataAvg / $this->mDataMax , imagecolorallocate( $this->mIm, 60, 243, 149 ) );
+
+            // last line
+            if ( $this->mHighlightLast ) {
+				$y = ACTUAL_HEIGHT - ( ( ACTUAL_HEIGHT - 16 ) * $lastpageviews / $this->mDataMax );
+                imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , $y , $this->mGraphWidth - 1 , $y , imagecolorallocate( $this->mIm, 255, 63, 56 ) );
+            }
 			
 			//display graph caption
 	        $textwidth = imagefontwidth( 5 ) * strlen( $this->mCaption );

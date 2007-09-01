@@ -74,6 +74,7 @@
 	$graph->SetSize( $width, $height );
 	$graph->SetTime( 150 );
 	// $graph->SetSmoothing( $smooth );
+    $graph->HighlightLast();
 	$graph->Render();
 	
     Rabbit_Destruct();

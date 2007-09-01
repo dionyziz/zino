@@ -192,14 +192,19 @@
 							`pm_text` = '" . myescape( $this->Text ) . "',
 							`pm_textformatted` = '" . myescape( $this->TextFormatted ) . "',
 							`pmif_id` = '" . myescape( $this->Id ) . "',
-							`pmif_userid` = '" . myescape( $this->User->Id() ) . "',
+							`pmif_userid` = '" . myescape( $this->UserId ) . "',
 							`pmif_folderid` = '" . myescape( $this->FolderId ) . "',
 							`pmif_delid` = '" . myescape( $this->DelId ) . "'
 						WHERE
-							`pm_id` = '" . myescape( $this->Id ) . "' AND
+							`pm_id` = '" . $this->mPreviousValues[ 'mId' ] . "' AND
 							`pmif_id` = `pm_id` AND
-							`pmif_userid` = '" . myescape( $this->User->Id() ) . "'
+							`pmif_userid` = '" . $this->mPreviousValues[ 'mUserId' ] . "' AND
+                            `pmif_folderid` = '" . $this->mPreviousValues[ 'mFolderId' ] . "'
 						;";
+
+                $this->mPreviousValues[ 'mId' ] = $this->Id;
+                $this->mPreviousValues[ 'mUserId' ] = $this->UserId;
+                $this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
 				
 				$change = $db->Query( $sql );
                 
@@ -307,7 +312,8 @@
 				'pm_senderid' => 'SenderId',
 				'pm_date' => 'Date',
 				'pmif_folderid' => 'FolderId',
-				'pmif_delid' => 'DelId'
+				'pmif_delid' => 'DelId',
+                'pmif_userid' => 'UserId'
 			) );
 			
 			$this->User			= $pmuser;
