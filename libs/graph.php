@@ -170,6 +170,7 @@
 
             // last line
             $y = ACTUAL_HEIGHT - ( ( ACTUAL_HEIGHT - 16 ) * $lastpageviews / $this->mDataMax );
+            die( ".$y." );
             imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , $y , $this->mGraphWidth - 1 , $y , imagecolorallocate( $this->mIm, 255, 63, 56 ) );
 			
 			//display graph caption
