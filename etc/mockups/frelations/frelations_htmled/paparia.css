@@ -1,0 +1,20 @@
+div.frelations {
+	background-image: url('main.png');
+	background-repeat: repeat-y;
+	background-position: 6px 0px;
+	z-index:1;
+	cursor: pointer;
+}
+
+div.frelation {
+	z-index:1;
+	cursor: hand;
+	color: #7a7cee;
+}
+
+div.relselected {
+	z-index:1;
+	cursor: hand;
+	color: #7a7cee;
+	text-decoration: underline;
+}
