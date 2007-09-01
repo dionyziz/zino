@@ -169,9 +169,9 @@
                             	else {
                             		?>frelation<?php
                             	}
-                            	?>" onmouseover="document.getElementById( 'frel_<?php
+                            	?>" onmouseover="g( 'frel_<?php
                             	echo $relation->Id;
-                            	?>' ).style.color='#5c60bb';" onmouseout="document.getElementById( 'frel_<?php
+                            	?>' ).style.color='#5c60bb';" onmouseout="g( 'frel_<?php
                             	echo $relation->Id;
                             	?>' ).style.color='#757bee';"><?php
                             	echo $relation->Type;
@@ -184,7 +184,8 @@
                             else {
                             	?>frelation<?php
                             }
-                            ?>" onmouseover="document.getElementById( 'frel_-1' ).style.color='#5c60bb';" onmouseout="document.getElementById( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
+                            ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
+                            </div>
                             <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/><?php
 						}
 					}
