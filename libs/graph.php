@@ -169,10 +169,8 @@
 			imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , ACTUAL_HEIGHT - ACTUAL_HEIGHT * $this->mDataAvg / $this->mDataMax , $this->mGraphWidth - 1 , ACTUAL_HEIGHT - ACTUAL_HEIGHT * $this->mDataAvg / $this->mDataMax , imagecolorallocate( $this->mIm, 60, 243, 149 ) );
 
             // last line
-            if ( $this->mHighlightLast ) {
-				$y = ACTUAL_HEIGHT - ( ( ACTUAL_HEIGHT - 16 ) * $lastpageviews / $this->mDataMax );
-                imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , $y , $this->mGraphWidth - 1 , $y , imagecolorallocate( $this->mIm, 255, 63, 56 ) );
-            }
+            $y = ACTUAL_HEIGHT - ( ( ACTUAL_HEIGHT - 16 ) * $lastpageviews / $this->mDataMax );
+            imageline( $this->mIm , $this->mGraphWidth - ACTUAL_WIDTH + 1 , $y , $this->mGraphWidth - 1 , $y , imagecolorallocate( $this->mIm, 255, 63, 56 ) );
 			
 			//display graph caption
 	        $textwidth = imagefontwidth( 5 ) * strlen( $this->mCaption );
