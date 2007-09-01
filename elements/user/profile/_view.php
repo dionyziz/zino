@@ -184,7 +184,7 @@
                             else {
                             	?>frelation<?php
                             }
-                            ?>"onmouseover="document.getElementById( 'frel_-1' ).style.color='#5c60bb';" onmouseout="document.getElementById( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
+                            ?>" onmouseover="document.getElementById( 'frel_-1' ).style.color='#5c60bb';" onmouseout="document.getElementById( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
                             <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/><?php
 						}
 					}
