@@ -1,66 +1,25 @@
-/*And who would expect this?Kostis90gr writing a .css file*/
-li.relation {
-	border: thin ridge;
-	border-bottom-style: none;
-	opacity: 0;
-	background-color: #FFFFFF;
-	display: none;
-}
-
-li.relselected {
-	border: thin ridge;
-	border-bottom-style: none;
-	border-bottom: thin ridge;
-	color: #0033FF;
-	background-color: #99FF99;
-	display: list-item;
-}
-
-ul.daddy {
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
+div.frelations {
+	background-image: url('https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/main.png');
+	background-repeat: repeat-y;
+	background-position: 6px 0px;
+	z-index:1;
 	cursor: pointer;
-	position: absolute;
-	padding-left: 20px;
-	z-index: 1
+	text-transform: lowercase;
+	text-indent: 22px;
+	font-family: Verdana;
+	font-size: 75%;
 }
 
-/*----------------Code from sidebar.css--------------------*/
-a.arrow {
-	float: left;
-	position: relative;
-	background-repeat: no-repeat;
-	background-position: top right;
-	width: 16px;
-	height: 16px;
-	margin-right: 1px;
-	z-index: 1
+div.frelation {
+	z-index:1;
+	cursor: hand;
+	color: #7a7cee;
+	
 }
-a.arrowup {
-	float: left;
-	background-repeat: no-repeat;
-	background-position: top right;
-	width: 16px;
-	height: 16px;
-	margin-right: 1px;
-	position: relative;
-	bottom: 4px;
-	z-index: 1
+
+div.relselected {
+	z-index:1;
+	cursor: hand;
+	color: #7a7cee;
+	text-decoration: underline;
 }
-a.arrow:link, a.arrow:visited, a.arrow:active {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdown.jpg');
-	background-position: 6 0;
-	position: relative;
-	top: 4px;
-}
-a.arrow:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdownover.jpg');
-}
-a.arrowup:link, a.arrowup:visited, a.arrowup:active {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropup.png');
-}
-a.arrowup:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropupover.png');
-} 
-/*-------------End code from sidebar.css------------------*/
