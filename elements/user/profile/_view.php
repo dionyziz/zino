@@ -189,7 +189,7 @@
                             <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/><?php
 						}
 					}
-					if ( $user->Id() != $theuser->Id() ) {
+		/*			if ( $user->Id() != $theuser->Id() ) {
     					?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
     					echo $theuser->Username();
     					?>"><img src="<?php
@@ -214,7 +214,7 @@
 						echo $theuser->Username();
 						?>" /></a><?php
 					}
-					?></div><?php
+		*/			?></div><?php
 					if ( $viewalbums ) {
 						?><div class="rightism"></div>
 						<div class="tab"><a>Albums</a></div>
