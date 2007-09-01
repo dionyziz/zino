@@ -153,7 +153,7 @@
 	                        echo $theuser->Id();
 	                        ?>);return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/user_add.png" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>
+                            ?>icons/user_add.png" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>   <br />
                             <map id="close" name="close">
 								<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 							</map>
