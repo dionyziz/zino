@@ -5,9 +5,9 @@ div.frelations {
 	z-index:1;
 	cursor: pointer;
 	text-transform: lowercase;
-/*	text-indent: 22px;
+	text-indent: 22px;
 	font-family: Verdana;
-	font-size: 75%;*/
+	font-size: 75%;
 	position: absolute;
 }
 
@@ -15,6 +15,7 @@ div.frelation {
 	z-index:1;
 	cursor: hand;
 	color: #7a7cee;
+	position: absolute;
 }
 
 div.relselected {
@@ -22,4 +23,5 @@ div.relselected {
 	cursor: hand;
 	color: #7a7cee;
 	text-decoration: underline;
+	position: absolute;
 }
