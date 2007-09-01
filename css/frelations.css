@@ -8,6 +8,8 @@ div.frelations {
 	text-indent: 22px;
 	font-family: Verdana;
 	font-size: 75%;
+	position: absolute;
+	z-index: 1;
 }
 
 div.frelation {
