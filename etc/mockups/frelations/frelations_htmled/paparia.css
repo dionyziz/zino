@@ -4,12 +4,17 @@ div.frelations {
 	background-position: 6px 0px;
 	z-index:1;
 	cursor: pointer;
+	text-transform: lowercase;
+	text-indent: 22px;
+	font-family: Verdana;
+	font-size: 75%;
 }
 
 div.frelation {
 	z-index:1;
 	cursor: hand;
 	color: #7a7cee;
+	
 }
 
 div.relselected {
