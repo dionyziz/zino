@@ -185,7 +185,7 @@
                             	?>frelation<?php
                             }
                             ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
-                            </div>
+                            </div><br />
                             <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left: 6px"/><?php
 						}
 					}
