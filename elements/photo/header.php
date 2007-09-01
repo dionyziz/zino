@@ -31,7 +31,7 @@
 					<small><?php
 						if ( trim( $photo->Description() ) != '' ) {
 							?><span class="details" style="font-size:9pt;"><?php
-							echo $photo->Description();
+							echo htmlspecialchars( $photo->Description() );
 							?></span><?php
 						}
 						if ( trim( $photo->Description() ) == '' && $user->Id() == $photo->UserId() ) {
