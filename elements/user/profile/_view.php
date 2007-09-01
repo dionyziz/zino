@@ -184,7 +184,7 @@
                             else {
                             	?>frelation<?php
                             }
-                            ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία Σχέση</div>
+                            ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
                             </div><br />
                             <?php
 						}
