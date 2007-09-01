@@ -163,7 +163,7 @@
                             	?><div id="frel_<?php
                             	echo $relation->Id;
                             	?>" class="<?php
-                            	if( $relid = $relation->Id ) {
+                            	if( $relid == $relation->Id ) {
                             		?>relselected<?php
                             	}
                             	else {
@@ -175,7 +175,7 @@
                             	echo $relation->Id;
                             	?>' ).style.color='#757bee';"><?php
                             	echo $relation->Type;
-                            	?></div><?php
+                            	?></div><br /><?php
                             }
                             ?><div id="frel_-1" class="<?php
                             if( $relid == -1 ) {
