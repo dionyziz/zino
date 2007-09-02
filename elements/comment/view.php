@@ -41,8 +41,10 @@
 				Element( 'user/icon' , $theuser );
 			?></div>
 			<div class="text">
-				<div id="comment_text_<?php echo $comment->Id(); ?>"><?php
-					echo $comment->Text();
+				<div id="comment_text_<?php 
+                    echo $comment->Id(); 
+                    ?>"><?php
+					echo htmlspecialchars( $comment->Text() );
 					?><br /><br /><br /><div class="sig"><?php
 					
 					echo htmlspecialchars( $theuser->Signature() );

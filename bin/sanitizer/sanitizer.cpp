@@ -60,7 +60,12 @@ Sanitizer::Sanitizer( string source ) : mSource( source ) {
     }
 }
 
-Sanitizer::~Sanitizer() {}
+Sanitizer::~Sanitizer() {
+    while ( mParents.size() > 0 ) {
+        delete mParents.top();
+        mParents.pop();
+    }
+}
 
 bool Sanitizer::AllowTag( string tag ) {
     if ( this->IsXHTMLTag( tag ) ) {
@@ -88,6 +93,8 @@ string Sanitizer::GetXHTML() {
     }
 
     CreateTag( mParents.top() );
+    mParents.pop();
+    cout << "foo" << endl;
 }
 
 void Sanitizer::CreateTag( HTMLTag * tag ) {

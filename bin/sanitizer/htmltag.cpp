@@ -80,7 +80,11 @@ HTMLTag::HTMLTag( string source, bool forcetext ) : mSource( source ) {
     }
 }
 
-HTMLTag::~HTMLTag() {}
+HTMLTag::~HTMLTag() {
+    for ( int i = 0; i < mChildren.size(); ++i ) {
+        delete mChildren[ i ];
+    }
+}
 
 string HTMLTag::Name() {
     return mName;
