@@ -40,6 +40,10 @@
         if ( !ValidId( $offset ) ) {
             $offset = 1;
         }
+
+        if ( $album->Id() == 267 ) { // TODO: remove this after 1/11/2007
+            $page->AddMeta( 'GOOGLEBOT', 'NOARCHIVE' );
+        }
 		
 		/*
 		$pages = intval( $albumphotosnumber / 16 );
