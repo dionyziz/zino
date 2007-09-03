@@ -14,7 +14,7 @@
 		g( 'frel_-1' ).className = "relselected";
 		g('friendadd').childNodes[1].firstChild.src = "<?php
 		echo $xc_settings[ 'staticimagesurl' ];
-        ?>icons/user_delete.png";
+        ?>icons/user_add.png";
 		Friends.FriendDeleted( <?php
 		echo $user->Id();
 		?> );<?php
