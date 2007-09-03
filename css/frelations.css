@@ -15,8 +15,8 @@ div.frelations {
 div.frelation {
 	cursor: hand;
 	color: #7a7cee;
-/*	display: inline;
-	float: none;*/
+	display: inline;
+	float: none;
 }
 
 div.relselected {
