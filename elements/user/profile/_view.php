@@ -319,7 +319,7 @@
 			echo $friendstab;
 		?></div><?php
 		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139
-			Element( 'user/profile/frelations', $relations, $user->IsFriend( $theuser->Id() ) );
+			Element( 'user/profile/frelations', $relations, $user->IsFriend( $theuser->Id() ), $theuser->Id() );
 		}
 	}
 ?>

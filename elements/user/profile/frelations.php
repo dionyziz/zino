@@ -1,5 +1,5 @@
 <?php
-	function ElementUserProfileFrelations( $relations, $is_friend ) {
+	function ElementUserProfileFrelations( $relations, $is_friend, $friendid ) {
 		global $user;
 		global $libs;
 		global $page;
@@ -9,7 +9,7 @@
     	$page->AttachScript( 'js/_friends.js' );
     	
 		if ( $isfriend ) {
-			$relid = $user->GetRelId( $theuser->Id() );
+			$relid = $user->GetRelId( $friendid );
 		}
 		else {
 			$relid = -1;
@@ -20,7 +20,7 @@
 				<area shape="rect" coords="94,20,105,30" onclick="Friends.ShowAll( false );return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 				</map>
 				
-				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;margin-bottom: 0px;padding-bottom: 0px;" />
+				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;" />
                 <div class="frelations"><?php
                 foreach( $relations as $relation ) {
                 	?><div id="frel_<?php
@@ -36,7 +36,12 @@
                 	echo $relation->Id;
                 	?>' ).style.color='#5c60bb';" onmouseout="g( 'frel_<?php
                 	echo $relation->Id;
-                	?>' ).style.color='#757bee';"><?php
+                	?>' ).style.color='#757bee';"
+                	onclick="Friends.AddFriend( <?php
+                	echo $friendid;
+                	?>, <?php
+                	echo $relation->Id;
+                	?> );return false;" ><?php
                 	echo $relation->Type;
                 	?></div><?php
                 }
@@ -47,7 +52,9 @@
                 else {
                 	?>frelation<?php
                 }
-                ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
+                ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';" onclick="Friends.AddFriend( <?php
+                echo $friendid;
+                ?>, -1 );return false;" >Καμία</div>
                 </div>
                 <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:6px;" />
          </div><?php

@@ -88,25 +88,5 @@ var Friends = {
 		
 		Animations.Create( g('friend_relations'), "opacity", 1500, (show)?0:1, (show)?1:0, new Function(), Interpolators.Pulse );
 		Friends.onappear = show;
-	},
-	correctList : function() {
-		var relations = g( 'frel_type' );
-        for ( var i in relations.childNodes ) {
-        	if ( relations.childNodes[i].nodeType == 1 && relations.childNodes[i].title != '' ) { // Find the previous relation
-        		relations.childNodes[i].title = '';
-        		relations.childNodes[i].className = "relation";
-        		relations.childNodes[i].style.color = "";
-        		if ( i == 0 ) {
-        			relations.childNodes[i].style.backgroundColor = "";
-        		}
-        		else if ( relations.childNodes[i-1].style.backgroundColor == "" ) {
-        			relations.childNodes[i].style.backgroundColor = "#ececec";
-        		}
-        		else {
-        			relations.childNodes[i].style.backgroundColor = "";
-        		}
-        		break;
-        	}
-        }
 	}
 };

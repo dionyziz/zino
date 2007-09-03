@@ -4,10 +4,15 @@
 		
         $friendid = $friendid->Get();
         
+        $type = $user->GetRelId( $friendid );
 		$user->DeleteFriend( $friendid );
 		
-		?>Friends.FriendDeleted( <?php
+		?>g( 'frel_<?php
+		echo $type;
+		?>' ).className = "frelation";
+		g( 'frel_-1' ).className = "relselected";<?php
+	/*	Friends.FriendDeleted( <?php
 		echo $user->Id();
-		?> );<?php
+		?> );*/
 	}
 ?>
