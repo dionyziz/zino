@@ -3,12 +3,17 @@
 	
 	global $page;
 	global $libs;
+    global $user;
     
 	require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
 	Rabbit_ClearPostGet();
+
+    if ( !$user->CanModifyCategories() ) {
+        return false;
+    }
 	
     global $db;
     
