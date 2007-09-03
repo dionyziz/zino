@@ -134,7 +134,7 @@
                         <?php
                     }
                     ?>
-					<div style="float:left;padding-top:9px;"><?php
+                 	<div style="float:left;padding-top:9px;"><?php
 					$isfriend = $user->IsFriend( $theuser->Id() );
 					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
 						$relations = AllRelations();
@@ -154,39 +154,7 @@
 	                        ?>);return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>icons/user_add.png" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>   <br />
-                            <map id="close" name="close">
-								<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
-							</map>
-							<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;position: absolute" /><br /><br />
-                            <div class="frelations"><?php
-                            foreach( $relations as $relation ) {
-                            	?><div id="frel_<?php
-                            	echo $relation->Id;
-                            	?>" class="<?php
-                            	if( $relid == $relation->Id ) {
-                            		?>relselected<?php
-                            	}
-                            	else {
-                            		?>frelation<?php
-                            	}
-                            	?>" onmouseover="g( 'frel_<?php
-                            	echo $relation->Id;
-                            	?>' ).style.color='#5c60bb';" onmouseout="g( 'frel_<?php
-                            	echo $relation->Id;
-                            	?>' ).style.color='#757bee';"><?php
-                            	echo $relation->Type;
-                            	?></div><br /><?php
-                            }
-                            ?><div id="frel_-1" class="<?php
-                            if( $relid == -1 ) {
-                            	?>relselected<?php
-                            }
-                            else {
-                            	?>frelation<?php
-                            }
-                            ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
-                            </div><br/><br /><br /><br /><br /><br /><br />
-                            <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:8px;position:absolute;z-index: 1;" />
+                            
                             <?php
 						}
 					}	
@@ -195,7 +163,7 @@
     					echo $theuser->Username();
     					?>"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" style="position: absolute;" height="16" /></a><?php
+                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" height="16" /></a><?php
 					}
 					if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
 						?>&nbsp;<a href="?p=useradmin&amp;id=<?php
@@ -361,6 +329,41 @@
 		?></div>
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
-		?></div><?php
+		?></div>
+	   <div style="position: absolute;left: 55px;top: 220px;">
+                <map id="close" name="close">
+							<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
+						</map>
+						<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;position: absolute" /><br /><br />
+                        <div class="frelations"><?php
+                        foreach( $relations as $relation ) {
+                        	?><div id="frel_<?php
+                        	echo $relation->Id;
+                        	?>" class="<?php
+                        	if( $relid == $relation->Id ) {
+                        		?>relselected<?php
+                        	}
+                        	else {
+                        		?>frelation<?php
+                        	}
+                        	?>" onmouseover="g( 'frel_<?php
+                        	echo $relation->Id;
+                        	?>' ).style.color='#5c60bb';" onmouseout="g( 'frel_<?php
+                        	echo $relation->Id;
+                        	?>' ).style.color='#757bee';"><?php
+                        	echo $relation->Type;
+                        	?></div><br /><?php
+                        }
+                        ?><div id="frel_-1" class="<?php
+                        if( $relid == -1 ) {
+                        	?>relselected<?php
+                        }
+                        else {
+                        	?>frelation<?php
+                        }
+                        ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
+                        </div><br/><br /><br /><br /><br /><br /><br />
+                        <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:8px;position:absolute;z-index: 1;" /></div>
+		<?php
 	}
 ?>
