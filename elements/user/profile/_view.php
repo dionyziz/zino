@@ -352,7 +352,7 @@
                         	echo $relation->Id;
                         	?>' ).style.color='#757bee';"><?php
                         	echo $relation->Type;
-                        	?></div><br /><?php
+                        	?></div><?php
                         }
                         ?><div id="frel_-1" class="<?php
                         if( $relid == -1 ) {
