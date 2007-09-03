@@ -169,7 +169,7 @@
                             	else {
                             		?>frelation<?php
                             	}
-                            	?>" style="z-index: 1;" onmouseover="g( 'frel_<?php
+                            	?>" onmouseover="g( 'frel_<?php
                             	echo $relation->Id;
                             	?>' ).style.color='#5c60bb';" onmouseout="g( 'frel_<?php
                             	echo $relation->Id;
