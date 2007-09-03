@@ -17,6 +17,7 @@ div.frelation {
 	color: #7a7cee;
 	display: inline;
 	float: none;
+	position: absolute;
 }
 
 div.relselected {
