@@ -10,7 +10,6 @@ div.frelations {
 	font-size: 75%;
 	position: absolute;
 	margin-left: 4px;
-	margin-top: 0px;
 }
 
 div.frelation {
@@ -18,7 +17,6 @@ div.frelation {
 	cursor: hand;
 	color: #7a7cee;
 	position: absolute;
-	float: left;
 	display: inline;
 	float: none;
 }
