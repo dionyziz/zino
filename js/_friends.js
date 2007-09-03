@@ -15,14 +15,6 @@ var Friends = {
 		}
 	},
 	FriendAdded : function ( userid, friendid, avatar, rank, hobbies, friendtype ) {
-		Friends.correctList();
-		var selected = g( 'frel_' + friendtype );
-        selected.className = "relselected";
-        selected.title = "Επιλεγμένη Σχέση";
-        selected.style.backgroundColor = "#99FF99";
-        selected.style.opacity = 1;
-        selected.style.display = "list-item";
-	
 		if ( avatar !== '' || rank !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
 			var newfan = document.getElementById( 'newfan' );
 	        newfan.id = "fan_" + userid;
@@ -53,14 +45,6 @@ var Friends = {
         Friends.ShowAll( false );
     },
     FriendDeleted : function( userid ) {
-    	Friends.processing = true;
-    	Friends.correctList();
-    	var selected = g( 'frel_-1' );
-    	selected.className = "relselected";
-    	selected.title = "Επιλεγμένη Σχέση";
-    	selected.style.display = "list-item";
-    	selected.style.opacity = 1;
-    
     	var div = document.getElementById( 'newfancontent' );
 		div.innerHTML = "";
 		

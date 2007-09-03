@@ -31,7 +31,7 @@
 					Element( 'user/display' , $user );
 					$content = ob_get_clean();
 				}
-			/*	?>Friends.FriendAdded( <?php
+				?>Friends.FriendAdded( <?php
 				echo $user->Id();
 				?> , <?php
 				echo $friendid;
@@ -43,7 +43,7 @@
 				echo ($wasfriend)?"''":w_json_encode( $user->Hobbies() );
 				?> , <?php
 				echo $friendtype;
-				?> );<?php */
+				?> );<?php
 			}
 		}
 	}
