@@ -21,6 +21,7 @@ div.frelation {
 }
 
 div.relselected {
+	position: absolute;
 	cursor: hand;
 	color: #7a7cee;
 	text-decoration: underline;
