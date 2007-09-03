@@ -86,42 +86,7 @@ var Friends = {
 			return;
 		}
 		
-		var friendslink = g('friendsshowlink');
-		friendslink.className = (show)?"arrowup":"arrow";
-		friendslink.onclick = function() {
-						Friends.ShowAll( (show)?false:true );
-						return false;
-					};
-		friendslink.title = (show)?"Απόκρυψη":"Προβολή";
-		friendslink.title += " Σχέσεων";
-		
-		var daddy = g( 'frel_type' );
-		for ( var i in daddy.childNodes ) {
-			var child = daddy.childNodes[i];
-			if ( child.nodeType == 1 ) {
-				var chosen = ( child.title == '' )?false:true;
-				
-				if ( show ) {
-					child.style.display = "block";
-					if( !chosen ) {
-						Animations.Create( child, "opacity", 1500, 0, 1, new Function(), Interpolators.Pulse );
-					}
-				}
-				else if ( !show ) {
-					if( chosen ) {
-						Animations.Create( child, "opacity", 500, 1, 0, ( function ( child ) {
-									return function() {
-										Animations.Create( child, "opacity", 500, 0, 1, new Function(), Interpolators.Pulse ); }})(child), Interpolators.Pulse );
-					}
-					else {
-						Animations.Create( child, "opacity", 500, 1, 0, ( function( child ) {
-									return function() {
-										child.style.display = "none";
-								}})( child ), Interpolators.Pulse );
-					}
-				}
-			}
-		}
+		Animations.Create( g('friend_relations'), "opacity", 1500, (show)?0:1, (show)?1:0, new Function(), Interpolators.Pulse );
 		Friends.onappear = show;
 	},
 	correctList : function() {
