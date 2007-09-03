@@ -8,12 +8,12 @@
     	$page->AttachScript( 'js/animations.js' );
     	$page->AttachScript( 'js/_friends.js' );
     	
-    	?><div style="position: absolute;left: 11px;top: 220px;">
+    	?><div id="friend_relations" class="friend_relations">
                 <map id="close" name="close">
 				<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 				</map>
 				
-				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;position: absolute" /><br /><br />
+				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;" /><br /><br />
                 <div class="frelations"><?php
                 foreach( $relations as $relation ) {
                 	?><div id="frel_<?php
@@ -42,7 +42,7 @@
                 }
                 ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
                 </div>
-                <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:6px;position:absolute;z-index: 1;" />
+                <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:6px;" />
          </div><?php
      }
 ?>

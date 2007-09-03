@@ -20,3 +20,10 @@ div.relselected {
 	color: #7a7cee;
 	text-decoration: underline;
 }
+
+div.friend_relations {
+	display: none;
+	position: absolute;
+	left: 11px;
+	top: 220px;
+}
