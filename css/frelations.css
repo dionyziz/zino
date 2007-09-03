@@ -9,6 +9,8 @@ div.frelations {
 	font-family: Verdana;
 	font-size: 75%;
 	position: absolute;
+	display: inline;
+	float: none;
 }
 
 div.frelation {
@@ -16,6 +18,7 @@ div.frelation {
 	cursor: hand;
 	color: #7a7cee;
 	position: absolute;
+	float: left;
 }
 
 div.relselected {
