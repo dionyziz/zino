@@ -8,7 +8,7 @@
     	$page->AttachScript( 'js/animations.js' );
     	$page->AttachScript( 'js/_friends.js' );
     	
-		if ( $isfriend ) {
+		if ( $is_friend ) {
 			$relid = $user->GetRelId( $friendid );
 		}
 		else {
