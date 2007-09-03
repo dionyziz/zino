@@ -4,10 +4,15 @@
 	global $water;
 	global $libs;
     global $db;
+    global $user;
     
 	require 'libs/rabbit/rabbit.php';
 
     Rabbit_Construct( 'empty' );
+
+    if ( !$user->CanModifyCategories() ) {
+        return false;
+    }
     
 	$libs->Load( 'graph' );
 	
