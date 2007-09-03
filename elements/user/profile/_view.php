@@ -330,7 +330,7 @@
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
 		?></div>
-	   <div style="position: absolute;left: 15px;top: 220px;">
+	   <div style="position: absolute;left: 13px;top: 220px;">
                 <map id="close" name="close">
 							<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 						</map>
