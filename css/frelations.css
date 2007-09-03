@@ -9,8 +9,6 @@ div.frelations {
 	font-family: Verdana;
 	font-size: 75%;
 	position: absolute;
-	display: inline;
-	float: none;
 }
 
 div.frelation {
@@ -19,6 +17,8 @@ div.frelation {
 	color: #7a7cee;
 	position: absolute;
 	float: left;
+	display: inline;
+	float: none;
 }
 
 div.relselected {
