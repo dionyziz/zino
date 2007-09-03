@@ -20,7 +20,7 @@
 				<area shape="rect" coords="94,20,105,30" onclick="Friends.ShowAll( false );return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 				</map>
 				
-				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;" />
+				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;padding-bottom: 0px" />
                 <div class="frelations"><?php
                 foreach( $relations as $relation ) {
                 	?><div id="frel_<?php
