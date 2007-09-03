@@ -4,8 +4,6 @@
 		global $libs;
 		global $page;
 		
-		$libs->Load( 'relations' );
-		
 		$page->AttachStylesheet( 'css/frelations.css' );
     	$page->AttachScript( 'js/animations.js' );
     	$page->AttachScript( 'js/_friends.js' );

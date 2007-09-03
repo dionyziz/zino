@@ -15,6 +15,7 @@
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
         $libs->Load( 'albums' );
+        $libs->Load( 'relations' );
 		
 		$libs->Load( 'question' );
 		
