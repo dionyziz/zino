@@ -186,7 +186,7 @@
                             }
                             ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
                             </div><br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:5px;" />
+                            <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:5px;" />
                             <?php
 						}
 					}	
