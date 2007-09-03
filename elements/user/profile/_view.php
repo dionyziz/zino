@@ -157,7 +157,7 @@
                             <map id="close" name="close">
 								<area shape="rect" coords="94,20,105,30" onclick="alert('Klino');return false;" alt="Κλείσιμο" title="Κλείσιμο" href=''/>
 							</map>
-							<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;display: inline;float: none;position: absolute" /><br />
+							<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;position: absolute" /><br />
                             <div class="frelations"><?php
                             foreach( $relations as $relation ) {
                             	?><div id="frel_<?php
@@ -185,8 +185,8 @@
                             	?>frelation<?php
                             }
                             ?>" onmouseover="g( 'frel_-1' ).style.color='#5c60bb';" onmouseout="g( 'frel_-1' ).style.color='#757bee';">Καμία</div>
-                            </div><br />
-                            <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:8px;display: inline;float: none;position:absolute;" />
+                            </div><br/><br /><br /><br /><br /><br /><br />
+                            <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:8px;position:absolute;z-index: 1;" />
                             <?php
 						}
 					}	
