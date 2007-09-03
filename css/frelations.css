@@ -7,14 +7,11 @@ div.frelations {
 	text-indent: 22px;
 	font-family: Verdana;
 	font-size: 75%;
-	margin-left: 20px;
 }
 
 div.frelation {
 	cursor: hand;
 	color: #7a7cee;
-	display: inline;
-	float: none;
 }
 
 div.relselected {
