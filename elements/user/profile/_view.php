@@ -195,7 +195,7 @@
     					echo $theuser->Username();
     					?>"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16"z-index: 1; height="16" /></a><?php
+                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" style="z-index: 1;" height="16" /></a><?php
 					}
 					if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
 						?>&nbsp;<a href="?p=useradmin&amp;id=<?php
