@@ -2,6 +2,7 @@
 	function UnitUsersAddfriend( tInteger $friendid, tInteger $friendtype ) {
 		global $user;
 		global $libs;
+		global $xc_settings;
 		
 		$libs->Load( 'relations' );
 		
@@ -31,7 +32,10 @@
 					Element( 'user/display' , $user );
 					$content = ob_get_clean();
 				}
-				?>Friends.FriendAdded( <?php
+				?>g('friendadd').childNodes[1].firstChild.src = "<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+                ?>icons/user_delete.png";
+				Friends.FriendAdded( <?php
 				echo $user->Id();
 				?> , <?php
 				echo $friendid;
