@@ -15,7 +15,7 @@
 			$relid = -1;
 		}
     	
-    	?><div class="friend_relations">
+    	?><div id="friend_relations" class="friend_relations">
                 <map id="close" name="close">
 				<area shape="rect" coords="94,20,105,30" onclick="Friends.ShowAll( false );return false;" alt="Κλείσιμο" title="Κλείσιμο" href=""/>
 				</map>
