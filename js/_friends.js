@@ -76,7 +76,7 @@ var Friends = {
 			Animations.Create( friend_relations, "opacity", 1500, 0, 1, new Function(), Interpolators.Pulse );
 		}
 		else {
-			Animations.Create( friend_relations, "opacity", 1500, 1, 0, function() { g('friend_relations').style.display="none", Interpolators.Pulse );
+			Animations.Create( friend_relations, "opacity", 1500, 1, 0, function() { g('friend_relations').style.display="none"; }, Interpolators.Pulse );
 		}
 		
 		Friends.onappear = show;
