@@ -20,7 +20,7 @@
 				<area shape="rect" coords="94,20,105,30" onclick="Friends.ShowAll( false );return false;" alt="Κλείσιμο" title="Κλείσιμο" href=""/>
 				</map>
 				
-				<img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/top_close.png" usemap="#close" style="border: none;display: block;" />
+				<img src="https://static.chit-chat.gr/images/frelations/top_close.png" usemap="#close" style="border: none;display: block;" />
                 <div class="frelations"><?php
                 foreach( $relations as $relation ) {
                 	?><div id="frel_<?php
@@ -56,7 +56,7 @@
                 echo $friendid;
                 ?>, -1 );return false;" >Καμία</div>
                 </div>
-                <img src="https://beta.chit-chat.gr/etc/mockups/frelations/frelations_htmled/bottom.png" style="margin-left:6px;" />
+                <img src="https://static.chit-chat.gr/images/frelations/bottom.png" style="margin-left:6px;" />
          </div><?php
      }
 ?>
