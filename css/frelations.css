@@ -22,6 +22,7 @@ div.relselected {
 }
 
 div.friend_relations {
+	display: none;
 	opacity: 0;
 	position: absolute;
 	left: 11px;

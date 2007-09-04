@@ -138,14 +138,15 @@
 					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
 						$relations = AllRelations();
 						if ( count( $relations ) ) {
+							$is_friend = $user->IsFriend( $theuser->Id() );
 							?><span id="friendadd">
 							<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
-                            if( $user->IsFriend( $theuser->Id() ) ) {
+                            if( $is_friend ) {
                             ?>icons/user_delete.png<?php
                             }
                             else {
-                            ?>icons/user_delete.png<?php
+                            ?>icons/user_add.png<?php
                             }
                             ?>" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>
                             
@@ -324,8 +325,8 @@
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
 		?></div><?php
-		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139
-			Element( 'user/profile/frelations', $relations, $user->IsFriend( $theuser->Id() ), $theuser->Id() );
+		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
+			Element( 'user/profile/frelations', $relations, $is_friend, $theuser->Id() );
 		}
 	}
 ?>
