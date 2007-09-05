@@ -62,7 +62,6 @@ Sanitizer::Sanitizer( string source ) : mSource( source ) {
 
 Sanitizer::~Sanitizer() {
     while ( mParents.size() > 0 ) {
-        delete mParents.top();
         mParents.pop();
     }
 }
@@ -93,8 +92,7 @@ string Sanitizer::GetXHTML() {
     }
 
     CreateTag( mParents.top() );
-    mParents.pop();
-    cout << "foo" << endl;
+    return "bar";
 }
 
 void Sanitizer::CreateTag( HTMLTag * tag ) {
@@ -119,7 +117,7 @@ void Sanitizer::CreateTag( HTMLTag * tag ) {
             }
         }
         if ( tag->IsSelfClosingTag() ) {
-            cout << " /"; 
+            cout << " /";
         }
         cout << ">";
 
@@ -129,7 +127,7 @@ void Sanitizer::CreateTag( HTMLTag * tag ) {
         }
 
         if ( !tag->IsSelfClosingTag() ) {
-            cout << "</" << tag->Name() << ">";
+            cout << "</" << tag->Name() <<">";
         }
     }
 }

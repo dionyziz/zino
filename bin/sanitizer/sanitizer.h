@@ -5,6 +5,7 @@
 #include <stack>
 #include <set>
 #include <map>
+#include <queue>
 #include "htmltag.h"
 // #include "entities.h"
 
