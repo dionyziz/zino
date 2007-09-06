@@ -12,11 +12,12 @@
             else {
                 $this->mSource = $source;
             }
+            $this->mXHTML = false;
         }
         public function AllowTag( $sanetag ) {
             $this->mAllowedTags[] = $sanetag;
         }
-        public function Sanitize() {
+        private function Sanitize() {
             $tags           = "";
             $attributes     = "";
             $allowedTags    = $this->mAllowedTags;
@@ -54,10 +55,14 @@
             $this->mXHTML = str_replace( "\n", "", $this->mXHTML );
         }
         public function GetXHTML() {
+            if ( $this->mXHTML === false ) {
+                $this->Sanitize();
+            }
             return $this->mXHTML;
         }
         public function XHTMLSanitizer() {
             $this->mAllowedTags = array();
+            $this->mXHTML = false;
         }
     }
 
