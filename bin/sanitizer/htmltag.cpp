@@ -98,6 +98,7 @@ string HTMLTag::Text() {
     assert( this->IsText() );
 
     mText = "";
+    bool prevWasWhite = false;
     for ( int i = 0; i < mSource.length(); ++i ) {
         char c = mSource[ i ];
 
@@ -109,6 +110,15 @@ string HTMLTag::Text() {
                 i = end;
                 continue;
             }
+        }
+
+        if ( c == ' ' || c == '\n' ) {
+            prevWasWhite = true;
+            continue;
+        }
+        else if ( prevWasWhite ) {
+            mText.append( " " );
+            prevWasWhite = false;
         }
 
         mText.append( ConvertEntity( c ) );
