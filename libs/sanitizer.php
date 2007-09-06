@@ -31,7 +31,7 @@
                 2 => array( "/tmp/error-output.txt", "a" )
             );
 
-            $cmd = 'sanitizer';
+            $cmd = 'php';
             chdir( '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs/bin/sanitizer' );
             $proccess = proc_open( $cmd, $descriptorspec, $pipes );
             if ( !is_resource( $proccess ) ) {
