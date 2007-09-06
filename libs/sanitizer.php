@@ -28,7 +28,7 @@
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
                 1 => array( "pipe", "w" ),
-                2 => array( "/tmp/error-output.txt", "a" )
+                2 => array( "file", "/tmp/error-output.txt", "a" )
             );
 
             $cmd = 'php';
