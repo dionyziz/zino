@@ -11,7 +11,6 @@
         public function TestMethodsExist() {
             $sanitizer = New XHTMLSanitizer();
             $this->Assert( method_exists( $sanitizer, 'SetSource' ) );
-            $this->Assert( method_exists( $sanitizer, 'Sanitize' ) );
             $this->Assert( method_exists( $sanitizer, 'GetXHTML' ) );
             $this->Assert( method_exists( $sanitizer, 'AllowTag' ) );
             $tag = New XHTMLSaneTag( 'b' );
@@ -21,31 +20,23 @@
         public function TestSimple() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->SetSource( '' );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The empty string should be remain unchanged' );
             $sanitizer->SetSource( 'Hello, world!' );
-            $sanitizer->Sanitize();
             $this->AssertEquals( 'Hello, world!', $sanitizer->GetXHTML(), 'Failed to sanitize a simple string' );
             $sanitizer->SetSource( 'While class Bar offers a generalized behavior in function Go, it allows specialization, if the derived class desires, by making its Run function virtual. Notice that the proper function is invoked because the instantiation is done as Bar, not as Foo, even though the Go function is defined within Foo.' );
-            $sanitizer->Sanitize();
             $this->AssertEquals( 'While class Bar offers a generalized behavior in function Go, it allows specialization, if the derived class desires, by making its Run function virtual. Notice that the proper function is invoked because the instantiation is done as Bar, not as Foo, even though the Go function is defined within Foo.', $sanitizer->GetXHTML(), 'Failed to sanitize a simple, longer, string' );
         }
         public function TestWrongTypes() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->SetSource( 5 );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '5', $sanitizer->GetXHTML(), 'The sanitizer should convert integer source to string, and raise appropriate notices' );
             $sanitizer->SetSource( false );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The sanitizer should convert boolean false source to string, and raise appropriate notices' );
             $sanitizer->SetSource( true );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '1', $sanitizer->GetXHTML(), 'The sanitizer should convert boolean true source to string, and raise appropriate notices' );
             $sanitizer->SetSource( array() );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The sanitizer should discard non-scalar sources, and raise appropriate warnings' );
             $sanitizer->SetSource( $this );
-            $sanitizer->Sanitize();
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The sanitizer should discard non-scalar sources, and raise appropriate warnings' );
         }
         public function TestEntities() {
