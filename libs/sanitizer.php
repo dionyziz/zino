@@ -24,21 +24,25 @@
             }
 
             $data = $tags . "/n/n" . $attributes . "/n/n" . $this->mSource;
-            if ( !$handle = popen( "bin/sanitizer/sanitizer", "w" ) ) {
-                die( "Could not start sanitizer" );
-            }
-            if ( fwrite( $handle, $data ) === false ) {
-                die( "Error writing data to sanitizer" );
+
+            $descriptorspec = array(
+                0 => array( "pipe", "r" ),
+                1 => array( "pipe", "w" ),
+                2 => array( "tmp/error-output.txt", "a" )
+            );
+
+            $cwd = 'bin/sanitizer/sanitizer';
+
+            $proccess = proc_open( $cwd, $descriptorspec, $pipes );
+            if ( !is_resource( $proccess ) ) {
+                die( "Error opening sanitizer process" );
             }
             
-            $xhtml = "";
-            while ( !feof( $handle ) ) {
-                $xhtml .= fread( $handle, 8192 );
-            }
+            fwrite( $pipes[ 0 ], $data );
+            fclose( $pipes[ 0 ] );
 
-            fclose( $handle );
-
-            $this->mXHTML = $xhtml;
+            $this->mXHTML = stream_get_contents( $pipes[ 1 ] );
+            fclose( $pipes[ 1 ] );
         }
         public function GetXHTML() {
             return $this->mXHTML;
