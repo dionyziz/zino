@@ -51,8 +51,7 @@
 
             proc_close( $proccess );
 
-            str_replace( "\n", "", $this->mXHTML );
-            echo nl2br( "**" . $this->mXHTML . "**" );
+            $this->mXHTML = str_replace( "\n", "", $this->mXHTML );
         }
         public function GetXHTML() {
             return $this->mXHTML;
