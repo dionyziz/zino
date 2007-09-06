@@ -6,8 +6,12 @@
         private $mAllowedTags;
 
         public function SetSource( $source ) {
-            w_assert( is_string( $source ) );
-            $this->mSource =  $source;
+            if ( !is_scalar( $source ) ) {
+                $this->mSource = "";
+            }
+            else {
+                $this->mSource = $source;
+            }
         }
         public function AllowTag( $sanetag ) {
             $this->mAllowedTags[] = $sanetag;
@@ -32,7 +36,7 @@
                 2 => array( "file", "/tmp/error-output.txt", "a" )
             );
 
-            $cmd = 'sanitizer';
+            $cmd = 'php';
             chdir( '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs/bin/sanitizer' );
             $proccess = proc_open( $cmd, $descriptorspec, $pipes );
             if ( !is_resource( $proccess ) ) {
