@@ -585,7 +585,7 @@
             $td->AllowAttribute( $class );
             $tr = New XHTMLSaneTag( 'tr' );
             $a = New XHTMLSaneTag( 'a' );
-            $a->AllowAttributes( New XHTMLSaneAttribute( 'href' ) );
+            $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
             
             $sanitizer->SetSource( // from water 3.0 fatal error
                   'Connection to MySQL failed:<br />Access denied for user \'(username)\'@\'localhost\' (using password: YES)'
