@@ -31,7 +31,7 @@
                 2 => array( "tmp/error-output.txt", "a" )
             );
 
-            $cwd = 'bin/sanitizer/sanitizer';
+            $cwd = './bin/sanitizer/sanitizer';
 
             $proccess = proc_open( $cwd, $descriptorspec, $pipes );
             if ( !is_resource( $proccess ) ) {
