@@ -28,7 +28,7 @@
                 }
             }
 
-            $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n";
+            $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n\n";
             echo nl2br( "** $data **" );
 
             $descriptorspec = array(
