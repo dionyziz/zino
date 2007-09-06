@@ -1,11 +1,8 @@
 <html>
 <head><title>Colors</title></head>
-<body onload="printe()">
+<body onload="printe( 'deep_blue' )">
 <script type="text/javascript">
-function printe() {
-	var red=0;
-	var green=0;
-	var blue=0;
+function printe( colore ) {
 	var table = document.getElementById( 'table' );
 	table.border="0";
 	table.cellpadding="0";
@@ -14,22 +11,28 @@ function printe() {
 	table.style.margin = "auto";
     table.style.cursor = "pointer";
 	var tr = document.createElement( 'tr' );
-	for (;red<85,blue<153;++red,blue+=2 ) {
-		var td = document.createElement( 'td' );
-		td.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
-		td.style.height="50px";
-		td.style.width="4px";
-		td.onmouseover= (function (r, g, b, preview) {
-								return function () {
-									Preview( r,g,b,"preview" );
-								}
-							})(red,green,blue,"preview");
-		td.onmouseout = function () {
-					document.body.style.cursor = "default";
-				};
-		tr.appendChild( td );
-		++red;
-		blue+=2;
+	var red,green,blue;
+	switch(colore) {
+		case "purple":
+			red=green=blue=0;
+			for (;red<85,blue<153;++red,blue+=2 ) {
+				tr.appendChild( createColor( red,green,blue,"preview") );
+			}
+			break;
+		case "deep_blue":
+			red=84;
+			green=1;
+			blue=154;
+			for (;green<70,blue<255;--red,++blue ) {
+				tr.appendChild( createColor( red,green,blue, "preview" ) );
+				if( red%4 == 0 ) {
+					++green;
+				}
+				if( red < 0 ) {
+					break;
+				}
+			}
+			break;
 	}
 	alert( red + "," + green + "," + blue );
 	table.appendChild( tr );
@@ -38,6 +41,22 @@ function printe() {
 function Preview( r,g,b,id ) {
 	var ted = document.getElementById( id );
 	ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+}
+
+function createColor( red,green,blue,id ) {
+	var td = document.createElement( 'td' );
+	td.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+	td.style.height="50px";
+	td.style.width="4px";
+	td.onmouseover= (function (r, g, b, preview) {
+							return function () {
+								Preview( r,g,b,preview );
+							}
+						})(red,green,blue,id);
+	td.onmouseout = function () {
+				document.body.style.cursor = "default";
+			};
+	return td;
 }
 </script>
 <table id="table">
