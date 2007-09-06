@@ -6,10 +6,22 @@ using namespace std;
 
 int main() {
     string source;
+    string line;
 
-    cin.width( 10000 );
-    cin >> source;
+    /* tags */
+    do {
+        getline( cin, line );
+    } while ( line != "" );
 
+    /* attributes */
+    do {
+        getline( cin, line );
+    } while ( line != "" );
+
+    do {
+        getline( cin, source );
+    } while ( line != "" );
+    
     Sanitizer s( source );
     s.AllowTag( "div" );
     s.AllowTag( "p" );
