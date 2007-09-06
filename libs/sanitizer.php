@@ -56,6 +56,7 @@
             return $this->mXHTML;
         }
         public function XHTMLSanitizer() {
+            $this->mAllowedTags = array();
         }
     }
 
@@ -66,11 +67,15 @@
         public function Name() {
             return mName;
         }
+        public function AllowedAttributes() {
+            return $this->mAllowedAttributes;
+        }
         public function AllowAttribute( $attribute ) {
             $this->mAllowedAttributes[] = $attribute;
         }
         public function XHTMLSaneTag( $name ) {
             $this->mName = $name;
+            $this->mAllowedAttributes = array();
         }
     }
 
