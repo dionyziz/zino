@@ -17,10 +17,9 @@ class Sanitizer {
          * Sanitizer constructor
          * Does nothing important, just sets some variables
          *
-         * Parameters: 
-         * source: the XHTML source that will be sanitized
+         * Parameters: none
          */
-        Sanitizer( string source );
+        Sanitizer();
 
         /*
          * Sanitizer destructor
@@ -69,8 +68,16 @@ class Sanitizer {
          * the allowed tags and attributes that are specified.
          */
         string GetXHTML();
+
+        void SetSource( string source );
+
+        void Sanitize();
+
+        string GetSource() {
+            return mSource;
+        }
     private:
-        const string                mSource; // the source to be sanitized
+        string                      mSource; // the source to be sanitized
         stack< HTMLTag * >          mParents; // parent tags open
         set< string >               mAllowedTags; // valid, allowed tags
         multimap< string, string >  mAllowedAttributes; // valid allowed attributes with tags

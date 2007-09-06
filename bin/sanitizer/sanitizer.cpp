@@ -1,6 +1,19 @@
 #include "sanitizer.h"
 
-Sanitizer::Sanitizer( string source ) : mSource( source ) {
+Sanitizer::Sanitizer() {
+}
+
+Sanitizer::~Sanitizer() {
+    while ( mParents.size() > 0 ) {
+        mParents.pop();
+    }
+}
+
+void Sanitizer::SetSource( string source ) {
+    mSource = source;
+}
+
+void Sanitizer::Sanitize() {
     mParents.push( new HTMLTag( "" ) );
 
     string text = "";
@@ -57,12 +70,6 @@ Sanitizer::Sanitizer( string source ) : mSource( source ) {
     if ( text.length() > 0 ) {
         HTMLTag * textTag = new HTMLTag( text, true );
         mParents.top()->AddChild( textTag );
-    }
-}
-
-Sanitizer::~Sanitizer() {
-    while ( mParents.size() > 0 ) {
-        mParents.pop();
     }
 }
 

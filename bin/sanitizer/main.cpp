@@ -5,29 +5,37 @@
 using namespace std;
 
 int main() {
-    string source = "";
+    Sanitizer s = Sanitizer();
+    
+    string tag;
     string line;
+    string source;
 
     /* tags */
     do {
-        getline( cin, line );
-    } while ( line != "" );
+        getline( cin, tag );
+        s.AllowTag( tag );
+    } while ( tag != "" );
 
     /* attributes */
     do {
         getline( cin, line );
+
+        if ( line.find( " " ) != line.end() ) {
+            string tag = line.substr( 0, line.find( " " ) );
+            string att = line.substr( line.find( " " ), line.length() - line.find( " " ) + 1 );
+
+            s.AllowAttribute( tag, att );
+        }
     } while ( line != "" );
 
     do {
-        getline( cin, line );
-        source.append( line );
-    } while ( line != "" );
+        getline( cin, source );
+        string nsource = s.GetSource();
+        nsource.append( source );
+        s.SetSource( nsource );
+    } while ( source != "" );
     
-    Sanitizer s( source );
-    s.AllowTag( "div" );
-    s.AllowTag( "p" );
-    s.AllowAttribute( "div", "class" );
-    s.AllowAttribute( "p", "class" );
-
+    s.Sanitize();
     s.GetXHTML();
 }
