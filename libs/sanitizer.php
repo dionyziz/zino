@@ -29,7 +29,6 @@
             }
 
             $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n\n";
-            echo nl2br( "** $data **" );
 
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
@@ -53,6 +52,7 @@
             proc_close( $proccess );
 
             str_replace( "\n", "", $this->mXHTML );
+            echo nl2br( "**" . $this->mXHTML . "**" );
         }
         public function GetXHTML() {
             return $this->mXHTML;
