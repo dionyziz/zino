@@ -29,7 +29,7 @@
             }
 
             $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n";
-            echo $data;
+            echo nl2br( "** $data **" );
 
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
