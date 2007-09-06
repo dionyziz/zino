@@ -112,7 +112,7 @@ string HTMLTag::Text() {
             }
         }
 
-        if ( c == ' ' || c == '\n' ) {
+        if ( ( c == ' ' || c == '\n' ) && i != mSource.length() - 1 ) {
             prevWasWhite = true;
             continue;
         }
