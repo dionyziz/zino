@@ -21,14 +21,15 @@
             $attributes     = "";
             $allowedTags    = $this->mAllowedTags;
             while ( $tag = array_shift( $allowedTags ) ) {
-                $tags .= $tag->Name();
+                $tags .= $tag->Name() . "\n";
                 $allowedAttributes = $tag->AllowedAttributes();
                 while ( $attribute = array_shift( $allowedAttributes ) ) {
-                    $attributes .= $tag->Name() . " " . $attribute->Name();
+                    $attributes .= $tag->Name() . " " . $attribute->Name() . "\n";
                 }
             }
 
-            $data = $tags . "\n\n" . $attributes . "\n\n" . $this->mSource;
+            $data = $tags . "\n" . $attributes . "\n" . $this->mSource;
+            echo $data;
 
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
