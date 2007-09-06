@@ -37,9 +37,9 @@
 		global $db;
         
 		if ( $user->CanModifyCategories() ) {
-			if ( $id == $parentCategoryId ) {
+			/*if ( $id == $parentCategoryId ) { <--Removed it for category creation in General Categories
 				return 6;
-			}
+			}*/
 			$name = addslashes( $name );
 			$sql = "SELECT `category_id` FROM `$categories` WHERE `category_name`='$name' LIMIT 1;";
             $res = $db->Query( $sql );
