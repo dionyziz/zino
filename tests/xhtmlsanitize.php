@@ -1,4 +1,7 @@
 <?php
+    global $libs;
+    $libs->Load( 'sanitizer' );
+
     final class TestXHTMLSanitizer extends Testcase {
         public function TestClassesExist() {
             $this->Assert( class_exists( 'XHTMLSanitizer' ) );
