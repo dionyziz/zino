@@ -1,0 +1,47 @@
+<html>
+<head><title>Colors</title></head>
+<body onload="printe()">
+<script type="text/javascript">
+function printe() {
+	var red=0;
+	var green=0;
+	var blue=0;
+	var table = document.getElementById( 'table' );
+	table.border="0";
+	table.cellpadding="0";
+	table.cellspacing="0";
+	table.style.borderCollapse = "collapse";
+	table.style.margin = "auto";
+    table.style.cursor = "pointer";
+	var tr = document.createElement( 'tr' );
+	for (;red<85,blue<153;++red,blue+=2 ) {
+		var td = document.createElement( 'td' );
+		td.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+		td.style.height="50px";
+		td.style.width="4px";
+		td.onmouseover= (function (r, g, b, preview) {
+								return function () {
+									Preview( r,g,b,"preview" );
+								}
+							})(red,green,blue,"preview");
+		td.onmouseout = function () {
+					document.body.style.cursor = "default";
+				};
+		tr.appendChild( td );
+		++red;
+		blue+=2;
+	}
+	alert( red + "," + green + "," + blue );
+	table.appendChild( tr );
+}
+
+function Preview( r,g,b,id ) {
+	var ted = document.getElementById( id );
+	ted.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+}
+</script>
+<table id="table">
+</table><br />
+<div id = "preview"	style="width:240px;height:30px;margin: 6px auto 0 auto;"></div>
+</body>
+</html>
