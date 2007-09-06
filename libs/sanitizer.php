@@ -48,12 +48,11 @@
             fclose( $pipes[ 0 ] );
 
             $this->mXHTML = stream_get_contents( $pipes[ 1 ] );
-fclose( $pipes[ 1 ] );
+            fclose( $pipes[ 1 ] );
 
             proc_close( $proccess );
 
             $this->mXHTML = str_replace( "\n", "", $this->mXHTML );
-            echo "**" . $this->mXHTML . "**";
         }
         public function GetXHTML() {
             if ( $this->mXHTML === false ) {
