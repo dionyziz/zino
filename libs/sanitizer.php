@@ -30,6 +30,7 @@
             }
 
             $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n\n";
+            echo $data;
 
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
@@ -71,7 +72,7 @@
         private $mAllowedAttributes;
 
         public function Name() {
-            return mName;
+            return $this->mName;
         }
         public function AllowedAttributes() {
             return $this->mAllowedAttributes;
