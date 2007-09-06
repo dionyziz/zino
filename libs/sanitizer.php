@@ -1,71 +1,74 @@
 <?php
-    /* 
-        Developer: Dionyziz 
-    */
-    
-    function Sanitize_ArticleSmall( $xhtml ) {
-        return '(small article)'; // $xhtml; // substr( $xhtml, 0, 400 );
-    }
-    
-    final class XHTMLSanitizer {
-        private $mInputCode;
-        private $mCode;
-        
-        public function XHTMLSanitizer( $xhtml ) {
-            $this->mCode = $this->mInputCode = $xhtml;
+
+    class XHTMLSanitizer {
+        private $mXHTML;
+        private $mSource;
+        private $mAllowedTags;
+
+        public function SetSource( $source ) {
+            $this->mSource =  $source;
+        }
+        public function AllowTag( $sanetag ) {
+            $this->mAllowedTags[] = $sanetag;
         }
         public function Sanitize() {
-            $autoclose = array( 'br', 'img' );
+            $tags           = "";
+            $attributes     = "";
+            $allowedTags    = $this->mAllowedTags;
+            while ( $tag = array_shift( $allowedTags ) ) {
+                $tags .= $tag->Name();
+                $allowedAttributes = $tag->AllowedAttributes();
+                while ( $attribute = array_shift( $allowedAttributes ) ) {
+                    $attributes .= $tag->Name() . " " . $attribute->Name();
+                }
+            }
+
+            $data = $tags . "/n/n" . $attributes . "/n/n" . $this->mSource;
+            if ( !$handle = popen( "bin/sanitizer/sanitizer", "w" ) ) {
+                die( "Could not start sanitizer" );
+            }
+            if ( fwrite( $handle, $data ) === false ) {
+                die( "Error writing data to sanitizer" );
+            }
             
-            $this->RemoveComments();
-            $i = 0;
-            $tagstack = array();
-            while ( $i < strlen( $this->mCode ) ) { // O( N ) linear
-                switch ( $this->mCode{ $i } ) {
-                    case '<':
-                        ++$i;
-                        if ( $this->mCode{ $i } == '/' ) {
-                            // closing </tag>
-                            $tagname = '';
-                            do {
-                                ++$i;
-                                $tagname .= $this->mCode{ $i };
-                            } while ( $this->mCode{ $i } != '>' );
-                            if ( !preg_match( '#^[a-zA-Z]+$#', $tagname ) ) {
-                                return false; // invalid tag name
-                            }
-                            $tagname = strtolower( $tagname );
-                            if ( !count( $tagstack ) ) {
-                                return false; // closing a tag that wasn't opened
-                            }
-                            $pop = array_pop( $tagstack );
-                            if ( $pop != $tagname ) {
-                                return false; // <i>improper <b>nesting</i></b>
-                            }
-                        }
-                        else {
-                            // opening <tag yadda="foo">
-                            // or open-and-close <tag yadda="foo" />
-                        }
-                    case '&':
-                    default:
-                        continue;
-                }
-                ++$i;
+            $xhtml = "";
+            while ( !feof( $handle ) ) {
+                $xhtml .= fread( $handle, 8192 );
             }
+
+            fclose( $handle );
+
+            $this->mXHTML = $xhtml;
         }
-        private function RemoveComments() {
-            $endpos = 0;
-            while ( ( $startpos = strpos( $this->mCode , '<!--' , $endpos ) ) !== false ) {
-                $endpos = strpos( $this->mCode , '-->' );
-                if ( $endpos === false ) {
-                    $endpos = strlen( $this->mCode );
-                }
-                if ( $endpos >= strlen( $this->mCode ) ) {
-                    $this->mCode = substr( $this->mCode , 0 , $startpos );
-                }
-            }
+        public function GetXHTML() {
+            return $this->mXHTML;
+        }
+        public function XHTMLSanitizer() {
         }
     }
-    
+
+    class XHTMLSaneTag {
+        private $mName;
+        private $mAllowedAttributes;
+
+        public function Name() {
+            return mName;
+        }
+        public function AllowAttribute( $attribute ) {
+            $this->mAllowedAttributes[] = $attribute;
+        }
+        public function XHTMLSaneTag( $name ) {
+            $this->mName = $name;
+        }
+    }
+
+    class XHTMLSaneAttribute {
+        public function Name() {
+            return mName;
+        }
+        public function XHTMLSaneAttribute( $name ) {
+            $this->mName = $name;
+        }
+    }
+
 ?>
