@@ -28,7 +28,7 @@
                 }
             }
 
-            $data = $tags . "\n" . $attributes . "\n" . $this->mSource;
+            $data = $tags . "\n" . $attributes . "\n" . $this->mSource . "\n";
             echo $data;
 
             $descriptorspec = array(

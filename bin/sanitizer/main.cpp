@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    string source;
+    string source = "";
     string line;
 
     /* tags */
@@ -19,7 +19,8 @@ int main() {
     } while ( line != "" );
 
     do {
-        getline( cin, source );
+        getline( cin, line );
+        source.append( line );
     } while ( line != "" );
     
     Sanitizer s( source );
