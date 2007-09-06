@@ -46,6 +46,7 @@
             $sanitizer->SetSource( 'Hello &amp; world!' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello &amp; world!', $result, 'Valid entities should remain unchanged (&amp;)' );
+            $sanitizer = New XHTMLSanitizer();
             $sanitizer->SetSource( 'Hello & world!' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello &amp; world!', $result, 'Invalid entities should be escaped to produce valid XHTML (&)' );
