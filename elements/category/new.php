@@ -6,6 +6,11 @@
 		global $libs;
         
         $id = $id->Get();
+        $categoryexists = $categoryexists->Get();
+        $invalidparent = $invalidparent->Get();
+        $norights = $norights->Get();
+        $invalidcategory = $invalidcategory->Get();
+        $selfparent = $selfparent->Get();
         
 		$page->AttachStylesheet( 'css/rounded.css' );
 		$page->SetTitle( "Νέα Kατηγορία" );
