@@ -6,6 +6,7 @@
         private $mAllowedTags;
 
         public function SetSource( $source ) {
+            w_assert( is_string( $source ) );
             $this->mSource =  $source;
         }
         public function AllowTag( $sanetag ) {
