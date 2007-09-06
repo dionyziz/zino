@@ -24,7 +24,7 @@
             foreach ( $runresult as $assertresult ) {
                 if ( !$assertresult->Success() ) {
                     ?><li><b>Assertion failed:</b> <em class="message"><?php
-                    echo $assertresult->Message();
+                    echo htmlspecialchars( $assertresult->Message() );
                     ?></em><br />
                     <dl>
                         <dt>Expected</dt>
