@@ -21,7 +21,7 @@ int main() {
     do {
         getline( cin, line );
 
-        if ( line.find( " " ) != line.end() ) {
+        if ( line.find( " " ) != string::npos ) {
             string tag = line.substr( 0, line.find( " " ) );
             string att = line.substr( line.find( " " ), line.length() - line.find( " " ) + 1 );
 

@@ -113,27 +113,31 @@ void Sanitizer::CreateTag( HTMLTag * tag ) {
             CreateTag( children[ i ] );
         }
     }
-    else if ( mAllowedTags.find( tag->Name() ) != mAllowedTags.end() ) {
-        cout << "<" << tag->Name();
-        map< string, string > attributes = tag->Attributes();
-        for ( map< string, string >::iterator It = attributes.begin(); It != attributes.end(); ++It ) {
-            string name = It->first;
-            string value = It->second;
-            if ( mAllowedAttributes.find( name ) != mAllowedAttributes.end() ) {
-                cout << " " << name << "=\"" << value << "\"";
+    else {
+        bool isAllowed = mAllowedTags.find( tag->Name() ) != mAllowedTags.end();
+
+        if ( isAllowed ) {
+            cout << "<" << tag->Name();
+            map< string, string > attributes = tag->Attributes();
+            for ( map< string, string >::iterator It = attributes.begin(); It != attributes.end(); ++It ) {
+                string name = It->first;
+                string value = It->second;
+                if ( mAllowedAttributes.find( name ) != mAllowedAttributes.end() ) {
+                    cout << " " << name << "=\"" << value << "\"";
+                }
             }
+            if ( tag->IsSelfClosingTag() ) {
+                cout << " /";
+            }
+            cout << ">";
         }
-        if ( tag->IsSelfClosingTag() ) {
-            cout << " /";
-        }
-        cout << ">";
 
         vector< HTMLTag * > children = tag->Children();
         for ( int i = 0; i < children.size(); ++i ) {
             CreateTag( children[ i ] );
         }
 
-        if ( !tag->IsSelfClosingTag() ) {
+        if ( isAllowed && !tag->IsSelfClosingTag() ) {
             cout << "</" << tag->Name() <<">";
         }
     }
