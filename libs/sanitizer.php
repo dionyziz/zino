@@ -51,6 +51,8 @@
             fclose( $pipes[ 1 ] );
 
             proc_close( $proccess );
+
+            str_replace( "\n", "", $this->mXHTML );
         }
         public function GetXHTML() {
             return $this->mXHTML;
