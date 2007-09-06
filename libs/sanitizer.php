@@ -28,7 +28,7 @@
                 }
             }
 
-            $data = $tags . "/n/n" . $attributes . "/n/n" . $this->mSource;
+            $data = $tags . "\n\n" . $attributes . "\n\n" . $this->mSource;
 
             $descriptorspec = array(
                 0 => array( "pipe", "r" ),
