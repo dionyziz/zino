@@ -10,13 +10,13 @@ function createRainbow() {
 	table.style.borderCollapse = "collapse";
 	table.style.margin = "auto";
     table.style.cursor = "pointer";
-	var tr = document.createElement( 'tr' );
 	var s,v;
 	s=v=1;
-	for(var h=0;h<360;++h ) {
+	for(var h=0;h<360;h+=4 ) {
+		var tr = document.createElement( 'tr' );
 		hsv2rgb( h, s, v, tr, "preview" );
+		table.appendChild( tr );
 	}
-	table.appendChild( tr );
 }
 
 /*
@@ -98,8 +98,8 @@ function Preview( r,g,b,id ) {
 function createColor( red,green,blue,id ) {
 	var td = document.createElement( 'td' );
 	td.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
-	td.style.height="50px";
-	td.style.width="4px";
+	td.style.height="1px";
+	td.style.width="5px";
 	td.onmouseover= (function (r, g, b, preview) {
 							return function () {
 								Preview( r,g,b,preview );
