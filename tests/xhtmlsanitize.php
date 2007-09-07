@@ -217,6 +217,7 @@
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<em><em>Hello <strong>world</strong>!</em></em>', $result, 'Auto-closing should not be affected by interfering tags' );
         }
+        /*
         public function TestTagsWithEntities() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
@@ -628,7 +629,7 @@
                 $sanitizer->GetXHTML(), 'Real world example 2 failed'
             );
         }
-       /* public function TestRealWorld3() {
+        public function TestRealWorld3() {
             $sanitizer = New XHTMLSanitizer();
             $table = New XHTMLSaneTag( 'table' );
             $table->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
