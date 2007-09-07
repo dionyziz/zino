@@ -106,6 +106,10 @@ string HTMLTag::Text() {
             prevWasWhite = true;
             continue;
         }
+        else if ( c == ' ' || c == '\n' ) {
+            mText.append( " " );
+            continue;
+        }
         else if ( prevWasWhite ) {
             mText.append( " " );
             prevWasWhite = false;
