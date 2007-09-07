@@ -53,7 +53,6 @@
             proc_close( $proccess );
             
             $this->mXHTML = str_replace( "\n", "", $this->mXHTML );
-            die( "got xhtml" );
         }
         public function GetXHTML() {
             if ( $this->mXHTML === false ) {
