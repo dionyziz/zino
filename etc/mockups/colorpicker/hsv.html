@@ -131,15 +131,13 @@ function createColor( red,green,blue,rainbow, h ) {
 							return function () {
 								makeBigPreview( h );
 							}
-						})(h);
+						})( h );
 	}
-	else {
-		td.onmouseover= (function (r, g, b ) {
+	td.onmouseover= (function (r, g, b ) {
 								return function () {
 									Preview( r,g,b );
 								}
 							})(red,green,blue);
-	}
 	td.onmouseout = function () {
 				document.body.style.cursor = "default";
 			};
@@ -154,3 +152,4 @@ function createColor( red,green,blue,rainbow, h ) {
 </html>
 	
 			
+
