@@ -451,6 +451,7 @@
 			$userclass = New Comment( $parent );
 			$touser = $userclass->UserId();
 			Notify_Create( $user->Id() , $touser , $newcommentid , $type );
+            Notify_CommentRead( $user->Id(), $parent, $type );
 		}
 
 		return $newcommentid;
