@@ -37,7 +37,7 @@ function makeBigPreview( h ) {
 	var tbody = document.createElement( 'tbody' );
 	for( var v=1;v<255;v+=5 ) {
 		var tr = document.createElement( 'tr' );
-		for( var s=1;s<255;s+=7 ) {
+		for( var s=1;s<255;s+=5 ) {
 			hsv2rgb( h, s/255, v/255, tr, false );
 		}
 		tbody.appendChild( tr );
@@ -124,8 +124,14 @@ function Preview( r,g,b ) {
 function createColor( red,green,blue,rainbow, h ) {
 	var td = document.createElement( 'td' );
 	td.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
-	td.style.height="1px";
-	td.style.width="10px";
+	if( rainbow ) {
+		td.style.height="1px";
+		td.style.width="10px";
+	}
+	else {
+		td.style.height="3px";
+		td.style.width="3px";
+	}
 	if( rainbow ) {
 		td.onclick = (function( h ) {
 							return function () {
@@ -144,10 +150,10 @@ function createColor( red,green,blue,rainbow, h ) {
 	return td;
 }
 </script>
-<table id="table" style="position:absolute;top:60px;right:-200px;">
+<table id="table" style="position:absolute;top:70px;right:-130px;">
 </table>
-<table id="table_main" style="position:absolute;top:75px;right:50px;"></table>
-<div id = "preview"	style="width:240px;height:30px;position:absolute;top:200px;right:450px"></div>
+<table id="table_main" style="position:absolute;top:65px;right:25px;"></table>
+<div id = "preview"	style="width:240px;height:30px;position:absolute;top:230px;right:417px"></div>
 </body>
 </html>
 	
