@@ -1,6 +1,6 @@
 <html>
 <head><title>Colors</title></head>
-<body onload="printe( 'purple' );printe( 'deep_blue' );printe( 'light_blue' );printe( 'green' );">
+<body onload="printe( 'purple' );printe( 'deep_blue' );printe( 'light_blue' );printe( 'green' );printe( 'yellow' );">
 <script type="text/javascript">
 function printe( colore ) {
 	var table = document.getElementById( 'table' );
@@ -70,6 +70,24 @@ function printe( colore ) {
 					blue-=3;
 				}
 				check = !check;
+			}
+			break;
+		case "yellow":
+			red=1;
+			green=194;
+			blue=0;
+			var count = 1;
+			while( green <= 218 ) {
+				tr.appendChild( createColor( red,green,blue, "preview" ) );
+				if( count%3 == 0 ){
+					++green;
+					red+=3;
+					count = 0;
+				}
+				else {
+					red+=2;
+				}
+				++count;
 			}
 			break;
 	}
