@@ -17,7 +17,7 @@
             $this->Assert( method_exists( $tag, 'AllowAttribute' ) );
             $attribute = New XHTMLSaneAttribute( 'class' );
         }
-        public function TestSimple() {
+        /*public function TestSimple() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->SetSource( '' );
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The empty string should be remain unchanged' );
@@ -729,6 +729,7 @@
                 $sanitizer->GetXHTML(), 'Real world example 3 failed'
             );
         }
+        */
     }
     
     return new TestXHTMLSanitizer();
