@@ -32,7 +32,7 @@ The domain of:
 	
 Notice the domain of r,g,b values!In computer technology the domain of r,g,b is [0,255].
 Let y be a real number in [0,1] and x be an integer in [0,255].
-The following ration appears:
+The following ratio appears:
 
 	 1     255
 	--- = -----
@@ -40,6 +40,7 @@ The following ration appears:
 	 
 <=>  x = 255*y
 Since x belongs to Z, x = parseInt( 255*y );
+We don't care if y=0,coz that means that x would be 0
 */
 	
 function hsv2rgb( h, s, v, tr, preview ) {
