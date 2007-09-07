@@ -7,9 +7,11 @@ using namespace std;
 int main() {
     Sanitizer s = Sanitizer();
     
+    char source[ 65535 ];
     string tag;
     string line;
-    string source;
+    
+    ios_base::fmtflags ff;
 
     /* tags */
     do {
@@ -29,13 +31,12 @@ int main() {
         }
     } while ( line != "" );
 
-    do {
-        getline( cin, source );
-        string nsource = s.GetSource();
-        nsource.append( source );
-        s.SetSource( nsource );
-    } while ( source != "" );
-    
+    while ( !cin.eof() ) {
+        cin.getline( source, 256 );
+        s.SetSource( s.GetSource() + source );
+    }
+
+
     s.Sanitize();
     s.GetXHTML();
 }

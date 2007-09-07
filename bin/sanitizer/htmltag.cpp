@@ -102,6 +102,15 @@ string HTMLTag::Text() {
     for ( int i = 0; i < mSource.length(); ++i ) {
         char c = mSource[ i ];
 
+        if ( ( c == ' ' || c == '\n' ) && i != mSource.length() - 1 ) {
+            prevWasWhite = true;
+            continue;
+        }
+        else if ( prevWasWhite ) {
+            mText.append( " " );
+            prevWasWhite = false;
+        }
+
         if ( c == '&' && mSource.find( ';', i ) != string::npos ) {
             int end = mSource.find( ';', i );
             string entity = mSource.substr( i, end - i + 1 );
@@ -110,15 +119,6 @@ string HTMLTag::Text() {
                 i = end;
                 continue;
             }
-        }
-
-        if ( ( c == ' ' || c == '\n' ) && i != mSource.length() - 1 ) {
-            prevWasWhite = true;
-            continue;
-        }
-        else if ( prevWasWhite ) {
-            mText.append( " " );
-            prevWasWhite = false;
         }
 
         mText.append( ConvertEntity( c ) );
