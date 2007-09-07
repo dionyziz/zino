@@ -8,7 +8,7 @@
             $this->Assert( class_exists( 'XHTMLSaneTag' ) );
             $this->Assert( class_exists( 'XHTMLSaneAttribute' ) );
         }
-        public function TestMethodsExist() {
+        /*public function TestMethodsExist() {
             $sanitizer = New XHTMLSanitizer();
             $this->Assert( method_exists( $sanitizer, 'SetSource' ) );
             $this->Assert( method_exists( $sanitizer, 'GetXHTML' ) );
@@ -17,7 +17,7 @@
             $this->Assert( method_exists( $tag, 'AllowAttribute' ) );
             $attribute = New XHTMLSaneAttribute( 'class' );
         }
-        /*public function TestSimple() {
+        public function TestSimple() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->SetSource( '' );
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'The empty string should be remain unchanged' );
