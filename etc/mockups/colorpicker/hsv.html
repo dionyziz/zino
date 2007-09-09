@@ -2,6 +2,7 @@
 <head><title>Colors</title></head>
 <body onload="createRainbow();">
 <script type="text/javascript">
+var been = false;
 function parseTable( table ) {
 	table.border="0";
 	table.cellpadding="0";
@@ -35,9 +36,9 @@ function makeBigPreview( h ) {
 	}
 	
 	var tbody = document.createElement( 'tbody' );
-	for( var v=1;v<255;v+=5 ) {
+	for( var v=255;v>=0;v-=5 ) {
 		var tr = document.createElement( 'tr' );
-		for( var s=1;s<255;s+=5 ) {
+		for( var s=0;s<=255;s+=5 ) {
 			hsv2rgb( h, s/255, v/255, tr, false );
 		}
 		tbody.appendChild( tr );
@@ -133,11 +134,20 @@ function createColor( red,green,blue,rainbow, h ) {
 		td.style.width="3px";
 	}
 	if( rainbow ) {
-		td.onclick = (function( h ) {
+		td.onclick = (function( h,td ) {
 							return function () {
+								if( been ) {
+									var prev = document.getElementById( "selected" ); // ide is a global variable
+									prev.style.borderStyle = 'none';
+									prev.id = '';
+								}
+								been = true;
+								td.id = "selected";
+								makeBorder();
+								
 								makeBigPreview( h );
 							}
-						})( h );
+						})( h, td );
 	}
 	td.onmousemove= (function (r, g, b ) {
 							return function () {
@@ -149,6 +159,25 @@ function createColor( red,green,blue,rainbow, h ) {
 		};
 	return td;
 }
+
+function makeBorder( ) {
+	var td = document.getElementById( "selected" );
+	td.style.borderStyle="solid";
+	td.style.borderWidth="thick";
+	td.style.borderColor="#390be5";
+	for( var i=0,temp=td.previousSibling;i<5,temp!==null;++i,temp=temp.previousSibling ) {
+		temp.style.borderStyle="solid";
+		temp.style.borderWidth="thick";
+		temp.style.borderColor="#390be5";
+	}
+	for( var i=0,temp=td.nextSibling;i<5,temp!==null;++i,temp=temp.nextSibling ) {
+		temp.style.borderStyle="solid";
+		temp.style.borderWidth="thick";
+		temp.style.borderColor="#390be5";
+	}
+}
+		
+	
 </script>
 <table id="table" style="position:absolute;top:70px;right:-130px;">
 </table>
