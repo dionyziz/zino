@@ -101,7 +101,7 @@
             global $votes;
 
             $sql = "SELECT
-                        COUNT( * )
+                        *
                     FROM
                         `$polloptions` RIGHT JOIN `$votes`
                             ON `polloption_id` = `vote_optionid`
@@ -110,7 +110,7 @@
                         `vote_userid`       = '" . $user->Id() . "'
                     LIMIT 1;";
             
-            return $this->mDb->Query( $sql )->Results();
+            $this->mDb->Query( $sql )->Results();
         }
         public function HasExpired() {
             if ( $this->ExpireDate == '0000-00-00 00:00:00' ) {
