@@ -8,12 +8,8 @@
 
         $polls = Poll_GetByUser( $theuser );
 
-        if ( $theuser == $user && !count( $polls ) ) {
-            Element( 'user/profile/poll/new', $theuser );
-        }
-
         if ( !count( $polls ) ) {
-            return;
+            return Element( 'user/profile/poll/new', $theuser );
         }
 
         $poll = $polls[ 0 ];
