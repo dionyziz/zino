@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollVote( tInteger $pollid, tInteger $optionid ) {
+    function UnitPollVote( tInteger $pollid, tInteger $optionid, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
@@ -11,6 +11,9 @@
         $vote->OptionId = $optionid->Get();
         $vote->UserId   = $user->Id();
         $vote->Save();
+
+        echo $callback;
+        ?>();<?php
     }
 
 ?>

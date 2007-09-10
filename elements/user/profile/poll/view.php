@@ -9,6 +9,7 @@
             <h4><?php
                 echo $poll->Question;
             ?></h4>
+
             <ul><?php
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
@@ -17,7 +18,11 @@
                         echo $poll->Id;
                         ?>_<?php
                         echo $option->Id;
-                        ?>" name="option" value="0" /></dt>
+                        ?>" name="option" value="0" onselect="Poll.Vote( <?php
+                        echo $poll->Id;
+                        ?>, <?php
+                        echo $option->Id;
+                        ?> );" /></dt>
                         <dd><label for="p_<?php
                         echo $poll->Id;
                         ?>_<?php
