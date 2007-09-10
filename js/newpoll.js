@@ -31,10 +31,8 @@ var Poll = {
                 sbmt.onclick = function () {
                     options = Poll.options.substring( 0, Poll.options.length - 1 );
 
-                    alert( Poll.question + " " + options );
-                    
-                    // Coala.Warm( 'poll/new', question, options );
-                    // window.location.reload();
+                    Coala.Warm( 'poll/new', question, options );
+                    window.location.reload();
                 };
 
                 ul.appendChild( sbmt );
@@ -69,7 +67,7 @@ var Poll = {
             ul.appendChild( li );
         }
         Poll.lastli = li;
-        Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 6 );
+        Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 7 );
         setTimeout( function () {
             iinp.select();
             iinp.focus();
