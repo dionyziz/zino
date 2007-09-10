@@ -1,4 +1,5 @@
 var lastpollli = 0;
+var lastinput;
 
 function CreatePoll() {
     var newpoll_ = document.getElementById( 'newpoll' );
@@ -32,7 +33,7 @@ function CreatePoll() {
                 var fields = g( 'newpoll' ).getElementsByTagName( 'ul' )[ 0 ].getElementsByTagName( 'input' );
                 for ( var i in fields ) {
                     var field = fields[ i ];
-                    if ( field.parentNode == lastpollli ) {
+                    if ( field == lastinput ) {
                         break;
                     }
                     options += field.value + '|';
@@ -91,4 +92,5 @@ function CreatePollAnswer() {
             CreatePollAnswer();
         }
     };
+    lastinput = iinp;
 }
