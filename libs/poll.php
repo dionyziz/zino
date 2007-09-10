@@ -111,7 +111,7 @@
                         `vote_userid`       = '" . $user->Id() . "'
                     LIMIT 1;";
             
-            $this->mDb->Query( $sql )->Results();
+            return $this->mDb->Query( $sql )->Results();
         }
         public function HasExpired() {
             if ( $this->ExpireDate == '0000-00-00 00:00:00' ) {

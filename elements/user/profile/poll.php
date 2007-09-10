@@ -6,6 +6,10 @@
 
         $libs->Load( 'poll' );
 
+        if ( $user->IsAnonymous() ) {
+            return;
+        }
+
         $polls = Poll_GetByUser( $theuser );
 
         if ( !count( $polls ) ) {
