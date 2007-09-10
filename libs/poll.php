@@ -103,7 +103,7 @@
             $sql = "SELECT
                         COUNT( * )
                     FROM
-                        `$polloptions` LEFT JOIN `$votes`
+                        `$polloptions` RIGHT JOIN `$votes`
                             ON `polloption_id` = `vote_optionid`
                     WHERE
                         `polloption_pollid` = '" . $this->Id . "' AND
