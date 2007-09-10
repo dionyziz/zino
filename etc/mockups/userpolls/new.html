@@ -121,13 +121,11 @@
                             ul.appendChild( sbmt );
                         }
                     };
-                    inp.select();
-                    inp.focus();
-                    
-                    Animations.Create( newpoll_, 'opacity', 1000, 0.5, 1, function () {
+                    Animations.Create( newpoll_, 'opacity', 1000, 0.5, 1 );
+                    setTimeout( function () {
                         inp.select();
                         inp.focus();
-                    } );
+                    }, 10 );
                     Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 18 );
                 }
                 function CreatePollAnswer() {
@@ -144,11 +142,19 @@
                     iinp.style.width = '100%';
                     iinp.value = 'Πληκτρολόγησε μία επιλογή και πίεσε enter...';
                     li.appendChild( iinp );
-                    ul.insertBefore( li, lastpollli.nextSibling );
+                    if ( lastpollli !== 0 ) {
+                        ul.insertBefore( li, lastpollli.nextSibling );
+                    }
+                    else {
+                        ul.appendChild( li );
+                    }
                     lastpollli = li;
                     Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 6 );
-                    iinp.select();
-                    iinp.focus();
+                    setTimeout( function () {
+                        iinp.select();
+                        iinp.focus();
+                    }, 10 );
+                    
                     iinp.onkeypress = function ( e ) {
                         if ( !e ) {
                             e = window.event;
@@ -156,13 +162,13 @@
                         if ( e.keyCode == 13 ) {
                             CreatePollAnswer();
                         }
-                    }
+                    };
                 }
             </script>
 			<div id="alltabs">
 				<div id="tab0" class="profile" style="background-image:url('http://images.chit-chat.gr/gradient/168/100/52');width:100%;height:100%">
                 <div class="leftbar info" style="padding-top:20px">
-                <div class="userpoll" style="opacity:.5;" id="newpoll">
+                <div class="userpoll" style="opacity:0.5;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);" id="newpoll">
                     <h4 style="height:18px"><a href="" onclick="CreatePoll();return false;" style="background-image:url('http://static.chit-chat.gr/images/icons/add.png');background-repeat:no-repeat;padding-left:20px;height:18px;display:block" /> δημιουργία δημοσκόπισης</a></h4>
                     <ul>
                     </ul>
@@ -5083,4 +5089,4 @@ MUSIC</div><br /></div>
 		Copyright &copy; Chit-Chat.gr<span>, Excalibur <a href="" onclick="Water.OpenWindow(); return false;">Reloaded</a> 6.2</span>
 		</div></div><!--[if lt IE 7]>
 <script type="text/javascript" src="js/pngfix.js?1185105887"></script><![endif]-->
-<script type="text/javascript" src="js/main.js?1185105921"></script><script type="text/javascript" src="js/friends.js?1185105865"></script><script type="text/javascript" src="js/userprofile.js?1187967622"></script><script type="text/javascript" src="js/coala.js?1185111376"></script><script type="text/javascript" src="js/modal.js?1185105877"></script><script type="text/javascript" src="js/colorpicker.js?1187969131"></script><script type="text/javascript" src="js/options.js?1185105879"></script><script type="text/javascript" src="js/comments.js?1186376995"></script><script type="text/javascript" src="js/profileq.js?1186359531"></script><script type="text/javascript" src="js/animations.js?1185105862"></script><script type="text/javascript" src="js/albums.js?1185105860"></script><script type="text/javascript" src="js/search.js?1185105892"></script><script type="text/javascript" src="js/user.js?1185105895"></script><script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script><script type="text/javascript" src="js/analytics.js?1185105860"></script><script type="text/javascript">ProfileOptions.Init( g( &quot;user_profile_characteristics&quot; ) );ProfileOptions.Init( g( &quot;user_profile_contact&quot; ) );</script></body></html>
+<script type="text/javascript" src="js/main.js?1185105921"></script><script type="text/javascript" src="js/friends.js?1185105865"></script><script type="text/javascript" src="js/userprofile.js?1187967622"></script><script type="text/javascript" src="js/coala.js?1185111376"></script><script type="text/javascript" src="js/modal.js?1185105877"></script><script type="text/javascript" src="js/colorpicker.js?1187969131"></script><script type="text/javascript" src="js/options.js?1185105879"></script><script type="text/javascript" src="js/comments.js?1186376995"></script><script type="text/javascript" src="js/profileq.js?1186359531"></script><script type="text/javascript" src="js/animations.js?1185105862"></script><script type="text/javascript" src="js/albums.js?1185105860"></script><script type="text/javascript" src="js/search.js?1185105892"></script><script type="text/javascript" src="js/user.js?1185105895"></script><script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script><script type="text/javascript" src="js/analytics.js?1185105860"></script></body></html>
