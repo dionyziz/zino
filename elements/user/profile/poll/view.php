@@ -4,6 +4,7 @@
         global $page;
 
         $page->AttachStylesheet( "css/poll.css" );
+        $page->AttachScript( "js/poll.js" );
 
         ?><div class="userpoll">
             <h4><?php
