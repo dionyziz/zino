@@ -1,6 +1,7 @@
 <?php
 	function ElementUserProfileMain( $theuser, $articlesnum = '', $profilecommentsnum = '', $oldcomments = false ) {
 		?><div class="leftbar info" style="padding-top:20px"><?php
+                Element( 'user/profile/poll/view' );
 				Element( 'user/profile/ccrelated' , $theuser );
 				Element( 'user/profile/personal' , $theuser );
                 Element( 'user/profile/characteristics', $theuser );
