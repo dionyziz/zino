@@ -18,7 +18,7 @@
                         echo $poll->Id;
                         ?>_<?php
                         echo $option->Id;
-                        ?>" name="option" value="0" onselect="Poll.Vote( <?php
+                        ?>" name="option" value="0" onclick="Poll.Vote( <?php
                         echo $poll->Id;
                         ?>, <?php
                         echo $option->Id;
