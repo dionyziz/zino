@@ -1,4 +1,26 @@
 <?php
+    
+    function Poll_GetByUser( $user ) {
+        global $polls;
+
+        $sql = "SELECT
+                    *
+                FROM
+                    `$polls`
+                WHERE
+                    `poll_userid` = '" . $user->Id() . "' AND
+                    `poll_delid` = '0'
+                LIMIT 1;";
+
+        $res = $db->Query( $sql );
+        
+        $ret = array();
+        while ( $row = $res->FetchArray() ) {
+            $ret[] = new Poll( $row );
+        }
+
+        return $ret;
+    }
 
     class PollOption extends Satori {
         protected $mId;
@@ -73,7 +95,27 @@
         private     $mOptions;
         private     $mTextOptions;
 
+        public function UserHasVoted( $user ) {
+            global $polloptions;
+            global $votes;
+
+            $sql = "SELECT
+                        COUNT( * )
+                    FROM
+                        `$polloptions` LEFT JOIN `$votes`
+                            ON `polloption_id` = `vote_optionid`
+                    WHERE
+                        `polloption_pollid` = '" . $this->Id . "' AND
+                        `vote_userid`       = '" . $user->Id() . "'
+                    LIMIT 1;";
+            
+            return $this->mDb->Query( $sql )->Results();
+        }
         public function HasExpired() {
+            if ( $this->ExpireDate == '0000-00-00 00:00:00' ) {
+                return false;
+            }
+
             $sql = "SELECT
                         `poll_expire` > NOW()
                     FROM
@@ -92,6 +134,7 @@
         }
         public function GetOptions() {
             global $polloptions;
+            global $votes;
 
             if ( $this->mOptions === false ) {
                 $sql = "SELECT
@@ -140,7 +183,7 @@
         public function LoadDefaults() {
             $this->mTextOptions = false;
             $this->Created      = NowDate();
-            $this->ExpireDate   = gmdate( "Y-m-d H:i:s", time() + 7 * 24 * 60 * 60 ); // expire in one week by default
+            $this->ExpireDate   = '0000-00-00 00:00:00'; // default is never expire
         }
         public function Poll( $construct = false ) {
             global $db;

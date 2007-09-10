@@ -1,6 +1,6 @@
 <?php
 
-    function ElementUserProfilePollView() {
+    function ElementUserProfilePollView( $poll, $theuser ) {
         global $page;
 
         $page->AttachStylesheet( "css/poll.css" );
