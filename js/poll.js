@@ -87,7 +87,7 @@ var Poll = {
     },
     Vote: function( pollid, optionid ) {
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
-    }
+    },
     VoteCallback: function() {
         window.location.reload();
     }
