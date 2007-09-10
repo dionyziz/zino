@@ -2,6 +2,7 @@
 
     function ElementUserProfilePollNew( $theuser ) {
         global $page;
+        global $user;
 
         if ( $theuser != $user ) {
             return false;

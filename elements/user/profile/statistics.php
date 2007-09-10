@@ -54,7 +54,8 @@
 					?>%</dd>
 				</dl></li>
                 
-                <li><dl>
+                <?php
+                /* <li><dl>
                     <dt>δημοσκοπήσεις</dt>
                     <dd><?php
                         echo $theuser->CountPolls();
@@ -62,8 +63,8 @@
                     ?></dd>
                 </dl></li>
 
-                <?php
-				/* <li title="Ενεργητικότητα την τελευταία εβδομάδα"><dl class="k">
+       
+				<li title="Ενεργητικότητα την τελευταία εβδομάδα"><dl class="k">
 					<dt>ενεργητικότητα</dt>
 					<dd>57%</dd>
 				</dl></li> */
