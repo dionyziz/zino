@@ -1,6 +1,7 @@
 <?php
     /* 
         MASKED: AddFriend (frelations)  --kostis90gr
+        + numpolls... -- abresas
     */
 	global $libs;
     
@@ -954,18 +955,14 @@
 			return $this->mLocation;
 		}
 		public function CountSmallNews() {
-			global $shoutbox;
-			global $db;
-			
 			return $this->mNumSmallNews;
 		}
 		public function CountImages() {
-			global $images;
-			global $db;
-			
-			
 			return $this->mNumImages;
 		}
+        public function CountPolls() {
+            return $this->mNumPolls; 
+        }
 		public function GetFullContributions() {
 			global $comments;
 			global $users;
@@ -1721,6 +1718,7 @@
 			$this->mNumSmallNews		= isset( $fetched_array[ "user_numsmallnews" ]		) ? $fetched_array[ "user_numsmallnews" ]		: 0;
 			$this->mPageviews		  	= isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
 			$this->mNumImages			= isset( $fetched_array[ "user_numimages" ]			) ? $fetched_array[ "user_numimages" ]			: 0;
+            $this->mNumPolls            = isset( $fetched_array[ "user_numpolls" ]          ) ? $fethced_array[ "user_numpolls" ]           : 0;
 			
 			$this->mArticlesPageviews	= false;
 			$this->mPopularity 		  	= false;

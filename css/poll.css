@@ -1,0 +1,10 @@
+div.profile div.leftbar div.userpoll li dl {
+    display: block;
+    height: 20px;
+}
+div.profile div.leftbar div.userpoll li dt {
+    width: 10px !important;
+}
+div.profile div.leftbar div.userpoll li dd {
+    margin-left: 2px !important;
+}
