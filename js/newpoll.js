@@ -26,8 +26,24 @@ function CreatePoll() {
             sbmt.style.margin = '2px 0 2px 145px';
             sbmt.style.border = '1px solid #666';
             sbmt.onclick = function () {
-                // save it here
+                var question = g( 'newpoll' ).getElementsByTagName( 'h4' )[ 0 ].firstChild.nodeValue;
+                
+                var options = '';
+                var fields = g( 'newpoll' ).getElementsByTagName( 'ul' )[ 0 ].getElementsByTagName( 'input' );
+                for ( var i in fields ) {
+                    var field = fields[ i ];
+                    if ( field == fields.length - 1 ) {
+                        break;
+                    }
+                    options += field.value + '|';
+                }
+
+                options = options.substring( 0, options.length - 2 );
+                
+                Coala.Warm( 'poll/new', question, options );
+                window.location.reload();
             };
+
             ul.appendChild( sbmt );
         }
     };
