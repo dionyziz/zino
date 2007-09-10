@@ -1718,7 +1718,7 @@
 			$this->mNumSmallNews		= isset( $fetched_array[ "user_numsmallnews" ]		) ? $fetched_array[ "user_numsmallnews" ]		: 0;
 			$this->mPageviews		  	= isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
 			$this->mNumImages			= isset( $fetched_array[ "user_numimages" ]			) ? $fetched_array[ "user_numimages" ]			: 0;
-            $this->mNumPolls            = isset( $fetched_array[ "user_numpolls" ]          ) ? $fethced_array[ "user_numpolls" ]           : 0;
+            $this->mNumPolls            = isset( $fetched_array[ "user_numpolls" ]          ) ? $fetched_array[ "user_numpolls" ]           : 0;
 			
 			$this->mArticlesPageviews	= false;
 			$this->mPopularity 		  	= false;
