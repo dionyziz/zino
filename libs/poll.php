@@ -60,7 +60,7 @@
             $change = parent::Save();
 
             if ( $change->Impact() && $isnew ) {
-                $option = new Option( $this->OptionId );
+                $option = new PollOption( $this->OptionId );
                 ++$option->NumVotes;
 
                 $option->Save();
@@ -149,7 +149,7 @@
                 $res = $db->Query( $sql );
                 $this->mOptions = array();
                 while ( $row = $res->FetchArray() ) {
-                    $this->mOptions[] = new Option( $row );
+                    $this->mOptions[] = new PollOption( $row );
                 }
             }
 
@@ -172,7 +172,7 @@
 
             if ( $isnew && $this->mTextOptions !== false ) {
                 foreach ( $this->mTextOptions as $optiontext ) {
-                    $option         = new Option();
+                    $option         = new PollOption();
                     $option->PollId = $this->Id;
                     $option->Text   = $optiontext;
                     $option->Save();
