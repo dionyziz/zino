@@ -2,6 +2,7 @@
     
     function Poll_GetByUser( $user ) {
         global $polls;
+        global $db;
 
         $sql = "SELECT
                     *
