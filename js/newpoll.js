@@ -31,8 +31,7 @@ var Poll = {
                 sbmt.onclick = function () {
                     options = Poll.options.substring( 0, Poll.options.length - 1 );
 
-                    Coala.Warm( 'poll/new', { 'question': Poll.question, 'options': options } );
-                    window.location.reload();
+                    Coala.Warm( 'poll/new', { 'question': Poll.question, 'options': options, 'callback': Poll.CreateCallback } );
                 };
 
                 ul.appendChild( sbmt );
@@ -82,5 +81,8 @@ var Poll = {
             }
         };
         lastinput = iinp;
+    },
+    CreateCallback: function() {
+        window.location.reload();
     }
 };

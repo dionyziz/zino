@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollNew( tString $question, tString $options ) {
+    function UnitPollNew( tString $question, tString $options, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
@@ -11,6 +11,9 @@
         $poll->TextOptions  = split( "\|", $options->Get() );
         $poll->UserId       = $user->Id();
         $poll->Save();
+
+        echo $callback;
+        ?>();<?php
     }
 
 ?>
