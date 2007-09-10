@@ -39,9 +39,11 @@ function CreatePoll() {
                 }
 
                 options = options.substring( 0, options.length - 2 );
+
+                alert( question + " " + options );
                 
-                Coala.Warm( 'poll/new', question, options );
-                window.location.reload();
+                // Coala.Warm( 'poll/new', question, options );
+                // window.location.reload();
             };
 
             ul.appendChild( sbmt );
