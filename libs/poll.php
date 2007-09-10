@@ -146,7 +146,7 @@
                             `polloption_pollid` = '" . $this->Id . "'
                         ;";
 
-                $res = $db->Query( $sql );
+                $res = $this->mDb->Query( $sql );
                 $this->mOptions = array();
                 while ( $row = $res->FetchArray() ) {
                     $this->mOptions[] = new PollOption( $row );
