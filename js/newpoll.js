@@ -31,7 +31,7 @@ var Poll = {
                 sbmt.onclick = function () {
                     options = Poll.options.substring( 0, Poll.options.length - 1 );
 
-                    Coala.Warm( 'poll/new', Poll.question, options );
+                    Coala.Warm( 'poll/new', { 'question': Poll.question, 'options': options } );
                     window.location.reload();
                 };
 
