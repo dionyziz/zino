@@ -4,7 +4,7 @@
         global $user;
         global $libs;
 
-        $libs->Load( 'polls' );
+        $libs->Load( 'poll' );
 
         $polls = Poll_GetByUser( $theuser );
 
