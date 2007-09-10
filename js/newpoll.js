@@ -29,7 +29,7 @@ var Poll = {
                 sbmt.style.margin = '2px 0 2px 145px';
                 sbmt.style.border = '1px solid #666';
                 sbmt.onclick = function () {
-                    options = Poll.options.substring( 0, options.length - 1 );
+                    options = Poll.options.substring( 0, Poll.options.length - 1 );
 
                     alert( Poll.question + " " + options );
                     
