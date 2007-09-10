@@ -27,6 +27,7 @@
         protected $mId;
         protected $mText;
         protected $mPollId;
+        protected $mNumVotes;
 
         public function PollOption( $construct = false ) {
             global $db;
