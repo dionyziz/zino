@@ -213,7 +213,7 @@
                     $water->ThrowException( 'Satori construction must be done either voidly, by an Id integer, or by a fetched array. `' . $construct . '\' is not a valid construction parameter.' );
                 }
                 $fetched_array = $construct;
-                $this->mExists = count( $fetch_array ) > 0;
+                $this->mExists = count( $fetched_array ) > 0;
             }
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {

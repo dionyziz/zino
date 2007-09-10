@@ -13,10 +13,10 @@
         }
 
         $poll = $polls[ 0 ];
-        if ( count( $polls ) && !$poll->UserHasVoted( $theuser ) ) {
+        if ( !$poll->UserHasVoted( $theuser ) ) {
             Element( 'user/profile/poll/view', $polls[ 0 ], $theuser );
         }
-        else if ( count( $polls ) ) {
+        else {
             Element( 'user/profile/poll/results', $polls[ 0 ] );
         }
     }
