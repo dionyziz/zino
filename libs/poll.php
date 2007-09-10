@@ -1,205 +1,130 @@
 <?php
 
-	function getAllPolls() {
-		global $polls;
-		global $db;
-		
-		$sql = "SELECT * FROM `$polls` ORDER BY `poll_id` DESC;";
-		
-		$res = $db->Query( $sql );
-		$ret = $res->MakeArray();
-		
-		return $ret;
-	}
-	function NewPoll( $text ) {
-		global $polls;
-		global $user;
-		global $db;
+    class PollOption extends Satori {
+        protected $mId;
+        protected $mText;
+        protected $mPollId;
 
-		if( $user->CanModifyStories() ) {
-			$storyid = MakeStory( "Ψηφοφορία: $text" , "" , 0 , 0 , false , true );
-	
-			$text = myescape( $text );
-	
-			$userid = $user->Id();
-			$nowdate = NowDate();
-			$sql = "INSERT INTO `$polls` ( `poll_id` , `poll_question` , `poll_userid` , `poll_storyid`, `poll_date` ) VALUES( '' , '$text' , '$userid' , '$storyid', '$nowdate' );";
-			$db->Query( $sql );
+        public function PollOption( $construct = false ) {
+            global $db;
+            global $polloptions;
 
-			return mysql_insert_id();
-		}
-		else {
-			return -1;
-		}
-	}
-	
-	function EditPoll( $pollid , $newtext ) {
-		global $user;
-		global $db;
-		
-		if( $user->CanModifyStories() ) {
-			$thispoll = New Poll( $pollid );
-			if( $user->CanModifyCategories() || $thispoll->UserId() == $user->Id() ) {
-				$newtext = myescape( $newtext );
-		
-				$sql = "UPDATE `$polls` SET `poll_question`='$newtext' WHERE `poll_id`='$pollid' LIMIT 1;";
-				$db->Query( $sql );
-			}
-			else {
-				mdie( "Insufficient rights to modify this poll" );
-			}
-		}
-	}
-	
-	function DeletePoll( $pollid ) {
-		global $user;
-		global $polls;
-		global $db;
-		
-		if( $user->CanModifyStories() ) {
-			$thispoll = New Poll( $pollid );
-			if( $user->CanModifyCategories() || $thispoll->UserId() == $user->Id() ) {
-				$sql = "DELETE FROM `$polls` WHERE `poll_id`='$pollid' LIMIT 1;";
-				$db->Query( $sql );
-			}
-			else {
-				mdie( "Insufficient rights to modify this poll" );
-			}
-		}
-	}
-	
-	function DeleteOption( $optionid ) {
-		global $user;
-		global $polloptions;
-		global $db;
-		
-		if( $user->CanModifyCategories() ) {
-			if( ValidId( $optionid ) ) {
-				$sql = "DELETE FROM `$polloptions` WHERE `poption_id`='$optionid'";
-				$db->Query( $sql );
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	class Option { 
-		var $mId;
-		var $mText;
-		
-		function Id() {
-			return $this->mId;
-		}
-		function Text() {
-			return $this->mText;
-		}
-		function Option( $fetched_array ) {
-			$this->mId = $fetched_array[ "poption_id" ];
-			$this->mText = $fetched_array[ "poption_text" ];
-		}
-	}
-	
-	class Poll {
-		var $mQuestion;
-		var $mId;
-		var $mUserId;
-		var $mStoryId;
-		var $mOptions;
-		var $mOptionsRetrieved;
-		var $mUserHasVoted;
-		var $mUserHasVotedRetrieved;
-		
-		function UserHasVoted() {
-			global $user;
-			global $votes;
-			global $polls;
-			global $polloptions;
-			global $db;
-			
-			if( !$this->mUserHasVotedRetrieved ) {
-				$sql = "SELECT COUNT(`$votes`.*) AS votescount
-						FROM
-							`$votes`, `$polloptions`
-						WHERE
-							`poption_pollid`='" . $this->mId . "' AND
-							`vote_polloption`=`poption_id` AND
-							`vote_userid`='" . $user->Id() . "' AND
-						LIMIT 1;";
-				$res = $db->Query( $sql );
-				$fa = $res->FetchArray();
-				if( $fa[ "votescount" ] ) {
-					$this->mUserHasVoted = true;
-				}
-				else {
-					$this->mUserHasVoted = false;
-				}
-			}
-			return $this->mUserHasVoted;
-		}
-		function Question() {
-			return $this->mQuestion;
-		}
-		function StoryId() {
-			return $this->mStoryId;
-		}
-		function UserId() {
-			return $this->mUserId;
-		}
-		function Id() {
-			return $this->mId;
-		}
-		function Option() {
-			global $polloptions;
-			global $db;
-			
-			if( $this->mOptionsRetrieved == false ) {
-				$this->mOptionsRetrieved = true;
-				$sql = "SELECT * FROM `$polloptions` WHERE `poption_pollid`='" . $this->mId . "'";
-				$options = $db->Query( $sql );
-			}
-			$fetched = $options->FetchArray();
-			if( $fetched ) {
-				return New Option( $fetched );
-			}
-			else {
-				return false;
-			}
-		}
-		function NewOption( $text ) {
-			global $polloptions;
-			global $db;
-			
-			if( $user->CanModifyCategories() ) {
-				$text = myescape( $text );
-				$sql = "INSERT INTO `$polloptions` (`poption_id`, `poption_text`, `poption_pollid`) VALUES('', '$text', '" . $this->mId . "');";
-				$db->Query( $sql );
-				return mysql_insert_id();
-			}
-			return -1;
-		}
-		function Poll( $construct ) {
-			global $polls;
-			global $db;
-			
-			if( ValidId( $construct ) ) {
-				$sql = "SELECT * FROM `$polls` WHERE `poll_id`='$construct' LIMIT 1;";
-				$res = $db->Query( $sql );
-				if( !$res->NumRows() ) {
-					mdie( "Error" );
-				}
-				$fetched_array = $res->FetchArray();
-			}
-			else if( is_array( $construct ) ) {
-				$fetched_array = $construct;
-			}
-			else {
-				mdie( "Error constructing poll" );
-			}
-			$this->mQuestion = $fetched_array[ "poll_question" ];
-			$this->mId = $fetched_array[ "poll_id" ];
-			$this->mUserId = $fetched_array[ "poll_userid" ];
-			$this->mStoryId = $fetched_array[ "poll_storyid" ];
-			$this->mOptionsRetrieved = false;
-		}
-	}
+            $this->mDb      = $db;
+            $this->mDbTable = $polloptions;
+
+            if ( !is_array( $construct ) && ValidId( $construct ) ) {
+                $sql = "SELECT
+                            *
+                        FROM
+                            `" . $this->mDbTable . "`
+                        WHERE
+                            `polloption_id` = '$construct'
+                        LIMIT 1;";
+                
+                $construct = $this->mDb->Query( $sql )->FetchArray();
+            }
+
+            $this->SetFields( array(
+                'polloption_id'     => 'Id',
+                'polloption_text'   => 'Text',
+                'polloption_pollid' => 'PollId'
+            ) );
+
+            $this->Satori( $construct );
+        }
+    }
+
+    class Poll extends Satori {
+        protected   $mId;
+        protected   $mQuestion;
+        protected   $mUserId;
+        protected   $mExpireDate;
+        protected   $mCreated;
+        protected   $mDelId;
+        private     $mOptions;
+        private     $mTextOptions;
+
+        public function GetOptions() {
+            global $polloptions;
+
+            if ( $this->mOptions === false ) {
+                $sql = "SELECT
+                            *
+                        FROM
+                            `$polloptions`
+                        WHERE
+                            `polloption_pollid` = '" . $this->Id . "'
+                        ;";
+
+                $res = $db->Query( $sql );
+                $this->mOptions = array();
+                while ( $row = $res->FetchArray() ) {
+                    $this->mOptions[] = new Option( $row );
+                }
+            }
+
+            return $this->mOptions;
+        }
+        public function SetTextOptions( $options ) {
+            w_assert( is_array( $options ) );
+
+            $this->mTextOptions = $options;
+        }
+        public function Save() {
+            $isnew = !$this->Exists();
+
+            parent::Save();
+
+            if ( $isnew && $this->mTextOptions !== false ) {
+                foreach ( $this->mTextOptions as $optiontext ) {
+                    $option         = new Option();
+                    $option->PollId = $this->Id;
+                    $option->Text   = $optiontext;
+                    $option->Save();
+
+                    $this->mOptions[] = $option;
+                }
+            }
+        }
+        public function LoadDefaults() {
+            $this->mTextOptions = false;
+            $this->Created      = NowDate();
+            $this->ExpireDate   = gmdate("Y-m-d H:i:s", time() + 7 * 24 * 60 * 60 ); // expire in one week by default
+        }
+        public function Poll( $construct = false ) {
+            global $db;
+            global $polls;
+
+            $this->mDb      = $db;
+            $this->mDbTable = $polls;
+
+            if ( !is_array( $construct ) && ValidId( $construct ) ) {
+                // sql
+                $sql = "SELECT
+                            *
+                        FROM
+                            `" . $this->mDbTable . "`
+                        WHERE
+                            `poll_id` = '$construct'
+                        ;";
+
+                $res = $this->mDb->Query( $sql );
+                $construct = $res->FetchArray();
+            }
+
+            $this->SetFields( array(
+                'poll_id'       => 'Id',
+                'poll_question' => 'Question',
+                'poll_userid'   => 'UserId',
+                'poll_expire'   => 'ExpireDate',
+                'poll_created'  => 'Created',
+                'poll_delid'    => 'DelId'
+            ) );
+
+            $this->Satori( $construct );
+            
+            $this->mOptions     = false;
+        }
+    }
+
 ?>
