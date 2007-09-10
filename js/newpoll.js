@@ -32,7 +32,7 @@ function CreatePoll() {
                 var fields = g( 'newpoll' ).getElementsByTagName( 'ul' )[ 0 ].getElementsByTagName( 'input' );
                 for ( var i in fields ) {
                     var field = fields[ i ];
-                    if ( field == fields.length - 1 ) {
+                    if ( field.parentNode == lastpollli ) {
                         break;
                     }
                     options += field.value + '|';
