@@ -82,8 +82,8 @@ var Poll = {
         };
         lastinput = iinp;
     },
-    CreateCallback: function() {
-        window.location.reload();
+    CreateCallback: function( html ) {
+        g( 'newpoll' ).innerHTML = html;
     },
     Vote: function( pollid, optionid ) {
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );

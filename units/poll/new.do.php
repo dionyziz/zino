@@ -12,8 +12,14 @@
         $poll->UserId       = $user->Id();
         $poll->Save();
 
+        ob_start();
+        Element( 'user/profile/poll', $user );
+        $html = ob_get_clean();
+
         echo $callback;
-        ?>();<?php
+        ?>( <?php
+        echo $html;
+        ?> );<?php
     }
 
 ?>
