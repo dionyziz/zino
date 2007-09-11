@@ -44,7 +44,7 @@
         protected function SetPercentage( $percentage ) {
             $this->mPercentage = $percentage;
         }
-        public function GetPercentage( $percentage ) {
+        public function GetPercentage() {
             return $this->mPercentage;
         }
         protected function LoadDefaults() {
