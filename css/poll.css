@@ -1,10 +1,57 @@
-div.profile div.leftbar div.userpoll li dl {
+div.profile div.leftbar div.userpoll ul.poll li dl {
     display: block;
     height: 20px;
 }
-div.profile div.leftbar div.userpoll li dt {
+div.profile div.leftbar div.userpoll ul.poll li dt {
     width: 10px !important;
 }
-div.profile div.leftbar div.userpoll li dd {
+div.profile div.leftbar div.userpoll ul.poll li dd {
     margin-left: 2px !important;
+}
+
+div.profile div.leftbar div.userpoll ul.new li {
+    display: block !important;
+    padding: 5px;
+}
+div.profile div.leftbar div.userpoll ul.new li dt {
+    width: 0 !important;
+}
+div.profile div.leftbar div.userpoll ul.new li dd {
+    margin-left: 0 !important;
+    color: black;
+}
+div.profile div.leftbar div.userpoll ul.new li dl div.polloption {
+    border: 1px solid black;
+    width: 180px;
+    height: 15px;
+    background-color: #999;
+    margin-left: 190px;
+}
+div.profile div.leftbar div.userpoll ul.new li dl div.pollanswer {
+    height: 100%;
+    border-right: 1px solid #aaa;
+    background-color: #dedede;
+}
+div.profile div.leftbar div.userpoll ul.results li dl {
+    display: block;
+    padding: 5px;
+}
+div.profile div.leftbar div.userpoll ul.results li dt {
+    width: 0 !important;
+}
+div.profile div.leftbar div.userpoll ul.results li dd {
+    margin-left: 0 !important;
+    color: black;
+}
+div.profile div.leftbar div.userpoll ul.results li dl div.polloption {
+    border: 1px solid black;
+    width: 180px;
+    height: 10px;
+    background-color: #999;
+    margin-left: 190px;
+}
+div.profile div.leftbar div.userpoll ul.results li dl div.pollanswer {
+    height: 100%;
+    border-right: 1px solid #aaa;
+    background-color: #dedede;
 }

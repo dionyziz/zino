@@ -3,8 +3,10 @@
     function ElementUserProfilePoll( $theuser ) {
         global $user;
         global $libs;
+        global $page;
 
         $libs->Load( 'poll' );
+        $page->AttachStylesheet( 'css/poll.css' );
 
         if ( $user->IsAnonymous() ) {
             return;

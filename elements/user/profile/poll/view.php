@@ -3,7 +3,6 @@
     function ElementUserProfilePollView( $poll, $theuser ) {
         global $page;
 
-        $page->AttachStylesheet( "css/poll.css" );
         $page->AttachScript( "js/poll.js" );
 
         ?><div class="userpoll">

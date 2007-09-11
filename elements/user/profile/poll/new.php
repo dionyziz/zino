@@ -8,7 +8,6 @@
             return false;
         }
 
-        $page->AttachStylesheet( 'css/newpoll.css' );
         $page->AttachScript( 'js/poll.js' );
 
         ?><div class="userpoll" style="opacity:0.5;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);" id="newpoll">
