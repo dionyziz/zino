@@ -27,8 +27,20 @@
         protected $mId;
         protected $mText;
         protected $mPollId;
+        protected $mPoll;
         protected $mNumVotes;
+        protected $mPercentage;
 
+        public function LoadDefaults() {
+            $this->NumVotes = 0;
+        }
+        public function GetPoll() {
+            if ( $this->Poll === false ) {
+                $this->Poll = new Poll( $this->PollId );
+            }
+
+            return $this->Poll;
+        }
         public function PollOption( $construct = false ) {
             global $db;
             global $polloptions;
@@ -44,6 +56,9 @@
             ) );
 
             $this->Satori( $construct );
+
+            $this->Percentage   = ( $this->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
+            $this->Poll         = false;
         }
     }
 
@@ -63,8 +78,11 @@
             if ( $change->Impact() && $isnew ) {
                 $option = new PollOption( $this->OptionId );
                 ++$option->NumVotes;
-
                 $option->Save();
+
+                $poll = $option->Poll;
+                ++$poll->NumVotes;
+                $poll->Save();
             }
             
             return $change->Impact();
@@ -94,6 +112,7 @@
         protected   $mExpireDate;
         protected   $mCreated;
         protected   $mDelId;
+        protected   $mNumVotes;
         private     $mOptions;
         private     $mTextOptions;
 
@@ -186,6 +205,7 @@
             $this->mTextOptions = false;
             $this->Created      = NowDate();
             $this->ExpireDate   = '0000-00-00 00:00:00'; // default is never expire
+            $this->NumVotes     = 0;
         }
         public function Poll( $construct = false ) {
             global $db;
@@ -200,7 +220,8 @@
                 'poll_userid'   => 'UserId',
                 'poll_expire'   => 'ExpireDate',
                 'poll_created'  => 'Created',
-                'poll_delid'    => 'DelId'
+                'poll_delid'    => 'DelId',
+                'poll_numvotes' => 'NumVotes'
             ) );
 
             $this->Satori( $construct );
