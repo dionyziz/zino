@@ -35,11 +35,11 @@
             $this->NumVotes = 0;
         }
         public function GetPoll() {
-            if ( $this->Poll === false ) {
-                $this->Poll = new Poll( $this->PollId );
+            if ( $this->mPoll === false ) {
+                $this->mPoll = new Poll( $this->PollId );
             }
 
-            return $this->Poll;
+            return $this->mPoll;
         }
         public function PollOption( $construct = false ) {
             global $db;
@@ -57,8 +57,8 @@
 
             $this->Satori( $construct );
 
-            $this->Percentage   = ( $this->Poll->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
             $this->Poll         = false;
+            $this->Percentage   = ( $this->Poll->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
         }
     }
 
