@@ -31,8 +31,8 @@
         protected $mNumVotes;
         protected $mPercentage;
 
-        public function LoadDefaults() {
-            $this->NumVotes = 0;
+        protected function SetPoll( $poll ) {
+            $this->mPoll = $poll;
         }
         public function GetPoll() {
             if ( $this->mPoll === false ) {
@@ -40,6 +40,15 @@
             }
 
             return $this->mPoll;
+        }
+        protected function SetPercentage( $percentage ) {
+            $this->mPercentage = $percentage;
+        }
+        public function GetPercentage( $percentage ) {
+            return $this->mPercentage;
+        }
+        protected function LoadDefaults() {
+            $this->NumVotes = 0;
         }
         public function PollOption( $construct = false ) {
             global $db;
