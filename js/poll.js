@@ -86,11 +86,9 @@ var Poll = {
         window.location.reload();
     },
     Vote: function( pollid, optionid ) {
-        g( 'newpoll' ).style.opacity = '0';
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
     },
     VoteCallback: function() {
-        g( 'newpoll' ).style.opacity = '1';
         window.location.reload();
     }
 };
