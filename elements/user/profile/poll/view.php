@@ -10,7 +10,7 @@
                 echo htmlspecialchars( $poll->Question );
             ?></h4>
 
-            <ul><?php
+            <ul class="poll"><?php
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
                     ?><li><dl>

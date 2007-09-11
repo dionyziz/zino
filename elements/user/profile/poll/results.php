@@ -5,7 +5,7 @@
             <h4><?php
             echo htmlspecialchars( $poll->Question );
             ?></h4>
-            <ul><?php
+            <ul class="results"><?php
 
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
