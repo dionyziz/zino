@@ -1,6 +1,10 @@
 <?php
 
     function ElementUserProfilePollResults( $poll ) {
+        global $page;
+
+        $page->AttachStylesheet( 'css/pollresults.css' );
+
         ?><div class="userpoll">
             <h4><?php
             echo htmlspecialchars( $poll->Question );
