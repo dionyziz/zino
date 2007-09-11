@@ -8,7 +8,7 @@
 
         ?><div class="userpoll">
             <h4><?php
-                echo $poll->Question;
+                echo htmlspecialchars( $poll->Question );
             ?></h4>
 
             <ul><?php
@@ -29,7 +29,7 @@
                         ?>_<?php
                         echo $option->Id;
                         ?>"><?php
-                        echo $option->Text;
+                        echo htmlspecialchars( $option->Text );
                         ?></label></dd>
                     </dl></li><?php
                 }
