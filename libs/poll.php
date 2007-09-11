@@ -57,7 +57,7 @@
 
             $this->Satori( $construct );
 
-            $this->Percentage   = ( $this->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
+            $this->Percentage   = ( $this->Poll->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
             $this->Poll         = false;
         }
     }
