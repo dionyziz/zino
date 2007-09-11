@@ -14,11 +14,16 @@
 
         $polls = Poll_GetByUser( $theuser );
 
-        if ( !count( $polls ) ) {
+        while ( $poll = array_shift( $polls ) ) {
+            if ( $poll->DelId == 0 ) {
+                break;
+            }
+        }
+
+        if ( !count( $polls ) || $poll->DelId == 0 ) {
             return Element( 'user/profile/poll/new', $theuser );
         }
 
-        $poll = $polls[ 0 ];
         if ( !$poll->UserHasVoted( $user ) ) {
             Element( 'user/profile/poll/view', $polls[ 0 ], $theuser );
         }
