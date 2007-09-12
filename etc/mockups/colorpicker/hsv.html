@@ -156,7 +156,7 @@ function createPreviewColor( red,green,blue,rainbow, h ) {
 	td.style.width="3px";
 	td.onmousemove= (function (r, g, b ) {
 			return function () {
-				document.body.style.cursor="url('ikona.cur')";
+				document.body.style.cursor="url(ikona.cur)";
 				Preview( r,g,b );
 			}
 		})(red,green,blue);
