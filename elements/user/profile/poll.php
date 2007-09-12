@@ -15,13 +15,7 @@
 
         $polls = Poll_GetByUser( $theuser );
 
-        foreach ( $polls as $poll ) {
-            if ( $poll->DelId == 0 ) {
-                break;
-            }
-        }
-
-        if ( !count( $polls ) || $poll->DelId == 0 ) {
+        if ( !count( $polls ) ) {
             return Element( 'user/profile/poll/new', $theuser );
         }
 
