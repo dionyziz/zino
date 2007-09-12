@@ -7,6 +7,7 @@
 
         $libs->Load( 'poll' );
         $page->AttachStylesheet( 'css/poll.css' );
+        $page->AttachScript( 'js/poll.js' );
 
         if ( $user->IsAnonymous() ) {
             return;

@@ -1,10 +1,6 @@
 <?php
 
     function ElementUserProfilePollView( $poll, $theuser ) {
-        global $page;
-
-        $page->AttachScript( "js/poll.js" );
-
         ?><div class="userpoll">
             <h4><?php
                 echo htmlspecialchars( $poll->Question );
