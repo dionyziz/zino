@@ -91,7 +91,7 @@ var Poll = {
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
     },
     VoteCallback: function( html ) {
-        g( 'userpoll_' + pollid ).innerHTML = html;
+        g( 'userpoll_' + Poll.votingPoll ).innerHTML = html;
     }
 };
 
