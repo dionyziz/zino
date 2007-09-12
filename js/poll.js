@@ -2,6 +2,7 @@ var Poll = {
     lastli: 0,
     options: '',
     question: '',
+    votingPoll: 0,
     Create: function() {
         var newpoll_ = document.getElementById( 'newpoll' );
         var ul = newpoll_.getElementsByTagName( 'ul' )[ 0 ];
@@ -86,10 +87,11 @@ var Poll = {
         g( 'newpoll' ).innerHTML = html;
     },
     Vote: function( pollid, optionid ) {
+        Poll.votingPoll = pollid;
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
     },
     VoteCallback: function( html ) {
-        g( 'userpoll' ).innerHTML = html;
+        g( 'userpoll_' + pollid ).innerHTML = html;
     }
 };
 
