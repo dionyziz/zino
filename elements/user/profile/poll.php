@@ -15,7 +15,7 @@
 
         $polls = Poll_GetByUser( $theuser );
 
-        while ( $poll = array_shift( $polls ) ) {
+        foreach ( $poll as $polls ) {
             if ( $poll->DelId == 0 ) {
                 break;
             }

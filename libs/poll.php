@@ -11,6 +11,8 @@
                 WHERE
                     `poll_userid` = '" . $user->Id() . "' AND
                     `poll_delid` = '0'
+                ORDER BY
+                    `poll_id` DESC
                 LIMIT 1;";
 
         $res = $db->Query( $sql );
