@@ -67,7 +67,7 @@ var Poll = {
             ul.appendChild( li );
         }
         Poll.lastli = li;
-        Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 5 );
+        Animations.Create( ul, 'height', 1000, ul.offsetHeight, ul.offsetHeight + 7 );
         setTimeout( function () {
             iinp.select();
             iinp.focus();
