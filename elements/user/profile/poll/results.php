@@ -1,7 +1,7 @@
 <?php
 
     function ElementUserProfilePollResults( $poll ) {
-        ?><div class="userpoll">
+        ?><div class="pollresults">
             <h4><?php
             echo htmlspecialchars( $poll->Question );
             ?></h4>

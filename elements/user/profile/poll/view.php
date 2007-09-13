@@ -3,7 +3,7 @@
     function ElementUserProfilePollView( $poll, $theuser ) {
         ?><div id="userpoll_<?php
         echo $poll->Id;
-        ?>" class="userpoll">
+        ?>" class="pollview">
             <h4><?php
                 echo htmlspecialchars( $poll->Question );
             ?></h4>
