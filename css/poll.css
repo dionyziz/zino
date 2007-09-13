@@ -1,6 +1,6 @@
 div.profile div.leftbar div.pollview ul li dl {
     display: block;
-    height: 20px;
+    height: 100%;
 }
 div.profile div.leftbar div.pollview ul li dt {
     width: 10px !important;
@@ -37,7 +37,7 @@ div.profile div.leftbar div.pollresults ul li dl {
     padding: 5px;
 }
 div.profile div.leftbar div.pollresults ul li dt {
-    width: 200px !important;
+    width: 190px !important;
 }
 div.profile div.leftbar div.pollresults ul li dd {
     margin-left: 0 !important;
