@@ -85,6 +85,7 @@ var Poll = {
     },
     CreateCallback: function( html ) {
         g( 'newpoll' ).innerHTML = html;
+        g( 'newpoll' ).className = 'pollview';
     },
     Vote: function( pollid, optionid ) {
         Poll.votingPoll = pollid;
@@ -92,6 +93,7 @@ var Poll = {
     },
     VoteCallback: function( html ) {
         g( 'userpoll_' + Poll.votingPoll ).innerHTML = html;
+        g( 'userpoll_' + Poll.votingPoll ).className = 'pollresults';
     }
 };
 
