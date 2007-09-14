@@ -102,12 +102,12 @@ var Poll = {
     },
     DeleteCallback: function( html ) {
         var undo = d.createElement( 'div' );
-        undo.append( d.createTextNode( 'Η δημοσκόπηση διεγράφη. ' ) );
+        undo.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. ' ) );
 
         var undolink = d.createElement( 'a' );
-        undolink.append( d.createTextNode( 'Αναίρεση διαγραφής' ) );
+        undolink.appendChild( d.createTextNode( 'Αναίρεση διαγραφής' ) );
 
-        undo.append( undolink );
+        undo.appendChild( undolink );
 
         userpoll = g( 'userpoll_' + Poll.deletingPoll );
         userpoll.parentNode.insertBefore( undo, userpoll );
