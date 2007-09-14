@@ -4,7 +4,9 @@
         global $xc_settings;
 
         ?><div class="pollresults">
-            <h4><a style="float:right;"><img src="<?php
+            <h4><a style="float:right;" onclick="Coala.Warm( 'poll/delete', <?php
+            echo $poll->Id;
+            ?> );"><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
             ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
             echo htmlspecialchars( $poll->Question );
