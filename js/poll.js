@@ -101,7 +101,7 @@ var Poll = {
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
     },
     DeleteCallback: function( html ) {
-        var poll = g( 'userpoll_' + id );
+        var poll = g( 'userpoll_' + Poll.deletingPoll );
 
         var ul = poll.getElementsByTagName( 'ul' )[ 0 ];
         var div = d.createElement( 'div' );
