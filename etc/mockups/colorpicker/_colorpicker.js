@@ -2,22 +2,43 @@ var Colorpicker = {
 	prevcol: null,
 	been: false,
 	func: new Function(),
-	Create : function( clickaria, titlos ) {
+	Create : function( clickaria, closing, titlos ) {
 		Colorpicker.func = clickaria;
 		
 		var div = document.createElement( 'div' );
 		
+		var close = document.createElement( 'a' );
+		close.onclick = function() {
+					closing();
+					Modals.Destroy();
+				};
+		close.style.cssFloat = "right";
+		close.style.marginRight = "30px";
+		close.onmouseover = function() {
+						document.body.style.cursor = "pointer";
+					};
+		close.onmouseout = function () {
+						document.body.style.cursor = "default";
+					};
+		
+		var closeimg = document.createElement( 'img' );
+		closeimg.src = "close.png";
+		closeimg.alt = "Κλείσιμο";
+		closeimg.title = "Κλείσιμο";
+		
 		var tablef = document.createElement( 'table' );
 		Colorpicker.parseTable( tablef );
 		tablef.id = "table";
-		tablef.style.top = "70px";
-		tablef.style.right = "-140px";
+		tablef.style.cssFloat = "right";
+		tablef.style.marginRight = "80px";
+		tablef.style.marginTop = "27px";
 		
 		var tables = document.createElement( 'table' );
 		Colorpicker.parseTable( tables );
 		tables.id = "table_main";
-		tables.style.top = "65px";
-		tables.style.right = "20px";
+		tables.style.cssFloat = "left";
+		tables.style.marginLeft = "90px";
+		tables.style.marginTop = "30px";
 		
 /*		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
@@ -27,10 +48,13 @@ var Colorpicker = {
 		preview.id = "preview";
 		preview.style.width = "240px";
 		preview.style.height = "30px";
-		preview.style.position = "absolute";
-		preview.style.top = "230px";
-		preview.style.right = "150px";
+		preview.style.cssFloat = "left";
+		preview.style.marginLeft = "100px";
+		preview.style.marginTop = "180px";
 		
+		close.appendChild( closeimg );
+		div.appendChild( document.createElement( 'br' ) );
+		div.appendChild( close );
 		div.appendChild( tablef );
 //		tables.appendChild( caption );
 		div.appendChild( tables );
@@ -45,9 +69,9 @@ var Colorpicker = {
 		table.cellpadding="0";
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
-		table.style.margin = "auto";
+//		table.style.margin = "auto";
 		table.style.cursor = "pointer";
-		table.style.position = "absolute";
+//		table.style.position = "absolute";
 	},
 	createRainbow : function() {
 		var table = document.getElementById( 'table' );
@@ -161,6 +185,7 @@ var Colorpicker = {
 		td.style.width="10px";
 		td.onclick = (function( h,td ) {
 				return function () {
+					document.getElementById( "preview" ).style.marginTop = "10px";
 					Colorpicker.makeBorder( td );
 					Colorpicker.makeBigPreview( h );
 				}
