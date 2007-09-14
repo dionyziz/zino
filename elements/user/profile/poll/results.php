@@ -3,7 +3,9 @@
     function ElementUserProfilePollResults( $poll ) {
         global $xc_settings;
 
-        ?><div class="pollresults">
+        ?><div class="pollresults" id="userpoll_<?php
+            echo $poll->Id;
+            ?>">
             <h4><a style="float:right;" onclick="Poll.Delete( <?php
             echo $poll->Id;
             ?> );"><img src="<?php
