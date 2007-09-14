@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollDelete( tInteger $pollid ) {
+    function UnitPollDelete( tInteger $pollid, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
@@ -14,6 +14,9 @@
 
         $poll->DelId = 1;
         $poll->Save();
+
+        echo $callback;
+        ?>( "" );<?php
     }
 
 ?>
