@@ -163,7 +163,7 @@ var Poll = {
 
         poll = g( 'userpoll_' + Poll.deletingPoll );
         poll.innerHTML = html;
-        poll.parentNode.appendChild( poll.firstChild );
+        poll.parentNode.insertBefore( poll.firstChild, poll );
         poll.parentNode.removeChild( poll );
 
         Poll.deletingPoll = 0; 
