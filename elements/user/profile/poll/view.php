@@ -4,8 +4,12 @@
         ?><div id="userpoll_<?php
         echo $poll->Id;
         ?>" class="pollview">
-            <h4><?php
-                echo htmlspecialchars( $poll->Question );
+            <h4><a style="float:right;" onclick="Poll.Delete( <?php
+            echo $poll->Id;
+            ?> );"><img src="<?php
+            echo $xc_settings[ 'staticimagesurl' ];
+            ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
+            echo htmlspecialchars( $poll->Question );
             ?></h4>
 
             <ul class="poll"><?php

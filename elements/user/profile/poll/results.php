@@ -12,9 +12,14 @@
             echo $xc_settings[ 'staticimagesurl' ];
             ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
             echo htmlspecialchars( $poll->Question );
+
+            /*
             ?><a><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
-            ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a></h4>
+            ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php
+            */
+
+            ?></h4>
             <ul class="results"><?php
 
                 $options = $poll->Options;
