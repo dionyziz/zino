@@ -1,6 +1,6 @@
 <?php
 
-    function UnitUndoDelete( tInteger $pollid, tCoalaPointer $callback ) {
+    function UnitPollUndoDelete( tInteger $pollid, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
