@@ -19,7 +19,7 @@
             Element( 'user/profile/poll/view', $poll, $user );
         }
         else {
-            Element( 'user/profile/poll/results', $poll );
+            Element( 'user/profile/poll/results', $poll, $user );
         }
 
         $html = ob_get_clean();

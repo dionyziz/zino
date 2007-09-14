@@ -1,16 +1,22 @@
 <?php
 
-    function ElementUserProfilePollResults( $poll ) {
+    function ElementUserProfilePollResults( $poll, $theuser ) {
         global $xc_settings;
+        global $user;
 
         ?><div class="pollresults" id="userpoll_<?php
             echo $poll->Id;
             ?>">
-            <h4><a style="float:right;" onclick="Poll.Delete( <?php
-            echo $poll->Id;
-            ?> );"><img src="<?php
-            echo $xc_settings[ 'staticimagesurl' ];
-            ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
+            <h4><?php
+            
+            if ( $user->Id() == $theuser->Id() ) {
+                ?><a style="float:right;" onclick="Poll.Delete( <?php
+                echo $poll->Id;
+                ?> );"><img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
+            }
+
             echo htmlspecialchars( $poll->Question );
 
             /*

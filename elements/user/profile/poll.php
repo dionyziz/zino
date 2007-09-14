@@ -25,7 +25,7 @@
             Element( 'user/profile/poll/view', $polls[ 0 ], $theuser );
         }
         else {
-            Element( 'user/profile/poll/results', $polls[ 0 ] );
+            Element( 'user/profile/poll/results', $polls[ 0 ], $theuser );
         }
     }
 
