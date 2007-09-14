@@ -134,6 +134,7 @@ var Poll = {
         h4.appendChild( d.createTextNode( 'η δημοσκόπηση διεγράφη. ' ) );
         
         var undolink = d.createElement( 'a' );
+        undolink.onclick = Poll.UndoDelete;
         undolink.appendChild( d.createTextNode( 'αναίρεση διαγραφής' ) );
 
         h4.appendChild( undolink );
@@ -146,6 +147,7 @@ var Poll = {
     UndoDelete: function() {
         Coala.Warm( 'poll/undodelete', { 'pollid': poll.deletingPoll } );
         poll.deletingPoll = NULL;
+        window.location.reload();
     }
 };
 
