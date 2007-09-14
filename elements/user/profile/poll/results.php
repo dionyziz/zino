@@ -2,9 +2,13 @@
 
     function ElementUserProfilePollResults( $poll ) {
         ?><div class="pollresults">
-            <h4><?php
+            <h4><a style="float:right;"><img src="<?php
+            echo $xc_settings[ 'staticimagesurl' ];
+            ?>/icons/delete.png" style="width: 16px; height: 16px;" alt="delete poll" /></a><?php
             echo htmlspecialchars( $poll->Question );
-            ?></h4>
+            ?><a><img src="<?php
+            echo $xc_settings[ 'staticimagesurl' ];
+            ?>/icons/edit.png" style="width: 16px; height: 16px;" alt="edit poll title" /></a></h4>
             <ul class="results"><?php
 
                 $options = $poll->Options;
