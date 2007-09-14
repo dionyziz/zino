@@ -85,6 +85,15 @@ var Poll = {
         lastinput = iinp;
     },
     CreateCallback: function( html ) {
+        var undo = g( 'userpoll_' + Poll.deletingPoll );
+        if ( undo ) { // shouldn't undo poll anymore
+            Animations.Create( undo, 'opacity', 1000, 1, 0, function() {
+                    g( 'user_poll_' + Poll.deletingPoll ).style.display = 'none';
+                }
+            );
+            Poll.deletingPoll = NULL;
+        }
+
         g( 'newpoll' ).innerHTML = html;
         g( 'newpoll' ).className = 'pollview';
     },
@@ -122,12 +131,21 @@ var Poll = {
             h4.removeChild( h4.firstChild );
         }
 
-        h4.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. Αναίρεση διαγραφής.' ) );
+        h4.appendChild( d.createTextNode( 'η δημοσκόπηση διεγράφη. ' ) );
+        
+        var undolink = d.createElement( 'a' );
+        undolink.appendChild( d.createTextNode( 'αναίρεση διαγραφής' ) );
+
+        h4.appendChild( undolink );
         
         var newpoll = d.createElement( 'div' );
         newpoll.innerHTML = html;
 
         poll.parentNode.insertBefore( newpoll, poll.nextSibling );
+    },
+    UndoDelete: function() {
+        Coala.Warm( 'poll/undodelete', { 'pollid': poll.deletingPoll } );
+        poll.deletingPoll = NULL;
     }
 };
 
