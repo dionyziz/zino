@@ -4,16 +4,24 @@
         global $user;
         global $libs;
 
+        $pollid     = $pollid->Get();
+        $optionid   = $optionid->Get();
+
         $libs->Load( 'poll' );
 
+        $poll = new Poll( $pollid );
+        if ( !$poll->Exists() || $user->IsAnonymous() || $poll->UserHasVoted( $user ) ) {
+            return;
+        }
+
         $vote           = new PollVote();
-        $vote->PollId   = $pollid->Get();
+        $vote->PollId   = $pollid;
         $vote->OptionId = $optionid->Get();
         $vote->UserId   = $user->Id();
         $vote->Save();
         
         ob_start();
-        Element( 'user/profile/poll/results', new Poll( $pollid->Get() ) );
+        Element( 'user/profile/poll/results', $poll );
         $html = ob_get_clean();
 
         echo $callback;

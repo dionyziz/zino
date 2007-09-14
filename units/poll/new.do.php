@@ -6,6 +6,10 @@
 
         $libs->Load( 'poll' );
 
+        if ( $user->IsAnonymous() ) {
+            return;
+        }
+
         $poll               = new Poll();
         $poll->Question     = $question->Get();
         $poll->TextOptions  = split( "\|", $options->Get() );
