@@ -8,6 +8,7 @@
 
         $poll = new Poll( $pollid->Get() );
         if ( !$poll->Exists() || !$user->IsAnonymous() || $poll->UserId != $user->Id() ) {
+            die( "error" );
             return;
         }
         $poll->DelId = 0;
