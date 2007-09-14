@@ -21,7 +21,7 @@
 
         echo $callback;
         ?>( "<?php
-        echo addslashes( $html );
+        echo str_replace( "\n", "", addslashes( $html ) );
         ?>" );<?php
     }
 
