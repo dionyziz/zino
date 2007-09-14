@@ -16,7 +16,7 @@
         $poll->Save();
 
         ob_start();
-        Element( 'user/profile/poll/new' );
+        Element( 'user/profile/poll/new', $user );
         $html = ob_get_clean();
 
         echo $callback;
