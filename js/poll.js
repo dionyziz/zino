@@ -104,8 +104,13 @@ var Poll = {
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
     },
     VoteCallback: function( html ) {
-        g( 'userpoll_' + Poll.votingPoll ).innerHTML = html;
-        g( 'userpoll_' + Poll.votingPoll ).className = 'pollresults';
+        var newpoll = d.createElement( 'div' );
+        newpoll.innerHTML = html;
+        newpoll.className = 'pollresults';
+
+        var userpoll = g( 'userpoll_' + Poll.votingPoll );
+        userpoll.parentNode.insertBefore( newpoll, userpoll );
+        newpoll.parentNode.removeChild( userpoll );
     },
     Delete: function( pollid ) {
         Poll.deletingPoll = pollid;
