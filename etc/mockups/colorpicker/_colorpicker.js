@@ -30,14 +30,14 @@ var Colorpicker = {
 		Colorpicker.parseTable( tablef );
 		tablef.id = "table";
 		tablef.style.cssFloat = "right";
-		tablef.style.marginRight = "80px";
-		tablef.style.marginTop = "27px";
+		tablef.style.marginRight = "25px";
+		tablef.style.marginTop = "35px";
 		
 		var tables = document.createElement( 'table' );
 		Colorpicker.parseTable( tables );
 		tables.id = "table_main";
 		tables.style.cssFloat = "left";
-		tables.style.marginLeft = "90px";
+		tables.style.marginLeft = "75px";
 		tables.style.marginTop = "30px";
 		
 /*		var caption = document.createElement( 'caption' );
@@ -49,7 +49,7 @@ var Colorpicker = {
 		preview.style.width = "240px";
 		preview.style.height = "30px";
 		preview.style.cssFloat = "left";
-		preview.style.marginLeft = "100px";
+		preview.style.marginLeft = "85px";
 		preview.style.marginTop = "180px";
 		
 		close.appendChild( closeimg );
@@ -61,7 +61,7 @@ var Colorpicker = {
 		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( preview );
 		
-		Modals.Create( div, 500, 300 );
+		Modals.Create( div, 450, 300 );
 		Colorpicker.createRainbow();
 	},
 	parseTable : function( table ) {
@@ -69,9 +69,7 @@ var Colorpicker = {
 		table.cellpadding="0";
 		table.cellspacing="0";
 		table.style.borderCollapse = "collapse";
-//		table.style.margin = "auto";
 		table.style.cursor = "pointer";
-//		table.style.position = "absolute";
 	},
 	createRainbow : function() {
 		var table = document.getElementById( 'table' );
