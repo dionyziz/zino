@@ -20,9 +20,9 @@
         $html = ob_get_clean();
 
         echo $callback;
-        ?>( "<?php
-        echo str_replace( "\n", "", addslashes( $html ) );
-        ?>" );<?php
+        ?>( <?php
+        echo w_json_encode( $html );
+        ?> );<?php
     }
 
 ?>
