@@ -95,11 +95,11 @@ var Poll = {
     VoteCallback: function( html ) {
         g( 'userpoll_' + Poll.votingPoll ).innerHTML = html;
         g( 'userpoll_' + Poll.votingPoll ).className = 'pollresults';
-    }
+    },
     Delete: function( pollid ) {
         Poll.deletingPoll = pollid;
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
-    }
+    },
     DeleteCallback: function( html ) {
         g( 'userpoll_' + Poll.deletingPoll ).innerHTML = html;
     }
