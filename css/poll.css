@@ -56,3 +56,8 @@ div.profile div.leftbar div.pollresults ul li dl div.pollanswer {
     border-right: 1px solid #aaa;
     background-color: #dedede;
 }
+
+div.profile div.leftbar div h4 a img {
+    width: 12px;
+    height: 12px;
+}

@@ -6,11 +6,11 @@
         ?><div class="pollresults">
             <h4><a style="float:right;"><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
-            ?>icons/delete.png" style="width: 16px; height: 16px;" alt="delete poll" /></a><?php
+            ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
             echo htmlspecialchars( $poll->Question );
             ?><a><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
-            ?>icons/edit.png" style="width: 16px; height: 16px;" alt="edit poll title" /></a></h4>
+            ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a></h4>
             <ul class="results"><?php
 
                 $options = $poll->Options;
