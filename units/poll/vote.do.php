@@ -16,7 +16,7 @@
 
         $vote           = new PollVote();
         $vote->PollId   = $pollid;
-        $vote->OptionId = $optionid->Get();
+        $vote->OptionId = $optionid;
         $vote->UserId   = $user->Id();
         $vote->Save();
         
