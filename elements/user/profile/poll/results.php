@@ -10,7 +10,7 @@
             <h4><?php
             
             if ( $user->Id() == $theuser->Id() ) {
-                ?><a style="float:right;" onclick="Poll.Delete( <?php
+                ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.Delete( <?php
                 echo $poll->Id;
                 ?> );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];

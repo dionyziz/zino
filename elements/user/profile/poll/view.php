@@ -10,7 +10,7 @@
             if ( $user->Id() == $theuser->Id() ) {
                 ?><a style="float:right;" onclick="Poll.Delete( <?php
                 echo $poll->Id;
-                ?> );"><img src="<?php
+                ?> );" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
             }
