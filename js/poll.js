@@ -32,6 +32,7 @@ var Poll = {
                 sbmt.style.border = '1px solid #666';
                 sbmt.onclick = function () {
                     options = Poll.options.substring( 0, Poll.options.length - 1 );
+                    g( 'newpoll' ).style.opacity = '0.7';
 
                     Coala.Warm( 'poll/new', { 'question': Poll.question, 'options': options, 'callback': Poll.CreateCallback } );
                 };
@@ -89,11 +90,12 @@ var Poll = {
         if ( undo ) { // shouldn't undo poll anymore
             Animations.Create( undo, 'opacity', 1000, 1, 0, function() {
                     g( 'userpoll_' + Poll.deletingPoll ).style.display = 'none';
+                    Poll.deletingPoll = 0;
                 }
             );
-            Poll.deletingPoll = 0;
         }
 
+        g( 'newpoll' ).style.opacity = 1;
         g( 'newpoll' ).innerHTML = html;
         g( 'newpoll' ).className = 'pollview';
     },
