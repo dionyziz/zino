@@ -2,6 +2,7 @@
 
     function ElementUserProfilePollView( $poll, $theuser ) {
         global $xc_settings;
+        global $user;
 
         ?><div id="userpoll_<?php
         echo $poll->Id;

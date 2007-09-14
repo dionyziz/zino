@@ -21,7 +21,7 @@
         $vote->Save();
         
         ob_start();
-        Element( 'user/profile/poll/results', $poll, $user );
+        Element( 'user/profile/poll/results', $poll, new User( $poll->UserId ) );
         $html = ob_get_clean();
 
         echo $callback;
