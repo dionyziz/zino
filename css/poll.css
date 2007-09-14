@@ -1,6 +1,7 @@
 div.profile div.leftbar div.pollview ul li dl {
     display: block;
     height: 100%;
+    min-height: 20px;
 }
 div.profile div.leftbar div.pollview ul li dt {
     width: 10px !important;
