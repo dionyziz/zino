@@ -101,7 +101,17 @@ var Poll = {
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
     },
     DeleteCallback: function( html ) {
-        g( 'userpoll_' + Poll.deletingPoll ).innerHTML = html;
+        var undo = d.createElement( 'div' );
+        undo.append( d.createTextNode( 'Η δημοσκόπηση διεγράφη. ' ) );
+
+        var undolink = d.createElement( 'a' );
+        undolink.append( d.createTextNode( 'Αναίρεση διαγραφής' ) );
+
+        undo.append( undolink );
+
+        userpoll = g( 'userpoll_' + Poll.deletingPoll );
+        userpoll.parentNode.insertBefore( undo, userpoll );
+        userpoll.innerHTML = html;
     }
 };
 

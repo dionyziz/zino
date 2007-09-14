@@ -15,8 +15,14 @@
         $poll->DelId = 1;
         $poll->Save();
 
+        ob_start();
+        Element( 'user/profile/poll/new' );
+        $html = ob_get_clean();
+
         echo $callback;
-        ?>( "" );<?php
+        ?>( "<?php
+        echo $html;
+        ?>" );<?php
     }
 
 ?>
