@@ -151,7 +151,7 @@ var Poll = {
             return false;
         }
         Coala.Warm( 'poll/undodelete', { 'pollid': Poll.deletingPoll, 'callback': Poll.UndoDeleteCallback } );
-    }
+    },
     UndoDeleteCallback: function( html ) {
         if ( !( Poll.deletingPoll > 0 ) ) {
             return false;
