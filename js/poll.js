@@ -147,6 +147,7 @@ var Poll = {
         poll.parentNode.insertBefore( newpoll, poll.nextSibling );
     },
     UndoDelete: function() {
+        alert( 'id ' + Poll.deletingPoll );
         Coala.Warm( 'poll/undodelete', { 'pollid': Poll.deletingPoll, 'callback': function() {
                 window.location.reload();
             }
