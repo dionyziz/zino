@@ -2,6 +2,9 @@
 
     function UnitPollDelete( tInteger $pollid ) {
         global $user;
+        global $libs;
+
+        $libs->Load( 'poll' );
 
         $poll = new Poll( $pollid->Get() );
         
