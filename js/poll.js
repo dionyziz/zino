@@ -101,17 +101,33 @@ var Poll = {
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
     },
     DeleteCallback: function( html ) {
-        var undo = d.createElement( 'div' );
-        undo.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. ' ) );
+        var poll = g( 'userpoll_' + id );
 
-        var undolink = d.createElement( 'a' );
-        undolink.appendChild( d.createTextNode( 'Αναίρεση διαγραφής' ) );
+        var ul = poll.getElementsByTagName( 'ul' )[ 0 ];
+        var div = d.createElement( 'div' );
 
-        undo.appendChild( undolink );
+        while ( ul.firstChild ) {
+            div.appendChild( ul.removeChild( ul.firstChild ) );
+        }
 
-        userpoll = g( 'userpoll_' + Poll.deletingPoll );
-        userpoll.parentNode.insertBefore( undo, userpoll );
-        userpoll.innerHTML = html;
+        ul.appendChild( div );
+
+        Animations.Create( div, 'opacity', 1000, 1, 0 );
+        Animations.Create( ul, 'height', 2500, ul.style.height, 5 );
+
+        var h4 = poll.getElementsByTagName( 'h4' )[ 0 ];
+        while ( h4.firstChild ) {
+            h4.removeChild( h4.firstChild );
+        }
+
+        h4.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. Αναίρεση διαγραφής.' ) );
+        
+        var newpoll = d.createElement( 'div' );
+        newpoll.className = "pollnew";
+        newpoll.innerHTML = html;
+
+        var br = poll.parentNode.insertBefore( d.createElement( 'br' ), poll.nextSibling );
+        poll.parentNode.insertBefore( newpoll, br.nextSibling );
     }
 };
 

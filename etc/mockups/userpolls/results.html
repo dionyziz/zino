@@ -62,6 +62,31 @@
 					<br />
 				</div>
 			</div>
+            <script type="text/javascript">
+                function PollDelete( id ) {
+                    var poll = g( 'userpoll_' + id );
+
+                    var ul = poll.getElementsByTagName( 'ul' )[ 0 ];
+                    var div = d.createElement( 'div' );
+
+                    while ( ul.firstChild ) {
+                        div.appendChild( ul.removeChild( ul.firstChild ) );
+                    }
+
+                    ul.appendChild( div );
+
+                    Animations.Create( div, 'opacity', 1000, 1, 0 );
+                    Animations.Create( ul, 'height', 2500, ul.style.height, 5 );
+
+                    var h4 = poll.getElementsByTagName( 'h4' )[ 0 ];
+                    while ( h4.firstChild ) {
+                        h4.removeChild( h4.firstChild );
+                    }
+
+                    h4.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. Αναίρεση διαγραφής.' ) );
+                }
+
+            </script>
             <style style="text/css">
                 div.profile div.leftbar div.userpoll li dl {
                     display: block;
@@ -90,8 +115,12 @@
 			<div id="alltabs">
 				<div id="tab0" class="profile" style="background-image:url('http://images.chit-chat.gr/gradient/168/100/52');width:100%;height:100%">
                 <div class="leftbar info" style="padding-top:20px">
-                <div class="userpoll">
-                    <h4>Ξ ΞΏΞΉΞΏΟ‚ ΞµΞ―Ξ½Ξ±ΞΉ ΞΏ Ο€ΞΉΞΏ hot tokio hotel member?!</h4>
+                <div class="userpoll" id="userpoll_1">
+                    <h4>
+                        <a onclick="PollDelete( 1 );" style="float: right; cursor: pointer;">
+                            <img src="http://static.chit-chat.gr/images/icons/delete.png" />
+                        </a>
+                        Ξ ΞΏΞΉΞΏΟ‚ ΞµΞ―Ξ½Ξ±ΞΉ ΞΏ Ο€ΞΉΞΏ hot tokio hotel member?!</h4>
                     <ul>
                         <li><dl>
                             <dt>
