@@ -147,9 +147,11 @@ var Poll = {
         poll.parentNode.insertBefore( newpoll, poll.nextSibling );
     },
     UndoDelete: function() {
-        Coala.Warm( 'poll/undodelete', { 'pollid': poll.deletingPoll } );
+        Coala.Warm( 'poll/undodelete', { 'pollid': poll.deletingPoll, 'callback': function() {
+                window.location.reload();
+            }
+        } );
         poll.deletingPoll = 0;
-        window.location.reload();
     }
 };
 
