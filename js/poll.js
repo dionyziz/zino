@@ -88,10 +88,10 @@ var Poll = {
         var undo = g( 'userpoll_' + Poll.deletingPoll );
         if ( undo ) { // shouldn't undo poll anymore
             Animations.Create( undo, 'opacity', 1000, 1, 0, function() {
-                    g( 'user_poll_' + Poll.deletingPoll ).style.display = 'none';
+                    g( 'userpoll_' + Poll.deletingPoll ).style.display = 'none';
                 }
             );
-            Poll.deletingPoll = NULL;
+            Poll.deletingPoll = 0;
         }
 
         g( 'newpoll' ).innerHTML = html;
@@ -146,7 +146,7 @@ var Poll = {
     },
     UndoDelete: function() {
         Coala.Warm( 'poll/undodelete', { 'pollid': poll.deletingPoll } );
-        poll.deletingPoll = NULL;
+        poll.deletingPoll = 0;
         window.location.reload();
     }
 };
