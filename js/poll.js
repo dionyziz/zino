@@ -115,6 +115,8 @@ var Poll = {
         Animations.Create( div, 'opacity', 1000, 1, 0 );
         Animations.Create( ul, 'height', 2500, ul.style.height, 5 );
 
+        div.style.display = 'none';
+
         var h4 = poll.getElementsByTagName( 'h4' )[ 0 ];
         while ( h4.firstChild ) {
             h4.removeChild( h4.firstChild );
@@ -125,8 +127,7 @@ var Poll = {
         var newpoll = d.createElement( 'div' );
         newpoll.innerHTML = html;
 
-        var br = poll.parentNode.insertBefore( d.createElement( 'br' ), poll.nextSibling );
-        poll.parentNode.insertBefore( newpoll, br.nextSibling );
+        poll.parentNode.insertBefore( newpoll, poll.nextSibling );
     }
 };
 
