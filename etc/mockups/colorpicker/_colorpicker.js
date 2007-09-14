@@ -13,7 +13,8 @@ var Colorpicker = {
 					Modals.Destroy();
 				};
 		close.style.cssFloat = "right";
-		close.style.marginRight = "30px";
+		close.style.marginRight = "20px";
+		close.style.marginTop = "5px";
 		close.onmouseover = function() {
 						document.body.style.cursor = "pointer";
 					};
@@ -30,15 +31,15 @@ var Colorpicker = {
 		Colorpicker.parseTable( tablef );
 		tablef.id = "table";
 		tablef.style.cssFloat = "right";
-		tablef.style.marginRight = "25px";
-		tablef.style.marginTop = "35px";
+		tablef.style.marginRight = "48px";
+		tablef.style.marginTop = "13px";
 		
 		var tables = document.createElement( 'table' );
 		Colorpicker.parseTable( tables );
 		tables.id = "table_main";
 		tables.style.cssFloat = "left";
-		tables.style.marginLeft = "75px";
-		tables.style.marginTop = "30px";
+		tables.style.marginLeft = "55px";
+		tables.style.marginTop = "10px";
 		
 /*		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
@@ -49,19 +50,19 @@ var Colorpicker = {
 		preview.style.width = "240px";
 		preview.style.height = "30px";
 		preview.style.cssFloat = "left";
-		preview.style.marginLeft = "85px";
-		preview.style.marginTop = "180px";
+		preview.style.marginLeft = "65px";
+		preview.style.marginTop = "155px";
 		
 		close.appendChild( closeimg );
-		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( close );
+		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( tablef );
 //		tables.appendChild( caption );
 		div.appendChild( tables );
 		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( preview );
 		
-		Modals.Create( div, 450, 300 );
+		Modals.Create( div, 400, 250 );
 		Colorpicker.createRainbow();
 	},
 	parseTable : function( table ) {
