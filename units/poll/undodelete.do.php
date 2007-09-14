@@ -12,9 +12,22 @@
         }
         $poll->DelId = 0;
         $poll->Save();
+        
+        ob_start();
+
+        if ( !$poll->UserHasVoted( $user ) ) {
+            Element( 'user/profile/poll/view', $poll, $user );
+        }
+        else {
+            Element( 'user/profile/poll/results', $poll );
+        }
+
+        $html = ob_get_clean();
 
         echo $callback;
-        ?>();<?php
+        ?>( <?php
+        echo w_json_encode( $html );
+        ?> );<?php
     }
 
 ?>

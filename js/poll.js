@@ -150,11 +150,23 @@ var Poll = {
         if ( !( Poll.deletingPoll > 0 ) ) {
             return false;
         }
-        Coala.Warm( 'poll/undodelete', { 'pollid': Poll.deletingPoll, 'callback': function() {
-                window.location.reload();
-            }
-        } );
-        Poll.deletingPoll = 0;
+        Coala.Warm( 'poll/undodelete', { 'pollid': Poll.deletingPoll, 'callback': Poll.UndoDeleteCallback } );
+    }
+    UndoDeleteCallback: function( html ) {
+        if ( !( Poll.deletingPoll > 0 ) ) {
+            return false;
+        }
+
+        Animations.Create( g( 'newpoll' ), 'opacity', 1000, 0.5, 0, function() {
+            g( 'newpoll' ).parentNode.removeChild( g( 'newpoll' ) );
+        });
+
+        poll = g( 'userpoll_' + Poll.deletingPoll );
+        poll.innerHTML = html;
+        poll.parentNode.appendChild( poll.firstChild );
+        poll.parentNode.removeChild( poll );
+
+        Poll.deletingPoll = 0; 
     }
 };
 
