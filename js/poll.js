@@ -123,7 +123,6 @@ var Poll = {
         h4.appendChild( d.createTextNode( 'Η δημοσκόπηση διεγράφη. Αναίρεση διαγραφής.' ) );
         
         var newpoll = d.createElement( 'div' );
-        newpoll.className = "pollnew";
         newpoll.innerHTML = html;
 
         var br = poll.parentNode.insertBefore( d.createElement( 'br' ), poll.nextSibling );
