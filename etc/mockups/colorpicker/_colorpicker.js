@@ -12,9 +12,7 @@ var Colorpicker = {
 					closing();
 					Modals.Destroy();
 				};
-		close.style.cssFloat = "right";
-		close.style.marginRight = "20px";
-		close.style.marginTop = "5px";
+		close.className = "close";
 		close.onmouseover = function() {
 						document.body.style.cursor = "pointer";
 					};
@@ -30,28 +28,20 @@ var Colorpicker = {
 		var tablef = document.createElement( 'table' );
 		Colorpicker.parseTable( tablef );
 		tablef.id = "table";
-		tablef.style.cssFloat = "right";
-		tablef.style.marginRight = "48px";
-		tablef.style.marginTop = "13px";
+		tablef.className = "rainbow";
 		
 		var tables = document.createElement( 'table' );
 		Colorpicker.parseTable( tables );
 		tables.id = "table_main";
-		tables.style.cssFloat = "left";
-		tables.style.marginLeft = "55px";
-		tables.style.marginTop = "10px";
+		tables.className = "main";
 		
 /*		var caption = document.createElement( 'caption' );
 		caption.appendChild( document.createTextNode( titlos ) );
 		caption.style.margin = "10px auto 10px auto";*/
 		
 		var preview = document.createElement( 'div' );
+		preview.className = "preview";
 		preview.id = "preview";
-		preview.style.width = "240px";
-		preview.style.height = "30px";
-		preview.style.cssFloat = "left";
-		preview.style.marginLeft = "65px";
-		preview.style.marginTop = "155px";
 		
 		close.appendChild( closeimg );
 		div.appendChild( close );
@@ -69,8 +59,6 @@ var Colorpicker = {
 		table.border="0";
 		table.cellpadding="0";
 		table.cellspacing="0";
-		table.style.borderCollapse = "collapse";
-		table.style.cursor = "pointer";
 	},
 	createRainbow : function() {
 		var table = document.getElementById( 'table' );
