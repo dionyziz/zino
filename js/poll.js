@@ -129,8 +129,39 @@ var Poll = {
             }
             if ( e.keyCode == 13 ) {
                 Poll.question = input.value;
+
+                var deletep             = d.createElement( "a" );
+                deletep.style.cssFloat  = 'right';
+                deletep.alt             = 'Διαγραφή Δημοσκόπησης';
+                deletep.title           = 'Διαγραφή Δημοσκόπησης';
+                deletep.onclick         = Poll.DeletePoll;
+
+                var deletepimg  = d.createElement( "img" );
+                deletepimg.src  = 'http://static.chit-chat.gr/images/icons/delete.png';
+                deletepimg.alt  = 'Διαγραφή Δημοσκόπησης';
+
+                deletep.appendChild( deletepimg );
+
+                h4.appendChild( deletep );
+
                 h4.appendChild( document.createTextNode( input.value ) );
-                h4.removeChild( inp );
+
+                var editp       = d.createElement( "a" );
+                editp.alt       = 'Επεξεργασία Δημοσκόπησης';
+                editp.title     = 'Επεξεργασία Δημοσκόπησης';
+                editp.onclick   = function() {
+                    Poll.EditQuestion( pollid, question );
+                };
+
+                var editpimg    = d.createElement( "img" );
+                editpimg.src    = 'http://static.chit-chat.gr/images/icons/edit.png';
+                editpimg.alt    = 'Επεξεργασία Δημοσκόπησης';
+
+                editp.appendChild( editpimg );
+
+                h4.appendChild( editp );
+                
+                h4.removeChild( input );
             }
         };
 
@@ -139,7 +170,7 @@ var Poll = {
         input.select();
         input.focus();
     },
-    Delete: function( pollid ) {
+    DeletePoll: function( pollid ) {
         Poll.deletingPoll = pollid;
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
     },
