@@ -134,7 +134,7 @@ var Poll = {
             }
         };
 
-        h4.append( input );
+        h4.appendChild( input );
 
         input.select();
         input.focus();
