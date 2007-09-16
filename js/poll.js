@@ -113,7 +113,7 @@ var Poll = {
         newpoll.parentNode.removeChild( userpoll );
     },
     EditQuestion: function( pollid, question ) {
-        var h4 = g( 'userpoll_' + Poll.deletingPoll ).getElementsByTagName( "h4" );
+        var h4 = g( 'userpoll_' + pollid ).getElementsByTagName( "h4" );
 
         while ( h4.firstChild ) {
             h4.removeChild( h4.firstChild );
