@@ -113,7 +113,7 @@ var Poll = {
         newpoll.parentNode.removeChild( userpoll );
     },
     EditQuestion: function( pollid, question ) {
-        var h4 = g( 'userpoll_' + pollid ).getElementsByTagName( "h4" );
+        var h4 = g( 'userpoll_' + pollid ).getElementsByTagName( "h4" )[ 0 ];
 
         while ( h4.firstChild ) {
             h4.removeChild( h4.firstChild );
@@ -123,7 +123,7 @@ var Poll = {
         input.type          = "text";
         input.value         = question;
         input.style.width   = '100%';
-        input.onkeypress      = function ( e ) {
+        input.onkeypress    = function ( e ) {
             if ( !e ) {
                 e = window.event;
             }
