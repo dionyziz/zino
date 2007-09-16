@@ -8,9 +8,8 @@
             echo $poll->Id;
             ?>">
             <h4><?php
-            
                 if ( $user->Id() == $theuser->Id() ) {
-                    ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.Delete( <?php
+                    ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.DeletePoll( <?php
                     echo $poll->Id;
                     ?> );"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
@@ -26,8 +25,8 @@
                 ?>' );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a>
-            
             </h4>
+
             <ul class="results"><?php
 
                 $options = $poll->Options;

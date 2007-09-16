@@ -8,16 +8,24 @@
         echo $poll->Id;
         ?>" class="pollview">
             <h4><?php
-            if ( $user->Id() == $theuser->Id() ) {
-                ?><a style="float:right;" onclick="Poll.Delete( <?php
-                echo $poll->Id;
-                ?> );" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης"><img src="<?php
+                if ( $user->Id() == $theuser->Id() ) {
+                    ?><a style="float:right;" onclick="Poll.DeletePoll( <?php
+                    echo $poll->Id;
+                    ?> );" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
+                }
+
+                echo htmlspecialchars( $poll->Question );
+
+                ?><a onclick="Poll.EditQuestion( <?php
+                    echo $poll->Id;
+                ?>, '<?php
+                    echo $poll->Question;
+                ?>' );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
-            }
-            ?><?php
-            echo htmlspecialchars( $poll->Question );
-            ?></h4>
+                ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a>
+            </h4>
 
             <ul class="poll"><?php
                 $options = $poll->Options;

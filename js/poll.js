@@ -134,7 +134,9 @@ var Poll = {
                 deletep.style.cssFloat  = 'right';
                 deletep.alt             = 'Διαγραφή Δημοσκόπησης';
                 deletep.title           = 'Διαγραφή Δημοσκόπησης';
-                deletep.onclick         = Poll.DeletePoll;
+                deletep.onclick         = function() {
+                    Poll.DeletePoll( pollid );
+                }
 
                 var deletepimg  = d.createElement( "img" );
                 deletepimg.src  = 'http://static.chit-chat.gr/images/icons/delete.png';
@@ -150,7 +152,7 @@ var Poll = {
                 editp.alt       = 'Επεξεργασία Δημοσκόπησης';
                 editp.title     = 'Επεξεργασία Δημοσκόπησης';
                 editp.onclick   = function() {
-                    Poll.EditQuestion( pollid, question );
+                    Poll.EditQuestion( pollid, input.value );
                 };
 
                 var editpimg    = d.createElement( "img" );
