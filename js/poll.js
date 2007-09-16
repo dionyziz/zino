@@ -112,6 +112,33 @@ var Poll = {
         userpoll.parentNode.insertBefore( newpoll, userpoll );
         newpoll.parentNode.removeChild( userpoll );
     },
+    EditQuestion: function( pollid, question ) {
+        var h4 = g( 'userpoll_' + Poll.deletingPoll ).getElementsByTagName( "h4" );
+
+        while ( h4.firstChild ) {
+            h4.removeChild( h4.firstChild );
+        }
+
+        var input           = d.createElement( "input" );
+        input.type          = "text";
+        input.value         = question;
+        input.style.width   = '100%';
+        input.onkeypress      = function ( e ) {
+            if ( !e ) {
+                e = window.event;
+            }
+            if ( e.keyCode == 13 ) {
+                Poll.question = input.value;
+                h4.appendChild( document.createTextNode( input.value ) );
+                h4.removeChild( inp );
+            }
+        };
+
+        h4.append( input );
+
+        input.select();
+        input.focus();
+    },
     Delete: function( pollid ) {
         Poll.deletingPoll = pollid;
         Coala.Warm( 'poll/delete', { 'pollid': pollid, 'callback': Poll.DeleteCallback } );
@@ -166,7 +193,7 @@ var Poll = {
             g( 'newpoll' ).parentNode.removeChild( g( 'newpoll' ) );
         });
 
-        poll = g( 'userpoll_' + Poll.deletingPoll );
+        var poll = g( 'userpoll_' + Poll.deletingPoll );
         poll.innerHTML = html;
         poll.parentNode.insertBefore( poll.firstChild, poll );
         poll.parentNode.removeChild( poll );

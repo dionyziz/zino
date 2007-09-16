@@ -9,23 +9,25 @@
             ?>">
             <h4><?php
             
-            if ( $user->Id() == $theuser->Id() ) {
-                ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.Delete( <?php
-                echo $poll->Id;
-                ?> );"><img src="<?php
+                if ( $user->Id() == $theuser->Id() ) {
+                    ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.Delete( <?php
+                    echo $poll->Id;
+                    ?> );"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
+                }
+
+                echo htmlspecialchars( $poll->Question );
+
+                ?><a onclick="Poll.EditQuestion( <?php
+                    echo $poll->Id;
+                ?>, '<?php
+                    echo $poll->Question;
+                ?>' );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/delete.png" alt="διαγραφή δημοσκόπησης" /></a><?php
-            }
-
-            echo htmlspecialchars( $poll->Question );
-
-            /*
-            ?><a><img src="<?php
-            echo $xc_settings[ 'staticimagesurl' ];
-            ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php
-            */
-
-            ?></h4>
+                ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a>
+            
+            </h4>
             <ul class="results"><?php
 
                 $options = $poll->Options;
