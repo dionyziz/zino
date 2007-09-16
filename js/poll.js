@@ -128,7 +128,7 @@ var Poll = {
                 e = window.event;
             }
             if ( e.keyCode == 13 ) {
-                Poll.question = input.value;
+                var question = input.value;
 
                 var deletep             = d.createElement( "a" );
                 deletep.style.cssFloat  = 'right';
@@ -146,13 +146,13 @@ var Poll = {
 
                 h4.appendChild( deletep );
 
-                h4.appendChild( document.createTextNode( input.value ) );
+                h4.appendChild( document.createTextNode( question ) );
 
                 var editp       = d.createElement( "a" );
                 editp.alt       = 'Επεξεργασία Δημοσκόπησης';
                 editp.title     = 'Επεξεργασία Δημοσκόπησης';
                 editp.onclick   = function() {
-                    Poll.EditQuestion( pollid, input.value );
+                    Poll.EditQuestion( pollid, question );
                 };
 
                 var editpimg    = d.createElement( "img" );
@@ -164,6 +164,8 @@ var Poll = {
                 h4.appendChild( editp );
                 
                 h4.removeChild( input );
+
+                Coala.Warm( 'poll/editquestion', { 'pollid': pollid, 'question': question } );
             }
         };
 
