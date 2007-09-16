@@ -147,6 +147,7 @@ var Poll = {
                 h4.appendChild( deletep );
 
                 h4.appendChild( document.createTextNode( question ) );
+                h4.appendChild( document.createTextNode( " " ) );
 
                 var editp       = d.createElement( "a" );
                 editp.alt       = 'Επεξεργασία Δημοσκόπησης';

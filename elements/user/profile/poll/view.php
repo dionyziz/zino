@@ -18,7 +18,7 @@
 
                 echo htmlspecialchars( $poll->Question );
 
-                ?><a onclick="Poll.EditQuestion( <?php
+                ?> <a onclick="Poll.EditQuestion( <?php
                     echo $poll->Id;
                 ?>, '<?php
                     echo $poll->Question;
