@@ -18,14 +18,16 @@
 
                 echo htmlspecialchars( $poll->Question );
 
-                ?> <a onclick="Poll.EditQuestion( <?php
-                    echo $poll->Id;
-                ?>, '<?php
-                    echo $poll->Question;
-                ?>' );"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a>
-            </h4>
+                if ( $user->Id() == $theuser->Id() ) {
+                    ?> <a onclick="Poll.EditQuestion( <?php
+                        echo $poll->Id;
+                    ?>, '<?php
+                        echo $poll->Question;
+                    ?>' );"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php
+                }
+            ?></h4>
 
             <ul class="poll"><?php
                 $options = $poll->Options;
