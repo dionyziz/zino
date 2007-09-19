@@ -31,13 +31,13 @@
                         <dd class="expected"><?php
                         ob_start();
                         var_dump( $assertresult->Expected() );
-                        echo htmlspecialchars( ob_get_clean() );
+                        echo nl2br( htmlspecialchars( ob_get_clean() ) );
                         ?></dd>
                         <dt>Actual</dt>
                         <dd class="actual"><?php
                         ob_start();
                         var_dump( $assertresult->Actual() );
-                        echo htmlspecialchars( ob_get_clean() );
+                        echo nl2br( htmlspecialchars( ob_get_clean() ) );
                         ?></dd>
                     </dl>
                     </li><?php
