@@ -306,6 +306,8 @@ var Poll = {
 
             toolbox.appendChild( editop );
             toolbox.appendChild( deleteop );
+
+            p.appendChild( toolbox );
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
