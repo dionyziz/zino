@@ -19,7 +19,7 @@
         ),
         'chat'              => array(
             'enabled' => true,
-            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/Frontend'
+            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/Frontend.class'
         )
     );
 ?>
