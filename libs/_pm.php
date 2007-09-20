@@ -203,6 +203,8 @@
                             `pmif_folderid` = '" . $this->mPreviousValues[ 'mFolderId' ] . "'
 						;";
 
+                die( $sql );
+
                 $this->mPreviousValues[ 'mId' ] = $this->Id;
                 $this->mPreviousValues[ 'mUserId' ] = $this->UserId;
                 $this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
