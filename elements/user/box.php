@@ -39,8 +39,8 @@ function ElementUserBox( $transparent = false ) {
 			<li><a class="profile" href="user/<?php 
 			echo $user->Username(); 
 			?>">Προφίλ</a></li><?php
-			if ( $xc_settings[ 'chatavailable' ] ) {
-				?><li><a class="chat" href="?p=chat">Συνομιλία</a></li><?php
+			if ( $xc_settings[ 'chat' ][ 'enabled' ] ) {
+				?><li><a class="chat" href="?p=chat">Chat</a></li><?php
 			}
 			?><li><a href="javascript:Userbox.Animate();" class="arrow" style="visibility:hidden;" title="Προβολή κάρτας χρήστη" id="userboxshow"></a></li>
 		</ul><?php

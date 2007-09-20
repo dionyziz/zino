@@ -1,6 +1,5 @@
 <?php
     return array(
-    	'chatavailable'  	=> true,
     	'readonly'       	=> false,
         'allowuploads'	 	=> 10,
     	'membername'     	=> 'Chit-Chatter',
@@ -17,6 +16,10 @@
             'host' => 'images.chit-chat.gr',
             'port' => 80,
             'url'  => '/upload3.php'
+        ),
+        'chat'              => array(
+            'enabled' => true,
+            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/Frontend'
         )
     );
 ?>
