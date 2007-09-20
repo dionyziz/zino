@@ -69,10 +69,10 @@ a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folder
 	text-decoration: none;
 }
 div.messages {
-	//margin: 0 40px 0 40px;
+    position: relative;
 }
 div.messages div.message {
-	position: relative;
+	position: absolute;
 	margin-bottom: 15px;
 }
 div.messages div.message div.infobar {
