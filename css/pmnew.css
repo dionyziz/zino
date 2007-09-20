@@ -28,9 +28,6 @@ div.body div.leftbar {
 div.body div.rightbar {
 	padding: 10px 0 0 10px;
 }
-div.messageprnt {
-    position: relative;
-}
 div.body div.leftbar div.folders {
 	border: 1px solid #838080;
 	max-width: 400px;
@@ -75,7 +72,7 @@ div.messages {
     position: relative;
 }
 div.messages div.message {
-	position: absolute;
+	position: relative; 
 	margin-bottom: 15px;
 }
 div.messages div.message div.infobar {
