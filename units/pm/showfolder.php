@@ -57,6 +57,7 @@ function UnitPmShowfolder( tInteger $folderid ) {
     for ( i in dessages ) {
         dmessage = dmessages[ i ];
         if ( dmessage.className == 'message' ) { // message
+            alert( 'Drag.Create' );
             Drag.Create( dmessage );
         }
     }<?php
