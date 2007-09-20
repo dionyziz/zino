@@ -56,7 +56,7 @@ div.profile div.leftbar div.pollresults ul li dl div.polloption {
     background-color: #999;
     margin-left: 190px;
 }
-div.profile div.leftbar div.pollresults ul li dl div.polloption div.optiontoolbox {
+div.profile div.leftbar div.pollresults ul li dl dt div.optiontoolbox {
     display: inline;
     margin-left: 3px;
     padding: 1px;
