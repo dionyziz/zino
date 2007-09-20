@@ -54,7 +54,7 @@ function UnitPmShowfolder( tInteger $folderid ) {
 		}
 	}
     ?>var dmessages = pms.messagescontainer.getElementsByTagName('div');
-    for ( i in dessages ) {
+    for ( i in dmessages ) {
         dmessage = dmessages[ i ];
         if ( dmessage.className == 'message' ) { // message
             alert( 'Drag.Create' );
