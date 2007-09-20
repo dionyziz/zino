@@ -277,6 +277,35 @@ var Poll = {
             }
 
             p.appendChild( d.createTextNode( text ) );
+
+            toolbox     = d.createElement( 'div' );
+            toolbox.id  = 'optiontoolbox_' + id;
+            toolbox.className   = 'optiontoolbox';
+            
+            editop          = d.createElement( 'a' );
+            editop.title    = 'επεξεργασία επιλογής';
+            editop.onclick  = function() {
+                Poll.EditOption( this, id, text );
+            }
+            
+            editopimg       = d.createElement( 'img' );
+            editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
+            editopimg.alt   = "επεξεργασία επιλογής";
+
+            editop.appendChild( editopimg );
+            
+            deleteop        = d.createElement( 'a' );
+            deleteop.title  = 'διαγραφή επιλογής';
+            deleteop.onclick= function() {
+                Poll.DeleteOption( id );
+            };
+            
+            deleteopimg     = d.createElement( 'img' );
+            deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
+            deleteopimg.alt = "διαγραφή επιλογής";
+
+            toolbox.appendChild( editop );
+            toolbox.appendChild( deleteop );
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
