@@ -59,10 +59,12 @@ function UnitPmShowfolder( tInteger $folderid ) {
         if ( dmessage.className == 'message' ) { // message
             var drag = Drag.Create( dmessage );
             drag.SetOnStart( function ( draggable ) {
+                draggable.style.position = 'absolute';
                 Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
                 document.getElementById( 'folders' ).style.border = '1px solid black';
             } );
             drag.SetOnEnd( function ( draggable ) {
+                draggable.style.position = 'relative';
                 Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
                 document.getElementById( 'folders' ).style.border = '1px solid #838080';
             } );
