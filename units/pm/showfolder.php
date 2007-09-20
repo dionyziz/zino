@@ -57,8 +57,13 @@ function UnitPmShowfolder( tInteger $folderid ) {
     for ( i in dmessages ) {
         dmessage = dmessages[ i ];
         if ( dmessage.className == 'message' ) { // message
-            alert( 'Drag.Create' );
-            Drag.Create( dmessage );
+            var drag = Drag.Create( dmessage );
+            drag.SetOnStart( function ( draggable ) {
+                Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
+            } );
+            drag.SetOnEnd( function ( draggable ) {
+                Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
+            } );
         }
     }<?php
 }
