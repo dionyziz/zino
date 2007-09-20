@@ -271,11 +271,12 @@ var Poll = {
         var cancel      = d.createElement( "a" );
         cancel.title    = 'Ακύρωση';
         cancel.onclick  = function() {
-            while ( container.firstChild ) {
-                container.removeChild( container.firstChild );
+            var p = cancel.parentNode;
+            while ( p.firstChild ) {
+                p.removeChild( p.firstChild );
             }
 
-            container.appendChild( d.createTextNode( text ) );
+            p.appendChild( d.createTextNode( text ) );
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';

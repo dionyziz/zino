@@ -60,8 +60,9 @@ div.profile div.leftbar div.pollresults ul li dl dt div.optiontoolbox {
     display: inline;
     margin-left: 3px;
     padding: 1px;
-    background-color: #dedede;
+    background-color: #ececec;
     border: 1px solid #ccc;
+    visibility: hidden;
 }
 
 div.profile div.leftbar div.pollresults ul li dl div.pollanswer {
