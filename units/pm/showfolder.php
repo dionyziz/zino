@@ -6,8 +6,7 @@ function UnitPmShowfolder( tInteger $folderid ) {
 	$libs->Load( "pm" );	
 	
 	$folderid = $folderid->Get();
-	?>var deletelink = document.getElementById( 'deletefolderlink' );
-	<?php
+	?>var deletelink = document.getElementById( 'deletefolderlink' );<?php
 	if ( $folderid == -1 || $folderid == -2 ) {
 		?>pms.messagescontainer.innerHTML = <?php
 		ob_start();
@@ -54,5 +53,12 @@ function UnitPmShowfolder( tInteger $folderid ) {
 			?> );<?php
 		}
 	}
+    ?>var dmessages = pms.messagescontainer.getElementsByTagName('div');
+    for ( i in dessages ) {
+        dmessage = dmessages[ i ];
+        if ( dmessage.className == 'message' ) { // message
+            Drag.Create( dmessage );
+        }
+    }<?php
 }
 ?>

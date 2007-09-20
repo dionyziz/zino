@@ -6,7 +6,9 @@ function ElementPmOnepm( $pmobj ) {
 	$usersended = $pmobj->Sender;
 	$water->Trace( 'username of sender is :' . $usersended->Username() );
 	?>
-	<div class="message" style="width:620px;" onload="Drag.Create( this )"><?php
+	<div class="message" style="width:620px;" id="pm_<?php
+        echo $pmobj->Id;
+        ?>"><?php
 		/*
 		<div class="infobar" onclick="pms.ExpandPm( this );return false;">
 			<a href="" style="float:right;padding: 3px 2px 1px 6px;" onclick="pms.DeleteMessage( this.parentNode.parentNode , <?php
