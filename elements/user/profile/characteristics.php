@@ -29,7 +29,7 @@
 							?>>
 		                    <dt>ύψος</dt>
 		                    <dd id="user_options_height"><?php
-								echo $theuser->Height();
+								echo htmlspecialchars( $theuser->Height() );
 							?></dd>
 		                </dl></li><?php
 						++$count;
@@ -43,7 +43,7 @@
 							?>>
 		                    <dt>βάρος</dt>
 		                    <dd id="user_options_weight"><?php
-								echo $theuser->Weight();
+								echo htmlspecialchars( $theuser->Weight() );
 							?></dd>
 		                </dl></li><?php
 						++$count;
@@ -57,7 +57,7 @@
 							?>>
 		                    <dt>χρώμα ματιών</dt>
 		                    <dd id="user_options_eyecolor"><?php
-								echo $theuser->EyeColor();
+								echo htmlspecialchars( $theuser->EyeColor() );
 							?></dd>
 		                </dl></li><?php
 						++$count;
@@ -71,7 +71,7 @@
 							?>>
 		                    <dt>χρώμα μαλλιών</dt>
 		                    <dd id="user_options_haircolor"><?php
-								echo $theuser->HairColor();
+								echo htmlspecialchars( $theuser->HairColor() );
 							?></dd>
 		                </dl></li><?php
 						++$count;
