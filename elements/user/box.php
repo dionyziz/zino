@@ -40,7 +40,7 @@ function ElementUserBox( $transparent = false ) {
 			echo $user->Username(); 
 			?>">Προφίλ</a></li><?php
 			if ( $xc_settings[ 'chat' ][ 'enabled' ] ) {
-				?><li><a class="chat" href="?p=chat">Chat</a></li><?php
+				?><li><a class="chat" href="?p=chat"><b>Κάνε Chat</b></a></li><?php
 			}
 			?><li><a href="javascript:Userbox.Animate();" class="arrow" style="visibility:hidden;" title="Προβολή κάρτας χρήστη" id="userboxshow"></a></li>
 		</ul><?php
