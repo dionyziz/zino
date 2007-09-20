@@ -29,7 +29,7 @@ function ElementPmOnepm( $pmobj ) {
 			if ( !$pmobj->IsRead() ) {
 				?><img style="float:left;padding: 0px 4px 3px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
 			}
-			?><div class="infobar_info" style="padding:3px;height:21px;display:inline;cursor:move" onclick="pms.ExpandPm( this , <?php
+			?><div class="infobar_info" style="padding:3px;height:21px;display:inline;" onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
 				?> true<?php
 			}
