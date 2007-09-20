@@ -240,7 +240,7 @@ var Poll = {
         Coala.Warm( 'poll/option/delete', id );
     },
     EditOption: function( which, id, text ) {
-        var container = which.parentNode;
+        var container = which.parentNode.parentNode;
 
         while ( container.firstChild ) {
             container.removeChild( container.firstChild );
