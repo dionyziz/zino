@@ -1,4 +1,4 @@
- <?php
+<?php
 	function ElementChatView() {
 		global $user;
 		global $water;
