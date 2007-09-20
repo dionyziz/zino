@@ -22,7 +22,7 @@
                     ?> <a onclick="Poll.EditQuestion( <?php
                         echo $poll->Id;
                     ?>, '<?php
-                        echo $poll->Question;
+                        echo addslashes( $poll->Question );
                     ?>' );"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php

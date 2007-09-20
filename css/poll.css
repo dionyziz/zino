@@ -56,6 +56,14 @@ div.profile div.leftbar div.pollresults ul li dl div.polloption {
     background-color: #999;
     margin-left: 190px;
 }
+div.profile div.leftbar div.pollresults ul li dl div.polloption div.optiontoolbox {
+    display: inline;
+    margin-left: 3px;
+    padding: 1px;
+    background-color: #dedede;
+    border: 1px solid #ccc;
+}
+
 div.profile div.leftbar div.pollresults ul li dl div.pollanswer {
     height: 100%;
     border-right: 1px solid #aaa;

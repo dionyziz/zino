@@ -45,7 +45,7 @@
                                 ?> <a onclick="Poll.EditOption( <?php
                                     echo $option->Id;
                                 ?>, '<?php
-                                    echo $option->Text;
+                                    echo addslashes( $option->Text );
                                 ?>' );" title="επεξεργασία επιλογής"><img src="<?php
                                 echo $xc_settings[ 'staticimagesurl' ];
                                 ?>icons/edit.png" alt="επεξεργασία επιλογής" /></a><a style="margin-left: 2px;" title="διαγραφή επιλογής" onclick="Poll.DeleteOption( <?php
