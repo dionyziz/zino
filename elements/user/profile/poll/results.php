@@ -37,7 +37,7 @@
                     ?><li><dl>
                         <dt onmouseover="g( 'optiontoolbox_<?php
                         echo $option->Id;
-                        ?>' ).style.visibility='';" onmouseout="g( 'optiontoolbox_<?php
+                        ?>' ).style.visibility='visible';" onmouseout="g( 'optiontoolbox_<?php
                         echo $option->Id;
                         ?>' ).style.visibility='hidden';"><?php
                         echo htmlspecialchars( $option->Text );
