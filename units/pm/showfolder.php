@@ -60,7 +60,7 @@ function UnitPmShowfolder( tInteger $folderid ) {
             var drag = Drag.Create( dmessage );
             drag.SetOnStart( function ( draggable ) {
                 Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
-                document.getElementById( 'folders' ).style.border = '3px solid #838080';
+                document.getElementById( 'folders' ).style.border = '1px solid black';
             } );
             drag.SetOnEnd( function ( draggable ) {
                 Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
