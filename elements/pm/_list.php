@@ -7,12 +7,16 @@
 		
 		$libs->Load( 'pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
+        
 		$page->AttachStyleSheet( 'css/pmnew.css' );
 		$page->AttachStyleSheet( 'css/modal.css' );
+        
 		$page->AttachScript( 'js/pmsnew.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
+        $page->AttachScript( 'js/drag.js' );
+        
 		$userfolders = PM_UserFolders();
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
 		?><script type="text/javascript">
