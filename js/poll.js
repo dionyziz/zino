@@ -249,6 +249,7 @@ var Poll = {
         var inp     = d.createElement( 'input' );
         inp.type    = 'text';
         inp.value   = text;
+        inp.style.width = '120px';
         
         container.appendChild( inp );
 
@@ -303,6 +304,8 @@ var Poll = {
             deleteopimg     = d.createElement( 'img' );
             deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
             deleteopimg.alt = "διαγραφή επιλογής";
+
+            deleteop.appendChild( deleteopimg );
 
             toolbox.appendChild( editop );
             toolbox.appendChild( deleteop );
