@@ -46,7 +46,7 @@
                         ?>" class="optiontoolbox"><?php
 
                             if ( $user->Id() == $theuser->Id() ) {
-                                ?> <a onclick="Poll.EditOption( <?php
+                                ?> <a onclick="Poll.EditOption( this, <?php
                                     echo $option->Id;
                                 ?>, '<?php
                                     echo addslashes( $option->Text );
