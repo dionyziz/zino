@@ -16,6 +16,6 @@ function UnitPmSendpm( tString $usernames , tString $pmtext ) {
 		$pm->AddReceiver( $receiver );
 	}
 	$pm->Save();
-	?>pms.NewMessage( '' , '' );<?php
+	?>pms.ShowFolderPm( document.getElementById( 'sentfolder' ) , -2 );<?php
 }
 ?>
