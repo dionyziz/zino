@@ -9,7 +9,7 @@
             ?>">
             <h4><?php
                 if ( $user->Id() == $theuser->Id() ) {
-                    ?><a style="float:right;" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης" onclick="Poll.DeletePoll( <?php
+                    ?><a style="float:right;" title="διαγραφή δημοσκόπησης" onclick="Poll.DeletePoll( <?php
                     echo $poll->Id;
                     ?> );"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
@@ -23,7 +23,7 @@
                         echo $poll->Id;
                     ?>, '<?php
                         echo $poll->Question;
-                    ?>' );"><img src="<?php
+                    ?>' );" title="επεξεργασία τίτλου"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php
                 }
@@ -37,7 +37,25 @@
                     ?><li><dl>
                         <dt><?php
                         echo htmlspecialchars( $option->Text );
-                        ?></dt>
+                        ?><div id="optiontoolbox_<?php
+                        echo $option->Id;
+                        ?>" class="optiontoolbox"><?php
+
+                            if ( $user->Id() == $theuser->Id() ) {
+                                ?> <a onclick="Poll.EditOption( <?php
+                                    echo $option->Id;
+                                ?>, '<?php
+                                    echo $option->Text;
+                                ?>' );" title="επεξεργασία επιλογής"><img src="<?php
+                                echo $xc_settings[ 'staticimagesurl' ];
+                                ?>icons/edit.png" alt="επεξεργασία επιλογής" /></a><a style="margin-left: 2px;" title="διαγραφή επιλογής" onclick="Poll.DeleteOption( <?php
+                                echo $option->Id;
+                                ?> );"><img src="<?php
+                                echo $xc_settings[ 'staticimagesurl' ];
+                                ?>icons/delete.png" alt="διαγραφή επιλογής" /></a><?php
+                            }
+
+                        ?></div></dt>
                         <dd>
                             <div class="polloption">
                                 <div class="pollanswer" style="width:<?php

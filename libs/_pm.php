@@ -71,6 +71,7 @@
 		protected $mFolderId;
 		protected $mDelId;
 		protected $mUser;
+        protected $mUserId;
 		protected $mDbTable;
 		protected $mDb;
 		

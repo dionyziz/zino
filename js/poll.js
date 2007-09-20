@@ -235,6 +235,58 @@ var Poll = {
         poll.parentNode.removeChild( poll );
 
         Poll.deletingPoll = 0; 
+    },
+    DeleteOption: function( id ) {
+        Coala.Warm( 'poll/option/delete', id );
+    },
+    EditOption: function( which, id, text ) {
+        var container = which.parentNode;
+
+        while ( container.firstChild ) {
+            container.removeChild( container.firstChild );
+        }
+
+        var inp     = d.createElement( 'input' );
+        inp.type    = 'text';
+        inp.value   = text;
+        
+        container.appendChild( inp );
+
+        var submit      = d.createElement( "a" );
+        submit.title    = 'Αποθήκευση';
+        submit.onclick  = function() {
+            alert( "submit" );
+        };
+        submit.style.marginLeft = '2px';
+        submit.style.cursor     = 'hand';
+
+        var submitimg   = d.createElement( "img" );
+        submitimg.src   = 'http://static.chit-chat.gr/images/icons/disk.png';
+        submitimg.alt   = 'Αποθήκευση';
+
+        submit.appendChild( submitimg );
+
+        container.appendChild( submit );
+
+        var cancel      = d.createElement( "a" );
+        cancel.title    = 'Ακύρωση';
+        cancel.onclick  = function() {
+            while ( container.firstChild ) {
+                container.removeChild( container.firstChild );
+            }
+
+            container.appendChild( d.createTextNode( text ) );
+        };
+        cancel.style.marginLeft = '2px';
+        cancel.style.cursor = 'hand';
+
+        var cancelimg   = d.createElement( "img" );
+        cancelimg.alt   = 'Ακύρωση';
+        cancelimg.src   = 'http://static.chit-chat.gr/images/icons/cancel.png';
+
+        cancel.appendChild( cancelimg );
+        
+        container.appendChild( cancel );
     }
 };
 
