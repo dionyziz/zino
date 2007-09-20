@@ -326,6 +326,10 @@
 			$this->Receivers 	= isset( $construct[ 'receivers' ] 		) ? $construct[ 'receivers' ] 	: false;
 			
 			$this->Satori( $construct );
+
+            $this->mPreviousValues[ 'mId' ] = $this->Id;
+            $this->mPreviousValues[ 'mUserId' ] = $this->UserId;
+            $this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
 		}
 	}
 
