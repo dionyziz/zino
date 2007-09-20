@@ -25,7 +25,9 @@
     	}
     	else {
     		foreach ( $messages as $msg ) {
+                ?><div class="messageprnt"><?php
     			Element( 'pm/onepm' , $msg );
+                ?></div><?php
     		}
     	}
     }
