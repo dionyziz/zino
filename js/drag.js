@@ -65,7 +65,7 @@ var Drag = {
             x = mouse[ 0 ] - Drag.Current[ idx ].X + Drag.Current[ idx ].InitX;
             y = mouse[ 1 ] - Drag.Current[ idx ].Y + Drag.Current[ idx ].InitY;
         }
-        if ( x + y > 3 ) {
+        if ( x + y > 1 ) {
             Drag.Inform( idx );
         }
         if ( Drag.Current[ idx ].Informed ) {
