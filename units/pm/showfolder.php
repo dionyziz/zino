@@ -59,11 +59,17 @@ function UnitPmShowfolder( tInteger $folderid ) {
         if ( dmessage.className == 'message' ) { // message
             var drag = Drag.Create( dmessage );
             drag.SetOnStart( function ( draggable ) {
+                var mdiv = document.createElement( 'div' );
+                mdiv.style.width = draggable.offsetWidth;
+                mdiv.style.height = draggable.offsetHeight;
+                mdiv.style.backgroundColor = 'white';
+                draggable.parentNode.insertBefore( mdiv, draggable );
                 draggable.style.position = 'absolute';
                 Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
                 document.getElementById( 'folders' ).style.border = '1px solid black';
             } );
             drag.SetOnEnd( function ( draggable ) {
+                draggable.parentNode.removeChild( draggable.previousSibling );
                 draggable.style.position = 'relative';
                 draggable.style.left = '0';
                 draggable.style.top = '0';
