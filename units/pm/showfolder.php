@@ -95,8 +95,8 @@
                 } );
                 drag.SetOnDrop( function ( draggable, droppable ) {
                     Coala.Warm( 'pm/move', {
-                        'pmid': draggable.substr( 'pm_'.length ),
-                        'targetfolderid': droppable.substr( 'folder_'.length )
+                        'pmid': draggable.id.substr( 'pm_'.length ),
+                        'targetfolderid': droppable.id.substr( 'folder_'.length )
                     } );
                     draggable.parentNode.removeChild( draggable );
                 } );
