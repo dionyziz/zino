@@ -93,6 +93,13 @@
                     droppable.style.backgroundColor = 'inherit';
                     droppable.style.fontWeight = 'inherit';
                 } );
+                drag.SetOnDrop( function ( draggable, droppable ) {
+                    Coala.Warm( 'pm/move', {
+                        'pmid': draggable.substr( 'pm_'.length ),
+                        'targetfolderid': droppable.substr( 'folder_'.length )
+                    } );
+                    draggable.parentNode.removeChild( draggable );
+                } );
             }
         }<?php
     }
