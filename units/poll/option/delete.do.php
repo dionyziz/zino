@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollOptionEdit( tInteger $id, tString $text ) {
+    function UnitPollOptionDelete( tInteger $id, tString $text ) {
         global $user;
         global $libs;
 
@@ -13,8 +13,7 @@
             return;
         }
 
-        $option->Text = $text->Get();
-        $option->Save();
+        $option->Delete();
     }
 
 ?>

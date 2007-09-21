@@ -32,6 +32,7 @@
         protected $mPoll;
         protected $mNumVotes;
         protected $mPercentage;
+        protected $mDelId;
 
         protected function SetPoll( $poll ) {
             $this->mPoll = $poll;
@@ -52,6 +53,11 @@
         protected function LoadDefaults() {
             $this->NumVotes = 0;
         }
+        public function Delete() {
+            $this->mDelId = 1;
+
+            $this->Save();
+        }
         public function PollOption( $construct = false ) {
             global $db;
             global $polloptions;
@@ -63,7 +69,8 @@
                 'polloption_id'         => 'Id',
                 'polloption_text'       => 'Text',
                 'polloption_pollid'     => 'PollId',
-                'polloption_numvotes'   => 'NumVotes'
+                'polloption_numvotes'   => 'NumVotes',
+                'polloption_delid'      => 'DelId'
             ) );
 
             $this->Satori( $construct );
@@ -138,6 +145,7 @@
                             ON `polloption_id` = `vote_optionid`
                     WHERE
                         `polloption_pollid` = '" . $this->Id . "' AND
+                        `polloption_delid`  = '0' AND
                         `vote_userid`       = '" . $user->Id() . "'
                     LIMIT 1;";
             
@@ -174,7 +182,8 @@
                         FROM
                             `$polloptions`
                         WHERE
-                            `polloption_pollid` = '" . $this->Id . "'
+                            `polloption_pollid` = '" . $this->Id . "' AND
+                            `polloption_delid` = '1'
                         ;";
 
                 $res = $this->mDb->Query( $sql );

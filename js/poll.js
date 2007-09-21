@@ -238,6 +238,9 @@ var Poll = {
     },
     DeleteOption: function( id ) {
         Coala.Warm( 'poll/option/delete', id );
+
+        var li = g( 'polloption_' + id ).parentNode.parentNode;
+        li.parentNode.removeChild( li );
     },
     EditOption: function( which, id, text ) {
         var container = which.parentNode.parentNode;
