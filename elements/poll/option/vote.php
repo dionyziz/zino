@@ -20,8 +20,7 @@
             echo $poll->Id;
             ?>, <?php
             echo $option->Id;
-            ?> );" /></dt>
-            <dd><label for="p_<?php
+            ?> );" /><label style="margin-left: 2px;" for="p_<?php
             echo $poll->Id;
             ?>_<?php
             echo $option->Id;
@@ -31,7 +30,7 @@
 
             Element( "poll/option/toolbox", $option, $theuser );
 
-            ?></dd>
+            ?></dt><dd></dd>
         </dl></li><?php
     }
 
