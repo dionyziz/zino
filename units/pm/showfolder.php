@@ -6,7 +6,8 @@
     	$libs->Load( "pm" );	
     	
     	$folderid = $folderid->Get();
-    	?>var deletelink = document.getElementById( 'deletefolderlink' );<?php
+    	?>var deletelink = document.getElementById( 'deletefolderlink' );
+    	var renamelink = document.getElementById( 'renamefolderlink' );<?php
     	if ( $folderid == -1 || $folderid == -2 ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
@@ -14,9 +15,13 @@
     		echo w_json_encode( ob_get_clean() );
     		?>;
     		deletelink.style.display = 'none';
-    		deletelink.onclick = ( function() {
+    		deletelink.onclick = function() {
     			return false;
-    		})();
+    		};
+            renamelink.style.display = 'none';
+            renamelink.onclick = function () {
+                return false;
+            };
     		pms.ShowFolderNameTop( '<?php 
     		if ( $folderid == - 1 ) {
     			?>Εισερχόμενα' );<?php
@@ -43,6 +48,15 @@
     			})( <?php 
     			echo $folderid;
     			?> );
+                renamelink.style.display = 'block';
+                renamelink.onclick = ( function( folderid ) {
+                    return function () {
+                        pms.RenameFolder( folderid );
+                        return false;
+                    }
+                } )( <?php
+                echo $folderid;
+                ?> );
     			pms.messagescontainer.innerHTML = <?php
     			ob_start();
     			Element( 'pm/showfolder' , $folder );

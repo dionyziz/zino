@@ -109,27 +109,32 @@ var pms = {
 		Modals.Destroy();
 	}
 	,
+    ValidFolderName : function ( name ) {
+		var name = name.replace(/(\s+$)|(^\s+)/g, '');
+		if ( name == 'Εισερχόμενα' || name == 'Απεσταλμένα' ) {
+            return false;
+		}
+		else if ( name.length <= 2 ) {
+            return false;
+		}
+		else if ( name === '' ) {
+            return false;
+		}
+        return true;
+    }
+    ,
 	CreateNewFolder : function ( formnode ) {
 		//creating a new folder and showing it (using a coala call)
 		var formnodeinput = formnode.getElementsByTagName( 'input' );
 		inputbox = formnodeinput[ 0 ];
 		var foldername = inputbox.value;
-		var foo = foldername.replace(/(\s+$)|(^\s+)/g, '');
-		if ( foldername == 'Εισερχόμενα' || foldername == 'Απεσταλμένα' ) {
+		if ( !pms.ValidFolderName( foldername ) ) {
 			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
 			inputbox.select();
+            return;
 		}
-		else if ( foldername.length <= 2 ) {
-			alert( 'Το όνομα του  φακέλου πρέπει να έχει πάνω από 2 γράμματα' );
-			inputbox.select();
-		}
-		else if ( foo === '' ) {
-			alert( 'Το όνομα που επέλεξες δεν είναι έγκυρο' );
-		}
-		else {
-			pms.ShowAnimation( 'Δημιουργία φακέλου...' );
-			Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
-		}
+        pms.ShowAnimation( 'Δημιουργία φακέλου...' );
+        Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
 	}
 	,
 	DeleteFolder : function( folderid ) {
@@ -139,6 +144,23 @@ var pms = {
 		} );
 	}
 	,
+    RenameFolder : function ( folderid ) {
+        var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
+        
+        if ( name === null ) {
+            return;
+        }
+        if ( !pms.ValidFolderName( name ) ) {
+            alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
+            return;
+        }
+        Coala.Warm( 'pm/folder/rename', {
+            'folderid': folderid,
+            'newname': name
+        } );
+        document.getElementById( 'folder_' + folderid ).getElementsByTagName( 'a' )[ 0 ].firstChild.nodeValue = name;
+    }
+    ,
 	NewMessage : function( touser , answertext ) {
 		pms.ClearMessages();
 		var receiversdiv = document.createElement( 'div' );
