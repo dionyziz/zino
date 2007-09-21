@@ -256,7 +256,7 @@ var Poll = {
         var submit      = d.createElement( "a" );
         submit.title    = 'Αποθήκευση';
         submit.onclick  = function() {
-            alert( "submit" );
+            Coala.Warm( 'poll/option/edit', { 'id': id, 'text': text, 'callback': EditOptionCallback;
         };
         submit.style.marginLeft = '2px';
         submit.style.cursor     = 'hand';
@@ -272,45 +272,8 @@ var Poll = {
         var cancel      = d.createElement( "a" );
         cancel.title    = 'Ακύρωση';
         cancel.onclick  = function() {
-            var p = cancel.parentNode;
-            while ( p.firstChild ) {
-                p.removeChild( p.firstChild );
-            }
-
-            p.appendChild( d.createTextNode( text ) );
-
-            toolbox     = d.createElement( 'div' );
-            toolbox.id  = 'optiontoolbox_' + id;
-            toolbox.className   = 'optiontoolbox';
-            
-            editop          = d.createElement( 'a' );
-            editop.title    = 'επεξεργασία επιλογής';
-            editop.onclick  = function() {
-                Poll.EditOption( this, id, text );
-            }
-            
-            editopimg       = d.createElement( 'img' );
-            editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
-            editopimg.alt   = "επεξεργασία επιλογής";
-
-            editop.appendChild( editopimg );
-            
-            deleteop        = d.createElement( 'a' );
-            deleteop.title  = 'διαγραφή επιλογής';
-            deleteop.onclick= function() {
-                Poll.DeleteOption( id );
-            };
-            
-            deleteopimg     = d.createElement( 'img' );
-            deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
-            deleteopimg.alt = "διαγραφή επιλογής";
-
-            deleteop.appendChild( deleteopimg );
-
-            toolbox.appendChild( editop );
-            toolbox.appendChild( deleteop );
-
-            p.appendChild( toolbox );
+            EditOptionCallback( id, text );
+        }
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
@@ -322,6 +285,48 @@ var Poll = {
         cancel.appendChild( cancelimg );
         
         container.appendChild( cancel );
+    },
+    EditOptionCallback: function( id, text ) {
+        var p = g( 'polloption_' + id );
+
+        while ( p.firstChild ) {
+            p.removeChild( p.firstChild );
+        }
+
+        p.appendChild( d.createTextNode( text ) );
+
+        toolbox     = d.createElement( 'div' );
+        toolbox.id  = 'optiontoolbox_' + id;
+        toolbox.className   = 'optiontoolbox';
+        
+        editop          = d.createElement( 'a' );
+        editop.title    = 'επεξεργασία επιλογής';
+        editop.onclick  = function() {
+            Poll.EditOption( this, id, text );
+        }
+        
+        editopimg       = d.createElement( 'img' );
+        editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
+        editopimg.alt   = "επεξεργασία επιλογής";
+
+        editop.appendChild( editopimg );
+        
+        deleteop        = d.createElement( 'a' );
+        deleteop.title  = 'διαγραφή επιλογής';
+        deleteop.onclick= function() {
+            Poll.DeleteOption( id );
+        };
+        
+        deleteopimg     = d.createElement( 'img' );
+        deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
+        deleteopimg.alt = "διαγραφή επιλογής";
+
+        deleteop.appendChild( deleteopimg );
+
+        toolbox.appendChild( editop );
+        toolbox.appendChild( deleteop );
+
+        p.appendChild( toolbox );
     }
 };
 

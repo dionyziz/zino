@@ -35,7 +35,9 @@
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
                     ?><li><dl>
-                        <dt onmouseover="g( 'optiontoolbox_<?php
+                        <dt id="polloption_<?php
+                        echo $option->Id;
+                        ?>" onmouseover="g( 'optiontoolbox_<?php
                         echo $option->Id;
                         ?>' ).style.visibility='visible';" onmouseout="g( 'optiontoolbox_<?php
                         echo $option->Id;
