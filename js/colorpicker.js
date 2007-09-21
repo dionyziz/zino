@@ -21,7 +21,7 @@ var Colorpicker = {
 					};
 		
 		var closeimg = document.createElement( 'img' );
-		closeimg.src = "close.png";
+		closeimg.src = "http://static.chit-chat.gr/images/colorpicker/close.png";
 		closeimg.alt = "Κλείσιμο";
 		closeimg.title = "Κλείσιμο";
 		
