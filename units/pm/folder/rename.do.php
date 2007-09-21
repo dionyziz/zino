@@ -1,5 +1,5 @@
 <?php
-    function UnitFolderRename( tInteger $folderid, tString $newname ) {
+    function UnitPmFolderRename( tInteger $folderid, tString $newname ) {
         global $user;
         
         $folderid = $folderid->Get();
