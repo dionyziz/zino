@@ -60,8 +60,8 @@ function UnitPmShowfolder( tInteger $folderid ) {
             var drag = Drag.Create( dmessage );
             drag.SetOnStart( function ( draggable ) {
                 var mdiv = document.createElement( 'div' );
-                mdiv.style.width = draggable.offsetWidth;
-                mdiv.style.height = draggable.offsetHeight;
+                mdiv.style.width = draggable.offsetWidth + 'px';
+                mdiv.style.height = draggable.offsetHeight + 'px';
                 mdiv.style.backgroundColor = 'white';
                 mdiv.appendChild( document.createTextNode( 'Hello, world!' ) );
                 draggable.parentNode.insertBefore( mdiv, draggable );
