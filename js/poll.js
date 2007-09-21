@@ -250,13 +250,16 @@ var Poll = {
         inp.type    = 'text';
         inp.value   = text;
         inp.style.width = '120px';
+        inp.id      = 'polloptioninp_' + id;
         
         container.appendChild( inp );
 
         var submit      = d.createElement( "a" );
         submit.title    = 'Αποθήκευση';
         submit.onclick  = function() {
-            Coala.Warm( 'poll/option/edit', { 'id': id, 'text': text, 'callback': EditOptionCallback } );
+            var newtext = g( 'polloptioninp_' + id ).value;
+            Coala.Warm( 'poll/option/edit', { 'id': id, 'text': newtext } );
+            Poll.EditOptionCallback( id, newtext );
         };
         submit.style.marginLeft = '2px';
         submit.style.cursor     = 'hand';
