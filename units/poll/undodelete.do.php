@@ -15,12 +15,7 @@
         
         ob_start();
 
-        if ( !$poll->UserHasVoted( $user ) ) {
-            Element( 'user/profile/poll/view', $poll, $user );
-        }
-        else {
-            Element( 'user/profile/poll/results', $poll, $user );
-        }
+        Element( 'poll/view', $poll, $user );
 
         $html = ob_get_clean();
 
