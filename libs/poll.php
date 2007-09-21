@@ -133,23 +133,28 @@
         protected   $mNumVotes;
         private     $mOptions;
         private     $mTextOptions;
+        private     $mHasVoted;
 
         public function UserHasVoted( $user ) {
             global $polloptions;
             global $votes;
 
-            $sql = "SELECT
-                        *
-                    FROM
-                        `$polloptions` RIGHT JOIN `$votes`
-                            ON `polloption_id` = `vote_optionid`
-                    WHERE
-                        `polloption_pollid` = '" . $this->Id . "' AND
-                        `polloption_delid`  = '0' AND
-                        `vote_userid`       = '" . $user->Id() . "'
-                    LIMIT 1;";
-            
-            return $this->mDb->Query( $sql )->Results();
+            if ( !isset( $this->mHasVoted[ $user->Id() ] ) ) {
+                $sql = "SELECT
+                            *
+                        FROM
+                            `$polloptions` RIGHT JOIN `$votes`
+                                ON `polloption_id` = `vote_optionid`
+                        WHERE
+                            `polloption_pollid` = '" . $this->Id . "' AND
+                            `polloption_delid`  = '0' AND
+                            `vote_userid`       = '" . $user->Id() . "'
+                        LIMIT 1;";
+                
+                $this->mHasVoted[ $user->Id() ] = $this->mDb->Query( $sql )->Results();
+            }
+
+            return $this->mHasVoted[ $user->Id() ];
         }
         public function HasExpired() {
             if ( $this->ExpireDate == '0000-00-00 00:00:00' ) {
@@ -247,6 +252,7 @@
             $this->Satori( $construct );
             
             $this->mOptions     = false;
+            $this->mHasVoted    = array();
         }
     }
 

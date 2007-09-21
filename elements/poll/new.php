@@ -1,6 +1,6 @@
 <?php
 
-    function ElementUserProfilePollNew( $theuser ) {
+    function ElementPollNew( $theuser ) {
         global $user;
 
         if ( $theuser != $user ) {

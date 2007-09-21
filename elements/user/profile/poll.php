@@ -16,17 +16,12 @@
         $polls = Poll_GetByUser( $theuser );
 
         if ( !count( $polls ) ) {
-            return Element( 'user/profile/poll/new', $theuser );
+            Element( 'poll/new', $theuser );
+            
+            return;
         }
 
-        $poll = $polls[ 0 ];
-
-        if ( !$poll->UserHasVoted( $user ) ) {
-            Element( 'user/profile/poll/view', $polls[ 0 ], $theuser );
-        }
-        else {
-            Element( 'user/profile/poll/results', $polls[ 0 ], $theuser );
-        }
+        Element( 'poll/view', $polls[ 0 ], $theuser );
     }
 
 ?>
