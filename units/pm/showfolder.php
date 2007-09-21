@@ -82,6 +82,7 @@
                 } );
                 for ( j = 0; j < dfolders.length; ++j ) {
                     if ( dfolders[ j ].id.substr( 0, 'folder_' ) == 'folder_' ) {
+                        alert( 'Add droppable' );
                         drag.AddDroppable( dfolders[ j ] );
                     }
                 }
