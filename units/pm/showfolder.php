@@ -65,6 +65,8 @@ function UnitPmShowfolder( tInteger $folderid ) {
             } );
             drag.SetOnEnd( function ( draggable ) {
                 draggable.style.position = 'relative';
+                draggable.style.left = '0';
+                draggable.style.top = '0';
                 Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
                 document.getElementById( 'folders' ).style.border = '1px solid #838080';
             } );
