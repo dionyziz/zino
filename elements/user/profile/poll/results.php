@@ -71,6 +71,18 @@
                         </dd>
                     </dl></li><?php
                 }
+
+                if ( $user->Id() == $theuser->Id() ) {
+                    ?><li id="createpop_<?php
+                    echo $poll->Id;
+                    ?>"><a onclick="Poll.CreateOption( <?php
+                    echo $poll->Id;
+                    ?> )">Προσθήκη επιλογής
+                    <img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
+                    </li><?php
+                }
                 
             ?></ul>
         </div><?php

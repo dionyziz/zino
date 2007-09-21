@@ -257,6 +257,7 @@ var Poll = {
             Poll.UndoDeleteOption( id );
         }
         undolink.appendChild( d.createTextNode( "Αναίρεση διαγραφής" ) );
+        undolink.style.cursor = 'hand';
 
         li.appendChild( undolink );
 
