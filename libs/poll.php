@@ -177,6 +177,15 @@
             $this->ExpireDate   = NowDate();
             return $this->Save();
         }
+        public function Vote( $userid, $optionid ) {
+            $vote           = new PollVote();
+            $vote->PollId   = $this->Id;
+            $vote->OptionId = $optionid;
+            $vote->UserId   = $userid;
+            $vote->Save();
+
+            $this->mHasVoted[ $userid ] = true;
+        }
         public function GetOptions() {
             global $polloptions;
             global $votes;
