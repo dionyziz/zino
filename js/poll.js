@@ -240,7 +240,37 @@ var Poll = {
         Coala.Warm( 'poll/option/delete', { 'id': id } );
 
         var li = g( 'polloption_' + id ).parentNode.parentNode;
-        li.parentNode.removeChild( li );
+        var licp = li.cloneNode( true );
+
+        licp.style.display = 'none';
+        licp.id = 'polloption_deleted_' + id;
+
+        while ( li.firstChild ) {
+            li.removeChild( li.firstChild );
+        }
+
+        li.style.textAlign = 'center';
+        li.id = 'polloption_undodelete_' + id;
+        
+        var undolink = d.createElement( "a" );
+        undolink.onclick = function() {
+            Poll.UndoDeleteOption( id );
+        }
+        undolink.appendChild( d.createTextNode( "Αναίρεση διαγραφής" ) );
+
+        li.appendChild( undolink );
+
+        li.parentNode.insertBefore( licp, li.nextSibling );
+    },
+    UndoDeleteOption: function( id ) {
+        Coala.Warm( "poll/option/undodelete", { 'id': id } );
+
+        var undoLi  = g( 'polloption_undodelete_' + id );
+        undoLi.parentNode.removeChild( undoLi );
+
+        var delLi   = g( 'polloption_deleted_' + id );
+        delLi.id    = '';
+        delLi.style.display = '';
     },
     EditOption: function( which, id, text ) {
         var container = which.parentNode.parentNode;
@@ -248,6 +278,9 @@ var Poll = {
         while ( container.firstChild ) {
             container.removeChild( container.firstChild );
         }
+
+        container.onmouseover = function() {};
+        container.onmouseout = function() {};
 
         var inp     = d.createElement( 'input' );
         inp.type    = 'text';
@@ -299,6 +332,14 @@ var Poll = {
         }
 
         p.appendChild( d.createTextNode( text ) );
+
+        p.onmouseover = function() {
+            g( 'optiontoolbox_' + id ).style.visibility = 'visible';
+        }
+
+        p.onmouseout = function() {
+            g( 'optiontoolbox_' + id ).style.visibility = 'hidden';
+        }
 
         toolbox     = d.createElement( 'div' );
         toolbox.id  = 'optiontoolbox_' + id;
