@@ -5,7 +5,14 @@
         global $xc_settings;
 
         ?><li><dl>
-            <dt><input type="radio" id="p_<?php
+            <dt id="polloption_<?php
+            echo $option->Id;
+            ?>" onmouseover="g( 'optiontoolbox_<?php
+            echo $option->Id;
+            ?>' ).style.visibility='visible';" onmouseout="g( 'optiontoolbox_<?php
+            echo $option->Id;
+            ?>' ).style.visibility='hidden';">
+            <input type="radio" id="p_<?php
             echo $poll->Id;
             ?>_<?php
             echo $option->Id;
