@@ -203,6 +203,7 @@ var Colorpicker = {
 		td.onclick = (function ( r, g, b ) {
 				return function () {
 					Colorpicker.func( r, g, b );
+					Modals.Destroy();
 				}
 			})(red, green, blue );
 		return td;
