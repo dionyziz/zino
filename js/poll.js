@@ -237,7 +237,7 @@ var Poll = {
         Poll.deletingPoll = 0; 
     },
     DeleteOption: function( id ) {
-        Coala.Warm( 'poll/option/delete', id );
+        Coala.Warm( 'poll/option/delete', { 'id': id } );
 
         var li = g( 'polloption_' + id ).parentNode.parentNode;
         li.parentNode.removeChild( li );
@@ -278,7 +278,7 @@ var Poll = {
         var cancel      = d.createElement( "a" );
         cancel.title    = 'Ακύρωση';
         cancel.onclick  = function() {
-            EditOptionCallback( id, text );
+            Poll.EditOptionCallback( id, text );
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
@@ -318,6 +318,8 @@ var Poll = {
         
         deleteop        = d.createElement( 'a' );
         deleteop.title  = 'διαγραφή επιλογής';
+        deleteop.style.marginLeft = '3px';
+
         deleteop.onclick= function() {
             Poll.DeleteOption( id );
         };

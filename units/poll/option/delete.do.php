@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollOptionDelete( tInteger $id, tString $text ) {
+    function UnitPollOptionDelete( tInteger $id ) {
         global $user;
         global $libs;
 
