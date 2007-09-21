@@ -151,23 +151,7 @@ final class PageHTML extends Page {
 		}
 	}
 	private function OutputHTMLStart() {
-		if ( $this->mSupportsXML ) {
-			echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-			foreach ( $this->mStylesheets as $stylesheet => $always_true ) {
-				echo '<?xml-stylesheet href="';
-				echo $this->mBase;
-				echo $stylesheet;
-                if ( file_exists( $this->mBaseIncludePath . '/' . $stylesheet ) ) {
-                    ?>?<?php
-                    // force uncaching if necessary
-                    echo filemtime( $this->mBaseIncludePath . '/' . $stylesheet );
-                }
-				echo '" type="text/css"?>' . "\n";
-			}
-		}
-		else {
-			echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-		}
+        echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
 		?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php
         echo $this->mNaturalLanguage;
@@ -184,19 +168,23 @@ final class PageHTML extends Page {
 			echo $this->mBase;
 			?>" /><?php
 		}
-		if ( !$this->mSupportsXML ) {
-			foreach ( $this->mStylesheets as $stylesheet => $always_true ) {
-				?><link href="<?php
-				echo $this->mBase;
-				echo $stylesheet;
-                if ( file_exists( $this->mBaseIncludePath . '/' . $stylesheet ) ) {
-                    ?>?<?php
-                    // force uncaching if necessary
-                    echo filemtime( $this->mBaseIncludePath . '/' . $stylesheet );
-                }
-				?>" rel="stylesheet" type="text/css" /><?php
-			}
-		}
+        foreach ( $this->mStylesheets as $filename => $info ) {
+            if ( $info[ 'ieversion' ] !== false ) {
+                ?><!--[if IE]><?php
+            }
+            ?><link href="<?php
+            echo $this->mBase;
+            echo $stylesheet;
+            if ( file_exists( $this->mBaseIncludePath . '/' . $filename ) ) {
+                ?>?<?php
+                // force uncaching if necessary
+                echo filemtime( $this->mBaseIncludePath . '/' . $filename );
+            }
+            ?>" rel="stylesheet" type="text/css" /><?php
+            if ( $info[ 'ieversion' ] !== false ) {
+                ?><![endif]--><?php
+            }
+        }
         foreach ( $this->mMeta as $name => $content ) {
             ?><meta name="<?php
             echo $name;
@@ -279,12 +267,15 @@ final class PageHTML extends Page {
         w_assert( preg_match( '#^[a-z]+$#', $name ) );
         $this->mMeta[ $name ] = $content;
     }
-	public function AttachStylesheet( $filename ) {
+	public function AttachStylesheet( $filename, $ieversion = false ) {
 		global $water;
 		
 		if ( !isset( $this->mStylesheets[ $filename ] ) ) {
 			$water->Trace( 'Loading stylesheet ' . $filename );
-			$this->mStylesheets[ $filename ] = true;
+			$this->mStylesheets[ $filename ] = array(
+                'filename' => $filename,
+                'ieversion' => $ieversion
+            );
 		}
 	}
 	public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
