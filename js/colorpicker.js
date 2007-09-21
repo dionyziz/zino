@@ -10,6 +10,7 @@ var Colorpicker = {
 		var close = document.createElement( 'a' );
 		close.onclick = function() {
 					closing();
+					Colorpicker.reset();
 					Modals.Destroy();
 				};
 		close.className = "close";
@@ -203,6 +204,7 @@ var Colorpicker = {
 		td.onclick = (function ( r, g, b ) {
 				return function () {
 					Colorpicker.func( r, g, b );
+					Colorpicker.reset();
 					Modals.Destroy();
 				}
 			})(red, green, blue );
@@ -218,5 +220,10 @@ var Colorpicker = {
 		td.id = "selected";
 		Colorpicker.prevCol = td.style.backgroundColor;
 		td.style.backgroundColor = "#000000";
+	},
+	reset : function() {
+		Colorpicker.been = false;
+		Colorpicker.prevcol = null;
+		Colorpicker.func = new Function();
 	}
 };
