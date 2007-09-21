@@ -256,7 +256,7 @@ var Poll = {
         var submit      = d.createElement( "a" );
         submit.title    = 'Αποθήκευση';
         submit.onclick  = function() {
-            Coala.Warm( 'poll/option/edit', { 'id': id, 'text': text, 'callback': EditOptionCallback;
+            Coala.Warm( 'poll/option/edit', { 'id': id, 'text': text, 'callback': EditOptionCallback } );
         };
         submit.style.marginLeft = '2px';
         submit.style.cursor     = 'hand';
