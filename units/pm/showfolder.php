@@ -88,12 +88,10 @@
                 drag.SetOnOver( function ( draggable, droppable ) {
                     droppable.style.backgroundColor = '#d6e6f7';
                     droppable.style.fontWeight = 'bold';
-                    droppable.style.border = '1px solid black';
                 } );
                 drag.SetOnOut( function ( draggable, droppable ) {
                     droppable.style.backgroundColor = 'inherit';
                     droppable.style.fontWeight = 'inherit';
-                    droppable.style.border = 'inherit';
                 } );
             }
         }<?php
