@@ -20,7 +20,11 @@
             echo $option->Id;
             ?>"><?php
             echo htmlspecialchars( $option->Text );
-            ?></label></dd>
+            ?></label><?php
+
+            Element( "poll/option/toolbox", $option, $theuser );
+
+            ?></dd>
         </dl></li><?php
     }
 
