@@ -1,6 +1,6 @@
 <?php
 
-    function ElementOptionToolbox( $option, $theuser ) {
+    function ElementPollOptionToolbox( $option, $theuser ) {
         global $user;
 
         if ( $user->Id() != $theuser->Id() ) {
