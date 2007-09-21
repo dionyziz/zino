@@ -55,7 +55,7 @@
     	}
         ?>var dmessages = pms.messagescontainer.getElementsByTagName('div');
         var dfolders = document.getElementById('folders').getElementsByTagName('div');
-        for ( i in dmessages ) {
+        for ( i = 0; i < dmessages.length; ++i ) {
             dmessage = dmessages[ i ];
             if ( dmessage.className == 'message' ) { // message
                 var drag = Drag.Create( dmessage );
@@ -80,9 +80,9 @@
                     Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
                     document.getElementById( 'folders' ).style.border = '1px solid #838080';
                 } );
-                for ( i in dfolders ) {
-                    if ( dfolders[ i ].id.substr( 0, 'folder_' ) == 'folder_' ) {
-                        drag.AddDroppable( dfolders[ i ] );
+                for ( j = 0; j < dfolders.length; ++j ) {
+                    if ( dfolders[ j ].id.substr( 0, 'folder_' ) == 'folder_' ) {
+                        drag.AddDroppable( dfolders[ j ] );
                     }
                 }
                 drag.SetOnOver( function ( draggable, droppable ) {
