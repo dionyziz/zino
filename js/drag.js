@@ -53,7 +53,7 @@ var Drag = {
                 Drag.Current[ idx ].Callback_OnEnd( Drag.Current[ idx ].Node );
             }
         }
-    }
+    },
     Do: function ( e, idx ) {
         mouse = Drag.GetMouseXY( e );
         what = Drag.Current[ idx ].Node;
