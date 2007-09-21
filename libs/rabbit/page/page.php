@@ -174,7 +174,7 @@ final class PageHTML extends Page {
             }
             ?><link href="<?php
             echo $this->mBase;
-            echo $stylesheet;
+            echo $filename;
             if ( file_exists( $this->mBaseIncludePath . '/' . $filename ) ) {
                 ?>?<?php
                 // force uncaching if necessary
