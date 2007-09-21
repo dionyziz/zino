@@ -81,8 +81,7 @@
                     document.getElementById( 'folders' ).style.border = '1px solid #838080';
                 } );
                 for ( j = 0; j < dfolders.length; ++j ) {
-                    if ( dfolders[ j ].id.substr( 0, 'folder_' ) == 'folder_' ) {
-                        alert( 'Add droppable' );
+                    if ( dfolders[ j ].id.substr( 0, 'folder_'.length ) == 'folder_' ) {
                         drag.AddDroppable( dfolders[ j ] );
                     }
                 }
