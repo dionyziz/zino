@@ -30,17 +30,30 @@ var Drag = {
     Start: function ( e, idx ) {
         mouse = Drag.GetMouseXY( e );
         Drag.Current[ idx ].Active = true;
+        Drag.Current[ idx ].Informed = false;
         Drag.Current[ idx ].X = mouse[ 0 ];
         Drag.Current[ idx ].Y = mouse[ 1 ];
         Drag.Current[ idx ].InitX = Drag.Current[ idx ].Node.offsetLeft;
         Drag.Current[ idx ].InitY = Drag.Current[ idx ].Node.offsetTop;
         document.onmousemove = Drag.Process;
         
-        if ( typeof Drag.Current[ idx ].Callback_OnStart == 'function' ) {
-            Drag.Current[ idx ].Callback_OnStart( Drag.Current[ idx ].Node );
-        }
         Drag.Do( e, idx );
     },
+    Inform: function ( idx ) {
+        if ( !Drag.Current[ idx ].Informed ) {
+            Drag.Current[ idx ].Informed = true;
+            if ( typeof Drag.Current[ idx ].Callback_OnStart == 'function' ) {
+                Drag.Current[ idx ].Callback_OnStart( Drag.Current[ idx ].Node );
+            }
+        }
+    },
+    Uninform: function ( idx ) {
+        if ( Drag.Current[ idx ].Informed ) {
+            if ( typeof Drag.Current[ idx ].Callback_OnEnd == 'function' ) {
+                Drag.Current[ idx ].Callback_OnEnd( Drag.Current[ idx ].Node );
+            }
+        }
+    }
     Do: function ( e, idx ) {
         mouse = Drag.GetMouseXY( e );
         what = Drag.Current[ idx ].Node;
@@ -52,26 +65,31 @@ var Drag = {
             x = mouse[ 0 ] - Drag.Current[ idx ].X + Drag.Current[ idx ].InitX;
             y = mouse[ 1 ] - Drag.Current[ idx ].Y + Drag.Current[ idx ].InitY;
         }
-        what.style.left = x + 'px';
-        what.style.top = y + 'px';
+        if ( x + y > 3 ) {
+            Drag.Inform( idx );
+        }
+        if ( Drag.Current[ idx ].Informed ) {
+            what.style.left = x + 'px';
+            what.style.top = y + 'px';
 
-        // hittest
-        for ( i in Drag.Current[ idx ].Droppables ) {
-            droppable = Drag.Current[ idx ].Droppables[ i ];
-            xy = Drag.Current[ idx ].DropPositions[ i ];
-            if ( Drag.HitTest( mouse, xy, [ droppable.offsetWidth, droppable.offsetHeight ] ) ) {
-                if ( typeof Drag.Current[ idx ].Callback_OnOver == 'function' ) {
-                    if ( !Drag.Current[ idx ].DropOver[ i ] ) {
-                        Drag.Current[ idx ].DropOver[ i ] = true;
-                        Drag.Current[ idx ].Callback_OnOver( Drag.Current[ idx ].Node, droppable );
+            // hittest
+            for ( i in Drag.Current[ idx ].Droppables ) {
+                droppable = Drag.Current[ idx ].Droppables[ i ];
+                xy = Drag.Current[ idx ].DropPositions[ i ];
+                if ( Drag.HitTest( mouse, xy, [ droppable.offsetWidth, droppable.offsetHeight ] ) ) {
+                    if ( typeof Drag.Current[ idx ].Callback_OnOver == 'function' ) {
+                        if ( !Drag.Current[ idx ].DropOver[ i ] ) {
+                            Drag.Current[ idx ].DropOver[ i ] = true;
+                            Drag.Current[ idx ].Callback_OnOver( Drag.Current[ idx ].Node, droppable );
+                        }
                     }
                 }
-            }
-            else {
-                if ( typeof Drag.Current[ idx ].Callback_OnOut == 'function' ) {
-                    if ( Drag.Current[ idx ].DropOver[ i ] ) {
-                        Drag.Current[ idx ].DropOver[ i ] = false;
-                        Drag.Current[ idx ].Callback_OnOut( Drag.Current[ idx ].Node, droppable );
+                else {
+                    if ( typeof Drag.Current[ idx ].Callback_OnOut == 'function' ) {
+                        if ( Drag.Current[ idx ].DropOver[ i ] ) {
+                            Drag.Current[ idx ].DropOver[ i ] = false;
+                            Drag.Current[ idx ].Callback_OnOut( Drag.Current[ idx ].Node, droppable );
+                        }
                     }
                 }
             }
@@ -97,9 +115,7 @@ var Drag = {
             }
         }
         
-        if ( typeof Drag.Current[ idx ].Callback_OnEnd == 'function' ) {
-            Drag.Current[ idx ].Callback_OnEnd( Drag.Current[ idx ].Node );
-        }
+        Drag.Uninform( idx );
         
         for ( i in Drag.Current[ idx ].Droppables ) {
             droppable = Drag.Current[ idx ].Droppables[ i ];
@@ -177,7 +193,8 @@ var Drag = {
             'Callback_OnOver' : function () {} ,
             'Callback_OnOut'  : function () {} ,
             'Callback_OnStart': function () {} ,
-            'Callback_OnEnd'  : function () {}
+            'Callback_OnEnd'  : function () {} ,
+            'Informed'        : false
         } ) - 1;
         return {
             'AddDroppable': function ( droppable ) {
