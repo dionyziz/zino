@@ -63,6 +63,7 @@ function UnitPmShowfolder( tInteger $folderid ) {
                 mdiv.style.width = draggable.offsetWidth;
                 mdiv.style.height = draggable.offsetHeight;
                 mdiv.style.backgroundColor = 'white';
+                mdiv.appendChild( document.createTextNode( 'Hello, world!' ) );
                 draggable.parentNode.insertBefore( mdiv, draggable );
                 draggable.style.position = 'absolute';
                 Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
