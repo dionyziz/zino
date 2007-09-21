@@ -2,6 +2,7 @@
 
     function ElementPollOptionToolbox( $option, $theuser ) {
         global $user;
+        global $xc_settings;
 
         if ( $user->Id() != $theuser->Id() ) {
             return;
