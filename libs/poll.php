@@ -183,7 +183,7 @@
                             `$polloptions`
                         WHERE
                             `polloption_pollid` = '" . $this->Id . "' AND
-                            `polloption_delid` = '1'
+                            `polloption_delid` = '0'
                         ;";
 
                 $res = $this->mDb->Query( $sql );
