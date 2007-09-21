@@ -134,7 +134,7 @@
                     if ( $user->Id() == $theuser->Id() ) {
                         $page->AttachStylesheet( 'css/modal.css' );
                         $page->AttachStylesheet( 'css/colorpicker.css' );
-                        $page->AttachStylesheet( 'css/colorpicker_ie.css' );
+                        $page->AttachStylesheet( 'css/colorpicker_ie.css', true );
                         $page->AttachScript( 'js/modal.js' );
                         $page->AttachScript( 'js/colorpicker.js' );
                         ?>
