@@ -10,7 +10,7 @@
 
         ?><div id="optiontoolbox_<?php
         echo $option->Id;
-        ?>" class="optiontoolbox"><a onclick="Poll.EditOption( this, <?php
+        ?>" class="optiontoolbox"><a onclick="Poll.EditOption( <?php
                 echo $option->Id;
             ?>, '<?php
                 echo addslashes( $option->Text );

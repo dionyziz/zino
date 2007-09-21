@@ -273,8 +273,8 @@ var Poll = {
         delLi.id    = '';
         delLi.style.display = '';
     },
-    EditOption: function( which, id, text ) {
-        var container = which.parentNode.parentNode;
+    EditOption: function( id, text ) {
+        var container = g( 'polloption_' + id );
 
         while ( container.firstChild ) {
             container.removeChild( container.firstChild );
