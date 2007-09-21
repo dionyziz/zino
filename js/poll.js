@@ -273,7 +273,6 @@ var Poll = {
         cancel.title    = 'Ακύρωση';
         cancel.onclick  = function() {
             EditOptionCallback( id, text );
-        }
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
