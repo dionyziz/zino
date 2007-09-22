@@ -395,12 +395,19 @@ var Poll = {
 
         var inp = d.createElement( "input" );
         inp.id = 'newpop_' + pollid;
+        inp.onkeypress = function ( e ) {
+            if ( !e ) {
+                e = window.event;
+            }
+            if ( e.keyCode == 13 ) {
+                Coala.Warm( "poll/option/new", { 'pollid': pollid, 'text': g( 'newpop_' + pollid ).value, 'callback': Poll.CreateOptionOnViewCallback } );
+            }
+        };
         li.appendChild( inp );
 
         var submit = d.createElement( "a" );
         submit.onclick = function() {
-            var value = g( 'newpop_' + pollid ).value;
-            Coala.Warm( "poll/option/new", { 'pollid': pollid, 'text': value, 'callback': Poll.CreateOptionOnViewCallback } );
+            Coala.Warm( "poll/option/new", { 'pollid': pollid, 'text': g( 'newpop_' + pollid ).value, 'callback': Poll.CreateOptionOnViewCallback } );
         };
         submit.title = 'Αποθήκευση';
 
