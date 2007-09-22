@@ -36,9 +36,9 @@ var Colorpicker = {
 		tables.id = "table_main";
 		tables.className = "main";
 		
-/*		var caption = document.createElement( 'caption' );
+		var caption = document.createElement( 'div' );
 		caption.appendChild( document.createTextNode( titlos ) );
-		caption.style.margin = "10px auto 10px auto";*/
+		caption.style.margin = "2px auto 5px 28px";
 		
 		var preview = document.createElement( 'div' );
 		preview.className = "preview";
@@ -48,12 +48,12 @@ var Colorpicker = {
 		div.appendChild( close );
 		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( tablef );
-//		tables.appendChild( caption );
+		div.appendChild( caption );
 		div.appendChild( tables );
 		div.appendChild( document.createElement( 'br' ) );
 		div.appendChild( preview );
 		
-		Modals.Create( div, 400, 250 );
+		Modals.Create( div, 400, 270 );
 		Colorpicker.createRainbow();
 	},
 	parseTable : function( table ) {
