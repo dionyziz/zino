@@ -17,7 +17,7 @@
 
         echo $callback;
         ?>( <?php
-        echo w_json_encode( $pollid );
+        echo w_json_encode( $pollid->Get() );
         ?>, <?php
         echo w_json_encode( $html );
         ?> );<?php
