@@ -73,7 +73,7 @@
             $this->Poll->NumVotes += $this->NumVotes;
             $this->Poll->Save();
         }
-        public function PollOption( $construct = false ) {
+        public function PollOption( $construct = false, $poll = false ) {
             global $db;
             global $polloptions;
 
@@ -90,7 +90,7 @@
 
             $this->Satori( $construct );
 
-            $this->Poll         = false;
+            $this->Poll         = $poll;
             $this->Percentage   = ( $this->Poll->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
         }
     }
@@ -218,10 +218,7 @@
                 $res = $this->mDb->Query( $sql );
                 $this->mOptions = array();
                 while ( $row = $res->FetchArray() ) {
-                    $option             = new PollOption( $row );
-                    $option->Poll       = $this;
-                    
-                    $this->mOptions[] = $option;
+                    $this->mOptions[]   = new PollOption( $row, $this );
                 }
             }
 
