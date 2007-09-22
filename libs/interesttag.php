@@ -27,7 +27,9 @@
             }
         }
 
-        die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
+        if ( count( $tags > 0 ) ) {
+            die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
+        }
 
         $ret = array();
         $cur = $tags[ $first ];
