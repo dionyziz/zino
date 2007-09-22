@@ -7,23 +7,24 @@
         $libs->Load( 'poll' );
 
         $option         = new PollOption();
+        
+        ob_start();
+        var_dump( $option->Poll );
+        ?>alert( <?php echo w_json_encode( ob_get_clean() ) ?> );<?php
+
         $option->PollId = $pollid->Get();
+        ob_start();
+        var_dump( $option->Poll );
+        ?>alert( <?php echo w_json_encode( ob_get_clean() ) ?> );<?php
         $option->Text   = $text->Get();
         $option->Save();
+        ob_start();
+        var_dump( $option->Poll );
+        ?>alert( <?php echo w_json_encode( ob_get_clean() ) ?> );<?php
 
         ob_start();
         Element( "poll/option/view", $option, $user );
         $html = ob_get_clean();
-
-        $poll = $option->Poll;
-        
-        ob_start();
-        var_dump( $option );
-        $dump = ob_get_clean();
-
-        ?>alert( <?php
-        echo w_json_encode( $dump );
-        ?> );<?php
 
         echo $callback;
         ?>( <?php
