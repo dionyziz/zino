@@ -251,7 +251,8 @@ var Poll = {
             li.removeChild( li.firstChild );
         }
 
-        li.style.textAlign = 'center';
+        li.style.textAlign  = 'center';
+        li.style.display    = 'block';
         li.id = 'polloption_undodelete_' + id;
         
         var undolink = d.createElement( "a" );
@@ -367,7 +368,7 @@ var Poll = {
         
         var deleteop        = d.createElement( 'a' );
         deleteop.title  = 'διαγραφή επιλογής';
-        deleteop.style.marginLeft = '3px';
+        deleteop.style.marginLeft = '1px';
 
         deleteop.onclick= function() {
             Poll.DeleteOption( id );

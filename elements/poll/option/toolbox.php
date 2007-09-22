@@ -17,7 +17,7 @@
             ?>' );" title="επεξεργασία επιλογής"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/edit.png" alt="επεξεργασία επιλογής" />
-            </a><a style="margin-left: 2px;" title="διαγραφή επιλογής" onclick="Poll.DeleteOption( <?php
+            </a><a style="margin-left: 1px;" title="διαγραφή επιλογής" onclick="Poll.DeleteOption( <?php
             echo $option->Id;
             ?> );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
