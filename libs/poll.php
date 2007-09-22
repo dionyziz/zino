@@ -44,6 +44,10 @@
 
             return $this->mPoll;
         }
+        public function SetPollId( $value ) {
+            $this->mPollId = $value;
+            $this->Poll = new Poll( $this->PollId );
+        }
         protected function SetPercentage( $percentage ) {
             $this->mPercentage = $percentage;
         }
