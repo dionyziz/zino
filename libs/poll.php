@@ -218,7 +218,10 @@
                 $res = $this->mDb->Query( $sql );
                 $this->mOptions = array();
                 while ( $row = $res->FetchArray() ) {
-                    $this->mOptions[] = new PollOption( $row );
+                    $option             = new PollOption( $row );
+                    $option->Poll       = $this;
+                    
+                    $this->mOptions[] = $option;
                 }
             }
 
