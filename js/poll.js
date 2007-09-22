@@ -414,8 +414,8 @@ var Poll = {
 
         var submitimg = d.createElement( "img" );
         submitimg.src = 'http://static.chit-chat.gr/images/icons/disk.png';
-        submitimg.style.width   = '16px'
-        submitimg.style.height  = '16px'
+        submitimg.style.width   = '16px';
+        submitimg.style.height  = '16px';
         submitimg.style.marginLeft = '2px';
         submitimg.alt = 'Αποθήκευση';
     
