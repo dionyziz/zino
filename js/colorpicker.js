@@ -76,7 +76,7 @@ var Colorpicker = {
 	},
 	makeBigPreview : function( h ) {
 		var table = document.getElementById( "table_main" );
-		if( table.childNodes.length != 0 ) {
+		if( table.childNodes.length !== 0 ) {
 			table.removeChild( table.firstChild );
 		}
 		var tbody = document.createElement( 'tbody' );
@@ -157,9 +157,9 @@ var Colorpicker = {
 				alert( "Something's wrong" );
 		}
 		var color = new Array();
-		color.r=parseInt(r*255);
-		color.g=parseInt(g*255);
-		color.b=parseInt(b*255);
+		color['r'] = parseInt(r*255);
+		color['g']=parseInt(g*255);
+		color['b']=parseInt(b*255);
 		return color;
 	},
 	Preview : function( r,g,b ) {
@@ -176,12 +176,12 @@ var Colorpicker = {
 					document.getElementById( "preview" ).style.marginTop = "10px";
 					Colorpicker.makeBorder( td );
 					Colorpicker.makeBigPreview( h );
-				}
+				};
 			})( h, td );
 		td.onmousemove= (function (r, g, b ) {
 				return function () {
 					Colorpicker.Preview( r,g,b );
-				}
+				};
 			})(red,green,blue);
 		td.onmouseout = function () {
 				document.body.style.cursor = "default";
@@ -196,7 +196,7 @@ var Colorpicker = {
 		td.onmousemove= (function (r, g, b ) {
 				return function () {
 					Colorpicker.Preview( r,g,b );
-				}
+				};
 			})(red,green,blue);
 		td.onmouseout = function () {
 				document.body.style.cursor = "default";
@@ -206,7 +206,7 @@ var Colorpicker = {
 					Colorpicker.func( r, g, b );
 					Colorpicker.reset();
 					Modals.Destroy();
-				}
+				};
 			})(red, green, blue );
 		return td;
 	},
