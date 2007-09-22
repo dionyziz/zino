@@ -28,7 +28,7 @@
         }
 
         if ( count( $tags ) > 1 ) {
-            die( print_r( $tags ) );
+            die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
         }
 
         $ret = array();
