@@ -71,7 +71,7 @@
             $this->mUserId = $this->mUser->Id;
         }
         public function GetNext() {
-            if ( $this->mNext === false && $this->NextId != "-1" ) {
+            if ( $this->mNext === false ) {
                 $this->mNext = new InterestTag( $this->NextId != "-1" ? $this->NextId : false );
             }
             return $this->mNext;
