@@ -11,7 +11,6 @@ var Colorpicker = {
 		close.onclick = function() {
 					closing();
 					Colorpicker.reset();
-					document.body.style.cursor = "default";
 					Modals.Destroy();
 				};
 		close.className = "close";
@@ -226,5 +225,6 @@ var Colorpicker = {
 		Colorpicker.been = false;
 		Colorpicker.prevcol = null;
 		Colorpicker.func = new Function();
+		document.body.style.cursor = "default";
 	}
 };
