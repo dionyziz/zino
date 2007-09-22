@@ -157,9 +157,9 @@ var Colorpicker = {
 				alert( "Something's wrong" );
 		}
 		var color = new Array();
-		color['r'] = parseInt(r*255);
-		color['g']=parseInt(g*255);
-		color['b']=parseInt(b*255);
+		color.r = parseInt( r*255, 10 );
+		color.g=parseInt( g*255, 10 );
+		color.b=parseInt( b*255, 10 );
 		return color;
 	},
 	Preview : function( r,g,b ) {
