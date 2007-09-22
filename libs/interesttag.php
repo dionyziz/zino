@@ -13,11 +13,27 @@
                 ;";
 
         $res = $db->Query( $sql );
-        $ret = array();
+
+        $tags = array();
+        $prevs = array();
+        $first = false;
         while ( $row = $res->FetchArray() ) {
-            $ret[] = new InterestTag( $row );
+            $tag = new InterestTag( $row );
+
+            $tags[ $tag->Id ] = $tag;
+            $prevs[ $tag->NextId ] = $tag->Id;
+            if ( !isset( $prevs[ $tag->Id ] ) ) {
+                $first = $tag->Id;
+            }
         }
-    
+
+        $ret = array();
+        $cur = $tags[ $first ];
+        while ( $cur->NextId != -1 ) {
+            $ret[] = $cur;
+            $cur = $tags[ $cur->NextId ];
+        }
+        
         return $ret;
     }
 
