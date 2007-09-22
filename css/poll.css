@@ -4,7 +4,7 @@ div.profile div.leftbar div.pollview ul li dl {
     min-height: 20px;
 }
 div.profile div.leftbar div.pollview ul li dt {
-    width: 10px !important;
+    width: 100% !important;
 }
 div.profile div.leftbar div.pollview ul li dd {
     margin-left: 2px !important;
