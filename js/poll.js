@@ -406,7 +406,7 @@ var Poll = {
         submitimg.src = 'http://static.chit-chat.gr/images/icons/disk.png';
         submitimg.style.width   = '16px'
         submitimg.style.height  = '16px'
-        sumbitimg.style.marginLeft = '2px';
+        submitimg.style.marginLeft = '2px';
         submitimg.alt = 'Αποθήκευση';
     
         submit.appendChild( submitimg );
