@@ -336,7 +336,19 @@ var Poll = {
             p.removeChild( p.firstChild );
         }
 
-        p.appendChild( d.createTextNode( text ) );
+        if ( inp ) { // in case there was a form input before
+            p.appendChild( inp ); // append it again
+            
+            var label = d.createElement( "label" );
+            label.htmlFor = inp.id;
+            label.appendChild( d.createTextNode( text ) );
+            
+            p.appendChild( label );
+        }
+        
+        else {
+            p.appendChild( d.createTextNode( text ) );
+        }
 
         p.onmouseover = function() {
             g( 'optiontoolbox_' + id ).style.visibility = 'visible';
@@ -344,10 +356,6 @@ var Poll = {
 
         p.onmouseout = function() {
             g( 'optiontoolbox_' + id ).style.visibility = 'hidden';
-        }
-
-        if ( inp ) { // in case there was a form input before
-            p.appendChild( inp ); // append it again
         }
 
         var toolbox     = d.createElement( 'div' );
