@@ -1,10 +1,8 @@
 <?php
 
-    function ElementPollOptionVote( $option, $theuser ) {
+    function ElementPollOptionVote( $option, $poll, $theuser ) {
         global $user;
         global $xc_settings;
-
-        $poll = $option->Poll;
 
         ?><li><dl>
             <dt id="polloption_<?php
