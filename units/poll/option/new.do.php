@@ -6,7 +6,7 @@
 
         $libs->Load( 'poll' );
 
-        $option         = new Option();
+        $option         = new PollOption();
         $option->PollId = $pollid->Get();
         $option->Text   = $text->Get();
         $option->Save();
