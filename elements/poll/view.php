@@ -4,7 +4,7 @@
         global $xc_settings;
         global $user;
 
-        $hasvoted = $poll->UserHasVoted( $theuser );
+        $hasvoted = $poll->UserHasVoted( $user );
         
         if ( !$hasvoted ) {
             // vote div
