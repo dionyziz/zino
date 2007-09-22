@@ -18,7 +18,7 @@
         $poll = $option->Poll;
         
         ob_start();
-        var_dump( $poll );
+        var_dump( $option );
         $dump = ob_get_clean();
 
         ?>alert( <?php
