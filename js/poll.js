@@ -276,7 +276,11 @@ var Poll = {
     EditOption: function( id, text ) {
         var container = g( 'polloption_' + id );
 
+        var oldinput = false;
         while ( container.firstChild ) {
+            if ( container.firstChild.nodeName == "input" ) {
+                oldinput = container.firstChild.cloneNode( true );
+            }
             container.removeChild( container.firstChild );
         }
 
@@ -296,7 +300,7 @@ var Poll = {
         submit.onclick  = function() {
             var newtext = g( 'polloptioninp_' + id ).value;
             Coala.Warm( 'poll/option/edit', { 'id': id, 'text': newtext } );
-            Poll.EditOptionCallback( id, newtext );
+            Poll.EditOptionCallback( id, newtext, oldinput );
         };
         submit.style.marginLeft = '2px';
         submit.style.cursor     = 'hand';
@@ -312,7 +316,7 @@ var Poll = {
         var cancel      = d.createElement( "a" );
         cancel.title    = 'Ακύρωση';
         cancel.onclick  = function() {
-            Poll.EditOptionCallback( id, text );
+            Poll.EditOptionCallback( id, text, oldinput );
         };
         cancel.style.marginLeft = '2px';
         cancel.style.cursor = 'hand';
@@ -325,7 +329,7 @@ var Poll = {
         
         container.appendChild( cancel );
     },
-    EditOptionCallback: function( id, text ) {
+    EditOptionCallback: function( id, text, inp ) {
         var p = g( 'polloption_' + id );
 
         while ( p.firstChild ) {
@@ -342,23 +346,27 @@ var Poll = {
             g( 'optiontoolbox_' + id ).style.visibility = 'hidden';
         }
 
-        toolbox     = d.createElement( 'div' );
+        if ( inp ) { // in case there was a form input before
+            p.appendChild( inp ); // append it again
+        }
+
+        var toolbox     = d.createElement( 'div' );
         toolbox.id  = 'optiontoolbox_' + id;
         toolbox.className   = 'optiontoolbox';
         
-        editop          = d.createElement( 'a' );
+        var editop          = d.createElement( 'a' );
         editop.title    = 'επεξεργασία επιλογής';
         editop.onclick  = function() {
             Poll.EditOption( this, id, text );
         }
         
-        editopimg       = d.createElement( 'img' );
+        var editopimg       = d.createElement( 'img' );
         editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
         editopimg.alt   = "επεξεργασία επιλογής";
 
         editop.appendChild( editopimg );
         
-        deleteop        = d.createElement( 'a' );
+        var deleteop        = d.createElement( 'a' );
         deleteop.title  = 'διαγραφή επιλογής';
         deleteop.style.marginLeft = '3px';
 
@@ -366,7 +374,7 @@ var Poll = {
             Poll.DeleteOption( id );
         };
         
-        deleteopimg     = d.createElement( 'img' );
+        var deleteopimg     = d.createElement( 'img' );
         deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
         deleteopimg.alt = "διαγραφή επιλογής";
 
