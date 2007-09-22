@@ -1,9 +1,7 @@
 <?php
 
-    function ElementPollOptionView( $option, $theuser ) {
+    function ElementPollOptionView( $option, $poll, $theuser ) {
         global $user;
-
-        $poll = $option->Poll;
 
         if ( !$poll->UserHasVoted( $user ) ) {
             Element( "poll/option/vote", $option, $theuser );

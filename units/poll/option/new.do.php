@@ -6,13 +6,18 @@
 
         $libs->Load( 'poll' );
 
+        $poll = new Poll( $pollid->Get() );
+        if ( !$poll->Exists() || $user->IsAnonymous() || $poll->UserId != $user->Id() ) {
+            return;
+        }
+
         $option         = new PollOption();
         $option->PollId = $pollid->Get();
         $option->Text   = $text->Get();
         $option->Save();
 
         ob_start();
-        Element( "poll/option/view", $option, $user );
+        Element( "poll/option/view", $option, $poll, $user );
         $html = ob_get_clean();
 
         echo $callback;

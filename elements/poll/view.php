@@ -52,7 +52,7 @@
                 ?>"><?php
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
-                    Element( "poll/option/view", $option, $theuser );
+                    Element( "poll/option/view", $option, $poll, $theuser );
                 }
 
                 if ( $user->Id() == $theuser->Id() ) {
