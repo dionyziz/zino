@@ -8,7 +8,7 @@
 
         $poll = new Poll( $pollid->Get() );
         
-        if ( !$poll->Exists() || $poll->UserId != $user->Id() ) {
+        if ( !$poll->Exists() || $poll->UserId != $user->Id() || $poll->DelId > 0 ) {
             return;
         }
 
