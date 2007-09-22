@@ -13,8 +13,7 @@
             return;
         }
 
-        $option->DelId = 0;
-        $option->Save();
+        $option->UndoDelete();
     }
 
 ?>

@@ -55,8 +55,19 @@
         }
         public function Delete() {
             $this->mDelId = 1;
-
             $this->Save();
+            
+            // remove this option's votes from poll votes
+            $this->Poll->NumVotes -= $this->NumVotes;
+            $this->Poll->Save();
+        }
+        public function UndoDelete() {
+            $this->mDelId = 0;
+            $this->Save();
+
+            // add this option's votes to poll votes
+            $this->Poll->NumVotes += $this->NumVotes;
+            $this->Poll->Save();
         }
         public function PollOption( $construct = false ) {
             global $db;
