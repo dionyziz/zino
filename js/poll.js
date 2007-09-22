@@ -365,7 +365,7 @@ var Poll = {
         var editop          = d.createElement( 'a' );
         editop.title    = 'επεξεργασία επιλογής';
         editop.onclick  = function() {
-            Poll.EditOption( this, id, text );
+            Poll.EditOption( id, text );
         }
         
         var editopimg       = d.createElement( 'img' );
