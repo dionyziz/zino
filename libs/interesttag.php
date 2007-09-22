@@ -27,6 +27,8 @@
             }
         }
 
+        die( print_r( $tags ) );
+
         $ret = array();
         $cur = $tags[ $first ];
         while ( isset( $tags[ $cur->NextId ] ) ) {
