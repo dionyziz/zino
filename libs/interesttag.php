@@ -27,7 +27,7 @@
             }
         }
 
-        if ( count( $tags > 0 ) ) {
+        if ( count( $tags ) > 0 ) {
             die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
         }
 
