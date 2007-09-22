@@ -4,6 +4,7 @@
         global $user;
         global $libs;
         global $page;
+        global $water;
 
         $libs->Load( 'poll' );
         $page->AttachStylesheet( 'css/poll.css' );

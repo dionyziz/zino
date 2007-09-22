@@ -52,15 +52,17 @@
                 ?>"><?php
                 $options = $poll->Options;
                 foreach ( $options as $option ) {
-                    Element( "poll/option/view", $option, $poll, $theuser );
+                    Element( "poll/option/view", $option, $theuser );
                 }
 
                 if ( $user->Id() == $theuser->Id() ) {
                     ?><li id="createpop_<?php
                     echo $poll->Id;
-                    ?>"><a style="margin-left: 5px;" onclick="Poll.CreateOption( <?php
+                    ?>"><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
                     echo $poll->Id;
-                    ?> )"><img src="<?php
+                    ?>, <?php
+                    echo $hasvoted;
+                    ?> ); return false;"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
                     </li><?php

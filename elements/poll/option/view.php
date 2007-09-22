@@ -1,8 +1,10 @@
 <?php
 
-    function ElementPollOptionView( $option, $poll, $theuser ) {
+    function ElementPollOptionView( $option, $theuser ) {
+        $poll = $option->Poll;
+
         if ( !$poll->UserHasVoted( $theuser ) ) {
-            Element( "poll/option/vote", $option, $poll, $theuser );
+            Element( "poll/option/vote", $option, $theuser );
         }
         else {
             Element( "poll/option/result", $option, $theuser );

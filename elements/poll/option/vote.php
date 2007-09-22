@@ -1,18 +1,15 @@
 <?php
 
-    function ElementPollOptionVote( $option, $poll, $theuser ) {
+    function ElementPollOptionVote( $option, $theuser ) {
         global $user;
         global $xc_settings;
+
+        $poll = $option->Poll;
 
         ?><li><dl>
             <dt id="polloption_<?php
             echo $option->Id;
-            ?>" onmouseover="g( 'optiontoolbox_<?php
-            echo $option->Id;
-            ?>' ).style.visibility='visible';" onmouseout="g( 'optiontoolbox_<?php
-            echo $option->Id;
-            ?>' ).style.visibility='hidden';">
-            <input type="radio" id="p_<?php
+            ?>"><input type="radio" id="p_<?php
             echo $poll->Id;
             ?>_<?php
             echo $option->Id;

@@ -136,7 +136,7 @@ var Poll = {
                 deletep.title           = 'Διαγραφή Δημοσκόπησης';
                 deletep.onclick         = function() {
                     Poll.DeletePoll( pollid );
-                }
+                };
 
                 var deletepimg  = d.createElement( "img" );
                 deletepimg.src  = 'http://static.chit-chat.gr/images/icons/delete.png';
@@ -255,7 +255,7 @@ var Poll = {
         var undolink = d.createElement( "a" );
         undolink.onclick = function() {
             Poll.UndoDeleteOption( id );
-        }
+        };
         undolink.appendChild( d.createTextNode( "Αναίρεση διαγραφής" ) );
         undolink.style.cursor = 'hand';
 
@@ -283,9 +283,6 @@ var Poll = {
             }
             container.removeChild( container.firstChild );
         }
-
-        container.onmouseover = function() {};
-        container.onmouseout = function() {};
 
         var inp     = d.createElement( 'input' );
         inp.type    = 'text';
@@ -350,14 +347,6 @@ var Poll = {
             p.appendChild( d.createTextNode( text ) );
         }
 
-        p.onmouseover = function() {
-            g( 'optiontoolbox_' + id ).style.visibility = 'visible';
-        }
-
-        p.onmouseout = function() {
-            g( 'optiontoolbox_' + id ).style.visibility = 'hidden';
-        }
-
         var toolbox     = d.createElement( 'div' );
         toolbox.id  = 'optiontoolbox_' + id;
         toolbox.className   = 'optiontoolbox';
@@ -366,11 +355,11 @@ var Poll = {
         editop.title    = 'επεξεργασία επιλογής';
         editop.onclick  = function() {
             Poll.EditOption( id, text );
-        }
+        };
         
         var editopimg       = d.createElement( 'img' );
         editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
-        editopimg.alt   = "επεξεργασία επιλογής";
+        editopimg.alt   = 'επεξεργασία επιλογής';
 
         editop.appendChild( editopimg );
         
@@ -392,6 +381,63 @@ var Poll = {
         toolbox.appendChild( deleteop );
 
         p.appendChild( toolbox );
+    },
+    CreateOptionOnView: function( pollid ) {
+        // this is called when a poll is already created
+        // and now you wanna add a new option
+        
+        var li = g( 'createpop_' + pollid );
+        while ( li.firstChild ) {
+            li.removeChild( li.firstChild );
+        }
+
+        var inp = d.createElement( "input" );
+        inp.id = 'newpop_' + pollid;
+        li.appendChild( inp );
+
+        var submit = d.createElement( "a" );
+        submit.onclick = function() {
+            var value = g( 'newpop_' + pollid ).value;
+            Coala.Warm( "poll/option/new", { 'pollid': pollid, 'text': value, 'callback': Poll.CreateOptionOnViewCallback } );
+        };
+        submit.title = 'Αποθήκευση';
+
+        var submitimg = d.createElement( "img" );
+        submitimg.src = 'http://static.chit-chat.gr/images/icons/disk.png';
+        submitimg.style.width   = '16px'
+        submitimg.style.height  = '16px'
+        sumbitimg.style.marginLeft = '2px';
+        submitimg.alt = 'Αποθήκευση';
+    
+        submit.appendChild( submitimg );
+        li.appendChild( submit );
+    },
+    CreateOptionOnViewCallback: function( pollid, html ) {
+        var oldli = g( 'createpop_' + pollid );
+        var ul = oldli.parentNode;
+        ul.removeChild( oldli );
+
+        ul.innerHTML += html;
+
+        var createli    = d.createElement( "li" );
+        createli.id     = 'createpop_' + pollid;
+
+        var createa  = d.createElement( "a" );
+        createa.style.cursor = 'pointer';
+        createa.style.marginLeft = '5px';
+        createa.onlick = function() {
+            Poll.CreateOptionOnView( pollid );
+        }
+
+        createimg       = d.createElement( "img" );
+        createimg.src   = 'http://static.chit-chat.gr/images/icons/page_new.gif';
+        createimg.alt   = 'Προσθήκη επιλογής';
+        
+        createa.appendChild( createimg );
+
+        createli.appendChild( createa );
+
+        ul.appendChild( createli );
     }
 };
 

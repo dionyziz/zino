@@ -7,11 +7,7 @@
         ?><li><dl>
             <dt id="polloption_<?php
             echo $option->Id;
-            ?>" onmouseover="g( 'optiontoolbox_<?php
-            echo $option->Id;
-            ?>' ).style.visibility='visible';" onmouseout="g( 'optiontoolbox_<?php
-            echo $option->Id;
-            ?>' ).style.visibility='hidden';"><?php
+            ?>"><?php
             echo htmlspecialchars( $option->Text );
             
             Element( "poll/option/toolbox", $option, $theuser );
