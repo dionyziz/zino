@@ -14,14 +14,14 @@
                 echo $option->Id;
             ?>, '<?php
                 echo addslashes( $option->Text );
-            ?>' );" title='επεξεργασία επιλογής'><img src="<?php
+            ?>' );" title=''><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/edit.png" alt='επεξεργασία επιλογής' />
-            </a><a style="margin-left: 1px;" title='διαγραφή επιλογής' onclick="Poll.DeleteOption( <?php
+                ?>icons/edit.png" alt='' />
+            </a><a style="margin-left: 1px;" title='' onclick="Poll.DeleteOption( <?php
             echo $option->Id;
             ?> );"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/delete.png" alt='διαγραφή επιλογής' />
+                ?>icons/delete.png" alt='' />
             </a>
         </div><?php
     }
