@@ -95,9 +95,11 @@ var Poll = {
             );
         }
 
-        g( 'newpoll' ).style.opacity = 1;
-        g( 'newpoll' ).innerHTML = html;
-        g( 'newpoll' ).className = 'pollview';
+        var container = d.createElement( "div" );
+        container.innerHTML = html;
+
+        g( 'newpoll' ).parentNode.insertBefore( container, g( 'newpoll' ) );
+        g( 'newpoll' ).parentNode.removeChild( g( 'newpoll' ) );
     },
     Vote: function( pollid, optionid ) {
         Poll.votingPoll = pollid;

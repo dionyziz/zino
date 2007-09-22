@@ -61,7 +61,7 @@
                     ?>"><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
                     echo $poll->Id;
                     ?>, <?php
-                    echo $hasvoted;
+                    echo $hasvoted ? "true" : "false";
                     ?> ); return false;"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
