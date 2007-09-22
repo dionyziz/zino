@@ -9,14 +9,14 @@
         $option         = new PollOption();
         
         ob_start();
-        var_dump( $option->Poll );
+        var_dump( $option );
         $dump = ob_get_clean();
         ?>alert( <?php echo w_json_encode( $dump ) ?> );<?php
 
         $option->PollId = $pollid->Get();
 
         ob_start();
-        var_dump( $option->Poll );
+        var_dump( $option );
         $dump = ob_get_clean();
         ?>alert( <?php echo w_json_encode( $dump ) ?> );<?php
 
@@ -24,7 +24,7 @@
         $option->Save();
 
         ob_start();
-        var_dump( $option->Poll );
+        var_dump( $option );
         $dump = ob_get_clean();
         ?>alert( <?php echo w_json_encode( $dump ) ?> );<?php
 
