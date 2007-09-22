@@ -122,7 +122,8 @@
                             `interesttag_next` = '$this->Id'
                         WHERE
                             `interesttag_userid` = '$this->UserId' AND
-                            `interesttag_next`  = '-1'
+                            `interesttag_next`  = '-1' AND
+                            `interesttag_id` != '$this->Id'
                         LIMIT
                             1
                         ;";
