@@ -15,6 +15,16 @@
         Element( "poll/option/view", $option, $user );
         $html = ob_get_clean();
 
+        $poll = $option->Poll;
+        
+        ob_start();
+        var_dump( $poll );
+        $dump = ob_get_clean();
+
+        ?>alert( <?php
+        echo w_json_encode( $dump );
+        ?> );<?php
+
         echo $callback;
         ?>( <?php
         echo w_json_encode( $pollid->Get() );

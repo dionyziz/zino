@@ -425,9 +425,9 @@ var Poll = {
         var createa  = d.createElement( "a" );
         createa.style.cursor = 'pointer';
         createa.style.marginLeft = '5px';
-        createa.onlick = function() {
+        createa.onclick = function() {
             Poll.CreateOptionOnView( pollid );
-        }
+        };
 
         createimg       = d.createElement( "img" );
         createimg.src   = 'http://static.chit-chat.gr/images/icons/page_new.gif';
