@@ -55,7 +55,7 @@
                 $sql = "SELECT
                             *
                         FROM
-                            `{ $this->mDbTable }`
+                            `$this->mDbTable`
                         WHERE
                             `interesttag_next` = '{ $this->Id }'
                         LIMIT 1;";
@@ -87,7 +87,7 @@
 
             if ( !$existed && $change->Impact() ) {
                 $sql = "UPDATE
-                            `{ $this->mDbTable }`
+                            `$this->mDbTable`
                         SET
                             `interesttag_next` = '{ $this->Id }'
                         WHERE
