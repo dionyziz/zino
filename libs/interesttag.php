@@ -44,6 +44,16 @@
         private     $mNext;
         private     $mPrevious;
 
+        public function GetUser() {
+            if ( $this->mUser === false ) {
+                $this->mUser = new User( $this->mUser->Id );
+            }
+            return $this->mUser;
+        }
+        public function SetUser( $value ) {
+            $this->mUser = $value;
+            $this->mUserId = $this->mUser->Id;
+        }
         public function GetNext() {
             if ( $this->mNext === false ) {
                 $this->mNext = new InterestTag( $this->NextId );
@@ -136,6 +146,7 @@
 
             $this->mNext        = false;
             $this->mPrevious    = false;
+            $this->mUser        = $user;
         }
     }
 
