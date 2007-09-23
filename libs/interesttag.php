@@ -123,8 +123,8 @@
         public function MoveBefore( $target ) {
             if ( $this->Previous->Exists() ) {
                 $this->Previous->NextId = $this->NextId;
-                $this->Previous->Save();
                 die( print_r( $this->Previous ) );
+                $this->Previous->Save();
             }
 
             if ( $target->Previous->Exists() ) {
