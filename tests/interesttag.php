@@ -130,7 +130,6 @@
                 }
                 ++$i;
             }
-            /*
         }
         
         public function TestListTexttags() {
@@ -164,7 +163,6 @@
             $tags = InterestTag_List( $test );
             $this->Assert( is_array( $tags ), 'InterestTag_List does not return an array after I delete all my tags' );
             $this->AssertEquals( 0, count( $tags ), 'InterestTag_List returned a non-empty array even though I don\'t have any tags left' );
-            */
         }
     }
     

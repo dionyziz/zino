@@ -79,7 +79,6 @@
         protected   $mNextId;
         private     $mUser;
         private     $mNext;
-        private     $mPrevious;
 
         public function GetUser() {
             if ( $this->mUser === false ) {
@@ -109,9 +108,10 @@
             return new InterestTag( $this->mDb->Query( $sql )->FetchArray() );
         }
         public function MoveAfter( $target ) {
-            if ( $this->Previous->Exists() ) {
-                $this->Previous->NextId = $this->NextId;
-                $this->Previous->Save();
+            $prev = $this->GetPrevious();
+            if ( $prev->Exists() ) {
+                $prev->NextId = $this->NextId;
+                $prev->Save();
             }
             
             $this->NextId = $target->NextId;
