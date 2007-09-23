@@ -139,8 +139,7 @@
             $found = false;
             foreach ( $tags as $tag ) { // they should be ordered by order (users who have this tag first show up first), secondarily ordered by reverse creation date (newest users who added it show up first)
                 $user = $tag->User;
-                die( print_r( $tag ) );
-                if ( $test === $user ) {
+                if ( $test == $user ) {
                     $found = true;
                 }
             }
