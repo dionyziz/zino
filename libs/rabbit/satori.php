@@ -95,7 +95,7 @@
         }
         public function Exists() {
             // check if the current object exists; this can be overloaded if you wish, but you can also set $this->mExists
-            return $this->mId > 0;
+            return ( $this->mId > 0 && $this->mExists );
         }
         public function Save() {
             if ( $this->Exists() ) {
