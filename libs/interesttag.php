@@ -87,7 +87,7 @@
         }
         public function GetUser() {
             if ( $this->mUser === false ) {
-                $this->mUser = new User( $this->mUser->Id );
+                $this->mUser = new User( $this->mUserId );
             }
             return $this->mUser;
         }
