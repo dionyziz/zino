@@ -20,10 +20,11 @@
         <div style="text-align:center">
             <iframe src="<?php
             echo $xc_settings[ 'chat' ][ 'applet' ];
+            ?>?userid=<?php
             echo $user->Id();
-            ?>/<?php
+            ?>&username=<?php
             echo $user->Username();
-            ?>/<?php
+            ?>&authtoken=<?php
             echo $user->Authtoken();
             ?>" width="750" height="550"></iframe>
         </div>
