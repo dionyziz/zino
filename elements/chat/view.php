@@ -20,7 +20,6 @@
         <div style="text-align:center">
             <iframe src="<?php
             echo $xc_settings[ 'chat' ][ 'applet' ];
-            ?>/<?php
             echo $user->Id();
             ?>/<?php
             echo $user->Username();
