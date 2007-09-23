@@ -122,15 +122,17 @@
         }
         public function MoveBefore( $target ) {
             if ( $this->Previous->Exists() ) {
-                die( "previous of " . $this->Id . " is " . $this->Previous->Id );
                 $this->Previous->NextId = $this->NextId;
                 $this->Previous->Save();
             }
 
             if ( $target->Previous->Exists() ) {
+                die( "previous of " . $target->Id . " is " . $target->Previous->Id );
                 $target->Previous->NextId = $this->Id;
                 $target->Previous->Save();
             }
+
+            die( "almost done" );
 
             $this->NextId = $target->Id;
             $this->Save();
