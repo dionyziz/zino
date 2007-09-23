@@ -40,6 +40,10 @@
             }
         }
 
+        if ( isset( $tagtext ) ) {
+            die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
+        }
+
         $ret = array();
         if ( !isset( $tags[ $first ] ) ) {
             return $ret;
@@ -53,10 +57,6 @@
             }
 
             $cur = $tags[ $cur->NextId ];
-        }
-
-        if ( isset( $tagtext ) ) {
-            die( print_r( $tags ) . "<br />" . print_r( $prevs ) . "<br />" . print_r( $ret ) );
         }
         
         return $ret;
