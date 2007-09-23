@@ -28,6 +28,9 @@
         }
 
         $ret = array();
+        if ( !isset( $tags[ $first ] ) ) {
+            return $ret;
+        }
         $cur = $tags[ $first ];
         while ( true ) {
             $ret[] = $cur;
