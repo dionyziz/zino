@@ -66,6 +66,21 @@
     
     $page->Output();
 
+    if ( !isset( $_GET[ 'step' ] ) ) {
+        ?><form method="get" action="backup.php">
+        <input type="hidden" name="full" value="yes" />
+        <select name="step"><?php
+        for ( $i = 0; $i < count( $backup ); ++$i ) {
+            ?><option value="<?php
+            echo $i;
+            ?>">Step <?php
+            echo $i;
+            ?></option><?php
+        }
+        ?></select>
+        </form><?php
+    }
+
     header( 'Content-type: text/plain' );
     header( 'Content-Disposition: attachment; filename=' . $rabbit_settings[ 'applicationname' ] . '-' . NowDate() . '.sql' );
     
