@@ -14,6 +14,7 @@
                     ;";
         }
         else if ( is_string( $user ) ) {
+            die( "in if" );
             $tagtext = $user;
 
             $sql = "SELECT
