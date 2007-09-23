@@ -19,7 +19,7 @@
         ),
         'chat'              => array(
             'enabled' => true,
-            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/frame/'
+            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/frame'
         )
     );
 ?>
