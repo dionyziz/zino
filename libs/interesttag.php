@@ -4,13 +4,26 @@
         global $db;
         global $interesttags;
 
-        $sql = "SELECT
-                    *
-                FROM
-                    `$interesttags`
-                WHERE
-                    `interesttag_userid` = '$user->Id()'
-                ;";
+        if ( $user instanceof User ) {
+            $sql = "SELECT
+                        *
+                    FROM
+                        `$interesttags`
+                    WHERE
+                        `interesttag_userid` = '$user->Id()'
+                    ;";
+        }
+        else if ( is_string( $user ) ) {
+            $tagtext = $user;
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        `$interesttags`
+                    WHERE
+                        `interesttag_text` = '$tagtext'
+                    ;";
+        }
 
         $res = $db->Query( $sql );
 
