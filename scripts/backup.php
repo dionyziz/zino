@@ -16,11 +16,6 @@
         die( "Could you kindly fuck off?" );
     }
 
-    $reloaded = New Database( 'excalibur-sandbox' );
-    $reloaded->Connect( 'localhost' );
-    $reloaded->Authenticate( 'excalibursandbox' , 'viuhluqouhoa' );
-    $reloaded->SetCharset( 'DEFAULT' );
-
     function Slashify( &$value, $key ) {
         $value = addslashes( $value );
     }
@@ -73,7 +68,7 @@
     
     echo '-- Excalibur backup as of ' . NowDate() . "\n";
     foreach ( $backup as $table ) {
-        $res = $reloaded->Query( 'SELECT * FROM `' . $rabbit_settings[ 'databases' ][ 'db' ][ 'prefix' ] . $table . '`' . $limit . ';' );
+        $res = $db->Query( 'SELECT * FROM `' . $rabbit_settings[ 'databases' ][ 'db' ][ 'prefix' ] . $table . '`' . $limit . ';' );
         echo "-- Backing up table `$table`\n";
         $fields = false;
         while ( $row = $res->FetchArray() ) {
