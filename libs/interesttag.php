@@ -80,6 +80,9 @@
         private     $mUser;
         private     $mNext;
 
+        public function Exists() {
+            return ( $this->mId > 0 && $this->mExists );
+        }
         public function GetUser() {
             if ( $this->mUser === false ) {
                 $this->mUser = new User( $this->mUser->Id );
