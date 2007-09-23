@@ -70,7 +70,8 @@
     header( 'Content-Disposition: attachment; filename=' . $rabbit_settings[ 'applicationname' ] . '-' . NowDate() . '.sql' );
     
     echo '-- Excalibur backup as of ' . NowDate() . "\n";
-    foreach ( $backup as $table ) {
+//    foreach ( $backup as $table ) {
+        $table = $backup[ 0 ];
         $res = $db->Query( 'SELECT * FROM `' . $rabbit_settings[ 'databases' ][ 'db' ][ 'prefix' ] . $table . '`' . $limit . ';' );
         echo "-- Backing up table `$table`\n";
         $fields = false;
@@ -85,7 +86,7 @@
                  . implode( '", "', $row ) 
                  . '" );' . "\n";
         }
-    }
+    // }
     echo "-- (excalibur backup ends here)\n";
     
     Rabbit_Destruct();
