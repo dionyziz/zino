@@ -23,6 +23,8 @@
                     WHERE
                         `interesttag_text` = '$tagtext'
                     ;";
+
+            die( $sql );
         }
 
         $res = $db->Query( $sql );
