@@ -18,12 +18,13 @@
         header( 'HTTP/1.1 404 Not Found' );
         return;
     }
-    $sendcontent = true;
-    $lastmodified = filemtime( $file );
-    if ( isset( $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] ) && strtotime( $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] ) >= $lastmodified ) {
-        header( 'HTTP/1.1 304 Not Modified' );
-        $sendcontent = false;
+    
+    if ( strpos( $file, '..' ) !== false ) {
+        header( 'HTTP/1.1 404 Not Found' );
+        return;
     }
+    
+    $extension = substr( $file , strrpos( $file , '.' ) + 1 );
     $EXTENSION2MIME = array(
         'jpg'  => 'image/jpeg',
         'jpeg' => 'image/jpeg',
@@ -35,8 +36,19 @@
         'css'  => 'text/css'
     );
     
-    $extension = substr( $file , strrpos( $file , '.' ) + 1 );
+    if ( !isset( $EXTENSION2MIME[ strtolower( $extension ) ] ) ) {
+        header( 'HTTP/1.1 404 Not Found' );
+        return;
+    }
+    
     $mime = $EXTENSION2MIME[ strtolower( $extension ) ];
+
+    $sendcontent = true;
+    $lastmodified = filemtime( $file );
+    if ( isset( $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] ) && strtotime( $_SERVER[ 'HTTP_IF_MODIFIED_SINCE' ] ) >= $lastmodified ) {
+        header( 'HTTP/1.1 304 Not Modified' );
+        $sendcontent = false;
+    }
     
     header( 'Content-type: ' . $mime );
     header( 'Cache-Control: public, max-age=' . 60 * 60 * 24 * 7 );
