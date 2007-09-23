@@ -40,10 +40,6 @@
             }
         }
 
-        if ( isset( $tagtext ) ) {
-            die( print_r( $tags ) . "<br />" . print_r( $prevs ) );
-        }
-
         $ret = array();
         if ( !isset( $tags[ $first ] ) ) {
             return $ret;
@@ -93,7 +89,7 @@
         }
         public function SetUser( $value ) {
             $this->mUser = $value;
-            $this->mUserId = $this->mUser->Id;
+            $this->mUserId = $this->mUser->Id();
         }
         public function GetNext() {
             if ( $this->mNext === false ) {
