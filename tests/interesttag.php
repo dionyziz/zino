@@ -112,7 +112,7 @@
                 }
                 ++$i;
             }
-            /*
+            
             $tag1->MoveBefore( $tag2 );
             $tags = InterestTag_List( $test );
             $this->Assert( is_array( $tags ), 'InterestTag_List did not return an array after I tried to MoveBefore a tag' );
@@ -130,6 +130,7 @@
                 }
                 ++$i;
             }
+            /*
         }
         
         public function TestListTexttags() {
