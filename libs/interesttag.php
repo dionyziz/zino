@@ -98,18 +98,15 @@
             return $this->mNext;
         }
         public function GetPrevious() {
-            if ( $this->mPrevious === false ) {
-                $sql = "SELECT
-                            *
-                        FROM
-                            `" . $this->mDbTable . "`
-                        WHERE
-                            `interesttag_next` = '" . $this->Id . "'
-                        LIMIT 1;";
+            $sql = "SELECT
+                        *
+                    FROM
+                        `" . $this->mDbTable . "`
+                    WHERE
+                        `interesttag_next` = '" . $this->Id . "'
+                    LIMIT 1;";
 
-                $this->mPrevious = new InterestTag( $this->mDb->Query( $sql )->FetchArray() );
-            }
-            return $this->mPrevious;
+            return new InterestTag( $this->mDb->Query( $sql )->FetchArray() );
         }
         public function MoveAfter( $target ) {
             if ( $this->Previous->Exists() ) {
