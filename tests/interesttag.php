@@ -95,6 +95,7 @@
             $test = New User( 'test' );
             $tag1 = New InterestTag( 'Sin City', $test );
             $tag2 = New InterestTag( 'Parkour', $test );
+            die( var_dump( $tag1 ) );
             $tag1->MoveAfter( $tag2 );
             $tags = InterestTag_List( $test );
             $this->Assert( is_array( $tags ), 'InterestTag_List did not return an array after I tried to MoveAfter a tag' );

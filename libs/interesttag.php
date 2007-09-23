@@ -176,7 +176,6 @@
                             `interesttag_text`   = '$construct' AND
                             `interesttag_userid` = '" . $user->Id() . "'
                         LIMIT 1;";
-                die( $sql );
 
                 $construct = $db->Query( $sql )->FetchArray();
             }
