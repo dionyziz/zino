@@ -122,9 +122,11 @@
         }
         public function MoveBefore( $target ) {
             if ( $this->Previous->Exists() ) {
+                die( "this should be called" );
                 $this->Previous->NextId = $this->NextId;
                 $this->Previous->Save();
             }
+            die( "this should not be called" );
 
             $this->NextId = $target->Id;
             $this->Save();
