@@ -1,6 +1,4 @@
 <?php
-	return;
-	
     global $page, $db, $rabbit_settings, $user;
     
     if ( $rabbit_settings[ 'production' ] ) {
