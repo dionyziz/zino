@@ -29,8 +29,13 @@
 
         $ret = array();
         $cur = $tags[ $first ];
-        while ( isset( $tags[ $cur->NextId ] ) ) {
+        while ( true ) {
             $ret[] = $cur;
+
+            if ( !isset( $tags[ $cur->NextId ] ) ) {
+                break;
+            }
+
             $cur = $tags[ $cur->NextId ];
         }
         
