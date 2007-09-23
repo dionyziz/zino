@@ -18,21 +18,15 @@
 		?>
 		<br /><br /><br /><br />
         <div style="text-align:center">
-            <applet code="<?php
-                echo $xc_settings[ 'chat' ][ 'applet' ];
-                ?>" width="700" height="400" style="margin:auto">
-                <param name="userid" value="<?php
-                echo $user->Id();
-                ?>" />
-                <param name="authtoken" value="<?php
-                echo $user->Authtoken();
-                ?>" />
-                <param name="username" value="<?php
-                echo $user->Username();
-                ?>" />
-                <b>Πρέπει να εγκαταστήσεις το Java Runtime Environment για να μπορείς να κάνεις chat.</b><br />
-                <a href="http://www.java.com/getjava/">Μπορείς να το κάνεις πολύ εύκολα απλώς κατεβάζοντάς το</a>.
-            </applet>
+            <iframe src="<?php
+            echo $xc_settings[ 'chat' ][ 'applet' ];
+            ?>/<?php
+            echo $user->Id();
+            ?>/<?php
+            echo $user->Username();
+            ?>/<?php
+            echo $user->Authtoken();
+            ?>" width="750" height="550"></iframe>
         </div>
         <?php
 	}
