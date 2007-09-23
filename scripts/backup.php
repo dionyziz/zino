@@ -69,7 +69,8 @@
     if ( !isset( $_GET[ 'step' ] ) ) {
         ?><form method="get" action="backup.php">
         <input type="hidden" name="full" value="yes" />
-        <select name="step" onselect="this.form.submit()"><?php
+        <select name="step" onchange="this.form.submit()">
+        <option value="">Please select step</option><?php
         for ( $i = 0; $i < count( $backup ); ++$i ) {
             ?><option value="<?php
             echo $i;
