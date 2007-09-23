@@ -121,10 +121,11 @@
             $target->Save();
         }
         public function MoveBefore( $target ) {
-            if ( $this->Previous->Exists() ) {
-                $this->Previous->NextId = $this->NextId;
-                w_assert( $this->Previous->NextId == $this->NextId );
-                $this->Previous->Save();
+            $prev = $this->GetPrevious();
+            if ( $prev->Exists() ) {
+                $prev->NextId = $this->NextId;
+                w_assert( $prev->NextId == $this->NextId );
+                $prev->Save();
             }
 
             if ( $target->Previous->Exists() ) {
