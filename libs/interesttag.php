@@ -124,15 +124,13 @@
             if ( $this->Previous->Exists() ) {
                 $this->Previous->NextId = $this->NextId;
                 $this->Previous->Save();
+                die( print_r( $this->Previous ) );
             }
 
             if ( $target->Previous->Exists() ) {
-                die( "previous of " . $target->Id . " is " . $target->Previous->Id );
                 $target->Previous->NextId = $this->Id;
                 $target->Previous->Save();
             }
-
-            die( "almost done" );
 
             $this->NextId = $target->Id;
             $this->Save();
