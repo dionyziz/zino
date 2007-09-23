@@ -14,7 +14,6 @@
                     ;";
         }
         else if ( is_string( $user ) ) {
-            die( "in if" );
             $tagtext = $user;
 
             $sql = "SELECT
@@ -56,7 +55,7 @@
             $cur = $tags[ $cur->NextId ];
         }
 
-        if ( is_string( $user ) ) {
+        if ( isset( $tagtext ) ) {
             die( print_r( $tags ) . "<br />" . print_r( $prevs ) . "<br />" . print_r( $ret ) );
         }
         
