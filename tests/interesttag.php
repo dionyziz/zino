@@ -134,6 +134,7 @@
         public function TestListTexttags() {
             // listing the tags with a particular text
             $tags = InterestTag_List( 'Sin City' );
+            die( print_r( $tags ) );
             $test = New User( 'test' );
             $found = false;
             foreach ( $tags as $tag ) { // they should be ordered by order (users who have this tag first show up first), secondarily ordered by reverse creation date (newest users who added it show up first)
