@@ -121,9 +121,9 @@
             $target->Save();
         }
         public function MoveBefore( $target ) {
-            die( "next of " . $this->Id . " is " . $this->NextId );
             if ( $this->Previous->Exists() ) {
                 $this->Previous->NextId = $this->NextId;
+                w_assert( $this->Previous->NextId == $this->NextId );
                 $this->Previous->Save();
             }
 
