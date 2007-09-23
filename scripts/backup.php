@@ -10,7 +10,7 @@
 	set_include_path( '../:./' );
 	require_once 'libs/rabbit/rabbit.php';
     
-    Rabbit_Construct( 'Empty' );
+    Rabbit_Construct( 'HTML' );
 
     if ( !$user->IsSysOp() ) {
         die( "Could you kindly fuck off?" );
@@ -64,11 +64,8 @@
         'votes'
     );
     
-    $page->Output();
+    ob_start();
 
-    header( 'Content-type: text/plain' );
-    header( 'Content-Disposition: attachment; filename=' . $rabbit_settings[ 'applicationname' ] . '-' . NowDate() . '.sql' );
-    
     echo '-- Excalibur backup as of ' . NowDate() . "\n";
     for ( $i = 0; $i < count( $backup ); ++$i ) {
         $table = $backup[ $i ];
