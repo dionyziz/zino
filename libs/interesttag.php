@@ -10,7 +10,7 @@
                     FROM
                         `$interesttags`
                     WHERE
-                        `interesttag_userid` = '$user->Id()'
+                        `interesttag_userid` = '" . $user->Id() . "'
                     ;";
         }
         else if ( is_string( $user ) ) {
@@ -70,7 +70,7 @@
                 FROM 
                     `$interesttags` 
                 WHERE 
-                    `interesttag_userid` = '$user->Id()'
+                    `interesttag_userid` = '" . $user->Id() . "'
                 ;";
 
         return $db->Query( $sql );
@@ -106,9 +106,9 @@
                 $sql = "SELECT
                             *
                         FROM
-                            `$this->mDbTable`
+                            `" . $this->mDbTable . "`
                         WHERE
-                            `interesttag_next` = '$this->Id'
+                            `interesttag_next` = '" . $this->Id . "'
                         LIMIT 1;";
 
                 $this->mPrevious = new InterestTag( $this->mDb->Query( $sql )->FetchArray() );
@@ -138,13 +138,13 @@
 
             if ( !$existed && $change->Impact() ) {
                 $sql = "UPDATE
-                            `$this->mDbTable`
+                            `" . $this->mDbTable . "`
                         SET
-                            `interesttag_next` = '$this->Id'
+                            `interesttag_next` = '" . $this->Id . "'
                         WHERE
-                            `interesttag_userid` = '$this->UserId' AND
+                            `interesttag_userid` = '" . $this->UserId . "' AND
                             `interesttag_next`  = '-1' AND
-                            `interesttag_id` != '$this->Id'
+                            `interesttag_id` != '" . $this->Id . "'
                         LIMIT
                             1
                         ;";
@@ -175,10 +175,10 @@
                 $sql = "SELECT
                             *
                         FROM
-                            `$this->mDbTable`
+                            `" . $this->mDbTable . "`
                         WHERE
                             `interesttag_text`   = '$construct' AND
-                            `interesttag_userid` = '{ $user->Id() }'
+                            `interesttag_userid` = '" . $user->Id() . "'
                         LIMIT 1;";
 
                 $construct = $db->Query( $sql )->FetchArray();
