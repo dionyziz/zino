@@ -22,9 +22,9 @@
             echo $xc_settings[ 'chat' ][ 'applet' ];
             ?>?userid=<?php
             echo $user->Id();
-            ?>&username=<?php
+            ?>&amp;username=<?php
             echo $user->Username();
-            ?>&authtoken=<?php
+            ?>&amp;authtoken=<?php
             echo $user->Authtoken();
             ?>" width="750" height="550"></iframe>
         </div>
