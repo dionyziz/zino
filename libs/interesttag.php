@@ -112,7 +112,16 @@
             return $this->mPrevious;
         }
         public function MoveAfter( $target ) {
-            $this->MoveBefore( $target->Next );
+            if ( $this->Previous->Exists() ) {
+                $this->Previous->NextId = $this->NextId;
+                $this->Previous->Save();
+            }
+            
+            $this->NextId = $target->NextId;
+            $this->Save();
+
+            $target->NextId = $this->Id;
+            $target->Save();
         }
         public function MoveBefore( $target ) {
             if ( $this->Previous->Exists() ) {
