@@ -121,7 +121,6 @@
             $target->Save();
         }
         public function MoveBefore( $target ) {
-            die( "move before starts" );
             if ( $this->Previous->Exists() ) {
                 $this->Previous->NextId = $this->NextId;
                 $this->Previous->Save();
@@ -131,6 +130,8 @@
                 $target->Previous->NextId = $this->Id;
                 $target->Previous->Save();
             }
+
+            die( "almost done moving " . $this->Id . " after " . $target->Id );
 
             $this->NextId = $target->Id;
             $this->Save();
