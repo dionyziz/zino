@@ -66,11 +66,11 @@
     
     ob_start();
 
-    echo '-- Excalibur backup as of ' . NowDate() . "\n";
+    echo '-- Excalibur backup as of ' . NowDate() . "<br />";
     for ( $i = 0; $i < count( $backup ); ++$i ) {
         $table = $backup[ $i ];
         $res = $db->Query( 'SELECT * FROM `' . $rabbit_settings[ 'databases' ][ 'db' ][ 'prefix' ] . $table . '`' . $limit . ';' );
-        echo "-- Backing up table `$table`\n";
+        echo "-- Backing up table `$table`<br />";
         $fields = false;
         while ( $row = $res->FetchArray() ) {
             if ( $fields === false ) {
@@ -81,10 +81,10 @@
                  . implode( '`, `', $fields ) 
                  . '` ) VALUES ( "' 
                  . implode( '", "', $row ) 
-                 . '" );' . "\n";
+                 . '" );' . "<br />";
         }
      }
-    echo "-- (excalibur backup ends here)\n";
+    echo "-- (excalibur backup ends here)<br />";
     
     Rabbit_Destruct();
 ?>
