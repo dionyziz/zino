@@ -79,6 +79,7 @@
         }
         ?></select>
         </form><?php
+        exit();
     }
 
     header( 'Content-type: text/plain' );
