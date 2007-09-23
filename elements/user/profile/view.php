@@ -42,14 +42,6 @@
 		}
         $id = $theuser->Id();
 
-        if ( $theuser->Username() == 'alienhack' ) {
-            ob_start();
-            ?>alert( 'Καλώς Ηρθατε Στον Χώρο μου...Alienhack aka Aris aka F.B.I.' );<?php
-            $code = ob_get_clean();
-
-            $page->AttachInlineScript( $code );
-        }
-        
         $commentscount = $theuser->Contribs();
         
         $page->SetTitle( $theuser->Username() );

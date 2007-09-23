@@ -130,12 +130,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/gtalk.png" alt="gtalk" title="Google Talk" /></dt>
 							<dd id="user_options_gtalk"><?php
-                                if ( $theuser->Username() == 'Phil_Marz' ) { // video report, duh
-    								echo $theuser->Gtalk();
-                                }
-                                else {
-                                    echo htmlspecialchars( $theuser->Gtalk() );
-                                }
+                                echo htmlspecialchars( $theuser->Gtalk() );
 							?></dd>
 						</dl></li><?php
 					} 
