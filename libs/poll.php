@@ -12,7 +12,8 @@
                         ON `poll_id` = `vote_pollid`
                 WHERE
                     `poll_userid` = '" . $theuser->Id() . "' AND
-                    `poll_delid` = '0'
+                    `poll_delid` = '0' AND
+                    `vote_userid` = '" . $user->Id() . "'
                 ";
         
         if ( $limit > 0 ) {
@@ -23,7 +24,8 @@
         
         $ret = array();
         while ( $row = $res->FetchArray() ) {
-            $ret[] = new Poll( $row );
+            $poll = new Poll( $row );
+            $poll->UserShouldHadVoted( $user );
         }
 
         return $ret;
@@ -164,6 +166,24 @@
         private     $mTextOptions;
         private     $mHasVoted;
 
+        public function UserShouldHadVoted( $userid ) {
+            // this is a tricky one :P
+
+            // the sql query had joined the votes table
+            // and then the constructor of the poll checked if
+            // a vote_userid field was found on the construct.
+
+            // in case he had voted, the mHasVoted[ userid ] is set to true
+            // but we can't know whether he didn't vote or the sql query didn't join the votes table
+            // so the function doing the query calls this function when we had joined the tables
+            // to set the mHasVoted[ userid ] to false
+
+            // By doing this, the UserHasVoted( userid ) function won't have to run any other sql queries! :-)
+
+            if ( !isset( $this->mHasVoted[ $user->Id() ] ) ) {
+                $this->mHasVoted[ $user->Id() ] = false;
+            }
+        }
         public function UserHasVoted( $user ) {
             global $polloptions;
             global $votes;
