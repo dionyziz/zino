@@ -1,6 +1,6 @@
 <?php
     
-    function Poll_GetByUser( $user ) {
+    function Poll_GetByUser( $user, $limit = 0 ) {
         global $polls;
         global $db;
 
@@ -11,9 +11,11 @@
                 WHERE
                     `poll_userid` = '" . $user->Id() . "' AND
                     `poll_delid` = '0'
-                ORDER BY
-                    `poll_id` DESC
-                LIMIT 1;";
+                ";
+        
+        if ( $limit > 0 ) {
+            $sql .= "LIMIT $limit";
+        }
 
         $res = $db->Query( $sql );
         
@@ -124,11 +126,12 @@
             global $db;
             global $votes;
 
+            w_assert( $construct === false || is_array( $construct ), $construct . " is not a valid PollVote constructor" );
+        
             $this->mDb      = $db;
             $this->mDbTable = $votes;
             
             $this->SetFields( array(
-                'vote_id'       => 'Id',
                 'vote_userid'   => 'UserId',
                 'vote_optionid' => 'OptionId',
                 'vote_date'     => 'Date'

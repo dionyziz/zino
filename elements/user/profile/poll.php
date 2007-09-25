@@ -14,7 +14,7 @@
             return;
         }
 
-        $polls = Poll_GetByUser( $theuser );
+        $polls = Poll_GetByUser( $theuser, 1 );
 
         if ( !count( $polls ) ) {
             Element( 'poll/new', $theuser );
