@@ -166,7 +166,7 @@
         private     $mTextOptions;
         private     $mHasVoted;
 
-        public function UserShouldHadVoted( $userid ) {
+        public function UserShouldHadVoted( $user ) {
             // this is a tricky one :P
 
             // the sql query had joined the votes table
