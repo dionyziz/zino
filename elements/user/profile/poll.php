@@ -22,7 +22,7 @@
             return;
         }
 
-        Element( 'poll/view', $polls[ 0 ], $theuser );
+        Element( 'poll/box', $polls[ 0 ], $theuser );
     }
 
 ?>

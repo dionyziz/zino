@@ -1,8 +1,12 @@
 <?php
 
-    function ElementPollView( $poll, $theuser ) {
+    function ElementPollBox( $poll, $theuser = false ) {
         global $xc_settings;
         global $user;
+
+        if ( $theuser == false ) {
+            $theuser = $poll->User;
+        }
 
         $hasvoted = $poll->UserHasVoted( $user );
         

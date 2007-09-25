@@ -84,7 +84,8 @@
 			"frel"	            => "relations/list",
 			"userbans"			=> "user/ban/list",
             'test'              => 'test',
-            'jslint'            => 'developer/js/lint'
+            'jslint'            => 'developer/js/lint',
+            'poll'              => 'poll/view'
     	);
     }
 ?>

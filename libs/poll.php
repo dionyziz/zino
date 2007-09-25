@@ -253,6 +253,13 @@
 
             return $this->mOptions;
         }
+        public function GetUser() {
+            if ( $this->mUser === false ) {
+                $this->mUser = new User( $this->UserId );
+            }
+
+            return $this->mUser;
+        }
         public function SetTextOptions( $options ) {
             w_assert( is_array( $options ) );
 
@@ -306,12 +313,14 @@
             $this->Satori( $construct );
             
             $this->mOptions     = false;
+            $this->mUser        = false;
             $this->mHasVoted    = array();
 
             if ( isset( $construct[ 'vote_userid' ] ) && isset( $construct[ 'vote_pollid' ] ) && $construct[ 'vote_pollid' ] == $this->Id ) {
                 $this->mHasVoted[ $construct[ 'vote_userid' ] ] = true;
                 $water->Trace( "The user " . $construct[ 'vote_userid' ] . " has voted on the poll " . $this->Id );
             }
+
         }
     }
 

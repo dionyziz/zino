@@ -17,7 +17,7 @@
         $poll->Vote( $user->Id(), $optionid );
         
         ob_start();
-        Element( 'poll/view', $poll, new User( $poll->UserId ) );
+        Element( 'poll/box', $poll, new User( $poll->UserId ) );
         $html = ob_get_clean();
 
         echo $callback;

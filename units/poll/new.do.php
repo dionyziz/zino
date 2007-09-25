@@ -17,7 +17,7 @@
         $poll->Save();
 
         ob_start();
-        Element( 'poll/view', $poll, $user );
+        Element( 'poll/box', $poll, $user );
         $html = ob_get_clean();
 
         echo $callback;
