@@ -10,11 +10,10 @@
                     *
                 FROM
                     `$polls` LEFT JOIN `$votes`
-                        ON `poll_id` = `vote_pollid`
+                        ON `poll_id` = `vote_pollid` AND `vote_userid` = '" . $user->Id() . "'
                 WHERE
                     `poll_userid` = '" . $theuser->Id() . "' AND
-                    `poll_delid` = '0' AND
-                    `vote_userid` = '" . $user->Id() . "'
+                    `poll_delid` = '0'
                 ";
         
         if ( $limit > 0 ) {
