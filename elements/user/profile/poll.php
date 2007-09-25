@@ -7,7 +7,7 @@
         global $water;
 
         $libs->Load( 'poll' );
-        $page->AttachStylesheet( 'css/poll.css' );
+        $page->AttachStylesheet( 'css/pollbox.css' );
         $page->AttachScript( 'js/poll.js' );
 
         if ( $user->IsAnonymous() ) {
