@@ -11,7 +11,7 @@
 
         $poll = new Poll( $id->Get() );
 
-        Element( "poll/box" );
+        Element( "poll/box", $poll );
     }
 
 ?>
