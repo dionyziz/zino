@@ -26,6 +26,8 @@
         while ( $row = $res->FetchArray() ) {
             $poll = new Poll( $row );
             $poll->UserShouldHadVoted( $user );
+
+            $ret[] = $poll;
         }
 
         return $ret;
