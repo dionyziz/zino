@@ -1,3 +1,62 @@
+div.pollbox a {
+    cursor: pointer;
+}
+div.pollbox h4 {
+    margin: 0;
+    padding: 3px 5px 3px 5px;
+    text-align: center;
+    width: 396px;
+    background-color: #dedede;
+    border-top: 1px solid #c0c0c0;
+    border-left: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    font-weight: bold;
+    font-size: 94%;
+    color: #333;
+}
+div.pollbox h4 a img {
+    width: 12px;
+    height: 12px;
+}
+div.pollbox ul {
+    background-color: white;
+    width: 400px;
+    border: 1px solid #cecece;
+    padding: 3px;
+	margin: 0 0 10px 0;
+}
+div.pollbox ul li {
+    clear: both;
+    display: inline;
+	padding: 0;
+	margin: 0;
+}
+div.pollbox ul li dl {
+	margin: 0;
+	padding: 0;
+}
+div.pollbox ul li dl.l {
+    background-color: #ececec;
+}
+div.pollbox ul li dl dt {
+    font-weight: normal;
+    float: left;
+    width: 100px;
+    display: inline;
+    clear: left;
+    padding-right: 10px;
+    color: midnightblue;
+}
+div.pollbox ul li dl dd {
+    display: inline;
+    padding-left: 0;
+    margin-left: 20px;
+}
+div.pollbox ul li dl dt div.optiontoolbox {
+    display: inline;
+    margin-left: 3px;
+    padding: 1px;
+}
 div.pollview ul li dl {
     display: block;
     height: 100%;
@@ -54,20 +113,8 @@ div.pollresults ul li dl div.polloption {
     background-color: #999;
     margin-left: 190px;
 }
-div ul li dl dt div.optiontoolbox {
-    display: inline;
-    margin-left: 3px;
-    padding: 1px;
-}
 div.pollresults ul li dl div.pollanswer {
     height: 100%;
     border-right: 1px solid #aaa;
     background-color: #dedede;
-}
-div.pollresults a, div.pollview a, div.pollnew a {
-    cursor: pointer;
-}
-div.profile div.leftbar div h4 a img {
-    width: 12px;
-    height: 12px;
 }

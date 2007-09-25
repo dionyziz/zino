@@ -15,12 +15,12 @@
 
             ?><div id="userpoll_<?php
             echo $poll->Id;
-            ?>" class="pollview"><?php
+            ?>" class="pollbox pollview"><?php
         }
         else {
             // results div
 
-            ?><div class="pollresults" id="userpoll_<?php
+            ?><div class="pollbox pollresults" id="userpoll_<?php
             echo $poll->Id;
             ?>"><?php
         }
