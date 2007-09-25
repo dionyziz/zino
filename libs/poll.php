@@ -106,16 +106,10 @@
     class PollVote extends Satori {
         protected $mId;
         protected $mUserId;
-        protected $mOptionId; // not in the db!
+        protected $mOptionId;
         protected $mPollId;
         protected $mDate;
 
-        public function GetOptionId() {
-            return $this->mOptionId;
-        }
-        public function SetOptionId( $value ) {
-            $this->mOptionId = $value;
-        }
         public function LoadDefaults() {
             $this->Date = NowDate();
         }
@@ -147,6 +141,7 @@
             $this->SetFields( array(
                 'vote_userid'   => 'UserId',
                 'vote_pollid' => 'PollId',
+                'vote_optionid' => 'OptionId',
                 'vote_date'     => 'Date'
             ) );
 
