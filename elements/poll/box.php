@@ -4,7 +4,7 @@
         global $xc_settings;
         global $user;
 
-        if ( $theuser == false ) {
+        if ( $theuser === false ) {
             $theuser = $poll->User;
         }
 

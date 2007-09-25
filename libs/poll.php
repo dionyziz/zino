@@ -160,6 +160,7 @@
         protected   $mDelId;
         protected   $mNumVotes;
         private     $mOptions;
+        private     $mUser;
         private     $mTextOptions;
         private     $mHasVoted;
 
