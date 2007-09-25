@@ -42,6 +42,8 @@
         $db->Query( $sql );
 
         echo "Updated poll with userid = '" . $row[ 'vote_userid' ] . "' AND pollid = '" . $row[ 'optionid' ];
+
+        ob_flush();
     }
 
     Rabbit_Destruct();

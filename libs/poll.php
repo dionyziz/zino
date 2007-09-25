@@ -1,15 +1,17 @@
 <?php
     
-    function Poll_GetByUser( $user, $limit = 0 ) {
+    function Poll_GetByUser( $theuser, $limit = 0 ) {
         global $polls;
+        global $votes; // for finding if the current user has voted or not
         global $db;
 
         $sql = "SELECT
                     *
                 FROM
-                    `$polls`
+                    `$polls` LEFT JOIN `$votes`
+                        ON `poll_id` = `vote_pollid`
                 WHERE
-                    `poll_userid` = '" . $user->Id() . "' AND
+                    `poll_userid` = '" . $theuser->Id() . "' AND
                     `poll_delid` = '0'
                 ";
         
@@ -170,12 +172,10 @@
                 $sql = "SELECT
                             *
                         FROM
-                            `$polloptions` RIGHT JOIN `$votes`
-                                ON `polloption_id` = `vote_optionid`
+                            `$votes`
                         WHERE
-                            `polloption_pollid` = '" . $this->Id . "' AND
-                            `polloption_delid`  = '0' AND
-                            `vote_userid`       = '" . $user->Id() . "'
+                            `vote_userid`       = '" . $user->Id() . "' AND
+                            `vote_pollid`       = '" . $this->Id . "'
                         LIMIT 1;";
                 
                 $this->mHasVoted[ $user->Id() ] = $this->mDb->Query( $sql )->Results();
@@ -271,6 +271,7 @@
         public function Poll( $construct = false ) {
             global $db;
             global $polls;
+            global $water;
 
             $this->mDb      = $db;
             $this->mDbTable = $polls;
@@ -289,6 +290,11 @@
             
             $this->mOptions     = false;
             $this->mHasVoted    = array();
+
+            if ( isset( $construct[ 'vote_userid' ] ) && isset( $construct[ 'vote_pollid' ] ) && $construct[ 'vote_pollid' ] == $this->Id ) {
+                $this->mHasVoted[ $construct[ 'vote_userid' ] ] = true;
+                $water->Trace( "The user " . $construct[ 'vote_userid' ] . " has voted on the poll " . $this->Id );
+            }
         }
     }
 
