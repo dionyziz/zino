@@ -272,7 +272,7 @@
         public function Title() { // for comments
             return $this->mQuestion;
         }
-        public function Comment_Added() {
+        public function CommentAdded() {
             return true;
         }
         public function Delete() {
