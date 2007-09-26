@@ -1,6 +1,6 @@
 <?php
 
-    function ElementPollView( tInteger $id ) {
+    function ElementPollView( tInteger $id, tBoolean $oldcomments ) {
         global $libs;
         global $page;
 
@@ -26,7 +26,7 @@
             $search->SetFilter( 'page', $poll->Id ); //show all comments of an article 
             $search->SetFilter( 'delid', 0 ); // do not show deleted comments
             $search->SetSortMethod( 'date', 'DESC' ); //sort by date, newest shown first
-            if ( $oldcomments ) {
+            if ( $oldcomments->Get() ) {
                 $search->SetLimit( 10000 );
             }
             else {

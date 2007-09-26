@@ -272,6 +272,9 @@
         public function Title() { // for comments
             return $this->mQuestion;
         }
+        public function Comment_Added() {
+            return true;
+        }
         public function Delete() {
             $this->DelId = 1;
 
