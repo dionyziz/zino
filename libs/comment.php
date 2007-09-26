@@ -66,6 +66,9 @@
 					case 2:
 						$this->mPage = New Image( $this->PageId() );
 						break;
+                    case 3:
+                        $this->mPage = New Poll( $this->PageId() );
+                        break;
 				}
 				return $this->mPage;
 			}
@@ -408,6 +411,12 @@
                 $photo = New Image( $compage );
                 if ( !$photo->AlbumId() ) {
                     die( 'Photo not in album or does not exist' );
+                }
+                break;
+            case 3: // poll
+                $poll = New Poll( $compage );
+                if ( !$poll->Exists() ) {
+                    die( 'Invalid poll' );
                 }
                 break;
 		}
