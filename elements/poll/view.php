@@ -5,6 +5,7 @@
         global $page;
 
         $libs->Load( 'poll' );
+        $libs->Load( 'comment' );
 
         $page->AttachStylesheet( 'css/poll.css' );
         $page->AttachStylesheet( 'css/pollbox.css' ); 
