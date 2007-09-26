@@ -275,6 +275,9 @@
         public function CommentAdded() {
             return true;
         }
+        public function CommentKilled() {
+            return true;
+        }
         public function Delete() {
             $this->DelId = 1;
 
