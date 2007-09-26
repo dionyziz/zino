@@ -214,7 +214,7 @@ var Comments = {
 		
 		if ( parent === 0 ) { // New Comment
 			g( 'comment_new' ).getElementsByTagName( 'textarea' )[0].value='';
-			if ( type != 0 ) {
+			if ( type != 0 && type != 3 ) {
 				comments.insertBefore( temp.firstChild, comments.childNodes[1] );
 			}
 			else {
