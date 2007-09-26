@@ -266,6 +266,12 @@
 
             $this->mTextOptions = $options;
         }
+        public function Id() { // for comments
+            return $this->mId;
+        }
+        public function Title() { // for comments
+            return $this->mQuestion;
+        }
         public function Delete() {
             $this->DelId = 1;
 
