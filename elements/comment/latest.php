@@ -76,6 +76,13 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
+                            case 3:
+								?>ην δημοσκόπηση <a href="?p=poll&amp;id=<?php
+								echo $comment->Page()->Id();
+								?>#comment_<?php
+								echo $comment->Id();
+								?>"><?php
+								break;
 						}
 						
 						echo htmlspecialchars( $comment->Page()->Title() );
