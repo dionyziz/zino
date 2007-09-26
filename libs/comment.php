@@ -5,6 +5,7 @@
 	$libs->Load( 'article' );
 	$libs->Load( 'image/image' );
 	$libs->Load( 'search' );
+    $libs->Load( 'poll' );
 	
 	function Comment_FormatSearchMulti( &$comments, $searchterm ) {
 		$texts = array();
