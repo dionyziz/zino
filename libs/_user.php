@@ -121,9 +121,8 @@
 		$s_password = $password;
 		$password = addslashes( $password );
 		$email = addslashes( $email );
-		$nowdate = NowDate();
 		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , '$nowdate' , '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
+							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
 		$db->Query( $sql );
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
