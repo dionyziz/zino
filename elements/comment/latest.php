@@ -148,6 +148,10 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
+                            // case 3: ....
+                            default:
+                                ?><a>(error)<?php
+                                $water->Warning( 'Invalid comment typeid' );
 						}
 						
 						echo htmlspecialchars( $comment->Page()->Title() );
