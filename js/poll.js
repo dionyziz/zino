@@ -429,7 +429,7 @@ var Poll = {
         var ul = oldli.parentNode;
         ul.removeChild( oldli );
 
-        commentli = ul.removeChild( commentli );
+        var ncommentli = ul.removeChild( commentli );
 
         ul.innerHTML += html;
 

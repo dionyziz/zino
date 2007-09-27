@@ -59,7 +59,9 @@
                     Element( "poll/option/view", $option, $poll, $theuser );
                 }
 
-                ?><li style="float: right;"><a href="?p=poll&amp;id=<?php
+                ?><li style="float: right;" id="pollcommentslink_<?php
+                echo $poll->Id;
+                ?>"><a href="?p=poll&amp;id=<?php
                 echo $poll->Id;
                 ?>"><?php
                 echo $poll->NumComments
