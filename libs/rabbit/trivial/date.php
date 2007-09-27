@@ -201,11 +201,11 @@
 	}
 	
 	function NowDate() {
-		return gmdate("Y-m-d H:i:s", time() );
+		return date("Y-m-d H:i:s", time() );
 	}
 	
 	function NowSolDate() {
-		return gmdate("Y-m-d", time() );
+		return date("Y-m-d", time() );
 	}
 	
     // TODO: make it non-greek-specific
@@ -246,7 +246,7 @@
 					$Year , $Month , $Day ,
 					$Hour , $Minute , $Second );
 		
-		$dateTimestamp = gmmktime( $Hour , $Minute , $Second ,
+		$dateTimestamp = mktime( $Hour , $Minute , $Second ,
 								   $Month , $Day , $Year );
 		
 		$dateDay = date( "d" , $dateTimestamp );
