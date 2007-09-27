@@ -30,6 +30,9 @@
     		case 3:
     			// existing e-mail
                 return Redirect( "?p=register&emailexists=yes&u=$username" );
+            case 5:
+    			// spambot (too many registrations from the same IP during the last couple minutes)
+                return Redirect( "?p=register&screwyou=yes&u=$username" );
     		default:
     			w_die( "MakeUser() return value is invalid." ) ; //Throws an exception
     	}
