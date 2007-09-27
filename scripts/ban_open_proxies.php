@@ -1983,7 +1983,7 @@ foreach ($proxies as $proxydata) {
                 $proxy = explode(':', $proxy);
                 $proxy = trim($proxy[0]);
                 echo "Banning $proxy.<br />";
-                $sql = "INSERT INTO 
+                $sql = "INSERT IGNORE INTO 
                             `merlin_ipban`
                         (`ipban_ip`, `ipban_date`, `ipban_expiredate`, `ipban_sysopid`, `ipban_reason`) VALUES
                         ('$proxy'  , NOW()       , NOW() + INTERVAL 2 YEAR, 1         , 'Known open proxy');";
