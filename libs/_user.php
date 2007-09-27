@@ -304,7 +304,7 @@
                             `user_name`,
                             `user_password`,
                             `user_created`,
-                            `user_created` - INTERVAL 2 HOUR AS `user_cutedate`,
+                            ( `user_created` - INTERVAL 2 HOUR ) AS user_cutedate,
                             `user_registerhost`,
                             `user_lastlogon`,
                             `user_rights`,
