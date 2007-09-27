@@ -61,7 +61,7 @@
 
                 ?><li style="float: right;"><a href="?p=poll&amp;id=<?php
                 echo $poll->Id;
-                ?>><?php
+                ?>"><?php
                 echo $poll->NumComments
                 ?> σχόλι<?php
                 if ( $poll->NumComments == 1 ) {
