@@ -76,7 +76,6 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            /* 
                             case 3:
                                 // please fix YSoD
 								?>ην δημοσκόπηση <a href="?p=poll&amp;id=<?php
@@ -85,7 +84,6 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            */
                             default:
                                 ?><a>(error)<?php
                                 $water->Warning( 'Invalid comment typeid' );
