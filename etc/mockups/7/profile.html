@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
+    <head>
+        <title>dionyziz / Chit-Chat</title>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+            }
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 83%;
+                margin: 0;
+            }
+            a img {
+                border: 0;
+            }
+            a.rss {
+                opacity: 0.7;
+            }
+            a.rss:hover {
+                opacity: 1;
+            }
+            div.header {
+                position: relative;
+                background-image: url('images/roxasbg2.jpg');
+                background-repeat: repeat-x;
+                height: 50px;
+                margin: 0 30px 0 30px;
+            }
+            div.header a {
+                color: white;
+            }
+            div.header h1 {
+                display: inline;
+                color: white;
+                font-size: 180%;
+                font-weight: normal;
+                margin: 0;
+                padding: 0;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-image: url('images/banner-begin.jpg');
+                background-position: 0 0;
+                background-repeat: no-repeat;
+            }
+            div.header h1 img {
+                margin: 5px 0 0 5px;
+            }
+            div.header ul {
+                display: block;
+                padding: 10px;
+                margin: 0;
+                text-align: center;
+            }
+            div.header ul li {
+                padding: 1px;
+                margin: 0;
+                display: inline;
+                color: white;
+            }
+            div.header ul li a.messages {
+                background-image: url('images/mail_generic.png');
+            }
+            div.header ul li a.profile {
+                background-image: url('images/identity.png');
+            }
+            div.header ul li a.icon {
+                background-repeat: no-repeat;
+                background-position: left;
+                padding-left: 20px;
+            }
+            div.header ul li a.self {
+                padding-left: 30px;
+            }
+            div.header div.search {
+                position: absolute;
+                right: 0;
+                top: 30px;
+                color: white;
+                margin: 0;
+                padding: 0 0 0 10px;
+                background-image: url('images/searchbg.png');
+                background-repeat: no-repeat;
+                background-position: top left;
+                width: 174px;
+                height: 46px;
+                z-index: 1;
+            }
+            div.header div.search input {
+                border: 1px solid #999;
+            }
+            div.header div.search input.text {
+                color: #ccc;
+                margin: 6px 16px 10px 22px;
+                width: 137px;
+                padding: 2px;
+            }
+            div.header div.search input.submit {
+                display: none;
+            }
+            div.header a.logout {
+                position: absolute;
+                right: 8px;
+                top: 6px;
+            }
+            div.header a {
+                font-weight: bold;
+            }
+            div.header a:hover {
+                text-decoration: underline;
+            }
+            div.header a img {
+                vertical-align: text-top;
+            }
+            div.header a.logout {
+                background-image: url('http://static.chit-chat.gr/images/icons/arrow_right.gif');
+                background-repeat: no-repeat;
+                background-position: right;
+                padding-right: 20px;
+            }
+            div.content {
+                padding: 0 30px 0 30px;
+            }
+            div.profilesidebar {
+                background-color: white;
+                background-image: url('images/sidebarbg.jpg');
+                background-repeat: repeat-y;
+                background-position: right;
+                float: left;
+                position: relative;
+                width: 300px;
+                padding: 14px 0 4px 0;
+            }
+            div.profilesidebar div.eof {
+                float: right;
+                position: relative;
+                top: 14px;
+                background-image: url('images/sidebarend.jpg');
+                width: 41px;
+                height: 51px;
+            }
+            div.profilesidebar div.social {
+                padding: 4px;
+                clear: both;
+            }
+            div.profilesidebar div.social dl dt {
+                float: left;
+                width: 100px;
+            }
+            div.profilesidebar div.glaze {
+                padding: 4px;
+                margin-bottom: 20px;
+            }
+            div.profilesidebar div.glaze dl dt {
+                display: block;
+                float: left;
+                width: 100px;
+            }
+            div.profilesidebar div.glaze dl dd {
+                display: block;
+                text-align: center;
+            }
+            div.profilesidebar div.glaze a img {
+                float: left;
+                margin: 3px 6px 20px 3px;
+                border: 1px solid #666;
+            }
+            div.profilesidebar div.glaze a span.name {
+                font-size: 120%;
+                display: block;
+                font-weight: bold;
+            }
+            div.profilesidebar div.contact {
+                padding: 4px;
+            }
+            div.profilesidebar div.contact dt {
+                float: left;
+                height: 18px;
+            }
+            div.profilesidebar div.contact dd {
+                height: 18px;
+                margin: 4px 4px 4px 20px;
+            }
+            div.profilesidebar div.me {
+                clear: both;
+                padding: 10px;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                background-color: white;
+            }
+            div.profilesidebar div.me ul li.dot {
+                color: #999;
+                font-size: 100%;
+            }
+            div.profilesidebar div.me img {
+                float: left;
+            }
+            div.profilesidebar div.me ul {
+                margin: 0 0 0 30px;
+                padding: 0;
+                list-style: none;
+            }
+            div.profilesidebar div.me ul li {
+                font-weight: bold;
+                padding: 1px;
+                display: inline;
+            }
+            div.profilesidebar div.questions dt {
+                color: #666;
+                font-size: 90%;
+                border-top: 1px dotted #ddd;
+            }
+            div.profilesidebar div.questions dd {
+                margin: 0;
+                padding: 5px 5px 5px 10px;
+            }
+            div.profilesidebar div.questions a.more {
+                float: right;
+                padding: 5px;
+                margin: 5px;
+                background-color: white;
+                border: 1px solid #ccc;
+            }
+            div.profilesidebar div.notice {
+                margin: 10px 0 20px 0;
+                text-align: left;
+            }
+            div.profilesidebar div.notice span.online {
+                background-image: url('images/bullet_green.png');
+                background-repeat: no-repeat;
+                background-position: left;
+                padding-left: 20px;
+            }
+            div.profilesidebar div.notice span.online a {
+                background-image: url('images/comment.png');
+                background-repeat: no-repeat;
+                background-position: left;
+                padding-left: 20px;
+            }
+            div.profile div.ribbon {
+                padding: 2px;
+                float: left;
+                width: 100%;
+                height: 95px;
+                margin-bottom: 30px;
+            }
+            div.profile div.ribbon div.section {
+                display: block;
+                height: 75px;
+                width: 30%;
+                float: left;
+                padding: 5px 30px 2px 30px;
+                border-left: 1px dotted #ccc;
+                background-image: url( 'images/photosbg.jpg' );
+                background-repeat: repeat-x;
+                background-position: top;
+                overflow: hidden;
+                position: relative;
+            }
+            div.profile div.ribbon div.firstsection {
+                border-left: none;
+            }
+            div.profile div.ribbon div.section i.tl {
+                background-image: url('images/photostl.jpg');
+                background-position: top left;
+                background-repeat: no-repeat;
+                width: 11px;
+                height: 16px;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            div.profile div.ribbon div.section i.tr {
+                background-image: url('images/photostr.jpg');
+                background-position: top right;
+                background-repeat: no-repeat;
+                width: 11px;
+                height: 16px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            div.profile div.ribbon div.section div.imagestream {
+                height: 50px;
+                overflow: hidden;
+            }
+            div.profile div.ribbon div.section label {
+                display: block;
+            }
+            div.profile div.ribbon div.section img {
+                width: 50px;
+                height: 50px;
+            }
+            div.profile div.ribbon div.section a.more {
+                display: block;
+                width: 100%;
+                border: none;
+                text-align: center;
+                padding: 5px;
+                margin: 0;
+                background-color: none;
+            }
+            div.profile div.poll {
+                float: right;
+                border: 1px solid #ccc;
+                background-color: white;
+                padding: 10px;
+                position: relative;
+                display: none;
+            }
+            div.profile div.poll h4 {
+                font-size: 100%;
+                margin: 10px 5px 0 5px;
+            }
+            div.profile div.poll div.option {
+                padding: 5px 0 20px 0;
+                border-bottom: 1px dotted #ccc;
+            }
+            div.profile div.poll div.option div {
+                height: 12px;
+                background-image: url('images/progress.jpg');
+                background-repeat: repeat-x;
+                background-position: top;
+                float: left;
+                position: relative;
+            }
+            div.profile div.poll div.option div i.tl {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-image: url('images/progressl.jpg');
+                background-repeat: no-repeat;
+                background-position: top left;
+                width: 7px;
+                height: 12px;
+            }
+            div.profile div.poll div.option div i.tr {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-image: url('images/progressr.jpg');
+                background-repeat: no-repeat;
+                background-position: top right;
+                width: 7px;
+                height: 12px;
+            }
+            div.profile div.poll div.option label {
+                height: 20px;
+                clear: left;
+                display: block;
+            }
+            div.profile div.poll a.numcomments {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            div.profile div.recentevents {
+                width: 500px;
+                margin: 0 0 20px 3px;
+            }
+            div.profile div.recentevents h3 {
+                margin: 0 0 10px 0;
+                font-size: 100%;
+            }
+            div.profile div.recentevents ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border-top: 1px dotted #ccc;
+            }
+            div.profile div.recentevents ul li {
+                border-bottom: 1px dotted #ccc;
+                border-left: 4px solid #eee;
+                border-right: 1px solid #ccc;
+                padding: 5px;
+                width: 468px;
+            }
+            div.profile div.recentevents ul li.action {
+                padding-left: 22px;
+                background-repeat: no-repeat;
+                background-position: 2px 5px;
+            }
+            div.profile div.recentevents ul li.user {
+                background-image: url('images/user.png');
+            }
+            div.profile div.recentevents ul li.comment {
+                background-image: url('images/comment.png');
+            }
+            div.profile div.recentevents ul li.photo {
+                background-image: url('images/photo.png');
+            }
+            div.profile div.recentevents ul li.friend {
+                background-image: url('images/group.png');
+            }
+            div.profile div.recentevents ul li.more {
+                background-color: #eaf0f5;
+                padding-left: 0;
+                width: inherit;
+            }
+            div.profile div.recentevents ul li.more a.rss {
+                float: right;
+            }
+            div.profile div.recentevents ul li.more a.more {
+                border: none;
+                background-image: none;
+                display: block;
+                margin: 0;
+                padding: 0 0 0 22px;
+                border-left-color: #ccc;
+                background-position: 0 -5px;
+                background-repeat: no-repeat;
+            }
+            div.profile div.ribbon label {
+                display: block;
+                padding: 2px;
+            }
+            div.profile {
+                margin-left: 310px;
+            }
+            div.footer {
+                width: 100%;
+                margin-top: 10px;
+                padding: 5px 0 20px 0;
+                background-color: white;
+                background-image: url('images/copybg.jpg');
+                background-repeat: repeat-x;
+                background-position: top;
+            }
+            div.footer div.copy {
+                width: 100%;
+                color: #aaa;
+                font-size: 80%;
+                text-align: center;
+                margin-top: 15px;
+            }
+            div.footer div.copy a {
+                color: #999;
+                text-decoration: none;
+            }
+            div.footer div.copy a:hover {
+                color: #666;
+                text-decoration: underline;
+            }
+            div.footer ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                text-align: center;
+            }
+            div.footer ul li {
+                display: inline;
+                padding: 0;
+                margin: 0;
+            }
+            div.footer ul li a {
+                text-decoration: none;
+                color: #666;
+                font-size: 80%;
+                margin: 5px;
+            }
+            div.footer ul li a:hover {
+                color: #333;
+                text-decoration: underline;
+            }
+            div.comments {
+                float: left;
+                width: 90%;
+                overflow: hidden;
+            }
+            div.comments div.comment {
+                float: left;
+                clear: both;
+                margin: 5px 0 5px 0;
+                padding: 0 3px 3px 3px;
+                background-repeat: repeat-x;
+                background-position: top;
+                background-color: white;
+                width: 100%;
+            }
+            div.comments div.comment div.who {
+                border-top: 1px solid #ccc !important;
+                display: block;
+                padding: 2px 0 2px 4px;
+                background-color: #f4f4f4;
+                background-repeat: no-repeat;
+                background-position: top right;
+                color: #666;
+            }
+            div.comments div.comment div.toolbox {
+                float: right;
+                padding: 2px 6px 2px 2px;
+            }
+            div.comments div.comment div.toolbox span.time {
+                color: #999;
+                font-size: 80%;
+            }
+            div.comments div.comment div.toolbox img {
+                vertical-align: text-bottom;
+            }
+            div.comments div.comment div.who img.avatar {
+                float: left;
+                width: 50px;
+                height: 50px;
+                border: 1px solid #666;
+                margin: 0 4px 0 0;
+            }
+            div.comments div.comment div.bottom {
+                clear: both;
+                font-size: 80%;
+                color: #999;
+                margin: 4px 4px 4px 60px;
+            }
+            div.comments div.comment div.text {
+                margin: 4px 0 0 60px;
+                padding: 0;
+            }
+            div.comments div.oldcomment div.who {
+                background-color: #eaf0f5;
+            }
+            div.comments div.oldcomment div.who a {
+                background-image: url('images/1downarrow.png');
+                background-repeat: no-repeat;
+                background-position: -4px -5px;
+                padding: 1px 1px 1px 18px;
+                font-size: 90%;
+                display: block;
+            }
+            div.comments div.newcomment {
+                margin: 6px 0 6px 3px;
+            }
+            div.comments div.newcomment div.who {
+                padding-left: 2px;
+                padding-top: 4px;
+            }
+            div.comments div.newcomment div.toolbox span.time {
+                margin-right: 2px;
+            }
+            div.comments div.newcomment, div.comments div.newcomment div.who {
+                background-color: #e7f3d9;
+            }
+            div.comments div.newcomment div.text textarea {
+                color: black;
+                width: 90%;
+            }
+            div.comments div.newcomment div.bottom input {
+                font-size: 90%;
+            }
+            div.eof {
+                clear: both;
+            }
+            a {
+                color: #105cb6;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #000033;
+            }
+            a.more {
+                padding: 5px;
+                margin: 5px;
+                background-repeat: repeat-x;
+                background-position: top;
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>
+                <a href="http://www.chit-chat.gr/" onclick="return false">
+                    <img src="images/logo.png" alt="Chit-Chat" />
+                </a>
+            </h1>
+            <ul>
+                <li><a href="user/dionyziz" class="self icon" style="background-image: url('images/avatars/dionyziz.25.jpg')" onclick="return false">dionyziz</a></li>
+                <li class="dot">·</li>
+                <li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
+                <li class="dot">·</li>
+                <li><a href="profile" class="profile icon" onclick="return false">Προφίλ</a></li>
+            </ul>
+            <a href="logout" class="logout" onclick="return false">Έξοδος</a>
+            <div class="search">
+                <form action="" method="get">
+                    <input type="text" class="text" value="αναζήτησε φίλους" />
+                    <input type="submit" class="submit" value="ψάξε" />
+                </form>
+            </div>
+        </div>
+        <div class="content">
+            <div class="profilesidebar">
+                <div class="glaze">
+                    <a><img src="images/avatars/dionyziz.200.jpg" style="width:150px;height:150px" /><span class="name">dionyziz</span></a>
+                    <span class="subtitle">cold chocolate is superior to ice tea</span>
+                    <div>
+                        <dl>
+                            <dt>Ηλικία:</dt>
+                                <dd>19</dd>
+                            <dt>Χρώμα μαλλιών:</dt>
+                                <dd><img src="images/hair-brown.png" alt="brown" /></dd>
+                            <dt>Χρώμα ματιών:</dt>
+                                <dd><img src="images/eyes-brown.png" alt="brown" /></dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="me">
+                    <img src="images/body-male-slim-short.jpg" />
+                    <ul>
+                        <li>Αγόρι</li>
+                        <li class="dot">·</li>
+                        <li>65kg</li>
+                        <li class="dot">·</li>
+                        <li>1.72m</li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <dl>
+                        <dt>καπνίζεις;</dt>
+                            <dd>όχι</dd>
+                        <dt>πίνεις;</dt>
+                            <dd>με παρέα</dd>
+                    </dl>
+                </div>
+                <div class="contact">
+                    <dl>
+                        <dt><img src="images/skype.jpg" alt="skype" /></dt>
+                            <dd>dionyziz</dd>
+                        <dt><img src="images/msn.jpg" alt="msn" /></dt>
+                            <dd>dionyziz@hotmail.com</dd>
+                        <dt><img src="images/yahoo.jpg" alt="yahoo" /></dt>
+                            <dd>dionyziz</dd>
+                    </dl>
+                </div>
+                <div class="notice">
+                    <span class="online">
+                        ο dionyziz είναι online τώρα. <a href="" onclick="return false;">κάνε chat!</a>
+                    </span>
+                </div>
+                <div class="questions">
+                    <dl>
+                        <dt>μία απαίσια θεία σε καλεί για τσάι. τι κάνεις;</dt>
+                            <dd>πάω και της την πέφτω!!!</dd>
+                        <dt>έχεις ταξιδέψει ποτέ με αερόστατο;</dt>
+                            <dd>ναι, μία φορά στο Μόναχο</dd>
+                        <dt>ξέρεις να πλέκεις;</dt>
+                            <dd>μου έχει δείξει κάτι βασικά ο izual...</dd>
+                        <dt>σου αρέσουν τα ελεφαντάκια;</dt>
+                            <dd>δεν ξέρω, μικρός είχα δει ένα στο τσίρκο!</dd>
+                    </dl>
+                    <a href="" class="more">περισσότερα &raquo;</a>
+                </div>
+                <div class="eof"></div>
+            </div>
+            <div class="profile">
+                <div class="ribbon">
+                    <div class="selfpictures section firstsection">
+                        <i class="tl"></i>
+                        <label><a href="" onclick="return false;" class="more">81 φωτογραφίες &raquo;</a></label>
+                        <div class="imagestream">
+                            <a href=""><img src="images/avatars/dionyzizb.jpg" alt="dionyziz" /></a>
+                            <a href=""><img src="images/avatars/dionyzizc.jpg" alt="dionyziz" /></a>
+                            <a href=""><img src="images/avatars/dionyzizd.jpg" alt="dionyziz" /></a>
+                            <a href=""><img src="images/avatars/dionyzize.jpg" alt="dionyziz" /></a>
+                            <a href=""><img src="images/avatars/dionyzizf.jpg" alt="dionyziz" /></a>
+                        </div>
+                    </div>
+                    <div class="friends section">
+                        <i class="tr"></i>
+                        <label><a href="" onclick="return false;" class="more">32 φίλοι &raquo;</a></label>
+                        <div class="imagestream">
+                            <a href="user/titi"><img src="images/avatars/titi.jpg" alt="titi" /></a>
+                            <a href="user/izual"><img src="images/avatars/izual.jpg" alt="izual" /></a>
+                            <a href="user/gatoni"><img src="images/avatars/gatoni.jpg" alt="gatoni" /></a>
+                            <a href="user/kostis90gr"><img src="images/avatars/kostis90gr.jpg" alt="kostis90gr" /></a>
+                            <a href="user/rhapsody"><img src="images/avatars/rhapsody.jpg" alt="rhapsody" /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="poll">
+                    <a class="numcomments">26 σχόλια</a>
+                    <h4>Πόσο συχνά βαράς μαλακία;</h4>
+                    <div class="option">
+                        <label>ποτέ</label>
+                        <div class="pb"><i class="tl"></i><i class="tr"></i></div>
+                    </div>
+                    <div class="option">
+                        <label>τι είναι αυτό;</label>
+                        <div class="pb"><i class="tl"></i><i class="tr"></i></div>
+                    </div>
+                    <div class="option">
+                        <label>μία φορά το μήνα</label>
+                        <div class="pb"><i class="tl"></i><i class="tr"></i></div>
+                    </div>
+                    <div class="option">
+                        <label>μία φορά την εβδομάδα</label>
+                        <div class="pb"><i class="tl"></i><i class="tr"></i></div>
+                    </div>
+                    <div class="option">
+                        <label>κάθε μέρα</label>
+                        <div class="pb"><i class="tl"></i><i class="tr"></i></div>
+                    </div>
+                    <a class="more">περισσότερες ψηφοφορίες</a>
+                </div>
+                <div class="recentevents">
+                    <h3>Πρόσφατα...</h3>
+                    
+                    <ul>
+                        <li class="user action">ο <a href="user/izual">izual</a> επισκεύθηκε το προφίλ του</li>
+                        <li class="comment action">σχολίασε την <a href="user/skater">skater</a></li>
+                        <li class="photo action">ανέβασε την φωτογραφία <a href="">εγώ το 2005</a></li>
+                        <li class="user action">ο <a href="">finlandos</a> επισκεύθηκε το προφίλ του</li>
+                        <li class="friend action">ο <a href="">kostis90gr</a> τον πρόσθεσε στους φίλους</li>
+                        <li class="friend action">πρόσθεσε την <a href="user/titi">titi</a> στους φίλους (αδέρφια)</li>
+                        <li class="comment action">σχολίασε την φωτογραφία του <a href="user/smilemagic">SmilEMagiC</a> <a href="">το μποξεράκι μου</a></li>
+                        <li class="more">
+                            <a href="" onclick="return false" class="rss">
+                                <img src="images/feed.png" alt="rss" title="RSS Feed" class="rss" />    
+                            </a>
+                            <a href="" class="more">παλιότερα συμβάντα</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comments">
+                    <div class="comment newcomment">
+                        <div class="toolbox">
+                            <span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/dionyziz">
+                                <img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+                                dionyziz
+                            </a>πρόσθεσε ένα σχόλιο στο προφίλ σου
+                        </div>
+                        <div class="text">
+                            <textarea></textarea>
+                        </div>
+                        <div class="bottom">
+                            <input type="submit" value="Σχολίασε!" />
+                        </div>
+                    </div>
+                    <div class="comment" style="border-color: #dee;">
+                        <div class="toolbox">
+                            <span class="time">πριν 12 λεπτά</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/smilemagic">
+                                <img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+                                SmilEMagiC
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            ρε μλκ τι είναι αυτά που γράφεις στο προφίλ μου? μωρή μαλακία...
+                            <img src="images/emoticons/tongue.png" alt=":P" title=":P" /><br />
+                            άμα σε πιάσω...<br />
+                            χαχα!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
+                            θα βρεθούμε το ΣΚ!??
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment" style="margin-left: 20px; border-color: #eed;">
+                        <div class="toolbox" style="margin-right: 20px">
+                            <span class="time">πριν 10 λεπτά</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/kostis90gr">
+                                <img src="images/avatars/kostis90gr.jpg" class="avatar" />
+                                kostis90gr
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            αχαχαχαχ έλεος ρε νίκο!!...
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment" style="margin-left: 20px; border-color: #ded">
+                        <div class="toolbox" style="margin-right: 20px">
+                            <span class="time">πριν 9 λεπτά</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/izual">
+                                <img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
+                                izual
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            αφού τον ξέρεις μωρέ πώς κάνει..
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment" style="margin-left: 40px; border-color: #dee">
+                        <div class="toolbox" style="margin-right: 40px">
+                            <span class="time">πριν 9 λεπτά</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/smilemagic">
+                                <img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+                                SmilEMagiC
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            για πλάκα τα λέω ρε!!
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="toolbox">
+                            <span class="time">πριν 12 λεπτά</span>
+                        </div>
+                        <div class="who">
+                            <a href="user/titi">
+                                <img src="images/avatars/titi.jpg" class="avatar" alt="Titi" />
+                                Titi
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            αδερφούλη το πάρτυ θα είναι γαμάτο, έχω ήδη μαγειρέψει αίμα!!!
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment" style="margin-left: 20px">
+                        <div class="toolbox" style="margin-right: 20px">
+                            <span class="time">πριν 12 λεπτά</span>
+                            <a href="" onclick="return false"><img src="images/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
+                        </div>
+                        <div class="who">
+                            <a href="user/dionyziz">
+                                <img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+                                dionyziz
+                            </a> είπε:
+                        </div>
+                        <div class="text">
+                            Τέλεια! Πήρες black light?
+                        </div>
+                        <div class="bottom">
+                            <a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+                        </div>
+                    </div>
+                    <div class="comment oldcomment">
+                        <div class="toolbox">
+                            <a href="" onclick="return false" class="rss">
+                                <img src="images/feed.png" alt="rss" title="RSS Feed" class="rss" />
+                            </a>
+                        </div>
+                        <div class="who">
+                            <a href="user/dionyziz">
+                                412 παλιότερα σχόλια
+                            </a>
+                        </div>
+                        <div class="text">
+                        </div>
+                        <div class="bottom">
+                        </div>
+                    </div>
+                </div>
+                <div class="eof"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li><a href="http://www.kamibu.com/" onclick="return false">Η ομάδα μας</a></li>
+                <li><a href="contact" onclick="return false">Επικοινώνησε</a></li>
+                <li><a href="tos" onclick="return false">Όροι Χρήσης</a></li>
+                <li><a href="advertise" onclick="return false">Διαφημίσου εδώ</a></li>
+                <li><a href="help" onclick="return false">Βοήθεια</a></li>
+            </ul>
+            <div class="copy">
+                &copy; 2007 <a href="http://www.kamibu.com/">Kamibu</a>
+            </div>
+        </div>
+    </body>
+</html>
