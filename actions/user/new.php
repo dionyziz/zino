@@ -37,7 +37,7 @@
                       "Hello,\n\nSomeone attempted to make a spambot account named " . $username 
                       . " with password " . $password . " and e-mail " . $email . " from the IP " 
                       . UserIP() . "\n\nPlease make your checks.",
-                      "From: daemon@chit-chat.gr"
+                      "From: system@chit-chat.gr"
                 );
                 return Redirect( "?p=register&screwyou=yes&u=$username" );
     		default:
