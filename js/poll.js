@@ -424,10 +424,16 @@ var Poll = {
     },
     CreateOptionOnViewCallback: function( pollid, html ) {
         var oldli = g( 'createpop_' + pollid );
+        var commentli = g( 'pollcommentslink_' + pollid );
+
         var ul = oldli.parentNode;
         ul.removeChild( oldli );
 
+        commentli = ul.removeChild( commentli );
+
         ul.innerHTML += html;
+
+        ul.appendChild( commentli );
 
         var createli    = d.createElement( "li" );
         createli.id     = 'createpop_' + pollid;
