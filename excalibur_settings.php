@@ -11,6 +11,7 @@
         'staticimagesurl' 	=> 'http://static.chit-chat.gr/images/',
         'imagesurl'       	=> 'http://images.chit-chat.gr/',
 		'anonymouscomments' => false,
+        'allowregisters'    => true,
         'imagesupload'    	=> array(
             'ip'   => '87.230.27.77',
             'host' => 'images.chit-chat.gr',
