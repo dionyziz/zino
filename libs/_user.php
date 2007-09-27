@@ -1711,7 +1711,10 @@
 			$this->mHobbies		      	= isset( $fetched_array[ "user_hobbies" ]           ) ? $fetched_array[ "user_hobbies" ]          	: '';
 			$this->mSubtitle	      	= isset( $fetched_array[ "user_subtitle" ]          ) ? $fetched_array[ "user_subtitle" ]         	: '';
 			$this->mLastLogon	      	= isset( $fetched_array[ "user_lastlogon" ]         ) ? $fetched_array[ "user_lastlogon" ]        	: '0000-00-00 00:00:00';
-			$this->mCreated		      	= isset( $fetched_array[ "user_cutedate" ]           ) ? $fetched_array[ "user_cutedate" ]          	: '0000-00-00 00:00:00';
+
+            die( $fetched_array[ "user_cutedate" ] );
+
+            $this->mCreated		      	= isset( $fetched_array[ "user_cutedate" ]           ) ? $fetched_array[ "user_cutedate" ]          	: '0000-00-00 00:00:00';
 			$this->mDOB		         	= isset( $fetched_array[ "user_dob" ]               ) ? $fetched_array[ "user_dob" ]              	: '0000-00-00 00:00:00';
 			$this->mLPE		          	= isset( $fetched_array[ "user_lastprofedit" ]      ) ? $fetched_array[ "user_lastprofedit" ]     	: '0000-00-00 00:00:00';
 			$this->mLastActive        	= isset( $fetched_array[ "user_lastactive" ]        ) ? $fetched_array[ "user_lastactive" ]       	: '0000-00-00';
