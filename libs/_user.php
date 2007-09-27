@@ -365,6 +365,7 @@
 		global $db;
 		global $users;
 		global $images;
+        global $water;
         
 		$nowdate = NowDate();
         
@@ -381,6 +382,7 @@
 		$res = $db->Query( $sql );
 		$ret = array();
 		while ( $row = $res->FetchArray() ) {
+            $water->Trace( "user construct for online users", $row );
 			$ret[] = New User( $row );
 		}
 		
@@ -1812,6 +1814,8 @@
 				$fetched_array = $res->FetchArray();
 			}
 		
+            $water->Trace( "user constructor: ", $fetched_array );
+
 			$this->mId		          	= isset( $fetched_array[ "user_id" ]                ) ? $fetched_array[ "user_id" ]               : 0;
 			$this->mRights		      	= isset( $fetched_array[ "user_rights" ]            ) ? $fetched_array[ "user_rights" ]           : 0;
             if ( isset( $fetched_array[ 'image_id' ] ) ) {
