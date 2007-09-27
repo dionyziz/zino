@@ -245,12 +245,14 @@
 			global $db;
 			global $albums;
 			
+            $newname = addslashes( $newname );
+            
 			$sql = "UPDATE
 						`$albums`
 					SET
 						`album_name` = '$newname'
 					WHERE 
-						`album_id` = '".$this->Id()."'
+						`album_id` = '" . $this->Id() . "'
 					LIMIT 1;";
 			$db->Query( $sql );
 		}
@@ -272,6 +274,8 @@
 			global $db;
 			global $albums;
 			
+            $newdescription = addslashes( $newdescription );
+            
 			$sql = "UPDATE
 						`$albums`
 					SET
