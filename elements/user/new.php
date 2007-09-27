@@ -1,6 +1,11 @@
 <?php
 
-	function ElementUserNew( tBoolean $nopassword, tBoolean $passwordmismatch, tBoolean $usernametaken, tBoolean $usernameexists, tBoolean $usernameinvalid, tBoolean $emailexists ) {
+	function ElementUserNew( 
+            tBoolean $nopassword, tBoolean $passwordmismatch, 
+            tBoolean $usernametaken, tBoolean $usernameexists, 
+            tBoolean $usernameinvalid, tBoolean $emailexists,
+            tBoolean $screwyou
+        ) {
 		global $rabbit_settings;
         global $xc_settings;
 		global $page;
@@ -15,6 +20,7 @@
 		$usernameexists = $usernameexists->Get();
 		$usernameinvalid = $usernameinvalid->Get();
 		$emailexists = $emailexists->Get();
+        $screwyou = $screwyou->Get(); // too many accounts from the same IP in a short period of time
 		//--------------------------
 		
 		?><br /><br /><br /><br /><br /><br /><br /><?php
@@ -23,12 +29,10 @@
 			?><b>Οι δύο κωδικοί που πληκτρολόγησες δεν είναι οι ίδιοι. Πρέπει να γράψεις τον ίδιο κωδικό δύο φορές!</b><?php
 		}
 		else if ( $usernameexists ) {
-			?>
-			<b>Το όνομα χρήστη που επέλεξες χρησιμοποιείται από άλλον. Δοκίμασε κάποιο άλλο όνομα χρήστη.</b><?php
+			?><b>Το όνομα χρήστη που επέλεξες χρησιμοποιείται από άλλον. Δοκίμασε κάποιο άλλο όνομα χρήστη.</b><?php
 		}
 		else if ( $usernameinvalid ) {
-			?>
-			<b>Το όνομα χρήστη μπορεί να περιέχει μόνο πεζούς και κεφαλαίους λατινικούς χαρακτήρες καθώς και τον χαρακτήρα _ (underscore).<br />Επίσης, θα πρέπει να έχει τουλάχιστον τρία γράμματα.</b><?php
+			?><b>Το όνομα χρήστη μπορεί να περιέχει μόνο πεζούς και κεφαλαίους λατινικούς χαρακτήρες καθώς και τον χαρακτήρα _ (underscore).<br />Επίσης, θα πρέπει να έχει τουλάχιστον τρία γράμματα.</b><?php
 		}
 		else if ( $nopassword ) {
 			?><b>Δεν έχεις πληκτρολογήσει κωδικό πρόσβασης.</b><?php
@@ -38,6 +42,9 @@
 			echo $rabbit_settings[ 'applicationname' ];
 			?>.</b><?php
 		}
+        else if ( $screwyou ) {
+            ?><b>Δεν ήταν δυνατή η δημιουργία λογαριασμού αυτή τη στιγμή. Ξαναδοκίμασε σε 2 λεπτά.</b><?php
+        }
 		?>
 		<br /><br /><?php
 		if ( !( $user->IsAnonymous() ) ) {
