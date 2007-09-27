@@ -1981,7 +1981,7 @@ foreach ($proxies as $proxydata) {
             ++$i;
             if ($i == 2) {
                 $proxy = explode(':', $proxy);
-                $proxy = trim($proxy[1]);
+                $proxy = trim($proxy[0]);
                 echo "Banning $proxy.<br />";
                 $sql = "INSERT INTO 
                             `merlin_ipban`
