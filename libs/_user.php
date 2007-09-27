@@ -340,8 +340,7 @@
                             `user_profviews`,
                             `user_numsmallnews`,
                             `user_numimages`,
-                            `user_numpolls`,
-                            `$images`.*
+                            `user_numpolls`
 					FROM 
 						`$users` 
 					WHERE
