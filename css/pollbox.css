@@ -60,7 +60,7 @@ div.pollbox ul li dl dt div.optiontoolbox {
 div.pollview ul li dl {
     display: block;
     height: 100%;
-    min-height: 20px;
+    min-height: 20px !important;
 }
 div.pollview ul li dt {
     width: 100% !important;
@@ -97,7 +97,7 @@ div.pollnew ul li dl div.pollanswer {
 }
 div.pollresults ul li dl {
     display: block;
-    padding: 5px;
+    padding: 5px !important;
 }
 div.pollresults ul li dt {
     width: 190px !important;

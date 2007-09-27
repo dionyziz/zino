@@ -78,7 +78,7 @@
 								break;
                             case 3:
                                 // please fix YSoD
-								?>ην δημοσκόπηση <a href="?p=poll&amp;id=<?php
+								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
