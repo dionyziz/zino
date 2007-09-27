@@ -1661,7 +1661,7 @@
 				// by id
 				$id = myescape( $construct );
 				$sql = "SELECT 
-                            *, `user_date` + INTERVAL 3 HOUR AS `user_cutedate`
+                            *, `user_created` + INTERVAL 3 HOUR AS `user_cutedate`
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
