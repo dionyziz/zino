@@ -75,8 +75,8 @@
 		
 		return $db->Insert( $insert , $bans );
 	}
-	
-	function MakeUser( $username , $password , $email ) {
+    
+    function MakeUser( $username , $password , $email ) {
 		global $users;
 		global $db;
 		global $mc;
@@ -100,13 +100,28 @@
 				return 3;
 			}
 		}
+		$ip = UserIp();
+		$ip = addslashes( $ip );
+
+        // for security against spambot automated account creation
+        $sql = "SELECT 
+                    COUNT(*) AS numusers
+                FROM
+                    `$users`
+                WHERE
+                    `user_registerhost` = '$ip'
+                    AND `user_created` + INTERVAL 15 MINUTE > NOW()";
+        $sqlresult = $db->Query( $sql );
+        $row = $sqlresult->FetchArray();
+        if ( $row[ 'numusers' ] >= 2 ) {
+            return 5; // too many users from the same IP during the last 15 minutes
+        }
+        
 		$password = md5( $password );
 		$s_password = $password;
-		$password = myescape( $password );
-		$email = myescape( $email );
+		$password = addslashes( $password );
+		$email = addslashes( $email );
 		$nowdate = NowDate();
-		$ip = UserIp();
-		$ip = myescape( $ip );
 		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
 							   VALUES( '' , '$username' , '$password' , '$nowdate' , '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
 		$db->Query( $sql );
@@ -118,9 +133,7 @@
 		
 		// success
 		return 1;
-	}
-	
-	
+	}	
 
 	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $hobbies , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
 		global $users;
