@@ -59,18 +59,32 @@
                     Element( "poll/option/view", $option, $poll, $theuser );
                 }
 
-                if ( $user->Id() == $theuser->Id() ) {
-                    ?><li id="createpop_<?php
-                    echo $poll->Id;
-                    ?>"><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
-                    echo $poll->Id;
-                    ?>, <?php
-                    echo $hasvoted ? "true" : "false";
-                    ?> ); return false;"><img src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
-                    ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
-                    </li><?php
+                ?><li style="float: right;"><a href="?p=poll&amp;id=<?php
+                echo $poll->Id;
+                ?>><?php
+                echo $poll->NumComments
+                ?> σχόλι<?php
+                if ( $poll->NumComments == 1 ) {
+                    ?>ο<?php
                 }
+                else {
+                    ?>α<?php
+                }
+                ?></a></li>
+                <li id="createpop_<?php
+                echo $poll->Id;
+                ?>" <?php
+                if ( $user->Id() != $theuser->Id() ) {
+                    ?>style="visibility: hidden;"<?php
+                }
+                ?>><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
+                echo $poll->Id;
+                ?>, <?php
+                echo $hasvoted ? "true" : "false";
+                ?> ); return false;"><img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
+                </li><?php
 
             ?></ul>
         </div><?php

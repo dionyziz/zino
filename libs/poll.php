@@ -159,6 +159,7 @@
         protected   $mCreated;
         protected   $mDelId;
         protected   $mNumVotes;
+        protected   $mNumComments;
         private     $mOptions;
         private     $mUser;
         private     $mTextOptions;
@@ -273,10 +274,11 @@
             return $this->mQuestion;
         }
         public function CommentAdded() {
-            return true;
+            ++$this->mNumComments;
+            $this->Save();
         }
         public function CommentKilled() {
-            return true;
+            --$this->NumComments;
         }
         public function Delete() {
             $this->DelId = 1;
@@ -314,13 +316,14 @@
             $this->mDbTable = $polls;
 
             $this->SetFields( array(
-                'poll_id'       => 'Id',
-                'poll_question' => 'Question',
-                'poll_userid'   => 'UserId',
-                'poll_expire'   => 'ExpireDate',
-                'poll_created'  => 'Created',
-                'poll_delid'    => 'DelId',
-                'poll_numvotes' => 'NumVotes'
+                'poll_id'           => 'Id',
+                'poll_question'     => 'Question',
+                'poll_userid'       => 'UserId',
+                'poll_expire'       => 'ExpireDate',
+                'poll_created'      => 'Created',
+                'poll_delid'        => 'DelId',
+                'poll_numvotes'     => 'NumVotes',
+                'poll_numcomments'  => 'NumComments'
             ) );
 
             $this->Satori( $construct );
@@ -336,5 +339,5 @@
 
         }
     }
-
+ 
 ?>
