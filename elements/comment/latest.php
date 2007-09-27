@@ -76,6 +76,7 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
+                            /* // please fix YSoD
                             case 3:
 								?>ην δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
@@ -83,6 +84,7 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
+                            */
 						}
 						
 						echo htmlspecialchars( $comment->Page()->Title() );
