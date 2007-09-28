@@ -20,7 +20,7 @@
 
         $page->SetTitle( $poll->Question );
 
-        ?><div class="header"><?php
+        ?><div class="pollheader"><?php
             Element( "user/icon", $poll->User, true );
 
             ?><h1><?php
@@ -32,7 +32,7 @@
             ?>"><?php
             echo $poll->User->Username();
             ?></a>
-        ?></div><?php
+        </div><?php
 
         ?><div class="poll"><?php
             Element( "poll/box", $poll );
