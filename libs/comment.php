@@ -17,7 +17,7 @@
                 FROM
                     `merlin_comments`
                 WHERE
-                    `comment_date` > NOW() - INTERVAL 10 SECOND
+                    `comment_created` > NOW() - INTERVAL 10 SECOND
                 ;";
 
         $fetched = $db->Query( $sql )->FetchArray();
