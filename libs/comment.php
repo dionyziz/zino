@@ -21,11 +21,9 @@
                     `comment_userip` = '" . UserIp() . "'
                 ;";
 
-        $fetched = $db->Query( $sql )->FetchArray();
+        $res = $db->Query( $sql );
         
-        die( print_r( $fetched ) );
-
-        if ( $fetched[ "count" ] > 0 ) {
+        if ( $res->Results() ) {
             // email dio
             $subject = "WARNING! Comment spambot detected!";
             $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
