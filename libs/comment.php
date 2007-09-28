@@ -31,7 +31,7 @@
             $subject = "WARNING! Comment spambot detected!";
             $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
 
-            mail( 'abresas@gmail.com', $subject, $message );
+            mail( 'dionyziz@gmail.com', $subject, $message );
 
             return true;
         }
