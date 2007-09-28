@@ -8,9 +8,6 @@ div.pollheader a.usericon {
 div.pollheader h1 {
     display: inline;
 }
-div.pollheader a {
-    display: block;
-}
 div.poll {
     margin: 30px 0 30px 240px;
 }
