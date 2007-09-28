@@ -22,7 +22,7 @@
         ?><div class="pollheader">
 			<a href="user/<?php
             echo $poll->User->Username();
-			?>" onmouseover="g( 'pollcreatorlink' ).style.textDecoration='underline';" onmouseout="g( 'pollcreatorlink' ).style.textDecoration='none';"><?php
+			?>" onmouseover="g( 'pollcreatorlink' ).style.textDecoration='underline';" onmouseout="g( 'pollcreatorlink' ).style.textDecoration='none';" class="usericon"><?php
 
 			Element( "user/icon", $poll->User, false, false );
 
