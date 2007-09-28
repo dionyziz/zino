@@ -20,16 +20,21 @@
 
         $page->SetTitle( $poll->Question );
 
-        ?><div class="poll">
-            <div class="header"><?php
-                Element( "user/icon", $poll->User, true, true );
+        ?><div class="header"i><?php
+            Element( "user/icon", $poll->User, true );
 
-                ?><h2><?php
-                echo $poll->Question;
-                ?></h2><?php
+            ?><h1><?php
+            echo $poll->Question;
+            ?></h1><?php
 
-                echo $poll->User->Username();
-            ?></div><?php
+            ?><a href="user/<?php
+            echo $poll->User->Username();
+            ?>"><?php
+            echo $poll->User->Username();
+            ?></a>
+        ?></div><?php
+
+        ?><div class="poll"><?php
             Element( "poll/box", $poll );
         ?></div><?php
 
