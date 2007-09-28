@@ -295,6 +295,7 @@
 		global $db;
 		global $users;
 		global $mc;
+        global $water;
 		
 		$latestusers = $mc->get( $key = 'latestusers' );
 		
