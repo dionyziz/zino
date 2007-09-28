@@ -24,17 +24,17 @@
 
             ?><h1><?php
             echo htmlspecialchars( $poll->Question );
-            ?></h1><?php
+            ?></h1><br /><?php
 
-            ?><a href="user/<?php
+            ?>από <a href="user/<?php
             echo $poll->User->Username();
-            ?>">από <?php
+            ?>"><?php
             echo $poll->User->Username();
             ?></a>, <?php
             echo $poll->NumComments;
             ?> σχόλια <a href="?p=poll&amp;id=<?php
             echo $poll->Id;
-            ?>">(προβολή όλων)</a>
+            ?>&oldcomments=yes">(προβολή όλων)</a>
         </div>
 
         <div class="poll"><?php
