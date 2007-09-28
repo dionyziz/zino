@@ -20,7 +20,7 @@
 
         $page->SetTitle( $poll->Question );
 
-        ?><div class="header"i><?php
+        ?><div class="header"><?php
             Element( "user/icon", $poll->User, true );
 
             ?><h1><?php

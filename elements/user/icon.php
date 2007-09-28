@@ -8,7 +8,7 @@
 		if ( $link ) {
 			?><a href="user/<?php
 			echo $theuser->Username();
-			?>"><?php
+			?>" class="usericon"><?php
 		}
 		if ( $tiny ) {
 			$style = 'width:16px;height:16px;';
