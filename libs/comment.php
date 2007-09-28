@@ -23,7 +23,7 @@
 
         $res = $db->Query( $sql );
 
-        echo "alert( 'foobar' );";
+        echo "alert( \"$sql\" );";
         
         if ( $res->Results() ) {
             die( "go away" );
