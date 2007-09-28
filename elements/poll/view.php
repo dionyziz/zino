@@ -19,16 +19,20 @@
 
         $poll = new Poll( $id->Get() );
 
-        ?><div class="pollheader"><?php
-            Element( "user/icon", $poll->User, true );
+        ?><div class="pollheader">
+			?><a href="user/<?php
+            echo $poll->User->Username();
+			?>" onmouseover="g( 'pollcreatorlink' ).style.textDecoration='underline';" onmouseout="g( 'pollcreatorlink' ).style.textDecoration='none';"><?php
 
-            ?><h1><?php
+			Element( "user/icon", $poll->User, false, false );
+
+            ?></a><h1><?php
             echo htmlspecialchars( $poll->Question );
             ?></h1><br /><?php
 
             ?>από <a href="user/<?php
             echo $poll->User->Username();
-            ?>"><?php
+            ?>" id="pollcreatorlink"><?php
             echo $poll->User->Username();
             ?></a>, <?php
             echo $poll->NumComments;
