@@ -29,6 +29,8 @@
             $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
 
             mail( 'abresas@gmail.com', $subject, $message );
+
+            return true;
         }
 
         return false;
