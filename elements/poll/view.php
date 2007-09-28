@@ -32,7 +32,7 @@
             echo $poll->User->Username();
             ?></a><br /><?php
             echo $poll->NumComments;
-            ?> σχόλια <a href="?p=poll&id=<?php
+            ?> σχόλια <a href="?p=poll&amp;id=<?php
             echo $poll->Id;
             ?>">(προβολή όλων)</a>
         </div>
