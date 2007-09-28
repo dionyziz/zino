@@ -3,6 +3,11 @@
     function ElementPollView( tInteger $id, tBoolean $oldcomments ) {
         global $libs;
         global $page;
+        global $user;
+
+        if ( !$user->Exists() ) {
+            return Redirect( 'register' );
+        }
 
         $libs->Load( 'poll' );
         $libs->Load( 'comment' );
@@ -15,8 +20,16 @@
 
         $page->SetTitle( $poll->Question );
 
-        ?><div class="poll"><?php
+        ?><div class="poll">
+            <div class="header"><?php
+                Element( "user/icon", $poll->User, true, true );
 
+                ?><h2><?php
+                echo $poll->Question;
+                ?></h2><?php
+
+                echo $poll->User->Username();
+            ?></div><?php
             Element( "poll/box", $poll );
         ?></div><?php
 
