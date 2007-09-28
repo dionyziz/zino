@@ -20,7 +20,7 @@
         $poll = new Poll( $id->Get() );
 
         ?><div class="pollheader">
-			?><a href="user/<?php
+			<a href="user/<?php
             echo $poll->User->Username();
 			?>" onmouseover="g( 'pollcreatorlink' ).style.textDecoration='underline';" onmouseout="g( 'pollcreatorlink' ).style.textDecoration='none';"><?php
 
