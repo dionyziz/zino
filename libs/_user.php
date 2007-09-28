@@ -77,9 +77,12 @@
 	}
     
     function MakeUser( $username , $password , $email ) {
+        global $xc_setttings;
 		global $users;
 		global $db;
 		global $mc;
+
+        w_assert( $xc_settings[ "allowregisters" ] );
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
