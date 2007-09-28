@@ -22,15 +22,15 @@
         ?><div class="pollheader"><?php
             Element( "user/icon", $poll->User, true );
 
-            ?><h1>Δημοσκόπηση: <?php
+            ?><h1><?php
             echo htmlspecialchars( $poll->Question );
             ?></h1><?php
 
             ?><a href="user/<?php
             echo $poll->User->Username();
-            ?>">Χρήστης: <?php
+            ?>">από <?php
             echo $poll->User->Username();
-            ?></a><br /><?php
+            ?></a>, <?php
             echo $poll->NumComments;
             ?> σχόλια <a href="?p=poll&amp;id=<?php
             echo $poll->Id;
