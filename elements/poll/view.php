@@ -34,7 +34,7 @@
             echo $poll->NumComments;
             ?> σχόλια <a href="?p=poll&amp;id=<?php
             echo $poll->Id;
-            ?>&oldcomments=yes">(προβολή όλων)</a>
+            ?>&amp;oldcomments=yes">(προβολή όλων)</a>
         </div>
 
         <div class="poll"><?php
