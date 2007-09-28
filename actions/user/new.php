@@ -1,5 +1,13 @@
 <?php
     function ActionUserNew( tString $username, tString $password, tString $password2, tString $email ) {
+        global $xc_settings;
+
+        if ( !$xc_settings[ "allowregisters" ] ) {
+            echo "Η δημιουργία χρήστη προς το παρών έχει απαγορευθεί. Παρακαλώ δοκιμάστε ξανά αργότερα";
+
+            exit();
+        }
+
     	//Grabs the info posted by user for register.
     	$username		= $username->Get();
     	$password		= $password->Get();

@@ -512,7 +512,7 @@
             $s_password = myescape( $s_password );
             
 			$sql = "SELECT 
-						* 
+						*, ( `user_created` - INTERVAL 2 HOUR ) AS user_cutedate
 					FROM 
 						`$users` LEFT JOIN `$images`
                             ON `user_icon` = `image_id`
