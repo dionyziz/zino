@@ -13,14 +13,17 @@
         global $comments;
 
         $sql = "SELECT
-                    COUNT( * ) AS count  
+                    *
                 FROM
                     `merlin_comments`
                 WHERE
-                    `comment_created` > NOW() - INTERVAL 10 SECOND
+                    `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
+                    `comment_userip` = '" . UserIp() . "'
                 ;";
 
         $fetched = $db->Query( $sql )->FetchArray();
+        
+        die( print_r( $fetched ) );
 
         if ( $fetched[ "count" ] > 0 ) {
             // email dio
