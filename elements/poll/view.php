@@ -15,26 +15,29 @@
         $page->AttachStylesheet( 'css/poll.css' );
         $page->AttachStylesheet( 'css/pollbox.css' ); 
         $page->AttachScript( 'js/poll.js' );
+        $page->SetTitle( $poll->Question );
 
         $poll = new Poll( $id->Get() );
-
-        $page->SetTitle( $poll->Question );
 
         ?><div class="pollheader"><?php
             Element( "user/icon", $poll->User, true );
 
-            ?><h1><?php
-            echo $poll->Question;
+            ?><h1>Δημοσκόπηση: <?php
+            echo htmlspecialchars( $poll->Question );
             ?></h1><?php
 
             ?><a href="user/<?php
             echo $poll->User->Username();
-            ?>"><?php
+            ?>">Χρήστης: <?php
             echo $poll->User->Username();
-            ?></a>
-        </div><?php
+            ?></a><br /><?php
+            echo $poll->NumComments;
+            ?> σχόλια <a href="?p=poll&id=<?php
+            echo $poll->Id;
+            ?>">(προβολή όλων)</a>
+        </div>
 
-        ?><div class="poll"><?php
+        <div class="poll"><?php
             Element( "poll/box", $poll );
         ?></div><?php
 
