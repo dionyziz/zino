@@ -12,6 +12,7 @@
         'imagesurl'       	=> 'http://images.chit-chat.gr/',
 		'anonymouscomments' => false,
         'allowregisters'    => true,
+        'mysql2phpdate'    => '- INTERVAL 2 HOUR',
         'imagesupload'    	=> array(
             'ip'   => '87.230.27.77',
             'host' => 'images.chit-chat.gr',

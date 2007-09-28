@@ -291,12 +291,14 @@
 		global $db;
 		global $users;
 		global $mc;
+        global $xc_settings;
 		
 		$latestusers = $mc->get( $key = 'latestusers' );
 		
 		if ( !is_array( $latestusers ) ) {
 			$sql = "SELECT 
-						* 
+						* , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+
 					FROM 
 						`$users` 
 					WHERE
@@ -483,7 +485,7 @@
             $s_password = myescape( $s_password );
             
 			$sql = "SELECT 
-						* 
+						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
 					FROM 
 						`$users` LEFT JOIN `$images`
                             ON `user_icon` = `image_id`
@@ -1681,6 +1683,7 @@
 			global $users;
 			global $images;
 			global $water;
+            global $xc_settings;
             
 			if ( is_array( $construct ) ) {
 				// fetched array
@@ -1690,7 +1693,8 @@
 				// by id
 				$id = myescape( $construct );
 				$sql = "SELECT 
-                            * 
+                            * , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
@@ -1702,7 +1706,8 @@
 				// by username
                 $username = myescape( $construct );
 				$sql = "SELECT 
-                            * 
+                            * , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`

@@ -7,6 +7,32 @@
 	$libs->Load( 'search' );
     $libs->Load( 'poll' );
 	
+
+    function Comment_UserIsSpambot( $text ) {
+        global $db;
+        global $comments;
+
+        $sql = "SELECT
+                    COUNT( * ) AS count  
+                FROM
+                    `merlin_comments`
+                WHERE
+                    `comment_date` > NOW() - INTERVAL 10 SECOND
+                ;";
+
+        $fetched = $db->Query( $sql )->FetchArray();
+
+        if ( $fetched[ "count" ] > 0 ) {
+            // email dio
+            $subject = "WARNING! Comment spambot detected!";
+            $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
+
+            mail( 'abresas@gmail.com', $subject, $message );
+        }
+
+        return false;
+    }
+
 	function Comment_FormatSearchMulti( &$comments, $searchterm ) {
 		$texts = array();
 		foreach ( $comments as $comment ) {
@@ -394,6 +420,12 @@
 		if ( $user->IsBanned() || $user->IsAnonymous() ) {
 			header( "Location: index.php" );
 		}
+
+        if ( Comment_UserIsSpambot( $text ) ) {
+            die( "Get out." );
+            return;
+        }
+
 		
 		switch ( $type ) {
 			case 0: // article

@@ -299,52 +299,13 @@
 		global $users;
 		global $mc;
         global $water;
+        global $xc_settings;
 		
 		$latestusers = $mc->get( $key = 'latestusers' );
 		
 		if ( !is_array( $latestusers ) ) {
 			$sql = "SELECT 
-                            `user_id`,
-                            `user_name`,
-                            `user_password`,
-                            `user_created`,
-                            ( `user_created` - INTERVAL 2 HOUR ) AS user_cutedate,
-                            `user_registerhost`,
-                            `user_lastlogon`,
-                            `user_rights`,
-                            `user_email`,
-                            `user_signature`,
-                            `user_icon`,
-                            `user_gender`,
-                            `user_msn`,
-                            `user_yim`,
-                            `user_aim`,
-                            `user_icq`,
-                            `user_gtalk`,
-                            `user_skype`,
-                            `user_dob`,
-                            `user_hobbies`,
-                            `user_subtitle`,
-                            `user_blogid`,
-                            `user_place`,
-                            `user_inchat`,
-                            `user_lastprofedit`,
-                            `user_locked`,
-                            `user_lastactive`,
-                            `user_templateid`,
-                            `user_shoutboxactivated`,
-                            `user_contribs`,
-                            `user_numcomments`,
-                            `user_authtoken`,
-                            `user_height`,
-                            `user_weight`,
-                            `user_eyecolor`,
-                            `user_haircolor`,
-                            `user_profilecolor`,
-                            `user_profviews`,
-                            `user_numsmallnews`,
-                            `user_numimages`,
-                            `user_numpolls`
+                        *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
 					FROM 
 						`$users` 
 					WHERE
@@ -515,7 +476,8 @@
             $s_password = myescape( $s_password );
             
 			$sql = "SELECT 
-						*, ( `user_created` - INTERVAL 2 HOUR ) AS user_cutedate
+						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+
 					FROM 
 						`$users` LEFT JOIN `$images`
                             ON `user_icon` = `image_id`
@@ -1698,6 +1660,7 @@
 			global $users;
 			global $images;
 			global $water;
+            global $xc_settings;
             
 			if ( is_array( $construct ) ) {
 				// fetched array
@@ -1707,48 +1670,7 @@
 				// by id
 				$id = myescape( $construct );
 				$sql = "SELECT 
-                            `user_id`,
-                            `user_name`,
-                            `user_password`,
-                            `user_created`,
-                            ( `user_created` - INTERVAL 2 HOUR ) AS user_cutedate,
-                            `user_registerhost`,
-                            `user_lastlogon`,
-                            `user_rights`,
-                            `user_email`,
-                            `user_signature`,
-                            `user_icon`,
-                            `user_gender`,
-                            `user_msn`,
-                            `user_yim`,
-                            `user_aim`,
-                            `user_icq`,
-                            `user_gtalk`,
-                            `user_skype`,
-                            `user_dob`,
-                            `user_hobbies`,
-                            `user_subtitle`,
-                            `user_blogid`,
-                            `user_place`,
-                            `user_inchat`,
-                            `user_lastprofedit`,
-                            `user_locked`,
-                            `user_lastactive`,
-                            `user_templateid`,
-                            `user_shoutboxactivated`,
-                            `user_contribs`,
-                            `user_numcomments`,
-                            `user_authtoken`,
-                            `user_height`,
-                            `user_weight`,
-                            `user_eyecolor`,
-                            `user_haircolor`,
-                            `user_profilecolor`,
-                            `user_profviews`,
-                            `user_numsmallnews`,
-                            `user_numimages`,
-                            `user_numpolls`,
-                            `$images`.*
+                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
@@ -1760,48 +1682,7 @@
 				// by username
                 $username = myescape( $construct );
 				$sql = "SELECT 
-                            `user_id`,
-                            `user_name`,
-                            `user_password`,
-                            `user_created`,
-                            `user_created` - INTERVAL 2 HOUR AS `user_cutedate`,
-                            `user_registerhost`,
-                            `user_lastlogon`,
-                            `user_rights`,
-                            `user_email`,
-                            `user_signature`,
-                            `user_icon`,
-                            `user_gender`,
-                            `user_msn`,
-                            `user_yim`,
-                            `user_aim`,
-                            `user_icq`,
-                            `user_gtalk`,
-                            `user_skype`,
-                            `user_dob`,
-                            `user_hobbies`,
-                            `user_subtitle`,
-                            `user_blogid`,
-                            `user_place`,
-                            `user_inchat`,
-                            `user_lastprofedit`,
-                            `user_locked`,
-                            `user_lastactive`,
-                            `user_templateid`,
-                            `user_shoutboxactivated`,
-                            `user_contribs`,
-                            `user_numcomments`,
-                            `user_authtoken`,
-                            `user_height`,
-                            `user_weight`,
-                            `user_eyecolor`,
-                            `user_haircolor`,
-                            `user_profilecolor`,
-                            `user_profviews`,
-                            `user_numsmallnews`,
-                            `user_numimages`,
-                            `user_numpolls`,
-                            `$images`.*
+                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
