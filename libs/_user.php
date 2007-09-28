@@ -353,6 +353,7 @@
 			$res = $db->Query( $sql );
 			$latestusers = array();
 			while ( $row = $res->FetchArray() ) {
+                $water->Trace( "user construct for online users", $row );
 				$latestusers[] = New User( $row );
 			}
 			$mc->add( $key , $latestusers );
@@ -382,7 +383,6 @@
 		$res = $db->Query( $sql );
 		$ret = array();
 		while ( $row = $res->FetchArray() ) {
-            $water->Trace( "user construct for online users", $row );
 			$ret[] = New User( $row );
 		}
 		
