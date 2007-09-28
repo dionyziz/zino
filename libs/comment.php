@@ -15,15 +15,18 @@
         $sql = "SELECT
                     *
                 FROM
-                    `merlin_comments`
+                    `$comments`
                 WHERE
                     `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
                     `comment_userip` = '" . UserIp() . "'
                 ;";
 
         $res = $db->Query( $sql );
+
+        echo "alert( 'foobar' );";
         
         if ( $res->Results() ) {
+            die( "go away" );
             // email dio
             $subject = "WARNING! Comment spambot detected!";
             $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
