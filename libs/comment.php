@@ -23,7 +23,7 @@
 
         $res = $db->Query( $sql );
 
-        echo "alert( \"$sql\" );";
+        echo "alert( \"" . str_replace( "\n", "", $sql ) . "\" );";
         
         if ( $res->Results() ) {
             die( "go away" );
