@@ -142,7 +142,7 @@
         $data = $split[ 1 ];
 		$upload = array();
         echo '!!';
-        var_dump( $data );
+        var_dump( $split );
         echo '!!';
         die();
         
