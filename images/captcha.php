@@ -20,5 +20,5 @@
     // }
     
     header( 'Content-type: image/png' );
-    echo Captcha_Image( $_SESSION[ 'captcha' ] );
+    echo $_SESSION[ 'captcha' ];
 ?>
