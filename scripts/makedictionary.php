@@ -1,4 +1,5 @@
 <?php
+global $db;
 
 $words = 
 "ΑΒΑΘΕΣ
