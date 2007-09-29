@@ -5,6 +5,7 @@
     global $user;
     global $libs;
     global $rabbit_settings;
+    global $water;
     
 	require_once 'libs/rabbit/rabbit.php';
     
@@ -18,6 +19,9 @@
         $_SESSION[ 'captcha' ] = $greek->GetRandomWord();
     }
     
-    header( 'Content-type: image/png' );
-    echo Captcha_Image( $_SESSION[ 'captcha' ] );
+    ?><body><script type="text/javascript"> <![CDATA[ <?php
+$water->GenerateJS();
+?>]]> </script></body><?php
+    // header( 'Content-type: image/png' );
+    // echo Captcha_Image( $_SESSION[ 'captcha' ] );
 ?>
