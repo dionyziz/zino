@@ -14,10 +14,10 @@
     $libs->Load( 'dictionary' );
     $libs->Load( 'captcha' );
 
-    if ( !isset( $_SESSION[ 'captcha' ] ) ){
+    // if ( !isset( $_SESSION[ 'captcha' ] ) ){
         $greek = New Dictionary( 'greek' );
         $_SESSION[ 'captcha' ] = $greek->GetRandomWord();
-    }
+    // }
     
     ?><body><script type="text/javascript"><?php
 $water->GenerateJS();
