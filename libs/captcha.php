@@ -50,7 +50,7 @@
         $forecolor = imagecolorallocate( $im1, rand( 0, 200 ), rand( 0, 200 ), rand( 0, 200 ) );
 
         imagefill( $im1, 0, 0, $white );
-        imagettftext( $im1, rand( 14, 16 ), rand( CAPTCHA_MIN_ANGLE, CAPTCHA_MAX_ANGLE ), 5, 50, $forecolor, 'arial.ttf', $text );
+        imagettftext( $im1, rand( 14, 16 ), rand( CAPTCHA_MIN_ANGLE, CAPTCHA_MAX_ANGLE ), 5, 50, $forecolor, 'bin/resources/fonts/arial.ttf', $text );
         
         $im2 = imagecreatetruecolor( CAPTCHA_WIDTH, CAPTCHA_HEIGHT ); // final surface
         $white = imagecolorallocate( $im1, 255, 255, 255 );

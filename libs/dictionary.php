@@ -19,7 +19,7 @@
             $res = $this->mDb->Query( $sql );
             $row = $res->FetchArray();
             
-            return $this->mWordsCounts = $row[ 'wordscount' ];
+            return $this->mWordsCount = $row[ 'wordscount' ];
         }
         public function Dictionary( $construct = 'greek' ) {
             global $db;
