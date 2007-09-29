@@ -16,7 +16,11 @@
 
     // if ( !isset( $_SESSION[ 'captcha' ] ) ){
         $greek = New Dictionary( 'greek' );
-        $_SESSION[ 'captcha' ] = $greek->GetRandomWord();
+        $captcha = '';
+        while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
+            $captcha = $greek->GetRandomWord();
+        }
+        $_SESSION[ 'captcha' ] = $captcha;
     // }
     
     header( 'Content-type: image/png' );
