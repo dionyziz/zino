@@ -526,6 +526,10 @@
 
 		$upload = Image_Upload( $userid."/".$lastimgid , $binary, $resizeto );
 		
+        if ( !is_array( $upload ) ) {
+            return $upload; // errorcode
+        }
+        
 		if ( $upload[ 'successful' ] ) {
 			$sql = "UPDATE `$images` SET `image_width` = '" . myescape( $upload[ 'width' ] ) . "', `image_height` = '" . myescape( $upload[ 'height' ] ) . "', `image_size` = '" . myescape( $upload[ 'filesize' ] ) . "' WHERE `image_id` = '$lastimgid' LIMIT 1;";
 			$change = $db->Query( $sql );
@@ -536,9 +540,9 @@
 
 				return $lastimgid;
 			}
-            return 0;
+            return -64;
 		}
-        return 0;
+        return -65;
 	}
 	
 	function delete_photo( $photo_id ) {
