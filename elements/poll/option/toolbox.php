@@ -12,9 +12,9 @@
         echo $option->Id;
         ?>" class="optiontoolbox"><a onclick="Poll.EditOption( <?php
                 echo $option->Id;
-            ?>, '<?php
-                echo addslashes( $option->Text );
-            ?>' );" title=''><img src="<?php
+            ?>, <?php
+                echo htmlspecialchars( w_json_encode( $option->Text ) );
+            ?> );" title=''><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/edit.png" alt='' />
             </a><a style="margin-left: 1px;" title='' onclick="Poll.DeleteOption( <?php
