@@ -77,13 +77,13 @@
 		global $user;              
 
 		if ( $user->Rights() < $xc_settings[ "allowuploads" ] ) {
-			return false;
+			return -1; // disallowed uploads
 		}
         
 		$fp = fsockopen( $xc_settings[ 'imagesupload' ][ 'ip' ], $xc_settings[ 'imagesupload' ][ 'port' ] );
 		
         if ( !$fp ) {
-            return false;
+            return -2; // could not connect to remote server
         }
 
 		$body = "-----------------------------2618471642458\r\n"
@@ -147,7 +147,6 @@
 		else if ( strpos( $data, "error" ) !== false ) {
 			$upload[ 'successful' ] = false;
 		}
-
 		else if ( strpos( $data, "success" ) !== false ) {
 			$upload[ 'successful' ] = true;
 			$start = strpos( $data, "[" ) + 1;

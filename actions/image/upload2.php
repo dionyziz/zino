@@ -60,9 +60,11 @@
     		$imagename = 'noname' . rand( 1 , 20 ) . $extension;
     	}
     	$imageid = submit_photo( $imagename , $tempfile , $albumid , '' );
-    	if ( $imageid == 0 ) {
+    	if ( $imageid < 0 ) {
 			?><html><head><title>Upload error</title><script type="text/javascript">
-    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας.' );
+    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
+                echo $errornum = $imageid;
+                ?>)' );
     			window.location.href = <?php
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;

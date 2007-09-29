@@ -2,7 +2,6 @@
     global $libs;
     
     $libs->Load( 'rabbit/trivial/array' );
-    $libs->Load( 'rabbit/trivial/math' );
     $libs->Load( 'rabbit/trivial/registerglobals' );
     $libs->Load( 'rabbit/trivial/magicquotes' );
     $libs->Load( 'rabbit/trivial/validate' );

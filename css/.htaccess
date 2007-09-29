@@ -1,2 +1,3 @@
 RewriteEngine On
 RewriteRule ^([a-zA-Z][a-z0-9_\.\-]+)$ static.php?file=$1 [L,QSA]
+RewriteRule ^global.css$ global.php [L,QSA]
