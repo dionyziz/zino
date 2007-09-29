@@ -141,6 +141,11 @@
 		
         $data = $split[ 1 ];
 		$upload = array();
+        echo '!!';
+        var_dump( $data );
+        echo '!!';
+        die();
+        
 		if ( strpos( $data, "error" ) !== false && $user->IsSysOp() ) {
 			die( $data );
 		}
