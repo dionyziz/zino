@@ -122,7 +122,7 @@
 		. "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4\r\n"
 		. "Accept: application/x-shockwave-flash,text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5\r\n"
 		. "Accept-Language: en-us,en;q=0.5\r\n"
-		. "Accept-Encoding: gzip,deflate\r\n"
+		. "Accept-Encoding: \r\n"
 		. "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n"
 		. "Connection: close\r\n"
 		. "Content-Type: multipart/form-data; boundary=---------------------------2618471642458\r\n"
@@ -141,11 +141,7 @@
 		
         $data = $split[ 1 ];
 		$upload = array();
-        echo '!!';
-        var_dump( $split );
-        echo '!!';
-        die();
-        
+
 		if ( strpos( $data, "error" ) !== false && $user->IsSysOp() ) {
 			die( $data );
 		}
