@@ -2,7 +2,25 @@
     final class Dictionary extends Satori {
         protected $mId;
         protected $mLanguage;
+        protected $mWordsCount;
         
+        protected function LoadDefaults() {
+            $this->mWordsCount = false;
+        }
+        protected function WordsCount() {
+            global $dictionarywords;
+            
+            $sql = "SELECT
+                        COUNT(*) AS wordscount
+                    FROM
+                        `$dictionarywords`
+                    WHERE
+                        `word_dictionaryid` = '" . $this->mId . "'";
+            $res = $this->mDb->Query( $sql );
+            $row = $res->FetchArray();
+            
+            return $this->mWordsCounts = $row[ 'wordscount' ];
+        }
         public function Dictionary( $construct = 'greek' ) {
             global $db;
             global $dictionaries;
@@ -22,7 +40,7 @@
                     WHERE
                         `dictionary_language`='" . $construct . "'
                     LIMIT 1;";
-            $res = $db->Query( $sql );
+            $res = $this->mDb->Query( $sql );
             if ( !$res->Results() ) {
                 $water->Notice( 'Dictionary not found' );
                 $this->Satori( false );
@@ -33,7 +51,6 @@
             $this->Satori( $row );
         }
         public function GetRandomWord() {
-            global $db;
             global $dictionarywords;
             global $water;
             
@@ -43,10 +60,8 @@
                         `$dictionarywords`
                     WHERE
                         `word_dictionaryid` = " . $this->mId . "
-                    ORDER BY
-                        RAND()
-                    LIMIT 1;";
-            $res = $db->Query( $sql );
+                    LIMIT " . rand( 0, $this->WordsCount() - 1 ) . ",1;";
+            $res = $this->mDb->Query( $sql );
             if ( !$res->Results() ) {
                 $water->Notice( 'No words found in dictionary' );
                 return false;
