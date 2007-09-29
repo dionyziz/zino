@@ -60,7 +60,7 @@
     
     final class DictionaryWord extends Satori {
         protected $mId;
-        protected $mWord;
+        protected $mText;
         protected $mDictionaryId;
         
         public function DictionaryWord( $construct ) {
@@ -71,7 +71,7 @@
             $this->mDbTable = $dictionarywords;
             $this->SetFields( array(
                 'word_id'           => 'Id',
-                'word_text'         => 'Word',
+                'word_text'         => 'Text',
                 'word_dictionaryid' => 'DictionaryId'
             ) );
             
