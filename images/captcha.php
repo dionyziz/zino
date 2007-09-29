@@ -21,7 +21,9 @@
     
     $water->Trace( 'CAPTCHA Word!', $_SESSION[ 'captcha' ] );
     
-    ?><body><script type="text/javascript"><?php
+    ?><body><?php
+    echo $_SESSION[ 'captcha' ];
+    ?><script type="text/javascript"><?php
 $water->GenerateJS();
 ?></script></body><?php
     // header( 'Content-type: image/png' );
