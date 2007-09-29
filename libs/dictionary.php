@@ -52,7 +52,9 @@
                 return false;
             }
             
-            return New DictionaryWord( $res->FetchArray() );
+            $word = New DictionaryWord( $res->FetchArray() );
+            
+            return $word->Text;
         }
     }
     
