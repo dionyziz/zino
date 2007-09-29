@@ -32,6 +32,8 @@
                 	'categories'    	=> 'categories',
                 	'chats'         	=> 'chat',
                 	'comments'      	=> 'comments',
+                    'dictionaries'      => 'dictionaries',
+                    'dictionarywords'   => 'dictionarywords',
                 	'faqquestions'  	=> 'faqquestions',
                 	'faqcategories'		=> 'faqcategories',
                     'friendrel'		    => 'friendrel',
