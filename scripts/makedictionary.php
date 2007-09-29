@@ -76852,7 +76852,7 @@ foreach ( $words as $word ) {
     $word = trim( $word );
     $sql = "INSERT INTO
                 `merlin_dictionarywords`
-            (`word_id`, `word_dictionarid`, `word_text`) VALUES
+            (`word_id`, `word_dictionaryid`, `word_text`) VALUES
             ('', '1', '" . addslashes( $word ) . "')";
     $db->Query( $sql );
 }
