@@ -56,6 +56,7 @@
     header( "Last-Modified: " . gmdate( "D, d M Y H:i:s", $lastmodified ) . " GMT" );
     header( "Pragma: " );
     if ( $sendcontent ) {
+        ob_start( 'ob_gzhandler' );
         echo file_get_contents( $file );
     }
 ?>

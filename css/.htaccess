@@ -1,4 +1,2 @@
 RewriteEngine On
 RewriteRule ^([a-zA-Z][a-z0-9_\.\-]+)$ static.php?file=$1 [L,QSA]
-php_flag zlib.output_compression On
-php_value zlib.output_compression_level 5
