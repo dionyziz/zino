@@ -22,6 +22,8 @@
     ?><body><script type="text/javascript"><?php
 $water->GenerateJS();
 ?></script></body><?php
+    $water->Trace( 'CAPTCHA Word!', $_SESSION[ 'captcha' ] );
+    
     // header( 'Content-type: image/png' );
     // echo Captcha_Image( $_SESSION[ 'captcha' ] );
 ?>
