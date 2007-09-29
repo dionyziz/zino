@@ -19,9 +19,9 @@
         $_SESSION[ 'captcha' ] = $greek->GetRandomWord();
     }
     
-    ?><body><script type="text/javascript"> <![CDATA[ <?php
+    ?><body><script type="text/javascript"><?php
 $water->GenerateJS();
-?>]]> </script></body><?php
+?></script></body><?php
     // header( 'Content-type: image/png' );
     // echo Captcha_Image( $_SESSION[ 'captcha' ] );
 ?>
