@@ -1,5 +1,5 @@
 <?php
-	set_include_path( '../../:./' );
+	set_include_path( '../:./' );
 
 	global $water;
 	global $libs;
