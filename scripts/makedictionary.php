@@ -1,6 +1,4 @@
 <?php
-    return;
-    
 	set_include_path( '../:./' );
 
 	global $water;
@@ -76851,7 +76849,6 @@ $words =
 $words = explode( "\n", $words );
 
 foreach ( $words as $word ) {
-    $word = trim( $word );
     $sql = "INSERT INTO
                 `merlin_dictionarywords`
             (`word_id`, `word_dictionaryid`, `word_text`) VALUES
