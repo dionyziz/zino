@@ -41,6 +41,8 @@
     }
     
     function Captcha_Image( $text ) {
+        global $rabbit_settings;
+        
         $func1 = Captcha_GenerateFunction();
         $func2 = Captcha_GenerateFunction();
         
@@ -50,7 +52,7 @@
         $forecolor = imagecolorallocate( $im1, rand( 0, 200 ), rand( 0, 200 ), rand( 0, 200 ) );
 
         imagefill( $im1, 0, 0, $white );
-        imagettftext( $im1, rand( 14, 16 ), rand( CAPTCHA_MIN_ANGLE, CAPTCHA_MAX_ANGLE ), 5, 50, $forecolor, 'bin/resources/fonts/arial.ttf', $text );
+        imagettftext( $im1, rand( 14, 16 ), rand( CAPTCHA_MIN_ANGLE, CAPTCHA_MAX_ANGLE ), 5, 50, $forecolor, $rabbit_settings[ 'rootdir' ] . '/bin/resources/fonts/arial.ttf', $text );
         
         $im2 = imagecreatetruecolor( CAPTCHA_WIDTH, CAPTCHA_HEIGHT ); // final surface
         $white = imagecolorallocate( $im1, 255, 255, 255 );
