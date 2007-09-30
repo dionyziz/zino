@@ -21,8 +21,12 @@
             $captcha = $greek->GetRandomWord();
         }
         $_SESSION[ 'captcha_word'  ] = $captcha;
-        $_SESSION[ 'captcha_image' ] = Captcha_Image( $captcha );
+        $captcha_image = Captcha_Image( $captcha );
 
+        $water->Profile( 'CAPTCHA Session Storage' );
+        $_SESSION[ 'captcha_image' ] = $captcha_image;
+        $water->ProfileEnd();
+        
 		$page->AttachStylesheet( 'css/rounded.css' );
 		$page->SetTitle( "Νέος Χρήστης" );
 		
