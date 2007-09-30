@@ -4,13 +4,22 @@
             tBoolean $nopassword, tBoolean $passwordmismatch, 
             tBoolean $usernametaken, tBoolean $usernameexists, 
             tBoolean $usernameinvalid, tBoolean $emailexists,
-            tBoolean $screwyou
+            tBoolean $screwyou, tBoolean $recaptcha
         ) {
 		global $rabbit_settings;
         global $xc_settings;
 		global $page;
 		global $user;
 		
+        $libs->Load( 'dictionary' );
+        
+        $greek = New Dictionary( 'greek' );
+        $captcha = '';
+        while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
+            $captcha = $greek->GetRandomWord();
+        }
+        $_SESSION[ 'captcha' ] = $captcha;
+
 		$page->AttachStylesheet( 'css/rounded.css' );
 		$page->SetTitle( "Νέος Χρήστης" );
 		
@@ -21,6 +30,7 @@
 		$usernameinvalid = $usernameinvalid->Get();
 		$emailexists = $emailexists->Get();
         $screwyou = $screwyou->Get(); // too many accounts from the same IP in a short period of time
+        $recaptcha = $recaptcha->Get();
 		//--------------------------
 		
 		?><br /><br /><br /><br /><br /><br /><br /><?php
@@ -42,6 +52,9 @@
 			echo $rabbit_settings[ 'applicationname' ];
 			?>.</b><?php
 		}
+        else if ( $recaptcha ) {
+            ?><b>Επιβεβαίωσε ότι έχεις πληκτολογήσει σωστά την λέξη της εικόνας.</b><?php
+        }
         else if ( $screwyou ) {
             ?><b>Δεν ήταν δυνατή η δημιουργία λογαριασμού αυτή τη στιγμή. Ξαναδοκίμασε σε 2 λεπτά.</b><?php
         }
@@ -132,9 +145,10 @@
 							<span class="directions" style="padding-left:20px">Πληκτρολόγησε την λέξη που βλέπεις παρακάτω</span><br />
 							<span class="tip" style="padding-left:20px">(χρησιμοποίησε μόνο κεφαλαία ελληνικά γράμματα χωρίς τόνους)</span><br />
                             <br />
+							<input type="text" tabindex="0" name="captcha" /><br /><br />
+                            <br />
                             <img src="images/captcha.png" alt="CAPTCHA" style="margin: 10px;float: none;    " />
                             <br />
-							<input type="text" tabindex="0" name="captcha" /><br /><br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
 							<br />
 						</div>

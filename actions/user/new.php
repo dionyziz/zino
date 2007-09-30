@@ -1,19 +1,30 @@
 <?php
-    function ActionUserNew( tString $username, tString $password, tString $password2, tString $email ) {
+    function ActionUserNew( 
+            tString $username, tString $password, tString $password2, 
+            tString $email, tString $captcha
+        ) {
         global $xc_settings;
 
         if ( !$xc_settings[ "allowregisters" ] ) {
             echo "Η δημιουργία χρήστη προς το παρών έχει απαγορευθεί. Παρακαλώ δοκιμάστε ξανά αργότερα";
-
-            exit();
+            return;
         }
 
-    	//Grabs the info posted by user for register.
+        if ( !isset( $_SESSION[ 'captcha' ] ) || empty( $_SESSION[ 'captcha' ] ) ) {
+            return;
+        }
+        
+    	// Grabs the info posted by user for register.
     	$username		= $username->Get();
     	$password		= $password->Get();
     	$password2		= $password2->Get();
     	$email			= $email->Get();
-    	
+    	$captcha        = $captcha->Get();
+        
+        if ( strtolower( $_SESSION[ 'captcha' ] ) != strtolower( $captcha ) ) {
+            return Redirect( '?p=register&recaptcha=yes' );
+        }
+
     	$validunames = "/^[a-zA-Z0-9_]{3,}$/";
     	
     	if ( !preg_match( $validunames , $username ) ) { // If the username contains invalid characters
