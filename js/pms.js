@@ -2,6 +2,8 @@
 
 old pms
 
+*/
+
 var Pms = {
 	activecontent : 'inbox',
 	InitTabs: function( id ) {		
@@ -63,4 +65,3 @@ var id = g( 'pm_page_id' ).childNodes[ 0 ].nodeValue;
 if ( id != '' ) {
 	Pms.InitTabs( id );
 }
-*/
