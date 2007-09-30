@@ -16,10 +16,9 @@
         $libs->Load( 'dictionary' );
         $libs->Load( 'captcha' );
         
-        $greek = New Dictionary( 'greek' );
         $captcha = '';
         while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
-            $captcha = $greek->GetRandomWord();
+            $captcha = Dictionary_GetRandomWord();
         }
         $_SESSION[ 'captcha_word'  ] = $captcha;
         $captcha_image = Captcha_Image( $captcha );

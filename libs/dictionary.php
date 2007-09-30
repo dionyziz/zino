@@ -1,4 +1,28 @@
 <?php
+    define( 'DICTIONARY_WORDSCOUNT', 76833 );
+    
+    function Dictionary_GetRandomWord() { // for the sake of speed
+        global $dictionarywords;
+        global $water;
+        
+        $sql = "SELECT
+                    *
+                FROM
+                    `$dictionarywords`
+                WHERE
+                    `word_id` = " . rand( 1, 76833 ) . "
+                LIMIT 1;";
+        $res = $this->mDb->Query( $sql );
+        if ( !$res->Results() ) {
+            $water->Notice( 'No words found in dictionary' );
+            return false;
+        }
+        
+        $word = New DictionaryWord( $res->FetchArray() );
+        
+        return $word->Text;
+    }
+    
     final class Dictionary extends Satori {
         protected $mId;
         protected $mLanguage;
@@ -50,6 +74,7 @@
             
             $this->Satori( $row );
         }
+        /* // this is very slow
         public function GetRandomWord() {
             global $dictionarywords;
             global $water;
@@ -71,6 +96,7 @@
             
             return $word->Text;
         }
+        */
     }
     
     final class DictionaryWord extends Satori {
