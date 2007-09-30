@@ -42,6 +42,9 @@
     
     function Captcha_Image( $text ) {
         global $rabbit_settings;
+        global $water;
+        
+        $water->Profile( 'CAPTCHA generation' );
         
         $func1 = Captcha_GenerateFunction();
         $func2 = Captcha_GenerateFunction();
@@ -86,6 +89,9 @@
         
         ob_start();
         imagepng( $im2 );
+
+        $water->ProfileEnd();
+
         return ob_get_clean();
     }
 ?>
