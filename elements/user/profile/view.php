@@ -10,12 +10,12 @@
         $name = $name->Get();
         $oldcomments = $oldcomments->Get();
         
-		$page->AttachScript( 'js/friends.js' );
 		$page->AttachScript( 'js/userprofile.js' );
 		
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
         $libs->Load( 'albums' );
+        $libs->Load( 'relations' );
 		
 		$libs->Load( 'question' );
 		
@@ -42,6 +42,15 @@
 		}
         $id = $theuser->Id();
 
+        if ( $theuser->Username() == 'alienhack' ) {
+            ob_start();
+            ?>alert( 'Καλώς Ηρθατε Στον Χώρο μου...Alienhack aka Aris aka F.B.I.' );<?php
+            $code = ob_get_clean();
+
+            $page->AttachInlineScript( $code );
+        }
+
+        
         $commentscount = $theuser->Contribs();
         
         $page->SetTitle( $theuser->Username() );
@@ -136,26 +145,33 @@
                         <?php
                     }
                     ?>
-					<div style="float:left;padding-top:9px;"><?php
-					$isfriend = $user->IsFriend( $theuser->Id() );
-					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { 
-						?><span id="friendadd"><?php
-						if ( !$isfriend ) { 
-							?><a href="" onclick="Friends.AddFriend(<?php
+                 	<div style="float:left;padding-top:9px;"><?php
+					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
+						$relations = AllRelations();
+						if ( count( $relations ) ) {
+							$is_friend = $user->IsFriend( $theuser->Id() );
+							?><span id="friendadd">
+							<a href="" onclick="Friends.AddFriend( <?php
 	                        echo $theuser->Id();
-	                        ?>);return false;"><img src="<?php
+	                        ?>, <?php
+	                        echo $is_friend?"-1":"17";
+	                        ?> );return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/user_add.png" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a><?php
+                            if( $is_friend ) {
+                            ?>icons/user_delete.png<?php
+                            }
+                            else {
+                            ?>icons/user_add.png<?php
+                            }
+                            ?>" title="<?php
+                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                            ?>τους φίλους μου" alt="<?php
+                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                            ?>τους φίλους" width="16" height="16" /></a></span>
+                            
+                            <?php
 						}
-						else { 
-							?><a href="" onclick="Friends.DeleteFriend(<?php
-	                        echo $theuser->Id();
-	                        ?>);return false;"><img src="<?php
-                            echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/user_delete.png" title="Διαγραφή από τους φίλους μου" alt="Διαγραφή από τους φίλους μου" width="16" height="16" /></a><?php
-						}
-						?></span><?php
-					}
+					}	
 					if ( $user->Id() != $theuser->Id() ) {
     					?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
     					echo $theuser->Username();
@@ -328,5 +344,8 @@
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
 		?></div><?php
+		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
+			Element( 'user/profile/frelations', $relations, $is_friend, $theuser->Id() );
+		}
 	}
 ?>
