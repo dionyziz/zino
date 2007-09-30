@@ -23,7 +23,7 @@
         $_SESSION[ 'captcha_word'  ] = $captcha;
         $captcha_image = Captcha_Image( $captcha );
 
-        $water->Profile( 'CAPTCHA Session Storage' );
+        $water->ProfileStart( 'CAPTCHA Session Storage' );
         $_SESSION[ 'captcha_image' ] = $captcha_image;
         $water->ProfileEnd();
         
