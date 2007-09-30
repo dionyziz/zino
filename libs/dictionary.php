@@ -2,6 +2,7 @@
     define( 'DICTIONARY_WORDSCOUNT', 76833 );
     
     function Dictionary_GetRandomWord() { // for the sake of speed
+        global $db;
         global $dictionarywords;
         global $water;
         
@@ -12,7 +13,7 @@
                 WHERE
                     `word_id` = " . rand( 1, 76833 ) . "
                 LIMIT 1;";
-        $res = $this->mDb->Query( $sql );
+        $res = $db->Query( $sql );
         if ( !$res->Results() ) {
             $water->Notice( 'No words found in dictionary' );
             return false;
