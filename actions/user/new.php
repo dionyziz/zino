@@ -3,7 +3,7 @@
             tString $username, tString $password, tString $password2, 
             tString $email, tString $captcha
         ) {
-        global $xc_settings, $libs;
+        global $xc_settings;
 
         if ( !$xc_settings[ "allowregisters" ] ) {
             echo "Η δημιουργία χρήστη προς το παρών έχει απαγορευθεί. Παρακαλώ δοκιμάστε ξανά αργότερα";

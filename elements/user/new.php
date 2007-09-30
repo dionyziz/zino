@@ -10,6 +10,7 @@
         global $xc_settings;
 		global $page;
 		global $user;
+        global $libs;
 		
         $libs->Load( 'dictionary' );
         
