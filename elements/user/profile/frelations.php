@@ -6,7 +6,7 @@
 		
 		$page->AttachStylesheet( 'css/frelations.css' );
     	$page->AttachScript( 'js/animations.js' );
-    	$page->AttachScript( 'js/_friends.js' );
+    	$page->AttachScript( 'js/friends.js' );
     	
 		if ( $is_friend ) {
 			$relid = $user->GetRelId( $friendid );

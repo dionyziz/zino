@@ -11,6 +11,7 @@
         $oldcomments = $oldcomments->Get();
         
 		$page->AttachScript( 'js/userprofile.js' );
+		$page->AttachScript( 'js/friends.js' );
 		
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
@@ -344,8 +345,8 @@
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
 		?></div><?php
-		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
+/*		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
 			Element( 'user/profile/frelations', $relations, $is_friend, $theuser->Id() );
-		}
+		}*/
 	}
 ?>
