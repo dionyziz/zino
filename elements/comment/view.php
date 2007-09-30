@@ -2,7 +2,8 @@
 	function ElementCommentView( $comment , $indent , $haschildren = false ) {
 		global $water;
 		global $user;
-		
+		global $xc_settings;
+        
 		$theuser = $comment->User();
 		$allowreply = $indent < 50;
         
