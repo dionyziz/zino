@@ -154,9 +154,12 @@
                             <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
                             <br />
-                            <img src="images/captcha.png?<?php
-                            echo time();
-                            ?>" alt="CAPTCHA" style="margin: 10px;float: none;    " />
+                            <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee">
+                                <img src="images/captcha.png?<?php
+                                echo time();
+                                ?>" alt="CAPTCHA" style="margin: 10px;float: none;" /><br />
+                                <b>Ελληνικοί κεφαλαίοι χαρακτήρες</b>
+                            </div>
                             <br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
 							<br />
