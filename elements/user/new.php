@@ -154,11 +154,11 @@
                             <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
                             <br />
-                            <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee">
+                            <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee; width:250px">
                                 <img src="images/captcha.png?<?php
                                 echo time();
                                 ?>" alt="CAPTCHA" style="margin: 10px;float: none;" /><br />
-                                <b>Ελληνικοί κεφαλαίοι χαρακτήρες</b>
+                                Ελληνικοί κεφαλαίοι χαρακτήρες
                             </div>
                             <br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
