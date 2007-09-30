@@ -77,7 +77,6 @@
 								?>"><?php
 								break;
                             case 3:
-                                // please fix YSoD
 								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
@@ -118,7 +117,7 @@
                         }
 						?> στ<?php
 						
-						switch ( $comment->TypeId() ) {
+						switch ( $comment->TypeId() ) { // TODO: remove code duplication by splitting into new element
 							case 2:
 								?>ην εικόνα <a href="?p=photo&amp;id=<?php
 								echo $comment->Page()->Id();
@@ -146,7 +145,13 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            // case 3: ....
+                            case 3:
+								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
+								echo $comment->Page()->Id();
+								?>#comment_<?php
+								echo $comment->Id();
+								?>"><?php
+								break;
                             default:
                                 ?><a>(error)<?php
                                 $water->Warning( 'Invalid comment typeid' );
