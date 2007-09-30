@@ -1,5 +1,5 @@
 <?php
-	function ElementCommentView( $comment , $indent , $haschildren = false ) {
+	function ElementCommentView( $comment, $indent, $numchildren = 0 ) {
 		global $water;
 		global $user;
 		global $xc_settings;
@@ -71,13 +71,13 @@
 							?><li><a style="cursor: pointer;" onclick="Comments.Edit( <?php 
                             echo $comment->Id(); 
                             ?> ); return false;">Επεξεργασία</a></li><?php
-							if ( !$haschildren ) {
+							if ( !$numchildren ) {
                                 ?><li><a style="cursor:pointer" onclick="Comments.Delete( <?php 
                                 echo $comment->Id(); 
                                 ?> ); return false;">Διαγραφή</a></li><?php
 							}
 						}
-						if ( $theuser->IsAnonymous() && !$haschildren && $user->CanModifyCategories() ) {
+						if ( $theuser->IsAnonymous() && !$numchildren && $user->CanModifyCategories() ) {
 							?><li><a style="cursor:pointer" onclick="Comments.MarkAsSpam( <?php
 							echo $comment->Id();
 							?> ); return false;">Spam</a></li><?php
@@ -98,7 +98,8 @@
 				<div id="<?php
 				echo $comment->Id();
 				?>_children" style="display: none"><?php
-				echo count( $comment->ChildComments( false ) );?></div>
+				echo $numchildren;
+                ?></div>
 			</div>
 		</div><?php
 	}
