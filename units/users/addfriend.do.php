@@ -43,7 +43,7 @@
                 g('friendadd').childNodes[1].onclick = function() {
                 			Friends.AddFriend( <?php
                 			echo $friendid;
-                			?> , 17 );
+                			?> , -1 );
                 		};
 				Friends.FriendAdded( <?php
 				echo $user->Id();
