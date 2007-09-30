@@ -11,7 +11,8 @@
 		global $page;
 		global $user;
         global $libs;
-		
+		global $water;
+        
         $libs->Load( 'dictionary' );
         $libs->Load( 'captcha' );
         
@@ -23,7 +24,7 @@
         $_SESSION[ 'captcha_word'  ] = $captcha;
         $captcha_image = Captcha_Image( $captcha );
 
-        $water->ProfileStart( 'CAPTCHA Session Storage' );
+        $water->Profile( 'CAPTCHA Session Storage' );
         $_SESSION[ 'captcha_image' ] = $captcha_image;
         $water->ProfileEnd();
         
