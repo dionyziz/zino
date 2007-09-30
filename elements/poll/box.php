@@ -39,7 +39,7 @@
                     ?> <a onclick="Poll.EditQuestion( <?php
                         echo $poll->Id;
                     ?>, '<?php
-                        echo htmlspecialchars( $poll->Question );
+                        echo htmlspecialchars( w_json_encode( $poll->Question ) );
                     ?>' );"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/edit.png" alt="επεξεργασία τίτλου" /></a><?php
