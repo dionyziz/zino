@@ -11,12 +11,11 @@
     
     Rabbit_Construct();
 
-    $libs->Load( 'captcha' );
-
-    if ( !isset( $_SESSION[ 'captcha' ] ) ){
-        $_SESSION[ 'captcha' ] = 'CAPTCHA';
+    if ( !isset( $_SESSION[ 'captcha_image' ] ) ){
+        return;
     }
     
     header( 'Content-type: image/png' );
-    echo Captcha_Image( $_SESSION[ 'captcha' ] );
+    
+    echo $_SESSION[ 'captcha_image' ];
 ?>

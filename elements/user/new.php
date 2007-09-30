@@ -13,13 +13,15 @@
         global $libs;
 		
         $libs->Load( 'dictionary' );
+        $libs->Load( 'captcha' );
         
         $greek = New Dictionary( 'greek' );
         $captcha = '';
         while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
             $captcha = $greek->GetRandomWord();
         }
-        $_SESSION[ 'captcha' ] = $captcha;
+        $_SESSION[ 'captcha_word'  ] = $captcha;
+        $_SESSION[ 'captcha_image' ] = Captcha_Image( $captcha );
 
 		$page->AttachStylesheet( 'css/rounded.css' );
 		$page->SetTitle( "Νέος Χρήστης" );

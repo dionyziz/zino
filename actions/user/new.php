@@ -21,7 +21,7 @@
     	$email			= $email->Get();
     	$captcha        = $captcha->Get();
         
-        if ( strtolower( $_SESSION[ 'captcha' ] ) != strtolower( $captcha ) ) {
+        if ( strtolower( $_SESSION[ 'captcha_word' ] ) != strtolower( $captcha ) ) {
             return Redirect( '?p=register&recaptcha=yes' );
         }
 
