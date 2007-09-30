@@ -21,10 +21,10 @@
     ob_start();
 
     $sql = "SELECT
-                `vote_userid`, `vote_pollid` AS optionid, `polloption_pollid`
+                `vote_userid`, `vote_optionid`, `polloption_pollid`
             FROM 
                 `$votes` LEFT JOIN `$polloptions`
-                    ON `polloption_id` = `vote_pollid`
+                    ON `polloption_id` = `vote_optionid`
             ;";
 
     $res = $db->Query( $sql );
@@ -36,12 +36,12 @@
                     `vote_pollid` = '" . $row[ 'polloption_pollid' ] . "'
                 WHERE
                     `vote_userid` = '" . $row[ 'vote_userid' ] . "' AND
-                    `vote_pollid` = '" . $row[ 'optionid' ] . "'
+                    `vote_optionid` = '" . $row[ 'vote_optionid' ] . "'
                 LIMIT 1;";
 
         $db->Query( $sql );
 
-        echo "Updated poll with userid = '" . $row[ 'vote_userid' ] . "' AND pollid = '" . $row[ 'optionid' ];
+        echo "Updated poll with userid = '" . $row[ 'vote_userid' ] . "' AND optionid = '" . $row[ 'vote_optionid' ] . "'<br />";
 
         ob_flush();
     }

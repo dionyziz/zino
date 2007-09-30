@@ -36,10 +36,19 @@
             echo $poll->User->Username();
             ?></a>, <?php
             echo $poll->NumComments;
-            ?> σχόλια <a href="?p=poll&amp;id=<?php
-            echo $poll->Id;
-            ?>&amp;oldcomments=yes">(προβολή όλων)</a>
-        </div>
+            ?> σχόλι<?php
+            if ( $poll->NumComments == 1 ) {
+                ?>o<?php
+            }
+            else {
+                ?>α<?php
+            }
+            if ( $poll->NumComments > 50 ) {
+                ?>&nbsp;<a href="?p=poll&amp;id=<?php
+                echo $poll->Id;
+                ?>&amp;oldcomments=yes">(προβολή όλων)</a><?php
+            }
+        ?></div>
 
         <div class="poll"><?php
             Element( "poll/box", $poll );
