@@ -12,10 +12,10 @@
 		echo $type;
 		?>' ).className = "frelation";
 		g( 'frel_-1' ).className = "relselected"; <?php */ ?>
-		g('friendadd').childNodes[1].firstChild.src = "<?php
+		document.getElementById('friendadd').childNodes[1].firstChild.src = "<?php
 		echo $xc_settings[ 'staticimagesurl' ];
         ?>icons/user_add.png";
-        g('friendadd').childNodes[1].onclick = function() {
+        document.getElementById('friendadd').childNodes[1].onclick = function() {
         			Friends.AddFriend( <?php
         			echo $friendid;
         			?>, 17 );
