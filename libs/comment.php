@@ -9,6 +9,8 @@
 	
 
     function Comment_UserIsSpambot( $text ) {
+        return false;
+
         global $db;
         global $comments;
 
