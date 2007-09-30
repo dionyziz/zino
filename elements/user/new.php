@@ -122,20 +122,21 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>no3tip.png" />
 							<span class="directions">Πληκτρολόγησε το email σου</span><br />
-							<span class="tip">(άμα ξεχάσεις τον κωδικό σου θα σου στείλουμε έναν νέο εκεί)</span><br />
+							<a href="faq/whymail_spam_showmail" style="font-size:80%;">Γιατί ζητάτε το email μου?</a> <span class="tip">(άμα ξεχάσεις τον κωδικό σου θα σου στείλουμε έναν νέο εκεί)</span><br />
 							<input type="text" tabindex="0" name="email"/><br /><br />
 							<span class="littletip">Δε θα χρησιμοποιήσουμε το email σου για άλλους σκοπούς χωρίς τη δική σου άδεια.</span>
-							<a href="faq/whymail_spam_showmail" style="font-size:80%;">Γιατί ζητάτε το email μου?</a><br />
+							<br />
                             
-					<br />
+                            <br />
 					
 							<span class="directions" style="padding-left:20px">Πληκτρολόγησε την λέξη που βλέπεις παρακάτω</span><br />
 							<span class="tip" style="padding-left:20px">(χρησιμοποίησε μόνο κεφαλαία ελληνικά γράμματα χωρίς τόνους)</span><br />
                             <br />
-                            <img src="images/captcha.png" alt="CAPTCHA" />
+                            <img src="images/captcha.png" alt="CAPTCHA" style="margin: 10px" />
+                            <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
-							<a href="?p=faqc&amp;id=7" style="font-size:80%;">Πληροφορίες για τον κωδικό πρόσβασης</a><br />
+							<br />
 						</div>
 						<div class="downline">
 							<div class="leftdowncorner"></div>
