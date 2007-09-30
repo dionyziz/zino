@@ -126,6 +126,16 @@
 							<input type="text" tabindex="0" name="email"/><br /><br />
 							<span class="littletip">Δε θα χρησιμοποιήσουμε το email σου για άλλους σκοπούς χωρίς τη δική σου άδεια.</span>
 							<a href="faq/whymail_spam_showmail" style="font-size:80%;">Γιατί ζητάτε το email μου?</a><br />
+                            
+					<br />
+					
+							<span class="directions" style="padding-left:20px">Πληκτρολόγησε την λέξη που βλέπεις παρακάτω</span><br />
+							<span class="tip" style="padding-left:20px">(χρησιμοποίησε μόνο κεφαλαία ελληνικά γράμματα χωρίς τόνους)</span><br />
+                            <br />
+                            <img src="images/captcha.png" alt="CAPTCHA" />
+							<input type="text" tabindex="0" name="captcha" /><br /><br />
+							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
+							<a href="?p=faqc&amp;id=7" style="font-size:80%;">Πληροφορίες για τον κωδικό πρόσβασης</a><br />
 						</div>
 						<div class="downline">
 							<div class="leftdowncorner"></div>
