@@ -44,6 +44,7 @@
                 			Friends.AddFriend( <?php
                 			echo $friendid;
                 			?> , -1 );
+                			return false;
                 		};
 				Friends.FriendAdded( <?php
 				echo $user->Id();

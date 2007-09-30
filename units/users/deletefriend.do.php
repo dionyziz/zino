@@ -19,6 +19,7 @@
         			Friends.AddFriend( <?php
         			echo $friendid;
         			?>, 17 );
+        			return false;
         		};
 		Friends.FriendDeleted( <?php
 		echo $user->Id();
