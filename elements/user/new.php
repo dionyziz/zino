@@ -132,7 +132,7 @@
 							<span class="directions" style="padding-left:20px">Πληκτρολόγησε την λέξη που βλέπεις παρακάτω</span><br />
 							<span class="tip" style="padding-left:20px">(χρησιμοποίησε μόνο κεφαλαία ελληνικά γράμματα χωρίς τόνους)</span><br />
                             <br />
-                            <img src="images/captcha.png" alt="CAPTCHA" style="margin: 10px;float: none;" />
+                            <img src="images/captcha.png" alt="CAPTCHA" style="margin: 10px;float: none;    " />
                             <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
