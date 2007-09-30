@@ -154,7 +154,7 @@
 							<a href="" onclick="Friends.AddFriend( <?php
 	                        echo $theuser->Id();
 	                        ?>, <?php
-	                        echo $is_friend?"-1":"1";
+	                        echo $is_friend?"-1":"17";
 	                        ?> );return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             if( $is_friend ) {
