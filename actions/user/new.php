@@ -10,7 +10,8 @@
             return;
         }
 
-        if ( !isset( $_SESSION[ 'captcha' ] ) || empty( $_SESSION[ 'captcha' ] ) ) {
+        if ( !isset( $_SESSION[ 'captcha_word' ] ) || empty( $_SESSION[ 'captcha_word' ] ) ) {
+            echo 'xx';
             return;
         }
         
