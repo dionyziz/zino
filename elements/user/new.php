@@ -157,8 +157,8 @@
                             <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee; width:250px; margin-left:20px">
                                 <img src="images/captcha.png?<?php
                                 echo time();
-                                ?>" alt="CAPTCHA" style="margin: 10px;float: none;" /><br />
-                                Ελληνικοί κεφαλαίοι χαρακτήρες
+                                ?>" alt="CAPTCHA" style="margin: 10px;float: none; font-size: 90%" /><br />
+                                ελληνικοί κεφαλαίοι χαρακτήρες
                             </div>
                             <br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
