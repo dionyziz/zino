@@ -154,7 +154,7 @@
                             <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
                             <br />
-                            <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee; width:250px">
+                            <div style="border:1px solid #ccc;text-align:center;padding:5px;background-color:#eee; width:250px; margin-left:20px">
                                 <img src="images/captcha.png?<?php
                                 echo time();
                                 ?>" alt="CAPTCHA" style="margin: 10px;float: none;" /><br />
