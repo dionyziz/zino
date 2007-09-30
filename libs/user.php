@@ -1,4 +1,8 @@
 <?php
+    /* 
+        MASKED: AddFriend (frelations)  --kostis90gr
+        + numpolls... -- abresas
+    */
 	global $libs;
     
     $libs->Load( 'image/image' ); // for usericons
@@ -48,7 +52,7 @@
         }
         return false;
     }
-
+    
 	function User_IpBan( $ip, $time, $sysopid = '' ) {
 		global $user;
 		global $bans;
@@ -71,12 +75,12 @@
 		
 		return $db->Insert( $insert , $bans );
 	}
-	
-	function MakeUser( $username , $password , $email ) {
+    
+    function MakeUser( $username , $password , $email ) {
+        global $xc_settings;
 		global $users;
 		global $db;
 		global $mc;
-        global $xc_settings;
 
         w_assert( $xc_settings[ "allowregisters" ] );
 		
@@ -121,7 +125,7 @@
 		$password = addslashes( $password );
 		$email = addslashes( $email );
 		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , NOW() , '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
+							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
 		$db->Query( $sql );
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
@@ -131,8 +135,8 @@
 		
 		// success
 		return 1;
-	}
-	
+	}	
+
 	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $hobbies , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
 		global $users;
 		global $user;
@@ -294,14 +298,14 @@
 		global $db;
 		global $users;
 		global $mc;
+        global $water;
         global $xc_settings;
 		
 		$latestusers = $mc->get( $key = 'latestusers' );
 		
 		if ( !is_array( $latestusers ) ) {
 			$sql = "SELECT 
-						* , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-
+                        *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
 					FROM 
 						`$users` 
 					WHERE
@@ -314,6 +318,7 @@
 			$res = $db->Query( $sql );
 			$latestusers = array();
 			while ( $row = $res->FetchArray() ) {
+                $water->Trace( "user construct for new users", $row );
 				$latestusers[] = New User( $row );
 			}
 			$mc->add( $key , $latestusers );
@@ -326,6 +331,7 @@
 		global $db;
 		global $users;
 		global $images;
+        global $water;
         
 		$nowdate = NowDate();
         
@@ -458,24 +464,6 @@
 		$db->Query( $sql );
 	}
 	
-	function GiveStars( $stars, $id ) {
-		global $users;
-		global $db;
-		
-		$nowdate = NowDate();
-	
-		$sql = "UPDATE 
-					`$users` 
-				SET 
-					`user_starpoints`='$stars',
-					`user_starpointsexpire`=('$nowdate' + INTERVAL 3 DAY)
-				WHERE
-					`user_id`='$id'
-				LIMIT 1;";
-	
-		$db->Query( $sql );
-	}
-	
 	function CheckLogon( $logontype , $s_username = '' , $s_password = '' ) {
 		global $users;
         global $images;
@@ -489,6 +477,7 @@
             
 			$sql = "SELECT 
 						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+
 					FROM 
 						`$users` LEFT JOIN `$images`
                             ON `user_icon` = `image_id`
@@ -516,8 +505,8 @@
 			}
 		}
 		else if ( $logontype == "cookie" ) {
-			if ( isset( $_COOKIE[ $xc_settings[ 'cookiename' ] ] ) ) {
-				$logininfo = $_COOKIE[ $xc_settings[ 'cookiename' ] ];
+			if ( isset( $_COOKIE[ $xc_settings['cookiename'] ] ) ) {
+				$logininfo = $_COOKIE[ $xc_settings['cookiename'] ];
 				$logininfos = explode( ':' , $logininfo );
 				$userid = $logininfos[ 0 ];
 				$userauth = $logininfos[ 1 ];
@@ -677,11 +666,10 @@
 		private $mGTalk;
 		private $mGender;
 		private $mFullContributions;
+		private $mSmallNewsCount;
 		private $mImagesCount;
 		private $mAvatar, $mAvatarCaption;
 		private $mPositionPoints;
-		private $mStars;
-		private $mStarsExpire;
 		private $mDOB;
 		private $mDOBd, $mDOBm, $mDOBy;
 		private $mHobbies;
@@ -704,7 +692,6 @@
 		private $mArticlesPageviews;
 		private $mPopularity;
 		private $mContribs;
-		private $mRespect;
 		private $mGotAnsweredQuestions;
 		private $mArticlesNum;
 		private $mNumComments;
@@ -727,12 +714,6 @@
 		}
 		public function Locked() {
 			return $this->mLocked;
-		}
-		public function Stars() {
-			return $this->mStars;
-		}
-		public function StarsExpire() {
-			return $this->mStarsExpire;
 		}
 		public function Position() {
 			return $this->mPositionPoints;
@@ -843,9 +824,6 @@
 		}
 		public function FullContributions() {
 			return $this->mFullContributions;
-		}
-		public function Respect() {
-			return $this->mRespect;
 		}
 		public function EditContributions() {
 			return $this->mFullContributions - $this->mContributions;
@@ -997,18 +975,14 @@
 			return $this->mLocation;
 		}
 		public function CountSmallNews() {
-			global $shoutbox;
-			global $db;
-			
 			return $this->mNumSmallNews;
 		}
 		public function CountImages() {
-			global $images;
-			global $db;
-			
-			
 			return $this->mNumImages;
 		}
+        public function CountPolls() {
+            return $this->mNumPolls; 
+        }
 		public function GetFullContributions() {
 			global $comments;
 			global $users;
@@ -1325,7 +1299,7 @@
 			return $change->AffectedRows() == 1;
 		}
 		
-		public function AddFriend( $friend_id ) {
+		public function AddFriend( $friend_id, $friend_type ) {
 			global $db;
 			global $user;
 			global $relations;
@@ -1337,8 +1311,8 @@
 			$relations = 'merlin_relations';
 			$sql = "INSERT IGNORE INTO 
 						`$relations` 
-					( `relation_id` ,`relation_userid`, `relation_friendid`, `relation_created` ) VALUES
-					( '' , '" . $this->Id() . "', '" . $friend_id . "', '$nowdate' );";
+					( `relation_id` ,`relation_userid`, `relation_friendid`, `relation_type`, `relation_created` ) VALUES
+					( '' , '" . $this->Id() . "', '" . $friend_id . "', '" . $friend_type . "', '$nowdate' );";
 			
 			$change = $db->Query( $sql );
 			Notify_Create( $user->Id() , $friend_id , $friend_id , 128 );
@@ -1696,8 +1670,7 @@
 				// by id
 				$id = myescape( $construct );
 				$sql = "SELECT 
-                            * , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-
+                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
@@ -1709,8 +1682,7 @@
 				// by username
                 $username = myescape( $construct );
 				$sql = "SELECT 
-                            * , ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-
+                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
                         FROM 
                             `$users` LEFT JOIN `$images`
                                 ON `user_icon` = `image_id`
@@ -1727,6 +1699,8 @@
 				$fetched_array = $res->FetchArray();
 			}
 		
+            $water->Trace( "user constructor: ", $fetched_array );
+
 			$this->mId		          	= isset( $fetched_array[ "user_id" ]                ) ? $fetched_array[ "user_id" ]               : 0;
 			$this->mRights		      	= isset( $fetched_array[ "user_rights" ]            ) ? $fetched_array[ "user_rights" ]           : 0;
             if ( isset( $fetched_array[ 'image_id' ] ) ) {
@@ -1734,7 +1708,6 @@
             }
 			$this->mPlace		      	= isset( $fetched_array[ "user_place" ]             ) ? $fetched_array[ "user_place" ]        		: 0;
 			$this->mBlog		      	= isset( $fetched_array[ "user_blogid" ]            ) ? $fetched_array[ "user_blogid" ]       		: 0;
-			$this->mStars		      	= isset( $fetched_array[ "user_starpoints" ]        ) ? $fetched_array[ "user_starpoints" ]   		: 0;
 			$this->mTemplate	      	= isset( $fetched_array[ "user_templateid" ]        ) ? $fetched_array[ "user_templateid" ]     	: 0;
 			$this->mICQ		          	= isset( $fetched_array[ "user_icq" ]               ) ? $fetched_array[ "user_icq" ]            	: '0';
 			$this->mUsername	      	= isset( $fetched_array[ "user_name" ]              ) ? $fetched_array[ "user_name" ]           	: '';
@@ -1749,10 +1722,10 @@
 			$this->mHobbies		      	= isset( $fetched_array[ "user_hobbies" ]           ) ? $fetched_array[ "user_hobbies" ]          	: '';
 			$this->mSubtitle	      	= isset( $fetched_array[ "user_subtitle" ]          ) ? $fetched_array[ "user_subtitle" ]         	: '';
 			$this->mLastLogon	      	= isset( $fetched_array[ "user_lastlogon" ]         ) ? $fetched_array[ "user_lastlogon" ]        	: '0000-00-00 00:00:00';
-			$this->mCreated		      	= isset( $fetched_array[ "user_created" ]           ) ? $fetched_array[ "user_created" ]          	: '0000-00-00 00:00:00';
+
+            $this->mCreated		      	= isset( $fetched_array[ "user_cutedate" ]           ) ? $fetched_array[ "user_cutedate" ]          	: '0000-00-00 00:00:00';
 			$this->mDOB		         	= isset( $fetched_array[ "user_dob" ]               ) ? $fetched_array[ "user_dob" ]              	: '0000-00-00 00:00:00';
 			$this->mLPE		          	= isset( $fetched_array[ "user_lastprofedit" ]      ) ? $fetched_array[ "user_lastprofedit" ]     	: '0000-00-00 00:00:00';
-			$this->mStarsExpire	      	= isset( $fetched_array[ "user_starpointsexpire" ]  ) ? $fetched_array[ "user_starpointsexpire" ] 	: '0000-00-00 00:00:00';
 			$this->mLastActive        	= isset( $fetched_array[ "user_lastactive" ]        ) ? $fetched_array[ "user_lastactive" ]       	: '0000-00-00';
 			$this->mRegisterHost      	= isset( $fetched_array[ "user_registerhost" ]      ) ? $fetched_array[ "user_registerhost" ]     	: '0.0.0.0';
 			$this->mGender		      	= isset( $fetched_array[ "user_gender" ]            ) ? $fetched_array[ "user_gender" ]        		: 'male';
@@ -1765,16 +1738,16 @@
 			$this->mWeight				= isset( $fetched_array[ "user_weight" ]			) ? $fetched_array[ "user_weight" ]				: "";
 			$this->mEyeColor			= isset( $fetched_array[ "user_eyecolor" ]			) ? $fetched_array[ "user_eyecolor" ]			: "";
 			$this->mHairColor			= isset( $fetched_array[ "user_haircolor" ]			) ? $fetched_array[ "user_haircolor" ]			: "";
-            $this->mProfileColor        = isset( $fetched_array[ "user_profilecolor" ]      ) ? $fetched_array[ "user_profilecolor" ]       : Color_Encode( 255, 255, 255 ) + 1;
+            $this->mProfileColor        = isset( $fetched_array[ "user_profilecolor" ]      ) ? $fetched_array[ "user_profilecolor" ]       : Color_Encode( 255, 255, 255 );
 			$this->mNumSmallNews		= isset( $fetched_array[ "user_numsmallnews" ]		) ? $fetched_array[ "user_numsmallnews" ]		: 0;
 			$this->mPageviews		  	= isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
 			$this->mNumImages			= isset( $fetched_array[ "user_numimages" ]			) ? $fetched_array[ "user_numimages" ]			: 0;
+            $this->mNumPolls            = isset( $fetched_array[ "user_numpolls" ]          ) ? $fetched_array[ "user_numpolls" ]           : 0;
 			
 			$this->mArticlesPageviews	= false;
 			$this->mPopularity 		  	= false;
 			$this->mContribs		 	= isset( $fetched_array[ "user_contribs" ] ) ? $fetched_array[ "user_contribs" ] : 0;
-			$this->mRespect				= isset( $fetched_array[ "user_respect" ] ) ? $fetched_array[ "user_respect" ] : 0;
-			$this->mPositionPoints = intval( $this->mRespect * 1 + $this->mContribs * 0.5 );
+			$this->mPositionPoints = intval( $this->mContribs * 0.5 );
 			$this->mArticlesNum			= false;
 			$this->mGotAnsweredQuestions = false;
 			
@@ -1798,6 +1771,7 @@
 			$this->mLogonDate = MakeDate( $this->mLastLogon );
             $this->mAnsweredQuestions = false;
             $this->mUnansweredQuestions = false;
+
 		}
 	}
 	
