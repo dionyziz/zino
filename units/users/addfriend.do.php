@@ -40,6 +40,11 @@
 				?>g('friendadd').childNodes[1].firstChild.src = "<?php
 				echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/user_delete.png";
+                g('friendadd').childNodes[1].firstChild.onclick = function() {
+                			Friends.AddFriend( <?php
+                			echo $friendid;
+                			?> , 17 );
+                		};
 				Friends.FriendAdded( <?php
 				echo $user->Id();
 				?> , <?php
