@@ -77,7 +77,7 @@
 	}
     
     function MakeUser( $username , $password , $email ) {
-        global $xc_setttings;
+        global $xc_settings;
 		global $users;
 		global $db;
 		global $mc;
