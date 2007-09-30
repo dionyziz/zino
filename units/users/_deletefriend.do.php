@@ -8,10 +8,10 @@
         $type = $user->GetRelId( $friendid );
 		$user->DeleteFriend( $friendid );
 		
-		?>g( 'frel_<?php
+/*		?>g( 'frel_<?php
 		echo $type;
 		?>' ).className = "frelation";
-		g( 'frel_-1' ).className = "relselected";
+		g( 'frel_-1' ).className = "relselected"; <?php */ ?>
 		g('friendadd').childNodes[1].firstChild.src = "<?php
 		echo $xc_settings[ 'staticimagesurl' ];
         ?>icons/user_add.png";

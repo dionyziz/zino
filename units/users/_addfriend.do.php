@@ -18,16 +18,16 @@
 					$prev = $user->GetRelId( $friendid );
 					$user->DeleteFriend( $friendid );
 					$wasfriend = true;
-					?>g( 'frel_<?php
+		/*			?>g( 'frel_<?php
 					echo $prev;
-					?>' ).className = "frelation";<?php
+					?>' ).className = "frelation";<?php  */
 				}
 				$user->Addfriend( $friendid, $friendtype );
-				?>g( 'frel_<?php
+		/*		?>g( 'frel_<?php
 				echo $friendtype;
-				?>' ).className = "relselected";<?php
+				?>' ).className = "relselected";<?php	*/
 				if( !$wasfriend ) {
-					?>g( 'frel_-1' ).className = "frelation";<?php
+			//		?>g( 'frel_-1' ).className = "frelation";<?php
 					ob_start();
 					Element( 'user/display' , $user );
 					$content = ob_get_clean();

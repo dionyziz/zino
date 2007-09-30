@@ -151,7 +151,11 @@
 						if ( count( $relations ) ) {
 							$is_friend = $user->IsFriend( $theuser->Id() );
 							?><span id="friendadd">
-							<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
+							<a href="" onclick="Friends.AddFriend( <?php
+	                        echo $theuser->Id();
+	                        ?>, <?php
+	                        echo $is_friend?"-1":"1";
+	                        ?> );return false;"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             if( $is_friend ) {
                             ?>icons/user_delete.png<?php
@@ -159,7 +163,11 @@
                             else {
                             ?>icons/user_add.png<?php
                             }
-                            ?>" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>
+                            ?>" title="<?php
+                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                            ?>τους φίλους μου" alt="<?php
+                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                            ?>τους φίλους" width="16" height="16" /></a></span>
                             
                             <?php
 						}

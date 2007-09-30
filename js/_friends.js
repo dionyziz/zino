@@ -42,7 +42,7 @@ var Friends = {
 	        newfan.style.display = 'block';
 		}
         Friends.processing = false;
-        Friends.ShowAll( false );
+//      Friends.ShowAll( false );
     },
     FriendDeleted : function( userid ) {
     	var div = document.getElementById( 'newfancontent' );
@@ -60,7 +60,7 @@ var Friends = {
 			}
 		}
 		Friends.processing = false;
-		Friends.ShowAll( false );
+//		Friends.ShowAll( false );
 	},
 	ShowAll : function(show) {
 		if ( Friends.processing ) {
