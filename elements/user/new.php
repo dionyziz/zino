@@ -150,7 +150,9 @@
                             <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
                             <br />
-                            <img src="images/captcha.png" alt="CAPTCHA" style="margin: 10px;float: none;    " />
+                            <img src="images/captcha.png?<?php
+                            echo time();
+                            ?>" alt="CAPTCHA" style="margin: 10px;float: none;    " />
                             <br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
 							<br />
