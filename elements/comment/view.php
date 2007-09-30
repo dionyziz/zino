@@ -45,7 +45,7 @@
 				<div id="comment_text_<?php 
                     echo $comment->Id(); 
                     ?>"><?php
-					echo htmlspecialchars( $comment->Text() );
+					echo $comment->Text();
 					?><br /><br /><br /><div class="sig"><?php
 					
 					echo htmlspecialchars( $theuser->Signature() );
