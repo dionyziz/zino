@@ -315,7 +315,7 @@
 					DESC 
 					LIMIT 5;";
 			
-			$res = $db->Query( $sql );
+            $res = $db->Query( $sql );
 			$latestusers = array();
 			while ( $row = $res->FetchArray() ) {
                 $water->Trace( "user construct for new users", $row );
