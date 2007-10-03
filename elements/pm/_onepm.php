@@ -57,7 +57,7 @@ function ElementPmOnepm( $pmobj ) {
 		<div class="text" style="background-color: #f8f8f6;display:none;">
 			<div>
 				<?php
-				echo $pmobj->Text;
+				echo $pmobj->Text."   ". $pmobj->DelId;
 				?><br /><br /><br /><br />
             </div>
 		</div>
