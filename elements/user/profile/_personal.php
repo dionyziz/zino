@@ -146,7 +146,7 @@
 						?>><dt>ενδιαφέροντα</dt>
 						<dd><?php
                             foreach ( $tags as $tag ) {
-                                echo htmlspecialchars( $tag->Text ) . "&nbsp;";
+                                echo htmlspecialchars( $tag->Text ) . " ";
                             }
                             ?> <input type="text" id="newinteresttag" onkeypress="return InterestTag.Submit( event );" />
 						</dd>
