@@ -59,6 +59,7 @@ var pms = {
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
+			messagesdivdivs[ 0 ].style.backgroundColor = '#FF000';
 			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName[ 'img' ];
 			var unreadicon = infobaricons[ 1 ];
 			unreadicon.style.display = 'none';
