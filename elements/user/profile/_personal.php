@@ -148,7 +148,7 @@
                             foreach ( $tags as $tag ) {
                                 echo htmlspecialchars( $tag->Text ) . "&nbsp;";
                             }
-                            ?> <input type="text" name="newinteresttag" onkeypress="return InterestTag.Submit( event );" />
+                            ?> <input type="text" id="newinteresttag" onkeypress="return InterestTag.Submit( event );" />
 						</dd>
 					</dl></li><?php
 				} 
