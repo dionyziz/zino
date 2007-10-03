@@ -4,9 +4,13 @@ var InterestTag = {
             e = window.event;
         }
         if ( e.keyCode == 13 ) {
-            var val = g( 'newinteresttag' ).value;
+            var inp = g( 'newinteresttag' );
+            var val = inp.value;
             Coala.Warm( 'interesttag/new', { 'text': val } );
-            window.location.reload();
+
+            inp.parentNode.insertBefore( d.createTextNode( val + " " ) );
+            inp.value = '';
+            inp.focus();
         }
     }
 };
