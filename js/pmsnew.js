@@ -58,6 +58,11 @@ var pms = {
 		}
 		pms.activepm = pmdiv;
 		if ( notread ) {
+			//remove the unread icon
+			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName[ 'img' ];
+			var unreadicon = infobaricons[ 1 ];
+			unreadicon.style.display = 'none';
+			//mark the pm as read in the database through a coala call
 			Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 		}
 	}
