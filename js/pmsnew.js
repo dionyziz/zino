@@ -63,6 +63,7 @@ var pms = {
 			var unreadicon = infobaricons[ 1 ];
 			unreadicon.style.opacity = '1';
 			unreadicon.style.padding = '0px';
+			pms.UpdateUnreadPms( - 1 );
 			Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
 					unreadicon.parentNode.removeChild( unreadicon );
 				} );
@@ -262,6 +263,7 @@ var pms = {
 			lowerdiv.style.display = 'none';
 			delimg.style.display = 'none';
 			if ( delimg2 ) {
+				//if the message is already read there is no such image
 				delimg2.style.display = 'none';
 			}
 			msgnode.style.margin = '0px';
