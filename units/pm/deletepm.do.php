@@ -6,10 +6,6 @@ function UnitPmDeletepm( tInteger $pmid ) {
 	$libs->Load( 'pm' );
 	$pm = new PM( $pmid->Get() );
 	
-	//$pm->Delete();
-	$pm->DelId = 2;
-	$pm->Save();
-	?>alert( 'deleted' );<?php
-	
+	$pm->Delete();
 }
 ?>
