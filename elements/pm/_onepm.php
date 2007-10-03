@@ -1,5 +1,5 @@
 <?php
-function ElementPmOnepm( $pmobj ) {
+function ElementPmOnepm( $pmobj , $folder ) {
 	global $user;
 	global $water;
 	
@@ -26,20 +26,37 @@ function ElementPmOnepm( $pmobj ) {
 			<a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
 			echo $pmobj->Id;
 			?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
-			if ( !$pmobj->IsRead() ) {
+			if ( !$pmobj->IsRead() && $folder != -2 ) {
 				?><img style="float:left;padding: 0px 4px 3px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
 			}
 			?><div class="infobar_info" onclick="pms.ExpandPm( this , <?php
-			if ( !$pmobj->IsRead() ) {
-				?> true<?php
+			if ( $folder != -2 ) {
+				if ( !$pmobj->IsRead() ) {
+					?> true<?php
+				}
+				else {
+					?> false<?php
+				}
 			}
 			else {
 				?> false<?php
-			} 
+			}
 			?> , <?php
 			echo $pmobj->Id;
-			?> );return false;">από τον </div><div style="display:inline" class="infobar_info"><?php
-			Element( 'user/static' , $pmobj->Sender );
+			?> );return false;"><?php
+			if ( $folder != -2 ) {
+				?>από τον <?php
+			}
+			else {
+				?>προς τον <?php
+			}
+			?></div><div style="display:inline" class="infobar_info"><?php
+			if ( $folder != -2 ) {
+				Element( 'user/static' , $pmobj->Sender );
+			}
+			else {
+				Element( 'user/static' , $pmobj->Receiver );
+			}
 			?></div><div onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
 				?> true<?php
@@ -57,7 +74,7 @@ function ElementPmOnepm( $pmobj ) {
 		<div class="text" style="background-color: #f8f8f6;display:none;">
 			<div>
 				<?php
-				echo $pmobj->Text."  pmid: ".$pmobj->Id." pm delid: ".$pmobj->DelId;
+				echo $pmobj->Text;
 				?><br /><br /><br /><br />
             </div>
 		</div>
