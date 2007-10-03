@@ -65,7 +65,7 @@ var pms = {
 			Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
 					unreadicon.parentNode.removeChild( unreadicon );
 				} );
-			
+			Animations.Create( unreadicon , 'width' , 1500 , unreadicon.offsetWidth , 0 );
 			//mark the pm as read in the database through a coala call
 			Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 		}
