@@ -62,6 +62,7 @@ var pms = {
 			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
 			var unreadicon = infobaricons[ 1 ];
 			unreadicon.style.opacity = '1';
+			unreadicon.style.padding = '0px';
 			Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
 					unreadicon.parentNode.removeChild( unreadicon );
 				} );
