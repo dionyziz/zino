@@ -188,7 +188,7 @@
                         ?>icons/group_edit.png" title="Επεξεργασία Δικαιωμάτων" alt="Επεξεργασία Δικαιωμάτων" width="16" height="16" /></a><?php
 					}
 					if ( $user->IsSysOp() && $user->Id() != $theuser->Id() ) {
-						?>&nbsp;<a href="?p=su&amp;name=<?php
+						?>&nbsp;<a href="?p=su&amp;username=<?php
 						echo $theuser->Username();
 						?>"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
