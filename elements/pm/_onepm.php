@@ -56,6 +56,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			}
 			else {
 				$receivers = $pmobj->Receivers;
+				$water->Trace( 'receivers num is: ' . count( $receivers ) );
 				foreach ( $receivers as $receiver ) {
 					Element( 'user/static' , $receiver );
 				}
