@@ -37,7 +37,7 @@ var pms = {
 	ExpandPm : function( pmdiv , notread , pmid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
-		alert( 'pmdiv is: ' + pmdiv , ' notread is: ' + notread + ' pimid is: ' + pmid );
+		alert( 'notread is: ' + notread + ' pimid is: ' + pmid );
 		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
 		var textpm = messagesdivdivs[ 4 ];
 		var lowerlinepm = messagesdivdivs[ 6 ];
