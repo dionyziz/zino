@@ -83,7 +83,8 @@ div.messages div.message div.infobar {
     background-color: white;
 }
 div.messages div.message div.infobar div.infobar_info {
-	padding: 3px;
+	padding: 1px;
+	display: inline;
 	height: 21px;
 	cursor: pointer;
 }
