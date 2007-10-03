@@ -6,7 +6,7 @@
 
         $libs->Load( 'interesttag' );
 
-        $tag = new Tag();
+        $tag = new InterestTag();
         $tag->User = $user;
         $tag->Text = $text->Get();
         $tag->Save();
