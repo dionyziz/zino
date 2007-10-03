@@ -47,7 +47,7 @@ function ElementPmOnepm( $pmobj ) {
 			else {
 				?> false<?php
 			}
-			?> , <?php
+			?>, <?php
 			echo $pmobj->Id;
 			?> );return false;" style="display:inline;" class="infobar_info">, πριν <?php
 			echo dateDistance( $pmobj->Date );
