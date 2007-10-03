@@ -5,7 +5,8 @@ var InterestTag = {
         }
         if ( e.keyCode == 13 ) {
             var val = g( 'newinteresttag' ).value;
-            alert( val );
+            Coala.Warm( 'interesttag/new', { 'text': val } );
+            window.location.reload();
         }
     }
 };
