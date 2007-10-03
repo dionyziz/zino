@@ -7,5 +7,6 @@ function UnitPmDeletepm( tInteger $pmid ) {
 	$pm = new PM( $pmid->Get() );
 	
 	$pm->Delete();
+	?>alert( 'deleted' );<?php
 }
 ?>
