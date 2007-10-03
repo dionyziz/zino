@@ -8,7 +8,7 @@ var InterestTag = {
             var val = inp.value;
             Coala.Warm( 'interesttag/new', { 'text': val } );
 
-            inp.parentNode.insertBefore( d.createTextNode( val + " " ) );
+            inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
             inp.value = '';
             inp.focus();
         }
