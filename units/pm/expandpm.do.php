@@ -12,6 +12,5 @@
     		$pm->DelId = 1;	
     		$pm->Save();
     	}
-		?>alert( 'going on' );<?php
     }
 ?>
