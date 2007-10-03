@@ -38,7 +38,7 @@ function ElementPmOnepm( $pmobj ) {
 			} 
 			?> , <?php
 			echo $pmobj->Id;
-			?> );return false;">από τον</div><div style="display:inline" class="infobar_info"><?php
+			?> );return false;">από τον </div><div style="display:inline" class="infobar_info"><?php
 			Element( 'user/static' , $pmobj->Sender );
 			?></div><div onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
