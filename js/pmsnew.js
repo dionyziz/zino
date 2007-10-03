@@ -61,6 +61,7 @@ var pms = {
 			//remove the unread icon
 			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
 			var unreadicon = infobaricons[ 1 ];
+			unreadicon.style.opacity = '1';
 			Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 );
 			unreadicon.parentNode.removeChild( unreadicon );
 			//mark the pm as read in the database through a coala call
