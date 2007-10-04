@@ -27,7 +27,12 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
 				echo $pmobj->Id;
 				?> , <?php
-				echo $pmobj->IsRead(); 
+				if ( $pmobj->IsRead() ) {
+					?>true<?php
+				}
+				else {
+					?>false<?php
+				}
 				?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
 			}
 			if ( !$pmobj->IsRead() && $folder != -2 ) {
