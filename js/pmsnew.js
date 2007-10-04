@@ -312,7 +312,6 @@ var pms = {
 			newtext2.style.width = '16px';
 			newtext2.style.height = '16px';
 			newtext2.style.verticalAlign = 'bottom';
-			unreadmsgbanner.href = '?p=pms';
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		unreadmsgbanner.appendChild( newtext2 );
