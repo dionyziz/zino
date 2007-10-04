@@ -315,7 +315,7 @@ var pms = {
 			unreadmsgbanner.href = '?p=pms';
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
-		unreadmsgbanner.appendChild( newtext2 );
+		//unreadmsgbanner.appendChild( newtext2 );
 		incominglink.appendChild( newtext );
 	}
 	,
