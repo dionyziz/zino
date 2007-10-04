@@ -288,7 +288,7 @@ var pms = {
 		var newtext;
 		var newtext2;
 		incominglink.removeChild( incominglink.firstChild );
-		unreadmsgbanner.removeChild( unreadmsgbanner.firstChild );
+		//unreadmsgbanner.removeChild( unreadmsgbanner.firstChild );
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
