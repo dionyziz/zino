@@ -54,7 +54,7 @@
 							echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/help.png" alt="Πληροφορίες" style="width: 16px; height: 16px;vertical-align: bottom;" />
 					</a></li>
-					<li><a class="logout" href="do/user/logout">Έξοδος</a></li><?php
+					<li><a class="logout" href="do/user/logout">Έξοδοςyouhou</a></li><?php
 				}
 				else {
 					?><li><a href="?p=faq" title="Πληροφορίες">
