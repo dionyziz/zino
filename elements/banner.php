@@ -36,11 +36,12 @@
 				if ( !$user->IsAnonymous() ) {
 					$ureadpms = $user->CountUnreadPms();
 					if ( $ureadpms == 0 ) {
-						?><li><a class="messages messagesread" href="?p=pms" title="Μηνύματα" id="messagesunread"><img src="<?php
+						?><li><a class="messages messagesread" href="?p=pms" title="Μηνύματα"><img src="<?php
 							echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;" /></a></li><?php
 					}
 					else if ( $ureadpms == 1 ) {
+					
 						?><li><a class="messages messagesunread" href="?p=pms" id="messagesunread">1 Νέο Mήνυμα</a></li><?php
 					}
 					else {
