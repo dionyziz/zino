@@ -6,6 +6,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	$usersended = $pmobj->Sender;
 	$water->Trace( 'username of sender is :' . $usersended->Username() );
 	?>
+	<script type="text/javascript">alert( 'test' );</script>
 	<div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
         ?>"><?php

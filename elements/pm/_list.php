@@ -23,6 +23,8 @@
 	    var unreadpms = <?php
 		echo $unreadmsgs;
 		?>;</script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
