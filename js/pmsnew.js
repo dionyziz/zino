@@ -307,8 +307,8 @@ var pms = {
 		}
 		else {
 			newtext2 = document.createElement( 'img' );
-			newtext2.src = 'http://static.chit-chat.gr/icons/email.png';
-			newtext2.alt = 'Μηνήματα';
+			newtext2.src = 'http://static.chit-chat.gr/images/icons/email.png';
+			newtext2.alt = 'Μηνύματα';
 			newtext2.style.width = '16px';
 			newtext2.style.height = '16px';
 			newtext2.style.verticalAlign = 'bottom';
