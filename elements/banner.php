@@ -36,7 +36,7 @@
 				if ( !$user->IsAnonymous() ) {
 					$ureadpms = $user->CountUnreadPms();
 					if ( $ureadpms == 0 ) {
-						?><li><a class="messages messagesread" href="?p=pms" title="Μηνύματα"><img src="<?php
+						?><li><a class="messages messagesread" href="?p=pms" title="Μηνύματα" id="messagesunread"><img src="<?php
 							echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;" /></a></li><?php
 					}
