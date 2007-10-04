@@ -46,10 +46,10 @@
 						?>icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;" /></a></li><?php
 					}
 					else if ( $ureadpms == 1 ) {
-						?><li><a class="messages messagesunread" href="?p=pms">1 Νέο Mήνυμα</a></li><?php
+						?><li><a class="messages messagesunread" href="?p=pms" id="messagesunread">1 Νέο Mήνυμα</a></li><?php
 					}
 					else {
-						?><li><a class="messages messagesunread" href="?p=pms"><?php 
+						?><li><a class="messages messagesunread" href="?p=pms" id="messagesunread"><?php 
                         echo $ureadpms; 
                         ?> Νέα Μηνύματα</a></li><?php
 					}
