@@ -22,10 +22,14 @@ function ElementPmOnepm( $pmobj , $folder ) {
 		</div>
 		*/
 		?>
-		<div class="infobar">
-			<a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
-			echo $pmobj->Id;
-			?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
+		<div class="infobar"><?php
+			if ( $folder != -2 ) {
+				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
+				echo $pmobj->Id;
+				?> , <?php
+				echo $pmobj->IsRead(); 
+				?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
+			}
 			if ( !$pmobj->IsRead() && $folder != -2 ) {
 				?><img style="float:left;padding: 0px 4px 3px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
 			}

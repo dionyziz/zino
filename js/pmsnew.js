@@ -252,7 +252,7 @@ var pms = {
 		Coala.Warm( 'pm/sendpm' , { usernames : receiverslist.value , pmtext : pmtext.value } );
 	}
 	,
-	DeletePm : function( msgnode , msgid ) {
+	DeletePm : function( msgnode , msgid , read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
 			pms.activepms = 0;
 			var msgnodedivs = msgnode.getElementsByTagName( 'div' );
@@ -272,7 +272,9 @@ var pms = {
 					msgnode.parentNode.removeChild( msgnode );
 			} );
 			//check whether the msg is read or not, if it in unread only then execute the next function : TODO
-			pms.UpdateUnreadPms( -1 );
+			if ( !read ) {
+				pms.UpdateUnreadPms( -1 );
+			}
 			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
 		
