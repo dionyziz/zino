@@ -1,7 +1,10 @@
 <?php
     function UnitPmFolderRename( tInteger $folderid, tString $newname ) {
         global $user;
-        
+        global $libs;
+		
+		$libs->Load( 'pm' );
+		
         $folderid = $folderid->Get();
         $newname = $newname->Get();
         
