@@ -282,23 +282,40 @@ var pms = {
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one
 		//if specnumber is - 1 the unread pms number is reduced by one, else the specnumber is used as the number for the unread msgs
-		
+		var unreadmsgbanner = document.getElementById( 'messagesunread' );
 		var incomingdiv = document.getElementById( 'firstfolder' );
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
+		var newtext2;
 		incominglink.removeChild( incominglink.firstChild );
+		unreadmsgbanner.removeChild( unreadmsgbanner.firstChild );
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
 				newtext = document.createTextNode( 'Εισερχόμενα (' + unreadpms + ')' );
+				if ( unreadpms == 1 ) {
+					newtext2 = document.createTextNode( '1 Νέο Μήνυμα' );
+				}
+				else {
+					newtext2 = document.createTextNode( unreadpms + ' Νέα Μηνύματα' );
+				}
 			}
 			else {
 				newtext = document.createTextNode( 'Εισερχόμενα (' + specnumber + ')' );
+				newtext2 = document.createTextNode( specnumber + ' Νέα Μηνύματα' );
 			}
 		}
 		else {
+			newtext2 = document.createElement( 'img' );
+			newtext2.src = 'http://static.chit-chat.gr/icons/email.png';
+			newtext2.alt = 'Μηνήματα';
+			newtext2.style.width = '16px';
+			newtext2.style.height = '16px';
+			newtext2.style.verticalAlign = 'bottom';
+			unreadmsgbanner.href = '?p=pms';
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
+		unreadmsgbanner.appendChild( newtext2 );
 		incominglink.appendChild( newtext );
 	}
 	,
