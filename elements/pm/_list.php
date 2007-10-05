@@ -48,11 +48,13 @@
 						echo $folder->Name;
 						?>" title="<?php
 						echo $folder->Name;
-						?>" onload="pms.Test();return false;"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
+						?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
 						echo $folder->Id;
 						?>' );return false;"><?php
 						echo $folder->Name;
-						?></a></div><?php
+						?></a></div>
+						<script type="text/javascript">alert( 'fuck you' );</script>
+						<?php
 					} ?>
 					<div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
 				</div><br />
