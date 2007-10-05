@@ -279,6 +279,13 @@ var pms = {
 		} );
 		
 	},
+	DragPm : function( pmid ) {
+		var pmdiv = document.getElementById( pmid );
+		var dd1 = new YAHOO.util.DDProxy( pmdiv ); 
+	
+	
+	
+	}
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one
 		//if specnumber is - 1 the unread pms number is reduced by one, else the specnumber is used as the number for the unread msgs
