@@ -48,7 +48,7 @@
 						echo $folder->Name;
 						?>" title="<?php
 						echo $folder->Name;
-						?>" onload="pms.Test();return false;"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
+						?>" onclick="pms.Test();return false;"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
 						echo $folder->Id;
 						?>' );return false;"><?php
 						echo $folder->Name;
