@@ -7,7 +7,9 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
         ?>">
-		<div class="infobar" onmousedown="alert( 'test' );"><?php
+		<div class="infobar" onmousedown="var dd1 = new YAHOO.util.DD( "pm_<?php
+		echo $pmobj->Id;
+		?>" );"><?php
 			if ( $folder != -2 ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
 				echo $pmobj->Id;

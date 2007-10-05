@@ -25,9 +25,7 @@
     	}
     	else {
     		foreach ( $messages as $msg ) {
-                ?><?php
     			Element( 'pm/onepm' , $msg , $folder );
-                ?><?php
     		}
     	}
     }
