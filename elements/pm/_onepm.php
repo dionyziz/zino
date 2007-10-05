@@ -7,7 +7,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
         ?>">
-		<div class="infobar"><?php
+		<div class="infobar" onmousedown="alert( 'test' );"><?php
 			if ( $folder != -2 ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
 				echo $pmobj->Id;
