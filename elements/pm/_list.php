@@ -52,7 +52,7 @@
 						echo $folder->Id;
 						?>' );return false;"><?php
 						echo $folder->Name;
-						?></a></div><?php
+						?>sdf</a></div><?php
 					} ?>
 					<div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
 				</div><br />
