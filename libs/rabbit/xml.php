@@ -1,12 +1,12 @@
 <?php
 
-class Lib_XML__Node {
-    private $mNodeName;
-    private $mChildNodes; // array of Lib_XML__Nodes or strings
+class XMLNode {
+    private $mChildNodes; // array of XMLNodes or strings
     private $mAttributes; // array key => value
     public $parentNode;
+    public $nodeName;
     
-    public function Lib_XML__Node( $name ) {
+    public function XMLNode( $name ) {
         $this->nodeName = $name;
         $this->parentNode = false;
         $this->childNodes = array();
@@ -47,9 +47,9 @@ class Lib_XML__Node {
     }
 }
 
-class Lib_XML__Parser {
+class XMLParser {
     private $mDepth;
-    private $mNodesQueue; /* array of Lib_XML__Node/strin */
+    private $mNodesQueue; /* array of XMLNode/string */
     private $mLastNode;
     private $mXML;
     private $mError;
@@ -61,7 +61,7 @@ class Lib_XML__Parser {
         $this->mIgnoreEmptyTextNodes = $preference;
     }
     public function parseElementStart( $parser, $name, $attribs ) {
-        $newnode = New Lib_XML__Node( $name );
+        $newnode = New XMLNode( $name );
         foreach ( $attribs as $attribute => $value ) {
             $newnode->setAttribute( $attribute, $value );
         }
@@ -85,7 +85,7 @@ class Lib_XML__Parser {
         $current = $this->mNodesQueue[ count( $this->mNodesQueue ) - 1 ];
         $current->appendChild( $string );
     }
-    public function Lib_XML__Parser( $xml ) {
+    public function XMLParser( $xml ) {
         $this->mXML = $xml;
         $this->mNodesQueue = array();
         $this->mError = false;

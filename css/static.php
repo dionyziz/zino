@@ -59,10 +59,8 @@
         ob_start( 'ob_gzhandler' );
         $contents = file_get_contents( $file );
         if ( $extension == 'js' ) {
-            if ( isset( $_GET[ 'minify' ] ) ) {
-                require '../libs/jsmin.php';
-                $contents = JSMin::minify( $contents );
-            }
+            require '../libs/jsmin.php';
+            $contents = JSMin::minify( $contents );
         }
         echo $contents;
     }

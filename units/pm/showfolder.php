@@ -67,54 +67,5 @@
     			?> );<?php
     		}
     	}
-        ?>var dmessages = pms.messagescontainer.getElementsByTagName('div');
-        var dfolders = document.getElementById('folders').getElementsByTagName('div');
-        for ( i = 0; i < dmessages.length; ++i ) {
-            dmessage = dmessages[ i ];
-            if ( dmessage.className == 'message' ) { // message
-                var drag = Drag.Create( dmessage );
-                drag.SetOnStart( function ( draggable ) {
-                    var mdiv = document.createElement( 'div' );
-                    mdiv.style.width = draggable.offsetWidth + 'px';
-                    mdiv.style.height = draggable.offsetHeight + 'px';
-                    mdiv.style.backgroundColor = 'white';
-                    mdiv.style.paddingBottom = '15px';
-                    draggable.parentNode.insertBefore( mdiv, draggable );
-                    draggable.style.position = 'absolute';
-                    draggable.style.zIndex = '5';
-                    Animations.Create( draggable, 'opacity', 500, 1, 0.7 );
-                    document.getElementById( 'folders' ).style.border = '1px solid black';
-                } );
-                drag.SetOnEnd( function ( draggable ) {
-                    draggable.parentNode.removeChild( draggable.previousSibling );
-                    draggable.style.position = 'relative';
-                    draggable.style.left = '0';
-                    draggable.style.zIndex = '0';
-                    draggable.style.top = '0';
-                    Animations.Create( draggable, 'opacity', 500, 0.7, 1 );
-                    document.getElementById( 'folders' ).style.border = '1px solid #838080';
-                } );
-                for ( j = 0; j < dfolders.length; ++j ) {
-                    if ( dfolders[ j ].id.substr( 0, 'folder_'.length ) == 'folder_' ) {
-                        drag.AddDroppable( dfolders[ j ] );
-                    }
-                }
-                drag.SetOnOver( function ( draggable, droppable ) {
-                    droppable.style.backgroundColor = '#d6e6f7';
-                    droppable.style.fontWeight = 'bold';
-                } );
-                drag.SetOnOut( function ( draggable, droppable ) {
-                    droppable.style.backgroundColor = 'inherit';
-                    droppable.style.fontWeight = 'inherit';
-                } );
-                drag.SetOnDrop( function ( draggable, droppable ) {
-                    Coala.Warm( 'pm/move', {
-                        'pmid': draggable.id.substr( 'pm_'.length ),
-                        'targetfolderid': droppable.id.substr( 'folder_'.length )
-                    } );
-                    draggable.parentNode.removeChild( draggable );
-                } );
-            }
-        }<?php
     }
 ?>
