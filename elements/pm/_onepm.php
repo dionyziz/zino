@@ -4,25 +4,9 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	global $water;
 	
 	$usersended = $pmobj->Sender;
-	$water->Trace( 'username of sender is :' . $usersended->Username() );
-	?>
-	<script type="text/javascript">alert( 'test' );</script>
-	<div class="message" style="width:620px;" id="pm_<?php
+	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
-        ?>"><?php
-		/*
-		<div class="infobar" onclick="pms.ExpandPm( this );return false;">
-			<a href="" style="float:right;padding: 3px 2px 1px 6px;" onclick="pms.DeleteMessage( this.parentNode.parentNode , <?php
-			echo $pmobj->Id;
-			?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a>
-			<div class="infobar_info" style="padding: 3px;height:21px;">από τον <?php /*<a href="" class="user"><b><?php
-			echo $pmobj->Sender->Username();
-			?></b></a>
-			Element( 'user/static' , $pmobj->Sender );
-			?>, πριν μία εβδομάδα και μία μέρα</div>
-		</div>
-		*/
-		?>
+        ?>">
 		<div class="infobar"><?php
 			if ( $folder != -2 ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
