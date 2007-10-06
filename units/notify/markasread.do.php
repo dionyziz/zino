@@ -38,6 +38,11 @@
     					?>#comment_<?php
     					echo $notif->Itemid();
     					break;
+					case 3:
+						$artcl = $comm->Page();
+						?>index.php?p=poll&id=<?php
+						echo $notif->Itemid();
+						break;
     				case 128:
     					?>user/<?php
     					echo $comm->Username();
@@ -56,7 +61,7 @@
 					linext = linode.nextSibling.nextSibling;
 					if ( linext ) {
 						linext.className = "<?php
-						if ( $notif->Typeid() <=2 ) {
+						if ( $notif->Typeid() <=3 ) {
 							?>comment<?php
 						}
 						else {
