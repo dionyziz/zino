@@ -39,7 +39,7 @@
     					echo $notif->Itemid();
     					break;
 					case 3:
-						$artcl = $comm->Page();
+						//$artcl = $comm->Page();
 						?>index.php?p=poll&id=<?php
 						echo $notif->Itemid();
 						break;
