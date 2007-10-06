@@ -11,37 +11,14 @@
 		protected $mPlaceId;
 		protected $mDelId;
 		
-		protected function GetName() {
-			return $this->mName;
-		}
-		
-		protected function SetName( $name ) {
-			$this->mName = $name;
-		}
-		
-		protected function GetType() {
-			return $this->mTypeId;
-		}
-		
-		protected function SetType( $typeid ) {
-			$this->mTypeId = $typeid;
-		}
-		
-		protected function GetPlace() {
-			return $this->mPlaceId;
-		}
-		
-		protected function SetPlace( $placeid ) {
-			$this->mPlaceId = $placeid;
-		}
-		
-		public function Exists() {
-			return $this->mDelId == 0;
-		}
-		
 		public function Delete() {
 			$this->mDelId = 1;
 			$this->Save();
+		}
+		
+		public function LoadDefaults() {
+			$this->mDelId = 0;
+			$this->Date = NowDate();
 		}
 		
 		public function Save() {
@@ -57,9 +34,6 @@
 							`uni_name` = '" . myescape( $this->mName ) . "',
 							`uni_typeid` = '" . myescape( $this->mTypeId ) . "', 
 							`uni_placeid` = '" . myescape( $this->mPlaceId) . "',
-							`uni_updateuserid` = '" . $user->Id() . "',
-							`uni_updatedate` = '" . NowDate() . "',
-							`uni_updateip` = '" . UserIp() . "',
 							`uni_delid` =  '" . myescape( $this->mDelId ) . "'
 						WHERE
 							`uni_id` = '" . $this->mId . "';";
@@ -68,7 +42,19 @@
 				
 				return $change;
 			}
-			//if not updating then instert
+			
+			$this->mDbTable = $universities;
+			$this->mDb = $db;
+			
+			$this->SetFields( array( 
+				'uni_id' => 'Id',
+				'uni_name' => 'Name',
+				'uni_typeid' => 'TypeId',
+				'uni_placeid' => 'PlaceId',
+				'uni_delid' => 'DelId'
+			) );
+			//if not updating then insert
+			$this->Satori( $construct );
 			
 			if ( empty( $this->Date ) ) { 
 				$this->Date = NowDate();
@@ -78,9 +64,8 @@
 				'uni_name' => $this->mName,
 				'uni_typeid' => $this->mTypeId,
 				'uni_placeid' => $this->mPlaceId,
-				'uni_updateuserid' => $user->Id(),
-				'uni_updatedate' => $this->Date,
-				'uni_updateip' => UserIp(),
+				'uni_createdate' => $this->Date,
+				'uni_createip' => UserIp(),
 				'uni_delid' => 0
 			);
 			
@@ -93,7 +78,7 @@
 			
 			return $change;
 		}
-		public function Uni( $construct ) {
+		public function Uni( $construct = false ) {
 			global $universities;
 			global $db;
 			

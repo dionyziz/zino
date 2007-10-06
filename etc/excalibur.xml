@@ -17,9 +17,8 @@
 			<field name="uni_name" type="text" />
 			<field name="uni_typeid" type="enum" />
 			<field name="uni_placeid" type="int" ref="merlin_places.place_id" />
-			<field name="uni_updateuserid" type="int" ref="merlin_users.user_id" />
-			<field name="uni_updatedate" type="timestamp" />
-			<field name="uni_updateip" type="text" />
+			<field name="uni_createdate" type="timestamp" />
+			<field name="uni_createip" type="text" />
 			<field name="uni_delid" type="enum" />
 		</table>
 	</database>
