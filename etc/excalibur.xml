@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
+<project name="Excalibur">
+	<database name="excalibur" type="mysql">
+		<table name="merlin_places">
+			<field name="place_id" type="int" autoincrement="yes" />
+			<field name="place_name" type="text" />
+			<field name="place_x" type="int" />
+			<field name="place_y" type="int" />
+			<field name="place_updateuserid" type="int" />
+			<field name="place_updatedate" type="timestamp" />
+			<field name="place_updateip" type="text" />
+			<field name="place_delid" type="int" />
+		</table>
+		<table name="merlin_universities">
+			<field name="uni_id" type="int" autoincrement="yes" />
+			<field name="uni_name" type="text" autoincrement="yes" />
+			<field name="uni_typeid" type="int" />
+			<field name="uni_placeid" type="int" ref="merlin_places.place_id" />
+			<field name="uni_created" type="timestamp" />
+			<field name="uni_createip" type="text" />
+			<field name="uni_delid" type="int" />
+		</table>
+	</database>
+</project>
