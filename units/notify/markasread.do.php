@@ -41,6 +41,8 @@
 					case 3:
 						$artcl = $comm->Page();
 						?>index.php?p=poll&id=<?php
+						echo $artcl->Id();
+						?>#comment_<?php
 						echo $notif->Itemid();
 						break;
     				case 128:
