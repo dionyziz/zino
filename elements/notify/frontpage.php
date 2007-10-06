@@ -44,7 +44,7 @@
                             else {
                                 ?>Απάντηση <?php
                             }
-							if ( $notif->Typeid() <= 2 ) {
+							if ( $notif->Typeid() <= 3 ) {
 								?> στο <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
 								echo $notif->Id();
 								?> , navigate : true , hidewhat : false } );return false;">σχόλιό σου</a><?php
