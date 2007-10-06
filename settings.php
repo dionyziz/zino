@@ -66,7 +66,8 @@
                 	'exvars'        	=> 'vars',
                 	'votes'         	=> 'votes',
                 	'albums'        	=> 'albums',
-                	'notify'        	=> 'notify'
+                	'notify'        	=> 'notify',
+					'universities'		=> 'universities'
                 )
             )
         )
