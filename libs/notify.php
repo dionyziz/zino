@@ -149,7 +149,7 @@
         }
         public function Page() {
             if ( empty( $this->mPage ) ) {
-                if ( $this->Typeid() <= 2 ) {
+                if ( $this->Typeid() <= 3 ) {
                     $this->mPage = New Comment( $this->Itemid() );
                 }
                 else {
