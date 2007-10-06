@@ -3,7 +3,38 @@
 		Developer: Izual
 		Backend for the universities task, masked
 	*/
-	
+	function Uni_Retrieve( $placeid = 0 , $typeid = false ) {
+		global $db;
+		global $universities;
+		
+		if ( $placeid == 0 && $typeid ) {
+			$condition = "`uni_typeid` = '" . myescape( $typeid ) . "'"; 
+		}
+		
+		if ( $placeid != 0 && !$typeid ) {
+			$condition = "`uni_placeid` = '" . myescape( $placeid ) . "'";
+		}
+		
+		if ( $placeid != 0 && $typeid ) {
+			$condition = "`uni_typeid` = '" . myescape( $typeid ) . "' AND `uni_placeid` = '" . myescape( $placeid ) . "'";
+		}
+		
+		$sql = "SELECT
+					*
+				FROM 
+					`$universities`
+				WHERE " . $condition . ";";
+				
+		$res = $db->Query( $sql );
+		
+		$ret = array();
+		
+		while( $row = $res->FetchArray() ) {
+			$ret[] = new Uni( $row );
+		}
+		
+		return $ret;
+	}
 	final class Uni extends Satori {
 		protected $mId;
 		protected $mName;
