@@ -15,19 +15,20 @@
 		
 		$page->SetTitle( 'Chat' );
 		
-		?>
-		<br /><br /><br /><br />
+		?><br /><br /><br /><br />
         <div style="text-align:center">
-            <iframe src="<?php
-            echo $xc_settings[ 'chat' ][ 'applet' ];
-            ?>?userid=<?php
-            echo $user->Id();
-            ?>&amp;username=<?php
-            echo $user->Username();
-            ?>&amp;authtoken=<?php
-            echo $user->Authtoken();
-            ?>" width="750" height="550"></iframe>
-        </div>
-        <?php
+            <applet code="bin/ice_queen/alpha/FrontEnd" width="700" height="400">
+                <param name="userid" value="<?php
+                echo $user->Id();
+                ?>" />
+                <param name="username" value="<?php
+                echo $user->Username();
+                ?>" />
+                <param name="authtoken" value="<?php
+                echo $user->Authtoken();
+                ?>" />
+                <b>You must have Java Runtime Environment installed on this application</b>
+            </applet>
+        </div><?php
 	}
 ?>
