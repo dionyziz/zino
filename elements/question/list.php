@@ -5,7 +5,7 @@
 		global $libs;
 		global $xc_settings;		
 		
-		if ( !( $user->CanModifyStories() ) ) {
+		if ( !( $user->CanModifyStories() ) || $user->Rights() < $xc_settings[ 'readonly' ] ) {
 			return Redirect();
 		}
         $libs->Load( 'question' );

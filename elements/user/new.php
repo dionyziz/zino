@@ -17,7 +17,7 @@
         $libs->Load( 'captcha' );
         
         if ( $xc_settings[ 'readonly' ] > 0 ) {
-            Redirect();
+            Redirect( "" );
         }
 
         $captcha = '';

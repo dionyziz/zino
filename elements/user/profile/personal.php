@@ -128,9 +128,10 @@
 						?>><dt>περιοχή</dt>
 						<dd><?php
 							echo $theuser->Location(); 
-						if ( $user->CanModifyCategories() ) { 
-						?> (<a href="?p=places">Διαχείριση Περιοχών</a>)<?php
-						} ?></dd>
+						if ( $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
+    						?> (<a href="?p=places">Διαχείριση Περιοχών</a>)<?php
+						} 
+                        ?></dd>
 					</dl></li><?php
 				}
 				if ( $theuser->Hobbies() ) {

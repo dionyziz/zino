@@ -95,7 +95,7 @@
 
 		$water->ProfileEnd();
 		
-		if ( $user->CanModifyCategories() ) {
+		if ( $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 			?><br /><br /><a href="?p=questions">Διαχείριση Ερωτήσεων</a><?php
 		}
         ?></div><?php
