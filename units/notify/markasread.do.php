@@ -6,8 +6,6 @@
         $notifyid = $notifyid->Get();
         $navigate = $navigate->Get();
         
-        die( var_dump( $navigate ) );
-        
 		$libs->Load( 'notify' );
 		$libs->Load( 'comment' );
 		
