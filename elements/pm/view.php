@@ -2,6 +2,7 @@
 	function ElementPMView( $pm ) {
 		global $user;
 		global $page;
+        global $xc_settings;
 		
 		$page->AttachStyleSheet( 'css/comment.css' ); 
 		?><div class="comment" style="margin-left:10px">
@@ -40,22 +41,25 @@
 			<div class="lowerline">
 				<div class="leftcorner">&nbsp;</div>
 				<div class="rightcorner">&nbsp;</div>
-				<div class="middle">&nbsp;</div>
-				<div class="toolbar">
-					<ul>
-						<li><a href="javascript: Pms.Answer( '<?php 
-							echo $pm->User()->Username() 
-						?>' )"><?php
-						if ( $pm->UserIsSender() ) {
-							?>Νέο Μήνυμα<?php
-						}
-						else {
-							?>Απάντηση<?php
-						}
-						?></a></li>
-					</ul>
-				</div>
-			</div>
+				<div class="middle">&nbsp;</div><?php
+
+                if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                    ?><div class="toolbar">
+                        <ul>
+                            <li><a href="javascript: Pms.Answer( '<?php 
+                                echo $pm->User()->Username() 
+                            ?>' )"><?php
+                            if ( $pm->UserIsSender() ) {
+                                ?>Νέο Μήνυμα<?php
+                            }
+                            else {
+                                ?>Απάντηση<?php
+                            }
+                            ?></a></li>
+                        </ul>
+                    </div><?php
+                }
+			?></div>
 		</div><?php
 	}
 

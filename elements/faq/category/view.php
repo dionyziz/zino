@@ -40,7 +40,7 @@
 				?></small><br />				
 			</div><br /><?php
 			
-			if ( FAQ_CanModify( $user ) ) {
+			if ( FAQ_CanModify( $user ) && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				?><div style="width:100%; text-align: center;">
 					<small>
 						<a style="vertical-align:top;" href="?p=addfaqc&amp;eid=<?php

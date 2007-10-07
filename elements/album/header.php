@@ -55,7 +55,7 @@
     			?><h2><?php 
     			echo $albumname; 
     			?></h2><?php
-    			if ( $user->Id() == $album->UserId() ) {
+    			if ( $user->Id() == $album->UserId() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
     				?><a href="" onclick="Albums.EditSmallAlbum( '<?php
     				echo $album->Id();
     				?>' , '0' );return false;" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" class="editinfos"><img src="<?php

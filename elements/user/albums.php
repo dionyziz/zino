@@ -32,9 +32,11 @@
 				<img src="<?php
 					echo $xc_settings[ 'staticimagesurl' ];
 				?>icons/help.png" alt="Πληροφορίες για τα albums" style="width: 16px; height: 16px; opacity: 0.5;" onmouseover="this.style.opacity=1;g( 'commenthelp' ).style.visibility='visible';" onmouseout="this.style.opacity=0.5;g( 'commenthelp' ).style.visibility='hidden';" />
-			</a>
-			<a href="javascript:Albums.ExpandCreateAlbum();" id="createalbumlink" class="albumlinks">Δημιουργία album&#187;</a>
-			<div class="newalbum" id="newalbum" style="display:none">
+			</a><?php
+            if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                ?><a href="javascript:Albums.ExpandCreateAlbum();" id="createalbumlink" class="albumlinks">Δημιουργία album&#187;</a><?php
+            }
+			?><div class="newalbum" id="newalbum" style="display:none">
 				<div class="content">
 					<div class="register">
 						<div class="opties" style="width:370px;">

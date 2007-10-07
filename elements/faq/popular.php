@@ -10,7 +10,7 @@
 		
 		?><div class="popularq"><?php
 		
-			if ( $user->CanModifyCategories() ) {
+			if ( $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				?><div style="100%; text-align: right; margin-bottom: 3px;">
 					<a href="?p=addfaqq" title="Νέα Ερώτηση">
 						<img style="width: 16px; height: 16px;" src="<?php

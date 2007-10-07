@@ -46,7 +46,7 @@
 					}
 				?></span>
 			</a><?php
-			if ( $photo->UserId() == $user->Id() ) {
+			if ( $photo->UserId() == $user->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				?><a href="" onclick="Photos.EditListPhoto( this.parentNode, '<?php
 				echo $photo->Id();
 				?>' , '0' );return false;" class="editinfos" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος"><img src="<?php
@@ -66,7 +66,7 @@
 					?><a></a><?php
 				}
 			}
-			if ( $photo->UserId() == $user->Id() || $user->CanModifyCategories() ) {
+			if ( $photo->UserId() == $user->Id() || $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				?><a href="" onclick="Photos.DeletePhoto( this.parentNode , '<?php
 				echo $photo->Id();
 				?>' , '<?php
@@ -123,7 +123,7 @@
 				}
 				?>
 			</span><?php
-			if ( $photo->UserId() == $user->Id() ) {
+			if ( $photo->UserId() == $user->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
     			?><a href="" onclick="Photos.EditListPhoto( this.parentNode , '<?php
     			echo $photo->Id();
     			?>' , '1' );return false;" class="editinfos" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής"><img src="<?php

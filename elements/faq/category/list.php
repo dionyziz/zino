@@ -31,7 +31,7 @@
 						</li><?php
 					}
 				
-				if ( $user->CanModifyCategories() ) {
+				if ( $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 					?><div style="width: 100%; text-align: right;">
 						<a href="?p=addfaqc">
 							Προσθήκη <img src="<?php

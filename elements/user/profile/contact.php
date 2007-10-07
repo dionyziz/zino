@@ -8,7 +8,7 @@
         
 		if ( $theuser->Id() == $user->Id() || $theuser->MSN() || $theuser->YIM() || $theuser->AIM() || $theuser->ICQ() || $theuser->GTalk() || $theuser->Skype() ) {
 			
-			if ( $user->Id() == $theuser->Id() ) {
+			if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				ob_start();
 				?>ProfileOptions.Init( g( "user_profile_contact" ) );<?php
 				$page->AttachInlineScript( ob_get_clean() );

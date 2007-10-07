@@ -29,7 +29,7 @@
                 $latestids[ $article->Id() ] = true;
                 Element( "article/small", $article );
             }
-		    if ( $user->CanModifyStories() ) {
+		    if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 				?><a class="newarticle" href="?p=addstory&amp;id=0"><img class="newshout" src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/page_new.gif" title="Νέο άρθρο" alt="+" /> Νέο Άρθρο</a><?php

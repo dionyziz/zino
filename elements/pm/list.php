@@ -43,9 +43,11 @@
 				<div id="pmstitle" class="title">Εισερχόμενα</div>
 				<ul>
 					<li onclick="Pms.Display( 'inbox' );" id="inbox_link" class="active">Εισερχόμενα</li>
-					<li onclick="Pms.Display( 'outbox' );" id="outbox_link" class="inactive">Απεσταλμένα</li>
-					<li onclick="Pms.Display( 'new' );" id="new_link" class="inactive">Νέο Μήνυμα</li>
-					<li>
+					<li onclick="Pms.Display( 'outbox' );" id="outbox_link" class="inactive">Απεσταλμένα</li><?php
+                    if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                        ?><li onclick="Pms.Display( 'new' );" id="new_link" class="inactive">Νέο Μήνυμα</li><?php
+                    }
+					?><li>
 						<a href="?p=faqc&amp;id=26" style="display: inline;">
 							<img src="<?php
 								echo $xc_settings[ 'staticimagesurl' ];
@@ -110,22 +112,25 @@
 						}
 					?></div>
 				</div>
-			</div>
-			<div id="new_div" style="display: <?php
-				echo $display[ 'new' ];
-                ?>;">
-				<form action="do/pm/new" method="post" class="newpm" name="newpm">
-					Προς: <input type="text" name="to" class="mytext" size="35" id="receiver" <?php
-                    if ( $to != '' ) {
-                        ?>value="<?php
-                        echo $to;
-                        ?>"<?php
-                    }
-					?> /><br /><br />
-					<textarea cols="80" rows="15" name="text" id="pmtext"></textarea><br /><br />
-					<input type="submit" value="Αποστολή" /><input type="reset" value="Επαναφορά" />
-				</form>
-			</div>
-		</div><?php
+			</div><?php
+
+            if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                ?><div id="new_div" style="display: <?php
+                    echo $display[ 'new' ];
+                    ?>;">
+                    <form action="do/pm/new" method="post" class="newpm" name="newpm">
+                        Προς: <input type="text" name="to" class="mytext" size="35" id="receiver" <?php
+                        if ( $to != '' ) {
+                            ?>value="<?php
+                            echo $to;
+                            ?>"<?php
+                        }
+                        ?> /><br /><br />
+                        <textarea cols="80" rows="15" name="text" id="pmtext"></textarea><br /><br />
+                        <input type="submit" value="Αποστολή" /><input type="reset" value="Επαναφορά" />
+                    </form>
+                </div><?php
+            }
+		?></div><?php
 	}
 ?>

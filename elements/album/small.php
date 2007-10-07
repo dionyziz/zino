@@ -67,7 +67,7 @@
                                     echo $xc_settings[ 'staticimagesurl' ];
                                     ?>icons/edit.png" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" /></a><?php
 								}
-								if ( $albumuserid == $user->Id() || $user->CanModifyCategories() ) {
+								if ( ( $albumuserid == $user->Id() || $user->CanModifyCategories() ) && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 									?><a href="" onclick="Albums.DeleteAlbum( '<?php
 									echo $albumid;
 									?>' );return false;" class="editinfos"><img src="<?php

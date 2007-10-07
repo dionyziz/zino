@@ -133,7 +133,7 @@
                         ?> style="padding-right:60px"<?php
                     }
                     ?>><?php
-                    if ( $user->Id() == $theuser->Id() ) {
+                    if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                         $page->AttachStylesheet( 'css/modal.css' );
                         $page->AttachStylesheet( 'css/colorpicker.css' );
                         $page->AttachStylesheet( 'css/colorpicker_ie.css', true );
@@ -145,60 +145,62 @@
                         </a>
                         <?php
                     }
-                    ?>
-                 	<div style="float:left;padding-top:9px;"><?php
-					if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
-						$relations = AllRelations();
-						if ( count( $relations ) ) {
-							$is_friend = $user->IsFriend( $theuser->Id() );
-							?><span id="friendadd">
-							<a href="" onclick="Friends.AddFriend( <?php
-	                        echo $theuser->Id();
-	                        ?>, <?php
-	                        echo $is_friend?"-1":"17";
-	                        ?> );return false;"><img src="<?php
+                    
+                    if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                        ?><div style="float:left;padding-top:9px;"><?php
+                        if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
+                            $relations = AllRelations();
+                            if ( count( $relations ) ) {
+                                $is_friend = $user->IsFriend( $theuser->Id() );
+                                ?><span id="friendadd">
+                                <a href="" onclick="Friends.AddFriend( <?php
+                                echo $theuser->Id();
+                                ?>, <?php
+                                echo $is_friend?"-1":"17";
+                                ?> );return false;"><img src="<?php
+                                echo $xc_settings[ 'staticimagesurl' ];
+                                if( $is_friend ) {
+                                ?>icons/user_delete.png<?php
+                                }
+                                else {
+                                ?>icons/user_add.png<?php
+                                }
+                                ?>" title="<?php
+                                echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                                ?>τους φίλους μου" alt="<?php
+                                echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
+                                ?>τους φίλους" width="16" height="16" /></a></span>
+                                
+                                <?php
+                            }
+                        }	
+                        if ( $user->Id() != $theuser->Id() ) {
+                            ?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
+                            echo $theuser->Username();
+                            ?>"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
-                            if( $is_friend ) {
-                            ?>icons/user_delete.png<?php
-                            }
-                            else {
-                            ?>icons/user_add.png<?php
-                            }
-                            ?>" title="<?php
-                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
-                            ?>τους φίλους μου" alt="<?php
-                            echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
-                            ?>τους φίλους" width="16" height="16" /></a></span>
-                            
-                            <?php
-						}
-					}	
-					if ( $user->Id() != $theuser->Id() ) {
-    					?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
-    					echo $theuser->Username();
-    					?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" height="16" /></a><?php
-					}
-					if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
-						?>&nbsp;<a href="?p=useradmin&amp;id=<?php
-						echo $theuser->Id();
-						?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/group_edit.png" title="Επεξεργασία Δικαιωμάτων" alt="Επεξεργασία Δικαιωμάτων" width="16" height="16" /></a><?php
-					}
-					if ( $user->IsSysOp() && $user->Id() != $theuser->Id() ) {
-						?>&nbsp;<a href="?p=su&amp;username=<?php
-						echo $theuser->Username();
-						?>"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/user_go.png" title="Είσοδος ως <?php
-						echo $theuser->Username();
-						?>" alt="Είσοδος ως <?php
-						echo $theuser->Username();
-						?>" /></a><?php
-					}
-					?></div><?php
+                            ?>icons/usercontact.png" title="Αποστολή Μηνύματος" alt="Αποστολή Μηνύματος" width="16" height="16" /></a><?php
+                        }
+                        if ( $user->CanModifyCategories() && ( $user->Rights() > $theuser->Rights() || $user->Id() == $theuser->Id() ) ) { 
+                            ?>&nbsp;<a href="?p=useradmin&amp;id=<?php
+                            echo $theuser->Id();
+                            ?>"><img src="<?php
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/group_edit.png" title="Επεξεργασία Δικαιωμάτων" alt="Επεξεργασία Δικαιωμάτων" width="16" height="16" /></a><?php
+                        }
+                        if ( $user->IsSysOp() && $user->Id() != $theuser->Id() ) {
+                            ?>&nbsp;<a href="?p=su&amp;username=<?php
+                            echo $theuser->Username();
+                            ?>"><img src="<?php
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/user_go.png" title="Είσοδος ως <?php
+                            echo $theuser->Username();
+                            ?>" alt="Είσοδος ως <?php
+                            echo $theuser->Username();
+                            ?>" /></a><?php
+                        }
+                        ?></div><?php
+                    }
 					if ( $viewalbums ) {
 						?><div class="rightism"></div>
 						<div class="tab"><a>Albums</a></div>

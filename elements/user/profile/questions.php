@@ -33,7 +33,7 @@
 			$question = $user->GetUnansweredQuestion();
 			if ( $question !== false ) {
 				// 1 question per 10 comments
-				if ( $user->Contributions() > $numanswers * 10 ) { 
+				if ( $user->Contributions() > $numanswers * 10 && $user->Rights >= $xc_settings[ 'readonly' ] ) { 
 					?><br /><br /><br />
 					<div id="newquest">
 						<b><?php

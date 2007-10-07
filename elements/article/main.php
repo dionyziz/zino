@@ -22,7 +22,7 @@
 							echo ", ";
 						}
 					}
-					if ( $articlemodifyuser ) { 
+					if ( $articlemodifyuser && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
 						?> <a href="?p=editoradd&amp;id=<?php
 						echo $articleid;
 						?>"><img src="<?php
@@ -83,7 +83,7 @@
 				</small>
 				<br />
 				<small class="toolbox"><?php
-					if ( $articlemodifyuser ) { 
+					if ( $articlemodifyuser && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
 						?><form style="display:none" id="deleteform" action="do/article/delete" method="post">
 							<input type="hidden" name="id" value="<?php
 							echo $articleid;

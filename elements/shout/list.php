@@ -29,7 +29,7 @@
 				<h3>Μικρά νέα</h3>
 			</div>
 			<div class="body"><?php
-		            if ( $user->CanModifyStories() ) {
+		            if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 		                ?><a href="javascript:Shoutbox.New()"><img class="newshout" src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
                         ?>icons/page_new.gif" title="Προσθήκη μικρού νέου" alt="+" /></a><?php
@@ -57,21 +57,19 @@
 						</div><?php 
 					}
 					?>
-				</div>
-				
-				<?php
-				if ( $user->CanModifyStories() ) {?>
-					<div id="newshout" style="display: none;"><br /><?php
+				</div><?php
+
+				if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
+                    ?><div id="newshout" style="display: none;"><br /><?php
 					Element( 'media/emoticons/link' );
 					?><form method="post" action="do/shout/new">
 						<div><textarea name="shout" style="width: 90%; height: 40px;" rows="7" cols="30" id="newshoutarea" onkeypress="return Shoutbox.checkSize(event);"></textarea>
 						<input type="submit" class="mybutton" style="margin-top:2px;" value="Δημιουργία" /> <input type="button" class="mybutton" style="margin-top:2px;" onclick="Shoutbox.New();" value="Ακύρωση" /></div>
 					</form><br />
-				</div>
-				 <?php
+				    </div><?php
 				}
-				?>
-				<a id="shoutboxlink" href="" onclick="ShowMore('shoutbox' );return false;" class="arrow" title="Περισσότερα μικρά νέα"></a>
+
+				?><a id="shoutboxlink" href="" onclick="ShowMore('shoutbox' );return false;" class="arrow" title="Περισσότερα μικρά νέα"></a>
 			</div>
 		</div><?php
 	}

@@ -16,6 +16,10 @@
         $libs->Load( 'dictionary' );
         $libs->Load( 'captcha' );
         
+        if ( $xc_settings[ 'readonly' ] > 0 ) {
+            Redirect();
+        }
+
         $captcha = '';
         while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
             $captcha = Dictionary_GetRandomWord();

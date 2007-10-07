@@ -10,6 +10,10 @@
 
         $hasvoted = $poll->UserHasVoted( $user );
         
+        if ( !$hasvoted && $user->Rights() < $xc_settings[ 'readonly' ] ) {
+            return;
+        }
+
         if ( !$hasvoted ) {
             // vote div
 
@@ -25,7 +29,7 @@
             ?>"><?php
         }
             ?><h4><?php
-                if ( $user->Id() == $theuser->Id() ) {
+                if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                     ?><a style="float:right;" onclick="Poll.DeletePoll( <?php
                     echo $poll->Id;
                     ?> );" alt="διαγραφή δημοσκόπησης" title="διαγραφή δημοσκόπησης"><img src="<?php
@@ -35,7 +39,7 @@
 
                 echo htmlspecialchars( $poll->Question );
 
-                if ( $user->Id() == $theuser->Id() ) {
+                if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                     ?> <a onclick="Poll.EditQuestion( <?php
                         echo $poll->Id;
                     ?>, '<?php
@@ -72,21 +76,24 @@
                 else {
                     ?>α<?php
                 }
-                ?></a></li>
-                <li id="createpop_<?php
-                echo $poll->Id;
-                ?>" <?php
-                if ( $user->Id() != $theuser->Id() ) {
-                    ?>style="visibility: hidden;"<?php
+                ?></a></li><?php
+
+                if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+                    ?><li id="createpop_<?php
+                    echo $poll->Id;
+                    ?>" <?php
+                    if ( $user->Id() != $theuser->Id() ) {
+                        ?>style="visibility: hidden;"<?php
+                    }
+                    ?>><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
+                    echo $poll->Id;
+                    ?>, <?php
+                    echo $hasvoted ? "true" : "false";
+                    ?> ); return false;"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
+                    </li><?php
                 }
-                ?>><a style="cursor: pointer; margin-left: 5px;" onclick="Poll.CreateOptionOnView( <?php
-                echo $poll->Id;
-                ?>, <?php
-                echo $hasvoted ? "true" : "false";
-                ?> ); return false;"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/page_new.gif" alt="Προσθήκη επιλογής" /></a>
-                </li><?php
 
             ?></ul>
         </div><?php

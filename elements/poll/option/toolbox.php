@@ -4,7 +4,7 @@
         global $user;
         global $xc_settings;
 
-        if ( $user->Id() != $theuser->Id() ) {
+        if ( $user->Id() != $theuser->Id() || $user->Rights() < $xc_settings[ 'readonly' ] ) {
             return;
         }
 

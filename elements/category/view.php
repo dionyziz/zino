@@ -4,7 +4,8 @@
 		global $libs;
 		global $user;
 		global $water;
-		
+	    global $xc_settings;
+        
         $catid = $id->Get();
         
 		$page->AttachStyleSheet( 'css/rounded.css' );
@@ -114,7 +115,7 @@
 			</div><?php
 		} 
 		?></div><?php
-		if ( $user->CanModifyStories() ) { 
+		if ( $user->CanModifyStories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
 			if ( $user->CanModifyCategories() && $catid != 0 ) {
 				?><a href="index.php?p=nc&amp;id=<?php
 				echo $parentcategory->Id();

@@ -9,7 +9,7 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/comments.js' );
 		
-		if ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) {
+		if ( ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) || $xc_settings[ 'readonly' ] > $user->Rights() ) {
 			return;
 		}
 		

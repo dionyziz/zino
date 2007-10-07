@@ -20,7 +20,7 @@
 				<h2><?php
 				echo $photoname;
 				?></h2><?php
-				if ( $user->Id() == $photo->UserId() ) {
+				if ( $user->Id() == $photo->UserId() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 					?><a href="" onclick="Photos.EditSmallPhoto( '<?php
 					echo $photo->Id();
 					?>' , '0' , this.parentNode );return false;" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" class="editinfos"><img src="<?php
@@ -37,7 +37,7 @@
 						if ( trim( $photo->Description() ) == '' && $user->Id() == $photo->UserId() ) {
 							?><span class="details" style="font-size:9pt;">-Δεν έχεις ορίσει περιγραφή-</span><?php
 						}
-						if ( $user->Id() == $photo->UserId() ) {
+						if ( $user->Id() == $photo->UserId() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 							?><a href="" onclick="Photos.EditSmallPhoto( '<?php
 							echo $photo->Id();
 							?>' , '1' , this.parentNode );return false;" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" class="editinfos"><img src="<?php

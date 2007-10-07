@@ -2,6 +2,7 @@
 
 	function ElementUserArticles( $theuser , $articles ) {
 		global $user;
+        global $xc_settings;
 		
 		if ( $user->CanModifyStories() ) {
 			?><br />
@@ -17,7 +18,7 @@
 				?><br />
 			</div><?php
 		}
-		else if ( $theuser->CanModifyStories() && $user->Id() == $theuser->Id() ) {
+		else if ( $theuser->CanModifyStories() && $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 			?><div style="margin-top: 50px;">
 				Δεν έχεις γράψει κάποιο άρθρο. <a href="?p=addstory">Ξεκίνα ένα άρθρο τώρα!</a>
 			</div><?php

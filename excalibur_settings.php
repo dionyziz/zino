@@ -1,6 +1,6 @@
 <?php
     return array(
-    	'readonly'       	=> false,
+    	'readonly'       	=> 0,
         'allowuploads'	 	=> 10,
     	'membername'     	=> 'Chit-Chatter',
     	'nocomments'     	=> false,

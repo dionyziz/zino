@@ -30,7 +30,7 @@
             
             foreach( $questions as $question ) {
                 ?><li <?php
-                if ( $user->CanModifyCategories() ) {
+                if ( $user->CanModifyCategories() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                     ?>onmouseout="Questions.hideLinks( <?php
                         echo $question->Id();
                     ?> )" onmouseover="Questions.showLinks( <?php
@@ -44,7 +44,7 @@
                 ?>"><?php
                 echo htmlspecialchars( $question->Question() );
                 ?></span><?php
-                if ( $user->CanModifyCategories() ) {
+                if ( $user->CanModifyCategories()  && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                     ?>&nbsp;<a id="qeditlink_<?php
                     echo $question->Id();
                     ?>" style="cursor: pointer; display: none;" onclick="Questions.edit( <?php

@@ -18,7 +18,7 @@
 				<h3>Κατηγορίες</h3>
 			</div>
 			<div class="body"><?php
-				if ( $user->CanModifyCategories() ) {
+				if ( $user->CanModifyCategories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 					?><a href="?p=nc"><img class="newcategory" src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/page_new.gif" title="Νέα Κατηγορία" alt="+" /></a><?php

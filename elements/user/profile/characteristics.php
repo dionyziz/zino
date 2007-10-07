@@ -9,7 +9,7 @@
 		
 		if ( $user->Id() == $theuser->Id() || $theuser->Height() != "" || $theuser->Weight() != "" || $theuser->EyeColor() != "" || $theuser->HairColor() != "" ) {
 		
-			if ( $user->Id() == $theuser->Id() ) {
+			if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				ob_start();
 				?>ProfileOptions.Init( g( "user_profile_characteristics" ) );<?php
 				$page->AttachInlineScript( ob_get_clean() );

@@ -2,8 +2,9 @@
 
     function ElementPollNew( $theuser ) {
         global $user;
+        global $xc_settings;
 
-        if ( $theuser != $user ) {
+        if ( $theuser != $user || $user->Rights() < $xc_settings[ 'readonly' ] ) {
             return false;
         }
 
