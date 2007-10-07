@@ -17,7 +17,7 @@
 		
         $canmodify = $user->CanModifyCategories() || $shout->UserId() == $user->Id();
 
-		if ( $canmodify || $user->Rights() >= $xc_settings[ 'readonly' ] ) {
+		if ( $canmodify && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 			?><a style="cursor: pointer;" onclick="Shoutbox.Edit( <?php
 			echo $shout->Id();
 			?> );return false;" href="" title="Επεξεργασία Μικρού Νέου"><img src="http://static.chit-chat.gr/images/icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία Μικρού Νέου" /></a>

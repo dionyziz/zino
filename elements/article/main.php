@@ -3,6 +3,7 @@
 								$articlepageviews , $articleeditors , $articlemodifyuser , $cid,
 								$cicon , $cname , $commentsnum , $oldcomments ) {
         global $xc_settings;
+        global $user;
         
 		?><div class="header">
             <?php
