@@ -37,7 +37,7 @@
     							}
     							?> <?php
     							Element( 'user/static' , $fromuser , true , false );
-    							if ( $notif->Typeid() <= 2 ) {
+    							if ( $notif->Typeid() <= 3 ) {
                                     ?> απάντησε <?php
                                 }
                             }
