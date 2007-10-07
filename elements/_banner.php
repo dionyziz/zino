@@ -65,8 +65,11 @@
 						<img src="<?php
 							echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/help.png" alt="Πληροφορίες" style="width: 16px; height: 16px;vertical-align:bottom;" />
-					</a></li>
-					<li><a href="?p=register" class="register">Νέος χρήστης</a></li><?php
+					</a></li><?php
+
+                    if ( $xc_settings[ 'readonly' ] >= 0 ) {
+					    ?><li><a href="?p=register" class="register">Νέος χρήστης</a></li><?php
+                    }
 				}
 			?>
             </ul>
