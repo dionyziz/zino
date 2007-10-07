@@ -28,6 +28,7 @@
     
     final class tBoolean extends tBaseType {
         public function tBoolean( $value ) {
+            die( var_dump( $value ) );
             if ( $value == 'yes' || $value == 'true' || $value == '1' ) {
                 $this->mValue = true;
             }
