@@ -10,12 +10,7 @@
 		$libs->Load( 'comment' );
 		
 		$notif = New Notify( $notifyid );
-		if ( $navigate ) {
-			?>alert( 'true' );<?php
-		}
-		else {
-			?>alert( 'false' );<?php
-		}
+		
 		if ( $notif->ToUserid() == $user->Id() ) {
 			$typeid = $notif->Typeid();
 			$comm = $notif->Page();
