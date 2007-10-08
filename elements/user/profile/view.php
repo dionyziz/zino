@@ -249,7 +249,6 @@
 						$search->SetLimit( 50 );  // show no more than 50 comments
 					}
 					
-					$search->NeedTotalLength( true );
 					$comments = $search->GetParented( true ); // get comments
 					$profilecommentsnum = $search->Length();
 					
