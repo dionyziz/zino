@@ -13,7 +13,7 @@ var advertise = {
 			var wrongmailspan = document.createElement( 'span' );
 			wrongmailspan.style.paddingLeft = '5px';
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
-			alert( mailaress.nextSibling );
+			alert( mailadress.nextSibling );
 			body.insertBefore( wrongmailspan , mailadress.nextSibling );
 		}
 		//alert( 'email is :' + mailadress );
