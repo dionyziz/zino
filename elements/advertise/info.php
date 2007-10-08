@@ -4,7 +4,7 @@
 		
 		$page->SetTitle( 'Διαφήμιση στο chit-chat' );
 		$page->AttachStyleSheet( 'css/advertise.css' );
-		$page->AttachScript( 'javascript' , 'js/advertise.js' );
+		$page->AttachScript( 'js/advertise.js' );
 		?><br /><br /><div class="body">
 			<h2>Διαφήμιση στο chit-chat</h2>
 			
