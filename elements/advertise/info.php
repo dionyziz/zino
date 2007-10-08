@@ -70,10 +70,10 @@
 			<span class="question">
 			Επικοινωνία
 			</span><br />
-			<span style="font-family:serif">Email</span>
-			<input type="text" style="width:90px" /><br /><br />
-		    <span style="font-family:serif">Σχόλια</span>
-			<textarea>
+			<span style="font-family:serif;">Email</span>
+			<input type="text" style="width:90px;" /><br /><br />
+		    <span style="font-family:serif;">Σχόλια</span>
+			<textarea style="width:300px;height:90px;">
 			</textarea>
 			
 		</div><?php
