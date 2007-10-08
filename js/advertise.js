@@ -8,17 +8,14 @@ var advertise = {
 		var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		if ( filter.test( mailadress.value ) ) {
 			if ( mailtext.value != '' ) {
-			
-			
+				Coala.Warm( 'advertise/sendemail' , { text : mailtext.value , from : mailadress.value } );
 			}
 			else {
 				var wrongmailtext = document.createElement( 'div' );
 				wrongmailtext.appendChild( document.createTextNode( 'Παρακαλώ συμπληρώστε το πεδίο των σχολίων' ) );
 				body.removeChild( mailtext.nextSibling );
-				body.insertBefore( wrongmailtext , mailtext.nextSibling );
 				Animations.Create( wrongmailtext , 'opacity' , 12000 , 1 , 0 , function() {
 					wrongmailtext.parentNode.removeChild( wrongmailtext );
-					body.insertBefore( document.createElement( 'br' ) , wrongmailtext.nextSibling );
 				} );
 			}
 		}

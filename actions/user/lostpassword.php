@@ -1,6 +1,6 @@
 <?php
     function ActionUserLostPassword( tString $username ) {
-	global $rabbit_settings;
+		global $rabbit_settings;
 
     	$username = $username->Get(); // Gets the username from the elements/user/lostpassword.php
     	$user = new User( $username ); // Attempts to create a new instance of the user class
