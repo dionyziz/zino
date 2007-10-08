@@ -21,7 +21,7 @@
         Element( "photo/latest" );
         Element( "notify/frontpage" );
         ?><br />
-		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><?php
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><br /><?php
         Element( "ad/leaderboard" );
     }
 ?>

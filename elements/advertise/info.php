@@ -52,18 +52,18 @@
 			<ul>
 				<li>Κεντρική σελίδα και προφίλ χρηστών</li>
 				<div class="pricelist">
-					<span class="month">1 μήνας</span><span class="price">400&euro;</span><br />
-					<span class="month">3 μήνες</span><span class="price">350&euro;/μήνα</span>
+					<span class="month">1 μήνας</span> <span class="price">400&euro;</span><br />
+					<span class="month">3 μήνες</span> <span class="price">350&euro;/μήνα</span>
 				</div>
 				<li>Κεντρική σελίδα, προφίλ χρηστών και προβολή φωτογραφιών</li>
 				<div class="pricelist">
-					<span class="month">1 μήνας</span><span class="price">600&euro;</span><br />
-					<span class="month">3 μήνες</span><span class="price">550&euro;/μήνα</span>
+					<span class="month">1 μήνας</span> <span class="price">600&euro;</span><br />
+					<span class="month">3 μήνες</span> <span class="price">550&euro;/μήνα</span>
 				</div>
 				<li>Κεντρική σελίδα, προφίλ χρηστών, προβολή φωτογραφιών και άρθρα</li>
 				<div class="pricelist">
-					<span class="month">1 μήνας</span><span class="price">750&euro;</span><br />
-					<span class="month">3 μήνες</span><span class="price">650&euro;/μήνα</span>
+					<span class="month">1 μήνας</span> <span class="price">750&euro;</span><br />
+					<span class="month">3 μήνες</span> <span class="price">650&euro;/μήνα</span>
 				</div>
 			</ul>
 			<br /><br />
