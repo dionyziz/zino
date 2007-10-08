@@ -85,7 +85,8 @@
 			"userbans"			=> "user/ban/list",
             'test'              => 'test',
             'jslint'            => 'developer/js/lint',
-            'poll'              => 'poll/view'
+            'poll'              => 'poll/view',
+			'advertise' 		=> 'advertise/info'
     	);
     }
 ?>
