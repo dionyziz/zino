@@ -72,7 +72,7 @@
 			Επικοινωνία
 			</span><br />
 			<span style="font-family:serif;">Email</span><br />
-			<input type="text" style="width:250px;" /><br /><br />
+			<input type="text" style="width:250px;"></input><br /><br />
 		    <span style="font-family:serif;">Σχόλια</span><br />
 			<textarea style="width:400px;height:200px;" /><br /><br />
 			<a href="" onclick="advertise.SendEmail();return false;">&#187;Αποστολή</a>
