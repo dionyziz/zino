@@ -9,7 +9,10 @@ var advertise = {
 			alert( 'valid email' );
 		}
 		else {
-			alert( 'invalid email' );
+			var wrongmailspan = document.createElement( 'span' );
+			wrongmailspan.style.paddingLeft = '5px';
+			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
+			mailadress.parentNode.insertBefore( wrongmailspan , mailadress.nextSibling );
 		}
 		//alert( 'email is :' + mailadress );
 		//alert( 'emailtext is :' + mailtext );	
