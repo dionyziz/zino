@@ -1,6 +1,7 @@
 var advertise = {
 	SendEmail : function() {
-		var inputlist = document.getElementById( 'body' ).getElementsByTagName( 'input' );
+		var body = document.getElementById( 'body' );
+		var inputlist = body.getElementsByTagName( 'input' );
 		var mailadress = inputlist[ 0 ].value;
 		var textarealist = document.getElementsByTagName( 'textarea' );
 		var mailtext = textarealist[ 0 ].value;
@@ -12,7 +13,7 @@ var advertise = {
 			var wrongmailspan = document.createElement( 'span' );
 			wrongmailspan.style.paddingLeft = '5px';
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
-			mailadress.parentNode.insertBefore( wrongmailspan , mailadress.nextSibling );
+			body.insertBefore( wrongmailspan , mailadress.nextSibling );
 		}
 		//alert( 'email is :' + mailadress );
 		//alert( 'emailtext is :' + mailtext );	
