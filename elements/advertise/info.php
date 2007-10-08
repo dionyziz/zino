@@ -74,7 +74,7 @@
 			<input type="text" style="width:250px;" /><br /><br />
 		    <span style="font-family:serif;">Σχόλια</span><br />
 			<textarea style="width:400px;height:200px;" /><br /><br />
-			<a href="" onclick="return false;">&#187;Αποστολή</a>
+			<a href="" onclick="advertise.SendEmail();return false;">&#187;Αποστολή</a>
 			
 		</div><?php
 	}
