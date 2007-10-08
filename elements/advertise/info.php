@@ -4,7 +4,7 @@
 		
 		$page->SetTitle( 'Διαφήμιση στο chit-chat' );
 		$page->AttachStyleSheet( 'css/advertise.css' );
-		?><div class="body">
+		?><br /><br /><div class="body">
 			<h2>Διαφήμιση στο chit-chat</h2>
 			
 			<span class="question">Τι είναι το chit-chat;</span><br />

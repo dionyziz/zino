@@ -1,9 +1,7 @@
 div.body {
-	width: 700px;
+	width: 670px;
 	margin: 0;
 	padding: 0;
-	
-
 }
 div.body span.question {
 	font-weight: bold;
@@ -11,7 +9,7 @@ div.body span.question {
 	margin: 0;
 }
 div.body h2 {
-	font-size: 130%;
+	font-size: 120%;
 	font-weight: bold;
 	color: #347bca;
 }
