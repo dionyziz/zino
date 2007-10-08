@@ -8,10 +8,8 @@
 		$text = $text->Get();
 		$text .= "\n\nEmail: " . $from;
 		$headers = "From: admin@chit-chat.gr";
-		//$res = mail( $to , $subject , $text , $headers );
-    	$res = true;
 		?>var msg = document.createElement( 'div' );<?php
-		if ( $res ) {
+		if ( mail( $to , $subject , $text , $headers ) ) {
 			?>msg.appendChild( document.createTextNode( 'Ευχαριστούμε για το ενδιαφέρον σας' ) );<?php
     	}
 		else {
@@ -21,7 +19,7 @@
 		echo $domnode;
 		?>;
 		refnode.parentNode.insertBefore( msg , refnode.nextSibling );
-		Animations.Create( msg , 'opacity' , 15000 , 1 , 0 , function() {
+		Animations.Create( msg , 'opacity' , 12000 , 1 , 0 , function() {
 			msg.parentNode.removeChild( msg );
 		} );
 		<?php
