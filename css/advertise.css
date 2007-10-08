@@ -12,5 +12,6 @@ div.body span.question {
 }
 div.body h2 {
 	font-size: 130%;
-	font-color: #347bca;
+	font-weight: bold;
+	color: #347bca;
 }
