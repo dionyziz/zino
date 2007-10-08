@@ -5,11 +5,6 @@ var advertise = {
 		var textarealist = document.getElementsByTagName( 'textarea' );
 		var mailtext = textarealist[ 0 ].value;
 		alert( 'email is :' + mailadress );
-		alert( 'emailtext is :' + mailtext );
-		
-		
+		alert( 'emailtext is :' + mailtext );	
 	}
-
-
-
 }
