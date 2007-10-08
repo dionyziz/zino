@@ -15,7 +15,7 @@ var advertise = {
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
 			alert( mailadress.nextSibling );
 			body.insertBefore( wrongmailspan , mailadress.nextSibling );
-			Animations.Create( wrongmailspan , 'opacity' , 5000 , 1 , 0 );
+			Animations.Create( wrongmailspan , 'opacity' , 15000 , 1 , 0 );
 		}
 		//alert( 'email is :' + mailadress );
 		//alert( 'emailtext is :' + mailtext );	
