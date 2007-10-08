@@ -17,6 +17,8 @@ var advertise = {
 				Animations.Create( wrongmailtext , 'opacity' , 12000 , 1 , 0 , function() {
 					wrongmailtext.parentNode.removeChild( wrongmailtext );
 				} );
+				mailtext.focus();
+				mailtext.select();
 			}
 		}
 		else {
@@ -30,7 +32,5 @@ var advertise = {
 			mailadress.focus();
 			mailadress.select();
 		}
-		//alert( 'email is :' + mailadress );
-		//alert( 'emailtext is :' + mailtext );	
 	}
 }

@@ -17,8 +17,7 @@
 		else {
 			?>msg.appendChild( document.createTextNode( 'Παρουσιάσθηκε σφάλμα κατά την αποστολή' ) );<?php
 		}
-		?>var body = document.getElementById( 'body' );
-		var refnode = <?php
+		?>var refnode = <?php
 		echo $domnode;
 		?>;
 		refnode.parentNode.insertBefore( msg , refnode.nextSibling );
