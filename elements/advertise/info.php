@@ -66,15 +66,14 @@
 					<span class="month">3 μήνες</span> <span class="price">650&euro;/μήνα</span>
 				</div>
 			</ul>
-			<br /><br />
+			<br />
 			<span class="question">
 			Επικοινωνία
 			</span><br />
-			<span style="font-family:serif;">Email</span>
-			<input type="text" style="width:90px;" /><br /><br />
-		    <span style="font-family:serif;">Σχόλια</span>
-			<textarea style="width:300px;height:90px;">
-			</textarea>
+			<span style="font-family:serif;">Email</span><br />
+			<input type="text" style="width:250px;" /><br /><br />
+		    <span style="font-family:serif;">Σχόλια</span><br />
+			<textarea style="width:400px;height:200px;" />
 			
 		</div><?php
 	}
