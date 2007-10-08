@@ -2,11 +2,11 @@ var advertise = {
 	SendEmail : function() {
 		var body = document.getElementById( 'body' );
 		var inputlist = body.getElementsByTagName( 'input' );
-		var mailadress = inputlist[ 0 ].value;
+		var mailadress = inputlist[ 0 ];
 		var textarealist = document.getElementsByTagName( 'textarea' );
-		var mailtext = textarealist[ 0 ].value;
+		var mailtext = textarealist[ 0 ];
 		var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		if ( filter.test( mailadress ) ) {
+		if ( filter.test( mailadress.value ) ) {
 			alert( 'valid email' );
 		}
 		else {
