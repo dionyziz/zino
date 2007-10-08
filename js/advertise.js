@@ -12,6 +12,7 @@ var advertise = {
 			
 			}
 			else {
+				body.insertBefore( wrongmailtext , document.createElement( 'br' ) );
 				var wrongmailtext = document.createElement( 'span' );
 				wrongmailtext.appendChild( document.createTextNode( 'Παρακαλώ συμπληρώστε το πεδίο των σχολίων' ) );
 				body.insertBefore( wrongmailtext , mailtext.nextSibling );
