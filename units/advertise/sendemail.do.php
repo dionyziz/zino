@@ -8,8 +8,8 @@
 		alert( 'text email is <?php
 		echo $text->Get();
 		?>' );<?php
-		$to = 'chrispappas12@gmail.com';
-		$subject = $rabbit_settings[ 'applicationname' ] . ": Äéáöçìßóåéò";
+		$to = 'chrispappas12@gmail.com, chrispappas12@hotmail.com';
+		$subject = $rabbit_settings[ 'applicationname' ] . ": Î”Î¹Î±Ï†Î·Î¼Î¯ÏƒÎµÎ¹Ï‚";
 		$from = $from->Get();
 		$text = $text->Get();
 		$text .= "\n\n Email: " . $from;
