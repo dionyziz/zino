@@ -71,7 +71,7 @@
 			Επικοινωνία
 			</span><br />
 			<span style="font-family:serif">Email</span>
-			<input type="text" /><br /><br />
+			<input type="text" style="width:90px" /><br /><br />
 		    <span style="font-family:serif">Σχόλια</span>
 			<textarea>
 			</textarea>
