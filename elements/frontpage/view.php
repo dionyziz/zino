@@ -20,8 +20,8 @@
         ?><br /><br /><?php
         Element( "photo/latest" );
         Element( "notify/frontpage" );
-        ?><br /><?php
+        ?><br />
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><?php
         Element( "ad/leaderboard" );
-		?><br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><?php
     }
 ?>
