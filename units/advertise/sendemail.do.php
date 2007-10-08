@@ -1,24 +1,26 @@
 <?php
-	function UnitAdvertiseSendemail( tString $text , tString $from ) {
+	function UnitAdvertiseSendemail( tString $text , tString $from , tCoalaPointer $domnode ) {
 		global $rabbit_settings;
 		
-		?>alert( 'from email is <?php
-		echo $from->Get();
-		?>' );
-		alert( 'text email is <?php
-		echo $text->Get();
-		?>' );<?php
-		$to = 'chrispappas12@gmail.com, chrispappas12@hotmail.com';
+		$to = 'abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com';
 		$subject = $rabbit_settings[ 'applicationname' ] . ": Διαφημίσεις";
 		$from = $from->Get();
 		$text = $text->Get();
-		$text .= "\n\n Email: " . $from;
+		$text .= "\n\nEmail: " . $from;
 		$headers = "From: admin@chit-chat.gr";
-    	if ( mail( $to , $subject , $text, $headers ) ) {
-            ?>alert( 'sent' );<?php
+		//$res = mail( $to , $subject , $text , $headers );
+    	$res = true;
+		if ( $res ) {
+            ?>var msg = document.createElement( 'span' ).appendChild( document.createTextNode( 'Ευχαριστούμε για το ενδιαφέρον σας' ) );<?php
     	}
 		else {
-			?>alert( 'not sent' )<?php
+			?>var msg = document.createElement( 'span' ).appendChild( document.createTextNode( 'Παρουσιάσθηκε σφάλμα κατά την αποστολή' ) );<?php
 		}
+		?>var body = document.getElementById( 'body' );
+		var refnode = <?php
+		echo $domnode;
+		?>;
+		refnode.parentNode.insertBefore( msg , refnode );
+		<?php
 	}
 ?>
