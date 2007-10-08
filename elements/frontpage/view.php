@@ -22,5 +22,6 @@
         Element( "notify/frontpage" );
         ?><br /><?php
         Element( "ad/leaderboard" );
+		?><br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><?php
     }
 ?>
