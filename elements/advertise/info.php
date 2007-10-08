@@ -2,7 +2,8 @@
 	function ElementAdvertiseInfo() {
 		global $page;
 		
-		$page->SetTitle( "Διαφήμιση στο chit-chat" );
+		$page->SetTitle( 'Διαφήμιση στο chit-chat' );
+		$page->AttachScript( 'advertise.css' );
 		?><div class="body">
 			<h2>Διαφήμιση στο chit-chat</h2>
 			
