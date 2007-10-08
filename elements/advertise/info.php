@@ -21,7 +21,7 @@
 			
 			<span class="question">
 			Δυνατότητες διαφήμισης
-			</span><br/>
+			</span><br/><br />
 			Τιμές
 			<ul>
 				<li>Κεντρική σελίδα</li>

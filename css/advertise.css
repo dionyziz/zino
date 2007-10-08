@@ -8,6 +8,9 @@ div.body span.question {
 	padding: 2px 3px 1px 0;
 	margin: 0;
 }
+div.body span.answer {
+	padding-left: 5px;
+}
 div.body h2 {
 	font-size: 120%;
 	font-weight: bold;
@@ -27,5 +30,5 @@ div.body ul div.pricelist span.month {
 }
 div.body ul div.pricelist span.price {
 	font-family: serif;
-	font-size: 12pt;
+	font-size: 11pt;
 }
