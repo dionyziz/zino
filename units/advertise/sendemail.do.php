@@ -20,7 +20,10 @@
 		var refnode = <?php
 		echo $domnode;
 		?>;
-		refnode.parentNode.insertBefore( msg , refnode );
+		refnode.parentNode.insertBefore( msg , refnode.nextSibling );
+		Animations.Create( msg , 'opacity' , 15000 , 1 , 0 , function() {
+			msg.parentNode.removeChild( msg );
+		} );
 		<?php
 	}
 ?>
