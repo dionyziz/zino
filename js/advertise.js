@@ -12,15 +12,14 @@ var advertise = {
 			
 			}
 			else {
-				body.insertBefore( document.createElement( 'br' ) , mailtext );
-				var wrongmailtext = document.createElement( 'span' );
+				var wrongmailtext = document.createElement( 'div' );
 				wrongmailtext.appendChild( document.createTextNode( 'Παρακαλώ συμπληρώστε το πεδίο των σχολίων' ) );
 				body.insertBefore( wrongmailtext , mailtext.nextSibling );
 				Animations.Create( wrongmailtext , 'opacity' , 15000 , 1 , 0 );
 			}
 		}
 		else {
-			var wrongmailspan = document.createElement( 'div' );
+			var wrongmailspan = document.createElement( 'span' );
 			wrongmailspan.style.paddingLeft = '20px';
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
 			body.insertBefore( wrongmailspan , mailadress.nextSibling );
