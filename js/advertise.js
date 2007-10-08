@@ -14,9 +14,11 @@ var advertise = {
 			else {
 				var wrongmailtext = document.createElement( 'div' );
 				wrongmailtext.appendChild( document.createTextNode( 'Παρακαλώ συμπληρώστε το πεδίο των σχολίων' ) );
+				body.removeChild( mailtext.nextSibling );
 				body.insertBefore( wrongmailtext , mailtext.nextSibling );
-				Animations.Create( wrongmailtext , 'opacity' , 15000 , 1 , 0 , function() {
+				Animations.Create( wrongmailtext , 'opacity' , 12000 , 1 , 0 , function() {
 					wrongmailtext.parentNode.removeChild( wrongmailtext );
+					body.insertBefore( document.createElement( 'br' ) , wrongmailtext.nextSibling );
 				} );
 			}
 		}
@@ -25,7 +27,7 @@ var advertise = {
 			wrongmailspan.style.paddingLeft = '20px';
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
 			body.insertBefore( wrongmailspan , mailadress.nextSibling );
-			Animations.Create( wrongmailspan , 'opacity' , 15000 , 1 , 0 , function() {
+			Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
 				wrongmailspan.parentNode.removeChild( wrongmailspan );
 			} );
 			mailadress.focus();
