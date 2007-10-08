@@ -2,7 +2,7 @@ var Photos = {
 	EditListPhoto : function( photo , photoid , typeid ) {
 		var masterdiv = photo;
 		var masterdivchilda, theform, theinput, imageaccept, imagecancel, acceptlink, cancellink;
-		alert( 'trace no1' );
+		alert( typeid );
 		if ( typeid === 0 ) {
 			alert( 'gamo sou' );
 			masterdivchilda = masterdiv.getElementsByTagName( 'a' );
