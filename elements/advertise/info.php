@@ -1,5 +1,5 @@
 <?php
-	function AdvertiseInfo() {
+	function ElementAdvertiseInfo() {
 		?><div class="body">
 			<h2>Διαφήμιση στο chit-chat</h2>
 			
