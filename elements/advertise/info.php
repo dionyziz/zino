@@ -1,5 +1,8 @@
 <?php
 	function ElementAdvertiseInfo() {
+		global $page;
+		
+		$page->SetTitle( "Διαφήμιση στο chit-chat" );
 		?><div class="body">
 			<h2>Διαφήμιση στο chit-chat</h2>
 			
