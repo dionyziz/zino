@@ -49,7 +49,7 @@
 		protected $mPlaceId;
 		protected $mDelId;
 		
-		private function GetPlace() {
+		protected function GetPlace() {
 			$this->mPlace = new Place( $this->mPlaceId  );
 		}
 		
