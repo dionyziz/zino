@@ -23,14 +23,14 @@
 						*
 					FROM 
 						`$universities`
-					WHERE " . $condition . " AND `uni_delid` <> '0';";
+					WHERE " . $condition . " AND `uni_delid` = '0';";
 		}
 		else {
 			$sql = "SELECT
 						*
 					FROM 	
 						`$universities`
-					WHERE `uni_delid` <> '0'";
+					WHERE `uni_delid` = '0'";
 		}
 		$res = $db->Query( $sql );
 		
