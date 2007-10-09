@@ -51,7 +51,9 @@
 		protected $mDelId;
 		
 		protected function GetPlace() {
-			$this->mPlace = new Place( $this->mPlaceId  );
+			$this->mPlace = new Place( $this->mPlaceId );
+			
+			return $this->mPlace;
 		}
 		
 		public function Delete() {
