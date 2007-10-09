@@ -6,6 +6,7 @@
 		global $page;
 		
 		$page->SetTitle( 'Διαχείριση πανεπιστημίων' );
+		$page->AttachScript( 'js/universities.js' );
 		$libs->Load( 'universities' );
 		
 		if ( !$user->CanModifyCategories() ) {
