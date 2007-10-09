@@ -31,22 +31,20 @@ var Uni = {
 		area = document.getElementById( 'modaldiv' ).cloneNode( true );
 		area.style.display = '';
 		Modals.Create( area, 500, 300 );
+		var inputlist = area.getElementsByTagName( 'input' );
+		var selectlist = area.getElementsByTagName( 'select' );
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
-		document.getElementById( 'modaluniname' ).appendChild( document.createTextNode( uniname ) );
+		inputlist[ 0 ].appendChild( document.createTextNode( uniname ) );
 		document.getElementById( 'modaluniname' ).style.border = '1px solid red';
-		alert( 'uniname is ' + uniname );
-		alert( 'unitypeid is ' + unitypeid );
-		alert( 'uniplaceid is ' + uniplaceid );
 		if ( unitypeid === 0 ) {
-			document.getElementById( 'modaluniaei' ).checked = true;
+			inputlist[ 1 ].checked = true;
 		}
 		else {
-			document.getElementById( 'modalunitei' ).checked = true;
-		}
-		document.getElementById( 'modaluniplace' ).selectedIndex = uniplaceid;
-		document.getElementById( 'modaluniplace' ).value = uniplaceid;
+			inputlist[ 2 ].checked = true;
+		selectlist[ 0 ].selectedIndex = uniplaceid;
+		//document.getElementById( 'modaluniplace' ).value = uniplaceid;
 		Modals.Create( area, 500, 300 );
 	}
 };
