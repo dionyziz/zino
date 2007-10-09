@@ -4,11 +4,11 @@
 		global $libs;
 		global $user;
 		global $page;
-		
+		global $xc_settings;
+        
 		$page->AttachScript( "js/options.js" );
 		
 		if ( $user->Id() == $theuser->Id() || $theuser->Height() != "" || $theuser->Weight() != "" || $theuser->EyeColor() != "" || $theuser->HairColor() != "" ) {
-		
 			if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				ob_start();
 				?>ProfileOptions.Init( g( "user_profile_characteristics" ) );<?php
