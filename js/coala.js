@@ -141,9 +141,8 @@ var Coala = {
 		}
         
         if ( httpStatus < 200 || httpStatus > 300 && httpStatus !== 1223 ) {
-            alert( 'Failure' );
             for ( i = 0; i < failurecallbacks.length; ++i ) {
-                failurecallbacks[ i ]( xh.status );
+                failurecallbacks[ i ]( httpStatus );
             }
             return;
         }
