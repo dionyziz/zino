@@ -7,6 +7,7 @@
 		
 		$page->SetTitle( 'Διαχείριση πανεπιστημίων' );
 		$page->AttachScript( 'js/universities.js' );
+		$page->AttachScript( 'js/coala.js' );
 		$libs->Load( 'universities' );
 		$libs->Load( 'place' );
 		
