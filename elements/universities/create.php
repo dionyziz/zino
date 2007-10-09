@@ -42,10 +42,10 @@
 				echo htmlspecialchars( $uni->Name )
 				?> - <?php
 				if ( $uni->TypeId == 0 ) {
-					?>ΤΕΙ - <?php
+					?>AΕΙ - <?php
 				}
 				else {
-					?>ΑΕΙ - <?php
+					?>TΕΙ - <?php
 				}
 				echo $uni->Place->Name;
 				?></div><?php

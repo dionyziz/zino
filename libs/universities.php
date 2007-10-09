@@ -47,6 +47,7 @@
 		protected $mName;
 		protected $mTypeId;
 		protected $mPlaceId;
+		protected $mPlace;
 		protected $mDelId;
 		
 		protected function GetPlace() {
