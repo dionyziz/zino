@@ -19,7 +19,7 @@
 		<div class="body">
 			<h3>Διαχείριση πανεπιστημίων</h3><br />
 			<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /><br />
-			<input type="radio" name="unitype" value="0" id="uniaei" checked>ΑΕΙ</input>
+			<input type="radio" name="unitype" value="0" id="uniaei" checked="checked">ΑΕΙ</input>
 			<input type="radio" name="unitype" value="1" id="unitei">ΤΕΙ</input><br />
 			<select id="uni_area"><?php
 				$places = AllPlaces();
