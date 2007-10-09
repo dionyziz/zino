@@ -67,7 +67,7 @@
     				<small><?php
     					if ( trim( $album->Description() ) != '' ) {
     						?><span class="details" style="font-size:9pt;"><?php
-    						echo $album->Description();
+    						echo htmlspecialchars( $album->Description() );
     						?></span><?php
     					}
     					if ( trim( $album->Description() ) == '' && $user->Id() == $album->UserId() ) {
