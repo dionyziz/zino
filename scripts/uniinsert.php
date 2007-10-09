@@ -74,5 +74,5 @@
 	foreach( $arr as $sql ) {
 		mysql_query( $sql );
 	}
+	?><h2>Uni Inserts</h2>
 	
-?>
