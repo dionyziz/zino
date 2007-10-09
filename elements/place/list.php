@@ -13,7 +13,7 @@
 			$page->AttachScript( 'js/places.js' );
 			$page->AttachScript( 'js/coala.js' );
 			
-			$page->SetTitle( 'Περιοχές' );
+			$page->SetTitle( 'Διαχείριση περιοχών' );
 			
 			?><h3>Περιοχές</h3><?php
 			
@@ -24,7 +24,7 @@
 				<form id="newpform" action="do/place/new" method="post" style="display: none;" onkeypress="return submitenter(this, event);">
 					<input type="hidden" name="action" value="create" />
 					<input type="text" name="name" class="bigtext" value="Γράψε εδώ την νέα Περιοχή!" onfocus="((this.value=='Γράψε εδώ την νέα Περιοχή!') ? this.value='' : this.value=this.value);" /> 
-					<input type="submit" value="Δημιουργεία" class="mybutton" onclick="Places.create(this.form);" />
+					<input type="submit" value="Δημιουργία" class="mybutton" onclick="Places.create(this.form);" />
 					<input type="button" value="Ακύρωση" class="mybutton" onclick="Places.cancelCreate(this.form);" />
 				</form>
 				<br /><br />

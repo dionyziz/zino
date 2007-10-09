@@ -13,12 +13,18 @@
 		}
 		$allunis = Uni_Retrieve( 0 , false );
 		$water->Trace( 'uni number: ' . count( $allunis ) );
-		?><br /><br /><h3>Διαχείριση πανεπιστημίων</h3><?php
-		foreach( $allunis as $uni ) {
-			echo htmlspecialchars( $uni->Name );
-			?><br /><?php
-		}
-		
+		?><br /><br />
+		<div class="body">
+			<h3>Διαχείριση πανεπιστημίων</h3><br />
+			<form method="" onkeypress="return submitenter(this, event);" id="createform" onsubmit="Uni.Create();return false;">
+				<input type="text" style="width:150px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
+				<input type="button" value="Δημιουργία" onclick="document.getElementById( 'createform' ).submit();return false;" />
+			</form><br /><br /><?php
+			foreach( $allunis as $uni ) {
+				echo htmlspecialchars( $uni->Name );
+				?><br /><?php
+			}
+		?></div><?php
 		
 	}
 ?>
