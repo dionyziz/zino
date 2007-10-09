@@ -49,6 +49,10 @@
 		protected $mPlaceId;
 		protected $mDelId;
 		
+		private function GetPlace() {
+			$this->mPlace = new Place( $this->mPlaceId  );
+		}
+		
 		public function Delete() {
 			$this->mDelId = 1;
 			$this->Save();
