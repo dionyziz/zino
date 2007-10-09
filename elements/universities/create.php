@@ -18,13 +18,15 @@
 		<div class="body">
 			<h3>Διαχείριση πανεπιστημίων</h3><br />
 			<form method="" onkeypress="return submitenter(this, event);" id="createform" onsubmit="Uni.Create();return false;">
-				<input type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
+				<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
 				<input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" />
-			</form><br /><br /><?php
+			</form><br /><br />
+			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
 				echo htmlspecialchars( $uni->Name );
 				?><br /><?php
 			}
+			?></div><?php
 		?></div><?php
 		
 	}
