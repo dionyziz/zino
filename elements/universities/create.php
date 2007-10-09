@@ -19,8 +19,8 @@
 			<h3>Διαχείριση πανεπιστημίων</h3><br />
 			<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
 			<input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />
-			<input id="uniaei" type="radio" name="unitype" value="0">ΑΕΙ</input><br />
-			<input id="unitei" type="radio" name="unitype" value="1">ΤΕΙ</input>			
+			<input type="radio" name="unitype" value="0">ΑΕΙ</input><br />
+			<input type="radio" name="unitype" value="1">ΤΕΙ</input>			
 			<br /><br />
 			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
