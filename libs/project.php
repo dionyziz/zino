@@ -86,7 +86,8 @@
             'test'              => 'test',
             'jslint'            => 'developer/js/lint',
             'poll'              => 'poll/view',
-			'advertise' 		=> 'advertise/info'
+			'advertise' 		=> 'advertise/info',
+			'uniadmin'			=> 'universities/create'
     	);
     }
 ?>

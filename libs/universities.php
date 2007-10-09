@@ -1,7 +1,7 @@
 <?php
 	/*
 		Developer: Izual
-		Backend for the universities task, masked
+		Backend for the universities task
 	*/
 	function Uni_Retrieve( $placeid = 0 , $typeid = false ) {
 		global $db;
@@ -18,13 +18,20 @@
 		if ( $placeid != 0 && $typeid ) {
 			$condition = "`uni_typeid` = '" . myescape( $typeid ) . "' AND `uni_placeid` = '" . myescape( $placeid ) . "'";
 		}
-		
-		$sql = "SELECT
-					*
-				FROM 
-					`$universities`
-				WHERE " . $condition . ";";
-				
+		if ( isset( $condition ) ) {
+			$sql = "SELECT
+						*
+					FROM 
+						`$universities`
+					WHERE " . $condition . " AND `uni_delid` <> '0';";
+		}
+		else {
+			$sql = "SELECT
+						*
+					FROM 	
+						`$universities`
+					WHERE `uni_delid` <> '0'";
+		}
 		$res = $db->Query( $sql );
 		
 		$ret = array();
