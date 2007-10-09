@@ -140,7 +140,7 @@ var Coala = {
             httpStatus = 13030;
 		}
         
-        if ( httpStatus >= 200 && httpStatus < 300 || httpStatus === 1223 ) {
+        if ( httpStatus < 200 || httpStatus > 300 && httpStatus !== 1223 ) {
             for ( i = 0; i < failurecallbacks.length; ++i ) {
                 failurecallbacks[ i ]( xh.status );
             }
