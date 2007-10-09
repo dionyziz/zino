@@ -15,7 +15,7 @@
 		$water->Trace( 'uni number: ' . count( $allunis ) );
 		?><br /><br /><h3>Διαχείριση πανεπιστημίων</h3><?php
 		foreach( $allunis as $uni ) {
-			echo $uni->Name;
+			echo htmlspecialchars( $uni->Name );
 			?><br /><?php
 		}
 		
