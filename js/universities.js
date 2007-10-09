@@ -8,16 +8,16 @@ var Uni = {
 			var unitype = document.getElementById( 'uniaei' );
 			newuni.appendChild( document.createTextNode( unitext.value ) );
 			if ( unitype.checked ) {
-				newuni.appendChild( document.createTextNode( " - ΑΕΙ" ) );
+				newuni.appendChild( document.createTextNode( " - Ξ‘Ξ•Ξ™" ) );
 			}
 			else {
-				newuni.appendChild( document.createTextNode( " - ΤΕΙ" ) );
+				newuni.appendChild( document.createTextNode( " - Ξ¤Ξ•Ξ™" ) );
 			}
 			
 			unilist.appendChild( newuni );
 		}
 		else {
-			alert( 'Δώσε ένα έγκυρο όνομα πανεπιστημίου' );
+			alert( 'Ξ”ΟΟƒΞµ Ξ­Ξ½Ξ± Ξ­Ξ³ΞΊΟ…ΟΞΏ ΟΞ½ΞΏΞΌΞ± Ο€Ξ±Ξ½ΞµΟ€ΞΉΟƒΟ„Ξ·ΞΌΞ―ΞΏΟ…' );
 		}	
 	}
 }
