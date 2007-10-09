@@ -58,7 +58,7 @@
 				<span style="display:none" id="name<?php
 				echo $uni->Id;
 				?>"><?php
-				echo $uni->Name;
+				echo htmlspecialchars( $uni->Name );
 				?></span>
 				<span style="display:none" id="type<?php
 				echo $uni->Id;
