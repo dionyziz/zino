@@ -128,7 +128,19 @@ var Coala = {
             }
 			return;
 		}
-        if ( xh.status != 200 ) {
+		try {
+			if ( xh.status !== undefined && xh.status !== 0){
+				httpStatus = xh.status;
+			}
+			else {
+				httpStatus = 13030;
+			}
+		}
+		catch ( e ) {
+            httpStatus = 13030;
+		}
+        
+        if ( httpStatus >= 200 && httpStatus < 300 || httpStatus === 1223 ) {
             for ( i = 0; i < failurecallbacks.length; ++i ) {
                 failurecallbacks[ i ]( xh.status );
             }
