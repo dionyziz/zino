@@ -12,6 +12,11 @@
 		$uniname = $uniname->Get();
 		$typeid = $typeid->Get();
 		$placeid = $placeid->Get();
-		?>alert( "uni name: <?php echo $uniname;?>, typeid: <?php echo $typeid;?>, placeid: <?php echo $placeid;?>" );<?php	
+		
+		$uni = new Uni();
+		$uni->Name = $uniname;
+		$uni->TypeId = $typeid;
+		$uni->PlaceId = $placeid;
+		$uni->Save();
 	}
 ?>
