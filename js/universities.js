@@ -15,7 +15,7 @@ var Uni = {
 			else {
 				newuni.appendChild( document.createTextNode( " - ΤΕΙ" ) );
 			}
-			newuni.appendChild( document.createTextNode( " - " + document.getElementById( placeid ).innerHTML );
+			newuni.appendChild( document.createTextNode( " - " + document.getElementById( placeid ).innerHTML ) );
 			unilist.appendChild( newuni );
 		}
 		else {
