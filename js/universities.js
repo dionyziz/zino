@@ -30,6 +30,7 @@ var Uni = {
 	Edit : function( uniid ) {
 		area = document.getElementById( 'modaldiv' ).cloneNode( true );
 		area.style.display = '';
+		Modals.Create( area, 500, 300 );
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
