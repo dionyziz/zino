@@ -20,8 +20,7 @@
 			<form method="" onkeypress="return submitenter(this, event);" id="createform" onsubmit="Uni.Create();return false;">
 				<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
 				<input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />
-				<input type="radio" value="0">ΑΕΙ</input> <input type="radio" value="1">ΤΕΙ</input>
-				
+				<input type="radio" value="AEI" /> <input type="radio" value="TEI" />			
 			</form><br /><br />
 			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
