@@ -19,8 +19,8 @@
 		<div class="body">
 			<h3>Διαχείριση πανεπιστημίων</h3><br />
 			<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /><br />
-			<input type="radio" name="unitype" value="0">ΑΕΙ</input>
-			<input type="radio" name="unitype" value="1">ΤΕΙ</input><br />
+			<input type="radio" name="unitype" value="0" id="uniaei" checked>ΑΕΙ</input>
+			<input type="radio" name="unitype" value="1" id="unitei">ΤΕΙ</input><br />
 			<select id="uni_area"><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
@@ -30,7 +30,7 @@
 					echo $place->Name;
 					?></option><?php
 				}
-			?></select><br />
+			?></select><br /><br />
 			<input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />			
 			<br /><br />
 			<div class="unilist" id="unilist"><?php

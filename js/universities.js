@@ -5,9 +5,15 @@ var Uni = {
 		alert( unitext.value );
 		if ( unitext.value != '' ) {
 			var newuni = document.createElement( 'div' );
-			alert( newuni );
-			alert( unilist );
+			var unitype = document.getElementById( 'uniaei' );
 			newuni.appendChild( document.createTextNode( unitext.value ) );
+			if ( unitype.checked ) {
+				newuni.appendChild( document.createTextNode( " - ¡≈…" ) );
+			}
+			else {
+				newuni.appendChild( document.createTextNode( " - ‘≈…" ) );
+			}
+			
 			unilist.appendChild( newuni );
 		}
 		else {
