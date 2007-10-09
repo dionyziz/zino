@@ -37,9 +37,9 @@
 				<li><dl>
 					<dt>σχόλια προφίλ</dt>
 					<dd id="user_statistics_profcomms"><?php
-						echo $profilecommentsnum;
+						echo $theuser->NumComments();
 						
-						if ( $profilecommentsnum > 50 && !$oldcomments ) {
+						if ( $theuser->NumComments() > 50 && !$oldcomments ) {
 							?> <a href="/user/<?php
 							echo $theuser->Username();
 							?>?oldcomments=yes">(Προβολή Όλων)</a><?php

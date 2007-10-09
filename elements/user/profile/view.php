@@ -250,7 +250,6 @@
 					}
 					
 					$comments = $search->GetParented( true ); // get comments
-					$profilecommentsnum = $search->Length();
 					
 					echo $viewingtabs++;
 					?>" class="profile"<?php
@@ -265,7 +264,7 @@
                         ?>');width:100%;height:100%"<?php
                     }
                     ?>><?php
-					Element( 'user/profile/main' , $theuser, $articlesnum, $profilecommentsnum, $oldcomments );
+					Element( 'user/profile/main' , $theuser, $articlesnum, $oldcomments );
 					?><div style="clear:both"></div>
 			        <br /><br />
 			        <div class="comments" id="comments"><?php
