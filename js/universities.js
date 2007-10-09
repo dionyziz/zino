@@ -34,7 +34,7 @@ var Uni = {
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		document.getElementById( 'modaluniname' ).value = uniname;
-		if ( unitypeid == 0 ) {
+		if ( unitypeid === 0 ) {
 			document.getElementById( 'modaluniaei' ).checked = true;
 		}
 		else {
@@ -44,4 +44,4 @@ var Uni = {
 		document.getElementById( 'modaluniplace' ).value = uniplaceid;
 		Modals.Create( area, 500, 300 );
 	}
-}
+};
