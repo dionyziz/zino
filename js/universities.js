@@ -2,9 +2,9 @@ var Uni = {
 	Create : function() {
 		var unitext = document.getElementById( 'uniname' );
 		var unilist = document.getElementById( 'unilist' );
-		var newuni = document.createElement( 'div' );
 		alert( unitext.value );
 		if ( unitext.value != '' ) {
+			var newuni = document.createElement( 'div' );
 			newuni.appendChild( document.createTextNode( unitext.value ) );
 			unilist.insertBefore( unilist.firstChild , newuni );
 		}
