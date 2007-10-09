@@ -18,10 +18,6 @@
 		?>var refnode = <?php
 		echo $domnode;
 		?>;
-		refnode.parentNode.insertBefore( msg , refnode.nextSibling );
-		Animations.Create( msg , 'opacity' , 12000 , 1 , 0 , function() {
-			msg.parentNode.removeChild( msg );
-		} );
-		<?php
+		refnode.parentNode.insertBefore( msg , refnode.nextSibling );<?php
 	}
 ?>
