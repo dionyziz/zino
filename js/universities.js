@@ -33,7 +33,9 @@ var Uni = {
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
-		document.getElementById( 'modaluniname' ).value = uniname;
+		document.getElementById( 'modaluniname' ).appendChild( document.createTextNode( uniname ) );
+		alert( 'unitypeid is ' + unitypeid );
+		alert( 'uniplaceid is ' + uniplaceid );
 		if ( unitypeid === 0 ) {
 			document.getElementById( 'modaluniaei' ).checked = true;
 		}
