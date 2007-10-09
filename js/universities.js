@@ -8,7 +8,6 @@ var Uni = {
 			alert( newuni );
 			alert( unilist );
 			newuni.appendChild( document.createTextNode( unitext.value ) );
-			alert( newuni.firstChild );
 			unilist.appendChild( newuni );
 		}
 		else {
