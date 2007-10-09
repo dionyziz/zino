@@ -21,7 +21,7 @@
 				<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /> 
 				<input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" />
 			</form><br /><br />
-			<div class="unilist" id="unilist"><div></div><?php
+			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
 				?><div><?php
 				echo htmlspecialchars( $uni->Name );

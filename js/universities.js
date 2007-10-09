@@ -9,7 +9,7 @@ var Uni = {
 			alert( unilist );
 			newuni.appendChild( document.createTextNode( unitext.value ) );
 			alert( newuni.firstChild );
-			unilist.insertBefore( unilist.firstChild , newuni );
+			unilist.appendChild( newuni );
 		}
 		else {
 			alert( 'Δώσε ένα έγκυρο όνομα πανεπιστημίου' );
