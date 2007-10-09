@@ -34,6 +34,7 @@ var Uni = {
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		document.getElementById( 'modaluniname' ).appendChild( document.createTextNode( uniname ) );
+		alert( 'uniname is ' + uniname );
 		alert( 'unitypeid is ' + unitypeid );
 		alert( 'uniplaceid is ' + uniplaceid );
 		if ( unitypeid === 0 ) {
@@ -42,7 +43,7 @@ var Uni = {
 		else {
 			document.getElementById( 'modalunitei' ).checked = true;
 		}
-		document.getElementById( 'modaluniplace' + uniplaceid ).selected = true;
+		document.getElementById( 'modaluniplace' ).selectedIndex = uniplaceid;
 		document.getElementById( 'modaluniplace' ).value = uniplaceid;
 		Modals.Create( area, 500, 300 );
 	}
