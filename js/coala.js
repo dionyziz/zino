@@ -117,7 +117,7 @@ var Coala = {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
 		Socket.connect( "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
-            this._Callback( xh, failurecallbacks );
+            Coala._Callback( xh, failurecallbacks );
         } );
 		return true; // successfully pushed request
 	},
