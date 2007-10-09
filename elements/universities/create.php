@@ -3,13 +3,16 @@
 		global $user;
 		global $water;
 		global $libs;
+		global $page;
 		
+		$page->SetTitle( 'Ξ”ΞΉΞ±Ο‡ΞµΞ―ΟΞΉΟƒΞ· Ο€Ξ±Ξ½ΞµΟ€ΞΉΟƒΟ„Ξ·ΞΌΞ―Ο‰Ξ½' );
 		$libs->Load( 'universities' );
 		
 		if ( !$user->CanModifyCategories() ) {
-			die( 'Δεν έχεις δικαίωμα να δεις αυτή τη σελίδα' );
+			die( 'Ξ”ΞµΞ½ Ξ­Ο‡ΞµΞΉΟ‚ Ξ΄ΞΉΞΊΞ±Ξ―Ο‰ΞΌΞ± Ξ½Ξ± Ξ΄ΞµΞΉΟ‚ Ξ±Ο…Ο„Ξ® Ο„Ξ· ΟƒΞµΞ»Ξ―Ξ΄Ξ±' );
 		}
 		$allunis = Uni_Retrieve( 0 , false );
+		$water->Trace( 'uni number: ' . count( $allunis ) );
 		foreach( $allunis as $uni ) {
 			echo $uni->Name;
 			?><br /><?php
