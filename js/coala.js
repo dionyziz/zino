@@ -6,25 +6,35 @@ var Coala = {
 	StoredObjects: [],
 	ThreadedRequests: [],
 	LazyCommit: null,
-	Cold: function ( unitid , parameters ) {
-		this._AppendRequest( unitid , parameters , 'cold' );
+    Frozen: function ( unitid, parameters, failurecallback ) { // get, cacheable client-side (doesn't have to be public -- not necessarily squidable)
+        if ( Coala.ThreadedRequests.length ) {
+            // force commit of any queued requests
+            Coala.Commit();
+        }
+        // send frozen call separately
+        this._AppendRequest( unitid, parameters, 'frozen', failurecallback );
+        Coala.Commit();
+    },
+	Cold: function ( unitid, parameters, failurecallback ) { // get, non-cacheable
+		this._AppendRequest( unitid, parameters, 'cold', failurecallback );
 		this.LazyCommit = setTimeout( function () {
             Coala.Commit();
         }, 50 );
 	},
-	Warm: function ( unitid , parameters ) {
-		this._AppendRequest( unitid , parameters , 'warm' );
+	Warm: function ( unitid, parameters, failurecallback ) { // post
+		this._AppendRequest( unitid, parameters, 'warm', failurecallback );
 		this.LazyCommit = setTimeout( function () {
             Coala.Commit();
         }, 50 );
 	},
-	_AppendRequest: function ( unitid , parameters , type ) {
+	_AppendRequest: function ( unitid, parameters, type, failurecallback ) {
 		Coala.ThreadedRequests.push( 
 			{ 
-				'unitid' : unitid , 
-				'parameters' : parameters , 
-				'type' : type 
-			} 
+				'unitid'          : unitid , 
+				'parameters'      : parameters , 
+				'type'            : type ,
+                'failurecallback' : failurecallback
+			}
 		);
 	},
 	Commit: function () {
@@ -36,12 +46,19 @@ var Coala = {
 		request = { 'ids' : '' };
 		ids = [];
 		warm = false;
+        failurecallbacks = [];
 		for ( i in Coala.ThreadedRequests ) {
 			args = [];
+            if ( Coala.ThreadedRequests[ i ].failurecallback !== undefined ) {
+                failurecallbacks.push(
+                    Coala.ThreadedRequests[ i ].failurecallback
+                );
+            }
 			for ( j in Coala.ThreadedRequests[ i ].parameters ) {
                 switch ( typeof( Coala.ThreadedRequests[ i ].parameters[ j ] ) ) {
                     case 'object': // object or array
                     case 'function': // function
+                        // create coala pointer
     					Coala.StoredObjects[ Coala.StoredObjects.length ] = Coala.ThreadedRequests[ i ].parameters[ j ];
     					arg = 'Coala.StoredObjects[' + ( Coala.StoredObjects.length - 1 ) + ']';
                         break;
@@ -68,6 +85,9 @@ var Coala = {
 				case 'cold':
 					symbol = '~';
 					break;
+                case 'frozen':
+                    symbol = '_';
+                    break;
 				default:
 					alert( 'Invalid coala call type' );
 			}
@@ -80,14 +100,14 @@ var Coala = {
 			method = 'get';
 		}
 		request.ids = ids.join( ':' );
-		this._PlaceRequest( request , method );
+		this._PlaceRequest( request, method, failurecallbacks );
 		Coala.ThreadedRequests = [];
 	},
-	_PlaceRequest: function ( request , method ) {
+	_PlaceRequest: function ( request, method, failurecallbacks ) {
 		if ( request === null ) {
 			request = {};
 		}
-		Socket = this._AJAXSocket(); // instanciate new socket object
+		Socket = new this._AJAXSocket(); // instanciate new socket object
 		if ( Socket === null ) {
 			// this shouldn't happen; browser is not XMLHTTP-compatible
 			return false;
@@ -96,14 +116,24 @@ var Coala = {
 		for ( parameter in request ) {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
-		Socket.connect( "coala.php" , method , realparameters.join( '&' ) , this._Callback );
+		Socket.connect( "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
+            this._Callback( xh, failurecallbacks );
+        } );
 		return true; // successfully pushed request
 	},
-	_Callback: function ( xh ) {
+	_Callback: function ( xh, failurecallbacks ) {
 		if ( xh.readyState != 4 ) {
-			alert( "An XMLHTTP error has occured. Please try again later" );
+            for ( i = 0; i < failurecallbacks.length; ++i ) {
+                failurecallbacks[ i ]( 0 );
+            }
 			return;
 		}
+        if ( xh.status != 200 ) {
+            for ( i = 0; i < failurecallbacks.length; ++i ) {
+                failurecallbacks[ i ]( xh.status );
+            }
+            return;
+        }
         if ( typeof water_debug_data != 'undefined' ) {
             old_water_debug_data = water_debug_data;
         }

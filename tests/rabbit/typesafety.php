@@ -50,6 +50,22 @@
             $string = New tString( '' );
             $this->Assert( $string->Get() === '' );
         }
+        public function TestBoolean() {
+            $boolean = New tBoolean( '' );
+            $this->Assert( $boolean->Get() === false );
+            $boolean = New tBoolean( false );
+            $this->Assert( $boolean->Get() === false );
+            $boolean = New tBoolean( '0' );
+            $this->Assert( $boolean->Get() === false );
+            $boolean = New tBoolean( 0 );
+            $this->Assert( $boolean->Get() === false );
+            $boolean = New tBoolean( true );
+            $this->Assert( $boolean->Get() === true );
+            $boolean = New tBoolean( '1' );
+            $this->Assert( $boolean->Get() === true );
+            $boolean = New tBoolean( 1 );
+            $this->Assert( $boolean->Get() === true );
+        }
         public function TestStringToType() {
             $int = New tInteger( 'bwahahah' );
             $this->Assert( is_int( $int->Get() ) );
