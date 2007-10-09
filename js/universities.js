@@ -26,4 +26,21 @@ var Uni = {
 		unitext.focus();
 		unitext.select();
 	}
+	Edit : function( uniid ) {
+		    area = document.getElementById( 'modaldiv' ).cloneNode( true );
+			area.style.display = '';
+			var uniname = document.getElementById( 'name' + uniid ).innerHTML;
+			var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
+			var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
+			document.getElementById( 'modaluniname' ).value = uniname;
+			if ( unitypeid == 0 ) {
+				document.getElementById( 'modaluniaei' ).checked = true;
+			}
+			else {
+				document.getElementById( 'modalunitei' ).checked = true;
+			}
+			document.getElementById( 'modaluniplace' + uniplaceid ).selected = true;
+			document.getElementById( 'modaluniplace' ).value = uniplaceid;
+			Modals.Create( area, 500, 300 );
+	}
 }
