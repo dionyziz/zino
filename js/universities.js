@@ -34,6 +34,7 @@ var Uni = {
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		document.getElementById( 'modaluniname' ).appendChild( document.createTextNode( uniname ) );
+		document.getElementById( 'modaluniname' ).style.border = '1px solid red';
 		alert( 'uniname is ' + uniname );
 		alert( 'unitypeid is ' + unitypeid );
 		alert( 'uniplaceid is ' + uniplaceid );
