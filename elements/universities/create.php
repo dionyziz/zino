@@ -39,7 +39,15 @@
 			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
 				?><div><?php
-				echo htmlspecialchars( $uni->Name );
+				echo htmlspecialchars( $uni->Name )
+				?> - <?php
+				if ( $uni->TypeId == 0 ) {
+					?>ΤΕΙ - <?php
+				}
+				else {
+					?>ΑΕΙ - <?php
+				}
+				echo $uni->Place->Name;
 				?></div><?php
 			}
 			?></div><?php
