@@ -26,6 +26,8 @@
 				foreach( $places as $place ) {
 					?><option value="<?php
 					echo $place->Id;
+					?>" id="<?php
+					echo $place->Id;
 					?>"><?php
 					echo $place->Name;
 					?></option><?php
