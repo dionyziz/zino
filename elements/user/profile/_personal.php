@@ -140,7 +140,7 @@
 						} ?></dd>
 					</dl></li><?php
 				}
-				if ( $uni->Exists() && !$user->IsAnonymous() ) { //add condition for having set uni 
+				if ( $uni->Exists() && !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { //add condition for having set uni 
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
