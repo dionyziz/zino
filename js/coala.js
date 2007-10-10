@@ -28,6 +28,7 @@ var Coala = {
         }, 50 );
 	},
 	_AppendRequest: function ( unitid, parameters, type, failurecallback ) {
+        alert( unitid );
 		Coala.ThreadedRequests.push( 
 			{ 
 				'unitid'          : unitid , 
