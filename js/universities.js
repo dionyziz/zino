@@ -36,7 +36,7 @@ var Uni = {
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		inputlist[ 0 ].value = uniname;
-		alert( 'unitypeid is ' + unitypeid );
+		alert( 'uniplaceid is ' + uniplaceid );
 		if ( unitypeid == 0 ) {
 			inputlist[ 1 ].checked = true;
 		}
