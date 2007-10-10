@@ -96,7 +96,7 @@
 		$viewingtabs = 0;
 		$friends = $theuser->GetFriends();
 		$fans = $theuser->GetFans();
-        $allalbums = Albums_RetrieveUserAlbums( $theuser->Id(), true, true );
+        $allalbums = Albums_RetrieveUserAlbums( $theuser->Id(), true );
         $viewalbums = count( $allalbums ) > 0 || $theuser->Id() == $user->Id();
 		$viewfriends = count( $friends ) > 0;
 		$viewfans = count( $fans ) > 0;

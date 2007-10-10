@@ -23,44 +23,6 @@
 		
 		return $res->InsertId();
 	}
-	function Albums_CountAlbumsComments( $keys ) {
-		global $db;
-		global $comments;
-		global $images;
-		
-		if ( !is_array( $keys ) ) {
-			$keys = array( $keys );
-		}
-		
-		foreach ( $keys as $i => $key ) {
-			$keys[ $i ] = myescape( $key );
-		}
-	
-		$sql = "SELECT
-					`image_albumid`, COUNT( `comment_id` ) AS numcomments
-				FROM 
-					`$images` LEFT JOIN `$comments`
-						ON ( `image_id` = `comment_storyid` )
-				WHERE
-					`image_albumid` IN (" . implode( ", ", $keys ) . ") AND
-					`comment_typeid` = '2' AND 
-					`comment_delid` = '0'
-				GROUP BY
-					`image_albumid`
-				;";
-					
-		$res = $db->Query( $sql );
-		
-		$ret = array();
-        foreach ( $keys as $imagealbumid ) {
-            $ret[ $imagealbumid ] = 0; // assume 0
-        }
-        
-		while ( $row = $res->FetchArray() ) {
-			$ret[ $row[ "image_albumid" ] ] = $row[ "numcomments" ];
-		}
-		return $ret;
-	}
 	function Albums_CountAlbumsPhotos( $keys ) {
 		global $db;
 		global $images;
@@ -92,7 +54,7 @@
 		
 		return $ret;
 	}
-	function Albums_RetrieveUserAlbums( $userid, $needcommentsnum = false, $needphotosnum = false ) {
+	function Albums_RetrieveUserAlbums( $userid, $needphotosnum = false ) {
 		global $db;
 		global $albums;
 		
@@ -106,7 +68,7 @@
 		$res = $db->Query( $sql );
 		
 		$ret = array();
-		if ( ( $needcommentsnum || $needphotosnum ) && $res->Results() ) {
+		if ( $needphotosnum  && $res->Results() ) {
 				$rows = array();
 				$keys = array();
 				while ( $row = $res->FetchArray() ) {
@@ -114,20 +76,10 @@
 					$rows[] = $row;
 				}
 				
-				if ( $needcommentsnum ) {
-					$commentsnumdata = Albums_CountAlbumsComments( $keys );
-				}
-				if ( $needphotosnum ) {
-					$photosnumdata = Albums_CountAlbumsPhotos( $keys );
-				}
+				$photosnumdata = Albums_CountAlbumsPhotos( $keys );
 				
-				foreach ( $rows as $row ) {
-					if ( isset( $commentsnumdata ) ) {
-						$row[ 'commentsnum' ] = $commentsnumdata[ $row[ 'album_id' ] ];
-					}
-					if ( isset( $photosnumdata ) ) {
-						$row[ 'photosnum' ] = $photosnumdata[ $row[ 'album_id' ] ];
-					}
+                foreach ( $rows as $row ) {
+					$row[ 'photosnum' ] = $photosnumdata[ $row[ 'album_id' ] ];
 					$ret[] = New Album( $row );
 				}
 		}
@@ -153,7 +105,7 @@
 		private $mAlbdelid;
 		private $mPageviews;
 		private $mPhotosNum;
-		private $mCommentsNum;
+		private $mNumComments;
 		
 		public function Id() {
 			return $this->mAlbid;
@@ -206,31 +158,7 @@
 			return $this->mPhotosNum;
 		}
 		public function CommentsNum() {
-			global $db;
-			global $comments;
-			global $images;
-			global $water;
-			
-			if ( $this->mCommentsNum === false ) {
-				// comments are not counted yet
-				$sql = "SELECT
-							COUNT( `comment_id` )
-						AS
-							numcomments
-						FROM 
-							`$images` LEFT JOIN `$comments`
-								ON ( `image_id` = `comment_storyid` )
-						WHERE
-							`image_albumid` = '" . $this->Id() . "' AND
-							`comment_typeid` = '2' AND 
-							`comment_delid` = '0';";
-							
-				$res = $db->Query( $sql );
-				$num = $res->FetchArray();
-				$this->mCommentsNum = $num[ "numcomments" ];
-			}
-			
-			return $this->mCommentsNum;
+			return $this->mNumComments;
 		}
 		public function DelId() {
 			return $this->mAlbdelid;
@@ -325,6 +253,36 @@
 			
 			return $db->Query( $sql )->Impact();
 		}
+        public function CommentAdded() {
+			global $db;
+			global $albums;
+			
+			++$this->mNumComments;
+			
+			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
+			
+			return $db->Query( $sql )->Impact();
+        }
+        public function CommentDeleted() {
+			global $db;
+			global $albums;
+			
+			--$this->mNumComments;
+			
+			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
+			
+			return $db->Query( $sql )->Impact();
+        }
+        public function ImageDeleted( $image ) {
+            global $db;
+            global $albums;
+
+            $this->mNumComments -= $image->NumComments();
+
+			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
+			
+			return $db->Query( $sql )->Impact();
+        }
 		public function Album( $construct ) {
 			global $db;
 			global $albums;
@@ -359,7 +317,8 @@
 			$this->mAlbdelid 			= isset( $construct[ "album_delid" ] ) ? $construct[ "album_delid" ] : 0;
 			
 			$this->mPageviews			= isset( $construct[ "album_pageviews" ] ) ? $construct[ "album_pageviews" ] : 0;
-			$this->mCommentsNum			= isset( $construct[ "commentsnum" ] ) ? $construct[ "commentsnum" ] : false;
+            $this->mNumComments         = isset( $construct[ "album_numcomments" ] ) ? $construct[ "album_numcomments" ] : 0;
+            
 			$this->mPhotosNum			= isset( $construct[ "photosnum" ] ) ? $construct[ "photosnum" ] : false;
 		}
 	}

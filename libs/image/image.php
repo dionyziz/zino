@@ -316,6 +316,9 @@
 		public function CommentAdded() {
             global $db;
             global $images;
+
+            $album = new Album( $this->mAlbumid );
+            $album->CommentAdded();
 		   
             ++$this->mNumComments;
 		   
@@ -387,6 +390,9 @@
 			
 			$sql = "UPDATE `$images` SET `image_delid` = '1' WHERE `image_id` = '".$this->Id()."' LIMIT 1;";
 			$db->Query( $sql );
+
+            $album = new Album( $this->mAlbumid );
+            $album->ImageDeleted( $this );
 			
 			//update latest images
 			$sql = "SELECT
@@ -405,7 +411,6 @@
 			$res = $db->Query( $sql );
 			
 			if ( !$res->Results() ) {
-				
 				$sql = "DELETE FROM
 							`$latestimages`
 						WHERE
@@ -415,24 +420,25 @@
 				$db->Query( $sql );
 			}
 			else {
-			
 				while( $row = $res->FetchArray() ) {
-				
-				$sql = "REPLACE INTO
-							`$latestimages`
-							( `latest_userid`,
-							  `latest_imageid` )
-						VALUES
-							( '" . $this->UserId() . "',
-							  '" . $row[ 'image_id' ] . "' );";	
-							  
-                $db->Query( $sql );
+                    $sql = "REPLACE INTO
+                                `$latestimages`
+                                ( `latest_userid`,
+                                  `latest_imageid` )
+                            VALUES
+                                ( '" . $this->UserId() . "',
+                                  '" . $row[ 'image_id' ] . "' );";	
+                                  
+                    $db->Query( $sql );
 				}
 			}
 		}
 		public function CommentKilled( ) {
 			global $db;
 			global $images;
+            
+            $album = new Album( $this->mAlbumid );
+            $album->CommentDeleted();
 			
 			$sql = "UPDATE `$images` SET `image_numcomments` = '" . --$this->mNumComments . "' WHERE `image_id` = '" . $this->Id() . "' LIMIT 1;";
 			
