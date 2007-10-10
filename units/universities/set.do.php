@@ -6,7 +6,8 @@
 		$uniid = $uniid->Get();
 		$uni = new Uni( $uniid );
 		$user->SetUni( $uniid );
-		?>var uniname = document.getElementById( 'uniname' );
+		?>alert( '<?php echo $uniid; ?>' );
+		var uniname = document.getElementById( 'uniname' );
 		var newtext = document.createTextNode( <?php
 		echo w_json_encode( $uni->Name );
 		?> + ' - ' + <?php
