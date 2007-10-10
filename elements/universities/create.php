@@ -22,8 +22,8 @@
 		<div class="body">
 			<h3>Διαχείριση πανεπιστημίων</h3><br />
 			<input id="uniname" type="text" style="width:300px" value="Γράψε εδώ το πανεπιστήμιο!" onclick="this.value = '';" /><br />
-			<input type="radio" name="unitype" value="0" id="uniaei" checked="checked"><label for="uniaei">ΑΕΙ</label></input>
-			<input type="radio" name="unitype" value="1" id="unitei"><label for="unitei">ΤΕΙ</label></input><br />
+			<input type="radio" name="unitype" value="0" id="uniaei" checked="checked" /><label for="uniaei">ΑΕΙ</label>
+			<input type="radio" name="unitype" value="1" id="unitei" /><label for="unitei" >ΤΕΙ</label><br />
 			<select id="uni_area"><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
@@ -76,8 +76,8 @@
 		<div id="modaldiv" style="width:400px;height:200px;display:none"><br />
 			<h5>Επεξεργασία</h5><br />
 			<input type="text" id="modaluniname" style="width:300px;" /><br />
-			<input type="radio" id="modaluniaei" name="modalunitype"><label for="modaluniaei">ΑΕΙ</label></input> 
-			<input type="radio" id="modalunitei" name="modalunitype"><label for="modalunitei">ΤΕΙ</label></input><br />
+			<input type="radio" id="modaluniaei" name="modalunitype" /><label for="modaluniaei">ΑΕΙ</label>
+			<input type="radio" id="modalunitei" name="modalunitype" /><label for="modalunitei">ΤΕΙ</label><br />
 			<select id="modaluniplace"><?php
 			foreach( $places as $place ) {
 				?><option value="<?php
