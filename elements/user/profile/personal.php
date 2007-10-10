@@ -133,19 +133,6 @@
 						} 
                         ?></dd>
 					</dl></li><?php
-				}?>test<?php
-				if ( !$user->IsAnonymous() ) { //add condition for having set uni 
-					?><li><dl<?php
-					if ( $theuser->Gender() != "-" ) {
-						?> class="l"<?php
-					}
-					?>><dt>ανώτατη εκπαίδευση</dt>
-					<dd><?php
-					if ( $user->Id() == $theuser->Id() && $ageyear >= 17 ) {
-						?>Είσαι φοιτητής;<?php
-					}
-					?></dd>
-					</dl></li><?php
 				}
 				if ( $theuser->Hobbies() ) {
 					?><li><dl<?php
