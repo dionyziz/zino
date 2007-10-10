@@ -89,5 +89,11 @@ var Uni = {
 			unidiv.parentNode.removeChild( unidiv );
 			Coala.Warm( 'universities/delete' , { uniid : uniid } );
 		}
+	},
+	SetUni : function() {
+		var modaluni = document.getElementById( 'modalsetuni' ).cloneNode( true );
+		modaluni.style.display = '';
+		Modals.Create( modaluni , 300 , 200 );
+	
 	}
 };

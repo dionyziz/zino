@@ -8,6 +8,8 @@
         $libs->Load( 'interesttag' );
 
         $page->AttachScript( 'js/interesttag.js' );
+		$page->AttachScript( 'js/modal.js' );
+		$page->AttachStyleSheet( 'css/modal.css' );
 		
 		static $monthsfordob = array(
 									1  => 'Ιανουαρίου',
@@ -141,10 +143,10 @@
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
 					}
-					?>><dt>ανώτατη εκπαίδευση</dt>
+					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
 					if ( $user->Id() == $theuser->Id() && $ageyear >= 17 ) {
-						?>Είσαι φοιτητής;<?php
+						?><a href="" onclick="return false;">Είσαι φοιτητής;</a><?php
 					}
 					?></dd>
 					</dl></li><?php
@@ -166,6 +168,26 @@
 				} 
 				?>
 			</ul>
+		</div>
+		<div id="modalsetuni" style="width:300px;height:200px;display:none">
+			<h3>Επέλεξε εκπαιδευτικό ίδρυμα</h3>
+			<div>
+				1. Πόλη 
+				<select id="modaltownsel"><?php
+				$places = AllPlaces();
+				foreach( $places as $place ) {
+					?><option value="<?php
+					echo $place->Id;
+					?>"><?php
+					echo $place->Name;
+					?></option><?php
+				}
+				?></select><br />
+			</div>
+			<div>
+			
+			</div>
+			<a href="" onclick="Modals.Destroy();return false;">&#187;Ακύρωση</a>
 		</div><?php
 	}
 ?>
