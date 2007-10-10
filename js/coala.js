@@ -28,6 +28,14 @@ var Coala = {
         }, 50 );
 	},
 	_AppendRequest: function ( unitid, parameters, type, failurecallback ) {
+        if ( unitid === undefined ) {
+            alert( 'No coala call unitid specified; aborting call' );
+            return;
+        }
+        if ( parameters === undefined ) {
+            alert( 'No coala call parameters specified; aborting call' );
+            return;
+        }
 		Coala.ThreadedRequests.push( 
 			{ 
 				'unitid'          : unitid , 
