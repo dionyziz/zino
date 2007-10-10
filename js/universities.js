@@ -37,14 +37,14 @@ var Uni = {
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		inputlist[ 0 ].value = uniname;
-		if ( unitypeid === 0 ) {
+		alert( 'unitypeid is ' + unitypeid );
+		if ( unitypeid == 0 ) {
 			inputlist[ 1 ].checked = true;
 		}
 		else {
 			inputlist[ 2 ].checked = true;
 		}
-		selectlist[ 0 ].style.border = '1px solid green';
 		selectlist[ 0 ].selectedIndex = uniplaceid;
-		Modals.Create( area, 500, 300 );
+		Modals.Create( area, 400, 200 );
 	}
 };

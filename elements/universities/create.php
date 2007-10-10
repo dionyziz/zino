@@ -73,7 +73,8 @@
 			}
 			?></div><?php
 		?></div>
-		<div id="modaldiv" style="width:500px;height:300px;display:none">
+		<div id="modaldiv" style="width:400px;height:200px;display:none"><br />
+			<h5>Επεξεργασία</h5><br />
 			<input type="text" id="modaluniname" style="width:300px;" /><br />
 			<input type="radio" id="modaluniaei" name="modalunitype">ΑΕΙ</input> 
 			<input type="radio" id="modalunitei" name="modalunitype">ΤΕΙ</input><br />
