@@ -16,8 +16,7 @@ var Coala = {
         Coala.Commit();
     },
 	Cold: function ( unitid, parameters, failurecallback ) { // get, non-cacheable
-        alert( '~'+arguments[0] );
-		this._AppendRequest( unitid, parameters, 'cold', failurecallback );
+        this._AppendRequest( unitid, parameters, 'cold', failurecallback );
 		this.LazyCommit = setTimeout( function () {
             Coala.Commit();
         }, 50 );
