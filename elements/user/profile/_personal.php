@@ -172,9 +172,9 @@
 			</ul>
 		</div>
 		<div id="testmodaluni" style="width:300px;height:200px;display:none">
-			<h2>Επέλεξε εκπαιδευτικό ίδρυμα</h2>
+			<h4>Επέλεξε εκπαιδευτικό ίδρυμα</h4>
 			<div>
-				Διάλεξε πόλη 
+				Πόλη 
 				<select id="modaltownsel" onchange="Uni.CreateUniList();return false;">
 				<option value="0">(δεν έχεις επιλέξει)</option><?php
 				$places = AllPlaces();

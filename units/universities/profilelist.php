@@ -10,12 +10,13 @@
 		while( newdiv.firstChild ) {
 			newdiv.removeChild( newdiv.firstChild );
 		}
-		newdiv.appendChild( document.createTextNode( 'Διάλεξε ίδρυμα ' ) );
+		newdiv.appendChild( document.createElement( 'br' ) );
+		newdiv.appendChild( document.createTextNode( 'Ίδρυμα ' ) );
 		var selectlist = <?php
 		ob_start();
     	Element( 'universities/unipertownlist' , $townid );
     	echo w_json_encode( ob_get_clean() );
     	?>;
-		newdiv.innerHTML += '<br />' + selectlist;<?php
+		newdiv.innerHTML += selectlist;<?php
 	}
 ?>
