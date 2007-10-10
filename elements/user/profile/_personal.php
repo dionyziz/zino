@@ -140,14 +140,14 @@
 						} ?></dd>
 					</dl></li><?php
 				}
-				if ( !$user->IsAnonymous() ) { //add condition for having set uni 
+				if ( !$user->IsAnonymous() && $ageyear >= 17 ) { //add condition for having set uni 
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
 					}
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
-					if ( $user->Id() == $theuser->Id() && $ageyear >= 17 ) {
+					if ( $user->Id() == $theuser->Id() ) {
 						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
 					}
 					?></dd>
@@ -175,7 +175,7 @@
 			<h2>Επέλεξε εκπαιδευτικό ίδρυμα</h2>
 			<div>
 				Διάλεξε πόλη 
-				<select id="modaltownsel" onchange="Coala.Cold();return false;">
+				<select id="modaltownsel" onchange="Uni.CreateUniList();return false;">
 				<option value="0">(δεν έχεις επιλέξει)</option><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
