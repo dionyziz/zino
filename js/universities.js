@@ -43,6 +43,7 @@ var Uni = {
 		}
 		else {
 			inputlist[ 2 ].checked = true;
+		}
 		selectlist[ 0 ].selectedIndex = uniplaceid;
 		//document.getElementById( 'modaluniplace' ).value = uniplaceid;
 		Modals.Create( area, 500, 300 );
