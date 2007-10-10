@@ -36,17 +36,15 @@ var Uni = {
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
-		inputlist[ 0 ].style.border = '1px solid red';
-		inputlist[ 0 ].appendChild( document.createTextNode( uniname ) );
-		document.getElementById( 'modaluniname' ).style.border = '1px solid red';
+		inputlist[ 0 ].value = uniname;
 		if ( unitypeid === 0 ) {
 			inputlist[ 1 ].checked = true;
 		}
 		else {
 			inputlist[ 2 ].checked = true;
 		}
+		selectlist.style.border = '1px solid green';
 		selectlist[ 0 ].selectedIndex = uniplaceid;
-		//document.getElementById( 'modaluniplace' ).value = uniplaceid;
 		Modals.Create( area, 500, 300 );
 	}
 };
