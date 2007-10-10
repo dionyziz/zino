@@ -17,6 +17,6 @@
     	Element( 'universities/unipertownlist' , $townid );
     	echo w_json_encode( ob_get_clean() );
     	?>;
-		newdiv.innerHTML += selectlist;<?php
+		newdiv.innerHTML += '<br />' + selectlist;<?php
 	}
 ?>
