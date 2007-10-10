@@ -5,6 +5,7 @@
 		
 		$uniid = $uniid->Get();
 		$uni = new Uni( $uniid );
+		$user->SetUni( $uniid );
 		?>var uniname = document.getElementById( 'uniname' );
 		var newtext = document.createTextNode( <?php
 		echo w_json_encode( $uni->Name );
@@ -25,7 +26,7 @@
 		});
 		editlink.appendChild( editimg );
 		uniname.appendChild( newtext );
-		uniname.appendChild( editlink );<?php
-		$user->SetUni( $uniid );
+		uniname.appendChild( editlink );
+		Modals.Destroy();<?php	
 	}
 ?>
