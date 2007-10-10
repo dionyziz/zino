@@ -72,6 +72,6 @@ var Uni = {
 		}
 		var uniplaceid = selectlist[ 0 ].value;
 		Coala.Warm( 'universities/edit' , { uniid : uniid , uniname : uniname , unitypeid : typeid , uniplaceid : uniplaceid } );
-	
+		Modals.Destroy();
 	}
 };
