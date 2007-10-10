@@ -36,6 +36,7 @@ var Uni = {
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
 		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
+		inputlist[ 0 ].style.border = '1px solid red';
 		inputlist[ 0 ].appendChild( document.createTextNode( uniname ) );
 		document.getElementById( 'modaluniname' ).style.border = '1px solid red';
 		if ( unitypeid === 0 ) {
