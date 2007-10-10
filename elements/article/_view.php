@@ -41,7 +41,7 @@
 			<div class="tabs">
 			</div>
 			<br />
-			<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><br /><?php
+			<a href="index.php?p=advertise">&#187;Ξ”ΞΉΞ±Ο†Ξ·ΞΌΞΉΟƒΟ„ΞµΞ―Ο„Ξµ ΟƒΟ„ΞΏ chit-chat</a><br /><br /><?php
             Element( "ad/leaderboard" );
             ?><br />
 			<div class="comments" id="comments"><?php	
