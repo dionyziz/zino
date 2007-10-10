@@ -2,6 +2,9 @@
 	function UnitUniversitiesSet( tInteger $uniid ) {
 		global $user;
 		global $water;
+		global $libs;
+		
+		$libs->Load( 'universities' );
 		
 		?>alert( 'coala saving' );<?php
 		$uniid = $uniid->Get();
