@@ -15,11 +15,11 @@ var advertise = {
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
 			alert( mailadress );
 			alert( mailadress.nextSibling );
-			body.insertBefore( wrongmailspan , mailadress.nextSibling );
-			/*Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
+			mailadress.parentNode.insertBefore( wrongmailspan , mailadress.nextSibling );
+			Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
 				body.removeChild( wrongmailspan );
 			} );
-			*/
+			
 			mailadress.focus();
 			mailadress.select();
 		}
