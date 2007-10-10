@@ -3,6 +3,7 @@
 		global $user;
 		global $water;
 		
+		?>alert( 'coala saving' );<?php
 		$uniid = $uniid->Get();
 		$uni = new Uni( $uniid );
 		$user->SetUni( $uniid );

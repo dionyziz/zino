@@ -116,6 +116,5 @@ var Uni = {
 			return;
 		}
 		Coala.Warm( 'universities/set' , { uniid : uniid } );
-		
 	}
 };
