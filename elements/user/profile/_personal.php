@@ -170,11 +170,12 @@
 				?>
 			</ul>
 		</div>
-		<div id="modalsetuni" style="width:300px;height:200px;display:none">
-			<h3>Επέλεξε εκπαιδευτικό ίδρυμα</h3>
+		<div id="testmodaluni" style="width:300px;height:200px;display:none">
+			<h2>Επέλεξε εκπαιδευτικό ίδρυμα</h2>
 			<div>
-				1. Πόλη 
-				<select id="modaltownsel"><?php
+				Διάλεξε πόλη 
+				<select id="modaltownsel" onchange="Coala.Cold();return false;">
+				<option value="0">(δεν έχεις επιλέξει)</option><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
 					?><option value="<?php

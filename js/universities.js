@@ -91,9 +91,21 @@ var Uni = {
 		}
 	},
 	SetUni : function() {
-		var modaluni = document.getElementById( 'modalsetuni' ).cloneNode( true );
+		var modaluni = document.getElementById( 'testmodaluni' ).cloneNode( true );
 		modaluni.style.display = '';
+		modaluni.id = 'modaluni';
 		Modals.Create( modaluni , 300 , 200 );
 	
+	},
+	CreateUniList : function () {
+		var modaluni = document.getElementById( 'modaluni' );
+		var selectlist = modaluni.getElementsByTagName( 'select' );
+		var firstselect = selectlist[ 0 ];
+		alert( firstselect.value );
+		if ( firstselect.value == 0 ) {
+			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
+			return;
+		}
+		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
 	}
 };
