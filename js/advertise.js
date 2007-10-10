@@ -11,10 +11,8 @@ var advertise = {
 		}
 		else {
 			var wrongmailspan = document.createElement( 'span' );
-			wrongmailspan.style.paddingLeft = '20px';
+			wrongmailspan.style.paddingLeft = '15px';
 			wrongmailspan.appendChild( document.createTextNode( 'Παρακαλώ δώστε ένα έγκυρο email' ) );
-			alert( mailadress );
-			alert( mailadress.nextSibling );
 			mailadress.parentNode.insertBefore( wrongmailspan , mailadress.nextSibling );
 			Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
 				body.removeChild( wrongmailspan );
