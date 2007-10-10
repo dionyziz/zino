@@ -6,7 +6,7 @@
 		$libs->Load( 'universities' );
 		
 		$unis = Uni_Retrieve( $townid , false );
-		?><select id="modalunisel" onchange="return false;"><?php
+		?><select id="modalunisel" onchange="Uni.SaveUni();return false;"><?php
 		foreach( $unis as $uni ) {
 			?><option value="<?php
 			echo $uni->Id;

@@ -107,5 +107,12 @@ var Uni = {
 			return;
 		}
 		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
+	},
+	SaveUni : function() {
+		var modaluni = document.getElementById( 'modaluni' );
+		var modaluniselectlist = modaluni.getElementsByTagName( 'select' );
+		var uniid = modaluniselectlist[ 1 ].value;
+		alert( uniid );
+		
 	}
 };

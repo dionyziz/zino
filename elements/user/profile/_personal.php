@@ -171,7 +171,7 @@
 				?>
 			</ul>
 		</div>
-		<div id="testmodaluni" style="width:300px;height:200px;display:none">
+		<div id="testmodaluni" style="width:250px;height:150px;display:none">
 			<h4>Επέλεξε εκπαιδευτικό ίδρυμα</h4>
 			<div>
 				Πόλη<br />
