@@ -84,8 +84,10 @@ var Uni = {
 		Modals.Destroy();
 	},
 	Delete : function( uniid ) {
-		var unidiv = document.getElementById( 'uni' + uniid );
-		unidiv.parentNode.removeChild( unidiv );
-		Coala.Warm( 'universities/delete' , { uniid : uniid } );
+		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις αυτό το πανεπιστήμιο;' ) ) {
+			var unidiv = document.getElementById( 'uni' + uniid );
+			unidiv.parentNode.removeChild( unidiv );
+			Coala.Warm( 'universities/delete' , { uniid : uniid } );
+		}
 	}
 };
