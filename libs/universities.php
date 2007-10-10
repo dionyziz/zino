@@ -65,7 +65,9 @@
 			$this->mDelId = 0;
 			$this->Date = NowDate();
 		}
-		
+		public function Exists() {	
+			return $this->mId != 0;
+		}
 		public function Uni( $construct = false ) {
 			global $universities;
 			global $db;
