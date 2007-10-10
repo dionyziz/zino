@@ -16,9 +16,10 @@ var advertise = {
 			alert( mailadress );
 			alert( mailadress.nextSibling );
 			body.insertBefore( wrongmailspan , mailadress.nextSibling );
-			Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
+			/*Animations.Create( wrongmailspan , 'opacity' , 12000 , 1 , 0 , function() {
 				body.removeChild( wrongmailspan );
 			} );
+			*/
 			mailadress.focus();
 			mailadress.select();
 		}
