@@ -97,7 +97,7 @@ var Uni = {
 		Modals.Create( modaluni , 300 , 200 );
 	
 	},
-	CreateUniList : function ( uniid ) {
+	CreateUniList : function () {
 		var modaluni = document.getElementById( 'modaluni' );
 		var selectlist = modaluni.getElementsByTagName( 'select' );
 		var firstselect = selectlist[ 0 ];

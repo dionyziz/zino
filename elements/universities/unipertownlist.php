@@ -19,11 +19,7 @@
 			foreach( $unis as $uni ) {
 				?><option value="<?php
 				echo $uni->Id;
-				?>" <?php
-				if ( $uni->Id == $uniid ) {
-					?>selected="selected"<?php
-				}
-				?>><?php
+				?>"><?php
 				echo $uni->Name;
 				?></option><?php
 			}

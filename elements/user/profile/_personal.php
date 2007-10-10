@@ -204,9 +204,7 @@
 			<h4>Επέλεξε εκπαιδευτικό ίδρυμα</h4>
 			<div>
 				Πόλη<br />
-				<select id="modaltownsel" onchange="Uni.CreateUniList( '<?php
-				echo $uni->Id;
-				?>' );return false;">
+				<select id="modaltownsel" onchange="Uni.CreateUniList();return false;">
 				<option value="0" <?php
 				if ( !$uni->Exists() ) {
 					?>selected="selected"<?php
@@ -216,11 +214,7 @@
 				foreach( $places as $place ) {
 					?><option value="<?php
 					echo $place->Id;
-					?>" <?php
-					if ( $uni->Place->Id == $place->Id ) {
-						?>selected="selected"<?php
-					}
-					?>><?php
+					?>"><?php
 					echo $place->Name;
 					?></option><?php
 				}
