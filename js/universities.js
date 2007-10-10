@@ -71,6 +71,9 @@ var Uni = {
 			typeid = 1;
 		}
 		var uniplaceid = selectlist[ 0 ].value;
+		var unidiv = document.getElementById( uniid );
+		unidiv.appendChild( document.createTextNode( ' Αποθηκεύτηκε' ) );
+		
 		Coala.Warm( 'universities/edit' , { uniid : uniid , uniname : uniname , unitypeid : typeid , uniplaceid : uniplaceid } );
 		Modals.Destroy();
 	}
