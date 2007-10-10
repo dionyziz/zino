@@ -980,7 +980,6 @@
 			
 			$libs->Load( 'universities' );
 			if ( !$this->mUniLoaded ) {
-				die( 'uniid is: '.$this->mUniid );
 				$this->mUni = new Uni( $this->mUniid );
 				$this->mUniLoaded = true;
 			}
