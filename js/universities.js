@@ -105,7 +105,7 @@ var Uni = {
 			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
 			return;
 		}
-		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value , uniid : uniid } );
+		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
 	},
 	SaveUni : function() {
 		var modaluni = document.getElementById( 'modaluni' );
