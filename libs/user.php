@@ -980,7 +980,7 @@
 			
 			$libs->Load( 'universities' );
 			if ( !$this->mUniLoaded ) {
-				die( $this->mUniid );
+				die( 'uniid is: '.$this->mUniid );
 				$this->mUni = new Uni( $this->mUniid );
 				$this->mUniLoaded = true;
 			}
@@ -1733,7 +1733,7 @@
                 $this->mIcon = New Image( $fetched_array );
             }
 			$this->mPlace		      	= isset( $fetched_array[ "user_place" ]             ) ? $fetched_array[ "user_place" ]        		: 0;
-			$this->mUni 				= isset( $fetched_array[ "user_uniid" ] 			) ? $fetched_array[ "user_uniid" ]				: 0;
+			$this->mUniid				= isset( $fetched_array[ "user_uniid" ] 			) ? $fetched_array[ "user_uniid" ]				: 0;
 			$this->mBlog		      	= isset( $fetched_array[ "user_blogid" ]            ) ? $fetched_array[ "user_blogid" ]       		: 0;
 			$this->mTemplate	      	= isset( $fetched_array[ "user_templateid" ]        ) ? $fetched_array[ "user_templateid" ]     	: 0;
 			$this->mICQ		          	= isset( $fetched_array[ "user_icq" ]               ) ? $fetched_array[ "user_icq" ]            	: '0';
