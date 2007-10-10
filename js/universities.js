@@ -97,7 +97,7 @@ var Uni = {
 		Modals.Create( modaluni , 300 , 200 );
 	
 	},
-	CreateUniList : function () {
+	CreateUniList : function ( uniid ) {
 		var modaluni = document.getElementById( 'modaluni' );
 		var selectlist = modaluni.getElementsByTagName( 'select' );
 		var firstselect = selectlist[ 0 ];
@@ -105,7 +105,7 @@ var Uni = {
 			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
 			return;
 		}
-		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
+		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value , uniid : uniid } );
 	},
 	SaveUni : function() {
 		var modaluni = document.getElementById( 'modaluni' );

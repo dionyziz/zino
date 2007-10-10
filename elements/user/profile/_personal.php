@@ -76,7 +76,7 @@
 		if ( !isset( $gn ) && !$validdob && !$theuser->Place() && !$theuser->Hobbies() ) { // if there's no info to display
 			return;
 		}
-		
+		$uni = $theuser->Uni();
 			
 		if ( $user->Id() == $theuser->Id() ) {
 			ob_start();
@@ -140,14 +140,43 @@
 						} ?></dd>
 					</dl></li><?php
 				}
-				if ( !$user->IsAnonymous() && $ageyear >= 17 ) { //add condition for having set uni 
+				if ( $uni->Exists() && !$user->IsAnonymous() ) { //add condition for having set uni 
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
 					}
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
-					if ( $user->Id() == $theuser->Id() ) {
+					if ( $uni->Exists() ) {
+						echo $uni->Name;
+						?> - <?php
+						echo $uni->GetPlace()->Name;
+					}
+					if ( $user->Id() == $theuser->Id() && !$uni->Exists() ) {
+						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
+					}
+					else {
+						echo $uni->Name;
+						?> - <?php
+						echo $uni->GetPlace()->Name;
+					}
+					?></dd>
+					</dl></li><?php
+				}
+				else if ( $user->Id() == $theuser->Id() ) {
+					?><li><dl<?php
+					if ( $theuser->Gender() == "-" ) {
+						?> class="l"<?php
+					}
+					?>><dt>πανεπιστήμιο</dt>
+					<dd><?php
+					if ( $uni->Exists() ) {
+						echo $uni->Name;
+						?> - <?php
+						echo $uni->GetPlace()->Name;
+						?> <a href="" onclick="Uni.SetUni();return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a><?php
+					}
+					else {
 						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
 					}
 					?></dd>
@@ -175,13 +204,23 @@
 			<h4>Επέλεξε εκπαιδευτικό ίδρυμα</h4>
 			<div>
 				Πόλη<br />
-				<select id="modaltownsel" onchange="Uni.CreateUniList();return false;">
-				<option value="0">(δεν έχεις επιλέξει)</option><?php
+				<select id="modaltownsel" onchange="Uni.CreateUniList( '<?php
+				echo $uni->Id;
+				?>' );return false;">
+				<option value="0" <?php
+				if ( !$uni->Exists() ) {
+					?>selected="selected"<?php
+				}
+				?>>(δεν έχεις επιλέξει)</option><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
 					?><option value="<?php
 					echo $place->Id;
-					?>"><?php
+					?>" <?php
+					if ( $uni->GetPlace()->Id == $place->Id ) {
+						?>selected="selected"<?php
+					}
+					?>><?php
 					echo $place->Name;
 					?></option><?php
 				}

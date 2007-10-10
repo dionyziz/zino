@@ -1,5 +1,5 @@
 <?php
-	function UnitUniversitiesProfilelist( tInteger $townid ) {
+	function UnitUniversitiesProfilelist( tInteger $townid , tInteger $uniid ) {
 		global $libs;
 	
 		$libs->Load( 'universities' );
@@ -14,7 +14,7 @@
 		newdiv.appendChild( document.createTextNode( 'Ίδρυμα ' ) );
 		var selectlist = <?php
 		ob_start();
-    	Element( 'universities/unipertownlist' , $townid );
+    	Element( 'universities/unipertownlist' , $townid , $uniid );
     	echo w_json_encode( ob_get_clean() );
     	?>;
 		newdiv.innerHTML += '<br />' + selectlist;<?php
