@@ -42,9 +42,20 @@ var Uni = {
 		else {
 			inputlist[ 2 ].checked = true;
 		}
+		var inputcreate = document.createElement( 'input' );
+		inputcreate.type = "submit";
+		inputcreate.value = "Αποθήκευση";
+		inputcreate.onclick = ( function( node , uniid ) {
+			return function() {
+				Uni.SaveEdit( node , uniid );
+				return false;
+			};
+		})( area , uniid );
+		area.appendChild( inputcreate );
+		
 		Modals.Create( area, 400, 200 );
 	}, 
-	SaveEdit : function( modaldiv ) {
+	SaveEdit : function( modaldiv , uniid ) {
 		var inputlist = modaldiv.getElementsByTagName( 'input' );
 		var selectlist = modaldiv.getElementsByTagName( 'select' );
 		var uniname = inputlist[ 0 ].value;
@@ -60,7 +71,7 @@ var Uni = {
 			typeid = 1;
 		}
 		var uniplaceid = selectlist[ 0 ].value;
-		alert( 'uniname is ' + uniname + ' typeid is ' + typeid + ' uniplaceid is ' + uniplaceid );
+		alert( 'uniid is ' + uniid + ' uniname is ' + uniname + ' typeid is ' + typeid + ' uniplaceid is ' + uniplaceid );
 	
 	}
 };
