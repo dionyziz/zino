@@ -43,7 +43,7 @@ var Uni = {
 		else {
 			inputlist[ 2 ].checked = true;
 		}
-		selectlist.style.border = '1px solid green';
+		selectlist[ 0 ].style.border = '1px solid green';
 		selectlist[ 0 ].selectedIndex = uniplaceid;
 		Modals.Create( area, 500, 300 );
 	}
