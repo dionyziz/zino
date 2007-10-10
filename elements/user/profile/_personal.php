@@ -189,7 +189,7 @@
 			</div>
 			<div>
 			
-			</div>
+			</div><br />
 			<a href="" onclick="Modals.Destroy();return false;">&#187;Ακύρωση</a>
 		</div><?php
 	}
