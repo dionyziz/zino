@@ -15,7 +15,7 @@
 			if ( $uniid == 0 ) {
 				?>selected="selected"<?php
 			}
-			?>>(δεν έχεις επιλέξει)</option><?php
+			?>>(κανένα)</option><?php
 			foreach( $unis as $uni ) {
 				?><option value="<?php
 				echo $uni->Id;

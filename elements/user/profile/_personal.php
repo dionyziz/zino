@@ -209,7 +209,7 @@
 				if ( !$uni->Exists() ) {
 					?>selected="selected"<?php
 				}
-				?>>(δεν έχεις επιλέξει)</option><?php
+				?>>(καμία)</option><?php
 				$places = AllPlaces();
 				foreach( $places as $place ) {
 					?><option value="<?php
