@@ -150,7 +150,7 @@
 					if ( $uni->Exists() ) {
 						echo $uni->Name;
 						?> - <?php
-						echo $uni->GetPlace()->Name;
+						echo $uni->Place->Name;
 					}
 					if ( $user->Id() == $theuser->Id() && !$uni->Exists() ) {
 						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
@@ -158,7 +158,7 @@
 					else {
 						echo $uni->Name;
 						?> - <?php
-						echo $uni->GetPlace()->Name;
+						echo $uni->Place->Name;
 					}
 					?></dd>
 					</dl></li><?php
@@ -173,7 +173,7 @@
 					if ( $uni->Exists() ) {
 						echo $uni->Name;
 						?> - <?php
-						echo $uni->GetPlace()->Name;
+						echo $uni->Place->Name;
 						?> <a href="" onclick="Uni.SetUni();return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a><?php
 					}
 					else {
@@ -217,7 +217,7 @@
 					?><option value="<?php
 					echo $place->Id;
 					?>" <?php
-					if ( $uni->GetPlace()->Id == $place->Id ) {
+					if ( $uni->Place->Id == $place->Id ) {
 						?>selected="selected"<?php
 					}
 					?>><?php
