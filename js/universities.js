@@ -34,15 +34,33 @@ var Uni = {
 		var selectlist = area.getElementsByTagName( 'select' );
 		var uniname = document.getElementById( 'name' + uniid ).innerHTML;
 		var unitypeid = document.getElementById( 'type' + uniid ).innerHTML;
-		var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
+		//var uniplaceid = document.getElementById( 'place' + uniid ).innerHTML;
 		inputlist[ 0 ].value = uniname;
-		alert( 'uniplaceid is ' + uniplaceid );
 		if ( unitypeid == 0 ) {
 			inputlist[ 1 ].checked = true;
 		}
 		else {
 			inputlist[ 2 ].checked = true;
 		}
-		selectlist[ 0 ].getElementById( 'modaluniplace' + uniplaceid ).selected = true;		Modals.Create( area, 400, 200 );
+		Modals.Create( area, 400, 200 );
+	}, 
+	SaveEdit : function( modaldiv ) {
+		var inputlist = modaldiv.getElementsByTagName( 'input' );
+		var selectlist = modaldiv.getElementsByTagName( 'select' );
+		var uniname = inputlist[ 0 ].value;
+		if ( uniname === '' ) {
+			alert( 'Πρέπει να δώσεις ένα έγκυρο όνομα' );
+			return;
+		}
+		var typeid;
+		if ( inputlist[ 1 ].checked ) {
+			typeid = 0;
+		}
+		else {
+			typeid = 1;
+		}
+		var uniplaceid = selectlist[ 0 ].value;
+		alert( 'uniname is ' + uniname + ' typeid is ' + typeid + ' uniplaceid is ' + uniplaceid );
+	
 	}
 };

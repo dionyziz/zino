@@ -88,9 +88,9 @@
 				echo $place->Name;
 				?></option><?php
 			}
-			?></select>
-		</div>
-		<?php
+			?></select><br />
+			<input type="submit" value="Αποθήκευση" onclick="Uni.SaveEdit( this.parentNode );return false;" />
+		</div><?php
 		
 	}
 ?>
