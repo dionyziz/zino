@@ -94,7 +94,7 @@ var Uni = {
 		var modaluni = document.getElementById( 'testmodaluni' ).cloneNode( true );
 		modaluni.style.display = '';
 		modaluni.id = 'modaluni';
-		Modals.Create( modaluni , 150 , 100 );
+		Modals.Create( modaluni , 220 , 200 );
 	
 	},
 	CreateUniList : function () {
