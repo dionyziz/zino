@@ -82,5 +82,10 @@ var Uni = {
 		unidiv.appendChild( document.createTextNode( '  Αποθηκεύτηκε' ) );
 		Coala.Warm( 'universities/edit' , { uniid : uniid , uniname : uniname , unitypeid : typeid , uniplaceid : uniplaceid } );
 		Modals.Destroy();
+	},
+	Delete : function( uniid ) {
+		var unidiv = document.getElementById( 'uni' + uniid );
+		unidiv.parentNode.removeChild( unidiv );
+		Coala.Warm( 'universities/delete' , { uniid : uniid } );
 	}
 };
