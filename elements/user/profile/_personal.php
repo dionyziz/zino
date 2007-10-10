@@ -169,7 +169,7 @@
 						?> class="l"<?php
 					}
 					?>><dt>πανεπιστήμιο</dt>
-					<dd><?php
+					<dd id="uniname"><?php
 					if ( $uni->Exists() ) {
 						echo $uni->Name;
 						?> - <?php
