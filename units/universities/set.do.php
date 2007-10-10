@@ -12,6 +12,9 @@
 		$user->SetUni( $uniid );
 		?>alert( '<?php echo $uniid; ?>' );
 		var uniname = document.getElementById( 'uniname' );
+		while( uniname.firstChild ) {
+			uniname.removeChild( uniname.firstChild );
+		}
 		var newtext = document.createTextNode( <?php
 		echo w_json_encode( $uni->Name );
 		?> + ' - ' + <?php
