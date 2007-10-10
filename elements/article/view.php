@@ -44,7 +44,7 @@
 		?><br />
 			<div class="tabs">
 			</div>
-			<br /><?php
+			<br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><br /><?php
             Element( "ad/leaderboard" );
             ?><br />
 			<div class="comments" id="comments"><?php	
