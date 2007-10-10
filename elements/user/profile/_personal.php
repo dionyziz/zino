@@ -9,6 +9,7 @@
 
         $page->AttachScript( 'js/interesttag.js' );
 		$page->AttachScript( 'js/modal.js' );
+		$page->AttachScript( 'js/universities.js' );
 		$page->AttachStyleSheet( 'css/modal.css' );
 		
 		static $monthsfordob = array(
@@ -146,7 +147,7 @@
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
 					if ( $user->Id() == $theuser->Id() && $ageyear >= 17 ) {
-						?><a href="" onclick="return false;">Είσαι φοιτητής;</a><?php
+						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
 					}
 					?></dd>
 					</dl></li><?php
