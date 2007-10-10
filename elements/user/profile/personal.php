@@ -133,7 +133,7 @@
 						} 
                         ?></dd>
 					</dl></li><?php
-				}
+				}?>test<?php
 				if ( !$user->IsAnonymous() ) { //add condition for having set uni 
 					?><li><dl<?php
 					if ( $theuser->Gender() != "-" ) {
