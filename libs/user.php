@@ -976,6 +976,9 @@
 			return $this->mLocation;
 		}
 		public function Uni() {
+			global $libs;
+			
+			$libs->Load( 'universities' );
 			if ( !$this->mUniLoaded ) {
 				$uni = new Uni( $this->mUni );
 				$this->mUniLoaded = true;
