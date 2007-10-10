@@ -40,7 +40,7 @@
 			<br /><br />
 			<div class="unilist" id="unilist"><?php
 			foreach( $allunis as $uni ) {
-				?><div id="<?php
+				?><div id="uni<?php
 				echo $uni->Id;
 				?>"><?php
 				echo htmlspecialchars( $uni->Name )
