@@ -10,7 +10,8 @@
 			?>Δεν υπάρχουν εκπαιδευτικά ιδρύματα<?php
 		}
 		else {
-			?><select id="modalunisel" onchange="Uni.SaveUni();return false;"><?php
+			?><select id="modalunisel" onchange="Uni.SaveUni();return false;">
+			<option value="0">(δεν έχεις επιλέξεi)</option><?php
 			foreach( $unis as $uni ) {
 				?><option value="<?php
 				echo $uni->Id;
