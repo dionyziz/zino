@@ -7,6 +7,7 @@ var advertise = {
 		var mailtext = textarealist[ 0 ];
 		var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		if ( filter.test( mailadress.value ) ) {
+			alert( 'text is: ' + mailtext.value + ' adress is : ' + mailadress.value );
             Coala.Warm( 'advertise/sendemail' , { text : mailtext.value , from : mailadress.value , domnode : mailtext } );
 		}
 		else {
