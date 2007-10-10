@@ -10,6 +10,7 @@
         $page->AttachScript( 'js/interesttag.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/universities.js' );
+		$page->AttachScript( 'js/coala.js' );
 		$page->AttachStyleSheet( 'css/modal.css' );
 		
 		static $monthsfordob = array(
