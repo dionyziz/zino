@@ -704,7 +704,7 @@
         private $mArticlesPopularity;
 		private $mNumSmallNews;
 		private $mNumImages;
-        private $mUni;
+        private $mUniid;
 		
 		public function Href() {
 			return 'user/' . $this->Username();
@@ -980,10 +980,10 @@
 			
 			$libs->Load( 'universities' );
 			if ( !$this->mUniLoaded ) {
-				$uni = new Uni( $this->mUni );
+				$this->mUni = new Uni( $this->mUniid );
 				$this->mUniLoaded = true;
 			}
-			return $this->mUniLoaded;
+			return $this->mUni;
 		}
 		public function SetUni( $uniid ) {
 			global $db;
