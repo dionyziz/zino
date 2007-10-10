@@ -52,7 +52,7 @@
 		else {
 			$offset = $args[ 'lstoffset' ];
 		}
-	
+		$photo->AddPageview();
 		?><br /><br /><br />
 		<div class="photobigview" id="onephotoview"><?php
 			Element( 'photo/header' , $photo , $oldcomments );
@@ -85,8 +85,8 @@
 				Element( 'comment/reply' , $photo , 2 );
 				Element( 'comment/list' , $comments , 0 , 0 );
 			?></div>
-		</div><?php
-		
-		$photo->AddPageview();
+		</div><br />
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><br /><?php
+        Element( "ad/leaderboard" );
 	}
 ?>
