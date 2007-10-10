@@ -52,7 +52,14 @@ var Uni = {
 			};
 		})( area , uniid );
 		area.appendChild( inputcreate );
-		
+		var inputcancel = document.createElement( 'input' );
+		inputcancel.type = "submit";
+		inputcancel.value = "Ακύρωση";
+		inputcancel.onclick = ( function() {
+			return function () {
+				Modals.Destroy();
+			}
+		});
 		Modals.Create( area, 400, 200 );
 	}, 
 	SaveEdit : function( modaldiv , uniid ) {
@@ -73,7 +80,6 @@ var Uni = {
 		var uniplaceid = selectlist[ 0 ].value;
 		var unidiv = document.getElementById( uniid );
 		unidiv.appendChild( document.createTextNode( ' Αποθηκεύτηκε' ) );
-		
 		Coala.Warm( 'universities/edit' , { uniid : uniid , uniname : uniname , unitypeid : typeid , uniplaceid : uniplaceid } );
 		Modals.Destroy();
 	}
