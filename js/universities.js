@@ -101,7 +101,6 @@ var Uni = {
 		var modaluni = document.getElementById( 'modaluni' );
 		var selectlist = modaluni.getElementsByTagName( 'select' );
 		var firstselect = selectlist[ 0 ];
-		alert( firstselect.value );
 		if ( firstselect.value == 0 ) {
 			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
 			return;
@@ -112,7 +111,10 @@ var Uni = {
 		var modaluni = document.getElementById( 'modaluni' );
 		var modaluniselectlist = modaluni.getElementsByTagName( 'select' );
 		var uniid = modaluniselectlist[ 1 ].value;
-		alert( uniid );
+		if ( uniid == 0 ) {
+			alert( 'Παρακαλώ επέλεξε ένα έγκυρο ίδρυμα' );
+			return;
+		}
 		
 	}
 };
