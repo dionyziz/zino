@@ -1,6 +1,8 @@
 <?php
 	function UnitUniversitiesSet( tInteger $uniid ) {
 		global $user;
+		global $water;
 		
-		$user->SetUni( $uniid );
+		?>alert( '<?php echo $uniid->Get() ?>' );<?php
+		$user->SetUni( $uniid->Get() );
 	}
