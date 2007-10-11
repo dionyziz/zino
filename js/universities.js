@@ -28,7 +28,7 @@ var Uni = {
 		unitext.select();
 	},
 	Edit : function( uniid ) {
-		area = document.getElementById( 'modaldiv' ).cloneNode( true );
+		area = document.getElementById( 'testmodaluni' ).cloneNode( true );
 		area.style.display = '';
 		var inputlist = area.getElementsByTagName( 'input' );
 		var selectlist = area.getElementsByTagName( 'select' );

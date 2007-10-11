@@ -76,7 +76,7 @@
 			}
 			?></div><?php
 		?></div>
-		<div id="testmodalsetuni" style="width:400px;height:200px;display:none"><br />
+		<div id="testmodaluni" style="width:400px;height:200px;display:none"><br />
 			<h5>Επεξεργασία</h5><br />
 			<input type="text" id="modaluniname" style="width:300px;" /><br />
 			<input type="radio" id="modaluniaei" name="modalunitype" /><label for="modaluniaei">ΑΕΙ</label>
