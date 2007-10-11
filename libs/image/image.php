@@ -8,7 +8,7 @@
 	global $libs;
 	
 	$libs->Load( 'search' );
-	
+	$libs->Load( 'albums' );
 	
 	function Image_Added( $user ) {
 		global $users;
