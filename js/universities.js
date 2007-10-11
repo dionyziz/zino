@@ -115,7 +115,6 @@ var Uni = {
 			alert( 'Παρακαλώ επέλεξε ένα έγκυρο ίδρυμα' );
 			return;
 		}
-		alert( 'saving : ' + uniid );
 		Coala.Warm( 'universities/set' , { uniid : uniid } );
 	}
 };

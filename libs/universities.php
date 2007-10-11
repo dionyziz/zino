@@ -51,6 +51,10 @@
 		protected $mDelId;
 		
 		protected function GetPlace() {
+			global $libs;
+			
+			$libs->Load( 'place' );
+			
 			$this->mPlace = new Place( $this->mPlaceId );
 			
 			return $this->mPlace;
