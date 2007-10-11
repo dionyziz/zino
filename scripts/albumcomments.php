@@ -60,7 +60,6 @@
                 SET
                     `album_numcomments` = '$numcomments'
                 WHERE
-                    `album
                     `album_id` = '" . $album->Id() . "'
                 LIMIT 1;";
 
