@@ -152,14 +152,6 @@
 						?> - <?php
 						echo $uni->Place->Name;
 					}
-					if ( $user->Id() == $theuser->Id() && !$uni->Exists() ) {
-						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
-					}
-					else {
-						echo $uni->Name;
-						?> - <?php
-						echo $uni->Place->Name;
-					}
 					?></dd>
 					</dl></li><?php
 				}
