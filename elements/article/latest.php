@@ -14,7 +14,6 @@
 		$search->SetSortMethod( 'date', 'DESC' );
 		$search->SetFilter( 'typeid', 0 );
 		$search->SetFilter( 'delid', 0 );
-		$search->SetNegativeFilter( 'category', 0 );
 		$search->SetRequirement( 'text' );
 		$search->SetRequirement( 'pageviews' );
 		$search->SetRequirement( 'editors' );
