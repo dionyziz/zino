@@ -71,9 +71,9 @@
 
     ob_start();
 
-    $albums = GetAllAlbums();
+    $ret = GetAllAlbums();
 
-    foreach ( $albums as $album ) {
+    foreach ( $ret as $album ) {
         ?>Updating album <?php
         echo $album->Id()
         ?>... <?php
