@@ -58,6 +58,7 @@ var Uni = {
 		inputcancel.onclick = ( function() {
 			return function () {
 				Modals.Destroy();
+				return false;
 			}
 		});
 		area.appendChild( inputcancel );
