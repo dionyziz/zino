@@ -5,7 +5,7 @@
 	global $libs;
     
 	require_once 'libs/rabbit/rabbit.php';
-    Rabbit_Construct( '' );
+    Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
 	Rabbit_ClearPostGet();
@@ -67,8 +67,6 @@
 
         return $change;
     }
-
-    ob_start();
 
     $ret = GetAllAlbums();
 
