@@ -59,8 +59,8 @@ var Uni = {
 			return function () {
 				Modals.Destroy();
 				return false;
-			}
-		});
+			};
+		})();
 		area.appendChild( inputcancel );
 		Modals.Create( area, 400, 200 );
 	}, 
