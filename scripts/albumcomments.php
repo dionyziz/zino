@@ -77,12 +77,12 @@
         echo $album->Id()
         ?>... <?php
 
-        $comments = CountAlbumComments( $album );
+        $numcomments = CountAlbumComments( $album );
 
-        echo $comments;
+        echo $numcomments;
         ?> comments... <?php
 
-        UpdateAlbumComments( $album, $comments );
+        UpdateAlbumComments( $album, $numcomments );
 
         ?>OK<br /><?php
     }
