@@ -154,7 +154,7 @@ var Coala = {
             }
             return;
         }
-        if ( typeof water_debug_data != 'undefined' ) {
+        if ( water_debug_data !== undefined ) {
             old_water_debug_data = water_debug_data;
         }
         else {
@@ -171,7 +171,7 @@ var Coala = {
         
         resp = resp.substr( 'while(1);'.length ); // JS hijacking prevention
 		eval( resp );
-		if ( water_debug_data ) {
+		if ( water_debug_data !== undefined ) {
 			coala_water_debug_data = water_debug_data; // could be used later, if water improves
 			water_debug_data = old_water_debug_data;
 		}
