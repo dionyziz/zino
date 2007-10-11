@@ -10,7 +10,7 @@
     
 	Rabbit_ClearPostGet();
 	
-	$libs->Load( 'album' );
+	$libs->Load( 'albums' );
 
     function GetAllAlbums() {
         global $db;
