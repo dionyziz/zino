@@ -60,6 +60,7 @@ var Uni = {
 				Modals.Destroy();
 			}
 		});
+		area.appendChild( inputcancel );
 		Modals.Create( area, 400, 200 );
 	}, 
 	SaveEdit : function( modaldiv , uniid ) {
