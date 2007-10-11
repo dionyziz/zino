@@ -8,7 +8,7 @@
 			return;
 		}
 		
-		$uni = new Uni( $uniid );
+		$uni = new Uni( $uniid->Get() );
 		$uni->Delete();
 	}
 ?>
