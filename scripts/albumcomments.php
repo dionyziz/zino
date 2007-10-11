@@ -5,7 +5,7 @@
 	global $libs;
     
 	require_once 'libs/rabbit/rabbit.php';
-    Rabbit_Construct( 'HTML' );
+    Rabbit_Construct( '' );
     $req = $_GET;
     
 	Rabbit_ClearPostGet();
