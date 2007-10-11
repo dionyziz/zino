@@ -155,7 +155,7 @@
 					?></dd>
 					</dl></li><?php
 				}
-				else if ( $user->Id() == $theuser->Id() && $ageyear >= 17 ) {
+				else if ( $user->Id() == $theuser->Id() && isset( $ageyear ) && $ageyear >= 17 ) {
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
