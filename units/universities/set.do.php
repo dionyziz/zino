@@ -6,12 +6,10 @@
 		
 		$libs->Load( 'universities' );
 		
-		?>alert( 'coala saving' );<?php
 		$uniid = $uniid->Get();
 		$uni = new Uni( $uniid );
 		$user->SetUni( $uniid );
-		?>alert( '<?php echo $uniid; ?>' );
-		var uniname = document.getElementById( 'uniname' );
+		?>var uniname = document.getElementById( 'uniname' );
 		while( uniname.firstChild ) {
 			uniname.removeChild( uniname.firstChild );
 		}
@@ -22,16 +20,16 @@
 		?> + ' ' );
 		var editimg = document.createElement( 'img' );
 		editimg.src = 'http://static.chit-chat.gr/images/icons/edit.png';
-		editimg.alt = 'Επεξεργασία';
-		editimg.title = 'Επεξεργασία';
+		editimg.alt = 'Ξ•Ο€ΞµΞΎΞµΟΞ³Ξ±ΟƒΞ―Ξ±';
+		editimg.title = 'Ξ•Ο€ΞµΞΎΞµΟΞ³Ξ±ΟƒΞ―Ξ±';
 		var editlink = document.createElement( 'a' );
 		editlink.href = '';
 		editlink.onclick = ( function() {
 			return function() {	
 				Uni.SetUni();
 				return false;
-			}
-		});
+			};
+		})();
 		editlink.appendChild( editimg );
 		uniname.appendChild( newtext );
 		uniname.appendChild( editlink );

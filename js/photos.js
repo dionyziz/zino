@@ -12,7 +12,6 @@ var Photos = {
 			var firstlinkchildspan = firstlink.getElementsByTagName( 'span' );
 			var firstspan = firstlinkchildspan [ 0 ];
 			var photoname = firstspan.innerHTML;
-			
 			theform = document.createElement( 'form' );
 			theform.method = '';
 			theform.action = '';
