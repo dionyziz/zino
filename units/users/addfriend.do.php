@@ -42,8 +42,6 @@
 				?> , <?php
 				echo ($wasfriend)?"''":w_json_encode( $content );
 				?> , <?php
-				echo ($wasfriend)?"''":w_json_encode( $user->Rank() );
-				?> , <?php
 				echo ($wasfriend)?"''":w_json_encode( $user->Hobbies() );
 				?> , <?php
 				echo $friendtype;
