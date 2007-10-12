@@ -35,7 +35,7 @@
 							if ( $fan->Hobbies() != "" ) {
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								echo htmlspecialchars( $fan->Hobbies() );
-								?></div><br /><?php
+								?></div><?php
 							}
 							?><div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
 							echo $fan->Frel_type();
