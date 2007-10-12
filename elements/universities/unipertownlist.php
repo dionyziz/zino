@@ -22,7 +22,12 @@
 				?>"><?php
 				echo htmlspecialchars( $uni->Name );
 				?> - <?php
-				echo htmlspecialchars( $uni->Place->Name );
+				if ( $uni->TypeId == 0 ) {
+					?>ΑΕΙ<?php
+				}
+				else {
+					?>ΤΕΙ<?php
+				}
 				?></option><?php
 			}
 			?></select><?php
