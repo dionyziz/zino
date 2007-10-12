@@ -62,7 +62,7 @@ var Uni = {
 			};
 		})();
 		area.appendChild( inputcancel );
-		Modals.Create( area, 400, 200 );
+		Modals.Create( area, 800, 200 );
 	}, 
 	SaveEdit : function( modaldiv , uniid ) {
 		var inputlist = modaldiv.getElementsByTagName( 'input' );
