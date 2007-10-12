@@ -15,7 +15,7 @@ var Friends = {
 		}
 	},
 	FriendAdded : function ( userid, friendid, avatar, hobbies, friendtype ) {
-		if ( avatar !== '' || rank !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
+		if ( avatar !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
 			var newfan = document.getElementById( 'newfan' );
 	        newfan.id = "fan_" + userid;
 	        var content = document.getElementById( 'newfancontent' );
