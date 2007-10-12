@@ -20,7 +20,7 @@
 				?><option value="<?php
 				echo $uni->Id;
 				?>"><?php
-				echo $uni->Name;
+				echo htmlspecialchars( $uni->Name );
 				?></option><?php
 			}
 			?></select><?php
