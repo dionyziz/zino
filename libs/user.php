@@ -705,6 +705,7 @@
 		private $mNumSmallNews;
 		private $mNumImages;
         private $mUniid;
+        private $mFrel_type; // If the instance is a friend of the actual user
 		
 		public function Href() {
 			return 'user/' . $this->Username();
@@ -1313,6 +1314,9 @@
 			return $this->mId > 0;
 		}
 		
+		public function Frel_type() {
+			return $this->mFrel_type;
+		}
 		public function DeleteFriend( $friend_id ) {
 			global $db;
 			global $relations;
@@ -1382,15 +1386,18 @@
 			global $relations;
 			global $users;
             global $images;
+            global $friendrel;
 			
 			$userid = $this->Id();
 			$sql = "SELECT 
 						`relation_friendid`, `relation_created`, `user_id` , `user_name`,
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
-                        `image_id`, `image_userid`
+                        `image_id`, `image_userid`, `frel_type`
 					FROM 
-						`$relations` CROSS JOIN `$users` ON `relation_friendid` = `user_id` 
+						`$relations` 
+							CROSS JOIN `$users` ON `relation_friendid` = `user_id` 
                             LEFT JOIN `$images` ON `user_icon` = `image_id`
+                            RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
 					WHERE 
 						`relation_userid` = '$userid'";
 						
@@ -1735,6 +1742,9 @@
 			$this->mRights		      	= isset( $fetched_array[ "user_rights" ]            ) ? $fetched_array[ "user_rights" ]           : 0;
             if ( isset( $fetched_array[ 'image_id' ] ) ) {
                 $this->mIcon = New Image( $fetched_array );
+            }
+            if ( isset( $fetched_array[ 'frel_type' ] ) ) {
+            	$this->mFrel_type = $fetched_array[ 'frel_type' ];
             }
 			$this->mPlace		      	= isset( $fetched_array[ "user_place" ]             ) ? $fetched_array[ "user_place" ]        		: 0;
 			$this->mUniid				= isset( $fetched_array[ "user_uniid" ] 			) ? $fetched_array[ "user_uniid" ]				: 0;

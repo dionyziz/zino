@@ -22,7 +22,11 @@
 								echo htmlspecialchars( $friend->Hobbies() ); 
                                 ?></div><br /><?php
 							}
-						?></div>
+							?>
+							<div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
+							echo $friend->Frel_type();
+							?></div><br />
+						</div>
 						<div class="downline">
 							<div class="leftdowncorner"></div>
 							<div class="rightdowncorner"></div>
