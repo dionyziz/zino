@@ -1359,15 +1359,18 @@
 			global $relations;
 			global $users;
 			global $images;
+			global $friendrel;
             
 			$userid = $this->Id();
 			
 			$sql = "SELECT 
 						`relation_userid`, `relation_created`, `user_id` , `user_name`,
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
-                        `image_id`, `image_userid`
+                        `image_id`, `image_userid`, `frel_type`
 					FROM 
-						`$relations` CROSS JOIN `$users` ON `relation_userid` = `user_id` 
+						`$relations`
+							RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
+							CROSS JOIN `$users` ON `relation_userid` = `user_id` 
                             LEFT JOIN `$images` ON `user_icon` = `image_id`
 					WHERE 
 						`relation_friendid` = '$userid'";

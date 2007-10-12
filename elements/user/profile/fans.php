@@ -33,11 +33,14 @@
 							Element( 'user/display' , $fan );
 							?><br /><?php
 							if ( $fan->Hobbies() != "" ) {
-								?><div style="overflow:hidden;width:90%;"><b>Ενδιαφέροντα:</b> <?php
+								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								echo htmlspecialchars( $fan->Hobbies() );
 								?></div><br /><?php
 							}
-						?></div>
+							?><div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
+							echo $friend->Frel_type();
+							?></div>
+						</div>
 						<div class="downline">
 							<div class="leftdowncorner"></div>
 							<div class="rightdowncorner"></div>
