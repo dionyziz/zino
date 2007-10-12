@@ -15,8 +15,7 @@
 			<div id="fans"><?php
 			
 			foreach ( $fans as $fan ) {
-				//$fan = New User( $fan->Id() );
-				?>
+				//$fan = New User( $fan->Id() );?>
 				<div style="width:70%;" id="fan_<?php
 					echo $fan->Id(); 
 					?>">
@@ -39,7 +38,7 @@
 								?></div><br /><?php
 							}
 							?><div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
-							echo $friend->Frel_type();
+							echo $fan->Frel_type();
 							?></div>
 						</div>
 						<div class="downline">
