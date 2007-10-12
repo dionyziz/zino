@@ -21,6 +21,8 @@
 				echo $uni->Id;
 				?>"><?php
 				echo htmlspecialchars( $uni->Name );
+				?> - <?php
+				echo htmlspecialchars( $uni->Place->Name );
 				?></option><?php
 			}
 			?></select><?php
