@@ -192,7 +192,7 @@
 				?>
 			</ul>
 		</div>
-		<div id="testmodaluni" style="width:800px;height:200px;display:none">
+		<div id="testmodaluni" style="width:600px;height:200px;display:none">
 			<h4>Επέλεξε εκπαιδευτικό ίδρυμα</h4>
 			<div>
 				Πόλη<br />
