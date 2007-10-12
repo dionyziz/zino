@@ -1395,9 +1395,9 @@
                         `image_id`, `image_userid`, `frel_type`
 					FROM 
 						`$relations` 
+							RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
 							CROSS JOIN `$users` ON `relation_friendid` = `user_id` 
-                            LEFT JOIN `$images` ON `user_icon` = `image_id`
-                            RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
+                            LEFT JOIN `$images` ON `user_icon` = `image_id`   
 					WHERE 
 						`relation_userid` = '$userid'";
 						
