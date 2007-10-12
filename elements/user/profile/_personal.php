@@ -163,9 +163,9 @@
 					?>><dt>πανεπιστήμιο</dt>
 					<dd id="uniname"><?php
 					if ( $uni->Exists() ) {
-						echo $uni->Name;
+						echo htmlspecialchars( $uni->Name );
 						?> - <?php
-						echo $uni->Place->Name;
+						echo htmlspecialchars( $uni->Place->Name );
 						?> <a href="" onclick="Uni.SetUni();return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a><?php
 					}
 					else {
@@ -207,7 +207,7 @@
 					?><option value="<?php
 					echo $place->Id;
 					?>"><?php
-					echo $place->Name;
+					echo htmlspecialchars( $place->Name );
 					?></option><?php
 				}
 				?></select><br />
