@@ -15,7 +15,8 @@
 			<div id="fans"><?php
 			
 			foreach ( $fans as $fan ) {
-				//$fan = New User( $fan->Id() );?>
+				//$fan = New User( $fan->Id() );
+				?>
 				<div style="width:70%;" id="fan_<?php
 					echo $fan->Id(); 
 					?>">
