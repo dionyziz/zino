@@ -14,7 +14,7 @@ var Friends = {
 			Coala.Warm( 'users/deletefriend' , { 'friendid' : friendid } );
 		}
 	},
-	FriendAdded : function ( userid, friendid, avatar, rank, hobbies, friendtype ) {
+	FriendAdded : function ( userid, friendid, avatar, hobbies, friendtype ) {
 		if ( avatar !== '' || rank !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
 			var newfan = document.getElementById( 'newfan' );
 	        newfan.id = "fan_" + userid;
@@ -27,18 +27,23 @@ var Friends = {
 	        avie.innerHTML = avatar; // duh
 	        content.appendChild( avie );
 	        content.appendChild( document.createElement( 'br' ) );
-	        var role = document.createElement( 'b' );
+/*	        var role = document.createElement( 'b' );
 	        role.appendChild( document.createTextNode( 'Ρόλος: ' ) );
 	        content.appendChild( role );
 	        content.appendChild( document.createTextNode( rank ) );
-	        content.appendChild( document.createElement( 'br' ) );
+	        content.appendChild( document.createElement( 'br' ) );*/
 	        if ( hobbies !== '' ) {
 	            var interests = document.createElement( 'b' );
 	            interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
 	            content.appendChild( interests );
 	            content.appendChild( document.createTextNode( hobbies ) );
-	            content.appendChild( document.createElement( 'br' ) );
 	        }
+	        var relation = document.createElement( 'b' );
+	        relation.appendChild( document.createTextNode( 'Σχέση: ' ) );
+	        content.appendChild( relation );
+	        content.appendChild( document.createTextNode( g( 'frel_' + friendtype ).firstChild.nodeValue ) ) );
+	        content.appendChild( document.createElement( 'br' ) );
+	        
 	        newfan.style.display = 'block';
 		}
         Friends.processing = false;
