@@ -480,8 +480,13 @@
 				"INSERT INTO `merlin_universities` VALUES ( '' , 'Πληροφορικής & Μέσων Μαζικής Ενημέρωσης' , '0' , '141' , '2007-10-12 03:18:55' , '0';",
 				"INSERT INTO `merlin_universities` VALUES ( '' , 'Λαϊκής & Παραδοσιακής Μουσικής' , '0' , '117' , '2007-10-12 03:19:12' , '0';"
 	);
-	
+	?><h2>Uni Inserts</h2><?php
 	foreach( $arr as $sql ) {
-		mysql_query( $sql );
+		$res = mysql_query( $sql );
+		if ( $res ) {
+			?>Done<?php
+		}
+		else { 
+			?>Failed<?php
+		}
 	}
-	?><h2>Uni Inserts</h2>
