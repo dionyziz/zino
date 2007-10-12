@@ -41,7 +41,7 @@ var Friends = {
 	        var relation = document.createElement( 'b' );
 	        relation.appendChild( document.createTextNode( 'Σχέση: ' ) );
 	        content.appendChild( relation );
-	        content.appendChild( document.createTextNode( g( 'frel_' + friendtype ).firstChild.nodeValue ) ) );
+	        content.appendChild( document.createTextNode( g( 'frel_' + friendtype ).firstChild.nodeValue ) );
 	        content.appendChild( document.createElement( 'br' ) );
 	        
 	        newfan.style.display = 'block';
