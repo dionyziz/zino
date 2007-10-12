@@ -85,7 +85,8 @@
 				'uni_id' => 'Id',
 				'uni_name' => 'Name',
 				'uni_typeid' => 'TypeId',
-				'uni_placeid' => 'PlaceId'
+				'uni_placeid' => 'PlaceId',
+				'uni_delid' => 'DelId'
 			) );
 			$this->Satori( $construct );
 		}
