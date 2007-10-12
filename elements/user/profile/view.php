@@ -140,6 +140,9 @@
                         if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
                             $relations = AllRelations();
                             if ( count( $relations ) ) {
+                            	$page->AttachScript( 'js/friends.js' );
+                            	$page->AttachScript( 'js/animations.js' );
+                            	$page->AttachStylesheet( 'css/frelations.css' );
                             	$is_friend = $user->IsFriend( $theuser->Id() );
 								?><span id="friendadd">
 								<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
