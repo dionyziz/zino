@@ -11,7 +11,6 @@
         $oldcomments = $oldcomments->Get();
         
 		$page->AttachScript( 'js/userprofile.js' );
-		$page->AttachScript( 'js/friends.js' );
 		
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
@@ -141,29 +140,21 @@
                         if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
                             $relations = AllRelations();
                             if ( count( $relations ) ) {
-                                $is_friend = $user->IsFriend( $theuser->Id() );
-                                ?><span id="friendadd">
-                                <a href="" onclick="Friends.AddFriend( <?php
-                                echo $theuser->Id();
-                                ?>, <?php
-                                echo $is_friend?"-1":"17";
-                                ?> );return false;"><img src="<?php
-                                echo $xc_settings[ 'staticimagesurl' ];
-                                if( $is_friend ) {
-                                ?>icons/user_delete.png<?php
-                                }
-                                else {
-                                ?>icons/user_add.png<?php
-                                }
-                                ?>" title="<?php
-                                echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
-                                ?>τους φίλους μου" alt="<?php
-                                echo $is_friend?"Διαγραφή από":"Προσθήκη σ";
-                                ?>τους φίλους" width="16" height="16" /></a></span>
-                                
-                                <?php
-                            }
-                        }	
+                            	$is_friend = $user->IsFriend( $theuser->Id() );
+								?><span id="friendadd">
+								<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
+	                            echo $xc_settings[ 'staticimagesurl' ];
+	                            if( $is_friend ) {
+	                            ?>icons/user_delete.png<?php
+	                            }
+	                            else {
+	                            ?>icons/user_add.png<?php
+	                            }
+	                            ?>" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>
+	                            
+	                            <?php
+							}
+						}	
                         if ( $user->Id() != $theuser->Id() ) {
                             ?>&nbsp;<a href="?p=pms&amp;id=new&amp;to=<?php
                             echo $theuser->Username();
