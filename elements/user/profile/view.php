@@ -139,10 +139,7 @@
                         ?><div style="float:left;padding-top:9px;"><?php
                         if ( !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) {
                             $relations = AllRelations();
-                            if ( count( $relations ) ) {
-                            	$page->AttachScript( 'js/friends.js' );
-                            	$page->AttachScript( 'js/animations.js' );
-                            	$page->AttachStylesheet( 'css/frelations.css' );
+                            if ( count( $relations ) ) {		
                             	$is_friend = $user->IsFriend( $theuser->Id() );
 								?><span id="friendadd">
 								<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
@@ -329,8 +326,8 @@
 		<div style="display: none;" id="userprofile_friendstab"><?php
 			echo $friendstab;
 		?></div><?php
-/*		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
+		if( !$user->IsAnonymous() && $user->Id() != $theuser->Id() && count( $relations ) ) { // $relations is defined at line 139 and $is_friend at line 141
 			Element( 'user/profile/frelations', $relations, $is_friend, $theuser->Id() );
-		}*/
+		}
 	}
 ?>
