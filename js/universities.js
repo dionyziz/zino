@@ -62,7 +62,7 @@ var Uni = {
 			};
 		})();
 		area.appendChild( inputcancel );
-		Modals.Create( area, 800, 200 );
+		Modals.Create( area, 400, 200 );
 	}, 
 	SaveEdit : function( modaldiv , uniid ) {
 		var inputlist = modaldiv.getElementsByTagName( 'input' );
@@ -96,7 +96,7 @@ var Uni = {
 		var modaluni = document.getElementById( 'testmodaluni' ).cloneNode( true );
 		modaluni.style.display = '';
 		modaluni.id = 'modaluni';
-		Modals.Create( modaluni , 220 , 200 );
+		Modals.Create( modaluni , 800 , 200 );
 	
 	},
 	CreateUniList : function () {
