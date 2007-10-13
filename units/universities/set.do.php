@@ -1,5 +1,5 @@
 <?php
-	function UnitUniversitiesSet( tInteger $uniid ) {
+	function UnitUniversitiesSet( tInteger $uniid , tBoolean $unset ) {
 		global $user;
 		global $water;
 		global $libs;
@@ -7,13 +7,21 @@
 		$libs->Load( 'universities' );
 		
 		$uniid = $uniid->Get();
-		$uni = new Uni( $uniid );
-		$user->SetUni( $uniid );
+		$unset = $unset->Get();
+		if ( !$unset ) {
+			$uni = new Uni( $uniid );
+		}
+		if ( $unset ) {
+			$user->SetUni( 0 );
+		}
+		else {
+			$user->SetUni( $uniid );
+		}
 		?>var uniname = document.getElementById( 'uniname' );
 		while( uniname.firstChild ) {
 			uniname.removeChild( uniname.firstChild );
 		}<?php
-		if ( $uniid != 0 ) {
+		if ( !$unset ) {
 			?>var newtext = document.createTextNode( <?php
 			echo w_json_encode( $uni->Name );
 			?> + ' - ' + <?php
