@@ -51,13 +51,14 @@
         // 'interesttags',
         7 => array( 
             'ipban',
-            'latestimages'
+            'latestimages',
             // 'logs',
             // 'memcache'
-        ),
-        8 => array( 
             'monitor',
             'notify'
+        ),
+        8 => array( 
+            'pageviews'
         ),
         9 => array(
             'places',
