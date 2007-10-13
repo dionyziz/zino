@@ -104,19 +104,8 @@ var Uni = {
 		var selectlist = modaluni.getElementsByTagName( 'select' );
 		var firstselect = selectlist[ 0 ];
 
-		
 		if ( firstselect.value == 0 ) {
 			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
-			return;
-		}
-		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
-	},
-	SaveUni : function() {
-		var modaluni = document.getElementById( 'modaluni' );
-		var modaluniselectlist = modaluni.getElementsByTagName( 'select' );
-		var uniid = modaluniselectlist[ 1 ].value;
-		if ( uniid == 0 ) {
-			alert( 'Παρακαλώ επέλεξε ένα έγκυρο ίδρυμα' );
 			return;
 		}
 		var modalunidivlist = modaluni.getElementsByTagName( 'div' );
@@ -129,6 +118,17 @@ var Uni = {
 		loadspan.appendChild( document.createTextNode( ' Παρακαλώ περιμένετε...' ) );
 		thediv.appendChild( loadimg );
 		thediv.appendChild( loadspan );
+		
+		Coala.Cold( 'universities/profilelist' , { townid : firstselect.value } );
+	},
+	SaveUni : function() {
+		var modaluni = document.getElementById( 'modaluni' );
+		var modaluniselectlist = modaluni.getElementsByTagName( 'select' );
+		var uniid = modaluniselectlist[ 1 ].value;
+		if ( uniid == 0 ) {
+			alert( 'Παρακαλώ επέλεξε ένα έγκυρο ίδρυμα' );
+			return;
+		}		
 		
 		Coala.Warm( 'universities/set' , { uniid : uniid , unset : false } );
 	},
