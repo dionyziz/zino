@@ -118,5 +118,8 @@ var Uni = {
 			return;
 		}
 		Coala.Warm( 'universities/set' , { uniid : uniid } );
+	},
+	UnsetUni : function () {
+		Coala.Warm( 'universities/set' , { uniid : 0 } );
 	}
 };
