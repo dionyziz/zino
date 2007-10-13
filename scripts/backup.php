@@ -104,6 +104,7 @@
         if ( !$handle = fopen( "ccbackup.sql", "w" ) ) {
             die( "error opening file" );
         }
+        fwrite( $handle, "USE cclive;" );
     }
     else {
         if ( !$handle = fopen( "ccbackup.sql", "a" ) ) {
@@ -145,6 +146,11 @@
         } while ( $results );
         echo "done<br />";
      }
+    if ( $step == 14 ) {
+        fwrite( $handle, "
+        UPDATE `merlin_albums` SET `album_created` = `album_created` + INTERVAL 9 HOUR; UPDATE `merlin_articles` SET `article_created` = `article_created` + INTERVAL 9 HOUR; UPDATE `merlin_categories` SET `category_created` = `category_created` + INTERVAL 9 HOUR; UPDATE `merlin_comments` SET `comment_created` = `comment_created` + INTERVAL 9 HOUR; UPDATE `merlin_faqcategories` SET `faqcategory_created` = `faqcategory_created` + INTERVAL 9 HOUR; UPDATE `merlin_faqquestions` SET `faqquestion_created` = `faqquestion_created` + INTERVAL 9 HOUR; UPDATE `merlin_friendrel` SET `frel_created` = `frel_created` + INTERVAL 9 HOUR; UPDATE `merlin_images` SET `image_created` = `image_created` + INTERVAL 9 HOUR; UPDATE `merlin_notify` SET `notify_created` = `notify_created` + INTERVAL 9 HOUR; UPDATE `merlin_places` SET `place_updatedate` = `place_updatedate` + INTERVAL 9 HOUR; UPDATE `merlin_pms` SET `pm_created` = `pm_created` + INTERVAL 9 HOUR; UPDATE `merlin_polls` SET `poll_created` = `poll_created` + INTERVAL 9 HOUR;UPDATE `merlin_profilea` SET `profile_date` = `profile_date` + INTERVAL 9 HOUR; UPDATE `merlin_profileq` SET `profileq_created` = `profileq_created` + INTERVAL 9 HOUR; UPDATE `merlin_relations` SET `relation_created` = `relation_created` + INTERVAL 9 HOUR; UPDATE `merlin_revisions` SET `revision_updated` = `revision_updated` + INTERVAL 9 HOUR; UPDATE `merlin_ricons` SET `ricon_date` = `ricon_date` + INTERVAL 9 HOUR; UPDATE `merlin_searches` SET `search_date` = `search_date` + INTERVAL 9 HOUR; UPDATE `merlin_shoutbox` SET `shout_created` = `shout_created` + INTERVAL 9 HOUR; UPDATE `merlin_users` SET `user_created` = `user_created` + INTERVAL 9 HOUR; UPDATE `merlin_universities` SET `uni_createdate` = `uni_createdate` + INTERVAL 9 HOUR; UPDATE `merlin_votes` SET `vote_date` = `vote_date` + INTERVAL 9 HOUR;
+        " ); // update dates
+    }
     fwrite( $handle, "-- (excalibur backup ends here)\n" );
     fclose( $handle );
 
