@@ -110,6 +110,9 @@ var Uni = {
 		}
 		var modalunidivlist = modaluni.getElementsByTagName( 'div' );
 		var thediv = modalunidivlist[ 1 ];
+		while( thediv.firstChild ) {	
+			thediv.removeChild( thediv.firstChild );
+		}
 		loadimg = document.createElement( 'img' );
 		loadimg.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
 		loadimg.alt = 'Παρακαλώ περιμένετε';
