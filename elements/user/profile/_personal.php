@@ -140,6 +140,7 @@
 						} ?></dd>
 					</dl></li><?php
 				}
+				$unishowing = false;
 				if ( $uni->Exists() && !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { //add condition for having set uni 
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
@@ -154,6 +155,7 @@
 					}
 					?></dd>
 					</dl></li><?php
+					$unishowing = true;
 				}
 				else if ( $user->Id() == $theuser->Id() && isset( $ageyear ) && $ageyear >= 17 ) {
 					?><li><dl<?php
@@ -174,11 +176,12 @@
 					}
 					?></dd>
 					</dl></li><?php
+					$unishowing = true;
 				}
                 $tags = InterestTag_List( $theuser );
 				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
 					?><li><dl<?php
-					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && !$uni->Exists() ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && $uni->Exists() ) ) {
+					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && !$unishowing ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && $unishowing ) ) {
 						?> class="l"<?php
 					}
 						?>><dt>ενδιαφέροντα</dt>
