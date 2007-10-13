@@ -66,6 +66,8 @@
     
     ob_start();
 
+    header( 'Content-type: text/plain' );
+    header( 'Content-Disposition: attachment; filename=' . $rabbit_settings[ 'applicationname' ] . '-' . NowDate() . '.sql' );
     echo '-- Excalibur backup as of ' . NowDate() . "<br />";
     for ( $i = 0; $i < count( $backup ); ++$i ) {
         $table = $backup[ $i ];

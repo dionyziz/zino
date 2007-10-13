@@ -3,6 +3,12 @@
     function Notify_Create( $fromuserid , $touserid , $itemid , $typeid ) {
         global $notify;
         global $db;
+        global $xc_settings;
+        global $users;
+
+        if ( $xc_settings[ "readonly" ] > $user->Rights() ) {
+            return;
+        }
         
         if ( $fromuserid == $touserid ) {
             return;
