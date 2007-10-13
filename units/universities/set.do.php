@@ -41,7 +41,7 @@
 			})();
 			var dellink = document.createElement( 'a' );
 			var delimg = document.createElement( 'img' );
-			delimg.src = 'http://static.chit-chat.gr/images/icons/cross.png';
+			delimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
 			delimg.alt = 'Διαγραφή';
 			delimg.title = 'Διαγραφή';
 			dellink.href = '';
@@ -64,7 +64,7 @@
 			newtext.href = '';
 			newtext.onclick = ( function() {
 				return function() {
-					Uni.UnsetUni();
+					Uni.SetUni();
 					return false;
 				}
 			})();

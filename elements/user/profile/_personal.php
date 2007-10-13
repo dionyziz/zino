@@ -167,7 +167,7 @@
 						?> - <?php
 						echo htmlspecialchars( $uni->Place->Name );
 						?> <a href="" onclick="Uni.SetUni();return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a>
-						<a href="" onclick="Uni.UnsetUni();return false;" style="margin-left:2px;"><img src="http://static.chit-chat.gr/images/icons/cross.png" alt="Διαγραφή" title="Διαγραφή" /></a><?php
+						<a href="" onclick="Uni.UnsetUni();return false;" style="margin-left:2px;"><img src="http://static.chit-chat.gr/images/icons/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a><?php
 					}
 					else {
 						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
