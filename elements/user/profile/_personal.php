@@ -87,6 +87,8 @@
 		?><div class="personal">
 			<h4>προσωπικές πληροφορίες</h4>
 			<ul id="user_profile_personal"><?php
+				$classl = false;
+				$class = '';
 				if ( $theuser->Gender() != "-" ) {
 					?><li><dl>
 						<dt>φύλο</dt>
@@ -94,16 +96,27 @@
 						echo $gn; 
 						?></dd>
 					</dl></li><?php
-				}
-				if ( $validdob ) { 
-					?><li><dl<?php
-					if ( $theuser->Gender() != "-" ) {
-						?> class="l"<?php
+					if ( $classl ) {
+						$classl = true;
 					}
-						?>><dt>ηλικία</dt>
+					else {
+						$classl = false;
+					}
+				}
+				if ( $validdob ) {
+					if ( $classl ) {
+						$class = ' class="l"';
+						$classl = false;
+					}
+					else { 	
+						$class = '';
+						$classl = true;
+					}
+					?><li><dl<?php
+					echo $class;
+					?>><dt>ηλικία</dt>
 						<dd><?php
 							echo $ageyear;
-
 							if ( $theuser->Id() == $user->Id() ) {
 								?><a href="faq/age_shown" style="margin-left: 20px; font-size: 90%;">Πώς ξέρετε την ηλικία μου?</a><?php
 							}
@@ -111,6 +124,14 @@
 					</dl></li><?php
 				}
 				if ( $validdob ) { 
+					if ( $classl ) {
+						$class = ' class="l"';
+						$classl = false;
+					}
+					else {
+						$class= '';
+						$classl = true;
+					}
 					?><li><dl<?php
 					if ( $theuser->Gender() == "-" ) {
 						?> class="l"<?php
@@ -127,12 +148,18 @@
 						?></dd>
 					</dl></li><?php
 				}
-				if ( $theuser->Place() ) { 
-					?><li><dl<?php
-					if ( $theuser->Gender() != "-" ) {
-						?> class="l"<?php
+				if ( $theuser->Place() ) {	
+					if ( $classl ) {	
+						$class = ' class="l"';
+						$classl = false;
 					}
-						?>><dt>περιοχή</dt>
+					else {
+						$class = '';
+						$classl = true;
+					}
+					?><li><dl<?php
+					echo $class;
+					?>><dt>περιοχή</dt>
 						<dd><?php
 							echo $theuser->Location(); 
 						if ( $user->CanModifyCategories() ) { 
@@ -140,12 +167,17 @@
 						} ?></dd>
 					</dl></li><?php
 				}
-				$unishowing = false;
 				if ( $uni->Exists() && !$user->IsAnonymous() && $user->Id() != $theuser->Id() ) { //add condition for having set uni 
-					?><li><dl<?php
-					if ( $theuser->Gender() == "-" ) {
-						?> class="l"<?php
+					if ( $classl ) {
+						$class = ' class="l"';
+						$classl = false;
 					}
+					else {
+						$class = '';
+						$classl = true;
+					}
+					?><li><dl<?php
+					echo $class;
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
 					if ( $uni->Exists() ) {
@@ -158,10 +190,16 @@
 					$unishowing = true;
 				}
 				else if ( $user->Id() == $theuser->Id() && isset( $ageyear ) && $ageyear >= 17 ) {
-					?><li><dl<?php
-					if ( $theuser->Gender() == "-" ) {
-						?> class="l"<?php
+					if ( $classl ) {
+						$class = ' class="l"';
+						$classl = false;
 					}
+					else {
+						$class = '';
+						$classl = true;
+					}
+					?><li><dl<?php
+					echo $class;
 					?>><dt>πανεπιστήμιο</dt>
 					<dd id="uniname"><?php
 					if ( $uni->Exists() ) {
@@ -180,11 +218,17 @@
 				}
                 $tags = InterestTag_List( $theuser );
 				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
-					?><li><dl<?php
-					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && $unishowing ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && !$unishowing ) ) {
-						?> class="l"<?php
+					if ( $classl ) {
+						$class = ' class="l"';
+						$classl = false;
 					}
-						?>><dt>ενδιαφέροντα</dt>
+					else {
+						$class = '';
+						$classl = true;
+					}
+					?><li><dl<?php
+					echo $class;
+					?>><dt>ενδιαφέροντα</dt>
 						<dd><?php
                             foreach ( $tags as $tag ) {
                                 echo htmlspecialchars( $tag->Text ) . " ";
