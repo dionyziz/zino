@@ -97,10 +97,10 @@
 						?></dd>
 					</dl></li><?php
 					if ( $classl ) {
-						$classl = true;
+						$classl = false;
 					}
 					else {
-						$classl = false;
+						$classl = true;
 					}
 				}
 				if ( $validdob ) {
