@@ -181,7 +181,7 @@
                 $tags = InterestTag_List( $theuser );
 				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
 					?><li><dl<?php
-					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && !$unishowing ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && $unishowing ) ) {
+					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && $unishowing ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && !$unishowing ) ) {
 						?> class="l"<?php
 					}
 						?>><dt>ενδιαφέροντα</dt>
