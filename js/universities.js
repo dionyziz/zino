@@ -103,6 +103,8 @@ var Uni = {
 		var modaluni = document.getElementById( 'modaluni' );
 		var selectlist = modaluni.getElementsByTagName( 'select' );
 		var firstselect = selectlist[ 0 ];
+
+		
 		if ( firstselect.value == 0 ) {
 			alert( 'Παρακαλώ επέλεξε μια έγκυρη τοποθεσία' );
 			return;
@@ -117,6 +119,17 @@ var Uni = {
 			alert( 'Παρακαλώ επέλεξε ένα έγκυρο ίδρυμα' );
 			return;
 		}
+		var modalunidivlist = modaluni.getElementsByTagName( 'div' );
+		var thediv = modalunidivlist[ 1 ];
+		loadimg = document.createElement( 'img' );
+		loadimg.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+		loadimg.alt = 'Παρακαλώ περιμένετε';
+		loadimg.title = 'Παρακαλώ περιμένετε';
+		var loadspan = document.createElement( 'span' );
+		loadspan.appendChild( document.createTextNode( ' Παρακαλώ περιμένετε...' ) );
+		thediv.appendChild( loadimg );
+		thediv.appendChild( loadspan );
+		
 		Coala.Warm( 'universities/set' , { uniid : uniid , unset : false } );
 	},
 	UnsetUni : function () {
