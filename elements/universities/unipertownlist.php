@@ -5,7 +5,7 @@
 		
 		$libs->Load( 'universities' );
 		
-		$unis = Uni_Retrieve( $townid , false );
+		$unis = Uni_Retrieve( $townid->Get() , false );
 		if ( count( $unis ) == 0 ) {
 			?>Δεν υπάρχουν εκπαιδευτικά ιδρύματα<?php
 		}

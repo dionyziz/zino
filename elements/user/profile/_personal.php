@@ -133,10 +133,8 @@
 						$classl = true;
 					}
 					?><li><dl<?php
-					if ( $theuser->Gender() == "-" ) {
-						?> class="l"<?php
-					}
-						?>><dt>γενέθλια</dt>
+					echo $class;
+					?>><dt>γενέθλια</dt>
 						<dd><?php
 						if ( $hasbirthday ) { 
 							?>Έχει σήμερα γενέθλια και γίνεται <?php
