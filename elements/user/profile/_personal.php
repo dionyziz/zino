@@ -178,7 +178,7 @@
                 $tags = InterestTag_List( $theuser );
 				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
 					?><li><dl<?php
-					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && $uni->Exists() ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && !$uni->Exists() ) ) {
+					if ( ( $theuser->Gender() != "-" && $theuser->Place() == 0 && !$uni->Exists() ) || ( $theuser->Gender() == "-" && $theuser->Place() != 0  && $uni->Exists() ) ) {
 						?> class="l"<?php
 					}
 						?>><dt>ενδιαφέροντα</dt>
