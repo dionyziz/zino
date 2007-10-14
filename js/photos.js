@@ -744,7 +744,7 @@ var Photos = {
 				Coala.Warm( 'albums/mainimage' , { 'albumid' : albumid , 'photoid' : '0' , 'node' : nodetodelete } );
 			}
 			Animations.Create( nodetodelete , 'opacity' , 1500 , 1 , 0 , Interpolators.Sin );
-			Animations.Create( nodetodelete , 'width' , 900 , nodetodelete.offsetWidth , 0 , function () { nodetodelete.parentNode( nodetodelete ); } , Interpolators.Sin );
+			Animations.Create( nodetodelete , 'width' , 900 , nodetodelete.offsetWidth , 0 , function () { nodetodelete.parentNode.removeChild( nodetodelete ); } , Interpolators.Sin );
 		}
 	}
 	,
