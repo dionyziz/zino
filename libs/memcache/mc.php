@@ -149,12 +149,12 @@
 	global $mc;
 	
 	// until we get a proper memcache daemon
-	$mc = New MemCacheSQL();
+	// $mc = New MemCacheSQL();
 	
 	/* $mc = New MemCacheDummy(); */
-	/* $mc = New memcached(array(
+	$mc = New memcached(array(
 			'servers' => array('127.0.0.1'), 
 			'debug' => false, 
 			'compress_threshold' => 10240,
-			'persistant' => true)); */
+			'persistant' => true));
 ?>

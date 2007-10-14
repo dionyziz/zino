@@ -93,7 +93,7 @@ define("COMPRESSION_SAVINGS", 0.20);
  * @author  Ryan T. Dean <rtdean@cytherianage.net>
  * @package memcached-client
  */
-class memcached
+class memcached extends MemCache
 {
    // {{{ properties
    // {{{ public
@@ -249,6 +249,10 @@ class memcached
     */
    function add ($key, $val, $exp = 0)
    {
+      global $water;
+      
+      $water->Trace( "Memcache: Setting key '$key'", $val );
+      
       return $this->_set('add', $key, $val, $exp);
    }
 
@@ -283,6 +287,10 @@ class memcached
     */
    function delete ($key, $time = 0)
    {
+      global $water;
+      
+      $water->Trace( "Memcache: Deleting key '$key'", $val );
+      
       if (!$this->_active)
          return false;
          
@@ -366,19 +374,24 @@ class memcached
     */
    function get ($key)
    {
+      global $water;
+      
       if (!$this->_active)
          return false;
          
       $sock = $this->get_sock($key);
       
-      if (!is_resource($sock))
+      if (!is_resource($sock)) {
+         $water->Trace( "Memcache: MISS '$key'" );
          return false;
-         
+      }
+      
       $this->stats['get']++;
       
       $cmd = "get $key\r\n";
       if (!fwrite($sock, $cmd, strlen($cmd)))
       {
+         $water->Trace( "Memcache: MISS '$key'" );
          $this->_dead_sock($sock);
          return false;
       }
@@ -389,7 +402,8 @@ class memcached
       if ($this->_debug)
          foreach ($val as $k => $v)
             printf("MemCache: sock %s got %s => %s\r\n", $sock, $k, $v);
-      
+  
+      $water->Trace( "Memcache: HIT '$key'" );
       return $val[$key];
    }
 
