@@ -17,7 +17,7 @@
 		
 		?><br /><br /><br /><br />
         <div style="text-align:center">
-            <applet code="bin/ice_queen/alpha/Frontend" width="700" height="400">
+            <applet code="Frontend" width="700" height="400">
                 <param name="userid" value="<?php
                 echo $user->Id();
                 ?>" />
