@@ -82,7 +82,7 @@ define("MEMCACHE_COMPRESSED", 1<<1);
 /**
  * Minimum savings to store data compressed
  */
-define("COMPRESSION_SAVINGS", 0.20);
+define("COMPRESS_SAVINGS", 0.20);
 
 // }}}
 
@@ -443,10 +443,10 @@ class memcached implements MemCache
          $key = is_array($key) ? $key[1] : $key;
          if (!isset($sock_keys[$sock]))
          {
-            $sock_keys[$sock] = array();
+            $sock_keys[( int )$sock] = array();
             $socks[] = $sock;
          }
-         $sock_keys[$sock][] = $key;
+         $sock_keys[( int )$sock][] = $key;
       }
       
       // Send out the requests
