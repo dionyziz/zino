@@ -2,8 +2,6 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^faq$ index.php?p=faq
-RewriteRule ^chat/$ index.php?p=chat
-RewriteRule ^Frontend.class$ bin/ice_queen/alpha/Frontend.class [L,QSA]
 RewriteRule ^chat/([a-zA-Z0-9_.\-/]+)$ bin/ice_queen/alpha/$1 [L,QSA]
 RewriteRule ^user/([a-zA-Z0-9_\-]+)$ index.php?p=user&name=$1 [L,QSA]
 RewriteRule ^faq/([a-zA-Z][a-zA-Z0-9_\-]+)$ index.php?p=faqq&id=$1 [L,QSA]
