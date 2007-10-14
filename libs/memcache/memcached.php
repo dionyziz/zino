@@ -475,6 +475,15 @@ class memcached implements MemCache
          $this->_load_items($sock, $val);
       }
       
+      foreach ($keys as $key) {
+         if (isset($val[$key])) {
+            $water->Trace("Memcache: HIT '$key'", $val[$key]);
+         }
+         else {
+            $water->Trace("Memcache: MISS '$key'");
+         }
+      }
+      
       if ($this->_debug)
          foreach ($val as $k => $v)
             printf("MemCache: got %s => %s\r\n", $k, $v);
