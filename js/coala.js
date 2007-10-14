@@ -28,11 +28,11 @@ var Coala = {
         }, 50 );
 	},
 	_AppendRequest: function ( unitid, parameters, type, failurecallback ) {
-        if ( unitid === undefined ) {
+        if ( typeof unitid === 'undefined' ) {
             alert( 'No coala call unitid specified; aborting call' );
             return;
         }
-        if ( parameters === undefined ) {
+        if ( typeof parameters === 'undefined' ) {
             alert( 'No coala call parameters specified; aborting call' );
             return;
         }
@@ -57,7 +57,7 @@ var Coala = {
         failurecallbacks = [];
 		for ( i in Coala.ThreadedRequests ) {
 			args = [];
-            if ( Coala.ThreadedRequests[ i ].failurecallback !== undefined ) {
+            if ( typeof Coala.ThreadedRequests[ i ].failurecallback !== 'undefined' ) {
                 failurecallbacks.push(
                     Coala.ThreadedRequests[ i ].failurecallback
                 );
@@ -137,7 +137,7 @@ var Coala = {
 			return;
 		}
 		try {
-			if ( xh.status !== undefined && xh.status !== 0){
+			if ( typeof xh.status !== 'undefined' && xh.status !== 0){
 				httpStatus = xh.status;
 			}
 			else {
@@ -154,7 +154,7 @@ var Coala = {
             }
             return;
         }
-        if ( water_debug_data !== undefined ) {
+        if ( typeof water_debug_data !== 'undefined' ) {
             old_water_debug_data = water_debug_data;
         }
         else {
@@ -171,7 +171,7 @@ var Coala = {
         
         resp = resp.substr( 'while(1);'.length ); // JS hijacking prevention
 		eval( resp );
-		if ( water_debug_data !== undefined ) {
+		if ( typeof water_debug_data !== 'undefined' ) {
 			coala_water_debug_data = water_debug_data; // could be used later, if water improves
 			water_debug_data = old_water_debug_data;
 		}
