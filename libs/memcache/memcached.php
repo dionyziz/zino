@@ -453,7 +453,7 @@ class memcached implements MemCache
       foreach ($socks as $sock)
       {
          $cmd = "get";
-         foreach ($sock_keys[$sock] as $key)
+         foreach ($sock_keys[( int )$sock] as $key)
          {
             $cmd .= " ". $key;
          }
