@@ -257,6 +257,11 @@
 			global $categories;
 			global $articles;
 			global $revisions;
+
+            // seems like a totally wrong sql statement
+            // + causes unhandled exception
+
+            return 0;
 			
 			$sql = "SELECT
 						`revision_categoryid`, COUNT(*) AS numarticles
