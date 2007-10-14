@@ -147,7 +147,10 @@
 	}
 	
 	global $mc;
-	
+	global $libs;
+    
+    $libs->Load('memcache/memcached');
+    
 	// until we get a proper memcache daemon
 	// $mc = New MemCacheSQL();
 	
