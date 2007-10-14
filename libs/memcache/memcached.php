@@ -386,6 +386,9 @@ class memcached implements MemCache
          return false;
       }
       
+      if (!isset($this->stats['get'])) {
+        $this->stats['get'] = 0;
+      }
       $this->stats['get']++;
       
       $cmd = "get $key\r\n";
@@ -404,7 +407,11 @@ class memcached implements MemCache
             printf("MemCache: sock %s got %s => %s\r\n", $sock, $k, $v);
   
       $water->Trace( "Memcache: HIT '$key'" );
-      return $val[$key];
+      
+      if (isset($val[$key])) {
+          return $val[$key];
+      }
+      return null;
    }
 
    // }}}
@@ -423,7 +430,11 @@ class memcached implements MemCache
       if (!$this->_active)
          return false;
          
-      $this->stats['get_multi']++;
+      if (!isset($this->stats['get_multi'])) {
+         $this->stats['get_multi'] = 0;
+      }
+      
+      ++$this->stats['get_multi'];
       
       foreach ($keys as $key)
       {
@@ -827,6 +838,9 @@ class memcached implements MemCache
                   break;
                $offset += $n;
                $bneed -= $n;
+               if (!isset($ret[$rkey])) {
+                  $ret[$rkey] = '';
+               }
                $ret[$rkey] .= $data;
             }
             
@@ -873,14 +887,19 @@ class memcached implements MemCache
     */
    function _set ($cmd, $key, $val, $exp)
    {
-      if (!$this->_active)
+      if (!$this->_active) {
          return false;
+      }
          
       $sock = $this->get_sock($key);
-      if (!is_resource($sock))
+      if (!is_resource($sock)) {
          return false;
-         
-      $this->stats[$cmd]++;
+      }
+      
+      if (!isset($this->stats[$cmd])) {
+         $this->stats[$cmd] = 0;
+      }
+      ++$this->stats[$cmd];
       
       $flags = 0;
       
