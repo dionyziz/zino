@@ -3,7 +3,7 @@ var Photos = {
 		var masterdiv = photo;
 		var masterdivchilda, theform, theinput, imageaccept, imagecancel, acceptlink, cancellink;
 		if ( typeid === 0 ) {
-			alert( 'gamo sou' );
+			// alert( 'gamo sou' );
 			masterdivchilda = masterdiv.getElementsByTagName( 'a' );
 			var firstlink = masterdivchilda[ 0 ];
 			var secondlink = masterdivchilda[ 1 ];
