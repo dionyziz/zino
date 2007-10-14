@@ -5,6 +5,7 @@
         global $db;
         global $xc_settings;
         global $users;
+        global $user;
 
         if ( $xc_settings[ "readonly" ] > $user->Rights() ) {
             return;
