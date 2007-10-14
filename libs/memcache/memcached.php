@@ -438,6 +438,8 @@ class memcached implements MemCache
       
       ++$this->stats['get_multi'];
       
+      $socks = array();
+      
       foreach ($keys as $key)
       {
          $sock = $this->get_sock($key);
@@ -450,6 +452,8 @@ class memcached implements MemCache
          }
          $sock_keys[( int )$sock][] = $key;
       }
+      
+      $gather = array();
       
       // Send out the requests
       foreach ($socks as $sock)
