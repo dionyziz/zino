@@ -427,6 +427,8 @@ class memcached implements MemCache
     */
    function get_multi ($keys)
    {
+      global $water;
+      
       if (!$this->_active)
          return false;
          
