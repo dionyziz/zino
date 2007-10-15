@@ -3,7 +3,7 @@
 		global $libs;
 		global $water;
 		global $user;
-		
+		?>alert( 'called' );<?php
 		$libs->Load( 'pm' );
 		
 		$pmid = $pmid->Get();
