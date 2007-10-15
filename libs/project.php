@@ -10,9 +10,10 @@
     	$libs->Load( 'magic' );
     	$libs->Load( 'log' );
     	$libs->Load( 'user' );
-        $libs->Load( 'memcache/mc' );
         
         $xc_settings = require_once 'excalibur_settings.php';
+
+        $libs->Load( 'memcache/mc' ); // needs xc_settings
         
     	$_SESSION[ 'previousuri' ] = ( isset ( $_SESSION[ 'thisuri' ] ) ? $_SESSION[ 'thisuri' ] : "" );
     	$_SESSION[ 'thisuri' ] = $_SERVER[ 'REQUEST_URI' ];

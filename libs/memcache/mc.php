@@ -153,15 +153,20 @@
     $libs->Load('memcache/memcached');
     
 	// until we get a proper memcache daemon
-    if ( $xc_settings[ 'memcache' ] == 'sql' ) {
-    	$mc = New MemCacheSQL();
-    }
-    else if ( $xc_settings[ 'memcache' ] == 'memcached' ) {
-        /* $mc = New MemCacheDummy(); */
-        $mc = New memcached(array(
-                'servers' => array('127.0.0.1:11211'), 
-                'debug' => false, 
-                'compress_threshold' => 10240,
-                'persistant' => true));
+    switch ( $xc_settings[ 'memcache' ][ 'type' ] ) {
+        case 'dummy':
+            $mc = New MemCacheDummy();
+            break;
+        case 'sql':
+    	    $mc = New MemCacheSQL();
+            break;
+        case 'memcached':
+            $server = $xc_settings[ 'memcache' ][ 'hostname' ] . ':' . $xc_settings[ 'memcache' ][ 'port' ];
+            $mc = New memcached(array(
+                    'servers' => array( $server ), 
+                    'debug' => false, 
+                    'compress_threshold' => 10240,
+                    'persistant' => true));
+            break;
     }
 ?>

@@ -13,7 +13,11 @@
 		'anonymouscomments' => false,
         'allowregisters'    => true,
         'mysql2phpdate'     => '- INTERVAL 2 HOUR',
-        'memcache'          => 'memcached',
+        'memcache'          => array(
+            'type'      => 'memcached',
+            'hostname'  => '127.0.0.1',
+            'port'      => '11211'
+        ),
         'imagesupload'    	=> array(
             'ip'   => '87.230.27.77',
             'host' => 'images.chit-chat.gr',
