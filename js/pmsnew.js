@@ -304,10 +304,12 @@ var pms = {
 			var p = this.getDragEl();
 			var q = this.getEl();
 			
-			p.style.border = '1px dotted red;'
+			//p.style.border = '1px dotted red;'
 		};
         dd1.onInvalidDrop = function( e ) {
-		    var p = this.getDragEl();
+        };
+		dd1.endDrag = function( e ) {
+            var p = this.getDragEl();
             var q = this.getEl();
             
             proxypos = Dom.getXY( p );
@@ -319,9 +321,6 @@ var pms = {
             Animations.Create( p, 'top', 1000, proxypos[ 1 ], srcpos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
-        };
-		dd1.endDrag = function( e ) {
-
             // alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
             // sthis.getEl().offsetTop = startPos[ 1 ];
