@@ -300,7 +300,7 @@ var pms = {
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
 			
-			p.style.display = 'none';
+			//p.style.display = 'none';
 			/*
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
