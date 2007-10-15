@@ -304,9 +304,7 @@ var pms = {
 			var p = this.getDragEl();
 			var q = this.getEl();
 			
-			p.innerHTML = q.innerHTML;
-			p.className = 'message';
-			p.style.opacity = '0.2em';
+			p.style.border = '1px solid red dotted;'
 		};
         dd1.onInvalidDrop = function( e ) {
         };
