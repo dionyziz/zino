@@ -302,8 +302,8 @@ var pms = {
         dd1.onInvalidDrop = function ( e ) {
             var p = this.getDragEl();
             p.style.visibility = '';
-            Animations.Create( p, 'left', dd1.offsetLeft, startPos[ 0 ] );
-            Animations.Create( p, 'top', dd1.offsetTop, startPos[ 1 ], function () {
+            Animations.Create( p, 'left', 1000, dd1.offsetLeft, startPos[ 0 ] );
+            Animations.Create( p, 'top', 1000, dd1.offsetTop, startPos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
         };
