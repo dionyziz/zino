@@ -299,8 +299,9 @@ var pms = {
 		dd1.onDragDrop = function() {
         };
 		dd1.onInvalidDrop = function( e ) {
-            this.getEl().offsetLeft = startPos[ 0 ];
-            this.getEl().offsetTop = startPos[ 1 ];
+            alert( this.getEl() );
+            // .offsetLeft = startPos[ 0 ];
+            // sthis.getEl().offsetTop = startPos[ 1 ];
 		};
 	},
 	UpdateUnreadPms : function( specnumber ) {
