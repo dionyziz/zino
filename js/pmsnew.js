@@ -303,12 +303,15 @@ var pms = {
         };
 		dd1.endDrag = function( e ) {
             var p = this.getDragEl();
+            var q = this.getEl();
+            
+            proxypos = Dom.getXY( p );
+            srcpos = Dom.getXY( q );
+
             p.style.visibility = '';
             
-            alert( p.style.left.substr( 0, p.style.left.length - 2 ) + ' -> ' + startPos[ 0 ] );
-            
-            Animations.Create( p, 'left', 1000, p.style.left.substr( 0, p.style.left.length - 2 ), startPos[ 0 ] );
-            Animations.Create( p, 'top', 1000, p.style.top.substr( 0, p.style.left.top - 2 ), startPos[ 1 ], function () {
+            Animations.Create( p, 'left', 1000, proxypos[ 0 ], srcpos[ 0 ] );
+            Animations.Create( p, 'top', 1000, proxypos[ 1 ], srcpos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
             // alert( this.getEl() );
