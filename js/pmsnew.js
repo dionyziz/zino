@@ -285,17 +285,28 @@ var pms = {
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
-		
+		/*
 		YAHOO.extend( YAHOO.example.DDList, YAHOO.util.DDProxy, {
 			onDragDrop : function( e , id ) {
 				alert( "fuck you" );
 			}
 		});
-		/*
-        //var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
+		*/
+        var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function() {
             alert( YAHOO.util.DDProxy.dragElId );
-        };*/
+        };
+		dd1.onInvalidDrop = function( e ) {
+			new YAHOO.util.Motion( 
+				this.id, {
+					points : {
+						to : startPos
+					}
+				},
+				0.3,
+				YAHOO.util.Easing.easeOut
+			).animate();
+		};
 	},
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one
