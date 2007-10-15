@@ -294,7 +294,7 @@ var pms = {
 		*/
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function() {
-            alert( YAHOO.util.DDProxy.dragElId );
+            alert( 'gamo sou' );
         };
 		dd1.onInvalidDrop = function( e ) {
 			new YAHOO.util.Motion( 
