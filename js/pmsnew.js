@@ -301,7 +301,7 @@ var pms = {
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
         };
-		dd1.StartDrag = function() {
+		dd1.startDrag = function() {
 			var p = this.getDragEl();
 			var q = this.getEl();
 			
