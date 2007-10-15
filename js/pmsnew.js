@@ -297,7 +297,6 @@ var pms = {
 		*/
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
-            alert( 'Moving pm ' + pmid.substring( 3 ) + ' to folder ' + id.substring( 7 ) );
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
         };
@@ -306,6 +305,7 @@ var pms = {
 			var q = this.getEl();
 			
 			p.innerHTML = q.innerHTML;
+			p.className = 'infobar';
 			p.style.opacity = '0.2em';
 		};
         dd1.onInvalidDrop = function( e ) {
