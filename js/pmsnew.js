@@ -299,6 +299,13 @@ var pms = {
 		dd1.onDragDrop = function( e, id ) {
             alert( 'Moving to folder ' + id );
         };
+        dd1.onInvalidDrop = function ( e ) {
+            dd1.style.visibility = '';
+            Animations.Create( dd1, 'left', dd1.offsetLeft, startPos[ 0 ] );
+            Animations.Create( dd1, 'top', dd1.offsetTop, startPos[ 1 ], function () {
+                dd1.style.visibility = 'hidden';
+            } );
+        };
 		dd1.endDrag = function( e ) {
             // alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
