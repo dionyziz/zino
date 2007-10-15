@@ -300,7 +300,7 @@ var pms = {
             alert( 'gamo sou' );
         };
 		dd1.onInvalidDrop = function( e ) {
-			alert( "invalid drop" );
+			alert( "invalid drop " + this.getEl().id );
 			/*
 			new YAHOO.util.Motion( 
 				this.id, {
