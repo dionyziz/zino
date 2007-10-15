@@ -301,8 +301,22 @@ var pms = {
 			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none';
-			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
-				realpm.parentNode.removeChild( realpm );
+
+			var msgnodedivs = realpm.getElementsByTagName( 'div' );
+			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
+			var delimg = msgnodeimgs[ 0 ];
+			var delimg2 = msgnodeimgs[ 1 ];
+			var lowerdiv = msgnodedivs[ 6 ];
+			lowerdiv.style.display = 'none';
+			delimg.style.display = 'none';
+			if ( delimg2 ) {
+				//if the message is already read there is no such image
+				delimg2.style.display = 'none';
+			}
+			realpm.style.margin = '0px';
+			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 );
+			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
+					realpm.parentNode.removeChild( realpm );
 			} );
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
