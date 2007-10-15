@@ -411,7 +411,7 @@ class memcached implements MemCache
       if (isset($val[$key])) {
           return $val[$key];
       }
-      return null;
+      return false;
    }
 
    // }}}
@@ -487,6 +487,7 @@ class memcached implements MemCache
          }
          else {
             $water->Trace("Memcache: MISS '$key'");
+            $var[$key] = false;
          }
       }
       
