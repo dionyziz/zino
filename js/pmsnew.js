@@ -304,7 +304,7 @@ var pms = {
 		dd1.onDragStart = function() {
 			var p = this.getDragEl();
 			var q = this.getEl();
-			q.style.visibility = "hidden";
+			
 			p.innerHTML = q.innerHTML;
 			p.style.opacity = '0.2em';
 		};
