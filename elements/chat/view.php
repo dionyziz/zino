@@ -6,7 +6,7 @@
 		global $libs;
 		global $xc_settings;
 		
-		if ( !$xc_settings[ 'chat' ][ 'enabled' ] ) {
+		if ( $user->Rights() < $xc_settings[ 'chat' ][ 'enabled' ] ) {
 			return;
 		}
         if ( !$user->Exists() ) {

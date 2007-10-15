@@ -1,5 +1,4 @@
 <?php
-
     function ElementUserBox( $transparent = false ) {
         global $user;
         global $xc_settings;
@@ -43,18 +42,13 @@
                 ?><li><a class="profile" href="user/<?php 
                 echo $user->Username(); 
                 ?>">Προφίλ</a></li><?php
-                if ( $xc_settings[ 'chat' ][ 'enabled' ] ) {
-                    ?><li><a class="chat" href="" onclick="window.open('chat/index.php?userid=<?php
-                    echo $user->Id();
-                    ?>&amp;username=<?php
-                    echo $user->Username();
-                    ?>&amp;authtoken=<?php
-                    echo $user->Authtoken();
-                    ?>');return false;">Κάνε Chat</a></li><?php
+                if ( $user->Rights() >= $xc_settings[ 'chat' ][ 'enabled' ] ) {
+                    ?><li><a class="chat" href="" onclick="window.open('chat/', 'ccchat');return false;">Κάνε Chat</a></li><?php
                 }
                 ?><li><a href="javascript:Userbox.Animate();" class="arrow" style="visibility:hidden;" title="Προβολή κάρτας χρήστη" id="userboxshow"></a></li>
             </ul><?php
-        }?>
+        }
+        ?>
         </div><?php
     }
 

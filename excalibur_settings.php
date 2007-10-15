@@ -12,7 +12,7 @@
         'imagesurl'       	=> 'http://images.chit-chat.gr/',
 		'anonymouscomments' => false,
         'allowregisters'    => true,
-        'mysql2phpdate'    => '- INTERVAL 2 HOUR',
+        'mysql2phpdate'     => '- INTERVAL 2 HOUR',
         'imagesupload'    	=> array(
             'ip'   => '87.230.27.77',
             'host' => 'images.chit-chat.gr',
@@ -20,7 +20,7 @@
             'url'  => '/upload3.php'
         ),
         'chat'              => array(
-            'enabled' => true,
+            'enabled' => 50,
             'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/frame'
         )
     );

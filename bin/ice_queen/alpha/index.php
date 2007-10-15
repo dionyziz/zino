@@ -1,19 +1,36 @@
-<html>
+<?php
+	set_include_path( '../../../:./' );
+    
+	require 'libs/rabbit/rabbit.php';
+
+    global $user, $xc_settings;
+    
+    Rabbit_Construct( 'empty' );
+
+    if ( !$user->Exists() || $user->Rights() <= $xc_settings[ 'chat' ][ 'enabled' ] ) {
+        return;
+    }
+    
+?><html>
     <head>
-        <title>Chat on Chit-Chat</title>
+        <title>Chat στο Chit-Chat</title>
     </head>
     <body>
         <applet code="Frontend" width="700" height="400">
             <param name="userid" value="<?php
-            echo isset( $_GET[ 'userid' ] )? $_GET[ 'userid' ]: '';
+            echo $user->Id();
             ?>" />
             <param name="username" value="<?php
-            echo isset( $_GET[ 'username' ] ) ? $_GET[ 'username' ]: '';
+            echo $user->Username();
             ?>" />
             <param name="authtoken" value="<?php
-            echo isset( $_GET[ 'authtoken' ] ) ? $_GET[ 'authtoken' ]: '';
+            echo $user->Authtoken();
             ?>" />
             <b>You must have Java Runtime Environment installed on this application</b>
         </applet>
     </body>
-</html>
+</html><?php
+
+    Rabbit_Destrust();
+    
+?>
