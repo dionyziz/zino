@@ -298,10 +298,13 @@ var pms = {
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
+			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none';
+			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
+				realpm.parentNode.removeChild( realpm );
+			} );
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
-			DDM.refreshCache(); 
 			//take the last part of the string "folder_id"
         };
 		dd1.startDrag = function() {
