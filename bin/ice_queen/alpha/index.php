@@ -5,7 +5,7 @@
 
     global $user, $xc_settings;
     
-    Rabbit_Construct( 'empty' );
+    Rabbit_Construct( 'html' );
 
     if ( !$user->Exists() || $user->Rights() <= $xc_settings[ 'chat' ][ 'enabled' ] ) {
         return;

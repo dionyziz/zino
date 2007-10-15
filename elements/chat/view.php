@@ -5,7 +5,8 @@
 		global $page;
 		global $libs;
 		global $xc_settings;
-		
+		global $rabbit_settings;
+        
 		if ( $user->Rights() < $xc_settings[ 'chat' ][ 'enabled' ] ) {
 			return;
 		}
@@ -14,7 +15,8 @@
         }
 		
 		$page->SetTitle( 'Chat' );
-		
+		$page->SetBase( $rabbit_settings[ 'webaddress' ] . '/chat/' );
+        
 		?><br /><br /><br /><br />
         <div style="text-align:center">
             <applet code="Frontend" width="700" height="400">
@@ -30,5 +32,7 @@
                 <b>You must have Java Runtime Environment installed on this application</b>
             </applet>
         </div><?php
+        
+        return array( 'tiny' => true );
 	}
 ?>
