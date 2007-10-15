@@ -281,7 +281,7 @@ var pms = {
 	},
 	DragPm : function( pmid ) {
 		var Dom = YAHOO.util.Dom;
-		var pmdiv = document.getElementById( pmid );
+		var pmdiv = Dom.get( pmid );
 		var dd1 = new YAHOO.util.DDProxy( pmdiv );
 		
 		startPos = Dom.getXY( pmdiv );
