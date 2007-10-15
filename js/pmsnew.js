@@ -301,7 +301,7 @@ var pms = {
 			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none';
-
+			/*
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
@@ -318,6 +318,7 @@ var pms = {
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
 					realpm.style.display = 'none';
 			} );
+			*/
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
         };
