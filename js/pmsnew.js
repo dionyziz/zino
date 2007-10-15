@@ -285,8 +285,8 @@ var pms = {
 		var Dom = YAHOO.util.Dom;
 		
 		var startPos = Dom.getXY( pmdiv );
-		alert( " x is: " + startPos.[ 0 ] );
-		alert( "y is: " + startPos.[ 1 ] );
+		alert( " x is: " + startPos[ 0 ] );
+		alert( "y is: " + startPos[ 1 ] );
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
