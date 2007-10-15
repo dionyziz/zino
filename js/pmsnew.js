@@ -300,14 +300,14 @@ var pms = {
             alert( 'Moving to folder ' + id );
         };
         dd1.onInvalidDrop = function ( e ) {
+        };
+		dd1.endDrag = function( e ) {
             var p = this.getDragEl();
             p.style.visibility = '';
             Animations.Create( p, 'left', 1000, dd1.offsetLeft, startPos[ 0 ] );
             Animations.Create( p, 'top', 1000, dd1.offsetTop, startPos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
-        };
-		dd1.endDrag = function( e ) {
             // alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
             // sthis.getEl().offsetTop = startPos[ 1 ];
