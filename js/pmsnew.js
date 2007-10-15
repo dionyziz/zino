@@ -302,19 +302,8 @@ var pms = {
             alert( 'gamo sou' );
         };
 		dd1.onInvalidDrop = function( e ) {
-			alert( "invalid drop " );
-			/*
-			new YAHOO.util.Motion( 
-				this.id, {
-					points : {
-						to : startPos
-					}
-				},
-				0.3,
-				YAHOO.util.Easing.easeOut
-			).animate();
-			*/
-			Dom.setXY( this.getEl() , startPos );
+            this.getEl().offsetLeft = startPos[ 0 ];
+            this.getEl().offsetTop = startPos[ 1 ];
 		};
 	},
 	UpdateUnreadPms : function( specnumber ) {
