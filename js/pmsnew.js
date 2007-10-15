@@ -297,7 +297,8 @@ var pms = {
 		*/
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
-            alert( 'Moving to folder ' + id );
+            alert( 'Moving to folder ' + id.substring( 7 );
+			//take the last part of the string "folder_id"
         };
         dd1.onInvalidDrop = function ( e ) {
         };
