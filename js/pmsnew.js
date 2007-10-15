@@ -280,9 +280,9 @@ var pms = {
 		
 	},
 	DragPm : function( pmid ) {
-		var Dom = YAHOO.util.Dom;
-		var pmdiv = Dom.get( pmid );
+		var pmdiv = document.getElementById( pmid );
 		var dd1 = new YAHOO.util.DDProxy( pmdiv );
+		var Dom = YAHOO.util.Dom;
 		
 		startPos = Dom.getXY( pmdiv );
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
@@ -300,6 +300,8 @@ var pms = {
             alert( 'gamo sou' );
         };
 		dd1.onInvalidDrop = function( e ) {
+			alert( "invalid drop" );
+			/*
 			new YAHOO.util.Motion( 
 				this.id, {
 					points : {
@@ -309,6 +311,8 @@ var pms = {
 				0.3,
 				YAHOO.util.Easing.easeOut
 			).animate();
+			*/
+			Dom.setXY( this.getEl() , startPos );
 		};
 	},
 	UpdateUnreadPms : function( specnumber ) {
