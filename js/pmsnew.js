@@ -295,7 +295,7 @@ var pms = {
 			}
 		});
 		*/
-        var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
+        //var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
