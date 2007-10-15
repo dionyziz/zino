@@ -297,7 +297,11 @@ var pms = {
 		*/
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
+			var p = this.getDragEl();
+			
+			p.style.display = 'none';
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
+			DDM.refreshCache(); 
 			//take the last part of the string "folder_id"
         };
 		dd1.startDrag = function() {
@@ -307,6 +311,9 @@ var pms = {
 			//p.style.border = '1px dotted red;'
 		};
         dd1.onInvalidDrop = function( e ) {
+
+        };
+		dd1.endDrag = function( e ) {
 			var p = this.getDragEl();
             var q = this.getEl();
             
@@ -319,9 +326,6 @@ var pms = {
             Animations.Create( p, 'top', 1000, proxypos[ 1 ], srcpos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
-        };
-		dd1.endDrag = function( e ) {
-
             // alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
             // sthis.getEl().offsetTop = startPos[ 1 ];
