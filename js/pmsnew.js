@@ -298,7 +298,7 @@ var pms = {
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function() {
         };
-		dd1.onInvalidDrop = function( e ) {
+		dd1.endDrag = function( e ) {
             alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
             // sthis.getEl().offsetTop = startPos[ 1 ];
