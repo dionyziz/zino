@@ -286,7 +286,7 @@ var pms = {
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
-		dd1.onDragOver = function() {
+		dd1.onDragDrop = function() {
             alert( "testing" );
         };
 	},
