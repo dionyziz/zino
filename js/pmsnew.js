@@ -305,8 +305,8 @@ var pms = {
             var p = this.getDragEl();
             p.style.visibility = '';
             
-            Animations.Create( p, 'left', 1000, p.style.left.substr( 0, dd1.style.left.length - 2 ), startPos[ 0 ] );
-            Animations.Create( p, 'top', 1000, p.style.top.substr( 0, dd1.style.left.top - 2 ), startPos[ 1 ], function () {
+            Animations.Create( p, 'left', 1000, p.style.left.substr( 0, p.style.left.length - 2 ), startPos[ 0 ] );
+            Animations.Create( p, 'top', 1000, p.style.top.substr( 0, p.style.left.top - 2 ), startPos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
             // alert( this.getEl() );
