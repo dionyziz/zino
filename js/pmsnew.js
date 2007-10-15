@@ -305,7 +305,7 @@ var pms = {
 			var q = this.getEl();
 			
 			p.innerHTML = q.innerHTML;
-			p.className = 'infobar';
+			p.className = 'message';
 			p.style.opacity = '0.2em';
 		};
         dd1.onInvalidDrop = function( e ) {
