@@ -284,7 +284,9 @@ var pms = {
 		var dd1 = new YAHOO.util.DDProxy( pmdiv );
 		var Dom = YAHOO.util.Dom;
 		
-		startPos = Dom.getXY( pmdiv );
+		var startPos = Dom.getXY( pmdiv );
+		alert( " x is: " + startPos.x );
+		alert( "y is: " + startPos.y );
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
@@ -300,7 +302,7 @@ var pms = {
             alert( 'gamo sou' );
         };
 		dd1.onInvalidDrop = function( e ) {
-			alert( "invalid drop " + this.getEl().id );
+			alert( "invalid drop " );
 			/*
 			new YAHOO.util.Motion( 
 				this.id, {
