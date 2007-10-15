@@ -282,6 +282,7 @@ var pms = {
 	DragPm : function( pmid ) {
 		var pmdiv = document.getElementById( pmid );
 		var dd1 = new YAHOO.util.DDProxy( pmdiv );
+		var Dom = YAHOO.util.Dom;
 		startPos = YAHOO.util.Dom.getXY( pmdiv );
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
