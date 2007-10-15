@@ -296,10 +296,11 @@ var pms = {
 		});
 		*/
         var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
-		dd1.onDragDrop = function() {
+		dd1.onDragDrop = function( e, id ) {
+            alert( 'Moving to folder ' + id );
         };
 		dd1.endDrag = function( e ) {
-            alert( this.getEl() );
+            // alert( this.getEl() );
             // .offsetLeft = startPos[ 0 ];
             // sthis.getEl().offsetTop = startPos[ 1 ];
 		};
