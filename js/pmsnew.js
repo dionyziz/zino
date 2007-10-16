@@ -24,7 +24,6 @@ var pms = {
 			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
-		pms.CountPmsinFolder();
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } );
 	}
 	,
@@ -308,7 +307,6 @@ var pms = {
 			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none'
-			alert( 'at start of function: ' + pms.pmsinfolder );
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
@@ -435,12 +433,5 @@ var pms = {
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
-	},
-	CountPmsinFolder : function() {	
-		var messagescontainer = document.getElementById( 'messages' );
-		var messagescontainerdivlist = messagescontainer.getElementsByTagName( 'div' );
-		alert( messagescontainerdivlist.length );
-		pms.pmsinfolder = messagescontainerdivlist.length / 4;
-		alert( pms.pmsinfolder );
 	}
 };
