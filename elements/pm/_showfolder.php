@@ -20,12 +20,7 @@
     		$messages = $folder->Messages();
     	}
     	$water->Trace( 'messages number: ' . count( $messages ) );
-		$pmsinfolder = count( $messages );
-		?><script type="text/javascript">
-		alert( 'show folder element called' );
-		var pmsinfolder = <?php
-		echo $pmsinfolder;
-		?>;</script><?php
+		
     	if ( $pmsinfolder == 0 ) {
     		?>Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο<?php
     	}

@@ -3,6 +3,7 @@ var pms = {
 	activefolder : 0,
 	node : 0,
 	activepm : 0,
+	pmsinfolder : 0,
 	messagescontainer : document.getElementById( 'messages' ),
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
@@ -23,6 +24,7 @@ var pms = {
 			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
+		pms.CountPmsinFolder();
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } );
 	}
 	,
@@ -276,7 +278,7 @@ var pms = {
 			if ( !read ) {
 				pms.UpdateUnreadPms( -1 );
 			}
-			if ( pmsinfolder == 1 ) {
+			if ( pms.pmsinfolder == 1 ) {
 				var messagescontainer = document.getElementById( 'messages' );
 				nopmsspan = document.createElement( 'span' );
 				nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
@@ -284,7 +286,7 @@ var pms = {
 				messagescontainer.appendChild( nopmsspan );
 				Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 			}
-			pmsinfolder--;
+			pms.pmsinfolder--;
 			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
 		
@@ -318,8 +320,8 @@ var pms = {
 			realpm.style.margin = '0px';
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
-				alert( 'animations function: ' + pmsinfolder );
-				if ( pmsinfolder == 1 ) {
+				alert( 'animations function: ' + pms.pmsinfolder );
+				if ( pms.pmsinfolder == 1 ) {
 					var messagescontainer = document.getElementById( 'messages' );
 					nopmsspan = document.createElement( 'span' );
 					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
@@ -329,7 +331,7 @@ var pms = {
 					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 				}
 			} );
-			--pmsinfolder;
+			pms.pmsinfolder--;
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
 					realpm.style.display = 'none';
 			} );
@@ -427,5 +429,9 @@ var pms = {
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
 		}
+	},
+	CountPmsinFolder : function() {	
+		var messagescontainerdivlist = messagescontainter.getElementsByTagName( 'div' );
+		pms.pmsinfolder = messagescontainerdivlist.length / 4;
 	}
 };
