@@ -275,6 +275,15 @@ var pms = {
 			if ( !read ) {
 				pms.UpdateUnreadPms( -1 );
 			}
+			if ( pmsinfolder == 1 ) {
+				var messagescontainer = document.getElementById( 'messages' );
+				nopmsspan = document.createElement( 'span' );
+				nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
+				nopmsspan.style.opacity = '0';
+				messagescontainer.appendChild( nopmsspan );
+				Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
+			}
+			pmsinfolder--;
 			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
 		
@@ -308,7 +317,16 @@ var pms = {
 			realpm.style.margin = '0px';
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
+				if ( pmsinfolder == 1 ) {
+					var messagescontainer = document.getElementById( 'messages' );
+					nopmsspan = document.createElement( 'span' );
+					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
+					nopmsspan.style.opacity = '0';
+					messagescontainer.appendChild( nopmsspan );
+					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
+				}
 			} );
+			--pmsinfolder;
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
 					realpm.style.display = 'none';
 			} );
