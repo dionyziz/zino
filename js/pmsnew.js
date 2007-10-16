@@ -288,14 +288,6 @@ var pms = {
 		YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
-		/*
-		YAHOO.extend( YAHOO.example.DDList, YAHOO.util.DDProxy, {
-			onDragDrop : function( e , id ) {
-				alert( "fuck you" );
-			}
-		});
-		*/
-        //var mytarget = new YAHOO.util.DDTarget( 'sentfolder' );
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
