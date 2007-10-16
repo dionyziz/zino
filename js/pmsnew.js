@@ -337,7 +337,7 @@ var pms = {
 			} );
 			pms.pmsinfolder--;
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
-					realpm.style.display = 'none';
+					realpm.parentNode.removeChild( realpm );
 			} );
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
