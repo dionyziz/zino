@@ -4,6 +4,7 @@
     	global $libs;
     	
     	if( !$user->CanModifyCategories() ) {
+    		echo "Δεν έχεις τα κατάλληλα δικαιώματα!";
     		return;
     	}
     	
@@ -11,6 +12,7 @@
     	
     	$type = $type->Get();
     	if( $type == '' || strlen( $type ) > 20 ) {
+    		echo "Δεν παρείχες έγκυρη σχέση";
     		return;
     	}
     	$relation = New Relation();

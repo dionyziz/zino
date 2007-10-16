@@ -33,11 +33,7 @@
 			</fieldset>
 			</form>
 			<br /><br /><br />
-			
-			<div style="float: right;">
-			Ta top relations tha emfanizonte<br />
-			edo se ena table
-			</div><?php
+			<?php
 		if( count( $relations ) ) {	?>
 			<ul id="relations" style="list-style-type: none;"><?php
 
