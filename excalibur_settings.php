@@ -13,6 +13,8 @@
 		'anonymouscomments' => false,
         'allowregisters'    => true,
         'mysql2phpdate'     => '- INTERVAL 2 HOUR',
+        'pminboxname'       => 'Εισερχόμενα', // TODO: change db structure
+        'pmoutboxname'      => 'Εξερχόμενα', // TODO: change db structure
         'memcache'          => array(
             'type'      => 'memcached',
             'hostname'  => '127.0.0.1',

@@ -108,8 +108,8 @@
 							`$pmmessageinfolder` INNER JOIN `$users` 
 								ON `pmif_userid` = `user_id`
 						WHERE
-							`pmif_id` = '" . $this->Id() . "' AND
-							`pmif_userid` != '" . $this->SenderId() . "' AND
+							`pmif_id` = '" . $this->Id . "' AND
+							`pmif_userid` != '" . $this->SenderId . "' AND
 							`user_delid` != 0
 						LIMIT
 							" . PM_MAX_RECEIVERS . "
