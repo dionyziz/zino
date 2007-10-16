@@ -266,6 +266,7 @@ var pms = {
 				//if the message is already read there is no such image
 				delimg2.style.display = 'none';
 			}
+			alert( pmsinfolder );
 			msgnode.style.margin = '0px';
 			Animations.Create( msgnode , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( msgnode , 'height' , 3000 , msgnode.offsetHeight , 0 , function() {
@@ -302,7 +303,7 @@ var pms = {
 			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none'
-			
+			alert( pmsinfolder );
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
@@ -323,6 +324,7 @@ var pms = {
 					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
 					nopmsspan.style.opacity = '0';
 					messagescontainer.appendChild( nopmsspan );
+					alert( nopmsspan );
 					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 				}
 			} );
