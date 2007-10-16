@@ -325,9 +325,6 @@ var pms = {
 			
 			p.style.border = '1px dotted #92bcc1;'
 		};
-        dd1.onInvalidDrop = function( e ) {
-
-        };
 		dd1.endDrag = function( e ) {
 			var p = this.getDragEl();
             var q = this.getEl();
