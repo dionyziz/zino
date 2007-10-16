@@ -327,7 +327,7 @@ var pms = {
 			var p = this.getDragEl();
 			var q = this.getEl();
 			
-			p.style.border = '1px dotted #98b6c9;'
+			p.style.border = '1px dotted #8593b0;'
 		};
         dd1.onInvalidDrop = function( e ) {
 
