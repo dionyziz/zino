@@ -278,7 +278,10 @@ var pms = {
 			if ( !read ) {
 				pms.UpdateUnreadPms( -1 );
 			}
-			if ( pms.pmsinfolder == 1 ) {
+			var messagescontainer = document.getElementById( 'messages' );
+			var messagescontainerdivlist = messagescontainer.getElementsByTagName( 'div' );
+			alert( messagescontainerdivlist.length );
+			if ( messagescontainerdivlist.length / 12 == 1 ) {
 				var messagescontainer = document.getElementById( 'messages' );
 				nopmsspan = document.createElement( 'span' );
 				nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
@@ -320,12 +323,10 @@ var pms = {
 			realpm.style.margin = '0px';
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
-				alert( 'animations function: ' + pms.pmsinfolder );
 				var messagescontainer = document.getElementById( 'messages' );
 				var messagescontainerdivlist = messagescontainer.getElementsByTagName( 'div' );
 				alert( messagescontainerdivlist.length );
-				
-				if ( messagescontainerdivlist.length / 4 == 1 ) {
+				if ( messagescontainerdivlist.length / 12 == 1 ) {
 					//var messagescontainer = document.getElementById( 'messages' );
 					nopmsspan = document.createElement( 'span' );
 					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
