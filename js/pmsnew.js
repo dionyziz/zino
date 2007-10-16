@@ -303,7 +303,7 @@ var pms = {
 			var realpm = document.getElementById( pmid );
 			
 			p.style.display = 'none'
-			alert( pmsinfolder );
+			alert( 'at start of function: ' + pmsinfolder );
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
@@ -318,6 +318,7 @@ var pms = {
 			realpm.style.margin = '0px';
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
+				alert( 'animations function: ' + pmsinfolder );
 				if ( pmsinfolder == 1 ) {
 					var messagescontainer = document.getElementById( 'messages' );
 					nopmsspan = document.createElement( 'span' );
