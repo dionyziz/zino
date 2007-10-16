@@ -300,7 +300,7 @@ var pms = {
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
 			
-			p.style.display = 'none';
+			p.style.display = 'none'
 			
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
@@ -317,8 +317,8 @@ var pms = {
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
 					realpm.style.display = 'none';
+					p.style.display = '';
 			} );
-			
 			Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 			//take the last part of the string "folder_id"
         };
