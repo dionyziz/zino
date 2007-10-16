@@ -278,6 +278,7 @@ var pms = {
 			if ( !read ) {
 				pms.UpdateUnreadPms( -1 );
 			}
+			/*
 			if ( pms.pmsinfolder == 1 ) {
 				var messagescontainer = document.getElementById( 'messages' );
 				nopmsspan = document.createElement( 'span' );
@@ -286,6 +287,7 @@ var pms = {
 				pms.messagescontainer.appendChild( nopmsspan );
 				Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 			}
+			*/
 			pms.pmsinfolder--;
 			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
@@ -321,6 +323,7 @@ var pms = {
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
 				alert( 'animations function: ' + pms.pmsinfolder );
+				/*
 				if ( pms.pmsinfolder == 1 ) {
 					//var messagescontainer = document.getElementById( 'messages' );
 					nopmsspan = document.createElement( 'span' );
@@ -331,6 +334,7 @@ var pms = {
 					alert( nopmsspan );
 					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 				}
+				*/
 			} );
 			pms.pmsinfolder--;
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
