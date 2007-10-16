@@ -434,5 +434,6 @@ var pms = {
 	CountPmsinFolder : function() {	
 		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		pms.pmsinfolder = messagescontainerdivlist.length / 4;
+		alert( pms.pmsinfolder );
 	}
 };
