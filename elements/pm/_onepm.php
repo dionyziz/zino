@@ -14,7 +14,9 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			?>' );"<?php
 		}
 		else {
-			?> style="cursor:pointer;"<?php
+			?> style="cursor:pointer;" onclick="pms.ExpandPm( this , false , <?php
+			echo $pmobj->Id;
+			?> );"<?php
 		}
 		?>><?php
 			if ( $folder != -2 ) {
