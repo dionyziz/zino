@@ -14,7 +14,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			?>' );"<?php
 		}
 		else {
-			?> style="cursor:point;"<?php
+			?> style="cursor:default;"<?php
 		}
 		?>><?php
 			if ( $folder != -2 ) {
