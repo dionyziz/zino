@@ -322,12 +322,12 @@ var pms = {
 				p.style.display = '';
 				alert( 'animations function: ' + pms.pmsinfolder );
 				if ( pms.pmsinfolder == 1 ) {
-					var messagescontainer = document.getElementById( 'messages' );
+					//var messagescontainer = document.getElementById( 'messages' );
 					nopmsspan = document.createElement( 'span' );
 					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
 					nopmsspan.style.opacity = '0';
-					alert( messagescontainer );
-					messagescontainer.appendChild( nopmsspan );
+					alert( pms.messagescontainer);
+					pms.messagescontainer.appendChild( nopmsspan );
 					alert( nopmsspan );
 					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
 				}
@@ -432,7 +432,7 @@ var pms = {
 		}
 	},
 	CountPmsinFolder : function() {	
-		var messagescontainerdivlist = messagescontainter.getElementsByTagName( 'div' );
+		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		pms.pmsinfolder = messagescontainerdivlist.length / 4;
 	}
 };
