@@ -267,7 +267,6 @@ var pms = {
 				//if the message is already read there is no such image
 				delimg2.style.display = 'none';
 			}
-			alert( pms.pmsinfolder );
 			msgnode.style.margin = '0px';
 			Animations.Create( msgnode , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( msgnode , 'height' , 3000 , msgnode.offsetHeight , 0 , function() {
@@ -286,9 +285,10 @@ var pms = {
 				nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
 				nopmsspan.style.opacity = '0';
 				pms.messagescontainer.appendChild( nopmsspan );
-				Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
+				Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
 			}
 			pms.pmsinfolder--;
+			pms.WriteNoPms();
 			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
 		
@@ -321,19 +321,7 @@ var pms = {
 			realpm.style.margin = '0px';
 			Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 				p.style.display = '';
-				var messagescontainer = document.getElementById( 'messages' );
-				var messagescontainerdivlist = messagescontainer.getElementsByTagName( 'div' );
-				alert( messagescontainerdivlist.length );
-				if ( messagescontainerdivlist.length / 12 == 1 ) {
-					//var messagescontainer = document.getElementById( 'messages' );
-					nopmsspan = document.createElement( 'span' );
-					nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
-					nopmsspan.style.opacity = '0';
-					alert( pms.messagescontainer);
-					pms.messagescontainer.appendChild( nopmsspan );
-					alert( nopmsspan );
-					Animations.Create( nopmsspan , 'opacity' , 2000 , 0 , 1 );
-				}
+				pms.WriteNoPms();
 			} );
 			pms.pmsinfolder--;
 			Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
@@ -432,6 +420,18 @@ var pms = {
 		//clears the area where pms appear
 		while ( pms.messagescontainer.firstChild ) {
 			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
+		}
+	},
+	WriteNoPms : function() {
+		var messagescontainer = document.getElementById( 'messages' );
+		var messagescontainerdivlist = messagescontainer.getElementsByTagName( 'div' );
+		if ( messagescontainerdivlist.length / 12 == 1 ) {
+			//var messagescontainer = document.getElementById( 'messages' );
+			nopmsspan = document.createElement( 'span' );
+			nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
+			nopmsspan.style.opacity = '0';
+			pms.messagescontainer.appendChild( nopmsspan );
+			Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
 		}
 	}
 };
