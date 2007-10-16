@@ -20,6 +20,7 @@
     		$messages = $folder->Messages();
     	}
     	$water->Trace( 'messages number: ' . count( $messages ) );
+		$pmsinfolder = count( $messages );
 		
     	if ( $pmsinfolder == 0 ) {
     		?>Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο<?php
