@@ -13,6 +13,9 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			echo $pmobj->Id;
 			?>' );"<?php
 		}
+		else {
+			?> style="cursor:pointer;"<?php
+		}
 		?>><?php
 			if ( $folder != -2 ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
