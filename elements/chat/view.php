@@ -29,6 +29,9 @@
                 <param name="authtoken" value="<?php
                 echo $user->Authtoken();
                 ?>" />
+                <param name="address" value="<?php
+                echo $rabbit_settings[ 'hostname' ];
+                ?>" />
                 <b>You must have Java Runtime Environment installed on this application</b>
             </applet>
         </div><?php
