@@ -19,6 +19,7 @@
         
 		?><br /><br /><br /><br />
         <div style="text-align:center">
+            <b>Δοκιμαστική έκδοση μόνο για μέλη της ομάδας δημοσίων σχέσεων και την ομάδα ανάπτυξης</b><br /><br />
             <applet code="Frontend" width="700" height="400">
                 <param name="userid" value="<?php
                 echo $user->Id();
