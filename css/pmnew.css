@@ -51,6 +51,14 @@ div.folder {
 	padding: 3px 3px 3px 22px;
 	min-width: 108px;
 }
+div.hoverfolder {
+	background-color: #f4f5f7;
+	background-image: url( 'http://static.chit-chat.gr/images/folder.png' );
+	background-position: 3px 3px;
+	background-repeat: no-repeat;
+	padding: 3px 3px 3px 22px;
+	min-width: 108px;
+}
 div.newfolder {
 	/*border-top: 1px solid #d7d7d7;*/
 	background-image: url( 'http://static.chit-chat.gr/images/folder_add.png' );
