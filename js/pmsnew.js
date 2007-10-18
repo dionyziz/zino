@@ -299,6 +299,7 @@ var pms = {
 			targetdiv.style.border = '1px solid red';
 		};
 		dd1.onDragOut = function( e , id ) {
+			alert( 'out' );
 			var targetdiv = document.getElementById( id );
 			targetdiv.style.opacity = '1px solid green';
 		};
