@@ -295,11 +295,11 @@ var pms = {
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
 		dd1.onDragStart = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.opacity = '0.5';
+			targetdiv.style.border = '1px solid red';
 		};
 		dd1.onDragOut = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.opacity = '1';
+			targetdiv.style.opacity = '1px solid green';
 		};
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
