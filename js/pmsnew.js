@@ -294,7 +294,6 @@ var pms = {
 		YAHOO.util.DragDropMgr.clickPixelThresh = 10;
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
 		dd1.onDragEnter = function( e , id ) {
-			alert( 'entered' );
 			var targetdiv = document.getElementById( id );
 			targetdiv.style.border = '1px solid red';
 		};
