@@ -295,11 +295,11 @@ var pms = {
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
 		dd1.onDragEnter = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.border = '1px solid red';
+			targetdiv.style.backgroundColor = '#eaf1f7';
 		};
 		dd1.onDragOut = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.border = '1px solid green';
+			targetdiv.style.backgroundColor = '#ffffff';
 		};
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
