@@ -311,6 +311,8 @@ var pms = {
 			var delimg = msgnodeimgs[ 0 ];
 			var delimg2 = msgnodeimgs[ 1 ];
 			var lowerdiv = msgnodedivs[ 6 ];
+			var targetdiv = document.getElementById( id );
+			targetdiv.style.backgroundColor = '#ffffff';
 			lowerdiv.style.display = 'none';
 			delimg.style.display = 'none';
 			if ( delimg2 ) {
