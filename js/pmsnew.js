@@ -312,7 +312,7 @@ var pms = {
 			var delimg2 = msgnodeimgs[ 1 ];
 			var lowerdiv = msgnodedivs[ 6 ];
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.backgroundColor = '#ffffff';
+			targetdiv.className = 'folder top';
 			lowerdiv.style.display = 'none';
 			delimg.style.display = 'none';
 			if ( delimg2 ) {
