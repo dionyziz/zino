@@ -17,10 +17,10 @@
 		$page->SetTitle( 'Chat' );
 		$page->SetBase( $rabbit_settings[ 'webaddress' ] . '/chat/' );
         
-		?><br /><br /><br /><br />
+		?>
         <div style="text-align:center">
-            <b>Δοκιμαστική έκδοση μόνο για μέλη της ομάδας δημοσίων σχέσεων και την ομάδα ανάπτυξης</b><br /><br />
-            <applet code="Frontend" width="700" height="400">
+            <b>Δοκιμαστική έκδοση μόνο για δημοσιογράφους</b><br /><br />
+            <applet code="Frontend" width="100%" height="500">
                 <param name="userid" value="<?php
                 echo $user->Id();
                 ?>" />
