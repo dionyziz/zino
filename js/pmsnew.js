@@ -295,7 +295,7 @@ var pms = {
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
 		dd1.onDragEnter = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.backgroundColor = '#eaf1f7';
+			targetdiv.style.backgroundColor = '#f4f5f7';
 		};
 		dd1.onDragOut = function( e , id ) {
 			var targetdiv = document.getElementById( id );
