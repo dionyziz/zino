@@ -19,7 +19,7 @@
         
 		?><br /><br /><br /><br />
         <div style="text-align:center">
-            <b>Δοκιμαστική έκδοση μόνο για μέλη της ομάδας δημοσίων σχέσεων και την ομάδα ανάπτυξης</b><br /><br />
+            <b>Ξ”ΞΏΞΊΞΉΞΌΞ±ΟƒΟ„ΞΉΞΊΞ® Ξ­ΞΊΞ΄ΞΏΟƒΞ· ΞΌΟΞ½ΞΏ Ξ³ΞΉΞ± ΞΌΞ­Ξ»Ξ· Ο„Ξ·Ο‚ ΞΏΞΌΞ¬Ξ΄Ξ±Ο‚ Ξ΄Ξ·ΞΌΞΏΟƒΞ―Ο‰Ξ½ ΟƒΟ‡Ξ­ΟƒΞµΟ‰Ξ½ ΞΊΞ±ΞΉ Ο„Ξ·Ξ½ ΞΏΞΌΞ¬Ξ΄Ξ± Ξ±Ξ½Ξ¬Ο€Ο„Ο…ΞΎΞ·Ο‚</b><br /><br />
             <applet code="Frontend" width="700" height="400">
                 <param name="userid" value="<?php
                 echo $user->Id();
@@ -33,7 +33,7 @@
                 <param name="address" value="<?php
                 echo $rabbit_settings[ 'hostname' ];
                 ?>" />
-                <b>You must have Java Runtime Environment installed on this application</b>
+                <b>Ξ ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± Ξ­Ο‡ΞµΞΉΟ‚ ΞµΞ³ΞΊΞ±Ο„ΞµΟƒΟ„Ξ·ΞΌΞ­Ξ½ΞΏ Ο„ΞΏ Java Runtime Environment Ξ³ΞΉΞ± Ξ½Ξ± Ο„ΟΞ­ΞΎΞµΞΉΟ‚ Ξ±Ο…Ο„Ο Ο„ΞΏ Ο€ΟΟΞ³ΟΞ±ΞΌΞΌΞ±</b>
             </applet>
         </div><?php
         
