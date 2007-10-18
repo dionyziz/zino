@@ -295,11 +295,11 @@ var pms = {
 		YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
 		dd1.onDragEnter = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.className = 'hoverfolder';
+			targetdiv.className = 'hoverfolder top';
 		};
 		dd1.onDragOut = function( e , id ) {
 			var targetdiv = document.getElementById( id );
-			targetdiv.className = 'folder';
+			targetdiv.className = 'folder top';
 		};
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
