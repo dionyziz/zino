@@ -298,9 +298,8 @@ var pms = {
 			targetdiv.style.border = '1px solid red';
 		};
 		dd1.onDragOut = function( e , id ) {
-			alert( 'out' );
 			var targetdiv = document.getElementById( id );
-			targetdiv.style.opacity = '1px solid green';
+			targetdiv.style.border = '1px solid green';
 		};
 		dd1.onDragDrop = function( e, id ) {
 			var p = this.getDragEl();
