@@ -43,7 +43,7 @@
                 echo $user->Username(); 
                 ?>">Προφίλ</a></li><?php
                 if ( $user->Rights() >= $xc_settings[ 'chat' ][ 'enabled' ] ) {
-                    ?><li><a class="chat" href="" onclick="window.open('chat', 'ccchat');return false;">Κάνε Chat</a></li><?php
+                    ?><li><a class="chat" href="" onclick="window.open('chat', 'ccchat');return false;">Chat</a></li><?php
                 }
                 ?><li><a href="javascript:Userbox.Animate();" class="arrow" style="visibility:hidden;" title="Προβολή κάρτας χρήστη" id="userboxshow"></a></li>
             </ul><?php
