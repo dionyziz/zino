@@ -2,6 +2,11 @@
 function ElementPmOnepm( $pmobj , $folder ) {
 	global $user;
 	global $water;
+
+    if ( $folder == -2 ) {
+        print_r( $pmobj );
+        return;
+    }
 	
 	$usersended = $pmobj->Sender;
 	?><div class="message" style="width:620px;" id="pm_<?php
