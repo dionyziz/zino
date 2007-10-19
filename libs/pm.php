@@ -152,10 +152,7 @@
 			$this->mFolderId = $folderid;
 		}
 		protected function SetReceivers( $receivers ) {
-			if ( is_array( $receivers ) ) {
-				$this->mReceivers = $receivers;
-				return true;
-			}
+            $this->mReceivers = $receivers;
 		}
 		protected function SetUser( $pmuser ) {
 			w_assert( $pmuser instanceof User );
@@ -384,7 +381,7 @@
 					
 					WHERE
 						`pmif_folderid` = '" . $this->Id . "' AND
-						`pmif_userid` = '" . $user->Id() . "' AND
+						( `pmif_userid` = '" . $user->Id() . "' OR `pm_senderid` = '" . $user->Id() . "' ) AND
 						`pmif_delid` != '2'
 					ORDER BY 
 						`pm_id` DESC
