@@ -53,6 +53,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			else {
 				?>προς τον <?php
 			}
+            die( "done" );
 			?></div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
 				Element( 'user/static' , $pmobj->Sender );
