@@ -49,13 +49,19 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			?> );return false;"><?php
 			if ( $folder != -2 ) {
                 ?> από τ<?php
-                $pmsender = $pmobj->Sender;
+                $pmuser = $pmobj->Sender;
 			}
 			else {
 				?> προς τ<?php
-                $pmsender = $user;
+                $pmuser = $pmobj->Receivers;
 			}
-            if ( $pmsender->Gender() == 'female' ) {
+            if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) {
+                ?>ους<?php
+            }
+            else if ( is_array( $pmuser ) ) {
+                $pmuser = $pmuser[ 0 ];
+            }
+            if ( !is_array( $pmuser ) && $pmuser->Gender() == 'female' ) {
                 ?>η<?php
                 switch ( strtolower( substr( $pmobj->Sender->Username() , 0 , 1 ) ) ) {
                     case 'a':
@@ -71,7 +77,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
                     default:
                 }
             }
-            else {
+            else if ( !is_array( $pmuser ) ) {
                 ?>ον<?php
             }
 			?> </div><div style="display:inline" class="infobar_info"><?php
