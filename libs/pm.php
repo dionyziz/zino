@@ -116,6 +116,8 @@
 						;";
 				
 				$res = $db->Query( $sql );
+
+                die( $sql );
 				
 				$this->mReceivers = array();
 				while ( $row = $res->FetchArray() ) {
