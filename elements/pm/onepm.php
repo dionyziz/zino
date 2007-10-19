@@ -63,7 +63,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
             }
             if ( !is_array( $pmuser ) && $pmuser->Gender() == 'female' ) {
                 ?>η<?php
-                switch ( strtolower( substr( $pmobj->Sender->Username() , 0 , 1 ) ) ) {
+                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
                     case 'a':
                     case 'e':
                     case 'o':
@@ -79,6 +79,19 @@ function ElementPmOnepm( $pmobj , $folder ) {
             }
             else if ( !is_array( $pmuser ) ) {
                 ?>ον<?php
+                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
+                    case 'a':
+                    case 'e':
+                    case 'o':
+                    case 'u':
+                    case 'i':
+                    case 't':
+                    case 'p':
+                    case 'k':
+                        ?>ν<?php
+                        break;
+                    default:
+                }
             }
 			?> </div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
