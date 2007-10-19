@@ -60,7 +60,7 @@
         );
 
         $db->Insert( $pmm, $pmmessages );
-        $db->Insert( $pmifsend, $pmmessageinfodler );
+        $db->Insert( $pmifsend, $pmmessageinfolder );
         $db->Insert( $pmifrecv, $pmmessageinfolder );
 
         ?>OK<br /><?php
