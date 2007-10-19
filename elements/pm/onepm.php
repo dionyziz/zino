@@ -51,7 +51,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
                 ?> από τ<?php
 			}
 			else {
-				?>προς τ<?php
+				?> προς τ<?php
 			}
             if ( $pmobj->Sender->Gender() == 'female' ) {
                 ?>η<?php
@@ -72,7 +72,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
             else {
                 ?>ον<?php
             }
-			?></div><div style="display:inline" class="infobar_info"><?php
+			?> </div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
 				Element( 'user/static' , $pmobj->Sender );
 			}
