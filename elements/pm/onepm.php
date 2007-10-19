@@ -58,12 +58,12 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				Element( 'user/static' , $pmobj->Sender );
 			}
 			else {
-                die( "done" );
 				$receivers = $pmobj->Receivers;
 				echo 'receivers number: '.count( $receivers );
 				foreach ( $receivers as $receiver ) {
 					Element( 'user/static' , $receiver );
 				}
+                die( "done" );
 			}
 			?></div><div onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
