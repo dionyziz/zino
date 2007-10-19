@@ -1,136 +1,85 @@
-<?php 
-	function ElementPMList( tString $id, tString $to ) {
+<?php
+	function ElementPmList() {
 		global $page;
-		global $user;
+		global $water;
 		global $libs;
-		global $xc_settings;
+		global $user;
 		
-        $id = $id->Get();
-        $to = $to->Get();
-        
 		$libs->Load( 'pm' );
-		$page->SetTitle( 'Προσωπικά Μηνύματα' );
-		$page->AttachStylesheet( 'css/pms.css' );
-		$page->AttachScript( 'js/pms.js' );
-		
-		if ( $user->IsAnonymous() || $user->IsBanned() ) {
-			?><br />Πρέπει να εισέλθεις ή να <a href="?p=register">εγγραφείς</a> στο Chit-Chat για να δεις τα μηνύματά σου.<br /><?php
-			return;
-		}
-		
-		$inboxpms = $user->ReceivedPMs();
-		$outboxpms = $user->SentPMs();
-		
-		$allpms = array_merge( $inboxpms, $outboxpms );
-		PM_FormatMulti( $allpms );
-		
-		$inboxpms = array_slice( $allpms, 0, count( $inboxpms ) );
-		$outboxpms = array_slice( $allpms, count( $inboxpms ) );
-		
-		$user->MessagesRead();
-		
-		static $display = array( 'inbox' => 'none', 'outbox' => 'none', 'new' => 'none' );
-		
-		if ( $id != '' && isset( $display[ $id ] ) ) {
-			$display[ $id ] = 'block';
-		}
-		else {
-			$display[ 'inbox' ] = 'block';
-		}
-		
-		?><div class="pms">
-			<div class="top">
-				<div id="pmstitle" class="title">Εισερχόμενα</div>
-				<ul>
-					<li onclick="Pms.Display( 'inbox' );" id="inbox_link" class="active">Εισερχόμενα</li>
-					<li onclick="Pms.Display( 'outbox' );" id="outbox_link" class="inactive">Απεσταλμένα</li><?php
-                    if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
-                        ?><li onclick="Pms.Display( 'new' );" id="new_link" class="inactive">Νέο Μήνυμα</li><?php
-                    }
-					?><li>
-						<a href="?p=faqc&amp;id=26" style="display: inline;">
-							<img src="<?php
-								echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/help.png" alt="Πληροφορίες για τα προσωπικά μηνύματα" style="width: 16px; height: 16px; opacity: 0.5;" onmouseover="this.style.opacity=1;g( 'commenthelp' ).style.visibility='visible';" onmouseout="this.style.opacity=0.5;g( 'commenthelp' ).style.visibility='hidden';" />
-						</a>
-					</li>
-				</ul>
+		$page->SetTitle( 'Προσωπικά μηνύματα' );
+        
+		$page->AttachStyleSheet( 'css/pmnew.css' );
+		$page->AttachStyleSheet( 'css/modal.css' );
+        
+		$page->AttachScript( 'js/pmsnew.js' );
+		$page->AttachScript( 'js/coala.js' );
+		$page->AttachScript( 'js/modal.js' );
+		$page->AttachScript( 'js/animations.js' );
+        $page->AttachScript( 'js/drag.js' );
+        
+		$userfolders = PM_UserFolders();
+		$unreadmsgs = PM_UserCountUnreadPms( $user );
+		?><script type="text/javascript">
+	    var unreadpms = <?php
+		echo $unreadmsgs;
+		?>;</script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
+		<script src="http://yui.yahooapis.com/2.3.1/build/animation/animation-min.js"></script> 
+		<br /><br /><br /><br />
+		<div class="body">
+			<div class="upper">
+				<span class="title">Μηνύματα</span>
+				<div class="subheading">Εισερχόμενα</div>
 			</div>
-			<div style="display: none;" id="pm_page_id"><?php
-				echo $id;
-			?></div>
-			<div id="inbox_div" style="display: <?php
-			echo $display[ 'inbox' ];
-			?>">
-				<div class="main">
-					<div class="details"><?php
-						switch( count( $inboxpms ) ) {
-							case 0:
-								?>Δεν έχεις κανένα μήνυμα<?php
-								break;
-							case 1:
-								?>Έχεις 1 μήνυμα<?php
-								break;
-							default:
-								?>Έχεις <?php 
-                                echo count( $inboxpms ); 
-                                ?> μηνύματα<?php
-								break;
-						}
-					?> στα Εισερχόμενά σου.</div>
-					<br /><br />
-					<div class="comments" style="margin-top: 50px;"><?php
-						foreach ( $inboxpms as $pm ) {
-							Element( 'pm/view', $pm );
-						}
-					?></div>
-				</div>
+			<div class="leftbar">
+				<div class="folders" id="folders">
+					<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα<?php
+					if ( $unreadmsgs != 0 ) {
+						?> (<?php
+						echo $unreadmsgs;
+						?>)<?php
+					}
+					?></a></div>
+					<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><?php
+					foreach ( $userfolders as $folder ) {
+						?><div class="folder top" id="folder_<?php
+						echo $folder->Id;
+						?>" alt="<?php
+						echo $folder->Name;
+						?>" title="<?php
+						echo $folder->Name;
+						?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
+						echo $folder->Id;
+						?>' );return false;"><?php
+						echo $folder->Name;
+						?></a></div>
+						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_<?php
+						echo $folder->Id;
+						?>" );</script>
+						<?php
+					} ?>
+					<div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
+				</div><br />
+				<a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="http://static.chit-chat.gr/images/email_open.png" alt="Νέο μήνυμα" title="Νέο μήνυμα" /> Νέο μήνυμα</a><br />
+				<a href="" id="deletefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="http://static.chit-chat.gr/images/icons/folder_delete.png" alt="Διαγραφή φακέλου" title="Διαγραφή φακέλου" /> Διαγραφή φακέλου</a>
+				<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="http://static.chit-chat.gr/images/icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
 			</div>
-			<div id="outbox_div" style="display: <?php
-				echo $display[ 'outbox' ];
-			?>;">
-				<div class="main">
-					<div class="details"><?php
-						switch( count( $outboxpms ) ) {
-							case 0:
-								?>Δεν έχεις στείλει κανένα μήνυμα.<?php
-								break;
-							case 1:
-								?>Έχεις στείλει 1 μήνυμα.<?php
-								break;
-							default:
-								?>Έχεις στείλει <?php 
-                                echo count( $inboxpms ); 
-                                ?> μηνύματα.<?php
-								break;
-						}
-					?></div>
-					<br /><br />
-					<div class="comments" style="margin-top: 50px;"><?php
-						foreach ( $outboxpms as $pm ) {
-							Element( 'pm/view', $pm );
-						}
-					?></div>
-				</div>
-			</div><?php
-
-            if ( $user->Rights() >= $xc_settings[ 'readonly' ] ) {
-                ?><div id="new_div" style="display: <?php
-                    echo $display[ 'new' ];
-                    ?>;">
-                    <form action="do/pm/new" method="post" class="newpm" name="newpm">
-                        Προς: <input type="text" name="to" class="mytext" size="35" id="receiver" <?php
-                        if ( $to != '' ) {
-                            ?>value="<?php
-                            echo $to;
-                            ?>"<?php
-                        }
-                        ?> /><br /><br />
-                        <textarea cols="80" rows="15" name="text" id="pmtext"></textarea><br /><br />
-                        <input type="submit" value="Αποστολή" /><input type="reset" value="Επαναφορά" />
-                    </form>
-                </div><?php
-            }
-		?></div><?php
+			<div class="rightbar" style="float:left;">
+				<div class="messages" id="messages"><?php
+					Element( 'pm/showfolder' , -1 );
+				?></div>
+			</div>
+			<div style="clear:left;"></div>
+			<div class="newfoldermodal" id="newfoldermodal" style="display:none;">
+				Δώσε ένα όνομα για τον φάκελό σου<br /><br />
+				<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
+					<input type="textbox" style="width:130px;" /> 
+					<a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="http://static.chit-chat.gr/images/icons/accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+					<a href="" onclick="pms.CancelNewFolder();return false;"><img src="http://static.chit-chat.gr/images/icons/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+				</form>
+			</div>
+		</div>
+<?php
 	}
 ?>
