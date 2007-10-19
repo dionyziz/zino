@@ -101,7 +101,11 @@
 			return $this->mFolder;
 		}
 		protected function GetReceivers() {
-			if ( $this->mReceivers === false ) {
+			global $users;
+            global $pmmessageinfolder;
+            global $db;
+
+            if ( $this->mReceivers === false ) {
 				$sql = "SELECT 
 							`$users`.*
 						FROM 
@@ -115,7 +119,7 @@
 							" . PM_MAX_RECEIVERS . "
 						;";
 				
-                die( $sql );
+                // die( $sql );
 				$res = $db->Query( $sql );
 				
 				$this->mReceivers = array();
