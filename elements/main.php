@@ -9,8 +9,8 @@
         $page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
         $page->AttachScript( 'js/main.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
-        $page->AddMeta( 'keywords', 'greek portal, greek forum, greek community, greece, talk, portal, forum, community, chit, chat, chit-chat, teens, images, pictures, photos' );
-        $page->AddMeta( 'description', 'Chit-Chat is a greek community website' );
+        $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
+        $page->AddMeta( 'description', 'Το Chit-Chat είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
         ?><div class="axel"><?php
         ob_start();
