@@ -49,11 +49,13 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			?> );return false;"><?php
 			if ( $folder != -2 ) {
                 ?> από τ<?php
+                $pmsender = $pmobj->Sender;
 			}
 			else {
 				?> προς τ<?php
+                $pmsender = $user;
 			}
-            if ( $pmobj->Sender->Gender() == 'female' ) {
+            if ( $pmsender->Gender() == 'female' ) {
                 ?>η<?php
                 switch ( strtolower( substr( $pmobj->Sender->Username() , 0 , 1 ) ) ) {
                     case 'a':
