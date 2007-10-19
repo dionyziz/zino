@@ -48,11 +48,30 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			echo $pmobj->Id;
 			?> );return false;"><?php
 			if ( $folder != -2 ) {
-				?>από τον <?php
+                ?> από τ<?php
 			}
 			else {
-				?>προς τον <?php
+				?>προς τ<?php
 			}
+            if ( $pmobj->Sender->Gender() == 'female' ) {
+                ?>η<?php
+                switch ( strtolower( substr( $pmobj->Sender->Username() , 0 , 1 ) ) ) {
+                    case 'a':
+                    case 'e':
+                    case 'o':
+                    case 'u':
+                    case 'i':
+                    case 't':
+                    case 'p':
+                    case 'k':
+                        ?>ν<?php
+                        break;
+                    default:
+                }
+            }
+            else {
+                ?>ον<?php
+            }
 			?></div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
 				Element( 'user/static' , $pmobj->Sender );
