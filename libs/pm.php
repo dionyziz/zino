@@ -107,14 +107,13 @@
 
             if ( $this->mReceivers === false ) {
 				$sql = "SELECT 
-							`$users`.*
+							*
 						FROM 
 							`$pmmessageinfolder` INNER JOIN `$users` 
 								ON `pmif_userid` = `user_id`
 						WHERE
 							`pmif_id` = '" . $this->Id . "' AND
-							`pmif_userid` != '" . $this->SenderId . "' AND
-							`user_delid` != 0
+							`pmif_userid` != '" . $this->SenderId . "'
 						LIMIT
 							" . PM_MAX_RECEIVERS . "
 						;";
