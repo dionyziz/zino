@@ -30,5 +30,9 @@
     			Element( 'pm/onepm' , $msg , $folder );
     		}
     	}
+
+        if ( $folder == -2 ) {
+            die( "done" );
+        }
     }
 ?>
