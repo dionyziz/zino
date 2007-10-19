@@ -9,13 +9,18 @@
     	
     	$test = explode( ' ' , $usernames );
     	$userreceivers = User_ByUsername( $test );
-    	$pm = new PM();
-    	$pm->SenderId = $user->Id();
-    	$pm->Text = $pmtext;
-    	foreach ( $userreceivers as $receiver ) {	
-    		$pm->AddReceiver( $receiver );
-    	}
-    	$pm->Save();
+        if ( empty( $userreceivers ) ) {
+            ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
+        }
+        else {
+        	$pm = new PM();
+        	$pm->SenderId = $user->Id();
+        	$pm->Text = $pmtext;
+        	foreach ( $userreceivers as $receiver ) {	
+        		$pm->AddReceiver( $receiver );
+        	}
+        	$pm->Save();
+        }
     	?>pms.ShowFolderPm( document.getElementById( 'sentfolder' ) , -2 );<?php
     }
     
