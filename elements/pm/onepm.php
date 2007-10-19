@@ -99,10 +99,12 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			}
 			else {
 				$receivers = $pmobj->Receivers;
-				foreach ( $receivers as $receiver ) {
+				while ( $receiver = array_shift( $receivers ) ) {
 					Element( 'user/static' , $receiver );
+                    if ( count( $receivers ) ) {
+                        ?>, <?php
+                    }
 				}
-                ?>, <?php
 			}
 			?></div><div onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
