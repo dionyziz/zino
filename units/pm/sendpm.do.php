@@ -11,7 +11,7 @@
     	$userreceivers = User_ByUsername( $test );
 
         foreach ( $userreceivers as $i => $receiver ) {
-            if ( $receiver === $user ) {
+            if ( $receiver->Id() == $user->Id() ) {
                 unset( $userreceivers[ $i ] );
             }
         }
