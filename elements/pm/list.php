@@ -5,6 +5,10 @@
 		global $libs;
 		global $user;
 		
+        if (!$user->Exists()) {
+            return;
+        }
+        
 		$libs->Load( 'pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
         
