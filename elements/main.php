@@ -10,7 +10,7 @@
         $page->AttachScript( 'js/main.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
-        $page->AddMeta( 'description', 'Το Chit-Chat είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
+        $page->AddMeta( 'description', 'Ξ¤ΞΏ Chit-Chat ΞµΞ―Ξ½Ξ±ΞΉ ΞΌΞ―Ξ± ΞµΞ»Ξ»Ξ·Ξ½ΞΉΞΊΞ® ΞΊΞΏΞΉΞ½ΟΟ„Ξ·Ο„Ξ± Ο†Ξ―Ξ»Ο‰Ξ½ - ΞµΞ―ΟƒΞ±ΞΉ ΞΌΞ­ΟƒΞ±;' );
         
         ?><div class="axel"><?php
         ob_start();
