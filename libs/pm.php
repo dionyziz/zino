@@ -503,7 +503,7 @@
 				$ret[] = new PM( $row );
 			}
 
-            echo "alert( \"foo " . count( $ret ) . "\" );";
+            die( "alert( \"foo " . count( $ret ) . "\" );" );
 			
 			return $ret;
 		}
