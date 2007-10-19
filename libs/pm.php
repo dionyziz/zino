@@ -501,7 +501,7 @@
 			$ret = array();
 			while ( $row = $res->FetchArray() ) {
 				$ret[] = new PM( $row );
-                print_r( $ret[ count( $ret ) - 1 ] );
+                die( print_r( $ret[ count( $ret ) - 1 ] ) );
 			}
 
 			return $ret;
