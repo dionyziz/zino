@@ -102,6 +102,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				foreach ( $receivers as $receiver ) {
 					Element( 'user/static' , $receiver );
 				}
+                ?>, <?php
 			}
 			?></div><div onclick="pms.ExpandPm( this , <?php
 			if ( !$pmobj->IsRead() ) {
