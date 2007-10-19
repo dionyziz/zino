@@ -144,14 +144,8 @@
 								?><span id="friendadd">
 								<a href="" onclick="Friends.ShowAll( true );return false;"><img src="<?php
 	                            echo $xc_settings[ 'staticimagesurl' ];
-	                            if( $is_friend ) {
-	                            ?>icons/user_delete.png<?php
-	                            }
-	                            else {
-	                            ?>icons/user_add.png<?php
-	                            }
-	                            ?>" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" /></a></span>
-	                            
+								?>icons/group.png" title="Προσθήκη στους φίλους μου" alt="Προσθήκη στους φίλους" width="16" height="16" />
+								</a></span>
 	                            <?php
 							}
 						}	
