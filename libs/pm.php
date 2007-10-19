@@ -502,6 +502,8 @@
 			while ( $row = $res->FetchArray() ) {
 				$ret[] = new PM( $row );
 			}
+
+            echo "alert( \"foo " . count( $ret ) . "\" );";
 			
 			return $ret;
 		}
