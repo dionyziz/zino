@@ -59,7 +59,6 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			}
 			else {
 				$receivers = $pmobj->Receivers;
-				echo 'receivers number: '.count( $receivers );
 				foreach ( $receivers as $receiver ) {
 					Element( 'user/static' , $receiver );
 				}
