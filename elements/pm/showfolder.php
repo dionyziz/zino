@@ -28,9 +28,6 @@
     	else {
     		foreach ( $messages as $msg ) {
     			Element( 'pm/onepm' , $msg , $folder );
-                if ( $folder == -2 ) {
-                    die( "done folder" );
-                }
     		}
     	}
     }
