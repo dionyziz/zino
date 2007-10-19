@@ -32,10 +32,7 @@
 					Element( 'user/display' , $user );
 					$content = ob_get_clean();
 				}
-				?>g('friendadd').childNodes[1].firstChild.src = "<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/user_delete.png";
-				Friends.FriendAdded( <?php
+				?>Friends.FriendAdded( <?php
 				echo $user->Id();
 				?> , <?php
 				echo $friendid;
