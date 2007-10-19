@@ -9,6 +9,13 @@
     	
     	$test = explode( ' ' , $usernames );
     	$userreceivers = User_ByUsername( $test );
+
+        foreach ( $userreceivers as $i => $receiver ) {
+            if ( $receiver === $user ) {
+                unset( $userreceivers[ $i ] );
+            }
+        }
+        
         if ( empty( $userreceivers ) ) {
             ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
         }
