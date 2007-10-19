@@ -381,7 +381,7 @@
 					
 					WHERE
 						`pmif_folderid` = '" . $this->Id . "' AND
-						( `pmif_userid` = '" . $user->Id() . "' OR `pm_senderid` = '" . $user->Id() . "' ) AND
+						`pmif_userid` = '" . $user->Id() . "' AND
 						`pmif_delid` != '2'
 					ORDER BY 
 						`pm_id` DESC
@@ -466,6 +466,45 @@
 	}
 
 	class PMOutbox extends PMFolder {
+		public function Messages( $offset = false, $count = false ) {
+			global $pmmessages;
+			global $pmmessageinfolder;
+			global $pmfolders;
+			global $db;
+			global $user;
+			
+			$limit = "";
+			if ( $offset !==  false ) {
+				$limit = "LIMIT $offset";
+				if ( $count !== false ) {
+					$limit .= ", $count";
+				}
+			}
+			
+			$sql = "SELECT
+						*
+					FROM
+						`$pmmessageinfolder` INNER JOIN `$pmmessages` ON
+							`pmif_id` = `pm_id`
+					
+					WHERE
+						`pmif_folderid` = '" . $this->Id . "' AND
+						`pm_senderid` = '" . $user->Id() . "' AND
+						`pmif_delid` != '2'
+					ORDER BY 
+						`pm_id` DESC
+					$limit
+					;";
+					
+			$res = $db->Query( $sql );
+			
+			$ret = array();
+			while ( $row = $res->FetchArray() ) {
+				$ret[] = new PM( $row );
+			}
+			
+			return $ret;
+		}
 		public function Exists() {
 			return true;
 		}
