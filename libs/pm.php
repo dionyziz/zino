@@ -115,9 +115,8 @@
 							" . PM_MAX_RECEIVERS . "
 						;";
 				
-				$res = $db->Query( $sql );
-
                 die( $sql );
+				$res = $db->Query( $sql );
 				
 				$this->mReceivers = array();
 				while ( $row = $res->FetchArray() ) {
