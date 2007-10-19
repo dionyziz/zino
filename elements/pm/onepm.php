@@ -80,7 +80,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 		<div class="text" style="background-color: #f8f8f6;display:none;">
 			<div>
 				<?php
-				echo $pmobj->Text;
+				echo htmlspecialchars( $pmobj->Text );
 				?><br /><br /><br /><br />
             </div>
 		</div>

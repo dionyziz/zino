@@ -50,13 +50,13 @@
 						?><div class="folder top" id="folder_<?php
 						echo $folder->Id;
 						?>" alt="<?php
-						echo $folder->Name;
+						echo htmlspecialchars( $folder->Name );
 						?>" title="<?php
-						echo $folder->Name;
+						echo htmlspecialchars( $folder->Name );
 						?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
 						echo $folder->Id;
 						?>' );return false;"><?php
-						echo $folder->Name;
+						echo htmlspecialchars( $folder->Name );
 						?></a></div>
 						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_<?php
 						echo $folder->Id;
