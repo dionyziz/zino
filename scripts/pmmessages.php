@@ -4,6 +4,8 @@
 	global $page;
 	global $libs;
     global $db;
+    global $pmmessages;
+    global $pmmessageinfolder;
     
 	require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
@@ -12,6 +14,15 @@
 	Rabbit_ClearPostGet();
 	
 	$libs->Load( 'albums' );
+
+    function GetAllPms() {
+        global $db;
+        global $pms;
+
+        $sql = "SELECT * FROM `$pms`;";
+
+        return $db->Query( $sql )->MakeArray();
+    }
 
     $ret = GetAllPms();
     $texts = array();
