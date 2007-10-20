@@ -47,9 +47,9 @@
 				?></span>
 			</a><?php
 			if ( $photo->UserId() == $user->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
-				?><a href="" onclick="Photos.EditListPhoto( this.parentNode, '<?php
+				?><a href="" onclick="Photos.EditListPhoto( this.parentNode, <?php
 				echo $photo->Id();
-				?>' , '0' );return false;" class="editinfos" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος"><img src="<?php
+				?> , 0 );return false;" class="editinfos" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>icons/edit.png" /></a> 
 				<?php
