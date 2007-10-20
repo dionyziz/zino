@@ -56,9 +56,9 @@
     			echo $albumname; 
     			?></h2><?php
     			if ( $user->Id() == $album->UserId() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
-    				?><a href="" onclick="Albums.EditSmallAlbum( '<?php
+    				?><a href="" onclick="Albums.EditSmallAlbum( <?php
     				echo $album->Id();
-    				?>' , '0' );return false;" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" class="editinfos"><img src="<?php
+    				?> , 0 );return false;" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" class="editinfos"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>icons/edit.png" /></a><?php
     			}
@@ -74,9 +74,9 @@
     						?><span class="details" style="font-size:9pt;">-Δεν έχεις ορίσει περιγραφή-</span><?php
     					}
     					if ( $user->Id() == $album->UserId() ) {
-    						?><a href="" onclick="Albums.EditSmallAlbum( '<?php
+    						?><a href="" onclick="Albums.EditSmallAlbum( <?php
     						echo $album->Id();
-    						?>' , '1' );return false;" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" class="editinfos"><img src="<?php
+    						?> , 1 );return false;" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" class="editinfos"><img src="<?php
 							echo $xc_settings[ 'staticimagesurl' ];
 							?>icons/edit.png" /></a><?php
     					}
