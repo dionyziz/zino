@@ -9,7 +9,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
         ?>">
 		<div class="infobar"<?php
 		if ( $folder != -2 ) {
-			?> onclick="pms.DragPm( 'pm_<?php
+			?> onmousedown="pms.DragPm( 'pm_<?php
 			echo $pmobj->Id;
 			?>' );"<?php
 		}
