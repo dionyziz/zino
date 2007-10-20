@@ -52,6 +52,7 @@ var Albums = {
 		var thealbumchilddivs = thealbum.getElementsByTagName( 'div' );
 		var spaninv , theform , imageaccept , imagecancel , acceptlink , cancellink;
 		if ( typeid === 0 ) {		
+			//---------START CODE FOR OBTAINING ALBUM NAME--------------
 			var intdiv = thealbumchilddivs[ 8 ];
 			var intdivchilda = intdiv.getElementsByTagName( 'a' );
 			
@@ -62,6 +63,7 @@ var Albums = {
 			
 			spaninv = thefirstlinkchildspan[ 0 ];
 			var albumname = spaninv.innerHTML;
+			//----------END CODE FOR OBTAINING ALBUM NAME---------------
 			
 			var editlink = intdivchilda[ 1 ];
 			var deletelink = intdivchilda[ 2 ];

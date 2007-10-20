@@ -61,9 +61,9 @@
 									?></span>
 								</a><?php
 								if ( $albumuserid == $user->Id() ) {
-									?><a href="" onclick="Albums.EditListAlbum( '<?php
+									?><a href="" onclick="Albums.EditListAlbum( <?php
 									echo $albumid; 
-									?>' , '0' );return false;" class="editinfos"><img src="<?php
+									?> , 0 );return false;" class="editinfos"><img src="<?php
                                     echo $xc_settings[ 'staticimagesurl' ];
                                     ?>icons/edit.png" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" /></a><?php
 								}
