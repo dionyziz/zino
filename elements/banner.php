@@ -27,7 +27,11 @@
             echo $rabbit_settings[ 'webaddress' ];
             ?>/"><img src="<?php
             echo $xc_settings[ 'staticimagesurl' ];
-            ?>logo-xc.jpg" alt="Chit-Chat" class="logo" /></a>
+            ?>logo<?php
+            if ( !$rabbit_settings[ 'production' ] ) {
+                ?>-xc<?php
+            }
+            ?>.jpg" alt="Chit-Chat" class="logo" /></a>
 			<ul>
                 <li>
                     <form action="" method="get">
