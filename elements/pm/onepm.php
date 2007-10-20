@@ -78,7 +78,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
                 }
             }
             else if ( !is_array( $pmuser ) ) {
-                ?>ον<?php
+                ?>ο<?php
                 switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
                     case 'a':
                     case 'e':
