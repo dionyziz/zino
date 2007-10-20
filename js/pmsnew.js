@@ -302,6 +302,7 @@ var pms = {
 			targetdiv.className = 'folder top';
 		};
 		dd1.onDragDrop = function( e, id ) {
+			alert( 'onDragDrop called' );
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
 			
@@ -350,9 +351,6 @@ var pms = {
             Animations.Create( p, 'top', 1000, proxypos[ 1 ], srcpos[ 1 ], function () {
                 p.style.visibility = 'hidden';
             } );
-            // alert( this.getEl() );
-            // .offsetLeft = startPos[ 0 ];
-            // sthis.getEl().offsetTop = startPos[ 1 ];
 		};
 	},
 	UpdateUnreadPms : function( specnumber ) {
