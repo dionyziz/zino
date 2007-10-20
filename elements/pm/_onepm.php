@@ -2,7 +2,9 @@
 function ElementPmOnepm( $pmobj , $folder ) {
 	global $user;
 	global $water;
-
+	global $page;
+	
+	$page->AttachScript( 'js/pmsnew.js' );
 	$usersended = $pmobj->Sender;
 	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
