@@ -285,6 +285,7 @@ var pms = {
 		
 	},
 	DragPm : function( pmid ) {
+		alert( 'start dragging' );
 		var pmdiv = document.getElementById( pmid );
 		var dd1 = new YAHOO.util.DDProxy( pmdiv );
 		var Dom = YAHOO.util.Dom;
@@ -334,10 +335,11 @@ var pms = {
 		dd1.startDrag = function() {
 			var p = this.getDragEl();
 			var q = this.getEl();
-			
+			alert( 'startDrag called' );
 			p.style.border = '1px dotted #92bcc1;'
 		};
 		dd1.endDrag = function( e ) {
+			alert( 'end of drag' );
 			var p = this.getDragEl();
             var q = this.getEl();
             
