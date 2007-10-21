@@ -1,9 +1,42 @@
 <?php
 	/*
-		OOP MySQL Database Layer
+		Generalized OOP Database Layer
 		Developer: dionyziz
 	*/
 	
+    global $libs;
+    
+    // implement this interface to add support for a different database
+    interface DatabaseDriver {
+        // returns number of affected rows by the last query performed
+        public function LastAffectedRows( $link );
+        // returns the insertid of the last query performed
+        public function LastInsertId( $link );
+        // executes an SQL query
+        public function Query( $sql, $link );
+        // selects a database for performing queries on
+        public function SelectDb( $name, $link );
+        // connects to the database and authenticates
+        public function Connect( $hostname, $username, $password, $flags );
+        // retrieves the last error number
+        public function LastErrorNumber( $link );
+        // retrieves the last error message as a user-friendly string
+        public function LastError( $link );
+        // retrieves the number of rows in the resultset identified by passed resource
+        public function NumRows( $driver_resource );
+        // retrieves the number of fields in the resultset identified by passed resource
+        public function NumFields( $driver_resource );
+        // fetches the next row of the resultset in an associative array, or returns boolean false 
+        // if there are no more rows
+        public function FetchAssociativeArray( $driver_resource );
+        // fetches information about field #offset in the resultset in the form of an object
+        public function FetchField( $driver_resource, $offset );
+        // retrieves a user-friendly name for this driver as a string
+        public function GetName();
+    }
+    
+    $libs->Load( 'rabbit/db/mysql' ); // load mysql support
+    
 	class Database {
 		protected $mDbName;
 		protected $mHostname;
@@ -14,8 +47,17 @@
 		protected $mCharSet;
 		protected $mCharSetApplied;
 		protected $mConnected;
-		
-		public function Database( $dbname = '' ) {
+		protected $mDriver;
+        
+		public function Database( $dbname = false, $driver = false ) {
+            if ( $driver === false ) {
+                $this->mDriver = New DatabaseMySQLDriver();
+            }
+            else {
+                $this->mDriver = $driver;
+            }
+            w_assert( $driver instanceof DatabaseDriver );
+            w_assert( $dbname === false || is_string( $dbname ) );
 			$this->mDbName = $dbname;
 			$this->mConnected = false;
 			$this->mCharSetApplied = true;
@@ -48,9 +90,9 @@
             $this->mDbName = $dbname;
             if ( $this->mConnected ) {
                 if ( $this->mDbName != '' ) {
-                    $selection = mysql_select_db( $this->mDbName, $this->mLink );
+                    $selection = $this->mDriver->SelectDb( $this->mDbName, $this->mLink );
                     if ( $selection === false ) {
-                        $water->Warning( 'Failed to select the specified database:<br />' . mysql_error( $this->mLink ) );
+                        $water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->Error( $this->mLink ) );
                         return false;
                     }
                 }
@@ -61,12 +103,15 @@
 			global $water;
 			
 			if ( !$this->mConnected ) {
-				$this->mLink = mysql_connect( $this->mHostname , $this->mUsername , $this->mPassword , false );
+				$this->mLink = $this->mDriver->Connect( $this->mHostname , $this->mUsername , $this->mPassword , false );
 				if ( $this->mLink === false ) {
-					$water->Warning( 'Connection to MySQL failed:<br />' . mysql_error( $this->mLink ) );
+					$water->Warning( 'Connection to database failed:<br />' . $this->mDriver->LastError( $this->mLink ) );
 					return false;
 				}
                 $this->mConnected = true;
+                if ( empty( $this->mDbName ) ) {
+                    return true;
+                }
                 return $this->SwitchDb( $this->mDbName );
 			}
 			return false;
@@ -103,10 +148,10 @@
 				}
 			}
 			$water->LogSQL( $sql );
-			$res = mysql_query( $sql , $this->mLink );
+			$res = $this->mDriver->Query( $sql , $this->mLink );
 			$water->LogSQLEnd();
-			if ( $res === false && mysql_errno() > 0 ) {
-				$water->ThrowException( 'MySQL failed' , array( 'query' => $sql , 'error' => mysql_errno( $this->mLink ) . ': ' . mysql_error( $this->mLink ) ) );
+			if ( $res === false && $this->mDriver->LastErrorNumber() > 0 ) {
+				$water->ThrowException( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
                 return false;
 			}
 			else if ( $res === true ) {
@@ -214,15 +259,15 @@
 		}
 	}
 
-	class DBChange {
+	abstract class DBChange {
 		protected $mAffectedRows;
 		protected $mDb;
 		protected $mInsertId;
 		
 		public function DBChange( $db ) {
 			$this->mDb = $db;
-			$this->mAffectedRows = mysql_affected_rows( $db->Link() );
-			$this->mInsertId = mysql_insert_id( $db->Link() );
+			$this->mAffectedRows = $db->Driver_AffectedRows();
+			$this->mInsertId = $db->Driver_InsertId();
 		}
 		public function AffectedRows() {
 			return $this->mAffectedRows;
@@ -235,24 +280,26 @@
 		}
 	}
 
-	class DBResource {
+	abstract class DBResource {
 		protected $mSQLResource;
+        protected $mDriver;
 		protected $mNumRows;
 		protected $mNumFields;
 		
-		public function DBResource( $sqlresource ) {
+		public function DBResource( $sqlresource, $driver ) {
+            $this->mDriver = $driver;
 			$this->mSQLResource = $sqlresource;
-			$this->mNumRows = mysql_num_rows( $sqlresource );
-			$this->mNumFields = mysql_num_fields( $sqlresource );
+			$this->mNumRows = $this->mDriver->NumRows( $sqlresource );
+			$this->mNumFields = $this->mDriver->NumFields( $sqlresource );
 		}
 		protected function SQLResource() {
 			return $this->mSQLResource;
 		}
 		public function FetchArray() {
-			return mysql_fetch_array( $this->mSQLResource , MYSQL_ASSOC );
+			return $this->mDriver->FetchAssociativeArray( $this->mSQLResource );
 		}
-		public function FetchField( $num ) {
-			return mysql_fetch_field( $this->mSQLResource, $num );
+		public function FetchField( $offset ) {
+			return $this->mDriver->FetchField( $this->mSQLResource, $offset );
 		}
 		public function MakeArray() {
 			$i = 0;

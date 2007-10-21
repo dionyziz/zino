@@ -94,7 +94,7 @@
 	magicquotes_off();
 
     $libs->Load( 'rabbit/typesafety' );
-	$libs->Load( 'rabbit/db' );
+	$libs->Load( 'rabbit/db/db' );
     $libs->Load( 'rabbit/satori' );
     
     // set up databases
@@ -116,7 +116,16 @@
                 $database[ 'prefix' ] = '';
             }
             
-            $GLOBALS[ $dbname ] = new Database( $database[ 'name' ] );
+            if ( isset( $database[ 'driver' ] ) ) {
+                w_assert( class_exists( 'DatabaseDriver_' . $database[ 'driver' ] ), 'Database driver \'' . $database[ 'driver' ] . '\' used for database alias $' . $dbname . ' is invalid' );
+                $drivername = 'DatabaseDriver_' . $database[ 'driver' ];
+                $driver = New $drivername(); // MAGIC
+            }
+            else {
+                $driver = false;
+            }
+            
+            $GLOBALS[ $dbname ] = new Database( $database[ 'name' ], false );
             $GLOBALS[ $dbname ]->Connect( $database[ 'hostname' ] );
             $GLOBALS[ $dbname ]->Authenticate( $database[ 'username' ] , $database[ 'password' ] );
             $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] );

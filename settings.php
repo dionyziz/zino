@@ -14,15 +14,10 @@
         'databases'       => array( // prefix all keys with "db"
             'db' => array(
                 'name'     => 'ccbeta', // sandbox
+                'driver'   => 'mysql',
                 'hostname' => 'localhost',
                 'username' => 'ccbeta',
                 'password' => 'IkJ84nZT',
-                /*
-                'name'     => 'excalibur-sandbox', // Notice: 'excalibur-sandbox' is actually live!
-                'hostname' => 'localhost',
-                'username' => 'excalibursandbox',
-                'password' => 'viuhluqouhoa',
-                */
                 'charset'  => 'DEFAULT',
                 'prefix'   => 'merlin_',
                 'tables'   => array(
