@@ -264,8 +264,8 @@
 		protected $mInsertId;
 		
 		public function DBChange( DatabaseDriver $driver, $driver_link ) {
-			$this->mAffectedRows = $driver->AffectedRows( $driver_link );
-			$this->mInsertId = $driver->InsertId( $driver_link );
+			$this->mAffectedRows = $driver->LastAffectedRows( $driver_link );
+			$this->mInsertId = $driver->LastInsertId( $driver_link );
 		}
 		public function AffectedRows() {
 			return $this->mAffectedRows;
