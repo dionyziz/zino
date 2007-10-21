@@ -124,7 +124,7 @@ var Profileq = {
 	Delete : function( id ) {
 		var question = g( 'qedit_' + id ).parentNode;
 		question.parentNode.removeChild( question );
-	}
+	},
 	AnswerCallback : function( id, answer, answerraw ) {
 		var element = g( 'newquest' );
 		var form = g( 'newquestform' );
