@@ -24,7 +24,9 @@ var pms = {
 			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
-		Coala.Cold( 'pm/showfolder' , { folderid : folderid } );
+		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function() {
+			alert( 'Δεν ήταν δυνατή η ανάγνωση των μηνυμάτων σας. Δοκιμάστε πάλι σε λίγο' );
+		} );	
 	}
 	,
 	ShowFolderPm : function( folder , folderid ) {
