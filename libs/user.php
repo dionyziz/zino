@@ -1090,7 +1090,6 @@
 			global $users;
 			global $db;
 			
-			$qid = $questionid;
 			$questionid = myescape( $questionid );			
 			$nowdate = NowDate();
 			$ip = UserIp();
@@ -1124,6 +1123,23 @@
 			else {
 				return false;
 			}
+		}
+		public function DeleteAnswer( $questionid ) {
+			global $profileanswers;
+			global $users;
+			global $db;
+			
+			$questionid = myescape( $questionid );
+			
+			$sql = "DELETE FROM `$profileanswers` 
+					WHERE `profile_userid` = '" . $this->Id() . "' AND `profile_questionid` = '$questionid'
+					LIMIT 1;";
+			
+			$change = $db->Query( $sql );
+			if ( $change->Impact() ) {
+				return true;
+			}
+			return false;
 		}
 		public function GetAnsweredQuestions() {
 			global $questions;
