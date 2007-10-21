@@ -24,7 +24,6 @@
 		}
 		$photoname = NoExtensionName( $photo->Name() );
 		$page->SetTitle( $photoname );
-        $photoname = htmlspecialchars( $photoname );
 		$page->AttachScript( 'js/photos.js' );
 		$photodescription = htmlspecialchars( $photo->Description() );
 		$propsize = $photo->ProportionalSize( 900 , 700 );
