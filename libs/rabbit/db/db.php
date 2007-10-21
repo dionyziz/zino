@@ -157,7 +157,7 @@
 			else if ( $res === true ) {
 				return New DBChange( $this->mDriver, $this->mLink );
 			}
-			return New DBResource( $res );
+			return New DBResource( $res, $this->mDriver );
 		}
 		public function Insert( $inserts , $table , $ignore = false , $delayed = false , $quota = 500 ) {
 			// $table = 'table';
@@ -284,7 +284,7 @@
 		protected $mNumRows;
 		protected $mNumFields;
 		
-		public function DBResource( $sqlresource, $driver ) {
+		public function DBResource( $sqlresource, DatabaseDriver $driver ) {
             $this->mDriver = $driver;
 			$this->mSQLResource = $sqlresource;
 			$this->mNumRows = $this->mDriver->NumRows( $sqlresource );
