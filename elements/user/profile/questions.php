@@ -80,7 +80,13 @@
                         echo $question->Id();
                         ?>' );return false;" href="" title="Επεξεργασία ερώτησης"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/icon_wand.gif" style="width:16px;height:16px" alt="Επεξεργασία Ερώτησης" /></a><?php
+                        ?>icons/icon_wand.gif" style="width:16px;height:16px" alt="Επεξεργασία Ερώτησης" /></a>
+                        &nbsp;<a onclick="Profileq.Delete( '<?php
+                        echo $question->Id();
+                        ?>' );return false;" href="" title="Διαγραφή ερώτησης"><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>icons/delete.png" style="width:16px;height:16px" alt="Διαγραφή Ερώτησης" /></a>
+                        <?php
                     } 
                     ?></div>
                     
