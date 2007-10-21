@@ -66,7 +66,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
             else if ( is_array( $pmuser ) ) {
                 $pmuser = $pmuser[ 0 ];
             }
-            if ( !is_array( $pmuser ) && $pmuser->Gender() == 'female' ) {
+            if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender() == 'female' ) {
                 ?>η<?php
                 switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
                     case 'a':
@@ -82,7 +82,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
                     default:
                 }
             }
-            else if ( !is_array( $pmuser ) ) {
+            else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
                 ?>ο<?php
                 switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
                     case 'a':
