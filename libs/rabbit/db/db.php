@@ -51,7 +51,7 @@
         
 		public function Database( $dbname = false, $driver = false ) {
             if ( $driver === false ) {
-                $this->mDriver = New DatabaseMySQLDriver();
+                $this->mDriver = New DatabaseDriver_MySQL();
             }
             else {
                 $this->mDriver = $driver;
