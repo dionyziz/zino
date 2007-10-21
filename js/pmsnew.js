@@ -25,7 +25,7 @@ var pms = {
 		}
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function() {
-			alert( 'Δεν ήταν δυνατή η ανάγνωση των μηνυμάτων σας. Δοκιμάστε πάλι σε λίγο' );
+			alert( 'Coala error: ' + errcode );
 		} );	
 	}
 	,
