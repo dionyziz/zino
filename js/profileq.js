@@ -86,10 +86,24 @@ var Profileq = {
 		imag.width = "16";
 		imag.height = "16";
 		imag.alt = "Επεξεργασία Ερώτησης";
+		
+		var qdeletelink = d.createElement( 'a' );
+		qdeletelink.href="";
+		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
+		qdeletelink.title = "Διαγραφή Ερώτησης";
+		
+		var qdeleteimg = d.createElement( 'img' );
+		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.width = '16';
+		qdeleteimg.height = '16';
+		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
 		l.appendChild( imag );
+		qdeletelink.appendChild( q.deleteimg );
 		q.innerHTML = answer;
 		q.appendChild( l );
+		q.appendChild( d.createTextNode( " " ) );
+		q.appendChild( qdeletelink );
 
         g( 'qraw_' + id ).firstChild.nodeValue = answerraw;
     },
