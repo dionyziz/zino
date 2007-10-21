@@ -56,7 +56,7 @@
             else {
                 $this->mDriver = $driver;
             }
-            w_assert( $driver instanceof DatabaseDriver );
+            w_assert( $this->mDriver instanceof DatabaseDriver );
             w_assert( $dbname === false || is_string( $dbname ) );
 			$this->mDbName = $dbname;
 			$this->mConnected = false;
