@@ -23,11 +23,6 @@ function ElementPmOnepm( $pmobj , $folder ) {
 		}
 		?>><?php
 			if ( $folder != -2 ) {
-				?><script type="text/javascript">pms.DragPm( 'pm_<?php
-				echo $pmobj->Id;
-				?>' );</script><?php
-			}
-			if ( $folder != -2 ) {
 				?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode , <?php
 				echo $pmobj->Id;
 				?> , <?php
