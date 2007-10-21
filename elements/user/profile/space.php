@@ -19,7 +19,7 @@
 		}
 		?><br /><br /><?php
 		?><div style="text-align: center;"><?php
-			$userspace = new Userspace( $theuser );
+			$userspace = New Userspace( $theuser );
 			echo $userspace->Text();
 		?></div><?php
     }
