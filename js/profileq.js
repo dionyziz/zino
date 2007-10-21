@@ -182,9 +182,23 @@ var Profileq = {
         accept.style.width = '16px';
         accept.style.height = '16px';
         accept.alt = 'Επεξεργασία ερώτησης';
+        
+        		var qdeletelink = d.createElement( 'a' );
+		qdeletelink.href="";
+		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
+		qdeletelink.title = "Διαγραφή Ερώτησης";
+		
+		var qdeleteimg = d.createElement( 'img' );
+		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.width = '16';
+		qdeleteimg.height = '16';
+		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
         editb.appendChild( accept );
+        qdeletelink.appendChild( qdeleteimg );
         bigdiv.appendChild( editb );
+        bigdiv.appendChild( d.createTextNode( " " ) );
+        bigdiv.appendChild( qdeletelink );
 
         var raw = d.createElement( 'div' );
         raw.id = 'qraw_' + id;
