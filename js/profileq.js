@@ -105,7 +105,8 @@ var Profileq = {
 		}
 		
 		var qeditlink = d.createElement( 'a' );
-		qeditlink.href = 'Profileq.Edit( ' + id + ' )';
+		qeditlink.href="";
+		qeditlink.onclick = function() { Profileq.Edit( id );return false;};
 		qeditlink.title = 'Επεξεργασία Ερώτησης';
 		var qeditimg = d.createElement( 'img' );
 		qeditimg.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
@@ -113,11 +114,25 @@ var Profileq = {
 		qeditimg.height = '16';
 		qeditimg.alt = 'Επεξεργασία Ερώτησης';
 		
+		var qdeletelink = d.createElement( 'a' );
+		qdeletelink.fref="";
+		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
+		qdeletelink.title = "Διαγραφή Ερώτησης";
+		
+		var qdeleteimg = d.createElement( 'img' );
+		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.width = '16';
+		qdeleteimg.height = '16';
+		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
+		
 		qeditlink.appendChild( qeditimg );
+		qdeletelink.appendChild( qdeleteimg );
 		
 		element.appendChild( d.createTextNode( answer ) );
 		element.appendChild( d.createTextNode( " " ) );
 		element.appendChild( qeditlink );
+		element.appendChild( d.createTextNode( " " ) );
+		element.appendChild( qdeletelink );
 
 		raw.appendChild( d.createTextNode( answer ) );
 	},
