@@ -24,7 +24,7 @@ var pms = {
 			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
-		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function() {
+		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function( errcode ) {
 			alert( 'Coala error: ' + errcode );
 		} );	
 	}
