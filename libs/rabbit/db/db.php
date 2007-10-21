@@ -155,7 +155,7 @@
                 return false;
 			}
 			else if ( $res === true ) {
-				return New DBChange( $this );
+				return New DBChange( $this->mDriver, $this->mLink );
 			}
 			return New DBResource( $res );
 		}
@@ -250,7 +250,7 @@
 			$res = $this->Query( 'SHOW TABLES FROM `' . $this->mDbName . '`' );
 			$rows = array();
 			while ( $row = $res->FetchArray() ) {
-				$rows[] = New DBTable( $this , array_shift( $row ) );
+				$rows[] = New DBTable( $this, array_shift( $row ) );
 			}
 			return $rows;
 		}
@@ -261,13 +261,11 @@
 
 	class DBChange {
 		protected $mAffectedRows;
-		protected $mDb;
 		protected $mInsertId;
 		
-		public function DBChange( $db ) {
-			$this->mDb = $db;
-			$this->mAffectedRows = $db->Driver_AffectedRows();
-			$this->mInsertId = $db->Driver_InsertId();
+		public function DBChange( DatabaseDriver $driver, $driver_link ) {
+			$this->mAffectedRows = $driver->AffectedRows( $driver_link );
+			$this->mInsertId = $driver->InsertId( $driver_link );
 		}
 		public function AffectedRows() {
 			return $this->mAffectedRows;
