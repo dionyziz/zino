@@ -17,7 +17,7 @@
         // selects a database for performing queries on
         public function SelectDb( $name, $link );
         // connects to the database and authenticates
-        public function Connect( $hostname, $username, $password, $flags );
+        public function Connect( $host, $username, $password, $persist = true );
         // retrieves the last error number
         public function LastErrorNumber( $link );
         // retrieves the last error message as a user-friendly string
@@ -39,10 +39,9 @@
     
 	class Database {
 		protected $mDbName;
-		protected $mHostname;
+		protected $mHost;
 		protected $mUsername;
 		protected $mPassword;
-		protected $mPort;
 		protected $mLink;
 		protected $mCharSet;
 		protected $mCharSetApplied;
@@ -63,10 +62,9 @@
 			$this->mCharSetApplied = true;
 			$this->mCharSet = false;
 		}
-		public function Connect( $hostname = 'localhost' , $port = 3306 ) {
-			$this->mHostname = $hostname;
-			$this->mPort = $port;
-			
+		public function Connect( $host = 'localhost' ) {
+			$this->mHost = $host;
+            
 			return true;
 		}
 		public function Authenticate( $username , $password ) {
@@ -103,7 +101,7 @@
 			global $water;
 			
 			if ( !$this->mConnected ) {
-				$this->mLink = $this->mDriver->Connect( $this->mHostname , $this->mUsername , $this->mPassword , false );
+				$this->mLink = $this->mDriver->Connect( $this->mHost , $this->mUsername , $this->mPassword , false );
 				if ( $this->mLink === false ) {
 					$water->Warning( 'Connection to database failed:<br />' . $this->mDriver->LastError( $this->mLink ) );
 					return false;
@@ -125,7 +123,7 @@
 		private function CharSetApply() {
 			if ( !$this->mCharSetApplied ) {
 				$this->mCharSetApplied = true;
-				$this->Query( 'SET NAMES ' . $this->mCharSet );
+				$this->Query( 'SET NAMES ' . $this->mCharSet ); // TODO: this is only compatible with MySQL?
 			}
 		}
 		public function Query( $sql ) {

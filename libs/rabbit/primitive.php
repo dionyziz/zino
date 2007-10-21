@@ -103,7 +103,6 @@
          && count(    $rabbit_settings[ 'databases' ] ) ) {
         foreach ( $rabbit_settings[ 'databases' ] as $dbname => $database ) {
             w_assert( substr( $dbname , 0 , 2 ) == 'db', 'Database alias "' . $dbname . '" must begin with "db"' );
-            w_assert( isset( $database[ 'name' ] ), 'Database `name\' not specified for database alias $' . $dbname );
             w_assert( isset( $database[ 'username' ] ), 'Database `username\' not specified for database alias $' . $dbname );
             w_assert( isset( $database[ 'password' ] ), 'Database `password\' not specified for database alias $' . $dbname );
             if ( !isset( $database[ 'hostname' ] ) ) {
@@ -124,8 +123,11 @@
             else {
                 $driver = false;
             }
+            if ( !isset( $database[ 'name' ] ) ){
+                $database[ 'name' ] = false;
+            }
             
-            $GLOBALS[ $dbname ] = new Database( $database[ 'name' ], false );
+            $GLOBALS[ $dbname ] = new Database( $database[ 'name' ], $driver );
             $GLOBALS[ $dbname ]->Connect( $database[ 'hostname' ] );
             $GLOBALS[ $dbname ]->Authenticate( $database[ 'username' ] , $database[ 'password' ] );
             $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] );

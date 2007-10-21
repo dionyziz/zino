@@ -20,8 +20,11 @@
         public function SelectDb( $name, $driver_link ) {
             return mysql_select_db( $name, $driver_link );
         }
-        public function Connect( $hostname, $username, $password, $flags ) {
-            return mysql_connect( $hostname, $username, $password, $flags );
+        public function Connect( $host, $username, $password, $persist = true ) {
+            if ( $persist ) {
+                return mysql_pconnect( $host, $username, $password );
+            }
+            return mysql_connect( $host, $username, $password, $flags );
         }
         public function LastErrorNumber( $driver_link ) {
             return mysql_errno( $driver_link );

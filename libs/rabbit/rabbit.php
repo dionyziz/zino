@@ -19,7 +19,7 @@
             return;
         }
         
-        $page = New $pageclass();
+        $page = New $pageclass(); // MAGIC
         $page->SetNaturalLanguage( $rabbit_settings[ 'language' ] );
         $page->SetBaseIncludePath( $rabbit_settings[ 'rootdir' ] );
         if ( method_exists( $page, 'SetBase' ) ) {
