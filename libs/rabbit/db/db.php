@@ -259,7 +259,7 @@
 		}
 	}
 
-	abstract class DBChange {
+	class DBChange {
 		protected $mAffectedRows;
 		protected $mDb;
 		protected $mInsertId;
@@ -280,7 +280,7 @@
 		}
 	}
 
-	abstract class DBResource {
+	class DBResource {
 		protected $mSQLResource;
         protected $mDriver;
 		protected $mNumRows;
