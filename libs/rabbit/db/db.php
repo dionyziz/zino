@@ -6,6 +6,12 @@
 	
     global $libs;
     
+    /*
+    interface DatabaseFieldInfo {
+        public $name;
+    }
+    */
+    
     // implement this interface to add support for a different database
     interface DatabaseDriver {
         // returns number of affected rows by the last query performed
