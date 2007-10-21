@@ -115,7 +115,7 @@ var Profileq = {
 		qeditimg.alt = 'Επεξεργασία Ερώτησης';
 		
 		var qdeletelink = d.createElement( 'a' );
-		qdeletelink.fref="";
+		qdeletelink.href="";
 		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
 		qdeletelink.title = "Διαγραφή Ερώτησης";
 		
