@@ -123,7 +123,7 @@ var Profileq = {
 	},
 	Delete : function( id ) {
 		Coala.Warm( 'question/deletea', {'id':id, 'callback':Profileq.DeleteCallback });
-	}
+	},
 	DeleteCallback : function( id ) {
 		var question = g( 'qedit_' + id ).parentNode;
 		question.parentNode.removeChild( question );
