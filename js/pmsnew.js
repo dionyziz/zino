@@ -357,6 +357,8 @@ var pms = {
 	},
 	DragPm2 : function() {
 		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
+		alert( pms.messagescontainer );
+		alert( divlist.length );
 		for ( pm in divlist ) {
 			if ( pm.className == 'message' ) {
 				alert( 'found' );
