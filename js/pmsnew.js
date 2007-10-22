@@ -412,8 +412,8 @@ var pms = {
 				dd1.startDrag = function() {
 					var p = this.getDragEl();
 					var q = this.getEl();
-					alert( p );
-					//p.style.border = '1px dotted #92bcc1;'
+					//alert( p );
+					p.style.color = '#ff0000;
 				};
 				dd1.endDrag = function( e ) {
 					//alert( 'end of drag' );
