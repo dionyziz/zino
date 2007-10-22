@@ -5,13 +5,12 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-			var shit = {
-				function test() {
-					var div = document.getElementById( 'malakia' );
-					Animations.Create( div , 'opacity' , 2000 , 1 , 0 , function() {
-						alert( 'finito' );
-					} );
-				}
+			alert( 'test' );
+			function test() {
+				var div = document.getElementById( 'malakia' );
+				Animations.Create( div , 'opacity' , 2000 , 1 , 0 , function() {
+					alert( 'finito' );
+				} );
 			}
 		</script>
 		<div id="malakia" style="width:200px;height:140px;background-color:#ff0000;" onclick="shit.test();return false;">
