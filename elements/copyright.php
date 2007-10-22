@@ -10,7 +10,7 @@
 			else {
 				?>Reloaded<?php
 			}
-		?> 6.2</span>
+		?> 6.4</span>
 		</div><?php
 	}
 ?>
