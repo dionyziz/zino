@@ -397,8 +397,9 @@ var pms = {
 						delimg2.style.display = 'none';
 					}
 					q.style.margin = '0px';
+					q.style.opacity = '1';
 					Animations.Create( q , 'opacity' , 2000 , 1 , 0 , function() {
-						p.style.display = '';
+						p.style.display = 'block';
 						pms.WriteNoPms();
 					} );
 					pms.pmsinfolder--;
