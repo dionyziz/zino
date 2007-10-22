@@ -357,12 +357,76 @@ var pms = {
 	},
 	DragPm2 : function() {
 		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
-		//alert( divlist.length );
-		//var i;
 		for ( var i = 0; i < divlist.length; i++ ) {
 			if ( divlist[ i ].className == 'message' ) {
-				divlist[ i ].style.border = '1px solid red';
-			}
+				var pmdiv = divlist[ i ];
+				var dd1 = new YAHOO.util.DDProxy( pmdiv );
+				var Dom = YAHOO.util.Dom;
+				
+				var startPos = Dom.getXY( pmdiv );
+				YAHOO.util.DragDropMgr.clickTimeThresh = 5000; 
+				YAHOO.util.DragDropMgr.clickPixelThresh = 10;
+				YAHOO.util.DDM.mode = YAHOO.util.DDM.POINT;
+				dd1.onDragEnter = function( e , id ) {
+					var targetdiv = document.getElementById( id );
+					targetdiv.className = 'hoverfolder top';
+				};
+				dd1.onDragOut = function( e , id ) {
+					var targetdiv = document.getElementById( id );
+					targetdiv.className = 'folder top';
+				};
+				dd1.onDragDrop = function( e, id ) {
+					alert( 'onDragDrop called' );
+					var p = this.getDragEl();
+					var realpm = document.getElementById( pmid );
+					
+					p.style.display = 'none'
+					var msgnodedivs = realpm.getElementsByTagName( 'div' );
+					var msgnodeimgs = realpm.getElementsByTagName( 'img' );
+					var delimg = msgnodeimgs[ 0 ];
+					var delimg2 = msgnodeimgs[ 1 ];
+					var lowerdiv = msgnodedivs[ 6 ];
+					var targetdiv = document.getElementById( id );
+					targetdiv.className = 'folder top';
+					lowerdiv.style.display = 'none';
+					delimg.style.display = 'none';
+					if ( delimg2 ) {
+						//if the message is already read there is no such image
+						delimg2.style.display = 'none';
+					}
+					realpm.style.margin = '0px';
+					Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
+						p.style.display = '';
+						pms.WriteNoPms();
+					} );
+					pms.pmsinfolder--;
+					Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
+							realpm.parentNode.removeChild( realpm );
+					} );
+					Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
+					//take the last part of the string "folder_id"
+		        };
+				dd1.startDrag = function() {
+					var p = this.getDragEl();
+					var q = this.getEl();
+					p.style.border = '1px dotted #92bcc1;'
+				};
+				dd1.endDrag = function( e ) {
+					alert( 'end of drag' );
+					var p = this.getDragEl();
+		            var q = this.getEl();
+		            
+		            proxypos = Dom.getXY( p );
+		            srcpos = Dom.getXY( q );
+
+		            p.style.visibility = '';
+		            
+		            Animations.Create( p, 'left', 1000, proxypos[ 0 ], srcpos[ 0 ] );
+		            Animations.Create( p, 'top', 1000, proxypos[ 1 ], srcpos[ 1 ], function () {
+		                p.style.visibility = 'hidden';
+		            } );
+				};
+			}	
 		}
 	},
 	UpdateUnreadPms : function( specnumber ) {
