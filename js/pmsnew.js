@@ -511,3 +511,4 @@ var pms = {
 		}
 	}
 };
+pms.DragPm2();
