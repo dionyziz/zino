@@ -400,7 +400,7 @@ var pms = {
 					//q.style.opacity = '1';
 					Animations.Create( q , 'opacity' , 2000 , 1 , 0 , function() {
 						//p.style.display = 'block';
-						pms.WriteNoPms();
+						//pms.WriteNoPms();
 					} );
 					pms.pmsinfolder--;
 					Animations.Create( q , 'height' , 3000 , q.offsetHeight , 0 , function() {
