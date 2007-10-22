@@ -379,11 +379,12 @@ var pms = {
 				dd1.onDragDrop = function( e, id ) {
 					//alert( 'onDragDrop called' );
 					var p = this.getDragEl();
-					var realpm = document.getElementById( pmid );
+					var q = this.getEl();
+					//var realpm = document.getElementById( pmid );
 					
 					p.style.display = 'none'
-					var msgnodedivs = realpm.getElementsByTagName( 'div' );
-					var msgnodeimgs = realpm.getElementsByTagName( 'img' );
+					var msgnodedivs = q.getElementsByTagName( 'div' );
+					var msgnodeimgs = q.getElementsByTagName( 'img' );
 					var delimg = msgnodeimgs[ 0 ];
 					var delimg2 = msgnodeimgs[ 1 ];
 					var lowerdiv = msgnodedivs[ 6 ];
@@ -395,14 +396,14 @@ var pms = {
 						//if the message is already read there is no such image
 						delimg2.style.display = 'none';
 					}
-					realpm.style.margin = '0px';
+					q.style.margin = '0px';
 					Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
 						p.style.display = '';
 						pms.WriteNoPms();
 					} );
 					pms.pmsinfolder--;
-					Animations.Create( realpm , 'height' , 3000 , realpm.offsetHeight , 0 , function() {
-							realpm.parentNode.removeChild( realpm );
+					Animations.Create( q , 'height' , 3000 , q.offsetHeight , 0 , function() {
+							q.parentNode.removeChild( q );
 					} );
 					Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
 					//take the last part of the string "folder_id"
