@@ -405,7 +405,7 @@ var pms = {
 					Animations.Create( q , 'height' , 3000 , q.offsetHeight , 0 , function() {
 							q.parentNode.removeChild( q );
 					} );
-					Coala.Warm( 'pm/transfer' , { pmid : pmid.substring( 3 ) , folderid : id.substring( 7 ) } );
+					Coala.Warm( 'pm/transfer' , { pmid : pmid , folderid : id.substring( 7 ) } );
 					//take the last part of the string "folder_id"
 		        };
 				dd1.startDrag = function() {
