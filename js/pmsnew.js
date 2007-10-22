@@ -356,9 +356,11 @@ var pms = {
 		};
 	},
 	DragPm2 : function() {
-		var messagescontainer = document.getElementById( 'messages' );
-		for ( pm in messagescontainer.childNodes ) {
-			alert( pm + ' className: ' + pm.className );
+		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
+		for ( pm in divlist ) {
+			if ( pm.className == 'message' ) {
+				alert( 'found' );
+			}
 		}
 	},
 	UpdateUnreadPms : function( specnumber ) {
