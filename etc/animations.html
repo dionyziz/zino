@@ -5,7 +5,8 @@
 			function test() {
 				var div = document.getElementById( 'malakia' );
 				Animations.Create( div , 'opacity' , 4000 , 1 , 0 , function() {
-					alert( 'finito' );
+					div.style.opacity = '1';
+					div.style.border = '1px solid black';
 				} );
 			}
 		</script>
