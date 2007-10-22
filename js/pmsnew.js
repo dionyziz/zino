@@ -360,6 +360,7 @@ var pms = {
 		alert( pms.messagescontainer );
 		alert( divlist.length );
 		for ( pm in divlist ) {
+			alert( pm.className );
 			if ( pm.className == 'message' ) {
 				alert( 'found' );
 			}
