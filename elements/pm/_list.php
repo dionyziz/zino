@@ -26,12 +26,14 @@
 		?><script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadmsgs;
-		?>;</script>
+		?>;
+		pms.DragPm2();
+		</script>
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
 		<script src="http://yui.yahooapis.com/2.3.1/build/animation/animation-min.js"></script> 
 		<br /><br /><br /><br />
-		<div class="body" onload="pms.DragPm2();">
+		<div class="body">
 			<div class="upper">
 				<span class="title">Μηνύματα</span>
 				<div class="subheading">Εισερχόμενα</div>
