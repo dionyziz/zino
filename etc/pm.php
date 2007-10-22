@@ -16,7 +16,7 @@
 		<div id="ygddfdiv" style="border: 2px solid rgb(170, 170, 170); position: absolute; visibility: hidden; cursor: move; z-index: 999; height: 25px; width: 25px;">
 			<div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div>
 		</div>
-		<div id="globalwarning" onmouseover="Water.HideGlobalWarningClear()" onmouseout="Water.HideGlobalWarningPrepare()" onclick="Water.OpenWindow();Water.HideGlobalWarning()" style="bottom: -18px;"><img src="http://static.chit-chat.gr/images/icons/water_notice_icon.png" alt="Notices"/> This page has notices. To debug, click on this box.</div><div class="axel"><div class="roku"><div class="aku" style="">
+		<div class="axel"><div class="roku"><div class="aku" style="">
         <div style="float: right;"><img src="http://static.chit-chat.gr/images/icons/akuright.jpg" alt=""/></div>
         <div style="float: left;"><img src="http://static.chit-chat.gr/images/icons/akuleft.jpg" alt=""/></div>
         <div class="content">
@@ -27,9 +27,9 @@
 		<div class="spacer"> </div>
         <div class="roxas">
 			<div style="float: right;">
-				<img src="http://static.chit-chat.gr/images/icons/roxasend.jpg" alt=""/>
+				<img src="http://static.chit-chat.gr/images/roxasend.jpg" alt=""/>
 			</div>
-			<a href="https://beta.chit-chat.gr/"><img src="http://static.chit-chat.gr/images/icons/logo-xc.jpg" alt="Chit-Chat" class="logo"/></a>
+			<a href="https://beta.chit-chat.gr/"><img src="http://static.chit-chat.gr/images/logo-xc.jpg" alt="Chit-Chat" class="logo"/></a>
 			<ul>
                 <li>
                     <form action="" method="get">
