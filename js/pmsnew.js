@@ -405,13 +405,14 @@ var pms = {
 					Animations.Create( q , 'height' , 3000 , q.offsetHeight , 0 , function() {
 							q.parentNode.removeChild( q );
 					} );
-					alert( 'pmid coala call is: ' + pmid + ' folderid is ' + id.substring( 7 ) );
+					//alert( 'pmid coala call is: ' + pmid + ' folderid is ' + id.substring( 7 ) );
 					Coala.Warm( 'pm/transfer' , { pmid : q.id.substring( 3 ) , folderid : id.substring( 7 ) } );
 					//take the last part of the string "folder_id"
 		        };
 				dd1.startDrag = function() {
 					var p = this.getDragEl();
 					var q = this.getEl();
+					alert( p );
 					//p.style.border = '1px dotted #92bcc1;'
 				};
 				dd1.endDrag = function( e ) {
