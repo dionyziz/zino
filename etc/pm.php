@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
 	<head>
 		<title>Προσωπικά μηνύματα / Chit-Chat</title>
+		<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />//-->
 		<link href="http://www.chit-chat.gr/css/main.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/pmnew.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/modal.css" rel="stylesheet" type="text/css"/>
@@ -12,7 +13,8 @@
 	</head>
 	<body>
 		<div id="ygddfdiv" style="border: 2px solid rgb(170, 170, 170); position: absolute; visibility: hidden; cursor: move; z-index: 999; height: 25px; width: 25px;">
-		<div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div>
+			<div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div>
+		</div>
 		<div id="globalwarning" onmouseover="Water.HideGlobalWarningClear()" onmouseout="Water.HideGlobalWarningPrepare()" onclick="Water.OpenWindow();Water.HideGlobalWarning()" style="bottom: -18px;"><img src="http://static.chit-chat.gr/images/icons/water_notice_icon.png" alt="Notices"/> This page has notices. To debug, click on this box.</div><div class="axel"><div class="roku"><div class="aku" style="">
         <div style="float: right;"><img src="http://static.chit-chat.gr/images/icons/akuright.jpg" alt=""/></div>
         <div style="float: left;"><img src="http://static.chit-chat.gr/images/icons/akuleft.jpg" alt=""/></div>
@@ -33,10 +35,16 @@
                         <input type="hidden" name="p" value="search"/>
                         <input type="text" name="q" id="q" value="Αναζήτηση" class="text" onfocus="Search.Focus(this)" onblur="Search.Blur(this);"/><a href="https://beta.chit-chat.gr/?p=search" onclick="this.parentNode.submit();return false;"><img src="http://static.chit-chat.gr/images/icons/magnifier.png" alt="Ψάξε" title="Αναζήτηση"/></a>
                     </form>
-                </li><li><a class="messages messagesread" href="https://beta.chit-chat.gr/?p=pms" title="Μηνύματα"><img src="http://static.chit-chat.gr/images/icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;"/></a></li><li><a href="https://beta.chit-chat.gr/?p=faq" style="padding: 2px;" title="Πληροφορίες">
+                </li>
+				<li>
+					<a class="messages messagesread" href="https://beta.chit-chat.gr/?p=pms" title="Μηνύματα"><img src="http://static.chit-chat.gr/images/icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;"/></a></li><li><a href="https://beta.chit-chat.gr/?p=faq" style="padding: 2px;" title="Πληροφορίες">
 						<img src="http://static.chit-chat.gr/images/icons/help.png" alt="Πληροφορίες" style="width: 16px; height: 16px; vertical-align: bottom;"/>
-					</a></li>
-					<li><a class="logout" href="https://beta.chit-chat.gr/do/user/logout">Έξοδος</a></li>            </ul>
+					</a>
+				</li>
+				<li>
+					<a class="logout" href="https://beta.chit-chat.gr/do/user/logout">Έξοδος</a>
+				</li>            
+			</ul>
 		</div>
 		<br/>
 		<script type="text/javascript">
