@@ -38,7 +38,7 @@
                     </form>
                 </li>
 				<li>
-					<a class="messages messagesread" href="https://beta.chit-chat.gr/?p=pms" title="Μηνύματα"><img src="http://static.chit-chat.gr/images/icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;"/></a></li><li><a href="https://beta.chit-chat.gr/?p=faq" style="padding: 2px;" title="Πληροφορίες">
+					<a class="messages messagesread" href="https://beta.chit-chat.gr/?p=pms" id="messagesunread" title="Μηνύματα"><img src="http://static.chit-chat.gr/images/icons/email.png" alt="Μηνύματα" style="width: 16px; height: 16px; vertical-align: bottom;"/></a></li><li><a href="https://beta.chit-chat.gr/?p=faq" style="padding: 2px;" title="Πληροφορίες">
 						<img src="http://static.chit-chat.gr/images/icons/help.png" alt="Πληροφορίες" style="width: 16px; height: 16px; vertical-align: bottom;"/>
 					</a>
 				</li>
