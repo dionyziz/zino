@@ -361,7 +361,7 @@ var pms = {
 		var i;
 		for ( i = 0; i < divlist.length; i++ ) {
 			divlist[ i ].style.border = '1px solid red';
-			if ( pm.className == 'message' ) {
+			if ( divlist[ i ].className == 'message' ) {
 				alert( 'found' );
 			}
 		}
