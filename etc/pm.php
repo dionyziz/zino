@@ -49,7 +49,7 @@
 		</div>
 		<br/>
 		<script type="text/javascript">
-			var unreadpms = 0;		
+			var unreadpms = 1;		
 		</script>
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
@@ -136,7 +136,6 @@
 <script type="text/javascript" src="http://www.chit-chat.gr/js/coala.js"></script>
 <script type="text/javascript" src="http://www.chit-chat.gr/js/modal.js"></script>
 <script type="text/javascript" src="http://www.chit-chat.gr/js/animations.js"></script>
-<script type="text/javascript" src="http://www.chit-chat.gr/js/drag.htm"></script>
 <script type="text/javascript" src="http://www.chit-chat.gr/js/search.js"></script>
 <script type="text/javascript" src="http://www.chit-chat.gr/js/user.js"></script>
 </body></html>
