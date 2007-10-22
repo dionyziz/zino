@@ -406,7 +406,7 @@ var pms = {
 							q.parentNode.removeChild( q );
 					} );
 					alert( 'pmid coala call is: ' + pmid + ' folderid is ' + id.substring( 7 ) );
-					Coala.Warm( 'pm/transfer' , { pmid : pmid , folderid : id.substring( 7 ) } );
+					Coala.Warm( 'pm/transfer' , { pmid : q.substring( 3 ) , folderid : id.substring( 7 ) } );
 					//take the last part of the string "folder_id"
 		        };
 				dd1.startDrag = function() {
