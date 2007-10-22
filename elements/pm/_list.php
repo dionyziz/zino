@@ -70,9 +70,10 @@
 				<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="http://static.chit-chat.gr/images/icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
 			</div>
 			<div class="rightbar" style="float:left;">
-				<div class="messages" id="messages"><?php
+				<div class="messages" id="messages" onload="pms.DragPm2();"><?php
 					Element( 'pm/showfolder' , -1 );
-				?></div>
+				?>
+				</div>
 			</div>
 			<div style="clear:left;"></div>
 			<div class="newfoldermodal" id="newfoldermodal" style="display:none;">
