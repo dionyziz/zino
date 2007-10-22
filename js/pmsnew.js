@@ -359,7 +359,7 @@ var pms = {
 		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		alert( divlist.length );
 		for ( pm in divlist ) {
-			alert( pm.id );
+			pm.style.border = '1px solid red';
 			if ( pm.className == 'message' ) {
 				alert( 'found' );
 			}
