@@ -2,7 +2,6 @@
 	<head>
 		<title>Animations test</title>
 		<script type="text/javascript">
-			alert( 'test' );
 			function test() {
 				var div = document.getElementById( 'malakia' );
 				Animations.Create( div , 'opacity' , 2000 , 1 , 0 , function() {
@@ -10,7 +9,7 @@
 				} );
 			}
 		</script>
-		<script type="text/javascript" src="animations.js" />
+		<script type="text/javascript" src="../js/animations.js" />
 	</head>
 	<body>
 		<div id="malakia" style="width:200px;height:140px;background-color:#ff0000;" onclick="test();return false;">
