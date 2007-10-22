@@ -412,7 +412,7 @@ var pms = {
 				dd1.startDrag = function() {
 					var p = this.getDragEl();
 					var q = this.getEl();
-					p.style.border = '1px dotted #92bcc1;'
+					//p.style.border = '1px dotted #92bcc1;'
 				};
 				dd1.endDrag = function( e ) {
 					//alert( 'end of drag' );
