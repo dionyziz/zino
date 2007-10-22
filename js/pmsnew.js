@@ -413,7 +413,7 @@ var pms = {
 					var p = this.getDragEl();
 					var q = this.getEl();
 					//alert( p );
-					p.style.color = '#ff0000;
+					p.style.color = '#ff0000';
 				};
 				dd1.endDrag = function( e ) {
 					//alert( 'end of drag' );
