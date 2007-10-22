@@ -8,7 +8,7 @@
 		
 		$pmid = $pmid->Get();
 		$folderid = $folderid->Get();
-		
+		?>alert( 'pmid is <?php echo $pmid; ?> and folderid is <?php echo $folderid; ?>' );<?php
 		$pm = new PM( $pmid );
 		$pm->FolderId = $folderid;
 		$pm->Save();
