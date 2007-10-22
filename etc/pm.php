@@ -51,9 +51,8 @@
 		<script type="text/javascript">
 			var unreadpms = 0;		
 		</script>
-		<script type="text/javascript" src="http://static.chit-chat.gr/images/icons/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="http://static.chit-chat.gr/images/icons/dragdrop-min.js"></script>
-		<script src="http://static.chit-chat.gr/images/icons/animation-min.js"></script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>
+		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
 		<br/><br/><br/><br/>
 		<div class="body">
 			<div class="upper">
@@ -130,9 +129,7 @@
 				</form>
 			</div>
 		</div>
-<div class="copy">
-		Copyright © Chit-Chat.gr<span>, Excalibur <a href="" onclick="Water.OpenWindow(); return false;">Reloaded</a> 6.4</span>
-		</div></div><!--[if lt IE 7]>
+</div><!--[if lt IE 7]>
 <script type="text/javascript" src="js/pngfix.js?1186670859"></script><![endif]-->
 <script type="text/javascript" src="http://www.chit-chat.gr/js/main.js"></script>
 <script type="text/javascript" src="http://www.chit-chat.gr/js/pmsnew.js"></script>
