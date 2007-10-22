@@ -399,7 +399,7 @@ var pms = {
 					q.style.margin = '0px';
 					//q.style.opacity = '1';
 					Animations.Create( q , 'opacity' , 2000 , 1 , 0 , function() {
-						//p.style.display = 'block';
+						p.style.display = '';
 						//pms.WriteNoPms();
 					} );
 					pms.pmsinfolder--;
