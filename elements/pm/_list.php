@@ -31,7 +31,7 @@
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js" ></script>
 		<script src="http://yui.yahooapis.com/2.3.1/build/animation/animation-min.js"></script> 
 		<br /><br /><br /><br />
-		<div class="body">
+		<div class="body" onload="pms.DragPm2();">
 			<div class="upper">
 				<span class="title">Μηνύματα</span>
 				<div class="subheading">Εισερχόμενα</div>
@@ -70,7 +70,7 @@
 				<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="http://static.chit-chat.gr/images/icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
 			</div>
 			<div class="rightbar" style="float:left;">
-				<div class="messages" id="messages" onload="pms.DragPm2();"><?php
+				<div class="messages" id="messages"><?php
 					Element( 'pm/showfolder' , -1 );
 				?>
 				</div>
