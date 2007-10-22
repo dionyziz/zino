@@ -17,8 +17,8 @@
 			<div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div>
 		</div>
 		<div class="axel"><div class="roku"><div class="aku" style="">
-        <div style="float: right;"><img src="http://static.chit-chat.gr/images/icons/akuright.jpg" alt=""/></div>
-        <div style="float: left;"><img src="http://static.chit-chat.gr/images/icons/akuleft.jpg" alt=""/></div>
+        <div style="float: right;"><img src="http://static.chit-chat.gr/images/akuright.jpg" alt=""/></div>
+        <div style="float: left;"><img src="http://static.chit-chat.gr/images/akuleft.jpg" alt=""/></div>
         <div class="content">
             <div>
                 <a href="https://beta.chit-chat.gr/user/izual" class="developer"><img src="http://static.chit-chat.gr/images/icons/anonymous.jpg" class="avatar" style="width: 50px; height: 50px;" title="izual" alt="izual"/><b>izual</b></a><br/><small>Fuck</small></div>
