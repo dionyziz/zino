@@ -512,3 +512,4 @@ var pms = {
 	}
 };
 pms.DragPm2();
+alert( 'called' );

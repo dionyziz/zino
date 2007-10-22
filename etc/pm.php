@@ -63,7 +63,7 @@
 				<div class="folders" id="folders">
 					<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα</a></div>
 					<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><div class="folder top" id="folder_10" alt="izual" title="izual"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '10' );return false;">izual</a></div>
-						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_10" );alert( 'malakia' );</script>
+						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_10" );</script>
 						<div class="folder top" id="folder_11" alt="koukou" title="koukou"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '11' );return false;">koukou</a></div>
 						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_11" );</script>
 						<div class="folder top" id="folder_19" alt="neos fakelos" title="neos fakelos"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '19' );return false;">neos fakelos</a></div>
