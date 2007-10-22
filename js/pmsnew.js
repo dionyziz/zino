@@ -358,7 +358,7 @@ var pms = {
 	DragPm2 : function() {
 		var messagescontainer = document.getElementById( 'messages' );
 		for ( pm in messagescontainer.childNodes ) {
-			alert( 'div found' );
+			alert( pm + ' className: ' + pm.className );
 		}
 	},
 	UpdateUnreadPms : function( specnumber ) {
