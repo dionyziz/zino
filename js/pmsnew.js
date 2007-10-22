@@ -397,7 +397,7 @@ var pms = {
 						delimg2.style.display = 'none';
 					}
 					q.style.margin = '0px';
-					Animations.Create( realpm , 'opacity' , 2000 , 1 , 0 , function() {
+					Animations.Create( q , 'opacity' , 2000 , 1 , 0 , function() {
 						p.style.display = '';
 						pms.WriteNoPms();
 					} );
