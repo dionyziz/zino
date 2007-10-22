@@ -358,8 +358,9 @@ var pms = {
 	DragPm2 : function() {
 		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		alert( divlist.length );
-		for ( pm in divlist ) {
-			pm.style.border = '1px solid red';
+		var i;
+		for ( i = 0; i < divlist.length; i++ ) {
+			divlist[ i ].style.border = '1px solid red';
 			if ( pm.className == 'message' ) {
 				alert( 'found' );
 			}
