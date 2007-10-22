@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
 	<head>
 		<title>Προσωπικά μηνύματα / Chit-Chat</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="http://www.chit-chat.gr/css/main.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/pmnew.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/modal.css" rel="stylesheet" type="text/css"/>
