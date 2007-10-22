@@ -360,6 +360,7 @@ var pms = {
 		for ( var i = 0; i < divlist.length; i++ ) {
 			if ( divlist[ i ].className == 'message' ) {
 				var pmdiv = divlist[ i ];
+				var pmid = pmdiv.id.substring( 3 );
 				var dd1 = new YAHOO.util.DDProxy( pmdiv );
 				var Dom = YAHOO.util.Dom;
 				
