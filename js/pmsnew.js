@@ -357,12 +357,11 @@ var pms = {
 	},
 	DragPm2 : function() {
 		var divlist = pms.messagescontainer.getElementsByTagName( 'div' );
-		alert( divlist.length );
-		var i;
-		for ( i = 0; i < divlist.length; i++ ) {
-			divlist[ i ].style.border = '1px solid red';
+		//alert( divlist.length );
+		//var i;
+		for ( var i = 0; i < divlist.length; i++ ) {
 			if ( divlist[ i ].className == 'message' ) {
-				alert( 'found' );
+				divlist[ i ].style.border = '1px solid red';
 			}
 		}
 	},
