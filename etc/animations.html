@@ -1,10 +1,6 @@
 <html>
 	<head>
-		<title>Animations test</title><?php
-		global $page;
-		
-		$page->AttachScript( 'js/animations.js' );
-		?>
+		<title>Animations test</title>
 		<script type="text/javascript">
 			alert( 'test' );
 			function test() {
@@ -14,6 +10,7 @@
 				} );
 			}
 		</script>
+		<script type="text/javascript" src="animations.js" />
 	</head>
 	<body>
 		<div id="malakia" style="width:200px;height:140px;background-color:#ff0000;" onclick="test();return false;">
