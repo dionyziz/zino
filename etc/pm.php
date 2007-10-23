@@ -92,63 +92,64 @@
 						<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display: none;"><img src="http://static.chit-chat.gr/images/icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου"/> Μετονομασία φακέλου</a>
 					</div>
 					<div class="rightbar" style="float: left;">
-					<div class="messages" id="messages">
-						<div class="message" style="width: 620px;" id="pm_48">
-							<div class="infobar">
-								<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 48 , true );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
-								<div class="infobar_info" onclick="pms.ExpandPm( this ,  false , 48 );return false;"> από το </div>
-								<div style="display: inline;" class="infobar_info"/><div onclick="pms.ExpandPm( this ,  false, 48 );return false;" style="display: inline;" class="infobar_info">, πριν 2 μέρες και 18 ώρες</div>
-							</div>
-							<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
-								<div>
-									test<br/><br/><br/><br/>
+						<div class="messages" id="messages">
+							<div class="message" style="width: 620px;" id="pm_48">
+								<div class="infobar">
+									<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 48 , true );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
+									<div class="infobar_info" onclick="pms.ExpandPm( this ,  false , 48 );return false;"> από το </div>
+									<div style="display: inline;" class="infobar_info"/><div onclick="pms.ExpandPm( this ,  false, 48 );return false;" style="display: inline;" class="infobar_info">, πριν 2 μέρες και 18 ώρες</div>
+								</div>
+								<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
+									<div>
+										test<br/><br/><br/><br/>
+									</div>
+								</div>
+								<div class="lowerline" style="background-color: rgb(248, 248, 246); display: none;">
+									<div class="leftcorner"> </div>
+									<div class="rightcorner"> </div>
+									<div class="middle"> </div>
+									<div class="toolbar">
+										<ul>
+											<li><a href="" onclick="pms.NewMessage( null , &quot;test&quot; );return false;">Απάντηση</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
-							<div class="lowerline" style="background-color: rgb(248, 248, 246); display: none;">
-								<div class="leftcorner"> </div>
-								<div class="rightcorner"> </div>
-								<div class="middle"> </div>
-								<div class="toolbar">
-									<ul>
-										<li><a href="" onclick="pms.NewMessage( null , &quot;test&quot; );return false;">Απάντηση</a></li>
-									</ul>
+							<?php //</div> ?>
+							<div class="message" style="width: 620px;" id="pm_7">
+								<div class="infobar">
+									<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 7 , false );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
+									<div class="infobar_info" onclick="pms.ExpandPm( this ,  true , 7 );return false;"> από τον </div>
+									<div style="display: inline;" class="infobar_info"><a href="https://beta.chit-chat.gr/user/izual" class="developer">izual</a></div><div onclick="pms.ExpandPm( this ,  true, 7 );return false;" style="display: inline;" class="infobar_info">, πριν 493 μήνες και 4 μέρες</div>
 								</div>
-							</div>
+								<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
+									<div>
+										pls answer me if you can see this<br/><br/><br/><br/>
+									</div>
+								</div>
+								<div class="lowerline" style="background-color: rgb(248, 248, 246); display: none;">
+									<div class="leftcorner"> </div>
+									<div class="rightcorner"> </div>
+									<div class="middle"> </div>
+									<div class="toolbar">
+										<ul>
+											<li><a href="" onclick="pms.NewMessage( &quot;izual&quot; , &quot;pls answer me if you can see this&quot; );return false;">Απάντηση</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>				
 						</div>
-						<div class="message" style="width: 620px;" id="pm_7">
-							<div class="infobar">
-								<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 7 , false );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
-								<div class="infobar_info" onclick="pms.ExpandPm( this ,  true , 7 );return false;"> από τον </div>
-								<div style="display: inline;" class="infobar_info"><a href="https://beta.chit-chat.gr/user/izual" class="developer">izual</a></div><div onclick="pms.ExpandPm( this ,  true, 7 );return false;" style="display: inline;" class="infobar_info">, πριν 493 μήνες και 4 μέρες</div>
-							</div>
-							<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
-								<div>
-									pls answer me if you can see this<br/><br/><br/><br/>
-					            </div>
-							</div>
-							<div class="lowerline" style="background-color: rgb(248, 248, 246); display: none;">
-								<div class="leftcorner"> </div>
-								<div class="rightcorner"> </div>
-								<div class="middle"> </div>
-								<div class="toolbar">
-									<ul>
-										<li><a href="" onclick="pms.NewMessage( &quot;izual&quot; , &quot;pls answer me if you can see this&quot; );return false;">Απάντηση</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>				
+					</div>
+					<div style="clear: left;"></div>
+					<div class="newfoldermodal" id="newfoldermodal" style="display: none;">
+						Δώσε ένα όνομα για τον φάκελό σου<br/><br/>
+						<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
+							<input type="textbox" style="width: 130px;"/> 
+							<a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="http://static.chit-chat.gr/images/icons/accept.png" alt="Δημιουργία" title="Δημιουργία"/></a>
+							<a href="" onclick="pms.CancelNewFolder();return false;"><img src="http://static.chit-chat.gr/images/icons/cancel.png" alt="Ακύρωση" title="Ακύρωση"/></a>
+						</form>
 					</div>
 				</div>
-				<div style="clear: left;"></div>
-				<div class="newfoldermodal" id="newfoldermodal" style="display: none;">
-					Δώσε ένα όνομα για τον φάκελό σου<br/><br/>
-					<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
-						<input type="textbox" style="width: 130px;"/> 
-						<a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="http://static.chit-chat.gr/images/icons/accept.png" alt="Δημιουργία" title="Δημιουργία"/></a>
-						<a href="" onclick="pms.CancelNewFolder();return false;"><img src="http://static.chit-chat.gr/images/icons/cancel.png" alt="Ακύρωση" title="Ακύρωση"/></a>
-					</form>
-				</div>
-			</div>
 		</div><!--[if lt IE 7]>
 		<script type="text/javascript" src="js/pngfix.js?1186670859"></script><![endif]-->
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>
