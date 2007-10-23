@@ -71,11 +71,14 @@
 				<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
 				<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dragdrop/dragdrop-min.js"></script>
 				<br/><br/><br/><br/>
-				<div class="body">
+				<div class="body"><?php
+					/*
 					<div class="upper">
 						<span class="title">Μηνύματα</span>
 						<div class="subheading">Εισερχόμενα</div>
 					</div>
+					*/
+					?>
 					<div class="leftbar">
 						<div class="folders" id="folders">
 							<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα</a></div>
