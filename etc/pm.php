@@ -1,12 +1,9 @@
 <?php
-	/*
 	header( 'Content-type: application/xhtml+xml; charset=utf-8' );
     echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
-*/
-?><html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el"?><html>
 	<head>
 		<title>Προσωπικά μηνύματα / Chit-Chat</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -87,12 +84,13 @@
 					<div class="infobar">
 						<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 48 , true );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
 						<div class="infobar_info" onclick="pms.ExpandPm( this ,  false , 48 );return false;"> από το </div>
-						<div style="display: inline;" class="infobar_info"/><div onclick="pms.ExpandPm( this ,  false, 48 );return false;" style="display: inline;" class="infobar_info">, πριν 2 μέρες και 18 ώρες</div></div>
-						<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
-							<div>
-								test<br/><br/><br/><br/>
-				            </div>
+						<div style="display: inline;" class="infobar_info"/><div onclick="pms.ExpandPm( this ,  false, 48 );return false;" style="display: inline;" class="infobar_info">, πριν 2 μέρες και 18 ώρες</div>
+					</div>
+					<div class="text" style="background-color: rgb(248, 248, 246); display: none;">
+						<div>
+							test<br/><br/><br/><br/>
 						</div>
+					</div>
 					<div class="lowerline" style="background-color: rgb(248, 248, 246); display: none;">
 						<div class="leftcorner"> </div>
 						<div class="rightcorner"> </div>
