@@ -150,7 +150,7 @@
 		<script type="text/javascript" src="js/pngfix.js?1186670859"></script><![endif]-->
 		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>?>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/pmsnew.js"></script>
-		<script type="text/javascript" src="https://beta.chit-chat.gr/js/coala.js"></script>
+		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/coala.js"></script>?>
 		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/modal.js"></script>?>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/animations.js"></script>
 		<?php
