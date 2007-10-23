@@ -117,7 +117,7 @@
 									</div>
 								</div>
 							</div>
-							<?php //</div> ?>
+							<?php //</div> ?><br /><br />
 							<div class="message" style="width: 620px;" id="pm_7">
 								<div class="infobar">
 									<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 7 , false );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
