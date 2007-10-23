@@ -18,6 +18,8 @@
 		</div>
 		<div class="axel">
 			<div class="roku">
+				<?php
+				/*
 				<div class="aku" style="">
 					<div style="float: right;"><img src="http://static.chit-chat.gr/images/akuright.jpg" alt=""/></div>
 					<div style="float: left;"><img src="http://static.chit-chat.gr/images/akuleft.jpg" alt=""/></div>
@@ -56,6 +58,8 @@
 						</li>            
 					</ul>
 				</div>
+				*/
+				?>
 				<br/>
 				<script type="text/javascript">
 					var unreadpms = 1;		
