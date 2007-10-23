@@ -1,12 +1,15 @@
 <?php
+	/*
 	header( 'Content-type: application/xhtml+xml; charset=utf-8' );
     echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
+*/
+?><html>
 	<head>
 		<title>Προσωπικά μηνύματα / Chit-Chat</title>
-		<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />//-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="http://www.chit-chat.gr/css/main.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/pmnew.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/modal.css" rel="stylesheet" type="text/css"/>
@@ -125,7 +128,7 @@
 				</div>				
 			</div>
 		</div>
-		<div style="clear: left;"/>
+		<div style="clear: left;" />
 		<div class="newfoldermodal" id="newfoldermodal" style="display: none;">
 			Δώσε ένα όνομα για τον φάκελό σου<br/><br/>
 			<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
