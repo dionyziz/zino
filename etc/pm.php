@@ -140,24 +140,20 @@
 						</div>
 					</div>
 					<div style="clear: left;"></div>
-					<div class="newfoldermodal" id="newfoldermodal" style="display: none;">
-						Δώσε ένα όνομα για τον φάκελό σου<br/><br/>
-						<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
-							<input type="textbox" style="width: 130px;"/> 
-							<a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="http://static.chit-chat.gr/images/icons/accept.png" alt="Δημιουργία" title="Δημιουργία"/></a>
-							<a href="" onclick="pms.CancelNewFolder();return false;"><img src="http://static.chit-chat.gr/images/icons/cancel.png" alt="Ακύρωση" title="Ακύρωση"/></a>
-						</form>
-					</div>
 				</div>
 			</div>
 		</div><!--[if lt IE 7]>
 		<script type="text/javascript" src="js/pngfix.js?1186670859"></script><![endif]-->
-		<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>
+		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>?>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/pmsnew.js"></script>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/coala.js"></script>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/modal.js"></script>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/animations.js"></script>
+		<?php
+		/*
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/search.js"></script>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/user.js"></script>
+		*/
+		?>
 	</body>
 </html>
