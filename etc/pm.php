@@ -152,7 +152,7 @@
 		<script type="text/javascript" src="../js/pmsnew.js"></script>
 		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/coala.js"></script>?>
 		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/modal.js"></script>?>
-		<script type="text/javascript" src="..js/animations.js"></script>
+		<script type="text/javascript" src="../js/animations.js"></script>
 		<?php
 		/*
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/search.js"></script>
