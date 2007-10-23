@@ -150,6 +150,7 @@
 						</form>
 					</div>
 				</div>
+			</div>
 		</div><!--[if lt IE 7]>
 		<script type="text/javascript" src="js/pngfix.js?1186670859"></script><![endif]-->
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>
