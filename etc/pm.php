@@ -97,7 +97,7 @@
 						<div class="messages" id="messages">
 							<div class="message" style="width: 620px;" id="pm_48">
 								<div class="infobar">
-									<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 48 , true );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
+									<a href="" style="float: right;" onclick="return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
 									<div class="infobar_info" onclick="pms.ExpandPm( this ,  false , 48 );return false;"> από το </div>
 									<div style="display: inline;" class="infobar_info"/><div onclick="pms.ExpandPm( this ,  false, 48 );return false;" style="display: inline;" class="infobar_info">, πριν 2 μέρες και 18 ώρες</div>
 								</div>
@@ -120,7 +120,7 @@
 							<?php //</div> ?><br /><br />
 							<div class="message" style="width: 620px;" id="pm_7">
 								<div class="infobar">
-									<a href="" style="float: right;" onclick="pms.DeletePm( this.parentNode.parentNode , 7 , false );return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
+									<a href="" style="float: right;" onclick="return false;"><img src="http://static.chit-chat.gr/images/cross.png"/></a>
 									<div class="infobar_info" onclick="pms.ExpandPm( this ,  true , 7 );return false;"> από τον </div>
 									<div style="display: inline;" class="infobar_info"><a href="https://beta.chit-chat.gr/user/izual" class="developer">izual</a></div><div onclick="pms.ExpandPm( this ,  true, 7 );return false;" style="display: inline;" class="infobar_info">, πριν 493 μήνες και 4 μέρες</div>
 								</div>
@@ -150,7 +150,7 @@
 		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/main.js"></script>?>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/pmsnew.js"></script>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/coala.js"></script>
-		<script type="text/javascript" src="https://beta.chit-chat.gr/js/modal.js"></script>
+		<?php //<script type="text/javascript" src="https://beta.chit-chat.gr/js/modal.js"></script>?>
 		<script type="text/javascript" src="https://beta.chit-chat.gr/js/animations.js"></script>
 		<?php
 		/*
