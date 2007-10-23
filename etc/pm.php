@@ -9,8 +9,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="http://www.chit-chat.gr/css/main.css" rel="stylesheet" type="text/css"/>
 		<link href="http://www.chit-chat.gr/css/pmnew.css" rel="stylesheet" type="text/css"/>
+		<?php 
+		/*
 		<link href="http://www.chit-chat.gr/css/modal.css" rel="stylesheet" type="text/css"/>
-		<link href="http://www.chit-chat.gr/css/banner.css" rel="stylesheet" type="text/css"/>
+		<link href="http://www.chit-chat.gr/css/banner.css" rel="stylesheet" type="text/css"/> 
+		*/
+		?>
 	</head>
 	<body>
 		<div id="ygddfdiv" style="border: 2px solid rgb(170, 170, 170); position: absolute; visibility: hidden; cursor: move; z-index: 999; height: 25px; width: 25px;">
@@ -76,20 +80,15 @@
 						<div class="folders" id="folders">
 							<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα</a></div>
 							<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><div class="folder top" id="folder_10" alt="izual" title="izual"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '10' );return false;">izual</a></div>
-								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_10" );</script>
-								<div class="folder top" id="folder_11" alt="koukou" title="koukou"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '11' );return false;">koukou</a></div>
-								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_11" );</script>
-								<div class="folder top" id="folder_19" alt="neos fakelos" title="neos fakelos"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '19' );return false;">neos fakelos</a></div>
-								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_19" );</script>
-								<div class="folder top" id="folder_23" alt="testing" title="testing"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '23' );return false;">testing</a></div>
-								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_23" );</script>
-								<div class="folder top" id="folder_25" alt="koutsou" title="koutsou"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '25' );return false;">koutsou</a></div>
-								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_25" );</script>
-								<div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
+							<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_10" );</script>
+							<div class="folder top" id="folder_11" alt="koukou" title="koukou"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '11' );return false;">koukou</a></div>
+							<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_11" );</script>
+							<div class="folder top" id="folder_19" alt="neos fakelos" title="neos fakelos"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '19' );return false;">neos fakelos</a></div>
+							<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_19" );</script>
+							<div class="folder top" id="folder_23" alt="testing" title="testing"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '23' );return false;">testing</a></div>
+							<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_23" );</script>
+							<div class="folder top" id="folder_25" alt="koutsou" title="koutsou"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '25' );return false;">koutsou</a></div>								<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_25" );</script>
 						</div><br />
-						<a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="http://static.chit-chat.gr/images/email_open.png" alt="Νέο μήνυμα" title="Νέο μήνυμα"/> Νέο μήνυμα</a><br/>
-						<a href="" id="deletefolderlink" class="folder_links" onclick="return false;" style="display: none;"><img src="http://static.chit-chat.gr/images/icons/folder_delete.png" alt="Διαγραφή φακέλου" title="Διαγραφή φακέλου"/> Διαγραφή φακέλου</a>
-						<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display: none;"><img src="http://static.chit-chat.gr/images/icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου"/> Μετονομασία φακέλου</a>
 					</div>
 					<div class="rightbar" style="float: left;">
 						<div class="messages" id="messages">
