@@ -15,7 +15,8 @@
 	<body>
 		<div id="ygddfdiv" style="border: 2px solid rgb(170, 170, 170); position: absolute; visibility: hidden; cursor: move; z-index: 999; height: 25px; width: 25px;">
 			<div style="height: 100%; width: 100%; background-color: rgb(204, 204, 204); opacity: 0;"></div>
-		</div>
+		</div><?php
+		/*
 		<div class="axel"><div class="roku"><div class="aku" style="">
         <div style="float: right;"><img src="http://static.chit-chat.gr/images/akuright.jpg" alt=""/></div>
         <div style="float: left;"><img src="http://static.chit-chat.gr/images/akuleft.jpg" alt=""/></div>
@@ -47,6 +48,8 @@
 				</li>            
 			</ul>
 		</div>
+		*/
+		?>
 		<br/>
 		<script type="text/javascript">
 			var unreadpms = 1;		
