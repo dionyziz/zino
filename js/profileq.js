@@ -83,8 +83,8 @@ var Profileq = {
 
 		var imag = document.createElement( 'img' );
 		imag.src = "http://static.chit-chat.gr/images/icons/icon_wand.gif";
-		imag.width = "16px";
-		imag.height = "16px";
+		imag.style.width = "16px";
+		imag.style.height = "16px";
 		imag.alt = "Επεξεργασία Ερώτησης";
 		
 		var qdeletelink = d.createElement( 'a' );
@@ -94,8 +94,8 @@ var Profileq = {
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '12px';
-		qdeleteimg.height = '12px';
+		qdeleteimg.style.width = '12px';
+		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
 		l.appendChild( imag );
@@ -124,8 +124,8 @@ var Profileq = {
 		qeditlink.title = 'Επεξεργασία Ερώτησης';
 		var qeditimg = d.createElement( 'img' );
 		qeditimg.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
-		qeditimg.width = '16px';
-		qeditimg.height = '16px';
+		qeditimg.style.width = '16px';
+		qeditimg.style.height = '16px';
 		qeditimg.alt = 'Επεξεργασία Ερώτησης';
 		
 		var qdeletelink = d.createElement( 'a' );
@@ -135,8 +135,8 @@ var Profileq = {
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '12px';
-		qdeleteimg.height = '12px';
+		qdeleteimg.style.width = '12px';
+		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 		
 		qeditlink.appendChild( qeditimg );
@@ -183,15 +183,15 @@ var Profileq = {
         accept.style.height = '16px';
         accept.alt = 'Επεξεργασία ερώτησης';
         
-        		var qdeletelink = d.createElement( 'a' );
+        var qdeletelink = d.createElement( 'a' );
 		qdeletelink.href="";
 		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
 		qdeletelink.title = "Διαγραφή Ερώτησης";
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '12px';
-		qdeleteimg.height = '12px';
+		qdeleteimg.style.width = '12px';
+		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
         editb.appendChild( accept );
