@@ -126,7 +126,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 		<div class="text" style="background-color: #f8f8f6;display:none;">
 			<div>
 				<?php
-				echo htmlspecialchars( $pmobj->Text );
+				echo nl2br( htmlspecialchars( $pmobj->Text ) );
 				?><br /><br /><br /><br />
             </div>
 		</div>
