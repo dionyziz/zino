@@ -85,7 +85,7 @@
                         echo $question->Id();
                         ?>' );return false;" href="" title="Διαγραφή ερώτησης"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/delete.png" style="width:16px;height:16px" alt="Διαγραφή Ερώτησης" /></a>
+                        ?>icons/delete.png" style="width:12px;height:12px" alt="Διαγραφή Ερώτησης" /></a>
                         <?php
                     } 
                     ?></div>

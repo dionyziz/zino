@@ -83,8 +83,8 @@ var Profileq = {
 
 		var imag = document.createElement( 'img' );
 		imag.src = "http://static.chit-chat.gr/images/icons/icon_wand.gif";
-		imag.width = "16";
-		imag.height = "16";
+		imag.width = "16px";
+		imag.height = "16px";
 		imag.alt = "Επεξεργασία Ερώτησης";
 		
 		var qdeletelink = d.createElement( 'a' );
@@ -94,8 +94,8 @@ var Profileq = {
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '16';
-		qdeleteimg.height = '16';
+		qdeleteimg.width = '12px';
+		qdeleteimg.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
 		l.appendChild( imag );
@@ -124,8 +124,8 @@ var Profileq = {
 		qeditlink.title = 'Επεξεργασία Ερώτησης';
 		var qeditimg = d.createElement( 'img' );
 		qeditimg.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
-		qeditimg.width = '16';
-		qeditimg.height = '16';
+		qeditimg.width = '16px';
+		qeditimg.height = '16px';
 		qeditimg.alt = 'Επεξεργασία Ερώτησης';
 		
 		var qdeletelink = d.createElement( 'a' );
@@ -135,8 +135,8 @@ var Profileq = {
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '16';
-		qdeleteimg.height = '16';
+		qdeleteimg.width = '12px';
+		qdeleteimg.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 		
 		qeditlink.appendChild( qeditimg );
@@ -190,8 +190,8 @@ var Profileq = {
 		
 		var qdeleteimg = d.createElement( 'img' );
 		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
-		qdeleteimg.width = '16';
-		qdeleteimg.height = '16';
+		qdeleteimg.width = '12px';
+		qdeleteimg.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
         editb.appendChild( accept );
