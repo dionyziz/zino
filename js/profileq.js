@@ -99,7 +99,7 @@ var Profileq = {
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
 		l.appendChild( imag );
-		qdeletelink.appendChild( q.deleteimg );
+		qdeletelink.appendChild( qdeleteimg );
 		q.innerHTML = answer;
 		q.appendChild( l );
 		q.appendChild( d.createTextNode( " " ) );
