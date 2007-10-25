@@ -1,7 +1,7 @@
 var Profileq = {
 	Edit : function ( id ) {
 		// alert( 'Answer: ' . g( 'qraw_' + id ).innerHTML );
-		var answer = g( 'qraw_' + id ).innerHTML;
+		var answer = g( 'qraw_' + id ).firstChild.nodeValue;
 		
 		var element = g( 'qedit_' + id );
 		while (element.firstChild) {
