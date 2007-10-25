@@ -24,7 +24,7 @@
             if ( $persist ) {
                 return mysql_pconnect( $host, $username, $password );
             }
-            return mysql_connect( $host, $username, $password, $flags );
+            return mysql_connect( $host, $username, $password );
         }
         public function LastErrorNumber( $driver_link ) {
             return mysql_errno( $driver_link );

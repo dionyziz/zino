@@ -82,8 +82,8 @@
         public function Name() {
             return $this->mDbName;
         }
-        public function Hostname() {
-            return $this->mHostname;
+        public function Host() {
+            return $this->mHost;
         }
         public function Port() {
             return $this->mPort;
