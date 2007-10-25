@@ -30,8 +30,7 @@
                         echo $xc_settings[ 'staticimagesurl' ];
                         ?>messenger/msn.png" alt="MSN" title="MSN Messenger" /></dt>
 						<dd id="user_options_msn"><?php
-						//	echo htmlspecialchars( $theuser->MSN() );
-							echo $theuser->MSN();
+							echo htmlspecialchars( $theuser->MSN() );
 						?></dd>
 					</dl></li><?php
 					}
@@ -51,8 +50,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/yahoo.png" alt="Yahoo" title="Yahoo! Messenger" /></dt>
 							<dd id="user_options_yim"><?php
-								//echo htmlspecialchars( $theuser->YIM() );
-								echo $theuser->YIM();
+								echo htmlspecialchars( $theuser->YIM() );
 							?></dd>
 						</dl></li><?php
 					}
@@ -72,8 +70,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/aim.png" alt="AIM" title="AIM" /></dt>
 							<dd id="user_options_aim"><?php	
-								//echo htmlspecialchars( $theuser->AIM() );
-								echo $theuser->AIM();
+								echo htmlspecialchars( $theuser->AIM() );
 							?></dd>
 						</dl></li><?php
 					}
@@ -93,8 +90,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/skype.png" alt="Skype" title="Skype" /></dt>
 							<dd id="user_options_skype"><?php	
-								//echo htmlspecialchars( $theuser->Skype() );
-								echo $theuser->Skype();
+								echo htmlspecialchars( $theuser->Skype() );
 							?></dd>
 						</dl></li><?php
 					}
@@ -114,8 +110,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/icq.png" alt="ICQ" title="ICQ" /></dt>
 							<dd id="user_options_icq"><?php
-								//echo htmlspecialchars( $theuser->ICQ() );
-								echo $theuser->ICQ();
+								echo htmlspecialchars( $theuser->ICQ() );
 							?></dd>
 						</dl></li><?php
 					}
@@ -135,8 +130,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>messenger/gtalk.png" alt="gtalk" title="Google Talk" /></dt>
 							<dd id="user_options_gtalk"><?php
-                                //echo htmlspecialchars( $theuser->Gtalk() );
-								echo $theuser->Gtalk();
+                                echo htmlspecialchars( $theuser->Gtalk() );
 							?></dd>
 						</dl></li><?php
 					} 
