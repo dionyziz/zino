@@ -62,7 +62,7 @@ var Albums = {
 			//albumname = thefirstlink.innerHTML;
 			
 			spaninv = thefirstlinkchildspan[ 0 ];
-			var albumname = spaninv.innerHTML;
+			var albumname = spaninv.firstChild.nodeValue;
 			//----------END CODE FOR OBTAINING ALBUM NAME---------------
 			
 			var editlink = intdivchilda[ 1 ];
@@ -139,7 +139,7 @@ var Albums = {
 			
 			var thespan = descdivspanchild[ 1 ];
 			spaninv = descdivspanchild[ 0 ];
-			var albumdescription = spaninv.innerHTML;
+			var albumdescription = spaninv.firstChild.nodeValue;
 			
 			var descdivachild = descdiv.getElementsByTagName( 'a' );
 			var thelink = descdivachild[ 0 ];
