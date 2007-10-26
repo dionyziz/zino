@@ -26,7 +26,7 @@
 	header( "Pragma: " );
 	header( "Content-Type: image/png" );
 	
-	$months = 5;
+	$months = 1;
 
 	$sql = "SELECT 
 				COUNT(*) AS pageviews, 
