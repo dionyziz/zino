@@ -57,7 +57,7 @@ var ProfileOptions = {
 				continue;
 			}
 		
-			content = elements[ i ].innerHTML;
+			content = elements[ i ].firstChild.nodeValue;
 			elements[ i ].innerHTML = "";
 			
 			elements[ i ].style.height = '100%';
