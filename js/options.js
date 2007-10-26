@@ -58,7 +58,7 @@ var ProfileOptions = {
 			}
 			
 			content = "";
-			if ( element[ i ].childNodes.length > 0 ) {
+			if ( elements[ i ].childNodes.length > 0 ) {
 				content = elements[ i ].firstChild.nodeValue;
 			}
 			elements[ i ].innerHTML = "";
