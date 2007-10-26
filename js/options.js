@@ -56,8 +56,11 @@ var ProfileOptions = {
 				// alert( "wrong class name: " + elements[ i ].id );
 				continue;
 			}
-		
-			content = elements[ i ].firstChild.nodeValue;
+			
+			content = "";
+			if ( element[ i ].childNodes.length > 0 ) {
+				content = elements[ i ].firstChild.nodeValue;
+			}
 			elements[ i ].innerHTML = "";
 			
 			elements[ i ].style.height = '100%';
