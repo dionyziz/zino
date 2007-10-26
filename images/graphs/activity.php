@@ -28,11 +28,6 @@
 	
 	$months = 5;
 
-    $livedb = New Database( 'excalibur-sandbox' );
-	$livedb->Connect( 'localhost' );
-	$livedb->Authenticate( 'excalibursandbox' , 'viuhluqouhoa' );
-	$livedb->SetCharset( 'DEFAULT' );
-	
 	$sql = "SELECT 
 				COUNT(*) AS pageviews, 
 				DATE( `log_date` ) AS day
@@ -50,7 +45,7 @@
 			";
 
 	$days = array();
-	$res = $livedb->Query( $sql );
+	$res = $db->Query( $sql );
 	while ( $row = $res->FetchArray() ) {
 		$days[] = $row[ 'pageviews' ];
 	}
