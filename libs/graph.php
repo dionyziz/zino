@@ -110,7 +110,7 @@
 				$oldpageviews = $pageviews;
 			}
 			
-			imageantialias( $this->mIm , true );
+			// imageantialias( $this->mIm , true );
 		
 			$oldpageviews = $this->mData[ 0 ];
 			for ( $i =  1 ; $i < count( $this->mData ); ++$i ) {
