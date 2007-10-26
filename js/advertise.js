@@ -1,10 +1,8 @@
 var advertise = {
 	SendEmail : function() {
 		var body = document.getElementById( 'body' );
-		var inputlist = body.getElementsByTagName( 'input' );
-		var mailadress = inputlist[ 0 ];
-		var textarealist = document.getElementsByTagName( 'textarea' );
-		var mailtext = textarealist[ 0 ];
+		var mailadress = body.getElementsByTagName( 'input' )[ 0 ];
+		var mailtext = document.getElementsByTagName( 'textarea' )[ 0 ];
 		var filter  = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		if ( filter.test( mailadress.value ) ) {
             Coala.Warm( 'advertise/sendemail' , { text : mailtext.value , from : mailadress.value , domnode : mailtext } );
