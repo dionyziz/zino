@@ -72,7 +72,7 @@
 	$graph = New Graph( "Pageviews" );
 	$graph->SetData( $days );
 	$graph->SetSize( $width, $height );
-	$graph->SetTime( 150 );
+	$graph->SetTime( $months * 30 );
 	// $graph->SetSmoothing( $smooth );
     $graph->HighlightLast();
 	$graph->Render();
