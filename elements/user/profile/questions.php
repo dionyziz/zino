@@ -44,9 +44,9 @@
                         ?>);">
 						<input type="text" class="mybigtext" size="60" id="qanswer" />&nbsp;
 						<a href='' onclick="g('newquestform').onsubmit();return false;" alt="Αποθήκευση" title="Αποθήκευση"><img src="http://static.chit-chat.gr/images/icons/accept.png" /></a>&nbsp;
-                        <a href='' onclick="Coala.Warm( 'question/changeq', { 'id' : <?php
+                        <a href='' onclick="return Profileq.changeQuestion( <?php
                         echo $question->Id();
-                        ?>, 'callback' : Profileq.changeQuestion } );return false;" alt='Αλλαγή Ερώτησης' title='Αλλαγή Ερώτησης'>
+                        ?> );" alt='Αλλαγή Ερώτησης' title='Αλλαγή Ερώτησης'>
                         <img src="http://static.chit-chat.gr/images/icons/arrow_refresh.png" /></a>
 					</form></div><?php
 				}

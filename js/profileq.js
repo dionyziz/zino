@@ -1,4 +1,5 @@
 var Profileq = {
+	pause: false,
 	Edit : function ( id ) {
 		// alert( 'Answer: ' . g( 'qraw_' + id ).innerHTML );
 		var answer = g( 'qraw_' + id ).firstChild.nodeValue;
@@ -253,7 +254,7 @@ var Profileq = {
         var other = d.createElement( 'a' );
         other.href='';
         other.onclick = function () {
-                Coala.Warm( 'question/changeq', { 'id':id, 'callback':Profileq.changeQuestion } );
+                Coala.Warm( 'question/changeq', { 'id':id, 'callback':Profileq.changeQuestionCallback } );
                 return false;
             };
         other.alt = "Αλλαγή Ερώτησης";
@@ -287,7 +288,7 @@ var Profileq = {
 		}
 		return false;
 	},
-    changeQuestion : function ( newid , newquestion ) {
+    changeQuestionCallback : function ( newid , newquestion ) {
         var bigdiv = g('newquest');
         // When the page is loaded there is an empty text node between the <div> and the <b>.This node is removed
         // when a question is answered
@@ -301,10 +302,19 @@ var Profileq = {
 
         var link = form.childNodes[4].nodeName.toLowerCase() == "#text"?form.childNodes[5]:form.childNodes[4];
         link.onclick = function () {
-                Coala.Warm( 'question/changeq', { 'id':newid, 'callback':Profileq.changeQuestion } );
-                g( 'qanswer' ).focus();
+                Profileq.changeQuestion( newid );
                 return false;
         };
+        g( 'qanswer' ).focus();
+        Profileq.pause = false;
+    },
+    changeQuestion : function( id ) {
+    	if ( !Profileq.pause ) {
+    		return;
+    	}
+    	Profileq.pause = true;
+    	Coala.Warm( 'question/changeq', { 'id' : id, 'callback' : Profileq.changeQuestionCallback } );
+    	return false;
     },
     Wait : function ( ) {
     	document.body.style.cursor = "wait";
