@@ -40,7 +40,7 @@ var UserTabs = {
 
 parentdiv = document.getElementById( 'userprofile_tabs' );
 children_divs = parentdiv.getElementsByTagName( 'div' );
-for ( i = 0; i < children_divs.length(); ++i ) {
+for ( i = 0; i < children_divs.length; ++i ) {
 	child_div = children_divs[ i ];
 	j = Math.floor( ( children_divs.length - 1 - i ) / 3 );
 	child_div.onclick = ( function ( index ) {
