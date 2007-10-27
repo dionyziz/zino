@@ -44,9 +44,9 @@
                         ?>);">
 						<input type="text" class="mybigtext" size="60" id="qanswer" />&nbsp;
 						<a href='' onclick="g('newquestform').onsubmit();return false;" alt="Αποθήκευση" title="Αποθήκευση"><img src="http://static.chit-chat.gr/images/icons/accept.png" /></a>&nbsp;
-                        <a href='' onclick="return Profileq.changeQuestion( <?php
+                        <a href='' onclick="Profileq.changeQuestion( <?php
                         echo $question->Id();
-                        ?> );" alt='Αλλαγή Ερώτησης' title='Αλλαγή Ερώτησης'>
+                        ?> );return false;" alt='Αλλαγή Ερώτησης' title='Αλλαγή Ερώτησης'>
                         <img src="http://static.chit-chat.gr/images/icons/arrow_refresh.png" /></a>
 					</form></div><?php
 				}
