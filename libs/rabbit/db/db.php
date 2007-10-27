@@ -96,7 +96,7 @@
                 if ( $this->mDbName != '' ) {
                     $selection = $this->mDriver->SelectDb( $this->mDbName, $this->mLink );
                     if ( $selection === false ) {
-                        $water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->Error( $this->mLink ) );
+                        $water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->LastError( $this->mLink ) );
                         return false;
                     }
                 }
