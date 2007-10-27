@@ -17,7 +17,7 @@ var UserTabs = {
 		children_divs[ firstelem ].className = "rightism activeright";
 		children_divs[ firstelem + 1 ].className = "tab active";
 		children_divs[ firstelem + 2 ].className = "leftism activeleft";
-		for ( i in children_divs ) {
+		for ( var i = 0; i < children_divs.length; ++i ) {
 			if ( i < firstelem || i > firstelem + 2 ) {
 				child_div = children_divs[ i ];
 				switch ( child_div.className ) {
@@ -38,8 +38,8 @@ var UserTabs = {
 	}
 };
 
-parentdiv = document.getElementById( 'userprofile_tabs' );
-children_divs = parentdiv.getElementsByTagName( 'div' );
+var parentdiv = document.getElementById( 'userprofile_tabs' );
+var children_divs = parentdiv.getElementsByTagName( 'div' );
 for ( i = 0; i < children_divs.length; ++i ) {
 	child_div = children_divs[ i ];
 	j = Math.floor( ( children_divs.length - 1 - i ) / 3 );
