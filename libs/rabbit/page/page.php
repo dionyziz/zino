@@ -415,6 +415,7 @@ final class PageCoala extends Page {
         $this->OutputEnd();
     }
     protected function OutputPage() {
+        header( 'Content-type: text/javascript' );
         ?>while(1);<?php // JS hijacking prevention
         echo $this->mBody;
     }
