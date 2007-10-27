@@ -309,7 +309,7 @@ var Profileq = {
         Profileq.pause = false;
     },
     changeQuestion : function( id ) {
-    	if ( !Profileq.pause ) {
+    	if ( Profileq.pause ) {
     		return;
     	}
     	Profileq.pause = true;
