@@ -30,12 +30,12 @@
 				}
 				?><li><a href="?p=story&amp;id=<?php
 				echo $article->Id();
-				?>"><?php
+				?>">&raquo;<?php
 				echo $article->Name;
 				?></a></li><?php
 				++$i;
 			}
-		?></div><?php
+		?></ul></div><?php
 	}
 
 ?>
