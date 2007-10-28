@@ -31,7 +31,7 @@
 				?><li><a href="?p=story&amp;id=<?php
 				echo $article->Id();
 				?>">&raquo;<?php
-				echo $article->Name;
+				echo htmlspecialchars( $article->Name() );
 				?></a></li><?php
 				++$i;
 			}
