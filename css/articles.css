@@ -50,10 +50,6 @@ div.articles div small span {
 div.newestarticles {
 	border-left: 1px solid #cfcfcf;
 }
-div.populararticles {
-	width: 100%;
-}
-
 div.articles {
 	width: 600px;
 	overflow: hidden;
@@ -62,4 +58,7 @@ div.articles {
 }
 div.articles a.newarticle {
 	float: right;
+}
+div.populararticles {
+	width: 100%;
 }
