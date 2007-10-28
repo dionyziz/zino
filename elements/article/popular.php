@@ -28,9 +28,9 @@
 				if ( isset( $latestids[ $article->Id() ] ) ) { // TODO: this should be done using negative filters on the search
 					continue;
 				}
-				?><li><a href="?p=story&amp;id=<?php
+				?><li style="margin-right: 7px;"><a href="?p=story&amp;id=<?php
 				echo $article->Id();
-				?>">&raquo;<?php
+				?>"><?php
 				echo htmlspecialchars( $article->Name() );
 				?></a></li><?php
 				++$i;

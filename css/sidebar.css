@@ -29,7 +29,7 @@ div.sidebar div.box div.header h3 {
 }
 div.sidebar div.box div.body {
 	clear: none;
-	//border-right: 1px solid #2e486c;
+	border-right: 1px solid #2e486c;
 	border-left: 1px solid #2e486c;
 	border-bottom: 1px solid #2e486c;
 	background-image: url('http://static.chit-chat.gr/images/sorabody.jpg');
