@@ -28,11 +28,11 @@
 		if ( checkdate( $dobm , $dobd , $doby ) === false ) {
 			$dob = $user->DateOfBirth();
 			$invaliddob = true;
-			echo( "<b>2.1:</b> " . $dob );
+			// echo( "<b>2.1:</b> " . $dob );
 		}
 		else {
 			$dob = $doby."-".$dobm."-".$dobd;
-			echo( "<b>2.2:</b> " . $dob );
+			// echo( "<b>2.2:</b> " . $dob );
 		}
     	
     	if ( $oldpassword != "" ) {
