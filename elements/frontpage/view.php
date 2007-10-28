@@ -12,10 +12,10 @@
         
         ?><div style="clear:both"></div><?php
         
-        Element( "frontpage/rightbar" );
-        Element( "article/popular", $latestids );
+        //Element( "frontpage/rightbar" );
+        //Element( "article/popular", $latestids );
         
-        ?><br /><div style="clear:both"></div><?php
+        ?><br /><!--<div style="clear:both"></div>//--><?php
         Element( "user/birthdays" );
         ?><br /><br /><?php
         Element( "photo/latest" );
