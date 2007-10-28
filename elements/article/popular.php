@@ -19,18 +19,20 @@
 		$search->SetLimit( 10 );
 		$popular = $search->Get();
 		
-		?><div class="articles populararticles"><?php
+		?><div class="articles populararticles"><ul><?php
 			$i = 0;
-			
-			Article_FormatSmallMulti( $popular );
-			
+						
 			foreach ( $popular as $article ) {
 				if ( $i > 3 )
 					break;
 				if ( isset( $latestids[ $article->Id() ] ) ) { // TODO: this should be done using negative filters on the search
 					continue;
 				}
-				Element( "article/small", $article );
+				?><li><a href="?p=story&amp;id=<?php
+				echo $article->Id();
+				?>"><?php
+				echo $article->Name;
+				?></a></li><?php
 				++$i;
 			}
 		?></div><?php

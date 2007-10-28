@@ -16,7 +16,7 @@
         //Element( "article/popular", $latestids );
         
         ?><br /><?php
-        Element( "user/birthdays" );
+		Element( "user/birthdays" );
         ?><br /><br /><?php
         Element( "photo/latest" );
         Element( "notify/frontpage" );
