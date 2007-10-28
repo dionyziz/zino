@@ -37,7 +37,12 @@
 				?></a></li><?php
 				++$i;
 			}
-		?></ul></div><?php
+		?><li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=goutsou">Λετ δε γκέιμ μπεγκίν!</a></li>
+		<li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=skata">Παιχνίδι Συνειρμών</a></li>
+		<li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=goutsou">Λετ δε γκέιμ μπεγκίν!</a></li>
+		<li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=skata">Παιχνίδι Συνειρμών</a></li><li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=goutsou">Λετ δε γκέιμ μπεγκίν!</a></li>
+		<li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=skata">Παιχνίδι Συνειρμών</a></li>
+		</ul></div><?php
 	}
 
 ?>
