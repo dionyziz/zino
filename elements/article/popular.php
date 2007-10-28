@@ -19,9 +19,11 @@
 		$search->SetLimit( 10 );
 		$popular = $search->Get();
 		
-		?><div class="articles populararticles"><ul style="list-style:none"><?php
+		?><div class="articles populararticles">
+		<h4 style="display:inline;margin-right: 7px;">Τα παιχνίδια μας:</h4>
+		<ul style="display:inline;list-style:none;margin:0;padding:0;"><?php
 			$i = 0;
-			?><h4>Τα παιχνίδια μας</h4><?php	
+			?><?php	
 			foreach ( $popular as $article ) {
 				if ( $i > 3 )
 					break;
