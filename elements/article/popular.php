@@ -30,15 +30,14 @@
 				if ( isset( $latestids[ $article->Id() ] ) ) { // TODO: this should be done using negative filters on the search
 					continue;
 				}
-				?><li style="margin-right: 7px;"><a href="?p=story&amp;id=<?php
+				?><li style="display:inline;padding:0 10px 0 0;"><a href="?p=story&amp;id=<?php
 				echo $article->Id();
 				?>"><?php
 				echo htmlspecialchars( $article->Name() );
 				?></a></li><?php
 				++$i;
 			}
-		?><li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=goutsou">Λετ δε γκέιμ μπεγκίν!</a></li>
-		<li style="display:inline;padding: 0 10px 0 0;"><a href="?p=story&amp;id=skata">Παιχνίδι Συνειρμών</a></li></ul></div><?php
+		?></ul></div><?php
 	}
 
 ?>
