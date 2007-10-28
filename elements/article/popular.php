@@ -21,7 +21,7 @@
 		
 		?><div class="articles populararticles"><ul style="list-style:none"><?php
 			$i = 0;
-			?><h3>Τα παιχνίδια μας</h3><?php	
+			?><h4>Τα παιχνίδια μας</h4><?php	
 			foreach ( $popular as $article ) {
 				if ( $i > 3 )
 					break;
@@ -35,8 +35,8 @@
 				?></a></li><?php
 				++$i;
 			}
-		?><li><a href="?p=story&amp;id=goutsou">&raquo;Λετ δε γκέιμ μπεγκίν!</a></li>
-		<li><a href="?p=story&amp;id=skata">&raquo;Παιχνίδι Συνειρμών</a></li></ul></div><?php
+		?><li style="display:inline;"><a href="?p=story&amp;id=goutsou">&raquo;Λετ δε γκέιμ μπεγκίν!</a></li>
+		<li style="display:inline;"><a href="?p=story&amp;id=skata">&raquo;Παιχνίδι Συνειρμών</a></li></ul></div><?php
 	}
 
 ?>
