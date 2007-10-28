@@ -13,7 +13,7 @@
         ?><div style="clear:both"></div><?php
         
         //Element( "frontpage/rightbar" );
-        //Element( "article/popular", $latestids );
+        Element( "article/popular", $latestids );
         
         ?><br /><?php
 		Element( "user/birthdays" );
