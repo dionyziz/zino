@@ -33,7 +33,7 @@
 				?><li style="display:inline;padding:0 10px 0 0;"><a href="?p=story&amp;id=<?php
 				echo $article->Id();
 				?>"><?php
-				echo htmlspecialchars( $article->Name() );
+				echo htmlspecialchars( $article->Title() );
 				?></a></li><?php
 				++$i;
 			}
