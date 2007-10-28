@@ -23,11 +23,13 @@
 			$i = 0;
 						
 			foreach ( $popular as $article ) {
+				/*
 				if ( $i > 3 )
 					break;
 				if ( isset( $latestids[ $article->Id() ] ) ) { // TODO: this should be done using negative filters on the search
 					continue;
 				}
+				*/
 				?><li><a href="?p=story&amp;id=<?php
 				echo $article->Id();
 				?>">&raquo;<?php
