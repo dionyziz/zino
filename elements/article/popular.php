@@ -35,8 +35,8 @@
 				?></a></li><?php
 				++$i;
 			}
-		?><li><a href="?p=story&amp;id=goutsou">&raquo;Λετ δε γκέιμ μπεγκίν!</li>
-		<li><a href="?p=story&amp;id=skata">&raquo;Παιχνίδι Συνειρμών</li></ul></div><?php
+		?><li><a href="?p=story&amp;id=goutsou">&raquo;Ξ›ΞµΟ„ Ξ΄Ξµ Ξ³ΞΊΞ­ΞΉΞΌ ΞΌΟ€ΞµΞ³ΞΊΞ―Ξ½!</a></li>
+		<li><a href="?p=story&amp;id=skata">&raquo;Ξ Ξ±ΞΉΟ‡Ξ½Ξ―Ξ΄ΞΉ Ξ£Ο…Ξ½ΞµΞΉΟΞΌΟΞ½</a></li></ul></div><?php
 	}
 
 ?>
