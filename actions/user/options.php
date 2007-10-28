@@ -15,7 +15,7 @@
     	$dobm			= $dob_month->Get();
     	$doby			= $dob_year->Get();
     	
-    	echo( "<b>1:</b> " . $doby . "-" . $dobm . "-" . $dobd );
+    	// echo( "<b>1:</b> " . $doby . "-" . $dobm . "-" . $dobd );
     	$hobbies		= $hobbies->Get();
     	$slogan			= $slogan->Get();
     	$place			= $place->Get();
