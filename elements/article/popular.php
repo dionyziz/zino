@@ -19,9 +19,9 @@
 		$search->SetLimit( 10 );
 		$popular = $search->Get();
 		
-		?><div class="articles populararticles"><ul><?php
+		?><div class="articles populararticles"><ul style="list-style:none"><?php
 			$i = 0;
-						
+			?><h3>Τα παιχνίδια μας</h3><?php	
 			foreach ( $popular as $article ) {
 				if ( $i > 3 )
 					break;
