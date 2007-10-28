@@ -15,7 +15,7 @@
         //Element( "frontpage/rightbar" );
         //Element( "article/popular", $latestids );
         
-        ?><br /><!--<div style="clear:both"></div>//--><?php
+        ?><br /><?php
         Element( "user/birthdays" );
         ?><br /><br /><?php
         Element( "photo/latest" );
