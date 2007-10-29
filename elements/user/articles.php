@@ -3,12 +3,13 @@
 	function ElementUserArticles( $theuser , $articles ) {
 		global $user;
         global $xc_settings;
-		
+		/*
 		if ( $user->CanModifyStories() ) {
 			?><br />
 			<a href="?p=story&amp;id=21">Γράφοντας Άρθρα</a>
 			<br /><?php
 		}
+		*/
 		if ( $theuser->CanModifyStories() && count( $articles ) > 0 ) {
 			?><div class="articles newestarticles"><?php
 				Article_FormatSmallMulti( $articles );
