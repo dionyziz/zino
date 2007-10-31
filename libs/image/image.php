@@ -13,7 +13,8 @@
 	function Image_Added( $user ) {
 		global $users;
         global $latestimages;
-		global $user;
+		global $images;
+        global $user;
 		global $db;
 		
         $numimages = $user->CountImages() - 1;
@@ -25,7 +26,7 @@
         }
 
         if ( $numimages > 0 ) {
-            $sql = "SELECT max( `image_id` ) AS maximg FROM `merlin_images` WHERE `image_id` = '" . $user->Id() . "' LIMIT 1;";
+            $sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_id` = '" . $user->Id() . "' LIMIT 1;";
             $res = $db->Query( $sql )->FetchArray();
             $maximg = $res[ 'maximg' ];
 
