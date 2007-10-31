@@ -1,8 +1,14 @@
 <?php
-	function ElementUserProfileFriends( $theuser , $friends ) {
+	function ElementUserProfileFriends( $friends, $tags ) {
 		//$friends = $theuser->GetFriends(); 
 		//if ( count( $friends ) > 0 ) {
-			?>Οι φίλοι μου <br />
+		if( $tags ) { // This element is also used by elements/interesttag/view.php to show people with common interests
+			?>Ενδιαφέροντα<?php
+		}
+		else {
+			?>Οι φίλοι μου<?php
+		}
+		?> <br />
 			<div id="friends"><?php
 			foreach ( $friends as $friend ) { 
 				?><div style="width:70%;" id="friend_<?php

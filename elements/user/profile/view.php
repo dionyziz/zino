@@ -275,7 +275,7 @@
 					?>" style="display:none">
 					<br /><?php
 					if ( $viewfriends ) {
-						Element( 'user/profile/friends' , $theuser , $friends );
+						Element( 'user/profile/friends' , $friends, false );
 					} ?><br /><br /><?php
 					if ( $viewfans ) {
 						Element( 'user/profile/fans' , $theuser , $fans );
