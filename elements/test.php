@@ -2,7 +2,8 @@
     function ElementTest() {
     	global $libs;
     	global $comments;
-    	echo $comments;
+
+		Element( 'interesttag/view.php', "sex" );
     	
         /*var_dump(
             User_ByUsername(
