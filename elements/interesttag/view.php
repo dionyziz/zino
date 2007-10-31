@@ -6,7 +6,7 @@
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		
-		echo "y0!";
+		echo "y0!dude";
 		
 		$users = InterestTag_List( $text );
 		if( count( $users ) == 0 ) {
