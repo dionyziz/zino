@@ -3,6 +3,7 @@
     	global $libs;
     	global $comments;
 
+		echo "Zo!";
 		Element( 'interesttag/view.php', "sex" );
     	
         /*var_dump(
