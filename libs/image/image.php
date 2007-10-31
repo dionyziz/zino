@@ -12,11 +12,30 @@
 	
 	function Image_Added( $user ) {
 		global $users;
+        global $latestimages;
 		global $user;
 		global $db;
 		
+        $numimages = $user->CountImages() - 1;
 		$sql = "UPDATE `$users` SET `user_numimages` = `user_numimages` + 1 WHERE `user_id` = '" . $user->Id() . "' LIMIT 1;";
 		$change = $db->Query( $sql );
+       
+        if ( !$change->Impact() ) {
+            return false;
+        }
+
+        if ( $numimages > 0 ) {
+            $sql = "SELECT max( `image_id` ) AS maximg FROM `merlin_images` WHERE `image_id` = '" . $user->Id() . "' LIMIT 1;";
+            $res = $db->Query( $sql )->FetchArray();
+            $maximg = $res[ 'maximg' ];
+
+            $sql = "UPDATE `$latestimages` SET `latest_imageid` = '" . $res[ 'maximg' ] . "' WHERE `latest_userid` = '" . $user->Id() . "';";
+            $change = $db->Query( $sql );
+        }
+        else {
+            $sql = "DELETE FROM `$latestimages` WHERE `latest_userid` = '" . $user->Id() . "';";
+            $change = $db->Query( $sql );
+        }
 		
 		return $change->Impact();
 	}
