@@ -1,4 +1,7 @@
 <?php
+	/*MASKED:
+		Interest Tags (kostis90gr)
+	*/
 	global $libs;
     
     $libs->Load( 'image/image' ); // for usericons
@@ -848,6 +851,17 @@
 			return $this->mDOB;
 		}
 		public function Hobbies() {
+			if ( $this->mHobbies === false ) {
+				global $libs;
+				
+				$libs->Load( 'interesttag' );
+				$this->mHobbies = "";
+				$tags = InterestTag_List( $this->mId );
+				foreach ( $tags as $tag ) {
+					$this->mHobbies .= $tag;
+					$this->mHobbies .= ","; // Remember to change this, so that the last interest doesn't have a ,
+				}
+			}
 			return $this->mHobbies;
 		}
 		public function Subtitle() {
@@ -1773,7 +1787,7 @@
 			$this->mYIM		          	= isset( $fetched_array[ "user_yim" ]               ) ? $fetched_array[ "user_yim" ]              	: '';
 			$this->mAIM		          	= isset( $fetched_array[ "user_aim" ]               ) ? $fetched_array[ "user_aim" ]              	: '';
 			$this->mGTalk		      	= isset( $fetched_array[ "user_gtalk" ]             ) ? $fetched_array[ "user_gtalk" ]            	: '';
-			$this->mHobbies		      	= isset( $fetched_array[ "user_hobbies" ]           ) ? $fetched_array[ "user_hobbies" ]          	: '';
+			$this->mHobbies		      	= false;
 			$this->mSubtitle	      	= isset( $fetched_array[ "user_subtitle" ]          ) ? $fetched_array[ "user_subtitle" ]         	: '';
 			$this->mLastLogon	      	= isset( $fetched_array[ "user_lastlogon" ]         ) ? $fetched_array[ "user_lastlogon" ]        	: '0000-00-00 00:00:00';
 
