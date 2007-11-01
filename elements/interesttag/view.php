@@ -2,6 +2,7 @@
 	function ElementInteresttagView( $text ) {
 		global $page;
 		global $libs;
+		global $user;
 		
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα' );
