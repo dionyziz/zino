@@ -3,7 +3,7 @@
     	global $libs;
     	global $comments;
 		
-		Element( 'interesttag/view', "skata" );
+		Element( 'interesttag/view', "foo" );
     	
         /*var_dump(
             User_ByUsername(
