@@ -8,7 +8,7 @@
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		
 		$tag_users = InterestTag_List( $text ); // Get a list of instances of InterestTag
-		if( count( $users ) == 0 ) {
+		if( count( $tag_users ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
