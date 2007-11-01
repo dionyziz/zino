@@ -4,8 +4,9 @@
     	global $comments;
 
 		echo "Zo!";
+		
+		Element( 'interesttag/view', "sex" );
 		Element( 'copyright' );
-		Element( 'interesttag/view.php', "sex" );
     	
         /*var_dump(
             User_ByUsername(
