@@ -1,5 +1,5 @@
 <?php
-	function ElementInteresttagView( $text ) {
+	function ElementInteresttagView( tString $text ) {
 		global $page;
 		global $libs;
 		global $user;
@@ -8,7 +8,7 @@
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		
-		$tag_users = InterestTag_List( $text ); // Get a list of instances of InterestTag
+		$tag_users = InterestTag_List( $text->Get() ); // Get a list of instances of InterestTag
 		if( count( $tag_users ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
