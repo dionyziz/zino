@@ -7,12 +7,15 @@
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		
-		$users = InterestTag_List( $text );
+		$tag_users = InterestTag_List( $text ); // Get a list of instances of InterestTag
 		if( count( $users ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
+		$users = array(); // A List of instances of User
+		foreach ( $tag_users as $tag_user ) {
+			$users[] = New User( $tag_user );
+		}
 		Element( 'user/profile/friends' , $users, true );
-		echo "y0!dude";
 	}
 ?>
