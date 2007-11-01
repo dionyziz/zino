@@ -861,7 +861,7 @@
 					$this->mHobbies .= $tag->Text;
 					$this->mHobbies .= ",";
 				}
-				$this->mHobbies[ strlen( $this->mHobbies )-1 ] = ""; // Remove the last comma
+				$this->mHobbies[ strlen( $this->mHobbies )-1 ] = " "; // Remove the last comma
 			}
 			return $this->mHobbies;
 		}
