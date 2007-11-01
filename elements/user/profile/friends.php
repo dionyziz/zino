@@ -3,7 +3,7 @@
 		//$friends = $theuser->GetFriends(); 
 		//if ( count( $friends ) > 0 ) {
 		if( $tags ) { // This element is also used by elements/interesttag/view.php to show people with common interests
-			?>Ενδιαφέροντα<?php
+			?><b>Ενδιαφέροντα</b><?php
 		}
 		else {
 			?>Οι φίλοι μου<?php
