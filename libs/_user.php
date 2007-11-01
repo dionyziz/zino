@@ -856,7 +856,7 @@
 				
 				$libs->Load( 'interesttag' );
 				$this->mHobbies = "";
-				$tags = InterestTag_List( $this->mId );
+				$tags = InterestTag_List( $this );
 				foreach ( $tags as $tag ) {
 					$this->mHobbies .= $tag;
 					$this->mHobbies .= ","; // Remember to change this, so that the last interest doesn't have a ,
