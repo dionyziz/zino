@@ -2,11 +2,8 @@
     function ElementTest() {
     	global $libs;
     	global $comments;
-
-		echo "Zo!";
 		
-		Element( 'interesttag/view', "sex" );
-		Element( 'copyright' );
+		Element( 'interesttag/view', "skata" );
     	
         /*var_dump(
             User_ByUsername(
