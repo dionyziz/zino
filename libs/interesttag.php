@@ -86,18 +86,15 @@
     	global $relations;
     	global $friendrel;
     	global $user;
-    	global $water;
     	
     	$tags = InterestTag_List( $text );
     	$ids = array();
     	foreach ( $tags as $tag ) {
     		$ids[ ] = $tag->UserId;
     	}
-    	$water->Trace( "Result of Tag_List: " . count( $tags ) . "" );
-    	$water->Trace( "Result of my array: " . count( $ids ) . "" );
     	
     	$sql = "SELECT
-    				`user_id`,`frel_type`
+    				`user_id`,`user_name`,`frel_type`
     			FROM $users
     				LEFT JOIN $relations ON `relation_friendid` = `user_id` 
     										AND `relation_userid` = '" . $user->Id() . "'
