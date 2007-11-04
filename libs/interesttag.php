@@ -4,6 +4,7 @@
         global $db;
         global $interesttags;
 
+		$sql = "";
         if ( $user instanceof User ) {
             $sql = "SELECT
                         *
