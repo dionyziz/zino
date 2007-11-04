@@ -55,6 +55,8 @@
                         `interesttag_text` = '$tagtext'
                     ;";
             
+            $res = $db->Query( $sql );
+            
             while ( $row = $res->FetchArray() ) {
 				$tag = new InterestTag( $row );
 				$tags[ $tag->Id ] = $tag;
