@@ -1,5 +1,5 @@
 <?php
-	function ElementUserProfileFriends( $friends, $tags ) {
+	function ElementUserProfileFriends( $friends, $uid, $tags ) {
 		//$friends = $theuser->GetFriends(); 
 		//if ( count( $friends ) > 0 ) {
 		if( $tags ) { // This element is also used by elements/interesttag/view.php to show people with common interests
@@ -28,11 +28,19 @@
 								echo htmlspecialchars( $friend->Hobbies() ); 
                                 ?></div><?php
 							}
+							if ( $friend->Id() != $uid ) {
 							?>
 							<div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
-							echo $friend->Frel_type();
-							?></div><br />
-						</div>
+							if( !$friend->Frel_type() ) {
+								$rtype = "Καμία";
+							}
+							else {
+								$rtype = $friend->Frel_type();
+							}
+							echo $rtype;
+							?></div><br /><?php
+							}
+						?></div>
 						<div class="downline">
 							<div class="leftdowncorner"></div>
 							<div class="rightdowncorner"></div>
