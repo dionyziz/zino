@@ -4,6 +4,7 @@ var Poll = {
     question: '',
     votingPoll: 0,
     deletingPoll: 0,
+    wait : false,
     Create: function() {
         var newpoll_ = document.getElementById( 'newpoll' );
         var ul = newpoll_.getElementsByTagName( 'ul' )[ 0 ];
@@ -102,6 +103,10 @@ var Poll = {
         g( 'newpoll' ).parentNode.removeChild( g( 'newpoll' ) );
     },
     Vote: function( pollid, optionid ) {
+    	if ( Poll.wait ) {
+    		return;
+    	}
+    	Poll.wait = true;
         Poll.votingPoll = pollid;
         Coala.Warm( 'poll/vote', { 'pollid': pollid, 'optionid': optionid, 'callback': Poll.VoteCallback } );
     },
@@ -113,6 +118,7 @@ var Poll = {
         var userpoll = g( 'userpoll_' + Poll.votingPoll );
         userpoll.parentNode.insertBefore( newpoll, userpoll );
         newpoll.parentNode.removeChild( userpoll );
+        Poll.wait = false;
     },
     EditQuestion: function( pollid, question ) {
         var h4 = g( 'userpoll_' + pollid ).getElementsByTagName( "h4" )[ 0 ];
