@@ -59,7 +59,7 @@
             
             while ( $row = $res->FetchArray() ) {
 				$tag = new InterestTag( $row );
-				$tags[ $tag->Id ] = $tag;
+				$ret[ $tag->Id ] = $tag;
 			}
         }
 		
