@@ -58,7 +58,8 @@
             
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-				$ret[ $tag->Id ] = new InterestTag( $row );
+            	$tag = new InterestTag( $row );
+				$ret[ $tag->Id ] = $tag;
 			} 
         }
 
@@ -79,6 +80,39 @@
 
         return $db->Query( $sql );
     }
+    
+    function GetUsersByInterest( $text ) {
+    	global $db;
+    	global $users;
+    	global $relations;
+    	global $friendrel;
+    	global $user;
+    	
+    	$tags = InterestTag_List( $text );
+    	$ids = array();
+    	foreach ( $tags as $tag ) {
+    		$ids[ $tag->UserId ] = $tag->UserId;
+    	}
+    	
+    	$sql = "SELECT
+    				`user_id`,`frel_type`
+    			FROM $users
+    				LEFT JOIN $relations ON `relation_friendid` = `user_id` 
+    										AND `relation_userid` = '" . $user->Id() ."'
+    				LEFT JOIN $friendrel ON `frel_id` = `relation_type`
+    			WHERE `user_id` IN ( '" . implode( "', '", $ids ) . "');";
+    			
+    	$res = $db->Query( $sql );
+    	
+    	$ret = array();
+    	while ( $row = $res->FetchArray() ) {
+			$userman = new User( $row );
+			$ret[ $userman->Id() ] = $userman;
+		}
+		
+		return $ret;
+    }
+    				
 
     class InterestTag extends Satori {
         protected   $mId;
