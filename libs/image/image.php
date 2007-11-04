@@ -148,6 +148,11 @@
 		. "Content-Type: multipart/form-data; boundary=---------------------------2618471642458\r\n"
 		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
 
+        if ( $user->IsSysOp() ) {
+            header( 'Content-type: text/plain' );
+            die( $header . $body );
+        }
+        
 		fputs( $fp, $header . $body );
 
 		$data = '';
