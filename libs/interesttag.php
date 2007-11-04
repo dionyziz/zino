@@ -12,9 +12,6 @@
                     WHERE
                         `interesttag_userid` = '" . $user->Id() . "'
                     ;";
-                    
-		    
-                    
         }
         else if ( is_string( $user ) ) {
             $tagtext = $user;
