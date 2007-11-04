@@ -28,7 +28,7 @@
 								echo htmlspecialchars( $friend->Hobbies() ); 
                                 ?></div><?php
 							}
-							if ( $friend->Id() != $uid && $tags ) {
+							if ( $friend->Id() != $uid && !$tags ) {
 							?>
 							<div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
 							print( ( !$friend->Frel_type() )?"Καμία":$friend->Frel_type() );
