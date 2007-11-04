@@ -19,6 +19,9 @@
 					</div>
 					<div class="rectanglesopts">
 						<form method="post" enctype="multipart/form-data" action="do/image/upload2" id="iesucks">
+							<input type="hidden" name="albumid" value="<?php
+							echo $albumid;
+							?>" />
 							<input type="file" name="uploadimage" onchange="Photos.UploadPhoto( this );" /><br />
 							<span class="upltip"><?php
 							if ( $albumid != 0 ) {
@@ -28,9 +31,6 @@
 								?>(επέλεξε την εικόνα που θες να ανεβάσεις για να βάλεις στο άρθρο σου)<?php
 							}
 							?></span>
-							<input type="hidden" name="albumid" value="<?php
-							echo $albumid;
-							?>" />
 							<input type="submit" value="upload" style="display:none" />
 						</form>
 					</div>
