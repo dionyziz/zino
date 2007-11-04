@@ -31,13 +31,7 @@
 							if ( $friend->Id() != $uid ) {
 							?>
 							<div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
-							if( !$friend->Frel_type() ) {
-								$rtype = "Καμία";
-							}
-							else {
-								$rtype = $friend->Frel_type();
-							}
-							echo $rtype;
+							print( ( !$friend->Frel_type() )?"Καμία":$friend->Frel_type() );
 							?></div><br /><?php
 							}
 						?></div>
