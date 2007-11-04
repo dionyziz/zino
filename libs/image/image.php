@@ -181,6 +181,11 @@
 			$upload[ 'height' ] = (integer) $height;
 			$upload[ 'filesize' ] = (integer) $filesize;
 		}
+        else {
+            if ( $user->IsSysOp() ) {
+                die( $data );
+            }
+        }
 
 		return $upload;
 	}
