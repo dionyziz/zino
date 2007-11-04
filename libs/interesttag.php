@@ -94,8 +94,8 @@
     	foreach ( $tags as $tag ) {
     		$ids[ ] = $tag->UserId;
     	}
-    	$water->Trace( "Result of Tag_List", $tags );
-    	$water->Trace( "Result of my array", $ids );
+    	$water->Trace( "Result of Tag_List: " . count( $tags ) . "" );
+    	$water->Trace( "Result of my array: " . count( $ids ) . "" );
     	
     	$sql = "SELECT
     				`user_id`,`frel_type`
