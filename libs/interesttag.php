@@ -87,18 +87,21 @@
     	global $relations;
     	global $friendrel;
     	global $user;
+    	global $water;
     	
     	$tags = InterestTag_List( $text );
     	$ids = array();
     	foreach ( $tags as $tag ) {
-    		$ids[ $tag->UserId ] = $tag->UserId;
+    		$ids[ ] = $tag->UserId;
     	}
+    	$water->Trace( "Result of Tag_List", $tags );
+    	$water->Trace( "Result of my array", $ids );
     	
     	$sql = "SELECT
     				`user_id`,`frel_type`
     			FROM $users
     				LEFT JOIN $relations ON `relation_friendid` = `user_id` 
-    										AND `relation_userid` = '" . $user->Id() ."'
+    										AND `relation_userid` = '" . $user->Id() . "'
     				LEFT JOIN $friendrel ON `frel_id` = `relation_type`
     			WHERE `user_id` IN ( '" . implode( "', '", $ids ) . "');";
     			
