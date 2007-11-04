@@ -15,7 +15,7 @@
 		}
 		$users = array(); // A List of instances of User
 		foreach ( $tag_users as $tag_user ) {
-			$users[] = New User( $tag_user->UserId );
+			$users[ $tag_user->UserId  ] = New User( $tag_user->UserId );
 		}
 		Element( 'user/profile/friends' , $users, true );
 	}
