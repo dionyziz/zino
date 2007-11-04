@@ -1345,7 +1345,7 @@
 			return $change->AffectedRows() == 1;
 		}
 		
-		public function AddFriend( $friend_id, $friend_type ) {
+		public function AddFriend( $friend_id, $friend_type, $wasfriend = false ) {
 			global $db;
 			global $user;
 			global $relations;
@@ -1361,7 +1361,9 @@
 					( '' , '" . $this->Id() . "', '" . $friend_id . "', '" . $friend_type . "', '$nowdate' );";
 			
 			$change = $db->Query( $sql );
-			Notify_Create( $user->Id() , $friend_id , $friend_id , 128 );
+			if ( !$wasfriend ) {
+				Notify_Create( $user->Id() , $friend_id , $friend_id , 128 );
+			}
 			
 			return $change->AffectedRows() == 1;
 		}
