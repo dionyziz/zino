@@ -83,6 +83,7 @@
     function GetUsersByInterest( $text ) {
     	global $db;
     	global $users;
+    	global $images;
     	global $relations;
     	global $friendrel;
     	global $user;
@@ -94,12 +95,14 @@
     	}
     	
     	$sql = "SELECT
-    				`user_id`,`user_name`,`frel_type`
-    			FROM $users
-    				LEFT JOIN $relations ON `relation_friendid` = `user_id` 
-    										AND `relation_userid` = '" . $user->Id() . "'
-    				LEFT JOIN $friendrel ON `frel_id` = `relation_type`
-    			WHERE `user_id` IN ( '" . implode( "', '", $ids ) . "');";
+    				`user_id`,`user_name`,`frel_type`,`image_id`
+    			FROM `$users`
+    				LEFT JOIN `$images` ON `user_icon` = `image_id`
+    				LEFT JOIN `$relations` ON `relation_friendid` = `user_id` 
+    									   AND `relation_userid` = '" . $user->Id() . "'
+    				LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
+    			WHERE `user_id` IN ( '" . implode( "', '", $ids ) . "')
+    			;";
     			
     	$res = $db->Query( $sql );
     	
