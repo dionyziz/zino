@@ -236,7 +236,7 @@
             $this->Satori( $construct );
 
             $this->mNext        = false;
-            $this->mPrevious    = false;
+//          $this->mPrevious    = false;
             $this->mUser        = $user;
         }
     }
