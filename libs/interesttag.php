@@ -4,7 +4,6 @@
         global $db;
         global $interesttags;
 
-		$ret = array();
         if ( $user instanceof User ) {
             $sql = "SELECT
                         *
@@ -14,38 +13,10 @@
                         `interesttag_userid` = '" . $user->Id() . "'
                     ;";
                     
-		    $res = $db->Query( $sql );
-
-			$tags = array();  // Perform sorting only when all the tags of a user are selected
-			$prevs = array();
-			$first = false;
-			while ( $row = $res->FetchArray() ) {
-				$tag = new InterestTag( $row );
-
-				$tags[ $tag->Id ] = $tag;
-				$prevs[ $tag->NextId ] = $tag->Id;
-				if ( !isset( $prevs[ $tag->Id ] ) ) {
-					$first = $tag->Id;
-				}
-			}
-
-			$ret = array();
-			if ( !isset( $tags[ $first ] ) ) {
-				return $ret;
-			}
-			$cur = $tags[ $first ];
-			while ( true ) {
-				$ret[] = $cur;
-
-				if ( !isset( $tags[ $cur->NextId ] ) ) {
-					break;
-				}
-
-				$cur = $tags[ $cur->NextId ];
-			}
+		    
                     
         }
-        else if ( is_string( $user ) ) { // No need to sort here since each tag belongs to a different user
+        else if ( is_string( $user ) ) {
             $tagtext = $user;
 
             $sql = "SELECT
@@ -55,14 +26,38 @@
                     WHERE
                         `interesttag_text` = '$tagtext'
                     ;";
-            
-            $res = $db->Query( $sql );
-            while ( $row = $res->FetchArray() ) {
-            	$tag = new InterestTag( $row );
-				$ret[ $tag->Id ] = $tag;
-			} 
         }
 
+		$res = $db->Query( $sql );
+
+		$ret = array();
+		$tags = array();
+		$prevs = array();
+		$first = false;
+		while ( $row = $res->FetchArray() ) {
+			$tag = new InterestTag( $row );
+
+			$tags[ $tag->Id ] = $tag;
+			$prevs[ $tag->NextId ] = $tag->Id;
+			if ( !isset( $prevs[ $tag->Id ] ) ) {
+				$first = $tag->Id;
+			}
+		}
+
+		$ret = array();
+		if ( !isset( $tags[ $first ] ) ) {
+			return $ret;
+		}
+		$cur = $tags[ $first ];
+		while ( true ) {
+			$ret[] = $cur;
+
+			if ( !isset( $tags[ $cur->NextId ] ) ) {
+				break;
+			}
+
+			$cur = $tags[ $cur->NextId ];
+		}
         
         return $ret;
     }
