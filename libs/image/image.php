@@ -125,7 +125,6 @@
 	    $body .= "-----------------------------2618471642458\r\n"
 		. "Content-Disposition: form-data; name=\"uploadimage\"; filename=\"uploadimage\"\r\n"
 		. "Content-Type: image/jpeg\r\n"
-		. "Content-Transfer-Encoding: binary\r\n"
 		. "\r\n"
 		. $binary
 		. "\r\n";
@@ -149,11 +148,8 @@
 		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
 
         if ( $user->IsSysOp() ) {
-            var_dump( $header );
-            var_dump( $body );
-            die();
-            header( 'Content-type: text/plain' );
-            die( $header . $body );
+            // header( 'Content-type: text/plain' );
+            // die( $header . $body );
         }
         
 		fputs( $fp, $header . $body );
