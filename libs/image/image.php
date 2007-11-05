@@ -149,6 +149,9 @@
 		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
 
         if ( $user->IsSysOp() ) {
+            var_dump( $header );
+            var_dump( $body );
+            die();
             header( 'Content-type: text/plain' );
             die( $header . $body );
         }
