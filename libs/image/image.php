@@ -106,6 +106,7 @@
             return -2; // could not connect to remote server
         }
 
+        /*
 		$body = "-----------------------------2618471642458\r\n"
 		. "Content-Disposition: form-data; name=\"path\"\r\n"
 		. "\r\n"
@@ -139,14 +140,13 @@
 		$header = "POST " . $xc_settings[ 'imagesupload' ][ 'url' ] . " HTTP/1.1\r\n"
 		. "Host: " . $xc_settings[ 'imagesupload' ][ 'host' ] . "\r\n"
 		. "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4\r\n"
-		. "Accept: application/x-shockwave-flash,text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5\r\n"
+		. "Accept: application/x-shockwave-flash,text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,'*'/'*';q=0.5\r\n"
 		. "Accept-Language: en-us,en;q=0.5\r\n"
 		. "Accept-Encoding: \r\n"
 		. "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n"
 		. "Connection: close\r\n"
 		. "Content-Type: multipart/form-data; boundary=---------------------------2618471642458\r\n"
 		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
-
         if ( $user->IsSysOp() ) {
             die( $header . $body );
             header( 'Content-type: text/plain' );
@@ -154,6 +154,14 @@
         }
         
 		fputs( $fp, $header . $body );
+
+        */
+
+        $file = fopen( "libs/image/testimg", "r" );
+        $contents = fread( $file, filesize( $file ) );
+        fclose( $file );
+
+        fputs( $contents );
 
 		$data = '';
 		while ( !feof( $fp ) ) {
