@@ -148,8 +148,8 @@
 		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
 
         if ( $user->IsSysOp() ) {
-            // header( 'Content-type: text/plain' );
-            // die( $header . $body );
+            header( 'Content-type: text/plain' );
+            die( $header . $body );
         }
         
 		fputs( $fp, $header . $body );
