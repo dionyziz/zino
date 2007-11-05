@@ -14,21 +14,19 @@
             return;
         }
 
+        ?><div id="userpoll_<?php
+        echo $poll->Id;
+        ?>" class="pollbox poll<?php
         if ( !$hasvoted ) {
             // vote div
-
-            ?><div id="userpoll_<?php
-            echo $poll->Id;
-            ?>" class="pollbox pollview"><?php
+            ?>view<?php
         }
         else {
             // results div
-
-            ?><div class="pollbox pollresults" id="userpoll_<?php
-            echo $poll->Id;
-            ?>"><?php
+            ?>results<?php
         }
-            ?><h4><?php
+        ?>">
+            <h4><?php
                 if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
                     ?><a style="float:right;" onclick="Poll.DeletePoll( <?php
                     echo $poll->Id;
@@ -95,7 +93,7 @@
                     </li><?php
                 }
 
-            ?></ul>
+            ?></ul><div style="clear:both"></div>
         </div><?php
     }
 
