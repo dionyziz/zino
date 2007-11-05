@@ -101,6 +101,7 @@
             $this->AssertEquals( 2, count( $tags ), 'InterestTag_List returned an incorrect number of items after I tried to MoveAfter a tag' );
             $i = 0;
             foreach ( $tags as $tag ) {
+                $this->Assert( $tag instanceof InterestTag, 'InterestTag_List should return an array of InterestTag instances when retrieving a list of tags for a particular user' );
                 $text = $tag->Text;
                 switch ( $i ) {
                     case 0:
@@ -138,6 +139,7 @@
             $test = New User( 'test' );
             $found = false;
             foreach ( $tags as $tag ) { // they should be ordered by order (users who have this tag first show up first), secondarily ordered by reverse creation date (newest users who added it show up first)
+                $this->Assert( $tag instanceof InterestTag, 'InterestTag_List should return an array of InterestTag instances when retrieving a list of tags with a particular text' );
                 $user = $tag->User;
                 if ( $test == $user ) {
                     $found = true;
