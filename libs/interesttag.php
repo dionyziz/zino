@@ -4,6 +4,8 @@
         global $db;
         global $interesttags;
 
+        w_assert( $user instanceof User || is_string( $user ), 'InterestTag_List() accepts either a user instance or a string paramter' );
+        
 		$ret = array();
         if ( $user instanceof User ) {
             $sql = "SELECT
