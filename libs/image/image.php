@@ -100,13 +100,13 @@
 			return -1; // disallowed uploads
 		}
         
-		$fp = fsockopen( $xc_settings[ 'imagesupload' ][ 'ip' ], $xc_settings[ 'imagesupload' ][ 'port' ] );
+		/*
+        $fp = fsockopen( $xc_settings[ 'imagesupload' ][ 'ip' ], $xc_settings[ 'imagesupload' ][ 'port' ] );
 		
         if ( !$fp ) {
             return -2; // could not connect to remote server
         }
 
-        /*
 		$body = "-----------------------------2618471642458\r\n"
 		. "Content-Disposition: form-data; name=\"path\"\r\n"
 		. "\r\n"
@@ -155,14 +155,6 @@
         
 		fputs( $fp, $header . $body );
 
-        */
-
-        $file = fopen( "libs/image/testimg", "r" );
-        $contents = fread( $file, filesize( $file ) );
-        fclose( $file );
-
-        fputs( $contents );
-
 		$data = '';
 		while ( !feof( $fp ) ) {
 			$data .= @fgets( $fp, 1024 );
@@ -173,7 +165,26 @@
         $split = explode( "\r\n\r\n", $data );
 		
         $data = $split[ 1 ];
-		$upload = array();
+        */
+		
+        $curl = curl_init();
+
+        $data = array(
+            'path' => $path,
+            'mime' => 'image/jpeg',
+            'binary' => $binary
+        );
+
+        curl_setopt( $curl, CURLOPT_URL, $xc_settings[ 'imagesupload' ][ 'host' ] );
+        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
+        curl_setopt( $curl, CURLOPT_POST, 1 );
+        curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
+
+        $data = curl_exec( $curl );
+
+        die( $data );
+
+        $upload = array();
 
 		if ( strpos( $data, "error" ) !== false && $user->IsSysOp() ) {
 			die( $data );
