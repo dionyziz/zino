@@ -182,6 +182,8 @@
 
         $data = curl_exec( $curl );
 
+        curl_close( $curl );
+
         die( $data );
 
         $upload = array();
