@@ -172,7 +172,7 @@
         $data = array(
             'path' => $path,
             'mime' => 'image/jpeg',
-            'binary' => $binary
+            'uploadimage' => $binary
         );
 
         curl_setopt( $curl, CURLOPT_URL, $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ] );
