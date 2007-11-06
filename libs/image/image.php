@@ -175,7 +175,7 @@
             'binary' => $binary
         );
 
-        curl_setopt( $curl, CURLOPT_URL, $xc_settings[ 'imagesupload' ][ 'host' ] );
+        curl_setopt( $curl, CURLOPT_URL, $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ] );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
         curl_setopt( $curl, CURLOPT_POST, 1 );
         curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
