@@ -179,6 +179,7 @@
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
         curl_setopt( $curl, CURLOPT_POST, 1 );
         curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
+        curl_setopt( $curl, CURLOPT_UPLOAD, 1 );
 
         $data = curl_exec( $curl );
 
