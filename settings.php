@@ -1,8 +1,8 @@
 <?php
     return array(
         'applicationname' => 'Chit-Chat',
-        'rootdir'         => '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs',
-        'resourcesdir'    => '/srv/www/vhosts/chit-chat.gr/subdomains/beta/httpsdocs/resources',
+        'rootdir'         => '/var/www/chit-chat.gr/beta',
+        'resourcesdir'    => '/var/www/chit-chat.gr/beta/resources',
         'imagesurl'       => 'http://static.chit-chat.gr/images/',
         'production'      => false,
         'hostname'        => 'beta.chit-chat.gr',
