@@ -103,12 +103,10 @@
         $curl = curl_init();
 
         $data = array(
-            'path' => '0/0',
+            'path' => '$path',
             'mime' => 'image/jpeg',
             'uploadimage' => "@$tempfile"
         );
-
-        $server = "images.chit-chat.gr";
 
         $header[ 0 ] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
         $header[] = "Accept-Language: en-us,en;q=0.5";
@@ -117,8 +115,9 @@
         $header[] = "Keep-Alive: 300";
         $header[] = "Connection: keep-alive";
         $header[] = "Expect:";
-
-        curl_setopt( $curl, CURLOPT_URL, $server . '/upload3.php' );
+    
+        $server = $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ];
+        curl_setopt( $curl, CURLOPT_URL, $server );
         curl_setopt( $curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.8) Gecko/20071030 Firefox/2.0.0.8" );
         curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
         curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
