@@ -56,7 +56,7 @@
             $tagtext = $usern;
 
             $sql = "SELECT
-					`user_id`,`user_name`,`frel_type`,`image_id`
+					`interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
 					FROM `$interesttags`
 						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
 						LEFT JOIN `$images` ON `user_icon` = `image_id`
@@ -69,7 +69,7 @@
             $res = $db->Query( $sql );
             
             while ( $row = $res->FetchArray() ) {
-				$tag = new User( $row );
+                $tag = new InterestTag( $row );
 				$ret[] = $tag;
 			}
         }
@@ -212,7 +212,13 @@
 
             $this->mNext        = false;
 //          $this->mPrevious    = false;
-            $this->mUser        = $user;
+            
+            if ( $user !== false ) {
+                $this->mUser        = $user;
+            }
+            else if ( isset( $construct[ 'user_id' ] ) ) {
+                $this->mUser        = new User( $construct );
+            }
         }
     }
 
