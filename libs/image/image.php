@@ -91,7 +91,7 @@
         return array();
     }
     
-	function Image_Upload( $path, $binary, $resizeto = false ) {
+	function Image_Upload( $path, $tempfile, $resizeto = false ) {
         global $xc_settings;
         global $rabbit_settings;
 		global $user;              
@@ -100,92 +100,37 @@
 			return -1; // disallowed uploads
 		}
         
-		/*
-        $fp = fsockopen( $xc_settings[ 'imagesupload' ][ 'ip' ], $xc_settings[ 'imagesupload' ][ 'port' ] );
-		
-        if ( !$fp ) {
-            return -2; // could not connect to remote server
-        }
-
-		$body = "-----------------------------2618471642458\r\n"
-		. "Content-Disposition: form-data; name=\"path\"\r\n"
-		. "\r\n"
-		. "$path\r\n"
-		. "-----------------------------2618471642458\r\n"
-		. "Content-Disposition: form-data; name=\"mime\"\r\n"
-		. "\r\n"
-		. "image/jpeg\r\n";
-
-        if ( !$rabbit_settings[ 'production' ] ) {
-            $body .= "-----------------------------2618471642458\r\n"
-            . "Content-Disposition: form-data; name=\"sandbox\"\r\n"
-            . "\r\n"
-            . "yes\r\n";
-        }
-
-	    $body .= "-----------------------------2618471642458\r\n"
-		. "Content-Disposition: form-data; name=\"uploadimage\"; filename=\"uploadimage\"\r\n"
-		. "Content-Type: image/jpeg\r\n"
-		. "\r\n"
-		. $binary
-		. "\r\n";
-		if ( is_array( $resizeto ) && is_integer( $resizeto[0] ) && is_integer( $resizeto[1] ) ) {
-			$body .= "-----------------------------2618471642458\r\n"
-			. "Content-Disposition: form-data; name=\"size\"\r\n"
-			. "\r\n"
-			. $resizeto[0] . "x" . $resizeto[1] ."\r\n";
-		}
-		$body .= "-----------------------------2618471642458--\r\n";
-	
-		$header = "POST " . $xc_settings[ 'imagesupload' ][ 'url' ] . " HTTP/1.1\r\n"
-		. "Host: " . $xc_settings[ 'imagesupload' ][ 'host' ] . "\r\n"
-		. "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4\r\n"
-		. "Accept: application/x-shockwave-flash,text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,'*'/'*';q=0.5\r\n"
-		. "Accept-Language: en-us,en;q=0.5\r\n"
-		. "Accept-Encoding: \r\n"
-		. "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\n"
-		. "Connection: close\r\n"
-		. "Content-Type: multipart/form-data; boundary=---------------------------2618471642458\r\n"
-		. "Content-Length: ".  strlen( $body ) . " \r\n\r\n";
-        if ( $user->IsSysOp() ) {
-            die( $header . $body );
-            header( 'Content-type: text/plain' );
-            die( $header . $body );
-        }
-        
-		fputs( $fp, $header . $body );
-
-		$data = '';
-		while ( !feof( $fp ) ) {
-			$data .= @fgets( $fp, 1024 );
-		}
-        
-		fclose( $fp );
-
-        $split = explode( "\r\n\r\n", $data );
-		
-        $data = $split[ 1 ];
-        */
-		
         $curl = curl_init();
 
         $data = array(
-            'path' => $path,
+            'path' => '0/0',
             'mime' => 'image/jpeg',
-            'uploadimage' => $binary
+            'uploadimage' => "@$tempfile"
         );
 
-        curl_setopt( $curl, CURLOPT_URL, $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ] );
+        $server = "images.chit-chat.gr";
+
+        $header[ 0 ] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
+        $header[] = "Accept-Language: en-us,en;q=0.5";
+        $header[] = "Accept-Encoding: gzip,deflate";
+        $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+        $header[] = "Keep-Alive: 300";
+        $header[] = "Connection: keep-alive";
+        $header[] = "Expect:";
+
+        curl_setopt( $curl, CURLOPT_URL, $server . '/upload3.php' );
+        curl_setopt( $curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.8) Gecko/20071030 Firefox/2.0.0.8" );
+        curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
+        curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
+        curl_setopt( $curl, CURLOPT_AUTOREFERER, true );
         curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
         curl_setopt( $curl, CURLOPT_POST, 1 );
         curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
-        curl_setopt( $curl, CURLOPT_UPLOAD, 1 );
+        // curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
 
         $data = curl_exec( $curl );
 
         curl_close( $curl );
-
-        die( $data );
 
         $upload = array();
 
@@ -570,9 +515,6 @@
 		$extension = getextension( $filename );
 		
 		$size = filesize( $temp_location );
-		$fp = fopen( $temp_location , "r" );
-		$binary = fread( $fp , $size );
-		fclose( $fp );
 		
 		$width = 0;
 		$height = 0;
@@ -583,7 +525,7 @@
 		$change = $db->Query( $sql );
 		$lastimgid = $change->InsertId();
 
-		$upload = Image_Upload( $userid."/".$lastimgid , $binary, $resizeto );
+		$upload = Image_Upload( $userid."/".$lastimgid , $temp_location, $resizeto );
 		
         if ( !is_array( $upload ) ) {
             return $upload; // errorcode

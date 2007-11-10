@@ -50,11 +50,8 @@
     		</script><?php
     		exit();
     	}
-    	$handle = fopen( $tempfile, "rb" );
-    	$contents = fread( $handle, filesize( $tempfile ) );
-    	fclose( $handle );
     	
-    	$extension = getextension( $imagename );
+        $extension = getextension( $imagename );
     	$noextname = NoExtensionName( $imagename );
     	if ( $noextname == '' ) {
     		$imagename = 'noname' . rand( 1 , 20 ) . $extension;
