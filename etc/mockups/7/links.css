@@ -1,0 +1,10 @@
+a {
+	color: #105cb6;
+	text-decoration: none;
+}
+a:hover {
+	color: #000033;
+}
+a img {
+	border: 0;
+}
