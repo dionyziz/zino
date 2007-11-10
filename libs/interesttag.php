@@ -82,42 +82,6 @@
         return $db->Query( $sql );
     }
     
-    function GetUsersByInterest( $text ) {
-    	global $db;
-    	global $users;
-    	global $images;
-    	global $relations;
-    	global $friendrel;
-    	global $user;
-    	
-    	$tags = InterestTag_List( $text );
-    	$ids = array();
-    	foreach ( $tags as $tag ) {
-    		$ids[ ] = $tag->UserId;
-    	}
-    	
-    	$sql = "SELECT
-    				`user_id`,`user_name`,`frel_type`,`image_id`
-    			FROM `$users`
-    				LEFT JOIN `$images` ON `user_icon` = `image_id`
-    				LEFT JOIN `$relations` ON `relation_friendid` = `user_id` 
-    									   AND `relation_userid` = '" . $user->Id() . "'
-    				LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
-    			WHERE `user_id` IN ( '" . implode( "', '", $ids ) . "')
-    			;";
-    			
-    	$res = $db->Query( $sql );
-    	
-    	$ret = array();
-    	while ( $row = $res->FetchArray() ) {
-			$userman = new User( $row );
-			$ret[ $userman->Id() ] = $userman;
-		}
-		
-		return $ret;
-    }
-    				
-
     class InterestTag extends Satori {
         protected   $mId;
         protected   $mUserId;
