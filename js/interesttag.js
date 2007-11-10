@@ -10,11 +10,13 @@ var InterestTag = {
             	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
             	return;
             }
-            Coala.Warm( 'interesttag/new', { 'text': val } );
-
-            inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
-            inp.value = '';
-            inp.focus();
+            Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : SubmitCallback } );
         }
+    },
+    SubmitCallback : function( val ) {
+    	var inp = g( 'newinteresttag' );
+    	inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
+        inp.value = '';
+        inp.focus();
     }
 };
