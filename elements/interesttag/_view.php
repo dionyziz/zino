@@ -8,11 +8,18 @@
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		
-		$tag_users = InterestTag_List( $text->Get() );
-		if( count( $tag_users ) == 0 ) {
+		$tags = InterestTag_List( $text->Get() );
+		if( count( $tags ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
+
+        
+        $tag_users = array();
+        foreach ( $tags as $tag ) {
+            $tag_users[] = $tag->User;
+        }
+
 		Element( 'user/profile/friends' , $tag_users, $user->Id(), true );
 	}
 ?>

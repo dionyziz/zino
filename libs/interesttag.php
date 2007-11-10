@@ -69,8 +69,7 @@
             $res = $db->Query( $sql );
             
             while ( $row = $res->FetchArray() ) {
-                $tag = new InterestTag( $row );
-				$ret[] = $tag;
+				$ret[] = new InterestTag( $row );
 			}
         }
 		
