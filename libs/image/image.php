@@ -103,7 +103,7 @@
         $curl = curl_init();
 
         $data = array(
-            'path' => '$path',
+            'path' => $path,
             'mime' => 'image/jpeg',
             'uploadimage' => "@$tempfile"
         );
