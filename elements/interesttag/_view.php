@@ -8,7 +8,7 @@
 		$page->SetTitle( 'Ενδιαφέροντα' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		
-		$tag_users = GetUsersByInterest( $text->Get() );
+		$tag_users = InterestTag_List( $text->Get() );
 		if( count( $tag_users ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
