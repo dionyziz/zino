@@ -138,11 +138,10 @@
             $tags = InterestTag_List( 'Sin City' );
             $test = New User( 'test' );
             $found = false;
-            die( print_r( $tags ) );
             foreach ( $tags as $tag ) { // they should be ordered by order (users who have this tag first show up first), secondarily ordered by reverse creation date (newest users who added it show up first)
                 $this->Assert( $tag instanceof InterestTag, 'InterestTag_List should return an array of InterestTag instances when retrieving a list of tags with a particular text' );
                 $user = $tag->User;
-                if ( $test == $user ) {
+                if ( $test->Username() == $user->Username() ) {
                     $found = true;
                 }
             }
