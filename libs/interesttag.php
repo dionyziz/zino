@@ -1,19 +1,19 @@
 <?php
     
-    function InterestTag_List( $user ) {
+    function InterestTag_List( $usern ) {
         global $db;
         global $interesttags;
 
-        w_assert( $user instanceof User || is_string( $user ), 'InterestTag_List() accepts either a user instance or a string paramter' );
+        w_assert( $usern instanceof User || is_string( $usern ), 'InterestTag_List() accepts either a user instance or a string paramter' );
         
 		$ret = array();
-        if ( $user instanceof User ) {
+        if ( $usern instanceof User ) {
             $sql = "SELECT
                         *
                     FROM
                         `$interesttags`
                     WHERE
-                        `interesttag_userid` = '" . $user->Id() . "'
+                        `interesttag_userid` = '" . $usern->Id() . "'
                     ;";
                     
             $res = $db->Query( $sql );
@@ -46,22 +46,31 @@
 				$cur = $tags[ $cur->NextId ];
 			}
         }
-        else if ( is_string( $user ) ) {
-            $tagtext = $user;
+        else if ( is_string( $usern ) ) {
+        	global $users;
+			global $images;
+			global $relations;
+			global $friendrel;
+			global $user;
+			
+            $tagtext = $usern;
 
             $sql = "SELECT
-                        *
-                    FROM
-                        `$interesttags`
-                    WHERE
-                        `interesttag_text` = '$tagtext'
-                    ;";
+					`user_id`,`user_name`,`frel_type`,`image_id`
+					FROM `$interesttags`
+						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
+						LEFT JOIN `$images` ON `user_icon` = `image_id`
+						LEFT JOIN `$relations` ON `relation_friendid` = `user_id` 
+												AND `relation_userid` = '" . $user->Id() . "'
+						LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
+					WHERE `interesttag_text` = '" . $tagtext ."'
+					;";
             
             $res = $db->Query( $sql );
             
             while ( $row = $res->FetchArray() ) {
-				$tag = new InterestTag( $row );
-				$ret[ $tag->Id ] = $tag;
+				$tag = new User( $row );
+				$ret[] = $tag;
 			}
         }
 		
