@@ -1,15 +1,28 @@
 <?php
 	function magicquotes_off() {
-        if ( !get_magic_quotes_gpc() ) {
-            return;
+        $_GET  = transcribe( $_GET  );
+        $_POST = transcribe( $_POST );
+	}
+    
+    function transcribe( $aList, $aIsTopLevel = true ) {
+        // from http://gr2.php.net/manual/en/function.get-magic-quotes-gpc.php#49612
+        
+        $gpcList = array();
+        $isMagic = get_magic_quotes_gpc();
+       
+        foreach ( $aList as $key => $value ) {
+            if ( is_array( $value ) ) {
+                $decodedKey = $isMagic && !$aIsTopLevel? stripslashes( $key ): $key;
+                $decodedValue = transcribe( $value, false );
+            }
+            else {
+                $decodedKey = stripslashes( $key );
+                $decodedValue = $isMagic? stripslashes( $value ): $value ;
+            }
+            $gpcList[ $decodedKey ] = $decodedValue;
         }
         
-		// manual magic quotes off
-		foreach ( $_GET as $key => $value ) {
-			$_GET[ $key ] = stripslashes( $value );
-		}
-		foreach ( $_POST as $key => $value ) {
-			$_POST[ $key ] = stripslashes( $value );
-		}
-	}
+        return $gpcList;
+    }
+    
 ?>
