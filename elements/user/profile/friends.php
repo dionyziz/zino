@@ -30,7 +30,7 @@
 								foreach ( $hobsar as $hob ) {
 									$hobbis .= "<a href='?p=tag&text=" . $hob . "'>" . $hob . "</a>,";
 								}
-								$this->mHobbies[ strlen( $this->mHobbies )-1 ] = " "; // Remove the last comma
+								$hobbis[ strlen( $hobbis )-1 ] = " "; // Remove the last comma
 								echo $hobbis;
                                 ?></div><?php
 							}
