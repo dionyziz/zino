@@ -1,6 +1,16 @@
 <br /><br /><br />
 <div>
 	<ul>
+		<li><img src="images/avatars/rapper.jpg" alt="rapper" title="rapper" /></li>
+		<li><img src="images/avatars/dionyziz.jpg" alt="dionyziz" title="dionyziz" /></li>
+		<li><img src="images/avatars/klio.jpg" alt="klio" title="klio" /></li>
+		<li><img src="images/avatars/izual.jpg" alt="izual" title="izual" /></li>
+		<li><img src="images/avatars/arianti.jpg" alt="arianti" title="arianti" /></li>
+		<li><img src="images/avatars/cafrillio.jpg" alt="cafrillio" title="cafrillio" /></li>
+		<li><img src="images/avatars/emo4life.jpg" alt="emo4life" title="emo4life" /></li>
+		<li><img src="images/avatars/ax_tom_ax.jpg" alt="ax_tom_ax" title="ax_tom_ax" /></li>
+		<li><img src="images/avatars/rakimu.jpg" alt="rakimu" title="rakimu" /></li>
+		<li><img src="images/avatars/paaa.jpg" alt="paaa" title="paaa" /></li>
 	</ul>
 </div>
 <div class="meetfriends">
