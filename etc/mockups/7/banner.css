@@ -51,9 +51,11 @@ div.header ul li a.profile {
 }
 div.header ul li a.login {
 	background-image: url('images/up.png');
+	_background-image: url('images/_up.png');
 }
 div.header ul li a.register {
 	background-image: url('images/bookmark_toolbar.png');
+	_background-image: url('images/_bookmark_toolbar.png');
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
