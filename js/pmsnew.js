@@ -304,7 +304,7 @@ var pms = {
 			targetdiv.className = 'folder top';
 		};
 		dd1.onDragDrop = function( e, id ) {
-			alert( 'onDragDrop called' );
+			// alert( 'onDragDrop called' );
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
 			
@@ -340,7 +340,7 @@ var pms = {
 			p.style.border = '1px dotted #92bcc1;'
 		};
 		dd1.endDrag = function( e ) {
-			alert( 'end of drag' );
+			// alert( 'end of drag' );
 			var p = this.getDragEl();
             var q = this.getEl();
             
