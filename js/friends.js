@@ -36,7 +36,7 @@ var Friends = {
 	            var interests = document.createElement( 'b' );
 	            interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
 	            content.appendChild( interests );
-	            content.innerHTML += hobbies;
+	            content.innerHTML += hobbies + "<br />";
 	        }
 	        var relation = document.createElement( 'b' );
 	        relation.appendChild( document.createTextNode( 'Σχέση: ' ) );
