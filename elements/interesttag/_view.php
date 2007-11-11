@@ -4,11 +4,12 @@
 		global $libs;
 		global $user;
 		
+		$text = $text->Get();
+		
 		$libs->Load( 'interesttag' );
-		$page->SetTitle( 'Ενδιαφέροντα' );
+		$page->SetTitle( 'Ενδιαφέροντα: ' . $text );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		
-		$text = $text->Get();
 		$tags = InterestTag_List( $text );
 		if( count( $tags ) == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
