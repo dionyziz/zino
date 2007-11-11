@@ -17,6 +17,10 @@ div.meetfriends h2 {
 div.joinus {
     position: relative;
     background-color: #f2f2f2;
+    background-image: url('images/q_top.jpg');
+    background-repeat: repeat-x;
+    background-position: top;
+    padding: 10px;
 }
 i.tl {
     top: 0;
