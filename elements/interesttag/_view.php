@@ -1,10 +1,11 @@
 <?php
-	function ElementInteresttagView( tString $text ) {
+	function ElementInteresttagView( tString $text, tInteger $offset ) {
 		global $page;
 		global $libs;
 		global $user;
 		
 		$text = $text->Get();
+		$offset = $offset->Get();
 		
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα: ' . $text );

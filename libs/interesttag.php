@@ -1,10 +1,10 @@
 <?php
     
-    function InterestTag_List( $usern ) {
+    function InterestTag_List( $usern, $offset=0, $length=20 ) {
         global $db;
         global $interesttags;
 
-        w_assert( $usern instanceof User || is_string( $usern ), 'InterestTag_List() accepts either a user instance or a string paramter' );
+        w_assert( $usern instanceof User || is_string( $usern ), 'InterestTag_List() accepts either a user instance or a string parameter' );
         
 		$ret = array();
         if ( $usern instanceof User ) {
@@ -54,8 +54,11 @@
 			global $user;
 			
             $tagtext = $usern;
+			if ( $offset != 0 ) {
+				$offset = $offset * $length - $length;
+			}
 
-            $sql = "SELECT
+			$sql = "SELECT
 					`interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
 					FROM `$interesttags`
 						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
@@ -64,6 +67,7 @@
 												AND `relation_userid` = '" . $user->Id() . "'
 						LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
 					WHERE `interesttag_text` = '" . $tagtext ."'
+					LIMIT " . $offset . " , " . $length . "
 					;";
             
             $res = $db->Query( $sql );
