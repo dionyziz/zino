@@ -3,7 +3,7 @@
 	<ul>
 	</ul>
 </div>
-<div>
+<div class="meetfriends">
 	<h2>Γνώρισε νέους φίλους</h2>
 	<div class="people">
 		<ul>
