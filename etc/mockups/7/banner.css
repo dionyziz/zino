@@ -3,6 +3,7 @@ div.header {
 	background-image: url('images/roxasbg2.jpg');
 	background-repeat: repeat-x;
 	height: 50px;
+    _height: 48px;
 	margin: 0 30px 0 30px;
 }
 div.header a {
