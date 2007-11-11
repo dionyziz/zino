@@ -6,7 +6,7 @@
 <div>
 	<h2>Γνώρισε νέους φίλους</h2>
 	<ul>
-		<li><a href="">dionyziz</a><img src="images/avatars/2400.jpg" alt="dionyziz" title="dionyziz" /></a></li>
+		<li><a href="">dionyziz<img src="images/avatars/2400.jpg" alt="dionyziz" title="dionyziz" /></a></li>
 		<li><a href="">klio<img src="images/avatars/14041.jpg" alt="klio" title="klio" /></a></li>
 		<li><a href="">finlandos<img src="images/avatars/20128.png" alt="finlandos" title="finlandos" /></a></li>
 		<li><a href="">elsa_kaulitz<img src="images/avatars/28155.jpg" alt="elsa_kaulitz" title="elsa_kaulitz" /></a></li>
