@@ -20,6 +20,7 @@ div.header h1 {
 	margin: 0;
 	padding: 0;
 	top: 0;
+    _top: 2px;
 	left: 0;
 	position: absolute;
 	background-image: url('images/banner-begin.jpg');
@@ -28,7 +29,6 @@ div.header h1 {
 }
 div.header h1 img {
 	margin: 5px 0 0 5px;
-    _margin_top: 7px;
 }
 div.header ul {
 	display: block;
