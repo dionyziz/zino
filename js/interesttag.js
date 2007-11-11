@@ -10,7 +10,7 @@ var InterestTag = {
             	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
             	return;
             }
-            Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : SubmitCallback } );
+            Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : InterestTag.SubmitCallback } );
         }
     },
     SubmitCallback : function( val ) {
