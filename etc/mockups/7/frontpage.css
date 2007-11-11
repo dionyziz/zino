@@ -3,3 +3,40 @@ div.meetfriends h2 {
 	color: #666;
 	text-align: left;
 }
+div.joinus {
+}
+i.tl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.tr {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.bl {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.br {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+div.joinus i.tl {
+    background-image: url('images/q_tl.jpg');
+}
