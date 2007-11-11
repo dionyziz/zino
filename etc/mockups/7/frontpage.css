@@ -1,5 +1,6 @@
 div.latestimages {
 	height: 120px;
+	overflow: hidden;
 }
 div.latestimages ul {
 	list-style: none;
@@ -8,6 +9,7 @@ div.latestimages ul li {
 	float: left;
 	width: 110px;
 	height: 110px;
+	text-align: center;
 }
 div.meetfriends h2 {
 	font-size: 130%;
