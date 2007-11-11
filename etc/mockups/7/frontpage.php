@@ -1,5 +1,5 @@
 <br /><br /><br />
-<div>
+<div class="latestimages">
 	<ul>
 		<li><img src="images/avatars/rapper.jpg" alt="rapper" title="rapper" /></li>
 		<li><img src="images/avatars/dionyziz.jpg" alt="dionyziz" title="dionyziz" /></li>
