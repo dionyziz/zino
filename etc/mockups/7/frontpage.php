@@ -11,6 +11,7 @@
 		<li><img src="images/avatars/ax_tom_ax.jpg" alt="ax_tom_ax" title="ax_tom_ax" /></li>
 		<li><img src="images/avatars/rakimu.jpg" alt="rakimu" title="rakimu" /></li>
 		<li><img src="images/avatars/paaa.jpg" alt="paaa" title="paaa" /></li>
+		<li><img src="images/avatars/irini_th_bill.jpg" alt="irini_th_bill" title="irini_th_bill" /></li>
 	</ul>
 </div>
 <div class="meetfriends">
