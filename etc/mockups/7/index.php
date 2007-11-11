@@ -35,7 +35,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	else {
 		include 'bannerout.php';
 	}
+	?><div class="content"><?php
 	include 'frontpage.php';
+	?></div><?php
 	include 'footer.php';
 	?>
         <script type="text/javascript" src="../../../js/pngfix.js"></script>
