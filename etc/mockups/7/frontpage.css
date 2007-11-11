@@ -16,7 +16,7 @@ div.meetfriends h2 {
 }
 div.joinus {
     position: relative;
-    background-color: #f2f2f2;
+    background-color: #f6f6f6;
     background-image: url('images/q_top.jpg');
     background-repeat: repeat-x;
     background-position: top;
@@ -56,4 +56,13 @@ i.br {
 }
 div.joinus i.tl {
     background-image: url('images/q_tl.jpg');
+}
+div.joinus i.tr {
+    background-image: url('images/q_tr.jpg');
+}
+div.joinus i.bl {
+    background-image: url('images/q_bl.jpg');
+}
+div.joinus i.br {
+    background-image: url('images/q_br.jpg');
 }
