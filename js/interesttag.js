@@ -6,7 +6,7 @@ var InterestTag = {
         if ( e.keyCode == 13 ) {
             var inp = g( 'newinteresttag' );
             var val = inp.value;
-            if ( val.length === 0 ) {
+            if ( val.length === 0 || val.indexOf( ',' ) != -1 ) {
             	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
             	return;
             }

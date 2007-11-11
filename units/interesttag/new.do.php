@@ -5,7 +5,7 @@
         global $user;
 
 		$text = $text->Get();
-		if ( strlen( trim( $text ) ) == 0 ) {
+		if ( strlen( trim( $text ) ) == 0 || strpos( $text, ',' ) !== false ) {
 			return;
 		}
 
