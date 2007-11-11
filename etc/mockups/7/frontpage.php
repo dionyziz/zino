@@ -8,7 +8,7 @@
 	<ul class="people">
 		<li><a href=""><img src="images/avatars/2400.jpg" alt="dionyziz" title="dionyziz" />dionyziz<span>προβολή προφίλ &raquo;</span></a></li>
 		<li><a href=""><img src="images/avatars/14041.jpg" alt="klio" title="klio" />klio<span>προβολή προφίλ &raquo;</span></a></li>
-		<li><a href=""><img src="images/avatars/20128.png" alt="finlandos" title="finlandos" /><a href="">finlandos<span>προβολή προφίλ &raquo;</span></a></li>
+		<li><a href=""><img src="images/avatars/20128.png" alt="finlandos" title="finlandos" />finlandos<span>προβολή προφίλ &raquo;</span></a></li>
 		<li><a href=""><img src="images/avatars/28155.jpg" alt="elsa_kaulitz" title="elsa_kaulitz" />elsa_kaulitz<span>προβολή προφίλ &raquo;</span></a></li>
 		<li><a href=""><img src="images/avatars/29203.jpg" alt="izual" title="izual" />izual<span>προβολή προφίλ &raquo;</span></a></li>
 		<li><a href=""><img src="images/avatars/29230.jpg" alt="metalo92" title="metalo92" />metalo92<span>προβολή προφίλ &raquo;</span></a></li>
