@@ -1,5 +1,6 @@
 div.people {
-	border: 1px solid green;
+ 	height: 260px;
+	overflow: hidden;
 }
 div.people ul {
 	list-style: none;
