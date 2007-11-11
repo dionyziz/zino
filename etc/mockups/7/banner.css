@@ -3,7 +3,6 @@ div.header {
 	background-image: url('images/roxasbg2.jpg');
 	background-repeat: repeat-x;
 	height: 50px;
-    _height: 40px;
 	margin: 0 30px 0 30px;
 }
 div.header a {
@@ -29,6 +28,7 @@ div.header h1 {
 }
 div.header h1 img {
 	margin: 5px 0 0 5px;
+    _margin_top: 7px;
 }
 div.header ul {
 	display: block;
