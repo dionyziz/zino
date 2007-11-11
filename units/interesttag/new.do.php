@@ -9,12 +9,16 @@
 			return;
 		}
 
+		echo "alert( 'Eftasa' );";
+
         $libs->Load( 'interesttag' );
 
         $tag = new InterestTag();
         $tag->User = $user;
         $tag->Text = $text;
         $tag->Save();
+        
+        echo "alert( '" . $text . "' );";
         
         echo $callback;
         ?>( <?php
