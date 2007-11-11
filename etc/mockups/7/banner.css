@@ -9,6 +9,9 @@ div.header a {
 	font-weight: bold;
 	color: white;
 }
+div.header a:hover {
+	color: white;
+}
 div.header h1 {
 	display: inline;
 	color: white;
