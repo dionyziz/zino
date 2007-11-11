@@ -26,7 +26,7 @@
         }
 
         if ( $numimages > 0 ) {
-            $sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_id` = '" . $user->Id() . "' LIMIT 1;";
+            $sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_userid` = '" . $user->Id() . "' LIMIT 1;";
             $res = $db->Query( $sql )->FetchArray();
             $maximg = $res[ 'maximg' ];
 
