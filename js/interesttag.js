@@ -7,7 +7,7 @@ var InterestTag = {
             var inp = g( 'newinteresttag' );
             var val = inp.value;
             if ( val.length === 0 || val.indexOf( ',' ) != -1 ) {
-            	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
+            	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,)" );
             	return;
             }
             Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : InterestTag.SubmitCallback } );
