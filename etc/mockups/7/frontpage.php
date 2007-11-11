@@ -34,6 +34,8 @@
 <div class="joinus">
     <i class="tl"></i><i class="tr"></i>
 	<h2>Είσαι μέσα;</h2>
+    <i class="qleft"></i><i class="qright"></i>
+    <i class="qbottom"></i>
     <i class="bl"></i><i class="br"></i>
 </div>
 <div>	
