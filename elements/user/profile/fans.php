@@ -34,7 +34,13 @@
 							?><br /><?php
 							if ( $fan->Hobbies() != "" ) {
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
-								echo htmlspecialchars( $fan->Hobbies() );
+								$hobsar = explode( ",", htmlspecialchars( $fan->Hobbies() ) );
+								$hobbis = "";
+								foreach ( $hobsar as $hob ) {
+									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>,";
+								}
+								$hobbis[ strlen( $hobbis )-1 ] = " "; // Remove the last comma
+								echo $hobbis;
 								?></div><?php
 							}
 							?><div style="overflow:hidden;width:90%;" title="Σχέση"><b>Σχέση:</b> <?php
