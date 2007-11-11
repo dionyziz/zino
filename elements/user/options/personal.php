@@ -125,7 +125,7 @@
 					<?php
 				} 
 				?>
-			</select><br /><br />
+			</select><br />
 			<br /><br />
 		</div><?php
 	}
