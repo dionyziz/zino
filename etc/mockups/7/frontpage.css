@@ -4,6 +4,8 @@ div.latestimages {
 	border: 1px solid red;
 }
 div.latestimages ul {
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 div.latestimages ul li {
