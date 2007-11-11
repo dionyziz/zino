@@ -6,8 +6,8 @@ var InterestTag = {
         if ( e.keyCode == 13 ) {
             var inp = g( 'newinteresttag' );
             var val = inp.value;
-            if ( val.length === 0 || val.indexOf( ',' ) != -1 ) {
-            	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,)" );
+            if ( val.length === 0 || val.indexOf( ',' ) != -1 || val.indexOf( ' ' ) != -1 ) {
+            	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,) ή κενά" );
             	return;
             }
             Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : InterestTag.SubmitCallback } );
