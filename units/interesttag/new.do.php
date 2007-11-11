@@ -5,6 +5,7 @@
         global $user;
 
 		$text = $text->Get();
+		echo "alert( 'Eftasa' );";
 		if ( strlen( trim( $text ) ) == 0 ) {
 			return;
 		}
