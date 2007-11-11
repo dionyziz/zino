@@ -1,7 +1,8 @@
 div.latestimages {
 	height: 110px;
 	overflow: hidden;
-	border: 1px solid red;
+	border: 1px solid #e4;
+	background-color: #f6;
 }
 div.latestimages ul {
 	margin: 0;
