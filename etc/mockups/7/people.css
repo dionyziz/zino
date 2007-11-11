@@ -1,0 +1,23 @@
+ul.people {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+
+}
+ul.people li { 
+	float: left;
+	width: 250px;
+}
+ul.people li a {
+	font-size: 120%;
+	display: block;
+	font-weight: bold;
+}
+ul.people li a span {
+	font-size: 80%;
+}
+ul.people li a img {
+	float: left;
+}
+
