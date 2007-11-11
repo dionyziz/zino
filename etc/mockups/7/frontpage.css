@@ -2,7 +2,7 @@ div.latestimages {
 	height: 120px;
 }
 div.latestimages ul {
-	list-type: none;
+	list-style: none;
 }
 div.latestimages ul li {
 	float: left;
