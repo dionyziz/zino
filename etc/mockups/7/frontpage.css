@@ -1,7 +1,7 @@
 div.latestimages {
 	height: 110px;
 	overflow: hidden;
-	border: 1px solid #e4e4e4;
+	border-bottom: 1px solid #e4e4e4;
 	background-color: #f6f6f6;
 }
 div.latestimages ul {
@@ -15,6 +15,9 @@ div.latestimages ul li {
 	_width: 110px;
 	height: 200px;
 	text-align: center;
+}
+div.latestimages ul li img {
+	border: 1px solid #cce;
 }
 div.meetfriends h2 {
 	font-size: 130%;

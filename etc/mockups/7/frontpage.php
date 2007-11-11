@@ -1,4 +1,3 @@
-<br />
 <div class="latestimages">
 	<ul>
 		<li><img src="images/avatars/rapper.jpg" alt="rapper" title="rapper" /></li>
