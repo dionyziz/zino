@@ -1,6 +1,6 @@
 <?php
     
-    function InterestTag_List( $usern, $offset=0, $length=20 ) {
+    function InterestTag_List( $usern, $offset = 0, $length = 20 ) {
         global $db;
         global $interesttags;
 
@@ -9,7 +9,7 @@
 		$ret = array();
         if ( $usern instanceof User ) {
             $sql = "SELECT
-                        *
+                        SQL_CALC_FOUND_ROWS, *
                     FROM
                         `$interesttags`
                     WHERE
@@ -59,7 +59,7 @@
 			}
 
 			$sql = "SELECT
-					`interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
+					SQL_CALC_FOUND_ROWS, `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
 					FROM `$interesttags`
 						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
 						LEFT JOIN `$images` ON `user_icon` = `image_id`
@@ -78,6 +78,15 @@
         }
 		
 		return $ret;
+    }
+
+    function InterestTag_Count() {
+        global $db;
+
+        $sql = "SELECT FOUND_ROWS() AS fr";
+        $fetched = $db->Query( $sql )->FetchArray();
+
+        return $fetched[ 'fr' ];
     }
 
     function InterestTag_Clear( $user ) {
