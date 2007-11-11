@@ -30,7 +30,7 @@
 
 		Element( 'user/profile/friends' , $tag_users, $user->Id(), true, $text );
 		
-		if( $all > 20 ) {
+		if( $all > 0 ) {
 			Element( 'pagify' , $offset , 'tag&amp;text='.$text , $all , 1 );
 		}
 	}
