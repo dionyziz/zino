@@ -1,12 +1,12 @@
 div.latestimages {
-	height: 110px;
+	height: 115px;
 	overflow: hidden;
 	border-bottom: 1px solid #e4e4e4;
 	background-color: #f6f6f6;
 }
 div.latestimages ul {
 	margin: 0 4px 0 4px;
-	padding: 4px 0 4px 0;
+	padding: 7px 0 4px 0;
 	list-style: none;
 
 }
