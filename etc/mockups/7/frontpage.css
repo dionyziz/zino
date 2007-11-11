@@ -73,11 +73,12 @@ div.joinus i.br {
 }
 div.joinus i.qleft {
     background-image: url('images/q_left.jpg');
-    background-repeat: repeat-x;
+    background-repeat: repeat-y;
     background-position: left;
     width: 10px;
     display: block;
     position: absolute;
     top: 10px;
+    left: 0;
     bottom: 10px;
 }
