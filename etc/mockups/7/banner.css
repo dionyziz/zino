@@ -68,6 +68,9 @@ div.header ul li a.self {
 div.header ul li input {
 	border: 1px solid #999;
 }
+div.header ul li input.button {
+    background-color: #f0f0f0;
+}
 div.header div.search {
 	position: absolute;
 	right: 0;
