@@ -1,25 +1,30 @@
-ul.people {
+div.people {
+	border: 1px solid green;
+}
+div.people ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-
-
 }
-ul.people li { 
+div.people ul li { 
 	float: left;
 	width: 300px;
 	height: 130px;
 }
-ul.people li a {
+div.people ul li a {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
+	text-decoration: underline;
 }
-ul.people li a span {
+div.people ul li a span {
 	display: block;
 	font-size: 80%;
+	text-decoration: none;
 }
-ul.people li a img {
+div.people ul li a img {
 	float: left;
+	margin-right: 5px;
+	border: 1px solid #cce;
 }
 
