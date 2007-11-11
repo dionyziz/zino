@@ -17,8 +17,8 @@
 			<li><a href=""><img src="images/avatars/29229.jpg" alt="punkerfly" title="punkerfly" />punkerfly<span>προβολή προφίλ &raquo;</span></a></li>
 			<li><a href=""><img src="images/avatars/29228.jpg" alt="alinangel" title="alinangel" />alinangel<span>προβολή προφίλ &raquo;</span></a></li>
 		</ul>
+		<div class="eof"></div>
 	</div>
-	<div class="eof"></div>
 </div>
 <div>
 	<h2>Είσαι μέσα;</h2>
