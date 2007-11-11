@@ -74,6 +74,7 @@ div.header div.search {
 	margin: 0;
 	padding: 0 0 0 10px;
 	background-image: url('images/searchbg.png');
+	_background-image: url('images/_searchbg.png');
 	background-repeat: no-repeat;
 	background-position: top left;
 	width: 174px;
