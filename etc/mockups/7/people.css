@@ -19,6 +19,7 @@ div.people ul li a strong {
 	font-weight: bold;
 	display: block;
 	font-size: 120%;
+	padding-bottom: 5px;
 }
 div.people ul li a span {
 	font-size: 96%;
