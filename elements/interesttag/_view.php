@@ -24,5 +24,8 @@
         }
 
 		Element( 'user/profile/friends' , $tag_users, $user->Id(), true, $text );
+		
+		//make this run conditionally
+		Element( 'pagify' , $offset , 'tag&amp;text='.$text , 20 , 20 );
 	}
 ?>
