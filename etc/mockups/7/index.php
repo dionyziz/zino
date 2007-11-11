@@ -20,7 +20,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
 		<link rel="stylesheet" type="text/css" href="footer.css" />
-        <script type="text/javascript" src="../../../js/pngfix.js"></script>
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -37,5 +36,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	}
 	include 'footer.php';
 	?>
+        <script type="text/javascript" src="../../../js/pngfix.js"></script>
 	</body>
 </html>
