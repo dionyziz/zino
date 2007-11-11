@@ -1,6 +1,6 @@
 <?php
 
-    function UnitInterestTagNew( tString $text, tCoalaPointer $callback ) {
+    function UnitInteresttagNew( tString $text, tCoalaPointer $callback ) {
         global $libs;
         global $user;
 
