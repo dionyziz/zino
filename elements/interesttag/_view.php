@@ -7,12 +7,17 @@
 		$text = $text->Get();
 		$offset = $offset->Get();
 		
+		if ( !ValidId( $offset ) ) {
+            $offset = 1;
+        }
+		
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα: ' . $text );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		
 		$tags = InterestTag_List( $text );
-		if( count( $tags ) == 0 ) {
+		$all = InterestTag_Count();
+		if( $all == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
@@ -25,7 +30,8 @@
 
 		Element( 'user/profile/friends' , $tag_users, $user->Id(), true, $text );
 		
-		//make this run conditionally
-		Element( 'pagify' , $offset , 'tag&amp;text='.$text , 20 , 20 );
+		if( $all > 20 ) {
+			Element( 'pagify' , $offset , 'tag&amp;text='.$text , $all , 20 );
+		}
 	}
 ?>
