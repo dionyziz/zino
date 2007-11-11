@@ -136,7 +136,7 @@
 		return 1;
 	}	
 
-	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $hobbies , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
+	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
 		global $users;
 		global $user;
 		global $db;
@@ -160,7 +160,6 @@
 			$gtalk		= ( $gtalk !== false ) ? myescape( $gtalk ) : $user->Gtalk();
 			$gender		= myescape( $gender );
 			$dob		= myescape( $dob );
-			$hobbies 	= myescape( $hobbies );
 			$slogan		= myescape( $slogan );
 			$place		= myescape( $place );
 			
@@ -209,7 +208,6 @@
 						`user_gtalk`='$gtalk',
 						`user_gender`='$gender',
 						`user_dob`='$dob',
-						`user_hobbies`='$hobbies',
 						`user_subtitle`='$slogan',
 						`user_place`='$place',
 						`user_height`='$height',

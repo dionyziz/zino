@@ -1,5 +1,5 @@
 <?php
-    function ActionUserOptions( tString $signature, tString $oldpassword, tString $newpassword, tString $newpassword2, tString $email, tString $gender, tInteger $dob_day, tInteger $dob_month, tInteger $dob_year, tString $hobbies, tString $slogan, tInteger $place ) {
+    function ActionUserOptions( tString $signature, tString $oldpassword, tString $newpassword, tString $newpassword2, tString $email, tString $gender, tInteger $dob_day, tInteger $dob_month, tInteger $dob_year, tString $slogan, tInteger $place ) {
     	global $libs;
         global $user;
     	
@@ -16,7 +16,6 @@
     	$doby			= $dob_year->Get();
     	
     	// echo( "<b>1:</b> " . $doby . "-" . $dobm . "-" . $dobd );
-    	$hobbies		= $hobbies->Get();
     	$slogan			= $slogan->Get();
     	$place			= $place->Get();
     	
@@ -46,7 +45,7 @@
     			return Redirect( 'index.php?p=p&newpassword=0' );
     		}
     	}
-    	$updateduser = UpdateUser( $signature ,$newpassword ,$email, $gender, $dob, $hobbies, $slogan, $place );
+    	$updateduser = UpdateUser( $signature ,$newpassword ,$email, $gender, $dob, $slogan, $place );
     	
     	if ( $updateduser != 1 ) {
     		die( "useroptions.php error while updating user information. UpdateUser() return code: " . $updateduser );

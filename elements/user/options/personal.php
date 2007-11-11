@@ -126,10 +126,6 @@
 				} 
 				?>
 			</select><br /><br />
-			Ενδιαφέροντα:<br />
-			<textarea rows="10" cols="60" name="hobbies"><?php 
-			echo htmlspecialchars( trim( $user->Hobbies() ) ); 
-			?></textarea>
 			<br /><br />
 		</div><?php
 	}
