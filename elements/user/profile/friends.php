@@ -25,7 +25,13 @@
                             ?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
-								echo htmlspecialchars( $friend->Hobbies() ); 
+								$hobsar = explode( htmlspecialchars( $friend->Hobbies() ) );
+								$hobbis = "";
+								foreach ( $hobsar as $hob ) {
+									$hobbis .= "<a href='?p=tag&text=" . $hob . "'>" . $hob . "</a>,";
+								}
+								$this->mHobbies[ strlen( $this->mHobbies )-1 ] = " "; // Remove the last comma
+								echo $hobbis;
                                 ?></div><?php
 							}
 							if ( $friend->Id() != $uid || !$tags ) {
