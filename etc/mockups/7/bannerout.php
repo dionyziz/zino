@@ -30,11 +30,7 @@ function User_Login() {
 }
 </script>
 <div class="header" id="banner">
-<h1>
-	<a href="http://www.chit-chat.gr/" onclick="return false">
-		<img src="images/logo.png" alt="Chit-Chat" />
-	</a>
-</h1>
+<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/logo.png" alt="Chit-Chat" /></a></h1>
 <ul>
 	<li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
 	<li class="dot">·</li>

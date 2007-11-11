@@ -1,9 +1,5 @@
 <div class="header">
-	<h1>
-		<a href="http://www.chit-chat.gr/" onclick="return false">
-			<img src="images/logo.png" alt="Chit-Chat" />
-		</a>
-	</h1>
+	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/logo.png" alt="Chit-Chat" /></a></h1>
 	<ul>
 		<li><a href="user/dionyziz" class="self icon" style="background-image: url('images/avatars/dionyziz.25.jpg')" onclick="return false">dionyziz</a></li>
 		<li class="dot">·</li>
