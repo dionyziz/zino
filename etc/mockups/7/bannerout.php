@@ -37,7 +37,7 @@ function User_Login() {
 	<li><a href="login" onclick="User_Login();return false" class="login icon">Είσοδος</a></li>
 	<li class="dot" style="display:none">·</li>
 	<li style="display:none">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
-	<li class="dot" style="display:none"><input type="button" value="Είσοδος" /></li>
+	<li class="dot" style="display:none"><input type="button" value="Είσοδος" class="button" /></li>
 </ul>
 <div class="search">
 	<form action="" method="get">
