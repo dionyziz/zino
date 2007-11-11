@@ -10,7 +10,7 @@
 		$icq = $icq->Get();
 		$gtalk = $gtalk->Get();
 		
-		UpdateUser( $user->Signature(), "", $user->Email(),  $user->Gender(), $user->DateOfBirthDay(), $user->Hobbies(), $user->Subtitle(), $user->Place(), $msn, $skype, $yim, $aim, $icq, $gtalk ,$user->Height(), $user->Weight(), $user->EyeColor(),$user->HairColor() );
+		UpdateUser( $user->Signature(), "", $user->Email(),  $user->Gender(), $user->DateOfBirthDay(), $user->Subtitle(), $user->Place(), $msn, $skype, $yim, $aim, $icq, $gtalk ,$user->Height(), $user->Weight(), $user->EyeColor(),$user->HairColor() );
 	}
 
 ?>

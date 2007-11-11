@@ -46,7 +46,13 @@
 		?> , <?php
 		echo ($wasfriend)?"''":w_json_encode( $content );
 		?> , <?php
-		echo ($wasfriend)?"''":w_json_encode( $user->Hobbies() );
+		$hobsar = explode( ",", htmlspecialchars( $user->Hobbies() ) );
+		$hobbis = "";
+		foreach ( $hobsar as $hob ) {
+			$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>,";
+		}
+		$hobbis[ strlen( $hobbis )-1 ] = " "; // Remove the last comma
+		echo ($wasfriend)?"''":w_json_encode( $hobbis );
 		?> , <?php
 		echo $friendtype;
 		?> );<?php

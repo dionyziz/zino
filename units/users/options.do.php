@@ -11,7 +11,6 @@
 		$email			= $user->Email();
 		$gender			= $user->Gender();
 		$dob			= $user->DateOfBirth();
-		$hobbies		= $user->Hobbies();
 		$slogan			= $user->Subtitle();
 		$place			= $user->Place();
 		$msn			= $user->MSN();
@@ -37,9 +36,6 @@
 				break;
 			case "dob":
 				$dob = $input_value;
-				break;
-			case "hobbies":
-				$hobbies = $input_value;
 				break;
 			case "slogan":
 				$slogan = $input_value;
@@ -76,7 +72,7 @@
 				break;
 		}
 		
-		UpdateUser( $signature, "", $email, $gender, $dob, $hobbies, $slogan, $place, $msn, $skype, $yim, $aim, $icq, $gtalk, $height, $weight, $eyecolor, $haircolor );
+		UpdateUser( $signature, "", $email, $gender, $dob, $slogan, $place, $msn, $skype, $yim, $aim, $icq, $gtalk, $height, $weight, $eyecolor, $haircolor );
 	}
 
 ?>
