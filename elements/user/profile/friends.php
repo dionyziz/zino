@@ -1,9 +1,10 @@
 <?php
-	function ElementUserProfileFriends( $friends, $uid, $tags ) {
+	function ElementUserProfileFriends( $friends, $uid, $tags, $texttag ) {
 		//$friends = $theuser->GetFriends(); 
 		//if ( count( $friends ) > 0 ) {
 		if( $tags ) { // This element is also used by elements/interesttag/view.php to show people with common interests
-			?><b>Ενδιαφέροντα</b><?php
+			?><b>Ενδιαφέροντα: </b>  <?php
+			echo $texttag;
 		}
 		else {
 			?>Οι φίλοι μου<?php
