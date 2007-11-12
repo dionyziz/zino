@@ -21,7 +21,9 @@ var InterestTag = {
     },
     Create : function() {
     	var div = d.createElement( 'div' );
-    	var allinterests = g( 'interests' ).childNodes[1];
-    	alert( allinterests );
+    	var allinterests = g( 'interests' ).firstChild.nodeValue;
+    	allinterests = allinterest.split( " " );
+    	for ( var i in allinterests ) {
+		}
     }
 };
