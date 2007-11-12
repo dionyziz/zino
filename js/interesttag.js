@@ -18,5 +18,10 @@ var InterestTag = {
     	inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
         inp.value = '';
         inp.focus();
+    },
+    Create : function() {
+    	var div = d.createElement( 'div' );
+    	var allinterests = g( 'interests' ).childNodes[1];
+    	alert( allinterests );
     }
 };

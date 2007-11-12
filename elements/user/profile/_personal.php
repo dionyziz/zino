@@ -227,11 +227,11 @@
 					?><li><dl<?php
 					echo $class;
 					?>><dt>ενδιαφέροντα</dt>
-						<dd><?php
+						<dd id="interests"><?php
                             foreach ( $tags as $tag ) {
                                 echo htmlspecialchars( $tag->Text ) . " ";
                             }
-                            ?> <input type="text" id="newinteresttag" onkeypress="return InterestTag.Submit( event );" />
+                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a>
 						</dd>
 					</dl></li><?php
 				} 
