@@ -65,6 +65,7 @@
     		"questions"        	=> "question/list",
     		"places"           	=> "place/list" ,
     		"chat"             	=> "chat/view" ,
+            'r0x0r'             => "chat/callisto" ,
     		"su"               	=> "admin/su" ,
     		"tos"              	=> "user/tos" ,
     		"emoticons"        	=> "media/emoticons/list" ,
@@ -92,7 +93,7 @@
             'poll'              => 'poll/view',
 			'advertise' 		=> 'advertise/info',
 			'uniadmin'			=> 'universities/create',
-			'tag'				=> 'interesttag/view'
+			'tag'				=> 'interesttag/view',
     	);
     }
 ?>
