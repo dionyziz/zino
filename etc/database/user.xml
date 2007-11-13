@@ -1,0 +1,113 @@
+<table name="merlin_users">
+	<field name="user_id" type="int" autoincrement="yes">
+	<field name="user_name" type="int" />
+	<field name="user_password" type="char" size="32" />
+	<field name="user_authtoken" type="char" size="32" />
+	<field name="user_registerhost type="unsigned int" size="32" />
+	<field name="user_created" type="datetime" />
+	<field name="user_rights" type="int" />
+	<field name="user_icon" type="int" ref="merlin_images.image_id" />
+	<field name="user_dob" type="datetime" />
+	<field name="user_email" type="varchar" size="256" />
+	<field name="user_gender" type="enum">
+	     <value>-</value>
+	     <value>m</value>
+	     <value>f</value>
+	</field>
+	<field name="user_signature" type="text" size="256" />
+	<field name="user_lastlogon" type="datetime" />
+	<field name="user_lastprofedit" type="datetime" />
+	<field name="user_lastactive" type="datetime" />
+	<field name="user_locked" type="enum" default="no" />
+	    <value>yes</value>
+	    <value>no</value>
+	</field>
+</table>
+<table name="merlin_settings">
+	<field name="setting_email_profile" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_email_photos" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_email_journals" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_email_replies" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_email_friends" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_notify_profile" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_notify_photos" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_notify_journals" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field n type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>ame="setting_notify_replies" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+	<field name="setting_notify_friends" type="enum">
+		<value>yes</value>
+		<value>no</value>
+	</field>
+</table>
+<table name="merlin_profiles">
+	<field name="profile_id" ref="merlin_users.user_id" />
+	<field name="profile_location" type="int" ref="merlin_places.place_id" />
+	<field name="profile_education" type="text" />
+	<field name="profile_sexualorientation" type="enum">
+	    <value>-</value>
+	    <value>straight</value>
+	    <value>bi</value>
+	    <value>gay</value>
+	</field>
+	<field name="user_religion" type="text" />
+	<field name="user_politics" type="text" />
+	<field name="user_aboutme" type="text" />
+	<field name="user_mood" type="int" ref="merlin_moods.mood_id" />
+	<field name="user_eyecolor" type="int" size="11" />
+	<field name="user_haircolor" type="int" size="11" />
+	<field name="user_height" type="int" />
+	<field name="user_weight" type="int" />
+	<field name="user_smoker" type="enum">
+	    <value>yes</value>
+	    <value>no</value>
+	</field>
+	<field name="user_drinker" type="enum">
+	    <value>yes</value>
+	    <value>no</value>
+	</field>
+	<!-- <probably tags?> -->
+	<field name="user_favmovies" type="text" />
+	<field name="user_favbooks" type="text" />
+	<field name="user_favsongs" type="text" />
+	<field name="user_favartists" type="text" />
+	<field name="user_favvideogames" type="text" />
+	<!-- </probably tags?> -->
+	<field name="user_favquote" type="text" />
+	<!-- <field name="user_interests" type="text" /> interest tags -->
+	<field name="user_favtvshows" type="text" />
+	<field name="user_skype" type="varchar" size="256" />
+	<field name="user_msn" type="varchar" size="256" />
+	<field name="user_gtalk" type="varchar" size="256" />
+	<field name="user_aol" type="varchar" size="256" />
+	<field name="user_icq" type="varchar" size="256" />
+	<field name="user_yim" type="varchar" size="256" />
+</table>

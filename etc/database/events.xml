@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
+<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix">
+    <database name="cclive" type="mysql">
+			<table name="merlin_events">
+			<field name="event_id" type="int" autoincrement="yes" />
+			<field name="event_typeid" type="int" />
+			<field name="event_itemid" type="int" />
+			<field name="event_userid" type="int" default="0" ref="merlin_users.user_id" />
+			<field name="event_date" type="datetime" default="0000-00-00 00:00:00" />
+			<index type="primary">
+				<indexfield>event_id</indexfield>
+			</index>
+			<index type="index" name="USER_EVENTS">
+				<indexfield>event_userid</indexfield>
+			</index>
+		</table>
+	</database>
+</project>
