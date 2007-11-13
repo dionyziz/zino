@@ -60,10 +60,7 @@
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field n type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>ame="setting_notify_replies" type="enum">
+            <field name="setting_notify_replies" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
@@ -91,12 +88,16 @@
             <field name="user_height" type="int" />
             <field name="user_weight" type="int" />
             <field name="user_smoker" type="enum">
+                <value>-</value>
                 <value>yes</value>
                 <value>no</value>
+                <value>socially</value>
             </field>
             <field name="user_drinker" type="enum">
+                <value>-</value>
                 <value>yes</value>
                 <value>no</value>
+                <value>socially</value>
             </field>
             <!-- <probably tags?> -->
             <field name="user_favmovies" type="text" />
@@ -106,13 +107,10 @@
             <field name="user_favvideogames" type="text" />
             <!-- </probably tags?> -->
             <field name="user_favquote" type="text" />
-            <!-- <field name="user_interests" type="text" /> interest tags -->
             <field name="user_favtvshows" type="text" />
             <field name="user_skype" type="varchar" size="256" />
             <field name="user_msn" type="varchar" size="256" />
             <field name="user_gtalk" type="varchar" size="256" />
-            <field name="user_aol" type="varchar" size="256" />
-            <field name="user_icq" type="varchar" size="256" />
             <field name="user_yim" type="varchar" size="256" />
         </table>
     </database>
