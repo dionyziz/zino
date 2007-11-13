@@ -51,6 +51,7 @@ var InterestTag = {
 				} )( input );
 			input.style.backgroundColor = "transparent";
 			input.style.border = "0px solid black";
+			input.readOnly = true;
 			
 			var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
