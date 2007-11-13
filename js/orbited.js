@@ -224,13 +224,13 @@ Orbited = {
       }
       // We have a new event
       if (xhr.readyState == 4) {
-        var data = eval(xhr.responseText);
+        var data = eval(xhr.responseText); // TODO: Switch to JSON parsing?
         if (typeof data != 'undefined') {
           event_cb(data);          
         }
         return true;
       }
-    }
+    };
     xhr.multipart = true;
     xhr.open("GET", url, true);
     xhr.send(null);
@@ -245,7 +245,7 @@ Orbited = {
     document.body.appendChild(es);
     
     var callback = function(event) {
-      var data = eval(event.data);
+      var data = eval(event.data); // TODO: Switch to JSON parsing?
       if (typeof data != 'undefined') {
         Orbited.log(data);
         event_cb(data);          
@@ -272,11 +272,11 @@ Orbited = {
   },
   
   attach_iframe: function(ifr) {
-    if (this.data_queue != null) {
+    if (this.data_queue !== null) {
         dq = this.data_queue;
         ifr.e = function(data) {
-            dq[dq.length] = data        
-        }
+            dq[dq.length] = data;
+        };
         // ihr.data_queue = this.data_queue;
     }
     else {
