@@ -88,7 +88,7 @@
             w_assert( is_string( $ri ) );
             
             $ri = ( string )$ri;
-            if ( strlen( $ri ) <= 1024 ) {
+            if ( strlen( $ri ) > 1024 ) {
                 $water->ThrowException( 'Channel RI must not exceed 1024 characters' );
             }
             if ( !preg_match( '#^[A-Za-z0-9_\-/\.\?\!]*$#', $ri ) ) { // whitelist RI
@@ -129,7 +129,7 @@
                 $subscribers[] = ( string )$subscriber;
             }
             
-            if ( empty( $subscribers ) ){
+            if ( !empty( $subscribers ) ) {
                 $callipso_orbited->event( $subscribers, $message );
             }
         }

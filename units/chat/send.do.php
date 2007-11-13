@@ -3,12 +3,14 @@
 		global $user;
 		global $libs;
 		
-        $message = $message->Get();
-        
-		$libs->Load( 'chat' );
-
-        if ( $user->Exists() ) {
-			AddChat( $message );
+        if ( !$user->Exists() ) {
+            return;
         }
-	}
+        
+        $libs->Load( 'callisto/callisto' );
+
+        $message = $message->Get();
+        $channel = New Callisto_Channel( '/chat/channels/kamibu' );
+        $channel->Publish( '<' . $user->Username() . '> ' . $message );
+    }
 ?>

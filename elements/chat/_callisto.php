@@ -10,9 +10,22 @@
         
         $libs->Load( 'callisto/callisto' );
         
-        $channel = New Callisto_Channel( 'chat/channels/kamibu' );
-        $channel->Subscribe();
+        $page->AttachScript( 'js/orbited.js', 'javascript', true );
+        $page->AttachScript( 'js/chat.js', 'javascript', true );
+        
+        $channel = New Callisto_Channel( '/chat/channels/kamibu' );
+        $subscription = $channel->Subscribe();
         
         $page->SetTitle( 'Chat' );
+        
+        ?>
+        <script type="text/javascript"></script>
+        Chat.StartPolling( <?php
+        echo w_json_encode( $subscription->Id );
+        ?>, <?php
+        echo w_json_encode( $subscription->Token );
+        ?> );
+        </script>
+        <?php
     }
 ?>
