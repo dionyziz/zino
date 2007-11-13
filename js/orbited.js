@@ -14,7 +14,7 @@ Orbited = {
     this.session = session;
     this.event_cb = event_cb;
     document.domain = this.extract_xss_domain(document.domain);
-    if (transport === null) {
+    if (typeof transport == 'undefined') {
       this.find_best_transport();
     }
     this.connection = this['connect_' + this.transport]();
