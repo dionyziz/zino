@@ -7,7 +7,7 @@
             <field name="user_name" type="int" />
             <field name="user_password" type="char" size="32" />
             <field name="user_authtoken" type="char" size="32" />
-            <field name="user_registerhost" type="unsigned int" size="32" />
+            <field name="user_registerhost" type="unsigned int" />
             <field name="user_created" type="datetime" />
             <field name="user_rights" type="int" />
             <field name="user_icon" type="int" ref="merlin_images.image_id" />
