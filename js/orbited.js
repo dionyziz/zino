@@ -6,17 +6,20 @@ Orbited.connect(got_Event, "longpoll") //
 
 Orbited = {
   connection: null,
-  
-  connect: function(event_cb, user, location, session, transport) {
+  URL: '',
+  connect: function(event_cb, user, location, session, transport, URL) {
     this.user = user;
     this.location = location;
     this.transport = transport;
     this.session = session;
     this.event_cb = event_cb;
-    document.domain = this.extract_xss_domain(document.domain);
+    if (typeof URL == 'undefined') {
+        URL = 'http://' + this.extract_xss_domain(document.domain) + '/';
+    }
     if (typeof transport == 'undefined') {
       this.find_best_transport();
     }
+    this.URL = URL;
     this.connection = this['connect_' + this.transport]();
   },
   
@@ -46,7 +49,7 @@ Orbited = {
   },
   
   connect_iframe: function() {
-    var url = this.location + '?user=' + this.user;
+    var url = this.URL + '?user=' + this.user;
     url += "&session=" + this.session + "&transport=iframe";
     var ifr = document.createElement("IFRAME");
     ifr.setAttribute("id", "orbited_event_source");
@@ -67,7 +70,7 @@ Orbited = {
     var transferDoc = new ActiveXObject("htmlfile"); // !?!
     transferDoc.open();
     transferDoc.write("<html>");
-    transferDoc.write("<script>document.domain='" + document.domain + "';</script>");
+    transferDoc.write("<script>document.domain='" + this.URL + "';</script>");
     transferDoc.write("</html>");
     transferDoc.parentWindow.Orbited = this;
     transferDoc.close();
