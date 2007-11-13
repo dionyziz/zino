@@ -1,13 +1,3 @@
-input.interest_hidden {
-	background-color: transparent;
-	border: 0px solid black;
-}
-
-input.interest_shown {
-	background-color: white;
-	border: 1px solid black;
-}
-
 a.close {
 	float: right;
 	margin-right: 10px;
