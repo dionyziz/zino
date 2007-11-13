@@ -43,13 +43,14 @@ var InterestTag = {
 						if ( !e ) {
 							e = window.event;
 						}
-						if ( e.keyCode == 13 && is_valid( input.value ) ) {
+						if ( e.keyCode == 13 && InterestTag.is_valid( input.value ) ) {
 							//Coala.Warm();
 							alert( "The thing should be sent" );
 						}
 					};
 				} )( input );
 			input.style.backgroundColor = "transparent";
+			input.style.border = "0px solid black";
 			
 			var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
