@@ -32,7 +32,7 @@ var InterestTag = {
 		closeimg.title = "Κλείσιμο";
     	
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
-    	allinterests = allinterest.split( " " );
+    	allinterests = allinterests.split( " " );
     	for ( var i in allinterests ) {
     		var input = d.createElement( 'input' );
     		input.type = "text";
