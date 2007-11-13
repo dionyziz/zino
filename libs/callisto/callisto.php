@@ -22,11 +22,12 @@
         protected $mLastActive;
         protected $mToken;
         
-        protected function SetChannel( Callipso_Channel $channel ) {
+        protected function SetChannel( Callisto_Channel $channel ) {
             $this->mChannel = ( string )$channel;
         }
         protected function LoadDefaults() {
             $this->ScrambleToken();
+            $this->mLastActive = NowDate();
         }
         public function RenewLease() {
             $this->mDb->Query(
@@ -83,6 +84,11 @@
         public function Callisto_Channel( $ri ) {
             w_assert( !empty( $ri ) );
             w_assert( is_string( $ri ) );
+            
+            $ri = ( string )$ri;
+            if ( strlen( $ri ) <= 1024 ) {
+                throw New WaterException( 'Channel RI must not exceed 1024 characters' );
+            }
             if ( !preg_match( '#^[A-Za-z0-9_\-/\.\?\!]*$#', $ri ) ) { // whitelist RI
                 throw New WaterException( 'Channel RI does not match whitelist' );
             }
