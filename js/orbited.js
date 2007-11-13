@@ -170,7 +170,7 @@ Orbited = {
             }
           }
           else {
-            data = eval(data); // TODO: Switch to JSON parsing instead of eval?
+            data = eval(data);
             if (typeof data != 'undefined') {
               event_cb(data);          
             }
@@ -224,7 +224,7 @@ Orbited = {
       }
       // We have a new event
       if (xhr.readyState == 4) {
-        var data = eval(xhr.responseText); // TODO: Switch to JSON parsing?
+        var data = eval(xhr.responseText);
         if (typeof data != 'undefined') {
           event_cb(data);          
         }
@@ -245,7 +245,7 @@ Orbited = {
     document.body.appendChild(es);
     
     var callback = function(event) {
-      var data = eval(event.data); // TODO: Switch to JSON parsing?
+      var data = eval(event.data);
       if (typeof data != 'undefined') {
         Orbited.log(data);
         event_cb(data);          
