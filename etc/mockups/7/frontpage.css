@@ -106,6 +106,7 @@ div.joinus i.qbottom {
     background-position: bottom;
     display: block;
     position: absolute;
+    height: 10px;
     left: 10px;
     right: 10px;
     bottom: 0;
