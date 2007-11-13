@@ -82,15 +82,17 @@
         private $mRI; // Resource Identifier
         
         public function Callisto_Channel( $ri ) {
+            global $water;
+            
             w_assert( !empty( $ri ) );
             w_assert( is_string( $ri ) );
             
             $ri = ( string )$ri;
             if ( strlen( $ri ) <= 1024 ) {
-                throw New WaterException( 'Channel RI must not exceed 1024 characters' );
+                $water->ThrowException( 'Channel RI must not exceed 1024 characters' );
             }
             if ( !preg_match( '#^[A-Za-z0-9_\-/\.\?\!]*$#', $ri ) ) { // whitelist RI
-                throw New WaterException( 'Channel RI does not match whitelist' );
+                $water->ThrowException( 'Channel RI does not match whitelist' );
             }
             
             $this->mRI = $ri;
