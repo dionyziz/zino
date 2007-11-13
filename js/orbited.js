@@ -14,7 +14,7 @@ Orbited = {
     this.session = session;
     this.event_cb = event_cb;
     document.domain = this.extract_xss_domain(document.domain);
-    if (transport == null) {
+    if (transport === null) {
       this.find_best_transport();
     }
     this.connection = this['connect_' + this.transport]();
@@ -31,7 +31,7 @@ Orbited = {
     
     // If the browser supports server-sent events, we should use those
     if ((typeof window.addEventStream) == "function") {
-      this.transport = "server_sent_events"
+      this.transport = "server_sent_events";
       return;
     }
     
@@ -53,12 +53,12 @@ Orbited = {
     ifr.setAttribute("src", url);
     document.body.appendChild(ifr);
     this.kill_load_bar();
-    var event_cb = this.event_cb
-    var kill_load = this.kill_load_bar
+    var event_cb = this.event_cb;
+    var kill_load = this.kill_load_bar;
     this.event_cb = function(data) {
       event_cb(data);
       kill_load();
-    }
+    };
   },
   
   connect_htmlfile: function() {  
@@ -74,22 +74,22 @@ Orbited = {
     var ifrDiv = transferDoc.createElement("div");
     transferDoc.body.appendChild(ifrDiv);
     ifrDiv.innerHTML = "<iframe src='"+url+"'></iframe>";
-    this.data_queue = []
-    dq = this.data_queue
-    event_cb = this.event_cb
+    this.data_queue = [];
+    dq = this.data_queue;
+    event_cb = this.event_cb;
     
     /* Support IE 5.01 */
     if (typeof Array.prototype.shift == "undefined") {
         
       Array.prototype.shift = function () {
-        var A_s = 0
-        var response = this[0]
+        var A_s = 0;
+        var response = this[0];
         for (A_s = 0; A_s < this.length-1; A_s++) {
-          this[A_s] = this[A_s + 1]
+          this[A_s] = this[A_s + 1];
         }
-        this.length--
-        return response
-      }
+        this.length--;
+        return response;
+      };
     }
     /* End IE 5.01 Hack */
     
@@ -107,7 +107,7 @@ Orbited = {
               "&session=" + this.session + "&transport=xhr_stream";
     var offset = 0;
     var length_seen = 0;
-    var boundary = "\r\n|O|\r\n"
+    var boundary = "\r\n|O|\r\n";
     var event_cb = this.event_cb;
     var xhr = this.create_xhr();
     
@@ -139,7 +139,7 @@ Orbited = {
           // At the very start of the file, skip our bogus padding, or if
           // we haven't gotten through it yet, bail out--reset offset so
           // this gets tried again later
-          if (offset == 0) {
+          if (offset === 0) {
             offset = response_stream.indexOf('\r\n\r\n');
             if (offset == -1) {
               offset = 0;
@@ -164,20 +164,20 @@ Orbited = {
           
           // If two boundaries come in a row, that implies we might be getting
           // a ping.  If so, do nothing, and move the offset
-          if (data == "") {
+          if (data === "") {
             if (response_stream.indexOf('ping' + boundary, offset) == offset) {
               offset += ('ping' + boundary).length;
             }
           }
           else {
-            data = eval(data);
+            data = eval(data); // TODO: Switch to JSON parsing instead of eval?
             if (typeof data != 'undefined') {
               event_cb(data);          
             }
           }          
           // try again; we may have gotten multiple events at once
           handle_event();
-        }
+        };
         
         handle_event();
       }
@@ -185,7 +185,7 @@ Orbited = {
       if (xhr.readyState == 4) {
         // Orbited.log(xhr.responseText);
       }
-    }
+    };
     xhr.open("GET", url, true);
     xhr.send(null);
     // TODO: figure out how to close the xhr stream
@@ -291,9 +291,9 @@ Orbited = {
     //     new XMLHttpRequest();
     // }
     // catch(e) {}
-    try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) {}
-    try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch (e) {}
-    try { return new XMLHttpRequest(); } catch(e) {}
+    try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch ( msxml2failed ) {}
+    try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch ( msxmlhttpfailed ) {}
+    try { return new XMLHttpRequest(); } catch( xmlhttprequestfailed ) {}
     return null;
   },
   
@@ -307,7 +307,7 @@ Orbited = {
   },
 
   kill_load_bar: function () {
-    if (this.load_kill_ifr == null) {
+    if (this.load_kill_ifr === null) {
       this.load_kill_ifr = document.createElement('iframe');
     }
     document.body.appendChild(this.load_kill_ifr);
