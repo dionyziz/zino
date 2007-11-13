@@ -9,7 +9,7 @@ var InterestTag = {
     	inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
         inp.value = '';
         inp.focus();
-    },*/
+    },asd*/
     Create : function() {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
