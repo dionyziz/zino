@@ -34,6 +34,9 @@ var InterestTag = {
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
     	for ( var i in allinterests ) {
+    		if ( allinterests[i] == "" ) {
+    			continue;
+    		}
     		var input = d.createElement( 'input' );
     		input.type = "text";
     		input.value = allinterests[i];
