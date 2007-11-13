@@ -49,6 +49,7 @@ var InterestTag = {
 						}
 					};
 				} )( input );
+			input.style.backgroundColor = "transparent";
 			
 			var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
