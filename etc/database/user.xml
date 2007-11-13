@@ -28,6 +28,7 @@
             </field>
         </table>
         <table name="merlin_settings">
+            <field name="settings_userid" type="int" ref="merlin_users.user_id" />
             <field name="setting_email_profile" type="enum">
                 <value>yes</value>
                 <value>no</value>
@@ -70,23 +71,62 @@
             </field>
         </table>
         <table name="merlin_profiles">
-            <field name="profile_id" ref="merlin_users.user_id" />
+            <field name="profile_userid" ref="merlin_users.user_id" />
             <field name="profile_location" type="int" ref="merlin_places.place_id" />
-            <field name="profile_education" type="text" />
+            <field name="profile_education" type="enum">
+                <value>-</value>
+                <value>elementary</value>
+                <value>gymnasium</value>
+                <value>lyceum</value>
+                <value>university</value>
+                <value>finished</value>
+            </field>
             <field name="profile_sexualorientation" type="enum">
                 <value>-</value>
                 <value>straight</value>
                 <value>bi</value>
                 <value>gay</value>
             </field>
-            <field name="user_religion" type="text" />
-            <field name="user_politics" type="text" />
+            <field name="user_religion" type="enum">
+                <value>-</value>
+                <value>christian</value>
+                <value>muslim</value>
+                <value>atheist</value>  
+                <value>agnostic</value>
+                <value>nothing</value>
+            </field>
+            <field name="user_politics" type="enum">
+                <value>-</value>
+                <value>right</value>
+                <value>left</value>
+                <value>center</value>
+                <value>radical left</value>
+                <value>radical right</value>
+                <value>nothing<value>
+            </field>
             <field name="user_aboutme" type="text" />
             <field name="user_mood" type="int" ref="merlin_moods.mood_id" />
-            <field name="user_eyecolor" type="int" size="11" />
-            <field name="user_haircolor" type="int" size="11" />
-            <field name="user_height" type="int" />
-            <field name="user_weight" type="int" />
+            <field name="user_eyecolor" type="enum">
+                <value>-</value>
+                <value>black</value>
+                <value>brown</value>
+                <value>green</value>
+                <value>blue</value>
+                <value>grey</value>
+            </field>
+            <field name="user_haircolor" type="enum">
+                <value>-</value>
+                <value>black</value>
+                <value>brown</value>
+                <value>red</value>
+                <value>blond</value>
+                <value>antaugeia</value><!-- english? -->
+                <value>dark</value>
+                <value>grey</value>
+                <value>skinhead</value>
+            </field>
+            <field name="user_height" type="tinyint" />
+            <field name="user_weight" type="tinyint" />
             <field name="user_smoker" type="enum">
                 <value>-</value>
                 <value>yes</value>
@@ -99,19 +139,24 @@
                 <value>no</value>
                 <value>socially</value>
             </field>
-            <!-- <probably tags?> -->
+            <!-- <tags>
             <field name="user_favmovies" type="text" />
             <field name="user_favbooks" type="text" />
             <field name="user_favsongs" type="text" />
             <field name="user_favartists" type="text" />
             <field name="user_favvideogames" type="text" />
-            <!-- </probably tags?> -->
-            <field name="user_favquote" type="text" />
             <field name="user_favtvshows" type="text" />
+            </tags> -->
+            <field name="user_favquote" type="text" />
             <field name="user_skype" type="varchar" size="256" />
             <field name="user_msn" type="varchar" size="256" />
             <field name="user_gtalk" type="varchar" size="256" />
             <field name="user_yim" type="varchar" size="256" />
+        </table>
+        <table name="merlin_moods">
+            <field name="mood_id" type="int" autoincrement="yes" />
+            <field name="mood_label" type="text" />
+            <field name="mood_icon" type="int" ref="merlin_images.image_id" />
         </table>
     </database>
 </project>
