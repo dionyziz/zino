@@ -12,7 +12,7 @@
     global $libs;
     global $callipso_orbited; // ORBIT client to orbited
     
-    $libs->Load( 'callisto/orbited.php' );
+    $libs->Load( 'callisto/orbited' );
     
     $callipso_orbited = New OrbitedClient( 'localhost', 9000 );
     
