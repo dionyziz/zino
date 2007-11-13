@@ -39,7 +39,7 @@
                 LIMIT 1'
             );
         }
-        public function Callisto_Subscription( $construct ) {
+        public function Callisto_Subscription( $construct = false ) {
             global $db;
             global $callisto_subscriptions;
             
