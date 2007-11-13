@@ -37,7 +37,16 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		include 'bannerout.php';
 	}
 	?><div class="content"><?php
-	include 'frontpage.php';
+	switch ( $p ) {
+		case 'frontpage':
+			include 'frontpage.php';
+			break;
+		case 'join':
+			include 'join.php';
+			break;
+		default:
+			include 'frontpage.php';
+	}
 	?></div><?php
 	include 'footer.php';
 	?>

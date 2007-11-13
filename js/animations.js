@@ -169,7 +169,12 @@ var Animations = {
 			case 'opacity':
 				object.style[ attribute ] = value;
                 if (object.style.filter !== null) {
-                    object.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
+					if ( value == 1 ) {
+						object.style.filter = '';
+					}
+					else {
+						object.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
+					}
                 }
 				break;
             case 'background-color':
