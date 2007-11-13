@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
-<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix">
+<project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
     <database name="cclive" type="mysql">
         <table name="merlin_users">
             <field name="user_id" type="int" autoincrement="yes">
