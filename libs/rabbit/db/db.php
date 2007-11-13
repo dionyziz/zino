@@ -154,7 +154,7 @@
 			$water->LogSQL( $sql );
 			$res = $this->mDriver->Query( $sql , $this->mLink );
 			$water->LogSQLEnd();
-			if ( $res === false && $this->mDriver->LastErrorNumber() > 0 ) {
+			if ( $res === false ) {
 				$water->ThrowException( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
                 return false;
 			}
