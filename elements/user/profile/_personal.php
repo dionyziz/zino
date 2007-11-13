@@ -12,6 +12,7 @@
 		$page->AttachScript( 'js/universities.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachStyleSheet( 'css/modal.css' );
+		$page->AttachStyleSheet( 'css/interesttags.css' );
 		
 		static $monthsfordob = array(
 									1  => 'Ιανουαρίου',
