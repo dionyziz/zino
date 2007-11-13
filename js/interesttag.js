@@ -71,17 +71,16 @@ var InterestTag = {
 			del.style.display = "none";
 			del.alt = "Διαγραφή";
 			del.title = "Διαγραφή";
-			del.onclick = function() {
-					alert( "The thing should be deleted" );
-				};
+			del.onclick = (function( li ) {
+					InterestTag.Delete( li );
+				})(li);
 			
 			edit.appendChild( editimage );
 			del.appendChild( deleteimage );
+			li.appendChild( edit );
+			li.appendChild( d.createTextNode( ' ' ) );
+			li.appendChild( del );
 			ul.appendChild( li );
-			ul.appendChild( d.createTextNode( ' ' ) );
-			ul.appendChild( edit );
-			ul.appendChild( del );
-			ul.appendChild( d.createElement( 'br' ) );
 			
 			++count;
 		}
@@ -106,5 +105,9 @@ var InterestTag = {
 	hideLinks : function( id ) {
 		g( 'interedit_' + id ).style.display = 'none';
 		g( 'interdel_' + id ).style.display = 'none';
+	},
+	Delete : function( li ) {
+		alert( li.firstChild.nodeValue );
 	}
+		
 };
