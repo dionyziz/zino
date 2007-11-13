@@ -19,7 +19,7 @@
         $page->SetTitle( 'Chat' );
         
         ?>
-        <script type="text/javascript"></script>
+        <script type="text/javascript">
         Chat.StartPolling( <?php
         echo w_json_encode( $subscription->Id );
         ?>, <?php
