@@ -83,7 +83,9 @@
         public function Callisto_Channel( $ri ) {
             w_assert( !empty( $ri ) );
             w_assert( is_string( $ri ) );
-            w_assert( preg_match( '#^[A-Za-z0-9_\-/\.\?\!]$#', $ri ) ); // whitelist RI
+            if ( !preg_match( '#^[A-Za-z0-9_\-/\.\?\!]*$#', $ri ) ) { // whitelist RI
+                throw New WaterException( 'Channel RI does not match whitelist' );
+            }
             
             $this->mRI = $ri;
         }
