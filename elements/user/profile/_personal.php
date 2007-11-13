@@ -232,8 +232,10 @@
                             foreach ( $tags as $tag ) {
                                 echo htmlspecialchars( $tag->Text ) . " ";
                             }
-                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a>
-						</dd>
+                            if ( $theuser->Id() == $user->Id() ) {
+                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
+                            }
+						?></dd>
 					</dl></li><?php
 				} 
 				?>
