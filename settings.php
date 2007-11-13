@@ -27,6 +27,7 @@
                 	'categories'    	=> 'categories',
                 	'chats'         	=> 'chat',
                 	'comments'      	=> 'comments',
+                    'callisto_subscriptions' => 'callisto_subscriptions',
                     'dictionaries'      => 'dictionaries',
                     'dictionarywords'   => 'dictionarywords',
                 	'faqquestions'  	=> 'faqquestions',

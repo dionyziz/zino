@@ -44,7 +44,7 @@
             global $callisto_subscriptions;
             
             $this->mDb = $db;
-            $this->mDbTable = $callisto_subscription;
+            $this->mDbTable = $callisto_subscriptions;
             $this->SetFields( array(
                 'subscription_id'         => 'Id',
                 'subscription_channel'    => 'Channel',
