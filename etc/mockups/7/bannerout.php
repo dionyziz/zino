@@ -11,10 +11,12 @@ function User_Login() {
 	var banner = document.getElementById( 'banner' );
 	var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
 	var options = menu.getElementsByTagName( 'li' );
+	if ( isanimating ) {
+		return;
+	}
+	isanimating = true;
 	if ( options[ 0 ].style.display == '' ) {
 		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-			if ( !isanimating ) {
-				isanimating = true;
 				options[ 0 ].style.display = 'none';
 				options[ 1 ].style.display = 'none';
 				options[ 3 ].style.display = '';
