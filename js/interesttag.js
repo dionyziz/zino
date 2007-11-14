@@ -14,6 +14,7 @@ var InterestTag = {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
     	ul.style.listStyleType = "none";
+    	ul.style.cssFloat = "left";
     	
     	var close = document.createElement( 'a' );
 		close.onclick = function() {
@@ -44,7 +45,6 @@ var InterestTag = {
     		var li = d.createElement( 'li' );
     		li.id = "interest_" + count;
     		li.appendChild( d.createTextNode( allinterests[i] ) );
-    		li.style.position = "absolute";
     		li.onmouseover = ( function( id ) {
     				return function () {
 	    				InterestTag.showLinks( id );
