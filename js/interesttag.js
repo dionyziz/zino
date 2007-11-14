@@ -107,7 +107,8 @@ var InterestTag = {
 		g( 'interdel_' + id ).style.display = 'none';
 	},
 	Delete : function( li ) {
-		alert( li.firstChild.nodeValue );
+		Coala.Warm( 'interesttag/delete', { text : li.firstChild.nodeValue } );
+		li.parentNode.removeChild( li );
 	}
 		
 };
