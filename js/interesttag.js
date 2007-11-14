@@ -68,15 +68,21 @@ var InterestTag = {
 			del.alt = "Διαγραφή";
 			del.title = "Διαγραφή";
 			del.onclick = (function( li ) {
-					InterestTag.Delete( li );
+					return function() {
+						InterestTag.Delete( li );
+					}
 				})(li);
     		
 
     		li.onmouseover = ( function( id ) {
-    //				InterestTag.showLinks( id );
+    				return function () {
+	    				InterestTag.showLinks( id );
+	    			}
     			} )(count);
     		li.onmouseout = ( function( id ) {
-    //				InterestTag.hideLinks( id );
+    				return function() {
+    					InterestTag.hideLinks( id );
+    				}
     			} )(count);
 			
 			edit.appendChild( editimage );
@@ -101,7 +107,7 @@ var InterestTag = {
         }
         return true;
     },
-/*    showLinks : function( id ) {
+    showLinks : function( id ) {
 		if ( !InterestTag.onedit ) {
 			g( 'interedit_' + id ).style.display = 'inline';
 			g( 'interdel_' + id ).style.display = 'inline';
@@ -110,7 +116,7 @@ var InterestTag = {
 	hideLinks : function( id ) {
 		g( 'interedit_' + id ).style.display = 'none';
 		g( 'interdel_' + id ).style.display = 'none';
-	},*/
+	},
 	Delete : function( li ) {
 		Coala.Warm( 'interesttag/delete', { text : li.firstChild.nodeValue } );
 		li.parentNode.removeChild( li );
