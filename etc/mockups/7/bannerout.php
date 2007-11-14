@@ -33,6 +33,7 @@ function User_Login() {
 				options[ 5 ].style.display = 'none';
 				Animations.Create( menu, 'opacity', 500, 0, 1 );
 				isanimating = false;
+			}
 		} );
 	}
 }
