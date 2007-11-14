@@ -4,6 +4,8 @@ div.criteria {
     height: 91px;
     position: relative;
     padding: 10px;
+    width: 80%;
+    margin: 10px;
 }
 div.criteria i.tl {
     background-image: url('images/s_tl.png');
@@ -25,6 +27,12 @@ div.criteria form div.search {
 div.criteria h3 {
     display: inline;
     margin: 0;
+    padding: 5px;
+    font-size: 100%;
+}
+div.criteria input.submit {
+	border: 1px solid #999;
+    background-color: #f0f0f0;
     padding: 5px;
     font-size: 100%;
 }
