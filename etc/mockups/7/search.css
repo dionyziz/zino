@@ -19,21 +19,26 @@ div.criteria i.bl {
 div.criteria i.br {
     background-image: url('images/s_br.png');
 }
+div.criteria form {
+    text-align: center;
+}
 div.criteria form div.search {
     width: 45%;
     float: left;
     margin: 8px 0 8px 0;
 }
-div.criteria h3 {
+div.criteria form div.search h3 {
     display: inline;
     margin: 0;
     padding: 5px;
     font-size: 100%;
 }
-div.criteria input.submit {
+div.criteria form input.submit {
 	border: 0 none transparent;
     background-color: transparent;
     font-size: 110%;
-	color: #000033;
+	color: #105cb6;
     margin: auto;
+    font-weight: bold;
+    cursor: pointer;
 }
