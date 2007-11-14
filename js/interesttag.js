@@ -43,8 +43,7 @@ var InterestTag = {
     		}
     		
     		var li = d.createElement( 'li' );
-    		li.id = "interest_" + count;
-    		li.appendChild( d.createTextNode( allinterests[i] ) );
+    		li.appendChild( d.createTextNode( allinterests[i] ) ); 
     		li.onmouseover = ( function( id ) {
     				return function () {
 	    				InterestTag.showLinks( id );
@@ -68,9 +67,11 @@ var InterestTag = {
 			edit.style.display = "none";
 			edit.alt = "Επεξεργασία";
 			edit.title = "Επεξεργασία";
-			edit.onclick = function() {
-					alert( "The thing should be edited");
-				};
+			edit.onclick = ( function( li ) {
+					return function() {
+						InterestTag.Edit( li );
+					}
+				} )(li);
 	
 			var del = d.createElement( 'a' );
 			del.id = "interdel_" + count;
@@ -120,6 +121,71 @@ var InterestTag = {
 		alert( li.firstChild.nodeValue );
 		Coala.Warm( 'interesttag/delete', { 'text' : li.firstChild.nodeValue } );
 		li.parentNode.removeChild( li );
-	}
+	},
+	Edit : function( li ) {
+		if ( InterestTag.onedit ) {
+			return;
+		}
+		var text = li.firstChild.nodeValue;
 		
+		InterestTag.onedit = true;
+		li.style.display = "none";
+
+		var form = d.createElement( 'form' );
+		form.onsubmit = ( function( prevtext ) {
+				return function() {
+					var text = input.value;
+					if ( !InterestTag.is_valid( text ) ) {
+						return;
+					}
+					//Coala.Warm( 'interesttag/edit', { 'old' : prevtext, 'new' : text } );
+					form.parentNode.removeChild( form );
+					li.style.display = "inline";
+					li.firstChild.nodeValue = text;
+				};
+			} )( text );
+				
+		var input = d.createElement( 'input' );
+		input.type = "text";
+		input.value = text;
+		input.className = "bigtext";
+		
+		var imageaccept = document.createElement( 'img' );
+		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		
+		var imagecancel = document.createElement( 'img' );
+		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+		
+		var editsubmit = d.createElement( 'a' );
+		editsubmit.style.cursor = 'pointer';
+		editsubmit.onclick = (function( myform ) {
+					return function() { 
+						myform.onsubmit();
+						return false; 
+					}
+				})( form );
+		editsubmit.alt = 'Επεξεργασία';
+		editsubmit.title = 'Επεξεργασία';
+		editsubmit.appendChild( imageaccept );
+		
+		var editcancel = d.createElement( 'a' );
+		editcancel.style.cursor = 'pointer';
+		editcancel.onclick = ( function ( li ) {
+				return function() {
+					li.parentNode.removeChild( form );
+					li.style.display = "inline";
+				}
+			} )( li );
+		editcancel.alt = 'Ακύρωση';
+		editcancel.title = 'Ακύρωση';
+		editcancel.appendChild( imagecancel );
+		
+		form.appendChild( input );
+		form.appendChild( d.createTextNode( ' ' ) );
+		form.appendChild( editsubmit );
+		form.appendChild( d.createTextNode( ' ' ) );
+		form.appendChild( editcancel );
+		form.appendChild( d.createElement( 'br' ) );
+		li.parentNode.insertBefore( form, li );
+	}
 };
