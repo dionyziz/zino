@@ -1,7 +1,7 @@
 div.criteria {
     background-image: url('images/s_mid.png');
     background-repeat: repeat-x;
-    height: 111px;
+    height: 91px;
     position: relative;
     padding: 10px;
 }
@@ -20,6 +20,7 @@ div.criteria i.br {
 div.criteria form div.search {
     width: 45%;
     float: left;
+    margin: 20px 0 20px 0;
 }
 div.criteria h3 {
     display: inline;
