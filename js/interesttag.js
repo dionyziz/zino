@@ -72,10 +72,10 @@ var InterestTag = {
     		
 
     		li.onmouseover = ( function( id ) {
-    				InterestTag.showLinks( id );
+    //				InterestTag.showLinks( id );
     			} )(count);
     		li.onmouseout = ( function( id ) {
-    				InterestTag.hideLinks( id );
+    //				InterestTag.hideLinks( id );
     			} )(count);
 			
 			edit.appendChild( editimage );
