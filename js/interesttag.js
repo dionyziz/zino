@@ -14,6 +14,7 @@ var InterestTag = {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
     	ul.style.listStyleType = "none";
+    	ul.style.textAlign = "left";
     	
     	var close = document.createElement( 'a' );
 		close.onclick = function() {
@@ -54,7 +55,6 @@ var InterestTag = {
     					InterestTag.hideLinks( id );
     				};
     			} )(count);
-    		li.style.cssFloat = "left";
     		
     		var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
