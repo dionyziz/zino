@@ -99,7 +99,7 @@ var InterestTag = {
         }
         return true;
     },
-    showLinks : function( id ) {
+/*    showLinks : function( id ) {
 		if ( !InterestTag.onedit ) {
 			g( 'interedit_' + id ).style.display = 'inline';
 			g( 'interdel_' + id ).style.display = 'inline';
@@ -108,7 +108,7 @@ var InterestTag = {
 	hideLinks : function( id ) {
 		g( 'interedit_' + id ).style.display = 'none';
 		g( 'interdel_' + id ).style.display = 'none';
-	},
+	},*/
 	Delete : function( li ) {
 		Coala.Warm( 'interesttag/delete', { text : li.firstChild.nodeValue } );
 		li.parentNode.removeChild( li );
