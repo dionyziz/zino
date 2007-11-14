@@ -36,20 +36,15 @@ var InterestTag = {
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
     	for ( var i in allinterests ) {
-    		if ( allinterests[i] == "" ) {
+    		if ( allinterests[i] === "" ) {
     			continue;
     		}
+    		
     		var li = d.createElement( 'li' );
     		li.id = "interest_" + count;
     		li.appendChild( d.createTextNode( allinterests[i] ) );
-    		li.onmouseover = ( function( id ) {
-    				InterestTag.showLinks( id );
-    			} )(count);
-    		li.onmouseout = ( function( id ) {
-    				InterestTag.hideLinks( id );
-    			} )(count);
-			
-			var editimage = d.createElement( 'img' );
+    		
+    		var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 			
 			var deleteimage = d.createElement( 'img' );
@@ -74,6 +69,14 @@ var InterestTag = {
 			del.onclick = (function( li ) {
 					InterestTag.Delete( li );
 				})(li);
+    		
+
+    		li.onmouseover = ( function( id ) {
+    				InterestTag.showLinks( id );
+    			} )(count);
+    		li.onmouseout = ( function( id ) {
+    				InterestTag.hideLinks( id );
+    			} )(count);
 			
 			edit.appendChild( editimage );
 			del.appendChild( deleteimage );
