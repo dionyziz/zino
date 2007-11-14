@@ -2,12 +2,6 @@
 <script type="text/javascript">
 var isanimating = false;
 function User_Login() {
-	
-	
-	setInterval( function () {
-		document.title = isanimating? 'true': 'false';
-	}, 100 );
-	
 	var banner = document.getElementById( 'banner' );
 	var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
 	var options = menu.getElementsByTagName( 'li' );
