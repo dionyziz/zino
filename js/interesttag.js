@@ -67,7 +67,7 @@ var InterestTag = {
 			del.alt = "Διαγραφή";
 			del.title = "Διαγραφή";
 			del.onclick = (function( li ) {
-					InterestTag.Delete( li );
+		//			InterestTag.Delete( li );
 				})(li);
     		
 
