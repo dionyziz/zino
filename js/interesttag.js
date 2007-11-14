@@ -175,6 +175,7 @@ var InterestTag = {
 				return function() {
 					li.parentNode.removeChild( form );
 					li.style.display = "inline";
+					InterestTag.onedit = false;
 				}
 			} )( li );
 		editcancel.alt = 'Ακύρωση';
