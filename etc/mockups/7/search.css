@@ -10,10 +10,8 @@ div.criteria i.bl {
 }
 div.criteria form div.search {
     width: 45%;
-}
-div.criteria form div.age {
     float: left;
 }
-div.criteria form div.gender {
-    float: left;
+div.criteria h3 {
+    display: inline;
 }

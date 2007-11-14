@@ -4,7 +4,6 @@
         <i class="tr"></i>
         
         <form>
-        Ψάχνω για φίλους...<br />
             <div class="gender search">
                 <h3>Φύλο</h3>
                 <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια μόνο</label>
@@ -14,8 +13,8 @@
             
             <div class="age search">
                 <h3>Ηλικία</h3>
-                <input type="radio" name="agepick" id="age_dontcare" selected="selected" /><label for="gender_dontcare">Όλες οι ηλικίες</label>
-                <input type="radio" name="agepick" id="age_specify" selected="selected" /><label for="gender_specify">Συγκεκριμένες ηλικίες μόνο</label>
+                <input type="radio" name="agepick" id="age_dontcare" selected="selected" /><label for="age_dontcare">Όλες οι ηλικίες</label>
+                <input type="radio" name="agepick" id="age_specify" selected="selected" /><label for="age_specify">Συγκεκριμένες ηλικίες μόνο</label>
                 από: 
                 <select name="minage">
                     <option value="any">αδιάφορο</option>
