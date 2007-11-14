@@ -3,6 +3,7 @@ div.criteria {
     background-repeat: repeat-x;
     height: 111px;
     position: relative;
+    padding: 10px;
 }
 div.criteria i.tl {
     background-image: url('images/s_tl.png');
@@ -21,8 +22,8 @@ div.criteria form div.search {
     float: left;
 }
 div.criteria h3 {
-    display: block;
+    display: inline;
     margin: 0;
-    padding: 2px;
-    size: 120%;
+    padding: 5px;
+    font-size: 120%;
 }

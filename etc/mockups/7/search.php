@@ -8,7 +8,7 @@
                 <h3>Φύλο</h3>
                 <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια μόνο</label>
                 <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">Κοπέλες μόνο</label>
-                <input type="radio" name="gender" value="male" id="gender_both" selected="selected" /><label for="gender_both">Και τα δύο</label>
+                <input type="radio" name="gender" value="male" id="gender_both" checked="checked" /><label for="gender_both">Και τα δύο</label>
             </div>
             
             <div class="age search">
