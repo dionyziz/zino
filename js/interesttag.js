@@ -44,6 +44,17 @@ var InterestTag = {
     		var li = d.createElement( 'li' );
     		li.id = "interest_" + count;
     		li.appendChild( d.createTextNode( allinterests[i] ) );
+    		li.style.position = "absolute";
+    		li.onmouseover = ( function( id ) {
+    				return function () {
+	    				InterestTag.showLinks( id );
+	    			};
+    			} )(count);
+    		li.onmouseout = ( function( id ) {
+    				return function() {
+    					InterestTag.hideLinks( id );
+    				};
+    			} )(count);
     		
     		var editimage = d.createElement( 'img' );
 			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
@@ -54,7 +65,7 @@ var InterestTag = {
 			var edit = d.createElement( 'a' );
 			edit.id = "interedit_" + count;
 			edit.style.cursor = "pointer";
-//			edit.style.display = "none";
+			edit.style.display = "none";
 			edit.alt = "Επεξεργασία";
 			edit.title = "Επεξεργασία";
 			edit.onclick = function() {
@@ -64,26 +75,14 @@ var InterestTag = {
 			var del = d.createElement( 'a' );
 			del.id = "interdel_" + count;
 			del.style.cursor = "pointer";
-//			del.style.display = "none";
+			del.style.display = "none";
 			del.alt = "Διαγραφή";
 			del.title = "Διαγραφή";
 			del.onclick = (function( li ) {
 					return function() {
 						InterestTag.Delete( li );
-					}
+					};
 				})(li);
-    		
-
-    		li.onmouseover = ( function( id ) {
-    				return function () {
-	    				InterestTag.showLinks( id );
-	    			}
-    			} )(count);
-    		li.onmouseout = ( function( id ) {
-    				return function() {
-    					InterestTag.hideLinks( id );
-    				}
-    			} )(count);
 			
 			edit.appendChild( editimage );
 			del.appendChild( deleteimage );
