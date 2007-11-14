@@ -8,3 +8,12 @@ div.criteria i.bl {
     background-image: url('images/s_bl.png');
     background-repeat: no-repeat;
 }
+div.criteria form div.search {
+    width: 45%;
+}
+div.criteria form div.age {
+    float: left;
+}
+div.criteria form div.gender {
+    float: left;
+}
