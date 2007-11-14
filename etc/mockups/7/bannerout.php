@@ -27,7 +27,6 @@ function User_Login() {
 			} );
 			menu.getElementsByTagName( 'input' )[ 0 ].value = '';
 			menu.getElementsByTagName( 'input' )[ 0 ].focus();
-		}
 		} );
 	}
 	else {
