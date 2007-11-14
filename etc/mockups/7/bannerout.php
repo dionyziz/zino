@@ -20,7 +20,6 @@ function User_Login() {
 				options[ 4 ].style.display = '';
 				options[ 5 ].style.display = '';
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-					isanimating = false;
 				} );
 				menu.getElementsByTagName( 'input' )[ 0 ].value = '';
 				menu.getElementsByTagName( 'input' )[ 0 ].focus();
@@ -38,7 +37,7 @@ function User_Login() {
 				options[ 4 ].style.display = 'none';
 				options[ 5 ].style.display = 'none';
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-					isanimating = false;
+//					isanimating = false;
 				} );
 			}
 		} );
