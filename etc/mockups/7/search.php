@@ -185,7 +185,7 @@
                 <input type="radio" name="orientationpick" id="orientation_dontcare" selected="selected" /><label for="orientation_dontcare">Δεν με απασχολεί</label>
                 <input type="radio" name="orientationpick" id="orientation_specify" selected="selected" /><label for="orientation_specify">Μόνο συγκεκριμένες σεξουαλικές προτιμήσεις</label>
                 
-                (με αυτή την επιλογή δεν θα δεις χρήστες που δεν έχουν δηλώσει σεξουαλικές προτιμήσεις)
+                <span style="display:none">(με αυτή την επιλογή δεν θα δεις χρήστες που δεν έχουν δηλώσει σεξουαλικές προτιμήσεις)</span>
                 
                 <select name="orientation">
                     <option value="straight">Straight</option>

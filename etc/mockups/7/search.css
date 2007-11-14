@@ -13,5 +13,8 @@ div.criteria form div.search {
     float: left;
 }
 div.criteria h3 {
-    display: inline;
+    display: block;
+    margin: 0;
+    padding: 2px;
+    size: 120%;
 }
