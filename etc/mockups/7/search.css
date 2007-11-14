@@ -2,6 +2,7 @@ div.criteria {
     background-image: url('images/s_mid.png');
     background-repeat: repeat-x;
     height: 111px;
+    position: relative;
 }
 div.criteria i.bl {
     background-image: url('images/s_bl.png');
