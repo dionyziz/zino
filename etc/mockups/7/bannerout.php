@@ -17,33 +17,30 @@ function User_Login() {
 	isanimating = true;
 	if ( options[ 0 ].style.display == '' ) {
 		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-				options[ 0 ].style.display = 'none';
-				options[ 1 ].style.display = 'none';
-				options[ 3 ].style.display = '';
-				options[ 4 ].style.display = '';
-				options[ 5 ].style.display = '';
-				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-					isanimating = false;
-				} );
-				menu.getElementsByTagName( 'input' )[ 0 ].value = '';
-				menu.getElementsByTagName( 'input' )[ 0 ].focus();
-			}
+			options[ 0 ].style.display = 'none';
+			options[ 1 ].style.display = 'none';
+			options[ 3 ].style.display = '';
+			options[ 4 ].style.display = '';
+			options[ 5 ].style.display = '';
+			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				isanimating = false;
+			} );
+			menu.getElementsByTagName( 'input' )[ 0 ].value = '';
+			menu.getElementsByTagName( 'input' )[ 0 ].focus();
+		}
 		} );
 	}
 	else {
 		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-			if ( !isanimating ) {
-				isanimating = true;
-				options[ 0 ].style.display = '';
-				options[ 1 ].style.display = '';
-				//options[ 2 ].style.display = 'none';
-				options[ 3 ].style.display = 'none';
-				options[ 4 ].style.display = 'none';
-				options[ 5 ].style.display = 'none';
-				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-					isanimating = false;
-				} );
-			}
+			options[ 0 ].style.display = '';
+			options[ 1 ].style.display = '';
+			//options[ 2 ].style.display = 'none';
+			options[ 3 ].style.display = 'none';
+			options[ 4 ].style.display = 'none';
+			options[ 5 ].style.display = 'none';
+			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				isanimating = false;
+			} );
 		} );
 	}
 }
