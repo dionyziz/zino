@@ -1,11 +1,7 @@
 <script type="text/javascript" src="../../../js/animations.js"></script>
 <script type="text/javascript">
+var isanimating = false;
 function User_Login() {
-	var isanimating = false;
-	
-	setInterval( function () {
-		document.title = isanimating? 'true': 'false';
-	}, 100 );
 	
 	var banner = document.getElementById( 'banner' );
 	var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
@@ -20,6 +16,7 @@ function User_Login() {
 				options[ 4 ].style.display = '';
 				options[ 5 ].style.display = '';
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+					isanimating = false;
 				} );
 				menu.getElementsByTagName( 'input' )[ 0 ].value = '';
 				menu.getElementsByTagName( 'input' )[ 0 ].focus();
@@ -37,7 +34,7 @@ function User_Login() {
 				options[ 4 ].style.display = 'none';
 				options[ 5 ].style.display = 'none';
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-//					isanimating = false;
+					isanimating = false;
 				} );
 			}
 		} );
