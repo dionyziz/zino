@@ -20,9 +20,10 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
 		<link rel="stylesheet" type="text/css" href="footer.css" />
+		<link rel="stylesheet" type="text/css" href="headlines.css" />
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="frontpage.css" />
-		<link rel="stylesheet" type="text/css" href="headlines.css" />
+		<link rel="stylesheet" type="text/css" href="search.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {

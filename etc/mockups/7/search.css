@@ -1,0 +1,9 @@
+div.criteria {
+    background-image: url('images/s_mid.png');
+    background-repeat: repeat-x;
+    height: 111px;
+}
+div.criteria i.bl {
+    background-image: url('images/s_bl.png');
+    background-repeat: no-repeat;
+}

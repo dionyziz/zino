@@ -1,3 +1,11 @@
+    <h2>Αναζήτηση</h2>
+    <div class="criteria">
+        <i class="tl"></i>
+        <i class="tr"></i>
+        
+        <i class="bl"></i>
+        <i class="br"></i>
+    </div>
 	<div class="people">
 		<ul>
 			<li><a href=""><img src="images/avatars/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>προβολή προφίλ &raquo;</span></a></li>
