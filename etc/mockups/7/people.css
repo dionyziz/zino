@@ -1,7 +1,3 @@
-div.people {
- 	height: 260px;
-	overflow: hidden;
-}
 div.people ul {
 	list-style: none;
 	padding: 0;

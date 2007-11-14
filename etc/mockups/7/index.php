@@ -38,12 +38,13 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	}
 	?><div class="content"><?php
 	switch ( $p ) {
-		case 'frontpage':
-			include 'frontpage.php';
-			break;
 		case 'join':
 			include 'join.php';
 			break;
+        case 'search':
+            include 'search.php';
+            break;
+		case 'frontpage':
 		default:
 			include 'frontpage.php';
 	}
