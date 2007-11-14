@@ -13,6 +13,7 @@ var InterestTag = {
     Create : function() {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
+    	ul.style.listStyleType = "none";
     	
     	var close = document.createElement( 'a' );
 		close.onclick = function() {
@@ -53,7 +54,7 @@ var InterestTag = {
 			var edit = d.createElement( 'a' );
 			edit.id = "interedit_" + count;
 			edit.style.cursor = "pointer";
-			edit.style.displa = "none";
+//			edit.style.display = "none";
 			edit.alt = "Επεξεργασία";
 			edit.title = "Επεξεργασία";
 			edit.onclick = function() {
@@ -63,7 +64,7 @@ var InterestTag = {
 			var del = d.createElement( 'a' );
 			del.id = "interdel_" + count;
 			del.style.cursor = "pointer";
-			del.style.display = "none";
+//			del.style.display = "none";
 			del.alt = "Διαγραφή";
 			del.title = "Διαγραφή";
 			del.onclick = (function( li ) {
@@ -80,6 +81,7 @@ var InterestTag = {
 			
 			edit.appendChild( editimage );
 			del.appendChild( deleteimage );
+			li.appendChild( d.createTextNode( ' ' ) );
 			li.appendChild( edit );
 			li.appendChild( d.createTextNode( ' ' ) );
 			li.appendChild( del );
