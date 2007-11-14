@@ -4,9 +4,17 @@ div.criteria {
     height: 111px;
     position: relative;
 }
+div.criteria i.tl {
+    background-image: url('images/s_tl.png');
+}
+div.criteria i.tr {
+    background-image: url('images/s_tr.png');
+}
 div.criteria i.bl {
     background-image: url('images/s_bl.png');
-    background-repeat: no-repeat;
+}
+div.criteria i.br {
+    background-image: url('images/s_br.png');
 }
 div.criteria form div.search {
     width: 45%;
