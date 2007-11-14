@@ -20,11 +20,11 @@ div.criteria i.br {
 div.criteria form div.search {
     width: 45%;
     float: left;
-    margin: 20px 0 20px 0;
+    margin: 10px 0 10px 0;
 }
 div.criteria h3 {
     display: inline;
     margin: 0;
     padding: 5px;
-    font-size: 120%;
+    font-size: 100%;
 }
