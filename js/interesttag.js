@@ -142,6 +142,7 @@ var InterestTag = {
 					form.parentNode.removeChild( form );
 					li.style.display = "inline";
 					li.firstChild.nodeValue = text;
+					InterestTag.onedit = false;
 				};
 			} )( text );
 				
