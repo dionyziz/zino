@@ -4,12 +4,12 @@
         global $libs;
         global $user;
 
+		$libs->Load( 'interesttag' );
+
 		$text = $text->Get();
 		if ( !InterestTag_Valid( $text ) ) {
 			return;
 		}
-
-        $libs->Load( 'interesttag' );
 
         $tag = new InterestTag();
         $tag->User = $user;
