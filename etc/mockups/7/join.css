@@ -1,6 +1,10 @@
 div.join {
 	padding-top: 20px;
 }
+div.join div.bubble {
+	margin: auto;
+	width: 80%;
+}
 div.join div.bubble form.joinform div {
 	padding: 5px 0 20px 0; 
 }
