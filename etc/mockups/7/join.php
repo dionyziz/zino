@@ -1,6 +1,6 @@
 <h2>Γίνε μέλος!</h2>
 <p>Είσαι ήδη μέλος; Είσοδος</p>
-<form class="registerform">
+<form class="joinform">
 	<div>
 		<label for="join_name">Όνομα χρήστη</label>
 		<input type="text" id="join_name" value="" />
