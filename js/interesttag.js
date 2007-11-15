@@ -214,6 +214,13 @@ var InterestTag = {
 		
 		var li = InterestTag.createLi( '', newid );
 	
+		var input = d.createElement( 'input' );
+		input.type = "text";
+		input.className = "bigtext";
+		input.value = "Νέο Ενδιαφέρον";
+		input.style.width = "100px";
+		input.focus();
+	
 		var form = d.createElement( 'form' );
 		form.onsubmit = ( function ( input, li ) {
 				return function() {
@@ -233,13 +240,6 @@ var InterestTag = {
 		form.onkeypress = function ( e ) {
 				return submitenter(form, e);
 			};
-						
-		var input = d.createElement( 'input' );
-		input.type = "text";
-		input.className = "bigtext";
-		input.value = "Νέο Ενδιαφέρον";
-		input.style.width = "100px";
-		input.focus();
 		
 		var imageaccept = d.createElement( 'img' );
 		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
