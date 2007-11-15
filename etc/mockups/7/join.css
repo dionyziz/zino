@@ -5,3 +5,7 @@ form.joinform div label {
 form.joinform div input {
 	display: block;
 }
+form.joinform div p {
+	padding: 0;
+	margin:0;
+}
