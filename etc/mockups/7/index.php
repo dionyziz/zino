@@ -27,7 +27,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="join.css" />
-		<link rel="stylesheet" type="text/css" href="bubble.css" />
+		<link rel="stylesheet" type="text/css" href="bubbles.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
