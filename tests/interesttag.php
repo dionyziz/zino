@@ -69,11 +69,11 @@
         }
         
         public function TestValidText() {
-        	$this->AssertTrue( InterestTag_Valid( "Dog gy" ), 'InterestTag_Valid did not recognise an invalid tag' );
-        	$this->AssertTrue( InterestTag_Valid( "Pup,py" ), 'InterestTag_Valid did not recognise an invalid tag' );
-        	$this->AssertTrue( InterestTag_Valid( "" ), 'InterestTag_Valid did not recognise an invalid tag' );
-        	$this->AssertTrue( !InterestTag_Valid( " lol " ), 'InterestTag_Valid recognised a valid tag as invalid' );
-        	$this->AssertTrue( InterestTag_Valid( "    " ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->AssertFalse( InterestTag_Valid( "Dog gy" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->AssertFalse( InterestTag_Valid( "Pup,py" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->AssertFalse( InterestTag_Valid( "" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->AssertFalse( InterestTag_Valid( " lol " ), 'InterestTag_Valid recognised a valid tag as invalid' );
+        	$this->AssertFalse( InterestTag_Valid( "    " ), 'InterestTag_Valid did not recognise an invalid tag' );
         }
         
         public function TestListUsertags() {
