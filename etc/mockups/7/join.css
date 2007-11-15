@@ -1,19 +1,19 @@
-form.joinform div {
+div.bubble form.joinform div {
 	padding: 5px 0 20px 0; 
 }
-form.joinform div label {
+div.bubble form.joinform div label {
 	display: block;
 	padding: 0 0 3px 0;
 }
-form.joinform div input {
+div.bubble form.joinform div input {
 	display: block;
 }
-form.joinform div p {
+div.bubble form.joinform div p {
 	padding: 3px 0 0 0;
 	margin:0;
 	font-size: 80%;
 }
-form.joinform div div {
+div.bubble form.joinform div div {
 	padding: 7px 10px;
 	background-color: #f6f6f6;
 	border: 1px solid 

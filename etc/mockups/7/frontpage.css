@@ -30,3 +30,16 @@ div.meetfriends h2 {
 	color: #666;
 	text-align: left;
 }
+div.bubble form {
+    margin: 10px;
+}
+div.bubble form div {
+    margin: 5px 0 5px 0;
+}
+div.bubble form div.inline {
+    display: inline;
+}
+div.bubble form div label {
+    float: left;
+    width: 100px;
+}
