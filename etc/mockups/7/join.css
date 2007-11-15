@@ -18,7 +18,7 @@ div.join div.bubble form.joinform div p {
 }
 div.join div.bubble form.joinform div div {
 	padding: 7px 10px;
-	display: inline;
+	width: 220px;
 	border: 1px solid #b4c4ca;
 	margin-bottom: 5px;
 }
