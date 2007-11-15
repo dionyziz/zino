@@ -8,7 +8,7 @@
 		$old = $old->Get();
 		$new = $new->Get();
 		
-		$tag = new InterestTag( $old );
+		$tag = new InterestTag( $old, $user );
 		if ( !$tag->Exists() || !InterestTag_Valid( $new ) ) {
 			return;
 		}
