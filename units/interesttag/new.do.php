@@ -5,7 +5,7 @@
         global $user;
 
 		$text = $text->Get();
-		if ( strlen( trim( $text ) ) == 0 || strpos( $text, ',' ) !== false || strpos( $text, ' ' ) !== false ) {
+		if ( !InterestTag_Valid( $text ) ) {
 			return;
 		}
 

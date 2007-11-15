@@ -1,4 +1,8 @@
 <?php
+
+	function InterestTag_Valid( $text ) {
+		return !( strlen( trim( $text ) ) == 0 || strpos( $text, ',' ) !== false || strpos( $text, ' ' ) !== false );
+	}
     
     function InterestTag_List( $usern, $offset , $length ) {
         global $db;

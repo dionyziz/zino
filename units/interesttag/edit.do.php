@@ -9,7 +9,7 @@
 		$new = $new->Get();
 		
 		$tag = new InterestTag( $old );
-		if ( !$tag->Exists() || strlen( trim( $new ) ) == 0 || strpos( $new, ',' ) !== false || strpos( $new, ' ' ) !== false ) {
+		if ( !$tag->Exists() || !InterestTag_Valid( $new ) ) {
 			return;
 		}
 		$tag->Text = $new;

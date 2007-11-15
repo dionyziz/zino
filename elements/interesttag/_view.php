@@ -17,11 +17,14 @@
 		
 		$tags = InterestTag_List( $text, $offset, 20);
 		$all = InterestTag_Count();
-		if( $all == 0 ) {
+		if ( $all == 0 ) {
 			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
-
+		if ( !InterestTag_Valid( $text ) ) {
+			?><b>Παρακαλώ, το ενδιαφέρον να αποτελείται απο μία λέξη, χωρίς κενά ή κόμματα.</b><?php
+			return;
+		}
         
         $tag_users = array();
         foreach ( $tags as $tag ) {
