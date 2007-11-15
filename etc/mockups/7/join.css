@@ -13,3 +13,6 @@ form.joinform div p {
 	margin:0;
 	font-size: 80%;
 }
+form.joinform div div {
+	padding: 7px 10px;
+}
