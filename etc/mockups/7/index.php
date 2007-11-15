@@ -24,6 +24,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="frontpage.css" />
 		<link rel="stylesheet" type="text/css" href="search.css" />
+		<link rel="stylesheet" type="text/css" href="paginate.css" />
+		<link rel="stylesheet" type="text/css" href="forms.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -32,12 +34,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	else {
 		$p = 'frontpage';
 	}
-	if ( isset( $_GET[ 'loggedin' ] ) ) {
-		include 'banner.php';
-	}
-	else {
-		include 'bannerout.php';
-	}
+    include 'banner.php';
 	?><div class="content"><?php
 	switch ( $p ) {
 		case 'join':

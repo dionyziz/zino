@@ -1,4 +1,5 @@
-    <h2>Αναζήτηση</h2>
+<div id="search">
+    <h2>Αναζήτηση ατόμων</h2>
     <div class="criteria">
         <i class="tl"></i>
         <i class="tr"></i>
@@ -6,8 +7,8 @@
         <form>
             <div class="gender search">
                 <h3>Φύλο:</h3>
-                <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια μόνο</label>
-                <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">Κοπέλες μόνο</label>
+                <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια</label>
+                <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">Κοπέλες</label>
                 <input type="radio" name="gender" value="male" id="gender_both" checked="checked" /><label for="gender_both">Και τα δύο</label>
             </div>
             
@@ -186,7 +187,7 @@
                 </select>
             </div>
             
-            <input type="submit" value="Ψάξε φίλους!" class="submit" />
+            <input type="submit" value="Ψάξε!" class="submit" />
         </form>
         
         <i class="bl"></i>
@@ -205,4 +206,13 @@
 			<li><a href=""><img src="images/avatars/29228.jpg" style="width:83px;height:100px" alt="alinangel" title="alinangel" /><strong>alinangel</strong><span>προβολή προφίλ &raquo;</span></a></li>
 		</ul>
 		<div class="eof"></div>
+        <div class="paginate">
+            <a href="" onclick="" class="selected">1</a>
+            <a href="" onclick="">2</a>
+            <a href="" onclick="">3</a>
+            <a href="" onclick="">4</a>
+            ... <a href="" onclick="">Επόμενη &raquo;</a>
+            <span>βρέθηκαν 112 άτομα</span>
+        </div>
 	</div>
+</div>

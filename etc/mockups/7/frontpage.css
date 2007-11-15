@@ -115,3 +115,16 @@ div.joinus i.qbottom {
     right: 10px;
     bottom: 0;
 }
+div.joinus form {
+    margin: 10px;
+}
+div.joinus form div {
+    margin: 5px 0 5px 0;
+}
+div.joinus form div.inline {
+    display: inline;
+}
+div.joinus form div label {
+    float: left;
+    width: 100px;
+}

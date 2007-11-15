@@ -32,7 +32,26 @@
 </div>
 <div class="joinus">
     <i class="tl"></i><i class="tr"></i>
-	<h2>Είσαι μέσα;</h2>
+    <form>
+    	<h2>Είσαι μέσα;</h2>
+        <div class="inline">
+            Γράψε το ψευδώνυμό σου για να ξεκινήσεις: <br />
+            <input type="text" value="" />
+        </div>
+        <input type="submit" value="Γίνε μέλος &raquo;" class="button" />
+    </form>
+    
+    <form>
+    	<h2>Είσαι ήδη μέλος;</h2>
+        <div>
+            <label for="login_uname">Όνομα:</label><input id="login_uname" type="text" value="" />
+        </div>
+        <div>
+            <label for="login_password">Κωδικός:</label><input id="login_password" type="text" value="" />
+        </div>
+        <input type="submit" value="Είσοδος &raquo;" class="button" />
+    </form>
+    
     <i class="qleft"></i><i class="qright"></i>
     <i class="qbottom"></i>
     <i class="bl"></i><i class="br"></i>

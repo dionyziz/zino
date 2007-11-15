@@ -1,3 +1,6 @@
+div#search h2 {
+	text-align: center;
+}
 div.criteria {
     background-image: url('images/s_mid.png');
     background-repeat: repeat-x;
@@ -5,7 +8,7 @@ div.criteria {
     position: relative;
     padding: 10px;
     width: 80%;
-    margin: 10px auto 20px auto;
+    margin: 10px auto 40px auto;
 }
 div.criteria i.tl {
     background-image: url('images/s_tl.png');
@@ -23,9 +26,10 @@ div.criteria form {
     text-align: center;
 }
 div.criteria form div.search {
-    width: 45%;
+    width: 50%;
     float: left;
-    margin: 8px 0 8px 0;
+    margin: 10px 0 10px 0;
+    text-align: left;
 }
 div.criteria form div.search h3 {
     display: inline;
@@ -38,7 +42,16 @@ div.criteria form input.submit {
     background-color: transparent;
     font-size: 110%;
 	color: #105cb6;
-    margin: auto;
+    margin: 0 auto 0 auto;
     font-weight: bold;
     cursor: pointer;
+    width: 110px;
+    height: 32px;
+    padding: 0;
+    background-image: url('images/s_button.png');
+    background-repeat: no-repeat;
+    background-position: top;
+}
+div.criteria form input.submit:hover {
+    color: #000033;
 }
