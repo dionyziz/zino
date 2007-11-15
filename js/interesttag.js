@@ -237,6 +237,7 @@ var InterestTag = {
 						Coala.Warm( 'interesttag/new', { 'text' : text } );
 						li.style.display = "inline";
 						li.firstChild.nodeValue = text;
+						li.appendChild( d.createElement( 'br' ) );
 						var form = input.parentNode;
 						form.parentNode.removeChild( form );
 						InterestTag.onedit = false;
