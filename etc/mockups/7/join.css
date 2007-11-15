@@ -1,22 +1,22 @@
-div#join {
+div.join {
 	padding-top: 20px;
 }
-div.bubble form.joinform div {
+div.join div.bubble form.joinform div {
 	padding: 5px 0 20px 0; 
 }
-div.bubble form.joinform div label {
+div.join div.bubble form.joinform div label {
 	display: block;
 	padding: 0 0 3px 0;
 }
-div.bubble form.joinform div input {
+div.join div.bubble form.joinform div input {
 	display: block;
 }
-div.bubble form.joinform div p {
+div.join div.bubble form.joinform div p {
 	padding: 3px 0 0 0;
 	margin:0;
 	font-size: 80%;
 }
-div.bubble form.joinform div div {
+div.join div.bubble form.joinform div div {
 	padding: 7px 10px;
 	background-color: #f6f6f6;
 	border: 1px solid 

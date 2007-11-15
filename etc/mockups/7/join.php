@@ -1,4 +1,4 @@
-<div id="join">
+<div class="join">
 	<div class="bubble">
 	    <i class="tl"></i><i class="tr"></i>
 		<h2>Γίνε μέλος!</h2>
