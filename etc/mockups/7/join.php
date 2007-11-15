@@ -1,5 +1,4 @@
 <h2>Γίνε μέλος!</h2>
-<p>Είσαι ήδη μέλος; <a href="">Είσοδος</a></p>
 <form class="joinform">
 	<div>
 		<label for="join_name">Όνομα χρήστη</label>
