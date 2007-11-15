@@ -68,6 +68,14 @@
             // no ability to edit tags!
         }
         
+        public function TestValidText() {
+        	$this->Assert( InterestTag_Valid( "Dog gy" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->Assert( InterestTag_Valid( "Pup,py" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->Assert( InterestTag_Valid( "" ), 'InterestTag_Valid did not recognise an invalid tag' );
+        	$this->Assert( !InterestTag_Valid( " lol " ), 'InterestTag_Valid recognised a valid tag as invalid' );
+        	$this->Assert( InterestTag_Valid( "    " ), 'InterestTag_Valid did not recognise an invalid tag' );
+        }
+        
         public function TestListUsertags() {
             $test = New User( 'test' );
             // listing the tags of a user
