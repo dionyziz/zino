@@ -213,7 +213,7 @@
                         FROM
                             `" . $this->mDbTable . "`
                         WHERE
-                            `interesttag_text`   = '$construct' AND
+                            `interesttag_text`   = '" . myescape( $construct ) . "' AND
                             `interesttag_userid` = '" . $user->Id() . "'
                         LIMIT 1;";
 

@@ -157,7 +157,7 @@ var InterestTag = {
 					if ( !InterestTag.is_valid( text ) ) {
 						return;
 					}
-					//Coala.Warm( 'interesttag/edit', { 'old' : prevtext, 'new' : text } );
+					Coala.Warm( 'interesttag/edit', { 'old' : prevtext, 'new' : text } );
 					form.parentNode.removeChild( form );
 					li.style.display = "inline";
 					li.firstChild.nodeValue = text;
