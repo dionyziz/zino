@@ -230,6 +230,9 @@ var InterestTag = {
 					InterestTag.onedit = false;
 				}
 			} )( input, li );
+		form.onkeypress = function ( e ) {
+				return submitenter(form, e);
+			};
 						
 		var input = d.createElement( 'input' );
 		input.type = "text";
