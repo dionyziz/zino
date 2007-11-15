@@ -154,6 +154,9 @@ var InterestTag = {
 					InterestTag.onedit = false;
 				};
 			} )( text );
+		form.onkeypress = function ( e ) {
+				return submitenter(form, e);
+			};
 				
 		var input = d.createElement( 'input' );
 		input.type = "text";
@@ -212,7 +215,22 @@ var InterestTag = {
 		var li = InterestTag.createLi( '', newid );
 	
 		var form = d.createElement( 'form' );
-		
+		form.onsubmit = ( function ( input, li ) {
+				return function() {
+					var text = input.value;
+					if ( !InterestTag.is_valid( text ) ) {
+						return;
+					}
+					Coala.Warm( 'interesttag/new', { 'text' : text } );
+					li.style.display = "inline";
+					li.firstChild.nodeValue = text;
+					li.appendChild( d.createElement( 'br' ) );
+					var form = input.parentNode;
+					form.parentNode.removeChild( form );
+					InterestTag.onedit = false;
+				}
+			} )( input, li );
+						
 		var input = d.createElement( 'input' );
 		input.type = "text";
 		input.className = "bigtext";
@@ -228,21 +246,12 @@ var InterestTag = {
 		
 		var editsubmit = d.createElement( 'a' );
 		editsubmit.style.cursor = 'pointer';
-		editsubmit.onclick = ( function ( input, li ) {
-					return function() {
-						var text = input.value;
-						if ( !InterestTag.is_valid( text ) ) {
-							return;
-						}
-						Coala.Warm( 'interesttag/new', { 'text' : text } );
-						li.style.display = "inline";
-						li.firstChild.nodeValue = text;
-						li.appendChild( d.createElement( 'br' ) );
-						var form = input.parentNode;
-						form.parentNode.removeChild( form );
-						InterestTag.onedit = false;
+		editsubmit.onclick = (function( myform ) {
+					return function() { 
+						myform.onsubmit();
+						return false; 
 					}
-				} )( input, li );
+				})( form );
 		editsubmit.alt = 'Δημιουργία';
 		editsubmit.title = 'Δημιουργία';
 		editsubmit.appendChild( imageaccept );
