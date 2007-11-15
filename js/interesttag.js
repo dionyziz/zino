@@ -248,13 +248,13 @@ var InterestTag = {
 		
 		var editcancel = d.createElement( 'a' );
 		editcancel.style.cursor = 'pointer';
-	/*	editcancel.onclick = ( function ( li ) {
+		editcancel.onclick = ( function ( li ) {
 				return function() {
 					li.parentNode.removeChild( form );
-					li.style.display = "inline";
+					li.parentNode.removeChild( li );
 					InterestTag.onedit = false;
 				}
-			} )( li );*/
+			} )( li );
 		editcancel.alt = 'Ακύρωση';
 		editcancel.title = 'Ακύρωση';
 		editcancel.appendChild( imagecancel );

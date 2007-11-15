@@ -1,6 +1,6 @@
 <?php
 
-    function UnitInterestTagNew( tString $text, tCoalaPointer $callback ) {
+    function UnitInterestTagNew( tString $text ) {
         global $libs;
         global $user;
 
@@ -15,11 +15,6 @@
         $tag->User = $user;
         $tag->Text = $text;
         $tag->Save();
-        
-        echo $callback;
-        ?>( <?php
-        echo w_json_encode( $text );
-        ?> );<?php
     }
 
 ?>
