@@ -1,5 +1,6 @@
 form.joinform div label {
 	display: block;
+	padding: 0 0 3px 0;
 }
 form.joinform div input {
 	display: block;
