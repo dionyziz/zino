@@ -14,10 +14,12 @@
 	</div>
 	<div>
 		<label for="join_email">E-mail (προαιρετικά)</label>
-		<input type="text" id="join_email" value="" style="width: 400px;" />
+		<input type="text" id="join_email" value="" style="width:200px;" />
 		<p>Αν συμπληρώσεις το e-mail σου θα μπορείς να επαναφέρεις τον κωδικό σου σε περίπτωση που τον ξεχάσεις.</p>
 	</div>
 	<div>
+		<label for="join_captcha">Πληκτρολόγησε τα γράμματα που βλέπεις παρακάτω</label>
+		<img src="images/captcha.jpg" alt="Πληκτρολόγηση κειμένου" title="Πληκτρολόγηση κειμένου" />
 		<input type="text" id="join_captcha" value="" />
 	</div>
 	<p>Η δημιουργία λογαριασμού συνεπάγεται την ανεπιφύλακτη αποδοχή των <a href="">όρων χρήσης</a>.</p>
