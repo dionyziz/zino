@@ -8,9 +8,7 @@
 	</div>
 	<div>
 		<label for="join_pwd">Κωδικός πρόσβασης</label>
-		<input type="password" id="join_pwd" value="" />
-	</div>
-	<div>
+		<input type="password" id="join_pwd" value="" style="padding-bottom: 5px;" />
 		<label for="join_repwd">Πληκτρολόγησε τον ξανά</label>
 		<input type="password"  id="join_repwd" value="" />
 	</div>
