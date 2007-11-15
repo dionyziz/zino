@@ -1,15 +1,5 @@
 var InterestTag = {
 	onedit: false,
-/*    Submit: function( val ) {
-        
-        Coala.Warm( 'interesttag/new', { 'text': val, 'callback' : InterestTag.SubmitCallback } );
-    },
-    SubmitCallback : function( val ) {
-    	var inp = g( 'newinteresttag' );
-    	inp.parentNode.insertBefore( d.createTextNode( val + " " ), inp );
-        inp.value = '';
-        inp.focus();
-    },*/
     Create : function() {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
@@ -238,10 +228,20 @@ var InterestTag = {
 		
 		var editsubmit = d.createElement( 'a' );
 		editsubmit.style.cursor = 'pointer';
-		editsubmit.onclick = function () {
-					alert( "Ginete neo tag" );
-					InterestTag.onedit = false;
-				};
+		editsubmit.onclick = ( function ( input, li ) {
+					return function() {
+						var text = input.value;
+						if ( !InterestTag.is_valid( text ) ) {
+							return;
+						}
+						Coala.Warm( 'interesttag/new', { 'text' : text } );
+						li.style.display = "inline";
+						li.firstChild.nodeValue = text;
+						var form = input.parentNode;
+						form.parentNode.removeChild( form );
+						InterestTag.onedit = false;
+					}
+				} )( input, li );
 		editsubmit.alt = 'Δημιουργία';
 		editsubmit.title = 'Δημιουργία';
 		editsubmit.appendChild( imageaccept );
