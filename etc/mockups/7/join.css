@@ -19,6 +19,7 @@ div.join div.bubble form.joinform div p {
 div.join div.bubble form.joinform div div {
 	padding: 7px 10px;
 	width: 200px;
+	background-color: #efefef;
 	border: 1px solid #b4c4ca;
 }
 div.join div.bubble form.joinform div div img {
