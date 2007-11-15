@@ -4,7 +4,7 @@
 		return !( strlen( trim( $text ) ) == 0 || strpos( $text, ',' ) !== false || strpos( $text, ' ' ) !== false );
 	}
     
-    function InterestTag_List( $usern, $offset , $length ) {
+    function InterestTag_List( $usern, $offset = 0 , $length = 20 ) {
         global $db;
         global $interesttags;
 
