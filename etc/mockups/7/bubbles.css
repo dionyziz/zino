@@ -1,0 +1,98 @@
+div.bubble {
+    position: relative;
+    background-color: #f6f6f6;
+    background-image: url('images/q_top.jpg');
+    background-repeat: repeat-x;
+    background-position: top;
+    padding: 10px;
+}
+i.tl {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.tr {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.bl {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+i.br {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+div.bubble i.tl {
+    background-image: url('images/q_tl.jpg');
+}
+div.bubble i.tr {
+    background-image: url('images/q_tr.jpg');
+}
+div.bubble i.bl {
+    background-image: url('images/q_bl.jpg');
+}
+div.bubble i.br {
+    background-image: url('images/q_br.jpg');
+}
+div.bubble i.qleft {
+    background-image: url('images/q_left.jpg');
+    background-repeat: repeat-y;
+    background-position: left;
+    width: 10px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    bottom: 10px;
+}
+div.bubble i.qright {
+    background-image: url('images/q_right.jpg');
+    background-repeat: repeat-y;
+    background-position: left;
+    width: 10px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    bottom: 10px;
+}
+div.bubble i.qbottom {
+    background-image: url('images/q_bottom.jpg');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    display: block;
+    position: absolute;
+    height: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+}
+div.bubble form {
+    margin: 10px;
+}
+div.bubble form div {
+    margin: 5px 0 5px 0;
+}
+div.bubble form div.inline {
+    display: inline;
+}
+div.bubble form div label {
+    float: left;
+    width: 100px;
+}

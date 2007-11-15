@@ -30,7 +30,7 @@
 		<div class="eof"></div>
 	</div>
 </div>
-<div class="joinus">
+<div class="bubble">
     <i class="tl"></i><i class="tr"></i>
     <form>
     	<h2>Είσαι μέσα;</h2>
