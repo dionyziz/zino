@@ -14,7 +14,7 @@
 	</div>
 	<div>
 		<label for="join_email">E-mail (προαιρετικά)</label>
-		<input type="text" id="join_email" value="" />
+		<input type="text" id="join_email" value="" style="width: 400px;" />
 		<p>Αν συμπληρώσεις το e-mail σου θα μπορείς να επαναφέρεις τον κωδικό σου σε περίπτωση που τον ξεχάσεις.</p>
 	</div>
 	<div>
