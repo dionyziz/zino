@@ -308,7 +308,7 @@ var pms = {
 			var p = this.getDragEl();
 			var realpm = document.getElementById( pmid );
 			
-			p.style.display = 'none'
+			p.style.display = 'none';
 			var msgnodedivs = realpm.getElementsByTagName( 'div' );
 			var msgnodeimgs = realpm.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
@@ -337,7 +337,7 @@ var pms = {
 		dd1.startDrag = function() {
 			var p = this.getDragEl();
 			var q = this.getEl();
-			p.style.border = '1px dotted #92bcc1;'
+			p.style.border = '1px dotted #92bcc1';
 		};
 		dd1.endDrag = function( e ) {
 			// alert( 'end of drag' );
@@ -382,7 +382,7 @@ var pms = {
 					var q = this.getEl();
 					//var realpm = document.getElementById( pmid );
 					
-					p.style.display = 'none'
+					p.style.display = 'none';
 					var msgnodedivs = q.getElementsByTagName( 'div' );
 					var msgnodeimgs = q.getElementsByTagName( 'img' );
 					var delimg = msgnodeimgs[ 0 ];

@@ -33,7 +33,7 @@ var InterestTag = {
 				return function() {
 					InterestTag.NewTag( ul );
 					return false;
-				}
+				};
 			} )( ul );
 			
 		newtag.appendChild( newtagimg );
@@ -87,7 +87,7 @@ var InterestTag = {
 		edit.onclick = ( function( li ) {
 				return function() {
 					InterestTag.Edit( li );
-				}
+				};
 			} )(li);
 
 		var del = d.createElement( 'a' );
@@ -191,7 +191,7 @@ var InterestTag = {
 					li.parentNode.removeChild( form );
 					li.style.display = "inline";
 					InterestTag.onedit = false;
-				}
+				};
 			} )( li );
 		editcancel.alt = 'Ακύρωση';
 		editcancel.title = 'Ακύρωση';
@@ -211,7 +211,7 @@ var InterestTag = {
 		}
 		InterestTag.onedit = true;
 		var newid = ul.childNodes[ ul.childNodes.length-1 ].getElementsByTagName( 'a' )[ 0 ].id;
-		newid = parseInt( newid.substr( 10 ) );
+		newid = parseInt( newid.substr( 10 ), 10 );
 		++newid;
 		
 		var li = InterestTag.createLi( '', newid );
@@ -237,7 +237,7 @@ var InterestTag = {
 					var form = input.parentNode;
 					form.parentNode.removeChild( form );
 					InterestTag.onedit = false;
-				}
+				};
 			} )( input, li );
 		form.onkeypress = function ( e ) {
 				return submitenter(form, e);
@@ -255,7 +255,7 @@ var InterestTag = {
 					return function() { 
 						myform.onsubmit();
 						return false; 
-					}
+					};
 				})( form );
 		editsubmit.alt = 'Δημιουργία';
 		editsubmit.title = 'Δημιουργία';
@@ -268,7 +268,7 @@ var InterestTag = {
 					li.parentNode.removeChild( form );
 					li.parentNode.removeChild( li );
 					InterestTag.onedit = false;
-				}
+				};
 			} )( li );
 		editcancel.alt = 'Ακύρωση';
 		editcancel.title = 'Ακύρωση';
