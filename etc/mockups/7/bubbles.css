@@ -84,3 +84,42 @@ div.bubble i.qbottom {
     bottom: 0;
 }
 
+div.ybubble {
+    background-image: url('images/s_mid.png');
+	background-position: bottom;
+    background-repeat: repeat-x;
+    height: 91px;
+    position: relative;
+    padding: 10px;
+    width: 80%;
+    margin: 10px auto 40px auto;
+}
+div.ybubble i.tl {
+    background-image: url('images/s_tl.png');
+}
+div.ybubble i.tr {
+    background-image: url('images/s_tr.png');
+}
+div.ybubble i.bl {
+    background-image: url('images/s_bl.png');
+}
+div.ybubble i.br {
+    background-image: url('images/s_br.png');
+}
+div.ybubble form {
+    text-align: center;
+}
+div.ybubble form div.search {
+    width: 50%;
+    float: left;
+    margin: 10px 0 10px 0;
+    text-align: left;
+}
+div.ybubble form div.search h3 {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+    font-size: 100%;
+}
+
+

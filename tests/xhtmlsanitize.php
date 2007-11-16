@@ -93,7 +93,7 @@
             $this->AssertEquals( '&#XF00D;', $result, 'Valid entities should remain unchanged (&#XF00D;)' );
             $sanitizer->SetSource( '&apos;&quot;&gt;&lt;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&#XF00D;', $result, 'Valid entities should remain unchanged (&#XF00D;)' );
+            $this->AssertEquals( '&apos;&quot;&gt;&lt;', $result, 'Valid entities should remain unchanged (&apos; etc.)' );
         }
         public function TestWhitespace() {
             $sanitizer = New XHTMLSanitizer();

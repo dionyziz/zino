@@ -1,43 +1,7 @@
 div#search h2 {
 	text-align: center;
 }
-div.criteria {
-    background-image: url('images/s_mid.png');
-    background-repeat: repeat-x;
-    height: 91px;
-    position: relative;
-    padding: 10px;
-    width: 80%;
-    margin: 10px auto 40px auto;
-}
-div.criteria i.tl {
-    background-image: url('images/s_tl.png');
-}
-div.criteria i.tr {
-    background-image: url('images/s_tr.png');
-}
-div.criteria i.bl {
-    background-image: url('images/s_bl.png');
-}
-div.criteria i.br {
-    background-image: url('images/s_br.png');
-}
-div.criteria form {
-    text-align: center;
-}
-div.criteria form div.search {
-    width: 50%;
-    float: left;
-    margin: 10px 0 10px 0;
-    text-align: left;
-}
-div.criteria form div.search h3 {
-    display: inline;
-    margin: 0;
-    padding: 5px;
-    font-size: 100%;
-}
-div.criteria form input.submit {
+div#search div.ybubble form input.submit {
 	border: 0 none transparent;
     background-color: transparent;
     font-size: 110%;
@@ -52,6 +16,6 @@ div.criteria form input.submit {
     background-repeat: no-repeat;
     background-position: top;
 }
-div.criteria form input.submit:hover {
+div#search div.ybubble form input.submit:hover {
     color: #000033;
 }

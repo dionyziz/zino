@@ -1,6 +1,6 @@
 <div id="search">
     <h2>Αναζήτηση ατόμων</h2>
-    <div class="criteria">
+    <div class="ybubble">
         <i class="tl"></i>
         <i class="tr"></i>
         
@@ -182,7 +182,7 @@
                 <select name="orientation">
                     <option value="0">Οτιδήποτε</option>
                     <option value="straight">Straight</option>
-                    <option value="bi">Bi</option>
+                    <option value="bi">Bisexual</option>
                     <option value="gay">Gay/Lesbian</option>
                 </select>
             </div>

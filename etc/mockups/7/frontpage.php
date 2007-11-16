@@ -33,26 +33,29 @@
 	</div>
 	<div class="bubble">
 	    <i class="tl"></i><i class="tr"></i>
-	    <form>
-	    	<h2>Είσαι μέσα;</h2>
-	        <div class="inline">
-	            Γράψε το ψευδώνυμό σου για να ξεκινήσεις: <br />
-	            <input type="text" value="" />
-	        </div>
-	        <input type="submit" value="Γίνε μέλος &raquo;" class="button" />
-	    </form>
-	    
-	    <form>
-	    	<h2>Είσαι ήδη μέλος;</h2>
+	    <form class="memberform">
+            <a name="login"></a>
+	    	<h2>Είσαι ήδη μέλος?</h2>
 	        <div>
-	            <label for="login_uname">Όνομα:</label><input id="login_uname" type="text" value="" />
+	            <label for="login_uname">Όνομα:</label><input id="login_uname" type="text" value="" class="text" />
 	        </div>
 	        <div>
-	            <label for="login_password">Κωδικός:</label><input id="login_password" type="text" value="" />
+	            <label for="login_password">Κωδικός:</label><input id="login_password" type="text" value="" class="text" />
 	        </div>
 	        <input type="submit" value="Είσοδος &raquo;" class="button" />
 	    </form>
+
+	    <form class="joinform">
+	    	<h2>Είσαι μέσα? Γίνε μέλος!</h2>
+	        Γράψε το ψευδώνυμό σου για να ξεκινήσεις:
+            <div>
+	            <input type="text" value="" class="text" />
+                <input type="submit" value="Γίνε μέλος &raquo;" class="button" />
+	        </div>
+	    </form>
 	    
+        <div class="eof"></div>
+        
 	    <i class="qleft"></i><i class="qright"></i>
 	    <i class="qbottom"></i>
 	    <i class="bl"></i><i class="br"></i>

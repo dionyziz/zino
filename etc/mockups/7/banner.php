@@ -1,9 +1,14 @@
 <script type="text/javascript" src="../../../js/animations.js"></script>
 <script type="text/javascript">
+var isanimating = false;
 function User_Login() {
 	var banner = document.getElementById( 'banner' );
 	var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
 	var options = menu.getElementsByTagName( 'li' );
+	if ( isanimating ) {
+		return;
+	}
+	isanimating = true;
 	if ( options[ 0 ].style.display == '' ) {
 		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
 			options[ 0 ].style.display = 'none';
@@ -11,7 +16,9 @@ function User_Login() {
 			options[ 3 ].style.display = '';
 			options[ 4 ].style.display = '';
 			options[ 5 ].style.display = '';
-			Animations.Create( menu, 'opacity', 500, 0, 1 );
+			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				isanimating = false;
+			} );
 			menu.getElementsByTagName( 'input' )[ 0 ].value = '';
 			menu.getElementsByTagName( 'input' )[ 0 ].focus();
 		} );
@@ -24,7 +31,9 @@ function User_Login() {
 			options[ 3 ].style.display = 'none';
 			options[ 4 ].style.display = 'none';
 			options[ 5 ].style.display = 'none';
-			Animations.Create( menu, 'opacity', 500, 0, 1 );
+			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				isanimating = false;
+			} );
 		} );
 	}
 }
@@ -35,7 +44,7 @@ function User_Login() {
         if ( !isset( $_GET[ 'loggedin' ] ) ) {
             ?><li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
             <li class="dot">·</li>
-            <li><a href="login" onclick="User_Login();return false" class="login icon">Είσοδος</a></li>
+            <li><a href="?#login" onclick="User_Login();return false" class="login icon">Είσοδος</a></li>
             <li class="dot" style="display:none">·</li>
             <li style="display:none">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
             <li class="dot" style="display:none"><input type="button" value="Είσοδος" class="button" /></li><?php
@@ -54,7 +63,7 @@ function User_Login() {
 	}
     ?><div class="search">
 		<form action="" method="get">
-			<input type="text" class="text" onfocus="alert('');" value="αναζήτησε φίλους" />
+			<input type="text" class="text" onfocus="" value="αναζήτησε φίλους" />
 			<input type="submit" class="submit" value="ψάξε" />
 		</form>
 	</div>

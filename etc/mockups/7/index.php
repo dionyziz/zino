@@ -28,6 +28,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="join.css" />
 		<link rel="stylesheet" type="text/css" href="bubbles.css" />
+		<link rel="stylesheet" type="text/css" href="joined.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -45,6 +46,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
         case 'search':
             include 'search.php';
             break;
+		case 'joined':
+			include 'joined.php';
+			break;
 		case 'frontpage':
 		default:
 			include 'frontpage.php';
