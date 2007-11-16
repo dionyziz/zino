@@ -6,17 +6,19 @@ var InterestTag = {
     	ul.style.listStyleType = "none";
     	ul.style.textAlign = "left";
     	
+    	var closeimg = d.createElement( 'img' );
+		closeimg.src = "http://static.chit-chat.gr/images/colorpicker/close.png";
+    	
     	var close = d.createElement( 'a' );
 		close.onclick = function() {
 					Modals.Destroy();
 				};
-		close.className = "close";
+		close.cssFloat = "right";
+		close.position = "relative";
+		close.marginRight = "5px";
 		close.style.cursor = "pointer";
 		close.alt = "Κλείσιμο";
 		close.title = "Κλείσιμο";
-		
-		var closeimg = d.createElement( 'img' );
-		closeimg.src = "http://static.chit-chat.gr/images/colorpicker/close.png";
 		
 		var newtagimg = d.createElement( 'img' );
 		newtagimg.src = "http://static.chit-chat.gr/images/icons/page_new.gif";
