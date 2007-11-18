@@ -29,6 +29,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="join.css" />
 		<link rel="stylesheet" type="text/css" href="bubbles.css" />
 		<link rel="stylesheet" type="text/css" href="joined.css" />
+		<link rel="stylesheet" type="text/css" href="usersections.css" />
+		<link rel="stylesheet" type="text/css" href="photoview.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -48,6 +50,15 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
             break;
 		case 'joined':
 			include 'joined.php';
+			break;
+		case 'usersections':
+			include 'usersections.php';
+			break;
+		case 'albums':
+			include 'albums.php';
+			break;
+		case 'photoview';
+			include 'photoview.php';
 			break;
 		case 'frontpage':
 		default:

@@ -10,8 +10,11 @@
     
     class XHTMLSanitizer {
         private $mSource;
+        private $mAllowedTags;
         
         public function XHTMLSanitizer() {
+            $this->mAllowedTags = array();
+            $this->mSource = false;
         }
         public function SetSource( $source ) {
             global $water;
@@ -89,15 +92,34 @@
             return preg_replace( '#\<\!--(.*?)--\>#', '', $htmlsource );
         }
         private function ReduceWhitespace( $htmlsource ) {
-            return preg_replace( "#()#", '' );
+            return preg_replace( "#([ \t\n\r]+)#", ' ', $htmlsource );
         }
         public function GetXHTML() {
+            global $water;
+            
+            w_assert( $this->mSource !== false, 'Please SetSource() before calling GetXHTML()' );
+            
+            $tags = array();
+            
             $source = $this->mSource;
             
-            $source = RemoveComments( $source );
+            $source = $this->RemoveComments( $source );
             
+            $startpos = false;
             $ret = '';
-            for ( $i = 0; $i < strlen( $source ); ++$i ) {
+            for ( $i = 0; $i < strlen( $source ) + 1; ++$i ) {
+                if ( $i == strlen( $source ) ) {
+                    // end of source string
+                    if ( $startpos !== false ) {
+                        // found < without matching > -- reached end of string
+                        $i = $startpos; // go back and parse text accordingly
+                        $water->Notice( 'XHTMLSanitizer: Unescaped < at offset ' . $startpos );
+                        $ret .= '&lt;';
+                        $startpos = false;
+                    }
+                    continue;
+                }
+                // else in source string
                 $c = $source{ $i };
                 switch ( $c ) {
                     case '&':
@@ -115,36 +137,92 @@
                         // else...
                         // ; symbol not found
                         // or invalid entity
-                        $water->Notice( 'XHTMLSanitizer escaping entity', $entity );
+                        $water->Notice( 'XHTMLSanitizer: Escaping entity & at offset ' . $i );
                         $ret .= '&amp;';
                         break;
                     case '<':
+                        if ( $startpos !== false ) {
+                            // found < within after < without > in between
+                            $i = $startpos; // go back and parse text accordingly
+                            $water->Notice( 'XHTMLSanitizer: Unescaped < at offset ' . $startpos );
+                            $ret .= '&lt;';
+                            $startpos = false;
+                            continue;
+                        }
+                        $startpos = $i;
+                        break;
                     case '>':
+                        if ( $startpos === false ) {
+                            $water->Notice( 'XHTMLSanitizer: Unescaped > at offset ' . $i );
+                            $ret .= '&gt;';
+                            continue;
+                        }
+                        $endpos = $i;
+                        $startpos = false;
                         break;
                     default:
-                        $ret .= $c;
+                        if ( $startpos === false ) {
+                            $ret .= $c;
+                        }
                 }
             }
+            
+            $ret = $this->ReduceWhitespace( $ret );
             
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
+            $this->mAllowedTags[] = $tag;
         }
     }
     
     class XHTMLSaneTag {
+        private $mName;
+        private $mAllowedAttributes;
+        
         public function XHTMLSaneTag( $tagname ) {
             w_assert( is_string( $tagname ) );
             w_assert( preg_match( '#^[a-z0-9]+$#', $tagname ) );
+            $this->mName = $tagname;
         }
         public function AllowAttribute( XHTMLSaneAttribute $attribute ) {
+            $this->mAllowedAttributes[] = $attribute;
         }
     }
     
     class XHTMLSaneAttribute {
+        private $mName;
+        
+        public function Name() {
+            return $this->mName;
+        }
         public function XHTMLSaneAttribute( $attributename ) {
+            w_assert( is_string( $attributename ) );
             w_assert( preg_match( '#^[a-z]+$#', $attributename ) );
+            $this->mName = $attributename;
+        }
+    }
+   
+    function w_assert( $condition ) {
+        assert( $condition );
+    }
+    
+    global $water;
+    
+    $water = New Water();
+    
+    class Water {
+        public function Notice( $message ) {
+            echo "NOTICE: $message\n";
+            flush();
         }
     }
     
+    error_reporting( E_ALL );
+    
+    header( 'Content-type: text/plain' );
+    
+    $sanitizer = New XHTMLSanitizer();
+    $sanitizer->SetSource( 'Hello &b> world </b' );
+    var_dump( $sanitizer->GetXHTML() );
 ?>

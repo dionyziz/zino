@@ -1,59 +1,21 @@
 <script type="text/javascript" src="../../../js/animations.js"></script>
-<script type="text/javascript">
-var isanimating = false;
-function User_Login() {
-	var banner = document.getElementById( 'banner' );
-	var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
-	var options = menu.getElementsByTagName( 'li' );
-	if ( isanimating ) {
-		return;
-	}
-	isanimating = true;
-	if ( options[ 0 ].style.display == '' ) {
-		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-			options[ 0 ].style.display = 'none';
-			options[ 1 ].style.display = 'none';
-			options[ 3 ].style.display = '';
-			options[ 4 ].style.display = '';
-			options[ 5 ].style.display = '';
-			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-				isanimating = false;
-			} );
-			menu.getElementsByTagName( 'input' )[ 0 ].value = '';
-			menu.getElementsByTagName( 'input' )[ 0 ].focus();
-		} );
-	}
-	else {
-		Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-			options[ 0 ].style.display = '';
-			options[ 1 ].style.display = '';
-			//options[ 2 ].style.display = 'none';
-			options[ 3 ].style.display = 'none';
-			options[ 4 ].style.display = 'none';
-			options[ 5 ].style.display = 'none';
-			Animations.Create( menu, 'opacity', 500, 0, 1, function() {
-				isanimating = false;
-			} );
-		} );
-	}
-}
-</script>
+<script type="text/javascript" src="js/banner.js"></script>
 <div class="header" id="banner">
 	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/logo.png" alt="Chit-Chat" /></a></h1>
 	<ul><?php   
         if ( !isset( $_GET[ 'loggedin' ] ) ) {
             ?><li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
-            <li class="dot">·</li>
-            <li><a href="?#login" onclick="User_Login();return false" class="login icon">Είσοδος</a></li>
-            <li class="dot" style="display:none">·</li>
+            <li>·</li>
+            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
+            <li style="display:none">·</li>
             <li style="display:none">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
-            <li class="dot" style="display:none"><input type="button" value="Είσοδος" class="button" /></li><?php
+            <li style="display:none"><input type="button" value="Είσοδος" class="button" /></li><?php
         }
         else {
     		?><li><a href="user/dionyziz" class="self icon" style="background-image: url('images/avatars/dionyziz.25.jpg')" onclick="return false">dionyziz</a></li>
-    		<li class="dot">·</li>
+    		<li>·</li>
     		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
-    		<li class="dot">·</li>
+    		<li>·</li>
     		<li><a href="profile" class="profile icon" onclick="return false">Προφίλ</a></li><?php
         }
         ?>

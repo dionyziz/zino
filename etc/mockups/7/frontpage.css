@@ -1,6 +1,32 @@
+div.frontpage {
+	text-align: center;
+}
+div.frontpage div.ybubble {
+	padding-top: 0;
+	margin: 0 auto 10px auto;
+	text-align: center;
+	width: 700px;
+	height: 100px;
+}
+div.frontpage div.ybubble a {
+	width: 16px;
+	height: 16px;
+	float: right;
+	padding: 3px 1px 0 0;
+}
+div.frontpage div.ybubble form {
+	text-align: left;
+}
+div.frontpage div.ybubble form div {
+	display: inline;
+}
+div.frontpage div.ybubble form div span {
+	padding-right: 3px;
+}
 div.meetfriends div.people {
  	height: 260px;
 	overflow: hidden;
+	text-align: left;
 }
 div.latestimages {
 	height: 115px;
@@ -33,6 +59,7 @@ div.meetfriends h2 {
 div.frontpage div.bubble {
     width: 65%;
     margin: auto;
+	text-align: left;
 }
 div.frontpage div.bubble form {
     margin: 10px;
