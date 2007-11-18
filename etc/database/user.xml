@@ -3,7 +3,7 @@
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
     <database name="cclive" type="mysql">
         <table name="merlin_users">
-            <field name="user_id" type="int" autoincrement="yes">
+            <field name="user_id" type="int" autoincrement="yes" />
             <field name="user_name" type="int" />
             <field name="user_password" type="char" size="32" />
             <field name="user_authtoken" type="char" size="32" />
@@ -22,13 +22,13 @@
             <field name="user_lastlogon" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
             <field name="user_lastactive" type="datetime" />
-            <field name="user_locked" type="enum" default="no" />
+            <field name="user_locked" type="enum" default="no">
                 <value>yes</value>
                 <value>no</value>
             </field>
         </table>
         <table name="merlin_settings">
-            <field name="settings_userid" type="int" ref="merlin_users.user_id" />
+            <field name="setting_userid" type="int" ref="merlin_users.user_id" />
             <field name="setting_email_profile" type="enum">
                 <value>yes</value>
                 <value>no</value>
@@ -102,7 +102,7 @@
                 <value>center</value>
                 <value>radical left</value>
                 <value>radical right</value>
-                <value>nothing<value>
+                <value>nothing</value>
             </field>
             <field name="user_aboutme" type="text" />
             <field name="user_mood" type="int" ref="merlin_moods.mood_id" />
