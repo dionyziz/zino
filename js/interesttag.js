@@ -1,5 +1,4 @@
 var InterestTag = {
-	onedit: false,
     Create : function() {
     	var div = d.createElement( 'div' );
     	var ul = d.createElement( 'ul' );
@@ -15,11 +14,7 @@ var InterestTag = {
     	var close = d.createElement( 'a' );
 		close.onclick = ( function( ul ) {
 				return function() {
-					if ( InterestTag.onedit ) {
-						Modals.Confirm( "Βρίσκετε κατά την μέση μιας επεξεργασίας.Είστε σίγουροι ότι θέλετε να κλείσετε το παράθυρο;", InterestTag.Closing( ul ) );
-						return false;
-					}
-					InterestTag.Closing( ul )();
+					InterestTag.Closing( ul );
 					return false;
 				};
 			})( ul );
@@ -67,42 +62,15 @@ var InterestTag = {
 		div.appendChild( newtag );
 		Modals.Create( div, 300, 270 );
     },
-	createLi : function ( text, count ) {
+	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
 		li.appendChild( d.createTextNode( text ) ); 
-		li.onmouseover = ( function( id ) {
-				return function () {
-					InterestTag.showLinks( id );
-				};
-			} )(count);
-		li.onmouseout = ( function( id ) {
-				return function() {
-					InterestTag.hideLinks( id );
-				};
-			} )(count);
-		
-		var editimage = d.createElement( 'img' );
-		editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
-		
-		var edit = d.createElement( 'a' );
-		edit.id = "interedit_" + count;
-		edit.style.cursor = "pointer";
-		edit.style.display = "none";
-		edit.alt = "Επεξεργασία";
-		edit.title = "Επεξεργασία";
-		edit.onclick = ( function( li ) {
-				return function() {
-					InterestTag.Edit( li );
-				}
-			} )(li);
 
 		var del = d.createElement( 'a' );
-		del.id = "interdel_" + count;
 		del.style.cursor = "pointer";
-		del.style.display = "none";
 		del.alt = "Διαγραφή";
 		del.title = "Διαγραφή";
 		del.onclick = (function( li ) {
@@ -110,11 +78,8 @@ var InterestTag = {
 					InterestTag.Delete( li );
 				};
 			})(li);
-		
-		edit.appendChild( editimage );
+			
 		del.appendChild( deleteimage );
-		li.appendChild( d.createTextNode( ' ' ) );
-		li.appendChild( edit );
 		li.appendChild( d.createTextNode( ' ' ) );
 		li.appendChild( del );
 		
@@ -127,102 +92,11 @@ var InterestTag = {
         }
         return true;
     },
-    showLinks : function( id ) {
-		if ( !InterestTag.onedit ) {
-			g( 'interedit_' + id ).style.display = 'inline';
-			g( 'interdel_' + id ).style.display = 'inline';
-		}
-	},
-	hideLinks : function( id ) {
-		g( 'interedit_' + id ).style.display = 'none';
-		g( 'interdel_' + id ).style.display = 'none';
-	},
 	Delete : function( li ) {
-		alert( li.firstChild.nodeValue );
 		Coala.Warm( 'interesttag/delete', { 'text' : li.firstChild.nodeValue } );
 		li.parentNode.removeChild( li );
 	},
-	Edit : function( li ) {
-		if ( InterestTag.onedit ) {
-			return;
-		}
-		var text = li.firstChild.nodeValue;
-		
-		InterestTag.onedit = true;
-		li.style.display = "none";
-
-		var form = d.createElement( 'form' );
-		form.onsubmit = ( function( prevtext ) {
-				return function() {
-					var text = input.value;
-					if ( !InterestTag.is_valid( text ) ) {
-						return;
-					}
-					Coala.Warm( 'interesttag/edit', { 'old' : prevtext, 'new' : text } );
-					form.parentNode.removeChild( form );
-					li.style.display = "inline";
-					li.firstChild.nodeValue = text;
-					InterestTag.onedit = false;
-				};
-			} )( text );
-		form.onkeypress = function ( e ) {
-				return submitenter(form, e);
-			};
-				
-		var input = d.createElement( 'input' );
-		input.type = "text";
-		input.value = text;
-		input.className = "bigtext";
-		input.style.width = "150px";
-		
-		var imageaccept = document.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
-		
-		var imagecancel = document.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
-		
-		var editsubmit = d.createElement( 'a' );
-		editsubmit.style.cursor = 'pointer';
-		editsubmit.onclick = (function( myform ) {
-					return function() { 
-						myform.onsubmit();
-						return false; 
-					}
-				})( form );
-		editsubmit.alt = 'Επεξεργασία';
-		editsubmit.title = 'Επεξεργασία';
-		editsubmit.appendChild( imageaccept );
-		
-		var editcancel = d.createElement( 'a' );
-		editcancel.style.cursor = 'pointer';
-		editcancel.onclick = ( function ( li ) {
-				return function() {
-					li.parentNode.removeChild( form );
-					li.style.display = "inline";
-					InterestTag.onedit = false;
-				}
-			} )( li );
-		editcancel.alt = 'Ακύρωση';
-		editcancel.title = 'Ακύρωση';
-		editcancel.appendChild( imagecancel );
-		
-		form.appendChild( input );
-		form.appendChild( d.createTextNode( ' ' ) );
-		form.appendChild( editsubmit );
-		form.appendChild( d.createTextNode( ' ' ) );
-		form.appendChild( editcancel );
-		form.appendChild( d.createElement( 'br' ) );
-		li.parentNode.insertBefore( form, li );
-	},
 	NewTag : function( ul ) {
-		if( InterestTag.onedit ) {
-			return;
-		}
-		InterestTag.onedit = true;
-		var newid = ul.childNodes[ ul.childNodes.length-1 ].getElementsByTagName( 'a' )[ 0 ].id;
-		newid = parseInt( newid.substr( 10 ) );
-		++newid;
-		
 		var li = InterestTag.createLi( '', newid );
 	
 		var input = d.createElement( 'input' );
@@ -245,7 +119,6 @@ var InterestTag = {
 					li.appendChild( d.createElement( 'br' ) );
 					var form = input.parentNode;
 					form.parentNode.removeChild( form );
-					InterestTag.onedit = false;
 				}
 			} )( input, li );
 		form.onkeypress = function ( e ) {
@@ -254,9 +127,6 @@ var InterestTag = {
 		
 		var imageaccept = d.createElement( 'img' );
 		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
-		
-		var imagecancel = d.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
 		
 		var editsubmit = d.createElement( 'a' );
 		editsubmit.style.cursor = 'pointer';
@@ -270,41 +140,24 @@ var InterestTag = {
 		editsubmit.title = 'Δημιουργία';
 		editsubmit.appendChild( imageaccept );
 		
-		var editcancel = d.createElement( 'a' );
-		editcancel.style.cursor = 'pointer';
-		editcancel.onclick = ( function ( li ) {
-				return function() {
-					li.parentNode.removeChild( form );
-					li.parentNode.removeChild( li );
-					InterestTag.onedit = false;
-				}
-			} )( li );
-		editcancel.alt = 'Ακύρωση';
-		editcancel.title = 'Ακύρωση';
-		editcancel.appendChild( imagecancel );
-		
 		form.appendChild( input );
 		form.appendChild( d.createTextNode( ' ' ) );
 		form.appendChild( editsubmit );
-		form.appendChild( d.createTextNode( ' ' ) );
-		form.appendChild( editcancel );
 		form.appendChild( d.createElement( 'br' ) );
 		ul.appendChild( li );
 		ul.insertBefore( form, li );
 	},
 	Closing : function ( ul ) {
-		return function() {
-			var texts = "";
-			for ( var i in ul.childNodes ) {
-				if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
-					continue;
-				}
-				alert( "trexo" );
-				texts += ul.childNodes[i].firstChild.nodeValue + " ";
+		var texts = "";
+		for ( var i in ul.childNodes ) {
+			if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
+				continue;
 			}
-			alert( "Teliono" );
-			g( 'interests' ).firstChild.nodeValue = texts;
-			Modals.Destroy();
+			alert( "trexo" );
+			texts += ul.childNodes[i].firstChild.nodeValue + " ";
 		}
+		alert( "Teliono" );
+		g( 'interests' ).firstChild.nodeValue = texts;
+		Modals.Destroy();
 	}
 };
