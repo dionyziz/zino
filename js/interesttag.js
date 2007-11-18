@@ -83,7 +83,7 @@ var InterestTag = {
 		li.appendChild( d.createTextNode( ' ' ) );
 		li.appendChild( del );
 		
-		return li;
+		return li; 
 	},
 	is_valid : function( val ) {
     	if ( val.length === 0 || val.indexOf( ',' ) != -1 || val.indexOf( ' ' ) != -1 ) {
