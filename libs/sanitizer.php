@@ -1,13 +1,6 @@
 <?php
-    global $XHTMLSaneEntities;
+    include 'rabbit/xml.php';
 
-    $XHTMLSaneEntities = array(
-        '&amp;' => '&',
-        '&lt;'  => '<',
-        '&gt;'  => '>',
-        // TODO
-    );
-    
     class XHTMLSanitizer {
         private $mSource;
         private $mAllowedTags;
@@ -38,56 +31,11 @@
             $source = ( string )$source;
             $this->mSource = $source;
         }
-        private function XHTMLSanitizer_GetEntity( $entity ) {
-            // returns the literal of a given entity
-            // or false if the entity is invalid
-            // e.g. returns '<' for '&lt;'
-            
-            w_assert( is_string( $entity ) );
-            w_assert( strlen( $entity ) );
-            
-            $entity = strtolower( $entity );
-            
-            if ( strlen( $entity ) < '&lt;' ) {
-                return false; // too short entity
-            }
-            
-            // try named entity
-            if ( isset( $XHTMLSaneEntities[ $entity ] ) ) {
-                return $XHTMLSaneEntities[ $entity ];
-            }
-            // named entity failed, try numeric entity
-            if ( $entity{ 1 } == '#' ) {
-                // numeric entity
-                if ( $entity{ 2 } == 'x' ) {
-                    // hex entity
-                    // &#xb00b;
-                    if ( strlen( $entity ) != strlen( '&#xdead;' ) ) {
-                        return false; // invalid hex entity length
-                    }
-                    $hexnum = substr( $entity, strlen( '&#' ), strlen( 'dead' ) );
-                    if ( !preg_match( '#^[a-f0-9]*$#', $hexnum ) ) {
-                        return false; // hex entity contained non-hex digits
-                    }
-                    return chr( hexdec( $hexnum ) );
-                }
-                // else decimal entity
-                if ( strlen( $entity ) > strlen( '&#007;' ) ) {
-                    return false; // too long decimal entity
-                }
-                $decnum = substr( $entity, strlen( '&#' ), -strlen( ';' ) );
-                if ( !preg_match( '#^[0-9]*$#', $decnum ) ) {
-                    return false; // dec entity contains non-dec digits
-                }
-                return chr( $decnum );
-            }
-            return false;
-        }
         private function RemoveComments( $htmlsource ) {
             global $water;
             
             if ( preg_match( '#\<\!--(.*?)\<\!--(.*?)--\>#', $htmlsource ) ) {
-                $water->Warning( 'XHTMLSanitizer: Call me paranoid, but I found an opening HTML comment within another comment -- care checking?' );
+                $water->Warning( 'XHTMLSanitizer: Call me paranoid, but finding \'<!--\' inside this comment makes me suspicious' );
             }
             return preg_replace( '#\<\!--(.*?)--\>#', '', $htmlsource );
         }
@@ -105,67 +53,27 @@
             
             $source = $this->RemoveComments( $source );
             
-            $startpos = false;
-            $ret = '';
-            for ( $i = 0; $i < strlen( $source ) + 1; ++$i ) {
-                if ( $i == strlen( $source ) ) {
-                    // end of source string
-                    if ( $startpos !== false ) {
-                        // found < without matching > -- reached end of string
-                        $i = $startpos; // go back and parse text accordingly
-                        $water->Notice( 'XHTMLSanitizer: Unescaped < at offset ' . $startpos );
-                        $ret .= '&lt;';
-                        $startpos = false;
-                    }
-                    continue;
-                }
-                // else in source string
-                $c = $source{ $i };
-                switch ( $c ) {
-                    case '&':
-                        // grab a few characters ahead so that we can determine if it's a valid entity
-                        // or if we need to escape it
-                        $entity = substr( $source, $i, 10 );
-                        $entityend = strpos( $source, ';' );
-                        if ( $entityend === true ) {
-                            $literal = XHTMLSanitizer_GetEntity( $entity );
-                            if ( $literal !== false ) {
-                                $ret .= $c;
-                                break;
-                            }
-                        }
-                        // else...
-                        // ; symbol not found
-                        // or invalid entity
-                        $water->Notice( 'XHTMLSanitizer: Escaping entity & at offset ' . $i );
-                        $ret .= '&amp;';
-                        break;
-                    case '<':
-                        if ( $startpos !== false ) {
-                            // found < within after < without > in between
-                            $i = $startpos; // go back and parse text accordingly
-                            $water->Notice( 'XHTMLSanitizer: Unescaped < at offset ' . $startpos );
-                            $ret .= '&lt;';
-                            $startpos = false;
-                            continue;
-                        }
-                        $startpos = $i;
-                        break;
-                    case '>':
-                        if ( $startpos === false ) {
-                            $water->Notice( 'XHTMLSanitizer: Unescaped > at offset ' . $i );
-                            $ret .= '&gt;';
-                            continue;
-                        }
-                        $endpos = $i;
-                        $startpos = false;
-                        break;
-                    default:
-                        if ( $startpos === false ) {
-                            $ret .= $c;
-                        }
-                }
+            $descriptors = array(
+                0 => array( "pipe", "r" ),
+                1 => array( "pipe", "w" ),
+            );
+            
+            $process = proc_open( '/var/www/chit-chat.gr/beta/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
+            
+            if ( !is_resource( $process ) ) {
+                $water->Notice( 'Failed to start the sanitizer' );
+                return '';
             }
+            
+            fwrite( $pipes[ 0 ], $source );
+            fclose( $pipes[ 0 ] );
+            
+            $ret = stream_get_contents( $pipes[ 1 ] );
+            fclose( $pipes[ 1 ] );
+            
+            $returnvalue = proc_close( $pipes[ 1 ] );
+            
+            $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
             $ret = $this->ReduceWhitespace( $ret );
             
@@ -216,6 +124,10 @@
             echo "NOTICE: $message\n";
             flush();
         }
+        public function Trace( $message ) {
+            echo "TRACE: $message\n";
+            flush();
+        }
     }
     
     error_reporting( E_ALL );
@@ -223,6 +135,6 @@
     header( 'Content-type: text/plain' );
     
     $sanitizer = New XHTMLSanitizer();
-    $sanitizer->SetSource( 'Hello &b> world </b' );
+    $sanitizer->SetSource( 'Hello <img src="something.jpg" alt="hello" /> world </b>' );
     var_dump( $sanitizer->GetXHTML() );
 ?>
