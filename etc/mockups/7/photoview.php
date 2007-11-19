@@ -9,9 +9,9 @@
 	</div>
 
 	<div class="eof"></div>
-	<div style="border: 1px solid yellow;width:100%;vertical-align:middle;text-align:center;">
-		<div style="width:150px;height: 150px;border: 1px solid red;float:left;">f</div>
-		<div style="width:150px;height: 150px;border: 1px solid red;float:right;">f</div>
+	<div style="border: 1px solid yellow;width:100%;text-align:center;margin:auto;width:1000px;">
+		<div style="margin-top:50px;width:150px;height: 150px;border: 1px solid red;float:left;">f</div>
+		<div style="margin-top:50px;width:150px;height: 150px;border: 1px solid red;float:right;">f</div>
 		<div style="width:600px;height:300px;border: 1px solid black;margin:auto;">s</div>
 		<div class="eof"></div>
 	</div>
