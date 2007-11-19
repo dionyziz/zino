@@ -45,6 +45,41 @@ class XMLNode {
         }
         return false;
     }
+    public function innerHTML() {
+        $ret = '';
+        foreach ( $this->mChildNodes as $xmlnode ) {
+            if ( is_string( $xmlnode ) ) {
+                $ret .= $xmlnode;
+            }
+            else {
+                $ret .= $xmlnode->outerHTML();
+            }
+        }
+        return $ret;
+    }
+    public function outerHTML() {
+        $ret = '<' . $this->nodeName;
+        
+        $attributes = array();
+        foreach ( $this->mAttributes as $attribute => $value ) {
+            $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
+        }
+        
+        if ( !empty( $attributes ) ) {
+            $ret .= ' ' . implode( ' ', $attributes );
+        }
+        
+        if ( empty( $this->mChildNodes ) ) {
+            $ret .= '/>';
+        }
+        else {
+            $ret .= '>';
+            $ret .= $this->innerHTML();
+            $ret .= '</' . $this->nodeName . '>';
+        }
+        
+        return $ret;
+    }
 }
 
 class XMLParser {
@@ -56,7 +91,7 @@ class XMLParser {
     private $mNativeParser;
     private $mIgnoreEmptyTextNodes;
     
-    public function ignoreEmptyTextNodes( $preference) {
+    public function ignoreEmptyTextNodes( $preference ) {
         w_assert( is_bool( $preference ) );
         $this->mIgnoreEmptyTextNodes = $preference;
     }

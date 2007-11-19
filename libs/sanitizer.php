@@ -80,6 +80,20 @@
             $parser = New XMLParser( $ret );
             $root = $parser->Parse();
             
+            if ( $root === false ) {
+                $water->Notice( 'Failed to sanitize: This is beyond our abilities' );
+                return '';
+            }
+            
+            w_assert( $root instanceof XMLNode );
+            w_assert( $root->nodeName == 'html' );
+            
+            $body = $root->getElementsByTagName( 'body' );
+            w_assert( !empty( $body ) );
+            $body = array_shift( $body );
+            w_assert( $body->nodeName == 'body' );
+            
+            $ret = $body->innerHTML();
             die( var_dump( $root ) );
             
             return $ret;
