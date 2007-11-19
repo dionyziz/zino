@@ -84,7 +84,7 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $parser = New XMLParser( "<body>$ret</body" );
+            $parser = New XMLParser( "<body>$ret</body>" );
             $root = $parser->Parse();
             
             if ( $root === false ) {
