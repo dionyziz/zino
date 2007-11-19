@@ -130,7 +130,7 @@ class XMLParser {
             $water->Notice( 'XML Parsing Failed: No root node specified', $this->mXML );
             return false;
         }
-        w_trace('Parsed XML', $this->mXML);
+        $water->Trace('Parsed XML', $this->mXML);
         
         return $this->mLastNode; // return root node (or false if none)
     }
