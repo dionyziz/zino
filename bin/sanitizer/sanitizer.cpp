@@ -14,20 +14,26 @@ int main( int argc, char **argv ) {
     TidyDoc tdoc = tidyCreate(); // initialize
 
     tidyOptSetInt( tdoc, TidyIndentContent, 0 );
+    tidyOptSetInt( tdoc, TidyWrapLen, 0 );
+    tidyOptSetValue( tdoc, TidyAltText, "" );
+    tidyOptSetValue( tdoc, TidyOutCharEncoding, "utf8" );
+    tidyOptSetBool( tdoc, TidyXhtmlOut, yes );
+    tidyOptSetBool( tdoc, TidyHideComments, yes );
+    tidyOptSetBool( tdoc, TidyBodyOnly, yes );
+    tidyOptSetBool( tdoc, TidyMakeClean, yes );
+    tidyOptSetBool( tdoc, TidyLogicalEmphasis, yes );
+    tidyOptSetBool( tdoc, TidyDropPropAttrs, yes );
+    tidyOptSetBool( tdoc, TidyDropFontTags, yes );
+    tidyOptSetBool( tdoc, TidyDropEmptyParas, yes );
+    tidyOptSetBool( tdoc, TidyQuoteMarks, yes );
+    tidyOptSetBool( tdoc, TidyQuoteAmpersand, yes );
+    tidyOptSetBool( tdoc, TidyForceOutput, yes );
+    tidyOptSetBool( tdoc, TidyEscapeCdata, yes );
+    tidyOptSetBool( tdoc, TidyJoinClasses, yes );
+    // tidyOptSetBool( tdoc, TidyOutputBOM, no );
 
-    if (    tidyOptSetBool( tdoc, TidyXhtmlOut, yes )
-         && tidyOptSetBool( tdoc, TidyHideComments, yes )
-         && tidyOptSetBool( tdoc, TidyBodyOnly, yes ) 
-         && tidyOptSetBool( tdoc, TidyMakeClean, yes ) 
-         && tidyOptSetBool( tdoc, TidyLogicalEmphasis, yes ) 
-         && tidyOptSetBool( tdoc, TidyDropPropAttrs, yes )
-         && tidyOptSetBool( tdoc, TidyDropFontTags, yes ) 
-         && tidyOptSetBool( tdoc, TidyDropEmptyParas, yes ) 
-         && tidyOptSetBool( tdoc, TidyQuoteMarks, yes ) 
-         && tidyOptSetBool( tdoc, TidyQuoteAmpersand, yes ) 
-         && tidyOptSetBool( tdoc, TidyForceOutput, yes ) ) {
-        rc = tidySetErrorBuffer( tdoc, &errbuf ); // Capture diagnostics
-    }
+    rc = tidySetErrorBuffer( tdoc, &errbuf ); // Capture diagnostics
+    
     if ( rc >= 0 ) {
         rc = tidyParseString( tdoc, input ); // Parse the input
     }
@@ -56,3 +62,4 @@ int main( int argc, char **argv ) {
     
     return rc;
 }
+
