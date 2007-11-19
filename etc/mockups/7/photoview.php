@@ -9,19 +9,19 @@
 	</div>
 	<div class="eof"></div>
 	<div style="overflow:hidden;">
-		<ul style="width:100%;margin:auto;text-align:center;">
+		<ul>
 			<li><a href=""><img src="images/previous.png" alt="Προηγούμενη" title="Προηγούμενη" /></a></li>
 			<li><a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a></li>
 			<li><a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a></li>
-			<li><a href=""><img src="images/photoview_small.jpg" alt="photoview_small" title="photoview_small" /></a></li>
+			<li><a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a></li>
 			<li><a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a></li>
 			<li><a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a></li>
 			<li><a href=""><img src="images/next.png" alt="Επόμενη" title="Επόμενη" /></a></li>
 		</ul>
 	</div>
 	<div class="eof"></div>
-	<div style="text-align:center;margin:auto;width:100%;padding-top: 20px;">
-		<img src="images/photoview.jpg" />
+	<div class="thephoto">
+		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 </div>
 <div class="eof"></div>

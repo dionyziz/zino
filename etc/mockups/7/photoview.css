@@ -10,12 +10,20 @@ div.photoview div ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	height: 155px;
-	line-height: 155px;
+	width: 100%;
+	margin: auto;
+	text-align: center;
 }
 div.photoview div ul li{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
+}
+div.photoview div ul li a img.smallphotoview {
+	border: 2px solid #82a4b6;
+}
+div.photoview div.thephoto {
+	text-align:center;
+	padding-top: 20px;
 }
