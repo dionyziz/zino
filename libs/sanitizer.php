@@ -69,6 +69,10 @@
             fclose( $pipes[ 0 ] );
             
             $ret = stream_get_contents( $pipes[ 1 ] );
+            
+            header( 'Content-type: text/plain' );
+            die( $ret );
+            
             fclose( $pipes[ 1 ] );
             
             $returnvalue = proc_close( $process );
@@ -92,7 +96,7 @@
             w_assert( $body->nodeName == 'body' );
             
             $ret = $body->innerHTML();
-            $ret = $this->ReduceWhitespace( $ret );
+            // $ret = $this->ReduceWhitespace( $ret );
             
             return $ret;
         }
