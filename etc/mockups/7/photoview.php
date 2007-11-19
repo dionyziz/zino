@@ -7,7 +7,8 @@
 		<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> 20 σχόλια
 		<a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /> Προσθήκη στα αγαπημένα</a>
 	</div>
-	<div>
+	<div class="eof"></div>
+	<div style="width:100;margin:auto;text-align:center;">
 		<div><img src="images/photo1.jpg" /></div>
 		<div><img src="images/photo2.jpg" /></div>
 		<div><img src="images/photoview_small.jpg" /></div>
