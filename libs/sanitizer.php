@@ -110,31 +110,4 @@
             $this->mName = $attributename;
         }
     }
-   
-    function w_assert( $condition ) {
-        assert( $condition );
-    }
-    
-    global $water;
-    
-    $water = New Water();
-    
-    class Water {
-        public function Notice( $message ) {
-            echo "NOTICE: $message\n";
-            flush();
-        }
-        public function Trace( $message ) {
-            echo "TRACE: $message\n";
-            flush();
-        }
-    }
-    
-    error_reporting( E_ALL );
-    
-    header( 'Content-type: text/plain' );
-    
-    $sanitizer = New XHTMLSanitizer();
-    $sanitizer->SetSource( 'Hello <img src="something.jpg" alt="hello" /> world </b>' );
-    var_dump( $sanitizer->GetXHTML() );
 ?>
