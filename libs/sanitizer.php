@@ -84,19 +84,7 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $parser = New XMLParser( "<body>$ret</body>" );
-            $parser->ignoreEmptyTextNodes( false );
-            $root = $parser->Parse();
-            
-            if ( $root === false ) {
-                $water->Notice( 'Failed to sanitize: This is beyond our abilities' );
-                return '';
-            }
-            
-            w_assert( $root instanceof XMLNode );
-            w_assert( $root->nodeName == 'body' );
-            
-            $ret = $this->ReduceWhitespace( $root->innerHTML() );
+            $ret = $this->ReduceWhitespace( $ret );
             
             return $ret;
         }
