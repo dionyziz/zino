@@ -94,7 +94,6 @@
             w_assert( $body->nodeName == 'body' );
             
             $ret = $body->innerHTML();
-            die( var_dump( $root ) );
             
             return $ret;
         }
