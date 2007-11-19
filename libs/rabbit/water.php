@@ -1070,14 +1070,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 									case 'include_once':
 									case 'require':
 									case 'require_once':
-										echo $this->chopfile( $arg );
+										echo htmlspecialchars( $this->chopfile( $arg ) );
 										break;
 									default:
 										if ( is_string( $arg ) ) {
 											?>"<?php
 										}
 										$argshow = substr( $arg , 0 , 30 );
-										echo $argshow;
+										echo htmlspecialchars( $argshow );
 										if ( strlen( $arg ) > strlen( $argshow ) ) {
 											?>...<?php
 										}
