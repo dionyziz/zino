@@ -80,6 +80,8 @@
             $parser = New XMLParser( $ret );
             $root = $parser->Parse();
             
+            die( var_dump( $root ) );
+            
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
