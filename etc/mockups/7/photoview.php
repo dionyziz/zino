@@ -7,7 +7,6 @@
 		<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> 20 σχόλια
 		<a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /> Προσθήκη στα αγαπημένα</a>
 	</div>
-
 	<div class="eof"></div>
 	<div style="border: 1px solid yellow;text-align:center;margin:auto;width:1000px;">
 		<div style="margin-top:50px;width:150px;height: 150px;border: 1px solid red;float:left;">&laquo;</div>
