@@ -79,7 +79,7 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $parser = New XMLParser( $ret );
+            $parser = New XMLParser( "<body>$ret</body" );
             $root = $parser->Parse();
             
             if ( $root === false ) {
@@ -88,15 +88,9 @@
             }
             
             w_assert( $root instanceof XMLNode );
-            w_assert( $root->nodeName == 'html' );
+            w_assert( $root->nodeName == 'body' );
             
-            $body = $root->getElementsByTagName( 'body' );
-            w_assert( !empty( $body ) );
-            $body = array_shift( $body );
-            w_assert( $body->nodeName == 'body' );
-            
-            $ret = $body->innerHTML();
-            // $ret = $this->ReduceWhitespace( $ret );
+            $ret = $root->innerHTML();
             
             return $ret;
         }
