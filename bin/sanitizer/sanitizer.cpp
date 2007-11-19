@@ -1,17 +1,20 @@
 #include "sanitizer.h"
 
 int main( int argc, char **argv ) {
-    const char* input = "Hello, world!";
-    TidyBuffer output = {0};
-    TidyBuffer errbuf = {0};
+    TidyBuffer output = { 0 };
+    TidyBuffer errbuf = { 0 };
     int rc = -1;
     Bool ok;
+    string s;
 
+    copy( istreambuf_iterator< char >( cin ), istreambuf_iterator< char >(), back_inserter( s ) );
+    
+    const char* input = s.c_str();
+    
     TidyDoc tdoc = tidyCreate(); // initialize
     cout << "Tidying:\t\n" << input << endl;
 
-    ok = tidyOptSetBool( tdoc, TidyXhtmlOut, yes ); // XHTML
-    if ( ok ) {
+    if ( tidyOptSetBool( tdoc, TidyXhtmlOut, yes ) ) { // XHTML
         rc = tidySetErrorBuffer( tdoc, &errbuf ); // Capture diagnostics
     }
     if ( rc >= 0 ) {
