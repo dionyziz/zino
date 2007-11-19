@@ -1,16 +1,11 @@
 <?php
     function ElementTest() {
-    	global $libs;
-    	global $comments;
-		
-		Element( 'interesttag/view', "sex" );
-    	
-        /*var_dump(
-            User_ByUsername(
-                array(
-                    'izual', 'dionyziz', 'abresas'
-                )
-            )
-        );*/
+        error_reporting( E_ALL );
+        
+        header( 'Content-type: text/plain' );
+        
+        $sanitizer = New XHTMLSanitizer();
+        $sanitizer->SetSource( 'Hello <img src="something.jpg" alt="hello" /> world </b>' );
+        var_dump( $sanitizer->GetXHTML() );
     }
 ?>
