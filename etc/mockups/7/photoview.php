@@ -20,7 +20,7 @@
 		</ul>
 	</div>
 	<div class="eof"></div>
-	<div style="text-align:center;margin:auto;width:100%;">
+	<div style="text-align:center;margin:auto;width:100%;padding-top: 20px;">
 		<img src="images/photoview.jpg" />
 	</div>
 </div>
