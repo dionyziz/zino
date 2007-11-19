@@ -70,8 +70,6 @@
             
             $ret = stream_get_contents( $pipes[ 1 ] );
             
-            header( 'Content-type: text/plain' );
-            
             ob_start();
             var_dump( $ret );
             $tidied = ob_get_clean();
@@ -84,7 +82,14 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $ret = trim( $this->ReduceWhitespace( $ret ) );
+            $parser = New XMLParser( trim( $this->ReduceWhitespace( $ret ) ) );
+            $body = $parser->Parse();
+            if ( $body === false ) {
+                return '';
+            }
+            w_assert( $body->nodeName == 'body' );
+            
+            $ret = $body->innerHTML();
             
             return $ret;
         }

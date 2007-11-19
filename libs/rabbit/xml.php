@@ -52,7 +52,7 @@ class XMLNode {
         $ret = '';
         foreach ( $this->mChildNodes as $xmlnode ) {
             if ( is_string( $xmlnode ) ) {
-                $ret .= $xmlnode;
+                $ret .= htmlspecialchars( $xmlnode );
             }
             else {
                 $ret .= $xmlnode->outerHTML();
