@@ -9,27 +9,27 @@ class XMLNode {
     public function XMLNode( $name ) {
         $this->nodeName = $name;
         $this->parentNode = false;
-        $this->childNodes = array();
+        $this->mChildNodes = array();
     }
     public function appendChild( $child ) {
         w_assert( is_string( $child ) || $child instanceof XMLNode );
-        $this->childNodes[] = $child;
+        $this->mChildNodes[] = $child;
     }
     public function firstChild() {
-        if ( count( $this->childNodes ) ) {
-            return $this->childNodes[ 0 ];
+        if ( count( $this->mChildNodes ) ) {
+            return $this->mChildNodes[ 0 ];
         }
         return false;
     }
     public function lastChild() {
-        if ( count( $this->childNodes ) ) {
-            return $this->childNodes[ count( $this->childNodes ) - 1 ];
+        if ( count( $this->mChildNodes ) ) {
+            return $this->mChildNodes[ count( $this->mChildNodes ) - 1 ];
         }
         return false;
     }
     public function getElementsByTagName( $name ) { // only direct children! (unlike DOM)
         $ret = array();
-        foreach ( $this->childNodes as $child ) {
+        foreach ( $this->mChildNodes as $child ) {
             if ( $child->nodeName == $name ) {
                 $ret[] =& $child;
             }
