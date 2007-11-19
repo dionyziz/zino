@@ -93,7 +93,7 @@
             $body = array_shift( $body );
             w_assert( $body->nodeName == 'body' );
             
-            $ret = $body->innerHTML();
+            $ret = trim( $body->innerHTML() );
             
             return $ret;
         }
