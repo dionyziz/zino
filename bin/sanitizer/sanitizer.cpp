@@ -13,6 +13,8 @@ int main( int argc, char **argv ) {
     
     TidyDoc tdoc = tidyCreate(); // initialize
 
+    tidyOptSetInt( tdoc, TidyIndentContent, 0 );
+
     if (    tidyOptSetBool( tdoc, TidyXhtmlOut, yes )
          && tidyOptSetBool( tdoc, TidyHideComments, yes )
          && tidyOptSetBool( tdoc, TidyBodyOnly, yes ) 
