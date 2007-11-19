@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="eof"></div>
-	<div style="margin:auto;border: 1px solid yellow;width:1000px;">
+	<div style="margin:auto;border: 1px solid yellow;width:100%">
 		<div style="width:150px;height: 150px;border: 1px solid red;float:left;">f</div>
 		<div style="width:600px;height:300px;border: 1px solid black;float:left;">s</div>
 		<div style="width:150px;height: 150px;border: 1px solid red;float:left;">f</div>
