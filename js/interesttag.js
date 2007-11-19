@@ -1,11 +1,14 @@
 var InterestTag = {
     Create : function() {
     	var div = d.createElement( 'div' );
+    	
+    	// Create the place in where the interests are stored
     	var ul = d.createElement( 'ul' );
     	ul.style.listStyleType = "none";
     	ul.style.textAlign = "left";
     	ul.style.marginTop = "15px";
     	
+    	// Start creating the close link
     	var closeimg = d.createElement( 'img' );
 		closeimg.src = "http://static.chit-chat.gr/images/colorpicker/close.png";
 		closeimg.alt = "Κλείσιμο";
@@ -22,27 +25,10 @@ var InterestTag = {
 		close.style.marginRight = "20px";
 		close.style.marginTop = "5px";
 		close.style.cursor = "pointer";
+		//------------------------------
 		
-		var newtagimg = d.createElement( 'img' );
-		newtagimg.src = "http://static.chit-chat.gr/images/icons/page_new.gif";
-		
-		var newtag = d.createElement( 'a' );
-		newtag.style.cursor = "pointer";
-		newtag.style.position = "relative";
-		newtag.style.marginLeft = "-206px";
-		newtag.alt = "Νέο Ενδιαφέρον";
-		newtag.title = "Νέο Ενδιαφέρον";
-		newtag.onclick = ( function( ul ) {
-				return function() {
-					InterestTag.NewTag( ul );
-					return false;
-				}
-			} )( ul );
-			
-		newtag.appendChild( newtagimg );
-		
-		var count = 0;
-    	
+
+		// Fill in the interests
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
     	for ( var i in allinterests ) {
@@ -50,16 +36,62 @@ var InterestTag = {
     			continue;
     		}
     		
-			var li = InterestTag.createLi( allinterests[i], count );
+			var li = InterestTag.createLi( allinterests[i] );
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
-			++count;
 		}
+		//-----------
+		
+		// Start creating the new tag box
+		var input = d.createElement( 'input' );
+		input.type = "text";
+		input.className = "bigtext";
+		input.value = "Νέο Ενδιαφέρον";
+		input.style.width = "100px";
+	
+		var form = d.createElement( 'form' );
+		form.onsubmit = ( function ( input ) {
+				return function() {
+					var text = input.value;
+					if ( !InterestTag.is_valid( text ) ) {
+						return;
+					}
+					Coala.Warm( 'interesttag/new', { 'text' : text } );
+					var li = InterestTag.createLi( text );
+					li.appendChild( d.createElement( 'br' ) );
+					input.parentNode.parentNode.childNodes[2].appendChild( li ); //input->form->div->ul.append
+				}
+			} )( input );
+		form.onkeypress = function ( e ) {
+				return submitenter(form, e);
+			};
+		form.style.cssFloat = "left";
+		form.style.marginLeft = "40px";
+		
+		var imageaccept = d.createElement( 'img' );
+		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		
+		var editsubmit = d.createElement( 'a' );
+		editsubmit.style.cursor = 'pointer';
+		editsubmit.onclick = (function( myform ) {
+					return function() { 
+						myform.onsubmit();
+						return false; 
+					}
+				})( form );
+		editsubmit.alt = 'Δημιουργία';
+		editsubmit.title = 'Δημιουργία';
+		editsubmit.appendChild( imageaccept );
+		//----------------------------
+		
 		close.appendChild( closeimg );
+		form.appendChild( input );
+		form.appendChild( d.createTextNode( ' ' ) );
+		form.appendChild( editsubmit );
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( ul );
-		div.appendChild( newtag );
+		div.appendChild( form );
 		Modals.Create( div, 300, 270 );
     },
 	createLi : function ( text ) {
@@ -95,57 +127,6 @@ var InterestTag = {
 	Delete : function( li ) {
 		Coala.Warm( 'interesttag/delete', { 'text' : li.firstChild.nodeValue } );
 		li.parentNode.removeChild( li );
-	},
-	NewTag : function( ul ) {
-		var li = InterestTag.createLi( '' );
-	
-		var input = d.createElement( 'input' );
-		input.type = "text";
-		input.className = "bigtext";
-		input.value = "Νέο Ενδιαφέρον";
-		input.style.width = "100px";
-		input.focus();
-	
-		var form = d.createElement( 'form' );
-		form.onsubmit = ( function ( input, li ) {
-				return function() {
-					var text = input.value;
-					if ( !InterestTag.is_valid( text ) ) {
-						return;
-					}
-					Coala.Warm( 'interesttag/new', { 'text' : text } );
-					li.style.display = "inline";
-					li.firstChild.nodeValue = text;
-					li.appendChild( d.createElement( 'br' ) );
-					var form = input.parentNode;
-					form.parentNode.removeChild( form );
-				}
-			} )( input, li );
-		form.onkeypress = function ( e ) {
-				return submitenter(form, e);
-			};
-		
-		var imageaccept = d.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
-		
-		var editsubmit = d.createElement( 'a' );
-		editsubmit.style.cursor = 'pointer';
-		editsubmit.onclick = (function( myform ) {
-					return function() { 
-						myform.onsubmit();
-						return false; 
-					}
-				})( form );
-		editsubmit.alt = 'Δημιουργία';
-		editsubmit.title = 'Δημιουργία';
-		editsubmit.appendChild( imageaccept );
-		
-		form.appendChild( input );
-		form.appendChild( d.createTextNode( ' ' ) );
-		form.appendChild( editsubmit );
-		form.appendChild( d.createElement( 'br' ) );
-		ul.appendChild( li );
-		ul.insertBefore( form, li );
 	},
 	Closing : function ( ul ) {
 		var texts = "";
