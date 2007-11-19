@@ -2,7 +2,7 @@
     global $libs;
     $libs->Load( 'booktag' );
 
-    require_once "tests/tag/tag.php";
+    Rabbit_Include( 'tests/tag/tag.php' );
 
     final class TestBookTag extends TestTag {
         protected $mClass;
