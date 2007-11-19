@@ -17,7 +17,7 @@
 	</div>
 	<div class="eof"></div>
 	<div style="border: 1px solid yellow;text-align:center;margin:auto;width: 100%;">
-		<img src="photoview.jpg" />
+		<img src="images/photoview.jpg" />
 	</div>
 </div>
 <div class="eof"></div>
