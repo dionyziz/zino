@@ -10,6 +10,7 @@ class XMLNode {
         $this->nodeName = $name;
         $this->parentNode = false;
         $this->mChildNodes = array();
+        $this->mAttributes = array();
     }
     public function appendChild( $child ) {
         w_assert( is_string( $child ) || $child instanceof XMLNode );
