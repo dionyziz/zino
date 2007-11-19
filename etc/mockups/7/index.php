@@ -31,6 +31,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="joined.css" />
 		<link rel="stylesheet" type="text/css" href="usersections.css" />
 		<link rel="stylesheet" type="text/css" href="photoview.css" />
+		<link rel="stylesheet" type="text/css" href="comments.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
