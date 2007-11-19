@@ -93,7 +93,9 @@
             $body = array_shift( $body );
             w_assert( $body->nodeName == 'body' );
             
-            $ret = substr( $body->innerHTML(), 1, -1 ); // remove first and last space
+            if ( strlen( $ret ) > 2 ) {
+                $ret = substr( $body->innerHTML(), 1, -1 ); // remove first and last space
+            }
             
             return $ret;
         }
