@@ -11,8 +11,8 @@ class XMLNode {
         $this->parentNode = false;
         $this->childNodes = array();
     }
-    public function appendChild( &$child ) {
-        w_assert( is_string( $child ) || $child instanceof Lib_XML__Node );
+    public function appendChild( $child ) {
+        w_assert( is_string( $child ) || $child instanceof XMLNode );
         $this->childNodes[] = $child;
     }
     public function firstChild() {
@@ -66,7 +66,7 @@ class XMLParser {
             $newnode->setAttribute( $attribute, $value );
         }
         if ( count( $this->mNodesQueue ) ) {
-            $current =& $this->mNodesQueue[ count( $this->mNodesQueue ) - 1 ];
+            $current = $this->mNodesQueue[ count( $this->mNodesQueue ) - 1 ];
             $newnode->parentNode = $current;
             $current->appendChild( $newnode );
         }
