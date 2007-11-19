@@ -2,6 +2,8 @@
     global $libs;
     $libs->Load( 'booktag' );
 
+    require_once "tests/tag/tag.php";
+
     final class TestBookTag extends TestTag {
         protected $mClass;
 
