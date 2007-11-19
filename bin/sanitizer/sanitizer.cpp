@@ -13,7 +13,17 @@ int main( int argc, char **argv ) {
     
     TidyDoc tdoc = tidyCreate(); // initialize
 
-    if ( tidyOptSetBool( tdoc, TidyXhtmlOut, yes ) ) { // XHTML
+    if (    tidyOptSetBool( tdoc, TidyXhtmlOut, yes )
+         && tidyOptSetBool( tdoc, TidyHideComments, yes )
+         && tidyOptSetBool( tdoc, TidyBodyOnly, yes ) 
+         && tidyOptSetBool( tdoc, TidyMakeClean, yes ) 
+         && tidyOptSetBool( tdoc, TidyLogicalEmphasis, yes ) 
+         && tidyOptSetBool( tdoc, TidyDropPropAttrs, yes )
+         && tidyOptSetBool( tdoc, TidyDropFontTags, yes ) 
+         && tidyOptSetBool( tdoc, TidyDropEmptyParas, yes ) 
+         && tidyOptSetBool( tdoc, TidyQuoteMarks, yes ) 
+         && tidyOptSetBool( tdoc, TidyQuoteAmpersand, yes ) 
+         && tidyOptSetBool( tdoc, TidyForceOutput, yes ) ) {
         rc = tidySetErrorBuffer( tdoc, &errbuf ); // Capture diagnostics
     }
     if ( rc >= 0 ) {
@@ -24,9 +34,6 @@ int main( int argc, char **argv ) {
     }
     if ( rc >= 0 ) {
         rc = tidyRunDiagnostics( tdoc );
-    }
-    if ( rc > 1 ) { // If error, force output.
-        rc = tidyOptSetBool(tdoc, TidyForceOutput, yes) ? rc: -1;
     }
     if ( rc >= 0 ) {
         rc = tidySaveBuffer( tdoc, &output );
