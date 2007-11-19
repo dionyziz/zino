@@ -84,7 +84,7 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $ret = $this->ReduceWhitespace( $ret );
+            $ret = trim( $this->ReduceWhitespace( $ret ) );
             
             return $ret;
         }
