@@ -199,19 +199,19 @@
         function ClassTest( $class ) {
             $this->mClass = $class;
 
-            ClassesExist();
-            FunctionsExist();
-            MethodsExist();
-            Clear();
-            Creation();
-            QueryNonExisting();
-            QueryExisting();
-            Edit();
-            ValidText();
-            ListUsertags();
-            Reorder();
-            ListTexttags();
-            Deletion();
+            $this->ClassesExist();
+            $this->FunctionsExist();
+            $this->MethodsExist();
+            $this->Clear();
+            $this->Creation();
+            $this->QueryNonExisting();
+            $this->QueryExisting();
+            $this->Edit();
+            $this->ValidText();
+            $this->ListUsertags();
+            $this->Reorder();
+            $this->ListTexttags();
+            $this->Deletion();
         }
         function TestArtistTags() {
             $this->ClassTest( 'ArtistTag' );
