@@ -75,8 +75,6 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
-            $ret = $this->ReduceWhitespace( $ret );
-            
             $parser = New XMLParser( $ret );
             $root = $parser->Parse();
             
@@ -93,8 +91,10 @@
             $body = array_shift( $body );
             w_assert( $body->nodeName == 'body' );
             
+            $ret = $body->innerHTML();
+            $ret = $this->ReduceWhitespace( $ret );
             if ( strlen( $ret ) > 2 ) {
-                $ret = substr( $body->innerHTML(), 1, -1 ); // remove first and last space
+                $ret = substr( $ret, 1, -1 ); // remove first and last space
             }
             
             return $ret;
