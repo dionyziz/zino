@@ -12,7 +12,6 @@ int main( int argc, char **argv ) {
     const char* input = s.c_str();
     
     TidyDoc tdoc = tidyCreate(); // initialize
-    cout << "Tidying:\t\n" << input << endl;
 
     if ( tidyOptSetBool( tdoc, TidyXhtmlOut, yes ) ) { // XHTML
         rc = tidySetErrorBuffer( tdoc, &errbuf ); // Capture diagnostics
