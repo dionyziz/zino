@@ -96,7 +96,7 @@
             w_assert( $root instanceof XMLNode );
             w_assert( $root->nodeName == 'body' );
             
-            $ret = $root->innerHTML();
+            $ret = $this->ReduceWhitespace( $root->innerHTML() );
             
             return $ret;
         }
