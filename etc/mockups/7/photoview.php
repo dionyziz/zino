@@ -8,16 +8,19 @@
 		<a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /> Προσθήκη στα αγαπημένα</a>
 	</div>
 	<div class="eof"></div>
-	<div style="width:100;margin:auto;text-align:center;">
-		<div><img src="images/photo1.jpg" /></div>
-		<div><img src="images/photo2.jpg" /></div>
-		<div><img src="images/photoview_small.jpg" /></div>
-		<div><img src="images/photo3.jpg" /></div>
-		<div><img src="images/photo4.jpg" /></div>
-		
+	<div style="overflow:hidden;">
+		<ul style="width:100%;margin:auto;text-align:center;">
+			<li><a href=""><img src="images/resultset_previous.png" alt="Προηγούμενη" title="Προηγούμενη" /></a></li>
+			<li><a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a></li>
+			<li><a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a></li>
+			<li><a href=""><img src="images/photoview_small.jpg" alt="photoview_small" title="photoview_small" /></a></li>
+			<li><a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a></li>
+			<li><a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a></li>
+			<li><a href=""><img src="images/resultset_next.png" alt="Επόμενη" title="Επόμενη" /></a></li>
+		</ul>
 	</div>
 	<div class="eof"></div>
-	<div style="border: 1px solid yellow;text-align:center;margin:auto;width: 100%;">
+	<div style="text-align:center;margin:auto;width:100%;">
 		<img src="images/photoview.jpg" />
 	</div>
 </div>

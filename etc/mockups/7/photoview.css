@@ -6,6 +6,13 @@ div.photoview h2 {
 	margin: 0;
 	padding: 0;
 }
-div.photoview div div {
+div.photoview div ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+div.photoview div ul li{
+	padding: 0 2px 0 2px;
+	margin: 0;
 	display: inline;
 }
