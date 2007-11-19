@@ -71,7 +71,12 @@
             $ret = stream_get_contents( $pipes[ 1 ] );
             
             header( 'Content-type: text/plain' );
-            die( var_dump( $ret ) );
+            
+            ob_start();
+            var_dump( $ret );
+            $tidied = ob_get_clean();
+            
+            $water->Trace( 'Sanitizer tidied up document', $tidied );
             
             fclose( $pipes[ 1 ] );
             
