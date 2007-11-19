@@ -71,7 +71,7 @@
             $ret = stream_get_contents( $pipes[ 1 ] );
             fclose( $pipes[ 1 ] );
             
-            $returnvalue = proc_close( $pipes[ 1 ] );
+            $returnvalue = proc_close( $process );
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             

@@ -46,6 +46,8 @@ class XMLNode {
         return false;
     }
     public function innerHTML() {
+        global $water;
+        
         $ret = '';
         foreach ( $this->mChildNodes as $xmlnode ) {
             if ( is_string( $xmlnode ) ) {
@@ -55,6 +57,7 @@ class XMLNode {
                 $ret .= $xmlnode->outerHTML();
             }
         }
+        $water->Trace( 'Serialized tag: ' . $this->nodeName, $ret );
         return $ret;
     }
     public function outerHTML() {
