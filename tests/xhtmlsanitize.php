@@ -212,12 +212,11 @@
             $this->AssertEquals( '<em>Hello</em> <strong>world</strong>!&lt;/em&gt;', $result, 'Closed tags that did not open should be escaped' );
             $sanitizer->SetSource( '<em><em>Hello</em> <strong>world</strong>!</em>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<em><em>Hello</em></em> <strong>world</strong>!&lt;/em&gt;', $result, 'Closed tags that did not open should be escaped, even when auto-closing occurred' );
+            $this->AssertEquals( '<em><em>Hello</em> <strong>world</strong>!</em>', $result, 'Closed tags that did not open should be escaped, even when auto-closing occurred' );
             $sanitizer->SetSource( '<em><em>Hello <strong>world</strong>!</em>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<em><em>Hello <strong>world</strong>!</em></em>', $result, 'Auto-closing should not be affected by interfering tags' );
         }
-        /*
         public function TestTagsWithEntities() {
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
@@ -730,7 +729,6 @@
                 $sanitizer->GetXHTML(), 'Real world example 3 failed'
             );
         }
-        */
     }
     
     return new TestXHTMLSanitizer();
