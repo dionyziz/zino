@@ -12,7 +12,7 @@ div.photoview div ul {
 	list-style: none;
 }
 div.photoview div ul li{
-	padding: 0 2px 0 2px;
+	padding: 0 2px 0 2pxd;
 	margin: 0;
 	display: inline;
 }
