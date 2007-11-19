@@ -1,20 +1,27 @@
 <?php
     global $libs;
     $libs->Load( 'tag' );
+    $libs->Load( 'artisttag' );
+    $libs->Load( 'booktag' );
+    $libs->Load( 'interesttag' );
+    $libs->Load( 'movietag' );
+    $libs->Load( 'songtag' );
+    $libs->Load( 'tvshowtag' );
+    $libs->Load( 'videogametag' );
 
-    abstract class TestTag extends Testcase {
-        protected $mClass;
+    class TestTag extends Testcase {
+        private $mClass;
 
-        public function TestClassesExist() {
+        public function ClassesExist() {
             $this->Assert( class_exists( $this->mClass ), $this->mClass . ' class does not exist' );
         }
         
-        public function TestFunctionsExist() {
+        public function FunctionsExist() {
             $this->Assert( function_exists( $this->mClass . '_List' ), $this->mClass . '_List function does not exist' );
             $this->Assert( function_exists( $this->mClass . '_Clear' ), $this->mClass . '_Clear function does not exist' );
         }
         
-        public function TestMethodsExist() {
+        public function MethodsExist() {
             $tag = New $this->mClass(); // MAGIC!
             $this->Assert( method_exists( $tag, 'Save' ), $this->mClass . '::Save method does not exist' );
             $this->Assert( method_exists( $tag, 'Delete' ), $this->mClass . '::Delete method does not exist' );
@@ -23,7 +30,7 @@
             $this->Assert( method_exists( $tag, 'Exists' ), $this->mClass . '::Exists method does not exist' );
         }
         
-        public function TestClear() {
+        public function Clear() {
             $clear = $this->mClass . '_Clear';
             $list = $this->mClass . '_List';
 
@@ -34,7 +41,7 @@
             $this->Assert( empty( $list ), $list . ' did not return an empty array after Clear()' );
         }
         
-        public function TestCreation() {
+        public function Creation() {
             $test = New User( 'test' );
             // creating a new tag
             $tag = New $this->mClass(); // MAGIC!
@@ -51,13 +58,13 @@
             $tag->Save();
         }
         
-        public function TestQueryNonExisting() {
+        public function QueryNonExisting() {
             $test = New User( 'test' );
             $tag = New $this->mClass( 'some non-existing tag', $test );
             $this->AssertFalse( $tag->Exists(), 'Querying a non-existing tag yields to an existing tag' );
         }
         
-        public function TestQueryExisting() {
+        public function QueryExisting() {
             $test = New User( 'test' );
             $tag1 = New $this->mClass( 'Sin City', $test );
             $tag2 = New $this->mClass( 'Parkour', $test );
@@ -69,11 +76,11 @@
             $this->AssertEquals( $test, $tag2->User, 'I ain\'t the owner of Parkour, while I just created it' );
         }
         
-        public function TestEdit() {
+        public function Edit() {
             // no ability to edit tags!
         }
         
-        public function TestValidText() {
+        public function ValidText() {
             $valid = $this->mClass . '_Valid';
 
         	$this->AssertFalse( $valid( "Dog gy" ), $valid . ' did not recognise an invalid tag' );
@@ -83,7 +90,7 @@
         	$this->AssertFalse( $valid( "    " ), $valid . ' did not recognise an invalid tag' );
         }
         
-        public function TestListUsertags() {
+        public function ListUsertags() {
             $list = $this->mClass . '_List';
 
             $test = New User( 'test' );
@@ -107,7 +114,7 @@
             }
         }
         
-        public function TestReorder() {
+        public function Reorder() {
             $list = $this->mClass . '_List';
 
             // moving tags
@@ -152,7 +159,7 @@
             }
         }
         
-        public function TestListTexttags() {
+        public function ListTexttags() {
             $list = $this->mClass . '_List';
 
             // listing the tags with a particular text
@@ -169,7 +176,7 @@
             $this->Assert( $found, 'I have a tag for Sin City, yet I\'m not in the list of users who have that tag' );
         }
 
-        public function TestDeletion() {
+        public function Deletion() {
             $list = $this->mClass . '_List';
 
             $test = New User( 'test' );
@@ -189,6 +196,46 @@
             $this->Assert( is_array( $tags ), 'InterestTag_List does not return an array after I delete all my tags' );
             $this->AssertEquals( 0, count( $tags ), 'InterestTag_List returned a non-empty array even though I don\'t have any tags left' );
         }
+        function ClassTest( $class ) {
+            $this->mClass = $class;
+
+            ClassesExist();
+            FunctionsExist();
+            MethodsExist();
+            Clear();
+            Creation();
+            QueryNonExisting();
+            QueryExisting();
+            Edit();
+            ValidText();
+            ListUsertags();
+            Reorder();
+            ListTexttags();
+            Deletion();
+        }
+        function TestArtistTags() {
+            $this->ClassTest( 'ArtistTag' );
+        }
+        function TestBookTags() {
+            $this->ClassTest( 'BookTag' );
+        }
+        function TestInterestTags() {
+            $this->ClassTest( 'InterestTag' );
+        }
+        function TestMovieTags() {
+            $this->ClassTest( 'MovieTag' );
+        }
+        function TestSongTags() {
+            $this->ClassTest( 'SongTag' );
+        }
+        function TestTvShowTags() {
+            $this->ClassTest( 'TvShowTag' );
+        }
+        function TestVideoGameTags() {
+            $this->ClassTest( 'VideoGameTag' );
+        }
     }
+
+    return New TestTag();
 
 ?>
