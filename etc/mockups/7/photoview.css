@@ -21,7 +21,7 @@ div.photoview div ul li{
 	vertical-align: middle;
 }
 div.photoview div ul li a img.smallphotoview {
-	border: 2px solid #82a4b6;
+	border: 4px solid #82a4b6;
 }
 div.photoview div.thephoto {
 	text-align:center;
