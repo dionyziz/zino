@@ -97,7 +97,7 @@ var InterestTag = {
 		li.parentNode.removeChild( li );
 	},
 	NewTag : function( ul ) {
-		var li = InterestTag.createLi( '', newid );
+		var li = InterestTag.createLi( '' );
 	
 		var input = d.createElement( 'input' );
 		input.type = "text";
@@ -150,10 +150,9 @@ var InterestTag = {
 	Closing : function ( ul ) {
 		var texts = "";
 		for ( var i in ul.childNodes ) {
-			if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
+			if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" || ul.childNodes[i].firstChild.nodeName.toUpperCase() != "#TEXT" ) {
 				continue;
 			}
-			alert( "trexo" );
 			texts += ul.childNodes[i].firstChild.nodeValue + " ";
 		}
 		alert( "Teliono" );
