@@ -77,6 +77,9 @@
             
             $ret = $this->ReduceWhitespace( $ret );
             
+            $parser = New XMLParser( $ret );
+            $root = $parser->Parse();
+            
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
