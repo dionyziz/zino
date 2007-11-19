@@ -26,6 +26,14 @@
             $this->Assert( method_exists( $favourite, 'Delete' ), 'Favourite::Delete method does not exist' );
             $this->Assert( method_exists( $favourite, 'Exists' ), 'Favourite::Exists method does not exist' );
         }
+        /*
+        public function TestContantsSet() {
+            $this->Assert( FAVOURITES_POLLS > 0, 'FAVOURITES_POLLS constant is not set' );
+            $this->Assert( FAVOURITES_JOURNALS, 'FAVOURITES_JOURNALS constant is not set' );
+            $this->Assert( FAVOURITES_PHOTOS ), 'FAVOURITES_PHOTOS constant is not set' );
+            $this->Assert( isset( FAVOURITES_ALL ), 'FAVOURITES_ALL constant is not set' );
+        }
+        */
         public function TestClearEmpty() {
             $test = new User( 'test' );
 
