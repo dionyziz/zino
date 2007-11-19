@@ -71,7 +71,7 @@
             $ret = stream_get_contents( $pipes[ 1 ] );
             
             header( 'Content-type: text/plain' );
-            die( $ret );
+            die( var_dump( $ret ) );
             
             fclose( $pipes[ 1 ] );
             
