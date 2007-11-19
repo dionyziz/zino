@@ -1,36 +1,36 @@
 <?php
 
 class XMLNode {
-    private $mChildNodes; // array of XMLNodes or strings
-    private $mAttributes; // array key => value
+    public $attributes; // array key => value
+    public $childNodes; // array of XMLNodes or strings
     public $parentNode;
     public $nodeName;
     
     public function XMLNode( $name ) {
         $this->nodeName = $name;
         $this->parentNode = false;
-        $this->mChildNodes = array();
-        $this->mAttributes = array();
+        $this->childNodes = array();
+        $this->attributes = array();
     }
     public function appendChild( $child ) {
         w_assert( is_string( $child ) || $child instanceof XMLNode );
-        $this->mChildNodes[] = $child;
+        $this->childNodes[] = $child;
     }
     public function firstChild() {
-        if ( count( $this->mChildNodes ) ) {
-            return $this->mChildNodes[ 0 ];
+        if ( count( $this->childNodes ) ) {
+            return $this->childNodes[ 0 ];
         }
         return false;
     }
     public function lastChild() {
-        if ( count( $this->mChildNodes ) ) {
-            return $this->mChildNodes[ count( $this->mChildNodes ) - 1 ];
+        if ( count( $this->childNodes ) ) {
+            return $this->childNodes[ count( $this->childNodes ) - 1 ];
         }
         return false;
     }
     public function getElementsByTagName( $name ) { // only direct children! (unlike DOM)
         $ret = array();
-        foreach ( $this->mChildNodes as $child ) {
+        foreach ( $this->childNodes as $child ) {
             if ( $child->nodeName == $name ) {
                 $ret[] =& $child;
             }
@@ -47,10 +47,8 @@ class XMLNode {
         return false;
     }
     public function innerHTML() {
-        global $water;
-        
         $ret = '';
-        foreach ( $this->mChildNodes as $xmlnode ) {
+        foreach ( $this->childNodes as $xmlnode ) {
             if ( is_string( $xmlnode ) ) {
                 $ret .= htmlspecialchars( $xmlnode );
             }
@@ -58,14 +56,13 @@ class XMLNode {
                 $ret .= $xmlnode->outerHTML();
             }
         }
-        $water->Trace( 'Serialized tag: ' . $this->nodeName, $ret );
         return $ret;
     }
     public function outerHTML() {
         $ret = '<' . $this->nodeName;
         
         $attributes = array();
-        foreach ( $this->mAttributes as $attribute => $value ) {
+        foreach ( $this->attributes as $attribute => $value ) {
             $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
         }
         
@@ -73,7 +70,7 @@ class XMLNode {
             $ret .= ' ' . implode( ' ', $attributes );
         }
         
-        if ( empty( $this->mChildNodes ) ) {
+        if ( empty( $this->childNodes ) ) {
             $ret .= '/>';
         }
         else {

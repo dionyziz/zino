@@ -89,8 +89,43 @@
             }
             w_assert( $body->nodeName == 'body' );
             
-            $ret = $body->innerHTML();
+            $ret = $body->XMLInnerHTML();
             
+            return $ret;
+        }
+        private function XMLOuterHTML( XMLNode $root ) {
+            $ret = '<' . $root->nodeName;
+            
+            $attributes = array();
+            foreach ( $root->attributes as $attribute => $value ) {
+                $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
+            }
+            
+            if ( !empty( $attributes ) ) {
+                $ret .= ' ' . implode( ' ', $attributes );
+            }
+            
+            if ( empty( $root->childNodes ) ) {
+                $ret .= '/>';
+            }
+            else {
+                $ret .= '>';
+                $ret .= $root->innerHTML();
+                $ret .= '</' . $root->nodeName . '>';
+            }
+            
+            return $ret;
+        }
+        private function XMLInnerHTML( XMLNode $root ) {
+            $ret = '';
+            foreach ( $root->childNodes as $xmlnode ) {
+                if ( is_string( $xmlnode ) ) {
+                    $ret .= htmlspecialchars( $xmlnode );
+                }
+                else {
+                    $ret .= $xmlnode->outerHTML();
+                }
+            }
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
