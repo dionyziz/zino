@@ -93,9 +93,6 @@
             
             $ret = $body->innerHTML();
             $ret = $this->ReduceWhitespace( $ret );
-            if ( strlen( $ret ) > 2 ) {
-                $ret = substr( $ret, 1, -1 ); // remove first and last space
-            }
             
             return $ret;
         }
