@@ -42,4 +42,6 @@
         }
     }
 
+    return new TestBennu();
+
 ?>
