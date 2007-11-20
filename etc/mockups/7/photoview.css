@@ -4,18 +4,20 @@ div.photoview h2 {
 }
 div.photoview div ul {
 	padding: 0;
-	margin: 0;
 	list-style: none;
 	width: 100%;
 	margin: auto;
 	text-align: center;
-	height: 150px;
+	height: 160px;
 }
 div.photoview div ul li{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
+}
+div.photoview div ul li a img {
+	border: 1px solid gray;
 }
 div.photoview div ul li.nav a img {
 	padding-bottom: 40px;
