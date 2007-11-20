@@ -514,6 +514,11 @@
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
             $this->AssertEquals( '<table><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
+        public function TestUTF8() {
+            $sanitizer = New XHTMLSanitizer();
+            $sanitizer->SetSource( 'Γεια σου κόσμε!' );
+            $this->AssertEquals( 'Γεια σου κόσμε!', $sanitizer->GetXHTML() );
+        }
         public function TestAgorf() {
             $sanitizer = New XHTMLSanitizer();
             $a = New XHTMLSaneTag( 'a' );
@@ -524,7 +529,67 @@
             $sanitizer->SetSource( '<a href="javascript:alert(\'XSS\');">Hello</a>' );
             $this->AssertEquals( '<a>Hello</a>', $sanitizer->GetXHTML() );
         }
+        public function AllowAll( $target ) { // this is not a test
+            $tags = array(
+                'a' => array( 'coords', 'href', 'hreflang', 'name', 'rel', 'rev', 'shape', 'target', 'type' ),
+                'abbr', 'acronym', 'address',
+                'area' => array( 'coords', 'href', 'nohref', 'shape', 'target' ),
+                'b', 'bdo', 'big',
+                'blockquote' => array( 'cite' ),
+                'br',
+                'button' => array( 'disabled', 'type', 'value' ),
+                'caption', 'cite', 'code',
+                'col' => array( 'span' ),
+                'colgroup' => array( 'span' ),
+                'dd', 'del', 'div', 'dfn', 'dl', 'dt', 'em', 'fieldset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+                'hr', 'i',
+                'img' => array( 'src', 'alt', 'border', 'height', 'ismap', 'longdesc', 'usemap', 'vspace', 'width' ),
+                'ins' => array( 'cite', 'datetime' ),
+                'kdb', 'label', 'legend',
+                'li' => array( 'type', 'value' ),
+                'map' => array( 'map' ),
+                'noframes', 'noscript', 'ol', 'optgroup', 'option', 'p',
+                'q' => array( 'cite' ),
+                'samp', 'small', 'span', 'strong', 'sub', 'sup',
+                'table' => array( 'cellpadding', 'cellspacing', 'rules', 'summary' ),
+                'tbody',
+                'td' => array( 'abbr', 'colspan', 'rowspan' ),
+                'textarea' => array( 'cols', 'rows' ), 'tfoot',
+                'th' => array( 'scope', 'colspan', 'colspan' ),
+                'thead', 'tr', 'tt',
+                'ul' => array( 'compact', 'type' ),
+                '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex' ) // everywhere
+            );
+
+            foreach ( $tags as $key => $value ) {
+                if ( $key === "" ) {
+                    continue;
+                }
+                if ( is_string( $value ) ) {
+                    $rule = New XHTMLSaneTag( $value );
+                    foreach ( $tags[ '' ] as $attribute ) {
+                        $rule->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
+                    }
+                }
+                else {
+                    $rule = New XHTMLSaneTag( $key );
+                    foreach ( $value as $attribute ) {
+                        $rule->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
+                    }
+                    foreach ( $tags[ '' ] as $attribute ) {
+                        $rule->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
+                    }
+                }
+                $target->AllowTag( $rule );
+            }
+        }
         public function TestPachunka() {
+            $sanitizer = New XHTMLSanitizer();
+            $this->AllowAll( $sanitizer );
+            $sanitizer->SetSource( '<!DOCTYPE like my head><html:buh>...<![CDATA[ <! uhh="ring"> <!-- ---a ding ding -- --> ]]>' ); // fires up plaintext consumer
+            $this->AssertEquals( '... &lt;! uhh=&quot;ring&quot;&gt; &lt;!-- ---a ding ding -- --&gt;', $sanitizer->GetXHTML() );
+            $sanitizer->SetSource( '<!DOCTYPE like my head><html:buh><![CDATA[ <! uhh="ring"> <!-- ---a ding ding -- --> ]]>' ); // keeps with XHTML Strict consistency
+            $this->AssertEquals( '', $sanitizer->GetXHTML() );
         }
         // real world examples
         public function TestRealWorld1() {
