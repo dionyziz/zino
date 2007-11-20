@@ -498,7 +498,7 @@
             $sanitizer->AllowTag( $tr );
             $sanitizer->AllowTag( $td );
             $sanitizer->SetSource( '<table></table>' );
-            $this->AssertEquals( '<table></table>', $sanitizer->GetXHTML(), 'Empty tables should be allowed' );
+            $this->AssertEquals( '', $sanitizer->GetXHTML(), 'Empty tables should be truncated' );
             $sanitizer->SetSource( '<table><tr><td></td></tr></table>' );
             $this->AssertEquals( '<table><tr><td></td></tr></table>', $sanitizer->GetXHTML(), 'Tables with one empty cell should be allowed' );
             $sanitizer->SetSource( '<table><tr><td>I</td><td>bet</td><td>you</td><td>\'d</td><td>die</td><td>to</td></tr><tr><td>garbage</td><td>I think</td><td>I\'m</td><td>paranoid</td></tr></table>' );
@@ -514,7 +514,7 @@
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
             $this->AssertEquals( '<table><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
-        public function TestSaneURLs() {
+        public function TestAgorf() {
             $sanitizer = New XHTMLSanitizer();
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
@@ -523,6 +523,8 @@
             $this->AssertEquals( '<a href="safe.html">Hello</a>', $sanitizer->GetXHTML() );
             $sanitizer->SetSource( '<a href="javascript:alert(\'XSS\');">Hello</a>' );
             $this->AssertEquals( '<a>Hello</a>', $sanitizer->GetXHTML() );
+        }
+        public function TestPachunka() {
         }
         // real world examples
         public function TestRealWorld1() {

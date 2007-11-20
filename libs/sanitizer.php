@@ -175,7 +175,7 @@
             foreach ( $root->attributes as $attribute => $value ) {
                 if ( $tagrule->AttributeAllowed( $attribute ) ) {
                     if ( !empty( $value ) || ( $root->nodeName == 'img' && $attribute == 'alt' ) ) {
-                        if ( $attribute == 'href' ) {
+                        if ( $attribute == 'href' || $attribute == 'src' ) {
                             $value = $this->SanitizeURL( $value );
                             if ( empty( $value ) ) {
                                 continue;
