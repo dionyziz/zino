@@ -89,7 +89,7 @@
             }
             w_assert( $body->nodeName == 'body' );
             
-            $ret = $body->XMLInnerHTML();
+            $ret = $this->XMLInnerHTML( $body );
             
             return $ret;
         }
