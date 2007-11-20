@@ -16,7 +16,8 @@ int main( int argc, char **argv ) {
     tidyOptSetInt( tdoc, TidyIndentContent, 0 );
     tidyOptSetInt( tdoc, TidyWrapLen, 0 );
     tidyOptSetValue( tdoc, TidyAltText, "" );
-    tidyOptSetValue( tdoc, TidyOutCharEncoding, "utf8" );
+    tidyOptSetValue( tdoc, TidyInCharEncoding, "utf8" );
+    tidyOptSetValue( tdoc, TidyOutCharEncoding, "ascii" ); // output only ASCII-safe
     tidyOptSetBool( tdoc, TidyXhtmlOut, yes );
     tidyOptSetBool( tdoc, TidyHideComments, yes );
     tidyOptSetBool( tdoc, TidyBodyOnly, yes );
