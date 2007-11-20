@@ -28,7 +28,7 @@ div.photoview div ul li a img.smallphotoview {
 }
 div.photoview div.thephoto {
 	text-align:center;
-	padding-top: 20px;
+	padding-top: 0;
 }
 img.hoverclass {
 	opacity: 0.6;
