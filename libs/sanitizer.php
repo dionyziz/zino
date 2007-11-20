@@ -95,7 +95,7 @@
         }
         private function XMLOuterHTML( XMLNode $root ) {
             if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
-                return $root->innerHTML();
+                return $this->XMLInnerHTML( $root );
             }
             
             $tagrule = $this->mAllowedTags[ $root->nodeName ];
