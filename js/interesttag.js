@@ -17,7 +17,12 @@ var InterestTag = {
     	var close = d.createElement( 'a' );
 		close.onclick = ( function( ul ) {
 				return function() {
-					InterestTag.Closing( ul );
+					var texts = "";
+					for ( var i=0;i<ul.childNodes.length;++i ) {
+						texts += ul.childNodes[i].firstChild.nodeValue  + " ";
+					}
+					g( 'interests' ).firstChild.nodeValue = texts;
+					Modals.Destroy();
 					return false;
 				};
 			})( ul );
@@ -132,15 +137,6 @@ var InterestTag = {
 		li.parentNode.removeChild( li );
 	},
 	Closing : function ( ul ) {
-		var texts = "";
-		for ( var i in ul.childNodes ) {
-			if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" || ul.childNodes[i].firstChild.nodeName.toUpperCase() != "#TEXT" ) {
-				continue;
-			}
-			texts += ul.childNodes[i].firstChild.nodeValue + " ";
-		}
-		alert( "Teliono" );
-		g( 'interests' ).firstChild.nodeValue = texts;
-		Modals.Destroy();
+		
 	}
 };
