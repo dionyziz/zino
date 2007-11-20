@@ -36,12 +36,15 @@
     
     function XHTMLSanitizer_DecodeTags( $attributes ) {
         $ret = array();
-        foreach ( $attributes as $key => $value ) {
+        foreach ( $tags as $key => $value ) {
             if ( is_string( $value ) ) {
                 $ret[ $value ] = true;
             }
             else if ( is_array( $value ) ) {
-                $ret[ $key ] = $value;
+                $ret[ $key ] = array();
+                foreach ( $value as $attribute ) {
+                    $ret[ $key ][ $attribute ] = true;
+                }
             }
         }
         return $ret;
