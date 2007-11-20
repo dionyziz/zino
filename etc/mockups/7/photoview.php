@@ -26,7 +26,7 @@ function Unhover( node ) {
 			<li><a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a></li>
 			<li><a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a></li>
 			<li><a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a></li>
-			<li class="nav"><a href=""><img src="images/next.png" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a></li>
+			<li class="nav"><a href=""><img src="images/next.png" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a></li>
 		</ul>
 	</div>
 	<div class="eof"></div>
