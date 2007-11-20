@@ -1,6 +1,16 @@
 <?php
 	include "usersections.php";
-?><div class="photoview">
+?>
+<script type="text/javascript">
+function Hover( node ) {
+	Animations.SetAttribute( 'opacity', 0.8, 1 );
+}
+function Unhover( node ) {
+	Animations.SetAttribute( 'opacity', 1, 0.8 );
+}
+
+</script>
+<div class="photoview">
 	<h2>Στη Θεσαλλονίκη ξημερώματα</h2>
 	<span>στο album</span> <a href="">Θεσαλλονίκη</a>
 	<div>
@@ -10,7 +20,7 @@
 	<div class="eof"></div>
 	<div style="overflow:hidden;">
 		<ul>
-			<li class="nav"><a href=""><img src="images/previous.png" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a></li>
+			<li class="nav"><a href=""><img src="images/previous.png" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></li>
 			<li><a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a></li>
 			<li><a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a></li>
 			<li><a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a></li>
