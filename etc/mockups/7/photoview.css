@@ -4,7 +4,7 @@ div.photoview h2 {
 }
 div.photoview div.photothumbs {
 	height: 173px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	margin-bottom: 20px;
 }
 div.photoview div.photothumbs ul {

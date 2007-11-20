@@ -22,8 +22,8 @@ function Unhover( node ) {
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="photothumbs">
-		<ul>
-			<li class="nav"><a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></li>
+		<div style="display:inline;"><a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></div>
+		<ul style="display:inline;overflow:hidden;">
 			<li><a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a></li>
 			<li><a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a></li>
 			<li><a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a></li>
@@ -31,8 +31,8 @@ function Unhover( node ) {
 			<li><a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a></li>
 			<li><a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a></li>
 			<li><a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a></li>
-			<li class="nav"><a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a></li>
 		</ul>
+		<div style="display:inline;"><a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a></div>
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
