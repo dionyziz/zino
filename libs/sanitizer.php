@@ -1,6 +1,52 @@
 <?php
     include 'rabbit/xml.php';
-
+    
+    global $xhtmlsanitizer_goodtags;
+    
+    $xhtmlsanitizer_goodtags = XHTMLSanitizer_DecodeTags( array(
+        'a' => array( 'coords', 'href', 'hreflang', 'name', 'rel', 'rev', 'shape', 'target', 'type' ), 
+        'abbr', 'acronym', 'address',
+        'area' => array( 'coords', 'href', 'nohref', 'shape', 'target' ), 
+        'b', 'bdo', 'big', 
+        'blockquote' => array( 'cite' ), 
+        'br', 
+        'button' => array( 'disabled', 'type', 'value' ), 
+        'caption', 'cite', 'code', 
+        'col' => array( 'span' ),
+        'colgroup' => array( 'span' ),
+        'dd', 'del', 'div', 'dfn', 'dl', 'dt', 'em', 'fieldset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+        'hr', 'i',
+        'img' => array( 'src', 'alt', 'border', 'height', 'ismap', 'longdesc', 'usemap', 'vspace', 'width' ), 
+        'ins' => array( 'cite', 'datetime' ),
+        'kdb', 'label', 'legend',
+        'li' => array( 'type', 'value' ),
+        'map' => array( 'map' ),
+        'noframes', 'noscript', 'ol', 'optgroup', 'option', 'p', 
+        'q' => array( 'cite' ),
+        'samp', 'small', 'span', 'strong', 'sub', 'sup', 
+        'table' => array( 'cellpadding', 'cellspacing', 'rules', 'summary' ),
+        'tbody', 
+        'td' => array( 'abbr', 'colspan', 'rowspan' ),
+        'textarea' => array( 'cols', 'rows' ), 'tfoot', 
+        'th' => array( 'scope', 'colspan', 'colspan' ),
+        'thead', 'tr', 'tt', 
+        'ul' => array( 'compact', 'type' ),
+        '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex' ) // everywhere
+    ) );
+    
+    function XHTMLSanitizer_DecodeTags( $attributes ) {
+        $ret = array();
+        foreach ( $attributes as $key => $value ) {
+            if ( is_string( $value ) ) {
+                $ret[ $value ] = true;
+            }
+            else if ( is_array( $value ) ) {
+                $ret[ $key ] = $value;
+            }
+        }
+        return $ret;
+    }
+    
     class XHTMLSanitizer {
         private $mSource;
         private $mAllowedTags;
@@ -139,6 +185,14 @@
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
+            global $water;
+            global $xhtmlsanitizer_goodtags;
+            
+            if ( !isset( $xhtmlsanitizer_goodtags[ $tag->Name() ] ) ) {
+                $water->Notice( 'XHTMLSanitizer tag "' . $tag->Name() . '" is not safe or valid' );
+                return;
+            }
+
             $this->mAllowedTags[ $tag->Name() ] = $tag;
         }
     }
@@ -160,6 +214,14 @@
             $this->mName = $tagname;
         }
         public function AllowAttribute( XHTMLSaneAttribute $attribute ) {
+            global $water;
+            global $xhtmlsanitizer_goodtags;
+            
+            if ( !isset( $xhtmlsanitizer_goodtags[ $this->mName ][ $attribute->Name() ] ) && !isset( $xhtmlsanitizer_goodtags[ '' ][ $attribute->Name() ] ) ) {
+                $water->Notice( 'XHTMLSanitizer attribute "' . $attribute->Name() . '" is not safe or valid for tag "' . $this->mName . '"' );
+                return;
+            }
+            
             $this->mAllowedAttributes[ $attribute->Name() ] = $attribute;
         }
     }

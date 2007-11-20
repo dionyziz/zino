@@ -135,55 +135,55 @@
         }
         public function TestSimpleTag() {
             $sanitizer = New XHTMLSanitizer();
-            $sanitizer->AllowTag( New XHTMLSaneTag( 'b' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
             $sanitizer->SetSource( '<b></b>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b></b>', $result, 'Simple empty tag should remain unchanged' );
+            $this->AssertEquals( '', $result, 'Simple empty tag with no effect when empty should be removed' );
             $sanitizer->SetSource( '<b />' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&lt;b /&gt;', $result, 'Tags with mandatory content should be explicitly closed by the user' );
+            $this->AssertEquals( '', $result, 'Simple empty tag with no effect when empty should be removed when auto-closing' );
             $sanitizer->SetSource( 'Hello <b>world</b>!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello <b>world</b>!', $result, 'Simple use of a defined tag should be allowed' );
+            $this->AssertEquals( 'Hello <strong>world</strong>!', $result, 'Simple use of a defined tag should be allowed' );
             $sanitizer->SetSource( '<b>Hello</b> <b>world</b>!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b>Hello</b> <b>world</b>!', $result, 'Simple use of two defined tag should be allowed' );
+            $this->AssertEquals( '<strong>Hello</strong> <strong>world</strong>!', $result, 'Simple use of two defined tag should be allowed' );
             $sanitizer->SetSource( '<b>Hello </b><b>world</b>!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b>Hello </b><b>world</b>!', $result, 'Simple use of whitespace within defined tags should be allowed' );
+            $this->AssertEquals( '<strong>Hello </strong><strong>world</strong>!', $result, 'Simple use of whitespace within defined tags should be allowed' );
         }
         public function TestCapitalizedTags() {
             $sanitizer = New XHTMLSanitizer();
-            $sanitizer->AllowTag( New XHTMLSaneTag( 'b' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
             $sanitizer->AllowTag( New XHTMLSaneTag( 'span' ) );
             $sanitizer->SetSource( '<B></B>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b></b>', $result, 'Capitalized tags should be converted to lower-case' );
+            $this->AssertEquals( '<strong></strong>', $result, 'Capitalized tags should be converted to lower-case' );
             $sanitizer->SetSource( '<sPAn></sPaN>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<span></span>', $result, 'Various caps tags should be converted to lower-case; matching closing tags should not require the same capitalization' );
         }
         public function TestUnclosedTags() {
             $sanitizer = New XHTMLSanitizer();
-            $sanitizer->AllowTag( New XHTMLSaneTag( 'b' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
             $sanitizer->SetSource( 'Hello <b>world!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello <b>world!</b>', $result, 'Unclosed tags should auto-close' );
+            $this->AssertEquals( 'Hello <strong>world!</strong>', $result, 'Unclosed tags should auto-close' );
             $sanitizer->SetSource( 'Hello <em>world!' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello world!', $result, 'Disallowed tags should not auto-close' );
             $sanitizer->SetSource( 'Hello <b><em><b>world!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello <b><b>world!</b></b>', $result, 'Allowed tags should auto-close when nested and contain disallowed tags' );
+            $this->AssertEquals( 'Hello <strong><strong>world!</strong></strong>', $result, 'Allowed tags should auto-close when nested and contain disallowed tags' );
             $sanitizer->SetSource( 'Hello <b><b>world</b>!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello <b><b>world</b>!</b>', $result, 'Allowed tags should auto-close when nested' );
+            $this->AssertEquals( 'Hello <strong><strong>world</strong>!</strong>', $result, 'Allowed tags should auto-close when nested' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'br' ) );
             $sanitizer->SetSource( '<br/>' );
-            $this->AssertEquals( '<br />', $result, 'Short closing should include a space before the short-close slash' );
+            $this->AssertEquals( '<br/>', $result, 'Short closing should include a space before the short-close slash' );
             $sanitizer->SetSource( '<br>' );
-            $this->AssertEquals( '<br />', $result, 'Unclosed tags should be automatically short-closed if contentless (br, img, etc.)' );
+            $this->AssertEquals( '<br/>', $result, 'Unclosed tags should be automatically short-closed if contentless (br, img, etc.)' );
         }
         public function TestTwoTags() {
             $sanitizer = New XHTMLSanitizer();
@@ -201,7 +201,7 @@
             $sanitizer->SetSource( 'Hello <strong><em>world!</strong>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello <strong><em>world!</em></strong>', $result, 'Auto-close should observe nesting rules' );
-            $sanitizer->SetSource( 'Hello <strong><em>world</strong>!' );
+            $sanitizer->SetSource( 'Hello <strong><em>world</em>!</strong>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'Hello <strong><em>world</em></strong>!', $result, 'Auto-close should observe nesting rules' );
             $sanitizer->SetSource( 'Hello <strong>world</strong>!</em>' );
@@ -209,7 +209,7 @@
             $this->AssertEquals( 'Hello <strong>world</strong>!&lt;/em&gt;', $result, 'Closed tags that did not open should be escaped' );
             $sanitizer->SetSource( '<em>Hello</em> <strong>world</strong>!</em>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<em>Hello</em> <strong>world</strong>!&lt;/em&gt;', $result, 'Closed tags that did not open should be escaped' );
+            $this->AssertEquals( '<em>Hello</em> <strong>world</strong>!', $result, 'Closed tags that did not open should be removed' );
             $sanitizer->SetSource( '<em><em>Hello</em> <strong>world</strong>!</em>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<em><em>Hello</em> <strong>world</strong>!</em>', $result, 'Closed tags that did not open should be escaped, even when auto-closing occurred' );
