@@ -176,7 +176,7 @@
                 if ( $tagrule->AttributeAllowed( $attribute ) ) {
                     if ( !empty( $value ) || ( $root->nodeName == 'img' && $attribute == 'alt' ) ) {
                         if ( $attribute = 'href' ) {
-                            $value = $this->SanitizeURL( $attribute );
+                            $value = $this->SanitizeURL( $value );
                             if ( empty( $value ) ) {
                                 continue;
                             }
