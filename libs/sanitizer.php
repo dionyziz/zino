@@ -34,7 +34,7 @@
         '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex' ) // everywhere
     ) );
     
-    function XHTMLSanitizer_DecodeTags( $attributes ) {
+    function XHTMLSanitizer_DecodeTags( $tags ) {
         $ret = array();
         foreach ( $tags as $key => $value ) {
             if ( is_string( $value ) ) {
