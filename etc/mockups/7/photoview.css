@@ -13,12 +13,16 @@ div.photoview div ul {
 	width: 100%;
 	margin: auto;
 	text-align: center;
+	height: 150px;
 }
 div.photoview div ul li{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
+}
+div.photoview div ul li.nav a img {
+	padding-bottom: 40px;
 }
 div.photoview div ul li a img.smallphotoview {
 	border: 4px solid #82a4b6;
