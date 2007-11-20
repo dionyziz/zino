@@ -35,7 +35,6 @@
 				}
 			}
 
-			$ret = array();
 			if ( !isset( $tags[ $first ] ) ) {
 				return $ret;
 			}
@@ -48,7 +47,7 @@
 				}
 
 				$cur = $tags[ $cur->NextId ];
-			}
+			} 
         }
         else if ( is_string( $usern ) ) {
         	global $users;
