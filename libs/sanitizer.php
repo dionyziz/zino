@@ -105,7 +105,9 @@
             $attributes = array();
             foreach ( $root->attributes as $attribute => $value ) {
                 if ( $tagrule->AttributeAllowed( $attribute ) ) {
-                    $attributes[] = $attribute . '="' . htmlentities( $value, ENT_QUOTES, 'UTF-8' ) . '"';
+                    if ( !empty( $value ) || ( $root->nodeName == 'img' && $attribute == 'alt' ) ) {
+                        $attributes[] = $attribute . '="' . htmlentities( $value, ENT_QUOTES, 'UTF-8' ) . '"';
+                    }
                 }
             }
             
