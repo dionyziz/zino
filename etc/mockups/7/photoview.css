@@ -20,6 +20,7 @@ div.photoview div ul li a img {
 	border: 1px solid gray;
 }
 div.photoview div ul li.nav a img {
+	border: none;
 	padding-bottom: 40px;
 }
 div.photoview div ul li a img.smallphotoview {
