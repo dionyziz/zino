@@ -94,11 +94,19 @@
             return $ret;
         }
         private function XMLOuterHTML( XMLNode $root ) {
+            if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
+                return $root->innerHTML();
+            }
+            
+            $tagrule = $this->mAllowedTags[ $root->nodeName ];
+            
             $ret = '<' . $root->nodeName;
             
             $attributes = array();
             foreach ( $root->attributes as $attribute => $value ) {
-                $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
+                if ( $tagrule->AttributeAllowed( $attribute ) ) {
+                    $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
+                }
             }
             
             if ( !empty( $attributes ) ) {
@@ -129,7 +137,7 @@
             return $ret;
         }
         public function AllowTag( XHTMLSaneTag $tag ) {
-            $this->mAllowedTags[] = $tag;
+            $this->mAllowedTags[ $tag->Name() ] = $tag;
         }
     }
     
@@ -137,13 +145,20 @@
         private $mName;
         private $mAllowedAttributes;
         
+        public function Name() {
+            return $this->mName;
+        }
+        public function AttributeAllowed( $attributename ) {
+            w_assert( is_string( $attributename ) );
+            return isset( $this->mAllowedAttributes[ $attributename ] );
+        }
         public function XHTMLSaneTag( $tagname ) {
             w_assert( is_string( $tagname ) );
             w_assert( preg_match( '#^[a-z0-9]+$#', $tagname ) );
             $this->mName = $tagname;
         }
         public function AllowAttribute( XHTMLSaneAttribute $attribute ) {
-            $this->mAllowedAttributes[] = $attribute;
+            $this->mAllowedAttributes[ $attribute->Name() ] = $attribute;
         }
     }
     
