@@ -48,6 +48,7 @@ var InterestTag = {
 		input.className = "bigtext";
 		input.value = "Νέο Ενδιαφέρον";
 		input.style.width = "100px";
+		input.focus();
 	
 		var form = d.createElement( 'form' );
 		form.onsubmit = ( function ( input ) {
