@@ -142,6 +142,26 @@
             
             return $ret;
         }
+        public function SanitizeURL( $url ) {
+            static $validprotocols = array(
+                'http', 'ftp', 'https', 'mailto', 'irc'
+            );
+            
+            if ( strpos( $url, ':' ) !== false ) {
+                $safe = false;
+                foreach ( $validprotocols as $protocol ) {
+                    if ( substr( $url, 0, strlen( $protocol ) ) == $protocol ) {
+                        $safe = true;
+                        break;
+                    }
+                }
+                if ( !$safe ) {
+                    return false;
+                }
+            }
+            
+            return $url;
+        }
         private function XMLOuterHTML( XMLNode $root ) {
             if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
                 return $this->XMLInnerHTML( $root );
@@ -155,6 +175,12 @@
             foreach ( $root->attributes as $attribute => $value ) {
                 if ( $tagrule->AttributeAllowed( $attribute ) ) {
                     if ( !empty( $value ) || ( $root->nodeName == 'img' && $attribute == 'alt' ) ) {
+                        if ( $attribute = 'href' ) {
+                            $value = $this->SanitizeURL( $attribute );
+                            if ( empty( $value ) ) {
+                                continue;
+                            }
+                        }
                         $attributes[] = $attribute . '="' . htmlentities( $value, ENT_QUOTES, 'UTF-8' ) . '"';
                     }
                 }
