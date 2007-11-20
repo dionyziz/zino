@@ -18,6 +18,9 @@ function Unhover( node ) {
 		<a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /> Προσθήκη στα αγαπημένα</a>
 	</div>
 	<div class="eof"></div>
+	<div class="thephoto">
+		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
+	</div>
 	<div style="overflow:hidden;">
 		<ul>
 			<li class="nav"><a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></li>
@@ -28,10 +31,6 @@ function Unhover( node ) {
 			<li><a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a></li>
 			<li class="nav"><a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a></li>
 		</ul>
-	</div>
-	<div class="eof"></div>
-	<div class="thephoto">
-		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
