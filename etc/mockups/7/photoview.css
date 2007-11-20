@@ -5,6 +5,7 @@ div.photoview h2 {
 div.photoview div.photothumbs {
 	height: 160px;
 	overflow: hidden;
+	margin-bottom: 20px;
 }
 div.photoview div.photothumbs ul {
 	padding: 0;
