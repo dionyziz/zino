@@ -513,6 +513,7 @@
             $sanitizer = New XHTMLSanitizer();
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
+            $sanitizer->AllowTag( $a );
             $sanitizer->SetSource( '<a href="safe.html">Hello</a>' );
             $this->AssertEquals( '<a href="safe.html">Hello</a>', $sanitizer->GetXHTML() );
             $sanitizer->SetSource( '<a href="javascript:alert(\'XSS\');">Hello</a>' );
