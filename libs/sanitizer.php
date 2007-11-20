@@ -25,7 +25,7 @@
         'q' => array( 'cite' ),
         'samp', 'small', 'span', 'strong', 'sub', 'sup', 
         'table' => array( 'cellpadding', 'cellspacing', 'rules', 'summary' ),
-        'tbody', 
+        // 'tbody', // preserved but not outputted
         'td' => array( 'abbr', 'colspan', 'rowspan' ),
         'textarea' => array( 'cols', 'rows' ), 'tfoot', 
         'th' => array( 'scope', 'colspan', 'colspan' ),

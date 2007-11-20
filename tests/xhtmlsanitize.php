@@ -426,9 +426,9 @@
             $img = New XHTMLSaneTag( 'img' );
             $img->AllowAttribute( New XHTMLSaneAttribute( 'src' ) );
             $sanitizer->AllowTag( $img );
-            $sanitizer->SetSource( '<img src="/images/big_orange.png" alt="Orange" />' ); // <img src="/images/big_orange.png" alt="Orange" /> --> <img src="/images/big_orange.png" /> ("alt" attribute is not allowed) --> <img src="/images/big_orange.png" alt="" /> ("alt" attribute is not present but mandatory)
+            $sanitizer->SetSource( '<img src="/images/big_orange.png" alt="Orange"/>' ); // <img src="/images/big_orange.png" alt="Orange" /> --> <img src="/images/big_orange.png" /> ("alt" attribute is not allowed) --> <img src="/images/big_orange.png" alt="" /> ("alt" attribute is not present but mandatory)
             $this->AssertEquals(
-                '<img src="/images/big_orange.png" alt="Orange" />',
+                '<img src="/images/big_orange.png" alt="Orange"/>',
                 $sanitizer->GetXHTML(), 'Mandatory attributes (alt in img) should be filled-in even when disallowed'
             );
         }
@@ -442,15 +442,15 @@
             $sanitizer->AllowTag( $img );
             $sanitizer->AllowTag( $span );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />', $sanitizer->GetXHTML(), 'Valid contentless tags should be preserved' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Valid contentless tags should be preserved' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"></img>' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />', $sanitizer->GetXHTML(), 'Verbosely closed contentless tags should be converted to short-closed tags and preserved' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Verbosely closed contentless tags should be converted to short-closed tags and preserved' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">bwahahah</img>' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />', $sanitizer->GetXHTML(), 'Content within contentless tags should be dismissed' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Content within contentless tags should be dismissed' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">bw<span>aha</span>hah</img>' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />', $sanitizer->GetXHTML(), 'Content and other tags within contentless tags should be dismissed' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Content and other tags within contentless tags should be dismissed' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe" />', $sanitizer->GetXHTML(), 'Contentless tags should be auto-closed shortly' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Contentless tags should be auto-closed shortly' );
         }
         public function TestLists() {
             $sanitizer = New XHTMLSanitizer();
@@ -504,7 +504,7 @@
             $sanitizer->SetSource( '<table><tr>ha!<td>need</td>me</tr></table>' );
             $this->AssertEquals( '<table><tr><td>ha!</td><td>need</td><td>me</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be <td>\'d even when other <td>s are present' );
             $sanitizer->SetSource( '<table>sup!</table>' ); // <table>sup!</table> --> <table><tr>sup!</tr></table> --> <table><tr><td>sup!</td></tr></table>
-            $this->AssertEquals( '<table><tr><td>sup!</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <table> must be converted to cell content' );
+            $this->AssertEquals( 'sup!', $sanitizer->GetXHTML(), 'Content directly wrapped within <table> must be unwrapped' );
             $sanitizer->SetSource( '<table>har har <tr>ha!<td>need</td>me</tr> bwahhhah</table>' );
             $this->AssertEquals( '<table><tr><td>har har</tr><tr><td>ha!<td>need</td><td>me</td></tr><tr><td>bwahhhah</td></tr></table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
@@ -583,7 +583,7 @@
             $sanitizer = New XHTMLSanitizer();
             $this->AllowAll( $sanitizer );
             $sanitizer->SetSource( '<!DOCTYPE like my head><html:buh>...<![CDATA[ <! uhh="ring"> <!-- ---a ding ding -- --> ]]>' ); // fires up plaintext consumer
-            $this->AssertEquals( '... &lt;! uhh=&quot;ring&quot;&gt; &lt;!-- ---a ding ding -- --&gt;', $sanitizer->GetXHTML() );
+            $this->AssertEquals( '... &lt;! uhh=&quot;ring&quot;&gt;', $sanitizer->GetXHTML() );
             $sanitizer->SetSource( '<!DOCTYPE like my head><html:buh><![CDATA[ <! uhh="ring"> <!-- ---a ding ding -- --> ]]>' ); // keeps with XHTML Strict consistency
             $this->AssertEquals( '', $sanitizer->GetXHTML() );
         }
