@@ -19,7 +19,13 @@
                     WHERE
                         `interesttag_userid` = '" . $usern->Id() . "'
                     ;";
-		/*	$tags = array();
+            /*
+            The following code was comment out because:
+            	1)Ordering is not implemented in 6.5 phase
+            	2)Needs fixing, since it selects only a subset of a user's InterestTags.
+            
+            
+            $tags = array();
 			$prevs = array();
 			$first = false;
 			while ( $row = $res->FetchArray() ) {
