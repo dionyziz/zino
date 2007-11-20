@@ -118,7 +118,7 @@
             }
             else {
                 $ret .= '>';
-                $ret .= $root->innerHTML();
+                $ret .= $this->XMLInnerHTML( $root );
                 $ret .= '</' . $root->nodeName . '>';
             }
             
@@ -131,7 +131,7 @@
                     $ret .= htmlspecialchars( $xmlnode );
                 }
                 else {
-                    $ret .= $xmlnode->outerHTML();
+                    $ret .= $this->XMLOuterHTML( $xmlnode );
                 }
             }
             return $ret;

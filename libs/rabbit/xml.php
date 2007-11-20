@@ -63,7 +63,7 @@ class XMLNode {
         
         $attributes = array();
         foreach ( $this->attributes as $attribute => $value ) {
-            $attributes[] = $attribute . '="' . htmlspecialchars( $value ) . '"';
+            $attributes[] = $attribute . '="' . htmlentities( $value, ENT_QUOTES, 'UTF-8' ) . '"';
         }
         
         if ( !empty( $attributes ) ) {
