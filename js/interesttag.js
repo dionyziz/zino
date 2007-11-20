@@ -60,6 +60,8 @@ var InterestTag = {
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
 					input.parentNode.parentNode.childNodes[2].appendChild( li ); //input->form->div->ul.append
+					input.value="";
+					input.focus();
 				}
 			} )( input );
 		form.onkeypress = function ( e ) {
