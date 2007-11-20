@@ -3,10 +3,10 @@
 ?>
 <script type="text/javascript">
 function Hover( node ) {
-	Animations.SetAttribute( 'opacity', 0.8, 1 );
+	Animations.SetAttribute( node, 'opacity', 1 );
 }
 function Unhover( node ) {
-	Animations.SetAttribute( 'opacity', 1, 0.8 );
+	Animations.SetAttribute( node, 'opacity', 0.8 );
 }
 
 </script>
