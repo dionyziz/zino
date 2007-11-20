@@ -21,7 +21,7 @@ function Unhover( node ) {
 	<div class="thephoto">
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
-	<div style="overflow:hidden;">
+	<div class="photothumbs">
 		<ul>
 			<li class="nav"><a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></li>
 			<li><a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a></li>

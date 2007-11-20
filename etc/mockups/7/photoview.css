@@ -2,7 +2,11 @@ div.photoview h2 {
 	margin: 0;
 	padding: 0;
 }
-div.photoview div ul {
+div.photoview div.photothumbs {
+	height: 160px;
+	overflow: hidden;
+}
+div.photoview div.photothumbs ul {
 	padding: 0;
 	list-style: none;
 	width: 100%;
