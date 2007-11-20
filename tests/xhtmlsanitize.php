@@ -465,25 +465,25 @@
             $sanitizer->AllowTag( $ol );
             $sanitizer->AllowTag( $li );
             $sanitizer->SetSource( 'a-ha!<ul></ul>' );
-            $this->AssertEquals( 'a-ha!<ul></ul>', $sanitizer->GetXHTML(), 'Empty <ul></ul> should be allowed' );
+            $this->AssertEquals( 'a-ha!', $sanitizer->GetXHTML(), 'Empty <ul></ul> should be allowed' );
             $sanitizer->SetSource( 'a-ha!<ol></ol>' );
-            $this->AssertEquals( 'a-ha!<ol></ol>', $sanitizer->GetXHTML(), 'Empty <ol></ol> should be allowed' );
+            $this->AssertEquals( 'a-ha!', $sanitizer->GetXHTML(), 'Empty <ol></ol> should be allowed' );
             $sanitizer->SetSource( 'a-ha!<ul />' );
-            $this->AssertEquals( 'a-ha!&lt;ul /&gt;', $sanitizer->GetXHTML(), '<ul> cannot be short-closed' );
+            $this->AssertEquals( 'a-ha!', $sanitizer->GetXHTML(), '<ul> cannot be short-closed' );
             $sanitizer->SetSource( 'a-ha!<ol />' );
-            $this->AssertEquals( 'a-ha!&lt;ol /&gt;', $sanitizer->GetXHTML(), '<ol> cannot be short-closed' );
+            $this->AssertEquals( 'a-ha!', $sanitizer->GetXHTML(), '<ol> cannot be short-closed' );
             $sanitizer->SetSource( 'a-ha!<ul>I want to take you home</ul>' );
-            $this->AssertEquals( 'a-ha!<ul><li>I want to take you home</li></ul>', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be included in <li></li>' );
+            $this->AssertEquals( 'a-ha! I want to take you home', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be unwrapped' );
             $sanitizer->SetSource( '<ul>You\'re taking me over<li>over and over</li>I\'m falling over<li>one more time</li>happy end</ul>' );
             $this->AssertEquals( '<ul><li>You\'re taking me over</li><li>over and over</li><li>I\'m falling over</li><li>one more time</li><li>happy end</li></ul>', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be included in separate <li></li>' );
             $sanitizer->SetSource( '<ul><ul>boo</ul></ul>' ); // --> <ul>boo</ul> --> <ul><li>boo</li></ul>
             $this->AssertEquals( '<ul><li>boo</li></ul>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ul></ul>' );
             $sanitizer->SetSource( '<ul><ol><li>!</li></ol></ul>' );
-            $this->AssertEquals( '<ul><li>!</li></ul>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ol></ol> or <li></li>' );
+            $this->AssertEquals( '<ol><li>!</li></ol>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ol></ol> or <li></li>' );
             $sanitizer->SetSource( '<ul>            <li>The queerest of the queer</li>          </ul>' );
             $this->AssertEquals( '<ul><li>The queerest of the queer</li></ul>', $sanitizer->GetXHTML(), 'Whitespace directly within <ul></ul> should be eliminated' );
             $sanitizer->SetSource( '<uL><LI></lI></UL></UL><ULL><OL><LI>ha!</li><LI ha>mama</li></oL></ull>' );
-            $this->AssertEquals( '<ul><li></li></ul>&lt;UL&gt;<ol><li>ha!</li><li>mama</li></ol>', $sanitizer->GetXHTML(), 'Insane lists should be sanitized' );
+            $this->AssertEquals( '<ol><li>ha!</li><li>mama</li></ol>', $sanitizer->GetXHTML(), 'Insane lists should be sanitized' );
         }
         public function TestTables() {
             $sanitizer = New XHTMLSanitizer();
@@ -492,6 +492,11 @@
             $th = New XHTMLSaneTag( 'th' );
             $tr = New XHTMLSaneTag( 'tr' );
             $td = New XHTMLSaneTag( 'td' );
+            $sanitizer->AllowTag( $table );
+            $sanitizer->AllowTag( $tbody );
+            $sanitizer->AllowTag( $th );
+            $sanitizer->AllowTag( $tr );
+            $sanitizer->AllowTag( $td );
             $sanitizer->SetSource( '<table></table>' );
             $this->AssertEquals( '<table></table>', $sanitizer->GetXHTML(), 'Empty tables should be allowed' );
             $sanitizer->SetSource( '<table><tr><td></td></tr></table>' );
