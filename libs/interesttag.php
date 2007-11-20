@@ -19,10 +19,7 @@
                     WHERE
                         `interesttag_userid` = '" . $usern->Id() . "'
                     ;";
-                    
-            $res = $db->Query( $sql );
-			
-			$tags = array();
+		/*	$tags = array();
 			$prevs = array();
 			$first = false;
 			while ( $row = $res->FetchArray() ) {
@@ -47,7 +44,7 @@
 				}
 
 				$cur = $tags[ $cur->NextId ];
-			} 
+			} */
         }
         else if ( is_string( $usern ) ) {
         	global $users;
@@ -72,14 +69,11 @@
 					WHERE `interesttag_text` = '" . $tagtext ."'
 					LIMIT " . $offset . " , " . $length . "
 					;";
-            
-            $res = $db->Query( $sql );
-            
-            while ( $row = $res->FetchArray() ) {
+        }
+        $res = $db->Query( $sql );
+		while ( $row = $res->FetchArray() ) {
 				$ret[] = new InterestTag( $row );
 			}
-        }
-		
 		return $ret;
     }
 
