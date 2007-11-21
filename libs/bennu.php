@@ -13,6 +13,8 @@
                         * 
                     FROM 
                         `$users` 
+                    WHERE
+                        `user_locked` = 'no'
                     ";
 
             if ( $limit !== false ) {
