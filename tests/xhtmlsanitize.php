@@ -63,13 +63,13 @@
             $this->AssertEquals( '&amp;', $result, 'Invalid entities should be escaped to produce valid XHTML (&;)' );
             $sanitizer->SetSource( '&#18237910392839;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#1823;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be escaped to produce valid XHTML (&#18237910392839;)' );
+            $this->AssertEquals( html_entity_decode( '&#2839;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be escaped to produce valid XHTML (&#18237910392839;)' );
             $sanitizer->SetSource( '&#x112111211;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x1121;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
+            $this->AssertEquals( html_entity_decode( '&#x1211;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#x1121112111;');
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x1121;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
+            $this->AssertEquals( html_entity_decode( '&#x2111;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#xtata;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '', $result, 'Invalid entities should be removed (&#xtata;)' );
@@ -704,7 +704,7 @@
                 . '<td>100</td> </tr> <tr> <td></td> <td>Water-&gt;callstack_dump_lastword()</td> '
                 . '<td>D:\htdocs\__dionyziz.com\lib\water.php</td> <td>117</td> </tr> <tr> <td>'
                 . '</td> <td>Water-&gt;callstack_lastword()</td> <td>D:\htdocs\__dionyziz.com\lib\water.php'
-                . '</td> <td>293</td> </tr> </table></div></div>',
+                . '</td> <td>293</td> </tr> </table> </div>',
                 $sanitizer->GetXHTML(), 'Real world example 2 failed'
             );
         }
@@ -718,7 +718,7 @@
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
             $div = New XHTMLSaneTag( 'div' );
-            $b = New XHTMLSaneTag( 'b' );
+            $strong = New XHTMLSaneTag( 'strong' );
             $br = New XHTMLSaneTag( 'br' );
             $small = New XHTMLSaneTag( 'small' );
             $h2 = New XHTMLSaneTag( 'h2' );
@@ -728,7 +728,7 @@
             $sanitizer->AllowTag( $img );
             $sanitizer->AllowTag( $a );
             $sanitizer->AllowTag( $div );
-            $sanitizer->AllowTag( $b );
+            $sanitizer->AllowTag( $strong );
             $sanitizer->AllowTag( $br );
             $sanitizer->AllowTag( $small );
             $sanitizer->AllowTag( $h2 );
@@ -787,8 +787,8 @@
                 . '</tr> '
                 . '</table> '
                 . '<div> <h2><img src="images/big_orange.png" alt=""/> Orange Juice</h2> '
-                . '<table>'
-                . '<tr><td>'
+                . '<table> '
+                . '<tr> <td> '
                 . '<table> <tr> <td><img src="images/current.png" alt=""/></td> <td>'
                 . 'Now playing: <a href="song.php?id=1020"><strong>Cross me off your list</strong>'
                 . '</a> by <a href="artist.php?a=Hawthorne Heights"><strong>Hawthorne Heights</strong></a>,'
