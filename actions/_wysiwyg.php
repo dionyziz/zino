@@ -62,7 +62,7 @@
         $sanitizer->SetSource( $lookatme->Get() );
         
         header( 'Content-type: text/plain' );
-        echo htmlspecialchars( $sanitizer->GetXHTML() );
+        echo $sanitizer->GetXHTML();
         die();
     }
 ?>
