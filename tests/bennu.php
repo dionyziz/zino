@@ -3,19 +3,19 @@
     global $libs;
     $libs->Load( 'bennu' );
 
-    class RuleTest extends BennuRule {
-        // check TestBennu::TestMethodsExist
-    }
-
     final class TestBennu extends Testcase { 
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Bennu' ), 'Class bennu does not exist' );
             $this->Assert( class_exists( 'BennuRule' ), 'BennuRule class does not exist' );
-            $this->Assert( class_exists( 'BennuSexRule' ), 'Default BennuSexRule class does not exist' );
-            $this->Assert( class_exists( 'BennuAgeRule' ), 'Default BennuAgeRule class does not exist' );
-            $this->Assert( class_exists( 'BennuRegisterRule' ), 'Default BennuRegisterRule class does not exist' );
-            $this->Assert( class_exists( 'BennuRandomRule' ), 'Default BennuRandomRule class does not exist' );
-            // and more default classes..
+
+            $this->Assert( class_exists( 'BennuRuleSex' ), 'Default BennuRuleSex class does not exist' );
+            $this->Assert( class_exists( 'BennuRuleAge' ), 'Default BennuRuleAge class does not exist' );
+            $this->Assert( class_exists( 'BennuRuleCreation' ), 'Default BennuRuleCreation does not exist' );
+            $this->Assert( class_exists( 'BennuRulePhotos' ), 'Default BennuRulePhotos does not exist' );
+            $this->Assert( class_exists( 'BennuRuleLocation' ), 'Default BennuRuleLocation does not exist' );
+            $this->Assert( class_exists( 'BennuRuleFriends' ), 'Default BennuRuleFriends does not exist' );
+            $this->Assert( class_exists( 'BennuRuleLastActive' ), 'Default BennuRuleLastActive class does not exist' );
+            $this->Assert( class_exists( 'BennuRuleRandom' ), 'Default BennuRuleRandom class does not exist' );
         }
         public function TestMethodsExist() {
             $bennu = New Bennu();
@@ -25,12 +25,12 @@
 
             /* methods for extending bennu rule */
 
-            $rule = New RuleTest();
+            $rule = new ReflectionClass( 'BennuRule' );
 
-            $this->Assert( method_exists( $rule, 'NormalDistribution' ), 'BennuRule::NormalDistribution method does not exist' );
-            $this->Assert( method_exists( $rule, 'Random' ), 'BennuRule::Random method does not exist' );
-            $this->Assert( method_exists( $rule, 'Get' ), 'BennuRule::Get method does not exist' );
-            $this->Assert( method_exists( $rule, 'Calculate' ), 'BennuRule::Calculate method does not exist' );
+            $this->Assert( $rule->HasMethod( 'NormalDistribution' ), 'BennuRule::NormalDistribution method does not exist' );
+            $this->Assert( $rule->HasMethod( 'Random' ), 'BennuRule::Random method does not exist' );
+            $this->Assert( $rule->HasMethod( 'Get' ), 'BennuRule::Get method does not exist' );
+            $this->Assert( $rule->HasMethod( 'Calculate' ), 'BennuRule::Calculate method does not exist' );
         }
         public function TestNoRuleBennu() {
             $bennu = New Bennu();
