@@ -66,19 +66,19 @@
             $this->AssertEquals( '&amp;#18237910392839;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#18237910392839;)' );
             $sanitizer->SetSource( '&#x112111211;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#x112111211;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#x112111211;)' );
-            $sanitizer->SetSource( '&#x1121112111;' );
+            $this->AssertEquals( html_entity_decode( '&#x112111211;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
+            $sanitizer->SetSource( '&#x1121112111;');
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#x1121112111;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#x112111211;)' );
+            $this->AssertEquals( html_entity_decode( '&#x1121112111;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#xtata;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#xtata;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#xtata;)' );
+            $this->AssertEquals( '', $result, 'Invalid entities should be removed (&#xtata;)' );
             $sanitizer->SetSource( '&#Xtata;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#Xtata;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#Xtata;)' );
+            $this->AssertEquals( '', $result, 'Invalid entities should be removed (&#Xtata;)' );
             $sanitizer->SetSource( '&#x121;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#x121;', $result, 'Odd length should not be allowed for hexadecimal entities (&#x121;)' );
+            $this->AssertEquals( html_entity_decode( '&#x121;', ENT_COMPAT, 'UTF-8' ), $result, 'Odd length hex entities should be handled normally (&#x121;)' );
             $sanitizer->SetSource( '&#xf00d;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( html_entity_decode( '&#xf00d;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#xf00d;)' );
@@ -640,7 +640,7 @@
                 . '</li> <li><a href="./server_export.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Export</a>'
                 . '</li> <li><a href="./server_import.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Import</a>'
                 . '</li> <li><a href="./index.php?token=7aa66b87fb60c5e787e97aff4d193f1e&amp;old_usr=root"><strong>Log out</strong></a>'
-                . ' </li> </ul> </div>', $sanitizer->GetXHTML(), 'Real world example 1 failed'
+                . '</li> </ul> </div>', $sanitizer->GetXHTML(), 'Real world example 1 failed'
             );
         }
         public function TestRealWorld2() {
@@ -687,22 +687,22 @@
                 . '</td><td class="line">293</td></tr></table></div></div></div>'
             );
             $this->AssertEquals( 
-                  'Connection to MySQL failed:<br/>Access denied for user \'(username)\'@\'localhost\' (using password: YES)'
-                . '<br/><div><div class="watertrace"><table class="callstack"> <tr> <td class="title">revision'
+                  'Connection to MySQL failed:<br/> Access denied for user \'(username)\'@\'localhost\' (using password: YES)'
+                . '<br/> <div class="watertrace"> <table class="callstack"> <tr> <td class="title">revision'
                 . '</td> <td class="title">function</td> <td class="title">source</td> <td class="title">line</td> </tr> <tr> <td class="revision">'
                 . '</td> <td class="function"><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\header.php )</td> '
                 . '<td class="file">D:\htdocs\__dionyziz.com\index.php</td> <td class="line">6</td> </tr> <tr> <td class="revision"></td> '
                 . '<td class="function"><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\lib\db.php )</td> '
                 . '<td class="file">D:\htdocs\__dionyziz.com\header.php</td> <td class="line">12</td> </tr> <tr> <td class="revision">'
-                . '</td> <td class="function">Database-&gt;Authenticate( "(username)" , "(password)" )</td> <td class="file">'
+                . '</td> <td class="function">Database-&gt;Authenticate( &quot;(username)&quot; , &quot;(password)&quot; )</td> <td class="file">'
                 . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td class="line">59</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">w_die( "Connection to MySQL failed:&lt;br..." )</td> <td class="file">'
+                . '<td class="function">w_die( &quot;Connection to MySQL failed:&lt;br...&quot; )</td> <td class="file">'
                 . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td class="line">25</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;ThrowException( "Connection to MySQL failed:&lt;br..." )</td> <td class="file">'
+                . '<td class="function">Water-&gt;ThrowException( &quot;Connection to MySQL failed:&lt;br...&quot; )</td> <td class="file">'
                 . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">28</td> </tr> <tr> <td class="revision"></td> '
                 . '<td class="function">Water-&gt;HandleException( [object] )</td> <td class="file">'
                 . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">37</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;FatalError( "Connection to MySQL failed:<br..." )</td> <td class="file">'
+                . '<td class="function">Water-&gt;FatalError( &quot;Connection to MySQL failed:<br...&quot; )</td> <td class="file">'
                 . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">65</td> </tr> <tr> <td class="revision"></td> '
                 . '<td class="function">Water-&gt;Trace()</td> <td class="file">D:\htdocs\__dionyziz.com\lib\water.php</td> '
                 . '<td class="line">100</td> </tr> <tr> <td class="revision"></td> <td class="function">Water-&gt;callstack_dump_lastword()</td> '
@@ -715,7 +715,6 @@
         public function TestRealWorld3() {
             $sanitizer = New XHTMLSanitizer();
             $table = New XHTMLSaneTag( 'table' );
-            $table->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
             $tr = New XHTMLSaneTag( 'tr' );
             $td = New XHTMLSaneTag( 'td' );
             $img = New XHTMLSaneTag( 'img' );
@@ -781,7 +780,7 @@
                 . 'D:\music</b></td></tr></table><br /></div>'
             );
             $this->AssertEquals(
-                  '<table class="banner"> '
+                  '<table> '
                 . '<tr> '
                 . '<td><img src="music.jpg" alt=""/></td> '
                 . '<td class="ver">'
@@ -789,11 +788,11 @@
                 . '<a href="top.php" class="vl">Favorites</a>'
                 . '<a href="played.php" class="vl">History</a>'
                 . '<a href="equalizer.php" class="vl">Volume</a>'
-                . '<a href="about.php" class="vl">About</a> '
+                . '<a href="about.php" class="vl">About</a>'
                 . '</td> '
                 . '</tr> '
-                . '</table>'
-                . '<div class="maincontent"><h2><img src="images/big_orange.png" alt="" /> Orange Juice</h2>'
+                . '</table> '
+                . '<div> <h2><img src="images/big_orange.png" alt=""/> Orange Juice</h2> '
                 . '<table>'
                 . '<tr><td>'
                 . '<table> <tr> <td><img src="images/current.png" alt=""/></td> <td>'
