@@ -63,13 +63,13 @@
             $this->AssertEquals( '&amp;', $result, 'Invalid entities should be escaped to produce valid XHTML (&;)' );
             $sanitizer->SetSource( '&#18237910392839;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;#18237910392839;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#18237910392839;)' );
+            $this->AssertEquals( html_entity_decode( '&#1823;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be escaped to produce valid XHTML (&#18237910392839;)' );
             $sanitizer->SetSource( '&#x112111211;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x112111211;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
+            $this->AssertEquals( html_entity_decode( '&#x1121;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#x1121112111;');
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x1121112111;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
+            $this->AssertEquals( html_entity_decode( '&#x1121;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#xtata;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '', $result, 'Invalid entities should be removed (&#xtata;)' );
@@ -647,12 +647,8 @@
             $sanitizer = New XHTMLSanitizer();
             $br = New XHTMLSaneTag( 'br' );
             $div = New XHTMLSaneTag( 'div' );
-            $class = New XHTMLSaneAttribute( 'class' );
-            $div->AllowAttribute( $class );
             $table = New XHTMLSaneTag( 'table' );
-            $table->AllowAttribute( $class );
             $td = New XHTMLSaneTag( 'td' );
-            $td->AllowAttribute( $class );
             $tr = New XHTMLSaneTag( 'tr' );
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
@@ -688,27 +684,27 @@
             );
             $this->AssertEquals( 
                   'Connection to MySQL failed:<br/> Access denied for user \'(username)\'@\'localhost\' (using password: YES)'
-                . '<br/> <div class="watertrace"> <table class="callstack"> <tr> <td class="title">revision'
-                . '</td> <td class="title">function</td> <td class="title">source</td> <td class="title">line</td> </tr> <tr> <td class="revision">'
-                . '</td> <td class="function"><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\header.php )</td> '
-                . '<td class="file">D:\htdocs\__dionyziz.com\index.php</td> <td class="line">6</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function"><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\lib\db.php )</td> '
-                . '<td class="file">D:\htdocs\__dionyziz.com\header.php</td> <td class="line">12</td> </tr> <tr> <td class="revision">'
-                . '</td> <td class="function">Database-&gt;Authenticate( &quot;(username)&quot; , &quot;(password)&quot; )</td> <td class="file">'
-                . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td class="line">59</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">w_die( &quot;Connection to MySQL failed:&lt;br...&quot; )</td> <td class="file">'
-                . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td class="line">25</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;ThrowException( &quot;Connection to MySQL failed:&lt;br...&quot; )</td> <td class="file">'
-                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">28</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;HandleException( [object] )</td> <td class="file">'
-                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">37</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;FatalError( &quot;Connection to MySQL failed:<br...&quot; )</td> <td class="file">'
-                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">65</td> </tr> <tr> <td class="revision"></td> '
-                . '<td class="function">Water-&gt;Trace()</td> <td class="file">D:\htdocs\__dionyziz.com\lib\water.php</td> '
-                . '<td class="line">100</td> </tr> <tr> <td class="revision"></td> <td class="function">Water-&gt;callstack_dump_lastword()</td> '
-                . '<td class="file">D:\htdocs\__dionyziz.com\lib\water.php</td> <td class="line">117</td> </tr> <tr> <td class="revision">'
-                . '</td> <td class="function">Water-&gt;callstack_lastword()</td> <td class="file">D:\htdocs\__dionyziz.com\lib\water.php'
-                . '</td> <td class="line">293</td> </tr> </table></div></div>&lt;/div&gt;',
+                . '<br/> <div> <table> <tr> <td>revision'
+                . '</td> <td>function</td> <td>source</td> <td>line</td> </tr> <tr> <td>'
+                . '</td> <td><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\header.php )</td> '
+                . '<td>D:\htdocs\__dionyziz.com\index.php</td> <td>6</td> </tr> <tr> <td></td> '
+                . '<td><a href="http://www.php.net/include">include</a>( D:\htdocs\__dionyziz.com\lib\db.php )</td> '
+                . '<td>D:\htdocs\__dionyziz.com\header.php</td> <td>12</td> </tr> <tr> <td>'
+                . '</td> <td>Database-&gt;Authenticate( &quot;(username)&quot; , &quot;(password)&quot; )</td> <td>'
+                . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td>59</td> </tr> <tr> <td></td> '
+                . '<td>w_die( &quot;Connection to MySQL failed:</td> <td>'
+                . 'D:\htdocs\__dionyziz.com\lib\db.php</td> <td>25</td> </tr> <tr> <td></td> '
+                . '<td>Water-&gt;ThrowException( &quot;Connection to MySQL failed:</td> <td>'
+                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td>28</td> </tr> <tr> <td></td> '
+                . '<td>Water-&gt;HandleException( [object] )</td> <td>'
+                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td>37</td> </tr> <tr> <td></td> '
+                . '<td>Water-&gt;FatalError( &quot;Connection to MySQL failed:</td> <td>'
+                . 'D:\htdocs\__dionyziz.com\lib\water.php</td> <td>65</td> </tr> <tr> <td></td> '
+                . '<td>Water-&gt;Trace()</td> <td>D:\htdocs\__dionyziz.com\lib\water.php</td> '
+                . '<td>100</td> </tr> <tr> <td></td> <td>Water-&gt;callstack_dump_lastword()</td> '
+                . '<td>D:\htdocs\__dionyziz.com\lib\water.php</td> <td>117</td> </tr> <tr> <td>'
+                . '</td> <td>Water-&gt;callstack_lastword()</td> <td>D:\htdocs\__dionyziz.com\lib\water.php'
+                . '</td> <td>293</td> </tr> </table></div></div>',
                 $sanitizer->GetXHTML(), 'Real world example 2 failed'
             );
         }
@@ -721,9 +717,7 @@
             $img->AllowAttribute( New XHTMLSaneAttribute( 'src' ) );
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
-            $a->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
             $div = New XHTMLSaneTag( 'div' );
-            $div->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
             $b = New XHTMLSaneTag( 'b' );
             $br = New XHTMLSaneTag( 'br' );
             $small = New XHTMLSaneTag( 'small' );
@@ -783,12 +777,12 @@
                   '<table> '
                 . '<tr> '
                 . '<td><img src="music.jpg" alt=""/></td> '
-                . '<td class="ver">'
-                . '<a href="index.php" class="vll">Home</a>'
-                . '<a href="top.php" class="vl">Favorites</a>'
-                . '<a href="played.php" class="vl">History</a>'
-                . '<a href="equalizer.php" class="vl">Volume</a>'
-                . '<a href="about.php" class="vl">About</a>'
+                . '<td>'
+                . '<a href="index.php">Home</a>'
+                . '<a href="top.php">Favorites</a>'
+                . '<a href="played.php">History</a>'
+                . '<a href="equalizer.php">Volume</a>'
+                . '<a href="about.php">About</a>'
                 . '</td> '
                 . '</tr> '
                 . '</table> '
