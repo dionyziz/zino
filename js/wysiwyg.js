@@ -77,6 +77,7 @@ var WYSIWYG = {
             };
         }( scfield, doc );
         which.style.backgroundColor = 'white';
+        WYSIWYG.Focus( which );
     }
 };
 
