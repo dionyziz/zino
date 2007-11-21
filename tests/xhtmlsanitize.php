@@ -173,7 +173,7 @@
             $sanitizer->SetSource( 'Hello <b><em><b>world!' );
             $this->AssertEquals( 'Hello <strong>world!</strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested and contain disallowed tags; nested strongs should be merged' );
             $sanitizer->SetSource( 'Hello <b><b>world</b>!' );
-            $this->AssertEquals( 'Hello <strong>world!</strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested; nested strongs should be merged' );
+            $this->AssertEquals( 'Hello <strong><strong>world!</strong></strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'br' ) );
             $sanitizer->SetSource( '<br/>' );
@@ -259,18 +259,18 @@
             $sanitizer = New XHTMLSanitizer();
             $sanitizer->AllowTag( New XHTMLSaneTag( 'div' ) );
             $sanitizer->AllowTag( New XHTMLSaneTag( 'span' ) );
-            $sanitizer->SetSource( '<span></span>' );
+            $sanitizer->SetSource( '<span>ho</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span></span>', $result, 'Allowed tags should remain at place even when empty' );
-            $sanitizer->SetSource( '<div><span></span></div>' );
+            $this->AssertEquals( '<span>ho</span>', $result, 'Allowed tags should remain at place even when empty' );
+            $sanitizer->SetSource( '<div><span>ho</span></div>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<div><span></span></div>', $result, 'Span within div is allowed' );
-            $sanitizer->SetSource( '<span><div></div></span>' );
+            $this->AssertEquals( '<div><span>ho</span></div>', $result, 'Span within div is allowed' );
+            $sanitizer->SetSource( '<span><div>ho</div></span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span></span>', $result, 'Div within spam is not allowed (block in inline)' );
-            $sanitizer->SetSource( '<div>Hello <span>my</span> friend</div>' );
+            $this->AssertEquals( '<span>ho</span>', $result, 'Div within spam is not allowed (block in inline)' );
+            $sanitizer->SetSource( '<span>Hello <div>my</div> friend</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<div>Hello my friend</div>', $result, 'Span within div consumption should preserve content' );
+            $this->AssertEquals( '<span>Hello my friend</span>', $result, 'Div within span consumption should preserve content' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'form' ) );
             $sanitizer->SetSource( '<span><form>Ye<span>aa</span>ah</form></span>' );
