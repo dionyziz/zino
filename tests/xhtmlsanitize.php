@@ -500,13 +500,13 @@
             $sanitizer->SetSource( '<table><tr><td>I</td><td>bet</td><td>you</td><td>\'d</td><td>die</td><td>to</td></tr><tr><td>garbage</td><td>I think</td><td>I\'m</td><td>paranoid</td></tr></table>' );
             $this->AssertEquals( '<table><tr><td>I</td><td>bet</td><td>you</td><td>\'d</td><td>die</td><td>to</td></tr><tr><td>garbage</td><td>I think</td><td>I\'m</td><td>paranoid</td></tr></table>', $sanitizer->GetXHTML(), 'Simple tables should be preserved' );
             $sanitizer->SetSource( '<table><tr>ha!</tr></table>' );
-            $this->AssertEquals( '<table><tr><td>ha!</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be <td>\'d' );
+            $this->AssertEquals( 'ha! <table><tr><td></td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped; the table should be preserved' );
             $sanitizer->SetSource( '<table><tr>ha!<td>need</td>me</tr></table>' );
-            $this->AssertEquals( '<table><tr><td>ha!</td><td>need</td><td>me</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be <td>\'d even when other <td>s are present' );
+            $this->AssertEquals( 'ha!me <table><tr><td>need</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped even when other <td>s are present, leaving those intact' );
             $sanitizer->SetSource( '<table>sup!</table>' ); // <table>sup!</table> --> <table><tr>sup!</tr></table> --> <table><tr><td>sup!</td></tr></table>
             $this->AssertEquals( 'sup!', $sanitizer->GetXHTML(), 'Content directly wrapped within <table> must be unwrapped' );
             $sanitizer->SetSource( '<table>har har <tr>ha!<td>need</td>me</tr> bwahhhah</table>' );
-            $this->AssertEquals( '<table><tr><td>har har</tr><tr><td>ha!<td>need</td><td>me</td></tr><tr><td>bwahhhah</td></tr></table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
+            $this->AssertEquals( 'har har ha!mebwahhhah <table><tr><td>need</td></tr></table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
             $this->AssertEquals( '<table><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
