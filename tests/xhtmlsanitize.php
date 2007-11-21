@@ -386,21 +386,21 @@
             $sanitizer->SetSource( '<span class=>by the way</span>' );
             $this->AssertEquals( '<span>by the way</span>', $sanitizer->GetXHTML(), 'Attributes with no values should be removed even when equal sign is present' );
             $sanitizer->SetSource( '<span class=haha>by the way</span>' );
-            $this->AssertEquals( '<span>by the way</span>', $sanitizer->GetXHTML(), 'Attributes with unquoted values should be removed' );
+            $this->AssertEquals( '<span class="haha">by the way</span>', $sanitizer->GetXHTML(), 'Attributes with unquoted values should be quoted' );
             $sanitizer->SetSource( '<span class=haha hoho>by the way</span>' );
-            $this->AssertEquals( '<span>by the way</span>', $sanitizer->GetXHTML(), 'Attributes with unquoted values should be removed when other invalid attributes are present' );
+            $this->AssertEquals( '<span class="haha">by the way</span>', $sanitizer->GetXHTML(), 'Attributes with unquoted values should be quoted when other invalid attributes are present' );
             $sanitizer->SetSource( '<span class title="hehe">by the way</span>' );
-            $this->AssertEquals( '<span title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with no values are removed' );
+            $this->AssertEquals( '<span class="title=&quot;hehe&quot;">by the way</span>', $sanitizer->GetXHTML(), 'Invalid attributes stress-test' );
             $sanitizer->SetSource( '<span class= title="hehe">by the way</span>' );
             $this->AssertEquals( '<span title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with no values including the equals sign are removed' );
             $sanitizer->SetSource( '<span class=bwahah title="hehe">by the way</span>' );
-            $this->AssertEquals( '<span title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with unquotes values are removed' );
+            $this->AssertEquals( '<span class="bwahah" title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with unquotes values are quoted' );
             $sanitizer->SetSource( '<span class=bwahah title="hehe>by the way</span>">aahahah</span>' );
-            $this->AssertEquals( '<span title="hehe&gt;by the way&lt;/span&gt;">aahahah</span>', $sanitizer->GetXHTML(), 'All attribute values should be escaped when within double quotation marks' );
+            $this->AssertEquals( '<span class="bwahah" title="hehe&gt;by the way&lt;/span&gt;">aahahah</span>', $sanitizer->GetXHTML(), 'All attribute values should be escaped when within double quotation marks' );
             $sanitizer->SetSource( '<span class="bwahah" class="omg">aahahah</span>' );
-            $this->AssertEquals( '<span class="omg">aahahah</span>', $sanitizer->GetXHTML(), 'Only the last occurence of a repeated tag should be preserved; appropriate notices should be raised for previous occurences (two repetitions)' );
+            $this->AssertEquals( '<span class="bwahah omg">aahahah</span>', $sanitizer->GetXHTML(), 'Only the last occurence of a repeated tag should be preserved; classes should be merged' );
             $sanitizer->SetSource( '<span class="" class="bwahah" class="omg" title="" class="hello">aahahah</span>' );
-            $this->AssertEquals( '<span title="" class="omg">aahahah</span>', $sanitizer->GetXHTML(), 'Only the last occurence of a repeated tag should be preserved; appropriate notices should be raised for previous occurences (five repetitions)' );
+            $this->AssertEquals( '<span class="bwahah omg hello">aahahah</span>', $sanitizer->GetXHTML(), 'Classes should be merged (five repetitions)' );
         }
         public function TestInsecureAttributes() {
             $sanitizer = New XHTMLSanitizer();
