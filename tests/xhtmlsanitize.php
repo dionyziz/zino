@@ -61,15 +61,6 @@
             $sanitizer->SetSource( '&;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '&amp;', $result, 'Invalid entities should be escaped to produce valid XHTML (&;)' );
-            $sanitizer->SetSource( '&#18237910392839;' );
-            $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#2839;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be escaped to produce valid XHTML (&#18237910392839;)' );
-            $sanitizer->SetSource( '&#x112111211;' );
-            $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x1211;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
-            $sanitizer->SetSource( '&#x1121112111;');
-            $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&#x2111;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid big entities should be converted to UTF-8 (&#x112111211;)' );
             $sanitizer->SetSource( '&#xtata;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '', $result, 'Invalid entities should be removed (&#xtata;)' );
@@ -791,28 +782,28 @@
                 . '<tr> <td> '
                 . '<table> <tr> <td><img src="images/current.png" alt=""/></td> <td>'
                 . 'Now playing: <a href="song.php?id=1020"><strong>Cross me off your list</strong>'
-                . '</a> by <a href="artist.php?a=Hawthorne Heights"><strong>Hawthorne Heights</strong></a>,'
+                . '</a> by <a href="artist.php?a=Hawthorne%20Heights"><strong>Hawthorne Heights</strong></a>,'
                 . '<small><a href="song.php?id=1020#lyrics">Lyrics</a></small></td> '
-                . '</tr> </table></td> </tr> <tr> <td><table> <tr> <td><img src="images/pause.png" alt=""/>'
-                . '</td> <td><strong><a href="pause.php">Pause</a></strong></td><td></td><td>'
-                . '<img src="images/replay.png" /></td><td><strong><a href="play.php?id=1020">Replay</a></strong>'
-                . '</td><td /><td><img src="images/next.png" alt=""/></td> <td><strong><a href="next.php">'
-                . 'Next</a></strong></td> </tr> </table>'
-                . '</td> </tr> </table><br/><table> <tr> <td><img src="images/lock.png" alt=""/>'
-                . '</td> <td><strong>Locked to <a href="artist.php?a=Hawthorne Heights">Hawthorne Heights'
+                . '</tr> </table> </td> </tr> <tr> <td><table> <tr> <td><img src="images/pause.png" alt=""/>'
+                . '</td> <td><strong><a href="pause.php">Pause</a></strong></td> <td></td> <td>'
+                . '<img src="images/replay.png" alt=""/></td><td><strong><a href="play.php?id=1020">Replay</a></strong>'
+                . '</td> <td></td> <td><img src="images/next.png" alt=""/></td> <td><strong><a href="next.php">'
+                . 'Next</a></strong></td> </tr> </table> '
+                . '</td> </tr> </table> <br/> <table> <tr> <td><img src="images/lock.png" alt=""/>'
+                . '</td> <td><strong>Locked to <a href="artist.php?a=Hawthorne%20Heights">Hawthorne Heights'
                 . '</a></strong></td> <td><img src="images/dounlock.png" alt=""/></td> <td><a href="lock.php">'
-                . 'Unlock</a></td> </tr> </table><br/>Songs in library: <strong>1093</strong>, <small>'
-                . '181 of which contain lyrics.</small><br/><br/><table> <tr> <td>'
+                . 'Unlock</a></td> </tr> </table> <br/> Songs in library: <strong>1093</strong>, <small>'
+                . '181 of which contain lyrics.</small><br/> <br/> <table> <tr> <td>'
                 . '<img src="images/fav.png" alt=""/></td> <td><a href="top.php">Favorite Songs</a>'
-                . '</td> </tr> </table>'
+                . '</td> </tr> </table> '
                 . '<table> <tr> <td><img src="images/history.png" alt=""/></td> <td><a href="played.php">'
-                . 'History</a></td> </tr> </table><table> <tr> <td><img src="images/uptime.png"/>'
-                . '</td><td>Uptime: <b>151 days 20 hours 5 minutes and 57 seconds</b></td> </tr>'
-                . ' </table><br/>'
+                . 'History</a></td> </tr> </table> <table> <tr> <td><img src="images/uptime.png" alt=""/>'
+                . '</td> <td>Uptime: <strong>151 days 20 hours 5 minutes and 57 seconds</strong></td> </tr>'
+                . ' </table> <br/> '
                 . '<table> <tr> <td><img src="images/update.png" alt=""/></td> <td><a href="clean_up.php">'
-                . 'Update Library</a></td> </tr> </table>'
-                . '<table> <tr> <td><img src="images/root.png" alt=""/></td> <td>Music Root: </td> <td><b>'
-                . 'D:\music</b></td> </tr> </table><br /></div>',
+                . 'Update Library</a></td> </tr> </table> '
+                . '<table> <tr> <td><img src="images/root.png" alt=""/></td> <td>Music Root: </td> <td><strong>'
+                . 'D:\music</strong></td> </tr> </table> <br/> </div>',
                 $sanitizer->GetXHTML(), 'Real world example 3 failed'
             );
         }
