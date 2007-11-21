@@ -169,6 +169,8 @@
             return $url;
         }
         private function XMLOuterHTML( XMLNode $root ) {
+            global $xhtmlsanitizer_noautoclose;
+            
             if ( !isset( $this->mAllowedTags[ $root->nodeName ] ) ) {
                 return $this->XMLInnerHTML( $root );
             }
