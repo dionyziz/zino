@@ -150,7 +150,7 @@
             $this->AssertEquals( '<strong>Hello</strong> <strong>world</strong>!', $result, 'Simple use of two defined tag should be allowed' );
             $sanitizer->SetSource( '<b>Hello </b><b>world</b>!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<strong>Hello </strong><strong>world</strong>!', $result, 'Simple use of whitespace within defined tags should be allowed' );
+            $this->AssertEquals( '<strong>Hello</strong> <strong>world</strong>!', $result, 'Simple use of whitespace within defined tags should be allowed' );
         }
         public function TestCapitalizedTags() {
             $sanitizer = New XHTMLSanitizer();
@@ -171,9 +171,9 @@
             $sanitizer->SetSource( 'Hello <em>world!' );
             $this->AssertEquals( 'Hello world!', $sanitizer->GetXHTML(), 'Disallowed tags should not auto-close' );
             $sanitizer->SetSource( 'Hello <b><em><b>world!' );
-            $this->AssertEquals( 'Hello <strong>world!</strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested and contain disallowed tags; nested strongs should be merged' );
+            $this->AssertEquals( 'Hello <strong><strong>world!</strong></strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested and contain disallowed tags (merging optional)' );
             $sanitizer->SetSource( 'Hello <b><b>world</b>!' );
-            $this->AssertEquals( 'Hello <strong><strong>world!</strong></strong>', $sanitizer->GetXHTML(), 'Allowed tags should auto-close when nested' );
+            $this->AssertEquals( 'Hello <strong>world!</strong>', $sanitizer->GetXHTML(), 'Empty strong within strong should be removed' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'br' ) );
             $sanitizer->SetSource( '<br/>' );
@@ -270,7 +270,7 @@
             $this->AssertEquals( '<div><span>ho</span></div>', $result, 'Div within spam is not allowed (block in inline)' );
             $sanitizer->SetSource( '<span>Hello <div>my</div> friend</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span>Hello</span><div><span>my</span></div> friend', $result, 'Div within span consumption should preserve content' );
+            $this->AssertEquals( '<span>Hello</span> <div><span>my</span></div> friend', $result, 'Div within span consumption should preserve content' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'form' ) );
             $sanitizer->SetSource( '<span><form>Ye<span>aa</span>ah</form></span>' );
@@ -390,9 +390,9 @@
             $sanitizer->SetSource( '<span class=haha hoho>by the way</span>' );
             $this->AssertEquals( '<span class="haha">by the way</span>', $sanitizer->GetXHTML(), 'Attributes with unquoted values should be quoted when other invalid attributes are present' );
             $sanitizer->SetSource( '<span class title="hehe">by the way</span>' );
-            $this->AssertEquals( '<span class="title=&quot;hehe&quot;">by the way</span>', $sanitizer->GetXHTML(), 'Invalid attributes stress-test' );
+            $this->AssertEquals( '<span title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Invalid attributes (just name and no value) should be removed when other valid attributes are present' );
             $sanitizer->SetSource( '<span class= title="hehe">by the way</span>' );
-            $this->AssertEquals( '<span title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with no values including the equals sign are removed' );
+            $this->AssertEquals( '<span class="title=&quot;hehe&quot;">by the way</span>', $sanitizer->GetXHTML(), 'Attributes stress-test' );
             $sanitizer->SetSource( '<span class=bwahah title="hehe">by the way</span>' );
             $this->AssertEquals( '<span class="bwahah" title="hehe">by the way</span>', $sanitizer->GetXHTML(), 'Valid attributes should be preserved when attributes with unquotes values are quoted' );
             $sanitizer->SetSource( '<span class=bwahah title="hehe>by the way</span>">aahahah</span>' );
@@ -473,15 +473,15 @@
             $sanitizer->SetSource( 'a-ha!<ul>I want to take you home</ul>' );
             $this->AssertEquals( 'a-ha! I want to take you home', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be unwrapped' );
             $sanitizer->SetSource( '<ul>You\'re taking me over<li>over and over</li>I\'m falling over<li>one more time</li>happy end</ul>' );
-            $this->AssertEquals( '<ul><li>You\'re taking me over</li><li>over and over</li><li>I\'m falling over</li><li>one more time</li><li>happy end</li></ul>', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be included in separate <li></li>' );
+            $this->AssertEquals( '<ul> <li>You\'re taking me over</li> <li>over and over</li> <li>I\'m falling over</li> <li>one more time</li> <li>happy end</li> </ul>', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be included in separate <li></li>' );
             $sanitizer->SetSource( '<ul><ul>boo</ul></ul>' ); // --> <ul>boo</ul> --> <ul><li>boo</li></ul>
             $this->AssertEquals( 'boo', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ul></ul>' );
             $sanitizer->SetSource( '<ul><ol><li>!</li></ol></ul>' );
-            $this->AssertEquals( '<ol><li>!</li></ol>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ol></ol> or <li></li>' );
+            $this->AssertEquals( '<ol> <li>!</li> </ol>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ol></ol> or <li></li>' );
             $sanitizer->SetSource( '<ul>            <li>The queerest of the queer</li>          </ul>' );
-            $this->AssertEquals( '<ul><li>The queerest of the queer</li></ul>', $sanitizer->GetXHTML(), 'Whitespace directly within <ul></ul> should be eliminated' );
+            $this->AssertEquals( '<ul> <li>The queerest of the queer</li> </ul>', $sanitizer->GetXHTML(), 'Whitespace directly within <ul></ul> should be eliminated' );
             $sanitizer->SetSource( '<uL><LI></lI></UL></UL><ULL><OL><LI>ha!</li><LI ha>mama</li></oL></ull>' );
-            $this->AssertEquals( '<ol><li>ha!</li><li>mama</li></ol>', $sanitizer->GetXHTML(), 'Insane lists should be sanitized' );
+            $this->AssertEquals( '<ol> <li>ha!</li> <li>mama</li> </ol>', $sanitizer->GetXHTML(), 'Insane lists should be sanitized' );
         }
         public function TestTables() {
             $sanitizer = New XHTMLSanitizer();
@@ -498,19 +498,19 @@
             $sanitizer->SetSource( '<table></table>' );
             $this->AssertEquals( '', $sanitizer->GetXHTML(), 'Empty tables should be truncated' );
             $sanitizer->SetSource( '<table><tr><td></td></tr></table>' );
-            $this->AssertEquals( '<table><tr><td></td></tr></table>', $sanitizer->GetXHTML(), 'Tables with one empty cell should be allowed' );
+            $this->AssertEquals( '<table> <tr> <td></td> </tr> </table>', $sanitizer->GetXHTML(), 'Tables with one empty cell should be allowed' );
             $sanitizer->SetSource( '<table><tr><td>I</td><td>bet</td><td>you</td><td>\'d</td><td>die</td><td>to</td></tr><tr><td>garbage</td><td>I think</td><td>I\'m</td><td>paranoid</td></tr></table>' );
-            $this->AssertEquals( '<table><tr><td>I</td><td>bet</td><td>you</td><td>\'d</td><td>die</td><td>to</td></tr><tr><td>garbage</td><td>I think</td><td>I\'m</td><td>paranoid</td></tr></table>', $sanitizer->GetXHTML(), 'Simple tables should be preserved' );
+            $this->AssertEquals( '<table> <tr> <td>I</td> <td>bet</td> <td>you</td> <td>\'d</td> <td>die</td> <td>to</td> </tr> <tr> <td>garbage</td> <td>I think</td> <td>I\'m</td> <td>paranoid</td> </tr> </table>', $sanitizer->GetXHTML(), 'Simple tables should be preserved' );
             $sanitizer->SetSource( '<table><tr>ha!</tr></table>' );
-            $this->AssertEquals( 'ha! <table><tr><td></td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped; the table should be preserved' );
+            $this->AssertEquals( 'ha! <table> <tr> <td></td> </tr> </table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped; the table should be preserved' );
             $sanitizer->SetSource( '<table><tr>ha!<td>need</td>me</tr></table>' );
-            $this->AssertEquals( 'ha!me <table><tr><td>need</td></tr></table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped even when other <td>s are present, leaving those intact' );
+            $this->AssertEquals( 'ha!me <table> <tr> <td>need</td> </tr> </table>', $sanitizer->GetXHTML(), 'Content directly wrapped within <tr> should be unwrapped even when other <td>s are present, leaving those intact' );
             $sanitizer->SetSource( '<table>sup!</table>' ); // <table>sup!</table> --> <table><tr>sup!</tr></table> --> <table><tr><td>sup!</td></tr></table>
             $this->AssertEquals( 'sup!', $sanitizer->GetXHTML(), 'Content directly wrapped within <table> must be unwrapped' );
             $sanitizer->SetSource( '<table>har har <tr>ha!<td>need</td>me</tr> bwahhhah</table>' );
-            $this->AssertEquals( 'har har ha!mebwahhhah <table><tr><td>need</td></tr></table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
+            $this->AssertEquals( 'har har ha!mebwahhhah <table> <tr> <td>need</td> </tr> </table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
-            $this->AssertEquals( '<table><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
+            $this->AssertEquals( '<table> <tr> <td>vampires</td> <td>will</td> <td>never</td> <td>hurt</td> </tr> <tr> <td>you</td> </tr> </table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
         public function TestUTF8() {
             $sanitizer = New XHTMLSanitizer();
