@@ -1,5 +1,5 @@
 <?php
-    function ElementWYSIWYG( $name , $text = '' , $width = '100%' , $height = '300px' ) {
+    function ElementWYSIWYG( $name , $text = '' , $focus = true, $width = '100%' , $height = '300px' ) {
         global $page;
         
         w_assert( preg_match( '#^[a-z][a-z0-9]*$#' , $name ) );
