@@ -419,7 +419,7 @@
             $sanitizer->AllowTag( $img );
             $sanitizer->SetSource( '<img src="/images/big_orange.png" />' );
             $this->AssertEquals( 
-                '<img src="/images/big_orange.png" alt="" />',
+                '<img src="/images/big_orange.png" alt=""/>',
                 $sanitizer->GetXHTML(), 'Mandatory attributes (alt in img) should be filled-in when non-existent'
             );
             $sanitizer = New XHTMLSanitizer();
@@ -446,9 +446,9 @@
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"></img>' );
             $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Verbosely closed contentless tags should be converted to short-closed tags and preserved' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">bwahahah</img>' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Content within contentless tags should be dismissed' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>bwahahah', $sanitizer->GetXHTML(), 'Content within contentless tags should be unwrapped' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">bw<span>aha</span>hah</img>' );
-            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Content and other tags within contentless tags should be dismissed' );
+            $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>bw<span>aha</span>hah', $sanitizer->GetXHTML(), 'Content and other tags within contentless tags should be unwrapped' );
             $sanitizer->SetSource( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe">' );
             $this->AssertEquals( '<img src="http://www.google.com/someimage.jpg" alt="haha" title="hehe"/>', $sanitizer->GetXHTML(), 'Contentless tags should be auto-closed shortly' );
         }
@@ -473,7 +473,7 @@
             $sanitizer->SetSource( '<ul>You\'re taking me over<li>over and over</li>I\'m falling over<li>one more time</li>happy end</ul>' );
             $this->AssertEquals( '<ul><li>You\'re taking me over</li><li>over and over</li><li>I\'m falling over</li><li>one more time</li><li>happy end</li></ul>', $sanitizer->GetXHTML(), 'Text directly wrapped within <ul></ul> must be included in separate <li></li>' );
             $sanitizer->SetSource( '<ul><ul>boo</ul></ul>' ); // --> <ul>boo</ul> --> <ul><li>boo</li></ul>
-            $this->AssertEquals( '<ul><li>boo</li></ul>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ul></ul>' );
+            $this->AssertEquals( 'boo', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ul></ul>' );
             $sanitizer->SetSource( '<ul><ol><li>!</li></ol></ul>' );
             $this->AssertEquals( '<ol><li>!</li></ol>', $sanitizer->GetXHTML(), '<ul></ul> cannot contain subsequent <ol></ol> or <li></li>' );
             $sanitizer->SetSource( '<ul>            <li>The queerest of the queer</li>          </ul>' );
