@@ -39,8 +39,13 @@ var WYSIWYG = {
             alert( 'WYSIWYG is not supported by your browser' );
             return;
         }
+        var entrytext = '';
+        if ( which.previousSibling.firstChild !== null ) {
+            entrytext = which.previousSibling.firstChild.nodeValue;
+        }
         try {
             WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
+            doc.body.innerHTML = entrytext;
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
@@ -49,13 +54,6 @@ var WYSIWYG = {
             return;
         }
         
-        if ( which.previousSibling.firstChild !== null ) {
-            var entrytext = which.previousSibling.firstChild.nodeValue;
-        }
-        else {
-            var entrytext = '';
-        }
-        doc.body.innerHTML = entrytext;
         var frm = which;
         while (frm.nodeName.toLowerCase() != 'form') {
             frm = frm.parentNode;
