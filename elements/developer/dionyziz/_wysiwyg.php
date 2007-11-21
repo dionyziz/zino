@@ -1,5 +1,5 @@
 <?php
     function ElementDeveloperDionyzizWYSIWYG() {
-        Element( 'wysiwyg' );
+        Element( 'wysiwyg', 'lookatme' );
     }
 ?>
