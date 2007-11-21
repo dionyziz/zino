@@ -3,7 +3,7 @@ var WYSIWYG = {
         which.style.backgroundColor = '#ccc';
         setTimeout( function () {
             WYSIWYG.CreateReal( which, fieldname );
-        } , 1000 );
+        } , 100 );
     },
     GetDocument: function ( iframe ) {
         if ( iframe.contentWindow ) {
@@ -16,6 +16,10 @@ var WYSIWYG = {
     },
     ByName: [],
     Focus: function ( which ) {
+        setTimeout( function() {
+            which.contentWindow.focus()
+        }, 100 );
+        /*
 	    var editdoc     = WYSIWYG.GetDocument( which );             // get iframe editor document object
 	    var editorRange = editdoc.body.createTextRange();           // editor range
 	    var curRange    = editdoc.selection.createRange();          // selection range
@@ -26,6 +30,7 @@ var WYSIWYG = {
 	      editorRange.select();                                        // select
 	      curRange = editorRange;
 	    }
+        */
     },
     CreateReal: function ( which, fieldname ) {
         var doc = WYSIWYG.GetDocument( which );
@@ -34,6 +39,16 @@ var WYSIWYG = {
             alert( 'WYSIWYG is not supported by your browser' );
             return;
         }
+        try {
+            WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
+        }
+        catch ( e ) { // not ready yet, retry in another 100ms
+            setTimeout( function () {
+                CreateReal( which, fieldname )
+            }, 100 );
+            return;
+        }
+        
         if ( which.previousSibling.firstChild !== null ) {
             var entrytext = which.previousSibling.firstChild.nodeValue;
         }
@@ -41,7 +56,6 @@ var WYSIWYG = {
             var entrytext = '';
         }
         doc.body.innerHTML = entrytext;
-        WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
         var frm = which;
         while (frm.nodeName.toLowerCase() != 'form') {
             frm = frm.parentNode;
