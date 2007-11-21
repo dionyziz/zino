@@ -37,8 +37,9 @@
         }
         public function Exclude( $user ) {
             w_assert( $user instanceof User );
-
-            unset( $this->mUsers[ $user ] );
+            
+            $pos = array_search( $user, $this->mUsers );
+            array_merge( array_slice( $this->mUsers, 0, $pos - 1 ), array_slice( $this->mUsers, $pos + 1, count( $this->mUsers ) ) );
         }
         public function Get( $limit ) {
             foreach ( $this->mUsers as $user ) {
