@@ -267,10 +267,10 @@
             $this->AssertEquals( '<div><span>ho</span></div>', $result, 'Span within div is allowed' );
             $sanitizer->SetSource( '<span><div>ho</div></span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span>ho</span>', $result, 'Div within spam is not allowed (block in inline)' );
+            $this->AssertEquals( '<div><span>ho</span></div>', $result, 'Div within spam is not allowed (block in inline)' );
             $sanitizer->SetSource( '<span>Hello <div>my</div> friend</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span>Hello my friend</span>', $result, 'Div within span consumption should preserve content' );
+            $this->AssertEquals( '<span>Hello</span><div><span>my</span></div> friend', $result, 'Div within span consumption should preserve content' );
             
             $sanitizer->AllowTag( New XHTMLSaneTag( 'form' ) );
             $sanitizer->SetSource( '<span><form>Ye<span>aa</span>ah</form></span>' );
@@ -309,10 +309,10 @@
             $this->AssertEquals( '<span class="standing">by the way</span>', $result, 'Attributes explicitly declared within allowed tags should remain unchanged' );
             $sanitizer->SetSource( '<span class="">by the way</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span class="">by the way</span>', $result, 'Allowed attributes should remain unchanged even when empty' );
+            $this->AssertEquals( '<span>by the way</span>', $result, 'Allowed attributes be removed when empty' );
             $sanitizer->SetSource( '<span class="" title="">by the way</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span class="">by the way</span>', $result, 'Allowed attributes should remain unchanged even when empty' );
+            $this->AssertEquals( '<span>by the way</span>', $result, 'Allowed attributes should be removed even when empty (with invalid attributes present)' );
             $sanitizer->SetSource( '<span class="two classes">by the way</span>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<span class="two classes">by the way</span>', $result, 'Spaces should be preserved within attribute values' );
