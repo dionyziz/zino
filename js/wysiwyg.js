@@ -15,6 +15,18 @@ var WYSIWYG = {
         return false;
     },
     ByName: [],
+    Focus: function ( which ) {
+	    var editdoc     = WYSIWYG.GetDocument( which );             // get iframe editor document object
+	    var editorRange = editdoc.body.createTextRange();           // editor range
+	    var curRange    = editdoc.selection.createRange();          // selection range
+ 
+	    if (curRange.length == null && !editorRange.inRange(curRange)) { // make sure it's not a controlRange
+          // is selection in editor range
+	      editorRange.collapse();                                      // move to start of range
+	      editorRange.select();                                        // select
+	      curRange = editorRange;
+	    }
+    },
     CreateReal: function ( which, fieldname ) {
         var doc = WYSIWYG.GetDocument( which );
         
