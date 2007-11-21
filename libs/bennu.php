@@ -103,7 +103,7 @@
             $this->NormalDistribution( $value );
         }
         public function Get( $user ) {
-            return $this->Calculate( UserValue( $user ) );
+            return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
         }
