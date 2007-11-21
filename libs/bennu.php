@@ -51,6 +51,7 @@
             }
 
             array_multisort( $this->mUsers, $this->mScores );
+            w_assert( count( $this->mUsers ) === count( $this->mScores ) );
 
             return array_slice( $this->mUsers, 0, $limit );
         }
