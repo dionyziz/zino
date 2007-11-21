@@ -42,12 +42,13 @@
             array_merge( array_slice( $this->mUsers, 0, $pos - 1 ), array_slice( $this->mUsers, $pos + 1, count( $this->mUsers ) ) );
         }
         public function Get() {
+            $i = 0;
             foreach ( $this->mUsers as $user ) {
                 $score = 0;
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
-                $this->mScores[] = $score;
+                $this->mScores[ $i++ ] = $score;
             }
 
             array_multisort( $this->mUsers, $this->mScores );
