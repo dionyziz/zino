@@ -94,7 +94,7 @@
 			'advertise' 		=> 'advertise/info',
 			'uniadmin'			=> 'universities/create',
 			'tag'				=> 'interesttag/view',
-            'sanitize'          => 'developer/dionyziz/sanitize'
+            'dio'               => 'developer/dionyziz/xmlparse'
     	);
     }
 ?>
