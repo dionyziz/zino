@@ -39,12 +39,12 @@
             $this->Assert( is_array( $list ), 'List returned from Bennu::Get is not an array' );
             $this->AssertFalse( empty( $list ), 'List returned from Bennu without rules is empty' ); // no users? duh.
             
-            if ( User_Count() >= 20 ) {
+            if ( CountUsers() >= 20 ) {
                 $this->AssertEquals( count( $list ), 20, 'Bennu without rules did not return the number of users requested' );
             }
 
-            $list = $bennu->Get( User_Count() + 10 );
-            $this->AssertEquals( count( $list ), User_Count(), 'Bennu should return all the users when the number of users requested are equal to or more than the number of all users' );
+            $list = $bennu->Get( CountUsers() + 10 );
+            $this->AssertEquals( count( $list ), CountUsers(), 'Bennu should return all the users when the number of users requested are equal to or more than the number of all users' );
         }
         public function TestExclude() {
             $bennu = New Bennu();
