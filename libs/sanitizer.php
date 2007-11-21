@@ -37,7 +37,7 @@
         'th' => array( 'scope', 'colspan', 'colspan' ),
         'thead', 'tr', 'tt', 
         'ul' => array( 'compact', 'type' ),
-        '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex' ) // everywhere
+        '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex', 'class' ) // everywhere
     ) );
     
     function XHTMLSanitizer_DecodeTags( $tags ) {
@@ -260,6 +260,10 @@
             w_assert( is_string( $tagname ) );
             w_assert( preg_match( '#^[a-z0-9]+$#', $tagname ) );
             $this->mName = $tagname;
+            
+            if ( $tagname == 'img' ) {
+                $this->AllowAttribute( New XHTMLSaneAttribute( 'alt' ) );
+            }
         }
         public function AllowAttribute( XHTMLSaneAttribute $attribute ) {
             global $water;
