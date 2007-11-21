@@ -36,8 +36,10 @@ var WYSIWYG = {
         scfield.name = fieldname;
         scfield.value = '';
         frm.appendChild( scfield );
+        var oldonsubmit = frm.onsubmit? frm.onsubmit: function () {};
         frm.onsubmit = function ( sc, ifdoc ) {
             return function () {
+                oldonsubmit();
                 sc.value = ifdoc.body.innerHTML;
             };
         }( scfield, doc );
