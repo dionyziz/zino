@@ -45,7 +45,7 @@ var WYSIWYG = {
         }
         try {
             WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
-            doc.body.innerHTML = entrytext;
+            doc.body.appendChild( document.createTextNode( entrytext ) );
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
