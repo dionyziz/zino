@@ -31,7 +31,7 @@ var WYSIWYG = {
         doc.body.innerHTML = entrytext;
         WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
         var frm = which;
-        while (frm.nodeName != 'form') {
+        while (frm.nodeName.toLowerCase() != 'form') {
             frm = frm.parentNode;
             if (frm === null) {
                 alert( 'WYSIWYG elements should only be called within HTML <form>' );
