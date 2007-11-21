@@ -44,7 +44,7 @@
             }
 
             $list = $bennu->Get( CountUsers() + 10 );
-            $this->AssertEquals( count( $list ), CountUsers(), 'Bennu should return all the users when the number of users requested are equal to or more than the number of all users' );
+            $this->AssertEquals( count( $list ), (int)CountUsers(), 'Bennu should return all the users when the number of users requested are equal to or more than the number of all users' );
         }
         public function TestExclude() {
             $bennu = New Bennu();
