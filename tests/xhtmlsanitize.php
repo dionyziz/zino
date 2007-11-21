@@ -51,16 +51,16 @@
             $this->AssertEquals( 'Hello &amp; world!', $result, 'Invalid entities should be escaped to produce valid XHTML (&)' );
             $sanitizer->SetSource( 'Hello &amp world!' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'Hello &amp;amp world!', $result, 'Invalid entities should be escaped to produce valid XHTML (&amp)' );
-            $sanitizer->SetSource( '&Ograve;' );
+            $this->AssertEquals( 'Hello &amp; world!', $result, 'Invalid entities should be escaped to produce valid XHTML (&amp)' );
+            $sanitizer->SetSource( '&Delta;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&Ograve;', $result, 'Valid entities should remain unchanged (&Ograve;)' );
+            $this->AssertEquals( 'Δ', $result, 'Valid entities that have UTF-8 equivalents should be converted (&Delta;)' );
             $sanitizer->SetSource( 'haha&Iacute;&OElig;&spades;heh&thetasym;&cent;&#8217;&#X03bb;&#x03BB;&#955;hoho' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( 'haha&Iacute;&OElig;&spades;heh&thetasym;&cent;&#8217;&#X03bb;&#x03BB;&#955;hoho', $result, 'Valid entities should remain unchanged (multiple)' );
+            $this->AssertEquals( html_entity_decode( 'haha&Iacute;&OElig;&spades;heh&thetasym;&cent;&#8217;&#X03bb;&#x03BB;&#955;hoho', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalent, if applicable (multiple)' );
             $sanitizer->SetSource( '&;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&amp;;', $result, 'Invalid entities should be escaped to produce valid XHTML (&;)' );
+            $this->AssertEquals( '&amp;', $result, 'Invalid entities should be escaped to produce valid XHTML (&;)' );
             $sanitizer->SetSource( '&#18237910392839;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '&amp;#18237910392839;', $result, 'Invalid entities should be escaped to produce valid XHTML (&#18237910392839;)' );
@@ -81,34 +81,34 @@
             $this->AssertEquals( '&amp;#x121;', $result, 'Odd length should not be allowed for hexadecimal entities (&#x121;)' );
             $sanitizer->SetSource( '&#xf00d;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&#xf00d;', $result, 'Valid entities should remain unchanged (&#xf00d;)' );
+            $this->AssertEquals( html_entity_decode( '&#xf00d;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#xf00d;)' );
             $sanitizer->SetSource( '&#Xf00d;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&#Xf00d;', $result, 'Valid entities should remain unchanged (&#Xf00d;)' );
+            $this->AssertEquals( html_entity_decode( '&#Xf00d;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#Xf00d;)' );
             $sanitizer->SetSource( '&#xF00D;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&#xF00D;', $result, 'Valid entities should remain unchanged (&#xF00D;)' );
+            $this->AssertEquals( html_entity_decode( '&#xF00D;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#xF00D;)' );
             $sanitizer->SetSource( '&#XF00D;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&#XF00D;', $result, 'Valid entities should remain unchanged (&#XF00D;)' );
+            $this->AssertEquals( html_entity_decode( '&#XF00D;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#XF00D;)' );
             $sanitizer->SetSource( '&apos;&quot;&gt;&lt;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '&apos;&quot;&gt;&lt;', $result, 'Valid entities should remain unchanged (&apos; etc.)' );
+            $this->AssertEquals( html_entity_decode( '&apos;', ENT_COMPAT, 'UTF-8' ) . '&quot;&gt;&lt;', $result, 'Valid entities should remain unchanged (&quot; etc.) when others are converted' );
         }
         public function TestWhitespace() {
             $sanitizer = New XHTMLSanitizer();
-            $sanitizer->SetSource( '                       ' );
+            $sanitizer->SetSource( 'A                       B' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( ' ', $result, 'Multiple spaces should be consumed to a single space' );
-            $sanitizer->SetSource( "\n\n\n\n" );
+            $this->AssertEquals( 'A B', $result, 'Multiple spaces should be consumed to a single space' );
+            $sanitizer->SetSource( "A\n\n\n\nB" );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( ' ', $result, 'Multiple new lines should be consumed to a single space' );
-            $sanitizer->SetSource( "\n  \n          \n\n      " );
+            $this->AssertEquals( 'A B', $result, 'Multiple new lines should be consumed to a single space' );
+            $sanitizer->SetSource( "A\n  \n          \n\n      B" );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( ' ', $result, 'Multiple new lines and spaces should be consumed to a single space' );
-            $sanitizer->SetSource( "\n\r\n\r\n\r\r\r \r\n\n\n \t\t    \t\n\r" );
+            $this->AssertEquals( 'A B', $result, 'Multiple new lines and spaces should be consumed to a single space' );
+            $sanitizer->SetSource( "A\n\r\n\r\n\r\r\r \r\n\n\n \t\t    \t\n\rB" );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( ' ', $result, 'Multiple whitespace characters should be consumed to a single space' );
+            $this->AssertEquals( 'A B', $result, 'Multiple whitespace characters should be consumed to a single space' );
             $sanitizer->SetSource( "hahaha          haha\n\n\n\n\n\nhoho" );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'hahaha haha hoho', $result, 'Whitespace should be replaced with a single space' );
@@ -251,7 +251,7 @@
             $sanitizer->AllowTag( New XHTMLSaneTag( 'script' ) );
             $sanitizer->SetSource( '<b>haha</b><script>alert("XSS!");</script>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b>haha</b>alert("XSS!");', $result, 'Insecure tags (script, link, style) should be disallowed even if explicitly specified; appropriate warnings should be raised' );
+            $this->AssertEquals( '<b>haha</b>', $result, 'Insecure tags (script, link, style) should be disallowed even if explicitly specified; appropriate warnings should be raised' );
         }
         public function TestBlocks() {
             // http://en.wikipedia.org/wiki/HTML_element#Block
@@ -354,7 +354,7 @@
             $this->AssertEquals( '<span class="&amp;">by the way</span>', $result, 'Invalid entities within attribute values should be escaped (&)' );
             $sanitizer->SetSource( '<span class="&amp">by the way</span>' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<span class="&amp;amp">by the way</span>', $result, 'Invalid entities within attribute values should be escaped (&amp)' );
+            $this->AssertEquals( '<span class="&amp;">by the way</span>', $result, 'Invalid entities within attribute values should be escaped (&amp)' );
             $sanitizer->SetSource( '<span class="<<>>">by the way</span>' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( '<span class="&lt;&lt;&gt;&gt;">by the way</span>', $result, 'Invalid entities within attribute values should be escaped; attribute ending should be indicated by the closing quotation marks' );
@@ -510,7 +510,7 @@
             $sanitizer->SetSource( '<table>har har <tr>ha!<td>need</td>me</tr> bwahhhah</table>' );
             $this->AssertEquals( 'har har ha!mebwahhhah <table> <tr> <td>need</td> </tr> </table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
-            $this->AssertEquals( '<table> <tr> <td>vampires</td> <td>will</td> <td>never</td> <td>hurt</td> </tr> <tr> <td>you</td> </tr> </table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
+            $this->AssertEquals( '<table>  <tr> <td>vampires</td> <td>will</td> <td>never</td> <td>hurt</td> </tr> <tr> <td>you</td>  </tr> </table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
         public function TestUTF8() {
             $sanitizer = New XHTMLSanitizer();
