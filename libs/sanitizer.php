@@ -218,9 +218,13 @@
         }
         private function XMLInnerHTML( XMLNode $root ) {
             if ( $root->nodeName == 'script' ) {
-                $text = $root->firstChild();
-                w_assert( is_string( $text ) );
-                $text = substr( trim( $text ), 2, -2 ); // remove leading and ending comments of CDATA construct
+                if ( $root->firstChild() !== false ) {
+                    $text = $root->firstChild();
+                    w_assert( is_string( $text ) );
+                    $text = substr( trim( $text ), 2, -2 ); // remove leading and ending comments of CDATA construct
+                    return $text;
+                }
+                return '';
             }
             
             $ret = '';
