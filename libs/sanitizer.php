@@ -189,7 +189,7 @@
                                 continue;
                             }
                         }
-                        $attributes[] = $attribute . '="' . htmlspecialchars( $value, ENT_QUOTES, 'UTF-8' ) . '"';
+                        $attributes[] = $attribute . '="' . htmlspecialchars( $value, ENT_COMPAT, 'UTF-8' ) . '"';
                     }
                 }
             }
@@ -224,7 +224,7 @@
             $ret = '';
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
-                    $ret .= htmlspecialchars( $xmlnode, ENT_QUOTES, 'UTF-8' );
+                    $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );
                 }
                 else {
                     $ret .= $this->XMLOuterHTML( $xmlnode );
