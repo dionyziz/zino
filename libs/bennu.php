@@ -41,7 +41,7 @@
             $pos = array_search( $user, $this->mUsers );
             array_merge( array_slice( $this->mUsers, 0, $pos - 1 ), array_slice( $this->mUsers, $pos + 1, count( $this->mUsers ) ) );
         }
-        public function Get( $limit = false ) {
+        public function Get() {
             foreach ( $this->mUsers as $user ) {
                 $score = 0;
                 foreach ( $this->mRules as $rule ) {
@@ -52,8 +52,8 @@
 
             array_multisort( $this->mUsers, $this->mScores );
             w_assert( count( $this->mUsers ) === count( $this->mScores ) );
-
-            return array_slice( $this->mUsers, 0, $limit );
+            
+            return $this->mUsers;
         }
         public function Bennu() {
             $this->mUsers = $this->GetAllUsers();
