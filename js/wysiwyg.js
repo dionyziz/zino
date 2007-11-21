@@ -22,7 +22,7 @@ var WYSIWYG = {
             alert( 'WYSIWYG is not supported by your browser' );
             return;
         }
-        if ( typeof which.previousSibling.firstChild != 'undefined' ) {
+        if ( which.previousSibling.firstChild !== null ) {
             var entrytext = which.previousSibling.firstChild.nodeValue;
         }
         else {
