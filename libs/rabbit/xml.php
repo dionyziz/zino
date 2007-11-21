@@ -131,7 +131,7 @@ class XMLParser {
     public function Parse() {
         global $water;
         
-        $this->mNativeParser = xml_parser_create();
+        $this->mNativeParser = xml_parser_create( 'UTF-8' );
         xml_parser_set_option(
             $this->mNativeParser,
             XML_OPTION_CASE_FOLDING,
