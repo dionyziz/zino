@@ -379,6 +379,8 @@
             $span->AllowAttribute( New XHTMLSaneAttribute( 'class' ) );
             $span->AllowAttribute( New XHTMLSaneAttribute( 'title' ) );
             $sanitizer->AllowTag( $span );
+            $sanitizer->SetSource( '<span title="hello">test</span>' );
+            $this->AssertEquals( '<span title="hello">test</span>', $sanitizer->GetXHTML(), 'Span/title simple correct combination should be allowed' );
             $sanitizer->SetSource( '<span class>by the way</span>' );
             $this->AssertEquals( '<span>by the way</span>', $sanitizer->GetXHTML(), 'Attributes with no values should be removed' );
             $sanitizer->SetSource( '<span class=>by the way</span>' );
