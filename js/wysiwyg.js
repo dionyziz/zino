@@ -44,7 +44,7 @@ var WYSIWYG = {
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
-                CreateReal( which, fieldname )
+                WYSIWYG.CreateReal( which, fieldname )
             }, 100 );
             return;
         }
