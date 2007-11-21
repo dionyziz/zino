@@ -91,9 +91,9 @@
             $sanitizer->SetSource( '&#XF00D;' );
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( html_entity_decode( '&#XF00D;', ENT_COMPAT, 'UTF-8' ), $result, 'Valid entities should be converted to their UTF-8 equivalents (&#XF00D;)' );
-            $sanitizer->SetSource( '&apos;&quot;&gt;&lt;' );
+            $sanitizer->SetSource( '&quot;&gt;&lt;' );
             $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( html_entity_decode( '&apos;', ENT_COMPAT, 'UTF-8' ) . '&quot;&gt;&lt;', $result, 'Valid entities should remain unchanged (&quot; etc.) when others are converted' );
+            $this->AssertEquals( '&quot;&gt;&lt;', $result, 'Valid entities should remain unchanged (&quot; etc.) when they could be translated to HTML control characters' );
         }
         public function TestWhitespace() {
             $sanitizer = New XHTMLSanitizer();
@@ -247,11 +247,10 @@
             $result = $sanitizer->GetXHTML();
             $this->AssertEquals( 'hahayes', $result, 'Deprecated tags (dir, applet, isindex, and so forth) should not be allowed even if explicitly specified; appropriate warnings should be raised, distinguishing them from invalid tags' );
             
-            $sanitizer->AllowTag( New XHTMLSaneTag( 'b' ) );
+            $sanitizer->AllowTag( New XHTMLSaneTag( 'strong' ) );
             $sanitizer->AllowTag( New XHTMLSaneTag( 'script' ) );
             $sanitizer->SetSource( '<b>haha</b><script>alert("XSS!");</script>' );
-            $result = $sanitizer->GetXHTML();
-            $this->AssertEquals( '<b>haha</b>', $result, 'Insecure tags (script, link, style) should be disallowed even if explicitly specified; appropriate warnings should be raised' );
+            $this->AssertEquals( '<strong>haha</strong>', $sanitizer->GetXHTML(), 'Insecure tags (script, link, style) should be disallowed even if explicitly specified; appropriate warnings should be raised' );
         }
         public function TestBlocks() {
             // http://en.wikipedia.org/wiki/HTML_element#Block
@@ -510,7 +509,7 @@
             $sanitizer->SetSource( '<table>har har <tr>ha!<td>need</td>me</tr> bwahhhah</table>' );
             $this->AssertEquals( 'har har ha!mebwahhhah <table> <tr> <td>need</td> </tr> </table>', $sanitizer->GetXHTML(), 'Mysterious tables must be sanitized' );
             $sanitizer->SetSource( '<table><TBODY><tr><td>vampires</td><td>will</td><td>never</td><td>hurt</td></tr><tr><td>you</td></tr></TBODY></table>' );
-            $this->AssertEquals( '<table>  <tr> <td>vampires</td> <td>will</td> <td>never</td> <td>hurt</td> </tr> <tr> <td>you</td>  </tr> </table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
+            $this->AssertEquals( '<table>  <tr> <td>vampires</td> <td>will</td> <td>never</td> <td>hurt</td> </tr> <tr> <td>you</td> </tr>  </table>', $sanitizer->GetXHTML(), '<tbody> existence should be observed, but it should be removed' );
         }
         public function TestUTF8() {
             $sanitizer = New XHTMLSanitizer();
@@ -629,7 +628,7 @@
                 . '</li></ul></div>' 
             );
             $this->AssertEquals(
-                  '<div><ul>'
+                  '<div> <ul> '
                 . '<li><a href="./server_status.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Show MySQL runtime information</a>'
                 . '</li><li><a href="./server_variables.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Show MySQL system variables</a>'
                 . '<a href="http://dev.mysql.com/doc/refman/5.0/en/show-variables.html"><img class="icon" src="./themes/original/img/b_help.png" width="11" height="11" alt="Documentation" title="Documentation" /></a></li><li><a href="./server_processlist.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Processes</a>'
@@ -641,7 +640,7 @@
                 . '</li><li><a href="./server_export.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Export</a>'
                 . '</li><li><a href="./server_import.php?token=7aa66b87fb60c5e787e97aff4d193f1e">Import</a>'
                 . '</li><li><a href="./index.php?token=7aa66b87fb60c5e787e97aff4d193f1e&amp;old_usr=root"><strong>Log out</strong> </a>'
-                . '</li></ul></div>', $sanitizer->GetXHTML(), 'Real world example 1 failed'
+                . ' </li> </ul> </div>', $sanitizer->GetXHTML(), 'Real world example 1 failed'
             );
         }
         public function TestRealWorld2() {
@@ -657,7 +656,12 @@
             $tr = New XHTMLSaneTag( 'tr' );
             $a = New XHTMLSaneTag( 'a' );
             $a->AllowAttribute( New XHTMLSaneAttribute( 'href' ) );
-            
+            $sanitizer->AllowTag( $br );
+            $sanitizer->AllowTag( $div );
+            $sanitizer->AllowTag( $table );
+            $sanitizer->AllowTag( $td );
+            $sanitizer->AllowTag( $tr );
+            $sanitizer->AllowTag( $a );
             $sanitizer->SetSource( // from water 3.0 fatal error
                   'Connection to MySQL failed:<br />Access denied for user \'(username)\'@\'localhost\' (using password: YES)'
                 . '<br /><div id="bc_die_watertrace"><div class="watertrace"><table class="callstack"><tr><td class="title">revision'
@@ -725,6 +729,16 @@
             $br = New XHTMLSaneTag( 'br' );
             $small = New XHTMLSaneTag( 'small' );
             $h2 = New XHTMLSaneTag( 'h2' );
+            $sanitizer->AllowTag( $table );
+            $sanitizer->AllowTag( $tr );
+            $sanitizer->AllowTag( $td );
+            $sanitizer->AllowTag( $img );
+            $sanitizer->AllowTag( $a );
+            $sanitizer->AllowTag( $div );
+            $sanitizer->AllowTag( $b );
+            $sanitizer->AllowTag( $br );
+            $sanitizer->AllowTag( $small );
+            $sanitizer->AllowTag( $h2 );
             $sanitizer->SetSource( // from Orange Juice 3.2
                   '<table class="banner" style="width:100%;" cellpadding="0" cellspacing="0">'
                 . '<tr>'
