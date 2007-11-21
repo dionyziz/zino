@@ -2,6 +2,12 @@
     include 'rabbit/xml.php';
     
     global $xhtmlsanitizer_goodtags;
+    global $xhtmlsanitizer_noautoclose;
+    
+    $xhtmlsanitizer_noautoclose = array( // these tags cannot be <autoclosed /> but have to be <closed></closed> explicitly
+        'td' => true,
+        'div' => true
+    );
     
     $xhtmlsanitizer_goodtags = XHTMLSanitizer_DecodeTags( array(
         'a' => array( 'coords', 'href', 'hreflang', 'name', 'rel', 'rev', 'shape', 'target', 'type' ), 
@@ -191,7 +197,12 @@
             }
             
             if ( empty( $root->childNodes ) ) {
-                $ret .= '/>';
+                if ( isset( $xhtmlsanitizer_noautoclose[ $root->nodeName ] ) ) {
+                    $ret .= '></' . $root->nodeName . '>';
+                }
+                else {
+                    $ret .= '/>';
+                }
             }
             else {
                 $ret .= '>';
