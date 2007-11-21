@@ -3,6 +3,10 @@
     global $libs;
     $libs->Load( 'bennu' );
 
+    class RuleTest extends BennuRule {
+        // check TestBennu::TestMethodsExist
+    }
+
     final class TestBennu extends Testcase { 
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Bennu' ), 'Class bennu does not exist' );
@@ -20,11 +24,13 @@
             $this->Assert( method_exists( $bennu, 'Get' ), 'Bennu::Get method does not exist' );
 
             /* methods for extending bennu rule */
-            $rule = New BennuRule();
+
+            $rule = New RuleTest();
+
             $this->Assert( method_exists( $rule, 'NormalDistribution' ), 'BennuRule::NormalDistribution method does not exist' );
             $this->Assert( method_exists( $rule, 'Random' ), 'BennuRule::Random method does not exist' );
             $this->Assert( method_exists( $rule, 'Get' ), 'BennuRule::Get method does not exist' );
-            $this->Assert( method_exists( $rule, 'Calulate' ), 'BennuRule::Calculate method does not exist' );
+            $this->Assert( method_exists( $rule, 'Calculate' ), 'BennuRule::Calculate method does not exist' );
         }
         public function TestNoRuleBennu() {
             $bennu = New Bennu();
