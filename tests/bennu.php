@@ -104,6 +104,9 @@
 
             $users = $bennu->Get( 20 );
 
+            $this->Assert( is_array( $users ), 'Bennu::Get did not return an array' );
+            $this->Assert( !empty( $users ), 'Bennu::Get returned an empty array' );
+
             $diff = 0;
             foreach ( $user as $user ) {
                 $curdiff = abs( strtotime( $user->Creation ) - $now );
