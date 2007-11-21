@@ -6,7 +6,8 @@
         
         <form method="post" action="do/wysiwyg"><?php
         Element( 'wysiwyg', 'lookatme' );
-        ?></form><?php
+        ?><br />
+        <input type="submit" value="Submit" /></form><?php
         
     }
 ?>
