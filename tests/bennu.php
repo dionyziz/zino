@@ -79,6 +79,9 @@
 
             $list = $bennu->Get( 20 );
 
+            $this->Assert( is_array( $list ), 'Bennu::Get did not return an array' );
+            $this->Assert( !empty( $list ), 'Bennu::Get returned an empty list of users' );
+
             $diff = 0;
             foreach ( $list as $user ) {
                 $curdiff = abs( $user->Age - 16 );
@@ -108,7 +111,7 @@
             $this->Assert( !empty( $users ), 'Bennu::Get returned an empty array' );
 
             $diff = 0;
-            foreach ( $user as $user ) {
+            foreach ( $users as $user ) {
                 $curdiff = abs( strtotime( $user->Creation ) - $now );
                 $this->Assert( $curdiff >= $diff, 'Bennu did not return the users on the right order when two rules were added' );
                 $diff = $curdiff;
