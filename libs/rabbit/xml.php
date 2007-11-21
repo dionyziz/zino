@@ -137,6 +137,11 @@ class XMLParser {
             XML_OPTION_CASE_FOLDING,
             0
         );
+        xml_parser_set_option(
+            $this->mNativeParser,
+            XML_OPTION_SKIP_WHITE,
+            0
+        );
         xml_set_element_handler(
             $this->mNativeParser, 
             array( $this, 'parseElementStart' ),
