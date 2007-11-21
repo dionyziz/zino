@@ -139,6 +139,8 @@
             
             $parser = New XMLParser( '<body>' . trim( $this->ReduceWhitespace( $ret ) ) . '</body>' );
             $body = $parser->Parse();
+            die( var_dump( $body ) );
+            
             if ( $body === false ) {
                 return '';
             }
