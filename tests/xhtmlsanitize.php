@@ -784,9 +784,9 @@
                 . 'Now playing: <a href="song.php?id=1020"><strong>Cross me off your list</strong>'
                 . '</a> by <a href="artist.php?a=Hawthorne%20Heights"><strong>Hawthorne Heights</strong></a>,'
                 . '<small><a href="song.php?id=1020#lyrics">Lyrics</a></small></td> '
-                . '</tr> </table> </td> </tr> <tr> <td><table> <tr> <td><img src="images/pause.png" alt=""/>'
+                . '</tr> </table> </td> </tr> <tr> <td> <table> <tr> <td><img src="images/pause.png" alt=""/>'
                 . '</td> <td><strong><a href="pause.php">Pause</a></strong></td> <td></td> <td>'
-                . '<img src="images/replay.png" alt=""/></td><td><strong><a href="play.php?id=1020">Replay</a></strong>'
+                . '<img src="images/replay.png" alt=""/></td> <td><strong><a href="play.php?id=1020">Replay</a></strong>'
                 . '</td> <td></td> <td><img src="images/next.png" alt=""/></td> <td><strong><a href="next.php">'
                 . 'Next</a></strong></td> </tr> </table> '
                 . '</td> </tr> </table> <br/> <table> <tr> <td><img src="images/lock.png" alt=""/>'
@@ -802,8 +802,8 @@
                 . ' </table> <br/> '
                 . '<table> <tr> <td><img src="images/update.png" alt=""/></td> <td><a href="clean_up.php">'
                 . 'Update Library</a></td> </tr> </table> '
-                . '<table> <tr> <td><img src="images/root.png" alt=""/></td> <td>Music Root: </td> <td><strong>'
-                . 'D:\music</strong></td> </tr> </table> <br/> </div>',
+                . '<table> <tr> <td><img src="images/root.png" alt=""/></td> <td>Music Root:</td> <td><strong>'
+                . 'D:\music</strong></td> </tr> </table> <br/></div>',
                 $sanitizer->GetXHTML(), 'Real world example 3 failed'
             );
         }
