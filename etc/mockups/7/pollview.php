@@ -9,7 +9,8 @@
 				<img src="images/left-roundedbar.jpg" />
 				<img src="images/roundedbar-repeat.jpg" style="width:50px;" />
 				<img src="images/right-roundedbar.jpg" />
-			</li><br /><br />
+			</li><br /><br /><?php
+			/*
 			<li>
 				<div class="leftrounded">s
 				</div>
@@ -41,7 +42,9 @@
 				</div>
 				<div class="rightrounded">s
 				</div>
-			</li>
+			</li><?php
+			*/
+			?>
 		</ul>
 	</div>
 	<div class="comments">
