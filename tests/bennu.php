@@ -58,6 +58,9 @@
 
             $users = $bennu->Get(); // everyone
 
+            print_r( $users );
+            die( "foo" );
+
             foreach ( $users as $user ) {
                 $this->Assert( in_array( $user->Id(), $excluded ), 'User excluded but he is still in the list returned by Bennu::Get' );
             }
