@@ -47,10 +47,6 @@
             $this->mScores = array();
             $this->mUids = array();
 
-            if ( $limit > count( $this->mUsers ) || $limit === false ) {
-               $limit = count( $this->mUsers );
-            }
-
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     continue;
@@ -67,6 +63,10 @@
             
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mUids, $this->mScores );
+
+            if ( $limit > count( $this->mUids ) || $limit === false ) {
+               $limit = count( $this->mUsers );
+            }
 
             $ret = array();
             for ( $i = 0; $i < $limit; ++$i ) {
