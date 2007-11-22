@@ -13,6 +13,7 @@ div#pollview div.results ul {
 	list-style: none;
 }
 div#pollview div.resulsts ul li {
+	height: 13px;
 	margin: 0;
 	padding: 0;
 }
