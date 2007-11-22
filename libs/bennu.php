@@ -60,6 +60,7 @@
             }
             echo count( $this->mUsers );
             echo "<br />";
+            echo count( $this->mScores ) . "<br />";
 
             array_multisort( $this->mUsers, $this->mScores );
             if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
