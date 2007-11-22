@@ -47,6 +47,10 @@
             $this->mScores = array();
             $this->mUids = array();
 
+            if ( $limit > count( $this->mUsers ) ) {
+               $limit = count( $this->mUsers );
+            }
+
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     continue;
@@ -65,7 +69,8 @@
             array_multisort( $this->mUids, $this->mScores );
 
             $ret = array();
-            foreach ( $this->mUids as $uid ) {
+            for ( $i = 0; $i < $limit; ++$i ) {
+                $uid = $this->mUids[ $i ];
                 $ret[] = $this->mUsers[ $uid ];
             }
 

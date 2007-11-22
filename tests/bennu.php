@@ -59,7 +59,7 @@
             $users = $bennu->Get(); // everyone
 
             foreach ( $users as $user ) {
-                $this->Assert( in_array( $user->Id, $excluded ), 'User excluded but he is still in the list returned by Bennu::Get' );
+                $this->Assert( in_array( $user->Id(), $excluded ), 'User excluded but he is still in the list returned by Bennu::Get' );
             }
         }
         public function TestOneRule() {
@@ -79,7 +79,7 @@
 
             $diff = 0;
             foreach ( $list as $user ) {
-                $curdiff = abs( $user->Age - 16 );
+                $curdiff = abs( $user->Age() - 16 );
                 $this->Assert( $curdiff >= $diff, 'Bennu did not return the users on the right order when one rule was added' );
                 $diff = $curdiff;
             }
@@ -107,7 +107,7 @@
 
             $diff = 0;
             foreach ( $users as $user ) {
-                $curdiff = abs( strtotime( $user->Creation ) - $now );
+                $curdiff = abs( strtotime( $user->Creation() ) - $now );
                 $this->Assert( $curdiff >= $diff, 'Bennu did not return the users on the right order when two rules were added' );
                 $diff = $curdiff;
             }
