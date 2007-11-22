@@ -42,15 +42,18 @@
             $this->mExclude[] = $user->Id();;
         }
         public function Get( $limit ) {
+            $i = 0;
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
-                    continue; 
+                    unset( $this->mUsers[ $i++ ] );
+                    continue;
                 }
                 $score = 0;
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
                 $this->mScores[] = $score;
+                ++$i;
             }
 
             array_multisort( $this->mUsers, $this->mScores );
