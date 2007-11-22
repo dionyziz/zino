@@ -8,7 +8,7 @@
 			<li>
 				<div class="leftrounded">
 				</div>
-				<div class="middlerounded" style="width:120px;">
+				<div class="middlerounded" style="width:120px;height: 13px;">
 				</div>
 				<div class="rightrounded">
 				</div>

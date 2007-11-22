@@ -23,6 +23,7 @@ div#pollview div.resulsts ul li div.leftrounded {
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;
+	width: 5px;
 }
 div#pollview div.resulsts ul li div.rightrounded {
 	float: left;
@@ -30,6 +31,7 @@ div#pollview div.resulsts ul li div.rightrounded {
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;
+	width: 5px;
 }
 div#pollview div.resulsts ul li div.middlerounded {
 	float: left;
