@@ -85,6 +85,8 @@
             }
         }
         public function TestTwoRules() {
+            global $water;
+
             $bennu = New Bennu();
 
             $now = time();
@@ -107,6 +109,8 @@
 
             $diff = 0;
             foreach ( $users as $user ) {
+                $water->Trace( strtotime( $user->Creation() ), "user creation date" );
+
                 $curdiff = abs( strtotime( $user->Creation() ) - $now );
                 $this->Assert( $curdiff >= $diff, 'Bennu did not return the users on the right order when two rules were added' );
                 $diff = $curdiff;

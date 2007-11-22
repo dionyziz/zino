@@ -140,12 +140,23 @@
     /* default bennu rules */
 
     class BennuRuleSex extends BennuRule {
+        public function UserValue( $user ) {
+            return $user->Gender();
+        }
+        public function Calculate( $value ) {
+            return ( $value == $this->Value ) ? $this->mScore : 0;
+        }
     }
 
     class BennuRuleAge extends BennuRule {
+        public function UserValue( $user ) {
+            return $user->Age();
+        }
     }
 
     class BennuRuleCreation extends BennuRule {
+        public function UserValue( $user ) {
+        }
     }
 
     class BennuRulePhotos extends BennuRule {
