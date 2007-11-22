@@ -17,26 +17,24 @@ div#pollview div.resulsts ul li {
 	margin: 0;
 	padding: 0;
 }
-div#pollview div.resulsts ul li img {
-	margin: 0;
-	padding: 0;
-	float: left;
-}
 div#pollview div.resulsts ul li div.leftrounded {
-	display: inline;
+	float: left;
 	background-image: url('images/left-roundedbar.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
+	height: 13px;
 }
 div#pollview div.resulsts ul li div.rightrounded {
-	display: inline;
+	float: left;
 	background-image: url( 'images/right-roundedbar.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
+	height: 13px;
 }
 div#pollview div.resulsts ul li div.middlerounded {
-	display: inline;
+	float: left;
 	background-image: url('images/roundedbar-repeat.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
+	height: 13px;
 }

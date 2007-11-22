@@ -3,23 +3,21 @@
 ?>
 <div id="pollview">
 	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
-	<div class="results">
+	<div class="results"><img src="images/left-roundedbar.jpg" />
 		<ul>
 			<li>
 				<img src="images/left-roundedbar.jpg" />
-				<img src="images/roundedbar-repeat.jpg" style="width:134px;height:13px;" />
+				<img src="images/right-roundedbar.jpg" style="width:50px;" />
 				<img src="images/right-roundedbar.jpg" />
-				<span>43%</span>
-				<span>1 φορά</span>
 			</li>
 			<li>
-				<img src="images/left-roundedbar.jpg" />
-				<img src="images/roundedbar-repeat.jpg" style="width:80px;height:13px;" />
-				<img src="images/right-roundedbar.jpg" />
-				<span>36%</span>
-				<span>2-5 φορές</span>
-			</li><?php
-			/*
+				<div class="leftrounded">s
+				</div>
+				<div class="middlerounded" style="width: 50px;">d
+				</div>
+				<div class="rightrounded">s
+				</div>
+			</li>
 			<li>
 				<div class="leftrounded">s
 				</div>
@@ -43,9 +41,7 @@
 				</div>
 				<div class="rightrounded">s
 				</div>
-			</li><?php
-			*/
-			?>
+			</li>
 		</ul>
 	</div>
 	<div class="comments">
