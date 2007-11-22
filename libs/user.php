@@ -710,6 +710,12 @@
 			// $comment->Page()->Title()
 			return $this->Username();
 		}
+        public function Age() {
+            $nowdate = getdate();
+            $nowyear = $nowdate[ "year" ];
+
+            return $nowyear - $this->mCreateYear;
+        }
 		public function Locked() {
 			return $this->mLocked;
 		}
