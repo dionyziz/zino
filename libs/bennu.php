@@ -3,6 +3,7 @@
     class Bennu {
         private $mRules;
         private $mUsers;
+        private $mUids;
         private $mScores;
         private $mExclude;
 
@@ -48,7 +49,6 @@
                 $user = $this->mUsers[ $i ];
 
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
-                    unset( $this->mUsers[ $i ] );
                     continue;
                 }
 
@@ -56,16 +56,18 @@
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
+
+                $this->mUids[] = $user->Id();
                 $this->mScores[] = $score;
             }
             array_multisort( $this->mUsers, $this->mScores );
-            if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
-            }
+            w_assert( count( $this->mUsers ) == count( $this->mScores ) );
             
             return $this->mUsers;
         }
         public function Bennu() {
             $this->mUsers = $this->GetAllUsers();
+            $this->mUids  = array();
             $this->mRules = array();
             $this->mScores = array();
             $this->mExclude = array();
