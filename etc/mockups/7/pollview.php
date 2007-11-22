@@ -3,13 +3,17 @@
 ?>
 <div id="pollview">
 	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
-	<div class="results"><img src="images/left-roundedbar.jpg" />
+	<div class="results">
 		<ul>
 			<li>
-				<img src="images/left-roundedbar.jpg" />
-				<img src="images/right-roundedbar.jpg" style="width:50px;" />
-				<img src="images/right-roundedbar.jpg" />
-			</li>
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width:120px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li><?php
+			/*
 			<li>
 				<div class="leftrounded">s
 				</div>
@@ -42,6 +46,8 @@
 				<div class="rightrounded">s
 				</div>
 			</li>
+			*/
+			?>
 		</ul>
 	</div>
 	<div class="comments">
