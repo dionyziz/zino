@@ -57,6 +57,7 @@
             }
 
             array_multisort( $this->mUsers, $this->mScores );
+            die( print_r( $this->mUsers ) . ' ' . print_r( $this->mScores ) );
             w_assert( count( $this->mUsers ) === count( $this->mScores ) );
             
             return $this->mUsers;
