@@ -70,7 +70,7 @@
                 $ret[] = $this->mUsers[ $uid ];
             }
 
-            return $this->mUsers;
+            return $ret;
         }
         public function Bennu() {
             $this->mUsers = $this->GetAllUsers();
