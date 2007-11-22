@@ -4,7 +4,13 @@
 <div id="pollview">
 	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
 	<div class="results">
-	
+		<ul>
+			<li>1</li>
+			<li>2-5</li>
+			<li>5-10</li>
+			<li>10 και πάνω</li>
+			<li>καμία</li>
+		</ul>
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
