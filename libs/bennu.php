@@ -40,7 +40,6 @@
             w_assert( $user instanceof User );
             
             $this->mExclude[] = $user->Id();
-            die( print_r( $this->mExclude ) );
         }
         public function Get( $limit ) {
             $this->mScores = array();
