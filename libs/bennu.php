@@ -45,6 +45,7 @@
         }
         public function Get( $limit ) {
             $this->mScores = array();
+            $this->mUids = array();
 
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
