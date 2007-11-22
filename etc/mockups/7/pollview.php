@@ -6,16 +6,13 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div class="leftrounded">
-				</div>
-				<div class="middlerounded" style="width:120px;height: 13px;">
-				</div>
-				<div class="rightrounded">
-				</div>
+				<img src="images/left-roundedbar.jpg" style="width:124px;height:13px;float:left;" />
+				<img src="images/roundedbar-repeat.jpg" style="width:234px;height:13px;float:left;" />
+				<img src="images/rightrounded-repeat.jpg" style="width:102px;height:13px;float:left;" />
 			</li><?php
 			/*
-			<li>
 				<div class="leftrounded">s
+			<li>
 				</div>
 				<div class="middlerounded" style="width: 50px;">d
 				</div>
