@@ -49,17 +49,12 @@
         public function TestExclude() {
             $bennu = New Bennu();
 
-            $bennu->Exclude( new User( 1 ) );
-            $bennu->Exclude( new User( 1 ) );
-            $bennu->Exclude( new User( 2 ) );
-            $bennu->Exclude( new User( 3 ) );
-            $bennu->Exclude( new User( 5 ) );
-            $bennu->Exclude( new User( 8 ) );
-            $bennu->Exclude( new User( 13 ) );
-            $bennu->Exclude( new User( 21 ) );
-            $bennu->Exclude( new User( 34 ) );
+            $bennu->Exclude( new User( 865 ) );
+            $bennu->Exclude( new User( 837 ) );
+            $bennu->Exclude( new User( 834 ) );
+            $bennu->Exclude( new User( 854 ) );
 
-            $excluded = array( 1, 2, 3, 5, 8, 13, 21, 34 );
+            $excluded = array( 865, 837, 834, 854 );
 
             $users = $bennu->Get(); // everyone
 
