@@ -7,7 +7,7 @@
 		<ul>
 			<li>
 				<img src="images/left-roundedbar.jpg" />
-				<img src="images/roundedbar-repeat.jpg" style="width:50px;" />
+				<img src="images/roundedbar-repeat.jpg" style="width:50px;height:13px;" />
 				<img src="images/right-roundedbar.jpg" />
 			</li><br /><br /><?php
 			/*
