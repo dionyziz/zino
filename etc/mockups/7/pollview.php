@@ -6,12 +6,9 @@
 	<div class="results"><img src="images/left-roundedbar.jpg" />
 		<ul>
 			<li>
-				<div class="leftrounded">s
-				</div>
-				<div class="middlerounded" style="width: 50px;">d
-				</div>
-				<div class="rightrounded">s
-				</div>
+				<img src="images/left-roundedbar.jpg" />
+				<img src="images/right-roundedbar.jpg" style="width:50px;" />
+				<img src="images/right-roundedbar.jpg" />
 			</li>
 			<li>
 				<div class="leftrounded">s
