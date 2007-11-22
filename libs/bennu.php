@@ -27,7 +27,8 @@
             $ret = array();
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-                $ret[] = new User( $row );
+                $user =  new User( $row );
+                $ret[ $user->Id() ] = $user;
             }
 
             return $ret;
@@ -60,13 +61,20 @@
                 $this->mUids[] = $user->Id();
                 $this->mScores[] = $score;
             }
-            array_multisort( $this->mUsers, $this->mScores );
-            w_assert( count( $this->mUsers ) == count( $this->mScores ) );
-            
+            w_assert( count( $this->mUids ) == count( $this->mScores ) );
+
+            array_multisort( $this->mUids, $this->mScores );
+
+            $ret = array();
+            foreach ( $this->mUids as $uid ) {
+                $ret[] = $this->mUsers[ $uid ];
+            }
+
             return $this->mUsers;
         }
         public function Bennu() {
             $this->mUsers = $this->GetAllUsers();
+
             $this->mUids  = array();
             $this->mRules = array();
             $this->mScores = array();
