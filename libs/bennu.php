@@ -39,9 +39,11 @@
         public function Exclude( $user ) {
             w_assert( $user instanceof User );
             
-            $this->mExclude[] = $user->Id();;
+            $this->mExclude[] = $user->Id();
         }
         public function Get( $limit ) {
+            echo count( $this->mUsers );
+            echo "<br />";
             for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
                 $user = $this->mUsers[ $i ];
 
@@ -56,6 +58,8 @@
                 }
                 $this->mScores[] = $score;
             }
+            echo count( $this->mUsers );
+            echo "<br />";
 
             array_multisort( $this->mUsers, $this->mScores );
             if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
