@@ -7,6 +7,7 @@ var InterestTag = {
     	ul.style.listStyleType = "none";
     	ul.style.textAlign = "left";
     	ul.style.marginTop = "15px";
+		ul.style.height = "200px";
 		ul.style.overflow = "auto";
     	
     	// Start creating the close link
