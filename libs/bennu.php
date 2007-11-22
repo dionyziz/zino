@@ -42,8 +42,8 @@
             $this->mExclude[] = $user->Id();
         }
         public function Get( $limit ) {
-            echo count( $this->mUsers );
-            echo "<br />";
+            $this->mScores = array();
+
             for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
                 $user = $this->mUsers[ $i ];
 
@@ -58,10 +58,6 @@
                 }
                 $this->mScores[] = $score;
             }
-            echo count( $this->mUsers );
-            echo "<br />";
-            echo count( $this->mScores ) . "<br />";
-
             array_multisort( $this->mUsers, $this->mScores );
             if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
                 die( print_r( $this->mScores ) );
