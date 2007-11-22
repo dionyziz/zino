@@ -7,18 +7,19 @@
 		<ul>
 			<li>
 				<img src="images/left-roundedbar.jpg" />
-				<img src="images/roundedbar-repeat.jpg" style="width:50px;height:13px;" />
+				<img src="images/roundedbar-repeat.jpg" style="width:134px;height:13px;" />
 				<img src="images/right-roundedbar.jpg" />
-			</li><br /><br /><?php
-			/*
-			<li>
-				<div class="leftrounded">s
-				</div>
-				<div class="middlerounded" style="width: 50px;">d
-				</div>
-				<div class="rightrounded">s
-				</div>
+				<span>43%</span>
+				<span>1 φορά</span>
 			</li>
+			<li>
+				<img src="images/left-roundedbar.jpg" />
+				<img src="images/roundedbar-repeat.jpg" style="width:80px;height:13px;" />
+				<img src="images/right-roundedbar.jpg" />
+				<span>36%</span>
+				<span>2-5 φορές</span>
+			</li><?php
+			/*
 			<li>
 				<div class="leftrounded">s
 				</div>
