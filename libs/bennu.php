@@ -43,11 +43,11 @@
             
             $this->mExclude[] = $user->Id();
         }
-        public function Get( $limit ) {
+        public function Get( $limit = false ) {
             $this->mScores = array();
             $this->mUids = array();
 
-            if ( $limit > count( $this->mUsers ) ) {
+            if ( $limit > count( $this->mUsers ) || $limit === false ) {
                $limit = count( $this->mUsers );
             }
 
