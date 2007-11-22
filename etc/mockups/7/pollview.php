@@ -3,7 +3,7 @@
 ?>
 <div id="pollview">
 	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
-	<div class="results"><img src="images/left-roundedbar.jpg" />
+	<div class="results">
 		<ul>
 			<li>
 				<img src="images/left-roundedbar.jpg" />
