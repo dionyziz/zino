@@ -5,11 +5,46 @@
 	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
 	<div class="results">
 		<ul>
-			<li>1</li>
-			<li>2-5</li>
-			<li>5-10</li>
-			<li>10 και πάνω</li>
-			<li>καμία</li>
+			<li>
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width: 50px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li>
+			<li>
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width: 50px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li>
+			<li>
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width: 10px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li>
+			<li>		
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width: 35px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li>
+			<li>
+				<div class="leftrounded">
+				</div>
+				<div class="middlerounded" style="width: 145px;">
+				</div>
+				<div class="rightrounded">
+				</div>
+			</li>
 		</ul>
 	</div>
 	<div class="comments">
