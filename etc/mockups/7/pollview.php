@@ -7,9 +7,9 @@
 		<ul>
 			<li>
 				<img src="images/left-roundedbar.jpg" />
-				<img src="images/right-roundedbar.jpg" style="width:50px;" />
+				<img src="images/roundedbar-repeat.jpg" style="width:50px;" />
 				<img src="images/right-roundedbar.jpg" />
-			</li>
+			</li><br /><br />
 			<li>
 				<div class="leftrounded">s
 				</div>
