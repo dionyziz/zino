@@ -59,7 +59,7 @@
             $users = $bennu->Get(); // everyone
 
             foreach ( $users as $user ) {
-                $this->Assert( in_array( $user->Id(), $excluded ), 'User excluded but he is still in the list returned by Bennu::Get' );
+                $this->Assert( !in_array( $user->Id(), $excluded ), 'User excluded but he is still in the list returned by Bennu::Get' );
             }
         }
         public function TestOneRule() {
