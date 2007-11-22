@@ -10,7 +10,7 @@ function Unhover( node ) {
 }
 
 </script>
-<div class="photoview">
+<div id="photoview">
 	<h2>Στη Θεσαλλονίκη ξημερώματα</h2>
 	<span>στο album</span> <a href="">Θεσαλλονίκη</a>
 	<div>
