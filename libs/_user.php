@@ -717,6 +717,9 @@
 
             return $nowyear - $this->mCreateYear;
         }
+        public function Creation() {
+            return $this->mCreated;
+        }
 		public function Locked() {
 			return $this->mLocked;
 		}
