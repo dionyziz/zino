@@ -44,6 +44,7 @@
         public function Get( $limit ) {
             $this->mScores = array();
 
+            die( print_r( $this->mExclude ) );
             for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
                 $user = $this->mUsers[ $i ];
 
