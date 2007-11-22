@@ -6,43 +6,43 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div class="leftrounded">
+				<div class="leftrounded">s
 				</div>
-				<div class="middlerounded" style="width: 50px;">
+				<div class="middlerounded" style="width: 50px;">d
 				</div>
-				<div class="rightrounded">
-				</div>
-			</li>
-			<li>
-				<div class="leftrounded">
-				</div>
-				<div class="middlerounded" style="width: 50px;">
-				</div>
-				<div class="rightrounded">
+				<div class="rightrounded">s
 				</div>
 			</li>
 			<li>
-				<div class="leftrounded">
+				<div class="leftrounded">s
 				</div>
-				<div class="middlerounded" style="width: 10px;">
+				<div class="middlerounded" style="width: 50px;">d
 				</div>
-				<div class="rightrounded">
+				<div class="rightrounded">s
+				</div>
+			</li>
+			<li>
+				<div class="leftrounded">s
+				</div>
+				<div class="middlerounded" style="width: 10px;">d
+				</div>
+				<div class="rightrounded">s
 				</div>
 			</li>
 			<li>		
-				<div class="leftrounded">
+				<div class="leftrounded">s
 				</div>
-				<div class="middlerounded" style="width: 35px;">
+				<div class="middlerounded" style="width: 35px;">d
 				</div>
-				<div class="rightrounded">
+				<div class="rightrounded">s
 				</div>
 			</li>
 			<li>
-				<div class="leftrounded">
+				<div class="leftrounded">s
 				</div>
-				<div class="middlerounded" style="width: 145px;">
+				<div class="middlerounded" style="width: 145px;">d
 				</div>
-				<div class="rightrounded">
+				<div class="rightrounded">s
 				</div>
 			</li>
 		</ul>
