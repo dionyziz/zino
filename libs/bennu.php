@@ -60,7 +60,6 @@
             }
             array_multisort( $this->mUsers, $this->mScores );
             if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
-                die( print_r( $this->mScores ) );
             }
             
             return $this->mUsers;
