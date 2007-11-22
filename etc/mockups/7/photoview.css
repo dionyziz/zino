@@ -1,13 +1,13 @@
-div#photoview h2 {
+div.photoview h2 {
 	margin: 0;
 	padding: 0;
 }
-div#photoview div.photothumbs {
+div.photoview div.photothumbs {
 	height: 173px;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-div#photoview div.photothumbs ul {
+div.photoview div.photothumbs ul {
 	padding: 0;
 	list-style: none;
 	width: 100%;
@@ -15,23 +15,23 @@ div#photoview div.photothumbs ul {
 	text-align: center;
 	height: 160px;
 }
-div#photoview div ul li{
+div.photoview div ul li{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
 }
-div#photoview div ul li a img {
+div.photoview div ul li a img {
 	border: 1px solid gray;
 }
-div#photoview div ul li.nav a img {
+div.photoview div ul li.nav a img {
 	border: none;
 	margin-bottom: 30px;
 }
-div#photoview div ul li a img.smallphotoview {
+div.photoview div ul li a img.smallphotoview {
 	border: 4px solid #82a4b6;
 }
-div#photoview div.thephoto {
+div.photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
 }
