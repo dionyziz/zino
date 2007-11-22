@@ -46,12 +46,7 @@
         public function Get( $limit ) {
             $this->mScores = array();
 
-            print_r( $this->mUsers );
-            die();
-
-            for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
-                $user = $this->mUsers[ $i ];
-
+            foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     continue;
                 }
@@ -64,8 +59,8 @@
                 $this->mUids[] = $user->Id();
                 $this->mScores[] = $score;
             }
+            
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
-
             array_multisort( $this->mUids, $this->mScores );
 
             $ret = array();
