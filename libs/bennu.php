@@ -43,7 +43,7 @@
         }
         public function Get( $limit ) {
             for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
-                $user = $this->mUsers[ i ];
+                $user = $this->mUsers[ $i ];
 
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     unset( $this->mUsers[ $i ] );
