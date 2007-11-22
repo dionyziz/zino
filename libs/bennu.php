@@ -65,7 +65,7 @@
             array_multisort( $this->mUids, $this->mScores );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
-               $limit = count( $this->mUsers );
+               $limit = count( $this->mUids );
             }
 
             $ret = array();
