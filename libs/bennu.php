@@ -42,25 +42,25 @@
             $this->mExclude[] = $user->Id();;
         }
         public function Get( $limit ) {
-            $i = 0;
-            foreach ( $this->mUsers as $user ) {
+            for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
+                $user = $this->mUsers[ i ];
+
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
-                    unset( $this->mUsers[ $i++ ] );
+                    unset( $this->mUsers[ $i ] );
                     continue;
                 }
+
                 $score = 0;
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
                 $this->mScores[] = $score;
-                ++$i;
             }
 
             array_multisort( $this->mUsers, $this->mScores );
             if ( count( $this->mUsers ) !== count( $this->mScores ) ) {
                 die( print_r( $this->mScores ) );
             }
-            w_assert( count( $this->mUsers ) === count( $this->mScores ) );
             
             return $this->mUsers;
         }
