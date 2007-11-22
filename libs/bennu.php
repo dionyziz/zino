@@ -4,6 +4,7 @@
         private $mRules;
         private $mUsers;
         private $mScores;
+        private $mExclude;
 
         private function GetAllUsers( $limit = false ) {
             global $db;
@@ -38,17 +39,18 @@
         public function Exclude( $user ) {
             w_assert( $user instanceof User );
             
-            $pos = array_search( $user, $this->mUsers );
-            array_merge( array_slice( $this->mUsers, 0, $pos - 1 ), array_slice( $this->mUsers, $pos + 1, count( $this->mUsers ) ) );
+            $this->mExclude[] = $user->Id();;
         }
-        public function Get() {
-            $i = 0;
+        public function Get( $limit ) {
             foreach ( $this->mUsers as $user ) {
+                if ( in_array( $user->Id(), $this->mExclude ) ) {
+                    continue; 
+                }
                 $score = 0;
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
-                $this->mScores[ $i++ ] = $score;
+                $this->mScores[] = $score;
             }
 
             array_multisort( $this->mUsers, $this->mScores );
@@ -60,6 +62,7 @@
             $this->mUsers = $this->GetAllUsers();
             $this->mRules = array();
             $this->mScores = array();
+            $this->mExclude = array();
         }
     }
 
