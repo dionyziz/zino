@@ -27,7 +27,7 @@
             $ret = array();
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-                $user =  new User( $row );
+                $user = new User( $row );
                 $ret[ $user->Id() ] = $user;
             }
 
@@ -45,6 +45,9 @@
         }
         public function Get( $limit ) {
             $this->mScores = array();
+
+            print_r( $this->mUsers );
+            die();
 
             for ( $i = 0; $i < count( $this->mUsers ); ++$i ) {
                 $user = $this->mUsers[ $i ];
