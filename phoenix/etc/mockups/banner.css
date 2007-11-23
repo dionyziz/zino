@@ -1,6 +1,6 @@
 div.header {
 	position: relative;
-	background-image: url('images/roxasbg2.jpg');
+	background-image: url('images/roxasbg3.jpg');
 	background-repeat: repeat-x;
 	height: 50px;
 	margin: 0 30px 0 30px;
@@ -23,7 +23,7 @@ div.header h1 {
     _top: 3px;
 	left: 0;
 	position: absolute;
-	background-image: url('images/banner-begin.jpg');
+	background-image: url('images/banner-begin2.jpg');
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
