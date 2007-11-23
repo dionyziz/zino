@@ -1,0 +1,31 @@
+div.body {
+	width: 670px;
+	margin: 0;
+	padding: 0;
+}
+div.body span.question {
+	font-weight: bold;
+	padding: 2px 3px 1px 0;
+	margin: 0;
+}
+div.body h2 {
+	font-size: 120%;
+	font-weight: bold;
+	color: #347bca;
+}
+div.body ul li {
+	padding: 2px 3px 1px 0;
+}
+div.body ul div.pricelist {
+	padding: 0 2px 5px 0;
+}
+div.body ul div.pricelist span.month {
+	font-family: serif;
+	font-weight: bold;
+	padding-right: 5px;
+	
+}
+div.body ul div.pricelist span.price {
+	font-family: serif;
+	font-size: 11pt;
+}

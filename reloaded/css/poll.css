@@ -1,0 +1,13 @@
+div.pollheader {
+    margin-top: 40px;
+}
+div.pollheader a.usericon {
+    float: left;
+    padding-right: 4px;
+}
+div.pollheader h1 {
+    display: inline;
+}
+div.poll {
+    margin: 30px 0 30px 240px;
+}

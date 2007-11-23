@@ -1,0 +1,118 @@
+div.header {
+	position: relative;
+	background-image: url('images/roxasbg2.jpg');
+	background-repeat: repeat-x;
+	height: 50px;
+	margin: 0 30px 0 30px;
+}
+div.header a {
+	font-weight: bold;
+	color: white;
+}
+div.header a:hover {
+	color: white;
+}
+div.header h1 {
+	display: inline;
+	color: white;
+	font-size: 180%;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	top: 0;
+    _top: 3px;
+	left: 0;
+	position: absolute;
+	background-image: url('images/banner-begin.jpg');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+div.header h1 img {
+	margin: 5px 0 0 5px;
+}
+div.header ul {
+	display: block;
+	padding: 10px;
+	margin: 0;
+	height: 50px;
+	text-align: center;
+}
+div.header ul li {
+	padding: 1px;
+	margin: 0;
+	display: inline;
+	color: white;
+}
+div.header ul li a.messages {
+	background-image: url('images/mail_generic.png');
+}
+div.header ul li a.profile {
+	background-image: url('images/identity.png');
+}
+div.header ul li a.login {
+	background-image: url('images/up.png');
+	_background-image: url('images/_up.png');
+}
+div.header ul li a.register {
+	background-image: url('images/bookmark_toolbar.png');
+	_background-image: url('images/_bookmark_toolbar.png');
+}
+div.header ul li a.icon {
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+div.header ul li a.self {
+	padding-left: 30px;
+}
+div.header ul li input {
+	border: 1px solid #999;
+}
+div.header ul li input.button {
+    background-color: #f0f0f0;
+}
+div.header div.search {
+	position: absolute;
+	right: 0;
+    _right: -1px;
+	top: 30px;
+	color: white;
+	margin: 0;
+	padding: 0 0 0 10px;
+	background-image: url('images/searchbg.png');
+	_background-image: url('images/_searchbg.png');
+	background-repeat: no-repeat;
+	background-position: top left;
+	width: 174px;
+	height: 46px;
+	z-index: 1;
+}
+div.header div.search input {
+	border: 1px solid #999;
+}
+div.header div.search input.text {
+	color: #ccc;
+	margin: 6px 16px 10px 22px;
+	width: 137px;
+	padding: 2px;
+}
+div.header div.search input.submit {
+	display: none;
+}
+div.header a.logout {
+	position: absolute;
+	right: 8px;
+	top: 6px;
+}
+div.header a:hover {
+	text-decoration: underline;
+}
+div.header a img {
+	vertical-align: text-top;
+}
+div.header a.logout {
+	background-image: url('http://static.chit-chat.gr/images/icons/arrow_right.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	padding-right: 20px;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html lang="el" xml:lang="el">
+<head>
+<script type="text/javascript" src="../colorpicker/_colorpicker.js"></script>
+<script type="text/javascript" src="../../../js/modal.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../css/modal.css" />
+<link rel="stylesheet" type="text/css" href="colorpicker.css" />
+<!--[if IE]><style type="text/css">@import "ie.css";</style><![endif]-->
+</head>
+<body onload="Run()">
+<div id="test"></div>
+<script type="text/javascript">
+function Run () {
+	Colorpicker.Create( 
+        function( a,b,c ) { 
+            alert ( a + "," + b + "," + c ); 
+        }, new Function()
+    );
+}
+</script>
+</body>
+</html>

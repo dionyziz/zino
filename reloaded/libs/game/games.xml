@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<project name="excalibur">
+	<folder name="game">
+		<table name="list">
+			<field name="game_id" type="INT" autoincrement="yes" />
+			<field name="game_name" type="TEXT" />
+			<field name="game_maxplayers" type="INT" default="2" />
+			<field name="game_minplayers" type="INT" default="2" />
+		</table>
+		<table name="boards">
+			<field name="board_id" type="INT" autoincrement="yes" />
+			<field name="board_gameid" type="INT" ref="game.list.game_id" />
+			<field name="board_created" type="DATETIME" />
+			<field name="board_creatorid" type="INT" ref="user.user_id" />
+			<field name="board_name" type="TEXT" />
+			<field name="board_turn" type="INT" ref="user.user_id" />
+			<field name="board_data" type="TEXT" />
+			<field name="board_inviteonly" type="ENUM" default="no">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="board_active" type="ENUM" default="yes">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="board_started" type="ENUM" default="no">
+				<value>no</value>
+				<value>yes</value>
+			</field>
+			<index type="PRIMARY">
+				<indexfield>board_id</indexfield>
+			</index>
+			<index type="GAMEBOARDS">
+				<indexfield>board_gameid</indexfield>
+			</index>
+		</table>
+		<table name="boardplayers">
+			<field name="bp_boardid" type="INT" ref="game.boards.boardid" />
+			<field name="bp_playerid" type="INT" ref="users.user_id" />
+			<field name="bp_joined" type="DATETIME" />
+			<field name="bp_lastactive" type="DATETIME" />
+			<field name="bp_joinscore" type="INT" /><!-- score in the game when joined -->
+			<field name="bp_ready" type="ENUM" default="no">
+				<value>no</value>
+				<value>yes</value>
+			</field>
+			<index type="PRIMARY">
+				<indexfield>bp_boardid</indexfield>
+				<indexfield>bp_playerid</indexfield>
+			</index>
+		</table>
+		<table name="scores">
+			<field name="score_gameid" type="INT" ref="game.list.game_id" />
+			<field name="score_userid" type="INT" ref="users.user_id" />
+			<field name="score_score" type="INT" default="100" />
+			<field name="score_gamesplayed" type="INT" default="0" />
+		</table>
+	</folder>
+</project>

@@ -1,0 +1,30 @@
+table {
+	cursor: pointer;
+	border-collapse: collapse;
+}
+
+div.preview {
+	width: 240px;
+	height: 30px;
+	float: left;
+	margin-left: 65px;
+	margin-top: 155px;
+}
+
+table.rainbow {
+	float: right;
+	margin-right: 18px;
+	margin-top: 20px;
+}
+
+table.main {
+	float: left;
+	margin-left: 55px;
+	margin-top: 10px;
+}
+
+a.close {
+	float: right;
+	margin-right: 20px;
+	margin-top: 5px;
+}

@@ -1,0 +1,31 @@
+<?php
+    function ElementPmShowfolder( $folder ) {
+    	global $water;
+    	//this element will show all contents, aka messages for one specific folder (inbox and outbox included for now)
+    	//folder is an instanciated class in case of a folder or an id with -1 for inbox and -2 for outbox
+    	
+    	if ( is_int( $folder ) ) {
+    		if ( $folder == -1 ) {
+    			$inbox = new PMInbox();
+    			$messages = $inbox->Messages();
+    		}
+    		else if ( $folder == -2 ) {
+                $outbox = new PMOutbox();
+                $messages = $outbox->Messages();
+    		}
+    	}
+    	else {
+    		$messages = $folder->Messages();
+    	}
+		$pmsinfolder = count( $messages );
+		
+    	if ( $pmsinfolder == 0 ) {
+    		?>Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο<?php
+    	}
+    	else {
+    		foreach ( $messages as $msg ) {
+    			Element( 'pm/onepm' , $msg , $folder );
+    		}
+    	}
+    }
+?>

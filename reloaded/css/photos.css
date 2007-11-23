@@ -1,0 +1,109 @@
+div.body span.heading {
+	color: #4c4845;
+	font-size: 12pt;
+	font-family: tahoma;
+	font-weight: bold;
+}
+div.body span.description {
+	color: #4c4845;
+	font-size: 10pt;
+	font-family: tahoma;
+	padding-left: 20px;
+}
+div.body span.info {
+	color: #aeaeae;
+	font-size: 9pt;
+	font-family: Arial;
+	padding-left: 20px;
+}
+div.body span.info span.impinfo { 
+	color: #7e7e7e;
+}
+div.body div.content div.photoview {
+	text-align: center;
+	float: left;
+	width: 212px;
+	height: 270px;
+	padding: 2px;
+	margin-bottom: 10px;
+}
+div.body div.content div.photoview span.photodescription {
+	color: #acadae;
+	font-family: tahoma;
+	font-size: 10pt;
+}
+div.body div.content div.photoview span.photodetail {
+	color: #868687;
+	font-family: tahoma;
+	font-size: 10pt;
+}
+a.enterphoto, a.enterphoto:active, a.enterphoto:visited {
+	color: #9ba2ac;
+	font-weight: bold;
+	font-family: tahoma;
+	font-size: 10pt;
+	padding-bottom: 3px;
+}
+a.enterphoto:hover {
+	text-decoration: none;
+}
+div.body div.content div.photoview a.enterphoto img {
+	/*padding: 3px 0 2px 0;*/
+	padding: 1px;
+	border: 1px solid #cccccc;
+	margin-top: 3px;
+}
+
+div.photobigview span.phototitle {
+	font-family: tahoma;
+	font-size:12pt;
+	font-weight: bold;
+	color: #aeaeae;
+}
+div.photobigview span.photodescription {
+	font-family: tahoma;
+	font-size: 10pt;
+	color: #aeaeae;
+	padding-left: 20px;
+}
+div.photobigview img.thisphotoview {
+	padding: 1px;
+	border: 1px solid #aeaeae;
+}
+a.editinfos {
+	text-decoration: none;
+}
+a.editinfos img {
+	border: none;
+	margin-left: 3px;
+	padding-top: 4px;
+}
+a.editinfosmainimg {
+	text-decoration: none;
+}
+a.editinfosmainimg img {
+	border: none;
+	margin-left: 3px;
+}	
+a.photolinks , a.photolinks:active , a.photolink:visited {
+	text-align: left; 
+	color: #3568eb;
+	font-size: 10pt;
+	font-weight: bold;
+}
+a.photolinks:hover {
+	text-decoration: none;
+	color: #1e52d8;
+}
+
+div.body div.iframecontainer {
+	padding-left:30px;
+	width:407px;
+	height:100px;
+}
+
+div.body div.iframecontainer iframe.photoiframe {
+	width:407px;
+	height:110px;
+	overflow:hidden;
+}
