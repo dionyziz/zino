@@ -1,15 +1,15 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^faq$ index.php?p=faq
-RewriteRule ^chat$ index.php?p=chat
-RewriteRule ^chat/([a-zA-Z0-9_.\-/]+)$ bin/ice_queen/alpha/$1 [L,QSA]
-RewriteRule ^user/([a-zA-Z0-9_\-]+)$ index.php?p=user&name=$1 [L,QSA]
-RewriteRule ^faq/([a-zA-Z][a-zA-Z0-9_\-]+)$ index.php?p=faqq&id=$1 [L,QSA]
+RewriteRule ^reloaded/faq$ index.php?p=faq
+RewriteRule ^reloaded/chat$ index.php?p=chat
+RewriteRule ^reloaded/chat/([a-zA-Z0-9_.\-/]+)$ bin/ice_queen/alpha/$1 [L,QSA]
+RewriteRule ^reloaded/user/([a-zA-Z0-9_\-]+)$ index.php?p=user&name=$1 [L,QSA]
+RewriteRule ^reloaded/faq/([a-zA-Z][a-zA-Z0-9_\-]+)$ index.php?p=faqq&id=$1 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^register$ index.php?p=register [L,QSA]
-RewriteRule ^do/([a-zA-Z0-9_\-/]+)$ action.php?p=$1 [L,QSA]
+RewriteRule ^reloaded/register$ index.php?p=register [L,QSA]
+RewriteRule ^reloaded/do/([a-zA-Z0-9_\-/]+)$ action.php?p=$1 [L,QSA]
 
 php_flag display_errors on
 
