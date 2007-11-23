@@ -1,14 +1,14 @@
 <?php
     return array(
         'applicationname' => 'Chit-Chat',
-        'rootdir'         => '/var/www/chit-chat.gr/beta',
+        'rootdir'         => '/var/www/chit-chat.gr/beta/reloaded',
         'resourcesdir'    => '/var/www/chit-chat.gr/beta/resources',
         'imagesurl'       => 'http://static.chit-chat.gr/images/',
         'production'      => false,
         'hostname'        => 'beta.chit-chat.gr',
-        'url'             => '',
+        'url'             => '/reloaded',
         'port'            => 80,
-        'webaddress'      => 'https://beta.chit-chat.gr',
+        'webaddress'      => 'https://beta.chit-chat.gr/reloaded',
         'timezone'        => 'UTC',
         'language'        => 'el',
         'databases'       => array( // prefix all keys with "db"
