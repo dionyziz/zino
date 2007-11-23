@@ -1,0 +1,18 @@
+All source code files in this repository, unless otherwise stated, are
+
+Copyright (c) 2005 - 2007, Kamibu Development Group.
+All rights are reserved.
+
+The copyright and property of the source code, ideas, and all other trade secrets found in this 
+repository (Code) are held and shared to full extend exclusively between the original developer or 
+developers (Developer) and Kamibu as an independant entity, and all relevant copyrights are 
+restricted to these two parties. Kamibu and the Developer retain the rights to modify, use, delete, 
+redistribute and sublicense the Code.
+
+If Developer consists of two or more developers, the copyright permissions by the part of Developer 
+require all parties involved in the development to co-agree in order for them to claim any 
+permission.
+
+By reading, editing, using and contributing to the Code, you agree that you have read and agree 
+with the above copyright notice, which have been disclosed to you when you joined the development 
+team or when these terms were last modified.

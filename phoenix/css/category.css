@@ -1,0 +1,32 @@
+div.categoryview {
+	padding-left: 20px;
+}
+div.categoryview div.allcategories {
+	display: block;
+	overflow: hidden;
+	width: 720px;
+	padding-left: 40px;
+}
+div.categoryview div.allcategories div.outercategory {
+	display: inline;
+	overflow: hidden;
+}
+div.categoryview div.allcategories div.outercategory div.thecategory {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+span.categorydescription {
+	color: rgb( 165,165,165 );
+	font-size: 95%;
+}
+span.categorystats {
+	color: rgb( 141,141,141 );
+	font-size: 95%;
+}
+a.categorylink , a.categorylink:active , a.categorylink:visited {
+	text-decoration: none;
+}
+a.categorylink:hover {
+	text-decoration: none;
+}

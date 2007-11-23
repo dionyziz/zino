@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Chit-Chat Firefox Search Addon</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+function addEngine(name,ext,cat,type)
+{
+  if ((typeof window.sidebar == "object") && (typeof
+  window.sidebar.addSearchEngine == "function"))
+  {
+    window.sidebar.addSearchEngine(
+      "https://beta.chit-chat.gr/etc/ff_search_addon/chit-chat.src",
+      "https://beta.chit-chat.gr/etc/ff_search_addon/cc_sign.png", "Chit-Chat",
+      0 );
+  }
+  else
+  {
+    alert("Πρέπει να χρησιμοποιείται Firefox ή Netscape 6");
+  }
+}
+//-->
+</script>
+<a href="javascript:addEngine();">Chit-Chat Firefox Search Engine</a>
+</body>
+</html>

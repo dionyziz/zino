@@ -1,0 +1,113 @@
+div.imageslist {
+	padding-left: 40px;
+}
+div.imageslist div.allimages {
+	display: block;
+	overflow: hidden;
+	width: 700px;
+	padding-left: 40px;
+}
+div.imageslist div.allimages div.outerdiv {
+	display: inline;
+	overflow: hidden;
+}
+div.imageslist div.allimages div.outerdiv div.theimage {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+a.theimage :hover {
+	text-decoration: none;
+}
+span.upltip {
+	font-size: 75%;
+	color: #848484;
+}
+a.nexts , a.nexts:link  , a.nexts:active , a.nexts:visited {
+	color: #3568eb;
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: tahoma;
+}
+a.nexts:hover {
+	text-decoration: none;
+	color: #1e52d8;
+	font-size: 10pt;
+}
+span.allimagestext {
+	color: #4c4845;
+	font-size: 12pt;
+	font-family: tahoma;
+	font-weight: bold;
+}
+div.imageview {
+	text-align: center;
+}
+div.imageview img.viewthisimage {
+	border:1px solid #306faf;
+	padding:0px;
+}
+div.imageview div.merlinarticle, div.imageview div.merlinid {
+	text-align: left;
+	padding-left: 10px;
+}
+div.filmstrip {
+	width: 100%;
+	height: 130px;
+	overflow: auto;
+	border: 1px solid #cccccc;
+	background-color: #eeeeee;
+}
+div.bumpstrip {
+    width: 910px;
+    position: relative;
+	overflow: hidden;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	background-color: #eeeeee;
+}
+div.filmstrip div.strip {
+	width: 1740px;
+}
+div.bumpstrip div.strip {
+    position: relative;
+    width: 1740px;
+}
+div.filmstrip div.strip div {
+	position: relative;
+	width: 114px;
+	height: 114px;
+	float: left;
+}
+div.bumpstrip div.strip div {
+	position: relative;
+    float: left;
+}
+div.filmstrip div.strip div img {
+	width: 100px;
+	height: 100px;
+	padding: 7px;
+	cursor: pointer;
+}
+div.bumpstrip div.strip div img {
+    margin: 7px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+div.filmstrip div.strip div a span {
+	position: absolute;
+	bottom: 7px;
+	right: 7px;
+	background-color: #cecece;
+	opacity: 0.7;
+}
+div.bumpstrip div.strip div a span {
+    position: absolute;
+    bottom: 9px;
+    right: 7px;
+	background-color: #cecece;
+	opacity: 0.7;
+}
+div.bumpstrip div.strip div a span img {
+    margin: 0;
+}

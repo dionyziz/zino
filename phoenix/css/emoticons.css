@@ -1,0 +1,31 @@
+div.content {
+	padding-left: 60px;
+	text-align: center;
+}
+div.content div.allsmilies {
+	display: block;
+	overflow: hidden;
+	width: 720px;
+	height: 600px;
+	padding-left: 60px;
+	text-align: left;
+}
+div.content div.allsmilies div.outersmiley {
+	display: inline;
+	overflow: hidden;
+	width: 150px;
+}
+div.content div.allsmilies div.outersmiley div.thesmiley {
+	display: table-cell;
+	//text-align: center;
+	vertical-align: middle;
+	width: 150px;
+}
+div.content div.allsmilies div.outersmiley div.thesmiley span.smileyicon {
+	width: 35px;
+	height: 25px;
+}
+div.content div.allsmilies div.outersmiley div.thesmiley span.smileytext {
+	font-size: 95%;
+	padding-left: 8px;
+}

@@ -1,0 +1,14 @@
+div.allusers {
+	padding: 0 50px 0 50px;
+	text-align: center;
+}
+div.allusers div.thisuser {
+	text-align: left;
+}
+span.heading {
+	font-family: tahoma;
+	color: #777472;
+	font-size: 12pt;
+	font-weight: bold;
+	cursor: pointer;
+}

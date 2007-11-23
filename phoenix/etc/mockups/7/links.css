@@ -1,0 +1,19 @@
+a {
+	color: #105cb6;
+	text-decoration: none;
+}
+a:hover {
+	color: #000033;
+}
+a img {
+	border: 0;
+}
+a.button {
+	padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background-color: white;
+}
+a.button:hover {
+	background-color: #eef;
+}

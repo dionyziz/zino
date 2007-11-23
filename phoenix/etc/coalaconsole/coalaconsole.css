@@ -1,0 +1,63 @@
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+body div.heading div.banner {
+	background-image: url( 'coala2.png' );
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 135px;
+	width: 165px;
+	padding: 0;
+	float: left;
+}
+body div.heading div.text {
+	background-image: url( 'fade.png' );
+	background-position: top;
+	background-repeat: repeat-x;
+	height: 135px;
+	color: #bed8c9;
+	font-size: 18pt;
+	font-family: arial;
+	padding: 40px 0 0 650px;
+	
+}
+body div.body {
+	clear: both;
+	text-align: center;
+}
+body div.body div.coalaform {
+	text-align: left;
+	padding-left: 500px;
+}
+body div.body div.coalaform form div.parameteresdiv {
+	border:1px dotted black;
+	width: 400px;
+	padding: 10px 5px 0 20px;
+
+}
+body div.body div.coalaform form div.parameteresdiv div.spanparamname {
+	padding-bottom: 2px;
+}
+body div.body div.coalaform form div.parameteresdiv div.spanparamvalue {
+	padding-bottom: 2px;
+}
+a.link , a.link:active , a.link:visited {
+	color: #98cea7;
+	text-decoration: none;
+	font-family: arial;
+	font-size: 10pt;
+	font-weight: bold;
+}
+a.link:hover {
+	color: #81ad8d;
+}
+input.valueparam {
+	margin-bottom: 30px;
+	width: 300px;
+}
+input.nameparam {
+	width: 300px;
+}

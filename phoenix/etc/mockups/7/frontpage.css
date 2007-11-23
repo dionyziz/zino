@@ -1,0 +1,110 @@
+div.frontpage {
+	text-align: center;
+}
+div.frontpage div.ybubble {
+	padding-top: 0;
+	margin: 0 auto 10px auto;
+	text-align: center;
+	width: 700px;
+	height: 100px;
+}
+div.frontpage div.ybubble a {
+	width: 16px;
+	height: 16px;
+	float: right;
+	padding: 3px 1px 0 0;
+}
+div.frontpage div.ybubble form {
+	text-align: left;
+}
+div.frontpage div.ybubble form div {
+	display: inline;
+}
+div.frontpage div.ybubble form div span {
+	padding-right: 3px;
+}
+div.meetfriends div.people {
+ 	height: 260px;
+	overflow: hidden;
+	text-align: left;
+}
+div.latestimages {
+	height: 115px;
+	overflow: hidden;
+	border-bottom: 1px solid #e4e4e4;
+	margin: 0 4px 0 4px;
+	background-color: #f6f6f6;
+}
+div.latestimages ul {
+	margin: 0;
+	padding: 7px 0 4px 0;
+	list-style: none;
+
+}
+div.latestimages ul li {
+	float: left;
+	padding: 5px;
+	_width: 110px;
+	height: 200px;
+	text-align: center;
+}
+div.latestimages ul li img {
+	border: 1px solid #cce;
+}
+div.meetfriends h2 {
+	font-size: 130%;
+	color: #666;
+	text-align: left;
+}
+div.frontpage div.bubble {
+    width: 65%;
+    margin: auto;
+	text-align: left;
+}
+div.frontpage div.bubble form {
+    margin: 10px;
+    float: left;
+}
+div.frontpage div.bubble form div {
+    margin: 10px 0 5px 0;
+}
+div.frontpage div.bubble form div.inline {
+    display: inline;
+}
+div.frontpage div.bubble form div label {
+    float: left;
+    width: 40%;
+    text-align: left;
+}
+div.frontpage div.bubble form div input.text {
+    margin: 0 5px;
+    width: 50%;
+}
+div.frontpage div.bubble h2 {
+    font-size: 120%;
+    margin-top: 0;
+}
+div.frontpage div.bubble form.memberform {
+    width: 35%;
+    text-align: center;
+}
+div.frontpage div.bubble form.memberform input.button {
+    margin: auto;
+}
+div.frontpage div.bubble form.joinform {
+    border-left: 1px solid #ddd;
+    padding: 5px 0 5px 10px;
+    margin: 6px;
+    height: 100px;
+    width: 50%;
+}
+div.frontpage div.bubble form.joinform div input {
+    font-size: 100%;
+}
+div.frontpage div.bubble form input.button {
+    background-color: #105cb6;
+    color: white;
+    padding: 1px 7px;
+}
+
+/* div.frontpage div.bubble form div  */

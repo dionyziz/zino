@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../js/animations.js"></script>
+    </head>
+    <body>
+        <div id="foo" style="opacity:1;position:absolute;left:20px;top:50px;width:100px;height:100px;background-color:#1070b0;border:3px solid #333;text-align:center;color:white;font-family:Arial;font-weight:bold;font-size:12pt">
+            Now Is The Time
+        </div>
+        <script type="text/javascript">
+            foo = document.getElementById( 'foo' );
+            var t = 3000;
+            Animations.Create( foo, "left", t, 20, 300, function () {
+                Animations.Create( foo, "left", t, 300, 20, function () {
+                } );
+            } );
+            Animations.Create( foo, "width", t, 100, 200 );
+            Animations.Create( foo, "height", t, 100, 200 );
+            Animations.Create( foo, "opacity", t, 0, 1 );
+            Animations.Create( foo, "font-size", t, 24, 48 );
+            /*
+            Animations.Create( foo, "background-color", 10000, '#f0f000', '#1070b0', new Function(), Interpolators.Sin );
+            Animations.Create( foo, "color",            10000, '#1070b0', '#ffffff', new Function(), Interpolators.Sin );
+            */
+        </script>
+    </body>
+</html>

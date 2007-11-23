@@ -1,0 +1,47 @@
+div#joined {
+	padding: 0;
+	text-align: center;
+}
+div#joined div.ybubble {
+	text-align: left;
+	padding: 8px 10px;
+	width: 550px;
+	height: 30px;
+	margin: auto;
+}
+div#joined div.profinfo{
+	text-align: left;
+	padding-top: 20px;
+	margin: auto;
+	width: 550px;
+}
+div#joined div.profinfo div.logininfo {
+	display:block;
+	background-color:#82a4b6;
+	width:302px;
+	border: 1px solid #335;
+	padding:5px;
+}
+div#joined div.profinfo div.loginfo span {
+	display:block;
+	text-align:center;
+	font-size:80%;
+	color:white;
+	padding:2px
+}
+div#joined div.profinfo form span {
+	padding: 10px 0 3px 0;
+	display: block;
+}
+div#joined div.profinfo p {
+	font-size: 105%;
+}
+div#joined div a.button {
+	font-size: 120%;
+	padding: 5px 10px;
+	font-weight: bold;
+	display: block;
+	width: 120px;
+	margin: 20px auto 0 auto;
+	text-align: center;
+}

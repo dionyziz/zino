@@ -1,0 +1,42 @@
+form.unittest {
+    margin-top: 20px;
+    font-family: Tahoma;
+}
+form.unittest ul.testcases {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+form.unittest ul.testcases span.pass {
+    color: #5abf5c;
+    font-weight: bold;
+}
+form.unittest ul.testcases span.fail {
+    color: #bf5a5c;
+    font-weight: bold;
+}
+form.unittest ul.testcases span.subject {
+    color: #bfbfbf;
+}
+form.unittest ul.testcases ul.assertresults li {
+    margin-top: 3px;
+}
+form.unittest ul.testcases ul.assertresults dt {
+    margin: 5px 0 0 5px;
+}
+form.unittest ul.testcases ul.assertresults dd.expected {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #efe;
+    font-family: "Courier New";
+    margin: 2px 0 0 15px;
+}
+form.unittest ul.testcases ul.assertresults dd.actual {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #fee;
+    font-family: "Courier New";
+    margin: 2px 0 0 15px;
+}
+form.unittest ul.testcases ul.assertresults em.message {
+    font-style: normal;
+}

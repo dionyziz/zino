@@ -1,0 +1,103 @@
+div.tabulator {
+	float: left;
+}
+div.tabulator div.tab {
+	cursor: pointer;
+	border: 1px solid white;
+}
+div.tabulator div.tab:hover {
+	background-color: #EFF2FF;
+	border: 1px solid silver;
+}
+div.watertrace ul {
+	list-style-type: none;
+}
+div.watertrace ul li img.expandar {
+	cursor: pointer;
+}	
+div.water_notice {
+    background-color: #9aa4bf;
+    margin: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+    font-size: 90%;     
+    width: 90%;
+    border: 1px solid black;
+}
+div.water_notice a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: Trebuchet;
+}
+div.watertrace {
+	font-family: Trebuchet MS, sans-serif, Helvetica;
+	text-align: center;
+	margin: 5px auto 5px auto;
+	display: table-cell;
+}
+table.callstack {
+	background-color: #cdd6ee;
+    /* TODO: these URLs should not be excalibur-specific */
+    background-image: url('http://static.chit-chat.gr/images/water/water_trace.jpg');
+    background-position: top right;
+    background-repeat: repeat-y;
+	font-family: Trebuchet MS, sans-serif, Helvetica;
+	margin: 2px 2px 2px 2px;
+	text-align: left;
+    border-collapse: collapse;
+	border: 1px solid #4a85c5;
+}
+table.callstack td {
+	color: black;
+	padding: 2px 2px 2px;
+	border-top: 1px solid #4a85c5;
+	border-right: 1px solid #4a85c5;
+}
+table.callstack td.revision {
+	color: #3979bd;
+}
+table.callstack tr.title, table.callstack tr.error {
+	background-color: #0d5681;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+div.callstack div.title {
+	background-color: #0d5681;
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+table.callstack tr.error {
+	background-color: #C7CCE0;
+    background-image: url('http://static.chit-chat.gr/images/water/water_error.jpg');
+	background-repeat: repeat;
+	cursor: pointer;
+}
+table.callstack td.title {
+	font-weight: bold;
+    color: white;
+    border: 0px none transparent;
+}
+div#globalwarning {
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #ffffe1;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	z-index: 2;
+	padding: 2px 2px 2px 2px;
+	vertical-align: middle;
+	cursor: pointer;
+    font-size: 90%;
+}
+
+div.copyright {
+	clear: both;
+	font-size: 10px;
+	width: 100%;
+	text-align: center;
+	margin-top: 70px;
+}
