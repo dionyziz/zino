@@ -45,7 +45,11 @@
         protected $mConnections;
 
         protected function Connect( $table1, $type, $table2, $fields ) {
-           //  $this->mC
+           $this->mConnections[ $table1 ][] = array( 
+                'type' => strtoupper( $type ), 
+                'table' => $table2,
+                'fields' => $fields 
+            );
         }
         protected function SetTables( $tables ) {
             $this->mTables = $tables;
@@ -80,6 +84,47 @@
             }
         }
         public function Get() {
+            $sql = "SELECT ";
+            
+            foreach ( $this->mFields as $table => $fields ) {
+                while ( $field = array_shift( $fields ) ) {
+                    $sql .= "`$table`.`$field`";
+                    if ( count( $fields ) ) {
+                        $sql .= ", ";
+                    }
+                }
+            }
+
+            $sql .= " FROM ";
+
+            $i = 0;
+            $connected = array();
+            foreach ( $this->mTables as $alias => $table ) {
+                if ( isset( $connected[ $alias ] ) ) {
+                    continue;
+                }
+                $sql .= "`$table` AS $alias";
+                foreach ( $this->mConnections[ $alias ] as $join ) {
+                    $sql .= " " . $join[ 'type' ] . " JOIN ";
+                    $sql .= $join[ 'table' ];
+                    $connected[] = $join[ 'table' ];
+                    if ( count( $join[ 'fields' ] ) ) {
+                        $sql .= " ON ";
+                        $j = 0;
+                        foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
+                            if ( $j > 0 ) {
+                                $sql .= "AND ";
+                            }
+                            $sql .= "$f1 = $f2 ";
+                            ++$j;
+                        }
+                    }
+                }
+                if ( $i < count( $this->mTables ) - 1 ) {
+                    $sql .= ", ";
+                }
+                ++$i;
+            }
         }
         public function GetParented() {
         }

@@ -118,6 +118,9 @@
             $varname = 'm' . $name;
             return $this->$varname; // MAGIC!
         }
+        protected function IsEqual( $value ) {
+            return ( $this->Value === $value ) ? $this->Score : 0;
+        }
         protected function NormalDistribution( $value ) {
         }
         protected function Random() {
@@ -144,7 +147,7 @@
             return $user->Gender();
         }
         public function Calculate( $value ) {
-            return ( $value == $this->Value ) ? $this->mScore : 0;
+            return $this->IsEqual( $value );
         }
     }
 
@@ -156,22 +159,43 @@
 
     class BennuRuleCreation extends BennuRule {
         public function UserValue( $user ) {
+            return strtotime( $user->Created() );
         }
     }
 
+    /*
     class BennuRulePhotos extends BennuRule {
+        public function UserValue( $user ) {
+            return $user->MyPhotosNum;
+        }
     }
+    */
 
     class BennuRuleLocation extends BennuRule {
+        public function UserValue( $user ) {
+            return $user->Location();
+        }
+        public function Calculate( $value ) {
+            return IsEqual( $value );
+        }
     }
 
     class BennuRuleFriends extends BennuRule {
+        public function UserValue( $user ) {
+            return $user->IsFriend( $this->Value );
+        }
+        public function Calculate( $value ) {
+            return $this->IsEqual( $value );
+        }
     }
 
     class BennuRuleLastActive extends BennuRule {
     }
 
     class BennuRuleRandom extends BennuRule {
+        public function UserValue( $user ) {
+            return $this->Random();
+        }
     }
 
 ?>
