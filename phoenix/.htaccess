@@ -4,7 +4,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^phoenix/faq$ index.php?p=faq
 RewriteRule ^phoenix/chat$ index.php?p=chat
 RewriteRule ^phoenix/chat/([a-zA-Z0-9_.\-/]+)$ bin/ice_queen/alpha/$1 [L,QSA]
-RewriteRule ^phoenix/user/([a-zA-Z0-9_\-]+)$ index.php?p=user&name=$1 [L,QSA]
+RewriteRule ^phoenix/user/([a-zA-Z0-9_\-]+)$ phoenix/index.php?p=user&name=$1 [L,QSA]
 RewriteRule ^phoenix/faq/([a-zA-Z][a-zA-Z0-9_\-]+)$ index.php?p=faqq&id=$1 [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
