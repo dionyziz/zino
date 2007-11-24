@@ -43,7 +43,7 @@ var InterestTag = {
     		}
     		
 			var li = InterestTag.createLi( allinterests[i] );
-			li.style.backgroundColor = (i%2) ? "#afeeee" : "#add8e6";
+			li.style.backgroundColor = (i%2) ? "rgb( 247, 247, 247 )" : "rgb( 252, 252, 252 )";
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
@@ -78,7 +78,7 @@ var InterestTag = {
 					li.appendChild( d.createElement( 'br' ) );
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
 					var childlen = bigpar.childNodes.length;
-					li.style.backgroundColor = (childlen%2) ? "#add8e6" : "#afeeee";
+					li.style.backgroundColor = (childlen%2) ? "rgb( 252, 252, 252 )" : "rgb( 247, 247, 247 )";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
