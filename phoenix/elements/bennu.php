@@ -7,12 +7,12 @@
         $libs->Load( "bennu" );
         $bennu = New Bennu();
         
-        /*
         $age = New BennuRuleAge();
         $age->Value = $user->Age();
         $age->Score = 5;
         $age->Sigma = 2;
 
+        /*
         $sex = New BennuRuleSex();
         $sex->Value = 'female';
         $sex->Score = 5;
