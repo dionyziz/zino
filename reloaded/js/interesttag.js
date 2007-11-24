@@ -28,8 +28,6 @@ var InterestTag = {
 				};
 			})( ul );
 		close.className = "close";
-		close.style.cssFloat = "right";
-		close.style.marginRight = "30px";
 		//------------------------------
 		
 		var anchor = d.createElement( 'a' );
@@ -147,6 +145,8 @@ var InterestTag = {
 					InterestTag.Delete( li );
 				};
 			})(li);
+		del.style.cssFloat = "right";
+		del.style.marginRight = "30px";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
