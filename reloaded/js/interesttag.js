@@ -7,7 +7,6 @@ var InterestTag = {
     	ul.style.listStyleType = "none";
     	ul.style.textAlign = "left";
     	ul.style.marginTop = "15px";
-		ul.style.height = "200px";
 		ul.style.overflow = "auto";
     	
     	// Start creating the close link
@@ -38,6 +37,7 @@ var InterestTag = {
 		// Fill in the interests
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
+		ul.style.height = (allinterests.length<=15)?(allinterests.length*13)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
@@ -67,7 +67,13 @@ var InterestTag = {
 					Coala.Warm( 'interesttag/new', { 'text' : text } );
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
-					input.parentNode.parentNode.childNodes[2].appendChild( li ); //input->form->div->ul.append
+					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
+					bigpar.appendChild( li );
+					var heig = bigpar.style.height;
+					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
+					if ( heig <= 170 ) {
+						bigpar.style.height = (heig+15)+"px";
+					}
 					input.value="";
 					input.focus();
 				}
@@ -136,9 +142,12 @@ var InterestTag = {
     },
 	Delete : function( li ) {
 		Coala.Warm( 'interesttag/delete', { 'text' : li.firstChild.nodeValue } );
-		li.parentNode.removeChild( li );
-	},
-	Closing : function ( ul ) {
-		
+		var dad = li.parentNode;
+		dad.removeChild( li );
+		var heig = dad.style.height;
+		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
+		if ( heig >= 12 && dad.childNodes.length <=10 ) {
+			dad.style.height= (heig-15) + "px";
+		}
 	}
 };
