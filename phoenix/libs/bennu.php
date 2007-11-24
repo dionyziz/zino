@@ -29,7 +29,7 @@
             $ret = array();
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-                $ret[ $row[ "user_id" ] ] = $row;
+                $ret[ (int)$row[ "id" ] ] = $row;
             }
 
             return $ret;
