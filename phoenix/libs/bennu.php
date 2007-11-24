@@ -44,8 +44,12 @@
             $this->mExclude[] = $user->Id();
         }
         public function Get( $limit = false ) {
+            global $water;
+
             $this->mScores = array();
             $this->mUids = array();
+
+            $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
@@ -63,6 +67,9 @@
             
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mUids, $this->mScores );
+
+            $water->Trace( "bennu uids", $this->mUids );
+            $water->Trace( "bennu scores", $this->mScores );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
@@ -126,10 +133,10 @@
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
         }
-        protected function UserValue( $user ) {
+        public function UserValue( $user ) {
             // override me!
         }
-        protected function Calculate( $value ) {
+        public function Calculate( $value ) {
             // default calculation
             $this->NormalDistribution( $value );
         }
