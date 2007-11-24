@@ -25,8 +25,8 @@
             $sql .= ";";
 
             $ret = array();
-            die( "before query" );
             $res = $db->Query( $sql );
+            die( "after query" );
             while ( $row = $res->FetchArray() ) {
                 $user = new User( $row );
                 $ret[ $user->Id() ] = $user;
