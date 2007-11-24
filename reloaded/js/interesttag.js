@@ -43,7 +43,7 @@ var InterestTag = {
     		}
     		
 			var li = InterestTag.createLi( allinterests[i] );
-			li.style.backgroundColor = (i%2) ? "rgb( 230, 238, 255 )" : "rgb( 232, 237, 255 )";
+			li.style.backgroundColor = (i%2) ? "rgb( 221, 231, 255 )" : "rgb( 232, 237, 255 )";
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
@@ -84,7 +84,7 @@ var InterestTag = {
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
 					var childlen = bigpar.childNodes.length;
-					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 230, 238, 255 )";
+					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 221, 231, 255 )";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
