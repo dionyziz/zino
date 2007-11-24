@@ -155,6 +155,7 @@
             return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
+            $this->Fields = array();
         }
     }
 
