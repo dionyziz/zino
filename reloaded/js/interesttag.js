@@ -76,7 +76,7 @@ var InterestTag = {
 					bigpar.appendChild( li );
 					input.value="";
 					input.focus();
-				}
+				};
 			} )( input );
 		form.onkeypress = function ( e ) {
 				return submitenter(form, e);
@@ -93,7 +93,7 @@ var InterestTag = {
 					return function() { 
 						myform.onsubmit();
 						return false; 
-					}
+					};
 				})( form );
 		editsubmit.alt = 'Δημιουργία';
 		editsubmit.title = 'Δημιουργία';
