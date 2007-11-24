@@ -17,6 +17,9 @@ var InterestTag = {
 				return function() {
 					var texts = "";
 					for ( var i=0;i<ul.childNodes.length;++i ) {
+						if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
+							continue;
+						}
 						texts += ul.childNodes[i].firstChild.nodeValue  + " ";
 					}
 					g( 'interests' ).firstChild.nodeValue = texts;
