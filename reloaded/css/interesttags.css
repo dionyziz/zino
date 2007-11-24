@@ -12,7 +12,7 @@ ul.allinterests {
 	overflow: auto;
 }
 
-form.inter {
+form.inter, b.inter {
 	float: left;
 	margin-left: 40px;
 }

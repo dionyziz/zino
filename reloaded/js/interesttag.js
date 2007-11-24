@@ -54,6 +54,7 @@ var InterestTag = {
 		// Start creating the new tag box
 		var bold = d.createElement( 'b' );
 		bold.appendChild( d.createTextNode( "Νέο Ενδιαφέρον:" ) );
+		bold.className = "inter";
 		
 		var input = d.createElement( 'input' );
 		input.type = "text";
