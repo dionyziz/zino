@@ -145,7 +145,6 @@ var InterestTag = {
 					InterestTag.Delete( li );
 				};
 			})(li);
-		del.style.cssFloat = "right";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
