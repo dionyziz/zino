@@ -4,10 +4,7 @@ var InterestTag = {
     	
     	// Create the place in where the interests are stored
     	var ul = d.createElement( 'ul' );
-    	ul.style.listStyleType = "none";
-    	ul.style.textAlign = "left";
-    	ul.style.marginTop = "15px";
-		ul.style.overflow = "auto";
+    	ul.className = "allinterests";
     	
     	// Start creating the close link
     	var closeimg = d.createElement( 'img' );
@@ -27,10 +24,7 @@ var InterestTag = {
 					return false;
 				};
 			})( ul );
-		close.style.cssFloat = "right";
-		close.style.marginRight = "20px";
-		close.style.marginTop = "5px";
-		close.style.cursor = "pointer";
+		close.className = "close";
 		//------------------------------
 		
 
@@ -81,8 +75,7 @@ var InterestTag = {
 		form.onkeypress = function ( e ) {
 				return submitenter(form, e);
 			};
-		form.style.cssFloat = "left";
-		form.style.marginLeft = "40px";
+		form.className = "inter";
 		
 		var imageaccept = d.createElement( 'img' );
 		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';

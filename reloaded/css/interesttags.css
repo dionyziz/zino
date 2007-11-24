@@ -1,5 +1,18 @@
 a.close {
 	float: right;
-	margin-right: 0px;
-	margin-top: 0px;
+	margin-right: 20px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+ul.allinterests {
+	list-style-type: none;
+	text-align: left;
+	margin-top: 15px;
+	overflow: auto;
+}
+
+form.inter {
+	float: left;
+	margin-left: 40px;
 }
