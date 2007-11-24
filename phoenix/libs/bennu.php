@@ -51,6 +51,7 @@
 
             $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
+            die( "calculating scores" );
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     continue;
@@ -66,7 +67,6 @@
             }
             
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
-            die( "before multisort" );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
             $water->Trace( "bennu uids", $this->mUids );
