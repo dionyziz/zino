@@ -48,6 +48,7 @@
         public function Get( $limit = false ) {
             global $water;
 
+            die( "before getting" );
             $this->mUsers = $this->GetAllUsers( 10 );
             $this->mScores = array();
             $this->mUids = array();

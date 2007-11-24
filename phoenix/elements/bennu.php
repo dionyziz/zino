@@ -22,8 +22,7 @@
 
         $bennu->Exclude( $user );
 
-//        $users = $bennu->Get( 20 );
-        $users = array();
+        $users = $bennu->Get( 20 );
 
         ?><ul style="list-style-type: none;"><?php
         foreach ( $users as $user ) {
