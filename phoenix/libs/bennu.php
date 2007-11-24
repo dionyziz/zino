@@ -172,9 +172,9 @@
 
     class BennuRuleAge extends BennuRule {
         public function UserValue( $user ) {
-            $nowdate = GetDate();
+            $nowdate = getdate();
             $nowyear = $nowdate[ "year" ];
-            $dobyear = (int)substr( $user[ "dob" ], 0, 4 );
+            $dobyear = substr( $user[ "dob" ], 0, 4 );
 
             return $nowyear - $dobyear;
         }
