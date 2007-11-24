@@ -12,12 +12,12 @@
         $age->Score = 5;
         $age->Sigma = 2;
 
-        /*
         $sex = New BennuRuleSex();
         $sex->Value = 'female';
         $sex->Score = 5;
 
         $bennu->AddRule( $age );
+        /*
         $bennu->AddRule( $sex );
 
         $bennu->Exclude( $user );
