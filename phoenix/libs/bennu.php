@@ -66,6 +66,7 @@
             }
             
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
+            die( "before multisort" );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
             $water->Trace( "bennu uids", $this->mUids );
