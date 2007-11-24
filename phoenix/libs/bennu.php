@@ -25,6 +25,7 @@
             $sql .= ";";
 
             $ret = array();
+            die( "before query" );
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
                 $user = new User( $row );
@@ -51,7 +52,6 @@
 
             $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
-            die( "calculating scores" );
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user->Id(), $this->mExclude ) ) {
                     continue;
