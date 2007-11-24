@@ -134,9 +134,11 @@
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
         }
+        /*
         public function UserValue( $user ) {
             // override me!
         }
+        */
         public function Calculate( $value ) {
             // default calculation
             $this->NormalDistribution( $value );
@@ -152,9 +154,16 @@
 
     class BennuRuleSex extends BennuRule {
         public function UserValue( $user ) {
+            global $trace;
+
+            $water->Trace( "Sex value for " . $user->Username(), $user->Gender() );
+
             return $user->Gender();
         }
         public function Calculate( $value ) {
+            global $water;
+
+            $water->Trace( "Sex calculation for value $value", $this->IsEqual( $value ) );
             return $this->IsEqual( $value );
         }
     }
