@@ -14,7 +14,7 @@
         $age->Sigma = 2;
 
         $sex = New BennuRuleSex();
-        $sex->Value = 'f';
+        $sex->Value = 'female';
         $sex->Score = 5;
 
         $bennu->AddRule( $age );
