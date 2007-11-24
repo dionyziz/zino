@@ -129,6 +129,7 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
+            return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
