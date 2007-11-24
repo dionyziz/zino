@@ -28,6 +28,8 @@ var InterestTag = {
 				};
 			})( ul );
 		close.className = "close";
+		close.style.cssFloat = "right";
+		close.style.marginRight = "30px";
 		//------------------------------
 		
 		var anchor = d.createElement( 'a' );
