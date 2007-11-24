@@ -20,6 +20,8 @@
         $bennu->AddRule( $age );
         $bennu->AddRule( $sex );
 
+        $bennu->Exclude( $user );
+
         $users = $bennu->Get( 20 );
 
         ?><ul style="list-style-type: none;"><?php
