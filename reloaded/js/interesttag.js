@@ -43,7 +43,7 @@ var InterestTag = {
     		}
     		
 			var li = InterestTag.createLi( allinterests[i] );
-			li.style.backgroundColor = (i%2) ? "#afeeee" : "#add8e6";
+			li.style.backgroundColor = (i%2) ? "rgb( 230, 238, 255 )" : "rgb( 232, 237, 255 )";
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
@@ -84,7 +84,7 @@ var InterestTag = {
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
 					var childlen = bigpar.childNodes.length;
-					li.style.backgroundColor = (childlen%2) ? "#add8e6" : "#afeeee";
+					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 230, 238, 255 )";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
@@ -132,8 +132,6 @@ var InterestTag = {
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
 		li.appendChild( d.createTextNode( text ) );
-		li.style.borderStyle = "solid";
-		li.style.borderWidth = "1px 1px 0px 1px";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
