@@ -14,7 +14,7 @@
             global $users;
 
             $sql = "SELECT 
-                        `user_id` AS id, `user_name` AS name, `user_rights` AS rights, `user_gender` AS gender, `user_dob` AS dob, `user_lastactive` AS lastactive
+                        `user_id`, `user_name`, `user_rights`, `user_gender`, `user_dob`, `user_lastactive`
                     FROM 
                         `$users` 
                     WHERE
@@ -29,7 +29,7 @@
             $ret = array();
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-                $ret[ (int)$row[ "id" ] ] = $row;
+                $ret[ (int)$row[ "user_id" ] ] = $row;
             }
 
             return $ret;
@@ -55,7 +55,7 @@
             $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
             foreach ( $this->mUsers as $user ) {
-                if ( in_array( $user[ "id" ], $this->mExclude ) ) {
+                if ( in_array( $user[ "user_id" ], $this->mExclude ) ) {
                     continue;
                 }
 
@@ -64,7 +64,7 @@
                     $score += $rule->Get( $user );
                 }
 
-                $this->mUids[] = $user[ "id" ];
+                $this->mUids[] = $user[ "user_id" ];
                 $this->mScores[] = $score;
             }
             
@@ -162,7 +162,7 @@
 
     class BennuRuleSex extends BennuRule {
         public function UserValue( $user ) {
-            return $user[ "gender" ];
+            return $user[ "user_gender" ];
         }
         public function Calculate( $value ) {
             return $this->IsEqual( $value );
@@ -173,7 +173,7 @@
         public function UserValue( $user ) {
             $nowdate = getdate();
             $nowyear = (int)$nowdate[ "year" ];
-            $dobyear = (int)substr( $user[ "dob" ], 0, 4 );
+            $dobyear = (int)substr( $user[ "user_dob" ], 0, 4 );
 
             return $nowyear - $dobyear;
         }
