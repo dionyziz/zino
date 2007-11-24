@@ -5,7 +5,6 @@
         global $libs;
 
         $libs->Load( "bennu" );
-        /*
         $bennu = New Bennu();
         
         $age = New BennuRuleAge();
@@ -21,9 +20,10 @@
         $bennu->AddRule( $sex );
 
         $bennu->Exclude( $user );
-
+        /*
         $users = $bennu->Get( 20 );
-
+        */
+        $users = array();
         ?><ul style="list-style-type: none;"><?php
         foreach ( $users as $user ) {
             ?><li><?php
@@ -32,7 +32,6 @@
         }
 
         ?></ul><?php
-        */
     }
 
 ?>
