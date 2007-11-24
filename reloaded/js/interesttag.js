@@ -1,7 +1,6 @@
 var InterestTag = {
     Create : function() {
     	var div = d.createElement( 'div' );
-    	div.style.textAlign = "left";
     	
     	// Create the place in where the interests are stored
     	var ul = d.createElement( 'ul' );
@@ -53,6 +52,9 @@ var InterestTag = {
 		
 		
 		// Start creating the new tag box
+		var bold = d.createElement( 'b' );
+		bold.appendChild( d.createTextNode( "Νέο Ενδιαφέρον:" ) );
+		
 		var input = d.createElement( 'input' );
 		input.type = "text";
 		input.className = "bigtext";
@@ -112,7 +114,7 @@ var InterestTag = {
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( ul );
-		div.appendChild( d.createTextNode( "Νέο Ενδιαφέρον:" ) );
+		div.appendChild( bold );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form );
 		Modals.Create( div, 300, 270 );
