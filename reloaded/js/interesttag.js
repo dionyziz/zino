@@ -79,7 +79,7 @@ var InterestTag = {
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
-						bigpar.style.height = (heig+16)+"px";
+						bigpar.style.height = (heig+17)+"px";
 					}
 					bigpar.insertBefore( li, bigpar.childNodes[ bigpar.childNodes.length-1 ] );
 					g( "hereiam" ).focus();
