@@ -4,6 +4,7 @@
         global $user;
         global $libs;
 
+        /*
         $libs->Load( "bennu" );
 
         $bennu = New Bennu();
@@ -32,6 +33,7 @@
         }
 
         ?></ul><?php
+        */
     }
 
 ?>
