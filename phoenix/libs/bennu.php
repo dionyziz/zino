@@ -115,7 +115,7 @@
             $varname = 'm' . $name;
             $this->$varname = $value; // MAGIC!
 
-            $water->Trace( "changed $varname", $value );
+//          $water->Trace( "changed $varname", $value );
         }
         public function __get( $name ) {
             // check if a custom getter is specified
@@ -132,7 +132,7 @@
         protected function IsEqual( $value ) {
             global $water;
 
-            $water->Trace( "comparing " . $this->Value . " and " . $value, ( $this->Value === $value ) ? "equal" : "not equal" );
+//            $water->Trace( "comparing " . $this->Value . " and " . $value, ( $this->Value === $value ) ? "equal" : "not equal" );
 
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
@@ -140,7 +140,7 @@
             global $water;
 
             $ret = $this->Score * pow( M_E, ( ( -pow( -( $value - $this->Value ), 2 ) ) / $this->Score ) );
-            $water->Trace( "calculation of normal distribution", $ret );
+//            $water->Trace( "calculation of normal distribution", $ret );
 
             return $ret;
         }
@@ -159,7 +159,7 @@
         public function Get( $user ) {
             global $water;
 
-            $water->Trace( "Current rule value: " . $this->Value );
+//            $water->Trace( "Current rule value: " . $this->Value );
             return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
@@ -172,14 +172,14 @@
         public function UserValue( $user ) {
             global $water;
 
-            $water->Trace( "Sex value for " . $user->Username(), $user->Gender() );
+//             $water->Trace( "Sex value for " . $user->Username(), $user->Gender() );
 
             return $user->Gender();
         }
         public function Calculate( $value ) {
             global $water;
 
-            $water->Trace( "Sex calculation for value $value", $this->IsEqual( $value ) );
+//            $water->Trace( "Sex calculation for value $value", $this->IsEqual( $value ) );
             return $this->IsEqual( $value );
         }
     }
