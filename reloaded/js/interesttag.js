@@ -43,6 +43,7 @@ var InterestTag = {
     		}
     		
 			var li = InterestTag.createLi( allinterests[i] );
+			li.style.backgroundColor = (i%2) ? "#afeeee" : "#add8e6";
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
@@ -76,12 +77,14 @@ var InterestTag = {
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
+					var childlen = bigpar.childNodes.length;
+					li.style.backgroundColor = (childlen%2) ? "#add8e6" : "#afeeee";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
 						bigpar.style.height = (heig+17)+"px";
 					}
-					bigpar.insertBefore( li, bigpar.childNodes[ bigpar.childNodes.length-1 ] );
+					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
 					g( "hereiam" ).focus();
 					input.value="";
 					input.focus();
@@ -122,6 +125,7 @@ var InterestTag = {
     },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
+		li.style.position = "block";
 		li.appendChild( d.createTextNode( text ) ); 
 		
 		var deleteimage = d.createElement( 'img' );
