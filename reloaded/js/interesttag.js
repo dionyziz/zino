@@ -52,6 +52,9 @@ var InterestTag = {
 		
 		
 		// Start creating the new tag box
+		var bold = d.createElement( 'b' );
+		bold.appendChild( d.createTextNode( "Προσθήκη νέου Ενδιαφέροντος:" ) );
+		
 		var input = d.createElement( 'input' );
 		input.type = "text";
 		input.className = "bigtext";
@@ -74,7 +77,7 @@ var InterestTag = {
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-					if ( heig <= 170 ) {
+					if ( heig <= 160 ) {
 						bigpar.style.height = (heig+16)+"px";
 					}
 					bigpar.insertBefore( li, bigpar.childNodes[ bigpar.childNodes.length-1 ] );
@@ -111,6 +114,8 @@ var InterestTag = {
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( ul );
+		div.appendChild( bold );
+		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form );
 		Modals.Create( div, 300, 270 );
     },
