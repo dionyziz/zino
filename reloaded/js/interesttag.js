@@ -73,10 +73,19 @@ var InterestTag = {
 					if ( !InterestTag.is_valid( text ) ) {
 						return;
 					}
+					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
+					for( var i in bigpar.childNodes ) {
+						if ( bigpar.childNodes[i].nodeName.toUpperCase() != "LI" ) {
+							continue;
+						}
+						if ( bigpar.childNodes[i].firstChild.nodeValue == text ) {
+							alert( "Υπάρχει ήδη ένα τέτοιο ενδιαφέρον" );
+							return;
+						}
+					}
 					Coala.Warm( 'interesttag/new', { 'text' : text } );
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
-					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
 					var childlen = bigpar.childNodes.length;
 					li.style.backgroundColor = (childlen%2) ? "rgb( 252, 252, 252 )" : "rgb( 247, 247, 247 )";
 					var heig = bigpar.style.height;

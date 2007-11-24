@@ -10,6 +10,10 @@
 		if ( !InterestTag_Valid( $text ) ) {
 			return;
 		}
+		$tag = new InterestTag( $text, $user );
+		if ( $tag->Exists() ) {
+			return;
+		}
 
         $tag = new InterestTag();
         $tag->User = $user;
