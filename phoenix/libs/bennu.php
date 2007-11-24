@@ -1,18 +1,20 @@
 <?php
 
+
     class Bennu {
         private $mRules;
         private $mUsers;
         private $mUids;
         private $mScores;
         private $mExclude;
+        private $mFields;
 
         private function GetAllUsers( $limit = false ) {
             global $db;
             global $users;
 
             $sql = "SELECT 
-                        * 
+                        `user_id` AS id, `user_name` AS name, `user_rights` AS rights, `user_gender` AS gender, `user_dob` AS dob, `user_lastactive` AS lastactive
                     FROM 
                         `$users` 
                     WHERE
@@ -27,8 +29,7 @@
             $ret = array();
             $res = $db->Query( $sql );
             while ( $row = $res->FetchArray() ) {
-                $user = new User( $row );
-                $ret[ $user->Id() ] = $user;
+                $ret[ $row[ "user_id" ] ] = $row;
             }
 
             return $ret;
@@ -37,6 +38,7 @@
             w_assert( $rule instanceof BennuRule );
 
             $this->mRules[] = $rule;
+            $this->mFields = array_merge( $this->mFields, $rule->Fields );    
         }
         public function Exclude( $user ) {
             w_assert( $user instanceof User );
@@ -46,13 +48,14 @@
         public function Get( $limit = false ) {
             global $water;
 
+            $this->mUsers = $this->GetAllUsers();
             $this->mScores = array();
             $this->mUids = array();
 
             $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
             foreach ( $this->mUsers as $user ) {
-                if ( in_array( $user->Id(), $this->mExclude ) ) {
+                if ( in_array( $user[ "id" ], $this->mExclude ) ) {
                     continue;
                 }
 
@@ -78,13 +81,12 @@
             $ret = array();
             for ( $i = 0; $i < $limit; ++$i ) {
                 $uid = $this->mUids[ $i ];
-                $ret[] = $this->mUsers[ $uid ];
+                $ret[] = new User( $this->mUsers[ $uid ] );
             }
 
             return $ret;
         }
         public function Bennu() {
-            $this->mUsers = $this->GetAllUsers( 100 );
 
             $this->mUids  = array();
             $this->mRules = array();
@@ -97,6 +99,7 @@
         protected $mValue;
         protected $mSigma;
         protected $mScore;
+        protected $mFields;
 
         public function __set( $name, $value ) {
             global $water;
@@ -114,8 +117,6 @@
             w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' );
             $varname = 'm' . $name;
             $this->$varname = $value; // MAGIC!
-
-//          $water->Trace( "changed $varname", $value );
         }
         public function __get( $name ) {
             // check if a custom getter is specified
@@ -130,18 +131,10 @@
             return $this->$varname; // MAGIC!
         }
         protected function IsEqual( $value ) {
-            global $water;
-
-//            $water->Trace( "comparing " . $this->Value . " and " . $value, ( $this->Value === $value ) ? "equal" : "not equal" );
-
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
-            global $water;
-
             $ret = $this->Score * pow( M_E, ( ( -pow( -( $value - $this->Value ), 2 ) ) / $this->Score ) );
-//            $water->Trace( "calculation of normal distribution", $ret );
-
             return $ret;
         }
         protected function Random() {
@@ -159,7 +152,6 @@
         public function Get( $user ) {
             global $water;
 
-//            $water->Trace( "Current rule value: " . $this->Value );
             return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
@@ -170,23 +162,20 @@
 
     class BennuRuleSex extends BennuRule {
         public function UserValue( $user ) {
-            global $water;
-
-//             $water->Trace( "Sex value for " . $user->Username(), $user->Gender() );
-
-            return $user->Gender();
+            return $user[ "gender" ];
         }
         public function Calculate( $value ) {
-            global $water;
-
-//            $water->Trace( "Sex calculation for value $value", $this->IsEqual( $value ) );
             return $this->IsEqual( $value );
         }
     }
 
     class BennuRuleAge extends BennuRule {
         public function UserValue( $user ) {
-            return $user->Age();
+            $nowdate = GetDate();
+            $nowyear = $nowdate[ "year" ];
+            $dobyear = (int)substr( $user[ "dob" ], 0, 4 );
+
+            return $nowyear - $dobyear;
         }
     }
 
