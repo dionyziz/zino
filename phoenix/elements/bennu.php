@@ -4,9 +4,8 @@
         global $user;
         global $libs;
 
-        /*
         $libs->Load( "bennu" );
-        */    
+        /*
         $bennu = New Bennu();
         
         $age = New BennuRuleAge();
@@ -33,6 +32,7 @@
         }
 
         ?></ul><?php
+        */
     }
 
 ?>
