@@ -133,8 +133,7 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
-            $ret = $this->Score * pow( M_E, ( ( -pow( -( $value - $this->Value ), 2 ) ) / $this->Score ) );
-            return $ret;
+            return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
