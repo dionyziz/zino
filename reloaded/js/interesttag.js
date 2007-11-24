@@ -37,7 +37,7 @@ var InterestTag = {
 		// Fill in the interests
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
-		ul.style.height = (allinterests.length<=15)?(allinterests.length*15)+"px":"150px";
+		ul.style.height = (allinterests.length<=15)?(allinterests.length*12)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
@@ -147,7 +147,7 @@ var InterestTag = {
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 		if ( heig >= 12 && dad.childNodes.length <=10 ) {
-			dad.style.height= (heig-15) + "px";
+			dad.style.height= (heig-13) + "px";
 		}
 	}
 };
