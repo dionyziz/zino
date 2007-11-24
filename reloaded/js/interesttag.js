@@ -131,7 +131,9 @@ var InterestTag = {
     },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
-		li.appendChild( d.createTextNode( text ) ); 
+		li.appendChild( d.createTextNode( text ) );
+		li.style.borderStyle = "solid";
+		li.style.borderWidth = "1px";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
