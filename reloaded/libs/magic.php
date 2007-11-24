@@ -403,6 +403,8 @@
                 return "<b>" . htmlspecialchars( $arguments ) . "</b>";
             case 'italics':
                 return "<i>" . htmlspecialchars( $arguments ) . "</i>";
+            case 'yt':
+                return '<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>';
             case 'article':
             	$id = isset( $args[ 0 ] ) ? $args[ 0 ] : 0;
                 if ( !isset( $lookups[ 'articles' ][ $id ] ) ) {
