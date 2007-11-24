@@ -27,7 +27,9 @@ var InterestTag = {
 		close.className = "close";
 		//------------------------------
 		
-
+		var anchor = d.createElement( 'a' );
+		anchor.id = "hereiam";
+		
 		// Fill in the interests
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
@@ -41,7 +43,10 @@ var InterestTag = {
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
+		ul.appendChild( anchor );
 		//-----------
+		
+		
 		
 		// Start creating the new tag box
 		var input = d.createElement( 'input' );
@@ -69,9 +74,10 @@ var InterestTag = {
 					if ( heig <= 170 ) {
 						bigpar.style.height = (heig+16)+"px";
 					}
-					bigpar.appendChild( li );
+					bigpar.insertBefore( li, bigpar.childNodes[ bigpar.childNodes.length-1 ] );
 					input.value="";
 					input.focus();
+					g( "hereiam" ).focus();
 				};
 			} )( input );
 		form.onkeypress = function ( e ) {
@@ -141,7 +147,7 @@ var InterestTag = {
 		dad.removeChild( li );
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-		if ( heig >= 12 && dad.childNodes.length <=10 ) {
+		if ( heig >= 13 && dad.childNodes.length <=10 ) {
 			dad.style.height= (heig-15) + "px";
 		}
 	}
