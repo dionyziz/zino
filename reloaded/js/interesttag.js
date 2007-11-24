@@ -75,8 +75,8 @@ var InterestTag = {
 					}
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
 					for( var i in bigpar.childNodes ) {
-						if ( bigpar.childNodes[i].nodeName.toUpperCase() != "LI" ) {
-							continue;
+						if ( i == bigpar.childNodes.length-1 ) {
+							break;
 						}
 						if ( bigpar.childNodes[i].firstChild.nodeValue == text ) {
 							alert( "Υπάρχει ήδη ένα τέτοιο ενδιαφέρον" );
