@@ -1,5 +1,5 @@
 <?php
-
+/*
     function ElementBennu() {
         global $user;
         global $libs;
@@ -33,5 +33,6 @@
 
         ?></ul><?php
     }
+*/
 
 ?>
