@@ -67,7 +67,7 @@ var InterestTag = {
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 170 ) {
-						bigpar.style.height = (heig+15)+"px";
+						bigpar.style.height = (heig+16)+"px";
 					}
 					bigpar.appendChild( li );
 					input.value="";
