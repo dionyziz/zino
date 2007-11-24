@@ -49,7 +49,9 @@ var InterestTag = {
 		input.className = "bigtext";
 		input.value = "Νέο Ενδιαφέρον";
 		input.style.width = "100px";
-		input.focus();
+		input.onfocus = function() {
+					input.value="";
+				};
 	
 		var form = d.createElement( 'form' );
 		form.onsubmit = ( function ( input ) {
@@ -127,8 +129,8 @@ var InterestTag = {
 		return li; 
 	},
 	is_valid : function( val ) {
-    	if ( val.length === 0 || val.indexOf( ',' ) != -1 || val.indexOf( ' ' ) != -1 ) {
-        	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,) ή κενά" );
+    	if ( val.length === 0 || val.length > 20 || val.indexOf( ',' ) != -1 || val.indexOf( ' ' ) != -1 ) {
+        	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,) ή κενά ή να έχει πάνω απο 20 χαρακτήρες" );
         	return false;
         }
         return true;
