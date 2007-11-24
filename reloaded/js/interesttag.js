@@ -146,7 +146,6 @@ var InterestTag = {
 				};
 			})(li);
 		del.style.cssFloat = "right";
-		del.style.marginRight = "30px";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
