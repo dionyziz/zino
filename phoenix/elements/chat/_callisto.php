@@ -10,7 +10,7 @@
         
         $libs->Load( 'callisto/callisto' );
         
-        $page->AttachScript( 'http://orion.kamibu.com:8000/_/orbited.js', 'javascript', true );
+        $page->AttachScript( 'http://orion.kamibu.com:9000/_/orbited.js', 'javascript', true );
         $page->AttachScript( 'js/chat.js', 'javascript', true );
         
         $channel = New Callisto_Channel( '/chat/channels/kamibu' );
