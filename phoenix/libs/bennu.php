@@ -85,7 +85,7 @@
             return $ret;
         }
         public function Bennu() {
-            $this->mUsers = $this->GetAllUsers();
+            $this->mUsers = $this->GetAllUsers( 100 );
 
             $this->mUids  = array();
             $this->mRules = array();
