@@ -19,8 +19,8 @@
         $bennu->AddRule( $age );
         $bennu->AddRule( $sex );
 
-        $bennu->Exclude( $user );
         /*
+        $bennu->Exclude( $user );
         $users = $bennu->Get( 20 );
         */
         $users = array();
