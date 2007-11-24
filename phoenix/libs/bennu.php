@@ -137,7 +137,12 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
-            return $this->Score * pow( M_E, ( ( -pow( -( $value - $this->Value ), 2 ) ) / $this->Score ) );
+            global $water;
+
+            $ret = $this->Score * pow( M_E, ( ( -pow( -( $value - $this->Value ), 2 ) ) / $this->Score ) );
+            $water->Trace( "calculation of normal distribution", $ret );
+
+            return $ret;
         }
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
