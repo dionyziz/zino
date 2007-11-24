@@ -10,6 +10,8 @@ ul.allinterests {
 	text-align: left;
 	margin-top: 15px;
 	overflow: auto;
+	display: block;
+	width: 220px;
 }
 
 form.inter, b.inter {
