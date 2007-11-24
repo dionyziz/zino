@@ -130,6 +130,10 @@
             return $this->$varname; // MAGIC!
         }
         protected function IsEqual( $value ) {
+            global $water;
+
+            $water->Trace( "comparing " . $this->Value . " and " . $value, ( $this->Value === $value ) ? "equal" : "not equal" );
+
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
