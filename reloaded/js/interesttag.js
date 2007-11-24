@@ -75,9 +75,9 @@ var InterestTag = {
 						bigpar.style.height = (heig+16)+"px";
 					}
 					bigpar.insertBefore( li, bigpar.childNodes[ bigpar.childNodes.length-1 ] );
+					g( "hereiam" ).focus();
 					input.value="";
 					input.focus();
-					g( "hereiam" ).focus();
 				};
 			} )( input );
 		form.onkeypress = function ( e ) {
