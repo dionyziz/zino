@@ -7,6 +7,7 @@
         $libs->Load( "bennu" );
         $bennu = New Bennu();
         
+        /*
         $age = New BennuRuleAge();
         $age->Value = $user->Age();
         $age->Score = 5;
@@ -19,7 +20,6 @@
         $bennu->AddRule( $age );
         $bennu->AddRule( $sex );
 
-        /*
         $bennu->Exclude( $user );
         $users = $bennu->Get( 20 );
         */
