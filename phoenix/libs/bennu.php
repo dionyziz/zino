@@ -64,7 +64,7 @@
                     $score += $rule->Get( $user );
                 }
 
-                $this->mUids[] = $user->Id();
+                $this->mUids[] = $user[ "id" ];
                 $this->mScores[] = $score;
             }
             
@@ -172,8 +172,8 @@
     class BennuRuleAge extends BennuRule {
         public function UserValue( $user ) {
             $nowdate = getdate();
-            $nowyear = $nowdate[ "year" ];
-            $dobyear = substr( $user[ "dob" ], 0, 4 );
+            $nowyear = (int)$nowdate[ "year" ];
+            $dobyear = (int)substr( $user[ "dob" ], 0, 4 );
 
             return $nowyear - $dobyear;
         }
