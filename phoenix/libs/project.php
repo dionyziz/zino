@@ -43,6 +43,7 @@
         // For example $p = register matches with the user/new file.
     	return array(
     		""                 	=> "frontpage/view",
+            "bennu"             => "bennu",
     		"register"         	=> "user/new",
     		"k"                	=> "user/created", 
     		"a"                	=> "user/invalid",
