@@ -125,7 +125,7 @@
                 return $this->$methodname(); // MAGIC!
             }
             
-            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' );
+            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
 
             $varname = 'm' . $name;
             return $this->$varname; // MAGIC!
