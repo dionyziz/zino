@@ -13,12 +13,12 @@
         $age->Score = 5;
         $age->Sigma = 2;
 
-        $gender = New BennuRuleGender();
-        $gender->Value = 'f';
-        $gender->Score = 5;
+        $sex = New BennuRuleSex();
+        $sex->Value = 'f';
+        $sex->Score = 5;
 
         $bennu->AddRule( $age );
-        $bennu->AddRule( $gender );
+        $bennu->AddRule( $sex );
 
         $users = $bennu->Get( 20 );
 
