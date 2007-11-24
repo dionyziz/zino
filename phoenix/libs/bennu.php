@@ -114,7 +114,7 @@
                 /* else fallthru */
             }
            
-            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' );
+            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
             $varname = 'm' . $name;
             $this->$varname = $value; // MAGIC!
         }
