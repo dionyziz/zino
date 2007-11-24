@@ -404,7 +404,7 @@
             case 'italics':
                 return "<i>" . htmlspecialchars( $arguments ) . "</i>";
             case 'yt':
-                return '<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object>';
+                return '<div style="text-align:center"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></div>';
             case 'article':
             	$id = isset( $args[ 0 ] ) ? $args[ 0 ] : 0;
                 if ( !isset( $lookups[ 'articles' ][ $id ] ) ) {
