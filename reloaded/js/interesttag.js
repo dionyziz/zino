@@ -125,7 +125,7 @@ var InterestTag = {
     },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
-		li.style.position = "block";
+		li.style.display = "block";
 		li.appendChild( d.createTextNode( text ) ); 
 		
 		var deleteimage = d.createElement( 'img' );
