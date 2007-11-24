@@ -154,7 +154,7 @@
 
     class BennuRuleSex extends BennuRule {
         public function UserValue( $user ) {
-            global $trace;
+            global $water;
 
             $water->Trace( "Sex value for " . $user->Username(), $user->Gender() );
 
