@@ -52,7 +52,17 @@
             );
         }
         protected function SetTables( $tables ) {
-            $this->mTables = $tables;
+            foreach ( $this->mTables as $alias => $table ) {
+                $this->mTables[ $alias ] = array( "name" => $table, "needed" => false );
+            }
+        }
+        protected function AddTables( $tables ) {
+            foreach ( $this->mTables as $alias => $table ) {
+                $this->mTables[ $alias ] = array( "name" => $table, "needed" => true );
+            }
+        }
+        protected function AddTable( $alias ) {
+            $this->mTables[ $alias ] = array( "name" => $this->mTables[ $alias ][ "name" ], "needed" => true );
         }
         protected function SetFields( $fields ) {
             $this->mFields = $fields;
@@ -62,7 +72,7 @@
                 if ( is_array( $property ) && $table == false ) {
                     $this->SetFilters( $property, $field );
                 }
-                $this->mFilters[ $property ][ $array ] = $field;
+                $this->mFilters[ $property ][ $table ] = $field;
             }
         }
         public function __set( $name, $value ) {
@@ -75,7 +85,7 @@
                 /* else fallthru */
             }
 
-            if ( in_array( $name, $this->mFilters ) ) {
+            if ( array_key_exists( $name, $this->mFilters ) ) {
                 $tables = $this->mFilters[ $name ];
                 foreach ( $tables as $table ) {
                     $this->mFilters[ $name ][ $table ] = $value;
@@ -83,7 +93,7 @@
                 return;
             }
         }
-        public function Get() {
+        private function PrepareSelectExpression() {
             $sql = "SELECT ";
             
             foreach ( $this->mFields as $table => $fields ) {
@@ -94,39 +104,81 @@
                     }
                 }
             }
-
-            $sql .= " FROM ";
+        }
+        private function PrepareTableReferences() {
+            $this->mQuery .= " FROM ";
 
             $i = 0;
             $connected = array();
             foreach ( $this->mTables as $alias => $table ) {
-                if ( isset( $connected[ $alias ] ) ) {
+                if ( !$table[ "needed" ] || isset( $connected[ $alias ] ) ) {
                     continue;
                 }
-                $sql .= "`$table` AS $alias";
+                $table = $table[ "name" ];
+                $this->mQuery .= "`$table` AS $alias";
                 foreach ( $this->mConnections[ $alias ] as $join ) {
-                    $sql .= " " . $join[ 'type' ] . " JOIN ";
-                    $sql .= $join[ 'table' ];
+                    $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
+                    $this->mQuery .= $join[ 'table' ];
                     $connected[] = $join[ 'table' ];
                     if ( count( $join[ 'fields' ] ) ) {
-                        $sql .= " ON ";
+                        $this->mQuery .= " ON ";
                         $j = 0;
                         foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
                             if ( $j > 0 ) {
-                                $sql .= "AND ";
+                                $this->mQuery .= "AND ";
                             }
-                            $sql .= "$f1 = $f2 ";
+                            $this->mQuery  .= "$f1 = $f2 ";
                             ++$j;
                         }
                     }
                 }
                 if ( $i < count( $this->mTables ) - 1 ) {
-                    $sql .= ", ";
+                    $this->mQuery .= ", ";
                 }
                 ++$i;
             }
         }
+        private function PrepareWhereCondition() {
+            if ( !count( $this->mFilters ) ) {
+                return;
+            }
+            
+            $this->mQuery .= " WHERE ";
+
+            foreach ( $this->mFilters as $property => $filter ) {
+                $name = "m$property";
+                $value = $this->$name; // MAGIC!
+                foreach ( $filter as $table => $field ) {
+                }
+            }
+        }
+        private function PrepareGroupBy() {
+        }
+        private function PrepareOrderBy() {
+        }
+        private function PrepareLimit() {
+        }
+        public function Get() {
+            $this->mQuery = "";
+            PrepareSelectExpression();
+            PrepareTableReferences();
+            PrepareWhereCondition();
+            PrepareGroupBy();
+            PrepareOrderBy();
+            PrepareLimit();
+
+            die( $this->mQuery );
+
+            // $res = $db->Query( $this->mQuery );
+            // return $res;
+        }
+        public function Search() {
+            $this->Defaults();
+        }
         public function GetParented() {
+            $res = $this->Get();
+
+            // do stuff
         }
     }
 
@@ -142,7 +194,7 @@
                         $this->AddTable( 'comments' );
                         break;
                     case EVENT_PHOTOS:
-                        $this->AddTable( 'photos' );
+                        $this->AddTable( 'images' );
                         break;
                 }
             }
@@ -190,15 +242,12 @@
         public function SetPage( $item ) {
             $this->PageId = $item->Id;
         }
-        public function SetBody( $value ) {
-            $this->AddFilter( 'Body', $value, SEARCH_LIKE );
-        }
         public function Defaults() {
             $this->UserDelId = 0;
             $this->ImageDelId = 0;
         }
         public function CommentsSearch() {
-            $this->SetTables( array(
+            $this->AddTables( array(
                 'comments' => 'merlin_comments',
                 'users' => 'merlin_users',
                 'images' => 'merlin_images'
@@ -242,6 +291,9 @@
                 ),
                 'images' => array(
                     'image_delid' => 'ImageDelId'
+                ),
+                '' => array(
+                    '' => ''
                 )
             ) );
 

@@ -28,7 +28,7 @@
 			echo $article->SmallStory();
 			?></div>
 			<div class="stuff"><?php
-			if( $article->Category()->Name() != "" ) {
+			if( is_object( $article->Category() ) ) {
 				?>στο <a href="?p=category&amp;id=<?php 
 				echo $article->Category()->Id(); 
 				?>"><?php
