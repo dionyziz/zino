@@ -38,7 +38,7 @@
             w_assert( $rule instanceof BennuRule );
 
             $this->mRules[] = $rule;
-            $this->mFields = array_merge( $this->mFields, $rule->Fields );    
+            // $this->mFields = array_merge( $this->mFields, $rule->Fields );    
         }
         public function Exclude( $user ) {
             w_assert( $user instanceof User );
@@ -154,7 +154,7 @@
             return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
-            $this->Fields = array();
+            $this->mFields = array();
         }
     }
 
