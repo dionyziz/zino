@@ -154,7 +154,7 @@
         */
         public function Calculate( $value ) {
             // default calculation
-            $this->NormalDistribution( $value );
+            return $this->NormalDistribution( $value );
         }
         public function Get( $user ) {
             global $water;
