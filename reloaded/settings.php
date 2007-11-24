@@ -13,7 +13,7 @@
         'language'        => 'el',
         'databases'       => array( // prefix all keys with "db"
             'db' => array(
-                'name'     => 'ccbeta', // sandbox
+                'name'     => 'ccbetareloaded', // reloaded sandbox
                 'driver'   => 'mysql',
                 'hostname' => 'localhost',
                 'username' => 'ccbeta',
