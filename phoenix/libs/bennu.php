@@ -30,7 +30,6 @@
                 $user = new User( $row );
                 $ret[ $user->Id() ] = $user;
             }
-            die( "after query" );
 
             return $ret;
         }
