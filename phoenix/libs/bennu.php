@@ -99,6 +99,8 @@
         protected $mScore;
 
         public function __set( $name, $value ) {
+            global $water;
+
             // check if a custom setter is specified
             $methodname = 'Set' . $name;
             if ( method_exists( $this, $methodname ) ) {
@@ -112,6 +114,8 @@
             w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' );
             $varname = 'm' . $name;
             $this->$varname = $value; // MAGIC!
+
+            $water->Trace( "changed $varname", $value );
         }
         public function __get( $name ) {
             // check if a custom getter is specified
@@ -144,6 +148,9 @@
             $this->NormalDistribution( $value );
         }
         public function Get( $user ) {
+            global $water;
+
+            $water->Trace( "Current rule value: " . $this->Value );
             return $this->Calculate( $this->UserValue( $user ) );
         }
         public function BennuRule() {
