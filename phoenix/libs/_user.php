@@ -713,9 +713,9 @@
 		}
         public function Age() {
             $nowdate = getdate();
-            $nowyear = $nowdate[ "year" ];
+            $nowyear = (int)$nowdate[ "year" ];
 
-            return $nowyear - $this->mCreateYear;
+            return $nowyear - (int)$this->mDOBy;
         }
         public function Creation() {
             return $this->mCreated;
