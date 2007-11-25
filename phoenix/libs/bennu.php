@@ -133,7 +133,10 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
-            w_assert( $this->Sigma != 0 );
+            w_assert( is_numeric( $this->Sigma ) );
+            w_assert( is_numeric( $this->Value ) );
+            w_assert( is_numeric( $this->Score ) );
+            w_assert( is_numeric( $value ) );
 
             $value = (int)$value;
             $this->Value = (int)$this->Value;
@@ -141,6 +144,8 @@
             $this->Score = (int)$this->Score;
 
             w_assert( $this->Value < 100 );
+            w_assert( $this->Sigma != 0 );
+            w_assert( abs( $value - $this->Value ) < 100 );
 
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
