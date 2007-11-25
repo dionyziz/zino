@@ -52,7 +52,7 @@
                     ?></option><?php
                 }
             ?></select><br />
-            Preferred Gender: <input type="text" name="gender" value="<?php echo $prefgender; ?>" />
+            Preferred Gender:
             <select name="gender"><?php
                 $genders = array( 'male', 'female', 'both' );
 
