@@ -37,7 +37,7 @@ var InterestTag = {
     	var allinterlinks = g( 'interests' ).firstChild;
     	var allinterests = new Array();
     	for ( var i in allinterlinks ) {
-    		if ( allinterlinks[i].nodeName.toUpperCase() != "A" ) {
+    		if ( typeof( allinterlinks[i] ).toUpperCase() != "OBJECT" ) {
     			continue;
     		}
     		allinterests.push( allinterlinks[i].firstChild.nodeValue );
