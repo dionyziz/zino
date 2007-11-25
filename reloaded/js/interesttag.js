@@ -36,7 +36,7 @@ var InterestTag = {
 		// Fill in the interests
     	var allinterests = g( 'interests' ).firstChild.nodeValue;
     	allinterests = allinterests.split( " " );
-		ul.style.height = (allinterests.length<=15)?(allinterests.length*13)+"px":"150px";
+		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
@@ -90,7 +90,7 @@ var InterestTag = {
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
-						bigpar.style.height = (heig+17)+"px";
+						bigpar.style.height = (heig+20)+"px";
 					}
 					bigpar.childNodes[ childlen-2 ].style.borderBottomWidth = "0px";
 					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
@@ -177,7 +177,7 @@ var InterestTag = {
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 		if ( heig >= 12 && childlen <=11 ) {
-			dad.style.height= (heig-14) + "px";
+			dad.style.height= (heig-17) + "px";
 		}
 	}
 };
