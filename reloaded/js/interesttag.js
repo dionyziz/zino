@@ -40,7 +40,7 @@ var InterestTag = {
     		if ( allinterlinks.nodeName.toUpperCase() != "A" ) {
     			continue;
     		}
-    		allinterests[] = allinterlinks[i].firstChild.nodeValue;
+    		allinterests.push( allinterlinks[i].firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
