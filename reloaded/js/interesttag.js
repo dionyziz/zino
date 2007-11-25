@@ -75,7 +75,8 @@ var InterestTag = {
 						return;
 					}
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
-					for( var i=0;i<bigpar.childNodes.length-1;++i ) { // the last child is the anchor
+					var childlen = bigpar.childNodes.length;
+					for( var i=0;i<childlen-1;++i ) { // the last child is the anchor
 						if ( bigpar.childNodes[i].firstChild.nodeValue == text ) {
 							alert( "Υπάρχει ήδη ένα τέτοιο ενδιαφέρον" );
 							return;
@@ -84,13 +85,14 @@ var InterestTag = {
 					Coala.Warm( 'interesttag/new', { 'text' : text } );
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
-					var childlen = bigpar.childNodes.length;
+					li.style.borderBottomWidth = "1px";
 					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 221, 231, 255 )";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
 						bigpar.style.height = (heig+17)+"px";
 					}
+					bigpar.childNodes[ childlen-2 ].style.borderBottomWidth = "0px";
 					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
 					g( "hereiam" ).focus();
 					input.value="";
