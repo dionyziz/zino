@@ -51,12 +51,12 @@
             );
         }
         protected function SetTables( $tables ) {
-            foreach ( $this->mTables as $alias => $table ) {
+            foreach ( $tables as $alias => $table ) {
                 $this->mTables[ $alias ] = array( "name" => $table, "needed" => false );
             }
         }
         protected function AddTables( $tables ) {
-            foreach ( $this->mTables as $alias => $table ) {
+            foreach ( $tables as $alias => $table ) {
                 $this->mTables[ $alias ] = array( "name" => $table, "needed" => true );
             }
         }
