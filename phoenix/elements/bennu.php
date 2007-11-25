@@ -22,9 +22,9 @@
         $bennu->Exclude( $user );
         $users = $bennu->Get( 20 );
         ?><ul style="list-style-type: none;"><?php
-        foreach ( $users as $user ) {
+        foreach ( $users as $buser ) {
             ?><li><?php
-                Element( "user/display", $user );
+                Element( "user/display", $buser );
             ?></li><?php
         }
 
