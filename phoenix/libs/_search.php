@@ -114,7 +114,7 @@
             $i = 0;
             $connected = array();
             foreach ( $this->mTables as $alias => $table ) {
-                if ( !$table[ "needed" ] || isset( $connected[ $alias ] ) ) {
+                if ( !$table[ "needed" ] || in_array( $alias, $connected ) ) {
                     continue;
                 }
                 $table = $table[ "name" ];
