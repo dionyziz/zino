@@ -170,7 +170,6 @@
             }
         }
         private function PrepareWhereCondition() {
-            die( "@where condition" );
             $this->mConnected = array();
 
             if ( !count( $this->mFilters ) ) {
@@ -182,6 +181,7 @@
             $first = true;
             foreach ( $this->mFilters as $property => $filter ) {
                 $value = $this->$property; // MAGIC!
+                die( "after value" );
                 if ( $value === null ) {
                     continue;
                 }
