@@ -405,9 +405,9 @@
                 return "<i>" . htmlspecialchars( $arguments ) . "</i>";
             case 'yt':
                 // robustness
-                if ( substr( $arguments, strlen( 'http://www.veoh.com/' ) ) == 'http://www.veoh.com/' ) {
+                if ( substr( $arguments, 0, strlen( 'http://www.veoh.com/' ) ) == 'http://www.veoh.com/' ) {
                     $arguments = substr( $arguments, strpos( $arguments, '/' ) + 1 );
-                    return '<div style="text-align: center"><embed src="http://www.veoh.com/videodetails2.swf?permalinkId=' . $arguments . '&id=anonymous&player=videodetailsembedded&videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#000000" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div>';
+                    return '<div style="text-align: center"><embed src="http://www.veoh.com/videodetails2.swf?permalinkId=' . $arguments . '&amp;id=anonymous&amp;player=videodetailsembedded&amp;videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#000000" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div>';
                 }
                 else {
                     // youtube
