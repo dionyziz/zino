@@ -137,7 +137,6 @@ var InterestTag = {
     },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
-		li.appendChild( d.createTextNode( text ) );
 		li.style.padding = "1px 0px 1px 4px";
 		li.style.borderStyle = "solid";
 		li.style.borderWidth = "1px 1px 0px 1px";
@@ -160,6 +159,7 @@ var InterestTag = {
 		del.appendChild( deleteimage );
 		li.appendChild( del );
 		li.appendChild( d.createTextNode( ' ' ) );
+		li.appendChild( d.createTextNode( text ) );
 		
 		return li; 
 	},
