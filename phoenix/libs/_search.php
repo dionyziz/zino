@@ -76,7 +76,7 @@
         }
         public function __set( $name, $value ) {
             $methodname = 'Set' . $name;
-            if ( $method_exists( $this, $methodname ) ) {
+            if ( method_exists( $this, $methodname ) ) {
                 $success = $this->$methodname( $value ); // MAGIC!
                 if ( $success !== false ) {
                     return;
