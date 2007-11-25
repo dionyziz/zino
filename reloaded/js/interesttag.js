@@ -20,7 +20,7 @@ var InterestTag = {
 						if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
 							continue;
 						}
-						texts += ul.childNodes[i].firstChild.nodeValue  + " ";
+						texts += ul.childNodes[i].childNodes[1].nodeValue  + " ";
 					}
 					g( 'interests' ).firstChild.nodeValue = texts;
 					Modals.Destroy();
@@ -80,7 +80,7 @@ var InterestTag = {
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
 					var childlen = bigpar.childNodes.length;
 					for( var i=0;i<childlen-1;++i ) { // the last child is the anchor
-						if ( bigpar.childNodes[i].firstChild.nodeValue == text ) {
+						if ( bigpar.childNodes[i].childNodes[1].nodeValue == text ) {
 							alert( "Υπάρχει ήδη ένα τέτοιο ενδιαφέρον" );
 							return;
 						}
@@ -158,8 +158,8 @@ var InterestTag = {
 		del.style.cssFloat = "right";
 			
 		del.appendChild( deleteimage );
-		li.appendChild( d.createTextNode( ' ' ) );
 		li.appendChild( del );
+		li.appendChild( d.createTextNode( ' ' ) );
 		
 		return li; 
 	},
@@ -171,11 +171,11 @@ var InterestTag = {
         return true;
     },
 	Delete : function( li ) {
-		var text = li.firstChild.nodeValue;
+		var text = li.childNodes[1].nodeValue;
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
 		var childlen = dad.childNodes.length;
-		if ( childlen > 1 && dad.childNodes[ childlen - 2 ].firstChild.nodeValue == text ) {
+		if ( childlen > 1 && dad.childNodes[ childlen - 2 ].childNodes[1].nodeValue == text ) {
 			dad.childNodes[ childlen-3 ].style.borderBottomWidth = "1px";
 		}
 		dad.removeChild( li );
