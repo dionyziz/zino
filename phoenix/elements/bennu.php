@@ -75,8 +75,13 @@
 
         <ul style="list-style-type: none;"><?php
         for ( $i = 0; $i < $users; ++$i ) {
+            $buser = $users[ $i ];
+            if ( !is_object( $buser ) ) {
+                ?><li>Not An Object</li><?php
+                continue;
+            }
             ?><li><?php
-                Element( "user/static", $users[ $i ] );
+                Element( "user/static", $buser );
             ?> - <?php
                 echo $maxscore / $scores[ $i ] * 100;
             ?>%</li><?php
