@@ -37,7 +37,7 @@ var InterestTag = {
     	var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
     	var allinterests = new Array();
     	for ( var i in allinterlinks ) {
-    		if ( allinterlinks[i].firstChild.nodeName != "#text" ) {
+    		if ( allinterlinks[i].childNodes.length != 1 || allinterlinks[i].firstChild.nodeName != "#text" ) {
     			continue;
     		}
     		allinterests.push( allinterlinks[i].firstChild.nodeValue );
