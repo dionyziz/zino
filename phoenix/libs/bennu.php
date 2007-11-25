@@ -71,8 +71,8 @@
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
-            $water->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
-            $water->Trace( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
+            // $water->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
+            // $water->Trace( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
@@ -182,6 +182,7 @@
                 return false;
             }
 
+            $water->Trace( $nowyear - $dobyear );
             return $nowyear - $dobyear;
         }
         public function Calculate( $value ) {
