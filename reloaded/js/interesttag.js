@@ -177,7 +177,7 @@ var InterestTag = {
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 		if ( heig >= 15 && childlen <=10 ) {
-			dad.style.height= (heig-15) + "px";
+			dad.style.height= (heig-17) + "px";
 		}
 	}
 };
