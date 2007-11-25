@@ -169,7 +169,7 @@
             $this->mQuery = "";
             $this->PrepareSelectExpression();
             $this->PrepareTableReferences();
-            $this->repareWhereCondition();
+            $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
             $this->PrepareOrderBy();
             $this->PrepareLimit();
