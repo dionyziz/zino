@@ -8,7 +8,7 @@
         $bennu = New Bennu();
         
         $age = New BennuRuleAge();
-        $age->Value = $user->Age();
+        $age->Value = 15;
         $age->Score = 5;
         $age->Sigma = 2;
 

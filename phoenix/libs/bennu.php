@@ -71,8 +71,8 @@
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
-            // $water->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
-            // $water->Trace( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
+            $water->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
+            $water->Trace( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
@@ -133,9 +133,12 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
-            global $water;
-
             w_assert( $this->Sigma != 0 );
+
+            $value = (int)$value;
+            $this->Value = (int)$this->Value;
+            $this->Sigma = (int)$this->Sigma;
+            $this->Score = (int)$this->Score;
             
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
