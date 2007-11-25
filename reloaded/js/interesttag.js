@@ -36,12 +36,11 @@ var InterestTag = {
 		// Fill in the interests
     	var allinterlinks = g( 'interests' ).firstChild;
     	var allinterests = new Array();
-    	for ( var i in allinterlinks ) {
-    		alert( allinterlinks[i] );
-    		if ( ( typeof allinterlinks[i] ).toUpperCase() != "OBJECT" ) {
+    	for ( var i in allinterlinks.childNodes ) {
+    		if ( ( typeof allinterlinks.childNodes[i] ).toUpperCase() != "OBJECT" ) {
     			continue;
     		}
-    		allinterests.push( allinterlinks[i].firstChild.nodeValue );
+    		allinterests.push( allinterlinks.childNodes[i].firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
