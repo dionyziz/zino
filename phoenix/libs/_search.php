@@ -197,8 +197,6 @@
                     $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
             }
-            die( "after loop" );
-
             $this->mQuery .= " ";
         }
         private function PrepareGroupBy() {
@@ -213,11 +211,10 @@
             $this->PrepareSelectExpression();
             $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
+            die( "." . $this->mQuery . "." );
             $this->PrepareGroupBy();
             $this->PrepareOrderBy();
             $this->PrepareLimit();
-
-            die( $this->mQuery );
 
             // $res = $db->Query( $this->mQuery );
             // return $res;
