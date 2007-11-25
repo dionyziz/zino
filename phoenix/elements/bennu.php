@@ -74,6 +74,9 @@
         </form>
 
         <ul style="list-style-type: none;"><?php
+
+        die( print_r( $scores ) . "<br /><br />" . print_r( $users ) );
+
         for ( $i = 0; $i < $users; ++$i ) {
             $buser = $users[ $i ];
             if ( !is_object( $buser ) ) {
