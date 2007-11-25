@@ -138,6 +138,7 @@ var InterestTag = {
 		li.style.padding = "1px 0px 1px 4px";
 		li.style.borderStyle = "solid";
 		li.style.borderWidth = "1px 1px 0px 1px";
+		li.style.display = "block";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
@@ -151,7 +152,7 @@ var InterestTag = {
 					InterestTag.Delete( li );
 				};
 			})(li);
-		del.style.textAlign = "right";
+		del.style.cssFloat = "right";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
