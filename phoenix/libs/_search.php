@@ -113,8 +113,6 @@
 
             $i = 0;
             $connected = array();
-            var_dump( $this->mTables );
-            echo "<br /><br />";
             foreach ( $this->mTables as $alias => $table ) {
                 if ( !$table[ "needed" ] || isset( $connected[ $alias ] ) ) {
                     continue;
@@ -142,6 +140,8 @@
                 }
                 ++$i;
             }
+            var_dump( $connected );
+            echo "<br /><br />";
         }
         private function PrepareWhereCondition() {
             if ( !count( $this->mFilters ) ) {
