@@ -20,11 +20,11 @@ var InterestTag = {
 					for ( var i=0;i<ul.childNodes.length-1;++i ) {
 						var text = ul.childNodes[i].childNodes[2].nodeValue;
 						var a = d.createElement( 'a' );
-						a.href = "?p=tag&amp;text=" + text;
+						a.href = "?p=tag&text=" + text;
 						a.appendChild( d.createTextNode( text ) );
 						interests.appendChild( a );
 						if ( i != ul.childNodes.length-2 ) {
-							interests.appendChild( "," );
+							interests.appendChild( d.createTextNode( "," ) );
 						}
 					}
 					var img = d.createElement( 'img' );
