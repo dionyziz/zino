@@ -39,7 +39,7 @@ var InterestTag = {
     	for ( var i=0;i<allinterlinks.length-1;++i ) {
     		allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
     	}
-		ul.style.height = (allinterests.length<=15)?(allinterests.length*17)+"px":"150px";
+		ul.style.height = (allinterests.length<=15)?(allinterests.length*18)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
