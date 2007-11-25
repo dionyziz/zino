@@ -24,7 +24,10 @@
 
         $bennu->Exclude( $user );
         $users = $bennu->Get( 20 );
-        ?><ul style="list-style-type: none;"><?php
+
+        ?><h2>Friend Recommendations</h2>
+        <h4>Powered by Bennu</h4>
+        <ul style="list-style-type: none;"><?php
         foreach ( $users as $buser ) {
             ?><li><?php
                 Element( "user/display", $buser );
