@@ -7,7 +7,7 @@
         $prefage = $age->Get();
         $prefgender = strtolower( $gender->Get() );
 
-        if ( $prefage < 1 && $prefage > 100 ) {
+        if ( $prefage < 1 || $prefage > 100 ) {
             $prefage = $user->Age();
         }
 
@@ -38,7 +38,7 @@
         ?><h2>Friend Recommendations</h2>
         <h4>Powered by Bennu</h4>
 
-        <form action="" method="get">
+        <form action="" method="get" style="background-color: #F8FBE2; padding: 5px;">
             <input type="hidden" name="p" value="bennu" />
             Preferred Age: 
             <select name="age"><?php
@@ -67,6 +67,7 @@
                 }
 
             ?></select><br />
+            <input type="submit" value="submit" /><br />
         </form>
 
         <ul style="list-style-type: none;"><?php
