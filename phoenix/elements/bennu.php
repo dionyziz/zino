@@ -1,23 +1,33 @@
 <?php
 
-    function ElementBennu() {
+    function ElementBennu( tInteger $age, tString $gender ) {
         global $user;
         global $libs;
+
+        $prefage = $age->Get();
+        $prefgender = strtolower( $gender->Get() );
+
+        if ( $prefage < 1 && $prefage > 100 ) {
+            $prefage = $user->Age();
+        }
+
+        if ( $prefgender != 'male' && $prefgender != 'female' && $prefgender != 'both' ) {
+            $prefgender = ( $user->Gender() == 'male' ) ? 'female' : 'male';
+        }
 
         $libs->Load( "bennu" );
         $bennu = New Bennu();
         
         $age = New BennuRuleAge();
-        $age->Value = $user->Age();
+        $age->Value = $prefage;
         $age->Score = 10;
         $age->Sigma = 2;
 
-        $sex = New BennuRuleSex();
-        $sex->Value = ( $user->Gender() == 'male' ) ? 'female' : 'male';
-        if ( $user->Gender() != 'male' && $user->Gender() != 'female' && $user->Gender() != '-' ) {
-            die( "." . $user->Gender() . "." );
+        if ( $prefgender != 'both' ) {
+            $sex = New BennuRuleSex();
+            $sex->Value = $prefgender;
+            $sex->Score = 5;
         }
-        $sex->Score = 5;
 
         $bennu->AddRule( $age );
         $bennu->AddRule( $sex );
@@ -27,10 +37,42 @@
 
         ?><h2>Friend Recommendations</h2>
         <h4>Powered by Bennu</h4>
+
+        <form action="" method="get">
+            <input type="hidden" name="p" value="bennu" />
+            Preferred Age: 
+            <select name="age"><?php
+                for ( $i = 5; $i < 80; ++$i ) {
+                    ?><option<?php
+                    if ( $i == $prefage ) {
+                        ?> selected="selected"<?php
+                    }
+                    ?>><?php
+                    echo $i;
+                    ?></option<?php
+                }
+            ?></select><br />
+            Preferred Gender: <input type="text" name="gender" value="<?php echo $prefgender; ?>" />
+            <select name="gender"><?php
+                $genders = array( 'male', 'female', 'both' );
+
+                for ( $i = 0; $i < count( $genders ); ++$i ) {
+                    ?><option<?php
+                        if ( $prefgender == $genders[ $i ] ) {
+                            ?> selected="selected"<?php
+                        } 
+                        ?>><?php 
+                        echo $genders[ $i ]; 
+                    ?></option><?php
+                }
+
+            ?></select><br />
+        </form>
+
         <ul style="list-style-type: none;"><?php
         foreach ( $users as $buser ) {
             ?><li><?php
-                Element( "user/display", $buser );
+                Element( "user/static", $buser );
             ?></li><?php
         }
 
