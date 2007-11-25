@@ -166,12 +166,17 @@ var InterestTag = {
         return true;
     },
 	Delete : function( li ) {
-		Coala.Warm( 'interesttag/delete', { 'text' : li.firstChild.nodeValue } );
+		var text = li.firstChild.nodeValue
+		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
+		var childlen = dad.childNodes.length;
+		if ( childlen > 1 && dad.childNodes[ childlen - 2 ].firstChild.nodeValue == text ) {
+			dad.childNodes[ childlen-3 ].style.borderBottomWidth = "1px";
+		}
 		dad.removeChild( li );
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-		if ( heig >= 12 && dad.childNodes.length <=11 ) {
+		if ( heig >= 12 && childlen <=11 ) {
 			dad.style.height= (heig-14) + "px";
 		}
 	}
