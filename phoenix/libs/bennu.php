@@ -198,7 +198,7 @@
                 return false;
             }
 
-            $water->Trace( $nowyear - $dobyear );
+            w_assert( is_numeric( $nowyear - $doyear ) );
             return $nowyear - $dobyear;
         }
         public function Calculate( $value ) {
