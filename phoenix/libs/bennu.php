@@ -151,10 +151,12 @@
 
             // $water->Trace( pow( -( $value - $this->Value ), 2 ) );
 
-            die( $this->Score . " " . M_E . " " . $value . " " . $this->Value . " " . $this->Sigma );
-            $score =  $this->Score * pow( M_E, ( -pow( ( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
+            $score =  $this->Score * pow( M_E, ( -( pow( ( $value - $this->Value ), 2 ) ) / ( 3 * $this->Sigma ) ) );
+
             w_assert( $score < $this->Score );
             w_assert( $score > 0 );
+
+            return $score;
         }
         protected function Random() {
             return rand( $this->Value - $this->Sigma, $this->Value + $this->Sigma );
