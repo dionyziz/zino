@@ -90,13 +90,13 @@
             }
         }
         private function PrepareSelectExpression() {
-            $sql = "SELECT ";
+            $this->mQuery = "SELECT ";
             
             foreach ( $this->mFields as $table => $fields ) {
                 while ( $field = array_shift( $fields ) ) {
-                    $sql .= "`$table`.`$field`";
+                    $this->mQuery .= "`$table`.`$field`";
                     if ( count( $fields ) ) {
-                        $sql .= ", ";
+                        $this->mQuery .= ", ";
                     }
                 }
             }
