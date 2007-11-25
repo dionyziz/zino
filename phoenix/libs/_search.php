@@ -208,8 +208,8 @@
         public function Get() {
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            $this->PrepareTableReferences();
             die( "." . $this->mQuery . "." );
+            $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
             $this->PrepareOrderBy();
