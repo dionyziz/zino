@@ -46,13 +46,13 @@
             $this->mExclude[] = $user->Id();
         }
         public function Get( $limit = false ) {
-            global $water;
+//            global $water;
 
             $this->mUsers = $this->GetAllUsers();
             $this->mScores = array();
             $this->mUids = array();
 
-            $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
+//            $water->Trace( "number of bennu rules: " . count( $this->mRules ) );
 
             foreach ( $this->mUsers as $user ) {
                 if ( in_array( $user[ "user_id" ], $this->mExclude ) ) {
@@ -68,11 +68,11 @@
                 $this->mScores[] = $score;
             }
             
-            w_assert( count( $this->mUids ) == count( $this->mScores ) );
+//            w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
-            $water->Trace( "bennu uids", $this->mUids );
-            $water->Trace( "bennu scores", $this->mScores );
+//            $water->Trace( "bennu uids", $this->mUids );
+//            $water->Trace( "bennu scores", $this->mScores );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
@@ -101,7 +101,7 @@
         protected $mFields;
 
         public function __set( $name, $value ) {
-            global $water;
+//            global $water;
 
             // check if a custom setter is specified
             $methodname = 'Set' . $name;
@@ -113,7 +113,7 @@
                 /* else fallthru */
             }
            
-            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
+ //           w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
             $varname = 'm' . $name;
             $this->$varname = $value; // MAGIC!
         }
@@ -124,7 +124,7 @@
                 return $this->$methodname(); // MAGIC!
             }
             
-            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
+//            w_assert( $name == 'Value' || $name == 'Sigma' || $name == 'Score' || $name == 'Fields' );
 
             $varname = 'm' . $name;
             return $this->$varname; // MAGIC!
@@ -148,7 +148,7 @@
             return $this->NormalDistribution( $value );
         }
         public function Get( $user ) {
-            global $water;
+//            global $water;
 
             return $this->Calculate( $this->UserValue( $user ) );
         }
