@@ -133,8 +133,8 @@ var InterestTag = {
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
 		li.appendChild( d.createTextNode( text ) );
-		li.style.padding = "1px 0px 1px 2px";
-		li.style.border = "1px 1px 0px 1px";
+		li.style.padding = "1px 0px 1px 4px";
+		li.style.borderWidth = "1px 1px 0px 1px";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
