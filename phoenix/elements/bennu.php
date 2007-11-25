@@ -7,7 +7,7 @@
         $prefage = $age->Get();
         $prefgender = strtolower( $gender->Get() );
 
-        if ( $prefage < 1 || $prefage > 100 ) {
+        if ( $prefage < 1 || $prefage > 80 ) {
             $prefage = $user->Age();
         }
 
@@ -22,18 +22,21 @@
         $age->Value = $prefage;
         $age->Score = 10;
         $age->Sigma = 2;
+        
+        $bennu->AddRule( $age );
 
         if ( $prefgender != 'both' ) {
             $sex = New BennuRuleSex();
             $sex->Value = $prefgender;
             $sex->Score = 5;
+        
+            $bennu->AddRule( $sex );
         }
-
-        $bennu->AddRule( $age );
-        $bennu->AddRule( $sex );
 
         $bennu->Exclude( $user );
         $users = $bennu->Get( 20 );
+        $scores = $bennu->Scores();
+        $maxscore = $bennu->MaxScore();
 
         ?><h2>Friend Recommendations</h2>
         <h4>Powered by Bennu</h4>
@@ -71,10 +74,12 @@
         </form>
 
         <ul style="list-style-type: none;"><?php
-        foreach ( $users as $buser ) {
+        for ( $i = 0; $i < $users; ++$i ) {
             ?><li><?php
-                Element( "user/static", $buser );
-            ?></li><?php
+                Element( "user/static", $user[ $i ] );
+            ?> - <?php
+                echo $maxscore / $scores[ $i ] * 100;
+            ?>%</li><?php
         }
 
         ?></ul><?php
