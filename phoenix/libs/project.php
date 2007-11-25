@@ -95,7 +95,8 @@
 			'advertise' 		=> 'advertise/info',
 			'uniadmin'			=> 'universities/create',
 			'tag'				=> 'interesttag/view',
-            'wysiwyg'           => 'developer/dionyziz/wysiwyg'
+            'wysiwyg'           => 'developer/dionyziz/wysiwyg',
+            'newsearch'         => 'developer/abresas/search'
     	);
     }
 ?>

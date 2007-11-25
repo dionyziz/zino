@@ -6,6 +6,7 @@
     */
 
 
+    /*
     $events = new EventsSearch;
     $events->Type = array( EVENTS_COMMENTS, EVENTS_PHOTOS );
     $events->User = $user;
@@ -14,8 +15,6 @@
     $events->Limit = 20;
     
     $events = $events->Get();
-
-    // ===
 
     $comments = new CommentsSearch;
     $comments->TypeId   = 1;
@@ -33,7 +32,7 @@
 
     $comments = $comments->GetParented();
 
-    // ===
+    */
 
     class Search {
         protected $mLimit;
@@ -86,11 +85,8 @@
             }
 
             if ( array_key_exists( $name, $this->mFilters ) ) {
-                $tables = $this->mFilters[ $name ];
-                foreach ( $tables as $table ) {
-                    $this->mFilters[ $name ][ $table ] = $value;
-                }
-                return;
+                $varname = 'm' . $name;
+                $this->$varname = $value;
             }
         }
         private function PrepareSelectExpression() {
@@ -145,10 +141,21 @@
             
             $this->mQuery .= " WHERE ";
 
+            $first = true;
             foreach ( $this->mFilters as $property => $filter ) {
                 $name = "m$property";
                 $value = $this->$name; // MAGIC!
+                if ( $value === null ) {
+                    continue;
+                }
                 foreach ( $filter as $table => $field ) {
+                    if ( !$first ) {
+                        $this->mQuery .= " AND ";
+                    }
+                    else {
+                        $first = false;
+                    }
+                    $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
             }
         }
