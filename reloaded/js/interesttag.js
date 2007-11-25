@@ -35,7 +35,7 @@ var InterestTag = {
 		
 		// Fill in the interests
     	var allinterlinks = g( 'interests' ).firstChild;
-    	var allinterests;
+    	var allinterests = new Array();
     	for ( var i in allinterlinks ) {
     		if ( allinterlinks.nodeName.toUpperCase() != "A" ) {
     			continue;
