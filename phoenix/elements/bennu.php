@@ -77,16 +77,16 @@
 
         // die( print_r( $scores ) . "<br /><br />" . print_r( $users ) );
 
-        for ( $i = 0; $i < $users; ++$i ) {
+        for ( $i = 0; $i < count( $users ); ++$i ) {
             $buser = $users[ $i ];
             if ( !is_object( $buser ) ) {
                 ?><li>Not An Object</li><?php
                 continue;
             }
             ?><li><?php
-                // Element( "user/static", $buser );
+                Element( "user/static", $buser );
             ?> - <?php
-                // echo $maxscore / $scores[ $i ] * 100;
+                echo $maxscore / $scores[ $i ] * 100;
             ?>%</li><?php
         }
 
