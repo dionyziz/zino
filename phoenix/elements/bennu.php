@@ -49,7 +49,7 @@
                     }
                     ?>><?php
                     echo $i;
-                    ?></option<?php
+                    ?></option><?php
                 }
             ?></select><br />
             Preferred Gender: <input type="text" name="gender" value="<?php echo $prefgender; ?>" />
