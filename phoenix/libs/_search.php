@@ -208,7 +208,7 @@
         public function Get() {
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            die( "." . $this->mQuery . "." );
+            die( "." . $this->Query . "." );
             $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
