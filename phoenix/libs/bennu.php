@@ -71,8 +71,8 @@
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
-            $this->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
-            $this->Trcae( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
+            $water->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
+            $water->Trace( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
