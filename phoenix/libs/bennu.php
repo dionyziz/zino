@@ -158,7 +158,7 @@
             }
 
             w_assert( $score <= $this->Score );
-            w_assert( $score > 0 );
+            w_assert( $score >= 0 );
 
             return $score;
         }
