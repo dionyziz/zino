@@ -149,7 +149,7 @@
             w_assert( $this->Sigma != 0 );
             w_assert( abs( $value - $this->Value ) < 100 );
 
-            $water->Trace( -( $value - $this->Value ) );
+            // $water->Trace( -( $value - $this->Value ) );
 
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
