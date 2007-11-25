@@ -92,7 +92,7 @@
             $varname = 'm' . $name;
 
             if ( !property_exists( get_class( $this ), $varname ) ) {
-                die( "property $varname does not exist" );
+                // die( "property $varname does not exist" );
             }
             return $this->$varname; // MAGIC!
         }
