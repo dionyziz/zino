@@ -20,6 +20,7 @@ var InterestTag = {
 					for ( var i=0;i<ul.childNodes.length-1;++i ) {
 						var text = ul.childNodes[i].childNodes[2].nodeValue;
 						var a = d.createElement( 'a' );
+						a.style.cursor = "pointer";
 						a.href = "?p=tag&text=" + text;
 						a.appendChild( d.createTextNode( text ) );
 						interests.appendChild( a );
@@ -152,10 +153,7 @@ var InterestTag = {
     },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
-		li.style.padding = "1px 0px 1px 4px";
-		li.style.borderStyle = "solid";
-		li.style.borderWidth = "1px 1px 0px 1px";
-		li.style.clear = "both";
+		li.className = "interesttag";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
