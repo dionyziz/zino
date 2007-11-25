@@ -35,10 +35,9 @@ var InterestTag = {
 		
 		// Fill in the interests
     	var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
-    	alert( allinterlinks.length );
     	var allinterests = new Array();
-    	for ( var i in allinterlinks ) {
-    		allinterests.push( allinterlinks[i].firstChild.nodeValue );
+    	for ( var i=0;i<allinterlinks.length-1;++i ) {
+    		allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
