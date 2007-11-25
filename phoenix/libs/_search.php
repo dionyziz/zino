@@ -170,6 +170,7 @@
             }
         }
         private function PrepareWhereCondition() {
+            die( "@where condition" );
             $this->mConnected = array();
 
             if ( !count( $this->mFilters ) ) {
