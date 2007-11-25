@@ -40,6 +40,8 @@ var InterestTag = {
     		if ( typeof( allinterlinks.childNodes[i] ) != "object" ) {
     			continue;
     		}
+    		alert( typeof( allinterlinks.childNodes[i] ) );
+    		alert( allinterlinks.childNodes[i].nodeName );
     		allinterests.push( allinterlinks.childNodes[i].firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
