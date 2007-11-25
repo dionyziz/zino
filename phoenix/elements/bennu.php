@@ -86,7 +86,7 @@
             ?><li><?php
                 Element( "user/static", $buser );
             ?> - <?php
-                echo $maxscore / $scores[ $i ] * 100;
+                // echo $maxscore / $scores[ $i ] * 100;
             ?>%</li><?php
         }
 
