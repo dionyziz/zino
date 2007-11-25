@@ -230,7 +230,7 @@
 					?>><dt>ενδιαφέροντα</dt>
 						<dd id="interests"><?php
                             foreach ( $tags as $tag ) {
-                            	?><a href="p=tag&amp;text=<?php
+                            	?><a href="?p=tag&amp;text=<?php
                                 echo htmlspecialchars( $tag->Text );
                                 ?>"><?php
                                 echo htmlspecialchars( $tag->Text );
