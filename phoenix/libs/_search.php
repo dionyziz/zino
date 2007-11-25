@@ -180,8 +180,7 @@
 
             $first = true;
             foreach ( $this->mFilters as $property => $filter ) {
-                $name = "m$property";
-                $value = $this->$name; // MAGIC!
+                $value = $this->$property; // MAGIC!
                 if ( $value === null ) {
                     continue;
                 }
