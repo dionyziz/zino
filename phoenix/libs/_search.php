@@ -95,7 +95,7 @@
             $first = true;
             foreach ( $this->mFields as $table => $fields ) {
                 if ( isset( $this->mTables[ $table ] ) ) {
-                    $table = $this->mTables[ $table ];
+                    $table = $this->mTables[ $table ][ "name" ];
                 }
                 while ( $field = array_shift( $fields ) ) {
                     if ( !$first ) {
