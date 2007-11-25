@@ -204,14 +204,13 @@
         private function PrepareOrderBy() {
         }
         private function PrepareLimit() {
-            $this->mQuery .= " LIMIT 50";
         }
         public function Get() {
             $this->mQuery = "";
             $this->PrepareSelectExpression();
             $this->PrepareTableReferences();
-            $this->PrepareWhereCondition();
             die( "." . $this->mQuery . "." );
+            $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
             $this->PrepareOrderBy();
             $this->PrepareLimit();
