@@ -181,7 +181,6 @@
             $first = true;
             foreach ( $this->mFilters as $property => $filter ) {
                 $value = $this->$property; // MAGIC!
-                die( "after value" );
                 if ( $value === null ) {
                     continue;
                 }
@@ -194,6 +193,7 @@
                     }
                     $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
+                die( "done with first filter" );
             }
 
             $this->mQuery .= " ";
