@@ -140,22 +140,7 @@
                 }
                 $table = $table[ "name" ];
                 $this->mQuery .= "`$table` AS $alias";
-                foreach ( $this->mConnections[ $alias ] as $join ) {
-                    $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
-                    $this->mQuery .= $join[ 'table' ];
-                    $connected[] = $join[ 'table' ];
-                    if ( count( $join[ 'fields' ] ) ) {
-                        $this->mQuery .= " ON ";
-                        $j = 0;
-                        foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
-                            if ( $j > 0 ) {
-                                $this->mQuery .= "AND ";
-                            }
-                            $this->mQuery  .= "$f1 = $f2 ";
-                            ++$j;
-                        }
-                    }
-                }
+                $this->PrepareConnections( $alias );
                 if ( $i < count( $this->mTables ) - 1 ) {
                     $this->mQuery .= ", ";
                 }
