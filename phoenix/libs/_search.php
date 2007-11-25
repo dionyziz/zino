@@ -42,6 +42,7 @@
         protected $mTables;
         protected $mOrderBy;
         protected $mConnections;
+        private $mConnected;
 
         protected function Connect( $table1, $type, $table2, $fields ) {
            $this->mConnections[ $table1 ][] = array( 
@@ -114,7 +115,7 @@
                 $calias = $join[ 'table' ];
                 $ctable = $this->mTables[ $calias ][ "name" ];
                 $this->mQuery .= $ctable;
-                $connected[] = $calias;
+                $this->mConnected[] = $calias;
                 if ( count( $join[ 'fields' ] ) ) {
                     $this->mQuery .= " ON ";
                     $j = 0;
@@ -133,14 +134,16 @@
             $this->mQuery .= " FROM ";
 
             $i = 0;
-            $connected = array();
             foreach ( $this->mTables as $alias => $table ) {
-                if ( !$table[ "needed" ] || in_array( $alias, $connected ) ) {
+                if ( !$table[ "needed" ] || in_array( $alias, $this->mConnected ) ) {
                     continue;
                 }
                 $table = $table[ "name" ];
                 $this->mQuery .= "`$table` AS $alias";
+
+                $this->mConnected = array();
                 $this->PrepareConnections( $alias );
+
                 if ( $i < count( $this->mTables ) - 1 ) {
                     $this->mQuery .= ", ";
                 }
@@ -150,6 +153,8 @@
             echo "<br /><br />";
         }
         private function PrepareWhereCondition() {
+            $this->mConnected = array();
+
             if ( !count( $this->mFilters ) ) {
                 return;
             }
