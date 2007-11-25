@@ -133,24 +133,24 @@
         private function PrepareTableReferences() {
             $this->mQuery .= " FROM ";
 
-            $i = 0;
+            $first = true;
             foreach ( $this->mTables as $alias => $table ) {
                 if ( !$table[ "needed" ] || in_array( $alias, $this->mConnected ) ) {
                     continue;
                 }
+                if ( !$first ) {
+                    $this->mQuery .= ", ";
+                }
+                else {
+                    $first = false;
+                }
+
                 $table = $table[ "name" ];
                 $this->mQuery .= "`$table` AS $alias";
 
                 $this->mConnected = array();
                 $this->PrepareConnections( $alias );
-
-                if ( $i < count( $this->mTables ) - 1 ) {
-                    $this->mQuery .= ", ";
-                }
-                ++$i;
             }
-            var_dump( $connected );
-            echo "<br /><br />";
         }
         private function PrepareWhereCondition() {
             $this->mConnected = array();
