@@ -113,6 +113,7 @@
         }
         private function PrepareSelectExpression() {
             $this->mQuery .= "SELECT ";
+            die( $this->mQuery );
 
             $first = true;
             foreach ( $this->mFields as $table => $fields ) {
