@@ -90,6 +90,10 @@
             }
 
             $varname = 'm' . $name;
+
+            if ( !property_exists( get_class( $this ), $varname ) ) {
+                die( "property $varname does not exist" );
+            }
             return $this->$varname; // MAGIC!
         }
         public function __set( $name, $value ) {
@@ -208,7 +212,7 @@
         public function Get() {
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            die( "." . $this->Query . "." );
+            die( "query: " . $this->Query . "." );
             $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
