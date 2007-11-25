@@ -29,9 +29,8 @@
 								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
 								$hobbis = "";
 								foreach ( $hobsar as $hob ) {
-									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>,";
+									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>&nbsp;";
 								}
-								$hobbis[ strlen( $hobbis )-1 ] = " "; // Remove the last comma
 								echo $hobbis;
                                 ?></div><?php
 							}
