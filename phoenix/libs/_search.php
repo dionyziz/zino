@@ -108,6 +108,27 @@
                 }
             }
         }
+        private function PrepareConnections( $alias ) {
+            foreach ( $this->mConnections[ $alias ] as $join ) {
+                $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
+                $calias = $join[ 'table' ];
+                $ctable = $this->mTables[ $calias ][ "name" ];
+                $this->mQuery .= $ctable;
+                $connected[] = $calias;
+                if ( count( $join[ 'fields' ] ) ) {
+                    $this->mQuery .= " ON ";
+                    $j = 0;
+                    foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
+                        if ( $j > 0 ) {
+                            $this->mQuery .= "AND ";
+                        }
+                        $this->mQuery  .= "$f1 = $f2 ";
+                        ++$j;
+                    }
+                }
+                $this->PrepareConnections( $calias );
+            }
+        }
         private function PrepareTableReferences() {
             $this->mQuery .= " FROM ";
 
