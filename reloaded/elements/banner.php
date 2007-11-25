@@ -34,12 +34,12 @@
             ?>.jpg" alt="Chit-Chat" class="logo" /></a>
 			<ul>
                 <li>
-                    <form action="" method="get">
+<!--                    <form action="" method="get">
                         <input type="hidden" name="p" value="search" />
                         <input type="text" name="q" id="q" value="Αναζήτηση" class="text" onfocus="Search.Focus(this)" onblur="Search.Blur(this);" /><a href="?p=search" onclick="this.parentNode.submit();return false;"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
                         ?>icons/magnifier.png" alt="Ψάξε" title="Αναζήτηση" /></a>
-                    </form>
+                    </form> -->
                 </li><?php
 				if ( !$user->IsAnonymous() ) {
 					$ureadpms = PM_UserCountUnreadPms( $user );

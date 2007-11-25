@@ -1,5 +1,8 @@
 <?php
 	function ElementSearchSearch( tString $q ) { 
+    
+        return false;
+
 		global $page;
 		global $water;
 		global $libs;
