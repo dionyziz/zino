@@ -15,14 +15,30 @@ var InterestTag = {
     	var close = d.createElement( 'a' );
 		close.onclick = ( function( ul ) {
 				return function() {
-					var texts = "";
+					var interests = g( 'interests' );
+					interests.innerHTML = "";
 					for ( var i=0;i<ul.childNodes.length;++i ) {
 						if ( ul.childNodes[i].nodeName.toUpperCase() != "LI" ) {
 							continue;
 						}
-						texts += ul.childNodes[i].childNodes[2].nodeValue  + " ";
+						var text = ul.childNodes[i].childNodes[2].nodeValue;
+						var a = d.createElement( 'a' );
+						a.href = "?p=tag&text=" + text;
+						a.appendChild( d.createTextNode( text ) );
+						interests.appendChild( a );
+						interests.appendChild( "," );
 					}
-					g( 'interests' ).firstChild.nodeValue = texts;
+					var img = d.createElement( 'img' );
+					img.src = "http://static.chit-chat.gr/images/icons/page_new.gif";
+					
+					var a = d.createElement( 'a' );
+					a.onclick = function() {
+							InterestTag.Create();
+							return false;
+						};
+						
+					a.appendChild( img );
+					interests.appendChild( a );
 					Modals.Destroy();
 					return false;
 				};
