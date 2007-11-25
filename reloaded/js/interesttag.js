@@ -37,6 +37,9 @@ var InterestTag = {
     	var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
     	var allinterests = new Array();
     	for ( var i in allinterlinks ) {
+    		if ( allinterlinks[i].firstChild.nodeName != "#text" ) {
+    			continue;
+    		}
     		allinterests.push( allinterlinks[i].firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
@@ -171,7 +174,7 @@ var InterestTag = {
         return true;
     },
 	Delete : function( li ) {
-		var text = li.firstChild.nodeValue
+		var text = li.firstChild.nodeValue;
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
 		var childlen = dad.childNodes.length;
