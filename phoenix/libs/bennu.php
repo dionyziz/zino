@@ -71,8 +71,8 @@
             w_assert( count( $this->mUids ) == count( $this->mScores ) );
             array_multisort( $this->mScores, SORT_DESC, SORT_NUMERIC, $this->mUids, SORT_DESC, SORT_STRING );
 
-            print_r( array_slice( $this->mUids, 0, 50 ) );
-            print_r( array_slice( $this->mScores, 0, 50 ) );
+            $this->Trace( "bennu uids", array_slice( $this->mUids, 0, 50 ) );
+            $this->Trcae( "bennu scores", array_slice( $this->mScores, 0, 50 ) );
 
             if ( $limit > count( $this->mUids ) || $limit === false ) {
                $limit = count( $this->mUids );
@@ -137,11 +137,6 @@
 
             w_assert( $this->Sigma != 0 );
             
-            $water->Trace( 3 * $this->Sigma );
-            $water->Trace( -( $value - $this->Value ) );
-            $water->Trace( pow( -( $value - $this->Value ), 2 ) );
-            $water->Trace( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) );
-            // $water->Trace( pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) ) );
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
         protected function Random() {
@@ -183,7 +178,17 @@
             $nowyear = (int)$nowdate[ "year" ];
             $dobyear = (int)substr( $user[ "user_dob" ], 0, 4 );
 
+            if ( $dobyear == "0000" ) {
+                return false;
+            }
+
             return $nowyear - $dobyear;
+        }
+        public function Calculate( $value ) {
+            if ( $value === false ) {
+                return 0;
+            }
+            return $this->NormalDistribution( $value );
         }
     }
 
