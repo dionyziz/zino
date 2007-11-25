@@ -54,17 +54,17 @@
 
             $water->Profile( 'Calculating scores' );
             foreach ( $this->mUsers as $user ) {
-                if ( in_array( $user[ "user_id" ], $this->mExclude ) ) {
-                    continue;
-                }
+//                if ( in_array( $user[ "user_id" ], $this->mExclude ) ) {
+//                    continue;
+//                }
 
-                $score = 0;
+//                $score = 0;
                 foreach ( $this->mRules as $rule ) {
                     $score += $rule->Get( $user );
                 }
 
-                $this->mUids[] = $user[ "user_id" ];
-                $this->mScores[] = $score;
+//                $this->mUids[] = $user[ "user_id" ];
+//                $this->mScores[] = $score;
             }
             $water->ProfileEnd();
             
