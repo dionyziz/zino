@@ -182,8 +182,10 @@
             foreach ( $this->mFilters as $property => $filter ) {
                 $value = $this->$property; // MAGIC!
                 if ( $value === null ) {
-                    die( "got null value" );
                     continue;
+                }
+                else {
+                    die( "value $value" );
                 }
                 foreach ( $filter as $table => $field ) {
                     if ( !$first ) {
