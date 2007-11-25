@@ -76,7 +76,7 @@
         <ul style="list-style-type: none;"><?php
         for ( $i = 0; $i < $users; ++$i ) {
             ?><li><?php
-                Element( "user/static", $user[ $i ] );
+                Element( "user/static", $users[ $i ] );
             ?> - <?php
                 echo $maxscore / $scores[ $i ] * 100;
             ?>%</li><?php
