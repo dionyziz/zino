@@ -112,8 +112,7 @@
             }
         }
         private function PrepareSelectExpression() {
-            $this->mQuery = "SELECT ";
-            die( $this->mQuery );
+            $this->mQuery .= "SELECT ";
 
             $first = true;
             foreach ( $this->mFields as $table => $fields ) {
@@ -190,7 +189,7 @@
                     continue;
                 }
                 else {
-                    die( "value $value" );
+                    // die( "value $value" );
                 }
                 foreach ( $filter as $table => $field ) {
                     if ( !$first ) {
@@ -211,9 +210,11 @@
         private function PrepareLimit() {
         }
         public function Get() {
+            global $water;
+
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            die( "query: " . $this->Query . "." );
+            $water->Trace( "query: " . $this->Query . "." );
             $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
