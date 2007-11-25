@@ -140,7 +140,7 @@
             $water->Trace( 3 * $this->Sigma );
             $water->Trace( -( $value - $this->Value ) );
             $water->Trace( pow( -( $value - $this->Value ), 2 ) );
-            // $water->Trace( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) );
+            $water->Trace( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) );
             // $water->Trace( pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) ) );
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
