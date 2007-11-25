@@ -152,7 +152,7 @@ var InterestTag = {
 				};
 			})(li);
 		del.style.position = "relative";
-		del.style.right = "20px";
+		del.style.marginRight = "20px";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
