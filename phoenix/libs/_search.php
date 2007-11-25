@@ -167,12 +167,12 @@
         }
         public function Get() {
             $this->mQuery = "";
-            PrepareSelectExpression();
-            PrepareTableReferences();
-            PrepareWhereCondition();
-            PrepareGroupBy();
-            PrepareOrderBy();
-            PrepareLimit();
+            $this->PrepareSelectExpression();
+            $this->PrepareTableReferences();
+            $this->repareWhereCondition();
+            $this->PrepareGroupBy();
+            $this->PrepareOrderBy();
+            $this->PrepareLimit();
 
             die( $this->mQuery );
 
