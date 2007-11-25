@@ -153,11 +153,11 @@
 
             $score =  $this->Score * pow( M_E, ( -( pow( ( $value - $this->Value ), 2 ) ) / ( 3 * $this->Sigma ) ) );
 
-            if ( $score >= $this->Score ) {
+            if ( $score > $this->Score ) {
                 die( $score . " " . $this->Score . " " . $value . " " . $this->Value . " " . $this->Sigma );
             }
 
-            w_assert( $score < $this->Score );
+            w_assert( $score <= $this->Score );
             w_assert( $score > 0 );
 
             return $score;
