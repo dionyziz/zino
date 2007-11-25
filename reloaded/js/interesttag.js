@@ -151,8 +151,7 @@ var InterestTag = {
 					InterestTag.Delete( li );
 				};
 			})(li);
-		del.style.position = "relative";
-		del.style.marginRight = "20px";
+		del.style.textAlign = "right";
 			
 		del.appendChild( deleteimage );
 		li.appendChild( d.createTextNode( ' ' ) );
