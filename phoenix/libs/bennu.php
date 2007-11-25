@@ -133,6 +133,8 @@
             return ( $this->Value === $value ) ? $this->Score : 0;
         }
         protected function NormalDistribution( $value ) {
+            w_assert( $this->Sigma != 0 );
+
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
         protected function Random() {
