@@ -34,8 +34,14 @@ var InterestTag = {
 		anchor.id = "hereiam";
 		
 		// Fill in the interests
-    	var allinterests = g( 'interests' ).firstChild.nodeValue;
-    	allinterests = allinterests.split( " " );
+    	var allinterlinks = g( 'interests' ).firstChild;
+    	var allinterests;
+    	for ( var i in allinterlinks ) {
+    		if ( allinterlinks.nodeName.toUpperCase() != "A" ) {
+    			continue;
+    		}
+    		allinterests[] = allinterlinks[i].firstChild.nodeValue;
+    	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
@@ -138,7 +144,7 @@ var InterestTag = {
 		li.style.padding = "1px 0px 1px 4px";
 		li.style.borderStyle = "solid";
 		li.style.borderWidth = "1px 1px 0px 1px";
-		li.style.display = "block";
+		li.style.clear = "both";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";

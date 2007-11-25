@@ -230,7 +230,11 @@
 					?>><dt>ενδιαφέροντα</dt>
 						<dd id="interests"><?php
                             foreach ( $tags as $tag ) {
-                                echo htmlspecialchars( $tag->Text ) . " ";
+                            	?><a href="p=tag&amp;text=<?php
+                                echo htmlspecialchars( $tag->Text );
+                                ?>"><?php
+                                echo htmlspecialchars( $tag->Text );
+                                ?></a><?php
                             }
                             if ( $theuser->Id() == $user->Id() ) {
                             ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
