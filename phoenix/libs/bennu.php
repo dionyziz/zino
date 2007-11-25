@@ -139,7 +139,9 @@
             $this->Value = (int)$this->Value;
             $this->Sigma = (int)$this->Sigma;
             $this->Score = (int)$this->Score;
-            
+
+            w_assert( $this->Value < 100 );
+
             return $this->Score * pow( M_E, ( pow( -( $value - $this->Value ), 2 ) / ( 3 * $this->Sigma ) ) );
         }
         protected function Random() {
