@@ -8,12 +8,15 @@
         $bennu = New Bennu();
         
         $age = New BennuRuleAge();
-        $age->Value = 15;
-        $age->Score = 5;
+        $age->Value = $user->Age();
+        $age->Score = 10;
         $age->Sigma = 2;
 
         $sex = New BennuRuleSex();
-        $sex->Value = 'female';
+        $sex->Value = ( $user->Gender() == 'male' ) ? 'female' : 'male';
+        if ( $user->Gender() != 'male' && $user->Gender() != 'female' && $user->Gender() != '-' ) {
+            die( "." . $user->Gender() . "." );
+        }
         $sex->Score = 5;
 
         $bennu->AddRule( $age );

@@ -716,6 +716,8 @@
             $nowyear = (int)$nowdate[ "year" ];
             $dobyear = (int)substr( $this->mDOB, 0, 4 );
 
+            die( $nowyear - $dobyear . " " . $dobyear .  " " . $this->mDOB . " " . $nowyear );
+
             return $nowyear - $dobyear;
         }
         public function Creation() {
