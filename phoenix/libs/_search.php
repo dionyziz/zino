@@ -181,8 +181,8 @@
             $first = true;
             foreach ( $this->mFilters as $property => $filter ) {
                 $value = $this->$property; // MAGIC!
-                die( "value $value" );
                 if ( $value === null ) {
+                    die( "got null value" );
                     continue;
                 }
                 foreach ( $filter as $table => $field ) {
