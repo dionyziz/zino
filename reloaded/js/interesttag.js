@@ -34,15 +34,10 @@ var InterestTag = {
 		anchor.id = "hereiam";
 		
 		// Fill in the interests
-    	var allinterlinks = g( 'interests' ).firstChild;
+    	var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
     	var allinterests = new Array();
-    	for ( var i in allinterlinks.childNodes ) {
-    		if ( typeof( allinterlinks.childNodes[i] ) != "object" || allinterlinks.childNodes[i].nodeName != "a" ) {
-    			continue;
-    		}
-    		alert( typeof( allinterlinks.childNodes[i] ) );
-    		alert( allinterlinks.childNodes[i].nodeName );
-    		allinterests.push( allinterlinks.childNodes[i].firstChild.nodeValue );
+    	for ( var i in allinterlinks ) {
+    		allinterests.push( allinterlinks[i].firstChild.nodeValue );
     	}
 		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
     	for ( var i in allinterests ) {
