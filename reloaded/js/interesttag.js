@@ -39,7 +39,7 @@ var InterestTag = {
     	for ( var i=0;i<allinterlinks.length-1;++i ) {
     		allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
     	}
-		ul.style.height = (allinterests.length<=15)?(allinterests.length*16)+"px":"150px";
+		ul.style.height = (allinterests.length<=15)?(allinterests.length*17)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
@@ -181,7 +181,7 @@ var InterestTag = {
 		dad.removeChild( li );
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-		if ( heig >= 15 && childlen <=10 ) {
+		if ( heig >= 15 && childlen <=9 ) {
 			dad.style.height= (heig-17) + "px";
 		}
 	}
