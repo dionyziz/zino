@@ -90,9 +90,12 @@
             }
         }
         private function PrepareSelectExpression() {
-            $this->mQuery = "SELECT ";
+            $this->mQuery .= "SELECT ";
             
             foreach ( $this->mFields as $table => $fields ) {
+                if ( isset( $this->mTables[ $table ] ) ) {
+                    $table = $this->mTables[ $table ];
+                }
                 while ( $field = array_shift( $fields ) ) {
                     $this->mQuery .= "`$table`.`$field`";
                     if ( count( $fields ) ) {
@@ -158,12 +161,15 @@
                     $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
             }
+
+            $this->mQuery .= " ";
         }
         private function PrepareGroupBy() {
         }
         private function PrepareOrderBy() {
         }
         private function PrepareLimit() {
+            $this->mQuery .= " LIMIT 50";
         }
         public function Get() {
             $this->mQuery = "";
