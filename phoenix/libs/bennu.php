@@ -174,6 +174,8 @@
 
     class BennuRuleAge extends BennuRule {
         public function UserValue( $user ) {
+            global $water;
+
             $nowdate = getdate();
             $nowyear = (int)$nowdate[ "year" ];
             $dobyear = (int)substr( $user[ "user_dob" ], 0, 4 );
