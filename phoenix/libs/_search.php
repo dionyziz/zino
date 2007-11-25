@@ -91,16 +91,20 @@
         }
         private function PrepareSelectExpression() {
             $this->mQuery .= "SELECT ";
-            
+
+            $first = true;
             foreach ( $this->mFields as $table => $fields ) {
                 if ( isset( $this->mTables[ $table ] ) ) {
                     $table = $this->mTables[ $table ];
                 }
                 while ( $field = array_shift( $fields ) ) {
-                    $this->mQuery .= "`$table`.`$field`";
-                    if ( count( $fields ) ) {
+                    if ( !$first ) {
                         $this->mQuery .= ", ";
                     }
+                    else {
+                        $first = false;
+                    }
+                    $this->mQuery .= "`$table`.`$field`";
                 }
             }
         }
@@ -109,6 +113,8 @@
 
             $i = 0;
             $connected = array();
+            var_dump( $this->mTables );
+            echo "<br /><br />";
             foreach ( $this->mTables as $alias => $table ) {
                 if ( !$table[ "needed" ] || isset( $connected[ $alias ] ) ) {
                     continue;
