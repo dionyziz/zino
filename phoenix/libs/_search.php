@@ -291,6 +291,10 @@
     }
 
     class CommentsSearch extends Search {
+        protected $mPageId;
+        protected $mUserDelId;
+        protected $mImageDelId;
+
         public function SetPage( $item ) {
             $this->PageId = $item->Id;
         }
