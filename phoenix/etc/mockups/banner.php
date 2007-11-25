@@ -1,7 +1,7 @@
 <script type="text/javascript" src="../../../js/animations.js"></script>
 <script type="text/javascript" src="js/banner.js"></script>
 <div class="header" id="banner">
-	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/loog-none.png" alt="Zino" /></a></h1>
+	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/logo-none.png" alt="Zino" /></a></h1>
 	<ul><?php   
         if ( !isset( $_GET[ 'loggedin' ] ) ) {
             ?><li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
