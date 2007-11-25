@@ -47,6 +47,7 @@ var InterestTag = {
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
+		ul.childNodes[ ul.childNodes.length -1 ].style.borderBottomWidth = "1px";
 		ul.appendChild( anchor );
 		//-----------
 		
@@ -132,6 +133,8 @@ var InterestTag = {
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
 		li.appendChild( d.createTextNode( text ) );
+		li.style.padding = "1px 0px 1px 2px";
+		li.style.border = "1px 1px 0px 1px";
 		
 		var deleteimage = d.createElement( 'img' );
 		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
