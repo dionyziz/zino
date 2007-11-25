@@ -75,6 +75,23 @@
                 $this->mFilters[ $property ][ $table ] = $field;
             }
         }
+        public function __get( $name ) {
+            global $water;
+            
+            // check if a custom getter is specified
+            $methodname = 'Get' . $name;
+            if ( method_exists( $this, $methodname ) ) {
+                return $this->$methodname(); // MAGIC!
+            }
+            
+            if ( !array_key_exists( $name, $this->mFilters ) ) {
+                $water->Warning( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+                return;
+            }
+
+            $varname = 'm' . $name;
+            return $this->$varname; // MAGIC!
+        }
         public function __set( $name, $value ) {
             $methodname = 'Set' . $name;
             if ( method_exists( $this, $methodname ) ) {
@@ -114,7 +131,7 @@
                 $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
                 $calias = $join[ 'table' ];
                 $ctable = $this->mTables[ $calias ][ "name" ];
-                $this->mQuery .= $ctable;
+                $this->mQuery .= "`$ctable`";
                 $this->mConnected[] = $calias;
                 if ( count( $join[ 'fields' ] ) ) {
                     $this->mQuery .= " ON ";
