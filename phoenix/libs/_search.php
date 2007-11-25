@@ -197,6 +197,7 @@
                     $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
             }
+            die( "after loop" );
 
             $this->mQuery .= " ";
         }
