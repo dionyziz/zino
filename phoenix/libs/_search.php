@@ -112,7 +112,7 @@
             }
         }
         private function PrepareSelectExpression() {
-            $this->mQuery .= "SELECT ";
+            $this->mQuery = "SELECT ";
             die( $this->mQuery );
 
             $first = true;
