@@ -1,6 +1,6 @@
 ul.albums {
     padding: 0;
-    margin: 0;
+    margin: 0 50px 0 50px;
 }
 ul.albums li {
     float: left;
@@ -32,6 +32,7 @@ ul.albums li a span {
 ul.albums li a div img {
     margin: 0 3px 4px 0;
     vertical-align: middle;
+    border: 2px solid #105cb6;
 }
 ul.albums li dl {
     display: block;
