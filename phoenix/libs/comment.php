@@ -444,7 +444,7 @@
 
 		return $newcommentid;
 	}
-	
+
 	class Search_Comments extends Search {
 		public function SetFilter( $key, $value ) {
 			// 0 -> equal, 1 -> LIKE

@@ -1,4 +1,5 @@
 <?php
+
 	function Albums_CreateAlbum( $albumname , $albumdescription ) {
 		global $db;
 		global $albums;
@@ -93,236 +94,110 @@
 		
 		return $ret;
 	}
-	class Album {
-		private $mAlbid;
-		private $mAlbuserid;
-		private $mAlbcreator;
-		private $mAlbcreated;
-		private $mAlbhost;
-		private $mAlbname;
-		private $mAlbmainpic;
-		private $mAlbdescription;
-		private $mAlbdelid;
-		private $mPageviews;
-		private $mPhotosNum;
-		private $mNumComments;
-		
-		public function Id() {
-			return $this->mAlbid;
-		}
-		public function Creator() {
-			if ( empty( $this->mAlbcreator ) ) {
-				$this->mAlbcreator = New User( $this->UserId() );
-			}
-			return $this->mAlbcreator;
-		}
-		public function UserId() {
-			return $this->mAlbuserid;
-		}
-		public function Date() {
-			return $this->mAlbcreated;
-		}
-		public function Host() {
-			return $this->mAlbhost;
-		}
-		public function Name() {
-			return $this->mAlbname;
-		}
-		public function MainImage() {
-			return $this->mAlbmainpic;
-		}
-		public function Description() {
-			return $this->mAlbdescription;
-		}
-		public function PhotosNum() {
-			global $db;
+
+    class Album extends Satori {
+        protected $mId;
+        protected $mUserId;
+        protected $mUser;
+        protected $mCreated;
+        protected $mHost;
+        protected $mName;
+        protected $mMainImage;
+        protected $mDescription;
+        protected $mDelId;
+        protected $mPageviews;
+        protected $mPhotosNum;
+        protected $mCommentsNum;
+
+        public function GetUser() {
+            if ( $user === false || !$user instanceof User ) {
+                $this->mUser = New User( $this->UserId );
+            }
+
+            return $this->mUser;
+        }
+		// TODO: make this a field on the database
+        public function GetPhotosNum() {
 			global $images;
 			global $water;
 			
 			if ( $this->mPhotosNum === false ) {
-				// photos of the album are not counted yet
 				$sql = "SELECT
 							COUNT( * )
 						AS
 							numphotos
 						FROM 
-							`$images`
+							`" . $this->mImageTable . "`
 						WHERE	
-							`image_albumid` = '" . $this->Id() . "' AND `image_delid` = '0';";
+							`image_albumid` = '" . $this->Id . "' AND `image_delid` = '0';";
 							
-				$res = $db->Query( $sql );
+				$res = $this->mDb->Query( $sql );
 				$num = $res->FetchArray();
 				$this->mPhotosNum = $num[ "numphotos" ];
 			}
 			
 			return $this->mPhotosNum;
 		}
-		public function CommentsNum() {
-			return $this->mNumComments;
-		}
-		public function DelId() {
-			return $this->mAlbdelid;
-		}
 		public function IsDeleted() {
-			return $this->mAlbdelid > 0;
-		}
-		public function Exists() {
-			return $this->mAlbid > 0;
-		}
-		public function UpdateName( $newname ) {
-			global $db;
-			global $albums;
-			
-            $newname = addslashes( $newname );
-            
-			$sql = "UPDATE
-						`$albums`
-					SET
-						`album_name` = '$newname'
-					WHERE 
-						`album_id` = '" . $this->Id() . "'
-					LIMIT 1;";
-			$db->Query( $sql );
-		}
-		public function UpdateMainImage( $imageid ) {
-			global $db;
-			global $albums;
-			
-			// $imageid points to an image with the id in the `merlin_albumimages` table
-			$sql = "UPDATE
-						`$albums`
-					SET
-						`album_mainimage` = '$imageid'
-					WHERE
-						`album_id` = '".$this->Id()."'
-					LIMIT 1;";
-			$db->Query( $sql );
-		}
-		public function UpdateDescription( $newdescription ) {
-			global $db;
-			global $albums;
-			
-            $newdescription = addslashes( $newdescription );
-            
-			$sql = "UPDATE
-						`$albums`
-					SET
-						`album_description` = '$newdescription'
-					WHERE
-						`album_id` = '".$this->Id()."'
-					LIMIT 1;";
-			
-			$db->Query( $sql );
+			return $this->DelId > 0;
 		}
 		public function Delete() {
-			global $db;
-			global $albums;
-            global $images;
-            
-			$sql = "UPDATE 
-						`$albums`
-					SET 
-						`album_delid` = '1'
-					WHERE 
-						`album_id` = '".$this->Id()."'
-					LIMIT 1;";
-					
-			$db->Query( $sql );
-			
+            $this->DelId = 1;
+            $this->Save();
+
 			$sql = "UPDATE
-						`$images`
+						`" . $this->mImageTable . "`
 					SET
 						`image_delid` = '1'
 					WHERE
-						`image_albumid` = '" . $this->Id() . "';";
+						`image_albumid` = '" . $this->Id . "';";
 			
-			$db->Query( $sql );
-			
-			$this->mAlbdelid = 1;
-		}
-		public function Pageviews() {
-			return $this->mPageviews;
-		}
-		public function AddPageview() {
-			global $db;
-			global $albums;
-			
-			++$this->mPageviews;
-			
-			$sql = "UPDATE `$albums` SET `album_pageviews` = '" . $this->mPageviews . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
+			$this->mDb->Query( $sql );
 		}
         public function CommentAdded() {
-			global $db;
-			global $albums;
-			
 			++$this->mNumComments;
-			
-			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
+		    $this->Save();	
         }
         public function CommentDeleted() {
-			global $db;
-			global $albums;
-			
 			--$this->mNumComments;
-			
-			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
+		    $this->Save();	
         }
         public function ImageDeleted( $image ) {
-            global $db;
-            global $albums;
-
             $this->mNumComments -= $image->NumComments();
-
-			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
+            $this->Save();
+        }
+        public function LoadDefaults() {
+            $this->Created = NowDate();
         }
 		public function Album( $construct ) {
 			global $db;
 			global $albums;
+            global $images;
+
+            $this->mDb          = $db;
+            $this->mDbTable     = $albums;
+            $this->mImageTable  = $images;
 			
-			if ( !is_array( $construct ) ) {
-				$construct = myescape( $construct );
-				$sql = "SELECT
-							*
-						FROM 
-							`$albums`
-						WHERE
-							`album_id` = '$construct'
-						LIMIT 1;";
-				$res = $db->Query( $sql );
-				if ( !$res->Results() ) {
-					$construct = array();
-					$construct[ "album_delid" ] = 1;
-				}
-				else {
-					$construct = $res->FetchArray();
-				}
-			}
-			
-			$this->mAlbid				= isset( $construct[ "album_id" ] ) ? $construct[ "album_id" ] : 0;
-			$this->mAlbuserid 			= isset( $construct[ "album_userid" ] ) ? $construct[ "album_userid" ] : 0;
-			$this->mAlbcreator			= isset( $construct[ "user_id" ] ) ? New User( $construct ) : "";
-			$this->mAlbcreated 			= isset( $construct[ "album_created" ] ) ? $construct[ "album_created" ] : "00:00:00 0000-00-00";
-			$this->mAlbhost 			= isset( $construct[ "album_submithost" ] ) ? $construct[ "album_submithost" ] : "";
-			$this->mAlbname 			= isset( $construct[ "album_name" ] ) ? $construct[ "album_name" ] : "";
-			$this->mAlbmainpic 			= isset( $construct[ "album_mainimage" ] ) ? $construct[ "album_mainimage" ] : 0;
-			$this->mAlbdescription 		= isset( $construct[ "album_description" ] ) ? $construct[ "album_description" ] : "";
-			$this->mAlbdelid 			= isset( $construct[ "album_delid" ] ) ? $construct[ "album_delid" ] : 0;
-			
-			$this->mPageviews			= isset( $construct[ "album_pageviews" ] ) ? $construct[ "album_pageviews" ] : 0;
-            $this->mNumComments         = isset( $construct[ "album_numcomments" ] ) ? $construct[ "album_numcomments" ] : 0;
+            $this->SetFields( array(
+                'album_id'          => 'Id',
+                'album_userid'      => 'UserId',
+                'album_created'     => 'Created',
+                'album_description' => 'Description',
+                'album_host'        => 'Host',
+                'album_name'        => 'Name',
+                'album_mainimage'   => 'MainImage',
+                'album_delid'       => 'DelId',
+                'album_pageviews'   => 'Pageviews',
+                'album_numcomments' => 'CommentsNum'
+            ) );
             
-			$this->mPhotosNum			= isset( $construct[ "photosnum" ] ) ? $construct[ "photosnum" ] : false;
+            $this->Satori( $construct );
+			
+			$this->User			= isset( $construct[ "user_id" ] )      ? New User( $construct )    : "";
+			$this->PhotosNum    = isset( $construct[ "photosnum" ] )    ? $construct[ "photosnum" ] : false; // TODO: database field!
 		}
-	}
-	
+    }
+
 	function Albums_RetrieveImages( $albumid , $offset , $length = 16 ) {
 		global $db;
 		global $images;
