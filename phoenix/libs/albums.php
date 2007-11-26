@@ -13,7 +13,7 @@
                     `album_delid` = '0'
                 ;";
 
-        return $db->Query( $sql )->MakeObjects( 'Album' );
+        return $db->Query( $sql )->ToObjectsArray( 'Album' );
     }
 
     class Album extends Satori {
@@ -45,7 +45,7 @@
                         " . $offset . " , " . $length . "
                     ;";
                         
-            return $db->Query( $sql )->MakeObjects( 'Image' );
+            return $db->Query( $sql )->ToObjectsArray( 'Image' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {

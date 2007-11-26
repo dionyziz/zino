@@ -315,7 +315,7 @@
 			
 			return $ret;
 		}
-        public function MakeObjects( $class ) {
+        public function ToObjectsArray( $class ) {
             $ret = array();
             while ( $row = $this->FetchArray() ) {
                 $ret[] = New $class( $row ); // MAGIC!
