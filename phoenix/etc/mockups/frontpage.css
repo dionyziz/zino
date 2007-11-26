@@ -29,7 +29,7 @@ div.meetfriends div.people {
 	text-align: left;
 }
 div.latestimages {
-	height: 115px;
+	height: 135px;
 	overflow: hidden;
 	border-bottom: 1px solid #e4e4e4;
 	margin: 0 4px 0 4px;
@@ -37,9 +37,8 @@ div.latestimages {
 }
 div.latestimages ul {
 	margin: 0;
-	padding: 7px 0 4px 0;
+	padding: 17px 0 14px 0;
 	list-style: none;
-
 }
 div.latestimages ul li {
 	float: left;
