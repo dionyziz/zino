@@ -1,7 +1,6 @@
 <?php
 	include "usersections.php";
 ?>
-<div class="eof"></div>
 <ul class="albums">
     <li>
         <a href="" onclick="return false;">
