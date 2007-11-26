@@ -315,6 +315,14 @@
 			
 			return $ret;
 		}
+        public function MakeObjects( $class ) {
+            $ret = array();
+            while ( $row = $this->FetchArray() ) {
+                $ret[] = New $class( $row ); // MAGIC!
+            }
+
+            return $ret;
+        }
 		public function NumRows() {
 			return $this->mNumRows;
 		}
