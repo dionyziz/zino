@@ -1,17 +1,23 @@
 ul.albums {
+    padding: 0;
+    margin: 0;
 }
 ul.albums li {
     float: left;
     width: 200px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
 }
-ul.albums li a {
+ul.albums li a div {
     background-image: url( 'images/album.png' );
     background-position: top left;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
+    width: 155px;
+    height: 155px;
     display: block;
     text-align: center;
+    vertical-align: middle;
 }
 ul.albums li a span {
     display: block;

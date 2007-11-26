@@ -5,49 +5,55 @@
 <ul class="albums">
     <li>
         <a href="" onclick="return false;">
-            <img src="images/apartments.jpg" />
-            <span>Πολυκατοικίες</span>
+            <div>
+                <img src="images/apartments.jpg" />
+            </div>
+            <span>Ξ ΞΏΞ»Ο…ΞΊΞ±Ο„ΞΏΞΉΞΊΞ―ΞµΟ‚</span>
         </a>
         <dl>
-            <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
+            <dt><img src="images/imagegallery.png" alt="Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚" /></dt>
             <dd>20</dd>
-            <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
+            <dt><img src="images/comment.png" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" /></dt>
             <dd>184</dd>
         </dl>
     </li>
     <li>
         <a href="" onclick="return false;">
-            <img src="images/boobs.jpg" />
+            <div>
+                <img src="images/boobs.jpg" />
+            </div>
             <span>Boobs</span>
         </a>
         <dl>
-            <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
+            <dt><img src="images/imagegallery.png" alt="Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚" /></dt>
             <dd>34</dd>
-            <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
+            <dt><img src="images/comment.png" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" /></dt>
             <dd>512</dd>
         </dl>
     </li>
     <li>
         <a href="" onclick="return false;">
-            <img src="images/condom.jpg" />
-            <span>Πούτσες</span>
+            <div>
+                <img src="images/condom.jpg" />
+            </div>
+            <span>Ξ ΞΏΟΟ„ΟƒΞµΟ‚</span>
         </a>
         <dl>
-            <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
+            <dt><img src="images/imagegallery.png" alt="Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚" /></dt>
             <dd>24</dd>
-            <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
+            <dt><img src="images/comment.png" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" /></dt>
             <dd>981</dd>
         </dl>
     </li>
     <li>
         <a href="" onclick="return false;">
             <img src="images/spade.jpg" />
-            <span>Φτυάρια</span>
+            <span>Ξ¦Ο„Ο…Ξ¬ΟΞΉΞ±</span>
         </a>
         <dl>
-            <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
+            <dt><img src="images/imagegallery.png" alt="Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚" /></dt>
             <dd>12</dd>
-            <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
+            <dt><img src="images/comment.png" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" /></dt>
             <dd>15</dd>
         </dl>
     </li>
