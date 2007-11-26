@@ -3,7 +3,7 @@ ul.albums {
     margin: 0;
 }
 ul.albums li {
-    /* float: left; */
+    float: left;
     width: 200px;
     list-style: none;
     padding: 10px;
