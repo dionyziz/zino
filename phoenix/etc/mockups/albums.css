@@ -1,0 +1,38 @@
+ul.albums {
+}
+ul.albums li {
+    float: left;
+    width: 200px;
+}
+ul.albums li a {
+    background-image: url( 'images/album.png' );
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    display: block;
+    text-align: center;
+}
+ul.albums li a span {
+    display: block;
+}
+ul.albums li a img {
+    margin: auto;
+}
+ul.albums li dl {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+ul.albums li dl dt {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+ul.albums li dl dd {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-right: 10px;
+}

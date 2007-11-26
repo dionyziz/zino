@@ -33,6 +33,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="photoview.css" />
 		<link rel="stylesheet" type="text/css" href="comments.css" />
 		<link rel="stylesheet" type="text/css" href="pollview.css" />
+		<link rel="stylesheet" type="text/css" href="albums.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
