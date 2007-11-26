@@ -4,7 +4,7 @@ ul.albums {
 }
 ul.albums li {
     float: left;
-    width: 200px;
+    width: 210px;
     list-style: none;
     padding: 10px;
     margin: 0;
@@ -16,16 +16,16 @@ ul.albums li a div {
     background-image: url( 'images/album.png' );
     background-position: top left;
     background-repeat: no-repeat;
-    width: 162px;
-    height: 160px;
-    line-height: 160px;
+    width: 180px;
+    height: 178px;
+    line-height: 175px;
     display: block;
     text-align: center;
     vertical-align: middle;
 }
 ul.albums li a span {
     display: block;
-    width: 160px;
+    width: 176px;
     text-align: center;
     margin: 5px 0 0 5px;
 }
@@ -37,7 +37,7 @@ ul.albums li a div img {
 ul.albums li dl {
     display: block;
     margin: 5px;
-    width: 162px;
+    width: 176px;
     padding: 0;
     text-align: center;
 }
