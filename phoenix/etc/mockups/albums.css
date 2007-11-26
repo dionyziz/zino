@@ -30,7 +30,7 @@ ul.albums li a span {
     margin: 5px 0 0 5px;
 }
 ul.albums li a div img {
-    margin: 0 3px 0 1px;
+    margin: 0 3px 4px 1px;
     vertical-align: middle;
 }
 ul.albums li dl {
