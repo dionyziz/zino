@@ -92,7 +92,7 @@ div.header div.search {
 	position: absolute;
 	right: 0;
     _right: -1px;
-	top: 30px;
+	top: 27px;
 	color: white;
 	margin: 0;
 	padding: 0 0 0 10px;
@@ -100,8 +100,8 @@ div.header div.search {
 	_background-image: url('images/_searchbg.png');
 	background-repeat: no-repeat;
 	background-position: top left;
-	width: 174px;
-	height: 46px;
+	width: 177px;
+	height: 48px;
 	z-index: 1;
 }
 div.header div.search input {
