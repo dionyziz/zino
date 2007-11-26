@@ -34,6 +34,9 @@ ul.albums li a div img {
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
+ul.albums li a:hover div img {
+    border: 2px solid white;
+}
 ul.albums li dl {
     display: block;
     margin: 5px;
