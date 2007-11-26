@@ -39,7 +39,7 @@ ul.albums li a:hover div img {
 }
 ul.albums li dl {
     display: block;
-    margin: 5px 38px 38px 5px;
+    margin: 5px 38px 5px 38px;
     width: 100px;
     padding: 0;
     white-space: nowrap;
