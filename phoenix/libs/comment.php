@@ -7,7 +7,6 @@
 	$libs->Load( 'search' );
     $libs->Load( 'poll' );
 	
-
     function Comment_UserIsSpambot( $text ) {
         return false;
 
@@ -56,35 +55,24 @@
 		return true;
 	}
 
-	class Comment {
-		private $mId;
-		private $mSubmitDate;
-		private $mSubmitHost;
-		private $mComment;
-		private $mCommentRaw;
-		private $mParentCommentId;
-		private $mDate;
-		private $mCreateYear, $mCreateMonth, $mCreateDay;
-		private $mCreateHour, $mCreateMinute, $mCreateSecond;
-		private $mDelId;
-		private $mSinceDate;
-		private $mStars;
-		private $mVotes;
-		private $mTypeId;
-		private $mPage;
-		private $mPageId;
-		private $mUser;
-		private $mHasChildren;
-		private $mSearchText;
-		
+	class Comment extends Satori {
+		public $mId;
+		public $mSubmitDate;
+		public $mSubmitHost;
+		public $mText;
+		public $mParentCommentId;
+		public $mDate;
+		public $mDelId;
+		public $mSinceDate;
+		public $mTypeId;
+		public $mPage;
+		public $mPageId;
+		public $mUser;
+		public $mHasChildren;
+		public $mBulkId;
+        
 		public function IsDeleted() {
 			return $this->mDelId > 0;
-		}
-		public function Article() {
-			if ( !$this->mArticle ) {
-				$this->mArticle = New Article( $this->mPageId );
-			}
-			return $this->mArticle;
 		}
 		public function Page() {
 			if ( $this->mPage !== false ) {
@@ -111,36 +99,6 @@
 		public function SetPage( $page ) {
 			$this->mPage = $page;
 		}
-		public function PageId() {
-			return $this->mPageId;
-		}
-		public function Stars() {
-			return $this->mStars;
-		}
-		public function Votes() {
-			return $this->mVotes;
-		}
-		public function Text() {
-			return $this->mComment;
-		}
-		public function TextRaw() {
-			return $this->mCommentRaw;
-		}
-		public function SearchText() {
-			return $this->mSearchText;
-		}
-		public function SetSearchText( $text ) {
-			$this->mSearchText = $text;
-		}
-		public function Date() {
-			return $this->mDate;
-		}
-		public function Since() {
-			return $this->mSinceDate;
-		}
-		public function SQLDate() {
-			return $this->mSubmitDate;
-		}
 		public function User() {
 			if( !$this->mUser ) {
                 if ( $this->mUserId == 0 ) {
@@ -152,45 +110,36 @@
 			}
 			return $this->mUser;
 		}
-		public function UserId() {
-			return $this->mUserId;
-		}
-		public function Id() {
-			return $this->mId;
-		}
-		public function Ip()  {
-			return $this->mSubmitHost;
-		}
-		public function ParentId() {
-			return $this->mParentCommentId;
-		}
-		public function TypeId() {
-			return $this->mTypeId;
-		}
 		public function PageTitle() {
 			if( $this->TypeId() == 0 ) {
 				return $this->Page()->Title();
 			}
-			else {
-				return $this->Page()->Username();
-			}
+            return $this->Page()->Username();
 		}
-		public function Move( $newstoryid ) {
-			global $user;
-			
-			if ( $user->IsSysOp() ) {
-				$this->Update( $this->TextRaw(), $this->User()->Id(), $newstoryid );
-				foreach ( $this->ChildComments( true ) as $childcomment ) {
-					$childcomment->Update( $childcomment->TextRaw(), $childcomment->User()->Id(), $newstoryid );
-				}
-			}
-			else {
-				die( "Unauthorized attempt to move comment." );
-			}
-		}
-		public function Reauthor( $newuserid ) {
-			return $this->Update( $this->TextRaw(), $newuserid );
-		}
+        public function IsEditableBy( User $user ) {
+            if ( !$user->Exists() ) {
+                return false;
+            }
+            if ( !$user->CanModifyStories() ) {
+                if ( $user->Id() != $this->User->Id() ) {
+                }
+            }
+        }
+        public function Save() {
+            global $user;
+            
+            if ( $this->Exists() ) {
+                if ( !$user->Exists() ) {
+                    return; // access denied
+                }
+                if ( !$user->CanModifyStories() ) {
+                    if ( $this->User->Id() != $user->Id() || daysDistance( $this->SQLDate() ) >= 1 ) {
+                        return; // access denied
+                    }
+                }
+            }
+            parent::Save();
+        }
 		public function Update( $text, $userid = false, $storyid = false ) {
 			global $db;
 			global $comments;
@@ -266,6 +215,10 @@
 				return 6;
 			}			
 		}
+        public function Delete() {
+            $this->DelId = 1;
+            $this->Save();
+        }
 		public function Kill() {
 			global $db;
 			global $comments;
@@ -342,32 +295,22 @@
 			
 			return $commentsfoo;
 		}
-        public function Exists() {
-            return $this->mId > 0;
-        }
-		private function Construct( $id ) {
-			global $db;
-			global $comments;
-			
-			$sql = "SELECT * FROM `$comments` WHERE `comment_id` = '$id' LIMIT 1;";
-			$res = $db->Query( $sql );
-			
-			if ( !$res->Results() ) {
-				return false;
-			}
-			
-			return $res->FetchArray();
-		}
-		public function Comment( $construct ) {
-			if ( is_array( $construct ) ) {
-				$fetched_array = $construct;
-			}
-			else {
-				$fetched_array = $this->Construct( $construct );
-				if ( $fetched_array === false ) {
-					return;
-				}
-			}
+		public function Comment( $construct = false ) {
+            global $db;
+            global $comments;
+            
+            $this->mDb = $db;
+            $this->mDbTable = $comments;
+            $this->SetFields(
+                array(
+                    'comment_id' => 'Id',
+                    'comment_userid' => 'UserId',
+                    'comment_created' => 'SubmitDate',
+                    'comment_userip' => 'SubmitHost',
+                    'comment_bulkid' => 'BulkId',
+                )
+            );
+            
 			$this->mId 				= isset( $fetched_array[ "comment_id" ] ) ? $fetched_array[ "comment_id" ] : 0;
 			$this->mUserId 			= isset( $fetched_array[ "comment_userid" ] ) ? $fetched_array[ "comment_userid" ] : 0;
 			$this->mSubmitDate		= isset( $fetched_array[ "comment_created" ] ) ? $fetched_array[ "comment_created" ] : '0000-00-00 00:00:00';
@@ -406,6 +349,8 @@
 				$this->mDate = MakeDate( $this->mSubmitDate );
 				$this->mSinceDate = dateDiff( $this->mSubmitDate , NowDate() );
 			}
+            
+            $this->Satori( $construct );
 		}
 	}
 
@@ -488,12 +433,6 @@
 		$comment->Page()->CommentAdded();
 		
 		$uname = ( $user->IsAnonymous() ) ? 'ανώνυμο χρήστη' : '[merlin:link ?p=user&id=' . $user->Id() . '|' . $user->Username() . ']';
-		if ( $type == 0 ) {
-			// CCAnnounce( "Νέο σχόλιο στο άρθρο [merlin:link ?p=story&id=" . $comment->Page()->Id() . "#comment_" . $comment->Id() . "|" . myescape( $comment->Page()->Title() ) . "] από $uname" );
-		}
-		else if ( $type == 1 ) {
-			// CCAnnounce( "Νέο σχόλιο στο προφίλ [merlin:link ?p=user&id=" . $comment->Page()->Id() . "#comment_" . $comment->Id() . "|" . myescape( $comment->Page()->Username() ) . "] από $uname" );
-		}
         $mc->delete( 'latestcomments' );
 		$user->AddContrib();
 		$newcommentid = $change->InsertId();
@@ -511,7 +450,6 @@
 		public function SetFilter( $key, $value ) {
 			// 0 -> equal, 1 -> LIKE
 			static $keymap = array(
-				'body' => array( '`comment_textraw`', 1 ),
 				'user' => array( '`user_id`', 0 ),
 				'delid' => array( '`comment_delid`', 0 ),
 				'typeid' => array( '`comment_typeid`', 0 ),
@@ -545,8 +483,6 @@
 			static $keymap = array(
 				'comment_created' 	=> '`comment_created`',
 				'comment_parentid' 	=> '`comment_parentid`',
-				'comment_text' 		=> '`comment_text`',
-				'comment_textraw' 	=> '`comment_textraw`',
 				'comment_userip' 	=> '`comment_userip`',
 				'comment_storyid'	=> '`comment_storyid`',
 				'user_name' 		=> '`user_name`',
