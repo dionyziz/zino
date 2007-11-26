@@ -366,7 +366,6 @@
 		w_assert( is_numeric( $compage ) );
 		w_assert( !$user->IsAnonymous() );
 		
-		$libs->Load( 'chat' );
 		$libs->Load( 'article' );
 		$libs->Load( 'notify' );
 		
