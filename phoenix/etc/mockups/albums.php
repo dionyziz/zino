@@ -1,6 +1,6 @@
 <?php
 	include "usersections.php";
-?>Albums
+?>
 <div class="eof"></div>
 <ul class="albums">
     <li>
