@@ -47,7 +47,9 @@
     </li>
     <li>
         <a href="" onclick="return false;">
-            <img src="images/spade.jpg" />
+            <div>
+                <img src="images/spade.jpg" />
+            </div>
             <span>Φτυάρια</span>
         </a>
         <dl>

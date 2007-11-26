@@ -9,7 +9,7 @@ ul.albums li {
     padding: 10px;
     margin: 0;
 }
-ul.album li a {
+ul.albums li a {
     font-weight: bold;
 }
 ul.albums li a div {
@@ -28,11 +28,12 @@ ul.albums li a span {
     text-align: center;
 }
 ul.albums li a img {
-    margin: 3px;
+    margin: 3px 3px 1px 1px;
 }
 ul.albums li dl {
     display: block;
-    margin: 0;
+    margin: 5px;
+    width: 162px;
     padding: 0;
     text-align: center;
 }
