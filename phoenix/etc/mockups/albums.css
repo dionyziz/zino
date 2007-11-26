@@ -9,6 +9,9 @@ ul.albums li {
     padding: 10px;
     margin: 0;
 }
+ul.album li a {
+    font-weight: bold;
+}
 ul.albums li a div {
     background-image: url( 'images/album.png' );
     background-position: top left;
@@ -21,14 +24,17 @@ ul.albums li a div {
 }
 ul.albums li a span {
     display: block;
+    width: 162px;
+    text-align: center;
 }
 ul.albums li a img {
-    margin: auto;
+    margin: 3px;
 }
 ul.albums li dl {
-    display: inline;
+    display: block;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 ul.albums li dl dt {
     display: inline;
@@ -41,4 +47,5 @@ ul.albums li dl dd {
     margin: 0;
     padding: 0;
     padding-right: 10px;
+    font-size: 80%;
 }
