@@ -408,7 +408,7 @@
                 if ( substr( $arguments, 0, strlen( 'http://www.veoh.com/' ) ) == 'http://www.veoh.com/' ) {
                     // veoh
                     $arguments = substr( $arguments, strrpos( $arguments, '/' ) + 1 );
-                    if ( !preg_match( '#^[a-zA-Z0-9\-]*$#', $arguments ) ) {
+                    if ( !preg_match( '#^[a-zA-Z0-9_\-]*$#', $arguments ) ) {
                         return '(invalid video link)';
                     }
                     return '<div style="text-align: center"><embed src="http://www.veoh.com/videodetails2.swf?permalinkId=' . $arguments . '&amp;id=anonymous&amp;player=videodetailsembedded&amp;videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#000000" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div>';
@@ -438,7 +438,7 @@
                     if ( strpos( $arguments, '=' ) !== false ) {
                         $arguments = substr( $arguments, strpos( $arguments, '=' ) + 1 );
                     }
-                    if ( !preg_match( '#^[a-zA-Z0-9\-]*$#', $arguments ) ) {
+                    if ( !preg_match( '#^[a-zA-Z0-9_\-]*$#', $arguments ) ) {
                         return '(invalid video link)';
                     }
                     return '<div style="text-align:center"><object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/' . htmlspecialchars( $arguments ) . '&amp;rel=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed></object></div>';
