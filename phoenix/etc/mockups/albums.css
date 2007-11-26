@@ -18,6 +18,7 @@ ul.albums li a div {
     background-repeat: no-repeat;
     width: 162px;
     height: 160px;
+    line-height: 160px;
     display: block;
     text-align: center;
     vertical-align: middle;
@@ -26,9 +27,11 @@ ul.albums li a span {
     display: block;
     width: 162px;
     text-align: center;
+    margin: 5px 0 0 5px;
 }
-ul.albums li a img {
-    margin: 3px 3px 1px 1px;
+ul.albums li a div img {
+    margin: 0 3px 0 1px;
+    vertical-align: middle;
 }
 ul.albums li dl {
     display: block;
