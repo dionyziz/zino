@@ -30,7 +30,7 @@ ul.albums li a span {
     margin: 5px 0 0 5px;
 }
 ul.albums li a div img {
-    margin: 0 3px 4px 0;
+    margin: 0 10px 4px 0;
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
@@ -42,18 +42,19 @@ ul.albums li dl {
     margin: 5px 38px 38px 5px;
     width: 100px;
     padding: 0;
-    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
 }
 ul.albums li dl dt {
     display: inline;
     margin: 0;
     padding: 0;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 ul.albums li dl dd {
     display: inline;
     margin: 0;
     padding: 0;
-    padding-right: 10px;
+    padding-right: 5px;
     font-size: 80%;
 }
