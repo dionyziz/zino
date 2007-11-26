@@ -111,7 +111,7 @@ div.header div.search input.text {
 	color: #ccc;
 	margin: 11px 16px 10px 23px;
 	width: 137px;
-	padding: 2px;
+	padding: 2px 2px 2px 4px;
     background-image: url('images/shadowytxt.jpg');
     background-position: top left;
     background-repeat: no-repeat;
