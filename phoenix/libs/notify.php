@@ -1,31 +1,12 @@
 <?php
     
     function Notify_Create( $fromuserid , $touserid , $itemid , $typeid ) {
-        global $notify;
-        global $db;
-        global $xc_settings;
-        global $users;
-        global $user;
-
-        if ( $xc_settings[ "readonly" ] > $user->Rights() ) {
-            return;
-        }
-        
-        if ( $fromuserid == $touserid ) {
-            return;
-        }
-        
-        $fromuserid = myescape( $fromuserid );
-        $touserid = myescape( $touserid );
-        $itemid = myescape( $itemid );
-        $typeid = myescape( $typeid );
-        $date = NowDate();
-        
-        $sql = "INSERT INTO
-                    `$notify` ( `notify_id` , `notify_created` , `notify_fromuserid` , `notify_touserid` , `notify_itemid` , `notify_typeid` , `notify_delid` )
-                VALUES
-                    ( '' , '$date' , '$fromuserid' , '$touserid' , '$itemid' , '$typeid' , '0' );";
-        $res = $db->Query( $sql );
+        $notify = New Notify();
+        $notify->FromUserId   = $fromuserid;
+        $notify->ToUserId     = $touserid;
+        $notify->ItemId       = $itemid;
+        $notify->TypeId       = $typeid;
+        $notify->Save();
     }
 
     function Notify_GetByUser( $userid , $offset , $length , $newest = false ) {
@@ -104,137 +85,94 @@
         return $change->Impact();
     }
 
-    class Notify {
-        private $mId;
-        private $mCreated;
-        private $mFromUserid;
-        private $mFromUser;
-        private $mToUserid;
-        private $mToUser;
-        private $mItemid;
-        private $mPage;
-        private $mTypeid;
-        private $mDelid;
-        
-        public function Id() {
-            return $this->mId;
-        }
-        public function SubmitDate() {
-            return $this->mCreated;
-        }
-        public function FromUserid() {
-            return $this->mFromUserid;
-        }
-        public function UserFrom() {
-            if ( empty( $this->mFromUser ) ) {
-                $this->mFromUser = New User( $this->mFromUserid );
-            }
+    class Notify extends Satori {
+        protected $mId;
+        protected $mCreated;
+        protected $mFromUserId;
+        protected $mFromUser;
+        protected $mToUserId;
+        protected $mToUser;
+        protected $mItemId;
+        protected $mTypeId;
+        protected $mDelId;
             
-            return $this->mFromUser;
-        }
-        public function ToUserid() {
-            return $this->mToUserid;
-        }
-        public function UserTo() {
-            if ( empty( $this->mToUser ) ) {
-                $this->mToUser = New User( $this->mToUserid );
-            }
-            
-            return $this->mToUser;
-        }
-        public function Itemid() {
-            return $this->mItemid;
-        }
-        public function Typeid() {
-            /*
+            /* TypeId
                 0: for comments on articles
                 1: for comments on userprofiles
                 2: for comments on images
                 3: for friends
             */
-            return $this->mTypeid;
-        }
-        public function Page() {
-            if ( empty( $this->mPage ) ) {
-                if ( $this->Typeid() <= 3 ) {
-                    $this->mPage = New Comment( $this->Itemid() );
-                }
-                else {
-                    $this->mPage = New User( $this->Itemid() );
-                }
+        
+            // delid 0 for unread, 1 for read and 2 for deleted
+
+        public function GetFromUser() {
+            if ( $this->mFromUser === false ) {
+                $this->mFromUser = New User( $this->mFromUserId );
             }
             
+            return $this->mFromUser;
+        }
+        public function GetToUser() {
+            if ( $this->mToUser === false ) {
+                $this->mToUser = New User( $this->mToUserId );
+            }
+
+            return $this->mToUser;
+        }
+        public function GetPage() {
+            if ( $this->mPage === false ) {
+                if ( $this->TypeId <= 3 ) {
+                    $this->mPage = New Comment( $this->ItemId );
+                }
+                else {
+                    $this->mPage = New User( $this->ItemId );
+                }
+            }
+
             return $this->mPage;
         }
-        public function Delid() {
-            //delid 0 for unread, 1 for read and 2 for deleted
-            return $this->mDelid;
+        public function IsRead() {
+            return $this->DelId > 0;
         }
-        public function Exists() {
-            return $this->mDelid == 0;
+        public function IsDeleted() {
+            return $this->DelId > 1;
         }
         public function Read() {
-            global $notify;
-            global $db;
-            
-            $sql = "UPDATE
-                $notify
-            SET
-                `notify_delid` = '1'
-            WHERE
-                `notify_id` = '" . $this->mId . "'
-            LIMIT 1;";
-            $db->Query( $sql );
-            
-            $this->mDelid = 1;
+            $this->DelId = 1;
+            $this->Save();
         }
-            
         public function Delete() {
-            global $notify;
-            global $db;
-            
-            $sql = "UPDATE
-                        $notify
-                    SET
-                        `notify_delid` = '2'
-                    WHERE
-                        `notify_id` = '" . $this->mId . "'
-                    LIMIT 1;";
-            $db->Query( $sql );
-            
-            $this->mDelid = 1;
+            $this->DelId = 2;
+            $this->Save();
         }
-        
-        public function Notify( $construct ) {
-            global $notify;
-            global $db;
-            
-            if ( !is_array( $construct ) ) {
-                $construct = myescape( $construct );
-                $sql = "SELECT 
-                            *
-                        FROM 
-                            `$notify`
-                        WHERE 
-                            `notify_id` = '$construct'
-                        LIMIT 1;";
-                $res = $db->Query( $sql );
-                if ( !$res->Results() ) {
-                    $construct = array();
-                    $this->mDelid = 1;
-                }
-                else {
-                    $construct = $res->FetchArray();
-                }
-
+        protected function Save() {
+            if ( $xc_settings[ "readonly" ] > $user->Rights() || $this->FromUserId == $this->ToUserId ) {
+                return false;
             }
-            $this->mId 			= $construct[ 'notify_id' ];
-            $this->mCreated 	= $construct[ 'notify_created' ];
-            $this->mFromUserid 	= $construct[ 'notify_fromuserid' ];
-            $this->mToUserid 	= $construct[ 'notify_touserid' ];
-            $this->mItemid 		= $construct[ 'notify_itemid' ];
-            $this->mTypeid		= $construct[ 'notify_typeid' ];
-            $this->mDelid  		= $construct[ 'notify_delid' ];
+            return parent::Save();
+        }
+        protected function LoadDefaults() {
+            $this->Created = NowDate();
+        }
+        public function Notify( $construct = false ) {
+            global $db;
+            global $notify;
+
+            $this->mDb      = $db;
+            $this->mDbTable = $notify;
+
+            $this->SetFields( array(
+                'notify_id'         => 'Id',
+                'notify_created'    => 'Created',
+                'notify_fromuserid' => 'FromUserId',
+                'notify_touserid'   => 'ToUserId',
+                'notify_itemid'     => 'ItemId',
+                'notify_typeid'     => 'TypeId',
+                'notify_delid'      => 'DelId'
+            ) );
+
+            $this->FromUser = false;
+            $this->ToUser   = false;
         }
     }
 
