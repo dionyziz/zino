@@ -11,6 +11,9 @@
 					<div class="rightrounded"></div>
 					<div class="middlerounded"></div>
 				</div>
+				<div style="display:inline;">
+				sdfsdfsdf
+				</div>
 			</li><?php
 			/*
 				<div class="leftrounded">s
