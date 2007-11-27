@@ -7,7 +7,7 @@
 		<ul>
 			<li>
 				<div style="float:right;">
-					Μία
+					<span>30%</span>Μία
 				</div>
 				<div>
 					<div class="percentagebar" style="width:120px;">
@@ -20,7 +20,7 @@
 			</li>
 			<li>
 				<div style="float:right;">
-					Μεταξύ 2 και 5
+					<span>64%</span>Μεταξύ 2 και 5
 				</div>
 				<div>
 					<div class="percentagebar" style="width:150px;">
@@ -33,7 +33,7 @@
 			</li>
 			<li>
 				<div style="float:right;">
-					Από 5 μέχρι 10
+					<span>5,3%</span>Από 5 μέχρι 10
 				</div>
 				<div>
 					<div class="percentagebar" style="width:34px;">
@@ -45,7 +45,7 @@
 			</li>
 			<li>
 				<div style="float:right;">
-					Από 10 και πάνω
+					<span>0,7%</span>Από 10 και πάνω
 				</div>
 				<div>
 					<div class="percentagebar" style="width:18px;">
