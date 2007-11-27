@@ -26,7 +26,7 @@ div#pollview div.resulsts ul li div.leftrounded {
 	width: 5px;
 }
 div#pollview div.resulsts ul li div.rightrounded {
-	float: left;
+	float: right;
 	background-image: url( 'images/right-roundedbar.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;

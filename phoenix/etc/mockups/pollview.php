@@ -6,9 +6,9 @@
 	<div class="results">
 		<ul>
 			<li>
-				<img src="images/left-roundedbar.jpg" style="width:5px;height:13px;float:left;" />
-				<img src="images/roundedbar-repeat.jpg" style="width:234px;height:13px;float:left;" />
-				<img src="images/right-roundedbar.jpg" style="width:5px;height:13px;float:left;" />
+				<div class="leftrounded"></div>
+				<div class="rightrounded" style="width: 147px;"></div>
+				<div class="middlerounded"></div>
 			</li><?php
 			/*
 				<div class="leftrounded">s
