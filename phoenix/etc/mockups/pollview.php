@@ -7,7 +7,7 @@
 		<ul>
 			<li>
 				<div style="float:right;">
-					malakies
+					Μία
 				</div>
 				<div>
 					<div class="percentagebar" style="width:120px;">
@@ -20,7 +20,7 @@
 			</li>
 			<li>
 				<div style="float:right;">
-					sdfsdf
+					Μεταξύ 2 και 5
 				</div>
 				<div>
 					<div class="percentagebar" style="width:150px;">
@@ -33,16 +33,28 @@
 			</li>
 			<li>
 				<div style="float:right;">
-					goutsou
+					Από 5 μέχρι 10
 				</div>
 				<div>
-					<div class="percentagebar" style="width:100px;">
+					<div class="percentagebar" style="width:34px;">
 						<div class="leftrounded"></div>
 						<div class="rightrounded"></div>
 						<div class="middlerounded"></div>
 					</div>
 				</div>
-			</li>			
+			</li>
+			<li>
+				<div style="float:right;">
+					Από 10 και πάνω
+				</div>
+				<div>
+					<div class="percentagebar" style="width:18px;">
+						<div class="leftrounded"></div>
+						<div class="rightrounded"></div>
+						<div class="middlerounded"></div>
+					</div>
+				</div>
+			</li>				
 		</ul>
 	</div>
 	<div class="comments">
