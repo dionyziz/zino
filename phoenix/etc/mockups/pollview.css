@@ -16,6 +16,7 @@ div#pollview div.results ul li {
 	height: 13px;
 	margin: 0;
 	padding: 0;
+	width: 400px;
 }
 div#pollview div.results ul li div.leftrounded {
 	float: left;
@@ -34,7 +35,6 @@ div#pollview div.results ul li div.rightrounded {
 	width: 5px;
 }
 div#pollview div.results ul li div.middlerounded {
-	float: left;
 	background-image: url('images/roundedbar-repeat.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
