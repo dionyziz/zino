@@ -6,20 +6,17 @@ Orbited.connect(got_Event, "longpoll") //
 
 Orbited = {
   connection: null,
-  URL: '',
-  connect: function(event_cb, user, location, session, transport, URL) {
+  
+  connect: function(event_cb, user, location, session, transport) {
     this.user = user;
     this.location = location;
     this.transport = transport;
     this.session = session;
     this.event_cb = event_cb;
-    if (typeof URL == 'undefined') {
-        URL = 'http://' + this.extract_xss_domain(document.domain) + '/';
-    }
-    if (typeof transport == 'undefined') {
+    document.domain = this.extract_xss_domain(document.domain);
+    if (transport == null) {
       this.find_best_transport();
     }
-    this.URL = URL;
     this.connection = this['connect_' + this.transport]();
   },
   
@@ -34,13 +31,13 @@ Orbited = {
     
     // If the browser supports server-sent events, we should use those
     if ((typeof window.addEventStream) == "function") {
-      this.transport = "server_sent_events";
+      this.transport = "server_sent_events"
       return;
     }
     
-    // // Otherwise use the iframe
-    // this.transport = "iframe";
-    // return;
+    // Otherwise use the iframe
+    this.transport = "iframe";
+    return;
     
     // otherwise use xhr streaming
     this.transport = "xhr_stream";
@@ -49,19 +46,19 @@ Orbited = {
   },
   
   connect_iframe: function() {
-    var url = this.URL + '?user=' + this.user;
+    var url = this.location + '?user=' + this.user;
     url += "&session=" + this.session + "&transport=iframe";
     var ifr = document.createElement("IFRAME");
     ifr.setAttribute("id", "orbited_event_source");
     ifr.setAttribute("src", url);
     document.body.appendChild(ifr);
     this.kill_load_bar();
-    var event_cb = this.event_cb;
-    var kill_load = this.kill_load_bar;
+    var event_cb = this.event_cb
+    var kill_load = this.kill_load_bar
     this.event_cb = function(data) {
       event_cb(data);
       kill_load();
-    };
+    }
   },
   
   connect_htmlfile: function() {  
@@ -70,29 +67,29 @@ Orbited = {
     var transferDoc = new ActiveXObject("htmlfile"); // !?!
     transferDoc.open();
     transferDoc.write("<html>");
-    transferDoc.write("<script>document.domain='" + this.URL + "';</script>");
+    transferDoc.write("<script>document.domain='" + document.domain + "';</script>");
     transferDoc.write("</html>");
     transferDoc.parentWindow.Orbited = this;
     transferDoc.close();
     var ifrDiv = transferDoc.createElement("div");
     transferDoc.body.appendChild(ifrDiv);
     ifrDiv.innerHTML = "<iframe src='"+url+"'></iframe>";
-    this.data_queue = [];
-    dq = this.data_queue;
-    event_cb = this.event_cb;
+    this.data_queue = []
+    dq = this.data_queue
+    event_cb = this.event_cb
     
     /* Support IE 5.01 */
     if (typeof Array.prototype.shift == "undefined") {
         
       Array.prototype.shift = function () {
-        var A_s = 0;
-        var response = this[0];
+        var A_s = 0
+        var response = this[0]
         for (A_s = 0; A_s < this.length-1; A_s++) {
-          this[A_s] = this[A_s + 1];
+          this[A_s] = this[A_s + 1]
         }
-        this.length--;
-        return response;
-      };
+        this.length--
+        return response
+      }
     }
     /* End IE 5.01 Hack */
     
@@ -110,7 +107,7 @@ Orbited = {
               "&session=" + this.session + "&transport=xhr_stream";
     var offset = 0;
     var length_seen = 0;
-    var boundary = "\r\n|O|\r\n";
+    var boundary = "\r\n|O|\r\n"
     var event_cb = this.event_cb;
     var xhr = this.create_xhr();
     
@@ -142,7 +139,7 @@ Orbited = {
           // At the very start of the file, skip our bogus padding, or if
           // we haven't gotten through it yet, bail out--reset offset so
           // this gets tried again later
-          if (offset === 0) {
+          if (offset == 0) {
             offset = response_stream.indexOf('\r\n\r\n');
             if (offset == -1) {
               offset = 0;
@@ -167,7 +164,7 @@ Orbited = {
           
           // If two boundaries come in a row, that implies we might be getting
           // a ping.  If so, do nothing, and move the offset
-          if (data === "") {
+          if (data == "") {
             if (response_stream.indexOf('ping' + boundary, offset) == offset) {
               offset += ('ping' + boundary).length;
             }
@@ -180,7 +177,7 @@ Orbited = {
           }          
           // try again; we may have gotten multiple events at once
           handle_event();
-        };
+        }
         
         handle_event();
       }
@@ -188,24 +185,9 @@ Orbited = {
       if (xhr.readyState == 4) {
         // Orbited.log(xhr.responseText);
       }
-    };
+    }
     xhr.open("GET", url, true);
     xhr.send(null);
-    // TODO: figure out how to close the xhr stream
-    //       use setInterval to close it in X seconds
-    //       then call this.connect_xhr_stream again to
-    //       open the next connection.
-    //       X = 30, perhaps.
-    //
-    //       then change app to wait 5 seconds for
-    //       reconnect before quitting
-    xhr_holder = xhr;
-    setTimeout("Orbited.reload_xhr_stream()",30000);
-  },
-
-  reload_xhr_stream: function() {
-    xhr_holder.abort();
-    this.connect_xhr_stream();
   },
   
   connect_xhr_multipart: function() {
@@ -233,7 +215,7 @@ Orbited = {
         }
         return true;
       }
-    };
+    }
     xhr.multipart = true;
     xhr.open("GET", url, true);
     xhr.send(null);
@@ -275,11 +257,11 @@ Orbited = {
   },
   
   attach_iframe: function(ifr) {
-    if (this.data_queue !== null) {
+    if (this.data_queue != null) {
         dq = this.data_queue;
         ifr.e = function(data) {
-            dq[dq.length] = data;
-        };
+            dq[dq.length] = data        
+        }
         // ihr.data_queue = this.data_queue;
     }
     else {
@@ -294,9 +276,9 @@ Orbited = {
     //     new XMLHttpRequest();
     // }
     // catch(e) {}
-    try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch ( msxml2failed ) {}
-    try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch ( msxmlhttpfailed ) {}
-    try { return new XMLHttpRequest(); } catch( xmlhttprequestfailed ) {}
+    try { return new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) {}
+    try { return new ActiveXObject("Microsoft.XMLHTTP"); } catch (e) {}
+    try { return new XMLHttpRequest(); } catch(e) {}
     return null;
   },
   
@@ -310,11 +292,11 @@ Orbited = {
   },
 
   kill_load_bar: function () {
-    if (this.load_kill_ifr === null) {
+    if (this.load_kill_ifr == null) {
       this.load_kill_ifr = document.createElement('iframe');
     }
     document.body.appendChild(this.load_kill_ifr);
     document.body.removeChild(this.load_kill_ifr);
   }
   
-};
+}
