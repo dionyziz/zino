@@ -6,9 +6,9 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div class="leftrounded"></div>
+				<div class="leftrounded"><img src="images/left-roundedbar.jpg" /></div>
 				<div class="rightrounded" style="width: 147px;"></div>
-				<div class="middlerounded"></div>
+				<div class="middlerounded"><img src="images/right-roundedbar.jpg" /></div>
 			</li><?php
 			/*
 				<div class="leftrounded">s
