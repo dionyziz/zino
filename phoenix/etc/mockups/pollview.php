@@ -11,45 +11,21 @@
 					<div class="rightrounded"></div>
 					<div class="middlerounded"></div>
 				</div>
-				<div style="display:inline;">
-				sdfsdfsdf
-				</div>
-			</li><?php
-			/*
-				<div class="leftrounded">s
+			</li>
 			<li>
-				</div>
-				<div class="middlerounded" style="width: 50px;">d
-				</div>
-				<div class="rightrounded">s
+				<div class="percentagebar" style="width:120px;">
+					<div class="leftrounded"></div>
+					<div class="rightrounded"></div>
+					<div class="middlerounded"></div>
 				</div>
 			</li>
 			<li>
-				<div class="leftrounded">s
+				<div class="percentagebar" style="width:100px;">
+					<div class="leftrounded"></div>
+					<div class="rightrounded"></div>
+					<div class="middlerounded"></div>
 				</div>
-				<div class="middlerounded" style="width: 10px;">d
-				</div>
-				<div class="rightrounded">s
-				</div>
-			</li>
-			<li>		
-				<div class="leftrounded">s
-				</div>
-				<div class="middlerounded" style="width: 35px;">d
-				</div>
-				<div class="rightrounded">s
-				</div>
-			</li>
-			<li>
-				<div class="leftrounded">s
-				</div>
-				<div class="middlerounded" style="width: 145px;">d
-				</div>
-				<div class="rightrounded">s
-				</div>
-			</li>
-			*/
-			?>
+			</li>			
 		</ul>
 	</div>
 	<div class="comments">
