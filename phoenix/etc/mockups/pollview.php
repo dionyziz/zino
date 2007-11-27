@@ -6,18 +6,16 @@
 	<div class="results">
 		<ul>
 			<li>
-				<dl>
-					<dd>
+				<div style="display:inline;">
 						<div class="percentagebar" style="width:150px;">
 							<div class="leftrounded"></div>
 							<div class="rightrounded"></div>
 							<div class="middlerounded"></div>
 						</div>
-					</dd>
-					<dt>
-						sdfsdf
-					</dt>
-				</dl>
+				</div>
+				<div>
+					sdfsdf
+				</div>
 			</li>
 			<li>
 				<div class="percentagebar" style="width:120px;">
