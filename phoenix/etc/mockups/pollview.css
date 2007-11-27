@@ -31,6 +31,9 @@ div#pollview div.results ul li dl dd {
 	padding: 0;
 	margin: 0;
 }
+div#pollview div.results ul li dl dd span {
+	padding-left: 7px;
+}
 div#pollview ul li dl dd div.percentagebar {
 	height: 13px;
 	float: left;
