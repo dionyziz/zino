@@ -6,17 +6,18 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div style="float:right;">
-					<span>30%</span>Μία
-				</div>
-				<div>
-					<div class="percentagebar" style="width:120px;">
-						<div class="leftrounded"></div>
-						<div class="rightrounded"></div>
-						<div class="middlerounded"></div>
-					</div>
-				</div>
-				
+				<dl>
+					<dt style="float:right;">
+						<span>30%</span>Μία
+					</dt>
+					<dd>
+						<div class="percentagebar" style="width:120px;">
+							<div class="leftrounded"></div>
+							<div class="rightrounded"></div>
+							<div class="middlerounded"></div>
+						</div>
+					</dd>
+				</dl>
 			</li>
 			<li>
 				<div style="float:right;">
