@@ -6,9 +6,9 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div class="leftrounded"><img src="images/left-roundedbar.jpg" /></div>
-				<div class="rightrounded" style="width:147px;">asdfs</div>
-				<div class="middlerounded"><img src="images/right-roundedbar.jpg" /></div>
+				<div class="leftrounded"></div>
+				<div class="rightrounded" style="width:147px;"></div>
+				<div class="middlerounded"></div>
 			</li><?php
 			/*
 				<div class="leftrounded">s

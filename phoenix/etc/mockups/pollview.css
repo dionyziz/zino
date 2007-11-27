@@ -12,12 +12,12 @@ div#pollview div.results ul {
 	padding: 0;
 	list-style: none;
 }
-div#pollview div.resulsts ul li {
+div#pollview div.results ul li {
 	height: 13px;
 	margin: 0;
 	padding: 0;
 }
-div#pollview div.resulsts ul li div.leftrounded {
+div#pollview div.results ul li div.leftrounded {
 	float: left;
 	background-image: url('images/left-roundedbar.jpg' );
 	background-repeat: no-repeat;
@@ -25,7 +25,7 @@ div#pollview div.resulsts ul li div.leftrounded {
 	height: 13px;
 	width: 5px;
 }
-div#pollview div.resulsts ul li div.rightrounded {
+div#pollview div.results ul li div.rightrounded {
 	float: right;
 	background-image: url( 'images/right-roundedbar.jpg' );
 	background-repeat: no-repeat;
@@ -33,7 +33,7 @@ div#pollview div.resulsts ul li div.rightrounded {
 	height: 13px;
 	width: 5px;
 }
-div#pollview div.resulsts ul li div.middlerounded {
+div#pollview div.results ul li div.middlerounded {
 	float: left;
 	background-image: url('images/roundedbar-repeat.jpg');
 	background-repeat: repeat-x;
