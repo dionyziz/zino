@@ -1,6 +1,6 @@
 div#pollview h2 {
-	margin: 0 0 0 0;
-	padding: 0;
+	margin: 0;
+	padding: 0 0 0 20px;
 }
 div#pollview div.results {
 	margin-bottom: 20px;
@@ -8,7 +8,7 @@ div#pollview div.results {
 
 }
 div#pollview div.results ul {
-	margin: 0 0 0 160px;
+	margin: 0 0 0 170px;
 	padding: 0;
 	list-style: none;
 }
@@ -33,6 +33,7 @@ div#pollview div.results ul li dl dd {
 }
 div#pollview ul li dl dd div.percentagebar {
 	height: 13px;
+	float: left;
 }
 div#pollview div.results ul li dl dd div.percentagebar div.leftrounded {
 	float: left;
