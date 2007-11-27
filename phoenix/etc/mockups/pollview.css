@@ -18,6 +18,19 @@ div#pollview div.results ul li {
 	padding: 3px 0;
 	width: 400px;
 }
+div#pollview div.results ul li dl {
+	padding: 0;
+	margin: 0;
+}
+div#pollview div.results ul li dl dt {
+	float: right;
+	padding: 0;
+	margin: 0;
+}
+div#pollview div.results ul li dl dd {
+	padding: 0;
+	margin: 0;
+}
 div#pollview ul li dl dd div.percentagebar {
 	height: 13px;
 }
