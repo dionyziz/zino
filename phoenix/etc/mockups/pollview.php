@@ -10,7 +10,7 @@
 					<dt style="float:right;">
 						Μία
 					</dt>
-					<dd>
+					<dd><?php //max width will be 220px ?>
 						<div class="percentagebar" style="width:120px;">
 							<div class="leftrounded"></div>
 							<div class="rightrounded"></div>
