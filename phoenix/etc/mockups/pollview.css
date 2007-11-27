@@ -1,9 +1,9 @@
 div#pollview h2 {
-	margin: 0;
-	padding: 0 0 0 20px;
+	margin: 0 0 0 170px;
+	padding: 0;
 }
 div#pollview div.results {
-	margin-bottom: 20px;
+	margin-bottom: 0 0 20px 170px;
 	padding-top: 20px;
 
 }
