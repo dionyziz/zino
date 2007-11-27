@@ -37,7 +37,6 @@ Orbited = {
     
     // Otherwise use the iframe
     this.transport = "iframe";
-    alert( 'Using transport iframe' );
     return;
     
     // otherwise use xhr streaming
@@ -47,6 +46,7 @@ Orbited = {
   },
   
   connect_iframe: function() {
+    alert( 'Connecting using iframe' );
     var url = this.location + '?user=' + this.user;
     url += "&session=" + this.session + "&transport=iframe";
     var ifr = document.createElement("IFRAME");
