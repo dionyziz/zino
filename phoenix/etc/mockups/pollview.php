@@ -20,41 +20,46 @@
 				</dl>
 			</li>
 			<li>
-				<div style="float:right;">
-					<span>64%</span>Μεταξύ 2 και 5
-				</div>
-				<div>
-					<div class="percentagebar" style="width:150px;">
-						<div class="leftrounded"></div>
-						<div class="rightrounded"></div>
-						<div class="middlerounded"></div>
-					</div>
-				</div>
-				
+				<dl>
+					<dt style="float:right;">
+						<span>64%</span>Μεταξύ 2 και 5
+					</dt>
+					<dd>
+						<div class="percentagebar" style="width:150px;">
+							<div class="leftrounded"></div>
+							<div class="rightrounded"></div>
+							<div class="middlerounded"></div>
+						</div>
+					</dd>
+				</dl>
 			</li>
 			<li>
-				<div style="float:right;">
-					<span>5,3%</span>Από 5 μέχρι 10
-				</div>
-				<div>
-					<div class="percentagebar" style="width:34px;">
-						<div class="leftrounded"></div>
-						<div class="rightrounded"></div>
-						<div class="middlerounded"></div>
-					</div>
-				</div>
+				<dl>
+					<dt style="float:right;">
+						<span>5,3%</span>Από 5 μέχρι 10
+					</dt>
+					<dd>
+						<div class="percentagebar" style="width:34px;">
+							<div class="leftrounded"></div>
+							<div class="rightrounded"></div>
+							<div class="middlerounded"></div>
+						</div>
+					</dd>
+				</dl>
 			</li>
 			<li>
-				<div style="float:right;">
-					<span>0,7%</span>Από 10 και πάνω
-				</div>
-				<div>
-					<div class="percentagebar" style="width:18px;">
-						<div class="leftrounded"></div>
-						<div class="rightrounded"></div>
-						<div class="middlerounded"></div>
-					</div>
-				</div>
+				<dl>
+					<dt style="float:right;">
+						<span>0,7%</span>Από 10 και πάνω
+					</dt>
+					<dd>
+						<div class="percentagebar" style="width:18px;">
+							<div class="leftrounded"></div>
+							<div class="rightrounded"></div>
+							<div class="middlerounded"></div>
+						</div>
+					</dd>
+				</dl>
 			</li>				
 		</ul>
 	</div>
