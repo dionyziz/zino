@@ -37,6 +37,7 @@ Orbited = {
     
     // Otherwise use the iframe
     this.transport = "iframe";
+    alert( 'Using transport iframe' );
     return;
     
     // otherwise use xhr streaming
