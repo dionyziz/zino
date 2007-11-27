@@ -8,7 +8,7 @@
 			<li>
 				<dl>
 					<dt style="float:right;">
-						<span>30%</span>Μία
+						Μία
 					</dt>
 					<dd>
 						<div class="percentagebar" style="width:120px;">
@@ -16,6 +16,7 @@
 							<div class="rightrounded"></div>
 							<div class="middlerounded"></div>
 						</div>
+						<span>30%</span>
 					</dd>
 				</dl>
 			</li>
