@@ -38,22 +38,22 @@ div#pollview ul li dl dd div.percentagebar {
 }
 div#pollview div.results ul li dl dd div.percentagebar div.leftrounded {
 	float: left;
-	background-image: url('images/left-roundedbar.jpg' );
+	background-image: url('images/percentagebar-left.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;
-	width: 5px;
+	width: 9px;
 }
 div#pollview div.results ul li dl dd div.percentagebar div.rightrounded {
 	float: right;
-	background-image: url( 'images/right-roundedbar.jpg' );
+	background-image: url( 'images/percentagebar-right.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;
-	width: 5px;
+	width: 9px;
 }
 div#pollview div.results ul li dl dd div.percentagebar div.middlerounded {
-	background-image: url('images/roundedbar-repeat.jpg');
+	background-image: url('images/percentagebar-fade.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	height: 13px;
