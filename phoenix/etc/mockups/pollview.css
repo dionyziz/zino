@@ -3,9 +3,8 @@ div#pollview h2 {
 	padding: 0;
 }
 div#pollview div.results {
-	margin-bottom: 0 0 60px 170px;
+	margin: 0 0 50px 170px;
 	padding-top: 20px;
-
 }
 div#pollview div.results ul {
 	margin: 0 0 0 170px;
