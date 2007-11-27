@@ -5,6 +5,6 @@ var Chat = {
     StartPolling: function ( sessionid, token ) {
         Orbited.connect( function () {
             alert( 'hello' );
-        }, sessionid, '/chat/channels/kamibu', token, 'iframe' );
+        }, sessionid, '/chat/channels/kamibu', token );
     }
 };
