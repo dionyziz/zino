@@ -1,5 +1,6 @@
 <?php
-	function AllPlaces() {
+
+	function Places_List() {
 		global $places;
 		global $db;
 		
