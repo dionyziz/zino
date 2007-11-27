@@ -6,9 +6,11 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div class="leftrounded"></div>
-				<div class="rightrounded" style="width:147px;"></div>
-				<div class="middlerounded"></div>
+				<div class="percentagebar" style="width:150px;">
+					<div class="leftrounded"></div>
+					<div class="rightrounded"></div>
+					<div class="middlerounded"></div>
+				</div>
 			</li><?php
 			/*
 				<div class="leftrounded">s

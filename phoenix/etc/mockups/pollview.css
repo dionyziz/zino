@@ -17,7 +17,10 @@ div#pollview div.results ul li {
 	margin: 0;
 	padding: 0;
 }
-div#pollview div.results ul li div.leftrounded {
+div#pollview ul li div.percentagebar {
+	height: 13px;
+}
+div#pollview div.results ul li div.percentagebar div.leftrounded {
 	float: left;
 	background-image: url('images/left-roundedbar.jpg' );
 	background-repeat: no-repeat;
@@ -25,7 +28,7 @@ div#pollview div.results ul li div.leftrounded {
 	height: 13px;
 	width: 5px;
 }
-div#pollview div.results ul li div.rightrounded {
+div#pollview div.results ul li div.percentagebar div.rightrounded {
 	float: right;
 	background-image: url( 'images/right-roundedbar.jpg' );
 	background-repeat: no-repeat;
@@ -33,7 +36,7 @@ div#pollview div.results ul li div.rightrounded {
 	height: 13px;
 	width: 5px;
 }
-div#pollview div.results ul li div.middlerounded {
+div#pollview div.results ul li div.percentagebar div.middlerounded {
 	background-image: url('images/roundedbar-repeat.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
