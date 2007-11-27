@@ -6,39 +6,41 @@
 	<div class="results">
 		<ul>
 			<li>
-				<div style="float:left;">
+				<div style="float:right;">
+					malakies
+				</div>
+				<div>
 					<div class="percentagebar" style="width:120px;">
 						<div class="leftrounded"></div>
 						<div class="rightrounded"></div>
 						<div class="middlerounded"></div>
 					</div>
 				</div>
-				<div>
-					malakies
-				</div>
+				
 			</li>
 			<li>
-				<div style="float:left;">
+				<div style="float:right;">
+					sdfsdf
+				</div>
+				<div>
 					<div class="percentagebar" style="width:150px;">
 						<div class="leftrounded"></div>
 						<div class="rightrounded"></div>
 						<div class="middlerounded"></div>
 					</div>
 				</div>
-				<div>
-					sdfsdf
-				</div>
+				
 			</li>
 			<li>
-				<div style="float:left;">
+				<div style="float:right;">
+					goutsou
+				</div>
+				<div>
 					<div class="percentagebar" style="width:100px;">
 						<div class="leftrounded"></div>
 						<div class="rightrounded"></div>
 						<div class="middlerounded"></div>
 					</div>
-				</div>
-				<div>
-					goutsou
 				</div>
 			</li>			
 		</ul>
