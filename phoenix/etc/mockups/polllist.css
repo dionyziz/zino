@@ -8,7 +8,7 @@ div#polllist ul {
 	padding: 0;
 }
 div#polllist ul li {
-	padding-bottom: 5px 0 5px 0;
+	padding: 5px 0 5px 0;
 }
 div#polllist ul li div.results ul {
 	margin: 0;
