@@ -124,7 +124,12 @@
 							</dd>
 						</dl>
 					</li>				
-				</ul>
+				</ul>				
+				<dl class="pollinfo">
+					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+					<dd>69</dd>
+				</dl>
+				<img src="images/barfade.jpg" />
 			</div>
 		</li>
 		<li>
@@ -222,6 +227,11 @@
 						</dl>
 					</li>					
 				</ul>
+				<dl class="pollinfo">
+					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+					<dd>31</dd>
+				</dl>
+				<img src="images/barfade.jpg" />
 			</div>
 		</li>
 		<li>
@@ -274,6 +284,11 @@
 						</dl>
 					</li>
 				</ul>
+				<dl class="pollinfo">
+					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+					<dd>234</dd>
+				</dl>
+				<img src="images/barfade.jpg" />
 			</div>
 		</li>
 	</ul>
