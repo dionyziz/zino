@@ -68,9 +68,10 @@
 						</dl>
 					</li>				
 				</ul>
-				<div>
-					<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> <span>43</span>
-				</div>
+				<dl>
+					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+					<dd>43</dd>
+				</dl>
 			</div>
 		</li>
 		<li>
