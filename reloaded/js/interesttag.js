@@ -114,6 +114,7 @@ var InterestTag = {
 		editsubmit.appendChild( imageaccept );
 		
 		var input2 = d.createElement( 'input' );
+		input2.type = "button";
 		input2.value = "     Αποθήκευση     ";
 		input2.onclick = ( function( ul ) {
 				return function() {
@@ -129,6 +130,7 @@ var InterestTag = {
 		form.appendChild( input );
 		form.appendChild( d.createTextNode( ' ' ) );
 		form.appendChild( editsubmit );
+		form.appendChild( d.createElement( 'br' ) );
 		form.appendChild( d.createElement( 'br' ) );
 		form.appendChild( input2 );
 		div.appendChild( close );
