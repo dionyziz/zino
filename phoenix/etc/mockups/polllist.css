@@ -1,34 +1,34 @@
-div#pollview div.results ul {
+div.results ul {
 	padding: 0;
 	list-style: none;
 }
-div#pollview div.results ul li {
+div.results ul li {
 	height: 20px;
 	margin: 0;
 	padding: 3px 0;
 	width: 450px;
 }
-div#pollview div.results ul li dl {
+div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
-div#pollview div.results ul li dl dt {
+div.results ul li dl dt {
 	float: right;
 	padding: 0;
 	margin: 0;
 }
-div#pollview div.results ul li dl dd {
+div.results ul li dl dd {
 	padding: 0;
 	margin: 0;
 }
-div#pollview div.results ul li dl dd span {
+div.results ul li dl dd span {
 	padding-left: 7px;
 }
-div#pollview ul li dl dd div.percentagebar {
+div.resulsts ul li dl dd div.percentagebar {
 	height: 13px;
 	float: left;
 }
-div#pollview div.results ul li dl dd div.percentagebar div.leftrounded {
+div.results ul li dl dd div.percentagebar div.leftrounded {
 	float: left;
 	background-image: url('images/percentagebar-left.jpg' );
 	background-repeat: no-repeat;
@@ -36,7 +36,7 @@ div#pollview div.results ul li dl dd div.percentagebar div.leftrounded {
 	height: 13px;
 	width: 9px;
 }
-div#pollview div.results ul li dl dd div.percentagebar div.rightrounded {
+div.results ul li dl dd div.percentagebar div.rightrounded {
 	float: right;
 	background-image: url( 'images/percentagebar-right.jpg' );
 	background-repeat: no-repeat;
@@ -44,7 +44,7 @@ div#pollview div.results ul li dl dd div.percentagebar div.rightrounded {
 	height: 13px;
 	width: 9px;
 }
-div#pollview div.results ul li dl dd div.percentagebar div.middlerounded {
+div.results ul li dl dd div.percentagebar div.middlerounded {
 	background-image: url('images/percentagebar-fade.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
