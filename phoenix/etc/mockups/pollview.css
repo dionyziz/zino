@@ -8,6 +8,7 @@ div#pollview div.results {
 div.results ul {
 	padding: 0;
 	list-style: none;
+	width: 450px;
 }
 div.results ul li {
 	height: 20px;
