@@ -192,7 +192,7 @@
 								Mazda 3 MPS
 							</dt>
 							<dd>
-								<div class="percentagebar" style="width:15px;">
+								<div class="percentagebar" style="width:21px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
 									<div class="middlerounded"></div>
