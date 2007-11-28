@@ -72,6 +72,7 @@
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
 					<dd>43</dd>
 				</dl>
+				<img src="images/fadebar.jpg" />
 			</div>
 		</li>
 		<li>
