@@ -123,7 +123,7 @@ var InterestTag = {
 					return InterestTag.Close( ul );
 				};
 			})( ul );
-		input2.style.position = "relative";
+		input2.style.position = "fixed";
 		input2.style.bottom = "5px";
 		
 		//----------------------------
