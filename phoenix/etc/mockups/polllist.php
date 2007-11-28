@@ -69,7 +69,7 @@
 					</li>				
 				</ul>
 				<div>
-					<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> 43 σχόλια
+					<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> <span>43</span>
 				</div>
 			</div>
 		</li>
