@@ -3,7 +3,7 @@
 ?>
 <div id="polllist">
 	<ul>
-		<li class="onepoll">
+		<li>
 			<h3>Πόσες φορές τη μέρα βαράς μαλακία;</h3>
 			<div class="results">
 				<ul>
