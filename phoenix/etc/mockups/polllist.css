@@ -1,5 +1,10 @@
 div#polllist ul li.onepoll h3{
 	font-size: 105%;
+	margin: 0;
+	padding: 0;
+}
+div#polllist ul {
+	list-style: none;
 }
 /*div.results ul {
 	padding: 0;
