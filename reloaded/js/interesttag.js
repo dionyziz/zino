@@ -132,7 +132,6 @@ var InterestTag = {
 		form.appendChild( input );
 		form.appendChild( d.createTextNode( ' ' ) );
 		form.appendChild( editsubmit );
-		form.appendChild( d.createElement( 'br' ) );
 		form2.appendChild( input2 );
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
@@ -140,6 +139,7 @@ var InterestTag = {
 		div.appendChild( bold );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form );
+		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form2 );
 		Modals.Create( div, 300, 270 );
     },
