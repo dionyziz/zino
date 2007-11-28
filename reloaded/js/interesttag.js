@@ -114,8 +114,7 @@ var InterestTag = {
 		editsubmit.appendChild( imageaccept );
 		
 		var form2 = d.createElement( 'form' );
-		form2.style.position = "relative";
-		form2.style.bottom = "5px";
+		
 		var input2 = d.createElement( 'input' );
 		input2.type = "button";
 		input2.value = "     Αποθήκευση     ";
@@ -124,6 +123,8 @@ var InterestTag = {
 					return InterestTag.Close( ul );
 				};
 			})( ul );
+		input2.style.position = "relative";
+		input2.style.bottom = "5px";
 		
 		//----------------------------
 		
@@ -139,6 +140,7 @@ var InterestTag = {
 		div.appendChild( bold );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form );
+		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form2 );
 		Modals.Create( div, 300, 270 );
