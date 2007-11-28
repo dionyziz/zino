@@ -68,6 +68,9 @@
 						</dl>
 					</li>				
 				</ul>
+				<div>
+					<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> 43 σχόλια
+				</div>
 			</div>
 		</li>
 		<li>
