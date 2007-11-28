@@ -112,12 +112,25 @@ var InterestTag = {
 		editsubmit.alt = 'Δημιουργία';
 		editsubmit.title = 'Δημιουργία';
 		editsubmit.appendChild( imageaccept );
+		
+		var input2 = d.createElement( 'input' );
+		input2.value = "     Αποθήκευση     ";
+		input2.onclick = ( function( ul ) {
+				return function() {
+					return InterestTag.Close( ul );
+				};
+			})( ul );
+		input2.style.position = "relative";
+		input2.style.bottom = "5px";
 		//----------------------------
+		
 		
 		close.appendChild( closeimg );
 		form.appendChild( input );
 		form.appendChild( d.createTextNode( ' ' ) );
 		form.appendChild( editsubmit );
+		form.appendChild( d.createElement( 'br' ) );
+		form.appendChild( input2 );
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( ul );
