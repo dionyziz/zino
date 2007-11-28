@@ -8,15 +8,13 @@ div#polllist ul {
 	padding: 0;
 }
 div#polllist ul li {
-	padding: 5px 0 5px 0;
 }
 div#polllist ul li div.results ul {
 	margin: 0;
 	padding: 0;
 }
-div#polllist ul li {
-	padding: 0;
-	margin: 0;
+div#polllist ul li div.results ul li {
+	padding: 5px 0;
 }
 /*div.results ul {
 	padding: 0;
