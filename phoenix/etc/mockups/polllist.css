@@ -8,6 +8,10 @@ div#polllist ul {
 	margin: 0 0 0 150px;
 	padding: 0;
 }
+div#polllist ul li {
+	padding: 0;
+	margin: 0;
+}
 /*div.results ul {
 	padding: 0;
 	list-style: none;
