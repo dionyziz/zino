@@ -1,3 +1,6 @@
+<?php
+	include 'usersections.php';
+?>
 <div id="polllist">
 	<ul>
 		<li class="onepoll">
