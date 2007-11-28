@@ -68,7 +68,7 @@
 						</dl>
 					</li>				
 				</ul>
-				<dl>
+				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
 					<dd>43</dd>
 				</dl>
