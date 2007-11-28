@@ -46,7 +46,6 @@ Orbited = {
   },
   
   connect_iframe: function() {
-    alert( 'Connecting using iframe' );
     var url = this.location + '?user=' + this.user;
     url += "&session=" + this.session + "&transport=iframe";
     var ifr = document.createElement("iframe");

@@ -1,5 +1,9 @@
 <?php
-
+    define( 'COMMENT_JOURNAL', 0 );
+    define( 'COMMENT_PROFILE', 1 );
+    define( 'COMMENT_IMAGE',   2 );
+    define( 'COMMENT_POLL',    3 );
+    
 	global $libs;
 	
 	// $libs->Load( 'article' );
