@@ -5,7 +5,8 @@ div#polllist ul li.onepoll h3{
 }
 div#polllist ul {
 	list-style: none;
-	margin: 0 0 0 170px;
+	margin: 0 0 0 70px;
+	padding: 0;
 }
 /*div.results ul {
 	padding: 0;
