@@ -142,6 +142,7 @@ var InterestTag = {
 		div.appendChild( form );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( d.createElement( 'br' ) );
+		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form2 );
 		Modals.Create( div, 300, 270 );
     },
