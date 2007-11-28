@@ -124,7 +124,7 @@ var InterestTag = {
 				};
 			})( ul );
 		input2.style.position = "fixed";
-		input2.style.marginBottom = "500px";
+		input2.style.marginBottom = "5px";
 		
 		//----------------------------
 		
