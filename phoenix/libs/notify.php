@@ -1,5 +1,6 @@
 <?php
-    
+   
+    /*
     function Notify_Create( $fromuserid , $touserid , $itemid , $typeid ) {
         $notify = New Notify();
         $notify->FromUserId   = $fromuserid;
@@ -8,6 +9,7 @@
         $notify->TypeId       = $typeid;
         $notify->Save();
     }
+    */
 
     function Notify_GetByUser( $userid , $offset , $length , $newest = false ) {
         global $notify;
