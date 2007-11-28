@@ -113,6 +113,9 @@ var InterestTag = {
 		editsubmit.title = 'Δημιουργία';
 		editsubmit.appendChild( imageaccept );
 		
+		var form2 = d.createElement( 'form' );
+		form2.style.position = "relative";
+		form2.style.bottom = "5px";
 		var input2 = d.createElement( 'input' );
 		input2.type = "button";
 		input2.value = "     Αποθήκευση     ";
@@ -121,8 +124,7 @@ var InterestTag = {
 					return InterestTag.Close( ul );
 				};
 			})( ul );
-		input2.style.position = "relative";
-		input2.style.bottom = "5px";
+		
 		//----------------------------
 		
 		
@@ -131,8 +133,7 @@ var InterestTag = {
 		form.appendChild( d.createTextNode( ' ' ) );
 		form.appendChild( editsubmit );
 		form.appendChild( d.createElement( 'br' ) );
-		form.appendChild( d.createElement( 'br' ) );
-		form.appendChild( input2 );
+		form2.appendChild( input2 );
 		div.appendChild( close );
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( ul );
