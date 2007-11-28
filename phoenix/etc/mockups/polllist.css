@@ -17,6 +17,9 @@ div#polllist ul li div.results ul {
 	margin: 0;
 	padding: 0;
 }
+div#polllist ul li div.results ul div {
+    font-size: 80%;
+}
 div#polllist ul li div.results ul li {
 	padding: 5px 0 1px 0;
 }
