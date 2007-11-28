@@ -1,3 +1,6 @@
+div#polllist {
+	margin-bottom: 50px;
+}
 div#polllist ul li h3{
 	margin: 0;
 	padding: 0;
