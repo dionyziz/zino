@@ -70,7 +70,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="onepoll">
+		<li>
 			<h3>Tι γνώμη έχεις για τις παρελάσεις;</h3>
 			<div class="results">
 				<ul>
@@ -122,7 +122,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="onepoll">
+		<li>
 			<h3>Ποιο είναι το αγαπημένο σου αυτοκίνητο;</h3>
 			<div class="results">
 				<ul>
@@ -219,7 +219,7 @@
 				</ul>
 			</div>
 		</li>
-		<li class="onepoll">
+		<li>
 			<h3>Πόσες ώρες τη μέρα βλέπεις ΤV;</h3>
 			<div class="results">
 				<ul>
