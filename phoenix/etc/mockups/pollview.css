@@ -4,7 +4,7 @@ div#pollview h2 {
 }
 div#pollview div.results {
 	margin: 0 0 50px 170px;
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 }
 div.results ul {
 	padding: 0;
