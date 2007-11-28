@@ -1,3 +1,6 @@
+div#polllist ul li.onepoll h3{
+	font-size: 105%;
+}
 /*div.results ul {
 	padding: 0;
 	list-style: none;
@@ -24,7 +27,7 @@ div.results ul li dl dd {
 div.results ul li dl dd span {
 	padding-left: 7px;
 }
-div.resulsts ul li dl dd div.percentagebar {
+div.results ul li dl dd div.percentagebar {
 	height: 13px;
 	float: left;
 }
