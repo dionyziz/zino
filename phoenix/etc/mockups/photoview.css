@@ -12,6 +12,7 @@ div#photoview dl dd.commentsnum {
 	display: inline;
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
+	font-size: 90%;
 }
 div#photoview dl dd.addfav{
 	margin: 0;
