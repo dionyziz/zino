@@ -34,7 +34,7 @@ div#polllist ul li div.results dl dt{
 div#polllist ul li div.results dl.pollinfo dd {
 	display: inline;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 -22px;
 	font-size: 80%;
 	background-image: url( 'images/comment.png' );
 	background-repeat: no-repeat;
