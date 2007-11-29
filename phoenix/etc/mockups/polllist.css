@@ -24,13 +24,6 @@ div#polllist ul li div.results ul {
 div#polllist ul li div.results dl.pollinfo {
 	text-align: right;
 }
-/*
-div#polllist ul li div.results dl dt{
-    display: inline;
-	margin: 0;
-	padding: 0;
-}
-*/
 div#polllist ul li div.results dl.pollinfo dd {
 	display: inline;
 	margin: 0;
@@ -40,7 +33,7 @@ div#polllist ul li div.results dl.pollinfo dd {
 div#polllist ul li div.results dl.pollinfo dd a {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
-	padding-left: 20px;
+	padding-left: 18px;
 }
 div#polllist ul li div.results ul li {
 	padding: 5px 0 1px 0;
