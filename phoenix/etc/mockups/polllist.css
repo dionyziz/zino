@@ -40,7 +40,7 @@ div#polllist ul li div.results dl.pollinfo dd {
 div#polllist ul li div.results dl.pollinfo dd a {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
-	padding-left: -22px;
+	padding-left: 22px;
 }
 div#polllist ul li div.results ul li {
 	padding: 5px 0 1px 0;
