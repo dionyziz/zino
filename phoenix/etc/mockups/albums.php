@@ -11,9 +11,9 @@
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
-            <dd>20</dd>
+            <dd>20 φωτογραφίες</dd>
             <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
-            <dd>184</dd>
+            <dd>184 σχόλια</dd>
         </dl>
     </li>
     <li>
@@ -25,9 +25,9 @@
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
-            <dd>34</dd>
+            <dd>34 φωτογραφίες</dd>
             <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
-            <dd>512</dd>
+            <dd>512 σχόλια</dd>
         </dl>
     </li>
     <li>
@@ -39,9 +39,9 @@
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
-            <dd>24</dd>
+            <dd>24 φωτογραφίες</dd>
             <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
-            <dd>981</dd>
+            <dd>981 σχόλια</dd>
         </dl>
     </li>
     <li>
@@ -53,9 +53,9 @@
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
-            <dd>12</dd>
+            <dd>12 φωτογραφίες</dd>
             <dt><img src="images/comment.png" alt="Σχόλια" /></dt>
-            <dd>15</dd>
+            <dd>15 σχόλια</dd>
         </dl>
     </li>
 </ul>
