@@ -30,5 +30,6 @@ div#journalview dl dd.addfav a {
 	padding-left: 18px;
 }
 div#journalview p {
+	width: 700px;
 	margin: 0 auto;
 }
