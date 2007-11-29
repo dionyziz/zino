@@ -2,9 +2,24 @@ div#photoview h2 {
 	margin: 0;
 	padding: 0;
 }
-div#photoview div span.commentsnum {
-	font-size: 90%;
+div#photoview dl {
+	margin: 0;
+	padding: 0;
 }
+div#photoview dl dd.commentsnum {
+	margin: 0;
+	padding: 0 0 0 18px;
+	display: inline;
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+}
+div#photoview dl dd.addfav{
+	margin: 0;
+	padding: 0 0 0 18px;
+	display: inline;
+	background-image: url('images/heart_add.png');
+	background-repeat: no-repeat;
+}		
 div#photoview div.photothumbs {
 	height: 173px;
 	overflow: hidden;

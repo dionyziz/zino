@@ -13,10 +13,10 @@ function Unhover( node ) {
 <div id="photoview">
 	<h2>Στη Θεσαλλονίκη ξημερώματα</h2>
 	<span>στο album</span> <a href="">Θεσαλλονίκη</a>
-	<div>
-		<img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /> <span class="commentsnum">20 σχόλια</span>
-		<a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /> Προσθήκη στα αγαπημένα</a>
-	</div>
+	<dl>
+		<dd class="commentsnum"><span class="commentsnum">20 σχόλια</dd>
+		<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
+	</dl>
 	<div class="eof"></div>
 	<div class="thephoto">
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
