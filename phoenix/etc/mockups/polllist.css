@@ -18,7 +18,7 @@ div#polllist ul li div.results ul {
 	padding: 0;
 }
 div#polllist ul li div.results dl.pollinfo {
-	float: right;
+	text-align: right;
 }
 div#polllist ul li div.results dl dt{
     display: inline;
