@@ -17,13 +17,15 @@ div#polllist ul li div.results ul {
 	margin: 0;
 	padding: 0;
 }
+div#polllist ul li div.results dl.pollinfo {
+	float: right;
+}
 div#polllist ul li div.results dl dt{
     display: inline;
 	margin: 0;
 	padding: 0;
 }
 div#polllist ul li div.results dl.pollinfo dd {
-	float: right;
 	display: inline;
 	margin: 0;
 	padding: 0;
