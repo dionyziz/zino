@@ -2,6 +2,9 @@ div#photoview h2 {
 	margin: 0;
 	padding: 0;
 }
+div#photoview div span.commentsnum {
+	font-size: 85%;
+}
 div#photoview div.photothumbs {
 	height: 173px;
 	overflow: hidden;
