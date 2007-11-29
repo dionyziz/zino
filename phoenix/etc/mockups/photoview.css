@@ -18,7 +18,7 @@ div#photoview dl dd.addfav{
 	padding: 0;
 	display: inline;
 }
-div#photoview dl dd.addfav {
+div#photoview dl dd.addfav a {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
