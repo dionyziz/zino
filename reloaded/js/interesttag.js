@@ -125,7 +125,7 @@ var InterestTag = {
 			})( ul );
 		input2.style.position = "fixed";
 		input2.style.bottom = "70px";
-		input2.style.left = "350px";
+		input2.style.left = "325px";
 		
 		//----------------------------
 		
