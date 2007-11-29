@@ -12,6 +12,8 @@ ul.allinterests {
 	overflow: auto;
 	display: block;
 	width: 220px;
+	border-style: solid;
+	border-width: 1px;
 }
 
 form.inter, b.inter {
@@ -21,7 +23,5 @@ form.inter, b.inter {
 
 li.interesttag {
 	padding: 5px 0px 5px 5px;
-	border-style: solid;
-	border-width: 1px 1px 0px 1px;
 	clear: both;
 }
