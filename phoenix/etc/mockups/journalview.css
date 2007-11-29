@@ -6,12 +6,12 @@ div#journalview h2 {
 	margin: 0;
 	padding: 0;
 }
-div#journalview dl {
+div#journalview div.journal dl {
 	text-align: left;
 	padding: 0;
 	margin: 0;
 }
-div#journalview dl dd.commentsnum {
+div#journalview div.journal dl dd.commentsnum {
 	margin: 0;
 	padding: 0 0 0 18px;
 	display: inline;
@@ -19,18 +19,21 @@ div#journalview dl dd.commentsnum {
 	background-repeat: no-repeat;
 	font-size: 90%;
 }
-div#journalview dl dd.addfav{
+div#journalview div.journal dl dd.addfav{
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
 }
-div#journalview dl dd.addfav a {
+div#journalview div.journal dl dd.addfav a {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
-div#journalview p {
+div#journalview div.journal p {
 	text-align: left;
 	width: 700px;
-	margin: 0 auto;
+	margin: 0 auto 20px 0;
+}
+div#journalview div.comments {
+	text-align: left;
 }
