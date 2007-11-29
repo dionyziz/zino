@@ -123,9 +123,8 @@ var InterestTag = {
 					return InterestTag.Close( ul );
 				};
 			})( ul );
-		input2.style.position = "absolute";
-		input2.style.top = "30px";
-		input2.style.right = "625px";
+		input2.style.position = "relative";
+		input2.style.marginTop = "5px";
 		
 		//----------------------------
 		
