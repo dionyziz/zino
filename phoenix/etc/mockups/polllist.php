@@ -70,7 +70,7 @@
 				</ul>
 				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-					<dd>43</dd>
+					<dd>43 σχόλια</dd>
 				</dl>
 				<img src="images/barfade.jpg" />
 			</div>
