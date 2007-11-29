@@ -1,0 +1,22 @@
+div#journalview h2 {
+	margin: 0;
+	padding: 0;
+}
+div#journalview dl dd.commentsnum {
+	margin: 0;
+	padding: 0 0 0 18px;
+	display: inline;
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+	font-size: 90%;
+}
+div#journalview dl dd.addfav{
+	margin: 0;
+	padding: 0 0 0 2px;
+	display: inline;
+}
+div#journalview dl dd.addfav a {
+	background-image: url('images/heart_add.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}

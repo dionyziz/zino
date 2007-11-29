@@ -4,7 +4,7 @@
 <div id="journalview">
 	<h2>The MacGyver sandwich</h2>
 	<dl>
-		<dd class="commentsnum">20 σχόλια</dd>
+		<dd class="commentsnum">87 σχόλια</dd>
 		<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
 	</dl>
 	<div class="eof"></div>
@@ -33,7 +33,7 @@
 	Μπορούμε πλέον να το ξετυλίξουμε...<br />
 	<img src="images/journal7.jpg" /><br />
 	και να το φάμε...<br />
-	<img src="images/journal8.jpg" />
+	<img src="images/journal8.jpg" /><br />
 	καλή όρεξη...
 	</p>
 
