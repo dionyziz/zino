@@ -39,11 +39,12 @@ ul.albums li a:hover div img {
 }
 ul.albums li dl {
     display: block;
-    margin: 5px auto 5px auto;
+    margin: auto;
     width: 100px;
-    padding: 0;
+    padding-top: 5px;
     white-space: nowrap;
     overflow: visible;
+    text-align: center;
 }
 ul.albums li dl dt {
     display: inline;
