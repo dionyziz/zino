@@ -15,7 +15,7 @@ div#photoview dl dd.commentsnum {
 }
 div#photoview dl dd.addfav{
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 2px;
 	display: inline;
 }
 div#photoview dl dd.addfav a {
