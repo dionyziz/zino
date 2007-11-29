@@ -41,7 +41,6 @@ var InterestTag = {
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
-		ul.childNodes[ ul.childNodes.length -1 ].style.borderBottomWidth = "1px";
 		ul.appendChild( anchor );
 		//-----------
 		
@@ -79,14 +78,12 @@ var InterestTag = {
 					Coala.Warm( 'interesttag/new', { 'text' : text } );
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
-					li.style.borderBottomWidth = "1px";
 					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 221, 231, 255 )";
 					var heig = bigpar.style.height;
 					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
 					if ( heig <= 160 ) {
 						bigpar.style.height = (heig+20)+"px";
 					}
-					bigpar.childNodes[ childlen-2 ].style.borderBottomWidth = "0px";
 					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
 					g( "hereiam" ).focus();
 					input.value="";
@@ -183,9 +180,6 @@ var InterestTag = {
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
 		var childlen = dad.childNodes.length;
-		if ( childlen > 1 && dad.childNodes[ childlen - 2 ].childNodes[2].nodeValue == text ) {
-			dad.childNodes[ childlen-3 ].style.borderBottomWidth = "1px";
-		}
 		dad.removeChild( li );
 		var heig = dad.style.height;
 		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
