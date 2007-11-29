@@ -124,8 +124,8 @@ var InterestTag = {
 				};
 			})( ul );
 		input2.style.position = "absolute";
-		input2.style.bottom = "70px";
-		input2.style.left = "325px";
+		input2.style.bottom = "30px";
+		input2.style.left = "625px";
 		
 		//----------------------------
 		
