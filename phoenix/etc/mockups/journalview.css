@@ -1,3 +1,6 @@
+div#journalview {
+	text-align: center;
+}
 div#journalview h2 {
 	margin: 0;
 	padding: 0;
@@ -19,4 +22,7 @@ div#journalview dl dd.addfav a {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
+}
+div#journalview p {
+	text-align: left;
 }
