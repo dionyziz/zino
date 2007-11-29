@@ -15,11 +15,14 @@ div#photoview dl dd.commentsnum {
 }
 div#photoview dl dd.addfav{
 	margin: 0;
-	padding: 0 0 0 18px;
+	padding: 0;
 	display: inline;
+}
+div#photoview dl dd.addfav {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
-}		
+	padding-left: 18px;
+}
 div#photoview div.photothumbs {
 	height: 173px;
 	overflow: hidden;
