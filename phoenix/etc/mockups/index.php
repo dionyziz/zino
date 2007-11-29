@@ -35,6 +35,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="pollview.css" />
 		<link rel="stylesheet" type="text/css" href="albums.css" />
 		<link rel="stylesheet" type="text/css" href="polllist.css" />
+		<link rel="stylesheet" type="text/css" href="journalview.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -69,6 +70,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			break;
 		case 'polllist':
 			include 'polllist.php';
+			break;
+		case 'journalview':
+			include 'journalview.php';
 			break;
 		case 'frontpage':
 		default:
