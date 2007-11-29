@@ -15,6 +15,7 @@ div#polllist ul li {
 }
 div#polllist ul li div.results {
 	width: 450px;
+	padding-top: 10px;
 }
 div#polllist ul li div.results ul {
 	margin: 0;

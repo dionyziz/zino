@@ -70,7 +70,7 @@
 				</ul>
 				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-					<dd>43 σχόλια</dd>
+					<dd><a href="">43 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" />
 			</div>
@@ -127,7 +127,7 @@
 				</ul>				
 				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-					<dd>69 σχόλια</dd>
+					<dd><a href="">69 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" />
 			</div>
@@ -229,7 +229,7 @@
 				</ul>
 				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-					<dd>31 σχόλια</dd>
+					<dd><a href="">31 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" />
 			</div>
@@ -286,7 +286,7 @@
 				</ul>
 				<dl class="pollinfo">
 					<dt><img src="images/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
-					<dd>234 σχόλια</dd>
+					<dd><a href="">234 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" />
 			</div>
