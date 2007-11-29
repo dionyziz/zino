@@ -14,7 +14,7 @@ div#polllist ul li {
 	padding: 10px 0;
 }
 div#polllist ul li div.results {
-	float: right;
+	width: 400px;
 }
 div#polllist ul li div.results ul {
 	margin: 0;
