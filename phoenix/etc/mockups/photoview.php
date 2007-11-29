@@ -14,7 +14,7 @@ function Unhover( node ) {
 	<h2>Στη Θεσαλλονίκη ξημερώματα</h2>
 	<span>στο album</span> <a href="">Θεσαλλονίκη</a>
 	<dl>
-		<dd class="commentsnum"><span class="commentsnum">20 σχόλια</dd>
+		<dd class="commentsnum">20 σχόλια</dd>
 		<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
 	</dl>
 	<div class="eof"></div>
