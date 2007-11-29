@@ -27,7 +27,10 @@ div#polllist ul li div.results dl.pollinfo {
 div#polllist ul li div.results dl dt{
     display: inline;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 -22px;
+	background-image: url( 'images/comment.png' );
+	background-repeat: no-repeat;
+	
 }
 div#polllist ul li div.results dl.pollinfo dd {
 	display: inline;
