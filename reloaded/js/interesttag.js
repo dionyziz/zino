@@ -114,8 +114,6 @@ var InterestTag = {
 					return InterestTag.Close( ul );
 				};
 			})( ul );
-		input2.style.position = "relative";
-		input2.style.marginTop = "5px";
 		
 		//----------------------------
 		
