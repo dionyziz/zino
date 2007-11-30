@@ -30,7 +30,6 @@ var InterestTag = {
     	for ( var i=0;i<allinterlinks.length-1;++i ) {
     		allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
     	}
-		ul.style.height = (allinterests.length<=10)?(allinterests.length*20)+"px":"150px";
     	for ( var i in allinterests ) {
     		if ( allinterests[i] === "" ) {
     			continue;
@@ -79,11 +78,6 @@ var InterestTag = {
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
 					li.style.backgroundColor = (childlen%2) ? "rgb( 232, 237, 255 )" : "rgb( 221, 231, 255 )";
-					var heig = bigpar.style.height;
-					heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-					if ( heig <= 160 ) {
-						bigpar.style.height = (heig+20)+"px";
-					}
 					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
 					g( "hereiam" ).focus();
 					input.value="";
@@ -181,11 +175,6 @@ var InterestTag = {
 		var dad = li.parentNode;
 		var childlen = dad.childNodes.length;
 		dad.removeChild( li );
-		var heig = dad.style.height;
-		heig = parseInt( heig.substr( 0, heig.length-2 ), 10 ); // remove the px ending
-		if ( heig >= 15 && childlen <=9 ) {
-			dad.style.height= (heig-17) + "px";
-		}
 	},
 	Close : function( ul ) {
 		var interests = g( 'interests' );

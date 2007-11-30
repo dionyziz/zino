@@ -12,6 +12,7 @@ ul.allinterests {
 	overflow: auto;
 	display: block;
 	width: 220px;
+	height: 160px;
 	border-style: solid;
 	border-width: 1px;
 }
