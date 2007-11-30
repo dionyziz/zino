@@ -64,6 +64,7 @@ var InterestTag = {
 				return function() {
 					var text = input.value;
 					if ( !InterestTag.is_valid( text ) ) {
+						input.value="";
 						return;
 					}
 					var bigpar = input.parentNode.parentNode.childNodes[2]; //input->form->div->ul.append
