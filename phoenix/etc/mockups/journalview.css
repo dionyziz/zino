@@ -23,6 +23,9 @@ div#journalview div.journal dl dd.addfav{
 	padding: 0 0 0 2px;
 	display: inline;
 }
+div#journalview div.journal dl dd.lastentries {
+	padding-top: 2px;
+}
 div#journalview div.journal dl dd.addfav a {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
