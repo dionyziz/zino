@@ -5,11 +5,14 @@
 		global $page;
 		
 		$libs->Load( 'place' );
-			
+        $libs->Load( 'interesttag' );
+
+        $page->AttachScript( 'js/interesttag.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/universities.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachStyleSheet( 'css/modal.css' );
+		$page->AttachStyleSheet( 'css/interesttags.css' );
 		
 		static $monthsfordob = array(
 									1  => 'Ιανουαρίου',
@@ -74,9 +77,8 @@
 		if ( !isset( $gn ) && !$validdob && !$theuser->Place() && !$theuser->Hobbies() ) { // if there's no info to display
 			return;
 		}
-		
 		$uni = $theuser->Uni();
-		
+			
 		if ( $user->Id() == $theuser->Id() ) {
 			ob_start();
 			// ProfileOptions.Init( g( "user_profile_personal" ) );
@@ -103,33 +105,32 @@
 					}
 				}
 				if ( $validdob ) {
-					if ( $classl ) {	
+					if ( $classl ) {
 						$class = ' class="l"';
 						$classl = false;
 					}
-					else {
+					else { 	
 						$class = '';
 						$classl = true;
 					}
 					?><li><dl<?php
 					echo $class;
-						?>><dt>ηλικία</dt>
+					?>><dt>ηλικία</dt>
 						<dd><?php
 							echo $ageyear;
-
 							if ( $theuser->Id() == $user->Id() ) {
 								?><a href="faq/age_shown" style="margin-left: 20px; font-size: 90%;">Πώς ξέρετε την ηλικία μου?</a><?php
 							}
 						?></dd>
 					</dl></li><?php
 				}
-				if ( $validdob ) {
-					if ( $classl ) {	
+				if ( $validdob ) { 
+					if ( $classl ) {
 						$class = ' class="l"';
 						$classl = false;
 					}
 					else {
-						$class = '';
+						$class= '';
 						$classl = true;
 					}
 					?><li><dl<?php
@@ -146,7 +147,7 @@
 						?></dd>
 					</dl></li><?php
 				}
-				if ( $theuser->Place() ) {
+				if ( $theuser->Place() ) {	
 					if ( $classl ) {	
 						$class = ' class="l"';
 						$classl = false;
@@ -179,12 +180,13 @@
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
 					if ( $uni->Exists() ) {
-						echo htmlspecialchars( $uni->Name );
+						echo $uni->Name;
 						?> - <?php
-						echo htmlspecialchars( $uni->Place->Name );
+						echo $uni->Place->Name;
 					}
 					?></dd>
 					</dl></li><?php
+					$unishowing = true;
 				}
 				else if ( $user->Id() == $theuser->Id() && isset( $ageyear ) && $ageyear >= 17 ) {
 					if ( $classl ) {
@@ -211,8 +213,10 @@
 					}
 					?></dd>
 					</dl></li><?php
+					$unishowing = true;
 				}
-				if ( $theuser->Hobbies() ) {
+                $tags = InterestTag_List( $theuser );
+				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
 					if ( $classl ) {
 						$class = ' class="l"';
 						$classl = false;
@@ -224,8 +228,17 @@
 					?><li><dl<?php
 					echo $class;
 					?>><dt>ενδιαφέροντα</dt>
-						<dd><?php
-							echo htmlspecialchars( $theuser->Hobbies() ); 
+						<dd id="interests"><?php
+                            foreach ( $tags as $tag ) {
+                            	?><a href="?p=tag&amp;text=<?php
+                                echo htmlspecialchars( $tag->Text );
+                                ?>"><?php
+                                echo htmlspecialchars( $tag->Text );
+                                ?></a>&nbsp;<?php
+                            }
+                            if ( $theuser->Id() == $user->Id() ) {
+                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
+                            }
 						?></dd>
 					</dl></li><?php
 				} 

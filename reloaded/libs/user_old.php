@@ -1,7 +1,4 @@
 <?php
-	/*MASKED:
-		Interest Tags (kostis90gr)
-	*/
 	global $libs;
     
     $libs->Load( 'image/image' ); // for usericons
@@ -136,7 +133,7 @@
 		return 1;
 	}	
 
-	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
+	function UpdateUser( $signature , $newpassword , $email , $gender , $dob , $hobbies , $slogan , $place, $msn = false, $skype = false, $yim = false, $aim = false , $icq = false , $gtalk = false, $height = false, $weight = false, $eyecolor = false, $haircolor = false ) {
 		global $users;
 		global $user;
 		global $db;
@@ -160,6 +157,7 @@
 			$gtalk		= ( $gtalk !== false ) ? myescape( $gtalk ) : $user->Gtalk();
 			$gender		= myescape( $gender );
 			$dob		= myescape( $dob );
+			$hobbies 	= myescape( $hobbies );
 			$slogan		= myescape( $slogan );
 			$place		= myescape( $place );
 			
@@ -208,6 +206,7 @@
 						`user_gtalk`='$gtalk',
 						`user_gender`='$gender',
 						`user_dob`='$dob',
+						`user_hobbies`='$hobbies',
 						`user_subtitle`='$slogan',
 						`user_place`='$place',
 						`user_height`='$height',
@@ -717,9 +716,6 @@
 
             return $nowyear - $this->mCreateYear;
         }
-        public function Creation() {
-            return $this->mCreated;
-        }
 		public function Locked() {
 			return $this->mLocked;
 		}
@@ -858,18 +854,6 @@
 			return $this->mDOB;
 		}
 		public function Hobbies() {
-			if ( $this->mHobbies === false ) {
-				global $libs;
-				
-				$libs->Load( 'interesttag' );
-				$this->mHobbies = "";
-				$tags = InterestTag_List( $this );
-				foreach ( $tags as $tag ) {
-					$this->mHobbies .= $tag->Text;
-					$this->mHobbies .= ",";
-				}
-				$this->mHobbies[ strlen( $this->mHobbies )-1 ] = " "; // Remove the last comma
-			}
 			return $this->mHobbies;
 		}
 		public function Subtitle() {
@@ -1797,7 +1781,7 @@
 			$this->mYIM		          	= isset( $fetched_array[ "user_yim" ]               ) ? $fetched_array[ "user_yim" ]              	: '';
 			$this->mAIM		          	= isset( $fetched_array[ "user_aim" ]               ) ? $fetched_array[ "user_aim" ]              	: '';
 			$this->mGTalk		      	= isset( $fetched_array[ "user_gtalk" ]             ) ? $fetched_array[ "user_gtalk" ]            	: '';
-			$this->mHobbies		      	= false;
+			$this->mHobbies		      	= isset( $fetched_array[ "user_hobbies" ]           ) ? $fetched_array[ "user_hobbies" ]          	: '';
 			$this->mSubtitle	      	= isset( $fetched_array[ "user_subtitle" ]          ) ? $fetched_array[ "user_subtitle" ]         	: '';
 			$this->mLastLogon	      	= isset( $fetched_array[ "user_lastlogon" ]         ) ? $fetched_array[ "user_lastlogon" ]        	: '0000-00-00 00:00:00';
 
