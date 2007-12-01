@@ -3,7 +3,7 @@ div#journalview {
 }
 div#journalview h2 {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 3px 0;
 }
 div#journalview div.journal dl {
 	text-align: left;
