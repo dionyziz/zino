@@ -7,7 +7,7 @@
 		<dl>
 			<dd class="commentsnum">87 σχόλια</dd>
 			<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
-			<dd><a href="">Παλαιότερες καταχωρήσεις&raquo;</a>
+			<dd><a href="">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
 		</dl>
 		<div class="eof"></div>
 		<p>
