@@ -1,9 +1,6 @@
 div#journalview {
 	margin-bottom: 20px;
 }
-div#journalview div.journal {
-	text-align: center;
-}
 div#journalview h2 {
 	margin: 0;
 	padding: 0;
@@ -34,8 +31,5 @@ div#journalview div.journal dl dd.addfav a {
 div#journalview div.journal p {
 	text-align: left;
 	width: 700px;
-	margin: 0 auto 20px auto;
-}
-div#journalview div.comments {
-	text-align: left;
+	margin: 0 0 20px 0;
 }
