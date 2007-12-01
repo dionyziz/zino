@@ -152,7 +152,7 @@ var Profileq = {
 		raw.appendChild( d.createTextNode( answer ) );
 	},
 	Delete : function( id ) {
-		Coala.Warm( 'question/deletea', {'id':id, 'callback':Profileq.DeleteCallback });
+		Coala.Warm( 'question/deletea', {'id':id, 'callback':Profileq.DeleteCallback, 'newquest':Profileq.ShowNewQuestion });
 	},
 	DeleteCallback : function( id ) {
 		var question = g( 'qedit_' + id ).parentNode;
