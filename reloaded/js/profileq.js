@@ -212,6 +212,9 @@ var Profileq = {
 
 	},
     ShowNewQuestion : function ( id, question, preid ) {
+    	if ( g( 'newquest' ) === null ) {
+    		return;
+    	}
         var prequestion = g( 'qedit_' + preid );
         var father = prequestion.parentNode.parentNode;
 
