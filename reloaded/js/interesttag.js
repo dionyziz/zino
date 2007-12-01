@@ -36,7 +36,7 @@ var InterestTag = {
     		}
     		
 			var li = InterestTag.createLi( allinterests[i] );
-			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 136, 136, 136 )";
+			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 150, 150, 150 )";
 			li.appendChild( d.createElement( 'br' ) );
 			ul.appendChild( li );
 		}
@@ -78,7 +78,7 @@ var InterestTag = {
 					Coala.Warm( 'interesttag/new', { 'text' : text } );
 					var li = InterestTag.createLi( text );
 					li.appendChild( d.createElement( 'br' ) );
-					li.style.backgroundColor = (childlen%2) ? "rgb( 136, 136, 136 )" : "rgb( 201, 201, 201 )";
+					li.style.backgroundColor = (childlen%2) ? "rgb( 150, 150, 150 )" : "rgb( 201, 201, 201 )";
 					bigpar.insertBefore( li, bigpar.childNodes[ childlen-1 ] );
 					g( "hereiam" ).focus();
 					input.value="";
