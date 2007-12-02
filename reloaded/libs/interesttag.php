@@ -11,15 +11,11 @@
             $water->Trace( 'Tag Invalid: Contains comma' );
             return false;
         }
-        if ( mb_strpos( $text, ' ' ) !== false ) {
-            $water->Trace( 'Tag Invalid: Contains space' );
-            return false;
-        }
         if ( mb_strpos( $text, "\t" ) !== false ) {
             $water->Trace( 'Tag Invalid: Contains ab' );
             return false;
         }
-        if ( mb_strlen( $text ) > 20 ) {
+        if ( mb_strlen( $text ) > 25 ) {
             $water->Trace( 'Tag Invalid: Too big' );
             return false;
         }

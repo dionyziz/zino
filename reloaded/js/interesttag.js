@@ -162,8 +162,20 @@ var InterestTag = {
 		return li; 
 	},
 	is_valid : function( val ) {
-    	if ( val.length === 0 || val.length > 20 || val.indexOf( ',' ) != -1 || val.indexOf( ' ' ) != -1 ) {
-        	alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον ή να χρησιμοποιήσεις κόμμα (,) ή κενά ή να έχει πάνω απο 20 χαρακτήρες" );
+    	if ( val.length === 0 ) {
+    		alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
+    		return false;
+    	}
+    	if ( val.length > 25 ) {
+    		alert( "Δεν επιτρέπεται να έχεις ενδιαφέρον με μήκος μεγαλύτερο των 25 χαρακτήρων" );
+    		return false;
+    	}
+    	if ( val.indexOf( ',' ) != -1 ) {
+    		alert( "Δεν επιτρέπεται να χρησιμοποιήσεις κόμματα (,)" );
+    		return false;
+    	}
+    	if ( val.indexOf( '\t' ) != -1 ) {
+    		alert( "Δεν επιτρέπεται να χρησιμοποιήσεις τον χαρακτήρα tab" );
         	return false;
         }
         return true;
