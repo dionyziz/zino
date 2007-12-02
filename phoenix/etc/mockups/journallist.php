@@ -97,6 +97,10 @@
 					</dl>
 				</li>
 			</ul>
+			<div class="barfade">
+				<div class="leftbar"></div>
+				<div class="rightbar"></div>
+			</div>
 		</li>
 		<li>
 			<h3><a href="">Μαθηματικά και Γρίφοι</a></h3>
