@@ -35,6 +35,7 @@
 			για ένα σημαντικό ζήτημα και το δράμα που ζούνε μερικά άτομα. Έχω αλλάξει λίγο τη μορφή ώστε να...
 			</p>
 			<ul>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
 						<dt class="commentsnum"><a href="">45 σχόλια</a></dt>
@@ -45,7 +46,6 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 			<div class="barfade">
 				<div class="leftbar"></div>
@@ -61,6 +61,7 @@
 			το παραπάνω σχήμα: Ο είναι το σημείο...
 			</p>
 			<ul>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
 						<dt class="commentsnum"><a href="">126 σχόλια</a></dt>
@@ -71,7 +72,6 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 			<div class="barfade">
 				<div class="leftbar"></div>
@@ -85,6 +85,7 @@
 			αφορούν τη ζωή μας και ειδικά των νέων. Είναι αυτό της εκπαίδευσης. Νομίζω δε χρειάζονται...
 			</p>
 			<ul>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
 						<dt class="commentsnum"><a href="">96 σχόλια</a></dt>
@@ -95,7 +96,6 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -103,7 +103,8 @@
 			<p>Με αφορμή ένα album του  και επειδή ξέρω ότι σε πολλούς εδώ μέσα αρέσουν τα μαθηματικά και οι έξυπνοι 
 			γρίφοι σκέφτηκα ότι είναι μια καλή ιδέα να ανταλλάξουμε αυτά που ξέρουμε. Σκοπός του άρθρου...
 			</p>
-			<ul>
+			<ul>			
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
 						<dt class="commentsnum"><a href="">12 σχόλια</a></dt>
@@ -114,7 +115,6 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 			<div class="barfade">
 				<div class="leftbar"></div>
