@@ -16,9 +16,9 @@
         	return;
         }
         
-        if ( $user->Contributions() > $numanswers * 10 ) {
-        	$numanswers = count( $user->GetAnsweredQuestions() );
-       		$newquestion = $user->GetUnansweredQuestion();
+        $numanswers = count( $user->GetAnsweredQuestions() );
+       	if ( $user->Contributions() > $numanswers * 10 ) {
+        	$newquestion = $user->GetUnansweredQuestion();
        		if ( $newquestion !== false ) {
        			echo $newquest;
                 ?>( <?php

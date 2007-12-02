@@ -1165,6 +1165,10 @@
 			global $users;
 			global $db;
 			
+			if ( $this->Contributions() <= count( $this->GetAnsweredQuestions() ) ) { // no right to answer a new question
+				return false;
+			}
+			
 			$questionid = myescape( $questionid );
 			
 			$sql = "SELECT * FROM `$profileanswers` 
