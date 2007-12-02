@@ -17,10 +17,8 @@
 		$search->SetRequirement( 'text' );
 		$search->SetRequirement( 'pageviews' );
 		$search->SetRequirement( 'editors' );
-		$search->SetLimit( 3 );
-        $latest = array_merge( array( new Article( 797 ) ), $search->Get() );
-        // $search->SetLimit( 4 );
-		// $latest = $search->Get();
+        $search->SetLimit( 4 );
+		$latest = $search->Get();
 
 		$latestids = array();
 		?><div class="articles newestarticles"><?php
