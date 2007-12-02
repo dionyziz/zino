@@ -29,11 +29,12 @@ div#journallist ul li ul li {
 div#journallist ul li ul li dl {
 	padding: 0;
 	margin: 0;
-	display: inline;
+	
 }
 div#journallist ul li ul li dt {
 	padding: 0;
 	margin: 0;
+	display: inline;
 }
 div#journallist ul li ul li dl dt.commentsnum {
 	background-image: url('images/comment.png');
