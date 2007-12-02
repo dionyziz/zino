@@ -27,8 +27,8 @@
         ?> );<?php
 
         // Check to see if he can answer another question
+        $numanswers = count( $user->GetAnsweredQuestions() );
         if ( $user->Contributions() > $numanswers * 10 ) {
-		    $numanswers = count( $user->GetAnsweredQuestions() );
 		    $newquestion = $user->GetUnansweredQuestion();
 		    if ( $newquestion !== false ) {
             	echo $newquest;
