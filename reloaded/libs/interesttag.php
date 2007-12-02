@@ -1,7 +1,29 @@
 <?php
 
 	function InterestTag_Valid( $text ) {
-		return !( mb_strlen( $text ) == 0 || mb_strpos( $text, ',' ) !== false || mb_strpos( $text, ' ' ) !== false || mb_strpos( $text, "\t" ) !== false || mb_strlen( $text ) > 20 );
+        global $water;
+        
+		if ( mb_strlen( $text ) == 0 ) {
+            $water->Trace( 'Tag Invalid: String length is 0' );
+            return false;
+        }
+        if ( mb_strpos( $text, ',' ) !== false ) {
+            $water->Trace( 'Tag Invalid: Contains comma' );
+            return false;
+        }
+        if ( mb_strpos( $text, ' ' ) !== false ) {
+            $water->Trace( 'Tag Invalid: Contains space' );
+            return false;
+        }
+        if ( mb_strpos( $text, "\t" ) !== false ) {
+            $water->Trace( 'Tag Invalid: Contains ab' );
+            return false;
+        }
+        if ( mb_strlen( $text ) > 20 ) {
+            $water->Trace( 'Tag Invalid: Too big' );
+            return false;
+        }
+        return true;
 	}
     
     function InterestTag_List( $usern, $offset = 0 , $length = 20 ) {

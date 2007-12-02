@@ -15,6 +15,8 @@
     
     Rabbit_ClearSuperGlobals();
     
+    mb_internal_encoding( 'UTF-8' );
+    
     // you might want to modify this require to the fullpath to your settings file
     $rabbit_settings = require_once 'settings.php'; // site-wise settings
 	
