@@ -1186,7 +1186,7 @@
 					LIMIT 1;";
 					
 			$res = $db->Query( $sql );
-			if ( !$change->Impact() ) {
+			if ( !$res->Impact() ) {
 				return false;
 			}
 			return true;

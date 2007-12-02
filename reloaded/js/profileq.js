@@ -164,6 +164,7 @@ var Profileq = {
 				Coala.Warm( 'question/undodeletea', {'id':id } );
 			};
 		link.appendChild( d.createTextNode( 'Αναίρεση Διαγραφής' ) );
+		link.style.cursor = "pointer";
 		
 		question.parentNode.insertBefore( link, question );
 	},
