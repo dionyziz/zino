@@ -152,37 +152,37 @@
 			}
 			
 			$email		= myescape( $email );
-			$msn 		= ( $msn !== false ) ? myescape( $msn ) : $user->MSN();
-			$skype		= ( $skype !== false ) ? myescape( $skype ) : $user->Skype();
-			$yim		= ( $yim !== false ) ? myescape( $yim ) : $user->YIM();
-			$aim		= ( $aim !== false ) ? myescape( $aim ) : $user->AIM();
-			$icq		= ( $icq !== false ) ? myescape( $icq ) : $user->ICQ();
-			$gtalk		= ( $gtalk !== false ) ? myescape( $gtalk ) : $user->Gtalk();
+			$msn 		= ( $msn !== false ) ? myescape( $msn ) : myescape( $user->MSN() );
+			$skype		= ( $skype !== false ) ? myescape( $skype ) : myescape( $user->Skype() );
+			$yim		= ( $yim !== false ) ? myescape( $yim ) : myescape( $user->YIM() );
+			$aim		= ( $aim !== false ) ? myescape( $aim ) : myescape( $user->AIM() );
+			$icq		= ( $icq !== false ) ? myescape( $icq ) : myescape( $user->ICQ() );
+			$gtalk		= ( $gtalk !== false ) ? myescape( $gtalk ) : myescape( $user->Gtalk() );
 			$gender		= myescape( $gender );
 			$dob		= myescape( $dob );
 			$slogan		= myescape( $slogan );
 			$place		= myescape( $place );
 			
 			if ( $height === false ) {
-				$height = $user->Height();
+				$height = myescape( $user->Height() );
 			}
 			else {
 				$height		= myescape( $height );
 			}
 			if ( $weight === false ) {
-				$weight = $user->Weight();
+				$weight = myescape( $user->Weight() );
 			}
 			else {
 				$weight		= myescape( $weight );
 			}
 			if ( $eyecolor === false ) {
-				$eyecolor = $user->EyeColor();
+				$eyecolor = myescape( $user->EyeColor() );
 			}
 			else {
 				$eyecolor	= myescape( $eyecolor );
 			}
 			if ( $haircolor === false ) {
-				$haircolor = $user->HairColor();
+				$haircolor = myescape( $user->HairColor() );
 			}
 			else {
 				$haircolor 	= myescape( $haircolor );
