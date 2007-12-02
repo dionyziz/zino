@@ -21,7 +21,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
+				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -41,7 +41,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
+				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -63,7 +63,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
+				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -83,7 +83,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
+				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -102,7 +102,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
+				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 	</ul>
