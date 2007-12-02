@@ -23,8 +23,7 @@
 				</li>
 				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
-			<div>
-				<div class="centerbar"></div>
+			<div class="barfade">
 				<div class="leftbar"></div>
 				<div class="rightbar"></div>
 			</div>
