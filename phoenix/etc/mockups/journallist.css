@@ -13,7 +13,7 @@ div#journallist ul li {
 }
 div#journallist ul li div.barfade {
 	border-bottom: 1px solid #c6c6c6;
-	margin-top: 2px;
+	margin-top: 5px;
 	clear: right;
 }
 div#journallist ul li div.barfade div.leftbar {
@@ -39,7 +39,7 @@ div#journallist ul li p {
 	/*border-bottom: 1px solid #cfcfcf;*/
 }
 div#journallist ul li ul {
-	padding: 5px 0 0 0;
+	padding: 3px 0 0 0;
 	margin: 0;
 	list-style: none;
 	width: 100%;
