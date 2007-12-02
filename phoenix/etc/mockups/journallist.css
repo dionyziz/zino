@@ -14,6 +14,7 @@ div#journallist ul li {
 div#journallist ul li div.barfade {
 	border-bottom: 1px solid #c6c6c6;
 	margin-top: 2px;
+	clear: right;
 }
 div#journallist ul li div.barfade div.leftbar {
 	float: left;
