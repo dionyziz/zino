@@ -198,7 +198,7 @@ var InterestTag = {
 			a.appendChild( d.createTextNode( text ) );
 			interests.appendChild( a );
 			if ( i != ul.childNodes.length-2 ) {
-				interests.appendChild( d.createTextNode( " " ) );
+				interests.appendChild( d.createTextNode( ", " ) );
 			}
 		}
 		var img = d.createElement( 'img' );
