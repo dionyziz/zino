@@ -4,7 +4,8 @@ div#journallist {
 }
 div#journallist ul {
 	padding: 0;
-	margin: 0;
+	margin: 0 0 0 170px;
+	list-style: none;
 }
 div#journallist ul li {
 	padding: 0;
@@ -18,6 +19,7 @@ div#journallist ul li ul {
 	padding: 0;
 	margin: 0;
 	border-top: 1px solid gray;
+	list-style: none;
 }
 div#journallist ul li ul li {
 	padding: 0;
