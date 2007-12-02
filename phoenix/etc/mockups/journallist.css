@@ -18,11 +18,11 @@ div#journallist ul li h3 {
 div#journallist ul li p {
 	padding: 0;
 	margin: 0;
+	border-bottom: 1px solid gray;
 }
 div#journallist ul li ul {
 	padding: 0;
 	margin: 0;
-	border-top: 1px solid gray;
 	list-style: none;
 }
 div#journallist ul li ul li {
