@@ -234,7 +234,7 @@
                                 echo htmlspecialchars( $tag->Text );
                                 ?>"><?php
                                 echo htmlspecialchars( $tag->Text );
-                                ?></a> <?php
+                                ?></a>, <?php
                             }
                             if ( $theuser->Id() == $user->Id() ) {
                             ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
