@@ -1,0 +1,44 @@
+div#journallist {
+
+
+}
+div#journallist ul {
+	padding: 0;
+	margin: 0;
+}
+div#journallist ul li {
+	padding: 0;
+	margin: 0;
+}
+div#journallist ul li h3 {
+	padding: 0;
+	margin: 0;
+}
+div#journallist ul li ul {
+	padding: 0;
+	margin: 0;
+	border-top: 1px solid gray;
+}
+div#journallist ul li ul li {
+	padding: 0;
+	margin: 0;
+	display: inline;
+}
+div#journallist ul li ul li dl {
+	padding: 0;
+	margin: 0;
+}
+div#journallist ul li ul li dt {
+	padding: 0;
+	margin: 0;
+}
+div#journallist ul li ul li dl dt.commentsnum {
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#journallist ul li ul li dl dt.addfav {
+	background-image: url('images/heart_add.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}

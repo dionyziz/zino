@@ -285,7 +285,6 @@
 					</li>
 				</ul>
 				<dl class="pollinfo">
-					
 					<dd><a href="">234 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" />
