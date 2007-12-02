@@ -11,6 +11,24 @@ div#journallist ul li {
 	padding: 10px 0 25px 0;
 	margin: 0;
 }
+div#journallist ul li div div.centerbar {
+	background-image: url('images/barfade-repeat.jpg');
+	background-repeat: repeat-x;
+	height: 1px;
+}
+div#journallist ul li div div.leftbar {
+	float: left;
+	background-image: url('images/barfade-left.jpg');
+	background-repeat: no-repeat;
+	height: 1px;
+	width: 153px;
+}
+div#journallist ul li div div.rightbar {
+	float: right;
+	background-image: url('images/barface-right.jpg');
+	height: 1px;
+	width: 153px;
+}
 div#journallist ul li h3 {
 	padding: 0;
 	margin: 0;
