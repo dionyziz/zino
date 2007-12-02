@@ -56,6 +56,7 @@
 		}
 		
 		$water->Profile( "Show answered questions" );
+		$water->Trace( "Answered Questions: " . $numanswers );
 		
 	
         ?><div><?php 
