@@ -10,9 +10,11 @@
     		$cid = $cid->Get();
     		$uid = $uid->Get();
 			
-    		$comm = New Comment( $cid );
-    		$rc = $comm->ReauthorComment( $uid );
-            return Redirect( "?p=story&id=" . $commentstory . "#comment_$rc" );
+    		$comment = New Comment( $cid );
+            $comment->UserId = $uid;
+            $comment->Save();
+
+            return Redirect( $comment->Url );
     	}
         return Redirect();
     }

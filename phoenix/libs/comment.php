@@ -13,21 +13,25 @@
 	
     class Comment extends Satori {
         protected $mId;
-        protected $mCreated;
+        protected $mCreated; // mysql datetime
+        protected $mDate; // day _greekmonth_ year
+        protected $mSinceDate; // e.g. 5 hours ago
+        protected $mUserId;
+        protected $mUser;
         protected $mUserIp;
         protected $mText;
         protected $mParentId;
         protected $mParent;
-        protected $mDate;
         protected $mDelId;
-        protected $mSinceDate;
         protected $mTypeId;
         protected $mPage;
         protected $mPageId;
-        protected $mUser;
         protected $mHasChilder;
         protected $mBulkId;
 
+        public function GetURL() {
+            return $this->Page->Url . "#comment_" . $this->Id;
+        }
         public function IsDeleted() {
             return $this->DelId > 0;
         }
@@ -115,7 +119,15 @@
                 if ( $this->Parent->Exists() ) {
                     $libs->Load( 'notify' );
 
-                    Notify_Create( $this->User->Id(), $this->Parent->User->Id(), $this->Id, $this->TypeId );
+                    $notify = New Notify();
+                    $notify->FromUserId   = $this->User->Id();
+                    $notify->ToUserId     = $this->Parent->User->Id();
+                    $notify->ItemId       = $this->Id;
+                    $notify->TypeId       = $this->TypeId;
+                    if ( !$notify->Save() ) {
+                        return false;
+                    }
+                    
                     Notify_CommentRead( $user->Id(), $this->Parent, $this->TypeId );
                 }
             }
@@ -184,16 +196,16 @@
 
             $this->Satori( $construct );
 			
-            if ( $this->mSubmitDate ) {
-				ParseDate( $this->mSubmitDate , 
+            if ( $this->mCreated ) {
+				ParseDate( $this->mCreated , 
 							$this->mCreateYear , $this->mCreateMonth , $this->mCreateDay ,
 							$this->mCreateHour , $this->mCreateMinute , $this->mCreateSecond );
 				
 				$dateTimestamp = gmmktime( $this->mCreateHour , $this->mCreateMinute , $this->mCreateSecond ,
 										   $this->mCreateMonth , $this->mCreateDay , $this->mCreateYear );
 				
-				$this->mDate = MakeDate( $this->mSubmitDate );
-				$this->mSinceDate = dateDiff( $this->mSubmitDate , NowDate() );
+				$this->mDate = MakeDate( $this->mCreated );
+				$this->mSinceDate = dateDiff( $this->mCreated, NowDate() );
 			}
             
 			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;

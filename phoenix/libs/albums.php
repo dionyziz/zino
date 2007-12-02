@@ -20,7 +20,7 @@
         protected $mId;
         protected $mUserId;
         protected $mUser;
-        protected $mCreated;
+        protected $mDate;
         protected $mHost;
         protected $mName;
         protected $mMainImage;
@@ -111,7 +111,7 @@
             $this->SetFields( array(
                 'album_id'          => 'Id',
                 'album_userid'      => 'UserId',
-                'album_created'     => 'Created',
+                'album_created'     => 'Date',
                 'album_description' => 'Description',
                 'album_host'        => 'Host',
                 'album_name'        => 'Name',

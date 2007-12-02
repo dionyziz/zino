@@ -5,70 +5,59 @@
     	global $rabbit_settings;
 		global $user;
 		
+    	$libs->Load( 'image/image' );
+
         if ( !$user->Exists() ) {
             return Redirect();
         }
 
-    	$libs->Load( 'image/image' );
-    	$libs->Load( 'albums' );
-    	$albumid = $albumid->Get();
-        
-		$album = new Album( $albumid );
-
-		if ( $album->Exists() && $album->Creator()->Id() != $user->Id() ) {
-			die( "You are not allowed to upload to this album! (" . $album->Id() . '/' . $album->DelId() . ')' );
-		}
-
     	if ( !isset( $_FILES['uploadimage']['name'] ) ) {
-            return Redirect( '?p=album&id=' . $albumid );
+            return Redirect( '?p=album&id=' . $album->Id );
     	}
         
         header( 'Content-type: text/html' );
+
+        $image = new Image();
+
+        $setTempFile = $image->TemporaryFile = $tempfile;
+        switch ( $setTempFile ) {
+            case -1: // too big file
+                ?><script type="text/javascript">
+                    alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
+                    window.location.href = <?php
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+                    ?>;
+                </script><?php
+                exit();
+            case -2: // bad extension
+                ?><html><head><title>Upload error</title><script type="text/javascript">
+                    alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
+                    document.location.href = <?php
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+                    ?>;
+                </script></head><body></body></html><?php
+                exit();
+            default:
+                break;
+        }
+
+        $setAlbumId  = $image->AlbumId = $albumid->Get();
+        if ( !$setAlbumId ) {
+			die( "You are not allowed to upload to this album!" );
+        }
         
-    	$imagename = mystrtolower( basename( $_FILES[ 'uploadimage' ][ 'name' ] ) );
-    	$extension = getextension( $imagename );
-    	if ( $extension != "jpg" && $extension != "jpeg" && $extension != "gif" && $extension != "png" ) {
-    		?><html><head><title>Upload error</title><script type="text/javascript">
-    			alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
-    			document.location.href = <?php
-    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
-    			?>;
-    		</script></head><body></body></html><?php
-    		exit();
-    	}
-    	if ( substr( $imagename , 0 , strlen( "usericon_" ) ) == "usericon_" ) {
-    		die( "upload2.php: Prefix found \"usericon_\"!" );
-    	}
-    	
-    	$tempfile = $_FILES['uploadimage']['tmp_name'];
-    	if ( filesize( $tempfile ) > 1024*1024 ) {
-    		?><script type="text/javascript">
-    			alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
-    			window.location.href = <?php
-    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
-    			?>;
-    		</script><?php
-    		exit();
-    	}
-    	
-        $extension = getextension( $imagename );
-    	$noextname = NoExtensionName( $imagename );
-    	if ( $noextname == '' ) {
-    		$imagename = 'noname' . rand( 1 , 20 ) . $extension;
-    	}
-    	$imageid = submit_photo( $imagename , $tempfile , $albumid , '' );
-    	if ( $imageid < 0 ) {
+        $res = $image->Submit();
+
+    	if ( $res < 0 ) {
 			?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
-                echo $errornum = $imageid;
+                echo $errornum = $res;
                 ?>)' );
     			window.location.href = <?php
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;
     		</script></head><body></body></html><?php
 		}
-		
-		Image_Added();
 		
 		?><html>
         <head>

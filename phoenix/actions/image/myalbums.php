@@ -1,7 +1,6 @@
 <?php
     function ActionImageMyAlbums() {
     	global $user;
-    	global $settings;
 
     	if ( $user->IsAnonymous() ) {
             return Redirect( '?p=register' );
