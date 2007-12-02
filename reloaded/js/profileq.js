@@ -155,8 +155,17 @@ var Profileq = {
 		Coala.Warm( 'question/deletea', {'id':id, 'callback':Profileq.DeleteCallback, 'newquest':Profileq.ShowNewQuestion });
 	},
 	DeleteCallback : function( id ) {
-		var question = g( 'qedit_' + id ).parentNode;
-		question.parentNode.removeChild( question );
+		var question = g( 'qedit_' + id );
+		question.style.display = "none";
+		
+		var link = d.createElement( 'a' );
+		link.id = 'qdel_' + id;
+		link.onclick = function() {
+				Coala.Warm( 'question/undodeletea', {'id':id } );
+			};
+		link.appendChild( d.createTextNode( 'Αναίρεση Διαγραφής' ) );
+		
+		question.parentNode.insertBefore( link, question );
 	},
 	AnswerCallback : function( id, answer, answerraw ) {
 		var element = g( 'newquest' );
