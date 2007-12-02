@@ -1,7 +1,7 @@
 <?php
 
 	function InterestTag_Valid( $text ) {
-		return !( strlen( trim( $text ) ) == 0 || strpos( $text, ',' ) !== false || strpos( $text, ' ' ) !== false || strlen( trim( $text ) ) > 20 );
+		return !( mb_strlen( $text ) == 0 || mb_strpos( $text, ',' ) !== false || mb_strpos( $text, ' ' ) !== false || mb_strpos( $text, "\t" ) !== false || mb_strlen( $text ) > 20 );
 	}
     
     function InterestTag_List( $usern, $offset = 0 , $length = 20 ) {
