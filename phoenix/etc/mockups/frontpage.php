@@ -82,9 +82,19 @@
 	    <i class="qbottom"></i>
 	    <i class="bl"></i><i class="br"></i>
 	</div>
-	<div>
+	<div class="recentevents">
 		<h2>Πρόσφατα γεγονότα</h2>
-		<ul>
-		</ul>
+        <ul>
+            <li class="comment action">ο <a href="user/izual" onclick="">izual</a> έγραψε σχόλιο στον <a href="user/dionyziz" onclick="">dionyziz</a></li>
+            <li class="comment action">o <a href="user/dionyziz" onclick="">dionyziz</a> έγραψε σχόλιο στην <a href="user/skater" onclick="">skater</a></li>
+            <li class="photo action"><a href="" onclick=""><img src="images/apple.jpg" alt="το μήλο που έφαγα" />o <a href="user/dionyziz" onclick="">dionyziz</a> ανέβασε την φωτογραφία <a href="" onclick="">το μήλο που έφαγα</a></li>
+            <li class="photo comment action"><a href="" onclick=""><img src="images/boxers.jpg" alt="το μποξεράκι μου" /></a>ο <a href="user/teddy14" onclick="">teddy14</a> σχολίασε την φωτογραφία του <a href="user/cafrillio" onclick="">Cafrillio</a> <a href="" onclick="">το μποξεράκι μου</a></li>
+            <li class="more">
+                <a href="" onclick="return false" class="rss">
+                    <img src="images/feed.png" alt="rss" title="RSS Feed" class="rss" />    
+                </a>
+                <a href="" class="more">παλιότερα συμβάντα</a>
+            </li>
+        </ul>
 	</div>
 </div>
