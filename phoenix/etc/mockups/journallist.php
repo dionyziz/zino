@@ -21,7 +21,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 			<div class="barfade">
 				<div class="leftbar"></div>
@@ -45,10 +45,9 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
-			<div>
-				<div class="centerbar"></div>
+			<div class="barfade">
 				<div class="leftbar"></div>
 				<div class="rightbar"></div>
 			</div>
@@ -72,8 +71,12 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
+			<div class="barfade">
+				<div class="leftbar"></div>
+				<div class="rightbar"></div>
+			</div>
 		</li>
 		<li>
 			<h3><a href="">Εκπαίδευση</a></h3>
@@ -92,7 +95,7 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 		</li>
 		<li>
@@ -111,8 +114,12 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
+			<div class="barfade">
+				<div class="leftbar"></div>
+				<div class="rightbar"></div>
+			</div>
 		</li>
 	</ul>
 
