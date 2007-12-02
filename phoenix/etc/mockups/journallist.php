@@ -23,6 +23,11 @@
 				</li>
 				<li><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
+			<div>
+				<div class="centerbar"></div>
+				<div class="leftbar"></div>
+				<div class="rightbar"></div>
+			</div>
 		</li>
 		<li>
 			<h3><a href="">Ιστορίες Αγάπης και Διαφθοράς (Las Vromitas)</a></h3>
