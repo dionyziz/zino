@@ -155,7 +155,7 @@ var Profileq = {
 		Coala.Warm( 'question/deletea', {'id':id, 'callback':Profileq.DeleteCallback, 'newquest':Profileq.ShowNewQuestion });
 	},
 	DeleteCallback : function( id ) {
-		var question = g( 'qedit_' + id );
+		var question = g( 'qedit_' + id ).parentNode;
 		question.style.display = "none";
 		
 		var link = d.createElement( 'a' );
