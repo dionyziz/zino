@@ -29,7 +29,7 @@
 								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
 								$hobbis = "";
 								foreach ( $hobsar as $hob ) {
-									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>&nbsp;";
+									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a> ";
 								}
 								echo $hobbis;
                                 ?></div><?php
