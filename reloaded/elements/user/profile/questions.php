@@ -31,7 +31,6 @@
 			$water->Profile( "Get unanswered question" );
 			
 			$question = $user->GetUnansweredQuestion();
-			$water->Trace( "Questions: UnansweredQuestion: " . $question );
 			if ( $question !== false ) {
 				// 1 question per 10 comments
 				if ( $user->Contributions() > $numanswers * 10 && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
