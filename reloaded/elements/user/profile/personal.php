@@ -229,13 +229,17 @@
 					echo $class;
 					?>><dt>ενδιαφέροντα</dt>
 						<dd id="interests"><?php
-                            foreach ( $tags as $tag ) {
-                            	?><a href="?p=tag&amp;text=<?php
-                                echo htmlspecialchars( $tag->Text );
+							$tagslen = count( $tags );
+							for ( $i = 0; $i < $tagslen;++$i ) {
+								?><a href="?p=tag&amp;text=<?php
+                                echo htmlspecialchars( $tags[ $i ]->Text );
                                 ?>"><?php
-                                echo htmlspecialchars( $tag->Text );
-                                ?></a>, <?php
-                            }
+                                echo htmlspecialchars( $tags[ $i ]->Text );
+                                ?></a><?php
+								if ( $i != $tagslen-1 ) {
+									?>, <?php
+								}
+							}
                             if ( $theuser->Id() == $user->Id() ) {
                             ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
                             }

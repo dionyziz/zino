@@ -28,8 +28,12 @@
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
 								$hobbis = "";
-								foreach ( $hobsar as $hob ) {
-									$hobbis .= "<a href='?p=tag&amp;text=" . $hob . "'>" . $hob . "</a>, ";
+								$hobslen = count( $hobsar );
+								for ( $i = 0; $i < $hobslen; ++$i ) {
+									$hobbis .= "<a href='?p=tag&amp;text=" . $hobsar[ $i ] . "'>" . $hobsar[ $i ] . "</a>";
+									if ( $i != $hobslen-1 ) {
+										$hobbis .= ", ";
+									}
 								}
 								echo $hobbis;
                                 ?></div><?php
