@@ -161,12 +161,19 @@ var Profileq = {
 		var link = d.createElement( 'a' );
 		link.id = 'qdel_' + id;
 		link.onclick = function() {
-				Coala.Warm( 'question/undodeletea', {'id':id } );
+				Coala.Warm( 'question/undodeletea', {'id':id, 'callback':Profileq.UndoDeleteCallback } );
 			};
 		link.appendChild( d.createTextNode( 'Αναίρεση Διαγραφής' ) );
 		link.style.cursor = "pointer";
 		
 		question.parentNode.insertBefore( link, question );
+	},
+	UndoDeleteCallback : function( id ) {
+		var deled = g( 'qdel_' + id );
+		deled.parentNode.removeChild( deled );
+		
+		var question = g( 'qedit_' + id ).parentNode;
+		question.style.display = "block";
 	},
 	AnswerCallback : function( id, answer, answerraw ) {
 		var element = g( 'newquest' );

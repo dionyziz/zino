@@ -1,5 +1,5 @@
 <?php
-	function UnitQuestionUndodeletea( tInteger $id ) {
+	function UnitQuestionUndodeletea( tInteger $id, tCoalaPointer $callback ) {
 		global $user;
 		global $libs;
 		
@@ -15,5 +15,10 @@
         	?>alert( 'Παρουσιάστηκε κάποιο πρόβλημα κατά την διαγραφή της ερώτησης' );<?php
         	return;
         }
+        
+        echo $callback;
+        ?>( <?php
+        echo $id;
+        ?> );<?php
 	}
 ?>
