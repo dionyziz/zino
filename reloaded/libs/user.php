@@ -1149,7 +1149,8 @@
 			
 			$questionid = myescape( $questionid );
 			
-			$sql = "DELETE FROM `$profileanswers` 
+			$sql = "UPDATE `$profileanswers` 
+					SET `profile_delid` = '1'
 					WHERE `profile_userid` = '" . $this->Id() . "' AND `profile_questionid` = '$questionid'
 					LIMIT 1;";
 			
