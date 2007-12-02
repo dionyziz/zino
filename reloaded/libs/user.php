@@ -1160,6 +1160,33 @@
 			}
 			return false;
 		}
+		public function UndoDeleteAnswer( $questionid ) {
+			global $profileanswers;
+			global $users;
+			global $db;
+			
+			$questionid = myescape( $questionid );
+			
+			$sql = "SELECT * FROM `$profileanswers` 
+					WHERE `profile_userid` = '" . $this->Id() . "' AND `profile_questionid` = '$questionid' AND `profile_delid` = '0'
+					LIMIT 1;";
+			
+			$res = $db->Query( $sql );
+			if ( $res->Results() ) { // tries to restore an answer that he later answered
+				return false;
+			}
+			
+			$sql = "UPDATE `$profileanswers`
+					SET `profile_delid` = '0'
+					WHERE `profile_userid` = '" . $this->Id() . "' AND `profile_questionid` = '$questionid' AND `profile_delid` = '1'
+					LIMIT 1;";
+					
+			$res = $db->Query( $sql );
+			if ( !$change->Impact() ) {
+				return false;
+			}
+			return true;
+		}
 		public function GetAnsweredQuestions() {
 			global $questions;
 			global $profileanswers;
