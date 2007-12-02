@@ -180,9 +180,9 @@
 					?>><dt>πανεπιστήμιο</dt>
 					<dd><?php
 					if ( $uni->Exists() ) {
-						echo $uni->Name;
+						echo htmlspecialchars( $uni->Name );
 						?> - <?php
-						echo $uni->Place->Name;
+						echo htmlspecialchars( $uni->Place->Name );
 					}
 					?></dd>
 					</dl></li><?php
