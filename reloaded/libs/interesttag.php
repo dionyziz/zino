@@ -65,7 +65,7 @@
 			}
 
 			$sql = "SELECT
-					SQL_CALC_FOUND_ROWS `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
+					SQL_CALC_FOUND_ROWS `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`, `image_userid`
 					FROM `$interesttags`
 						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
 						LEFT JOIN `$images` ON `user_icon` = `image_id`
