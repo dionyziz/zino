@@ -39,10 +39,14 @@ div#journallist ul li ul li dt {
 div#journallist ul li ul li dl dt.commentsnum {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
+}
+div#journallist ul li ul li dl dt.commentsnum a {
 	padding-left: 18px;
 }
 div#journallist ul li ul li dl dt.addfav {
 	background-image: url('images/heart_add.png');
 	background-repeat: no-repeat;
+}
+div#journallist ul li ul li dl dt.addfav a {
 	padding-left: 18px;
 }

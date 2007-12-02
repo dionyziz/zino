@@ -18,7 +18,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
 				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
@@ -38,7 +38,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
 				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
@@ -60,7 +60,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
 				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
@@ -80,7 +80,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
 				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
@@ -99,7 +99,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
 				<li><a href="">προβολή ολόκληρου&raquo;</a></li>
