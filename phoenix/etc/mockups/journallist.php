@@ -11,6 +11,7 @@
 			Έφτιαξα...
 			</p>
 			<ul>
+				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
 						<dt class="commentsnum"><a href="">54 σχόλια</a></dt>
@@ -21,7 +22,6 @@
 						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
 					</dl>
 				</li>
-				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 			</ul>
 			<div class="barfade">
 				<div class="leftbar"></div>
