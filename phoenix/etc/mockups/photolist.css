@@ -43,14 +43,15 @@ div#photolist ul li {
 div#photolist ul li div {
 	width: 200px;
 }
-div#photolist ul li div span {
-
+div#photolist ul li div h3 {
+	display: inline;
+	font-size: 100%;
 }
 div#photolist ul li div dl {
 	padding: 0;
 	margin: 0;
 }
-div#photolist ul li div dl dt.addfav {	
+div#photolist ul li div dl dd.addfav {	
 	padding: 0;
 	margin: 0;
 	display: inline;
