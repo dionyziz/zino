@@ -21,7 +21,7 @@
         protected $mUserId;
         protected $mUser;
         protected $mDate;
-        protected $mHost;
+        protected $mUserIp;
         protected $mName;
         protected $mMainImage;
         protected $mDescription;
@@ -113,7 +113,7 @@
                 'album_userid'      => 'UserId',
                 'album_created'     => 'Date',
                 'album_description' => 'Description',
-                'album_host'        => 'Host',
+                'album_host'        => 'UserIp',
                 'album_name'        => 'Name',
                 'album_mainimage'   => 'MainImage',
                 'album_delid'       => 'DelId',
