@@ -6,18 +6,19 @@ div#photolist dl {
 	padding: 0;
 	margin: 0;
 }
-div#photolist dl dd.photonum {
+div#photolist dl dt.photonum {
 	background-image: url('images/photo.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 19px;
 	margin: 0;
 	display: inline;
 	font-size: 90%;
+	
 }
-dd.commentsnum {
+dt.commentsnum {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
-	padding: 0 0 0 18px;
+	padding: 0 0 0 4px;
 	margin: 0;
 	display: inline;
 	font-size: 90%;
@@ -55,7 +56,7 @@ div#photolist ul li div dl {
 	padding: 0;
 	margin: 0;
 }
-div#photolist ul li h3 dl dd.addfav {	
+div#photolist ul li h3 dl dt.addfav {	
 	padding: 0 0 0 5px;
 	margin: 0;
 	display: inline;
