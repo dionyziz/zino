@@ -39,14 +39,12 @@ div#photolist ul li {
 	float: left;
 	width: 210px;
 	height: 270px;
-	border: 1px solid red;
 	text-align: center;
 }
 div#photolist ul li div {
 	width: 200px;
 }
 div#photolist ul li h3 {
-	/*display: inline;*/
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
