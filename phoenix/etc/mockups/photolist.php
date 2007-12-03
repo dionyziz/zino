@@ -13,8 +13,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -23,8 +23,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -33,8 +33,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -43,8 +43,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -53,8 +53,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -63,8 +63,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -73,8 +73,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>	
 		</li>
@@ -83,8 +83,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -93,8 +93,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -103,8 +103,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -113,8 +113,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
@@ -123,8 +123,8 @@
 			<div>
 				<span>ωραίος ουρανοξύστης</span>
 				<dl>
-					<dt class="commentsnum">202</dt>
-					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+					<dd class="commentsnum">202</dd>
+					<dd class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dd>
 				</dl>
 			</div>
 		</li>
