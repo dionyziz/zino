@@ -43,7 +43,7 @@ div#photolist ul li {
 div#photolist ul li div {
 	width: 200px;
 }
-div#photolist ul li div h3 {
+div#photolist ul li h3 {
 	/*display: inline;*/
 	font-size: 100%;
 	font-weight: normal;
