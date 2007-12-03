@@ -17,6 +17,6 @@
 	
 	
 	</ul>
-
+	<div class="eof"></div>
 
 </div>
