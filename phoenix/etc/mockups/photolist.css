@@ -18,7 +18,7 @@ div#photolist dl dt.photonum {
 dt.commentsnum {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
-	padding: 0 0 0 4px;
+	padding: 0 0 0 18px;
 	margin: 0;
 	display: inline;
 	font-size: 90%;
