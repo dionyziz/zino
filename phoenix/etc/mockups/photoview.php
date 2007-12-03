@@ -21,6 +21,7 @@ function Unhover( node ) {
 	<div class="thephoto">
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
+    <bdo dir="rtl">
 	<div class="photothumbs">
 		<ul>
 			<li class="nav"><a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a></li>
@@ -34,6 +35,7 @@ function Unhover( node ) {
 			<li class="nav"><a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a></li>
 		</ul>
 	</div>
+    </bdo>
 	<div class="comments">
 		<div class="comment newcomment">
 			<div class="toolbox">
