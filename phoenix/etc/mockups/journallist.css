@@ -65,7 +65,7 @@ div#journallist ul li ul li dt {
 div#journallist ul li ul li dl dt.commentsnum {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
-	padding: 0 0 0 3px;
+	padding: 0 0 0 4px;
 }
 div#journallist ul li ul li dl dt.commentsnum a {
 	padding-left: 18px;
