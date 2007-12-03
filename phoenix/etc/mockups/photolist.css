@@ -52,7 +52,7 @@ div#photolist ul li h3 {
 div#photolist ul li h3 a span {
 	display: block;
 }
-div#photolist ul li div dl {
+div#photolist ul li h3 dl {
 	padding: 2px 0 0 0;
 	margin: 0;
 }
