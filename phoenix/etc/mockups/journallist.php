@@ -38,12 +38,12 @@
 				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">45 σχόλια</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="commentsnum"><a href="">45 σχόλια</a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -64,12 +64,12 @@
 				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">126 σχόλια</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="commentsnum"><a href="">126 σχόλια</a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -88,12 +88,12 @@
 				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">96 σχόλια</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="commentsnum"><a href="">96 σχόλια</a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -111,12 +111,12 @@
 				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">12 σχόλια</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="commentsnum"><a href="">12 σχόλια</a></dt>
 					</dl>
 				</li>
 			</ul>
