@@ -1,4 +1,5 @@
 <?php
+
     function ActionImageUpload2( tInteger $albumid ) {
     	global $libs;
         global $water;
@@ -11,8 +12,10 @@
             return Redirect();
         }
 
+        $albumid = $albumid->Get();
+
     	if ( !isset( $_FILES['uploadimage']['name'] ) ) {
-            return Redirect( '?p=album&id=' . $album->Id );
+            return Redirect( '?p=album&id=' . $albumid );
     	}
         
         header( 'Content-type: text/html' );
@@ -41,7 +44,7 @@
                 break;
         }
 
-        $setAlbumId  = $image->AlbumId = $albumid->Get();
+        $setAlbumId  = $image->AlbumId = $albumid;
         if ( !$setAlbumId ) {
 			die( "You are not allowed to upload to this album!" );
         }
@@ -65,14 +68,13 @@
         </head>
         <body>
         <script type="text/javascript"><?php
-		$image = New Image( $imageid );
     	if ( $albumid != 0 ) {
     		$album = New Album( $albumid );
     		$size = $image->ProportionalSize( 210 , 210 );
     		$jsimage = array(
-    			'id' => $image->Id(),
-				'userid' => $image->UserId(),
-    			'name' => NoExtensionName( $image->Name() ),
+    			'id' => $image->Id,
+				'userid' => $image->UserId,
+    			'name' => NoExtensionName( $image->Name ),
     			'albumid' => $albumid,
     			'width' => $size[ 0 ],
     			'height' => $size[ 1 ],
@@ -94,4 +96,5 @@
     	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     	?>;</script></body></html><?php
     }
+
 ?>
