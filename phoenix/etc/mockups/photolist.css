@@ -6,11 +6,13 @@ div#photolist dl dd.photonum {
 	background-image: url('images/photo.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
+	display: inline;
 }
 div#photolist dl dd.commentsnum {
 	background-image: url('images/comment.png');
 	background-image: no-repeat;
 	padding-left: 18px;
+	display: inline;
 }
 div#photolist ul {
 	padding: 0;
@@ -26,4 +28,5 @@ div#photolist ul li {
 	float: left;
 	width: 200px;
 	height: 200px;
+	border: 1px solid red;
 }

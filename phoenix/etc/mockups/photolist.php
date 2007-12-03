@@ -14,7 +14,12 @@
 		<li>photo4</li>
 		<li>photo5</li>
 		<li>photo6</li>
-	
+		<li>photo7</li>
+		<li>photo8</li>
+		<li>photo9</li>
+		<li>photo10</li>
+		<li>photo11</li>
+		<li>photo12</li>
 	
 	</ul>
 	<div class="eof"></div>
