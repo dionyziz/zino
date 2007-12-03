@@ -120,11 +120,11 @@
 			<h3>
 				<a href="">
 					<img src="images/ph10.jpg" alt="Ουρανοξύστης 10" title="Ουρανοξύστης 10" />
-					<span></span>
+					<span>ωραία σύννεφα</span>
 				</a>
 				<dl>
 					<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
-					<dt class="commentsnum">202</dt>
+					<dt class="commentsnum">342</dt>
 				</dl>
 			</h3>
 		</li>
