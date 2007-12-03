@@ -19,7 +19,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -43,7 +43,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -69,7 +69,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -93,7 +93,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 			</ul>
@@ -116,7 +116,7 @@
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 			</ul>

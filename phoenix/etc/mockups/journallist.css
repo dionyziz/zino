@@ -72,9 +72,9 @@ div#journallist ul li ul li dl dt.commentsnum a {
 	font-size: 90%;
 }
 div#journallist ul li ul li dl dt.addfav {
-	background-image: url('images/heart_add.png');
-	background-repeat: no-repeat;
-	padding-right: 5px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	display: inline;
 }
 div#journallist ul li ul li dl dt.addfav a {
 	padding-left: 18px;

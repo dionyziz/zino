@@ -13,7 +13,6 @@ div#photolist dl dd.photonum {
 	margin: 0;
 	display: inline;
 	font-size: 90%;
-	
 }
 dd.commentsnum {
 	background-image: url('images/comment.png');
@@ -57,7 +56,7 @@ div#photolist ul li div dl {
 	margin: 0;
 }
 div#photolist ul li h3 dl dd.addfav {	
-	padding: 0;
+	padding: 0 0 0 5px;
 	margin: 0;
 	display: inline;
 }
