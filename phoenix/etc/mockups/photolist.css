@@ -44,7 +44,7 @@ div#photolist ul li div {
 	width: 200px;
 }
 div#photolist ul li div h3 {
-	display: inline;
+	/*display: inline;*/
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
