@@ -36,6 +36,7 @@ div#photolist ul li {
 	margin: 0;
 	float: left;
 	width: 250px;
-	height: 200px;
+	height: 250px;
 	border: 1px solid red;
+	text-align: center;
 }
