@@ -28,14 +28,13 @@ div#photoview div.photothumbs {
 	height: 173px;
 	overflow: hidden;
 	margin-bottom: 20px;
+    text-align: center;
 }
 div#photoview div.photothumbs ul {
 	padding: 0;
 	list-style: none;
-	width: 100%;
 	margin: 20px auto;
-	text-align: center;
-	height: 160px;
+    display: inline;
 }
 div#photoview div ul li{
 	padding: 0 2px 0 2px;
