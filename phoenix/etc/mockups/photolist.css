@@ -54,8 +54,3 @@ div#photolist ul li div dl dt.addfav {
 	padding: 0;
 	margin: 0;
 }
-div#photolist ul li div dl dt.addfav a {
-	background-image: url('images/heart_add.png');
-	background-repeat: no-repeat;
-	padding-left: 20px;
-}
