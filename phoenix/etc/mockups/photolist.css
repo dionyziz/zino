@@ -53,4 +53,5 @@ div#photolist ul li div dl {
 div#photolist ul li div dl dt.addfav {	
 	padding: 0;
 	margin: 0;
+	display: inline;
 }
