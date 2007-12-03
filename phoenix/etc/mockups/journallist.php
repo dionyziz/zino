@@ -14,12 +14,12 @@
 				<li class="readwhole"><a href="">Προβολή ολόκληρου&raquo;</a></li>
 				<li>
 					<dl>
-						<dt class="commentsnum"><a href="">54 σχόλια</a></dt>
+						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
 					</dl>
 				</li>
 				<li>
 					<dl>
-						<dt class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="commentsnum"><a href="">54 σχόλια</a></dt>
 					</dl>
 				</li>
 			</ul>
