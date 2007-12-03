@@ -13,7 +13,6 @@ div#photolist dl dt.photonum {
 	margin: 0;
 	display: inline;
 	font-size: 90%;
-	
 }
 dt.commentsnum {
 	background-image: url('images/comment.png');
