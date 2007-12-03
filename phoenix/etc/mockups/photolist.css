@@ -56,7 +56,9 @@ div#photolist ul li div dl {
 	margin: 0;
 }
 div#photolist ul li h3 dl dt.addfav {	
-	padding: 0 0 0 5px;
+	background-image: url('images/heart_add.png');
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
 	margin: 0;
 	display: inline;
 }
