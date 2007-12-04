@@ -4,7 +4,7 @@ div#interestlist {
 	/*text-align: center;*/
 }
 div#interestlist div.list {
-	margin: 0 auto;
+	margin: 0 auto 0 auto;
 }
 div#interestlist div div.addhobby {
 	text-align: left;
