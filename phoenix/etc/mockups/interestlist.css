@@ -1,7 +1,6 @@
 div#interestlist {
-	margin-bottom: 20px;
+	margin: 0 auto 20px auto;
 	width: 80%;
-	text-align: center;
 }
 div#interestlist div.addhobby {
 	/*text-align: left;*/
