@@ -1,6 +1,6 @@
 <div id="interestlist">
 	<h2>άτομα με hobby: sex</h2>
-	<div class="addhobby"><a href="" style="font-size: 105%;"Προσθήκη στα hobbies μου</a></div>
+	<div class="addhobby"><a href="" style="font-size: 105%;">Προσθήκη στα hobbies μου</a></div>
 	<div class="list">
 		<div class="people">
 			<ul>
