@@ -31,6 +31,10 @@ div#interestlist div.list div.people {
 div#interestlist div.list div.popularhobbies {
 	text-align: left;
 }
+div#interestlist div.list div.popularhobbies h3 {
+	padding: 0;
+	margin: 0;
+}
 div#interestlist div.list div.popularhobbies  ul {
 	list-style: none;
 	padding: 0;

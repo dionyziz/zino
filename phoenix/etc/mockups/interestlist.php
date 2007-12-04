@@ -17,7 +17,7 @@
 			<div class="eof"></div>
 		</div>
 		<div class="popularhobbies">
-			<span>Άλλα hobbies</span>
+			<h3>Άλλα hobbies</h3>
 			<ul>
 				<li><a href="" style="font-size: 105%">πλέξιμο</a></li>
 				<li><a href="" style="font-size: 190%">κορίτσια</a></li>
