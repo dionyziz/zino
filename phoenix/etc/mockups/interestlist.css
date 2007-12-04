@@ -32,8 +32,9 @@ div#interestlist div.list div.popularhobbies {
 	text-align: left;
 }
 div#interestlist div.list div.popularhobbies h3 {
-	padding: 0;
+	padding: 0 0 10px 0;
 	margin: 0;
+	font-size: 110%;
 }
 div#interestlist div.list div.popularhobbies  ul {
 	list-style: none;
