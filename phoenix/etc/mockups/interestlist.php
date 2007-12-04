@@ -1,5 +1,5 @@
 <div id="interestlist">
-	<div>
+	<div class="list">
 		<h2>άτομα με hobby: sex</h2>
 		<div class="addhobby">Προσθήκη στα hobbies μου</div>
 		<div class="people">

@@ -3,7 +3,7 @@ div#interestlist {
 	width: 80%;
 	text-align: center;
 }
-div#interestlist div {
+div#interestlist div.list {
 	margin: 0 auto;
 }/*
 div#interestlist div div.addhobby {
