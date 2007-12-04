@@ -1,13 +1,17 @@
 div#interestlist {
-	margin: 0 auto 20px auto;
+	margin-bottom: 20px;
 	width: 80%;
+	text-align: center;
 }
-div#interestlist div.addhobby {
-	/*text-align: left;*/
+div#interestlist div {
+	margin: 0 auto;
 }
-div#interestlist div.people {
-	/*text-align: left;*/
+div#interestlist div div.addhobby {
+	text-align: left;
 }
-div#interestlist div.popularhobbies {
-	/*text-align: left;*/
+div#interestlist div div.people {
+	text-align: left;
+}
+div#interestlist div div.popularhobbies {
+	text-align: left;
 }
