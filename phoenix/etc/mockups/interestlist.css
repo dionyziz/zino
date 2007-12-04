@@ -9,6 +9,7 @@ div#interestlist h2 {
 }
 div#interestlist div.addhobby {
 	text-align: left;
+	padding-top: 3px;
 }
 div#interestlist div.addhobby a {
 	background-image: url('images/add.png');
@@ -20,13 +21,23 @@ div#interestlist div.list {
 	margin: 0 auto 0 auto;
 	padding: 20px 0 5px 0;
 }
-div#interestlist div div.addhobby {
+div#interestlist div.list div.addhobby {
 	text-align: left;
 }
-div#interestlist div div.people {
+div#interestlist div.list div.people {
 	text-align: left;
 	overflow: hidden;
 }
-div#interestlist div div.popularhobbies {
+div#interestlist div.list div.popularhobbies {
 	text-align: left;
 }
+div#interestlist div.list div.popularhobbies  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+div#interestlist div.list div.popularhobbies ul li {
+	padding: 0;
+	margin: 0;
+}
+	
