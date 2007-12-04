@@ -2,6 +2,13 @@ div#interestlist {
 	margin-bottom: 20px;
 	text-align: center;
 }
+div#interestlist h2 {
+	margin: 0;
+	padding: 0;
+}
+div#interestlist div.addhobby {
+
+}
 div#interestlist div.list {
 	width: 80%;
 	margin: 0 auto 0 auto;
