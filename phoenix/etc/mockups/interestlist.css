@@ -1,0 +1,14 @@
+div#interestlist {
+	margin-bottom: 20px;
+	width: 80%;
+	text-align: center;
+}
+div#interestlist div.addhobby {
+	text-align: left;
+}
+div#interestlist div.people {
+	text-align: left;
+}
+div#interestlist div.popularhobbies {
+	text-align: left;
+}
