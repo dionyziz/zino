@@ -20,41 +20,41 @@
 			<span>Άλλα hobbies</span>
 			<ul>
 				<li><a href="" style="font-size: 105%">πλέξιμο</a></li>
-				<li><a href="" style="font-size: 215%">κορίτσια</a></li>
-				<li><a href="" style="font-size: 300%">Bill Kaulitz</a></li>
-				<li><a href="" style="font-size: 270%">sex</a></li>
-				<li><a href="" style="font-size: 255%">pc</a></li>
+				<li><a href="" style="font-size: 190%">κορίτσια</a></li>
+				<li><a href="" style="font-size: 200%">Bill Kaulitz</a></li>
+				<li><a href="" style="font-size: 180%">sex</a></li>
+				<li><a href="" style="font-size: 175%">pc</a></li>
 				<li><a href="" style="font-size: 100%">κολύμπι</a></li>
-				<li><a href="" style="font-size: 190%">skate</a></li>
-				<li><a href="" style="font-size: 280%">music</a></li>
-				<li><a href="" style="font-size: 300%">Tokio Hotel</a></li>
-				<li><a href="" style="font-size: 205%">αυτοκίνητα</a></li>
-				<li><a href="" style="font-size: 145%">γατάκια</a></li>
-				<li><a href="" style="font-size: 270%">αγόρια</a></li>
-				<li><a href="" style="font-size: 195%">parkour</a></li>
-				<li><a href="" style="font-size: 185%">tennis</a></li>
-				<li><a href="" style="font-size: 145%;">φαγητό</a></li>
-				<li><a href="" style="font-size: 120%;">underage</a></li>
+				<li><a href="" style="font-size: 120%">skate</a></li>
+				<li><a href="" style="font-size: 180%">music</a></li>
+				<li><a href="" style="font-size: 200%">Tokio Hotel</a></li>
+				<li><a href="" style="font-size: 175%">αυτοκίνητα</a></li>
+				<li><a href="" style="font-size: 135%">γατάκια</a></li>
+				<li><a href="" style="font-size: 190%">αγόρια</a></li>
+				<li><a href="" style="font-size: 165%">parkour</a></li>
+				<li><a href="" style="font-size: 160%">tennis</a></li>
+				<li><a href="" style="font-size: 130%;">φαγητό</a></li>
+				<li><a href="" style="font-size: 110%;">underage</a></li>
 				<li><a href="" style="font-size: 100%;">ουρολαγνία</a></li>
-				<li><a href="" style="font-size: 295%;">κορίτσια</a></li>
-				<li><a href="" style="font-size: 205%;">καφρίλες</a></li>
+				<li><a href="" style="font-size: 195%;">κορίτσια</a></li>
+				<li><a href="" style="font-size: 140%;">καφρίλες</a></li>
 				<li><a href="" style="font-size: 120%;">kogi</a></li>
 				<li><a href="" style="font-size: 105%;">μπαλέτο</a></li>
-				<li><a href="" style="font-size: 235%;">ψώνια</a></li>
-				<li><a href="" style="font-size: 200%;">flirt</a></li>
-				<li><a href="" style="font-size: 185%;">βόλτες</a></li>
-				<li><a href="" style="font-size: 270%;">καφές</a></li>
-				<li><a href="" style="font-size: 120%;">μαθηματικά</a></li>
-				<li><a href="" style="font-size: 135%;">αλητείες</a></li>
-				<li><a href="" style="font-size: 185%;">ποδήλατο</a></li>
-				<li><a href="" style="font-size: 190%;">Linkin Park</a></li>
+				<li><a href="" style="font-size: 195%;">ψώνια</a></li>
+				<li><a href="" style="font-size: 170%;">flirt</a></li>
+				<li><a href="" style="font-size: 165%;">βόλτες</a></li>
+				<li><a href="" style="font-size: 195%;">καφές</a></li>
+				<li><a href="" style="font-size: 105%;">μαθηματικά</a></li>
+				<li><a href="" style="font-size: 125%;">αλητείες</a></li>
+				<li><a href="" style="font-size: 150%;">ποδήλατο</a></li>
+				<li><a href="" style="font-size: 135%;">Linkin Park</a></li>
 				<li><a href="" style="font-size: 100%;">κουκλοθέατρο</a></li>
-				<li><a href="" style="font-size: 135%;">ζωγραφική</a></li>
+				<li><a href="" style="font-size: 105%;">ζωγραφική</a></li>
 				<li><a href="" style="font-size: 100%;">φιλοσοφία</a></li>
-				<li><a href="" style="font-size: 175%;">εκδρομές</a></li>
+				<li><a href="" style="font-size: 150%;">εκδρομές</a></li>
 				<li><a href="" style="font-size: 100%;">ποίηση</a></li>
-				<li><a href="" style="font-size: 205%;">ταινίες</a></li>
-				<li><a href="" style="font-size: 220%;">cinema</a></li>
+				<li><a href="" style="font-size: 180%;">ταινίες</a></li>
+				<li><a href="" style="font-size: 155%;">cinema</a></li>
 			</ul>
 		</div>
 	</div>
