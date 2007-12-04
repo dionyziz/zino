@@ -25,7 +25,7 @@ div#interestlist div div.addhobby {
 }
 div#interestlist div div.people {
 	text-align: left;
-	width: 100%;
+	overflow: hidden;
 }
 div#interestlist div div.popularhobbies {
 	text-align: left;
