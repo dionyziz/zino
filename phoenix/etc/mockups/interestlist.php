@@ -19,26 +19,26 @@
 		<div class="popularhobbies">
 			<span>Άλλα hobbies</span>
 			<ul>
-				<li>πλέξιμο</li>
-				<li>κορίτσια</li>
-				<li>Bill Kaulitz</li>
-				<li>sex</li>
-				<li>pc</li>
-				<li>κολύμπι</li>
-				<li>skate</li>
-				<li>music</li>
-				<li>Tokio Hotel</li>
-				<li>αυτοκίνητα</li>
-				<li>γατάκια</li>
-				<li>αγόρια</li>
-				<li>parkour</li>
-				<li>tennis</li>
-				<li>φαγητό</li>
-				<li>underage</li>
-				<li>ουρολαγνία</li>
-				<li>κορίτσια</li>
-				<li>καφρίλες</li>
-				<li>kogi</li>
+				<li><a href="">πλέξιμο</a></li>
+				<li><a href="">κορίτσια</a></li>
+				<li><a href="">Bill Kaulitz</a></li>
+				<li><a href="">sex</a></li>
+				<li><a href="">pc</a></li>
+				<li><a href="">κολύμπι</a></li>
+				<li><a href="">skate</a></li>
+				<li><a href="">music</a></li>
+				<li><a href="">Tokio Hotel</a></li>
+				<li><a href="">αυτοκίνητα</a></li>
+				<li><a href="">γατάκια</a></li>
+				<li><a href="">αγόρια</a></li>
+				<li><a href="">parkour</a></li>
+				<li><a href="">tennis</a></li>
+				<li><a href="">φαγητό</a></li>
+				<li><a href="">underage</a></li>
+				<li><a href="">ουρολαγνία</a></li>
+				<li><a href="">κορίτσια</a></li>
+				<li><a href="">καφρίλες</a></li>
+				<li><a href="">kogi</a></li>
 			</ul>
 		</div>
 	</div>
