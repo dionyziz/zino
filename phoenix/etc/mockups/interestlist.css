@@ -39,5 +39,7 @@ div#interestlist div.list div.popularhobbies  ul {
 div#interestlist div.list div.popularhobbies ul li {
 	padding: 0;
 	margin: 0;
+	display: inline;
+	padding: 2px 4px;
 }
 	
