@@ -1,18 +1,24 @@
 div#interestlist {
 	margin-bottom: 20px;
 	text-align: center;
+	padding-top: 20px;
 }
 div#interestlist h2 {
 	margin: 0;
 	padding: 0;
-	text-align: left;
 }
 div#interestlist div.addhobby {
-
+	text-align: left;
+}
+div#interestlist div.addhobby a {
+	background-image: url('images/add.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
 }
 div#interestlist div.list {
 	width: 80%;
 	margin: 0 auto 0 auto;
+	padding: 20px 0 5px 0;
 }
 div#interestlist div div.addhobby {
 	text-align: left;
