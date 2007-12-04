@@ -5,6 +5,7 @@ div#interestlist {
 div#interestlist h2 {
 	margin: 0;
 	padding: 0;
+	text-align: left;
 }
 div#interestlist div.addhobby {
 
