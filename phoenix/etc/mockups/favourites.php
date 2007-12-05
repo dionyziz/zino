@@ -9,7 +9,7 @@
 		</ul>
 		<div class="eof"></div>
 		<ul class="favcontent">
-			<li class="poll" style="padding-top:0;">
+			<li class="poll">
 				<div><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a></div>
 			</li>
 			<li class="journal">
