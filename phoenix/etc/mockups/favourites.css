@@ -28,7 +28,7 @@ div#favourites div.list ul.favcontent {
 	list-style: none;
 }
 div#favourites div.list  ul.favcontent li {
-	padding: 0;
+	padding: 0 0 0 5px;
 	margin: 0;
 	border: 1px solid gray;
 }
@@ -41,6 +41,9 @@ div#favourites div.list ul.favcontent li.photo{
 	background-image: url('images/photo.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
+}
+div#favourites div.list ul.favcontent li.photo img {
+	display: block;
 }
 div#favourites div.list ul.favcontent li.journal {
 	background-image: url('images/book.png');
