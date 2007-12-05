@@ -19,14 +19,17 @@ div#favourites div.list ul.favcategories {
 	float: right;
 }
 div#favourites div.list ul.favcategories li {
-	margin: 0 2px;
+	margin: 0 0 0 5px;
 	padding: 0;
 	float: right;
-	height: 20px;
+	height: 25px;
 	width: 30px;
 	text-align: center;
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
+}
+div#favourites div.list ul.favcategories li img {
+	padding-top: 2px;
 }
 div#favourites div.list ul.favcontent {
 	padding: 0;
