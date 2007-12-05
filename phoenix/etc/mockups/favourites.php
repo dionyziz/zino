@@ -10,30 +10,36 @@
 		<div class="eof"></div>
 		<ul class="favcontent">
 			<li class="poll">
-				<div>Πόσες φορές τη βδομάδα βαράς μαλακία; από dionyziz</div>
+				<div><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a></div>
 			</li>
 			<li class="journal">
-				<div>MacGuyver sandwich από Izual</div>
+				<div><a href="">MacGuyver sandwich</a> από <a href="">Izual</a></div>
 			</li>
 			<li class="photo">
-				<div>Γαμάτος ουρανοξύστης από Izual</div>
-				<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+				<div>
+					<a href="">Γαμάτος ουρανοξύστης από Izual
+						<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+					</a>
+				</div>
 			</li>
 			<li class="journal">
-				<div>Tokio Hotel από Skater</div>
+				<div><a href="">Tokio Hotel</a> από <a href="">Skater</a></div>
 			</li>
 			<li class="poll">
-				<div>Τι να γίνει με τις μαθητικές παρελάσεις; από loliza</div>
+				<div><a href="">Τι να γίνει με τις μαθητικές παρελάσεις;</a> από <a href="">loliza</a></div>
 			</li>
 			<li class="photo">
-				<div>klio ψώνιο από klio</div>
-				<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
+				<div>
+					<a href="">klio ψώνιο από klio
+						<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
+					</a>
+				</div>
 			</li>
 			<li class="journal">
-				<div>Scooter από Izual</div>
+				<div><a href="">Scooter</a> από <a href="">Izual</a></div>
 			</li>
 			<li class="journal last">
-				<div>Parkour από dionyziz</div>
+				<div><a href="">Parkour</a> από <a href="">dionyziz</a></div>
 			</li>
 		</ul>
 	</div>
