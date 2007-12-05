@@ -32,3 +32,18 @@ div#favourites div.list  ul.favcontent li {
 	margin: 0;
 	border: 1px solid gray;
 }
+div#favourites div.list ul.favcontent li.poll {
+	background-image: url('images/chart_bar.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#favourites div.list ul.favcontent li.photo{
+	background-image: url('images/photo.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#favourites div.list ul.favcontent li.journal {
+	background-image: url('images/book.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}

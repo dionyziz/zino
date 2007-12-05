@@ -7,15 +7,16 @@
 			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" /></li>
 			<li><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></li>
 		</ul>
+		<div class="eof"></div>
 		<ul class="favcontent">
-			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" />MacGuyver sandwich από Izual</li>
-			<li><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" />Πόσες φορές τη βδομάδα βαράς μαλακία; από dionyziz</li>
-			<li><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" />Στη Θεσαλλονική ξημερώματα από Gatoni</li>
-			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" />Tokio Hotel από Skater</li>
-			<li><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" />Τι να γίνει με τις μαθητικές παρελάσεις; από loliza</li>
-			<li><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" />klio ψώνιο από klio</li>
-			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" />Scooter από Izual</li>
-			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" />Parkour από dionyziz</li>
+			<li class="poll">Πόσες φορές τη βδομάδα βαράς μαλακία; από dionyziz</li>
+			<li class="journal">MacGuyver sandwich από Izual</li>
+			<li class="photo">Στη Θεσαλλονική ξημερώματα από Gatoni</li>
+			<li class="journal">Tokio Hotel από Skater</li>
+			<li class="poll">Τι να γίνει με τις μαθητικές παρελάσεις; από loliza</li>
+			<li class="photo">klio ψώνιο από klio</li>
+			<li class="journal">Scooter από Izual</li>
+			<li class="journal">Parkour από dionyziz</li>
 		</ul>
 	</div>
 </div>
