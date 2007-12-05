@@ -8,13 +8,14 @@ div#favourites h2 {
 }
 div#favourites div.list {
 	text-align: left;
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
 }
 div#favourites div.list ul.favcategories {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	float: right;
 }
 div#favourites div.list ul.favcategories li {
 	margin: 0;
