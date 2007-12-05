@@ -29,6 +29,9 @@ div#favourites div.list ul.favcategories li {
 	border-bottom: none;
 	size: 105%;
 }
+li.selected {
+	background-color: #9bafc9;
+}
 div#favourites div.list ul.favcontent {
 	padding: 0;
 	margin: 0;
