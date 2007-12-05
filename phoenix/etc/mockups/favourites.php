@@ -9,14 +9,32 @@
 		</ul>
 		<div class="eof"></div>
 		<ul class="favcontent">
-			<li class="poll">Πόσες φορές τη βδομάδα βαράς μαλακία; από dionyziz</li>
-			<li class="journal">MacGuyver sandwich από Izual</li>
-			<li class="photo">Στη Θεσαλλονική ξημερώματα από Gatoni</li>
-			<li class="journal">Tokio Hotel από Skater</li>
-			<li class="poll">Τι να γίνει με τις μαθητικές παρελάσεις; από loliza</li>
-			<li class="photo">klio ψώνιο από klio</li>
-			<li class="journal">Scooter από Izual</li>
-			<li class="journal">Parkour από dionyziz</li>
+			<li class="poll">
+				Πόσες φορές τη βδομάδα βαράς μαλακία; από dionyziz
+			</li>
+			<li class="journal">
+				MacGuyver sandwich από Izual
+			</li>
+			<li class="photo">
+				Γαμάτος ουρανοξύστης από Izual
+				<img src="ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+			</li>
+			<li class="journal">
+				Tokio Hotel από Skater
+			</li>
+			<li class="poll">
+				Τι να γίνει με τις μαθητικές παρελάσεις; από loliza
+			</li>
+			<li class="photo">
+				klio ψώνιο από klio
+				<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
+			</li>
+			<li class="journal">
+				Scooter από Izual
+			</li>
+			<li class="journal">
+				Parkour από dionyziz
+			</li>
 		</ul>
 	</div>
 </div>
