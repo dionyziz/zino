@@ -20,10 +20,10 @@ div#favourites div.list ul.favcategories {
 }
 div#favourites div.list ul.favcategories li {
 	margin: 0 0 0 5px;
-	padding: 3px 0 0 0;
+	padding: 5px 0 0 0;
 	float: right;
 	height: 25px;
-	width: 30px;
+	width: 35px;
 	text-align: center;
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
