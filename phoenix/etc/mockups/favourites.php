@@ -2,10 +2,10 @@
 	<h2>Αγαπημένα</h2>
 	<div class="list">
 		<ul class="favcategories">
-			<li><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></li>
-			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" /></li>
-			<li><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" /></li>
-			<li class="selected" style="width:40px;">Όλα</li>
+			<li><a href=""><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
+			<li><a href=""><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" /></a></li>
+			<li><a href=""><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" /></a></li>
+			<li class="selected" style="width:40px;"><a href="">Όλα</a></li>
 		</ul>
 		<div class="eof"></div>
 		<ul class="favcontent">

@@ -47,11 +47,14 @@ div#favourites div.list  ul.favcontent li {
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
+div#favourites div.list ul.favcontent li a {
+	display: block;
+}
 
 div#favourites div.list ul.favcontent li.poll div {
 	background-image: url('images/chart_bar.png');
 	background-repeat: no-repeat;
-	padding-left: 18px;
+	padding-left: 20px;
 }
 div#favourites div.list ul.favcontent li.photo div {
 	background-image: url('images/photo.png');
