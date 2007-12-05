@@ -50,7 +50,7 @@ div#favourites div.list  ul.favcontent li {
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
-div#favourites div.list ul.favcontent li.poll div {
+div#favourites div.list ul.favcontent li.poll div a {
 	background-image: url('images/chart_bar.png');
 	background-repeat: no-repeat;
 	padding-left: 20px;
