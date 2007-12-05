@@ -32,7 +32,7 @@
 			<li class="journal">
 				<div>Scooter από Izual</div>
 			</li>
-			<li class="journal">
+			<li class="journal last">
 				<div>Parkour από dionyziz</div>
 			</li>
 		</ul>

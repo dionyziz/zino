@@ -32,6 +32,10 @@ div#favourites div.list  ul.favcontent li {
 	padding: 5px 0 5px 5px;
 	margin: 0;
 	border: 1px solid gray;
+	border-bottom: none;
+}
+div#favourites div.list ul.favcontent li.last {
+	border-bottom: 1px solid gray;
 }
 div#favourites div.list ul.favcontent li.poll div {
 	background-image: url('images/chart_bar.png');
