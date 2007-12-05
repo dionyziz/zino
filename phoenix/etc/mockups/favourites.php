@@ -5,7 +5,7 @@
 			<li><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></li>
 			<li><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" /></li>
 			<li><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" /></li>
-			<li>Όλα</li>
+			<li style="width:40px;">Όλα</li>
 		</ul>
 		<div class="eof"></div>
 		<ul class="favcontent">
