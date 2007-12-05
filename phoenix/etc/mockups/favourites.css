@@ -1,6 +1,7 @@
 div#favourites {
 	margin-bottom: 20px;
 	text-align: center;
+	padding-top: 20px;
 }
 div#favourites h2 {
 	margin: 0;
