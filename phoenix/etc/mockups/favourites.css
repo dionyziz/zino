@@ -30,6 +30,9 @@ div#favourites div.list ul.favcategories li {
 	size: 105%;
 	cursor: pointer;
 }
+div#favourites div.list ul.favcategories li a {
+	display: block;
+}
 li.selected {
 	background-color: #e5f0ff;
 }
@@ -47,10 +50,6 @@ div#favourites div.list  ul.favcontent li {
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
-div#favourites div.list ul.favcontent li a {
-	display: block;
-}
-
 div#favourites div.list ul.favcontent li.poll div {
 	background-image: url('images/chart_bar.png');
 	background-repeat: no-repeat;
