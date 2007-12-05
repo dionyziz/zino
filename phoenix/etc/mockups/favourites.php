@@ -1,6 +1,6 @@
 <div id="favourites">
 	<h2>Αγαπημένα</h2>
-	<div><a href="">&laquo;Επιστροφή στο προφίλ</a></div>
+	<div style="padding: 5px 0 0 20px;"><a href="">&laquo;Επιστροφή στο προφίλ</a></div>
 	<div class="list">
 		<ul class="favcategories">
 			<li><a href=""><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
