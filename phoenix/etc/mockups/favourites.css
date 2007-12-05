@@ -13,7 +13,7 @@ div#favourites div.list {
 	margin: 0 auto;
 }
 div#favourites div.list ul.favcategories {
-	margin: 0;
+	margin: 0 2px;
 	padding: 0;
 	list-style: none;
 	float: right;
@@ -24,6 +24,7 @@ div#favourites div.list ul.favcategories li {
 	float: right;
 	height: 20px;
 	width: 20px;
+	text-align: center;
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
