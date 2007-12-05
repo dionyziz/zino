@@ -17,7 +17,7 @@
 			</li>
 			<li class="photo">
 				Γαμάτος ουρανοξύστης από Izual
-				<img src="ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+				<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
 			</li>
 			<li class="journal">
 				Tokio Hotel από Skater
