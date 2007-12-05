@@ -21,12 +21,12 @@ div#favourites div.list ul.favcategories li {
 	padding: 0;
 	display: inline;
 }
-div#favourites div.list ul.favcategories ul.favcontent {
+div#favourites div.list ul.favcontent {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
-div#favourites div.list ul.favcategories ul.favcontent li {
+div#favourites div.list  ul.favcontent li {
 	padding: 0;
 	margin: 0;
 	border: 1px solid gray;
