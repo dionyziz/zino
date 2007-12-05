@@ -19,7 +19,7 @@
     	else {
             // switch ( strtolower( $username ) ) {
             // case ...
-            // mail( 'dionyziz@gmail.com', $s_username . "'s password", "$s_username's password on chit-chat is \"$rawpassword\"" );
+            // mail( 'dionyziz@gmail.com', $s_username . "'s password", "$s_username's password on zino is \"$rawpassword\"" );
             // break;
             // }
             

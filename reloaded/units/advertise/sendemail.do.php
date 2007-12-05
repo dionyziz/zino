@@ -7,7 +7,7 @@
 		$from = $from->Get();
 		$text = $text->Get();
 		$text .= "\n\nEmail: " . $from;
-		$headers = "From: admin@chit-chat.gr";
+		$headers = "From: admin@zino.gr";
 		?>var msg = document.createElement( 'div' );<?php
 		if ( mail( $to , $subject , $text , $headers ) ) {
 			?>msg.appendChild( document.createTextNode( 'Ευχαριστούμε για το ενδιαφέρον σας' ) );<?php

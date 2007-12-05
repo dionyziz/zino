@@ -31,7 +31,7 @@
             if ( !$rabbit_settings[ 'production' ] ) {
                 ?>-xc<?php
             }
-            ?>.jpg" alt="Chit-Chat" class="logo" /></a>
+            ?>.jpg" alt="Zino" class="logo" /></a>
 			<ul>
                 <li>
 <!--                    <form action="" method="get">

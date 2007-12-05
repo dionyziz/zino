@@ -66,7 +66,7 @@
 		?><br /><br /><br /><br />
 		<br /><br /><br /><br />	
 		<div class="searching">
-			<span class="searchcat">Αναζήτηση στο Chit-Chat</span>
+			<span class="searchcat">Αναζήτηση στο Zino</span>
 			<div style="width:48%">
 				<div class="upperline">
 					<div class="leftupcorner"></div>

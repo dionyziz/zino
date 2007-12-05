@@ -10,7 +10,7 @@
 		);
 		
 		?><div class="ccrelated">
-			<h4>σχετικά με chit-chat</h4>
+			<h4>σχετικά με Zino</h4>
 			<ul>
 				<li><dl>
 					<dt>ρόλος</dt>

@@ -92,7 +92,7 @@
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>no1tip.png" />
 							<span class="directions">Διάλεξε ένα όνομα χρήστη</span><br />
-							<span class="tip">(με αυτό το όνομα θα εμφανίζεσαι στο Chit-Chat)</span><br />
+							<span class="tip">(με αυτό το όνομα θα εμφανίζεσαι στο Zino)</span><br />
 							<input type="text" tabindex="0" name="username" /><br />
 							<span class="littletip">Αν έχεις ήδη λογαριασμό, πληκτρολόγησε τα στοιχεία σου πάνω δεξιά για να εισέλθεις.</span><br />
 						</div>

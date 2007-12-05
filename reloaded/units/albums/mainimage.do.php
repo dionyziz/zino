@@ -3,6 +3,7 @@
 		global $libs;
 		global $user;
 		global $water;
+		global $xc_settings;
 		
         $albumid = $albumid->Get();
         $photoid = $photoid->Get();
@@ -17,7 +18,8 @@
 					$album->UpdateMainImage( $photo->Id() );
 					$propsize = $photo->ProportionalSize( 100 , 100 );
 					?>var newimage = document.createElement( 'img' );
-					newimage.src = "http://images.chit-chat.gr/<?php
+					newimage.src = "<?php
+					echo $xc_settings[ 'imagesurl' ];
 					echo $photo->UserId();
 					?>/<?php
 					echo $photoid;
@@ -67,7 +69,10 @@
 							newlink.className = 'editinfosmainimg';
 							newlink.style.display = 'inline';
 							var mainimg = document.createElement( 'img' );
-							mainimg.src = 'http://static.chit-chat.gr/images/icons/vcard.png';
+							mainimg.src = '<?php
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>
+							icons/vcard.png';
 							
 							newlink.appendChild( mainimg );
 							newlink.style.opacity = 0;
@@ -84,7 +89,10 @@
 			else {
 				$album->UpdateMainImage( 0 );
 				?>var newimage = document.createElement( 'img' );
-				newimage.src = 'http://static.chit-chat.gr/images/anonymousalbum.jpg';
+				newimage.src = '<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>
+				anonymousalbum.jpg';
 				newimage.style.width = "100px";
 				newimage.style.height = "61px";<?php
 			}

@@ -3,6 +3,7 @@
 		global $page;
 		global $user;
 		global $libs;
+		global $xc_settings;
 		
 		$libs->Load( 'ipban' );
 		$page->SetTitle( "Αποκλεισμένα IP" );
@@ -28,7 +29,9 @@
 					<td colspan="2">
 						<form action="do/ip/ban" method="post">
 						<input type="submit" class="add" value="" style="background-image: 					
-						url('http://static.chit-chat.gr/images/icons/add.png');" />
+						url('<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/add.png');" />
 						<input type="text" name="ip" />
 						</form>
 					</td>
@@ -60,7 +63,9 @@
 						<input type="hidden" name="id" value="<?php
 						echo $ban->Id;
 						?>" /><input type="submit" class="delete" value="" style="background-image: 					
-						url('http://static.chit-chat.gr/images/icons/delete.png');" />
+						url('<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/delete.png');" />
 						</form>
 					</td>
 					<td><?php

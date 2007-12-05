@@ -1,6 +1,6 @@
 <?php
     return array(
-        'applicationname' => 'Chit-Chat',
+        'applicationname' => 'Zino',
         'rootdir'         => '/var/www/chit-chat.gr/beta/reloaded',
         'resourcesdir'    => '/var/www/chit-chat.gr/beta/resources',
         'imagesurl'       => 'http://static.chit-chat.gr/images/',

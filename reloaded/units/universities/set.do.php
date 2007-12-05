@@ -3,6 +3,7 @@
 		global $user;
 		global $water;
 		global $libs;
+		global $xc_settings;
 		
 		$libs->Load( 'universities' );
 		
@@ -28,7 +29,10 @@
 			echo w_json_encode( $uni->Place->Name );
 			?> + ' ' );
 			var editimg = document.createElement( 'img' );
-			editimg.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimg.src = '<?php
+			echo $xc_settings[ 'staticimagesurl' ];
+			?>
+			icons/edit.png';
 			editimg.alt = 'Επεξεργασία';
 			editimg.title = 'Επεξεργασία';
 			var editlink = document.createElement( 'a' );
@@ -41,7 +45,10 @@
 			})();
 			var dellink = document.createElement( 'a' );
 			var delimg = document.createElement( 'img' );
-			delimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+			delimg.src = '<?php
+			echo $xc_settings[ 'staticimagesurl' ];
+			?>
+			icons/delete.png';
 			delimg.alt = 'Διαγραφή';
 			delimg.title = 'Διαγραφή';
 			dellink.href = '';

@@ -2,6 +2,7 @@
     function ElementDeveloperJsLint() {
         global $page;
         global $rabbit_settings;
+        global $xc_settings;
         
         $page->SetTitle( 'JSLINT' );
         $page->AttachScript( 'js/jslint/fulljslint.js', 'javascript', true );
@@ -44,7 +45,10 @@
                 filelink = document.createElement( 'a' );
                 filelink.href = 'js/' + file;
                 var loader = document.createElement( 'img' );
-                loader.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+                loader.src = '<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>
+               	ajax-loader.gif';
                 loader.style.cssFloat = 'right';
                 filename.appendChild( loader );
                 filelink.appendChild( document.createTextNode( file ) );

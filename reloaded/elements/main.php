@@ -10,7 +10,7 @@
         $page->AttachScript( 'js/main.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
-        $page->AddMeta( 'description', 'Το Chit-Chat είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
+        $page->AddMeta( 'description', 'Το Zino είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
         ?><div class="axel"><?php
         ob_start();
@@ -34,11 +34,11 @@
         ?></div><?php
         Element( 'tracking/analytics' ); // Google-Analytics, for stats
         if ( $page->Title() != '' ) { // If the title's page is not blank
-            $page->SetTitle( $page->Title() . ' / Chit-Chat' );
+            $page->SetTitle( $page->Title() . ' / Zino' );
         }
         else {
             $water->Notice( 'Title not defined for page' ); // Produce a notice at the php debugger
-            $page->SetTitle( 'Chit-Chat' );
+            $page->SetTitle( 'Zino' );
         }
         
         // pass

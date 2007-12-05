@@ -524,7 +524,7 @@ var Photos = {
 			else {
 				if ( newphotoname != text ) {
 					Photos.CancelEditingSmallPhoto( photoid , newphotoname , 0 , thediv );
-					document.title = newphotoname + ' / Chit-Chat';
+					document.title = newphotoname + ' / Zino';
 					Coala.Warm( 'albums/photos/edit' , { 'photoid' : photoid , 'newtext' : newphotoname , 'typeid' :  0 } );
 				}
 				else {

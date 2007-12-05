@@ -11,7 +11,7 @@
 		$page->AttachStylesheet( 'css/sidebar.css' );
 		
 		?><div style="margin-top:40px; margin-bottom: 20px;">
-		Καλωσήρθες στις <a href="?p=faq">Συχνές Ερωτήσεις</a> του Chit-Chat.<br />
+		Καλωσήρθες στις <a href="?p=faq">Συχνές Ερωτήσεις</a> του Zino.<br />
 		Εδώ θα βρεις τις απαντήσεις στις ερωτήσεις σου!
 		</div>
 		<div class="faq"><?php

@@ -53,7 +53,7 @@
             case 5:
     			// spambot (too many registrations from the same IP during the last couple minutes)
                 mail( 
-                      'dionyziz@gmail.com', 'Chit-chat: Spambot notification', 
+                      'dionyziz@gmail.com', 'Zino: Spambot notification', 
                       "Hello,\n\nSomeone attempted to make a spambot account named " . $username 
                       . " with password " . $password . " and e-mail " . $email . " from the IP " 
                       . UserIP() . "\n\nPlease make your checks.",

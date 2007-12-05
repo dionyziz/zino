@@ -2,6 +2,7 @@
 function ElementPmOnepm( $pmobj , $folder ) {
 	global $user;
 	global $water;
+	global $xc_settings;
 
 	$usersended = $pmobj->Sender;
 	?><div class="message" style="width:620px;" id="pm_<?php
@@ -30,10 +31,14 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				else {
 					?>false<?php
 				}
-				?> );return false;"><img src="http://static.chit-chat.gr/images/cross.png" /></a><?php
+				?> );return false;"><img src="<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>cross.png" /></a><?php
 			}
 			if ( !$pmobj->IsRead() && $folder != -2 ) {
-				?><img style="float:left;padding: 0px 4px 3px 2px;" src="http://static.chit-chat.gr/images/email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
+				?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
 			}
 			?><div class="infobar_info" onclick="pms.ExpandPm( this , <?php
 			if ( $folder != -2 ) {

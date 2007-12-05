@@ -1,9 +1,12 @@
 <?php
 	function ElementDeveloperWater() {
+		global $xc_settings;
 		?><script type="text/javascript"><?php	
 		ob_start();
 		?>
-			var imgfolder = "http://static.chit-chat.gr/images/water/";
+			var imgfolder = "<?php
+			echo $xc_settings[ 'staticimagesurl' ];
+			?>water/";
 			var d = document;
 			var mywidth = screen.availWidth.toString() * 80/100;
 			var myspacer = "    ";

@@ -2,7 +2,7 @@
 	function ElementAdminNoPriviledge() {
 		global $page;
 		
-		$page->SetTitle( "Chit-Chat : Ελλειπή δικαιώματα" );
+		$page->SetTitle( "Zino : Ελλειπή δικαιώματα" );
 		?>Δεν έχετε τα απαραίτητα δικαιώματα για αυτή τη λειτουργεία<?php
 	}
 ?>

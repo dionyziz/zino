@@ -3,6 +3,7 @@
 		global $libs;
 		global $user;
 		global $page;
+		global $xc_settings;
 		
 		$libs->Load( 'place' );
         $libs->Load( 'interesttag' );
@@ -205,8 +206,12 @@
 						echo htmlspecialchars( $uni->Name );
 						?> - <?php
 						echo htmlspecialchars( $uni->Place->Name );
-						?> <a href="" onclick="Uni.SetUni();return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a>
-						<a href="" onclick="Uni.UnsetUni();return false;" style="margin-left:2px;"><img src="http://static.chit-chat.gr/images/icons/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a><?php
+						?> <a href="" onclick="Uni.SetUni();return false;"><img src="<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a>
+						<a href="" onclick="Uni.UnsetUni();return false;" style="margin-left:2px;"><img src="<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a><?php
 					}
 					else {
 						?><a href="" onclick="Uni.SetUni();return false;">Είσαι φοιτητής;</a><?php
@@ -241,7 +246,9 @@
 								}
 							}
                             if ( $theuser->Id() == $user->Id() ) {
-                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="http://static.chit-chat.gr/images/icons/page_new.gif" /></a><?php
+                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="<?php
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/page_new.gif" /></a><?php
                             }
 						?></dd>
 					</dl></li><?php

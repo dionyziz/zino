@@ -4,6 +4,7 @@
 		global $libs;
 		global $user;
 		global $water;
+		global $xc_settings;
 		
         $offset = $offset->Get();
         
@@ -47,7 +48,9 @@
 			if ( $user->CanModifyCategories() || ( $user->CanModifyStories() && $thisshout->UserId() == $user->Id() ) ) {
 				?><a style="cursor: pointer;" onclick="Shoutbox.Edit( <?php
 				echo $thisshout->Id();
-				?> );return false;" href="" title="Επεξεργασία Μικρού Νέου"><img src="http://static.chit-chat.gr/images/icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία Ερώτησης" /></a><?php
+				?> );return false;" href="" title="Επεξεργασία Μικρού Νέου"><img src="<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία Ερώτησης" /></a><?php
 			}
 			?></div>
 			<div style="display: none;" id="shoutedit_<?php

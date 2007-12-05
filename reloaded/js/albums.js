@@ -581,7 +581,7 @@ var Albums = {
 			}
 			else {
 				Albums.CancelEditingSmallAlbum( albumid , newalbumname , 0 );
-				document.title = newalbumname + ' / Chit-Chat';
+				document.title = newalbumname + ' / Zino';
 				if ( newalbumname != text ) {
 					Coala.Warm( 'albums/edit' , { 'albumid' : albumid , 'newtext' : newalbumname , 'typeid' : 0 } );
 				}

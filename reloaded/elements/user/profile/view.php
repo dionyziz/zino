@@ -130,7 +130,9 @@
                         $page->AttachScript( 'js/colorpicker.js' );
                         ?>
                         <a href="" id="paintbrush" onclick="Profile.ChangeColor();return false" title="Αλλαγή χρωματικού συνδιασμού">
-                            <img src="http://static.chit-chat.gr/images/icons/paintbrush.png" style="width:16px;height:16px" />
+                            <img src="<?php
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/paintbrush.png" style="width:16px;height:16px" />
                         </a>
                         <?php
                     }
@@ -230,7 +232,10 @@
 					?>" class="profile"<?php
                     $rgb = Color_Decode( $theuser->ProfileColor() );
                     if ( $rgb !== false ) {
-                        ?> style="background-image:url('http://images.chit-chat.gr/gradient/<?php
+                        ?> style="background-image:url('<?php
+                        echo $xc_settings[ 'imagesurl' ];
+                        ?>
+                        gradient/<?php
                         echo $rgb[ 0 ];
                         ?>/<?php
                         echo $rgb[ 1 ];

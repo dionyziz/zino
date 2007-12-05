@@ -3,6 +3,7 @@
 		global $user;
 		global $libs;
 		global $page;
+		global $xc_settings;
 		
 		$page->AttachStylesheet( 'css/frelations.css' );
     	$page->AttachScript( 'js/animations.js' );
@@ -20,7 +21,9 @@
 				<area shape="rect" coords="94,20,105,30" onclick="Friends.ShowAll( false );return false;" alt="Κλείσιμο" title="Κλείσιμο" href=""/>
 				</map>
 				
-				<img src="http://static.chit-chat.gr/images/frelations/top_close.png" usemap="#close" style="border: none;display: block;" />
+				<img src="<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>frelations/top_close.png" usemap="#close" style="border: none;display: block;" />
                 <div class="frelations"><?php
                 foreach( $relations as $relation ) {
                 	?><div id="frel_<?php
@@ -56,7 +59,9 @@
                 echo $friendid;
                 ?>, -1 );return false;" >Καμία</div>
                 </div>
-                <img src="http://static.chit-chat.gr/images/frelations/bottom.png" style="margin-left:6px;" />
+                <img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>frelations/bottom.png" style="margin-left:6px;" />
          </div><?php
      }
 ?>

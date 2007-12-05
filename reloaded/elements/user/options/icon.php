@@ -18,7 +18,7 @@
 			<div id="cat2" class="avatar"><?php
 				$usericonid = $user->Icon();
 				if ( $usericonid == 0 ) { ?>
-					<img src="http://static.chit-chat.gr/images/<?php
+					<img src="<?php
 					echo $xc_settings[ 'staticimagesurl' ];
 					?>anonymous.jpg" alt="<?php
 					echo $user->Username();

@@ -22,7 +22,7 @@
         $msg .= "\r\n\r\nΕυχαριστούμε που χρησιμοποιείτε το " . $rabbit_settings[ 'applicationname' ] . "!!\r\n\r\nΗ Ομάδα του " . $rabbit_settings[ 'applicationname' ] . "\r\n\r\n
 Για οποιοδήποτε πρόβλημα μην διστάσετε να επικοινωνήσετε μαζί μας :-)";
 
-        $headers = "From: admin@chit-chat.gr";
+        $headers = "From: admin@zino.gr";
     	
     	if ( mail( $to , $subject , $msg, $headers ) ) { //Attempt to send the mail
             return Redirect( '?p=lostpassword&sent=yes' );

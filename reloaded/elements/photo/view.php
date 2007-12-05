@@ -85,7 +85,7 @@
 				Element( 'comment/list' , $comments , 0 , 0 );
 			?></div>
 		</div><br />
-		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο chit-chat</a><br /><br /><?php
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο Zino</a><br /><br /><?php
         Element( "ad/leaderboard" );
 	}
 ?>
