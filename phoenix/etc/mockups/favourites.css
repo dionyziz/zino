@@ -49,7 +49,7 @@ div#favourites div.list ul.favcontent li.photo div {
 	padding-left: 18px;
 }
 div#favourites div.list ul.favcontent li.photo img {
-	display: block;
+	/*display: block;*/
 	padding: 3px 3px 3px 0px;
 }
 div#favourites div.list ul.favcontent li.journal div {

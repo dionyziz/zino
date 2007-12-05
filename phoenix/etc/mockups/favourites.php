@@ -17,7 +17,7 @@
 			</li>
 			<li class="photo">
 				<div>
-					<a href="">Γαμάτος ουρανοξύστης από Izual
+					<a href="">Γαμάτος ουρανοξύστης από Izual<br />
 						<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
 					</a>
 				</div>
@@ -30,7 +30,7 @@
 			</li>
 			<li class="photo">
 				<div>
-					<a href="">klio ψώνιο από klio
+					<a href="">klio ψώνιο από klio<br />
 						<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
 					</a>
 				</div>
