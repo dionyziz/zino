@@ -22,7 +22,7 @@ div#favourites div.list ul.favcategories li {
 	margin: 0;
 	padding: 0;
 	float: right;
-	border: 1px solid #f3f3f3;
+	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
 div#favourites div.list ul.favcontent {
@@ -31,12 +31,12 @@ div#favourites div.list ul.favcontent {
 	list-style: none;
 }
 div#favourites div.list ul.favcontent li.last {
-	border-bottom: 1px solid #f3f3f3;
+	border-bottom: 1px solid #d7d7d7;
 }
 div#favourites div.list  ul.favcontent li {
 	padding: 5px 0 5px 5px;
 	margin: 0;
-	border: 1px solid #f3f3f3;
+	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
 
