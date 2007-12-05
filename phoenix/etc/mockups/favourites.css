@@ -7,8 +7,10 @@ div#favourites h2 {
 	margin: 0;
 	padding: 0;
 }
-div#favourites div.list {
+div#favourites div {
 	text-align: left;
+}
+div#favourites div.list {
 	width: 40%;
 	margin: 0 auto;
 }
