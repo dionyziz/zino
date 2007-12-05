@@ -1,0 +1,33 @@
+div#favourites {
+	margin-bottom: 20px;
+	text-align: center;
+}
+div#favourites h2 {
+	margin: 0;
+	padding: 0;
+}
+div#favourites div.list {
+	text-align: left;
+	width: 80%;
+	margin: 0 auto;
+}
+div#favourites div.list ul.favcategories {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div#favourites div.list ul.favcategories li {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+div#favourites div.list ul.favcategories ul.favcontent {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+div#favourites div.list ul.favcategories ul.favcontent li {
+	padding: 0;
+	margin: 0;
+	border: 1px solid gray;
+}

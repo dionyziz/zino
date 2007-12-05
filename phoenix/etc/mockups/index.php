@@ -39,6 +39,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="journallist.css" />
 		<link rel="stylesheet" type="text/css" href="photolist.css" />
 		<link rel="stylesheet" type="text/css" href="interestlist.css" />
+		<link rel="stylesheet" type="text/css" href="favourites.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -85,6 +86,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			break;
 		case 'interestlist':
 			include 'interestlist.php';
+			break;
+		case 'favourites':
+			include 'favourites.php';
 			break;
 		case 'frontpage':
 		default:
