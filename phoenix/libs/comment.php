@@ -26,7 +26,6 @@
         protected $mTypeId;
         protected $mPage;
         protected $mPageId;
-        protected $mHasChilder;
         protected $mBulkId;
 
         public function GetURL() {
@@ -44,16 +43,16 @@
         public function GetPage() {
             if ( $this->mPage === false ) {
                 switch ( $this->TypeId ) {
-                    case 0: // journal post
+                    case COMMENT_JOURNAL:
                         // TODO
                         break;
-                    case 1:
+                    case COMMENT_PROFILE:
                         $this->mPage = New User( $this->PageId );
                         break;
-                    case 2:
+                    case COMMENT_IMAGE:
                         $this->mPage = New Image( $this->PageId );
                         break;
-                    case 3:
+                    case COMMENT_POLL:
                         $this->mPage = New Poll( $this->PageId );
                         break;
                 }
@@ -161,14 +160,6 @@
             }
 
             return false;
-        }
-        public function HasChildren() {
-           if ( $this->mHasChildren === false ) {
-				$sql = "SELECT `comment_id` FROM `" . $this->mDbTable . "` WHERE `comment_parentid` = '" . $this->Id . "' AND `comment_delid` = '0' LIMIT 1;";
-                $this->mHasChildren = $this->mDb->Query( $sql )->Results();
-           }
-
-           return $this->mHasChildren;
         }
         public function SetDefaults() {
 			$this->Created  = NowDate();

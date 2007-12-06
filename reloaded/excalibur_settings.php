@@ -8,8 +8,8 @@
     	'ushoutbox'      	=> 'shoutbox',
     	'cookiename'     	=> 'cc_login_7',
         'cookiedomain'    	=> '.beta.chit-chat.gr',
-        'staticimagesurl' 	=> 'http://static.chit-chat.gr/images/',
-        'imagesurl'       	=> 'http://images.chit-chat.gr/',
+        'staticimagesurl' 	=> 'http://static.zino.gr/images/',
+        'imagesurl'       	=> 'http://images.zino.gr/',
 		'anonymouscomments' => false,
         'allowregisters'    => true,
         'mysql2phpdate'     => '- INTERVAL 2 HOUR',
@@ -22,13 +22,13 @@
         ),
         'imagesupload'    	=> array(
             'ip'   => '87.230.27.77',
-            'host' => 'images.chit-chat.gr',
+            'host' => 'images.zino.gr',
             'port' => 80,
             'url'  => '/upload3.php'
         ),
         'chat'              => array(
             'enabled' => 50,
-            'applet' => 'http://static.chit-chat.gr/chat/ice_queen/alpha/frame'
+            'applet' => 'http://static.zino.gr/chat/ice_queen/alpha/frame'
         )
     );
 ?>
