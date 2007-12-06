@@ -1,18 +1,6 @@
 var Users = {
 	ClassName: function( rights ) {
-		if ( rights <= 20 ) {
-			// user
-			return "user_user";
-		}
-		else if ( rights <= 30 ) {
-			return "journalist";
-		}
-		else if ( rights <= 50 ){
-			return "operator";
-		}
-		else {
-			return "developer";
-		}
+		return "journalist";
 	}
 };
 
