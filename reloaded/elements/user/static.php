@@ -15,29 +15,13 @@
 					$newchanges = true;
 				}
 			}
-		
-			if ( $theuser->Rights() <= 20 ) {
-				// user
-				$cssclass = "user_user";
-			}
-			else if ( $theuser->Rights() <= 30 ) {
-				// journalist
-				$cssclass = "journalist";
-			}
-			else if ( $theuser->Rights() <= 50 ){
-				// programmer
-				$cssclass = "operator";
-			}
-			else {
-				// superuser
-				$cssclass = "developer";
-			}
+
 			$xstyle = "";
 			if ( $newchanges ) {
 				$xstyle = " style=\"border-bottom: 1px dashed gray;\"";
 			}
 			$id = $theuser->Id();
-            $linkstart = "<a href=\"user/" . $theuser->Username() . "\" class=\"$cssclass\"$xstyle>";
+            $linkstart = "<a href=\"user/" . $theuser->Username() . "\" class=\"journalist\"$xstyle>";
             $linkend = "</a>";
 		}
 		if ( $bold ) {
