@@ -50,7 +50,7 @@ div.join div.bubble p {
 	font-size: 80%;
 }
 div#join_tos {
-	width: 600px;
+	width: 650px;
 	height: 500px;
 	display: none;
 	text-align: center;
@@ -58,8 +58,8 @@ div#join_tos {
 div#join_tos div {
 	text-align: left;
 	overflow: hidden;
-	width: 550px;
-	height: 400px;
+	width: 600px;
+	height: 450px;
 	overflow: auto;
 	margin: 10px auto 20px auto;
 }
@@ -70,7 +70,7 @@ div#join_tos div h3 {
 }
 div#join_tos div p {
 	margin: 0;
-	padding: 3px 0;
+	padding: 5px 0 3px 0;
 }
 div#join_tos div ol {
 	margin: 0;
