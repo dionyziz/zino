@@ -49,7 +49,7 @@ var Join = {
 	ShowTos : function () {
 		var area = document.getElementById( 'join_tos' ).cloneNode( true );
 		area.style.display = 'block';
-		Modals.Create( area, 650, 550 );
+		Modals.Create( area, 620, 550 );
 	}
 };
 setTimeout( function () {
