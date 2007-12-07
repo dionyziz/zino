@@ -63,19 +63,20 @@ div#join_tos div {
 	overflow: auto;
 	margin: 10px auto 20px auto;
 }
-div#join_tos h3 {
+div#join_tos div h3 {
+	margin: 0;
+	padding: 0;
+	color: black;
+}
+div#join_tos div p {
+	margin: 0;
+	padding: 3px 0;
+}
+div#join_tos div ol {
 	margin: 0;
 	padding: 0;
 }
-div#join_tos p {
-	margin: 0;
-	padding: 0;
-}
-div#join_tos ol {
-	margin: 0;
-	padding: 0;
-}
-div#join_tos ol li {
+div#join_tos div ol li {
 	margin: 0;
 	padding: 0;
 }
