@@ -45,6 +45,11 @@ var Join = {
 				}
 			}
 		}, 200 );
+	},
+	ShowTos : function () {
+		var area = document.getElementById( 'join_tos' ).cloneNode( true );
+		area.style.display = '';
+		Modals.Create( area, 500, 300 );
 	}
 };
 setTimeout( function () {

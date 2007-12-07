@@ -16,6 +16,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<title>
 			Zino - είσαι μέσα;
 		</title>
+		<link rel="stylesheet" type="text/css" href="modal.css" />
 		<link rel="stylesheet" type="text/css" href="default.css" />
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
