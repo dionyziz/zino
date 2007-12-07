@@ -51,7 +51,7 @@ div.join div.bubble p {
 }
 div#join_tos {
 	width: 620px;
-	height: 550px;
+	height: 520px;
 	display: none;
 	text-align: center;
 }
@@ -75,6 +75,7 @@ div#join_tos div p {
 div#join_tos div ol {
 	margin: 0;
 	padding: 0;
+	list-style-type: decimal;
 }
 div#join_tos div ol li {
 	margin: 0;
