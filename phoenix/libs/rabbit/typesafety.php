@@ -12,21 +12,21 @@
         }
     }
     
-    final class tInteger extends tBaseType {
+    class tInteger extends tBaseType {
         public function tInteger( $value ) {
             $this->mValue = ( integer )$value;
             $this->tBaseType( $value );
         }
     }
     
-    final class tFloat extends tBaseType {
+    class tFloat extends tBaseType {
         public function tFloat( $value ) {
             $this->mValue = ( float )$value;
             $this->tBaseType( $value );
         }
     }
     
-    final class tBoolean extends tBaseType {
+    class tBoolean extends tBaseType {
         public function tBoolean( $value ) {
             if ( $value === 'yes' || $value === 'true' || $value === '1' || $value === 1 ) {
                 $this->mValue = true;
@@ -93,31 +93,31 @@
         }
     }
     
-    final class tIntegerArray extends tArray {
+    class tIntegerArray extends tArray {
         public function tIntegerArray( $values ) {
             $this->tArray( $values, 'tInteger' );
         }
     }
 
-    final class tFloatArray extends tArray {
+    class tFloatArray extends tArray {
         public function tFloatArray( $values ) {
             $this->tArray( $values, 'tFloat' );
         }
     }
     
-    final class tBooleanArray extends tArray {
+    class tBooleanArray extends tArray {
         public function tBooleanArray( $values ) {
             $this->tArray( $values, 'tBoolean' );
         }
     }
 
-    final class tStringArray extends tArray {
+    class tStringArray extends tArray {
         public function tStringArray( $values ) {
             $this->tArray( $values, 'tString' );
         }
     }
 
-    final class tCoalaPointer extends tString {
+    class tCoalaPointer extends tString {
         private $mExists;
         
         public function tCoalaPointer( $value ) {
@@ -135,6 +135,70 @@
         }
         public function __toString() {
             return $this->mValue;
+        }
+    }
+    
+    class tFile extends tBaseType {
+        private $mName;
+        private $mMimeType;
+        private $mSize;
+        private $mTempName;
+        private $mErrorCode;
+        private $mExists;
+        
+        public function Exists() {
+            return $this->mExists;
+        }
+        public function __get( $name ) {
+            switch ( $name ) {
+                case 'Name':
+                    return $this->mName;
+                case 'MimeType':
+                    return $this->mMimeType;
+                case 'Size':
+                    return $this->mSize;
+                case 'TempName':
+                    return $this->mTempName;
+                case 'ErrorCode':
+                    return $this->mErrorCode;
+            }
+            // else return nothing
+        }
+        public function tFile( $value ) {
+            $this->mExists = false;
+            if ( !is_array( $value ) ) {
+                return;
+            }
+            if ( !isset( $value[ 'tmp_name' ] ) ) {
+                return;
+            }
+            if ( !is_uploaded_file( $value[ 'tmp_name' ] ) ) {
+                return;
+            }
+            if ( !isset( $value[ 'name' ] ) ) {
+                $value[ 'name' ] = '';
+            }
+            if ( !isset( $value[ 'type' ] ) ) {
+                $value[ 'type' ] = '';
+            }
+            if ( !isset( $value[ 'size' ] ) ) {
+                $value[ 'size' ] = 0;
+            }
+
+            $this->mExists    = true;
+            $this->mName      = $value[ 'name' ];
+            $this->mMimeType  = $value[ 'type' ]; // mime type, if the browser provided such information
+            $this->mSize      = $value[ 'size' ]; // in bytes
+            $this->mTempName  = $value[ 'tmp_name' ];
+            $this->mErrorCode = $value[ 'error' ];
+        }
+        public function __toString() {
+            return '[uploaded file: ' . $this->mName . ']';
+        }
+        public function Get() {
+            global $water;
+            
+            $water->ThrowException( 'Type Get() cannot be used on tFile; use build-in methods and attributes directly with your file object instead' );
         }
     }
 

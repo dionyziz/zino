@@ -1,7 +1,8 @@
 <?php
 	function magicquotes_off() {
-        $_GET  = transcribe( $_GET  );
-        $_POST = transcribe( $_POST );
+        $_GET   = transcribe( $_GET  );
+        $_POST  = transcribe( $_POST );
+        $_FILES = transcribe( $_FILES );
 	}
     
     function transcribe( $aList, $aIsTopLevel = true ) {

@@ -12,7 +12,7 @@
     }
     
     $p = $_GET[ 'p' ];
-    $req = $_POST;
+    $req = array_merge( $_POST, $_FILES );
     
     Rabbit_ClearPostGet();
 

@@ -65,5 +65,8 @@
         foreach ( $_POST as $key => $value ) {
             unset( $_POST[ $key ] );
         }
+        foreach ( $_FILES as $key => $value ) {
+            unset( $_FILES[ $key ] );
+        }
     }
 ?>
