@@ -53,6 +53,7 @@ div#join_tos {
 	width: 600px;
 	height: 500px;
 	display: none;
+	text-align: center;
 }
 div#join_tos div {
 	text-align: left;
@@ -60,6 +61,7 @@ div#join_tos div {
 	width: 550px;
 	height: 400px;
 	overflow: auto;
+	margin: 10px auto 20px auto;
 }
 div#join_tos h3 {
 	margin: 0;
