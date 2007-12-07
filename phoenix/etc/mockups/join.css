@@ -50,10 +50,15 @@ div.join div.bubble p {
 	font-size: 80%;
 }
 div#join_tos {
-	text-align: left;
 	width: 600px;
 	height: 500px;
 	display: none;
+}
+div#join_tos div {
+	text-align: left;
+	overflow: hidden;
+	width: 550px;
+	height: 400px;
 	overflow: auto;
 }
 div#join_tos h3 {
