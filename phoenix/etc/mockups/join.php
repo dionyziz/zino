@@ -115,4 +115,4 @@
 	</p>
 </div>
 <script type="text/javascript" src="js/join.js"></script>
-<script type="text/javascript" src="../../../modal.js"></script>
+<script type="text/javascript" src="../../modal.js"></script>
