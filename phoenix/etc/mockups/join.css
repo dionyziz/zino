@@ -54,6 +54,7 @@ div#join_tos {
 	width: 300px;
 	height: 500px;
 	display: none;
+	overflow: auto;
 }
 div#join_tos h3 {
 	margin: 0;
