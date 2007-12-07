@@ -51,7 +51,7 @@ div.join div.bubble p {
 }
 div#join_tos {
 	text-align: left;
-	width: 300px;
+	width: 600px;
 	height: 500px;
 	display: none;
 	overflow: auto;
