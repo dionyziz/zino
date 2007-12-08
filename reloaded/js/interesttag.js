@@ -219,8 +219,7 @@ var InterestTag = {
 		return false;
 	},
 	fixColor : function( ul ) {
-		ul = ul.getElementsByTagName( 'li' );
-		for ( var i in ul.childNodes ) {
+		for ( var i=0;i<ul.childNodes.length-1;++i ) {
 			var li = ul.childNodes[i];
 			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 150, 150, 150 )";
 		}
