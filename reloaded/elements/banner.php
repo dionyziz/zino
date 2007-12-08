@@ -29,9 +29,9 @@
             echo $xc_settings[ 'staticimagesurl' ];
             ?>logo<?php
             if ( !$rabbit_settings[ 'production' ] ) {
-                ?>-zino<?php
+                ?>-xc<?php
             }
-            ?>.jpg" alt="<?php
+            ?>-zino.jpg" alt="<?php
             echo $rabbit_settings[ 'applicationname' ];
             ?>" class="logo" /></a>
 			<ul>
