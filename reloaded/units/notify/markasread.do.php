@@ -25,7 +25,8 @@
     					?>#comment_<?php
     					echo $notif->Itemid();
     					break;
-    				case 1:
+    				case 1: // Reply to Comment
+    				case 4: // Profile Comment
     					?>user/<?php
     					echo $comm->Page()->Username();
     					?>#comment_<?php
