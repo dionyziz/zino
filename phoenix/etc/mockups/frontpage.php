@@ -84,17 +84,42 @@
 	</div>
 	<div class="recentevents">
 		<h2>Πρόσφατα γεγονότα</h2>
-        <ul>
-            <li class="comment action">ο <a href="user/izual" onclick="">izual</a> έγραψε σχόλιο στον <a href="user/dionyziz" onclick="">dionyziz</a></li>
-            <li class="comment action">o <a href="user/dionyziz" onclick="">dionyziz</a> έγραψε σχόλιο στην <a href="user/skater" onclick="">skater</a></li>
-            <li class="photo action"><a href="" onclick=""><img src="images/apple.jpg" alt="το μήλο που έφαγα" /></a>o <a href="user/dionyziz" onclick="">dionyziz</a> ανέβασε την φωτογραφία <a href="" onclick="">το μήλο που έφαγα</a></li>
-            <li class="photo comment action"><a href="" onclick=""><img src="images/boxers.jpg" alt="το μποξεράκι μου" /></a>ο <a href="user/teddy14" onclick="">teddy14</a> σχολίασε την φωτογραφία του <a href="user/cafrillio" onclick="">Cafrillio</a> <a href="" onclick="">το μποξεράκι μου</a></li>
-            <li class="more">
-                <a href="" onclick="return false" class="rss">
-                    <img src="images/feed.png" alt="rss" title="RSS Feed" class="rss" />    
-                </a>
-                <a href="" class="more">παλιότερα συμβάντα</a>
-            </li>
-        </ul>
-	</div>
+		<ul class="events">
+			<li class="poll">
+				<div><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a></div>
+			</li>
+			<li class="journal">
+				<div>Ο <a href="">Izual</a> έγραψε <a href="">σχόλιο στο MacGuyver sandwich</a></div>
+			</li>
+			<li class="journal">
+				<div><a href="">MacGuyver sandwich</a> από <a href="">Izual</a></div>
+			</li>
+			<li class="photo">
+				<div>
+					<a href="">Γαμάτος ουρανοξύστης από Izual<br />
+						<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+					</a>
+				</div>
+			</li>
+			<li class="journal">
+				<div><a href="">Tokio Hotel</a> από <a href="">Skater</a></div>
+			</li>
+			<li class="poll">
+				<div><a href="">Τι να γίνει με τις μαθητικές παρελάσεις;</a> από <a href="">loliza</a></div>
+			</li>
+			<li class="photo">
+				<div>
+					<a href="">klio ψώνιο από klio<br />
+						<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
+					</a>
+				</div>
+			</li>
+			<li class="journal">
+				<div><a href="">Scooter</a> από <a href="">Izual</a></div>
+			</li>
+			<li class="journal last">
+				<div><a href="">Parkour</a> από <a href="">dionyziz</a></div>
+			</li>
+		</ul>
+    </div>
 </div>
