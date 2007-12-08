@@ -503,6 +503,11 @@
 			Notify_Create( $user->Id() , $touser , $newcommentid , $type );
             Notify_CommentRead( $user->Id(), $parent, $type );
 		}
+		else if ( $type == 1 ) {
+			Notify_Create( $user->Id(), $compage, $newcommentid, 4 );
+		}
+			
+			
 
 		return $newcommentid;
 	}
