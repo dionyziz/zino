@@ -4,6 +4,7 @@
             tString $email, tString $captcha
         ) {
         global $xc_settings;
+        global $rabbit_settings;
 
         if ( !$xc_settings[ "allowregisters" ] ) {
             echo "Η δημιουργία χρήστη προς το παρών έχει απαγορευθεί. Παρακαλώ δοκιμάστε ξανά αργότερα";
@@ -53,7 +54,7 @@
             case 5:
     			// spambot (too many registrations from the same IP during the last couple minutes)
                 mail( 
-                      'dionyziz@gmail.com', 'Zino: Spambot notification', 
+                      'dionyziz@gmail.com', $rabbit_settings[ 'applicationname' ] . ': Spambot notification', 
                       "Hello,\n\nSomeone attempted to make a spambot account named " . $username 
                       . " with password " . $password . " and e-mail " . $email . " from the IP " 
                       . UserIP() . "\n\nPlease make your checks.",

@@ -1,6 +1,7 @@
 <?php
 
 	function ElementUserProfileCCRelated( $theuser ) {
+		global $rabbit_settings;
 		
 		static $prizes = array(
 			'448' => array( 'Πιο ενεργός χρήστης 2006', 'Καλύτερη υπογραφή 2006' ),
@@ -10,7 +11,9 @@
 		);
 		
 		?><div class="ccrelated">
-			<h4>σχετικά με Zino</h4>
+			<h4>σχετικά με <?php
+		echo $rabbit_settings[ 'applicationname' ];
+		?></h4>
 			<ul>
 				<li><dl>
 					<dt>ρόλος</dt>

@@ -6,6 +6,7 @@
 		global $page;
 		global $water;
 		global $libs;
+		global $rabbit_settings;
 		
 		$libs->Load( 'search' );
 		$libs->Load( 'article' );
@@ -66,7 +67,9 @@
 		?><br /><br /><br /><br />
 		<br /><br /><br /><br />	
 		<div class="searching">
-			<span class="searchcat">Αναζήτηση στο Zino</span>
+			<span class="searchcat">Αναζήτηση στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?></span>
 			<div style="width:48%">
 				<div class="upperline">
 					<div class="leftupcorner"></div>

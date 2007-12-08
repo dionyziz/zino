@@ -4,6 +4,7 @@
 		global $water;
 		global $libs;
 		global $page;
+		global $rabbit_settings;
 		
         $id = $id->Get();
         $oldcomments = $oldcomments->Get();
@@ -44,7 +45,9 @@
 		?><br />
 			<div class="tabs">
 			</div>
-			<br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο Zino</a><br /><br /><?php
+			<br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?></a><br /><br /><?php
             Element( "ad/leaderboard" );
             ?><br />
 			<div class="comments" id="comments"><?php	

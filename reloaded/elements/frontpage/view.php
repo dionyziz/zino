@@ -1,6 +1,7 @@
 <?php
     function ElementFrontpageView() {
         global $page;
+        global $rabbit_settings;
         
         $page->SetTitle( "Συζήτηση και διασκέδαση" );
         $page->AttachStylesheet( 'css/sidebar.css' );
@@ -21,7 +22,9 @@
         Element( "photo/latest" );
         Element( "notify/frontpage" );
         ?><br />
-		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο Zino</a><br /><br /><?php
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?></a><br /><br /><?php
         Element( "ad/leaderboard" );
     }
 ?>

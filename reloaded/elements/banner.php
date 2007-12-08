@@ -31,7 +31,9 @@
             if ( !$rabbit_settings[ 'production' ] ) {
                 ?>-xc<?php
             }
-            ?>.jpg" alt="Zino" class="logo" /></a>
+            ?>.jpg" alt="<?php
+            echo $rabbit_settings[ 'applicationname' ];
+            ?>" class="logo" /></a>
 			<ul>
                 <li>
 <!--                    <form action="" method="get">

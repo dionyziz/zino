@@ -1,33 +1,48 @@
 <?php
 	function ElementAdvertiseInfo() {
 		global $page;
+		global $rabbit_settings;
 		
-		$page->SetTitle( 'Διαφήμιση στο Zino' );
+		$page->SetTitle( 'Διαφήμιση στο ' . $rabbit_settings[ 'applicationname' ] );
 		$page->AttachStyleSheet( 'css/advertise.css' );
 		$page->AttachScript( 'js/advertise.js' );
 		$page->AttachScript( 'js/animations.js' );
 		$page->AttachScript( 'js/coala.js' );
 		?><br /><br /><div class="body" id="body">
-			<h2>Διαφήμιση στο Zino</h2>
+			<h2>Διαφήμιση στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?></h2>
 			
-			<span class="question">Τι είναι το Zino;</span><br />
+			<span class="question">Τι είναι το <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?>;</span><br />
 			<span class="answer">
-			Το Zino είναι ένα ταχύτατα αναπτυσσόμενο community νέων ανθρώπων, κυρίως μαθητών και φοιτητών με μέσο όρο ηλικίας τα 19 χρόνια.
+			Το <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?> είναι ένα ταχύτατα αναπτυσσόμενο community νέων ανθρώπων, κυρίως μαθητών και φοιτητών με μέσο όρο ηλικίας τα 19 χρόνια.
 			</span><br /><br />
 			
 			<span class="question">
-			Γιατί να διαφημιστείτε στο Zino;
+			Γιατί να διαφημιστείτε στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?>;
 			</span><br />
 			<span class="answer">
 			To site μας εξελίσεται ταχύτατα τον τελευταίο καιρό με μεγάλο αριθμό προβολών σε καθημερινή βάση και με υποσχέσεις για 
 			ένα ακόμα καλύτερο μέλλον. Επίσης, ο μικρός μέσος όρος ηλικίας, το υψηλό πνευματικό επίπεδο των χρηστών και οι χαμηλές τιμές καθιστούν 
-			το Zino ιδανική περίπτωση για την προβολή της εταιρείας σας. Το Zino χρησιμοποιεί πρωτόγνωρες για την Ελλάδα τεχνολογικές
+			το <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?> ιδανική περίπτωση για την προβολή της εταιρείας σας. Το <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?> χρησιμοποιεί πρωτόγνωρες για την Ελλάδα τεχνολογικές
             πρωτοπορίες που δεν έχουν ξαναεμφανιστεί στο ελληνικό διαδίκτυο.
 			</span><br/><br />
 			<span class="question">
 			Δυνατότητες διαφήμισης
 			</span><br/>
-			Στο Zino υπάρχει δυνατότητα να διαφημιστείτε σε τέσσερα διαφορετικά σημεία με banners διαστάσεων 370x80 pixels. Τα σημεία που μπορούν να
+			Στο <?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?> υπάρχει δυνατότητα να διαφημιστείτε σε τέσσερα διαφορετικά σημεία με banners διαστάσεων 370x80 pixels. Τα σημεία που μπορούν να
 			τοποθετηθούν τα banners είναι η κεντρική σελίδα, το προφίλ των χρηστών, η προβολή φωτογραφιών και τα άρθρα. Η ελάχιστη συχνότητα εμφάνισης
 			των banners σας σε σχέση με τα άλλα που εμφανίζονται ταυτόχρονα είναι 50% (ενδεικτικά αναφέρουμε ότι στον Ελληνικό χώρο η συχνότητες εμφάνισης
             είναι κατά κανόνα κάτω από 25%).<br /><br />

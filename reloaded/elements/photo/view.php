@@ -4,6 +4,7 @@
 		global $libs;
 		global $water;
 		global $user;
+		global $rabbit_settings;
 		
         $photoid = $id->Get();
         $oldcomments = $oldcomments->Get();
@@ -85,7 +86,9 @@
 				Element( 'comment/list' , $comments , 0 , 0 );
 			?></div>
 		</div><br />
-		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο Zino</a><br /><br /><?php
+		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
+		echo $rabbit_settings[ 'applicationname' ];
+		?></a><br /><br /><?php
         Element( "ad/leaderboard" );
 	}
 ?>
