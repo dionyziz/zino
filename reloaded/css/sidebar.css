@@ -13,7 +13,7 @@ div.sidebar div.box {
 	width: 300px;
 }
 div.sidebar div.box div.header {
-	background-image: url('http://static.chit-chat.gr/images/soramid.jpg');
+	background-image: url('http://static.zino.gr/images/soramid.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	height: 19px;
@@ -32,7 +32,7 @@ div.sidebar div.box div.body {
 	border-right: 1px solid #2e486c;
 	border-left: 1px solid #2e486c;
 	border-bottom: 1px solid #2e486c;
-	background-image: url('http://static.chit-chat.gr/images/sorabody.jpg');
+	background-image: url('http://static.zino.gr/images/sorabody.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	background-color: #e8eaec;
@@ -77,19 +77,19 @@ div.sidebar div.box a.arrowup {
 	bottom: 4px;
 }
 div.sidebar div.box a.arrow:link, div.sidebar div.box a.arrow:visited, div.sidebar div.box a.arrow:active {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdown.jpg');
+	background-image: url('http://static.zino.gr/images/icons/dropdown.jpg');
 	background-position: 6 0;
 	position: relative;
 	top: 4px;
 }
 div.sidebar div.box a.arrow:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdownover.jpg');
+	background-image: url('http://static.zino.gr/images/icons/dropdownover.jpg');
 }
 div.sidebar div.box a.arrowup:link, div.sidebar div.box a.arrowup:visited, div.sidebar div.box a.arrowup:active {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropup.png');
+	background-image: url('http://static.zino.gr/images/icons/dropup.png');
 }
 div.sidebar div.box a.arrowup:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropupover.png');
+	background-image: url('http://static.zino.gr/images/icons/dropupover.png');
 } 
 div.sidebar div.box img.newshout, div.sidebar div.box img.newcategory {
 	float:right;

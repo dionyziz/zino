@@ -39,7 +39,7 @@ div.userprofile div.top div.tabs {
     _padding-bottom: 0px; /* IE6 fix */
 }
 div.userprofile div.top div.tabs div.tab {
-	background-image: url('http://static.chit-chat.gr/images/usershadowtab.jpg');
+	background-image: url('http://static.zino.gr/images/usershadowtab.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	height: 26px;
@@ -51,7 +51,7 @@ div.userprofile div.top div.tabs div.tab a {
 	color: #bababa;
 }
 div.userprofile div.top div.tabs div.leftism {
-	background-image: url('http://static.chit-chat.gr/images/usershadowtableft.jpg');
+	background-image: url('http://static.zino.gr/images/usershadowtableft.jpg');
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 26px;
@@ -59,7 +59,7 @@ div.userprofile div.top div.tabs div.leftism {
 	cursor: pointer;
 }
 div.userprofile div.top div.tabs div.rightism {
-	background-image: url('http://static.chit-chat.gr/images/usershadowtabright.jpg');
+	background-image: url('http://static.zino.gr/images/usershadowtabright.jpg');
 	background-repeat: no-repeat;
 	background-position: top;
 	margin-right: 3px;
@@ -68,15 +68,15 @@ div.userprofile div.top div.tabs div.rightism {
 	cursor: pointer;
 }
 div.userprofile div.top div.tabs div.activeright {
-	background-image: url('http://static.chit-chat.gr/images/usertabright.jpg');
+	background-image: url('http://static.zino.gr/images/usertabright.jpg');
 	height: 27px;
 }
 div.userprofile div.top div.tabs div.activeleft {
-	background-image: url('http://static.chit-chat.gr/images/usertableft.jpg');
+	background-image: url('http://static.zino.gr/images/usertableft.jpg');
 	height: 27px;
 }
 div.userprofile div.top div.tabs div.active {
-	background-image: url('http://static.chit-chat.gr/images/usertab.jpg');
+	background-image: url('http://static.zino.gr/images/usertab.jpg');
 }
 div.userprofile div.top div.tabs div.active a {
 	font-weight: bold;
@@ -139,7 +139,7 @@ div.userprofile div.profile div.info div.boxheader {
 */
 
 div.userprofile div.profile {
-    /* background-image: url('http://static.chit-chat.gr/images/profile/blue.png'); */
+    /* background-image: url('http://static.zino.gr/images/profile/blue.png'); */
     background-repeat: repeat-x;
     background-position: top;
 }

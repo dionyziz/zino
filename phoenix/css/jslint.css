@@ -2,7 +2,7 @@ dl#jslintresults {
 }
 dl#jslintresults dt {
     border-top: 1px solid #ccc;
-    background-image: url('http://static.chit-chat.gr/images/eee.png');
+    background-image: url('http://static.zino.gr/images/eee.png');
     background-position: top;
     background-repeat: repeat-x;
     display: block;
@@ -19,7 +19,7 @@ dl#jslintresults dd {
 }
 dl#jslintresults dd.pass {
     background-color: #e0ffe0;
-    background-image: url('http://static.chit-chat.gr/images/icons/accept.png');
+    background-image: url('http://static.zino.gr/images/icons/accept.png');
     border-color: #a0cfa0;
 }
 dl#jslintresults dd.fail {

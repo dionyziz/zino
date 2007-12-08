@@ -41,7 +41,7 @@ div.watertrace {
 table.callstack {
 	background-color: #cdd6ee;
     /* TODO: these URLs should not be excalibur-specific */
-    background-image: url('http://static.chit-chat.gr/images/water/water_trace.jpg');
+    background-image: url('http://static.zino.gr/images/water/water_trace.jpg');
     background-position: top right;
     background-repeat: repeat-y;
 	font-family: Trebuchet MS, sans-serif, Helvetica;
@@ -71,7 +71,7 @@ div.callstack div.title {
 }
 table.callstack tr.error {
 	background-color: #C7CCE0;
-    background-image: url('http://static.chit-chat.gr/images/water/water_error.jpg');
+    background-image: url('http://static.zino.gr/images/water/water_error.jpg');
 	background-repeat: repeat;
 	cursor: pointer;
 }

@@ -8,7 +8,7 @@ div#notify  {
     background-color: #efeeec;
     background-position: 0px 0px;
     background-repeat: repeat-y;
-    background-image: url('http://static.chit-chat.gr/images/notification-bg2.jpg');
+    background-image: url('http://static.zino.gr/images/notification-bg2.jpg');
 }
 div#notify ol {
     list-style: none;
@@ -16,7 +16,7 @@ div#notify ol {
     margin: 0px 0px 0 0;
     background-position: top left;
     background-repeat: no-repeat;
-    background-image: url('http://static.chit-chat.gr/images/notification-bg.gif');
+    background-image: url('http://static.zino.gr/images/notification-bg.gif');
     position: relative;
     top: -7px;
 }
@@ -28,16 +28,16 @@ div#notify ol li {
     background-position: 1px 3px;
 }
 div#notify ol li.friend {
-    background-image: url('http://static.chit-chat.gr/images/notification-friend.jpg');
+    background-image: url('http://static.zino.gr/images/notification-friend.jpg');
 }
 div#notify ol li.comment {
-    background-image: url('http://static.chit-chat.gr/images/notification-comment.jpg');
+    background-image: url('http://static.zino.gr/images/notification-comment.jpg');
 }
 div#notify ol li.next {
     border-top: 1px solid #c7c7c5;
 }
 div#notify ol li a.hide {
-    background-image: url('http://static.chit-chat.gr/images/notification-hide.jpg');
+    background-image: url('http://static.zino.gr/images/notification-hide.jpg');
     background-position: top right;
     background-repeat: no-repeat;
     font-size: 0;

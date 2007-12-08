@@ -30,7 +30,7 @@ div.downline {
 
 }
 div.middledowncss {
-    background-image: url( 'http://static.chit-chat.gr/images/repeat.jpg' );
+    background-image: url( 'http://static.zino.gr/images/repeat.jpg' );
     background-repeat: repeat-x;
     background-position: top;
     height: 15px;
@@ -38,28 +38,28 @@ div.middledowncss {
 }  
 div.leftupcorner {
 	float: left;
-	background-image: url( 'http://static.chit-chat.gr/images/left-up_corner.jpg' );
+	background-image: url( 'http://static.zino.gr/images/left-up_corner.jpg' );
 	background-repeat: no-repeat;
 	width: 9px;
 	height: 9px;
 }
 div.rightupcorner {
 	float: right;
-	background-image: url( 'http://static.chit-chat.gr/images/right-up_corner.jpg' );
+	background-image: url( 'http://static.zino.gr/images/right-up_corner.jpg' );
 	background-repeat: no-repeat;
 	width: 9px;
 	height: 9px;
 }
 div.leftdowncorner {
 	float: left;
-	background-image: url( 'http://static.chit-chat.gr/images/left-down_corner.jpg' );
+	background-image: url( 'http://static.zino.gr/images/left-down_corner.jpg' );
 	background-repeat: no-repeat;
 	width: 9px;
 	height: 13px;
 }
 div.rightdowncorner {
 	float: right;
-	background-image: url( 'http://static.chit-chat.gr/images/right-down_corner.jpg' );
+	background-image: url( 'http://static.zino.gr/images/right-down_corner.jpg' );
 	background-repeat: no-repeat;
 	width: 9px;
 	height: 13px;

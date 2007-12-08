@@ -35,7 +35,7 @@ div.body div.leftbar div.folders {
 div.activefolder {
 	font-weight: bold;
 	background-color: #d6e6f7;
-	background-image: url( 'http://static.chit-chat.gr/images/folder.png' );
+	background-image: url( 'http://static.zino.gr/images/folder.png' );
 	background-position: 3px 3px;
 	background-repeat: no-repeat;
 	padding: 3px 3px 3px 22px;
@@ -45,7 +45,7 @@ div.top {
 	border-top: 1px solid #d7d7d7;
 }
 div.folder {	
-	background-image: url( 'http://static.chit-chat.gr/images/folder.png' );
+	background-image: url( 'http://static.zino.gr/images/folder.png' );
 	background-position: 3px 3px;
 	background-repeat: no-repeat;
 	padding: 3px 3px 3px 22px;
@@ -53,7 +53,7 @@ div.folder {
 }
 div.hoverfolder {
 	background-color: #f4f5f7;
-	background-image: url( 'http://static.chit-chat.gr/images/folder.png' );
+	background-image: url( 'http://static.zino.gr/images/folder.png' );
 	background-position: 3px 3px;
 	background-repeat: no-repeat;
 	padding: 3px 3px 3px 22px;
@@ -61,7 +61,7 @@ div.hoverfolder {
 }
 div.newfolder {
 	/*border-top: 1px solid #d7d7d7;*/
-	background-image: url( 'http://static.chit-chat.gr/images/folder_add.png' );
+	background-image: url( 'http://static.zino.gr/images/folder_add.png' );
 	background-position: 3px 3px;
 	background-repeat: no-repeat;
 	padding: 3px 3px 3px 22px;
@@ -111,7 +111,7 @@ div.messages div.message div.lowerline {
 	position: relative;
 }
 div.messages div.message div.lowerline div.leftcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/pm-downleft.jpg' );
+	background-image: url( 'http://static.zino.gr/images/pm-downleft.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom left;
 	height: 13px;
@@ -119,13 +119,13 @@ div.messages div.message div.lowerline div.leftcorner {
 	float: left;
 }
 div.messages div.message div.lowerline div.middle {
-	background-image: url( 'http://static.chit-chat.gr/images/pm-downfade.jpg' );
+	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' );
 	background-repeat: repeat-x;
 	background-position: bottom;
 	height: 13px;
 }
 div.messages div.message div.lowerline div.rightcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/pm-downright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/pm-downright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	height: 13px;
@@ -145,7 +145,7 @@ div.messages div.message div.toolbar ul {
 }
 div.messages div.message div.toolbar ul li {
 	display: inline;
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarleft.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarleft.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom left;
 	background-color: #dedddb;
@@ -154,7 +154,7 @@ div.messages div.message div.toolbar ul li {
 	float: right;
 }
 div.messages div.message div.toolbar ul li input.submit {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	color: #858583;
 	cursor: pointer;	
@@ -165,7 +165,7 @@ div.messages div.message div.toolbar ul li  input.submit:hover {
 }
 
 div.messages div.message div.toolbar ul li  a {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	color: #858583;

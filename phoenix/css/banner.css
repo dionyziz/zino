@@ -1,5 +1,5 @@
 div.roxas {
-	background-image: url('http://static.chit-chat.gr/images/roxasbg.jpg');
+	background-image: url('http://static.zino.gr/images/roxasbg.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	display: block;
@@ -62,11 +62,11 @@ div.roxas ul li a.messages:hover {
 }
 div.roxas ul li a.logout {
 	margin-left: 10px;
-	background-image: url('http://static.chit-chat.gr/images/icons/arrow_right.gif');
+	background-image: url('http://static.zino.gr/images/icons/arrow_right.gif');
 }
 div.roxas ul li a.register {
 	margin-left: 10px;
-	background-image: url('http://static.chit-chat.gr/images/icons/icon_user.gif');
+	background-image: url('http://static.zino.gr/images/icons/icon_user.gif');
 }
 div.roxas ul li form {
     display: inline;
@@ -87,7 +87,7 @@ div.roku {
 	position: relative;
 }
 div.aku {
-	background-image: url('http://static.chit-chat.gr/images/akumid.jpg');
+	background-image: url('http://static.zino.gr/images/akumid.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
 	width: 250px;
@@ -154,10 +154,10 @@ div.aku div.content div a.arrow {
 div.aku div.content div a.arrow:link,
 	div.aku div.content div a.arrow:active,
 	div.aku div.content div a.arrow:visited {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropup.png');
+	background-image: url('http://static.zino.gr/images/icons/dropup.png');
 }
 div.aku div.content div a.arrow:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropupover.png');
+	background-image: url('http://static.zino.gr/images/icons/dropupover.png');
 }
 div.aku div.content div h2 {
 	font-weight: bold;
@@ -187,13 +187,13 @@ div.aku ul li a {
 	padding-left: 16px;
 }
 div.aku ul li a.options {
-	background-image: url('http://static.chit-chat.gr/images/icons/icon_settings.gif');
+	background-image: url('http://static.zino.gr/images/icons/icon_settings.gif');
 }
 div.aku ul li a.profile {
-	background-image: url('http://static.chit-chat.gr/images/icons/icon_user.gif');
+	background-image: url('http://static.zino.gr/images/icons/icon_user.gif');
 }
 div.aku ul li a.chat {
-	background-image: url('http://static.chit-chat.gr/images/icons/comment_yellow.gif');
+	background-image: url('http://static.zino.gr/images/icons/comment_yellow.gif');
 }
 div.aku ul li a.arrow {
 	width: 16px;
@@ -204,10 +204,10 @@ div.aku ul li a.arrow {
 div.aku ul li a.arrow:link,
 	div.aku div.content div a.arrow:active,
 	div.aku div.content div a.arrow:visited {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdown.jpg');
+	background-image: url('http://static.zino.gr/images/icons/dropdown.jpg');
 }
 div.aku ul li a.arrow:hover {
-	background-image: url('http://static.chit-chat.gr/images/icons/dropdownover.jpg');
+	background-image: url('http://static.zino.gr/images/icons/dropdownover.jpg');
 }
 a.profiletouched {
 	border-bottom: 1px solid #cecece;

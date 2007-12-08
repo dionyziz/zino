@@ -14,7 +14,7 @@ div.comments div.comment div.upperline {
 	width: 100%;
 }
 div.comments div.comment div.upperline div.leftcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-upperleft.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-upperleft.jpg' );
 	background-position: top left;
 	background-repeat: no-repeat;
 	height: 21px;
@@ -22,7 +22,7 @@ div.comments div.comment div.upperline div.leftcorner {
 	float: left;
 }
 div.comments div.comment div.upperline div.rightcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-upperright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-upperright.jpg' );
 	background-position: top right;
 	background-repeat: no-repeat;
 	height: 21px;
@@ -44,7 +44,7 @@ div.comments div.comment div.upperline div.title {
 	color: #333333;
 }
 div.comments div.comment div.upperline div.fade {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-fade.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-fade.jpg' );
 	background-repeat: no-repeat;
 	height: 20px;
 	width: 100px;
@@ -71,7 +71,7 @@ div.comments div.comment div.text div div.sig {
     padding: 0;
 }
 div.comments div.comment div.avatar {
-	background-image: url( 'http://static.chit-chat.gr/images/avatarbg.jpg' );
+	background-image: url( 'http://static.zino.gr/images/avatarbg.jpg' );
 	background-repeat: no-repeat;
 	width: 60px;
 	height: 60px;
@@ -90,7 +90,7 @@ div.comments div.comment div.lowerline {
 	position: relative;
 }
 div.comments div.comment div.lowerline div.leftcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-downleft.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-downleft.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom left;
 	height: 13px;
@@ -98,13 +98,13 @@ div.comments div.comment div.lowerline div.leftcorner {
 	float: left;
 }
 div.comments div.comment div.lowerline div.middle {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-downfade.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-downfade.jpg' );
 	background-repeat: repeat-x;
 	background-position: bottom;
 	height: 13px;
 }
 div.comments div.comment div.lowerline div.rightcorner {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-downright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-downright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	height: 13px;
@@ -126,7 +126,7 @@ div.comments div.comment div.toolbar ul {
 }
 div.comments div.comment div.toolbar ul li {
 	display: inline;
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarleft.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarleft.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom left;
 	background-color: #dedddb;
@@ -135,7 +135,7 @@ div.comments div.comment div.toolbar ul li {
 	float: right;
 }
 div.comments div.comment div.toolbar ul li input.submit {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	color: #858583;
 	cursor: pointer;	
@@ -146,7 +146,7 @@ div.comments div.comment div.toolbar ul li  input.submit:hover {
 }
 
 div.comments div.comment div.toolbar ul li  a {
-	background-image: url( 'http://static.chit-chat.gr/images/commentbox-toolbarright.jpg' );
+	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	color: #858583;
