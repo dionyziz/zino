@@ -698,7 +698,6 @@
 		private $mEyeColor;
 		private $mHairColor;
         private $mProfileColor;
-        private $mArticlesPopularity;
 		private $mNumSmallNews;
 		private $mNumImages;
         private $mUniid;
@@ -1330,19 +1329,6 @@
 			}
 			
 			return $this->mPopularity;
-		}
-		public function ArticlesPopularity() {
-			if ( $this->mArticlesPopularity == false ) {
-				$toparticlespopularity = Users_TopArticlesPopularity();
-				if ( $toparticlespopularity == 0 ) {
-					$this->mArticlesPopularity = 1;
-				}
-				else {
-					$this->mArticlesPopularity = $this->ArticlesPageviews() / $toparticlespopularity;
-				}
-			}
-			
-			return $this->mArticlesPopularity;
 		}
 		public function UserboxStatus() {
 			if ( empty( $this->mUserboxStatus ) ) {
@@ -2008,42 +1994,6 @@
 		$row = $res->FetchArray();
 		
 		return $row[ 'user_profviews' ];
-	}
-	
-	function Users_TopArticlesPopularity() {
-		global $users;
-		global $pageviews;
-		global $articles;
-		global $revisions;
-		global $db;
-		
-		$sql = "SELECT
-						AVG(`numviews`) AS averageviews, `revision_creatorid`
-					FROM
-					(
-						SELECT
-								COUNT(*) AS numviews, `revision_creatorid`
-							FROM
-								`$pageviews` INNER JOIN `$articles` ON
-									`pageview_itemid` = `article_id` INNER JOIN
-										`$revisions` ON `article_id`=`revision_articleid`
-									
-							WHERE
-								`article_typeid` = '0' AND
-								`pageview_type` = 'article' AND
-								`revision_minor` = 'no'
-							GROUP BY
-								`article_id`
-					) AS pageviews
-					GROUP BY
-						`revision_creatorid`
-					ORDER BY
-						averageviews DESC
-					LIMIT 1
-				;";
-		
-		$fetched = $db->Query( $sql )->FetchArray();
-		return $fetched[ "averageviews" ];
 	}
     
     // TODO: move into element

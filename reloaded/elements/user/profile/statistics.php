@@ -95,12 +95,6 @@
 							echo $theuser->CountImages();
 						?></dd>
 					</dl></li>
-					<li><dl class="k">
-						<dt>δημοτικότητα άρθρων</dt>
-						<dd><?php
-							echo round( $theuser->ArticlesPopularity() * 100, 2 );
-						?>%</dd>
-					</dl></li>
 				</ul><?php
 			}
 		?></div><?php
