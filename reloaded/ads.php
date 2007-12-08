@@ -30,18 +30,18 @@
         <?php
         switch ($type) {
             case 'cc':
-                ?><a href="http://www.chit-chat.gr/myalbums.php" target="_top"><img src="http://static.chit-chat.gr/images/ads/albums.jpg" alt="Albums" title="Chit-Chat Albums" /></a><?php
+                ?><a href="http://www.zino.gr/myalbums.php" target="_top"><img src="http://static.zino.gr/images/ads/albums.jpg" alt="Albums" title="Zino Albums" /></a><?php
                 break;
             case 'leaderboard':
                 ?>
                 <script type="text/javascript">
                 google_ad_client = "pub-9675840962794412";
-                google_alternate_ad_url = "http://www.chit-chat.gr/ads.php?type=cc";
+                google_alternate_ad_url = "http://www.zino.gr/ads.php?type=cc";
                 google_ad_width = 728;
                 google_ad_height = 90;
                 google_ad_format = "728x90_as";
                 google_ad_type = "text";
-                //2007-02-24: chit-chat
+                //2007-02-24: zino
                 google_ad_channel = "2379850219";
                 </script>
                 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
@@ -57,7 +57,7 @@
                 google_ad_height = 240;
                 google_ad_format = "120x240_as";
                 google_ad_type = "text_image";
-                //2006-11-26: chit-chat
+                //2006-11-26: zino
                 google_ad_channel = "2379850219";
                 </script>
                 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">

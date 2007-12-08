@@ -99,6 +99,7 @@
         }
         public function GetXHTML() {
             global $water;
+            global $settings;
             
             w_assert( $this->mSource !== false, 'Please SetSource() before calling GetXHTML()' );
             
@@ -113,7 +114,7 @@
                 1 => array( "pipe", "w" ),
             );
             
-            $process = proc_open( '/var/www/chit-chat.gr/beta/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
+            $process = proc_open( $rabbit_settings[ 'rootdir' ] . '/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
             
             if ( !is_resource( $process ) ) {
                 $water->Notice( 'Failed to start the sanitizer' );
