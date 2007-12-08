@@ -47,8 +47,7 @@
                 var loader = document.createElement( 'img' );
                 loader.src = '<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                ?>
-               	ajax-loader.gif';
+                ?>ajax-loader.gif';
                 loader.style.cssFloat = 'right';
                 filename.appendChild( loader );
                 filelink.appendChild( document.createTextNode( file ) );
