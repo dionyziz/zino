@@ -12,15 +12,15 @@ ul.events li {
 	border: 1px solid #d7d7d7;
 	border-bottom: none;
 }
-ul.events li.poll div {
-	background-image: url('images/chart_bar.png');
+ul.events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
+ul.events li.poll div {
+	background-image: url('images/chart_bar.png');
+}
 ul.events li.photo div {
 	background-image: url('images/photo.png');
-	background-repeat: no-repeat;
-	padding-left: 20px;
 }
 ul.events li.photo img {
 	/*display: block;*/
@@ -28,6 +28,4 @@ ul.events li.photo img {
 }
 ul.events li.journal div {
 	background-image: url('images/book.png');
-	background-repeat: no-repeat;
-	padding-left: 20px;
 }
