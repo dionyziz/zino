@@ -29,7 +29,7 @@
             echo $xc_settings[ 'staticimagesurl' ];
             ?>logo<?php
             if ( !$rabbit_settings[ 'production' ] ) {
-                ?>-xc<?php
+                ?>-zino<?php
             }
             ?>.jpg" alt="<?php
             echo $rabbit_settings[ 'applicationname' ];
