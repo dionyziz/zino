@@ -221,6 +221,9 @@ var InterestTag = {
 	fixColor : function( ul ) {
 		for ( var i in ul.childNodes ) {
 			var li = ul.childNodes[i];
+			if ( li.nodeName.toUpperCase() != "LI" ) {
+				continue;
+			}
 			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 150, 150, 150 )";
 		}
 	}
