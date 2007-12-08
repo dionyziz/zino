@@ -234,8 +234,7 @@
                     if ( $rgb !== false ) {
                         ?> style="background-image:url('<?php
                         echo $xc_settings[ 'imagesurl' ];
-                        ?>
-                        gradient/<?php
+                        ?>gradient/<?php
                         echo $rgb[ 0 ];
                         ?>/<?php
                         echo $rgb[ 1 ];
