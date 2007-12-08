@@ -22,7 +22,7 @@
 
         $image = new Image();
 
-        $setTempFile = $image->TemporaryFile = $tempfile;
+        $setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
