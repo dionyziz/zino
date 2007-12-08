@@ -506,6 +506,9 @@
 		else if ( $type == 1 ) {
 			Notify_Create( $user->Id(), $compage, $newcommentid, 4 );
 		}
+		else if ( $type == 2 ) {
+			Notify_Create( $user->Id(), $compage, $newcommentid, $type );
+		}
 			
 			
 

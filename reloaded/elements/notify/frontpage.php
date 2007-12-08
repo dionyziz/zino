@@ -40,17 +40,22 @@
     							if ( $notif->Typeid() <= 3 ) {
                                     ?> απάντησε <?php
                                 }
-                                if ( $notif->Typeid() == 4 ) {
+                                if ( $notif->Typeid() == 4 || $notif->Typeid() == 2 ) {
                                 	?> σχολίασε <?php
                                 }
                             }
                             else {
                                 ?>Απάντηση <?php
                             }
-							if ( $notif->Typeid() <= 3 ) {
-								?> στο <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
+                            if ( $notif->Typeid() == 2 ) {
+                            	?> στο <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
 								echo $notif->Id();
 								?> , navigate : true , hidewhat : false } );return false;">σχόλιό σου</a><?php
+							}
+							else if ( $notif->Typeid() <= 3 ) {
+								?> στην <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
+								echo $notif->Id();
+								?> , navigate : true , hidewhat : false } );return false;">εικόνα σου</a><?php
 							}
 							else if ( $notif->Typeid() == 4 ) {
 								?> στο <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
