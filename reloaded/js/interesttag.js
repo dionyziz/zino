@@ -184,8 +184,10 @@ var InterestTag = {
 		var text = li.childNodes[2].nodeValue;
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
-		var childlen = dad.childNodes.length;
 		dad.removeChild( li );
+		dad = dad.parentNode;
+		var childlen = dad.childNodes.length;
+		dad.childNodes[ childlen-1 ].firstChild.focus();
 	},
 	Close : function( ul ) {
 		var interests = g( 'interests' );
