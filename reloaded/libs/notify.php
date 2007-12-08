@@ -151,12 +151,13 @@
                 1: for comments on userprofiles
                 2: for comments on images
                 3: for friends
+                4: comments on profiles
             */
             return $this->mTypeid;
         }
         public function Page() {
             if ( empty( $this->mPage ) ) {
-                if ( $this->Typeid() <= 3 ) {
+                if ( $this->Typeid() <= 4 ) {
                     $this->mPage = New Comment( $this->Itemid() );
                 }
                 else {
