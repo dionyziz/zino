@@ -185,6 +185,7 @@ var InterestTag = {
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );
 		var dad = li.parentNode;
 		dad.removeChild( li );
+		InterestTag.fixColor( dad );
 		dad = dad.parentNode;
 		var childlen = dad.childNodes.length;
 		dad.childNodes[ childlen-5 ].firstChild.focus();
@@ -216,5 +217,11 @@ var InterestTag = {
 		interests.appendChild( a );
 		Modals.Destroy();
 		return false;
+	},
+	fixColor : function( ul ) {
+		for ( var i in ul.childNodes ) {
+			var li = ul.childNodes[i];
+			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 150, 150, 150 )";
+		}
 	}
 };
