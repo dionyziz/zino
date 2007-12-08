@@ -10,6 +10,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^phoenix/register$ index.php?p=register [L,QSA]
 RewriteRule ^phoenix/do/([a-zA-Z0-9_\-/]+)$ action.php?p=$1 [L,QSA]
+RewriteRule ^reloaded/tag/(.+)$ ?p=tag&text=$1 [L,QSA]
 
 php_flag display_errors on
 
