@@ -2,7 +2,7 @@ ul.events {
 	padding: 0;
 	margin: 0;
 	list-style: none;
-    text-align: center;
+    text-align: left;
 }
 ul.events li.last {
 	border-bottom: 1px solid #d7d7d7;
