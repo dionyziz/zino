@@ -187,7 +187,7 @@ var InterestTag = {
 		dad.removeChild( li );
 		dad = dad.parentNode;
 		var childlen = dad.childNodes.length;
-		dad.childNodes[ childlen-1 ].firstChild.focus();
+		dad.childNodes[ childlen-5 ].firstChild.focus();
 	},
 	Close : function( ul ) {
 		var interests = g( 'interests' );
