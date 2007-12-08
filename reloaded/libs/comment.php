@@ -503,11 +503,11 @@
 			Notify_Create( $user->Id() , $touser , $newcommentid , $type );
             Notify_CommentRead( $user->Id(), $parent, $type );
 		}
-		else if ( $type == 1 ) {
+		else if ( $type == 1 ) { // Comment to Profile without parent (not a reply)
 			Notify_Create( $user->Id(), $compage, $newcommentid, 4 );
 		}
 		else if ( $type == 2 ) {
-			Notify_Create( $user->Id(), $compage, $newcommentid, $type );
+			Notify_Create( $user->Id(), $photo->UserId(), $newcommentid, $type );
 		}
 			
 			
