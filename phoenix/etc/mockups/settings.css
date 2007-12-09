@@ -6,6 +6,7 @@ div.settings div.sidebar {
     width: 300px;
     height: 100%;
     background-color: white;
+    padding-left: 50px;
 }
 div.settings div.sidebar ol {
     list-style: none;
@@ -52,7 +53,8 @@ div.settings div.tabs div div { /* denotes a specific setting */
     border-bottom: 1px solid #ccc;
     padding: 3px;
 }
-div.setting div.tabs div div label {
+div.settings div.tabs div div label {
     float: left;
     width: 300px;
+    display: block;
 }
