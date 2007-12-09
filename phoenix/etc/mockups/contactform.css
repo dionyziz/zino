@@ -46,5 +46,7 @@ div#contactform form input#mailadress {
 div#contactform form textarea {
 	width: 400px;
 	height: 200px;
-	margin-bottom: 3px;
+	padding: 0;
+	margin-bottom: 5px;
+	display: block;
 }
