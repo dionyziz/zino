@@ -42,6 +42,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="interestlist.css" />
 		<link rel="stylesheet" type="text/css" href="favourites.css" />
 		<link rel="stylesheet" type="text/css" href="events.css" />
+		<link rel="stylesheet" type="text/css" href="settings.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -92,6 +93,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		case 'favourites':
 			include 'favourites.php';
 			break;
+        case 'settings':
+            include 'settings.php';
+            break;
 		case 'frontpage':
 		default:
 			include 'frontpage.php';

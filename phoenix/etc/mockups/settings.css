@@ -1,0 +1,43 @@
+div.settings div.sidebar {
+    float: right;
+    width: 200px;
+    height: 100%;
+}
+div.settings div.sidebar ol {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+div.settings div.sidebar span {
+    background-image: url('images/button_ok_22.png');
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    background-position: left;
+}
+div.settings div.sidebar a {
+    background-image: url('images/forward22.png');
+    background-repeat: no-repeat;
+    padding-right: 30px;
+    background-position: right;
+}
+div.settings div.sidebar ol li {
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 25px;
+    padding-left: 25px;
+}
+div.settings div.sidebar ol li.personal {
+    background-image: url('images/info.png');
+}
+div.settings div.sidebar ol li.characteristics {
+    background-image: url('images/bookmark.png');
+}
+div.settings div.sidebar ol li.interests {
+    background-image: url('images/idea.png');
+}
+div.settings div.sidebar ol li.contact {
+    background-image: url('images/kontact_mail.png');
+}
+div.settings div.sidebar ol li.settings {
+    background-image: url('images/gear.png');
+}
