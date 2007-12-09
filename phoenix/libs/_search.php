@@ -219,12 +219,17 @@
 
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            $water->Trace( "query: " . $this->mQuery . "." );
+            $water->Trace( "query select: " . $this->mQuery . "." );
             $this->PrepareTableReferences();
+            $water->Trace( "query ref: " . $this->mQuery . "." );
             $this->PrepareWhereCondition();
+            $water->Trace( "query cond: " . $this->mQuery . "." );
             $this->PrepareGroupBy();
+            $water->Trace( "query group: " . $this->mQuery . "." );
             $this->PrepareOrderBy();
+            $water->Trace( "query order: " . $this->mQuery . "." );
             $this->PrepareLimit();
+            $water->Trace( "query limit: " . $this->mQuery . "." );
 
             // $res = $db->Query( $this->mQuery );
             // return $res;
