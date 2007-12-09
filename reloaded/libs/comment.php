@@ -507,7 +507,7 @@
 			Notify_Create( $user->Id(), $compage, $newcommentid, 4 );
 		}
 		else if ( $type == 2 ) {
-			Notify_Create( $user->Id(), $photo->UserId(), $newcommentid, $type );
+			Notify_Create( $user->Id(), $photo->UserId(), $newcommentid, 5 );
 		}
 			
 			
