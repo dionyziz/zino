@@ -33,13 +33,14 @@ div.settings div.sidebar a.backtoprofile {
     font-weight: bold;
     text-align: center;
 }
-div.settings div.sidebar ol li {
+div.settings div.sidebar ol li a {
     background-repeat: no-repeat;
     background-position: left;
     height: 25px;
     padding: 5px 30px 30px 0;
     line-height: 22px;
-    border-bottom: #eef;
+    border-bottom: 1px solid #eef;
+    display: block;
 }
 div.settings div.sidebar ol li.personal {
     background-image: url('images/info.png');
@@ -57,7 +58,7 @@ div.settings div.sidebar ol li.settings {
     background-image: url('images/gear.png');
 }
 div.settings div.tabs {
-    margin-right: 300px;
+    margin-right: 350px;
 }
 div.settings div.tabs div div { /* denotes a specific setting */
     border-bottom: 1px solid #ccc;
