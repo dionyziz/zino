@@ -1,7 +1,11 @@
+div.settings {
+    padding-top: 30px;
+}
 div.settings div.sidebar {
     float: right;
-    width: 200px;
+    width: 300px;
     height: 100%;
+    background-color: white;
 }
 div.settings div.sidebar ol {
     list-style: none;
@@ -40,6 +44,9 @@ div.settings div.sidebar ol li.contact {
 }
 div.settings div.sidebar ol li.settings {
     background-image: url('images/gear.png');
+}
+div.settings div.tabs {
+    margin-right: 300px;
 }
 div.settings div.tabs div div { /* denotes a specific setting */
     border-bottom: 1px solid #ccc;
