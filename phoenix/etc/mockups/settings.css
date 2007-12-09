@@ -14,7 +14,7 @@ div.settings div.sidebar span {
     padding-left: 25px;
     background-position: left;
 }
-div.settings div.sidebar a {
+div.settings div.sidebar a.backtoprofile {
     background-image: url('images/forward22.png');
     background-repeat: no-repeat;
     padding-right: 30px;
@@ -40,4 +40,15 @@ div.settings div.sidebar ol li.contact {
 }
 div.settings div.sidebar ol li.settings {
     background-image: url('images/gear.png');
+}
+div.settings div.tabs div#personal, div.settings div.tabs div#characteristics, div.settings div.tabs div#interests, div.settings div.tabs div#contact, div.settings div.tabs div#settings {
+    display: none;
+}
+div.settings div.tabs div div { /* denotes a specific setting */
+    border-bottom: 1px solid #ccc;
+    padding: 3px;
+}
+div.setting div.tabs div div label {
+    float: left;
+    width: 300px;
 }
