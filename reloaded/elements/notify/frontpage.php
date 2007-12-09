@@ -19,7 +19,7 @@
 							if ( $i != 0 ) {
 								?>next <?php
 							}
-							if ( $notif->Typeid() <= 4 ) {
+							if ( $notif->Typeid() <= 5 ) {
 								?>comment<?php
 							}
 							else {
