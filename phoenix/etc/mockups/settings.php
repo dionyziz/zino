@@ -153,13 +153,8 @@
                 </div>
                 <div>
                     <label>Φωτογραφία:</label>
-                    <div class="imagestream">
-                        <a href=""><img src="images/avatars/dionyzizb.jpg" alt="dionyziz" /></a>
-                        <a href="" class="selected"><img src="images/avatars/dionyzizc.jpg" alt="dionyziz" /></a>
-                        <a href=""><img src="images/avatars/dionyzizd.jpg" alt="dionyziz" /></a>
-                        <a href=""><img src="images/avatars/dionyzize.jpg" alt="dionyziz" /></a>
-                        <a href=""><img src="images/avatars/dionyzizf.jpg" alt="dionyziz" /></a>
-                    </div>
+                    <img src="images/avatars/dionyzizc.jpg" alt="dionyziz" /><br />
+                    <a href="" onclick="return false">Αλλαγή εικόνας</a>
                 </div>
                 <div>
                     <label>Σεξουαλικές προτιμήσεις:</label>
