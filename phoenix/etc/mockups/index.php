@@ -43,6 +43,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="favourites.css" />
 		<link rel="stylesheet" type="text/css" href="events.css" />
 		<link rel="stylesheet" type="text/css" href="settings.css" />
+		<link rel="stylesheet" type="text/css" href="contactform.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
@@ -96,6 +97,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
         case 'settings':
             include 'settings.php';
             break;
+		case 'contactform':
+			include 'contactform.php';
+			break;
 		case 'frontpage':
 		default:
 			include 'frontpage.php';
