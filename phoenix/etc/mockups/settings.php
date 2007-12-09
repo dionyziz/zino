@@ -611,11 +611,11 @@
         
         for ( i = 0; i < validtabs.length; ++i ) {
             if ( hash == validtabs[ i ] ) {
-                document.getElementById( hash ).style.display = '';
+                document.getElementById( validtabs[ i ] ).style.display = '';
                 found = true;
             }
             else {
-                document.getElementById( hash ).style.display = 'none';
+                document.getElementById( validtabs[ i ] ).style.display = 'none';
             }
         }
         
