@@ -8,11 +8,6 @@ div.settings div.sidebar {
     background-color: white;
     padding-left: 50px;
 }
-div.settings div.sidebar ol {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
-}
 div.settings div.sidebar span {
     background-image: url('images/button_ok_22.png');
     background-repeat: no-repeat;
@@ -33,6 +28,15 @@ div.settings div.sidebar a.backtoprofile {
     font-weight: bold;
     text-align: center;
 }
+div.settings div.sidebar ol {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+div.settings div.sidebar ol li {
+    padding: 0;
+    margin: 0;
+}
 div.settings div.sidebar ol li a {
     background-repeat: no-repeat;
     background-position: left;
@@ -42,19 +46,19 @@ div.settings div.sidebar ol li a {
     border-bottom: 1px solid #eef;
     display: block;
 }
-div.settings div.sidebar ol li.personal {
+div.settings div.sidebar ol li.personal a {
     background-image: url('images/info.png');
 }
-div.settings div.sidebar ol li.characteristics {
+div.settings div.sidebar ol li.characteristics a {
     background-image: url('images/bookmark.png');
 }
-div.settings div.sidebar ol li.interests {
+div.settings div.sidebar ol li.interests a {
     background-image: url('images/idea.png');
 }
-div.settings div.sidebar ol li.contact {
+div.settings div.sidebar ol li.contact a {
     background-image: url('images/kontact_mail.png');
 }
-div.settings div.sidebar ol li.settings {
+div.settings div.sidebar ol li.settings a {
     background-image: url('images/gear.png');
 }
 div.settings div.tabs {
