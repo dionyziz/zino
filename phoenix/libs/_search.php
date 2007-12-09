@@ -140,7 +140,7 @@
                 $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
                 $calias = $join[ 'table' ];
                 $ctable = $this->mTables[ $calias ][ "name" ];
-                $this->mQuery .= "`$ctable`";
+                $this->mQuery .= "`$ctable` AS $calias";
                 $this->mConnected[] = $calias;
                 if ( count( $join[ 'fields' ] ) ) {
                     $this->mQuery .= " ON ";
