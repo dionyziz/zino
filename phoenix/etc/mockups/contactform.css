@@ -33,6 +33,7 @@ div#contactform form span {
 }
 div#contactform form input#mailadress {
 	width: 250px;
+	margin-bottom: 25px;
 }
 div#contactform form textarea {
 	width: 400px;
