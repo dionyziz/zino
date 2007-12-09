@@ -163,6 +163,9 @@
 			}
 			return New DBResource( $res, $this->mDriver );
 		}
+        public function Prepare( $rawsql ) {
+            return New DBQuery( $rawsql, $this );
+        }
 		public function Insert( $inserts , $table , $ignore = false , $delayed = false , $quota = 500 ) {
 			// $table = 'table';
 			// $table = array( 'database' , 'table' )
@@ -263,6 +266,26 @@
 		}
 	}
 
+    class DBQuery {
+        protected $mRawSQL; // doesn't contain binded arguments
+        protected $mBindings;
+        protected $mDatabase;
+        
+        public function DBQuery( $raw, Database $database ) {
+            $this->mRawSQL = $raw;
+            $this->mDatabase = $database;
+        }
+        public function Bind( $name, $argument ) {
+            $this->mBindings[ ':' . ( string )$name ] = addslashes( ( string )$argument );
+        }
+        public function Apply() {
+            return strtr( $this->mRawSQL, $this->mBindings );
+        }
+        public function Execute() {
+            return $this->mDatabase->Query( $this->Apply() );
+        }
+    }
+    
 	class DBChange {
 		protected $mAffectedRows;
 		protected $mInsertId;
