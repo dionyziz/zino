@@ -47,6 +47,9 @@ div#contactform form textarea {
 	width: 400px;
 	height: 200px;
 	padding: 0;
-	margin-bottom: 5px;
+	margin-bottom: 20px;
 	display: block;
+}
+div#contactform form a.button {
+	margin: 0;
 }
