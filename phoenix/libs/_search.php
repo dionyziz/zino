@@ -92,9 +92,8 @@
 
             $varname = 'm' . $name;
 
-            if ( !property_exists( get_class( $this ), $varname ) ) {
-                die( "property $varname does not exist" );
-            }
+            w_assert( property_exists( get_class( $this ), $varname ) );
+
             return $this->$varname; // MAGIC!
         }
         public function __set( $name, $value ) {
@@ -107,9 +106,7 @@
                 /* else fallthru */
             }
             
-            if ( !property_exists( get_class( $this ), $varname ) ) {
-                die( "property $varname does not exist" );
-            }
+            w_assert( property_exists( get_class( $this ), $varname ) );
 
             $varname = 'm' . $name;
             $this->$varname = $value;
