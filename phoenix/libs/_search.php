@@ -93,7 +93,7 @@
             $varname = 'm' . $name;
 
             if ( !property_exists( get_class( $this ), $varname ) ) {
-                // die( "property $varname does not exist" );
+                die( "property $varname does not exist" );
             }
             return $this->$varname; // MAGIC!
         }
@@ -106,11 +106,13 @@
                 }
                 /* else fallthru */
             }
-
-            if ( array_key_exists( $name, $this->mFilters ) ) {
-                $varname = 'm' . $name;
-                $this->$varname = $value;
+            
+            if ( !property_exists( get_class( $this ), $varname ) ) {
+                die( "property $varname does not exist" );
             }
+
+            $varname = 'm' . $name;
+            $this->$varname = $value;
         }
         private function PrepareSelectExpression() {
             $this->mQuery .= "SELECT ";
