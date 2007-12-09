@@ -1,11 +1,11 @@
 <div class="settings">
     <div class="sidebar">
-        <ol>
-            <li class="personal"><a href="#personal">Πληροφορίες</a></li>
-            <li class="characteristics"><a href="#characteristics">Χαρακτηριστικά</a></li>
-            <li class="interests"><a href="#interests">Ενδιαφέροντα</a></li>
-            <li class="contact"><a href="#contact">Επικοινωνία</a></li>
-            <li class="settings"><a href="#settings">Ρυθμίσεις</a></li>
+        <ol id="settingslist">
+            <li class="personal"><a href="#personal" onclick="DoSwitchSettings()">Πληροφορίες</a></li>
+            <li class="characteristics"><a href="#characteristics" onclick="DoSwitchSettings()">Χαρακτηριστικά</a></li>
+            <li class="interests"><a href="#interests" onclick="DoSwitchSettings()">Ενδιαφέροντα</a></li>
+            <li class="contact"><a href="#contact" onclick="DoSwitchSettings()">Επικοινωνία</a></li>
+            <li class="settings"><a href="#settings" onclick="DoSwitchSettings()">Ρυθμίσεις</a></li>
         </ol>
         <span>Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
         <a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a>
@@ -610,20 +610,26 @@
         var hash = window.location.hash.substr( 1 );
         var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
         var found = false;
+        var settingslis = document.getElementById( 'settingslist' ).getElementsByTagName( 'li' );
         
         for ( i = 0; i < validtabs.length; ++i ) {
             if ( hash == validtabs[ i ] ) {
                 document.getElementById( validtabs[ i ] ).style.display = '';
+                settingslis[ i ].style.fontWeight = 'bold';
                 found = true;
             }
             else {
                 document.getElementById( validtabs[ i ] ).style.display = 'none';
+                settingslis[ i ].style.fontWeight = 'normal';
             }
         }
         
         if ( !found ) {
             document.getElementById( validtabs[ 0 ] ).style.display = '';
         }
+    }
+    function DoSwitchSettings() {
+        setTimeOut( SwitchSettings, 20 );
     }
     setInterval( SwitchSettings, 500 );
 // ]]></script>
