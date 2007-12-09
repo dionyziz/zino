@@ -209,13 +209,13 @@
         private function PrepareOrderBy() {
         }
         private function PrepareLimit() {
-            if ( !empty( $this->Offset ) || !empty( $this->Limit ) ) {
+            if ( !empty( $this->mOffset ) || !empty( $this->mLimit ) ) {
                 $this->mQuery .= " LIMIT ";
-                if ( !empty( $this->Offset ) && !empty( $this->Limit ) ) {
-                    $this->mQuery .= $this->Offset . " , ";
+                if ( !empty( $this->mOffset ) && !empty( $this->mLimit ) ) {
+                    $this->mQuery .= $this->mOffset . " , ";
                 }
-                if ( !empty( $this->Limit ) ) {
-                    $this->mQuery .= $this->Limit;
+                if ( !empty( $this->mLimit ) ) {
+                    $this->mQuery .= $this->mLimit;
                 }
                 $this->mQuery .= " ";
             }
@@ -318,7 +318,7 @@
             $this->PageId = $item->Id;
         }
         public function Defaults() {
-            $this->Limit = 20;
+            $this->mLimit = 20;
             $this->UserDelId = 0;
             $this->ImageDelId = 0;
         }
