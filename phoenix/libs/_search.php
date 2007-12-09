@@ -63,8 +63,12 @@
                 $this->mTables[ $alias ] = array( "name" => $table, "needed" => true );
             }
         }
-        protected function AddTable( $alias ) {
-            $this->mTables[ $alias ] = array( "name" => $this->mTables[ $alias ][ "name" ], "needed" => true );
+        protected function AddTable( $alias, $table = false ) {
+            if ( !$table && isset( $this->mTables[ $alias ] ) ) {
+                // add table to needed tables
+                $this->mTables[ $alias ][ "needed" ] = true;
+            }
+            $this->mTables[ $alias ] = array( "name" => $table, "needed" => true );
         }
         protected function SetFields( $fields ) {
             $this->mFields = $fields;
@@ -114,9 +118,8 @@
 
             $first = true;
             foreach ( $this->mFields as $table => $fields ) {
-                if ( isset( $this->mTables[ $table ] ) ) {
-                    $table = $this->mTables[ $table ][ "name" ];
-                }
+                w_assert( isset( $this->mTables[ $table ] ) );
+                
                 while ( $field = array_shift( $fields ) ) {
                     if ( !$first ) {
                         $this->mQuery .= ", ";
