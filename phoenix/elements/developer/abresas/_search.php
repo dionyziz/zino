@@ -24,7 +24,7 @@
 
         $comments = $comments->Get();
 
-        print_r( $comments );
+        print_r( $comments  );
     }
 
 ?>

@@ -43,6 +43,7 @@
         protected $mOrderBy;
         protected $mConnections;
         protected $mQuery;
+        protected $mClass;
         private $mConnected;
 
         protected function Connect( $table1, $type, $table2, $fields ) {
@@ -237,8 +238,9 @@
             $this->PrepareLimit();
             $water->Trace( "query limit: " . $this->mQuery . "." );
 
-            // $res = $db->Query( $this->mQuery );
-            // return $res;
+            $res = $db->Query( $this->mQuery );
+
+            return $res->ToObjectsArray( $this->mClass );
         }
         public function Search() {
             $this->mConnected = array();
@@ -323,6 +325,8 @@
             $this->ImageDelId = 0;
         }
         public function CommentsSearch() {
+            $this->mClass = 'Comment';
+
             $this->AddTables( array(
                 'comments' => 'merlin_comments',
                 'users' => 'merlin_users',
