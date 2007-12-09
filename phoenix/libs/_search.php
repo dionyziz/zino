@@ -215,7 +215,7 @@
 
             $this->mQuery = "";
             $this->PrepareSelectExpression();
-            $water->Trace( "query: " . $this->Query . "." );
+            $water->Trace( "query: " . $this->mQuery . "." );
             $this->PrepareTableReferences();
             $this->PrepareWhereCondition();
             $this->PrepareGroupBy();
@@ -226,6 +226,7 @@
             // return $res;
         }
         public function Search() {
+            $this->mConnected = array();
             $this->Defaults();
         }
         public function GetParented() {
