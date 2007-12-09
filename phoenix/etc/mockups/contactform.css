@@ -1,5 +1,6 @@
 div#contactform {
 	margin: 20px 0;
+	width: 70%;
 }
 div#contactform h2 {
 	margin: 0 0 15px 0;
@@ -22,22 +23,28 @@ div#contactform ul li {
 	margin: 0;
 	padding: 1px 0;
 }
+div#contactform ul li span {
+	display: block;
+}
+div#contactform ul li strong {
+	font-weight: bold;
+	display: block;
+}
 div#contactform form {
 	
 
 }
-div#contactform form span {
-	display: block;
+div#contactform form p {
+	padding: 0;
 	font-family: serif;
-	margin-bottom: 3px;
+	margin: 0 0 3px 0;
 }
 div#contactform form input#mailadress {
 	width: 250px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
 div#contactform form textarea {
 	width: 400px;
 	height: 200px;
-	display: block;
 	margin-bottom: 3px;
 }

@@ -75,9 +75,9 @@
 	θα προσπαθήσουμε να σας εξυπηρετήσουμε.
     </p>        
 	<form>
-		<span>Email</span>
+		<p>Email</p>
 		<input type="text" id="mailadress"></input>
-		<span>Σχόλια (προαιρετικό)</span>
+		<p>Σχόλια (προαιρετικό)</p>
 		<textarea></textarea>
 		<a href="" class="button">Αποστολή&raquo;</a>	
 	</form>
