@@ -20,7 +20,7 @@ div#contactform ul {
 	padding: 3px 0 15px 15px;
 }
 div#contactform ul li {
-	margin: 0;
+	margin: 0 0 2px 0;
 	padding: 1px 0;
 }
 div#contactform ul li span {
@@ -29,6 +29,7 @@ div#contactform ul li span {
 div#contactform ul li strong {
 	font-weight: bold;
 	display: block;
+	margin-bottom: 1px;
 }
 div#contactform form {
 	
