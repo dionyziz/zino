@@ -355,9 +355,6 @@
                 ),
                 'images' => array(
                     'image_delid' => 'ImageDelId'
-                ),
-                '' => array(
-                    '' => ''
                 )
             ) );
 
