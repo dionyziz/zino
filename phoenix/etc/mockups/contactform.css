@@ -2,7 +2,7 @@ div#contactform {
 	margin: 20px 0;
 }
 div#contactform h2 {
-	margin: 0;
+	margin: 0 0 15px 0;
 	padding: 0;
 }
 div#contactform h3 {
@@ -16,9 +16,9 @@ div#contactform p {
 }
 div#contactform ul {
 	margin: 0;
-	padding: 0;
+	padding: 3px 0 20px 0;
 }
 div#contactform ul li {
 	margin: 0;
-	padding: 0 0 0 20px;
+	padding: 0;
 }
