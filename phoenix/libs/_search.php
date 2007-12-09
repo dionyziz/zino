@@ -42,6 +42,7 @@
         protected $mTables;
         protected $mOrderBy;
         protected $mConnections;
+        protected $mQuery;
         private $mConnected;
 
         protected function Connect( $table1, $type, $table2, $fields ) {
