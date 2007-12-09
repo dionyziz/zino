@@ -127,7 +127,7 @@
                     else {
                         $first = false;
                     }
-                    $this->mQuery .= "`$table`.`$field`";
+                    $this->mQuery .= "$table.`$field`";
                 }
             }
         }
