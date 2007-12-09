@@ -223,6 +223,7 @@
         }
         public function Get() {
             global $water;
+            global $db;
 
             $this->mQuery = "";
             $this->PrepareSelectExpression();
