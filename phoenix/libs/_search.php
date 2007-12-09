@@ -297,7 +297,7 @@
     }
 
     class CommentsSearch extends Search {
-        protected $mPageId;
+        protected $mItemId;
         protected $mTypeId;
         protected $mDelId;
         protected $mUserDelId;
@@ -322,10 +322,9 @@
                     'comment_id',
                     'comment_created',
                     'comment_parentid',
-                    'comment_text',
-                    'comment_textraw',
+                    'comment_bulkid',
                     'comment_userip',
-                    'comment_storyid'
+                    'comment_itemid',
                 ),
 				'users' => array( 
                     'user_id',
@@ -346,7 +345,7 @@
 
             $this->SetFilters( array(
                 'comments' => array(
-                    'comment_pageid' => 'PageId',
+                    'comment_itemid' => 'ItemId',
                     'comment_typeid' => 'TypeId',
                     'comment_delid' => 'DelId'
                 ),

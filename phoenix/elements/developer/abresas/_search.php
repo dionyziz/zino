@@ -2,12 +2,13 @@
 
     function ElementDeveloperAbresasSearch() {
         global $libs;
+        global $user;
 
         $libs->Load( 'search' );
 
         $comments = new CommentsSearch;
         $comments->TypeId   = 1;
-        $comments->Page     = $theuser;
+        $comments->ItemId   = 832;
         $comments->DelId    = 0;
 
         //$comments->OrderBy  = array( 'date', 'DESC' );
