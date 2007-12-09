@@ -151,9 +151,9 @@
                         <option>(κανένα)</option>
                     </select>
                 </div>
-                <div>
+                <div style="line-height:100px;vertical-align: center">
                     <label>Φωτογραφία:</label>
-                    <img src="images/avatars/dionyzizc.jpg" alt="dionyziz" /><br />
+                    <img src="images/avatars/dionyzizb.jpg" alt="dionyziz" />
                     <a href="" onclick="return false">Αλλαγή εικόνας</a>
                 </div>
                 <div>
