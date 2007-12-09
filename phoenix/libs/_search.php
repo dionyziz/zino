@@ -213,6 +213,16 @@
         private function PrepareOrderBy() {
         }
         private function PrepareLimit() {
+            if ( !empty( $this->Offset ) || !empty( $this->Limit ) ) {
+                $this->mQuery .= " LIMIT ";
+                if ( !empty( $this->Offset ) && !empty( $this->Limit ) ) {
+                    $this->mQuery .= $this->Offset . " , ";
+                }
+                if ( !empty( $this->Limit ) ) {
+                    $this->mQuery .= $this->Limit;
+                }
+                $this->mQuery .= " ";
+            }
         }
         public function Get() {
             global $water;
@@ -312,6 +322,7 @@
             $this->PageId = $item->Id;
         }
         public function Defaults() {
+            $this->Limit = 20;
             $this->UserDelId = 0;
             $this->ImageDelId = 0;
         }
