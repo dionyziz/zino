@@ -132,6 +132,10 @@
             }
         }
         private function PrepareConnections( $alias ) {
+            if ( !isset( $this->mConnections[ $alias ] ) ) {
+                return true;
+            }
+
             foreach ( $this->mConnections[ $alias ] as $join ) {
                 $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
                 $calias = $join[ 'table' ];
@@ -294,6 +298,8 @@
 
     class CommentsSearch extends Search {
         protected $mPageId;
+        protected $mTypeId;
+        protected $mDelId;
         protected $mUserDelId;
         protected $mImageDelId;
 
