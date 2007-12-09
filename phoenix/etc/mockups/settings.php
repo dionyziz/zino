@@ -603,6 +603,8 @@
         </div>
     </div>
 </div>
+<div class="eof">
+</div>
 <script type="text/javascript">// <![CDATA[
     function SwitchSettings() {
         var hash = window.location.hash.substr( 1 );

@@ -18,18 +18,28 @@ div.settings div.sidebar span {
     background-repeat: no-repeat;
     padding-left: 25px;
     background-position: left;
+    display: block;
+    height: 30px;
 }
 div.settings div.sidebar a.backtoprofile {
     background-image: url('images/forward22.png');
     background-repeat: no-repeat;
     padding-right: 30px;
     background-position: right;
+    display: block;
+    height: 50px;
+    border: 1px solid #ccf;
+    background-color: #ccc;
+    font-weight: bold;
+    text-align: center;
 }
 div.settings div.sidebar ol li {
     background-repeat: no-repeat;
     background-position: left;
     height: 25px;
-    padding-left: 25px;
+    padding: 5px 30px 5px 0;
+    line-height: 22px;
+    border-bottom: #eef;
 }
 div.settings div.sidebar ol li.personal {
     background-image: url('images/info.png');
