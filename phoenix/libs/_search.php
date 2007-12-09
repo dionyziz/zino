@@ -91,9 +91,7 @@
             }
 
             $varname = 'm' . $name;
-
             w_assert( property_exists( get_class( $this ), $varname ) );
-
             return $this->$varname; // MAGIC!
         }
         public function __set( $name, $value ) {
@@ -106,9 +104,8 @@
                 /* else fallthru */
             }
             
-            w_assert( property_exists( get_class( $this ), $varname ) );
-
             $varname = 'm' . $name;
+            w_assert( property_exists( get_class( $this ), $varname ) );
             $this->$varname = $value;
         }
         private function PrepareSelectExpression() {
