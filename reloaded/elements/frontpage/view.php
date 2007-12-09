@@ -3,7 +3,7 @@
         global $page;
         global $rabbit_settings;
         
-        $page->SetTitle( "Συζήτηση και διασκέδαση" );
+        $page->SetTitle( "Είσαι μέσα?" );
         $page->AttachStylesheet( 'css/sidebar.css' );
         $page->AttachScript( 'js/animations.js' );
         
