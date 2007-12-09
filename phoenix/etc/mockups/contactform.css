@@ -29,6 +29,7 @@ div#contactform form {
 div#contactform form span {
 	display: block;
 	font-family: serif;
+	margin-bottom: 3px;
 }
 div#contactform form input#mailadress {
 	width: 250px;
@@ -36,4 +37,6 @@ div#contactform form input#mailadress {
 div#contactform form textarea {
 	width: 400px;
 	height: 200px;
+	display: block;
+	margin-bottom: 3px;
 }

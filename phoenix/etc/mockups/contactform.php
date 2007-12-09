@@ -79,6 +79,6 @@
 		<input type="text" id="mailadress"></input>
 		<span>Σχόλια (προαιρετικό)</span>
 		<textarea></textarea>
-		<a href="" class="button">&#187;Αποστολή</a>	
+		<a href="" class="button">Αποστολή&raquo;/a>	
 	</form>
 </div>
