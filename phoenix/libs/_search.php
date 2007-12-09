@@ -127,7 +127,7 @@
                     else {
                         $first = false;
                     }
-                    $this->mQuery .= "$table.`$field`";
+                    $this->mQuery .= "`$table`.`$field`";
                 }
             }
         }
@@ -370,7 +370,7 @@
                     'comment_delid' => 'DelId'
                 ),
                 'users' => array(
-                    'user_delid' => 'UserDelId',
+                    // 'user_delid' => 'UserDelId',
                 ),
                 'images' => array(
                     'image_delid' => 'ImageDelId'
