@@ -603,7 +603,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<script type="text/javascript">// <![CDATA[
     function SwitchSettings() {
         var hash = window.location.hash( 1 );
         var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -624,4 +624,4 @@
         }
     }
     setInterval( SwitchSettings, 500 );
-</script>
+// ]]></script>
