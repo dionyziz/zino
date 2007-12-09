@@ -605,7 +605,7 @@
 </div>
 <script type="text/javascript">// <![CDATA[
     function SwitchSettings() {
-        var hash = window.location.hash( 1 );
+        var hash = window.location.hash.substr( 1 );
         var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
         var found = false;
         
