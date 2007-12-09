@@ -41,9 +41,6 @@ div.settings div.sidebar ol li.contact {
 div.settings div.sidebar ol li.settings {
     background-image: url('images/gear.png');
 }
-div.settings div.tabs div#personal, div.settings div.tabs div#characteristics, div.settings div.tabs div#interests, div.settings div.tabs div#contact, div.settings div.tabs div#settings {
-    display: none;
-}
 div.settings div.tabs div div { /* denotes a specific setting */
     border-bottom: 1px solid #ccc;
     padding: 3px;

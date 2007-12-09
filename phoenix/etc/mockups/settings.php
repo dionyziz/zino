@@ -11,7 +11,7 @@
         <a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a>
     </div>
     <div class="tabs">
-        <div id="personal">
+        <div id="personal" style="display:none">
             <div>
                 <label>Ημερομηνία Γέννησης:</label>
                 <select name="day">
@@ -233,7 +233,7 @@
                     </select>
                 </div>
         </div>
-        <div id="characteristics">
+        <div id="characteristics" style="display:none">
             <div>
                 <label>Χρώμα μαλλιών</label>
                 <select name="haircolour">
@@ -534,7 +534,7 @@
                 </select>
             </div>
         </div>
-        <div id="interests">
+        <div id="interests" style="display:none">
             <label>Αγαπημένες ταινίες:</label>
             <label>Αγαπημένα βιβλία:</label>
             <label>Αγαπημένα τραγούδια:</label>
@@ -544,7 +544,7 @@
             <label>Αγαπημένες σειρές:</label>
             <label>Hobbies:</label>
         </div>
-        <div id="contact">
+        <div id="contact" style="display:none">
             <div>
                 <label>E-mail:</label>
                 <input type="text" name="email" />
@@ -566,7 +566,7 @@
                 <input type="text" name="yahoo" />
             </div>
         </div>
-        <div id="settings">
+        <div id="settings" style="display:none">
             <label>Να λαμβάνω ειδοποιήσεις:</label>
             <table>
                 <tr>
