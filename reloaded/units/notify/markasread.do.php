@@ -33,6 +33,7 @@
     					echo $notif->Itemid();
     					break;
     				case 2:
+                    case 5:
     					$artcl = $comm->Page();
     					?>index.php?p=photo&id=<?php
     					echo $artcl->Id();
