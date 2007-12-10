@@ -250,11 +250,6 @@
             $this->mConnected = array();
             $this->Defaults();
         }
-        public function GetParented() {
-            $res = $this->Get();
-
-            // do stuff
-        }
     }
 
     class EventsSearch extends Search {
@@ -375,6 +370,30 @@
             ) );
 
             $this->Search();
+        }
+        public function GetParented() {
+            $res = $this->Get();
+
+			$parented = array();
+            if ( !is_array( $comments ) ) {
+                return $parented;
+            }
+
+			foreach( $comments as $comment ) {
+				if ( !isset( $parented[ $comment->ParentId ] ) || empty( $parented[ $comment->ParentId ] ) ) {
+					$parented[ $comment->ParentId ] = array( $comment );
+				}
+				else {
+					if ( $reverse ) {
+						array_push( $parented[ $comment->ParentId ], $comment );
+					}
+					else {
+						array_unshift( $parented[ $comment->ParentId ], $comment );
+					}
+				}
+			}
+			
+			return $parented;
         }
     }
 
