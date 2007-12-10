@@ -371,7 +371,7 @@
 
             $this->Search();
         }
-        public function GetParented() {
+        public function GetParented( $reverse = false ) {
             $comments = $this->Get();
 
 			$parented = array();
