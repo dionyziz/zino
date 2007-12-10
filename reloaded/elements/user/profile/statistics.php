@@ -17,14 +17,13 @@
 						echo round( ( $theuser->Contribs() / $theuser->DaysSinceRegister() ), 2 );
 					?></dd>
 				</dl></li>
-				<li><dl class="k">
+				<li><dl>
 					<dt>προβολές προφίλ</dt>
 					<dd><?php 
 						echo $theuser->PageViews(); 
 					?></dd>
 				</dl></li>
-				
-				<li><dl>
+				<li><dl class="k">
 					<dt>σχόλια προφίλ</dt>
 					<dd id="user_statistics_profcomms"><?php
 						echo $theuser->NumComments();
@@ -36,8 +35,7 @@
 						}
 					?></dd>
 				</dl></li>
-				
-				<li><dl class="k">
+				<li><dl>
 					<dt>δημοτικότητα προφίλ</dt>
 					<dd><?php 
 						echo round( $theuser->Popularity() * 100, 2 );
