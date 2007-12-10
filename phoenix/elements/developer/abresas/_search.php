@@ -22,7 +22,7 @@
         }
         */
 
-        $comments = $comments->Get();
+        $comments = $comments->GetParented();
    
         Element( 'comment/import' );
         Element( 'comment/list', $comments, 0, 0 );
