@@ -25,7 +25,7 @@
         $comments = $comments->Get();
    
         Element( 'comment/import' );
-        Element( 'comment/list', 0, 0 );
+        Element( 'comment/list', $comments, 0, 0 );
     }
 
 ?>
