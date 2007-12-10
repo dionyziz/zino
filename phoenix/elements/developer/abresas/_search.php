@@ -4,7 +4,7 @@
         global $libs;
         global $user;
 
-        $libs->Load( 'search' );
+        $libs->Load( 'comment' );
 
         $comments = new CommentsSearch;
         $comments->TypeId   = 1;
