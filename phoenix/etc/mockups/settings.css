@@ -73,3 +73,10 @@ div.settings div.tabs div div label {
     width: 300px;
     display: block;
 }
+div.settings div.tabs div div input, div.settings div.tabs div div textarea {
+    border: 1px solid #333;
+    width: 50%;
+}
+div.settings div.tabs div div table {
+    text-align: left;
+}

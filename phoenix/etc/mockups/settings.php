@@ -151,7 +151,7 @@
                         <option>(κανένα)</option>
                     </select>
                 </div>
-                <div style="line-height:100px;vertical-align: center">
+                <div>
                     <label>Φωτογραφία:</label>
                     <img src="images/avatars/dionyzizb.jpg" alt="dionyziz" />
                     <a href="" onclick="return false">Αλλαγή εικόνας</a>
@@ -621,6 +621,7 @@
         
         if ( !found ) {
             document.getElementById( validtabs[ 0 ] ).style.display = '';
+            settingslis[ 0 ].style.fontWeight = 'bold';
         }
     }
     function DoSwitchSettings() {
