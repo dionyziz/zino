@@ -76,7 +76,8 @@ div.settings div.tabs form div label {
     width: 300px;
     display: block;
 }
-div.settings div.tabs form div div.setting input.small {
+div.settings div.tabs form div div.setting input.small,
+div.settings div.tabs form div div.setting select.small {
     width: auto;
 }
 div.settings div.tabs form div div.setting input,
@@ -93,4 +94,5 @@ div.settings div.tabs form div table tr td {
 }
 div.settings div.tabs form div div.setting {
     margin-left: 300px;
+    border: none;
 }
