@@ -34,6 +34,15 @@
         protected $mCreateMinute;
         protected $mCreateSecond;
 
+        public function GetText() {
+            global $blk;
+
+            if ( $this->mText === false ) {
+                $this->mText = $blk->Get( $this->BulkId ); 
+            }
+
+            return $this->mText;
+        }
         public function GetURL() {
             return $this->Page->Url . "#comment_" . $this->Id;
         }
@@ -183,12 +192,11 @@
                 'comment_userid'    => 'UserId',
                 'comment_created'   => 'Created',
                 'comment_userip'    => 'UserIp',
-                'comment_text'      => 'Text',
                 'comment_pageid'    => 'PageId',
                 'comment_typeid'    => 'TypeId',
                 'comment_parentid'  => 'ParentId',
                 'comment_delid'     => 'DelId',
-                'comment_bulkid'    => 'BulkId' /* does this really exist? */
+                'comment_bulkid'    => 'BulkId'
             ) );
 
             $this->Satori( $construct );
