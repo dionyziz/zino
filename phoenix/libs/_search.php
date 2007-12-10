@@ -372,7 +372,7 @@
             $this->Search();
         }
         public function GetParented() {
-            $res = $this->Get();
+            $comments = $this->Get();
 
 			$parented = array();
             if ( !is_array( $comments ) ) {
