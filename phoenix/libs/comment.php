@@ -202,7 +202,7 @@
 										   $this->mCreateMonth , $this->mCreateDay , $this->mCreateYear );
 				
 				$this->mDate = MakeDate( $this->mCreated );
-				$this->mSinceDate = dateDiff( $this->mCreated, NowDate() );
+				$this->SinceDate = dateDiff( $this->mCreated, NowDate() );
 			}
             
 			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;
