@@ -276,6 +276,18 @@
             $this->mDatabase = $database;
         }
         public function Bind( $name, $argument ) {
+            switch ( gettype( $argument ) ) {
+                case 'boolean':
+                    $argument = ( int )$argument;
+                case 'integer':
+                case 'double':
+                    break;
+                default:
+                    $argument = "'" . addslashes( ( string )$argument ) . "'";
+            }
+            if ( !is_int( $argument ) && !is_float( $argument ) ) {
+            }
+            
             $this->mBindings[ ':' . ( string )$name ] = addslashes( ( string )$argument );
         }
         public function Apply() {
