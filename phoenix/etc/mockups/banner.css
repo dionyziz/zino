@@ -9,6 +9,7 @@ div.header a.novisual {
     width: 0;
     height: 0;
     overflow: hidden;
+    display: block;
 }
 div.header a {
 	font-weight: bold;
