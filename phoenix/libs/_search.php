@@ -318,7 +318,6 @@
         protected $mTypeId;
         protected $mDelId;
         protected $mUserDelId;
-        protected $mImageDelId;
 
         public function SetPage( $item ) {
             $this->PageId = $item->Id;
@@ -326,7 +325,6 @@
         public function Defaults() {
             $this->mLimit = 20;
             $this->UserDelId = 0;
-            $this->ImageDelId = 0;
         }
         public function CommentsSearch() {
             $this->mClass = 'Comment';
@@ -370,10 +368,10 @@
                     'comment_delid' => 'DelId'
                 ),
                 'users' => array(
-                    // 'user_delid' => 'UserDelId',
+                    'user_delid' => 'UserDelId',
                 ),
                 'images' => array(
-                    'image_delid' => 'ImageDelId'
+                    // 'image_delid' => 'ImageDelId'
                 )
             ) );
 
