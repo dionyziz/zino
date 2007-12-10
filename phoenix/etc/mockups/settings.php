@@ -152,12 +152,16 @@
             <div style="display:none">
                 <label>Ποιο πανεπιστήμιο;</label>
                 <label>Πόλη:</label>
-                <select name="uniplace">
-     <option value="0" >(δεν έχεις επιλέξει)</option><option value="117 " > Άρτα </option><option value="46 " > Άργος </option><option value="109 " > Άγιος Νικόλαος </option><option value="98 " > Άμφισσα </option><option value="146 " > Έδεσσα </option><option value="149 " > Αργοστόλι </option><option value="160 " > Ασπρόπυργος </option><option value="35 " > Αγρίνιο </option><option value="2 " selected="selected" > Αθήνα </option><option value="113 " > Αλεξανδρούπολη </option><option value="159 " > Αμφιλοχία </option><option value="137 " > Βόλος </option><option value="102 " > Βέροια </option><option value="143 " > Γρεβενά </option><option value="112 " > Δράμα </option><option value="37 " > Ερέτρια </option><option value="133 " > Ερμούπολη </option><option value="157 " > Ελευσίνα </option><option value="124 " > Ζάκυνθος </option><option value="110 " > Ηράκλειο </option><option value="120 " > Ηγουμενίτσα </option><option value="154 " > Θήβα </option><option value="107 " > Θεσσαλονίκη </option><option value="1 " > Ιωάννινα </option><option value="155 " > Ιεράπετρα </option><option value="130 " > Κόρινθος </option><option value="26 " > Κύπρος </option><option value="121 " > Κέρκυρα </option><option value="97 " > Καρπενήσι </option><option value="135 " > Καρδίτσα </option><option value="144 " > Καστοριά </option><option value="105 " > Κατερίνη </option><option value="114 " > Καβάλα </option><option value="132 " > Καλαμάτα </option><option value="122 " > Κεφαλλονιά </option><option value="161 " > Κιάτο </option><option value="103 " > Κιλκίς </option><option value="145 " > Κοζάνη </option><option value="115 " > Κομοτηνή </option><option value="136 " > Λάρισα </option><option value="126 " > Λέσβος </option><option value="99 " > Λαμία </option><option value="123 " > Λευκάδα </option><option value="153 " > Ληξούρι </option><option value="100 " > Λιβαδειά </option><option value="147 " > Μυτιλήνη </option><option value="158 " > Μέτσοβο </option><option value="140 " > Μεσολόγγι </option><option value="152 " > Νάουσα </option><option value="129 " > Ναύπλιο </option><option value="116 " > Ξάνθη </option><option value="151 " > Ορεστιάδα </option><option value="119 " > Πρέβεζα </option><option value="141 " > Πύργος </option><option value="139 " > Πάτρα </option><option value="148 " > Πειραιάς </option><option value="101 " > Πολύγυρος </option><option value="134 " > Ρόδος </option><option value="111 " > Ρέθυμνο </option><option value="131 " > Σπάρτη </option><option value="156 " > Σπέτσες </option><option value="150 " > Σύρος </option><option value="127 " > Σάμος </option><option value="106 " > Σέρρες </option><option value="44 " > Σκύρος </option><option value="128 " > Τρίπολη </option><option value="138 " > Τρίκαλα </option><option value="142 " > Φλώρινα </option><option value="125 " > Χίος </option><option value="96 " > Χαλκίδα </option><option value="11 " > Χανιά </option></select>
+                <div class="setting">
+                    <select name="uniplace">
+         <option value="0" >(δεν έχεις επιλέξει)</option><option value="117 " > Άρτα </option><option value="46 " > Άργος </option><option value="109 " > Άγιος Νικόλαος </option><option value="98 " > Άμφισσα </option><option value="146 " > Έδεσσα </option><option value="149 " > Αργοστόλι </option><option value="160 " > Ασπρόπυργος </option><option value="35 " > Αγρίνιο </option><option value="2 " selected="selected" > Αθήνα </option><option value="113 " > Αλεξανδρούπολη </option><option value="159 " > Αμφιλοχία </option><option value="137 " > Βόλος </option><option value="102 " > Βέροια </option><option value="143 " > Γρεβενά </option><option value="112 " > Δράμα </option><option value="37 " > Ερέτρια </option><option value="133 " > Ερμούπολη </option><option value="157 " > Ελευσίνα </option><option value="124 " > Ζάκυνθος </option><option value="110 " > Ηράκλειο </option><option value="120 " > Ηγουμενίτσα </option><option value="154 " > Θήβα </option><option value="107 " > Θεσσαλονίκη </option><option value="1 " > Ιωάννινα </option><option value="155 " > Ιεράπετρα </option><option value="130 " > Κόρινθος </option><option value="26 " > Κύπρος </option><option value="121 " > Κέρκυρα </option><option value="97 " > Καρπενήσι </option><option value="135 " > Καρδίτσα </option><option value="144 " > Καστοριά </option><option value="105 " > Κατερίνη </option><option value="114 " > Καβάλα </option><option value="132 " > Καλαμάτα </option><option value="122 " > Κεφαλλονιά </option><option value="161 " > Κιάτο </option><option value="103 " > Κιλκίς </option><option value="145 " > Κοζάνη </option><option value="115 " > Κομοτηνή </option><option value="136 " > Λάρισα </option><option value="126 " > Λέσβος </option><option value="99 " > Λαμία </option><option value="123 " > Λευκάδα </option><option value="153 " > Ληξούρι </option><option value="100 " > Λιβαδειά </option><option value="147 " > Μυτιλήνη </option><option value="158 " > Μέτσοβο </option><option value="140 " > Μεσολόγγι </option><option value="152 " > Νάουσα </option><option value="129 " > Ναύπλιο </option><option value="116 " > Ξάνθη </option><option value="151 " > Ορεστιάδα </option><option value="119 " > Πρέβεζα </option><option value="141 " > Πύργος </option><option value="139 " > Πάτρα </option><option value="148 " > Πειραιάς </option><option value="101 " > Πολύγυρος </option><option value="134 " > Ρόδος </option><option value="111 " > Ρέθυμνο </option><option value="131 " > Σπάρτη </option><option value="156 " > Σπέτσες </option><option value="150 " > Σύρος </option><option value="127 " > Σάμος </option><option value="106 " > Σέρρες </option><option value="44 " > Σκύρος </option><option value="128 " > Τρίπολη </option><option value="138 " > Τρίκαλα </option><option value="142 " > Φλώρινα </option><option value="125 " > Χίος </option><option value="96 " > Χαλκίδα </option><option value="11 " > Χανιά </option></select>
+                </div>
                 <label>Σχολή: </label>
-                <select name="unischool">
-                    <option>(κανένα)</option>
-                </select>
+                <div class="setting">
+                    <select name="unischool">
+                        <option>(κανένα)</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label for="photo">Φωτογραφία:</label>
@@ -251,439 +255,477 @@
         <form id="characteristics" style="display:none">
             <div>
                 <label>Χρώμα μαλλιών</label>
-                <select name="haircolour">
-                    <option>-</option>
-                    <option>Μάυρα</option>
-                    <option>Καστανά</option>
-                    <option>Κόκκινα</option>
-                    <option>Ξανθά</option>
-                    <option>Ανταύγιες</option>
-                    <option>Γκριζωπά</option>
-                    <option>Είμαι φαλακρός</option><!-- /ή -->
-                </select>
+                <div class="setting">
+                    <select name="haircolour">
+                        <option>-</option>
+                        <option>Μάυρα</option>
+                        <option>Καστανά</option>
+                        <option>Κόκκινα</option>
+                        <option>Ξανθά</option>
+                        <option>Ανταύγιες</option>
+                        <option>Γκριζωπά</option>
+                        <option>Είμαι φαλακρός</option><!-- /ή -->
+                    </select>
+                </div>
             </div>
             <div>
                 <label>Ύψος</label>
-                <select name="height">
-                    <option>-</option>
-                    <option>Κάτω από 1.20</option>
-                    <option>1.20</option>
-                    <option>1.21</option>
-                    <option>1.22</option>
-                    <option>1.23</option>
-                    <option>1.24</option>
-                    <option>1.25</option>
-                    <option>1.26</option>
-                    <option>1.27</option>
-                    <option>1.28</option>
-                    <option>1.29</option>
-                    <option>1.30</option>
-                    <option>1.31</option>
-                    <option>1.32</option>
-                    <option>1.33</option>
-                    <option>1.34</option>
-                    <option>1.35</option>
-                    <option>1.36</option>
-                    <option>1.37</option>
-                    <option>1.38</option>
-                    <option>1.39</option>
-                    <option>1.40</option>
-                    <option>1.41</option>
-                    <option>1.42</option>
-                    <option>1.43</option>
-                    <option>1.44</option>
-                    <option>1.45</option>
-                    <option>1.46</option>
-                    <option>1.47</option>
-                    <option>1.48</option>
-                    <option>1.49</option>
-                    <option>1.50</option>
-                    <option>1.51</option>
-                    <option>1.52</option>
-                    <option>1.53</option>
-                    <option>1.54</option>
-                    <option>1.55</option>
-                    <option>1.56</option>
-                    <option>1.57</option>
-                    <option>1.58</option>
-                    <option>1.59</option>
-                    <option>1.60</option>
-                    <option>1.61</option>
-                    <option>1.62</option>
-                    <option>1.63</option>
-                    <option>1.64</option>
-                    <option>1.65</option>
-                    <option>1.66</option>
-                    <option>1.67</option>
-                    <option>1.68</option>
-                    <option>1.69</option>
-                    <option>1.70</option>
-                    <option>1.71</option>
-                    <option>1.72</option>
-                    <option>1.73</option>
-                    <option>1.74</option>
-                    <option>1.75</option>
-                    <option>1.76</option>
-                    <option>1.77</option>
-                    <option>1.78</option>
-                    <option>1.79</option>
-                    <option>1.80</option>
-                    <option>1.81</option>
-                    <option>1.82</option>
-                    <option>1.83</option>
-                    <option>1.84</option>
-                    <option>1.85</option>
-                    <option>1.86</option>
-                    <option>1.87</option>
-                    <option>1.88</option>
-                    <option>1.89</option>
-                    <option>1.90</option>
-                    <option>1.91</option>
-                    <option>1.92</option>
-                    <option>1.93</option>
-                    <option>1.94</option>
-                    <option>1.95</option>
-                    <option>1.96</option>
-                    <option>1.97</option>
-                    <option>1.98</option>
-                    <option>1.99</option>
-                    <option>2.00</option>
-                    <option>2.01</option>
-                    <option>2.02</option>
-                    <option>2.03</option>
-                    <option>2.04</option>
-                    <option>2.05</option>
-                    <option>2.06</option>
-                    <option>2.07</option>
-                    <option>2.08</option>
-                    <option>2.09</option>
-                    <option>2.10</option>
-                    <option>2.11</option>
-                    <option>2.12</option>
-                    <option>2.13</option>
-                    <option>2.14</option>
-                    <option>2.15</option>
-                    <option>2.16</option>
-                    <option>2.17</option>
-                    <option>2.18</option>
-                    <option>2.19</option>
-                    <option>2.20</option>
-                    <option>2.21</option>
-                    <option>2.22</option>
-                    <option>2.23</option>
-                    <option>2.24</option>
-                    <option>2.25</option>
-                    <option>2.26</option>
-                    <option>2.27</option>
-                    <option>2.28</option>
-                    <option>2.29</option>
-                    <option>2.30</option>
-                    <option>2.31</option>
-                    <option>2.32</option>
-                    <option>2.33</option>
-                    <option>2.34</option>
-                    <option>2.35</option>
-                    <option>2.36</option>
-                    <option>2.37</option>
-                    <option>2.38</option>
-                    <option>2.39</option>
-                    <option>2.40</option>
-                    <option>2.41</option>
-                    <option>2.42</option>
-                    <option>2.43</option>
-                    <option>2.44</option>
-                    <option>2.45</option>
-                    <option>2.46</option>
-                    <option>2.47</option>
-                    <option>2.48</option>
-                    <option>2.49</option>
-                    <option>2.50</option>
-                    <option>Πάνω από 2.50</option>
-                </select>
+                <div class="setting">
+                    <select name="height">
+                        <option>-</option>
+                        <option>Κάτω από 1.20</option>
+                        <option>1.20</option>
+                        <option>1.21</option>
+                        <option>1.22</option>
+                        <option>1.23</option>
+                        <option>1.24</option>
+                        <option>1.25</option>
+                        <option>1.26</option>
+                        <option>1.27</option>
+                        <option>1.28</option>
+                        <option>1.29</option>
+                        <option>1.30</option>
+                        <option>1.31</option>
+                        <option>1.32</option>
+                        <option>1.33</option>
+                        <option>1.34</option>
+                        <option>1.35</option>
+                        <option>1.36</option>
+                        <option>1.37</option>
+                        <option>1.38</option>
+                        <option>1.39</option>
+                        <option>1.40</option>
+                        <option>1.41</option>
+                        <option>1.42</option>
+                        <option>1.43</option>
+                        <option>1.44</option>
+                        <option>1.45</option>
+                        <option>1.46</option>
+                        <option>1.47</option>
+                        <option>1.48</option>
+                        <option>1.49</option>
+                        <option>1.50</option>
+                        <option>1.51</option>
+                        <option>1.52</option>
+                        <option>1.53</option>
+                        <option>1.54</option>
+                        <option>1.55</option>
+                        <option>1.56</option>
+                        <option>1.57</option>
+                        <option>1.58</option>
+                        <option>1.59</option>
+                        <option>1.60</option>
+                        <option>1.61</option>
+                        <option>1.62</option>
+                        <option>1.63</option>
+                        <option>1.64</option>
+                        <option>1.65</option>
+                        <option>1.66</option>
+                        <option>1.67</option>
+                        <option>1.68</option>
+                        <option>1.69</option>
+                        <option>1.70</option>
+                        <option>1.71</option>
+                        <option>1.72</option>
+                        <option>1.73</option>
+                        <option>1.74</option>
+                        <option>1.75</option>
+                        <option>1.76</option>
+                        <option>1.77</option>
+                        <option>1.78</option>
+                        <option>1.79</option>
+                        <option>1.80</option>
+                        <option>1.81</option>
+                        <option>1.82</option>
+                        <option>1.83</option>
+                        <option>1.84</option>
+                        <option>1.85</option>
+                        <option>1.86</option>
+                        <option>1.87</option>
+                        <option>1.88</option>
+                        <option>1.89</option>
+                        <option>1.90</option>
+                        <option>1.91</option>
+                        <option>1.92</option>
+                        <option>1.93</option>
+                        <option>1.94</option>
+                        <option>1.95</option>
+                        <option>1.96</option>
+                        <option>1.97</option>
+                        <option>1.98</option>
+                        <option>1.99</option>
+                        <option>2.00</option>
+                        <option>2.01</option>
+                        <option>2.02</option>
+                        <option>2.03</option>
+                        <option>2.04</option>
+                        <option>2.05</option>
+                        <option>2.06</option>
+                        <option>2.07</option>
+                        <option>2.08</option>
+                        <option>2.09</option>
+                        <option>2.10</option>
+                        <option>2.11</option>
+                        <option>2.12</option>
+                        <option>2.13</option>
+                        <option>2.14</option>
+                        <option>2.15</option>
+                        <option>2.16</option>
+                        <option>2.17</option>
+                        <option>2.18</option>
+                        <option>2.19</option>
+                        <option>2.20</option>
+                        <option>2.21</option>
+                        <option>2.22</option>
+                        <option>2.23</option>
+                        <option>2.24</option>
+                        <option>2.25</option>
+                        <option>2.26</option>
+                        <option>2.27</option>
+                        <option>2.28</option>
+                        <option>2.29</option>
+                        <option>2.30</option>
+                        <option>2.31</option>
+                        <option>2.32</option>
+                        <option>2.33</option>
+                        <option>2.34</option>
+                        <option>2.35</option>
+                        <option>2.36</option>
+                        <option>2.37</option>
+                        <option>2.38</option>
+                        <option>2.39</option>
+                        <option>2.40</option>
+                        <option>2.41</option>
+                        <option>2.42</option>
+                        <option>2.43</option>
+                        <option>2.44</option>
+                        <option>2.45</option>
+                        <option>2.46</option>
+                        <option>2.47</option>
+                        <option>2.48</option>
+                        <option>2.49</option>
+                        <option>2.50</option>
+                        <option>Πάνω από 2.50</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label>Βάρος</label>
-                <select name="weight">
-                    <option>-</option>
-                    <option>κάτω από 30kg</option>
-                    <option>30kg</option>
-                    <option>31kg</option>
-                    <option>32kg</option>
-                    <option>33kg</option>
-                    <option>34kg</option>
-                    <option>35kg</option>
-                    <option>36kg</option>
-                    <option>37kg</option>
-                    <option>38kg</option>
-                    <option>39kg</option>
-                    <option>40kg</option>
-                    <option>41kg</option>
-                    <option>42kg</option>
-                    <option>43kg</option>
-                    <option>44kg</option>
-                    <option>45kg</option>
-                    <option>46kg</option>
-                    <option>47kg</option>
-                    <option>48kg</option>
-                    <option>49kg</option>
-                    <option>50kg</option>
-                    <option>51kg</option>
-                    <option>52kg</option>
-                    <option>53kg</option>
-                    <option>54kg</option>
-                    <option>55kg</option>
-                    <option>56kg</option>
-                    <option>57kg</option>
-                    <option>58kg</option>
-                    <option>59kg</option>
-                    <option>60kg</option>
-                    <option>61kg</option>
-                    <option>62kg</option>
-                    <option>63kg</option>
-                    <option>64kg</option>
-                    <option>65kg</option>
-                    <option>66kg</option>
-                    <option>67kg</option>
-                    <option>68kg</option>
-                    <option>69kg</option>
-                    <option>70kg</option>
-                    <option>71kg</option>
-                    <option>72kg</option>
-                    <option>73kg</option>
-                    <option>74kg</option>
-                    <option>75kg</option>
-                    <option>76kg</option>
-                    <option>77kg</option>
-                    <option>78kg</option>
-                    <option>79kg</option>
-                    <option>80kg</option>
-                    <option>82kg</option>
-                    <option>82kg</option>
-                    <option>83kg</option>
-                    <option>84kg</option>
-                    <option>85kg</option>
-                    <option>86kg</option>
-                    <option>87kg</option>
-                    <option>88kg</option>
-                    <option>89kg</option>
-                    <option>90kg</option>
-                    <option>91kg</option>
-                    <option>92kg</option>
-                    <option>93kg</option>
-                    <option>94kg</option>
-                    <option>95kg</option>
-                    <option>96kg</option>
-                    <option>97kg</option>
-                    <option>98kg</option>
-                    <option>99kg</option>
-                    <option>100kg</option>
-                    <option>101kg</option>
-                    <option>102kg</option>
-                    <option>103kg</option>
-                    <option>104kg</option>
-                    <option>105kg</option>
-                    <option>106kg</option>
-                    <option>107kg</option>
-                    <option>108kg</option>
-                    <option>109kg</option>
-                    <option>110kg</option>
-                    <option>111kg</option>
-                    <option>112kg</option>
-                    <option>113kg</option>
-                    <option>114kg</option>
-                    <option>115kg</option>
-                    <option>116kg</option>
-                    <option>117kg</option>
-                    <option>118kg</option>
-                    <option>119kg</option>
-                    <option>120kg</option>
-                    <option>121kg</option>
-                    <option>122kg</option>
-                    <option>123kg</option>
-                    <option>124kg</option>
-                    <option>125kg</option>
-                    <option>126kg</option>
-                    <option>127kg</option>
-                    <option>128kg</option>
-                    <option>129kg</option>
-                    <option>130kg</option>
-                    <option>131kg</option>
-                    <option>132kg</option>
-                    <option>133kg</option>
-                    <option>134kg</option>
-                    <option>135kg</option>
-                    <option>136kg</option>
-                    <option>137kg</option>
-                    <option>138kg</option>
-                    <option>139kg</option>
-                    <option>140kg</option>
-                    <option>141kg</option>
-                    <option>142kg</option>
-                    <option>143kg</option>
-                    <option>144kg</option>
-                    <option>145kg</option>
-                    <option>146kg</option>
-                    <option>147kg</option>
-                    <option>148kg</option>
-                    <option>149kg</option>
-                    <option>150kg</option> <!-- omg βούβαλε -->
-                    <option>πάνω από 150kg</option>
-                </select>
+                <div class="setting">
+                    <select name="weight">
+                        <option>-</option>
+                        <option>κάτω από 30kg</option>
+                        <option>30kg</option>
+                        <option>31kg</option>
+                        <option>32kg</option>
+                        <option>33kg</option>
+                        <option>34kg</option>
+                        <option>35kg</option>
+                        <option>36kg</option>
+                        <option>37kg</option>
+                        <option>38kg</option>
+                        <option>39kg</option>
+                        <option>40kg</option>
+                        <option>41kg</option>
+                        <option>42kg</option>
+                        <option>43kg</option>
+                        <option>44kg</option>
+                        <option>45kg</option>
+                        <option>46kg</option>
+                        <option>47kg</option>
+                        <option>48kg</option>
+                        <option>49kg</option>
+                        <option>50kg</option>
+                        <option>51kg</option>
+                        <option>52kg</option>
+                        <option>53kg</option>
+                        <option>54kg</option>
+                        <option>55kg</option>
+                        <option>56kg</option>
+                        <option>57kg</option>
+                        <option>58kg</option>
+                        <option>59kg</option>
+                        <option>60kg</option>
+                        <option>61kg</option>
+                        <option>62kg</option>
+                        <option>63kg</option>
+                        <option>64kg</option>
+                        <option>65kg</option>
+                        <option>66kg</option>
+                        <option>67kg</option>
+                        <option>68kg</option>
+                        <option>69kg</option>
+                        <option>70kg</option>
+                        <option>71kg</option>
+                        <option>72kg</option>
+                        <option>73kg</option>
+                        <option>74kg</option>
+                        <option>75kg</option>
+                        <option>76kg</option>
+                        <option>77kg</option>
+                        <option>78kg</option>
+                        <option>79kg</option>
+                        <option>80kg</option>
+                        <option>82kg</option>
+                        <option>82kg</option>
+                        <option>83kg</option>
+                        <option>84kg</option>
+                        <option>85kg</option>
+                        <option>86kg</option>
+                        <option>87kg</option>
+                        <option>88kg</option>
+                        <option>89kg</option>
+                        <option>90kg</option>
+                        <option>91kg</option>
+                        <option>92kg</option>
+                        <option>93kg</option>
+                        <option>94kg</option>
+                        <option>95kg</option>
+                        <option>96kg</option>
+                        <option>97kg</option>
+                        <option>98kg</option>
+                        <option>99kg</option>
+                        <option>100kg</option>
+                        <option>101kg</option>
+                        <option>102kg</option>
+                        <option>103kg</option>
+                        <option>104kg</option>
+                        <option>105kg</option>
+                        <option>106kg</option>
+                        <option>107kg</option>
+                        <option>108kg</option>
+                        <option>109kg</option>
+                        <option>110kg</option>
+                        <option>111kg</option>
+                        <option>112kg</option>
+                        <option>113kg</option>
+                        <option>114kg</option>
+                        <option>115kg</option>
+                        <option>116kg</option>
+                        <option>117kg</option>
+                        <option>118kg</option>
+                        <option>119kg</option>
+                        <option>120kg</option>
+                        <option>121kg</option>
+                        <option>122kg</option>
+                        <option>123kg</option>
+                        <option>124kg</option>
+                        <option>125kg</option>
+                        <option>126kg</option>
+                        <option>127kg</option>
+                        <option>128kg</option>
+                        <option>129kg</option>
+                        <option>130kg</option>
+                        <option>131kg</option>
+                        <option>132kg</option>
+                        <option>133kg</option>
+                        <option>134kg</option>
+                        <option>135kg</option>
+                        <option>136kg</option>
+                        <option>137kg</option>
+                        <option>138kg</option>
+                        <option>139kg</option>
+                        <option>140kg</option>
+                        <option>141kg</option>
+                        <option>142kg</option>
+                        <option>143kg</option>
+                        <option>144kg</option>
+                        <option>145kg</option>
+                        <option>146kg</option>
+                        <option>147kg</option>
+                        <option>148kg</option>
+                        <option>149kg</option>
+                        <option>150kg</option> <!-- omg βούβαλε -->
+                        <option>πάνω από 150kg</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label>Καπνίζεις;</label>
-                <select name="smoker">
-                    <option>-</option>
-                    <option>Ναι</option>
-                    <option>Όχι</option>
-                    <option>Με παρέα</option>
-                </select>
+                <div class="setting">
+                    <select name="smoker">
+                        <option>-</option>
+                        <option>Ναι</option>
+                        <option>Όχι</option>
+                        <option>Με παρέα</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label>Πίνεις;</label>
-                <select name="drinker">
-                    <option>-</option>
-                    <option>Ναι</option>
-                    <option>Όχι</option>
-                    <option>Με παρέα</option>
-                </select>
+                <div class="setting">
+                    <select name="drinker">
+                        <option>-</option>
+                        <option>Ναι</option>
+                        <option>Όχι</option>
+                        <option>Με παρέα</option>
+                    </select>
+                </div>
             </div>
         </form>
         <form id="interests" style="display:none">
             <div>
                 <label>Αγαπημένες ταινίες:</label>
-                <ol>
-                    <li>Elephant</li>
-                    <li>Amelie</li>
-                    <li>Sommersturm</li>
-                    <li>Mysterious Skin</li>
-                    <li>For a Lost Soldier</li>
-                    <li>A Beautiful Mind</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Elephant</li>
+                        <li>Amelie</li>
+                        <li>Sommersturm</li>
+                        <li>Mysterious Skin</li>
+                        <li>For a Lost Soldier</li>
+                        <li>A Beautiful Mind</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένα βιβλία:</label>
-                <ol>
-                    <li>Harry Potter</li>
-                    <li>Artemis Fowl</li>
-                    <li>Sin City</li>
-                    <li>Loveless</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Harry Potter</li>
+                        <li>Artemis Fowl</li>
+                        <li>Sin City</li>
+                        <li>Loveless</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένα τραγούδια:</label>
-                <ol>
-                    <li>Sum 41 - In Too Deep</li>
-                    <li>Sum 41 - Heart Attack</li>
-                    <li>Red Hot Chili Peppers - Under the Bridge</li>
-                    <li>Massive Attack - Future Proof</li>
-                    <li>My Chemical Romance - Welcome to The Black Parade</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Sum 41 - In Too Deep</li>
+                        <li>Sum 41 - Heart Attack</li>
+                        <li>Red Hot Chili Peppers - Under the Bridge</li>
+                        <li>Massive Attack - Future Proof</li>
+                        <li>My Chemical Romance - Welcome to The Black Parade</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένοι καλλιτέχνες:</label>
-                <ol>
-                    <li>Sum 41</li>
-                    <li>Red Hot Chili Peppers</li>
-                    <li>Massive Attack</li>
-                    <li>My Chemical Romance</li>
-                    <li>Hawthorne Heights</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Sum 41</li>
+                        <li>Red Hot Chili Peppers</li>
+                        <li>Massive Attack</li>
+                        <li>My Chemical Romance</li>
+                        <li>Hawthorne Heights</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένα παιχνίδια:</label>
-                <ol>
-                    <li>Dungeons &amp; Dragons</li>
-                    <li>Minesweeper</li>
-                    <li>World of Warcraft</li>
-                    <li>Baldur's Gate I</li>
-                    <li>Super Mario Land</li>
-                    <li>Super Mario Land 2</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Dungeons &amp; Dragons</li>
+                        <li>Minesweeper</li>
+                        <li>World of Warcraft</li>
+                        <li>Baldur's Gate I</li>
+                        <li>Super Mario Land</li>
+                        <li>Super Mario Land 2</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένες φράσεις:</label>
-                <ol>
-                    <li>Disce quasi semper victurus vive quasi cras moriturus</li>
-                    <li>Carpe diem</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Disce quasi semper victurus vive quasi cras moriturus</li>
+                        <li>Carpe diem</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Αγαπημένες σειρές:</label>
-                <ol>
-                    <li>Pixel Perfect</li>
-                    <li>Salad Fingers</li>
-                    <li>Southpark</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>Pixel Perfect</li>
+                        <li>Salad Fingers</li>
+                        <li>Southpark</li>
+                    </ol>
+                </div>
             </div>
             <div>
                 <label>Hobbies:</label>
-                <ol>
-                    <li>PHP</li>
-                    <li>MySQL</li>
-                    <li>C++</li>
-                    <li>Javascript</li>
-                    <li>Ninjutsu</li>
-                    <li>Boys</li>
-                </ol>
+                <div class="setting">
+                    <ol>
+                        <li>PHP</li>
+                        <li>MySQL</li>
+                        <li>C++</li>
+                        <li>Javascript</li>
+                        <li>Ninjutsu</li>
+                        <li>Boys</li>
+                    </ol>
+                </div>
             </div>
         </form>
         <form id="contact" style="display:none">
             <div>
                 <label>E-mail:</label>
-                <input type="text" name="email" class="small" />
+                <div class="setting">
+                    <input type="text" name="email" class="small" />
+                </div>
             </div>
             <div>
                 <label>MSN:</label>
-                <input type="text" name="msn" class="small" />
+                <div class="setting">
+                    <input type="text" name="msn" class="small" />
+                </div>
             </div>
             <div>
                 <label>Gtalk:</label>
-                <input type="text" name="gtalk" class="small" />
+                <div class="setting">
+                    <input type="text" name="gtalk" class="small" />
+                </div>
             </div>
             <div>
                 <label>Skype:</label>
-                <input type="text" name="skype" class="small" />
+                <div class="setting">
+                    <input type="text" name="skype" class="small" />
+                </div>
             </div>
             <div>
                 <label>Yahoo:</label>
-                <input type="text" name="yahoo" class="small" />
+                <div class="setting">
+                    <input type="text" name="yahoo" class="small" />
+                </div>
             </div>
         </form>
         <form id="settings" style="display:none">
             <label>Να λαμβάνω ειδοποιήσεις:</label>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Ειδοποίηση μέσω e-mail</th>
-                    <th>Ειδοποίηση μέσα στο site</th>
-                </tr>
-                <tr>
-                    <th>Σχόλια στο προφίλ μου:</th>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-                <tr>
-                    <th>Σχόλια στις εικόνες μου:</th>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-                <tr>
-                    <th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-                <tr>
-                    <th>Απαντήσεις στα σχόλιά μου:</th>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-                <tr>
-                    <th>Νέοι φίλοι:</th>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-            </table>
+            <div class="setting">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Ειδοποίηση μέσω e-mail</th>
+                        <th>Ειδοποίηση μέσα στο site</th>
+                    </tr>
+                    <tr>
+                        <th>Σχόλια στο προφίλ μου:</th>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <th>Σχόλια στις εικόνες μου:</th>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <th>Απαντήσεις στα σχόλιά μου:</th>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <th>Νέοι φίλοι:</th>
+                        <td><input type="checkbox" /></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                </table>
+            </div>
         </form>
     </div>
 </div>
