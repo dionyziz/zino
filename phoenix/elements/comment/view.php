@@ -22,7 +22,7 @@
 					Element( 'user/static' , $theuser );
 				}
 				?>, πριν <?php
-				echo $comment->Since;
+				echo $comment->SinceDate;
 				
 				if ( $user->CanModifyCategories() ) {
 					?>&nbsp;&nbsp;<span style="opacity: 0.7"><?php
