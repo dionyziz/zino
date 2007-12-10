@@ -212,8 +212,9 @@
 				$this->mDate = MakeDate( $this->mCreated );
 				$this->SinceDate = dateDiff( $this->mCreated, NowDate() );
 			}
-            
+           
 			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;
+            $this->mText    = false;
             $this->mPage    = false;
             $this->mParent  = false;
         }
