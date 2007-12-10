@@ -17,16 +17,6 @@
 						echo round( ( $theuser->Contribs() / $theuser->DaysSinceRegister() ), 2 );
 					?></dd>
 				</dl></li>
-				<li><dl>
-					<dt>ρουμπίνια</dt>
-					<dd><?php 
-						echo $theuser->Position(); 
-					?></dd>
-				</dl></li>
-				<!-- <li><dl>
-					<dt>χρήση συνομιλίας</dt>
-					<dd>21 λεπτά / μέρα</dd>
-				</dl></li> -->
 				<li><dl class="k">
 					<dt>προβολές προφίλ</dt>
 					<dd><?php 
