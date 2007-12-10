@@ -15,7 +15,7 @@
         protected $mId;
         protected $mCreated; // mysql datetime
         protected $mDate; // day _greekmonth_ year
-        protected $mSinceDate; // e.g. 5 hours ago
+        public $mSinceDate; // e.g. 5 hours ago
         protected $mUserId;
         protected $mUser;
         protected $mUserIp;
