@@ -285,10 +285,8 @@
                 default:
                     $argument = "'" . addslashes( ( string )$argument ) . "'";
             }
-            if ( !is_int( $argument ) && !is_float( $argument ) ) {
-            }
             
-            $this->mBindings[ ':' . ( string )$name ] = addslashes( ( string )$argument );
+            $this->mBindings[ ':' . ( string )$name ] = $argument;
         }
         public function Apply() {
             return strtr( $this->mRawSQL, $this->mBindings );
