@@ -23,8 +23,9 @@
         */
 
         $comments = $comments->Get();
-
-        print_r( $comments  );
+   
+        Element( 'comment/import' );
+        Element( 'comment/list', 0, 0 );
     }
 
 ?>

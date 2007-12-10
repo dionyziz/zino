@@ -27,6 +27,12 @@
         protected $mPage;
         protected $mPageId;
         protected $mBulkId;
+        protected $mCreateYear;
+        protected $mCreateMonth;
+        protected $mCreateDay;
+        protected $mCreateHour;
+        protected $mCreateMinute;
+        protected $mCreateSecond;
 
         public function GetURL() {
             return $this->Page->Url . "#comment_" . $this->Id;
