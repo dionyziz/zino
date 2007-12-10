@@ -7,6 +7,7 @@
 	global $libs;
 	
 	// $libs->Load( 'article' );
+    $libs->Load( 'bulk' );
 	$libs->Load( 'image/image' );
 	$libs->Load( 'search' );
     $libs->Load( 'poll' );
