@@ -147,12 +147,13 @@
         }
         public function Typeid() {
             /*
-                0: for comment replies on articles
-                1: for comment replies on userprofiles
-                2: for comment replies on images
-                3: for friends
+                0: comment replies on articles
+                1: comment replies on userprofiles
+                2: comment replies on images
+                3: comment replies on polls
                 4: comments on profiles
                 5: comments on images
+                128: friends
             */
             return $this->mTypeid;
         }
