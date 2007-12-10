@@ -35,14 +35,17 @@ div.settings div.sidebar ol {
 }
 div.settings div.sidebar ol li {
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 22px;
+    background-repeat: no-repeat;
+    background-position: left;
 }
 div.settings div.sidebar ol li a {
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: 5pt;
     height: 25px;
-    padding: 5px 30px 5px 30px;
+    padding: 5px 35px 5px 35px;
     line-height: 22px;
+    vertical-align: middle;
     border-bottom: 1px solid #eef;
     display: block;
 }
@@ -64,25 +67,30 @@ div.settings div.sidebar ol li.settings a {
 div.settings div.tabs {
     margin-right: 350px;
 }
-div.settings div.tabs div div { /* denotes a specific setting */
+div.settings div.tabs form div { /* denotes a specific setting */
     border-bottom: 1px solid #ccc;
     padding: 3px;
 }
-div.settings div.tabs div div label {
+div.settings div.tabs form div label {
     float: left;
     width: 300px;
     display: block;
 }
-div.settings div.tabs div div input.small {
-    width: 300px;
+div.settings div.tabs form div div.setting input.small {
+    width: auto;
 }
-div.settings div.tabs div div input, div.settings div.tabs div div textarea, div.settings div.tabs div div select {
-    border: 1px solid #333;
+div.settings div.tabs form div div.setting input,
+div.settings div.tabs form div div.setting textarea, 
+div.settings div.tabs form div div.setting select {
+    border: 1px solid #666;
     width: 50%;
 }
-div.settings div.tabs div div table tr th {
+div.settings div.tabs form div table tr th {
     text-align: left;
 }
-div.settings div.tabs div div table tr td {
+div.settings div.tabs form div table tr td {
     text-align: center;
+}
+div.settings div.tabs form div div.setting {
+    margin-left: 300px;
 }
