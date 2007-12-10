@@ -5,6 +5,11 @@ div.header {
 	height: 50px;
 	margin: 0 30px 0 30px;
 }
+div.header a.novisual {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 div.header a {
 	font-weight: bold;
 	color: white;

@@ -53,7 +53,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		$p = 'frontpage';
 	}
     include 'banner.php';
-	?><div class="content"><?php
+	?><div class="content" id="content"><?php
 	switch ( $p ) {
 		case 'join':
 			include 'join.php';
