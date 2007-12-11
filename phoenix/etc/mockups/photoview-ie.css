@@ -1,3 +1,6 @@
 div#photoview div.photothumbs ol li {
     display: inline
 }
+div#photoview div.photothumbs ol li span {
+    display: inline-block;
+}

@@ -60,8 +60,7 @@ div#photoview div.photothumbs ol li bdo {
     display: inline;
 }
 div#photoview div.photothumbs ol li span {
-    display: block;
-    float: left;
+    display: table-cell;
     width: 153px;
 }
 div#photoview div.photothumbs ol li span a{
