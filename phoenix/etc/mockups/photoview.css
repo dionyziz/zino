@@ -25,7 +25,7 @@ div#photoview dl dd.addfav a {
 	padding-left: 18px;
 }
 div#photoview div.photothumbs {
-	height: 157px;
+    height: 155px;
     overflow: hidden;
 	margin-bottom: 20px;
     text-align: center;
@@ -34,8 +34,6 @@ div#photoview div.photothumbs ol {
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow: hidden;
-    height: 155px;
     display: table-row;
 }
 div#photoview div.photothumbs ol li {
