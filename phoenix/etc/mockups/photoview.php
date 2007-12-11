@@ -23,11 +23,8 @@ function Unhover( node ) {
 	</div>
 	<div class="photothumbs">
         <ol>
-            <li style="float:left;height:150px;line-height:150px;">
+            <li style="height:150px;line-height:150px;">
                 <a href="" class="nav" style="vertical-align:middle"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
-            </li>
-            <li style="float:right;height:150px;line-height:150px;">
-                <a href="" class="nav" style="vertical-align:middle"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
             </li>
             <li>
                 <bdo dir="rtl"><!-- thumbs here should be listed in REVERSE order, i.e. the one that is "closest" to the photo that is being viewed goes first, the second closest should be second etc. -->
@@ -45,6 +42,9 @@ function Unhover( node ) {
                     <a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a>
                     <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
                 </bdo>
+            </li>
+            <li style="height:150px;line-height:150px;">
+                <a href="" class="nav" style="vertical-align:middle"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
             </li>
         </ol>
 	</div>
