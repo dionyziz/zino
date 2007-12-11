@@ -58,6 +58,9 @@ div#photoview div.photothumbs ol li.selected {
     text-align: center;
     width: 150px;
 }
+div#photoview div.photothumbs ol li.selected img {
+	border: 4px solid #82a4b6;
+}
 div#photoview div.photothumbs ol li.left {
     text-align: right;
 }
@@ -84,9 +87,6 @@ div#photoview div.photothumbs ol li a img {
 div#photoview div.photothumbs ol li a.nav img {
 	border: none;
 	margin-bottom: 30px;
-}
-div#photoview div ul li a img.smallphotoview {
-	border: 4px solid #82a4b6;
 }
 div#photoview div.thephoto {
 	text-align:center;

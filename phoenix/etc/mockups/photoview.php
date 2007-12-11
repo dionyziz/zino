@@ -37,7 +37,7 @@ function Unhover( node ) {
                 </bdo>
             </li>
             <li class="selected" style="width:150px">
-                <a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a>
+                <a href=""><img src="images/photoview_small.jpg" alt="photoview_small" title="photoview_small" /></a>
             </li>
             <li class="right">
                 <bdo dir="ltr"><!-- right order here, but same idea. the one tha tis "closest" to the photo that is being viewed goes first. -->
