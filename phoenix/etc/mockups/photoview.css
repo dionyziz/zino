@@ -59,7 +59,12 @@ div#photoview div.photothumbs ol li bdo {
 	margin: 20px auto;
     display: inline;
 }
-div#photoview div.photothumbs ol li a{
+div#photoview div.photothumbs ol li span {
+    display: block;
+    float: left;
+    width: 153px;
+}
+div#photoview div.photothumbs ol li span a{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
