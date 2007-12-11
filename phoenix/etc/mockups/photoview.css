@@ -37,6 +37,7 @@ div#photoview div.photothumbs ol {
 div#photoview div.photothumbs ol li {
     padding: 0;
     margin: 0;
+    display: inline;
 }
 div#photoview div.photothumbs ol li bdo {
 	height: 173px;
