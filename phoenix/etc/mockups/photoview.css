@@ -26,7 +26,7 @@ div#photoview dl dd.addfav a {
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {
-    height: 155px;
+    height: 154px;
     overflow: hidden;
 	margin-bottom: 20px;
     text-align: center;
