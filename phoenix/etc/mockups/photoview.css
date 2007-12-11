@@ -24,11 +24,24 @@ div#photoview dl dd.addfav a {
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
+/* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {
     height: 155px;
     overflow: hidden;
 	margin-bottom: 20px;
     text-align: center;
+    width: 96%;
+}
+div#photoview div.photothumbs div.arrow {
+    height: 150px;
+    line-height: 150px;
+    width: 50px;
+}
+div#photoview div.photothumbs div.left {
+    float: left;
+}
+div#photoview div.photothumbs div.right {
+    float: right;
 }
 div#photoview div.photothumbs ol {
     list-style: none;

@@ -22,10 +22,10 @@ function Unhover( node ) {
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="photothumbs">
-        <div style="height:150px;line-height:150px;float:left">
+        <div class="left arrow">
             <a href="" class="nav" style="vertical-align:middle"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
         </div>
-        <div style="height:150px;line-height:150px;float:right">
+        <div class="right arrow">
             <a href="" class="nav" style="vertical-align:middle"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
         </div>
         <ol>
