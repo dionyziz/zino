@@ -22,23 +22,31 @@ function Unhover( node ) {
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="photothumbs">
-        <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
-        
-        <bdo dir="rtl">
-            <a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a>
-            <a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a>
-            <a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a>
-        </bdo>
-        
-        <a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a>
-            
-        <bdo dir="ltr">
-            <a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a>
-            <a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a>
-            <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
-        </bdo>
-
-        <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
+        <ol>
+            <li>
+                <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+            </li>
+            <li>
+                <bdo dir="rtl">
+                    <a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a>
+                    <a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a>
+                    <a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a>
+                </bdo>
+            </li>
+            <li>
+                <a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a>
+            </li>
+            <li>
+                <bdo dir="ltr">
+                    <a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a>
+                    <a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a>
+                    <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
+                </bdo>
+            </li>
+            <li>
+                <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
+            </li>
+        </ol>
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">

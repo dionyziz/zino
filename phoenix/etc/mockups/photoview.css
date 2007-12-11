@@ -26,27 +26,35 @@ div#photoview dl dd.addfav a {
 }
 div#photoview div.photothumbs {
 	height: 173px;
-	overflow: hidden;
 	margin-bottom: 20px;
     text-align: center;
 }
-div#photoview div.photothumbs bdo {
+div#photoview div.photothumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+div#photoview div.photothumbs ol li {
+    padding: 0;
+    margin: 0;
+}
+div#photoview div.photothumbs ol li bdo {
 	height: 173px;
 	overflow: hidden;
 	padding: 0;
 	margin: 20px auto;
     display: inline;
 }
-div#photoview div.photothumbs a{
+div#photoview div.photothumbs ol li a{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
 }
-div#photoview div.photothumbs a img {
+div#photoview div.photothumbs ol li a img {
 	border: 1px solid gray;
 }
-div#photoview div.photothumbs a.nav img {
+div#photoview div.photothumbs ol li a.nav img {
 	border: none;
 	margin-bottom: 30px;
 }
