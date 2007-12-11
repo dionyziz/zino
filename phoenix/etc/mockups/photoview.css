@@ -37,6 +37,14 @@ div#photoview div.photothumbs div.arrow {
     line-height: 150px;
     width: 50px;
 }
+div#photoview div.photothumbs div.arrow a img {
+	border: none;
+	margin-bottom: 30px;
+    vertical-align: middle;
+}
+div#photoview div.photothumbs div.arrow a {
+    vertical-align: middle;
+}
 div#photoview div.photothumbs div.left {
     float: left;
 }
@@ -83,10 +91,6 @@ div#photoview div.photothumbs ol li span a{
 }
 div#photoview div.photothumbs ol li a img {
 	border: 1px solid gray;
-}
-div#photoview div.photothumbs ol li a.nav img {
-	border: none;
-	margin-bottom: 30px;
 }
 div#photoview div.thephoto {
 	text-align:center;
