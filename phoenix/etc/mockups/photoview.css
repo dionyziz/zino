@@ -54,13 +54,23 @@ div#photoview div.photothumbs ol li {
     margin: 0;
     display: table-cell;
 }
+div#photoview div.photothumbs ol li.selected {
+    text-align: center;
+    width: 150px;
+}
+div#photoview div.photothumbs ol li.left {
+    text-align: right;
+}
+div#photoview div.photothumbs ol li.right {
+    text-align: left;
+}
 div#photoview div.photothumbs ol li bdo {
 	padding: 0;
 	margin: 20px auto;
     display: inline;
 }
 div#photoview div.photothumbs ol li span {
-    padding: 5px;
+    padding: 2px;
 }
 div#photoview div.photothumbs ol li span a{
 	padding: 0 2px 0 2px;
