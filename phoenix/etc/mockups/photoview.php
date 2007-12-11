@@ -23,8 +23,11 @@ function Unhover( node ) {
 	</div>
 	<div class="photothumbs">
         <ol>
-            <li>
-                <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+            <li style="float:left;height:150px;line-height:150px;">
+                <a href="" class="nav" style="vertical-align:middle"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
+            </li>
+            <li style="float:right;height:150px;line-height:150px;">
+                <a href="" class="nav" style="vertical-align:middle"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
             </li>
             <li>
                 <bdo dir="rtl">
@@ -33,7 +36,7 @@ function Unhover( node ) {
                     <a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a>
                 </bdo>
             </li>
-            <li>
+            <li style="width:150px">
                 <a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a>
             </li>
             <li>
@@ -42,9 +45,6 @@ function Unhover( node ) {
                     <a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a>
                     <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
                 </bdo>
-            </li>
-            <li>
-                <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
             </li>
         </ol>
 	</div>
