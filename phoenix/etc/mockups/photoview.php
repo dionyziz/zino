@@ -39,7 +39,6 @@ function Unhover( node ) {
 
         <a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
 	</div>
-    </bdo>
 	<div class="comments">
 		<div class="comment newcomment">
 			<div class="toolbox">
