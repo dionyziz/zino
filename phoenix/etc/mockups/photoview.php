@@ -22,7 +22,8 @@ function Unhover( node ) {
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="photothumbs">
-        <a href=""><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+        <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+        
         <bdo dir="rtl">
             <a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a>
             <a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a>
@@ -37,7 +38,7 @@ function Unhover( node ) {
             <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
         </bdo>
 
-        <a href=""><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
+        <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">

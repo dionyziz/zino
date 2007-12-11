@@ -36,16 +36,16 @@ div#photoview div.photothumbs ul {
 	margin: 20px auto;
     display: inline;
 }
-div#photoview div ul li{
+div#photoview div.photothumbs a{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
 }
-div#photoview div ul li a img {
+div#photoview div.photothumbs a img {
 	border: 1px solid gray;
 }
-div#photoview div ul li.nav a img {
+div#photoview div.photothumbs a.nav img {
 	border: none;
 	margin-bottom: 30px;
 }
@@ -60,4 +60,3 @@ img.hoverclass {
 	opacity: 0.6;
 	filter: alpha(opacity = 60);
 }
-	
