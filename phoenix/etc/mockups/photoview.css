@@ -33,6 +33,8 @@ div#photoview div.photothumbs ol {
     list-style: none;
     padding: 0;
     margin: 0;
+    overflow: hidden;
+    height: 155px;
 }
 div#photoview div.photothumbs ol li {
     padding: 0;
@@ -40,8 +42,6 @@ div#photoview div.photothumbs ol li {
     display: inline;
 }
 div#photoview div.photothumbs ol li bdo {
-	height: 173px;
-	overflow: hidden;
 	padding: 0;
 	margin: 20px auto;
     display: inline;

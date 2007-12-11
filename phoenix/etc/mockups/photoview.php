@@ -30,7 +30,7 @@ function Unhover( node ) {
                 <a href="" class="nav" style="vertical-align:middle"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" style="vertical-align:middle" /></a>
             </li>
             <li>
-                <bdo dir="rtl">
+                <bdo dir="rtl"><!-- thumbs here should be listed in REVERSE order, i.e. the one that is "closest" to the photo that is being viewed goes first, the second closest should be second etc. -->
                     <a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a>
                     <a href=""><img src="images/photo1.jpg" alt="photo1" title="photo1" /></a>
                     <a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a>
@@ -40,7 +40,7 @@ function Unhover( node ) {
                 <a href=""><img src="images/photoview_small.jpg" class="smallphotoview" alt="photoview_small" title="photoview_small" /></a>
             </li>
             <li>
-                <bdo dir="ltr">
+                <bdo dir="ltr"><!-- right order here, but same idea. the one tha tis "closest" to the photo that is being viewed goes first. -->
                     <a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a>
                     <a href=""><img src="images/photo4.jpg" alt="photo4" title="photo4" /></a>
                     <a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a>
