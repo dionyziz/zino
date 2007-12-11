@@ -25,7 +25,8 @@ div#photoview dl dd.addfav a {
 	padding-left: 18px;
 }
 div#photoview div.photothumbs {
-	height: 173px;
+	height: 157px;
+    overflow: hidden;
 	margin-bottom: 20px;
     text-align: center;
 }
@@ -35,11 +36,12 @@ div#photoview div.photothumbs ol {
     margin: 0;
     overflow: hidden;
     height: 155px;
+    display: table-row;
 }
 div#photoview div.photothumbs ol li {
     padding: 0;
     margin: 0;
-    display: inline;
+    display: table-cell;
 }
 div#photoview div.photothumbs ol li bdo {
 	padding: 0;
