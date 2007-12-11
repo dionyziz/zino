@@ -73,7 +73,7 @@ div#photoview div.photothumbs ol li bdo {
     display: inline;
 }
 div#photoview div.photothumbs ol li span {
-    padding: 2px;
+    padding: 0;
 }
 div#photoview div.photothumbs ol li span a{
 	padding: 0 2px 0 2px;
