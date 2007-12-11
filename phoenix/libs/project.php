@@ -61,7 +61,6 @@
             "chpasswd"          => "user/changepassword",
     		"pms"              	=> "pm/list",
 			"pmsnew" 			=> "pm/new/list",
-    		"search"           	=> "search/search",
     		"userlist"         	=> "user/list",
     		"questions"        	=> "question/list",
     		"places"           	=> "place/list" ,
@@ -96,7 +95,7 @@
 			'uniadmin'			=> 'universities/create',
 			'tag'				=> 'interesttag/view',
             'wysiwyg'           => 'developer/dionyziz/wysiwyg',
-            'newsearch'         => 'developer/abresas/search'
+            'search'            => 'search'
     	);
     }
 ?>
