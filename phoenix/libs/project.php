@@ -95,7 +95,7 @@
 			'uniadmin'			=> 'universities/create',
 			'tag'				=> 'interesttag/view',
             'wysiwyg'           => 'developer/dionyziz/wysiwyg',
-            'search'            => 'search'
+            'search'            => 'developer/abresas/search'
     	);
     }
 ?>
