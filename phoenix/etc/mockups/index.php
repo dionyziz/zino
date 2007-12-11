@@ -32,6 +32,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="joined.css" />
 		<link rel="stylesheet" type="text/css" href="usersections.css" />
 		<link rel="stylesheet" type="text/css" href="photoview.css" />
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="comments.css" />
 		<link rel="stylesheet" type="text/css" href="pollview.css" />
 		<link rel="stylesheet" type="text/css" href="albums.css" />
