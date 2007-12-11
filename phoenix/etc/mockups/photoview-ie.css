@@ -1,4 +1,4 @@
 div#photoview div.photothumbs ol li {
-    display: inline
+    display: inline;
     vertical-align: middle;
 }
