@@ -61,8 +61,8 @@ div#photoview div.photothumbs ol li {
     padding: 0;
     margin: 0;
     display: table-cell;
-    border: 1px solid red;
     vertical-align: top;
+    line-height: 150px;
 }
 div#photoview div.photothumbs ol li.selected {
     text-align: center;
