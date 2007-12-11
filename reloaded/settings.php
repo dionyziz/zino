@@ -63,7 +63,8 @@
                 	'votes'         	=> 'votes',
                 	'albums'        	=> 'albums',
                 	'notify'        	=> 'notify',
-					'universities'		=> 'universities'
+					'universities'		=> 'universities',
+					'loglogin'			=> 'loglogin'
                 )
             )
         )
