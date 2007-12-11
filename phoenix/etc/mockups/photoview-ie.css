@@ -1,4 +1,3 @@
-div#photoview div.photothumbs ol {
-    background-color: black;
-    border: 5px solid red;
+div#photoview div.photothumbs ol li {
+    display: inline
 }
