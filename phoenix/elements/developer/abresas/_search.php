@@ -31,7 +31,7 @@
             if ( !is_object( $comment->User ) ) {
                 var_dump( $comment );
                 ?><br /><br /><?php
-                var_dump( $comment->User );
+                var_dump( $comment->GetUser() );
                 die();
             }
             $comment->User->Username();
