@@ -9,7 +9,7 @@
 		
 		w_assert( is_string( $ip ), 'LoginAttempt_checkBot accepts only a string argument' );
 		
-		$sql = "SELECT * FROM `$LoginAttempt`
+		$sql = "SELECT * FROM `$loginattempt`
 				WHERE `loginattempt_ip` = '" . $ip . "'
 				AND `loginattempt_time` >= ( NOW() - INTERVAL 15 MINUTE )
 				AND `loginattempt_success` = '0'
