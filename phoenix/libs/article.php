@@ -593,8 +593,28 @@
 
 			++$this->mHeadRevision;
 			
+			// Prepared query
+			$db->Prepare("
+				UPDATE `$articles`
+				SET
+					`article_headrevision` = :RevisionId
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;	
+			");
+			
+			// Assign values to query
+			$db->Bind( 'RevisionId'	, $this->RevisionId() );
+			$db->Bind( 'ArticleId'	, $this->Id() );
+			
+			// Execute query
+			$db->Execute();
+			
+			/* Old style :P
 			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
 			$db->Query( $sql );
+			*/
 			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -615,15 +635,24 @@
 				return false;
 			}
 			
-			$articleid = $this->Id();
-			$sql = "SELECT
-						*
-					FROM 
-						`$revisions`
-					WHERE
-						`revision_articleid` = '$articleid'
-						AND `revision_creatorid` = '" . $journalist->Id() . "';";
-			$res = $db->Query( $sql );
+			// Prepared query
+			$db->Prepare("
+				SELECT
+					*
+				FROM 
+					`$revisions`
+				WHERE
+					`revision_articleid` = :ArticleId
+					AND `revision_creatorid` = :JournalistId
+				;
+			");
+			
+			// Assign values to query
+			$db->Bind( 'ArticleId', $this->Id() );
+			$db->Bind( 'JournalistId', $journalist->Id() );
+			
+			// Execute query
+			$res = $db->Execute();
 			
 			if ( $res->Results() ) {
 				return true;
@@ -652,9 +681,24 @@
 				}
 			}
 			
-            $sql = "UPDATE `merlin_articles` SET `article_numviews` = `article_numviews` + 1 WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-            $change = $db->Query( $sql );
-            
+			// Prepared query
+			$db->Prepare("
+				UPDATE
+					`merlin_articles` 
+				SET 
+					`article_numviews` = `article_numviews` + 1 
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;
+			");
+
+			// Assign values to query
+			$db->Bind( 'ArticleId', $this->Id() );
+			
+			// Execute query
+			$change = $db->Execute();
+			            
             if ( $change->Impact() ) {
     			++$this->mPageviews;
 
