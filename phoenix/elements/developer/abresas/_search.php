@@ -25,6 +25,8 @@
         $comments = $comments->GetParented();
     
         foreach ( $comments as $comment ) {
+            die( var_dump( $comment ) );
+
             ?>[ <?php
             $comment->Id;
             ?> <?php
