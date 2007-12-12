@@ -19,7 +19,7 @@
         }
     }
 
-    function ElementDeveloperAbresasSearch() {
+    function ElementDeveloperAbresasSearch( tInteger $userid ) {
         global $libs;
         global $user;
 
@@ -27,7 +27,7 @@
 
         $comments = new CommentsSearch;
         $comments->TypeId   = 1;
-        $comments->ItemId   = 658;
+        $comments->ItemId   = $userid->Get();
         $comments->DelId    = 0;
 
         //$comments->OrderBy  = array( 'date', 'DESC' );
@@ -42,7 +42,10 @@
         */
 
         $comments = $comments->GetParented();
-    
+        if ( empty( $comments ) ) {
+            die( "No comments for user " . $userid->Get() . "!" );
+        }
+
         DisplayChildren( $comments, 0 );
     }
 
