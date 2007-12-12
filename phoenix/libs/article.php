@@ -720,15 +720,23 @@
 			
 			++$this->mNumComments;
 			
-			$sql = "UPDATE
-						`$articles` 
-					SET 
-						`article_numcomments` = `article_numcomments` + 1 
-					WHERE 
-						`article_id` = '" . $this->Id() . "' 
-					LIMIT 1;";
+			// Prepared query
+			$db->Prepare("
+				UPDATE
+					`merlin_articles` 
+				SET 
+					`article_numviews` = `article_numviews` + 1 
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;
+			");
+
+			// Assign values to query
+			$db->Bind( 'ArticleId', $this->Id() );
 			
-			return $db->Query( $sql )->Impact();
+			// Execute				
+			return $db->Execute()->Impact();
 		}
 		public function CommentKilled() {
 			// What happens when a comment is deleted in the article
@@ -737,15 +745,23 @@
 			
 			--$this->mNumComments;
 			
-			$sql = "UPDATE
-						`$articles` 
-					SET 
-						`article_numcomments` = `article_numcomments` - 1 
-					WHERE 
-						`article_id` = '" . $this->Id() . "' 
-					LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
+			// Prepared query
+			$db->Prepare("
+				UPDATE
+					`merlin_articles` 
+				SET 
+					`article_numviews` = `article_numviews` + 1 
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;
+			");
+
+			// Assign values to query
+			$db->Bind( 'ArticleId', $this->Id() );
+
+			// Execute				
+			return $db->Execute()->Impact();
 		}
 		private function Construct( $construct ) {
 			global $db;
