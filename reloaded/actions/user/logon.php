@@ -5,6 +5,10 @@
         global $libs;
         
         $libs->Load( 'loginattempt' );
+        
+        if ( LoginAttempt_checkBot( UserIp() ) ) {
+        	return Redirect( "?p=oust" );
+        }
     	
         $rawpassword = $password->Get();
     	$s_username = $username->Get();

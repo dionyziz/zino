@@ -46,6 +46,7 @@
     		"register"         	=> "user/new",
     		"k"                	=> "user/created", 
     		"a"                	=> "user/invalid",
+    		"oust"				=> "user/loginbot",
     		"nc"               	=> "category/new",
     		"addstory"         	=> "article/new/view",
     		"editstory"        	=> "article/new/view",

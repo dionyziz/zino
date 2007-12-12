@@ -6,6 +6,10 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 	
 	$libs->Load( 'loginattempt' );
 	
+	if ( LoginAttempt_checkBot( UserIp() ) ) {
+    	?>window.location.href = '?p=oust';<?php
+    }
+	
 	$s_username = $username->Get();
 	$s_password = $password->Get();
 	$s_password = md5( $s_password );

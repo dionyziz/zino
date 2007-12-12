@@ -14,7 +14,7 @@
     	}
 
 		$banlist = IPBan_List();
-		?>  
+		?> 
 		<br/><br/><br/>
 		<br/><br/>
 		<table class="bans">			
