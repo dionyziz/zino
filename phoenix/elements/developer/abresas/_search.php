@@ -1,5 +1,27 @@
 <?php
 
+    function DisplayChildren( $comments, $parent ) {
+        $children = $comments[ $parent ];
+
+        foreach ( $children as $comment ) {
+            ?>[ <?php
+            $comment->Id;
+            ?> <?php
+            if ( !is_object( $comment->User ) ) {
+                var_dump( $comment );
+                ?><br /><br /><?php
+                var_dump( $comment->GetUser() );
+                die();
+            }
+            $comment->User->Username();
+            ?> <?php
+            $comment->Since;
+            ?> ]<br /><?php
+
+            DisplayChildren( $comments, $comment->Id );
+        }
+    }
+
     function ElementDeveloperAbresasSearch() {
         global $libs;
         global $user;
@@ -24,21 +46,7 @@
 
         $comments = $comments->GetParented();
     
-        foreach ( $comments as $comment ) {
-            ?>[ <?php
-            $comment->Id;
-            ?> <?php
-            if ( !is_object( $comment->User ) ) {
-                var_dump( $comment );
-                ?><br /><br /><?php
-                var_dump( $comment->GetUser() );
-                die();
-            }
-            $comment->User->Username();
-            ?> <?php
-            $comment->Since;
-            ?> ]<br /><?php
-        }
+        DisplayComment( $comments, 0 );
     }
 
 ?>
