@@ -476,8 +476,28 @@
 
 			++$this->mHeadRevision;
 			
+			// Prepared query
+			$db->Prepare("
+				UPDATE `$articles`
+				SET
+					`article_headrevision` = :RevisionId
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;	
+			");
+			
+			// Assign values to query
+			$db->Bind( 'RevisionId'	, $this->RevisionId() );
+			$db->Bind( 'ArticleId'	, $this->Id() );
+			
+			// Execute query
+			$db->Execute();
+			
+			/* Old style :P
 			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
 			$db->Query( $sql );
+			*/
 			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
