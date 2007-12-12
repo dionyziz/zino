@@ -347,9 +347,29 @@
 				return 2;
 			}
 			
+			// Prepare query
+			$db->Prepare("
+				UPDATE `$articles`
+				SET
+					`article_delid` = :ArticleDelId
+				WHERE
+					`article_id` = :ArticleId
+				LIMIT 1
+				;
+			");
+			
+			// Assign values to query
+			$db->Bind( 'ArticleDelId', 1 );
+			$db->Bind( 'ArticleId', $this->Id() );
+			
+			// Execute query
+			return $db->Execute()->Impact();
+			
+			/* Old style :P
 			$sql = "UPDATE `$articles` SET `article_delid` = '1' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
 			
 			return $db->Query( $sql )->Impact();
+			*/
 		}
 		public function Update( $title, $text, $icon, $emoticons, $categoryid , $minor, $comment = false ) {
 			global $db;
@@ -392,8 +412,28 @@
 
 			++$this->mHeadRevision;
 			
+			// Prepared query
+			$db->Prepare("
+				UPDATE `$articles`
+				SET
+					`article_headrevision` = :RevisionId
+				WHERE 
+					`article_id` = :ArticleId
+				LIMIT 1
+				;	
+			");
+			
+			// Assign values to query
+			$db->Bind( 'RevisionId'	, $this->RevisionId() );
+			$db->Bind( 'ArticleId'	, $this->Id() );
+			
+			// Execute query
+			$db->Execute();
+			
+			/* Old style :P
 			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
 			$db->Query( $sql );
+			*/
 					
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
