@@ -1,21 +1,18 @@
 <?php
 
     function DisplayChildren( $comments, $parent ) {
+        if ( !isset( $comments[ $parent ] ) ) {
+            return;
+        }
         $children = $comments[ $parent ];
 
         foreach ( $children as $comment ) {
             ?>[ <?php
-            $comment->Id;
+            echo $comment->Id;
             ?> <?php
-            if ( !is_object( $comment->User ) ) {
-                var_dump( $comment );
-                ?><br /><br /><?php
-                var_dump( $comment->GetUser() );
-                die();
-            }
-            $comment->User->Username();
+            echo $comment->User->Username();
             ?> <?php
-            $comment->Since;
+            echo $comment->Since;
             ?> ]<br /><?php
 
             DisplayChildren( $comments, $comment->Id );

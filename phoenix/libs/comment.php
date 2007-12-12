@@ -16,7 +16,7 @@
         protected $mId;
         protected $mCreated; // mysql datetime
         protected $mDate; // day _greekmonth_ year
-        public $SinceDate; // e.g. 5 hours ago
+        public $Since; // e.g. 5 hours ago
         protected $mUserId;
         protected $mUser;
         protected $mUserIp;
@@ -211,7 +211,7 @@
 										   $this->mCreateMonth , $this->mCreateDay , $this->mCreateYear );
 				
 				$this->mDate = MakeDate( $this->mCreated );
-				$this->SinceDate = dateDiff( $this->mCreated, NowDate() );
+				$this->Since = dateDiff( $this->mCreated, NowDate() );
 			}
            
 			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;
