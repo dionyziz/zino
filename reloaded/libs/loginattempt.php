@@ -36,7 +36,7 @@
 			global $loginattempt;
 			
 			$this->mDb = $db;
-			$this->mDbTable = $LoginAttempt;
+			$this->mDbTable = $loginattempt;
 			$this->SetFields( array(
 				'loginattempt_id'		=> 'Id',
 				'loginattempt_time'		=> 'Time',
