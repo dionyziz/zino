@@ -5,12 +5,12 @@
 		?><div class="copy">
 		Copyright &copy; Chit-Chat.gr<span>, Excalibur <?php
 			if ( $user->IsSysOp() ) {
-				?><a href="" onclick="Water.OpenWindow(); return false;">Reloaded</a><?php
+				?><a href="" onclick="Water.OpenWindow(); return false;">Phoenix</a><?php
 			}
 			else {
-				?>Reloaded<?php
+				?>Phoenix<?php
 			}
-		?> 6.4</span>
+		?>7.0</span>
 		</div><?php
 	}
 ?>

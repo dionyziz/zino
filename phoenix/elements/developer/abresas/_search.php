@@ -23,9 +23,16 @@
         */
 
         $comments = $comments->GetParented();
-   
-        Element( 'comment/import' );
-        Element( 'comment/list', $comments, 0, 0 );
+    
+        foreach ( $comments as $comment ) {
+            ?>[ <?php
+            $comment->Id;
+            ?> <?php
+            $comment->User->Username();
+            ?> <?php
+            $comment->Since;
+            ?> ]<br /><?php
+        }
     }
 
 ?>
