@@ -46,7 +46,7 @@
 
         $comments = $comments->GetParented();
     
-        DisplayComment( $comments, 0 );
+        DisplayChildren( $comments, 0 );
     }
 
 ?>
