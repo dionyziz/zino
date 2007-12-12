@@ -16,7 +16,25 @@
 
             return false;
         }
-
+		
+		// Prepared query
+		$db->Prepare("
+			SELECT
+				*
+			FROM
+				`$adminactions`
+			WHERE
+				`$adminaction_adminid` = :AdminId
+			;
+		");
+		
+		// Assign values to query
+		$db->Bind( 'AdminId', $adminid );
+		
+		// Execute query
+		$res = $db->Execute();
+		
+		/* Old style :P
         $sql = "SELECT
                     *
                 FROM
@@ -26,7 +44,9 @@
                 ;";
         
         $res        = $db->Query( $sql );
-        $actions    = array();
+        */
+
+		$actions    = array();
         while ( $row = $res->FetchArray() ) {
             $actions[] = new AdminAction( $row );
         }
