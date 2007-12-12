@@ -74,7 +74,25 @@
 		public function Delete() {
             $this->DelId = 1;
             $this->Save();
-
+			
+			// Prepared query
+			$this->mDb->Prepare("
+				UPDATE `" . $this->mImageTable . "`
+				SET
+					`image_delid` 	= :ImageDelId
+				WHERE
+				  	`image_albumid` = :AlbumId
+				;
+			");
+			
+			// Assign values to query
+			$this->mDb->Bind( 'ImageDelId', 1 );
+			$this->mDb->Bind( 'AlbumId', $this->Id );
+			
+			// Execute query
+			$this->mDb->Execute();
+			
+			/* Old style :P
 			$sql = "UPDATE
 						`" . $this->mImageTable . "`
 					SET
@@ -82,7 +100,9 @@
 					WHERE
 						`image_albumid` = '" . $this->Id . "';";
 			
+			
 			$this->mDb->Query( $sql );
+			*/
 		}
         public function CommentAdded() {
 			++$this->mNumComments;
