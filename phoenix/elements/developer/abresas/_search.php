@@ -27,7 +27,7 @@
 
         $comments = new CommentsSearch;
         $comments->TypeId   = 1;
-        $comments->ItemId   = 832;
+        $comments->ItemId   = $user->Id();
         $comments->DelId    = 0;
 
         //$comments->OrderBy  = array( 'date', 'DESC' );
