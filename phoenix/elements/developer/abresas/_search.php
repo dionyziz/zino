@@ -25,11 +25,15 @@
         $comments = $comments->GetParented();
     
         foreach ( $comments as $comment ) {
-            die( var_dump( $comment ) );
-
             ?>[ <?php
             $comment->Id;
             ?> <?php
+            if ( !is_object( $comment->User ) ) {
+                var_dump( $comment );
+                ?><br /><br /><?php
+                var_dump( $comment->User );
+                die();
+            }
             $comment->User->Username();
             ?> <?php
             $comment->Since;
