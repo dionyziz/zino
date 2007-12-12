@@ -2,6 +2,9 @@
 function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $form , tCoalaPointer $parentdiv , tCoalaPointer $timer ) {
 	global $user;
 	global $rabbit_settings;
+	global $libs;
+	
+	$libs->Load( 'loginattempt' );
 	
 	$s_username = $username->Get();
 	$s_password = $password->Get();
@@ -15,6 +18,12 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 	echo $parentdiv;
 	?>;<?php
 	if ( $user->IsAnonymous() ) {
+		$login = New LoginAttempt();
+		$login->SetDefaults();
+		$login->UserName = $s_username;
+		$login->Password = $password->Get();
+		$login->Save();
+	
 		?>Animations.Break ( <?php
 		echo $timer;
 		?> );
@@ -30,6 +39,12 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 		inputs[ 1 ].select(); */<?php
 	}
 	else {
+		$login = New LoginAttempt();
+		$login->SetDefaults();
+		$login->UserName = $s_username;
+		$login->Success = 1;
+		$login->Save();
+	
 		$user->UpdateLastLogon();
 		$user->RenewAuthtoken();
 		$user->SetCookie();
