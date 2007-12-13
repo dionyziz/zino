@@ -58,10 +58,12 @@
 		and have as interior characters only letters, digits, and hyphen.
 		Labels must be 63 characters or less. */
 		$username = strtolower( $username );
-		$username = preg_replace( '/(\W+)/i', '-', $username ); //convert invalids to hyphens
-		$pattern = '/(\w+)([a-z0-9-]*)([a-z0-9]+)/i';
-		$replacement = '$1$2$3';
-		return myescape( preg_replace( $pattern, $replacement, $username ) );
+		$username = preg_replace( '/([^a-z0-9-]+)/i', '-', $username ); //convert invalid chars to hyphens
+		$pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
+		if ( !preg_match( $pattern, $username, $matches ) ) {
+			return false;
+		}
+		return myescape( $matches[0] );
 	}
 	
     function User_BySubdomain( $subdomain ) {
