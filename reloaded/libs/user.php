@@ -125,15 +125,19 @@
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
-		$subdomain = User_DeriveSubdomain( $username ); //is escaped
+		$subdomain = User_DeriveSubdomain( $username ); //is already escaped, but may be empty
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
 			// reserved
 			return 2;
 		}
-		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' LIMIT 1;";
+		if ( strlen( $subdomain ) < 1 ) {
+			//subdomain is too small (either too small username or it couldn't produce enough output after the regexps)
+			return 2;
+		}
+		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' OR `user_subdomain`='$subdomain' LIMIT 1;";
 		$sqlresult = $db->Query( $sql );
-		if ( $sqlresult->Results() ) { // If there is someone with the same username
+		if ( $sqlresult->Results() ) { // If there is someone with the same username or subdomain
 			return 2;
 		}
 		if ( $email != "" ) {
