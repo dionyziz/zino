@@ -3,6 +3,7 @@
 ?>
 <div id="journalview">
 	<h2>The MacGyver sandwich</h2>
+	<div class="ads" style="float:right;width:250px;height:400px;background-color:green;"></div>
 	<div class="journal">	
 		<dl>
 			<dd class="commentsnum">87 σχόλια</dd>
@@ -38,6 +39,15 @@
 		<img src="images/journal8.jpg" /><br />
 		καλή όρεξη...
 		</p>
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
@@ -182,4 +192,13 @@
 		</div>
 	</div>
 	<div class="eof"></div>
+		<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
+	</div>
 </div>
