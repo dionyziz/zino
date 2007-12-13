@@ -2,11 +2,11 @@
 	include 'usersections.php';
 ?>
 <div id="pollview">
-	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
-	<div class="results">
-		<div style="float:right;width:180px;height:150px;">
+	<div style="float:right;width:180px;height:150px;">
 			<img src="images/ads/ad180.jpg" />
-		</div>
+	</div>
+	<h2>Πόσες φορές τη μέρα βαράς μαλακία;</h2>
+	<div class="results">	
 		<ul>
 			<li>
 				<dl>
@@ -219,4 +219,13 @@
 		</div>
 	</div>
 	<div class="eof"></div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
+	</div>
 </div>
