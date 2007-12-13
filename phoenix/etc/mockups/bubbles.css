@@ -1,7 +1,7 @@
 div.bubble {
     position: relative;
     background-color: #f6f6f6;
-    background-image: url('../images/q_top.jpg');
+    background-image: url('images/q_top.jpg');
     background-repeat: repeat-x;
     background-position: top;
     padding: 10px;
@@ -39,19 +39,19 @@ i.br {
     display: block;
 }
 div.bubble i.tl {
-    background-image: url('../images/q_tl.jpg');
+    background-image: url('images/q_tl.jpg');
 }
 div.bubble i.tr {
-    background-image: url('../images/q_tr.jpg');
+    background-image: url('images/q_tr.jpg');
 }
 div.bubble i.bl {
-    background-image: url('../images/q_bl.jpg');
+    background-image: url('images/q_bl.jpg');
 }
 div.bubble i.br {
-    background-image: url('../images/q_br.jpg');
+    background-image: url('images/q_br.jpg');
 }
 div.bubble i.qleft {
-    background-image: url('../images/q_left.jpg');
+    background-image: url('images/q_left.jpg');
     background-repeat: repeat-y;
     background-position: left;
     width: 10px;
@@ -62,7 +62,7 @@ div.bubble i.qleft {
     bottom: 10px;
 }
 div.bubble i.qright {
-    background-image: url('../images/q_right.jpg');
+    background-image: url('images/q_right.jpg');
     background-repeat: repeat-y;
     background-position: left;
     width: 10px;
@@ -73,7 +73,7 @@ div.bubble i.qright {
     bottom: 10px;
 }
 div.bubble i.qbottom {
-    background-image: url('../images/q_bottom.jpg');
+    background-image: url('images/q_bottom.jpg');
     background-repeat: repeat-x;
     background-position: bottom;
     display: block;
@@ -85,7 +85,7 @@ div.bubble i.qbottom {
 }
 
 div.ybubble {
-    background-image: url('../images/s_mid.png');
+    background-image: url('images/s_mid.png');
 	background-position: bottom;
     background-repeat: repeat-x;
     height: 91px;
@@ -95,16 +95,16 @@ div.ybubble {
     margin: 10px auto 40px auto;
 }
 div.ybubble i.tl {
-    background-image: url('../images/s_tl.png');
+    background-image: url('images/s_tl.png');
 }
 div.ybubble i.tr {
-    background-image: url('../images/s_tr.png');
+    background-image: url('images/s_tr.png');
 }
 div.ybubble i.bl {
-    background-image: url('../images/s_bl.png');
+    background-image: url('images/s_bl.png');
 }
 div.ybubble i.br {
-    background-image: url('../images/s_br.png');
+    background-image: url('images/s_br.png');
 }
 div.ybubble form {
     text-align: center;
