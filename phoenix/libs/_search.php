@@ -154,7 +154,7 @@
         protected $mConnections;
 
         public function Connect( $table1, $table2, $type = 'right' ) {
-            $this->mConnections[ $table1 ][] = array( $table2, $type );
+            $this->mConnections[ $table1 ][] = array( $table2, strtoupper( $type ) );
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
             $this->mPrototypes[ $prototype->Alias() ] = $prototype;
@@ -215,6 +215,7 @@
                 w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
 
                 $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
+                die( var_dump( $prototype2 ) );
                 $table2 = $prototype2->Table();
                 $alias2 = $prototype2->Alias();
 
