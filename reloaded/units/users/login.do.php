@@ -8,6 +8,7 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 	
 	if ( LoginAttempt_checkBot( UserIp() ) ) {
     	?>window.location.href = '?p=oust';<?php
+    	return;
     }
 	
 	$s_username = $username->Get();
