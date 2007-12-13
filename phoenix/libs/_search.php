@@ -258,7 +258,6 @@
             $this->mQuery = "";
             $this->PrepareSelectExpression();
             $water->Trace( "query select: " . $this->mQuery . "." );
-            /*
             $this->PrepareTableReferences();
             $water->Trace( "query ref: " . $this->mQuery . "." );
             $this->PrepareWhereCondition();
@@ -269,7 +268,6 @@
             $water->Trace( "query order: " . $this->mQuery . "." );
             $this->PrepareLimit();
             $water->Trace( "query limit: " . $this->mQuery . "." );
-            */
 
             $res = $db->Query( $this->mQuery );
 

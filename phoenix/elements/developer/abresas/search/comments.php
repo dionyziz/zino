@@ -30,7 +30,8 @@
         $comments->ItemId   = $userid->Get();
         $comments->DelId    = 0;
 
-        $comments->OrderBy  = array( 'Created', 'DESC' );
+        $comments->SortBy       = 'Created';
+        $comments->SortOrder    = 'DESC';
 
         if ( $oldcomments ) {
             $comments->Limit = 10000;
