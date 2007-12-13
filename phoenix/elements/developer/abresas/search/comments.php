@@ -19,7 +19,7 @@
         }
     }
 
-    function ElementDeveloperAbresasSearch( tInteger $userid ) {
+    function ElementDeveloperAbresasSearchComments( tInteger $userid ) {
         global $libs;
         global $user;
 
