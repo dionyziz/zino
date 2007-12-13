@@ -34,18 +34,6 @@
 		// Execute query
 		$res = $db->Execute();
 		
-		/* Old style :P
-        $sql = "SELECT
-                    *
-                FROM
-                    `$adminactions`
-                WHERE
-                    `$adminaction_adminid` = '$adminid'
-                ;";
-        
-        $res        = $db->Query( $sql );
-        */
-
 		$actions    = array();
         while ( $row = $res->FetchArray() ) {
             $actions[] = new AdminAction( $row );
