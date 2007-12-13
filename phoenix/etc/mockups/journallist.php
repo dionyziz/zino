@@ -3,6 +3,8 @@
 ?>
 <div id="journallist">
 	<ul>
+		<div class="ads" style="float: right;background-color: green;width:250px;height:400px;">
+		</div>
 		<li>
 			<h3><a href="">The MacGyver sandwich</a></h3>
 			<p>
@@ -126,6 +128,13 @@
 			</div>
 		</li>
 	</ul>
-
-
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
+	</div>
 </div>
