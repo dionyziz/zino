@@ -63,7 +63,8 @@
                 FROM 
                     `$users`
                 WHERE 
-                    `user_subdomain` = '$subdomain';";
+                    `user_subdomain` = '$subdomain'
+				LIMIT 1;";
         $res = $db->Query( $sql );
         
         $rows = array();
