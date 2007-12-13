@@ -6,14 +6,25 @@
         global $dictionarywords;
         global $water;
         
-        $sql = "SELECT
-                    *
-                FROM
-                    `$dictionarywords`
-                WHERE
-                    `word_id` = " . rand( 1, 76833 ) . "
-                LIMIT 1;";
-        $res = $db->Query( $sql );
+
+		// Prepared query
+		$db->Prepare("
+			SELECT
+                *
+            FROM
+                `$dictionarywords`
+            WHERE
+                `word_id` = :Random
+            LIMIT :Limit
+			;
+		");
+		
+		// Assign query values
+		$db->Bind( 'Random', rand( 1, 76833 ) );
+		$db->Bind( 'Limit', 1);
+		
+        $res = $db->Execute();
+
         if ( !$res->Results() ) {
             $water->Notice( 'No words found in dictionary' );
             return false;
@@ -35,13 +46,22 @@
         protected function WordsCount() {
             global $dictionarywords;
             
-            $sql = "SELECT
-                        COUNT(*) AS wordscount
-                    FROM
-                        `$dictionarywords`
-                    WHERE
-                        `word_dictionaryid` = '" . $this->mId . "'";
-            $res = $this->mDb->Query( $sql );
+			// Prepared query
+			$db->Prepare("
+				SELECT
+	                 COUNT(*) AS wordscount
+                FROM
+                    `$dictionarywords`
+                WHERE
+                    `word_dictionaryid` = :DictionaryId
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'DictionaryId', $this->mId );
+			
+			// Execute query
+            $res = $this->mDb->Execute();
             $row = $res->FetchArray();
             
             return $this->mWordsCount = $row[ 'wordscount' ];
@@ -57,15 +77,26 @@
                 'dictionary_language' => 'Language'
             ) );
             w_assert( $construct == 'greek' ); // for now
-            $construct = addslashes( $construct );
-            $sql = "SELECT
-                        *
-                    FROM
-                        `$dictionaries`
-                    WHERE
-                        `dictionary_language`='" . $construct . "'
-                    LIMIT 1;";
-            $res = $this->mDb->Query( $sql );
+            //$construct = addslashes( $construct );
+            
+			// Prepared query
+			$db->Prepare("
+				SELECT
+                    *
+                FROM
+                    `$dictionaries`
+                WHERE
+                    `dictionary_language`= :DictionaryLanguage
+                LIMIT :Limit
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'DictionaryLanguage', $construct );
+			$db->Bind( 'Limit', 1 );
+			
+			// Execute query
+            $res = $this->mDb->Execute();
             if ( !$res->Results() ) {
                 $water->Notice( 'Dictionary not found' );
                 $this->Satori( false );
