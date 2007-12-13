@@ -228,7 +228,7 @@
                 if ( count( $references1[ $alias2 ] ) ) {
                     $this->mQuery .= "ON ";
                     $first = true;
-                    foreach ( $references[ $alias2 ] as $ref ) {
+                    foreach ( $references1[ $alias2 ] as $ref ) {
                         $type = $ref[ 3 ];
                         $field1 = $fields1[ $ref[ 0 ] ];
                         $field2 = $fields2[ $ret[ 1 ] ];
