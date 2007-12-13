@@ -64,7 +64,7 @@
                 	'albums'        	=> 'albums',
                 	'notify'        	=> 'notify',
 					'universities'		=> 'universities',
-					'loginattempt'		=> 'loginattempt'
+					'loginattempts'		=> 'loginattempts'
                 )
             )
         )

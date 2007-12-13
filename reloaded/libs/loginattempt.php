@@ -5,7 +5,7 @@
 
 	function LoginAttempt_checkBot( $ip ) {
 		global $db;
-		global $loginattempt;
+		global $loginattempts;
 		
 		w_assert( is_string( $ip ), 'LoginAttempt_checkBot accepts only a string argument' );
 		
@@ -35,7 +35,7 @@
 		
 		public function LoginAttempt( $construct = false ) {
 			global $db;
-			global $loginattempt;
+			global $loginattempts;
 			
 			$this->mDb = $db;
 			$this->mDbTable = $loginattempt;
