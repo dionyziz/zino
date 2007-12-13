@@ -19,6 +19,7 @@ function Unhover( node ) {
 	</dl>
 	<div class="eof"></div>
 	<div class="thephoto">
+		<div style="float:right;border: 1px solid green;width:90px;height: 200px;"></div>
 		<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 	</div>
 	<div class="photothumbs">
