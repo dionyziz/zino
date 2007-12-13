@@ -243,6 +243,10 @@
             }
         }
         private function FirstTable( $property ) {
+            if ( !isset( $this->mFilters[ $property ] ) ) {
+                return;
+            }
+
             $tables = array_keys( $this->mFilters[ $property ] );
             
             return $tables[ 0 ];
