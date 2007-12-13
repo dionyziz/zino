@@ -47,7 +47,8 @@
 			"join" 				=> "user/join",
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comment',
-            'eventsearch'       => 'developer/abresas/search/event'
+            'eventsearch'       => 'developer/abresas/search/event',
+            'debug'             => 'developer/water'
     	);
     }
 ?>
