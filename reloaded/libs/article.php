@@ -522,7 +522,7 @@
 				'revision_iconid' => $this->IconId(),
 				'revision_categoryid' => $this->Category()->Id(),
 				'revision_showemoticons' => $this->ShowEmoticons(),
-				'revision_comment' => $user->Username() . " πρόσθεσε τον συγγραφέα: " . $theuser->Username()
+				'revision_comment' => $user->Username() . " added " . $theuser->Username()
 			);
 			
 			$change = $db->Insert( $sqlarray, $revisions );
