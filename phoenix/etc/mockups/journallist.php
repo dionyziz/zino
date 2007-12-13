@@ -4,7 +4,7 @@
 <div id="journallist">
 	<div class="ads" style="float: right;background-color: green;width:250px;height:400px;">
 	</div>	
-	<ul style="clear:both;">
+	<ul>
 		<li>
 			<h3><a href="">The MacGyver sandwich</a></h3>
 			<p>
