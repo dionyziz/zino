@@ -37,7 +37,6 @@
             }
 		}
 		else if ( $subdomain != '' ) {
-			echo User_DeriveSubdomain( $subdomain ); return false;//debug
             if ( strtolower( $subdomain ) == strtolower( $user->Subdomain() ) ) {
                 $theuser = $user;
             }
