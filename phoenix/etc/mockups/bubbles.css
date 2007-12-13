@@ -95,16 +95,16 @@ div.ybubble {
     margin: 10px auto 40px auto;
 }
 div.ybubble i.tl {
-    background-image: url('images/s_tl.png');
+    background-image: url('../images/s_tl.png');
 }
 div.ybubble i.tr {
-    background-image: url('images/s_tr.png');
+    background-image: url('../images/s_tr.png');
 }
 div.ybubble i.bl {
-    background-image: url('images/s_bl.png');
+    background-image: url('../images/s_bl.png');
 }
 div.ybubble i.br {
-    background-image: url('images/s_br.png');
+    background-image: url('../images/s_br.png');
 }
 div.ybubble form {
     text-align: center;
