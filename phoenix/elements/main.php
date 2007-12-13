@@ -18,18 +18,19 @@
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
-		?><div class="content" id="content"><?php
 		ob_start();
 		$res = MasterElement();
 		$master = ob_get_clean();
 		
 		if ( $res === false ) { //If the page requested is not in the pages available
 			Element( 'banner' );
+			?><div class="content" id="content"><?php
 			Element( '404' );
 			Element( 'footer' );
 			?></div><?php
 		}
-		else {	
+		else {
+			?><div class="content" id="content"><?php		
 			if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                 Element( 'banner' );
             }
