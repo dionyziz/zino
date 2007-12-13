@@ -63,7 +63,7 @@
 		if ( !preg_match( $pattern, $username, $matches ) ) {
 			return false;
 		}
-		return myescape( $matches[0] );
+		return $matches[0];
 	}
 	
     function User_BySubdomain( $subdomain ) {
@@ -125,7 +125,7 @@
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
-		$subdomain = User_DeriveSubdomain( $username ); //is already escaped, but may be empty
+		$subdomain = myescape( User_DeriveSubdomain( $username ) ); //is already escaped, but may be empty
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
 			// reserved
