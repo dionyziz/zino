@@ -243,9 +243,7 @@
             }
         }
         private function FirstTable( $property ) {
-            if ( !isset( $this->mFilters[ $property ] ) ) {
-                return;
-            }
+            w_assert( isset( $this->mFilters[ $property ] ), "property $property not in filters" );
 
             $tables = array_keys( $this->mFilters[ $property ] );
             
