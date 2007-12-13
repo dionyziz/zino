@@ -92,17 +92,6 @@
 			// Execute query
 			$this->mDb->Execute();
 			
-			/* Old style :P
-			$sql = "UPDATE
-						`" . $this->mImageTable . "`
-					SET
-						`image_delid` = '1'
-					WHERE
-						`image_albumid` = '" . $this->Id . "';";
-			
-			
-			$this->mDb->Query( $sql );
-			*/
 		}
         public function CommentAdded() {
 			++$this->mNumComments;
