@@ -3,8 +3,8 @@
 ?>
 <div id="journalview">
 	<h2>The MacGyver sandwich</h2>
-	<div class="ads" style="float:right;width:250px;height:400px;background-color:green;"></div>
-	<div class="journal">	
+	<div class="ads" style="clear:both;float:right;width:250px;height:400px;background-color:green;"></div>
+	<div class="journal" style="clear:none;">	
 		<dl>
 			<dd class="commentsnum">87 σχόλια</dd>
 			<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
