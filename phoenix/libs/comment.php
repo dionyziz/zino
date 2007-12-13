@@ -92,16 +92,24 @@
     		return $user->CanModifyCategories() || ( $user->Exists() && $this->User()->Id() == $user->Id() && daysDistance( $this->SQLDate() ) < 1 );
         }
         public function UserIsSpamBot() {
-            $sql = "SELECT
-                        *
-                    FROM
-                        `" . $this->mDbTable. "`
-                    WHERE
-                        `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
-                        `comment_userip` = '" . UserIp() . "'
-                    ;";
+            // Prepared query
 
-            if ( $this->mDb->Query( $sql ) ) {
+			$this->mDb->Prepare("
+				SELECT
+                    *
+                FROM
+                    `" . $this->mDbTable. "`
+                WHERE
+                    `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
+                    `comment_userip` = :UserIp
+                ;
+			");
+			
+			// Assign values to query
+			$this->mDb->Bind( 'UserIp', UserIp() );
+			
+			// Execute query
+            if ( $this->mDb->Execute() ) {
                 // email dio
                 $subject = "WARNING! Comment spambot detected!";
                 $message = "Text submitted: " . $this->Text . "\n\n SpamBot Ip: " . UserIp();
