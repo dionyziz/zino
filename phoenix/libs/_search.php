@@ -239,9 +239,7 @@
                         $this->mQuery .= "`$table1`.`$field1` = `$table2`.`$field2` ";
                     }
                 }
-                else {
-                    die( "no refs" );
-                }
+                $this->PrepareConnections( $alias2 );
             }
         }
         private function PrepareWhere() {
