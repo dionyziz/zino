@@ -59,6 +59,8 @@
             $articleids[ $i ] = ( integer )$articleid;
         }
         
+
+		// TODO: Bind must take an array parameter for implode implementation
         $sql = "SELECT
                     `article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
                     `revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, 
@@ -178,7 +180,8 @@
 			}
 		}
 		
-		if ( count( $newkeys ) ) {	
+		if ( count( $newkeys ) ) {
+			// TODO: Bind must take an array parameter for implode implementation 
 			$sql = "SELECT 
 						`revision_articleid`,
 						`user_id` ,
@@ -364,12 +367,6 @@
 			
 			// Execute query
 			return $db->Execute()->Impact();
-			
-			/* Old style :P
-			$sql = "UPDATE `$articles` SET `article_delid` = '1' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-			
-			return $db->Query( $sql )->Impact();
-			*/
 		}
 		public function Update( $title, $text, $icon, $emoticons, $categoryid , $minor, $comment = false ) {
 			global $db;
@@ -429,11 +426,6 @@
 			
 			// Execute query
 			$db->Execute();
-			
-			/* Old style :P
-			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-			$db->Query( $sql );
-			*/
 					
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -494,11 +486,6 @@
 			// Execute query
 			$db->Execute();
 			
-			/* Old style :P
-			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-			$db->Query( $sql );
-			*/
-			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
 			
@@ -517,26 +504,35 @@
 				$ret = $mc->get( $key );
 				if ( empty( $ret ) ) {
 					$articleid = $this->Id();
-					$sql = "SELECT 
-								`user_id` ,
-								`user_name` ,
-								`user_rights` ,
-								`user_lastprofedit`,
-								`user_icon`,
-                                `image_id`,
-                                `image_userid`
-							FROM
-								`$revisions` CROSS JOIN `$users`
-									ON `revision_creatorid` = `user_id`
-                                LEFT JOIN `$images`
-                                    ON `user_icon` = `image_id`
-							WHERE 
-								`revision_articleid` = '$articleid' AND 
-								`revision_minor` = 'no'
-							GROUP BY
-								`revision_creatorid`
-							;";
-					$res = $db->Query( $sql );
+					
+					// Prepared query
+					$db->Prepare("
+						SELECT 
+							`user_id` ,
+							`user_name` ,
+							`user_rights` ,
+							`user_lastprofedit`,
+							`user_icon`,
+                               `image_id`,
+                               `image_userid`
+						FROM
+							`$revisions` CROSS JOIN `$users` ON `revision_creatorid` = `user_id`
+                               LEFT JOIN `$images` ON `user_icon` = `image_id`
+						WHERE 
+							`revision_articleid`	= :RevisionArticleId AND 
+							`revision_minor`		= :RevisionMinor
+						GROUP BY
+							`revision_creatorid`
+						;
+					");
+					
+					// Assign values to query
+					$db->Bind( 'RevisionArticleId', $articleid );
+					$db->Bind( 'RevisionMinor', 'no' );
+					
+					// Execute query
+					$res = $db->Execute();
+					
 					$ret = array();
 					while ( $sqleditor = $res->FetchArray() ) {
 						$ret[] = New User( $sqleditor );
@@ -610,11 +606,6 @@
 			
 			// Execute query
 			$db->Execute();
-			
-			/* Old style :P
-			$sql = "UPDATE `$articles` SET `article_headrevision` = '" . $this->RevisionId() . "' WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-			$db->Query( $sql );
-			*/
 			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -778,29 +769,37 @@
 				$revisionid = $this->mRevision;
 			}
 			
-			$sql = "SELECT
-						`article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
+			// Prepared query
+			$db->Prepare("
+				SELECT
+					`article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
 
-						`revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, `revision_showemoticons`, `revision_comment`,
-						`category_id`, `category_name`, `category_icon`,
-                        `$images`.`image_id`, `$images`.`image_userid`,
-                        `cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
-					FROM 
-						`$articles` INNER JOIN `$revisions` 
-							ON ( `article_id` = `revision_articleid` AND
-								 `revision_id` = $revisionid )
-						LEFT JOIN `$categories`
-							ON ( `revision_categoryid` = `category_id` )
-                        LEFT JOIN `$images`
-                            ON ( `revision_iconid` = `$images`.`image_id` )
-                        LEFT JOIN `$images` AS cimages
-                            ON ( `category_icon` = cimages.`image_id` )
-					WHERE
-						`article_id` = '$construct' AND
-						`article_delid` = '0'
-					;";
-					
-			$res = $db->Query( $sql );
+					`revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, `revision_showemoticons`, `revision_comment`,
+					`category_id`, `category_name`, `category_icon`,
+	                      `$images`.`image_id`, `$images`.`image_userid`,
+	                      `cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
+				FROM 
+					`$articles` INNER JOIN `$revisions` 
+						ON ( `article_id` = `revision_articleid` AND
+							 `revision_id` = $revisionid )
+					LEFT JOIN `$categories`
+						ON ( `revision_categoryid` = `category_id` )
+	                      LEFT JOIN `$images`
+	                          ON ( `revision_iconid` = `$images`.`image_id` )
+	                      LEFT JOIN `$images` AS cimages
+	                          ON ( `category_icon` = cimages.`image_id` )
+				WHERE
+					`article_id` = :Construct AND
+					`article_delid` = :ArticleDelId
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'Construct', $construct  );
+			$db->Bind( 'ArticleDelId', '0' );
+			
+			// Execute query					
+			$res = $db->Execute();
 			if ( $res->Results() ) {
 				return $res->FetchArray();
 			}
@@ -1078,29 +1077,38 @@
 		if ( !ValidId( $offset ) ) {
 			$offset = 0;
 		}
+		// Prepared query
+		$db->Prepare("
+			SELECT 
+				`revision_id` , `revision_title` , `revision_updated` , `revision_minor`, `user_name`, `revision_comment`
+			FROM 
+				`$articles` INNER JOIN `$revisions` 
+					ON ( `article_id` = `revision_articleid` )
+				LEFT JOIN `$users`
+					ON ( `revision_creatorid` = `user_id` )
 
-		$sql = "SELECT 
-					`revision_id` , `revision_title` , `revision_updated` , `revision_minor`, `user_name`, `revision_comment`
-				FROM 
-					`$articles` INNER JOIN `$revisions` 
-						ON ( `article_id` = `revision_articleid` )
-					LEFT JOIN `$users`
-						ON ( `revision_creatorid` = `user_id` )
-
-				WHERE 
-					`article_id` = '$id'
-				ORDER BY `revision_id` DESC 
-				LIMIT $offset, 10;";
+			WHERE 
+				`article_id` = :ArticleId
+			ORDER BY `revision_id` DESC 
+			LIMIT :Offset, :Limit
+			;
+		");
 		
-			$res = $db->Query( $sql );
-			if ( $res->Results() ) {
-		        $rows = array();
-		        while ( $row = $res->FetchArray() ) {
-					$rows[] = $row;
-		        }
+		// Assign query values
+		$db->Bind( 'ArticleId', $id );
+		$db->Bind( 'Offset', $offset );
+		$db->Bind( 'Limit', 10 );
+		
+		// Execute query
+		$res = $db->Execute();
+		if ( $res->Results() ) {
+	        $rows = array();
+	        while ( $row = $res->FetchArray() ) {
+				$rows[] = $row;
+	        }
 
-				return $rows;
-			}
-            return false;
+			return $rows;
+		}
+           return false;
 	}
 ?>
