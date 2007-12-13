@@ -354,7 +354,7 @@
 			//update latest images
 			
 			// Prepared query
-			$db->Prepare("
+			$this->mDb->Prepare("
 				SELECT
 					`image_id`
 				FROM
@@ -370,21 +370,30 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'ImageUserId', $this->UserId );
-			$db->Bind( 'ImageDelId', 0);
-			$db->Bind( 'Limit', 1);
+			$this->mDb->Bind( 'ImageUserId', $this->UserId );
+			$this->mDb->Bind( 'ImageDelId', 0);
+			$this->mDb->Bind( 'Limit', 1);
 			
 			// Execute query
 			$res = $this->mDb->Execute();
 			
 			if ( !$res->Results() ) {
-				$sql = "DELETE FROM
-							`$latestimages`
-						WHERE
-							`latest_imageid` = 	'" . $this->Id . "'
-						LIMIT 1;";
+				// Prepared query
+				$this->mDb->Prepare("
+					DELETE FROM
+						`$latestimages`
+					WHERE
+						`latest_imageid` = 	:LatestImageId
+					LIMIT :Limit
+					;
+				");
+				
+				// Assign query values
+				$this->mDb->Bind( 'LatestImageId', $this->Id );
+				$this->mDb->Bind( 'Limit', 1 );
 						
-				return $this->mDb->Query( $sql );
+				// Execute query
+				return $this->mDb->Execute();
 			}
 			else {
 				while( $row = $res->FetchArray() ) {
