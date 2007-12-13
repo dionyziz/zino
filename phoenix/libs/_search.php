@@ -231,7 +231,7 @@
                     foreach ( $references1[ $alias2 ] as $ref ) {
                         $type = $ref[ 3 ];
                         $field1 = $fields1[ $ref[ 0 ] ];
-                        $field2 = $fields2[ $ret[ 1 ] ];
+                        $field2 = $fields2[ $ref[ 1 ] ];
 
                         if ( !$first ) {
                             $this->mQuery .= " AND ";
