@@ -29,7 +29,7 @@
 	        ?>
 		</ul><?php
 	    if ( isset( $loggedin ) ) {
-	        ?><a href="logout" class="logout" onclick="return false">Έξοδος</a><?php
+	        ?><a href="logout" class="logout" onclick="return false">Test</a><?php
 		}
 	    ?><div class="search">
 			<form action="" method="get">
