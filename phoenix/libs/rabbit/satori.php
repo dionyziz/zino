@@ -225,6 +225,13 @@
                     $this->$varname = $fetched_array[ $fieldname ]; // MAGIC!
                     $this->mPreviousValues[ $attributename ] = $fetched_array[ $fieldname ];
                 }
+                else {
+                    $varname = 'm' . $attributename;
+                    if ( empty( $this->$varname ) ) { // MAGIC!
+                        $this->$varname = false; // MAGIC!
+                    }
+                    $this->mPreviousValues[ $attributename ] = $this->$varname; // MAGIC!
+                }
             }
         }
     }
