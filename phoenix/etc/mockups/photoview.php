@@ -48,6 +48,14 @@ function Unhover( node ) {
             </li>
         </ol>
 	</div>
+	<div class="ads" style="padding: 10px 0;">
+		<div style="border:1px solid red;width:234px;height:60px;margin: 0 5px;">
+		</div>
+		<div style="border:1px solid red;width:234px;height:60px;margin: 0 5px;">
+		</div>
+		<div style="border:1px solid red;width:234px;height:60px;margin: 0 5px;">
+		</div>
+	</div>
 	<div class="comments">
 		<div class="comment newcomment">
 			<div class="toolbox">
