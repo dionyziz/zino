@@ -18,24 +18,77 @@
 		global $db;
 		
         $numimages = $user->CountImages() - 1;
-		$sql = "UPDATE `$users` SET `user_numimages` = `user_numimages` + 1 WHERE `user_id` = '" . $user->Id() . "' LIMIT 1;";
-		$change = $db->Query( $sql );
+		// Prepared query
+		$db->Prepare("
+			UPDATE 
+				`$users` 
+			SET 
+				`user_numimages` = `user_numimages` + 1 
+			WHERE `user_id` = :UserId
+			LIMIT :Limit
+			;
+		");
+		
+		// Assign values to query
+		$db->Bind( 'UserId', $user->Id() );
+		$db->Bind( 'Limit' , 1 );
+		
+		// Execute query
+		$change = $db->Execute();
        
         if ( !$change->Impact() ) {
             return false;
         }
 
         if ( $numimages > 0 ) {
-            $sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_userid` = '" . $user->Id() . "' LIMIT 1;";
-            $res = $db->Query( $sql )->FetchArray();
+			// Prepared query
+			$db->Prepare("
+				SELECT 
+					max( `image_id` ) AS maximg 
+				FROM `$images` 
+				WHERE `image_userid` = :ImageUserId
+				LIMIT :Limit
+				;
+			");
+			
+			// Assign values to query
+			$db->Bind( 'ImageUserId', $user->Id() );
+			$db->Bind( 'Limit', 1 );
+			
+            // Execute query 
+            $res = $db->Execute()->FetchArray();
             $maximg = $res[ 'maximg' ];
-
-            $sql = "UPDATE `$latestimages` SET `latest_imageid` = '" . $res[ 'maximg' ] . "' WHERE `latest_userid` = '" . $user->Id() . "';";
-            $change = $db->Query( $sql );
+			
+			$db->Prepare("
+				UPDATE 
+					`$latestimages` 
+				SET 
+					`latest_imageid`  = :LatestImageId
+				WHERE `latest_userid` = :LatestUserId
+				;
+			");
+            
+			// Assign values to query
+			$db->Bind( 'LatestImageId', $res[ 'maximg' ] );
+			$db->Bind( 'LatestUserId', $user->Id() );
+			
+			// Execute query
+            $change = $db->Execute();
         }
         else {
-            $sql = "DELETE FROM `$latestimages` WHERE `latest_userid` = '" . $user->Id() . "';";
-            $change = $db->Query( $sql );
+			$db->Prepare("
+				DELETE FROM 
+					`$latestimages` 
+				WHERE 
+					`latest_userid` = :LatestUserId
+				;
+			");
+			
+			// Assign values to query
+			$db->Bind( 'LatestUserId', $user->Id() );
+            
+			// Execute query
+            $change = $db->Execute();
         }
 		
 		return $change->Impact();
