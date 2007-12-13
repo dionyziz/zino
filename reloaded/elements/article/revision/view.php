@@ -37,7 +37,7 @@
 			return false;
 		}
 		
-		$page->SetTitle( 'Ιστορικό άρθρου' );
+		$page->SetTitle( 'Ιστορικό &quot;' . htmlspecialchars( $article->Title() ) . '&quot;' );
 
 		?><h2><?php
 		if ( $skip >= 10 ) {
@@ -56,7 +56,9 @@
 		}
 		?>Ιστορικό <a href="?p=story&amp;id=<?php
 		echo $id; 
-		?>">άρθρου</a><?php
+		?>">&quot;<?php
+		echo htmlspecialchars( $article->Title() );
+		?>&quot;</a><?php
 		if ( count($array) == 10 ) {
 			?>&nbsp;<a href="?p=revisions&amp;id=<?php
 			echo $id; 
