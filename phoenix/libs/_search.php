@@ -118,7 +118,7 @@
             $this->mClass = 'User';
 
             $this->mReferences = array(
-                'Image' => array( 'Avatar', 'Id' )
+                'Image' => array( 'Avatar', 'Id', 'left' )
             );
 
             parent::SearchPrototype();
