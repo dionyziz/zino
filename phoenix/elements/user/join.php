@@ -1,5 +1,9 @@
 <?php
 	function ElementUserJoin() {
+		global $page;
+		
+		$page->AttachStylesheet( 'css/join.css' );
+		$page->AttachScript( 'js/join.js' );
 		?><div class="join">
 			<div class="bubble">
 				<i class="tl"></i><i class="tr"></i>
