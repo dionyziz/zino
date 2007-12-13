@@ -37,7 +37,7 @@
 			return false;
 		}
 		
-		$page->SetTitle( 'Ιστορικό &quot;' . htmlspecialchars( $article->Title() ) . '&quot;' );
+		$page->SetTitle( 'Ιστορικό "' . htmlspecialchars( $article->Title() ) . '"' );
 
 		?><h2><?php
 		if ( $skip >= 10 ) {
