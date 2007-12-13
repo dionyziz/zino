@@ -6,7 +6,7 @@
 		$page->AttachScript( 'js/banner.js' );
 		$page->AttachScript( 'js/animations.js' );
 		
-		$loggedin = true;
+		//$loggedin = true;
 		?><div class="header" id="banner">
 		<h1><a href="http://www.zino.gr/" onclick="return false"><img src="images/zino.png" alt="Zino" /></a></h1>
 	    <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
