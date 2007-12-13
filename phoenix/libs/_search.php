@@ -33,6 +33,151 @@
     $comments = $comments->GetParented();
     */
 
+    abstract class SearchPrototype {
+        protected $mValues;
+        protected $mObject;
+        protected $mClass;
+        protected $mReferences;
+
+        public function __set( $key, $value ) {
+            $methodname = 'Set' . $key;
+            if ( method_exists( $this, $methodname ) ) {
+                $this->$methodname( $value ); // MAGIC!
+            }
+            $this->mValues[ $key ] = $value;
+        }
+        public function Values() {
+            return $this->mValues;
+        }
+        public function Fields() {
+            return $this->mObject->Fields();
+        }
+        public function Table() {
+            return $this->mObject->Table();
+        }
+        public function Alias() {
+            return $this->mClass;
+        }
+        public function References() {
+            return $this->mReferences;
+        }
+        public function SearchPrototype() {
+            $this->mObject = new $this->mClass; // MAGIC!
+
+            if ( !is_array( $this->mReferences ) ) {
+                $this->mReferences = array();
+            }
+        }
+    }
+
+    class CommentPrototype extends SearchPrototype {
+        public function SetItemId( $itemid ) {
+            switch( $itemid ) {
+                case 0:
+                    $class = 'Journal';
+                    break;
+                case 1:
+                    $class = 'User';
+                    break;
+                case 2:
+                    $class = 'Image';
+                    break;
+                default:
+                    w_assert( false );        
+            }
+            
+            $this->mReferences[ 'ItemId' ] = array( $class, 'Id' );
+        }
+        public function CommentPrototype() {
+            $this->mClass = 'Comment';
+
+            $this->mReferences = array(
+                'User' => array( 'UserId', 'Id' ),
+                'Bulk' => array( 'BulkId', 'Id' )
+            );
+
+            parent::SearchPrototype();
+        }
+    }
+
+    class UserPrototype extends SearchPrototype {
+        public function Fields() {
+            return array(
+                'user_id'       => 'Id',
+                'user_name'     => 'Name',
+                'user_password' => 'Password',
+                'user_icon'     => 'Avatar'
+            );
+        }
+        public function Table() {
+            global $users;
+
+            return $users;
+        }
+        public function UserPrototype() {
+            $this->mClass = 'User';
+
+            $this->mReferences = array(
+                'Image' => array( 'Avatar', 'Id' )
+            );
+
+            parent::SearchPrototype();
+        }
+    }
+
+    class ImagePrototype extends SearchPrototype {
+        public function ImagePrototype() {
+            $this->mClass = 'Image';
+
+            parent::SearchPrototype();
+        }
+    }
+
+    class Search {
+        protected $mLimit;
+        protected $mOffset;
+        protected $mPrototypes;
+        protected $mConnections;
+
+        private function Connect( $table1, $type, $table2 ) {
+            $this->mConnections[] = array( $table1, $type, $table2 );
+        }
+        private function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
+            $this->mPrototypes[ $prototype->Alias() ] = $prototype;
+
+            if ( $connectto !== false ) {
+                $this->Connect( $prototype->Alias(), $connecttype, $connectto );
+            }
+        }
+        private function PrepareSelect() {
+            $this->mQuery .= "SELECT";
+            $first = true;
+            foreach ( $this->mPrototypes as $prototype ) {
+                $table = $prototype->Table();
+                $fields = $prototype->Fields();
+                foreach ( $fields as $field => $property ) {
+                    if ( !$first ) {
+                        $this->mQuery .= ", ";
+                    }
+                    else {
+                        $first = false;
+                    }
+                    $this->mQuery .= " `$table`.`$field`";
+                }
+            }
+        }
+        public function Get() {
+            $this->PrepareSelect();
+
+            die( $this->mQuery );
+        }
+        public function Search() {
+            $this->mConnections = array();
+        }
+    }
+
+    /*
+
     class Search {
         protected $mLimit;
         protected $mOffset;
@@ -74,6 +219,9 @@
         protected function SetFields( $fields ) {
             $this->mFields = $fields;
         }
+        protected function AddField( $field, $table ) { // add field to already setted fields
+            
+        }
         protected function SetFilters( $filters, $table = false ) {
             foreach ( $filters as $field => $property ) {
                 if ( is_array( $property ) && $table == false ) {
@@ -107,12 +255,13 @@
                 if ( $success !== false ) {
                     return;
                 }
-                /* else fallthru */
             }
             
             $varname = 'm' . $name;
             // w_assert( property_exists( get_class( $this ), $varname ), $varname );
             $this->$varname = $value;
+        }
+        private function SetOrderBy() {
         }
         private function PrepareSelectExpression() {
             $this->mQuery .= "SELECT ";
@@ -423,5 +572,7 @@
 			return $parented;
         }
     }
+
+    */
 
 ?>

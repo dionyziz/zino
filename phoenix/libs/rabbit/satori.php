@@ -173,6 +173,9 @@
                 $this->MakeReadOnly( 'Id' );
             }
         }
+        protected function GetFields() {
+            return $this->mDbFields;
+        }
         protected function LoadDefaults() {
             // overload me
         }
