@@ -31,7 +31,6 @@
     }
 
     $comments = $comments->GetParented();
-
     */
 
     class Search {
@@ -40,7 +39,9 @@
         protected $mFilters;
         protected $mFields;
         protected $mTables;
-        protected $mOrderBy;
+        protected $mSortBy;
+        protected $mSortOrder;
+        protected $mGroupBy;
         protected $mConnections;
         protected $mQuery;
         protected $mClass;
@@ -209,8 +210,25 @@
             $this->mQuery .= " ";
         }
         private function PrepareGroupBy() {
+            if ( empty( $this->mGroupBy ) ) {
+                return false;
+            }
+            $table = $this->FirstTable( $this->mGroupBy );
+            $field = $this->mFilters[ $this->mGroupBy ][ $table ]; // field of the first filter
+
+            $this->mQuery .= " GROUP BY `$table`.`$field` ";
         }
         private function PrepareOrderBy() {
+            if ( empty( $this->mSortBy ) ) {
+                return false;
+            }
+            if ( empty( $this->mSortOrder ) ) {
+                $this->mSortOrder = "DESC";
+            }
+            $table = $this->FirstTable( $this->mSortBy );
+            $field = $this->mFilters[ $this->mSortBy ][ $table ]; // field of the first filter
+
+            $this->mQuery .= " ORDER BY $table.`$field` " . $this->mSortOrder . " ";
         }
         private function PrepareLimit() {
             if ( !empty( $this->mOffset ) || !empty( $this->mLimit ) ) {
@@ -223,6 +241,11 @@
                 }
                 $this->mQuery .= " ";
             }
+        }
+        private function FirstTable( $property ) {
+            $tables = array_keys( $this->mFilters[ $property ] );
+            
+            return $tables[ 0 ];
         }
         public function Get() {
             global $water;
@@ -312,6 +335,7 @@
         protected $mItemId;
         protected $mTypeId;
         protected $mDelId;
+        protected $mCreated;
         protected $mUserDelId;
 
         public function SetPage( $item ) {
@@ -360,7 +384,8 @@
                 'comments' => array(
                     'comment_itemid' => 'ItemId',
                     'comment_typeid' => 'TypeId',
-                    'comment_delid' => 'DelId'
+                    'comment_delid' => 'DelId',
+                    'comment_date'  => 'Date'
                 ),
                 'users' => array(
                     // 'user_delid' => 'UserDelId',

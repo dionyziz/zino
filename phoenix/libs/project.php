@@ -45,7 +45,9 @@
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
 			"join" 				=> "user/join",
-            'unittest'          => 'developer/test/view'
+            'unittest'          => 'developer/test/view',
+            'commentsearch'     => 'developer/abresas/search/comment',
+            'eventsearch'       => 'developer/abresas/search/event'
     	);
     }
 ?>

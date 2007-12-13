@@ -30,16 +30,14 @@
         $comments->ItemId   = $userid->Get();
         $comments->DelId    = 0;
 
-        //$comments->OrderBy  = array( 'date', 'DESC' );
+        $comments->OrderBy  = array( 'Created', 'DESC' );
 
-        /*
         if ( $oldcomments ) {
             $comments->Limit = 10000;
         }
         else {
             $comments->Limit = 50;
         }
-        */
 
         $comments = $comments->GetParented();
         if ( empty( $comments ) ) {
