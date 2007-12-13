@@ -112,8 +112,6 @@
             
             $varname = 'm' . $name;
             // w_assert( property_exists( get_class( $this ), $varname ), $varname );
-            var_dump( $value );
-            echo "<br /><br /><br />";
             $this->$varname = $value;
         }
         private function PrepareSelectExpression() {
@@ -260,6 +258,7 @@
             $this->mQuery = "";
             $this->PrepareSelectExpression();
             $water->Trace( "query select: " . $this->mQuery . "." );
+            /*
             $this->PrepareTableReferences();
             $water->Trace( "query ref: " . $this->mQuery . "." );
             $this->PrepareWhereCondition();
@@ -270,6 +269,7 @@
             $water->Trace( "query order: " . $this->mQuery . "." );
             $this->PrepareLimit();
             $water->Trace( "query limit: " . $this->mQuery . "." );
+            */
 
             $res = $db->Query( $this->mQuery );
 
