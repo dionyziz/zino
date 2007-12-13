@@ -139,14 +139,14 @@
         protected $mPrototypes;
         protected $mConnections;
 
-        private function Connect( $table1, $type, $table2 ) {
-            $this->mConnections[] = array( $table1, $type, $table2 );
+        public function Connect( $table1, $table2, $type = 'right' ) {
+            $this->mConnections[ $table1 ] = array( $table2, $type );
         }
-        private function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
+        public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
             $this->mPrototypes[ $prototype->Alias() ] = $prototype;
 
             if ( $connectto !== false ) {
-                $this->Connect( $prototype->Alias(), $connecttype, $connectto );
+                $this->Connect( $prototype->Alias(), $connectto, $connecttype );
             }
         }
         private function PrepareSelect() {
