@@ -41,7 +41,7 @@
                 $theuser = $user;
             }
             else {
-                $theuser = New User_BySubdomain( $subdomain );
+                $theuser = User_BySubdomain( $subdomain );
             }
 		}
 		if ( !$theuser->Exists() || $theuser->Locked() ) {
