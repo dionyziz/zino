@@ -11,7 +11,7 @@
 		
 		$now = NowDate();
 		
-		$sql = "SELECT * FROM `$loginattempt`
+		$sql = "SELECT * FROM `$loginattempts`
 				WHERE `loginattempt_ip` = '" . $ip . "'
 				AND `loginattempt_time` >= ( '$now' - INTERVAL 15 MINUTE )
 				AND `loginattempt_success` = '0'
@@ -38,7 +38,7 @@
 			global $loginattempts;
 			
 			$this->mDb = $db;
-			$this->mDbTable = $loginattempt;
+			$this->mDbTable = $loginattempts;
 			$this->SetFields( array(
 				'loginattempt_id'		=> 'Id',
 				'loginattempt_time'		=> 'Time',
