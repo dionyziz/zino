@@ -499,8 +499,21 @@
             }
 
             if ( parent::Save() ) { // save again: Upload() has set size, width and height 
-                $sql = "REPLACE INTO `$latestimages` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
-                $this->mDb->Query( $sql );
+                // Prepared query
+				$this->mDb->Prepare("
+					REPLACE INTO 
+						`$latestimages` 
+							( `latest_userid`, `latest_imageid` ) 
+					VALUES  ( :LatestUserId , :LatestImageId )
+					;
+				");
+				
+				// Assign query values
+				$this->mDb->Bind( 'LatestUserId' , $user->Id() );
+				$this->mDb->Bind( 'LatestImageId', $lastimgid );
+				
+				// Execute query
+                $this->mDb->Execute();
             }
 
             Image_Added();
