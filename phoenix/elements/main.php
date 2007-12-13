@@ -26,18 +26,19 @@
 		if ( $res === false ) { //If the page requested is not in the pages available
 			Element( 'banner' );
 			Element( '404' );
-			Element( 'copyright' );
+			Element( 'footer' );
+			?></div><?php
 		}
 		else {	
 			if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                 Element( 'banner' );
             }
             echo $master;
+			?></div><?php
             if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                 Element( 'footer' );
             }
         }
-        ?></div><?php
         Element( 'tracking/analytics' ); // Google-Analytics, for stats
         if ( $page->Title() != '' ) { // If the title's page is not blank
             $page->SetTitle( $page->Title() . ' / ' . $rabbit_settings[ 'applicationname' ] );
