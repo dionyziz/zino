@@ -49,10 +49,9 @@ function Unhover( node ) {
         </ol>
 	</div>
 	<div class="ads" style="padding: 10px 0;margin: 0 auto;">
-		<img src="images/ads/ads234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ads234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ads234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
