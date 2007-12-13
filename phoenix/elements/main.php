@@ -34,7 +34,7 @@
             }
             echo $master;
             if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
-                Element( 'copyright' );
+                Element( 'footer' );
             }
         }
         ?></div><?php
