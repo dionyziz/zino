@@ -137,6 +137,7 @@
             $imageids[ $i ] = ( integer )$imageid;
         }
         
+		// TODO: Bind must take an array parameter for implode implementation 
         $sql = "SELECT
                     *
                 FROM
@@ -163,15 +164,24 @@
 		global $images;
 		global $db;
 		
-		$sql = "SELECT 
-					COUNT( * )
-				AS 
-					imagesnum
-				FROM 
-					`$images`
-				WHERE
-					`image_delid` = '0';";
-		$res = $db->Query( $sql );
+		// Prepared query
+		$db->Prepare("
+			SELECT 
+				COUNT( * )
+			AS 
+				imagesnum
+			FROM 
+				`$images`
+			WHERE
+				`image_delid` = :ImageDelId
+			;
+		");
+		
+		// Assign query values
+		$db->Bind( 'ImageDelId', '0' );
+		
+		// Execute query
+		$res = $db->Execute();
 		$num = $res->FetchArray();
 		$num = $num[ "imagesnum" ];
 		
@@ -229,25 +239,33 @@
         global $images;
 		global $latestimages;
 		
-		$limit = mysql_escape_string( $limit );
+		//$limit = mysql_escape_string( $limit );
 		
-		$sql = "SELECT
-					`latest_imageid`
-				FROM
-					`$latestimages`
-				CROSS JOIN
-					`$images`
-				ON
-					`latest_imageid` = `image_id`
-				WHERE 
-					`image_albumid` != 0
-				ORDER BY
-					`latest_imageid`
-					DESC
-				LIMIT
-					$limit";
+		// Prepared query
+		$db->Prepare("
+			SELECT
+				`latest_imageid`
+			FROM
+				`$latestimages`
+			CROSS JOIN
+				`$images`
+			ON
+				`latest_imageid` = `image_id`
+			WHERE 
+				`image_albumid` != :ImageAlbumId
+			ORDER BY
+				`latest_imageid`
+				DESC
+			LIMIT
+				:Limit
+		");
 		
-		$res = $db->Query( $sql );
+		// Assign values to query
+		$db->Bind( 'ImageAlbumId', 0 );
+		$db->Bind( 'Limit', $limit );
+		
+		// Execute query
+		$res = $db->Execute();
 		
 		$rows = array();
 		
@@ -334,20 +352,30 @@
             Image_Removed( $this->User );
 
 			//update latest images
-			$sql = "SELECT
-						`image_id`
-					FROM
-						`$images`
-					WHERE
-						`image_userid` = '" . $this->UserId . "'
-					AND
-						`image_delid` = 0
-					ORDER BY
-						`image_id`
-						DESC
-					LIMIT 1;";
 			
-			$res = $this->mDb->Query( $sql );
+			// Prepared query
+			$db->Prepare("
+				SELECT
+					`image_id`
+				FROM
+					`$images`
+				WHERE
+					`image_userid` = :ImageUserId
+				AND
+					`image_delid` = :ImageDelId
+				ORDER BY
+					`image_id` DESC
+				LIMIT :Limit
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'ImageUserId', $this->UserId );
+			$db->Bind( 'ImageDelId', 0);
+			$db->Bind( 'Limit', 1);
+			
+			// Execute query
+			$res = $this->mDb->Execute();
 			
 			if ( !$res->Results() ) {
 				$sql = "DELETE FROM

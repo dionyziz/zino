@@ -57,6 +57,7 @@
 			global $db;
 			
 			$ret = array();
+			// TODO: Bind must take an array parameter for implode implementation 
 			$sql = "SELECT
 						`bulk_id`, `bulk_text`
 					FROM
