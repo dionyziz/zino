@@ -30,10 +30,10 @@
 			Element( 'footer' );
 		}
 		else {
-			?><div class="content" id="content"><?php		
 			if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
                 Element( 'banner' );
             }
+			?><div class="content" id="content"><?php	
             echo $master;
 			?></div><?php
             if ( !is_array( $res ) || !isset( $res[ 'tiny' ] ) ) {
