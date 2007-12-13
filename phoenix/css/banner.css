@@ -126,6 +126,7 @@ div.header div.search input.submit {
 	display: none;
 }
 div.header a.logout {
+    z-index: 100;
 	position: absolute;
 	right: 8px;
 	top: 6px;

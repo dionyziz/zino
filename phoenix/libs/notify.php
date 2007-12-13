@@ -98,14 +98,7 @@
         protected $mTypeId;
         protected $mDelId;
             
-            /* TypeId
-                0: for comments on articles
-                1: for comments on userprofiles
-                2: for comments on images
-                3: for friends
-            */
-        
-            // delid 0 for unread, 1 for read and 2 for deleted
+        // delid 0 for unread, 1 for read and 2 for deleted
 
         public function GetFromUser() {
             if ( $this->mFromUser === false ) {
