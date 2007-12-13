@@ -1,0 +1,40 @@
+div#favourites {
+	margin-bottom: 20px;
+	text-align: center;
+	padding-top: 20px;
+}
+div#favourites h2 {
+	margin: 0;
+	padding: 0;
+}
+div#favourites div {
+	text-align: left;
+}
+div#favourites div.list {
+	width: 40%;
+	margin: 0 auto;
+}
+div#favourites div.list ul.favcategories {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: right;
+}
+div#favourites div.list ul.favcategories li {
+	margin: 0 0 0 5px;
+	padding: 5px 0 0 0;
+	float: right;
+	height: 21px;
+	width: 35px;
+	text-align: center;
+	border: 1px solid #d7d7d7;
+	border-bottom: none;
+	size: 105%;
+	cursor: pointer;
+}
+div#favourites div.list ul.favcategories li a {
+	display: block;
+}
+li.selected {
+	background-color: #e5f0ff;
+}

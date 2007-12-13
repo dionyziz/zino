@@ -7,6 +7,11 @@
 		global $rabbit_settings;
 		
 		//$page->AttachStylesheet( 'css/main.css' );
+		//attaching all the default styling files
+		$page->AttachStylesheet( 'css/default.css' );
+		$page->AttachStylesheet( 'css/headlines.css' );
+		$page->AttachStylesheet( 'css/links.css' );
+		$page->AttachStylesheet( 'css/forms.css' );
         $page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
         $page->AttachScript( 'js/main.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );

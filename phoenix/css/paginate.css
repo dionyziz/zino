@@ -1,0 +1,22 @@
+div.paginate {
+    margin: 10px auto 20px auto;
+    text-align: center;
+}
+div.paginate a {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background-color: white;
+}
+div.paginate a:hover {
+    background-color: #eef;
+}
+div.paginate a.selected {
+    border: 2px solid #aaf;
+    background-color: #eef;
+}
+div.paginate span {
+    font-size: 80%;
+    margin: 20px;
+    display: block;
+}

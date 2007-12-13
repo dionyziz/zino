@@ -1,9 +1,11 @@
 <?php
 	function ElementBanner() {
-		/*
-		<script type="text/javascript" src="../../js/animations.js"></script>
-		<script type="text/javascript" src="js/banner.js"></script>
-		*/
+		global $page;
+		
+		$page->AttachStylesheet( 'css/banner.css' );
+		$page->AttachScript( 'js/banner.js' );
+		$page->AttachScript( 'js/animations.js' );
+		
 		$loggedin = true;
 		?><div class="header" id="banner">
 		<h1><a href="http://www.zino.gr/" onclick="return false"><img src="images/zino.png" alt="Zino" /></a></h1>

@@ -1,0 +1,63 @@
+div#photolist {
+	margin-bottom: 20px;
+}
+div#photolist h2 {
+	margin: 0;
+	padding: 0;
+}
+div#photolist dl {
+	padding: 0;
+	margin: 0;
+}
+div#photolist dl dt.photonum {
+	background-image: url('images/photo.png');
+	background-repeat: no-repeat;
+	padding: 0 0 0 19px;
+	margin: 0;
+	display: inline;
+	font-size: 90%;
+}
+dt.commentsnum {
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
+	margin: 0;
+	display: inline;
+	font-size: 90%;
+}
+div#photolist ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	list-style: none;
+	clear: both;
+	/*overflow: hidden;*/
+}
+div#photolist ul li {
+	padding: 5px 10px;
+	margin: 0;
+	float: left;
+	width: 210px;
+	height: 270px;
+	text-align: center;
+}
+div#photolist ul li div {
+	width: 200px;
+}
+div#photolist ul li h3 {
+	font-size: 100%;
+	font-weight: normal;
+	text-align: center;
+}
+div#photolist ul li h3 a span {
+	display: block;
+}
+div#photolist ul li h3 dl {
+	padding: 3px 0 0 0;
+	margin: 0;
+}
+div#photolist ul li h3 dl dt.addfav {	
+	padding: 0 3px 0 18px;
+	margin: 0;
+	display: inline;
+}

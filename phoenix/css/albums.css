@@ -1,0 +1,61 @@
+ul.albums {
+    padding: 0;
+    margin: 0 20px 0 200px;
+}
+ul.albums li {
+    float: left;
+    width: 180px;
+    list-style: none;
+    padding: 10px;
+    margin: 0 15px 0 15px;
+}
+ul.albums li a {
+    font-weight: bold;
+}
+ul.albums li a div {
+    background-image: url( 'images/album.png' );
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 185px;
+    height: 185px;
+    line-height: 175px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+ul.albums li a span {
+    display: block;
+    width: 176px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+}
+ul.albums li a div img {
+    margin: 0 10px 4px 0;
+    vertical-align: middle;
+    border: 2px solid #7ea3c2;
+}
+ul.albums li a:hover div img {
+    border: 2px solid white;
+}
+ul.albums li dl {
+    display: block;
+    margin: auto;
+    width: 100px;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: visible;
+    text-align: center;
+}
+ul.albums li dl dt {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+}
+ul.albums li dl dd {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    font-size: 80%;
+}

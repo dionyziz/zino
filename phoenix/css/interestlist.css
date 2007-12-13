@@ -1,0 +1,58 @@
+div#interestlist {
+	margin-bottom: 20px;
+	text-align: center;
+	padding-top: 20px;
+}
+div#interestlist h2 {
+	margin: 0;
+	padding: 0;
+}
+div#interestlist div.addhobby {
+	text-align: left;
+	padding-top: 3px;
+}
+div#interestlist div.addhobby a {
+	background-image: url('images/add.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#interestlist div.list {
+	width: 80%;
+	margin: 0 auto 0 auto;
+	padding: 20px 0 5px 0;
+}
+div#interestlist div.list div.addhobby {
+	text-align: left;
+}
+div#interestlist div.list div.people {
+	text-align: left;
+	overflow: hidden;
+}
+div#interestlist div.list div.popularhobbies {
+	text-align: left;
+}
+div#interestlist div.list div.popularhobbies h3 {
+	padding: 0 0 10px 0;
+	margin: 0;
+	font-size: 120%;
+}
+div#interestlist div.list div.popularhobbies  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 70%;
+	background-color: #f2f2f2;
+}
+div#interestlist div.list div.popularhobbies ul li {
+	padding: 0;
+	margin: 0;
+	display: inline;
+	padding: 2px 4px;
+}
+div#interestlist div.list div.popularhobbies ul li a {
+	color : #0078b7;
+}
+div#interestlist div.list div.popularhobbies ul li a:hover {
+	color: white;
+	background-color: #0078b7;
+}

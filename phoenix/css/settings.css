@@ -1,0 +1,100 @@
+div.settings {
+    padding: 30px 0 30px 5px;
+}
+div.settings div.sidebar {
+    float: right;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    padding-left: 50px;
+}
+div.settings div.sidebar span {
+    background-image: url('images/button_ok_22.png');
+    background-repeat: no-repeat;
+    padding-left: 25px;
+    background-position: left;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+div.settings div.sidebar a.backtoprofile {
+    background-image: url('images/forward22.png');
+    background-repeat: no-repeat;
+    margin: 10px;
+    background-position: right;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccf;
+    font-weight: bold;
+    text-align: center;
+}
+div.settings div.sidebar ol {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+div.settings div.sidebar ol li {
+    padding: 0 0 0 18px;
+    margin: 0 0 0 22px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+div.settings div.sidebar ol li a {
+    background-repeat: no-repeat;
+    background-position: 5pt;
+    height: 25px;
+    padding: 5px 35px 5px 35px;
+    line-height: 22px;
+    vertical-align: middle;
+    border-bottom: 1px solid #eef;
+    display: block;
+}
+div.settings div.sidebar ol li.personal a {
+    background-image: url('images/info.png');
+}
+div.settings div.sidebar ol li.characteristics a {
+    background-image: url('images/bookmark.png');
+}
+div.settings div.sidebar ol li.interests a {
+    background-image: url('images/idea.png');
+}
+div.settings div.sidebar ol li.contact a {
+    background-image: url('images/kontact_mail.png');
+}
+div.settings div.sidebar ol li.settings a {
+    background-image: url('images/gear.png');
+}
+div.settings div.tabs {
+    margin-right: 350px;
+}
+div.settings div.tabs form div { /* denotes a specific setting */
+    border-bottom: 1px solid #ccc;
+    padding: 3px;
+}
+div.settings div.tabs form div label {
+    float: left;
+    width: 300px;
+    display: block;
+}
+div.settings div.tabs form div div.setting input.small,
+div.settings div.tabs form div div.setting select.small {
+    width: auto;
+}
+div.settings div.tabs form div div.setting input,
+div.settings div.tabs form div div.setting textarea, 
+div.settings div.tabs form div div.setting select {
+    border: 1px solid #666;
+    width: 50%;
+}
+div.settings div.tabs form div table tr th {
+    text-align: left;
+}
+div.settings div.tabs form div table tr td {
+    text-align: center;
+}
+div.settings div.tabs form div div.setting {
+    margin-left: 300px;
+    border: none;
+}
