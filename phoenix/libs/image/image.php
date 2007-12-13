@@ -98,8 +98,23 @@
 		global $user;
 		global $db;
 		
-		$sql = "UPDATE `$users` SET `user_numimages` = `user_numimages` - 1 WHERE `user_id` = '" . $user->Id() . "' LIMIT 1;";
-		$change = $db->Query( $sql );
+		// Prepared query
+		$db->Prepare("
+		UPDATE 
+			`$users` 
+		SET 
+			`user_numimages` = `user_numimages` - 1 
+		WHERE `user_id` = :UserId 
+		LIMIT :Limit
+		;
+		");
+		
+		// Assign values to query
+		$db->Bind( 'UserId', $user->Id() );
+		$db->Bind( 'Limit', 1);
+		
+		// Execute query
+		$change = $db->Execute();
 		
 		return $change->Impact();
 	}
