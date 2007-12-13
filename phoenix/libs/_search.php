@@ -71,6 +71,22 @@
     }
 
     class CommentPrototype extends SearchPrototype {
+        public function Fields() {
+            return array(
+                'comment_id'        => 'Id',
+                'comment_userid'    => 'UserId',
+                'comment_created'   => 'Created',
+                'comment_userip'    => 'UserIp',
+                'comment_pageid'    => 'PageId',
+                'comment_typeid'    => 'TypeId',
+                'comment_parentid'  => 'ParentId',
+                'comment_delid'     => 'DelId',
+                'comment_bulkid'    => 'BulkId'
+            );
+        }
+        public function Table() {
+            return 'merlin_comments';
+        }
         public function SetTypeId( $typeid ) {
             switch( $itemid ) {
                 case 0:
@@ -110,9 +126,7 @@
             );
         }
         public function Table() {
-            global $users;
-
-            return $users;
+            return 'merlin_users';
         }
         public function UserPrototype() {
             $this->mClass = 'User';
@@ -126,6 +140,26 @@
     }
 
     class ImagePrototype extends SearchPrototype {
+        public function Fields() {
+            return array(
+                'image_id'          => 'Id',
+                'image_userid'      => 'UserId',
+                'image_created'     => 'Date',
+                'image_userip'      => 'UserIp',
+                'image_name'        => 'Name',
+                'image_description' => 'Description',
+                'image_width'       => 'Width',
+                'image_height'      => 'Height',
+                'image_size'        => 'Size',
+                'image_mime'        => 'Mime',
+                'image_albumid'     => 'AlbumId',
+                'image_numcomments' => 'CommentsNum',
+                'image_pageviews'   => 'Pageviews'
+            );
+        }
+        public function Table() {
+            return 'merlin_images';
+        }
         public function ImagePrototype() {
             $this->mClass = 'Image';
 
