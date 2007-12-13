@@ -26,8 +26,8 @@
 			Element( 'banner' );
 			?><div class="content" id="content"><?php
 			Element( '404' );
-			Element( 'footer' );
 			?></div><?php
+			Element( 'footer' );
 		}
 		else {
 			?><div class="content" id="content"><?php		
