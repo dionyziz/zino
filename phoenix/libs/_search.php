@@ -154,7 +154,7 @@
         protected $mConnections;
 
         public function Connect( $table1, $table2, $type = 'right' ) {
-            $this->mConnections[ $table1 ] = array( $table2, $type );
+            $this->mConnections[ $table1 ][] = array( $table2, $type );
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
             $this->mPrototypes[ $prototype->Alias() ] = $prototype;
@@ -229,7 +229,7 @@
                     $this->mQuery .= "ON ";
                     $first = true;
                     foreach ( $references[ $alias2 ] as $ref ) {
-                        $type       = $ref[ 3 ];
+                        $type = $ref[ 3 ];
                         $field1 = $fields1[ $ref[ 0 ] ];
                         $field2 = $fields2[ $ret[ 1 ] ];
 
