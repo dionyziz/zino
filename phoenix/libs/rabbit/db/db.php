@@ -275,18 +275,21 @@
             $this->mRawSQL = $raw;
             $this->mDatabase = $database;
         }
-        public function Bind( $name, $argument ) {
+        private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
                 case 'boolean':
-                    $argument = ( int )$argument;
+                    return ( int )$argument;
                 case 'integer':
                 case 'double':
-                    break;
+                    return $argument;
+                case 'array':
+                    return '(' . implode( ',', array_map( array( $this, 'Escape' ), $argument) ) . ')'; // RECURSE!
                 default:
-                    $argument = "'" . addslashes( ( string )$argument ) . "'";
+                    return "'" . addslashes( ( string )$argument ) . "'";
             }
-            
-            $this->mBindings[ ':' . ( string )$name ] = $argument;
+        }
+        public function Bind( $name, $argument ) {
+            $this->mBindings[ ':' . ( string )$name ] = $this->Escape( $argument );
         }
         public function Apply() {
             return strtr( $this->mRawSQL, $this->mBindings );
