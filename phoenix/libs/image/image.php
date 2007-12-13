@@ -397,15 +397,23 @@
 			}
 			else {
 				while( $row = $res->FetchArray() ) {
-                    $sql = "REPLACE INTO
-                                `$latestimages`
-                                ( `latest_userid`,
-                                  `latest_imageid` )
-                            VALUES
-                                ( '" . $this->UserId . "',
-                                  '" . $row[ 'image_id' ] . "' );";	
-                                  
-                    return $this->mDb->Query( $sql );
+					// Prepared query
+					
+					$this->mDb->Prepare("
+						REPLACE INTO
+	                           `$latestimages`
+                            ( `latest_userid`, `latest_imageid` )
+                        VALUES
+                            ( :LatestUserId , :LatestImageId )
+						;
+					");
+					
+					// Assign query values
+					$this->mDb->Bind( 'LatestUserId' , $this->UserId );
+					$this->mDb->Bind( 'LatestImageId', $row[ 'image_id' ] );
+					
+					// Execute query
+					return $this->mDb->Execute();
 				}
 			}
 		}
