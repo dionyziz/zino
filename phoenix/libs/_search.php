@@ -112,6 +112,8 @@
             
             $varname = 'm' . $name;
             // w_assert( property_exists( get_class( $this ), $varname ), $varname );
+            var_dump( $value );
+            echo "<br /><br /><br />";
             $this->$varname = $value;
         }
         private function PrepareSelectExpression() {
