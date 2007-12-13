@@ -9,20 +9,30 @@ function CommentActivity_Increase( $userid, $typeid, $storyid, $commentid ) {
 	
 	$theuser = New User( array( 'user_id' => $userid ) );
 
-	$sql = "SELECT
+	// Prepared query
+	$db->Prepare("
+		SELECT
 			`cq_created`
 		FROM
 			`$comments_queue` CROSS JOIN `$comments`
 				ON `cq_commentid` = `comment_id`
 		WHERE
-			`comment_userid` = $userid AND
-			`comment_typeid` = $typeid AND
-			`comment_storyid` = $storyid
+			`comment_userid`	= :UserId AND
+			`comment_typeid` 	= :TypeId AND
+			`comment_storyid` 	= :StoryId
 		ORDER BY 
 			`cq_created` DESC
-		LIMIT 1;";
+		LIMIT :Limit
+		;
+	");
 
-	$res = $db->Query( $sql );
+	// Assign query values
+	$db->Bind( 'UserId' , $userid );
+	$db->Bind( 'TypeId' , $typeid );
+	$db->Bind( 'StoryId', $storyid );
+	$db->Bind( 'Limit', 1 );
+	
+	$res = $db->Execute();
 	$numdifferentcomments = 1 - $res->NumRows();
 	$count = 1;
 
