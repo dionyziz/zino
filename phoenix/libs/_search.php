@@ -387,7 +387,7 @@
                     'comment_itemid' => 'ItemId',
                     'comment_typeid' => 'TypeId',
                     'comment_delid' => 'DelId',
-                    'comment_date'  => 'Date'
+                    'comment_date'  => 'Created'
                 ),
                 'users' => array(
                     // 'user_delid' => 'UserDelId',
