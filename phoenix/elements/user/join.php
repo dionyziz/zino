@@ -3,7 +3,10 @@
 		global $page;
 		
 		$page->AttachStylesheet( 'css/join.css' );
+		$page->AttachStylesheet( 'css/modal.css' );
+		$page->AttachStylesheet( 'css/bubbles.css' );
 		$page->AttachScript( 'js/join.js' );
+		$page->AttachScript( 'js/modal.js' );
 		?><div class="join">
 			<div class="bubble">
 				<i class="tl"></i><i class="tr"></i>
