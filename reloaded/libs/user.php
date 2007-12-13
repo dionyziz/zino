@@ -52,10 +52,25 @@
         return false;
     }
     
+	function User_DeriveSubdomain( $username ) {
+		/* RFC 1034 - They must start with a letter, 
+		end with a letter or digit,
+		and have as interior characters only letters, digits, and hyphen.
+		Labels must be 63 characters or less. */
+		$username = strtolower( $username );
+		$username = preg_replace( '/(\W+)/i', '-', $username ); //convert invalids to hyphens
+		$pattern = '/(\w+)([a-z0-9-]*)([a-z0-9]+)/i';
+		$replacement = '$1$2$3';
+		return myescape( preg_replace( $pattern, $replacement, $username ) );
+	}
+	
     function User_BySubdomain( $subdomain ) {
         global $db;
         global $users;
 		
+		if ( strlen( $subdomain ) < 1 ) {
+			return false;
+		}
 		$subdomain = myescape( $subdomain );
 		
         $sql = "SELECT 
@@ -108,6 +123,7 @@
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
+		$subdomain = User_DeriveSubdomain( $username ); //is escaped
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
 			// reserved
@@ -146,8 +162,8 @@
 		$s_password = $password;
 		$password = addslashes( $password );
 		$email = addslashes( $email );
-		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '30' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
+		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_subdomain` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
+							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '30' , '$email' , '$subdomain' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
 		$db->Query( $sql );
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
