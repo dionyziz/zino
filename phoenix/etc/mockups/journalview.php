@@ -3,7 +3,6 @@
 ?>
 <div id="journalview">
 	<h2>The MacGyver sandwich</h2>
-	<div class="ads" style="float:right;width:250px;height:400px;background-color:green;"></div>
 	<div class="journal" style="clear:none;">	
 		<dl>
 			<dd class="commentsnum">87 σχόλια</dd>
@@ -11,6 +10,7 @@
 			<dd class="lastentries"><a href="">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
 		</dl>
 		<div class="eof"></div>
+		<div class="ads" style="float:right;width:250px;height:400px;background-color:green;"></div>
 		<p>
 		Εξεταστική και το κάψιμο βαράει κόκκινο. Κάτι έπρεπε λοιπόν να κάνω για να σπάσω τη μονοτονία της καθημερινότητας<br />
 		και του διαβάσματος. Σήμερα είπα να φτιάξω βραδυνό με έναν προτότυπο τρόπο. Έφτιαξα λοιπόν<br /> 
