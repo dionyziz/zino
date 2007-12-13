@@ -73,16 +73,25 @@
             $this->mDbTable = $adminactions;
 
             if ( !is_array( $construct ) ) {
-                $sql = "SELECT
-                            *
-                        FROM
-                            `$adminactions` RIGHT JOIN
-                                `$users` ON `adminaction_adminid` = `user_id`
-                        WHERE
-                            `adminaction_id` = '$construct'
-                        LIMIT 1;";
-
-                $construct = $this->mDb->Query( $sql )->FetchArray();
+				
+				// Prepared query
+				$this->mDb->Prepare("
+					SELECT
+	                	*
+	                FROM
+	                	`$adminactions` RIGHT JOIN
+	                    `$users` ON `adminaction_adminid` = `user_id`
+	                WHERE
+	                	`adminaction_id` = :Construct
+	                LIMIT 1
+					;
+				");
+				
+				// Assign values to query
+				$this->mDb->Bind('Construct', $construct );
+             	
+				// Execute query
+                $construct = $this->mDb->Execute()->FetchArray();
             }
 
             $this->SetFields( array(
