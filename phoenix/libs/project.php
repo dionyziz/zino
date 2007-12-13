@@ -44,7 +44,8 @@
     	return array(
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
-			"join" 				=> "user/join"
+			"join" 				=> "user/join",
+            'unittest'          => 'developer/test/view'
     	);
     }
 ?>
