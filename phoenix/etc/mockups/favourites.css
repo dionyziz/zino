@@ -35,6 +35,6 @@ div#favourites div.list ul.favcategories li {
 div#favourites div.list ul.favcategories li a {
 	display: block;
 }
-li.selected {
+div#favourites div.list ul.favcategories li.selected {
 	background-color: #e5f0ff;
 }
