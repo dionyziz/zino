@@ -6,38 +6,13 @@
     */
 
 
-    /*
-    $events = new EventsSearch;
-    $events->Type = array( EVENTS_COMMENTS, EVENTS_PHOTOS );
-    $events->User = $user;
-    $events->DelId = 0;
-    $events->Offset = 40;
-    $events->Limit = 20;
-    
-    $events = $events->Get();
-
-    $comments = new CommentsSearch;
-    $comments->TypeId   = 1;
-    $comments->Page     = $theuser;
-    $comments->DelId    = 0;
-    $comments->OrderBy  = array( 'date', 'DESC' );
-
-
-    if ( $oldcomments ) {
-        $comments->Limit = 10000;
-    }
-    else {
-        $comments->Limit = 50;
-    }
-
-    $comments = $comments->GetParented();
-    */
-
     abstract class SearchPrototype {
         protected $mValues;
         protected $mObject;
         protected $mClass;
         protected $mReferences;
+        protected $mFields;
+        protected $mTable;
 
         public function __set( $key, $value ) {
             $methodname = 'Set' . $key;
@@ -50,16 +25,29 @@
             return $this->mValues;
         }
         public function Fields() {
-            return $this->mObject->Fields();
+            return $this->mFields;
         }
         public function Table() {
-            return $this->mObject->Table();
+            return $this->mTable;
         }
         public function Alias() {
             return $this->mClass;
         }
         public function References() {
             return $this->mReferences;
+        }
+        protected function SetFields( $fields ) {
+            w_assert( is_array( $fields ) );
+
+            $this->mFields = array();
+            foreach ( $fields as $field => $property ) {
+                $this->mFields[ $property ] = $field;
+            }
+        }
+        protected function SetReferences( $refs ) {
+            w_assert( is_array( $refs ) );
+
+            $this->mReferences = $refs;
         }
         public function SearchPrototype() {
             $this->mObject = new $this->mClass; // MAGIC!
@@ -71,22 +59,6 @@
     }
 
     class CommentPrototype extends SearchPrototype {
-        public function Fields() {
-            return array(
-                'comment_id'        => 'Id',
-                'comment_userid'    => 'UserId',
-                'comment_created'   => 'Created',
-                'comment_userip'    => 'UserIp',
-                'comment_pageid'    => 'PageId',
-                'comment_typeid'    => 'TypeId',
-                'comment_parentid'  => 'ParentId',
-                'comment_delid'     => 'DelId',
-                'comment_bulkid'    => 'BulkId'
-            );
-        }
-        public function Table() {
-            return 'merlin_comments';
-        }
         public function SetTypeId( $typeid ) {
             switch( $itemid ) {
                 case 0:
@@ -106,42 +78,56 @@
         }
         public function CommentPrototype() {
             $this->mClass = 'Comment';
+            $this->mTable = 'merlin_comments';
 
             $this->mReferences = array(
                 'User' => array( 'UserId', 'Id' ),
                 'Bulk' => array( 'BulkId', 'Id' )
             );
 
+            $this->SetFields( array(
+                'comment_id'        => 'Id',
+                'comment_userid'    => 'UserId',
+                'comment_created'   => 'Created',
+                'comment_userip'    => 'UserIp',
+                'comment_pageid'    => 'PageId',
+                'comment_typeid'    => 'TypeId',
+                'comment_parentid'  => 'ParentId',
+                'comment_delid'     => 'DelId',
+                'comment_bulkid'    => 'BulkId'
+            ) );
+
             parent::SearchPrototype();
         }
     }
 
     class UserPrototype extends SearchPrototype {
-        public function Fields() {
-            return array(
+        public function UserPrototype() {
+            $this->mClass = 'User';
+            $this->mTable = 'merlin_users';
+
+            $this->SetReferences( array(
+                'Image' => array( array( 'Avatar', 'Id', 'left' ) )
+            ) );
+
+            $this->SetFields( array(
                 'user_id'       => 'Id',
                 'user_name'     => 'Name',
                 'user_password' => 'Password',
                 'user_icon'     => 'Avatar'
-            );
-        }
-        public function Table() {
-            return 'merlin_users';
-        }
-        public function UserPrototype() {
-            $this->mClass = 'User';
-
-            $this->mReferences = array(
-                'Image' => array( 'Avatar', 'Id', 'left' )
-            );
+            ) );
 
             parent::SearchPrototype();
         }
     }
 
     class ImagePrototype extends SearchPrototype {
-        public function Fields() {
-            return array(
+        public function ImagePrototype() {
+            $this->mClass = 'Image';
+
+            $this->mTable = 'merlin_images';
+
+            $this->SetFields( array(
                 'image_id'          => 'Id',
                 'image_userid'      => 'UserId',
                 'image_created'     => 'Date',
@@ -155,13 +141,7 @@
                 'image_albumid'     => 'AlbumId',
                 'image_numcomments' => 'CommentsNum',
                 'image_pageviews'   => 'Pageviews'
-            );
-        }
-        public function Table() {
-            return 'merlin_images';
-        }
-        public function ImagePrototype() {
-            $this->mClass = 'Image';
+            ) );
 
             parent::SearchPrototype();
         }
@@ -200,8 +180,87 @@
                 }
             }
         }
+        private function PrepareTableRefs() {
+            $this->mQuery .= " FROM ";
+
+            $first = true;
+            foreach ( $this->mPrototypes as $prototype ) {
+                if ( in_array( $prototype->Alias(), $this->mConnected ) ) {
+                    continue;
+                }
+                $table = $prototype->Table();
+
+                if ( !$first ) {
+                    $this->mQuery .= ", ";
+                }
+                else {
+                    $first = false;
+                }
+
+                $this->mQuery .= "`$table` ";
+                $this->mConnected = array();
+                $this->PrepareConnections( $prototype->Alias() );
+            }
+        }
+        private function PrepareConnections( $alias ) {
+            if ( !isset( $this->mConnections[ $alias ] ) ) {
+                return true;
+            }
+
+            $prototype1 = $this->mPrototypes[ $alias ];
+            $references1 = $prototype1->References();
+            $fields1 = $prototype1->Fields();
+            
+            foreach ( $this->mConnections[ $alias ] as $join ) {
+                $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
+                $table2 = $prototype2->Table();
+                $alias2 = $prototype2->Alias();
+
+                $this->mQuery .= $join[ 1 ] . " JOIN ";
+                $this->mQuery .= "`$table` ";
+
+                $this->mConnected[] = $alias2;
+               
+                if ( count( $references1[ $alias2 ] ) ) {
+                    $this->mQuery .= "ON ";
+                    $first = true;
+                    foreach ( $references[ $alias2 ] as $ref ) {
+                        $type       = $ref[ 3 ];
+                        $field1 = $fields1[ $ref[ 0 ] ];
+                        $field2 = $fields2[ $ret[ 1 ] ];
+
+                        if ( !$first ) {
+                            $this->mQuery .= " AND ";
+                        }
+                        $this->mQuery .= "`$table1`.`$field1` = `$table2`.`$field2` ";
+                    }
+                }
+            }
+            foreach ( $this->mConnections[ $alias ] as $join ) {
+                $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
+                $calias = $join[ 'table' ];
+                $ctable = $this->mTables[ $calias ][ "name" ];
+                $this->mQuery .= "`$ctable` AS $calias";
+                $this->mConnected[] = $calias;
+                if ( count( $join[ 'fields' ] ) ) {
+                    $this->mQuery .= " ON ";
+                    $j = 0;
+                    foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
+                        if ( $j > 0 ) {
+                            $this->mQuery .= "AND ";
+                        }
+                        $this->mQuery  .= "$f1 = $f2 ";
+                        ++$j;
+                    }
+                }
+                $this->PrepareConnections( $calias );
+            }
+        }
+        private function PrepareWhere() {
+        }
         public function Get() {
             $this->PrepareSelect();
+            $this->PrepareTableRefs();
 
             die( $this->mQuery );
         }
@@ -211,6 +270,33 @@
     }
 
     /*
+
+    $events = new EventsSearch;
+    $events->Type = array( EVENTS_COMMENTS, EVENTS_PHOTOS );
+    $events->User = $user;
+    $events->DelId = 0;
+    $events->Offset = 40;
+    $events->Limit = 20;
+    
+    $events = $events->Get();
+
+    $comments = new CommentsSearch;
+    $comments->TypeId   = 1;
+    $comments->Page     = $theuser;
+    $comments->DelId    = 0;
+    $comments->OrderBy  = array( 'date', 'DESC' );
+
+
+    if ( $oldcomments ) {
+        $comments->Limit = 10000;
+    }
+    else {
+        $comments->Limit = 50;
+    }
+
+    $comments = $comments->GetParented();
+
+
 
     class Search {
         protected $mLimit;
