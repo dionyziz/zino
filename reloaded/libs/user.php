@@ -52,6 +52,28 @@
         return false;
     }
     
+    function User_BySubdomain( $subdomain ) {
+        global $db;
+        global $users;
+		
+		$subdomain = myescape( $subdomain );
+		
+        $sql = "SELECT 
+                    `user_id`, `user_name`
+                FROM 
+                    `$users`
+                WHERE 
+                    `user_subdomain` = '$subdomain';";
+        $res = $db->Query( $sql );
+        
+        $rows = array();
+        if ( $row = $res->FetchArray() ) {
+            return New User( $row[ 'user_id' ] );
+        }
+        
+        return false;
+	}
+
 	function User_IpBan( $ip, $time, $sysopid = '' ) {
 		global $user;
 		global $bans;
@@ -702,6 +724,7 @@
 		private $mNumImages;
         private $mUniid;
         private $mFrel_type; // If the instance is a friend of the actual user
+		private $mSubdomain;
 		
 		public function Href() {
 			return 'user/' . $this->Username();
@@ -771,6 +794,9 @@
 		}
 		public function Password() {
 			return $this->mPassword;
+		}
+		public function Subdomain() {
+			return $this->mSubdomain;
 		}
 		public function IsAnonymous() {
 			return ( $this->Username() == "" );
@@ -1808,6 +1834,7 @@
 			$this->mICQ		          	= isset( $fetched_array[ "user_icq" ]               ) ? $fetched_array[ "user_icq" ]            	: '0';
 			$this->mUsername	      	= isset( $fetched_array[ "user_name" ]              ) ? $fetched_array[ "user_name" ]           	: '';
 			$this->mPassword	      	= isset( $fetched_array[ "user_password" ]          ) ? $fetched_array[ "user_password" ]        	: '';
+			$this->mSubdomain	      	= isset( $fetched_array[ "user_subdomain" ]         ) ? $fetched_array[ "user_subdomain" ]          : '';
 			$this->mSignature	      	= isset( $fetched_array[ "user_signature" ]         ) ? $fetched_array[ "user_signature" ]        	: '';
 			$this->mEmail		      	= isset( $fetched_array[ "user_email" ]             ) ? $fetched_array[ "user_email" ]            	: '';
 			$this->mMSN		          	= isset( $fetched_array[ "user_msn" ]               ) ? $fetched_array[ "user_msn" ]              	: '';

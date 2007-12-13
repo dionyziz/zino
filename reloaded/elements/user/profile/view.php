@@ -1,5 +1,5 @@
 <?php
-	function ElementUserProfileView( tInteger $id, tString $name, tBoolean $oldcomments, tBoolean $viewingalbums, tBoolean $viewingfriends ) {
+	function ElementUserProfileView( tInteger $id, tString $name, tString $subdomain, tBoolean $oldcomments, tBoolean $viewingalbums, tBoolean $viewingfriends ) {
 		global $user;
 		global $page;
 		global $water;
@@ -8,6 +8,7 @@
         
         $userid = $id->Get();
         $name = $name->Get();
+		$subdomain = $subdomain->Get();
         $oldcomments = $oldcomments->Get();
         
 		$page->AttachScript( 'js/userprofile.js' );
@@ -33,6 +34,14 @@
             }
             else {
                 $theuser = New User( $name );
+            }
+		}
+		else if ( $subdomain != '' ) {
+            if ( strtolower( $subdomain ) == strtolower( $user->Subdomain() ) ) {
+                $theuser = $user;
+            }
+            else {
+                $theuser = New User_BySubdomain( $subdomain );
             }
 		}
 		if ( !$theuser->Exists() || $theuser->Locked() ) {
