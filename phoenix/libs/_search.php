@@ -71,7 +71,7 @@
     }
 
     class CommentPrototype extends SearchPrototype {
-        public function SetItemId( $itemid ) {
+        public function SetTypeId( $typeid ) {
             switch( $itemid ) {
                 case 0:
                     $class = 'Journal';
@@ -86,7 +86,7 @@
                     w_assert( false );        
             }
             
-            $this->mReferences[ 'ItemId' ] = array( $class, 'Id' );
+            $this->mReferences[ 'TypeId' ] = array( $class, 'Id' );
         }
         public function CommentPrototype() {
             $this->mClass = 'Comment';
