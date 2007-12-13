@@ -44,7 +44,7 @@
                 $theuser = User_BySubdomain( $subdomain );
             }
 		}
-		if ( !$theuser->Exists() || $theuser->Locked() ) {
+		if ( !$theuser || !$theuser->Exists() || $theuser->Locked() ) {
 			$page->SetTitle( 'Δε βρέθηκε ο χρήστης' );
 			?>Ο χρήστης που προσπαθείτε να δείτε δεν υπάρχει στη βάση δεδομένων!<?php
 			return;
