@@ -169,7 +169,7 @@
             foreach ( $this->mPrototypes as $prototype ) {
                 $table = $prototype->Table();
                 $fields = $prototype->Fields();
-                foreach ( $fields as $field => $property ) {
+                foreach ( $fields as $property => $field ) {
                     if ( !$first ) {
                         $this->mQuery .= ", ";
                     }
@@ -237,25 +237,9 @@
                         $this->mQuery .= "`$table1`.`$field1` = `$table2`.`$field2` ";
                     }
                 }
-            }
-            foreach ( $this->mConnections[ $alias ] as $join ) {
-                $this->mQuery .= " " . $join[ 'type' ] . " JOIN ";
-                $calias = $join[ 'table' ];
-                $ctable = $this->mTables[ $calias ][ "name" ];
-                $this->mQuery .= "`$ctable` AS $calias";
-                $this->mConnected[] = $calias;
-                if ( count( $join[ 'fields' ] ) ) {
-                    $this->mQuery .= " ON ";
-                    $j = 0;
-                    foreach ( $join[ 'fields' ] AS $f1 => $f2 ) {
-                        if ( $j > 0 ) {
-                            $this->mQuery .= "AND ";
-                        }
-                        $this->mQuery  .= "$f1 = $f2 ";
-                        ++$j;
-                    }
+                else {
+                    die( "no refs" );
                 }
-                $this->PrepareConnections( $calias );
             }
         }
         private function PrepareWhere() {
