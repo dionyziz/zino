@@ -81,8 +81,8 @@
             $this->mTable = 'merlin_comments';
 
             $this->mReferences = array(
-                'User' => array( 'UserId', 'Id' ),
-                'Bulk' => array( 'BulkId', 'Id' )
+                'User' => array( array( 'UserId', 'Id' ) ),
+                'Bulk' => array( array( 'BulkId', 'Id' ) )
             );
 
             $this->SetFields( array(
