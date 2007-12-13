@@ -207,6 +207,8 @@
                 return true;
             }
 
+            die( var_dump( $this->mConnections[ $alias ] ) );
+
             $prototype1 = $this->mPrototypes[ $alias ];
             $references1 = $prototype1->References();
             $fields1 = $prototype1->Fields();
