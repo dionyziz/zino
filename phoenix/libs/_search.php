@@ -212,6 +212,8 @@
             $fields1 = $prototype1->Fields();
             
             foreach ( $this->mConnections[ $alias ] as $join ) {
+                w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
+
                 $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
                 $table2 = $prototype2->Table();
                 $alias2 = $prototype2->Alias();
