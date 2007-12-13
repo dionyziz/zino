@@ -210,17 +210,18 @@
             $prototype1 = $this->mPrototypes[ $alias ];
             $references1 = $prototype1->References();
             $fields1 = $prototype1->Fields();
+            $table1 = $prototype1->Table();
             
             foreach ( $this->mConnections[ $alias ] as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
 
                 $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
-                die( var_dump( $prototype2 ) );
                 $table2 = $prototype2->Table();
                 $alias2 = $prototype2->Alias();
+                $fields2 = $prototype2->Fields();
 
                 $this->mQuery .= $join[ 1 ] . " JOIN ";
-                $this->mQuery .= "`$table` ";
+                $this->mQuery .= "`$table2` ";
 
                 $this->mConnected[] = $alias2;
                
