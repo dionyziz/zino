@@ -21,19 +21,19 @@
             }
             $this->mValues[ $key ] = $value;
         }
-        public function Values() {
+        public function GetValues() {
             return $this->mValues;
         }
-        public function Fields() {
+        public function GetFields() {
             return $this->mFields;
         }
-        public function Table() {
+        public function GetTable() {
             return $this->mTable;
         }
-        public function Alias() {
+        public function GetClass() {
             return $this->mClass;
         }
-        public function References() {
+        public function GetReferences() {
             return $this->mReferences;
         }
         protected function SetFields( $fields ) {
@@ -160,22 +160,25 @@
         protected $mPrototypes;
         protected $mConnections;
 
-        public function Connect( $table1, $table2, $type = 'right' ) {
+        public function Connect( $prototype1, $prototype2, $type = 'right' ) {
+            $table1 = $prototype1->GetTable();
+            $table2 = $prototype2->GetTable();
+
             $this->mConnections[ $table1 ][] = array( $table2, strtoupper( $type ) );
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
-            $this->mPrototypes[ $prototype->Alias() ] = $prototype;
+            $this->mPrototypes[ $prototype->GetClass() ] = $prototype;
 
-            if ( $connectto !== false ) {
-                $this->Connect( $prototype->Alias(), $connectto, $connecttype );
+            if ( is_object( $connectto ) ) {
+                $this->Connect( $prototype, $connectto, $connecttype );
             }
         }
         private function PrepareSelect() {
             $this->mQuery .= "SELECT";
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
-                $table = $prototype->Table();
-                $fields = $prototype->Fields();
+                $table = $prototype->GetTable();
+                $fields = $prototype->GetFields();
                 foreach ( $fields as $property => $field ) {
                     if ( !$first ) {
                         $this->mQuery .= ", ";
@@ -192,10 +195,10 @@
 
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
-                if ( in_array( $prototype->Alias(), $this->mConnected ) ) {
+                if ( in_array( $prototype->GetClass(), $this->mConnected ) ) {
                     continue;
                 }
-                $table = $prototype->Table();
+                $table = $prototype->GetTable();
 
                 if ( !$first ) {
                     $this->mQuery .= ", ";
@@ -206,36 +209,31 @@
 
                 $this->mQuery .= "`$table` ";
                 $this->mConnected = array();
-                $this->PrepareConnections( $prototype->Alias() );
+                $this->PrepareConnections( $prototype );
             }
         }
-        private function PrepareConnections( $alias ) {
-            if ( !isset( $this->mConnections[ $alias ] ) ) {
-                return true;
-            }
-
-            $prototype1 = $this->mPrototypes[ $alias ];
-            $references1 = $prototype1->References();
-            $fields1 = $prototype1->Fields();
-            $table1 = $prototype1->Table();
+        private function PrepareConnections( $prototype1 ) {
+            $references1 = $prototype1->GetReferences();
+            $fields1 = $prototype1->GetFields();
+            $table1 = $prototype1->GetTable();
             
-            foreach ( $this->mConnections[ $alias ] as $join ) {
+            foreach ( $this->mConnections[ $prototype->GetClass() ] as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
 
                 $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
-                $table2 = $prototype2->Table();
-                $alias2 = $prototype2->Alias();
-                $fields2 = $prototype2->Fields();
+                $table2 = $prototype2->GetTable();
+                $class2 = $prototype2->GetClass();
+                $fields2 = $prototype2->GetFields();
 
                 $this->mQuery .= $join[ 1 ] . " JOIN ";
                 $this->mQuery .= "`$table2` ";
 
-                $this->mConnected[] = $alias2;
+                $this->mConnected[] = $class2;
                
-                if ( count( $references1[ $alias2 ] ) ) {
+                if ( count( $references1[ $class2 ] ) ) {
                     $this->mQuery .= "ON ";
                     $first = true;
-                    foreach ( $references1[ $alias2 ] as $ref ) {
+                    foreach ( $references1[ $class2 ] as $ref ) {
                         $type = $ref[ 3 ];
                         $field1 = $fields1[ $ref[ 0 ] ];
                         $field2 = $fields2[ $ref[ 1 ] ];
@@ -246,7 +244,7 @@
                         $this->mQuery .= "`$table1`.`$field1` = `$table2`.`$field2` ";
                     }
                 }
-                $this->PrepareConnections( $alias2 );
+                $this->PrepareConnections( $prototype2 );
             }
         }
         private function PrepareWhere() {
@@ -254,9 +252,9 @@
 
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
-                $table =  $prototype->Table();
-                $values = $prototype->Values();
-                $fields = $prototype->Fields();
+                $table =  $prototype->GetTable();
+                $values = $prototype->GetValues();
+                $fields = $prototype->GetFields();
 
                 foreach ( $values as $property => $value ) {
                     $field = $fields[ $property ];
@@ -302,19 +300,19 @@
             $this->mQuery .= $this->Limit;
         }
         public function SetSortMethod( $prototype, $property, $order = 'DESC' ) {
-            $fields = $prototype->Fields();
+            $fields = $prototype->GetFields();
 
-            $this->SortTable = $prototype->Table();
+            $this->SortTable = $prototype->GetTable();
             $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
         }
         public function SetGroupBy( $prototype, $property ) {
-            $fields = $prototype->Fields();
+            $fields = $prototype->GetFields();
 
-            $this->GroupByTable = $prototype->Table();
+            $this->GroupByTable = $prototype->GetTable();
             $this->GroupByField = $fields[ $property ];
         }
-        public function Get() {
+        public function Get( $prototype ) {
             $this->PrepareSelect();
             $this->PrepareTableRefs();
             $this->PrepareWhere();
@@ -322,7 +320,7 @@
             $this->PrepareOrderBy();
             $this->PrepareLimit();
 
-            die( $this->mQuery );
+            $res = $db->Prepare( $this->mQuery )->Execute()->ToObjectArray( $prototype->GetClass() );
         }
         public function Search() {
             $this->mConnections = array();

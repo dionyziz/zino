@@ -55,15 +55,17 @@
         $search->AddPrototype( $user );
         $search->AddPrototype( new ImagePrototype() );
 
-        $search->Connect( 'Comment', 'User' );
-        $search->Connect( 'User', 'Image', $connection = 'left' );
+        $search->Connect( $comment, $user );
+        $search->Connect( $user, $image, $connection = 'left' );
 
         $search->SetSortMethod( $comment, 'Created', 'DESC' );
         $search->SetGroupBy( $user, 'Id' );
 
         $search->Limit = 20;
 
-        $comments = $search->Get();
+        $comments = $search->Get( $comment );
+
+        var_dump( $comments );
     
         /*
         $comments = $comments->GetParented();
