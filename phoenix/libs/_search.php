@@ -295,8 +295,7 @@
 
             $this->mQuery .= $this->Limit;
         }
-        public function SetSortMethod( $prototypeAlias, $property, $order = 'DESC' ) {
-            $prototype = $this->mPrototypes[ $prototypeAlias ];
+        public function SetSortMethod( $prototype, $property, $order = 'DESC' ) {
             $fields = $prototype->Fields();
 
             $this->SortTable = $prototype->Table();
