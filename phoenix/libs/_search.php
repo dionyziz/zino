@@ -243,6 +243,25 @@
             }
         }
         private function PrepareWhere() {
+            $first = true;
+            foreach ( $this->mPrototypes as $prototype ) {
+                $table =  $prototype->Table();
+                $values = $prototype->Values();
+                $fields = $prototype->Fields();
+
+                foreach ( $values as $property => $value ) {
+                    $field = $fields[ $property ];
+
+                    if ( !$first ) {
+                        $this->mQuery .= " AND ";
+                    }
+                    else {
+                        $first = false;
+                    }
+
+                    $this->mQuery .= "`$table`.`$field` = '$value'";
+                }
+            }
         }
         public function Get() {
             $this->PrepareSelect();
