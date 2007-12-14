@@ -276,6 +276,7 @@
         }
         private function PrepareOrderBy() {
             if ( empty( $this->SortField ) ) {
+                die( "empty sort field!" );
                 return;
             }
 
@@ -283,7 +284,6 @@
         }
         private function PrepareLimit() {
             if ( empty( $this->Limit ) ) {
-                die( "empty limit!" );
                 return;
             }
 
