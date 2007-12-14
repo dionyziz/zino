@@ -154,6 +154,8 @@
         public $SortTable;
         public $SortField;
         public $SortOrder;
+        public $GroupByTable;
+        public $GroupByField;
         protected $mQuery;
         protected $mPrototypes;
         protected $mConnections;
@@ -273,10 +275,14 @@
             $this->mQuery .= " ";
         }
         private function PrepareGroupBy() {
+            if ( empty( $this->GroupByField ) ) {
+                return;
+            }
+
+            $this->mQuery .= "GROUP BY `" . $this->GroupByTable . "`.`" . $this->GroupByField . "` ";
         }
         private function PrepareOrderBy() {
             if ( empty( $this->SortField ) ) {
-                die( "empty sort field!" );
                 return;
             }
 
@@ -301,6 +307,12 @@
             $this->SortTable = $prototype->Table();
             $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
+        }
+        public function SetGroupBy( $prototype, $property ) {
+            $fields = $prototype->Fields();
+
+            $this->GroupByTable = $prototype->Table();
+            $this->GroupByField = $fields[ $property ];
         }
         public function Get() {
             $this->PrepareSelect();

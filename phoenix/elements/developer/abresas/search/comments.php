@@ -59,6 +59,8 @@
         $search->Connect( 'User', 'Image', $connection = 'left' );
 
         $search->SetSortMethod( $comment, 'Created', 'DESC' );
+        $search->SetGroupBy( $user, 'Id' );
+
         $search->Limit = 20;
 
         $comments = $search->Get();
