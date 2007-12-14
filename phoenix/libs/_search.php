@@ -161,6 +161,10 @@
         protected $mConnections;
 
         public function Connect( $prototype1, $prototype2, $type = 'right' ) {
+            if ( !is_object( $prototype2 ) ) {
+                var_dump( $prototype2 );
+                die();
+            }
             $table1 = $prototype1->GetTable();
             $table2 = $prototype2->GetTable();
 
