@@ -151,6 +151,9 @@
     class Search {
         protected $mLimit;
         protected $mOffset;
+        protected $mSortField;
+        protected $mSortOrder;
+        protected $mQuery;
         protected $mPrototypes;
         protected $mConnections;
 
@@ -265,11 +268,42 @@
                     $this->mQuery .= "`$table`.`$field` = '$value'";
                 }
             }
+
+            $this->mQuery .= " ";
+        }
+        private function PrepareGroupBy() {
+        }
+        private function PrepareOrderBy() {
+            if ( empty( $this->mSortField ) ) {
+                return;
+            }
+
+            $this->mQuery .= "ORDER BY " . $this->mSortField . " " . $this->mSortOrder . " ";
+        }
+        private function PrepareLimit() {
+            if ( empty( $this->mLimit ) ) {
+                return;
+            }
+
+            $this->mQuery .= "LIMIT ";
+
+            if ( !empty( $this->mOffset ) ) {
+                $this->mQuery .= $this->mOffset . ",";
+            }
+
+            $this->mQuery .= $this->mLimit;
+        }
+        public function SetSortMethod( $field, $order = 'DESC' ) {
+            $this->mSortField = $field;
+            $this->mSortOrder = strtoupper( $order );
         }
         public function Get() {
             $this->PrepareSelect();
             $this->PrepareTableRefs();
             $this->PrepareWhere();
+            $this->PrepareGroupBy();
+            $this->PrepareOrderBy();
+            $this->PrepareLimit();
 
             die( $this->mQuery );
         }
