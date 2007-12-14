@@ -330,7 +330,11 @@
             $this->PrepareOrderBy();
             $this->PrepareLimit();
 
-            $res = $db->Prepare( $this->mQuery )->Execute()->ToObjectArray( $prototype->GetClass() );
+            if ( empty( $this->mQuery ) ) {
+                die( "empty query D:" );
+            }
+
+            $res = $db->Query( $this->mQuery )->ToObjectArray( $prototype->GetClass() );
         }
         public function Search() {
             $this->mConnections = array();
