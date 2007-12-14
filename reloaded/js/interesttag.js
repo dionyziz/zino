@@ -197,7 +197,7 @@ var InterestTag = {
 			var text = ul.childNodes[i].childNodes[2].nodeValue;
 			var a = d.createElement( 'a' );
 			a.style.cursor = "pointer";
-			a.href = "?p=tag&text=" + text;
+			a.href = "tag/" + text;
 			a.appendChild( d.createTextNode( text ) );
 			interests.appendChild( a );
 			if ( i != ul.childNodes.length-2 ) {
