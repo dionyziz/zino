@@ -221,7 +221,7 @@
             $fields1 = $prototype1->GetFields();
             $table1 = $prototype1->GetTable();
             
-            foreach ( $this->mConnections[ $prototype->GetClass() ] as $join ) {
+            foreach ( $this->mConnections[ $prototype1->GetClass() ] as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
 
                 $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
