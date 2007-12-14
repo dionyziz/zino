@@ -161,10 +161,9 @@
         protected $mConnections;
 
         public function Connect( $prototype1, $prototype2, $type = 'right' ) {
-            if ( !is_object( $prototype2 ) ) {
-                var_dump( $prototype2 );
-                die();
-            }
+            w_assert( $prototype1 instanceof SearchPrototype );
+            w_assert( $prototype2 instanceof SearchPrototype );
+
             $table1 = $prototype1->GetTable();
             $table2 = $prototype2->GetTable();
 
@@ -317,6 +316,10 @@
             $this->GroupByField = $fields[ $property ];
         }
         public function Get( $prototype ) {
+            if ( !$prototype instanceof SearchPrototype ) {
+                var_dump( $prototype );
+                die();
+            }
             $this->PrepareSelect();
             $this->PrepareTableRefs();
             $this->PrepareWhere();
