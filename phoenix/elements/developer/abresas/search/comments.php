@@ -42,18 +42,20 @@
         }
         */
 
-        $comment = new CommentPrototype();
+        $comment = New CommentPrototype();
         $comment->TypeId = 1;
         $comment->ItemId = $userid->Get();
         $comment->DelId = 0;
 
-        $user = new UserPrototype();
+        $user = New UserPrototype();
         $user->DelId = 0;
+
+        $image = New ImagePrototype();
 
         $search = new Search();
         $search->AddPrototype( $comment );
         $search->AddPrototype( $user );
-        $search->AddPrototype( new ImagePrototype() );
+        $search->AddPrototype( $image );
 
         $search->Connect( $comment, $user );
         $search->Connect( $user, $image, $connection = 'left' );
