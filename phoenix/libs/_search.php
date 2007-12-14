@@ -266,6 +266,7 @@
         public function Get() {
             $this->PrepareSelect();
             $this->PrepareTableRefs();
+            $this->PrepareWhere();
 
             die( $this->mQuery );
         }
