@@ -26,7 +26,7 @@
                             ?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
-								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
+								$hobsar = explode( ",", htmlspecialchars( urlencode( $friend->Hobbies() ) ) );
 								$hobbis = "";
 								$hobslen = count( $hobsar );
 								for ( $i = 0; $i < $hobslen; ++$i ) {

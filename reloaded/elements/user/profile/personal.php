@@ -237,7 +237,7 @@
 							$tagslen = count( $tags );
 							for ( $i = 0; $i < $tagslen;++$i ) {
 								?><a href="tag/<?php
-                                echo htmlspecialchars( $tags[ $i ]->Text );
+                                echo htmlspecialchars( urlencode( $tags[ $i ]->Text ) );
                                 ?>"><?php
                                 echo htmlspecialchars( $tags[ $i ]->Text );
                                 ?></a><?php
