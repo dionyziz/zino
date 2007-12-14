@@ -278,10 +278,10 @@
                 return;
             }
 
-            $this->mQuery .= "ORDER BY " . $this->mSortField . " " . $this->mSortOrder . " ";
+            $this->mQuery .= "ORDER BY " . $this->SortField . " " . $this->SortOrder . " ";
         }
         private function PrepareLimit() {
-            if ( empty( $this->mLimit ) ) {
+            if ( empty( $this->Limit ) ) {
                 die( "empty limit!" );
                 return;
             }
@@ -292,11 +292,11 @@
                 $this->mQuery .= $this->mOffset . ",";
             }
 
-            $this->mQuery .= $this->mLimit;
+            $this->mQuery .= $this->Limit;
         }
         public function SetSortMethod( $field, $order = 'DESC' ) {
-            $this->mSortField = $field;
-            $this->mSortOrder = strtoupper( $order );
+            $this->SortField = $field;
+            $this->SortOrder = strtoupper( $order );
         }
         public function Get() {
             $this->PrepareSelect();
