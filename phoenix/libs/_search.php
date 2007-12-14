@@ -151,6 +151,7 @@
     class Search {
         public $Limit;
         public $Offset;
+        public $SortTable;
         public $SortField;
         public $SortOrder;
         protected $mQuery;
@@ -274,11 +275,11 @@
         private function PrepareGroupBy() {
         }
         private function PrepareOrderBy() {
-            if ( empty( $this->mSortField ) ) {
+            if ( empty( $this->SortField ) ) {
                 return;
             }
 
-            $this->mQuery .= "ORDER BY " . $this->SortField . " " . $this->SortOrder . " ";
+            $this->mQuery .= "ORDER BY `" . $this->SortTable . "`.`" . $this->SortField . "` " . $this->SortOrder . " ";
         }
         private function PrepareLimit() {
             if ( empty( $this->Limit ) ) {
@@ -294,8 +295,12 @@
 
             $this->mQuery .= $this->Limit;
         }
-        public function SetSortMethod( $field, $order = 'DESC' ) {
-            $this->SortField = $field;
+        public function SetSortMethod( $prototypeAlias, $property, $order = 'DESC' ) {
+            $prototype = $this->mPrototypes[ $prototypeAlias ];
+            $fields = $prototype->Fields();
+
+            $this->SortTable = $prototype->Table();
+            $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
         }
         public function Get() {
