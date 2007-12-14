@@ -30,7 +30,7 @@
 								$hobbis = "";
 								$hobslen = count( $hobsar );
 								for ( $i = 0; $i < $hobslen; ++$i ) {
-									$hobbis .= "<a href='tag/" . $hobsar[ $i ] . "'>" . $hobsar[ $i ] . "</a>";
+									$hobbis .= "<a href='tag/" . $hobsar[ $i ] . "'>" . urldecode( $hobsar[ $i ] ) . "</a>";
 									if ( $i != $hobslen-1 ) {
 										$hobbis .= ", ";
 									}
