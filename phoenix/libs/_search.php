@@ -140,8 +140,8 @@
                 'image_size'        => 'Size',
                 'image_mime'        => 'Mime',
                 'image_albumid'     => 'AlbumId',
-                'image_numcomments' => 'CommentsNum',
-                'image_pageviews'   => 'Pageviews'
+                'image_numcomments' => 'CommentsNum'
+                // 'image_pageviews'   => 'Pageviews'
             ) );
 
             parent::SearchPrototype();
