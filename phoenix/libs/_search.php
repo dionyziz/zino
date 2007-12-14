@@ -90,7 +90,7 @@
                 'comment_userid'    => 'UserId',
                 'comment_created'   => 'Created',
                 'comment_userip'    => 'UserIp',
-                'comment_pageid'    => 'PageId',
+                'comment_itemid'    => 'ItemId',
                 'comment_typeid'    => 'TypeId',
                 'comment_parentid'  => 'ParentId',
                 'comment_delid'     => 'DelId',
@@ -114,7 +114,8 @@
                 'user_id'       => 'Id',
                 'user_name'     => 'Name',
                 'user_password' => 'Password',
-                'user_icon'     => 'Avatar'
+                'user_icon'     => 'Avatar',
+                'user_locked'   => 'DelId'
             ) );
 
             parent::SearchPrototype();
@@ -243,6 +244,8 @@
             }
         }
         private function PrepareWhere() {
+            $this->mQuery .= "WHERE ";
+
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
                 $table =  $prototype->Table();
