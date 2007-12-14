@@ -26,11 +26,11 @@
                             ?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
-								$hobsar = explode( ",", htmlspecialchars( urlencode( $friend->Hobbies() ) ) );
+								$hobsar = explode( ",", $friend->Hobbies() );
 								$hobbis = "";
 								$hobslen = count( $hobsar );
 								for ( $i = 0; $i < $hobslen; ++$i ) {
-									$hobbis .= "<a href='tag/" . $hobsar[ $i ] . "'>" . urldecode( $hobsar[ $i ] ) . "</a>";
+									$hobbis .= "<a href='tag/" . htmlspecialchars( urlencode( $hobsar[ $i ] ) ) . "'>" . htmlspecialchars( $hobsar[ $i ] ) . "</a>";
 									if ( $i != $hobslen-1 ) {
 										$hobbis .= ", ";
 									}
