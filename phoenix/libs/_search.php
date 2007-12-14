@@ -149,10 +149,10 @@
     }
 
     class Search {
-        protected $mLimit;
-        protected $mOffset;
-        protected $mSortField;
-        protected $mSortOrder;
+        public $Limit;
+        public $Offset;
+        public $SortField;
+        public $SortOrder;
         protected $mQuery;
         protected $mPrototypes;
         protected $mConnections;
@@ -282,6 +282,7 @@
         }
         private function PrepareLimit() {
             if ( empty( $this->mLimit ) ) {
+                die( "empty limit!" );
                 return;
             }
 
