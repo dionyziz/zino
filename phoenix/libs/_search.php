@@ -316,10 +316,13 @@
             $this->GroupByField = $fields[ $property ];
         }
         public function Get( $prototype ) {
+            global $db;
+
             if ( !$prototype instanceof SearchPrototype ) {
                 var_dump( $prototype );
                 die();
             }
+
             $this->PrepareSelect();
             $this->PrepareTableRefs();
             $this->PrepareWhere();
