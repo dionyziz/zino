@@ -236,7 +236,7 @@
 						<dd id="interests"><?php
 							$tagslen = count( $tags );
 							for ( $i = 0; $i < $tagslen;++$i ) {
-								?><a href="?p=tag&amp;text=<?php
+								?><a href="tag/<?php
                                 echo htmlspecialchars( $tags[ $i ]->Text );
                                 ?>"><?php
                                 echo htmlspecialchars( $tags[ $i ]->Text );
