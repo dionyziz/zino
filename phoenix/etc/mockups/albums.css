@@ -19,7 +19,7 @@ ul.albums li a div {
     width: 185px;
     height: 185px;
     line-height: 175px;
-    display: inline;
+    display: block;
     text-align: center;
     vertical-align: middle;
 }
