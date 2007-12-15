@@ -57,7 +57,7 @@
         $search->AddPrototype( $user );
         $search->AddPrototype( $image );
 
-        $search->Connect( $comment, $user, $connectiontype = 'left' );
+        $search->Connect( $comment, $user, $connectiontype = 'right' );
         $search->Connect( $user, $image, $connectiontype = 'left' );
 
         $search->SetOrderBy( $comment, 'Created', 'DESC' );
