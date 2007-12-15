@@ -160,28 +160,56 @@
         protected $mPrototypes;
         protected $mConnections;
 
-        public function Connect( $prototype1, $prototype2, $type = 'right' ) {
+        private function ValidatePrototype( $prototype ) {
+            w_assert( $prototype instanceof SearchPrototype );
+            w_assert( isset( $this->mPrototypes[ $prototype->GetClass() ] ), "Trying to use a prototype that is not added" );
+        }
+        private function CountTotalValues() {
+            $count = 0;
+            foreach ( $this->mPrototypes as $prototype ) {
+                $count += count( $prototype->GetValues() );
+            }
+
+            return $count;
+        }
+        public function Connect( $prototype1, $prototype2, $type = 'cross' ) {
+            global $water;
+
             w_assert( $prototype1 instanceof SearchPrototype );
             w_assert( $prototype2 instanceof SearchPrototype );
 
             $table1 = $prototype1->GetTable();
             $table2 = $prototype2->GetTable();
 
-            $this->mConnections[ $table1 ][] = array( $table2, strtoupper( $type ) );
+            $this->mConnections[ $table1 ][] = array( "to" => $table2, "type" => strtoupper( $type ) );
+
+            $water->Trace( "Search: connected prototype " . $prototype1->GetClass() . " with " . $prototype2->GetClass() );
+            $water->Trace( "Search: connection type: $type" );
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
+            global $water;
+
             $this->mPrototypes[ $prototype->GetClass() ] = $prototype;
+            $water->Trace( "Search: added prototype: " . $prototype );
 
             if ( is_object( $connectto ) ) {
                 $this->Connect( $prototype, $connectto, $connecttype );
             }
         }
         private function PrepareSelect() {
+            global $water;
+
+            $water->Profile( "Search: SELECT" );
+
             $this->mQuery .= "SELECT";
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
+                $water->Trace( "Search: adding fields of prototype " . $prototype->GetClass(), $prototype->GetFields() );
+
                 $table = $prototype->GetTable();
                 $fields = $prototype->GetFields();
+                w_assert( is_array( $fields ) && count( $fields ) > 0 );
+
                 foreach ( $fields as $property => $field ) {
                     if ( !$first ) {
                         $this->mQuery .= ", ";
@@ -192,8 +220,16 @@
                     $this->mQuery .= " `$table`.`$field`";
                 }
             }
+
+            $water->ProfileEnd();
         }
         private function PrepareTableRefs() {
+            global $water;
+
+            $water->Profile( "Search: FROM" );
+
+            w_assert( count( $this->mPrototypes ) > 0 );
+
             $this->mQuery .= " FROM ";
 
             $first = true;
@@ -211,29 +247,36 @@
                 }
 
                 $this->mQuery .= "`$table` ";
-                $this->mConnected = array();
                 $this->PrepareConnections( $prototype );
             }
+
+            $water->ProfileEnd();
         }
         private function PrepareConnections( $prototype1 ) {
+            $this->ValidatePrototype( $prototype1 );
+
             $references1 = $prototype1->GetReferences();
             $fields1 = $prototype1->GetFields();
             $table1 = $prototype1->GetTable();
             
             foreach ( $this->mConnections[ $prototype1->GetClass() ] as $join ) {
-                w_assert( isset( $this->mPrototypes[ $join[ 0 ] ] ), $join[ 0 ] );
+                w_assert( isset( $this->mPrototypes[ $join[ "to" ] ] ), "Trying to connect with a prototype that is not added" );
 
-                $prototype2 = $this->mPrototypes[ $join[ 0 ] ];
-                $table2 = $prototype2->GetTable();
-                $class2 = $prototype2->GetClass();
-                $fields2 = $prototype2->GetFields();
+                $prototype2 = $this->mPrototypes[ $join[ "to" ] ];
+                $table2     = $prototype2->GetTable();
+                $class2     = $prototype2->GetClass();
+                $fields2    = $prototype2->GetFields();
 
-                $this->mQuery .= $join[ 1 ] . " JOIN ";
+                // you may specify references whether on Prototype::GetReferences() or when calling Search::Connect()
+                // the references have priority; Search::Connect uses a default type you may not want
+                $type       = isset( $ref[ 3 ] ) ? $ref[ 3 ] : $join[ "type" ];
+
+                $this->mQuery .= $type . " JOIN ";
                 $this->mQuery .= "`$table2` ";
 
                 $this->mConnected[] = $class2;
                
-                if ( count( $references1[ $class2 ] ) ) {
+                if ( isset( $references1[ $class2 ] ) ) {
                     $this->mQuery .= "ON ";
                     $first = true;
                     foreach ( $references1[ $class2 ] as $ref ) {
@@ -247,10 +290,17 @@
                         $this->mQuery .= "`$table1`.`$field1` = `$table2`.`$field2` ";
                     }
                 }
+                else {
+                    // using CROSS JOIN
+                }
                 $this->PrepareConnections( $prototype2 );
             }
         }
         private function PrepareWhere() {
+            if ( $this->CountTotalValues() == 0 ) {
+                return;
+            }
+
             $this->mQuery .= "WHERE ";
 
             $first = true;
@@ -280,12 +330,17 @@
                 return;
             }
 
+            w_assert( !empty( $this->GroupByTable ) );
+
             $this->mQuery .= "GROUP BY `" . $this->GroupByTable . "`.`" . $this->GroupByField . "` ";
         }
         private function PrepareOrderBy() {
             if ( empty( $this->SortField ) ) {
                 return;
             }
+
+            w_assert( !empty( $this->SortTable ) );
+            w_assert( !empty( $this->SortOrder ) );
 
             $this->mQuery .= "ORDER BY `" . $this->SortTable . "`.`" . $this->SortField . "` " . $this->SortOrder . " ";
         }
@@ -302,26 +357,40 @@
 
             $this->mQuery .= $this->Limit;
         }
-        public function SetSortMethod( $prototype, $property, $order = 'DESC' ) {
+        public function SetOrderBy( $prototype, $property, $order = 'DESC' ) {
+            $this->ValidatePrototype( $prototype );
+
+            w_assert( $order == 'DESC' || $order == 'ASC', "invalid order!" );
+            
             $fields = $prototype->GetFields();
+
+            w_assert( isset( $fields[ $property ] ) );
 
             $this->SortTable = $prototype->GetTable();
             $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
         }
         public function SetGroupBy( $prototype, $property ) {
+            $this->ValidatePrototype( $prototype );
+
             $fields = $prototype->GetFields();
 
             $this->GroupByTable = $prototype->GetTable();
             $this->GroupByField = $fields[ $property ];
         }
-        public function Get( $prototype ) {
+        // Search::Get() will create instances of $prototype->GetClass()
+        public function Get( $prototype = false ) {
             global $db;
+            global $water;
 
-            if ( !$prototype instanceof SearchPrototype ) {
-                var_dump( $prototype );
-                die();
+            w_assert( count( $this->mPrototypes ) > 0, "No prototypes added to search!" );
+
+            if ( $prototype === false ) {
+                $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
+                $prototype = $this->mPrototypes[ 0 ];
             }
+
+            $this->ValidatePrototype( $prototype );
 
             $this->PrepareSelect();
             $this->PrepareTableRefs();
@@ -330,15 +399,14 @@
             $this->PrepareOrderBy();
             $this->PrepareLimit();
 
-            if ( empty( $this->mQuery ) ) {
-                die( "empty query D:" );
-            }
+            w_assert( !empty( $this->mQuery ) );
 
-            echo "Query: " . $this->mQuery . "<br />";
             $res = $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
         public function Search() {
             $this->mConnections = array();
+            $this->mPrototypes  = array();
+            $this->mConnected   = array();
         }
     }
 
