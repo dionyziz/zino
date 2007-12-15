@@ -19,6 +19,7 @@
 			
 			$type = myescape( $type );
 			
+			// TODO: Bind must take an array parameter for implode implementation  
 			$sql = "SELECT 
 						`pageview_itemid`, `pageview_type`, COUNT(*) AS pageviews
 					FROM 

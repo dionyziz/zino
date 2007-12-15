@@ -42,13 +42,23 @@
 			$change = $this->Save();
             
 			if ( $change->Impact() ) {
-				$sql = "UPDATE 
-                            `$users` 
-                        SET 
-                            `user_place` = '0' 
-                        WHERE 
-                            `user_place` = '" . $this->Id . "';";
-				$db->Query( $sql );
+				// Prepared query
+				$db->Prepare("
+					UPDATE 
+                        `$users` 
+                    SET 
+                        `user_place` = :UserPlaceZero
+                    WHERE 
+                        `user_place` = :UserPlace
+					;
+				");
+				
+				// Assign query values
+				$db->Bind( 'UserPlaceZero', 0 );
+				$db->Bind( 'UserPlace', $this->Id );
+				
+				// Execute query
+				$db->Execute();
 			}
             return $change;
 		}
