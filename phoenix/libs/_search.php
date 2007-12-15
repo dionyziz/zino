@@ -175,13 +175,10 @@
         public function Connect( $prototype1, $prototype2, $type = 'cross' ) {
             global $water;
 
-            w_assert( $prototype1 instanceof SearchPrototype );
-            w_assert( $prototype2 instanceof SearchPrototype );
+            $this->ValidatePrototype( $prototype1 );
+            $this->ValidatePrototype( $prototype2 );
 
-            $table1 = $prototype1->GetTable();
-            $table2 = $prototype2->GetTable();
-
-            $this->mConnections[ $table1 ][] = array( "to" => $table2, "type" => strtoupper( $type ) );
+            $this->mConnections[ $prototype1 ][] = array( "to" => $prototype2, "type" => strtoupper( $type ) );
 
             $water->Trace( "Search: connected prototype " . $prototype1->GetClass() . " with " . $prototype2->GetClass() );
             $water->Trace( "Search: connection type: $type" );
@@ -318,6 +315,10 @@
                 $values = $prototype->GetValues();
                 $fields = $prototype->GetFields();
 
+                if ( empty( $values ) ) {
+                    continue;
+                }
+
                 foreach ( $values as $property => $value ) {
                     $field = $fields[ $property ];
 
@@ -409,6 +410,8 @@
             $this->PrepareLimit();
 
             w_assert( !empty( $this->mQuery ) );
+
+            $water->Trace( "Query: ", $this->mQuery );
 
             $res = $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
