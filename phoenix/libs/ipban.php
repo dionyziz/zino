@@ -55,17 +55,27 @@
                 'ipban_sysopid'    => 'SysOpId'
             ) );
             if ( is_int( $construct ) ) { // by banid
-                $sql = "SELECT
-                            `ipban_id`, `ipban_ip`, `ipban_date`,
-                            `ipban_expiredate`, `ipban_sysopid`,
-                            `user_id`, `user_name`, `user_lastprofedit`, `user_rights`
-                        FROM
-                            `$bans` LEFT JOIN `$users`
-                                ON `ipban_sysopid` = `user_id`
-                        WHERE
-                            `ipban_id` = " . $construct . "
-                        LIMIT 1;";
-                $res = $db->Query( $sql );
+                // Prepared query
+				$db->Prepare("
+					SELECT
+					    `ipban_id`, `ipban_ip`, `ipban_date`,
+					    `ipban_expiredate`, `ipban_sysopid`,
+					    `user_id`, `user_name`, `user_lastprofedit`, `user_rights`
+					FROM
+					    `$bans` LEFT JOIN `$users`
+					        ON `ipban_sysopid` = `user_id`
+					WHERE
+					    `ipban_id` = :IpBanId
+					LIMIT :Limit
+					;
+				");
+				
+				// Assign query values
+				$db->Bind( 'IpBanid', $construct );
+				$db->Bind( 'Limit', '1' );
+				
+				// Execute query
+                $res = $db->Execute();
                 if ( !$res->Results() ) {
                     $water->Notice( 'Requested ipban does not exist!' );
                     $construct = false;
@@ -75,18 +85,29 @@
                 }
             }
             else if ( is_string( $construct ) ) { // by ip
-                $construct = addslashes( $construct );
-                $sql = "SELECT
-                            `ipban_id`, `ipban_ip`, `ipban_date`,
-                            `ipban_expiredate`, `ipban_sysopid`,
-                            `user_id`, `user_name`, `user_lastprofedit`, `user_rights`
-                        FROM
-                            `$bans` LEFT JOIN `$users`
-                                ON `ipban_sysopid` = `user_id`
-                        WHERE
-                            `ipban_ip` = '" . $construct . "'
-                        LIMIT 1;";
-                $res = $db->Query( $sql );
+                //$construct = addslashes( $construct );
+                
+				// Prepared query
+				$db->Prepare("
+					SELECT
+					    `ipban_id`, `ipban_ip`, `ipban_date`,
+					    `ipban_expiredate`, `ipban_sysopid`,
+					    `user_id`, `user_name`, `user_lastprofedit`, `user_rights`
+					FROM
+					    `$bans` LEFT JOIN `$users`
+					        ON `ipban_sysopid` = `user_id`
+					WHERE
+					    `ipban_id` = :IpBanId
+					LIMIT :Limit
+					;
+				");
+				
+				// Assign query values
+				$db->Bind( 'IpBanid', $construct );
+				$db->Bind( 'Limit', '1' );
+				
+				// Execute query
+                $res = $db->Execute();
                 if ( !$res->Results() ) {
                     $construct = false;
                 }

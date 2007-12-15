@@ -12,13 +12,21 @@
         
 		$ret = array();
         if ( $usern instanceof User ) {
-            $sql = "SELECT
-                        *
-                    FROM
-                        `$interesttags`
-                    WHERE
-                        `interesttag_userid` = '" . $usern->Id() . "'
-                    ;";
+            
+			// Prepared query
+			$db->Prepare("
+				SELECT
+                    *
+                FROM
+                    `$interesttags`
+                WHERE
+                    `interesttag_userid` = :UserId
+                ;
+			");
+			
+			// Assign query values
+			$db->Bind( 'UserId', $usern->Id() );
+
             /*
             The following code was comment out because:
             	1)Ordering is not implemented in 6.5 phase
@@ -63,20 +71,30 @@
 			if ( $offset != 0 ) {
 				$offset = $offset * $length - $length;
 			}
-
-			$sql = "SELECT
-					SQL_CALC_FOUND_ROWS `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
-					FROM `$interesttags`
-						RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
-						LEFT JOIN `$images` ON `user_icon` = `image_id`
-						LEFT JOIN `$relations` ON `relation_friendid` = `user_id` 
-												AND `relation_userid` = '" . $user->Id() . "'
-						LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
-					WHERE `interesttag_text` = '" . $tagtext ."'
-					LIMIT " . $offset . " , " . $length . "
-					;";
+			
+			// Prepared query
+			$db->Prepare("
+				SELECT
+				SQL_CALC_FOUND_ROWS `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
+				FROM `$interesttags`
+					RIGHT JOIN `$users` ON `user_id` = `interesttag_userid`
+					LEFT JOIN `$images` ON `user_icon` = `image_id`
+					LEFT JOIN `$relations` ON `relation_friendid` = `user_id` 
+											AND `relation_userid` = :RelationUserId
+					LEFT JOIN `$friendrel` ON `frel_id` = `relation_type`
+				WHERE `interesttag_text` = :InterestTagText
+				LIMIT :Offset , :Length
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'RelationUserId'  , $user->Id() );
+			$db->Bind( 'InterestTagText' , $tagtext );
+			$db->Bind( 'Offset' , $offset );
+			$db->Bind( 'Lenght' , $length );
         }
-        $res = $db->Query( $sql );
+		// Execute query
+        $res = $db->Execute();
 		while ( $row = $res->FetchArray() ) {
 				$ret[] = new InterestTag( $row );
 			}
@@ -95,15 +113,21 @@
     function InterestTag_Clear( $user ) {
         global $db;
         global $interesttags;
+		
+		// Prepared query
+		$db->Prepare("
+			DELETE 
+            FROM 
+                `$interesttags` 
+            WHERE 
+                `interesttag_userid` = :InterestTagUserId
+            ;
+		");
+		
+		// Assign query values
+		$db->Bind( 'InterestTagUserId', $user->Id() );
 
-        $sql = "DELETE 
-                FROM 
-                    `$interesttags` 
-                WHERE 
-                    `interesttag_userid` = '" . $user->Id() . "'
-                ;";
-
-        return $db->Query( $sql );
+        return $db->Execute();
     }
     
     class InterestTag extends Satori {
@@ -131,15 +155,23 @@
             return $this->mNext;
         }
         public function GetPrevious() {
-            $sql = "SELECT
-                        *
-                    FROM
-                        `" . $this->mDbTable . "`
-                    WHERE
-                        `interesttag_next` = '" . $this->Id . "'
-                    LIMIT 1;";
-
-            return new InterestTag( $this->mDb->Query( $sql )->FetchArray() );
+			// Prepared query
+			$this->mDb->Prepare("
+				SELECT
+                    *
+                FROM
+                    `" . $this->mDbTable . "`
+                WHERE
+                    `interesttag_next` = :InterestTagNext
+                LIMIT :Limit
+				;
+			");
+			
+			// Assign query values
+			$this->mDb->Bind( 'InterestTagNext', $this->Id );
+			$this->mDb->Bind( 'Limit', 1 );
+			
+            return new InterestTag( $this->mDb->Execute()->FetchArray() );
         }
         public function MoveAfter( $target ) {
             $prev = $this->GetPrevious();
@@ -176,19 +208,31 @@
             $change     = Satori::Save();
 
             if ( !$existed && $change->Impact() ) {
-                $sql = "UPDATE
-                            `" . $this->mDbTable . "`
-                        SET
-                            `interesttag_next` = '" . $this->Id . "'
-                        WHERE
-                            `interesttag_userid` = '" . $this->UserId . "' AND
-                            `interesttag_next`  = '-1' AND
-                            `interesttag_id` != '" . $this->Id . "'
-                        LIMIT
-                            1
-                        ;";
-
-                $change = $this->mDb->Query( $sql );
+				// Prepared query
+				
+				$this->mDb->Prepare("
+					UPDATE
+                        `" . $this->mDbTable . "`
+                    SET
+                        `interesttag_next` = :InterestTagNext
+                    WHERE
+                        `interesttag_userid` = :InterestTagUserId
+                        `interesttag_next`  =  :InterestTag AND
+                        `interesttag_id` !=  :InterestTagId
+                    LIMIT
+                        :Limit
+                    ;
+				");
+				
+				// Assign query values
+				$this->mDb->Bind( 'InterestTagNext'  , $this->Id );
+				$this->mDb->Bind( 'InterestTagUserId', $this->UserId );
+				$this->mDb->Bind( 'InterestTag'		 , '-1' );
+				$this->mDb->Bind( 'InterestTagId'    , $this->Id );
+				$this->mDb->Bind( 'Limit', 1 );
+				
+				// Execute query
+                $change = $this->mDb->Execute();
             }
 
             return $change;
@@ -211,16 +255,26 @@
             ) );
 
             if ( is_string( $construct ) && $user instanceof User ) {
-                $sql = "SELECT
-                            *
-                        FROM
-                            `" . $this->mDbTable . "`
-                        WHERE
-                            `interesttag_text`   = '" . myescape( $construct ) . "' AND
-                            `interesttag_userid` = '" . $user->Id() . "'
-                        LIMIT 1;";
-
-                $construct = $db->Query( $sql )->FetchArray();
+                // Prepared query
+				$db->Prepare("
+					SELECT
+                        *
+                    FROM
+                        `" . $this->mDbTable . "`
+                    WHERE
+                        `interesttag_text`   = :InterestTagText AND
+                        `interesttag_userid` = :InterestTagUserId
+                    LIMIT 
+						:Limit
+					;
+				");
+				
+				// Assign query values
+				$db->Bind( 'InterestTagText', $construct );
+				$db->Bind( 'InterestTagUserId', $user->Id() );
+				$this->mDb->Bind( 'Limit', 1 );
+				
+                $construct = $db->Execute()->FetchArray();
             }
 
             $this->Satori( $construct );
