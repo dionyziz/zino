@@ -158,8 +158,8 @@
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
 		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 1" style="width:234px;height:60px;margin: 0 5px;" />
 		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 2" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 3"style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 4"style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 3" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" alt="Διαφήμηση 4" style="width:234px;height:60px;margin: 0 5px;" />
 	</div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
 		<img src="images/ads/ad728.jpg" alt="Διαφήμηση 5" style="width:728px;height:90px;margin: 0 5px;" />
