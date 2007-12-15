@@ -26,8 +26,8 @@
 	}
     ?><div class="search">
 		<form action="" method="get">
-			<input type="text" class="text" onfocus="" value="αναζήτησε φίλους" />
-			<input type="submit" class="submit" value="ψάξε" />
+			<div><input type="text" class="text" onfocus="" value="αναζήτησε φίλους" /></div>
+			<div><input type="submit" class="submit" value="ψάξε" /></div>
 		</form>
 	</div>
     <div class="eof"></div>
