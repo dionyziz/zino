@@ -3,8 +3,10 @@
 ?>
 <ul class="albums">
     <li>
-        <div><a href="" onclick="return false;">
-            <img src="images/apartments.jpg" alt="Φωτογραφίες" />
+        	<a href="" onclick="return false;">
+        	<div>
+            	<img src="images/apartments.jpg" alt="Φωτογραφίες" />
+            </div>
             <span>Πολυκατοικίες</span>
         </a></div>
         <dl>
@@ -16,7 +18,9 @@
     </li>
     <li>
         <div><a href="" onclick="return false;">
-            <img src="images/boobs.jpg" alt="Φωτογραφίες" />
+        	<div>
+            	<img src="images/boobs.jpg" alt="Φωτογραφίες" />
+            </div>
             <span>Boobs</span>
         </a></div>
         <dl>
@@ -28,7 +32,9 @@
     </li>
     <li>
         <div><a href="" onclick="return false;">
-            <img src="images/condom.jpg" alt="Φωτογραφίες" />
+        	<div>
+            	<img src="images/condom.jpg" alt="Φωτογραφίες" />
+            </div>
             <span>Πούτσες</span>
         </a></div>
         <dl>
@@ -39,10 +45,12 @@
         </dl>
     </li>
     <li>
-        <div><a href="" onclick="return false;">
-			<img src="images/spade.jpg" alt="Φωτογραφίες" />
+        <a href="" onclick="return false;">
+			<div>
+				<img src="images/spade.jpg" alt="Φωτογραφίες" />
+			</div>
             <span>Φτυάρια</span>
-        </a></div>
+        </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
             <dd>12</dd>
