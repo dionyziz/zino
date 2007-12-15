@@ -48,7 +48,7 @@
         $comment->DelId = 0;
 
         $user = New UserPrototype();
-        $user->DelId = 0;
+        // $user->DelId = 0;
 
         $image = New ImagePrototype();
 

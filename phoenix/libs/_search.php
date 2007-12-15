@@ -334,6 +334,7 @@
                 die( "empty query D:" );
             }
 
+            echo "Query: " . $this->mQuery . "<br />";
             $res = $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
         public function Search() {
