@@ -11,6 +11,24 @@
 	$libs->Load( 'image/image' );
 	$libs->Load( 'search' );
     $libs->Load( 'poll' );
+
+    function Comment_MakeTree( $comments, $reverse = false ) {
+        $parented = array();
+        if ( !is_array( $comments ) ) {
+            return $parented;
+        }
+
+        foreach( $comments as $comment ) {
+            if ( $reverse ) {
+                array_push( $parented[ $comment->ParentId() ], $comment );
+            }
+            else {
+                $parented[ $comment->ParentId() ][] = $comment;
+            }
+        }
+        
+        return $parented;
+    }
 	
     class Comment extends Satori {
         protected $mId;

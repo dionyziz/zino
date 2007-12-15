@@ -24,23 +24,9 @@
         global $user;
 
         $libs->Load( 'comment' );
-
-        /*
-        $comments = new CommentsSearch;
-        $comments->TypeId   = 1;
-        $comments->ItemId   = $userid->Get();
-        $comments->DelId    = 0;
-
-        $comments->SortBy       = 'Created';
-        $comments->SortOrder    = 'DESC';
-
-        if ( $oldcomments ) {
-            $comments->Limit = 10000;
-        }
-        else {
-            $comments->Limit = 50;
-        }
-        */
+        $libs->Load( 'prototype/comment' );
+        $libs->Load( 'prototype/user' );
+        $libs->Load( 'prototype/image' );
 
         $comment = New CommentPrototype();
         $comment->TypeId = 1;
@@ -48,7 +34,6 @@
         $comment->DelId = 0;
 
         $user = New UserPrototype();
-        // $user->DelId = 0;
 
         $image = New ImagePrototype();
 
@@ -65,18 +50,13 @@
 
         $search->Limit = 20;
 
-        $comments = $search->Get( $comment );
+        $comments = Comment_MakeTree( $search->Get( $comment ) );
 
-        var_dump( $comments );
-    
-        /*
-        $comments = $comments->GetParented();
         if ( empty( $comments ) ) {
             die( "No comments for user " . $userid->Get() . "!" );
         }
 
         DisplayChildren( $comments, 0 );
-        */
     }
 
 ?>
