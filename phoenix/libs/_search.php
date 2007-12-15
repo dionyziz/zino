@@ -410,6 +410,8 @@
 
             w_assert( !empty( $this->mQuery ) );
 
+            echo "Query: " . $this->mQuery . "<br />";
+
             $water->Trace( "Query: " . $this->mQuery );
 
             $res = $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
