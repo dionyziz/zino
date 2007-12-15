@@ -280,8 +280,6 @@
 
                 $this->mQuery .= $type . " JOIN ";
                 $this->mQuery .= "`$table2` ";
-
-                $this->mConnected[] = $class2;
                
                 if ( isset( $references1[ $class2 ] ) ) {
                     $this->mQuery .= "ON ";
@@ -300,6 +298,7 @@
                     // using CROSS JOIN
                 }
                 $this->PrepareConnections( $prototype2 );
+                $this->mConnected[] = $class2;
             }
         }
         private function PrepareWhere() {
