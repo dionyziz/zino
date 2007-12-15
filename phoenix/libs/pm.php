@@ -43,18 +43,26 @@
 				$theuser = $user;
 			}
 			
-			$sql = "SELECT
-						COUNT( * ) AS unreadpms
-					FROM
-						`$pmmessages` RIGHT JOIN `$pmmessageinfolder` ON
-							`pm_id` = `pmif_id`
-					WHERE
-						`pm_senderid` != '" . $theuser->Id() . "' AND
-						`pmif_userid` = '" . $theuser->Id() . "' AND
-						`pmif_delid` = '0'
-					;";
+			// Prepared query
+			$db->Prepare("
+				SELECT
+					COUNT( * ) AS unreadpms
+				FROM
+					`$pmmessages` RIGHT JOIN `$pmmessageinfolder` ON
+						`pm_id` = `pmif_id`
+				WHERE
+					`pm_senderid` != :PmSenderId AND
+					`pmif_userid` = :PmSenderId AND
+					`pmif_delid` = :PmIfDelId
+				;			
+			");
 			
-			$fetched = $db->Query( $sql )->FetchArray();
+			// Assign query values
+			$db->Bind( 'PmSenderId', $theuser->Id() );
+			$db->Bind( 'PmIfDelId' , 0 );
+			
+			// Execute query
+			$fetched = $db->Execute()->FetchArray();
 			
 			return $fetched[ "unreadpms" ];
 	}
