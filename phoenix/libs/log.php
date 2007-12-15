@@ -17,14 +17,22 @@
 		global $db;
 		global $logs;
 		
-		$sql = "SELECT 
-					COUNT(*) AS logscount
-				FROM
-					`$logs`
-				WHERE
-					`log_userid`='$id';";
-				
-		$res = $db->Query( $sql );
+		// Prepared query
+		$db->Prepare("
+			SELECT 
+				COUNT(*) AS logscount
+			FROM
+				`$logs`
+			WHERE
+				`log_userid`= :LogUserId
+			;
+		");
+		
+		// Assign query values
+		$db->Bind( 'LogUserId', $id );
+		
+		// Execute query
+		$res = $db->Execute();
 		$fetched = $res->FetchArray();
 		
 		return $fetched;
@@ -33,6 +41,7 @@
 		global $db;
 		global $logs;
 		
+		// TODO: Use prepared query here?
 		$sql = "SELECT
 					COUNT(*) AS lcount 
 				FROM 
@@ -53,18 +62,28 @@
 		$uid = myescape( $uid );
 		$offset = myescape( $offset );
 		
-		$sql = "SELECT
-					*
-				FROM 
-					`$logs` 
-				WHERE
-					`log_userid`='$uid'
-				ORDER BY
-					`log_date` DESC
-				LIMIT
-					$offset,25;";
+		// Prepared query
+		$db->Prepare("
+			SELECT
+				*
+			FROM 
+				`$logs` 
+			WHERE
+				`log_userid`= :LogUserId
+			ORDER BY
+				`log_date` DESC
+			LIMIT
+				:Offset , :Limit
+			;
+		");
 		
-		$res = $db->Query( $sql );
+		// Assign query values
+		$db->Bind( 'LogUserId', $uid );
+		$db->Bind( 'Offset', $offset );
+		$db->Bind( 'Limit' , 25 );
+	
+		// Execute query
+		$res = $db->Execute();
 		$ret = $res->MakeArray();
 		
 		return $ret;		
@@ -74,6 +93,7 @@
 		global $db;
 		global $logs;
 		
+		// TODO: Use prepared query here?
 		$sql = "SELECT
 					`log_date`
 				FROM 
