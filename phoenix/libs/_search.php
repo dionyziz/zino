@@ -334,7 +334,7 @@
                 die( "empty query D:" );
             }
 
-            $res = $db->Query( $this->mQuery )->ToObjectArray( $prototype->GetClass() );
+            $res = $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
         public function Search() {
             $this->mConnections = array();
