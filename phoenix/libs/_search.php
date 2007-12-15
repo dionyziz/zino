@@ -604,9 +604,6 @@
                 if ( $value === null ) {
                     continue;
                 }
-                else {
-                    // die( "value $value" );
-                }
                 foreach ( $filter as $table => $field ) {
                     if ( !$first ) {
                         $this->mQuery .= " AND ";
@@ -676,6 +673,8 @@
             $water->Trace( "query order: " . $this->mQuery . "." );
             $this->PrepareLimit();
             $water->Trace( "query limit: " . $this->mQuery . "." );
+
+            die( "Query: " . $this->mQuery );
 
             $res = $db->Query( $this->mQuery );
 
