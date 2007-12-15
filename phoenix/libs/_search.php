@@ -260,10 +260,11 @@
             $fields1 = $prototype1->GetFields();
             $table1 = $prototype1->GetTable();
 
-            $connections = $this->mConnections[ $prototype1->GetClass() ];
-            if ( empty( $connections ) ) {
+            if ( !isset( $this->mConnections[ $prototype1->GetClass() ] ) ) {
                 return true;
             }
+
+            $connections = $this->mConnections[ $prototype1->GetClass() ];
 
             foreach ( $connections as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ "to" ] ] ), "Trying to connect with a prototype that is not added" );
@@ -275,7 +276,7 @@
 
                 // you may specify references whether on Prototype::GetReferences() or when calling Search::Connect()
                 // the references have priority; Search::Connect uses a default type you may not want
-                $type       = isset( $ref[ 3 ] ) ? $ref[ 3 ] : $join[ "type" ];
+                $type = isset( $ref[ 3 ] ) ? $ref[ 3 ] : $join[ "type" ];
 
                 $this->mQuery .= $type . " JOIN ";
                 $this->mQuery .= "`$table2` ";
@@ -286,7 +287,6 @@
                     $this->mQuery .= "ON ";
                     $first = true;
                     foreach ( $references1[ $class2 ] as $ref ) {
-                        $type = $ref[ 3 ];
                         $field1 = $fields1[ $ref[ 0 ] ];
                         $field2 = $fields2[ $ref[ 1 ] ];
 
