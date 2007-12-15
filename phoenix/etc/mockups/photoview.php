@@ -50,10 +50,10 @@ function Unhover( node ) {
         </ol>
 	</div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
@@ -100,7 +100,7 @@ function Unhover( node ) {
 			</div>
 			<div class="who">
 				<a href="user/kostis90gr">
-					<img src="images/avatars/kostis90gr.jpg" class="avatar" />
+					<img src="images/avatars/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
 					kostis90gr
 				</a> είπε:
 			</div>
@@ -199,9 +199,9 @@ function Unhover( node ) {
 	</div>
 	<div class="eof"></div>
 		<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 </div>

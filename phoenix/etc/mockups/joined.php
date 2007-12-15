@@ -7,7 +7,7 @@
     </div>
 	<div class="profinfo">
 		<div class="logininfo">
-			<img src="images/login-screenshot.jpg" style="width:300px;height:182px;" />
+			<img src="images/login-screenshot.jpg" style="width:300px;height:182px;" alt="Screenshot" />
 			<span>Μπορείς να κάνεις είσοδο από την κεντρική σελίδα.</span>
 		</div>
 	</div>

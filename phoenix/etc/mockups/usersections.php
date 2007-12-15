@@ -1,6 +1,6 @@
 <div class="usersections">
 	<a href="">
-		<img src="images/avatars/dionyziz.200.jpg" style="width:150px;height:150px;" />
+		<img src="images/avatars/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" />
 		<span class="name">dionyziz</span>
 	</a>
 	<ul>

@@ -18,36 +18,36 @@
 		Ξεκινάμε.<br />
 		Ετοιμάζουμε το sandwich όπως θα κάναμε σε κάθε περίπτωση, απλά δε το γεμίζουμε με πράγματα που μπορεί να λιώσουν<br />
 		πάρα πολύ εύκολα. Τυρί φυσικά και επιτρέπεται.<br />
-		<img src="images/journal1.jpg" /><br />
+		<img src="images/journal1.jpg" alt="Journal" /><br />
 		Στη συνέχεια πέρνουμε αλουμινόχαρτο<br />
-		<img src="images/journal2.jpg" /><br />
+		<img src="images/journal2.jpg" alt="Journal" /><br />
 		και τυλίγουμε καλά το sandwich έτσι ώστε να μην υπάρχουν πουθενά οπές και να μη μπορεί να ξεχυλίσει το λιωμένο τυρί.<br />
 		Το αλουμίνόχαρτο θα πρέπει να έρχεται σε επαφή όμως με το τυρί για να λιώσει καλύτερα και γρηγορότερα.<br />
-		<img src="images/journal3.jpg" /><br />
+		<img src="images/journal3.jpg" alt="Journal" /><br />
 		Αφού τυλίξαμε το sandwich σειρά έχει το σίδερο.<br />
-		<img src="images/journal4.jpg" /><br />
+		<img src="images/journal4.jpg" alt="Journal" /><br />
 		Παίρνουμε το σίδερο και ανεβάζουμε τέρμα τη θερμοκρασία και περιμένουμε να ζεσταθεί.<br />
-		<img src="images/journal5.jpg" /><br />
+		<img src="images/journal5.jpg" alt="Journal" /><br />
 		Μόλις γίνει αυτό ξέρουμε τι πρέπει να κάνουμε: δίνουμε στο sandwich και καταλαβαίνει. Πατάμε το sandwich με το σίδερο<br />
 		για κάμποσο χρόνο και μετά το γυρνάμε και από την άλλη.	Προσοχή στην επιφάνεια πάνω στην οποία θα σιδερώσετε <br />
 		το sandwich και στο αλουμινόχαρτο που καίει. Μετά από κάμποση ώρα πρέπει να είμαστε ok και θα έχει λιώσει και το τυρί.<br />
 		Το sandwich είναι πλέον αρκετά πιο λεπτό<br />
-		<img src="images/journal6.jpg" /><br />
+		<img src="images/journal6.jpg" alt="Journal" /><br />
 		Μπορούμε πλέον να το ξετυλίξουμε...<br />
-		<img src="images/journal7.jpg" /><br />
+		<img src="images/journal7.jpg" alt="Journal" /><br />
 		και να το φάμε...<br />
-		<img src="images/journal8.jpg" /><br />
+		<img src="images/journal8.jpg" alt="Journal" /><br />
 		καλή όρεξη...
 		</p>
 	</div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
-		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 	<div class="comments">
 		<div class="comment newcomment">
@@ -94,7 +94,7 @@
 			</div>
 			<div class="who">
 				<a href="user/kostis90gr">
-					<img src="images/avatars/kostis90gr.jpg" class="avatar" />
+					<img src="images/avatars/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
 					kostis90gr
 				</a> είπε:
 			</div>
@@ -193,12 +193,12 @@
 	</div>
 	<div class="eof"></div>
 		<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
-		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
-		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" />
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 </div>
