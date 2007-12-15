@@ -178,7 +178,7 @@
             $this->ValidatePrototype( $prototype1 );
             $this->ValidatePrototype( $prototype2 );
 
-            $this->mConnections[ $prototype1 ][] = array( "to" => $prototype2, "type" => strtoupper( $type ) );
+            $this->mConnections[ $prototype1->GetClass() ][] = array( "to" => $prototype2->GetClass(), "type" => strtoupper( $type ) );
 
             $water->Trace( "Search: connected prototype " . $prototype1->GetClass() . " with " . $prototype2->GetClass() );
             $water->Trace( "Search: connection type: $type" );
