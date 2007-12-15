@@ -60,7 +60,7 @@
 
     class CommentPrototype extends SearchPrototype {
         public function SetTypeId( $typeid ) {
-            switch( $itemid ) {
+            switch( $typeid ) {
                 case 0:
                     $class = 'Journal';
                     break;
@@ -190,7 +190,7 @@
             global $water;
 
             $this->mPrototypes[ $prototype->GetClass() ] = $prototype;
-            $water->Trace( "Search: added prototype: " . $prototype );
+            $water->Trace( "Search: added prototype: " . $prototype->GetClass() );
 
             if ( is_object( $connectto ) ) {
                 $this->Connect( $prototype, $connectto, $connecttype );
@@ -258,8 +258,9 @@
             $references1 = $prototype1->GetReferences();
             $fields1 = $prototype1->GetFields();
             $table1 = $prototype1->GetTable();
-            
-            foreach ( $this->mConnections[ $prototype1->GetClass() ] as $join ) {
+            $connections = $this->mConnections[ $prototype1->GetClass() ];
+
+            foreach ( $connections as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ "to" ] ] ), "Trying to connect with a prototype that is not added" );
 
                 $prototype2 = $this->mPrototypes[ $join[ "to" ] ];
