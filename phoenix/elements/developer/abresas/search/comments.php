@@ -60,7 +60,7 @@
         $search->Connect( $comment, $user );
         $search->Connect( $user, $image, $connection = 'left' );
 
-        $search->SetSortMethod( $comment, 'Created', 'DESC' );
+        $search->SetOrderBy( $comment, 'Created', 'DESC' );
         $search->SetGroupBy( $user, 'Id' );
 
         $search->Limit = 20;
