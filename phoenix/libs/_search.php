@@ -253,12 +253,20 @@
             $water->ProfileEnd();
         }
         private function PrepareConnections( $prototype1 ) {
+            if ( in_array( $prototype1->GetClass(), $this->mConnected ) ) {
+                return true;
+            }
+
             $this->ValidatePrototype( $prototype1 );
 
             $references1 = $prototype1->GetReferences();
             $fields1 = $prototype1->GetFields();
             $table1 = $prototype1->GetTable();
+
             $connections = $this->mConnections[ $prototype1->GetClass() ];
+            if ( empty( $connections ) ) {
+                return true;
+            }
 
             foreach ( $connections as $join ) {
                 w_assert( isset( $this->mPrototypes[ $join[ "to" ] ] ), "Trying to connect with a prototype that is not added" );
