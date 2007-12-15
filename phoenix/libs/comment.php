@@ -20,10 +20,10 @@
 
         foreach( $comments as $comment ) {
             if ( $reverse ) {
-                array_push( $parented[ $comment->ParentId() ], $comment );
+                array_push( $parented[ $comment->ParentId ], $comment );
             }
             else {
-                $parented[ $comment->ParentId() ][] = $comment;
+                $parented[ $comment->ParentId ][] = $comment;
             }
         }
         
