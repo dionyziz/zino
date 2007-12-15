@@ -25,37 +25,55 @@
         }
         $offset = $offset * $length - $length;
         if ( $newest ) {
-                $sql = "SELECT
+			// Prepared query
+			$db->Prepare("
+				SELECT
                     *
                 FROM
                     `$notify`
                 WHERE 
-                    `notify_touserid` = '$userid'
+                    `notify_touserid` = :NotifyToUserId
                 AND
-                    `notify_delid`='0'
+                    `notify_delid`= :NotifyDelId
                 ORDER BY
-                    `notify_created`
-                DESC
-                LIMIT ".$offset." , ".$length.";";
-
+                    `notify_created` DESC
+                LIMIT 
+					:Offset , :Length
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'NotifyToUserId', $userid );
+			$db->Bind( 'NotifyToDelId', 0 );
+			$db->Bind( 'Offset', $offset );
+			$db->Bind( 'Length', $length );
         }
         else {
-                $sql = "SELECT
+			// Prepared query
+			$db->Prepare("
+				SELECT
                     *
                 FROM
                     `$notify`
                 WHERE 
-                    `notify_touserid` = '$userid'
+                    `notify_touserid` = :NotifyToUserId
                 AND
-                    ( `notify_delid`='1' OR `notify_delid`='0' )
+                    ( `notify_delid`= :One OR `notify_delid`= :Zero )
                 ORDER BY
-                    `notify_created`
-                DESC
-                LIMIT ".$offset." , ".$length.";";
-
+                    `notify_created` DESC
+                LIMIT :Offset , :Length
+				;
+			");
+			
+			// Assign query values
+			$db->Bind( 'NotifyToUserId', $userid );
+			$db->Bind( 'One', 1 );
+			$db->Bind( 'Zero', 0 );
+			$db->Bind( 'Offset', $offset );
+			$db->Bind( 'Length', $length );
         }
-        
-        $res = $db->Query( $sql );
+        // Execute query
+        $res = $db->Execute();
 
         $ret = array();
         while( $row = $res->FetchArray() ) {
@@ -70,19 +88,31 @@
     function Notify_CommentRead( $userid, $commentid, $typeid ) {
         global $notify;
         global $db;
-
-        $sql = "UPDATE
-                   `$notify`
-                SET
-                    `notify_delid` = '1'
-                WHERE
-                    `notify_touserid` = '$userid' AND
-                    `notify_delid` = '1' AND
-                    `notify_itemid` = '$commentid' AND
-                    `notify_typeid` = '$typeid'
-                LIMIT 1;";
-
-        $change = $db->Query( $sql );
+		
+		// Prepared query
+		$db->Prepare("
+			UPDATE
+	              `$notify`
+            SET
+                `notify_delid` = :NotifyDelId
+            WHERE
+                `notify_touserid`	= :NotifyToUserId AND
+                `notify_delid`		= :NotifyDelId AND
+                `notify_itemid`		= :NotifyItemId AND
+                `notify_typeid` 	= :NotifyTypeId
+            LIMIT :Limit
+			;
+		");
+		
+		// Assign query values
+		$db->Bind( 'NotifyDelId', 1 );
+		$db->Bind( 'NotifyToUserId', $userid );
+		$db->Bind( 'NotifyItemId', $commentid );
+		$db->Bind( 'NotifyTypeId', $typeid );
+		$db->Bind( 'Limit', 1 );
+		
+		// Execute query
+        $change = $db->Execute();
 
         return $change->Impact();
     }

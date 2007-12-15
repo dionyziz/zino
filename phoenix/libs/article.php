@@ -796,7 +796,7 @@
 			
 			// Assign query values
 			$db->Bind( 'Construct', $construct  );
-			$db->Bind( 'ArticleDelId', '0' );
+			$db->Bind( 'ArticleDelId', 0 );
 			
 			// Execute query					
 			$res = $db->Execute();

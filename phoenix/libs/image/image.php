@@ -178,7 +178,7 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'ImageDelId', '0' );
+		$db->Bind( 'ImageDelId', 0 );
 		
 		// Execute query
 		$res = $db->Execute();
