@@ -4,7 +4,7 @@
         <i class="tl"></i>
         <i class="tr"></i>
         
-        <form>
+        <form action="">
             <div class="gender search">
                 <h3>Φύλο:</h3>
                 <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια</label>
@@ -187,7 +187,7 @@
                 </select>
             </div>
             
-            <input type="submit" value="Ψάξε!" class="submit" />
+            <div><input type="submit" value="Ψάξε!" class="submit" /></div>
         </form>
         
         <i class="bl"></i>
