@@ -1850,11 +1850,6 @@
 			$this->mLogonDate = MakeDate( $this->mLastLogon );
             $this->mAnsweredQuestions = false;
             $this->mUnansweredQuestions = false;
-
-            if ( count( $fetched_array ) == 5 ) {
-                die( "creating search user" );
-            }
-				
 		}
 	}
 	
