@@ -43,7 +43,6 @@ div.latestimages ul {
 div.latestimages ul li {
 	float: left;
 	padding: 5px;
-	_width: 110px;
 	height: 200px;
 	text-align: center;
 }

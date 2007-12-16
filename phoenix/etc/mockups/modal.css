@@ -12,20 +12,15 @@ div.modal {
     top: 50%;
     left: 50%;
     position: fixed;
-    _position: absolute;
     text-align: center;
     vertical-align: middle;
 }
 div.modalbg {
     position: fixed;
-    _position: absolute;
     left: 0px;
     top: 0px;
     right: 0px;
     bottom: 0px;
-    _width: 100%;
-    _height: 100%;
-    _filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
     z-index: 680;
     background-image: url('http://static.zino.gr/images/modalbg.png');
     background-repeat: repeat;

@@ -1,0 +1,9 @@
+div.modal {
+	position: absolute;
+}
+div.modalbg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}

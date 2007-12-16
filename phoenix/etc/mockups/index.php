@@ -17,6 +17,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			Zino - είσαι μέσα;
 		</title>
 		<link rel="stylesheet" type="text/css" href="modal.css" />
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="modal-ie.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="default.css" />
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
@@ -25,6 +26,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="headlines.css" />
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="frontpage.css" />
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="search.css" />
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
