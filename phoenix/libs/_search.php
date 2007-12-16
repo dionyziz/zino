@@ -317,7 +317,7 @@
             $this->CreateQuery();
 
             $res = $db->Query( $this->mQuery );
-            var_dump( $res->MakeArray() );
+            var_dump( $res->ToObjectsArray( 'User' ) );
             die();
 
             // return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
