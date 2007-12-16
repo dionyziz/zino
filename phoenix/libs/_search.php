@@ -227,8 +227,16 @@
             $this->mQuery .= "ORDER BY `" . $this->SortTable . "`.`" . $this->SortField . "` " . $this->SortOrder . " ";
         }
         private function PrepareLimit() {
+            global $water;
+
             if ( empty( $this->Limit ) ) {
-                return;
+                $water->Warning( "No limit applied to search; Setting limit to 100" );
+                $this->Limit = 100;
+            }
+
+            if ( $this->Limit > 1000 ) {
+                $water->Warning( "Too high limit was applied; Setting limit to 100" );
+                $this->Limit = 100;
             }
 
             $this->mQuery .= "LIMIT ";
@@ -315,18 +323,6 @@
             $this->ValidatePrototype( $prototype );
 
             $this->CreateQuery();
-
-            if ( count( $this->mPrototypes ) == 1 ) {
-                $res = $db->Query( $this->mQuery )->MakeArray();
-                $ret = array();
-                print_r( $res );
-                die();
-                foreach ( $res as $row ) {
-                    $ret[] = New User( $row );
-                }
-
-                return $ret;
-            }
 
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
