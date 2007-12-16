@@ -81,6 +81,7 @@
             }
 
             $this->Assert( $rightClass, 'Every row returned by searched should be of the specified prototype' );
+            die( "done with simple" );
         }
         public function TestSimpleFilter() {
             $commentNew = New Comment();
