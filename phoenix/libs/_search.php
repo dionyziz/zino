@@ -315,6 +315,10 @@
 
             $this->CreateQuery();
 
+            if ( count( $this->mPrototypes ) == 0 ) {
+                die( "Query: " . $this->mQuery );
+            }
+
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
         public function Search() {

@@ -61,7 +61,6 @@
             $this->AssertEquals( $search->Results(), 0, 'Empty search should have 0 results' );
         }
         public function TestSimple() {
-            die( "starting simple" );
             $user = New UserPrototype();
 
             $search = New Search();
