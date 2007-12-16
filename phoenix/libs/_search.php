@@ -314,7 +314,7 @@
 
             $this->ValidatePrototype( $prototype );
 
-            if ( count( $this->mPrototypes ) == 0 ) {
+            if ( count( $this->mPrototypes ) == 1 ) {
                 die( "Query: " . $this->mQuery );
             }
 
