@@ -67,6 +67,8 @@
             $search->AddPrototype( $user );
             $ret = $search->Get();
 
+            die( var_dump( $ret ) );
+
             $this->Assert( is_array( $ret ), 'Simple search did not return an array' );
             $this->AssertFalse( !empty( $ret ), 'Simple search returned an empty array' );
             $this->AssertEquals( count( $ret ), count( ListAllUsers() ), 'Simple search did not return the right number of rows' );
