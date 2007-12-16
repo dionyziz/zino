@@ -288,6 +288,8 @@
             $this->mChanged = false;
         }
         public function Results() {
+            global $water;
+
             if ( count( $this->mPrototypes ) == 0 ) {
                 $water->Warning( "No prototypes added to search!" );
                 return 0;
@@ -299,6 +301,7 @@
         }
         public function Get( $prototype = false ) {
             global $db;
+            global $water;
 
             if ( count( $this->mPrototypes ) == 0 ) {
                 $water->Warning( "No prototypes added to search!" );
