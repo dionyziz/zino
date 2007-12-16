@@ -267,11 +267,6 @@
                 return;
             }
 
-            if ( count( $this->mPrototypes ) == 0 ) {
-                $water->Warning( "No prototypes added to search!" );
-                return array();
-            }
-
             if ( $prototype === false ) {
                 $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
                 $prototype = $this->mPrototypes[ 0 ];
@@ -293,12 +288,22 @@
             $this->mChanged = false;
         }
         public function Results() {
+            if ( count( $this->mPrototypes ) == 0 ) {
+                $water->Warning( "No prototypes added to search!" );
+                return 0;
+            }
+
             $this->CreateQuery();
 
             return $db->Query( $this->mQuery )->Results();
         }
         public function Get( $prototype = false ) {
             global $db;
+
+            if ( count( $this->mPrototypes ) == 0 ) {
+                $water->Warning( "No prototypes added to search!" );
+                return array();
+            }
 
             $this->CreateQuery();
 
