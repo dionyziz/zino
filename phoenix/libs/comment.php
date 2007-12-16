@@ -112,7 +112,7 @@
         public function UserIsSpamBot() {
             // Prepared query
 
-			$this->mDb->Prepare("
+			$query = $this->mDb->Prepare("
 				SELECT
                     *
                 FROM
@@ -124,10 +124,10 @@
 			");
 			
 			// Assign values to query
-			$this->mDb->Bind( 'UserIp', UserIp() );
+			$query->Bind( 'UserIp', UserIp() );
 			
 			// Execute query
-            if ( $this->mDb->Execute() ) {
+            if ( $query->Execute() ) {
                 // email dio
                 $subject = "WARNING! Comment spambot detected!";
                 $message = "Text submitted: " . $this->Text . "\n\n SpamBot Ip: " . UserIp();
