@@ -24,6 +24,11 @@
         protected $mConnections;
         private   $mChanged;
 
+        private function GetPrototype( $n ) { // get nth prototype
+            $prototypeClasses = array_keys( $this->mPrototypes );
+            $prototypeNth     = $prototypeClasses[ $n ];
+            return $this->mPrototypes[ $prototypeNth ];
+        }
         private function ValidatePrototype( $prototype ) {
             w_assert( $prototype instanceof SearchPrototype );
             w_assert( isset( $this->mPrototypes[ $prototype->GetClass() ] ), "Trying to use a prototype that is not added" );
@@ -303,7 +308,7 @@
 
             if ( $prototype === false ) {
                 $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
-                $prototype = $this->mPrototypes[ 0 ];
+                $prototype = $this->GetPrototype( 0 );
             }
 
             $this->ValidatePrototype( $prototype );
