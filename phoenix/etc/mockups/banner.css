@@ -28,7 +28,6 @@ div.header h1 {
     height: 50px;
     width: 90px;
 	top: 0;
-    _top: 3px;
 	left: 0;
 	position: absolute;
 	background-image: url('images/banner-begin2.jpg');
@@ -41,7 +40,6 @@ div.header div.eof {
 	margin: 0;
 	padding: 0;
 	top: 0;
-    _top: 3px;
 	right: 0;
     width: 71px;
     height: 50px;
@@ -74,11 +72,9 @@ div.header ul li a.profile {
 }
 div.header ul li a.login {
 	background-image: url('images/up.png');
-	_background-image: url('images/_up.png');
 }
 div.header ul li a.register {
 	background-image: url('images/bookmark_toolbar.png');
-	_background-image: url('images/_bookmark_toolbar.png');
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
@@ -97,13 +93,11 @@ div.header ul li input.button {
 div.header div.search {
 	position: absolute;
 	right: 0;
-    _right: -1px;
 	top: 25px;
 	color: white;
 	margin: 0;
 	padding: 0 0 0 10px;
 	background-image: url('images/searchbg.png');
-	_background-image: url('images/_searchbg.png');
 	background-repeat: no-repeat;
 	background-position: top left;
 	width: 176px;

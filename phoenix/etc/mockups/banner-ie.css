@@ -1,0 +1,16 @@
+div.header h1 {
+    top: 3px;
+}
+div.header div.eof {
+	top: 3px;
+}
+div.header ul li a.login {
+	background-image: url('images/_up.png');
+}
+div.header ul li a.register {
+	background-image: url('images/_bookmark_toolbar.png');
+}
+div.header div.search {
+	right: -1px;
+	background-image: url('images/_searchbg.png');
+}
