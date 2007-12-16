@@ -32,10 +32,10 @@ var Shoutbox = {
 				} ) (id); // use cancelEdit() in order to change shoutedit
 
 		var imageaccept = document.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 
 		var imagecancel = document.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+		imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 		
 		var editid = d.createElement( 'input' );
 		editid.type = 'hidden';
@@ -115,7 +115,7 @@ var Shoutbox = {
     		var editimg = d.createElement( 'img' );
     		editimg.width=16;
     		editimg.height=16;
-    		editimg.src="http://static.chit-chat.gr/images/icons/icon_wand.gif";
+    		editimg.src="http://static.zino.gr/images/icons/icon_wand.gif";
     		editimg.alt="Επεξεργασία Μικρού Νέου";
     		
     		var delsh = d.createElement( 'a' );
@@ -130,7 +130,7 @@ var Shoutbox = {
     		delsh.title="Διαγραφή Μικρού Νέου";
 
     		var delimg = d.createElement( 'img' );
-    		delimg.src="http://static.chit-chat.gr/images/icons/delete_sm.png";
+    		delimg.src="http://static.zino.gr/images/icons/delete_sm.png";
     		delimg.alt="Διαγραφή Μικρού Νέου";
 
     		editsh.appendChild( editimg );
