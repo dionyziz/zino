@@ -41,14 +41,17 @@ div#photolist ul li {
 	height: 270px;
 	text-align: center;
 }
+/*
 div#photolist ul li div {
 	width: 200px;
 }
+
 div#photolist ul li h3 {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
 }
+*/
 div#photolist ul li h3 a span {
 	display: block;
 }
@@ -60,4 +63,8 @@ div#photolist ul li h3 dl dt.addfav {
 	padding: 0 3px 0 18px;
 	margin: 0;
 	display: inline;
+}div.photo {
+	font-size: 100%;
+	font-weight: normal;
+	text-align: center;
 }
