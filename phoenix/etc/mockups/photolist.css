@@ -41,30 +41,30 @@ div#photolist ul li {
 	height: 270px;
 	text-align: center;
 }
-
+/*
 div#photolist ul li div {
 	width: 200px;
 }
-/*
 div#photolist ul li h3 {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
 }
 */
-div#photolist ul li div a span {
-	display: block;
-}
-div#photolist ul li div dl {
-	padding: 3px 0 0 0;
-	margin: 0;
-}
-div#photolist ul li div dl dt.addfav {	
-	padding: 0 3px 0 18px;
-	margin: 0;
-	display: inline;
-}div.photo {
+div.photo {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
+}
+div#photo a span {
+	display: block;
+}
+div#photo dl {
+	padding: 3px 0 0 0;
+	margin: 0;
+}
+div#photo dl dt.addfav {	
+	padding: 0 3px 0 18px;
+	margin: 0;
+	display: inline;
 }
