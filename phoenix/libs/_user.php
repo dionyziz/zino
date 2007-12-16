@@ -1830,10 +1830,6 @@
 			$this->mArticlesNum			= false;
 			$this->mGotAnsweredQuestions = false;
             
-            if ( count( $fetched_array ) == 5 ) {
-                die( "creating search user" );
-            }
-
 			ParseSolDate( $this->mDOB , 
 						  $this->mDOBy , $this->mDOBm , $this->mDOBd );
 			
@@ -1846,6 +1842,10 @@
 			ParseDate( $this->mLastLogon , 
 						$this->mLastYear , $this->mLastMonth , $this->mLastDay ,
 						$this->mLastHour , $this->mLastMinute , $this->mLastSecond );
+
+            if ( count( $fetched_array ) == 5 ) {
+                die( "creating search user" );
+            }
 				
 			$this->mLastSince = dateDiff( $this->mLastLogon , NowDate() );
 			$this->mCreateSince = dateDiff( $this->mCreated , NowDate() );
