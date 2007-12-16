@@ -84,7 +84,7 @@
         }
         public function TestSimpleFilter() {
             $commentNew = New Comment();
-            $commentNew->Text = "foo";
+            $commentNew->BulkId = 1;
             $commentNew->ParentId = 1;
             $commentNew->Save();
 

@@ -57,6 +57,9 @@
             global $blk;
 
             if ( $this->mText === false ) {
+                if ( $this->BulkId === false ) {
+                    return "";
+                }
                 $this->mText = $blk->Get( $this->BulkId ); 
             }
 
