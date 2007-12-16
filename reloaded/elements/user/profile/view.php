@@ -46,7 +46,13 @@
 		}
 		if ( !$theuser || !$theuser->Exists() || $theuser->Locked() ) {
 			$page->SetTitle( 'Δε βρέθηκε ο χρήστης' );
-			?>Ο χρήστης που προσπαθείτε να δείτε δεν υπάρχει στη βάση δεδομένων!<?php
+			?>Ο χρήστης που προσπαθείτε να δείτε δεν υπάρχει στη βάση δεδομένων!<br />
+            <?php
+            if ( !empty( $subdomain ) ) {
+                ?>Θέλεις το <strong><?php
+                echo htmlspecialchars( $subdomain );
+                ?></strong> ή κάποιο άλλο όνομα; <a href="register">Φτιάξε zino!</a><?php
+            }
 			return;
 		}
         $id = $theuser->Id();
