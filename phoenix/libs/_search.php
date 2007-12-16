@@ -296,6 +296,7 @@
         }
         public function Results() {
             global $water;
+            global $db;
 
             if ( count( $this->mPrototypes ) == 0 ) {
                 $water->Warning( "No prototypes added to search!" );
