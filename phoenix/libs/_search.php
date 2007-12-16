@@ -314,11 +314,12 @@
 
             $this->ValidatePrototype( $prototype );
 
+            $this->CreateQuery();
+
             if ( count( $this->mPrototypes ) == 1 ) {
                 die( "Query: " . $this->mQuery );
             }
 
-            $this->CreateQuery();
 
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
