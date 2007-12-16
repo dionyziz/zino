@@ -7,8 +7,6 @@
         $queries = array( 
             "albums" => "ALTER TABLE `merlin_albums` CHANGE `album_submithost` `album_submithost` INT NOT NULL;",
             "comments" => "ALTER TABLE `merlin_comments` CHANGE `comment_userip` `comment_userip` INT NOT NULL;",
-            "faq categories" => "ALTER TABLE `merlin_faqcategories` CHANGE `faqcategory_creatorip` `faqcategory_creatorip` INT NOT NULL;",
-            "faq questions" => "ALTER TABLE `merlin_faqquestions` CHANGE `faqquestion_creatorip` `faqquestion_creatorip` INT NOT NULL;",
             "friend relations" => "ALTER TABLE `merlin_friendrel` CHANGE `frel_creatorip` `frel_creatorip` INT NOT NULL;",
             "images" => "ALTER TABLE `merlin_images` CHANGE `image_userip` `image_userip` INT NOT NULL;",
             "ip bans" => "ALTER TABLE `merlin_ipban` CHANGE `ipban_ip` `ipban_ip` INT NOT NULL;",
@@ -20,9 +18,7 @@
             "searches" => "ALTER TABLE `merlin_searches` CHANGE `search_userip` `search_userip` INT NOT NULL;",
             "shoutbox" => "ALTER TABLE `merlin_shoutbox` CHANGE `shout_userip` `shout_userip` INT NOT NULL;",
             "starring" => "ALTER TABLE `merlin_starring` CHANGE `starring_userip` `starring_userip` INT NOT NULL;",
-            "templates" => "ALTER TABLE `merlin_templates` CHANGE `template_updateip` `template_updateip` INT NOT NULL;",
             "users" => "ALTER TABLE `merlin_users` CHANGE `user_registerhost` `user_registerhost` INT NOT NULL;",
-            "usershout" => "ALTER TABLE `merlin_usershout` CHANGE `usershout_userip` `usershout_userip` INT NOT NULL;"
         );
 
         foreach ( $queries as $table => $sql ) {
