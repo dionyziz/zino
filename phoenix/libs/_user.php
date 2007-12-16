@@ -1843,10 +1843,6 @@
 						$this->mLastYear , $this->mLastMonth , $this->mLastDay ,
 						$this->mLastHour , $this->mLastMinute , $this->mLastSecond );
 
-            if ( count( $fetched_array ) == 5 ) {
-                die( "creating search user" );
-            }
-				
 			$this->mLastSince = dateDiff( $this->mLastLogon , NowDate() );
 			$this->mCreateSince = dateDiff( $this->mCreated , NowDate() );
 			$this->mDaysSinceRegister = daysDistance( $this->mCreated );
@@ -1855,6 +1851,10 @@
             $this->mAnsweredQuestions = false;
             $this->mUnansweredQuestions = false;
 
+            if ( count( $fetched_array ) == 5 ) {
+                die( "creating search user" );
+            }
+				
 		}
 	}
 	
