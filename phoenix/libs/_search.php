@@ -255,7 +255,10 @@
             global $db;
             global $water;
 
-            w_assert( count( $this->mPrototypes ) > 0, "No prototypes added to search!" );
+            if ( count( $this->mPrototypes ) == 0 ) {
+                $water->Warning( "No prototypes added to search!" );
+                return array();
+            }
 
             if ( $prototype === false ) {
                 $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
