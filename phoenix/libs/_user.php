@@ -1776,10 +1776,6 @@
 				$fetched_array = $res->FetchArray();
 			}
 	
-            if ( count( $fetched_array ) == 5 ) {
-                die( "creating search user" );
-            }
-			
 			$this->mId		          	= isset( $fetched_array[ "user_id" ]                ) ? $fetched_array[ "user_id" ]               : 0;
 			$this->mRights		      	= isset( $fetched_array[ "user_rights" ]            ) ? $fetched_array[ "user_rights" ]           : 0;
             if ( isset( $fetched_array[ 'image_id' ] ) ) {
@@ -1833,6 +1829,10 @@
 			$this->mPositionPoints = intval( $this->mContribs * 0.5 );
 			$this->mArticlesNum			= false;
 			$this->mGotAnsweredQuestions = false;
+            
+            if ( count( $fetched_array ) == 5 ) {
+                die( "creating search user" );
+            }
 
 			ParseSolDate( $this->mDOB , 
 						  $this->mDOBy , $this->mDOBm , $this->mDOBd );
