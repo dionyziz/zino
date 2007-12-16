@@ -317,9 +317,13 @@
             $this->CreateQuery();
 
             if ( count( $this->mPrototypes ) == 1 ) {
-                $res = $db->Query( $this->mQuery );
-                var_dump( $res->ToObjectsArray( 'User' ) );
-                die();
+                $res = $db->Query( $this->mQuery )->MakeArray();
+                $ret = array();
+                foreach ( $res as $row ) {
+                    $ret[] = New User( $row );
+                }
+
+                return $ret;
             }
 
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
