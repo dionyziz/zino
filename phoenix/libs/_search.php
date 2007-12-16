@@ -274,10 +274,6 @@
 
             $this->PrepareSelect();
 
-            if ( count( $this->mPrototypes ) == 0 ) {
-                die( "Query: " . $this->mQuery );
-            }
-
             $this->PrepareTableRefs();
             $this->PrepareWhere();
             $this->PrepareGroupBy();
@@ -317,6 +313,10 @@
             }
 
             $this->ValidatePrototype( $prototype );
+
+            if ( count( $this->mPrototypes ) == 0 ) {
+                die( "Query: " . $this->mQuery );
+            }
 
             $this->CreateQuery();
 
