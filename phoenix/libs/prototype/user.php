@@ -1,5 +1,8 @@
 <?php
 
+    global $libs;
+    $libs->Load( 'user' ); // just in case
+    
     class UserPrototype extends SearchPrototype {
         public function UserPrototype() {
             $this->mClass = 'User';

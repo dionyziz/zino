@@ -1,5 +1,8 @@
 <?php
 
+    global $libs;
+    $libs->Load( "comment" ); // just in case
+
     class CommentPrototype extends SearchPrototype {
         public function SetTypeId( $typeid ) {
             switch( $typeid ) {
