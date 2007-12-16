@@ -267,13 +267,6 @@
                 return;
             }
 
-            if ( $prototype === false ) {
-                $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
-                $prototype = $this->mPrototypes[ 0 ];
-            }
-
-            $this->ValidatePrototype( $prototype );
-
             $this->PrepareSelect();
             $this->PrepareTableRefs();
             $this->PrepareWhere();
@@ -307,6 +300,13 @@
                 $water->Warning( "No prototypes added to search!" );
                 return array();
             }
+
+            if ( $prototype === false ) {
+                $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
+                $prototype = $this->mPrototypes[ 0 ];
+            }
+
+            $this->ValidatePrototype( $prototype );
 
             $this->CreateQuery();
 
