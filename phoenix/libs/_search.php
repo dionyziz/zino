@@ -319,7 +319,6 @@
             if ( count( $this->mPrototypes ) == 1 ) {
                 $res = $db->Query( $this->mQuery )->MakeArray();
                 $ret = array();
-                die( var_dump( $res ) );
                 foreach ( $res as $row ) {
                     $ret[] = New User( $row );
                     die( $ret[ 0 ] );
