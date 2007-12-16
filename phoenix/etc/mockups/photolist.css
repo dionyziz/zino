@@ -56,9 +56,10 @@ div.photo {
 	font-weight: normal;
 	text-align: center;
 }
+/*
 div#photo a span {
 	display: block;
-}
+}*/
 div#photo dl {
 	padding: 3px 0 0 0;
 	margin: 0;
