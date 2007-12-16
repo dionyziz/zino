@@ -8,7 +8,7 @@ var InterestTag = {
     	
     	// Start creating the close link
     	var closeimg = d.createElement( 'img' );
-		closeimg.src = "http://static.chit-chat.gr/images/colorpicker/close.png";
+		closeimg.src = "http://static.zino.gr/images/colorpicker/close.png";
 		closeimg.alt = "Κλείσιμο";
 		closeimg.title = "Κλείσιμο";
     	
@@ -91,7 +91,7 @@ var InterestTag = {
 		form.className = "inter";
 		
 		var imageaccept = d.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 		
 		var editsubmit = d.createElement( 'a' );
 		editsubmit.style.cursor = 'pointer';
@@ -141,7 +141,7 @@ var InterestTag = {
 		li.className = "interesttag";
 		
 		var deleteimage = d.createElement( 'img' );
-		deleteimage.src = "http://static.chit-chat.gr/images/icons/delete.png";
+		deleteimage.src = "http://static.zino.gr/images/icons/delete.png";
 
 		var del = d.createElement( 'a' );
 		del.style.cursor = "pointer";
@@ -205,7 +205,7 @@ var InterestTag = {
 			}
 		}
 		var img = d.createElement( 'img' );
-		img.src = "http://static.chit-chat.gr/images/icons/page_new.gif";
+		img.src = "http://static.zino.gr/images/icons/page_new.gif";
 		
 		var a = d.createElement( 'a' );
 		a.onclick = function() {

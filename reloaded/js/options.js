@@ -3,17 +3,17 @@ var SetCat = {
 	activate_category: function( catindex ) {
 			if ( SetCat.activated != -1 ) {
 				document.getElementById( 'cat' + SetCat.activated ).style.display = "none";
-				document.getElementById( 'setimg' + SetCat.activated ).src = "http://static.chit-chat.gr/images/icons/settings-collapsed.png";
+				document.getElementById( 'setimg' + SetCat.activated ).src = "http://static.zino.gr/images/icons/settings-collapsed.png";
 			}
 
 			if ( SetCat.activated == catindex ) {
 				document.getElementById( 'cat' + catindex ).style.display = "none";
-				document.getElementById( 'setimg' + catindex ).src = "http://static.chit-chat.gr/images/icons/settings-collapsed.png";
+				document.getElementById( 'setimg' + catindex ).src = "http://static.zino.gr/images/icons/settings-collapsed.png";
 				SetCat.activated = -1;
 			}
 			else {
 				document.getElementById( 'cat' + catindex ).style.display = "block";	
-				document.getElementById( 'setimg' + catindex ).src = "http://static.chit-chat.gr/images/icons/settings-expanded.png";
+				document.getElementById( 'setimg' + catindex ).src = "http://static.zino.gr/images/icons/settings-expanded.png";
 				SetCat.activated = catindex;
 			}
 	},

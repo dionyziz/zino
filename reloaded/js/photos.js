@@ -27,10 +27,10 @@ var Photos = {
 			//masterdiv.insertBefore( theinput , firstlink );
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -103,10 +103,10 @@ var Photos = {
 			theinput.value = photodescription;
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -181,7 +181,7 @@ var Photos = {
 			namelink.appendChild( namespan );
 			
 			imageedit = document.createElement( 'img' );
-			imageedit.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			imageedit.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -197,7 +197,7 @@ var Photos = {
 			editlink.appendChild( imageedit );
 			
 			var deleteimage = document.createElement( 'img' );
-			deleteimage.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+			deleteimage.src = 'http://static.zino.gr/images/icons/delete.png';
 			
 			var deletelink = document.createElement( 'a' );
 			deletelink.className = 'editinfos';
@@ -250,7 +250,7 @@ var Photos = {
 
 			
 			imageedit = document.createElement( 'img' );
-			imageedit.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			imageedit.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -338,10 +338,10 @@ var Photos = {
 			theinput.value = photoname;
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -401,10 +401,10 @@ var Photos = {
 			theinput.value = photodescription;
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -456,7 +456,7 @@ var Photos = {
 			theh2.appendChild( document.createTextNode( text ) );
 			
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -487,7 +487,7 @@ var Photos = {
 			thespan.className = 'details';
 			thespan.style.fontSize = '9pt';
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -593,7 +593,7 @@ var Photos = {
 		photoviewdiv.appendChild( enterphotolink );
 
 		var editimage = document.createElement( 'img' );
-		editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+		editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 		
 		var editlink = document.createElement( 'a' );
 		editlink.href = '';
@@ -610,7 +610,7 @@ var Photos = {
 		photoviewdiv.appendChild( editlink );
 
 		var mainimageimage = document.createElement( 'img' );
-		mainimageimage.src = 'http://static.chit-chat.gr/images/icons/vcard.png';
+		mainimageimage.src = 'http://static.zino.gr/images/icons/vcard.png';
 
 		var mainimagelink = document.createElement( 'a' );
 		mainimagelink.href = '';
@@ -626,7 +626,7 @@ var Photos = {
 		mainimagelink.appendChild( mainimageimage );
 		
 		var deleteimage = document.createElement( 'img' );
-		deleteimage.src= 'http://static.chit-chat.gr/images/icons/delete.png';
+		deleteimage.src= 'http://static.zino.gr/images/icons/delete.png';
 		
 		var deletelink = document.createElement( 'a' );
 		deletelink.href = '';
@@ -647,7 +647,7 @@ var Photos = {
 		photoviewdiv.appendChild( deletelink );
 		photoviewdiv.appendChild( document.createElement( 'br' ) );
 		
-		var imagesrc = 'http://images.chit-chat.gr/' + puserid + '/' + pid + '?resolution=' + pwidth + 'x' + pheight;
+		var imagesrc = 'http://images.zino.gr/' + puserid + '/' + pid + '?resolution=' + pwidth + 'x' + pheight;
 		//imagesrc = 'image.php?id=' + pid + '&width=' + pwidth + '&height=' + pheight;
 		var preloadimage = new Image( pwidth , pheight );
 		preloadimage.src = imagesrc;
@@ -678,7 +678,7 @@ var Photos = {
 		photoviewdiv.appendChild( photodescriptionspan );
 
 		var editlinkimg = document.createElement( 'img' );
-		editlinkimg.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+		editlinkimg.src = 'http://static.zino.gr/images/icons/edit.png';
 		
 		var editlink2 = document.createElement( 'a' );
 		editlink2.href = '';
@@ -808,7 +808,7 @@ var Photos = {
 		document.getElementById( 'iesucks' ).submit();
 		//nodeineed = parent.parentNode.parentNode;
 		var ajaxgif = document.createElement( 'img' );
-		ajaxgif.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+		ajaxgif.src = 'http://static.zino.gr/images/ajax-loader.gif';
 		ajaxgif.alt = 'Παρακαλώ περιμένετε...';
 		ajaxgif.title = 'Παρακαλώ περιμένετε...';
 		var spantext = document.createElement( 'span' );
@@ -844,7 +844,7 @@ var Photos = {
 		link.alt = '';
 		link.title = '';
 		var theimage = document.createElement( 'img' );
-		theimage.src = 'http://images.chit-chat.gr/' + userid + '/' + imageid + '?resolution=100x100';
+		theimage.src = 'http://images.zino.gr/' + userid + '/' + imageid + '?resolution=100x100';
 		//theimage.src = 'image.php?id=' + imageid + '&thumb=yes';
 		var thespan = document.createElement( 'span' );
 		thespan.appendChild( document.createTextNode( imageid ) );

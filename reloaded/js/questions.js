@@ -52,10 +52,10 @@ var Questions = {
 		qinput.className = 'bigtext';
 		
 		var imageaccept = document.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 		
 		var imagecancel = document.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+		imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 		
 		var qsubmit = d.createElement( 'a' );
 		qsubmit.style.cursor = 'pointer';

@@ -2,7 +2,7 @@ var Profile = {
     ChangeColor: function () {
         Colorpicker.Create( function ( r, g, b ) {
             Coala.Warm( "users/options/profilecolor", { 'r': r, 'g': g, 'b': b } );
-            document.getElementById( 'tab0' ).style.backgroundImage = 'url("http://images.chit-chat.gr/gradient/' + r + '/' + g + '/' + b + '")';
+            document.getElementById( 'tab0' ).style.backgroundImage = 'url("http://images.zino.gr/gradient/' + r + '/' + g + '/' + b + '")';
         }, function () {}, "Διάλεξε ένα χρώμα για το προφίλ σου:" );
     }
 };

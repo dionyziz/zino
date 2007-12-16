@@ -49,10 +49,10 @@ var Relations = {
 		rinput.setAttribute( "class", "bigtext" );
 					
 		var imageaccept = document.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 		
 		var imagecancel = document.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+		imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 		
 		var editsubmit = d.createElement( 'a' );
 		editsubmit.style.cursor = 'pointer';

@@ -147,7 +147,7 @@ var Poll = {
                 };
 
                 var deletepimg  = d.createElement( "img" );
-                deletepimg.src  = 'http://static.chit-chat.gr/images/icons/delete.png';
+                deletepimg.src  = 'http://static.zino.gr/images/icons/delete.png';
                 deletepimg.alt  = 'Διαγραφή Δημοσκόπησης';
 
                 deletep.appendChild( deletepimg );
@@ -165,7 +165,7 @@ var Poll = {
                 };
 
                 var editpimg    = d.createElement( "img" );
-                editpimg.src    = 'http://static.chit-chat.gr/images/icons/edit.png';
+                editpimg.src    = 'http://static.zino.gr/images/icons/edit.png';
                 editpimg.alt    = 'Επεξεργασία Δημοσκόπησης';
 
                 editp.appendChild( editpimg );
@@ -312,7 +312,7 @@ var Poll = {
         submit.style.cursor     = 'hand';
 
         var submitimg   = d.createElement( "img" );
-        submitimg.src   = 'http://static.chit-chat.gr/images/icons/disk.png';
+        submitimg.src   = 'http://static.zino.gr/images/icons/disk.png';
         submitimg.alt   = 'Αποθήκευση';
 
         submit.appendChild( submitimg );
@@ -329,7 +329,7 @@ var Poll = {
 
         var cancelimg   = d.createElement( "img" );
         cancelimg.alt   = 'Ακύρωση';
-        cancelimg.src   = 'http://static.chit-chat.gr/images/icons/cancel.png';
+        cancelimg.src   = 'http://static.zino.gr/images/icons/cancel.png';
 
         cancel.appendChild( cancelimg );
         
@@ -367,7 +367,7 @@ var Poll = {
         };
         
         var editopimg       = d.createElement( 'img' );
-        editopimg.src   = "http://static.chit-chat.gr/images/icons/edit.png";
+        editopimg.src   = "http://static.zino.gr/images/icons/edit.png";
         editopimg.alt   = 'επεξεργασία επιλογής';
 
         editop.appendChild( editopimg );
@@ -381,7 +381,7 @@ var Poll = {
         };
         
         var deleteopimg     = d.createElement( 'img' );
-        deleteopimg.src = "http://static.chit-chat.gr/images/icons/delete.png";
+        deleteopimg.src = "http://static.zino.gr/images/icons/delete.png";
         deleteopimg.alt = "διαγραφή επιλογής";
 
         deleteop.appendChild( deleteopimg );
@@ -419,7 +419,7 @@ var Poll = {
         submit.title = 'Αποθήκευση';
 
         var submitimg = d.createElement( "img" );
-        submitimg.src = 'http://static.chit-chat.gr/images/icons/disk.png';
+        submitimg.src = 'http://static.zino.gr/images/icons/disk.png';
         submitimg.style.width   = '16px';
         submitimg.style.height  = '16px';
         submitimg.style.marginLeft = '2px';
@@ -452,7 +452,7 @@ var Poll = {
         };
 
         createimg       = d.createElement( "img" );
-        createimg.src   = 'http://static.chit-chat.gr/images/icons/page_new.gif';
+        createimg.src   = 'http://static.zino.gr/images/icons/page_new.gif';
         createimg.alt   = 'Προσθήκη επιλογής';
         
         createa.appendChild( createimg );

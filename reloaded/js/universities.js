@@ -114,7 +114,7 @@ var Uni = {
 			thediv.removeChild( thediv.firstChild );
 		}
 		loadimg = document.createElement( 'img' );
-		loadimg.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+		loadimg.src = 'http://static.zino.gr/images/ajax-loader.gif';
 		loadimg.alt = 'Παρακαλώ περιμένετε';
 		loadimg.title = 'Παρακαλώ περιμένετε';
 		var loadspan = document.createElement( 'span' );

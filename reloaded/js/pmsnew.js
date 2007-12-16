@@ -462,7 +462,7 @@ var pms = {
 		}
 		else {
 			newtext2 = document.createElement( 'img' );
-			newtext2.src = 'http://static.chit-chat.gr/images/icons/email.png';
+			newtext2.src = 'http://static.zino.gr/images/icons/email.png';
 			newtext2.alt = 'Μηνύματα';
 			newtext2.style.width = '16px';
 			newtext2.style.height = '16px';
@@ -485,7 +485,7 @@ var pms = {
 	ShowAnimation : function( texttoshow ) {
 		pms.ClearMessages();
 		var loadinggif = document.createElement( 'img' );
-		loadinggif.src = 'http://static.chit-chat.gr/images/ajax-loader.gif';
+		loadinggif.src = 'http://static.zino.gr/images/ajax-loader.gif';
 		loadinggif.alt = texttoshow;
 		loadinggif.title = texttoshow;
 		var loadingtext = document.createTextNode( ' ' + texttoshow );

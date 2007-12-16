@@ -22,10 +22,10 @@ var Profileq = {
 						})(id);
 
 		var imageaccept = document.createElement( 'img' );
-		imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+		imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 
 		var imagecancel = document.createElement( 'img' );
-		imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+		imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 
 		var qid = d.createElement( 'input' );
 		qid.type = 'hidden';
@@ -83,7 +83,7 @@ var Profileq = {
 		l.title = "Επεξεργασία ερώτησης";
 
 		var imag = document.createElement( 'img' );
-		imag.src = "http://static.chit-chat.gr/images/icons/icon_wand.gif";
+		imag.src = "http://static.zino.gr/images/icons/icon_wand.gif";
 		imag.style.width = "16px";
 		imag.style.height = "16px";
 		imag.alt = "Επεξεργασία Ερώτησης";
@@ -94,7 +94,7 @@ var Profileq = {
 		qdeletelink.title = "Διαγραφή Ερώτησης";
 		
 		var qdeleteimg = d.createElement( 'img' );
-		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.src = 'http://static.zino.gr/images/icons/delete.png';
 		qdeleteimg.style.width = '12px';
 		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
@@ -124,7 +124,7 @@ var Profileq = {
 		qeditlink.onclick = function() { Profileq.Edit( id );return false;};
 		qeditlink.title = 'Επεξεργασία Ερώτησης';
 		var qeditimg = d.createElement( 'img' );
-		qeditimg.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
+		qeditimg.src = 'http://static.zino.gr/images/icons/icon_wand.gif';
 		qeditimg.style.width = '16px';
 		qeditimg.style.height = '16px';
 		qeditimg.alt = 'Επεξεργασία Ερώτησης';
@@ -135,7 +135,7 @@ var Profileq = {
 		qdeletelink.title = "Διαγραφή Ερώτησης";
 		
 		var qdeleteimg = d.createElement( 'img' );
-		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.src = 'http://static.zino.gr/images/icons/delete.png';
 		qdeleteimg.style.width = '12px';
 		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
@@ -196,7 +196,7 @@ var Profileq = {
         editb.title='Επεξεργασία ερώτησης';
         
         var accept = d.createElement( 'img' );
-        accept.src = 'http://static.chit-chat.gr/images/icons/icon_wand.gif';
+        accept.src = 'http://static.zino.gr/images/icons/icon_wand.gif';
         accept.style.width = '16px';
         accept.style.height = '16px';
         accept.alt = 'Επεξεργασία ερώτησης';
@@ -207,7 +207,7 @@ var Profileq = {
 		qdeletelink.title = "Διαγραφή Ερώτησης";
 		
 		var qdeleteimg = d.createElement( 'img' );
-		qdeleteimg.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+		qdeleteimg.src = 'http://static.zino.gr/images/icons/delete.png';
 		qdeleteimg.style.width = '12px';
 		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
@@ -269,7 +269,7 @@ var Profileq = {
         link.title = "Αποθήκευση";
 
         var image = d.createElement( 'img' );
-        image.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+        image.src = 'http://static.zino.gr/images/icons/accept.png';
 
         var other = d.createElement( 'a' );
         other.href='';
@@ -281,7 +281,7 @@ var Profileq = {
         other.title = "Αλλαγή Ερώτησης";
 
         var changeimage = d.createElement( 'img' );
-        changeimage.src = 'http://static.chit-chat.gr/images/icons/arrow_refresh.png';
+        changeimage.src = 'http://static.zino.gr/images/icons/arrow_refresh.png';
 
         link.appendChild( image );
         other.appendChild( changeimage );

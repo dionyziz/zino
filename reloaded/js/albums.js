@@ -84,10 +84,10 @@ var Albums = {
 			
 
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -160,10 +160,10 @@ var Albums = {
 			theinput.type = 'text';
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -234,7 +234,7 @@ var Albums = {
 			enteralbumlink.appendChild( albumnamespan );
 		
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
 			editlink.alt = 'Επεξεργασία ονόματος';
@@ -249,7 +249,7 @@ var Albums = {
 			editlink.appendChild( editimage );
 			
 			var deleteimage = document.createElement( 'img' );
-			deleteimage.src = 'http://static.chit-chat.gr/images/icons/delete.png';
+			deleteimage.src = 'http://static.zino.gr/images/icons/delete.png';
 			
 			var deletelink = document.createElement( 'a' );
 			deletelink.href = '';
@@ -295,7 +295,7 @@ var Albums = {
 			thespan.appendChild( document.createTextNode( text ) );
 			
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 		
 			editlink = document.createElement( 'a' );
 			editlink.alt = 'Επεξεργασία περιγραφής';
@@ -379,10 +379,10 @@ var Albums = {
 			theinput.value = albumname;
 			
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -444,10 +444,10 @@ var Albums = {
 			theinput.value = description;
 
 			imageaccept = document.createElement( 'img' );
-			imageaccept.src = 'http://static.chit-chat.gr/images/icons/accept.png';
+			imageaccept.src = 'http://static.zino.gr/images/icons/accept.png';
 			
 			imagecancel = document.createElement( 'img' );
-			imagecancel.src = 'http://static.chit-chat.gr/images/icons/cancel.png';
+			imagecancel.src = 'http://static.zino.gr/images/icons/cancel.png';
 			
 			acceptlink = document.createElement( 'a' );
 			acceptlink.href = '';
@@ -507,7 +507,7 @@ var Albums = {
 			theh2.appendChild( albumname );
 			
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
@@ -542,7 +542,7 @@ var Albums = {
 			thespan.appendChild( description );
 			
 			editimage = document.createElement( 'img' );
-			editimage.src = 'http://static.chit-chat.gr/images/icons/edit.png';
+			editimage.src = 'http://static.zino.gr/images/icons/edit.png';
 			
 			editlink = document.createElement( 'a' );
 			editlink.href = '';
