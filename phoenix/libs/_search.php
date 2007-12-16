@@ -320,6 +320,7 @@
                 $res = $db->Query( $this->mQuery )->MakeArray();
                 $ret = array();
                 foreach ( $res as $row ) {
+                    var_dump( $row );
                     $ret[] = New User( $row );
                 }
                 die( var_dump( $ret ) );
