@@ -61,8 +61,10 @@
             $this->AssertEquals( $search->Results(), 0, 'Empty search should have 0 results' );
         }
         public function TestSimple() {
+            $user = New UserPrototype();
+
             $search = New Search();
-            $search->AddPrototype( New UserPrototype() );
+            $search->AddPrototype( $user );
             $ret = $search->Get();
 
             $this->Assert( is_array( $ret ), 'Simple search did not return an array' );
