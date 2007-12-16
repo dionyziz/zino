@@ -55,6 +55,7 @@ div.photo {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
+	display: inline;
 }
 /*
 div#photo a span {
@@ -63,7 +64,6 @@ div#photo a span {
 div#photo dl {
 	padding: 3px 0 0 0;
 	margin: 0;
-	display: inline;
 }
 div#photo dl dt.addfav {	
 	padding: 0 3px 0 18px;
