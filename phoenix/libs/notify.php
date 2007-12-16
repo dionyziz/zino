@@ -26,7 +26,7 @@
         $offset = $offset * $length - $length;
         if ( $newest ) {
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
                     *
                 FROM
@@ -43,14 +43,14 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'NotifyToUserId', $userid );
-			$db->Bind( 'NotifyToDelId', 0 );
-			$db->Bind( 'Offset', $offset );
-			$db->Bind( 'Length', $length );
+			$query->Bind( 'NotifyToUserId', $userid );
+			$query->Bind( 'NotifyToDelId', 0 );
+			$query->Bind( 'Offset', $offset );
+			$query->Bind( 'Length', $length );
         }
         else {
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
                     *
                 FROM
@@ -66,14 +66,14 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'NotifyToUserId', $userid );
-			$db->Bind( 'One', 1 );
-			$db->Bind( 'Zero', 0 );
-			$db->Bind( 'Offset', $offset );
-			$db->Bind( 'Length', $length );
+			$query->Bind( 'NotifyToUserId', $userid );
+			$query->Bind( 'One', 1 );
+			$query->Bind( 'Zero', 0 );
+			$query->Bind( 'Offset', $offset );
+			$query->Bind( 'Length', $length );
         }
         // Execute query
-        $res = $db->Execute();
+        $res = $query->Execute();
 
         $ret = array();
         while( $row = $res->FetchArray() ) {
@@ -90,7 +90,7 @@
         global $db;
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			UPDATE
 	              `$notify`
             SET
@@ -105,14 +105,14 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'NotifyDelId', 1 );
-		$db->Bind( 'NotifyToUserId', $userid );
-		$db->Bind( 'NotifyItemId', $commentid );
-		$db->Bind( 'NotifyTypeId', $typeid );
-		$db->Bind( 'Limit', 1 );
+		$query->Bind( 'NotifyDelId', 1 );
+		$query->Bind( 'NotifyToUserId', $userid );
+		$query->Bind( 'NotifyItemId', $commentid );
+		$query->Bind( 'NotifyTypeId', $typeid );
+		$query->Bind( 'Limit', 1 );
 		
 		// Execute query
-        $change = $db->Execute();
+        $change = $query->Execute();
 
         return $change->Impact();
     }

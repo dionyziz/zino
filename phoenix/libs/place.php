@@ -43,7 +43,7 @@
             
 			if ( $change->Impact() ) {
 				// Prepared query
-				$db->Prepare("
+				$query = $db->Prepare("
 					UPDATE 
                         `$users` 
                     SET 
@@ -54,11 +54,11 @@
 				");
 				
 				// Assign query values
-				$db->Bind( 'UserPlaceZero', 0 );
-				$db->Bind( 'UserPlace', $this->Id );
+				$query->Bind( 'UserPlaceZero', 0 );
+				$query->Bind( 'UserPlace', $this->Id );
 				
 				// Execute query
-				$db->Execute();
+				$query->Execute();
 			}
             return $change;
 		}

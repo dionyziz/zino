@@ -19,7 +19,7 @@
 		
         $numimages = $user->CountImages() - 1;
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			UPDATE 
 				`$users` 
 			SET 
@@ -30,11 +30,11 @@
 		");
 		
 		// Assign values to query
-		$db->Bind( 'UserId', $user->Id() );
-		$db->Bind( 'Limit' , 1 );
+		$query->Bind( 'UserId', $user->Id() );
+		$query->Bind( 'Limit' , 1 );
 		
 		// Execute query
-		$change = $db->Execute();
+		$change = $query->Execute();
        
         if ( !$change->Impact() ) {
             return false;
@@ -42,7 +42,7 @@
 
         if ( $numimages > 0 ) {
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT 
 					max( `image_id` ) AS maximg 
 				FROM `$images` 
@@ -52,14 +52,14 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'ImageUserId', $user->Id() );
-			$db->Bind( 'Limit', 1 );
+			$query->Bind( 'ImageUserId', $user->Id() );
+			$query->Bind( 'Limit', 1 );
 			
             // Execute query 
-            $res = $db->Execute()->FetchArray();
+            $res = $query->Execute()->FetchArray();
             $maximg = $res[ 'maximg' ];
 			
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE 
 					`$latestimages` 
 				SET 
@@ -69,14 +69,14 @@
 			");
             
 			// Assign values to query
-			$db->Bind( 'LatestImageId', $res[ 'maximg' ] );
-			$db->Bind( 'LatestUserId', $user->Id() );
+			$query->Bind( 'LatestImageId', $res[ 'maximg' ] );
+			$query->Bind( 'LatestUserId', $user->Id() );
 			
 			// Execute query
-            $change = $db->Execute();
+            $change = $query->Execute();
         }
         else {
-			$db->Prepare("
+			$query = $db->Prepare("
 				DELETE FROM 
 					`$latestimages` 
 				WHERE 
@@ -85,10 +85,10 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'LatestUserId', $user->Id() );
+			$query->Bind( 'LatestUserId', $user->Id() );
             
 			// Execute query
-            $change = $db->Execute();
+            $change = $query->Execute();
         }
 		
 		return $change->Impact();
@@ -99,7 +99,7 @@
 		global $db;
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 		UPDATE 
 			`$users` 
 		SET 
@@ -110,11 +110,11 @@
 		");
 		
 		// Assign values to query
-		$db->Bind( 'UserId', $user->Id() );
-		$db->Bind( 'Limit', 1);
+		$query->Bind( 'UserId', $user->Id() );
+		$query->Bind( 'Limit', 1);
 		
 		// Execute query
-		$change = $db->Execute();
+		$change = $query->Execute();
 		
 		return $change->Impact();
 	}
@@ -165,7 +165,7 @@
 		global $db;
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT 
 				COUNT( * )
 			AS 
@@ -178,10 +178,10 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'ImageDelId', 0 );
+		$query->Bind( 'ImageDelId', 0 );
 		
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		$num = $res->FetchArray();
 		$num = $num[ "imagesnum" ];
 		
@@ -242,7 +242,7 @@
 		//$limit = mysql_escape_string( $limit );
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT
 				`latest_imageid`
 			FROM
@@ -261,11 +261,11 @@
 		");
 		
 		// Assign values to query
-		$db->Bind( 'ImageAlbumId', 0 );
-		$db->Bind( 'Limit', $limit );
+		$query->Bind( 'ImageAlbumId', 0 );
+		$query->Bind( 'Limit', $limit );
 		
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		
 		$rows = array();
 		
@@ -354,7 +354,7 @@
 			//update latest images
 			
 			// Prepared query
-			$this->mDb->Prepare("
+			$query = $this->mDb->Prepare("
 				SELECT
 					`image_id`
 				FROM
@@ -370,16 +370,16 @@
 			");
 			
 			// Assign query values
-			$this->mDb->Bind( 'ImageUserId', $this->UserId );
-			$this->mDb->Bind( 'ImageDelId', 0);
-			$this->mDb->Bind( 'Limit', 1);
+			$query->Bind( 'ImageUserId', $this->UserId );
+			$query->Bind( 'ImageDelId', 0);
+			$query->Bind( 'Limit', 1);
 			
 			// Execute query
-			$res = $this->mDb->Execute();
+			$res = $query->Execute();
 			
 			if ( !$res->Results() ) {
 				// Prepared query
-				$this->mDb->Prepare("
+				$query = $this->mDb->Prepare("
 					DELETE FROM
 						`$latestimages`
 					WHERE
@@ -389,17 +389,17 @@
 				");
 				
 				// Assign query values
-				$this->mDb->Bind( 'LatestImageId', $this->Id );
-				$this->mDb->Bind( 'Limit', 1 );
+				$query->Bind( 'LatestImageId', $this->Id );
+				$query->Bind( 'Limit', 1 );
 						
 				// Execute query
-				return $this->mDb->Execute();
+				return $query->Execute();
 			}
 			else {
 				while( $row = $res->FetchArray() ) {
 					// Prepared query
 					
-					$this->mDb->Prepare("
+					$query = $this->mDb->Prepare("
 						REPLACE INTO
 	                           `$latestimages`
                             ( `latest_userid`, `latest_imageid` )
@@ -409,11 +409,11 @@
 					");
 					
 					// Assign query values
-					$this->mDb->Bind( 'LatestUserId' , $this->UserId );
-					$this->mDb->Bind( 'LatestImageId', $row[ 'image_id' ] );
+					$query->Bind( 'LatestUserId' , $this->UserId );
+					$query->Bind( 'LatestImageId', $row[ 'image_id' ] );
 					
 					// Execute query
-					return $this->mDb->Execute();
+					return $query->Execute();
 				}
 			}
 		}
@@ -500,7 +500,7 @@
 
             if ( parent::Save() ) { // save again: Upload() has set size, width and height 
                 // Prepared query
-				$this->mDb->Prepare("
+				$query = $this->mDb->Prepare("
 					REPLACE INTO 
 						`$latestimages` 
 							( `latest_userid`, `latest_imageid` ) 
@@ -509,11 +509,11 @@
 				");
 				
 				// Assign query values
-				$this->mDb->Bind( 'LatestUserId' , $user->Id() );
-				$this->mDb->Bind( 'LatestImageId', $lastimgid );
+				$query->Bind( 'LatestUserId' , $user->Id() );
+				$query->Bind( 'LatestImageId', $lastimgid );
 				
 				// Execute query
-                $this->mDb->Execute();
+                $query->Execute();
             }
 
             Image_Added();

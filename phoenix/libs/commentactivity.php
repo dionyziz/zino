@@ -10,7 +10,7 @@ function CommentActivity_Increase( $userid, $typeid, $storyid, $commentid ) {
 	$theuser = New User( array( 'user_id' => $userid ) );
 
 	// Prepared query
-	$db->Prepare("
+	$query = $db->Prepare("
 		SELECT
 			`cq_created`
 		FROM
@@ -27,12 +27,12 @@ function CommentActivity_Increase( $userid, $typeid, $storyid, $commentid ) {
 	");
 
 	// Assign query values
-	$db->Bind( 'UserId' , $userid );
-	$db->Bind( 'TypeId' , $typeid );
-	$db->Bind( 'StoryId', $storyid );
-	$db->Bind( 'Limit', 1 );
+	$query->Bind( 'UserId' , $userid );
+	$query->Bind( 'TypeId' , $typeid );
+	$query->Bind( 'StoryId', $storyid );
+	$query->Bind( 'Limit', 1 );
 	
-	$res = $db->Execute();
+	$res = $query->Execute();
 	$numdifferentcomments = 1 - $res->NumRows();
 	$count = 1;
 

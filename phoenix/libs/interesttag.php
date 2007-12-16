@@ -14,7 +14,7 @@
         if ( $usern instanceof User ) {
             
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
                     *
                 FROM
@@ -25,7 +25,7 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'UserId', $usern->Id() );
+			$query->Bind( 'UserId', $usern->Id() );
 
             /*
             The following code was comment out because:
@@ -73,7 +73,7 @@
 			}
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
 				SQL_CALC_FOUND_ROWS `interesttag_id`, `interesttag_text`, `user_id`,`user_name`,`frel_type`,`image_id`
 				FROM `$interesttags`
@@ -88,13 +88,13 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'RelationUserId'  , $user->Id() );
-			$db->Bind( 'InterestTagText' , $tagtext );
-			$db->Bind( 'Offset' , $offset );
-			$db->Bind( 'Lenght' , $length );
+			$query->Bind( 'RelationUserId'  , $user->Id() );
+			$query->Bind( 'InterestTagText' , $tagtext );
+			$query->Bind( 'Offset' , $offset );
+			$query->Bind( 'Lenght' , $length );
         }
 		// Execute query
-        $res = $db->Execute();
+        $res = $query->Execute();
 		while ( $row = $res->FetchArray() ) {
 				$ret[] = new InterestTag( $row );
 			}
@@ -103,9 +103,10 @@
 
     function InterestTag_Count() {
         global $db;
-
-        $sql = "SELECT FOUND_ROWS() AS fr";
-        $fetched = $db->Query( $sql )->FetchArray();
+		
+		// Prepared query
+        $query = $db->Prepare("SELECT FOUND_ROWS() AS fr");
+		$fetched = $db->Execute()->FetchArray();
 
         return $fetched[ 'fr' ];
     }
@@ -115,7 +116,7 @@
         global $interesttags;
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			DELETE 
             FROM 
                 `$interesttags` 
@@ -125,9 +126,9 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'InterestTagUserId', $user->Id() );
+		$query->Bind( 'InterestTagUserId', $user->Id() );
 
-        return $db->Execute();
+        return $query->Execute();
     }
     
     class InterestTag extends Satori {
@@ -156,7 +157,7 @@
         }
         public function GetPrevious() {
 			// Prepared query
-			$this->mDb->Prepare("
+			$query = $this->mDb->Prepare("
 				SELECT
                     *
                 FROM
@@ -168,10 +169,10 @@
 			");
 			
 			// Assign query values
-			$this->mDb->Bind( 'InterestTagNext', $this->Id );
-			$this->mDb->Bind( 'Limit', 1 );
+			$query->Bind( 'InterestTagNext', $this->Id );
+			$query->Bind( 'Limit', 1 );
 			
-            return new InterestTag( $this->mDb->Execute()->FetchArray() );
+            return new InterestTag( $query->Execute()->FetchArray() );
         }
         public function MoveAfter( $target ) {
             $prev = $this->GetPrevious();
@@ -210,7 +211,7 @@
             if ( !$existed && $change->Impact() ) {
 				// Prepared query
 				
-				$this->mDb->Prepare("
+				$query = $this->mDb->Prepare("
 					UPDATE
                         `" . $this->mDbTable . "`
                     SET
@@ -225,14 +226,14 @@
 				");
 				
 				// Assign query values
-				$this->mDb->Bind( 'InterestTagNext'  , $this->Id );
-				$this->mDb->Bind( 'InterestTagUserId', $this->UserId );
-				$this->mDb->Bind( 'InterestTag'		 , '-1' );
-				$this->mDb->Bind( 'InterestTagId'    , $this->Id );
-				$this->mDb->Bind( 'Limit', 1 );
+				$query->Bind( 'InterestTagNext'  , $this->Id );
+				$query->Bind( 'InterestTagUserId', $this->UserId );
+				$query->Bind( 'InterestTag'		 , '-1' );
+				$query->Bind( 'InterestTagId'    , $this->Id );
+				$query->Bind( 'Limit', 1 );
 				
 				// Execute query
-                $change = $this->mDb->Execute();
+                $change = $query->Execute();
             }
 
             return $change;
@@ -256,7 +257,7 @@
 
             if ( is_string( $construct ) && $user instanceof User ) {
                 // Prepared query
-				$db->Prepare("
+				$query = $db->Prepare("
 					SELECT
                         *
                     FROM
@@ -270,11 +271,11 @@
 				");
 				
 				// Assign query values
-				$db->Bind( 'InterestTagText', $construct );
-				$db->Bind( 'InterestTagUserId', $user->Id() );
-				$this->mDb->Bind( 'Limit', 1 );
+				$query->Bind( 'InterestTagText', $construct );
+				$query->Bind( 'InterestTagUserId', $user->Id() );
+				$query->Bind( 'Limit', 1 );
 				
-                $construct = $db->Execute()->FetchArray();
+                $construct = $query->Execute()->FetchArray();
             }
 
             $this->Satori( $construct );

@@ -18,7 +18,7 @@
 		global $logs;
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT 
 				COUNT(*) AS logscount
 			FROM
@@ -29,10 +29,10 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'LogUserId', $id );
+		$query->Bind( 'LogUserId', $id );
 		
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		$fetched = $res->FetchArray();
 		
 		return $fetched;
@@ -41,16 +41,18 @@
 		global $db;
 		global $logs;
 		
-		// TODO: Use prepared query here?
-		$sql = "SELECT
-					COUNT(*) AS lcount 
-				FROM 
-					`$logs`
-				WHERE 
-					`log_requesturi` NOT LIKE '%style%' AND
-					`log_requesturi` NOT LIKE '%image%';";
+		// Prepared query
+		$query = $db->Prepare("
+			SELECT
+				COUNT(*) AS lcount 
+			FROM 
+				`$logs`
+			WHERE 
+				`log_requesturi` NOT LIKE '%style%' AND
+				`log_requesturi` NOT LIKE '%image%';
+		");
 		
-		$res = $db->Query( $sql );
+		$res = $query->Query( $sql );
 		
 		return $res->FetchArray();
 	}
@@ -63,7 +65,7 @@
 		$offset = myescape( $offset );
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT
 				*
 			FROM 
@@ -78,12 +80,12 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'LogUserId', $uid );
-		$db->Bind( 'Offset', $offset );
-		$db->Bind( 'Limit' , 25 );
+		$query->Bind( 'LogUserId', $uid );
+		$query->Bind( 'Offset', $offset );
+		$query->Bind( 'Limit' , 25 );
 	
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		$ret = $res->MakeArray();
 		
 		return $ret;		
@@ -93,19 +95,24 @@
 		global $db;
 		global $logs;
 		
-		// TODO: Use prepared query here?
-		$sql = "SELECT
-					`log_date`
-				FROM 
-					`$logs`
-				WHERE 
-					`log_requesturi` NOT LIKE '%style%' AND
-					`log_requesturi` NOT LIKE '%image%'
-				ORDER BY
-					`log_date` ASC 
-				LIMIT 1;";
+		// Prepared query
+		$query = $db->Prepare("
+			SELECT
+				`log_date`
+			FROM 
+				`$logs`
+			WHERE 
+				`log_requesturi` NOT LIKE '%style%' AND
+				`log_requesturi` NOT LIKE '%image%'
+			ORDER BY
+				`log_date` ASC 
+			LIMIT :Limit
+			;
+		");
+		
+		$query->Bind( 'Limit', 1 );
 	
-		$res = $db->Query( $sql );
+		$res = $query->Query( $sql );
 		
 		return $res->FetchArray();
 	}

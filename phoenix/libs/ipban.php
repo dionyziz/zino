@@ -56,7 +56,7 @@
             ) );
             if ( is_int( $construct ) ) { // by banid
                 // Prepared query
-				$db->Prepare("
+				$query = $db->Prepare("
 					SELECT
 					    `ipban_id`, `ipban_ip`, `ipban_date`,
 					    `ipban_expiredate`, `ipban_sysopid`,
@@ -71,11 +71,11 @@
 				");
 				
 				// Assign query values
-				$db->Bind( 'IpBanid', $construct );
-				$db->Bind( 'Limit', '1' );
+				$query->Bind( 'IpBanid', $construct );
+				$query->Bind( 'Limit', '1' );
 				
 				// Execute query
-                $res = $db->Execute();
+                $res = $query->Execute();
                 if ( !$res->Results() ) {
                     $water->Notice( 'Requested ipban does not exist!' );
                     $construct = false;
@@ -88,7 +88,7 @@
                 //$construct = addslashes( $construct );
                 
 				// Prepared query
-				$db->Prepare("
+				$query = $db->Prepare("
 					SELECT
 					    `ipban_id`, `ipban_ip`, `ipban_date`,
 					    `ipban_expiredate`, `ipban_sysopid`,
@@ -103,11 +103,11 @@
 				");
 				
 				// Assign query values
-				$db->Bind( 'IpBanid', $construct );
-				$db->Bind( 'Limit', '1' );
+				$query->Bind( 'IpBanid', $construct );
+				$query->Bind( 'Limit', '1' );
 				
 				// Execute query
-                $res = $db->Execute();
+                $res = $query->Execute();
                 if ( !$res->Results() ) {
                     $construct = false;
                 }

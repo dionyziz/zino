@@ -44,7 +44,7 @@
 			}
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
 					COUNT( * ) AS unreadpms
 				FROM
@@ -58,11 +58,11 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'PmSenderId', $theuser->Id() );
-			$db->Bind( 'PmIfDelId' , 0 );
+			$query->Bind( 'PmSenderId', $theuser->Id() );
+			$query->Bind( 'PmIfDelId' , 0 );
 			
 			// Execute query
-			$fetched = $db->Execute()->FetchArray();
+			$fetched = $query->Execute()->FetchArray();
 			
 			return $fetched[ "unreadpms" ];
 	}

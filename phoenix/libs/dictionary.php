@@ -8,7 +8,7 @@
         
 
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT
                 *
             FROM
@@ -20,10 +20,10 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'Random', rand( 1, 76833 ) );
-		$db->Bind( 'Limit', 1);
+		$query->Bind( 'Random', rand( 1, 76833 ) );
+		$query->Bind( 'Limit', 1);
 		
-        $res = $db->Execute();
+        $res = $query->Execute();
 
         if ( !$res->Results() ) {
             $water->Notice( 'No words found in dictionary' );
@@ -47,7 +47,7 @@
             global $dictionarywords;
             
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
 	                 COUNT(*) AS wordscount
                 FROM
@@ -58,10 +58,10 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'DictionaryId', $this->mId );
+			$query->Bind( 'DictionaryId', $this->mId );
 			
 			// Execute query
-            $res = $this->mDb->Execute();
+            $res = $query->Execute();
             $row = $res->FetchArray();
             
             return $this->mWordsCount = $row[ 'wordscount' ];
@@ -80,7 +80,7 @@
             //$construct = addslashes( $construct );
             
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
                     *
                 FROM
@@ -92,11 +92,11 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'DictionaryLanguage', $construct );
-			$db->Bind( 'Limit', 1 );
+			$query->Bind( 'DictionaryLanguage', $construct );
+			$query->Bind( 'Limit', 1 );
 			
 			// Execute query
-            $res = $this->mDb->Execute();
+            $res = $query->Execute();
             if ( !$res->Results() ) {
                 $water->Notice( 'Dictionary not found' );
                 $this->Satori( false );

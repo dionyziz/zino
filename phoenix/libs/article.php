@@ -351,7 +351,7 @@
 			}
 			
 			// Prepare query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE `$articles`
 				SET
 					`article_delid` = :ArticleDelId
@@ -362,11 +362,11 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'ArticleDelId', 1 );
-			$db->Bind( 'ArticleId', $this->Id() );
+			$query->Bind( 'ArticleDelId', 1 );
+			$query->Bind( 'ArticleId', $this->Id() );
 			
 			// Execute query
-			return $db->Execute()->Impact();
+			return $query->Execute()->Impact();
 		}
 		public function Update( $title, $text, $icon, $emoticons, $categoryid , $minor, $comment = false ) {
 			global $db;
@@ -410,7 +410,7 @@
 			++$this->mHeadRevision;
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE `$articles`
 				SET
 					`article_headrevision` = :RevisionId
@@ -421,11 +421,11 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'RevisionId'	, $this->RevisionId() );
-			$db->Bind( 'ArticleId'	, $this->Id() );
+			$query->Bind( 'RevisionId'	, $this->RevisionId() );
+			$query->Bind( 'ArticleId'	, $this->Id() );
 			
 			// Execute query
-			$db->Execute();
+			$query->Execute();
 					
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -469,7 +469,7 @@
 			++$this->mHeadRevision;
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE `$articles`
 				SET
 					`article_headrevision` = :RevisionId
@@ -480,11 +480,11 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'RevisionId'	, $this->RevisionId() );
-			$db->Bind( 'ArticleId'	, $this->Id() );
+			$query->Bind( 'RevisionId'	, $this->RevisionId() );
+			$query->Bind( 'ArticleId'	, $this->Id() );
 			
 			// Execute query
-			$db->Execute();
+			$query->Execute();
 			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -506,7 +506,7 @@
 					$articleid = $this->Id();
 					
 					// Prepared query
-					$db->Prepare("
+					$query = $db->Prepare("
 						SELECT 
 							`user_id` ,
 							`user_name` ,
@@ -527,11 +527,11 @@
 					");
 					
 					// Assign values to query
-					$db->Bind( 'RevisionArticleId', $articleid );
-					$db->Bind( 'RevisionMinor', 'no' );
+					$query->Bind( 'RevisionArticleId', $articleid );
+					$query->Bind( 'RevisionMinor', 'no' );
 					
 					// Execute query
-					$res = $db->Execute();
+					$res = $query->Execute();
 					
 					$ret = array();
 					while ( $sqleditor = $res->FetchArray() ) {
@@ -590,7 +590,7 @@
 			++$this->mHeadRevision;
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE `$articles`
 				SET
 					`article_headrevision` = :RevisionId
@@ -601,11 +601,11 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'RevisionId'	, $this->RevisionId() );
-			$db->Bind( 'ArticleId'	, $this->Id() );
+			$query->Bind( 'RevisionId'	, $this->RevisionId() );
+			$query->Bind( 'ArticleId'	, $this->Id() );
 			
 			// Execute query
-			$db->Execute();
+			$query->Execute();
 			
 			$key = 'articleformatted:' . $this->Id();
 			$mc->delete( $key );
@@ -627,7 +627,7 @@
 			}
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
 					*
 				FROM 
@@ -639,11 +639,11 @@
 			");
 			
 			// Assign values to query
-			$db->Bind( 'ArticleId', $this->Id() );
-			$db->Bind( 'JournalistId', $journalist->Id() );
+			$query->Bind( 'ArticleId', $this->Id() );
+			$query->Bind( 'JournalistId', $journalist->Id() );
 			
 			// Execute query
-			$res = $db->Execute();
+			$res = $query->Execute();
 			
 			if ( $res->Results() ) {
 				return true;
@@ -673,7 +673,7 @@
 			}
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE
 					`merlin_articles` 
 				SET 
@@ -685,10 +685,10 @@
 			");
 
 			// Assign values to query
-			$db->Bind( 'ArticleId', $this->Id() );
+			$query->Bind( 'ArticleId', $this->Id() );
 			
 			// Execute query
-			$change = $db->Execute();
+			$change = $query->Execute();
 			            
             if ( $change->Impact() ) {
     			++$this->mPageviews;
@@ -712,7 +712,7 @@
 			++$this->mNumComments;
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE
 					`merlin_articles` 
 				SET 
@@ -724,10 +724,10 @@
 			");
 
 			// Assign values to query
-			$db->Bind( 'ArticleId', $this->Id() );
+			$query->Bind( 'ArticleId', $this->Id() );
 			
 			// Execute				
-			return $db->Execute()->Impact();
+			return $query->Execute()->Impact();
 		}
 		public function CommentKilled() {
 			// What happens when a comment is deleted in the article
@@ -737,7 +737,7 @@
 			--$this->mNumComments;
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				UPDATE
 					`merlin_articles` 
 				SET 
@@ -749,10 +749,10 @@
 			");
 
 			// Assign values to query
-			$db->Bind( 'ArticleId', $this->Id() );
+			$query->Bind( 'ArticleId', $this->Id() );
 
 			// Execute				
-			return $db->Execute()->Impact();
+			return $query->Execute()->Impact();
 		}
 		private function Construct( $construct ) {
 			global $db;
@@ -770,7 +770,7 @@
 			}
 			
 			// Prepared query
-			$db->Prepare("
+			$query = $db->Prepare("
 				SELECT
 					`article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
 
@@ -795,11 +795,11 @@
 			");
 			
 			// Assign query values
-			$db->Bind( 'Construct', $construct  );
-			$db->Bind( 'ArticleDelId', 0 );
+			$query->Bind( 'Construct', $construct  );
+			$query->Bind( 'ArticleDelId', 0 );
 			
 			// Execute query					
-			$res = $db->Execute();
+			$res = $query->Execute();
 			if ( $res->Results() ) {
 				return $res->FetchArray();
 			}
@@ -1078,7 +1078,7 @@
 			$offset = 0;
 		}
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT 
 				`revision_id` , `revision_title` , `revision_updated` , `revision_minor`, `user_name`, `revision_comment`
 			FROM 
@@ -1095,12 +1095,12 @@
 		");
 		
 		// Assign query values
-		$db->Bind( 'ArticleId', $id );
-		$db->Bind( 'Offset', $offset );
-		$db->Bind( 'Limit', 10 );
+		$query->Bind( 'ArticleId', $id );
+		$query->Bind( 'Offset', $offset );
+		$query->Bind( 'Limit', 10 );
 		
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		if ( $res->Results() ) {
 	        $rows = array();
 	        while ( $row = $res->FetchArray() ) {

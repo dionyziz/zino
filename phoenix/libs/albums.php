@@ -76,7 +76,7 @@
             $this->Save();
 			
 			// Prepared query
-			$this->mDb->Prepare("
+			$query  = $this->mDb->Prepare("
 				UPDATE `" . $this->mImageTable . "`
 				SET
 					`image_delid` 	= :ImageDelId
@@ -86,11 +86,11 @@
 			");
 			
 			// Assign values to query
-			$this->mDb->Bind( 'ImageDelId', 1 );
-			$this->mDb->Bind( 'AlbumId', $this->Id );
+			$query->Bind( 'ImageDelId', 1 );
+			$query->Bind( 'AlbumId', $this->Id );
 			
 			// Execute query
-			$this->mDb->Execute();
+			$query->Execute();
 			
 		}
         public function CommentAdded() {

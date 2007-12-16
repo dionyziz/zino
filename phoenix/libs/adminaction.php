@@ -18,7 +18,7 @@
         }
 		
 		// Prepared query
-		$db->Prepare("
+		$query = $db->Prepare("
 			SELECT
 				*
 			FROM
@@ -29,10 +29,10 @@
 		");
 		
 		// Assign values to query
-		$db->Bind( 'AdminId', $adminid );
+		$query->Bind( 'AdminId', $adminid );
 		
 		// Execute query
-		$res = $db->Execute();
+		$res = $query->Execute();
 		
 		$actions    = array();
         while ( $row = $res->FetchArray() ) {
@@ -63,7 +63,7 @@
             if ( !is_array( $construct ) ) {
 				
 				// Prepared query
-				$this->mDb->Prepare("
+				$query = $this->mDb->Prepare("
 					SELECT
 	                	*
 	                FROM
@@ -76,10 +76,10 @@
 				");
 				
 				// Assign values to query
-				$this->mDb->Bind('Construct', $construct );
+				$query->Bind('Construct', $construct );
              	
 				// Execute query
-                $construct = $this->mDb->Execute()->FetchArray();
+                $construct = $query->Execute()->FetchArray();
             }
 
             $this->SetFields( array(
