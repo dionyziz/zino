@@ -22,6 +22,7 @@
         protected $mQuery;
         protected $mPrototypes;
         protected $mConnections;
+        private   $mChanged;
 
         private function ValidatePrototype( $prototype ) {
             w_assert( $prototype instanceof SearchPrototype );
@@ -45,6 +46,8 @@
 
             $water->Trace( "Search: connected prototype " . $prototype1->GetClass() . " with " . $prototype2->GetClass() );
             $water->Trace( "Search: connection type: $type" );
+
+            $this->mChanged = true;
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
             global $water;
@@ -55,6 +58,8 @@
             if ( is_object( $connectto ) ) {
                 $this->Connect( $prototype, $connectto, $connecttype );
             }
+
+            $this->mChanged = true;
         }
         private function PrepareSelect() {
             global $water;
@@ -241,6 +246,8 @@
             $this->SortTable = $prototype->GetTable();
             $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
+
+            $this->mChanged = true;
         }
         public function SetGroupBy( $prototype, $property ) {
             $this->ValidatePrototype( $prototype );
@@ -249,11 +256,16 @@
 
             $this->GroupByTable = $prototype->GetTable();
             $this->GroupByField = $fields[ $property ];
+
+            $this->mChanged = true;
         }
         // Search::Get() will create instances of $prototype->GetClass()
-        public function Get( $prototype = false ) {
-            global $db;
+        private function CreateQuery() {
             global $water;
+
+            if ( !$this->mChanged ) {
+                return;
+            }
 
             if ( count( $this->mPrototypes ) == 0 ) {
                 $water->Warning( "No prototypes added to search!" );
@@ -278,12 +290,26 @@
 
             $water->Trace( "Query: " . $this->mQuery );
 
+            $this->mChanged = false;
+        }
+        public function Results() {
+            $this->CreateQuery();
+
+            return $db->Query( $this->mQuery )->Results();
+        }
+        public function Get( $prototype = false ) {
+            global $db;
+
+            $this->CreateQuery();
+
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
         public function Search() {
             $this->mConnections = array();
             $this->mPrototypes  = array();
             $this->mConnected   = array();
+            $this->mQuery       = "";
+            $this->mChanged     = false;
         }
     }
 
