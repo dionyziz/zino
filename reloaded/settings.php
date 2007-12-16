@@ -1,6 +1,4 @@
 <?php
-    return array();
-    
     return array(
         'applicationname' => 'Zino',
         'rootdir'         => '/var/www/chit-chat.gr/beta/reloaded',
