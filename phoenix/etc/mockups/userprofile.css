@@ -31,12 +31,14 @@ div#profile div.sidebar div.basicinfo dl dt {
 	float: left;
 	width: 100px;
 	padding: 2px 0;
+	font-weight: bold;
 }
 div#profile div.sidebar div.basicinfo dl dd {
 	display: block;
 	text-align: left;
 	margin-left: 100px;
 	padding: 2px 0;
+	width: 180px;
 }
 div#profile div.sidebar div.basicinfo a img {
 	float: left;
