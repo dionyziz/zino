@@ -6,15 +6,15 @@
 			<div class="mood">Διάθεση: <img src="images/avatars/cool.gif" alt="cool" title="cool" /></div>
 			<div class="info">
 				<dl>
-					<dt>Ηλικία</dt>
+					<dt><strong>Ηλικία</strong></dt>
 					<dd>19</dd>
-					<dt>Περιοχή</dt>
+					<dt><strong>Περιοχή</strong></dt>
 					<dd>Αθήνα</dd>
-					<dt>Πανεπιστήμιο</dt>
+					<dt><strong>Πανεπιστήμιο</strong></dt>
 					<dd>Ηλεκτρολόγων Μηχ/κων και Μηχ/κων Υπολογιστών - Αθήνα</dd>
-					<dt>Χρώμα μαλλιών</dt>
+					<dt><strong>Χρώμα μαλλιών</strong></dt>
 					<dd>Καστανό</dd>
-					<dt>Χρώμα ματιών</dt>
+					<dt><strong>Χρώμα ματιών</strong></dt>
 					<dd>Καφέ</dd>
 				</dl>
 			</div>

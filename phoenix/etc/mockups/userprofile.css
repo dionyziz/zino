@@ -29,15 +29,16 @@ div#profile div.sidebar div.basicinfo div dl {
 div#profile div.sidebar div.basicinfo dl dt {
 	display: block;
 	float: left;
-	width: 100px;
+	width: 120px;
 	padding: 2px 0;
+	/*font-weight: bold;*/
 }
 div#profile div.sidebar div.basicinfo dl dd {
 	display: block;
 	text-align: left;
-	margin-left: 100px;
+	margin-left: 120px;
 	padding: 2px 0;
-	width: 180px;
+	width: 160px;
 }
 div#profile div.sidebar div.basicinfo a img {
 	float: left;
