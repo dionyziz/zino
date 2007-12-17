@@ -1,0 +1,111 @@
+div#profile {
+	margin: 20px 0;
+}
+div#profile div.sidebar {
+	background-color: white;
+	background-image: url('images/sidebarbg.jpg');
+	background-repeat: repeat-y;
+	background-position: right;
+	float: left;
+	position: relative;
+	width: 300px;
+	padding: 14px 0 4px 0;
+}
+div#profile div.sidebar div.basicinfo {
+	padding: 4px;
+	margin-bottom: 20px;
+}
+div#profile div.sidebar div.basicinfo dl dt {
+	display: block;
+	float: left;
+	width: 100px;
+}
+div#profile div.sidebar div.basicinfo dl dd {
+	display: block;
+	text-align: center;
+}
+div#profile div.sidebar div.basicinfo a img {
+	float: left;
+	margin: 3px 6px 20px 3px;
+	border: 1px solid #666;
+}
+div#profile div.sidebar div.basicinfo a span.name {
+	font-size: 120%;
+	display: block;
+	font-weight: bold;
+}
+div#profile div.sidebar div.look {
+	clear: both;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background-color: white;
+}
+div#profile div.sidebar div.look ul li.dot {
+	color: #999;
+	font-size: 100%;
+}
+div#profile div.sidebar div.look img {
+	float: left;
+}
+div#profile div.sidebar div.look ul {
+	margin: 0 0 0 30px;
+	padding: 0;
+	list-style: none;
+}
+div#profile div.sidebar div.look ul li {
+	font-weight: bold;
+	padding: 1px;
+	display: inline;
+}
+div#profile div.sidebar div.social {
+	padding: 4px;
+	clear: both;
+}
+div#profile div.sidebar div.social dl dt {
+	float: left;
+	width: 100px;
+}
+div#profile div.sidebar div.interests {
+
+}
+div#profile div.sidebar div.interests dl {
+}
+div#profile div.sidebar div.interests dl dt {
+div#profile div.sidebar div.interests dl dd {
+}
+div#profile div.sidebar div.contact {
+	padding: 4px;
+}
+div#profile div.sidebar div.contact dt {
+	float: left;
+	height: 18px;
+}
+div#profile div.sidebar div.contact dd {
+	height: 18px;
+	margin: 4px 4px 4px 20px;
+}
+div#profile div.sidebar div.notice {
+	margin: 10px 0 20px 0;
+	text-align: left;
+}
+div#profile div.sidebar div.notice span.online {
+	background-image: url('images/bullet_green.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+div#profile div.sidebar div.notice span.online a {
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+div#profile div.sidebar div.eof {
+    float: right;
+	position: relative;
+	top: 14px;
+	background-image: url('images/sidebarend.jpg');
+	width: 41px;
+	height: 51px;
+}
