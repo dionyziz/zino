@@ -15,6 +15,9 @@ div#profile div.sidebar div.basicinfo {
 	padding: 4px;
 	margin-bottom: 20px;
 }
+div#profile div.sidebar div.basicinfo div.mood {
+	padding-top: 5px;
+}
 div#profile div.sidebar div.basicinfo div.info {
 	clear: left;
 }
