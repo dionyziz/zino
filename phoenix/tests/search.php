@@ -51,6 +51,7 @@
             $this->Assert( method_exists( $search, 'SetGroupBy' ) );
             $this->Assert( method_exists( $search, 'Get' ) );
             $this->Assert( method_exists( $search, 'Results' ) );
+            $this->Assert( method_exists( $search, 'NumRows' ) );
         }
         public function TestEmpty() {
             $search = New Search();
@@ -72,12 +73,12 @@
 
             $usercount = count( ListAllUsers() );
             if ( $usercount <= 100 ) {
-                $this->AssertEquals( $search->Results(), count( $ret ), 'Number of results differs from the count of the rows returned' );
+                $this->AssertEquals( $search->NumRows(), count( $ret ), 'Number of results differs from the count of the rows returned' );
                 $this->AssertEquals( $usercount, count( $ret ), 'Simple search did not return the right number of rows' );
             }
             else {
                 $this->AssertEquals( 100, count( $ret ), 'Simple search did not apply a limit of 100 rows' );
-                $this->AssertEquals( $usercount, $search->Results(), 'Search resulsts should be the real number of rows, even when a limit would be applied' );
+                $this->AssertEquals( $usercount, $search->NumRows(), 'Search NumRows should be the real number of rows, even when a limit would be applied' );
             }
 
             
