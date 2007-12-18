@@ -191,3 +191,25 @@ div#profile div.main div.people {
 	overflow: hidden;
 	height: 230px;
 }
+div#profile div.main div.questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.questions ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+div#profile div.main div.question ul li {
+	padding: 2px 0 2px 0;
+	margin: 0;
+}
+div#profile div.main div.question ul li p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+div#profile div.main div.question ul li p.answer {
+	padding: 0;
+	margin: 0;
+}

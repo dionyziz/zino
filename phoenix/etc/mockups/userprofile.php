@@ -122,7 +122,7 @@
 			</ul>
 		</div>
 		<div class="friends">
-			<h3>Οι φίλοι μου...</h3>
+			<h3>Οι φίλοι μου</h3>
 			<div class="people">
 				<ul>
 					<li><a href=""><img src="images/avatars/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>προβολή προφίλ &raquo;</span></a></li>
@@ -136,6 +136,33 @@
 			</div>
 		</div>
 		<div class="questions">
+			<h3>Ερωτήσεις</h3>
+			<ul>
+				<li>
+					<p class="question">Πόσα κιλά είναι η γιαγιά σου;</p>
+					<p class="answer">Είναι πολύ χοντρή</p>
+				</li>
+				<li>
+					<p class="question">Γαμιέται η μάνα σου;</p>
+					<p class="answer">Αρκετά</p>
+				</li>
+				<li>
+					<p class="question">Ποιο είναι το αγαπημένο σου φρούτο;</p>
+					<p class="answer">Το αχλάδι και το καρπούζι</p>
+				</li>
+				<li>
+					<p class="question">Πώς τη βλέπεις τη ζωή;</p>
+					<p class="answer">Δε τη βλέπω</p>
+				</li>
+				<li>
+					<p class="question">Πώς θα ήθελες να πεθάνεις;</p>
+					<p class="answer">Από την πείνα</p>
+				</li>
+				<li>
+					<p class="question">Τι φοβάσαι περισσότερο;</p>
+					<p class="answer">Τίποτα</p>
+				</li>
+			</ul>
 		</div>
 		<div class="lastpoll">
 		</div>
