@@ -167,7 +167,7 @@ div#profile div.main div.photos ul {
 	list-style: none;
 }
 div#profile div.main div.photos ul li {
-	padding: 0;
+	padding: 0 3px;
 	margin: 0;
 	float: left;
 }
