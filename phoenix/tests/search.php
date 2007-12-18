@@ -121,7 +121,8 @@
                 }
                 if ( $comment->Id == $commentNew->Id ) {
                     $found = true;
-                    $this->AssertEquals( $comment, $commentNew, 'New comment found, but it is not equal' );
+                    $this->AssertEquals( $comment->BulkId, $commentNew->BulkId, 'New comment found, but it is not equal' );
+                    $this->AssertEquals( $comment->ParentId, $commentNew->ParentId, 'New comment found, but it is not equal' );
                 }
             }
             
