@@ -133,6 +133,7 @@
 					<li><a href=""><img src="images/avatars/29230.jpg" style="width:100px;height:80px" alt="metalo92" title="metalo92" /><strong>metalo92</strong><span>προβολή προφίλ &raquo;</span></a></li>
 				</ul>
 				<div class="eof"></div>
+				<a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 			</div>
 		</div>
 		<div class="lastpoll">
@@ -202,6 +203,7 @@
 					</li>				
 				</ul>
 			</div>
+			<a href="" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
 		</div>
 		<div class="questions">
 			<h3>Ερωτήσεις</h3>
@@ -228,6 +230,7 @@
 					<p class="answer">Τίποτα</p>
 				</li>
 			</ul>
+			<a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
 		</div>
 		<div style="clear:right"></div>
 		<div class="lastjournal">
@@ -238,6 +241,7 @@
 				και του διαβάσματος. Σήμερα είπα να φτιάξω βραδυνό με έναν προτότυπο τρόπο. Έφτιαξα λοιπόν
 				ένα sandwich χωρίς να έχω ψηστιέρα. Όπως όμως λέει και η γνωστή παροιμία όποιος δεν έχει ψηστιέρα έχει σίδερο...
 			</p>
+			<a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
 		</div>
 		<div class="comments">
 			<h3>Σχόλια</h3>
