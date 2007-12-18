@@ -133,8 +133,8 @@
 					<li><a href=""><img src="images/avatars/29230.jpg" style="width:100px;height:80px" alt="metalo92" title="metalo92" /><strong>metalo92</strong><span>προβολή προφίλ &raquo;</span></a></li>
 				</ul>
 				<div class="eof"></div>
-				<a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 			</div>
+			<a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 		</div>
 		<div class="lastpoll">
 			<h3>Δημοσκοπήσεις</h3>
