@@ -108,10 +108,16 @@ div#profile div.sidebar div.interests dl {
 	margin: 0;
 }
 div#profile div.sidebar div.interests dl dt {
+	display: block;
 }
 div#profile div.sidebar div.interests dl dd {
+	display: block;
+	padding: 0;
+	margin: 0;
 }
 div#profile div.sidebar div.interests dl {
+	padding: 0;
+	margin: 0;
 }
 div#profile div.sidebar div.interests dl dt {
 div#profile div.sidebar div.interests dl dd {
