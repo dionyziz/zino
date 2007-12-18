@@ -30,13 +30,13 @@ div#profile div.sidebar div.basicinfo dl dt {
 	display: block;
 	float: left;
 	width: 120px;
-	padding: 2px 0;
+	padding: 3px 0;
 }
 div#profile div.sidebar div.basicinfo dl dd {
 	display: block;
 	text-align: left;
 	margin-left: 120px;
-	padding: 2px 0;
+	padding: 3px 0;
 	width: 160px;
 }
 div#profile div.sidebar div.basicinfo a img {
