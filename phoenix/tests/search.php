@@ -59,7 +59,8 @@
 
             $this->Assert( is_array( $ret ), 'Empty search did not return an array' );
             $this->Assert( empty( $ret ), 'Empty search should return an empty array' );
-            $this->AssertEquals( $search->Results(), 0, 'Empty search should have 0 results' );
+            $this->AssertEquals( false, $search->Results(), 'Empty search should not have results' );
+            $this->AssertEquals( 0, $search->NumRows(), 'Empty search should have 0 NumRows' );
         }
         public function TestSimple() {
             $user = New UserPrototype();
