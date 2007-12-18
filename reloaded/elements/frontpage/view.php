@@ -25,6 +25,6 @@
 		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
 			echo $rabbit_settings[ 'applicationname' ];
 			?></a><br /><br /><?php
-        Element( "ad/leaderboard" );
+        Element( "ad/leaderboardgameplanet" );
     }
 ?>
