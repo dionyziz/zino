@@ -149,7 +149,7 @@
             if ( $user === false ) {
                 $user = $this->User;
             }
-            if ( $this->Exists() && !$this->IsEditableBy( $user ) || $this->UserIsSpamBot() ) {
+            if ( $this->Exists() && ( !$this->IsEditableBy( $user ) || $this->UserIsSpamBot() ) ) {
                 return false;
             }
             $existed = $this->Exists();
