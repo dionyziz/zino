@@ -165,6 +165,7 @@ div#profile div.main {
 	padding: 14px 0 0 10px;
 }
 div#profile div.main div.photos {
+	height: 120px;
 }
 div#profile div.main div.photos ul {
 	padding: 0;
@@ -187,5 +188,5 @@ div#profile div.main div.friends h3 {
 }
 div#profile div.main div.people {
 	overflow: hidden;
-	width: 80%;
+	height: 230px;
 }
