@@ -43,8 +43,8 @@
         protected $mParent;
         protected $mDelId;
         protected $mTypeId;
-        protected $mPage;
-        protected $mPageId;
+        protected $mItem;
+        protected $mItemId;
         protected $mBulkId;
         protected $mCreateYear;
         protected $mCreateMonth;
@@ -66,7 +66,7 @@
             return $this->mText;
         }
         public function GetURL() {
-            return $this->Page->Url . "#comment_" . $this->Id;
+            return $this->Item->Url . "#comment_" . $this->Id;
         }
         public function IsDeleted() {
             return $this->DelId > 0;
@@ -77,28 +77,28 @@
             }
             return $this->mParent;
         }
-        public function GetPage() {
-            if ( $this->mPage === false ) {
+        public function GetItem() {
+            if ( $this->mItem === false ) {
                 switch ( $this->TypeId ) {
                     case COMMENT_JOURNAL:
                         // TODO
                         break;
                     case COMMENT_PROFILE:
-                        $this->mPage = New User( $this->PageId );
+                        $this->mItem = New User( $this->ItemId );
                         break;
                     case COMMENT_IMAGE:
-                        $this->mPage = New Image( $this->PageId );
+                        $this->mItem = New Image( $this->ItemId );
                         break;
                     case COMMENT_POLL:
-                        $this->mPage = New Poll( $this->PageId );
+                        $this->mItem = New Poll( $this->ItemId );
                         break;
                 }
             }
             
-            return $this->mPage;
+            return $this->mItem;
         }
-        public function SetPage( $page ) {
-            $this->mPage = $page;
+        public function SetItem( $item ) {
+            $this->mItem = $item;
         }
 		public function GetUser() {
             if ( $this->mUser === false ) {
@@ -158,7 +158,7 @@
                 return false;
             }
             else if ( !$existed ) {
-                $this->Page->CommentAdded();
+                $this->Item->CommentAdded();
                 $mc->delete( 'latestcomments' );
                 $user->AddContrib();
                 if ( $this->Parent->Exists() ) {
@@ -185,7 +185,7 @@
 
             $this->DelId = 1;
             if ( $this->Save( $user ) ) {
-                $this->Page->CommentAdded();
+                $this->Item->CommentAdded();
                 $this->User->RemoveContrib();
 
                 return true;
@@ -200,7 +200,7 @@
 
             $this->DelId = 0;
             if ( $this->Save() ) {
-				$this->Page()->CommentAdded();
+				$this->Item()->CommentAdded();
                 $this->User->AddContrib();
                 return true;
             }
@@ -223,7 +223,7 @@
                 'comment_userid'    => 'UserId',
                 'comment_created'   => 'Created',
                 'comment_userip'    => 'UserIp',
-                'comment_pageid'    => 'PageId',
+                'comment_itemid'    => 'ItemId',
                 'comment_typeid'    => 'TypeId',
                 'comment_parentid'  => 'ParentId',
                 'comment_delid'     => 'DelId',
@@ -246,7 +246,7 @@
            
 			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;
             $this->mText    = false;
-            $this->mPage    = false;
+            $this->mItem    = false;
             $this->mParent  = false;
         }
     }
