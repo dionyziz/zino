@@ -269,6 +269,11 @@
         // Search::Get() will create instances of $prototype->GetClass()
         private function CreateQuery() {
             global $water;
+            
+            if ( count( $this->mPrototypes ) == 0 ) {
+                $water->Warning( "No prototypes added to search!" );
+                return false;
+            }
 
             if ( !$this->mChanged ) {
                 return;
@@ -287,31 +292,35 @@
             $water->Trace( "Query: " . $this->mQuery );
 
             $this->mChanged = false;
+
+            return true;
         }
         public function Results() {
-            global $water;
             global $db;
 
-            if ( count( $this->mPrototypes ) == 0 ) {
-                $water->Warning( "No prototypes added to search!" );
+            if ( !$this->CreateQuery() ) {
+                return false;
+            }
+
+            return $db->Query( $this->mQuery )->Results();
+        }
+        public function NumRows() {
+            global $db;
+
+            if ( !$this->CreateQuery() ) {
                 return 0;
             }
 
-            $this->CreateQuery();
-
-            return $db->Query( $this->mQuery )->Results();
+            return $db->Query( $this->mQuery )->NumRows();
         }
         public function Get( $prototype = false ) {
             global $db;
             global $water;
 
-            if ( count( $this->mPrototypes ) == 0 ) {
-                $water->Warning( "No prototypes added to search!" );
-                return array();
-            }
-
             if ( $prototype === false ) {
-                $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
+                if ( count( $this->mPrototypes ) > 1 ) {
+                    $water->Notice( "Search: no prototype specified on Search::Get(); using the first added" );
+                }
                 $prototype = $this->GetPrototype( 0 );
             }
 
@@ -325,10 +334,11 @@
                 $this->Limit = 100;
             }
 
-
             $this->ValidatePrototype( $prototype );
 
-            $this->CreateQuery();
+            if ( !$this->CreateQuery() ) {
+                return array();
+            }
 
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }

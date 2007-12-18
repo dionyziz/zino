@@ -76,8 +76,8 @@
                 $this->AssertEquals( $usercount, count( $ret ), 'Simple search did not return the right number of rows' );
             }
             else {
-                $this->AssertEquals( count( $ret ), 100, 'Simple search did not apply a limit of 100 rows' );
-                $this->AssertEquals( $search->Results(), $usercount, 'Search resulsts should be the real number of rows, even when a limit would be applied' );
+                $this->AssertEquals( 100, count( $ret ), 'Simple search did not apply a limit of 100 rows' );
+                $this->AssertEquals( $usercount, $search->Results(), 'Search resulsts should be the real number of rows, even when a limit would be applied' );
             }
 
             
