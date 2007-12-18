@@ -1,7 +1,7 @@
 <?php
     
     global $libs;
-    $libs->Load( 'image' ); // just in case
+    $libs->Load( 'image/image' ); // just in case
 
     class ImagePrototype extends SearchPrototype {
         public function ImagePrototype() {

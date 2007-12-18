@@ -276,7 +276,7 @@
             }
 
             if ( !$this->mChanged ) {
-                return;
+                return true;
             }
 
             $this->PrepareSelect();
