@@ -334,11 +334,11 @@
                 $this->Limit = 100;
             }
 
-            $this->ValidatePrototype( $prototype );
-
             if ( !$this->CreateQuery() ) {
                 return array();
             }
+
+            $this->ValidatePrototype( $prototype );
 
             return $db->Query( $this->mQuery )->ToObjectsArray( $prototype->GetClass() );
         }
