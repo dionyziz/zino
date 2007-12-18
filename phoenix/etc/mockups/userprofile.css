@@ -226,3 +226,7 @@ div#profile div.main div.lastpoll h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
+div#profile div.main div.lastpoll h4 {
+	padding: 0;
+	margin: 0;
+}
