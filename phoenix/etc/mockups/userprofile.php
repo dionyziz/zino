@@ -52,7 +52,7 @@
 		</div>
 		<div class="interests">
 			<dl>
-				<dt>Hobbies</dt>
+				<dt><strong>Hobbies</strong></dt>
 				<dd>
 					<a href="">Web Development</a>, 
 					<a href="">PHP</a>, 
@@ -64,25 +64,25 @@
 					<a href="">Maths</a>
 				</dd>
 				
-				<dt>Αγαπημένα τραγούδια</dt>
+				<dt><strong>Αγαπημένα τραγούδια</strong></dt>
 				<dd>Papercut, Perfection is my direction, Over my head, Teenagers, Black parade</dd>
 			
-				<dt>Αγαπημένες ταινίες</dt>
+				<dt><strong>Αγαπημένες ταινίες</strong></dt>
 				<dd>Amelie, Elephant, Sommersturm, Lord of the Rings</dd>
 				
-				<dt>Αγαπημένες σειρές</dt>
+				<dt><strong>Αγαπημένες σειρές</strong></dt>
 				<dd>Pixelperfect, Friends</dd>
 				
-				<dt>Αγαπημένα βιβλία</dt>
+				<dt><strong>Αγαπημένα βιβλία</strong></dt>
 				<dd>PHP cookbook, MySQL cookbook, Code complete</dd>
 				
-				<dt>Αγαπημένοι καλλιτέχνες</dt>
+				<dt><strong>Αγαπημένοι καλλιτέχνες</strong></dt>
 				<dd>Angelina Jolie, Rowan Atkinson, Harisson Ford</dd>
 				
-				<dt>Αγαπημένα videogames</dt>
+				<dt><strong>Αγαπημένα videogames</strong></dt>
 				<dd>WoW, Baldrus gate, Empire earth, Age of empires</dd>
 				
-				<dt>Αγαπημένα ρητά</dt>
+				<dt><strong>Αγαπημένα ρητά</strong></dt>
 				<dd>Τον αράπη και αν τον πλένεις το σαπούνι σου χαλάς</dd>
 			</dl>
 		</div>
