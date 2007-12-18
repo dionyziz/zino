@@ -155,3 +155,18 @@ div#profile div.sidebar div.eof {
 	width: 41px;
 	height: 51px;
 }
+div#profile div.main {
+
+}
+div#profile div.main div.photos {
+
+}
+div#profile div.main div.photos ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+div#profile div.main div.photos ul li {
+	padding: 0;
+	margin: 0;
+}
