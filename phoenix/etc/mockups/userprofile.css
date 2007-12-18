@@ -242,3 +242,7 @@ div#profile div.main div.lastjournal p {
 	margin: 0;
 	padding: 5px 0 0 0;
 }
+div#profile div.main div.comments h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
