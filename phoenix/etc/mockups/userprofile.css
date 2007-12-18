@@ -39,12 +39,17 @@ div#profile div.sidebar div.basicinfo dl dd {
 	padding: 3px 0;
 	width: 160px;
 }
-div#profile div.sidebar div.basicinfo a img {
+div#profile div.sidebar div.basicinfo h2 {
+	padding: 0;
+	margin: 0;
+	/*display: inline;*/
+}
+div#profile div.sidebar div.basicinfo h2 a img {
 	float: left;
 	margin: 3px 6px 20px 3px;
 	border: 1px solid #666;
 }
-div#profile div.sidebar div.basicinfo a span.name {
+div#profile div.sidebar div.basicinfo h2 a span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
