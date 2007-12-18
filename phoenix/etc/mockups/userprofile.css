@@ -169,4 +169,5 @@ div#profile div.main div.photos ul {
 div#profile div.main div.photos ul li {
 	padding: 0;
 	margin: 0;
+	float: left;
 }
