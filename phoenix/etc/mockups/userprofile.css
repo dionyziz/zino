@@ -230,3 +230,15 @@ div#profile div.main div.lastpoll h4 {
 	padding: 2px 0 0 0;
 	margin: 0;
 }
+div#profile div.main div.lastjournal h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal h4 {
+	padding: 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal p {
+	margin: 0;
+	padding: 0;
+}
