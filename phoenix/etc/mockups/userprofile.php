@@ -117,4 +117,5 @@
 		<div class="lastjournal">
 		</div>	
 	</div>
+	<div class="eof"></div>
 </div>
