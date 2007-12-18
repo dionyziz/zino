@@ -228,15 +228,9 @@
         }
         private function PrepareLimit() {
             global $water;
-
+            
             if ( empty( $this->Limit ) ) {
-                $water->Warning( "No limit applied to search; Setting limit to 100" );
-                $this->Limit = 100;
-            }
-
-            if ( $this->Limit > 1000 ) {
-                $water->Warning( "Too high limit was applied; Setting limit to 100" );
-                $this->Limit = 100;
+                return;
             }
 
             $this->mQuery .= "LIMIT ";
@@ -320,6 +314,17 @@
                 $water->Warning( "Search: no prototype specified on Search::Get(); using the first added" );
                 $prototype = $this->GetPrototype( 0 );
             }
+
+            if ( empty( $this->Limit ) ) {
+                $water->Warning( "No limit applied to search; Setting limit to 100" );
+                $this->Limit = 100;
+            }
+
+            if ( $this->Limit > 100 ) {
+                $water->Warning( "Too high limit was applied; Setting limit to 100" );
+                $this->Limit = 100;
+            }
+
 
             $this->ValidatePrototype( $prototype );
 

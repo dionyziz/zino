@@ -69,8 +69,17 @@
 
             $this->Assert( is_array( $ret ), 'Simple search did not return an array' );
             $this->AssertFalse( !empty( $ret ), 'Simple search returned an empty array' );
-            $this->AssertEquals( count( $ret ), count( ListAllUsers() ), 'Simple search did not return the right number of rows' );
-            $this->AssertEquals( $search->Results(), count( $ret ), 'Number of results differs from the count of the rows returned' );
+
+            $usercount = count( ListAllUsers() );
+            if ( $usercount <= 100 ) {
+                $this->AssertEquals( $search->Results(), count( $ret ), 'Number of results differs from the count of the rows returned' );
+                $this->AssertEquals( $usercount, count( $ret ), 'Simple search did not return the right number of rows' );
+            }
+            else {
+                $this->AssertEquals( count( $ret ), 100, 'Simple search did not apply a limit of 100 rows' );
+                $this->AssertEquals( $search->Results(), $usercount, 'Search resulsts should be the real number of rows, even when a limit would be applied' );
+            }
+
             
             $rightClass = true;
             foreach ( $ret as $user ) {
