@@ -154,6 +154,7 @@
             }
             $existed = $this->Exists();
             if ( !parent::Save() ) {
+                die( "parent failed" );
                 return false;
             }
             else if ( !$existed ) {
