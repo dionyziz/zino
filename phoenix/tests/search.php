@@ -70,7 +70,7 @@
             $ret = $search->Get();
 
             $this->Assert( is_array( $ret ), 'Simple search did not return an array' );
-            $this->AssertFalse( !empty( $ret ), 'Simple search returned an empty array' );
+            $this->AssertFalse( empty( $ret ), 'Simple search returned an empty array' );
 
             $usercount = count( ListAllUsers() );
             if ( $usercount <= 100 ) {
