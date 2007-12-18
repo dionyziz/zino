@@ -171,7 +171,7 @@ div#profile div.main div.photos ul {
 	margin: 0;
 	list-style: none;
 	overflow: hidden;
-	width: 60%;
+	width: 100%;
 }
 div#profile div.main div.photos ul li {
 	padding: 0 3px;
@@ -187,5 +187,5 @@ div#profile div.main div.friends h3 {
 }
 div#profile div.main div.people {
 	overflow: hidden;
-	width: 100%;
+	width: 60%;
 }
