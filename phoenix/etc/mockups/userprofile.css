@@ -201,8 +201,9 @@ div#profile div.main div.questions ul {
 	list-style: none;
 }
 div#profile div.main div.questions ul li {
-	padding: 2px 0 2px 0;
+	padding: 3px 0 3px 0;
 	margin: 0;
+	width: 70%;
 }
 div#profile div.main div.questions ul li p.question {
 	padding: 0 0 2px 0;
