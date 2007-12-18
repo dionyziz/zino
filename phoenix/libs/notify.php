@@ -171,6 +171,8 @@
             $this->Save();
         }
         public function Save() {
+            global $user;
+
             if ( $xc_settings[ "readonly" ] > $user->Rights() || $this->FromUserId == $this->ToUserId ) {
                 return false;
             }
