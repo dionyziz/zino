@@ -178,3 +178,11 @@ div#profile div.main div.photos ul li {
 	margin: 0;
 	float: left;
 }
+div#profile div.main div.friends {
+
+}
+div#profile div.main div.friends h3 {
+}
+div#profile div.main div.people {
+	overflow: hidden;
+}
