@@ -225,7 +225,7 @@
 					<p class="question">Πώς θα ήθελες να πεθάνεις;</p>
 					<p class="answer">Από την πείνα</p>
 				</li>
-				<li>
+				<li style="padding-bottom:20px;">
 					<p class="question">Αν εμφανιζόταν ένα τζίνι και σου έλεγε πως μπορεί να πραγματοποιήσει μια ευχή σου, τι θα του ζητούσες;</p>
 					<p class="answer">Τίποτα</p>
 				</li>
