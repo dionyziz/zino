@@ -158,7 +158,9 @@
                 return false;
             }
             else if ( !$existed ) {
-                $this->Item->CommentAdded();
+                if ( is_object( $this->Item ) ) {
+                    $this->Item->CommentAdded();
+                }
                 $mc->delete( 'latestcomments' );
                 $user->AddContrib();
                 if ( $this->Parent->Exists() ) {
