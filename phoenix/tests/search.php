@@ -97,7 +97,7 @@
             $commentNew = New Comment();
             $commentNew->BulkId = 1;
             $commentNew->ParentId = 1;
-            $commentNew->Save();
+            w_assert( $commentNew->Save() );
 
             $commentPrototype = New CommentPrototype();
             $commentPrototype->ParentId = 1;
