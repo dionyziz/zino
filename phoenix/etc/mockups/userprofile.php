@@ -88,13 +88,13 @@
 		</div>
 		<div class="contact">
 			<dl>
-				<dt><img src="images/skype.jpg" alt="skype" /></dt>
+				<dt><img src="images/skype.jpg" alt="skype" title="skype" /></dt>
 				<dd>dionyziz</dd>
 				
-				<dt><img src="images/msn.jpg" alt="msn" /></dt>
+				<dt><img src="images/msn.jpg" alt="msn" title="msn" /></dt>
 				<dd>dionyziz@hotmail.com</dd>
 				
-				<dt><img src="images/yahoo.jpg" alt="yahoo" /></dt>
+				<dt><img src="images/yahoo.jpg" alt="yahoo" title="yahoo" /></dt>
 				<dd>dionyziz</dd>
             </dl>
 		</div>
