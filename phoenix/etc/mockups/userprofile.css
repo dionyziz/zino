@@ -42,6 +42,7 @@ div#profile div.sidebar div.basicinfo dl dd {
 div#profile div.sidebar div.basicinfo h2 {
 	padding: 0;
 	margin: 0;
+	font-size: 120%;
 	/*display: inline;*/
 }
 div#profile div.sidebar div.basicinfo h2 a img {
