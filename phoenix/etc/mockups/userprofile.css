@@ -172,7 +172,7 @@ div#profile div.main div.photos ul {
 	margin: 0;
 	list-style: none;
 	overflow: hidden;
-	width: 100%;
+	height: 100px;
 }
 div#profile div.main div.photos ul li {
 	padding: 0 3px;
