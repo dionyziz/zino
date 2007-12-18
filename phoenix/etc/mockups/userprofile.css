@@ -191,6 +191,10 @@ div#profile div.main div.people {
 	overflow: hidden;
 	height: 230px;
 }
+div#profil div.main div.questions {
+	float: left;
+	width: 50%;
+}
 div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
