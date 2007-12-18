@@ -180,6 +180,9 @@ div#profile div.main div.photos ul li {
 	margin: 0;
 	float: left;
 }
+div#profile div.main div.friends {
+	padding-bottom: 20px;
+}
 div#profile div.main div.friends h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
@@ -188,10 +191,11 @@ div#profile div.main div.people {
 	overflow: hidden;
 	height: 230px;
 }
+div#profile div.main div.friends a.button {
+	margin-left: 0;
+}
 div#profil div.main div.questions {
-	/*float: left;
-	width: 50%;
-	*/
+	padding-bottom: 20px;
 }
 div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
@@ -216,9 +220,14 @@ div#profile div.main div.questions ul li p.answer {
 	padding: 0;
 	margin: 0;
 }
+div#profile div.main div.questions a.button {
+	margin-left: 0;
+}
 div#profile div.main div.lastpoll {
 	float: right;
+	padding-bottom: 20px;
 }
+
 div#profile div.main div.lastpoll h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
@@ -226,6 +235,12 @@ div#profile div.main div.lastpoll h3 {
 div#profile div.main div.lastpoll h4 {
 	padding: 2px 0 0 0;
 	margin: 0;
+}
+div#profile div.main div.lastpoll a.button {
+	margin-left: 0;
+}
+div#profile div.main div.lastjournal {
+	padding-bottom: 20px;
 }
 div#profile div.main div.lastjournal h3 {
 	padding: 10px 0 5px 0;
@@ -238,6 +253,9 @@ div#profile div.main div.lastjournal h4 {
 div#profile div.main div.lastjournal p {
 	margin: 0;
 	padding: 5px 0 0 0;
+}
+div#profile div.main div.lastjournal a.button {
+	margin-left: 0;
 }
 div#profile div.main div.comments h3 {
 	padding: 20px 0 5px 0;
