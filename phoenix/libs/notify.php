@@ -170,7 +170,7 @@
             $this->DelId = 2;
             $this->Save();
         }
-        protected function Save() {
+        public function Save() {
             if ( $xc_settings[ "readonly" ] > $user->Rights() || $this->FromUserId == $this->ToUserId ) {
                 return false;
             }
