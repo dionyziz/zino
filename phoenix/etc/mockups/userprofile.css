@@ -104,23 +104,21 @@ div#profile div.sidebar div.interests {
 	clear: both;
 }
 div#profile div.sidebar div.interests dl {
-	padding: 0;
+	padding: 5px 0 0 0;
 	margin: 0;
 }
 div#profile div.sidebar div.interests dl dt {
 	display: block;
+	padding: 2px 0 3px 0;
 }
 div#profile div.sidebar div.interests dl dd {
 	display: block;
-	padding: 0;
+	padding: 1px 0 5px 0;
 	margin: 0;
 }
 div#profile div.sidebar div.interests dl {
-	padding: 0;
+	padding: 5px 0 0 0;
 	margin: 0;
-}
-div#profile div.sidebar div.interests dl dt {
-div#profile div.sidebar div.interests dl dd {
 }
 div#profile div.sidebar div.contact {
 	padding: 4px;
