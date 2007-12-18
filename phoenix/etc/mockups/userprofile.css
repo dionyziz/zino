@@ -231,7 +231,7 @@ div#profile div.main div.lastpoll h4 {
 	margin: 0;
 }
 div#profile div.main div.lastjournal h3 {
-	padding: 5px 0 5px 0;
+	padding: 10px 0 5px 0;
 	margin: 0;
 }
 div#profile div.main div.lastjournal h4 {
@@ -240,5 +240,5 @@ div#profile div.main div.lastjournal h4 {
 }
 div#profile div.main div.lastjournal p {
 	margin: 0;
-	padding: 0;
+	padding: 5px 0 0 0;
 }
