@@ -163,6 +163,7 @@ div#profile div.sidebar div.eof {
 }
 div#profile div.main {
 	padding: 14px 0 0 10px;
+	margin-left: 305px;
 }
 div#profile div.main div.photos {
 	height: 120px;
