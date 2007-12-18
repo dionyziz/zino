@@ -91,12 +91,13 @@ div#profile div.sidebar div.social dl dd {
 	display: block;
 	text-align: left;
 	margin-left: 170px;
-	padding: 2px 0;
+	padding: 3px 0;
 	width: 100px;
 }
 div#profile div.sidebar div.social dl dt {
 	float: left;
 	width: 170px;
+	padding: 3px 0;
 }
 div#profile div.sidebar div.interests {
 
