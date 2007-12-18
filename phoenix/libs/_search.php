@@ -22,7 +22,6 @@
         protected $mQuery;
         protected $mPrototypes;
         protected $mConnections;
-        private   $mChanged;
 
         private function GetPrototype( $n ) { // get nth prototype
             $prototypeClasses = array_keys( $this->mPrototypes );
@@ -51,8 +50,6 @@
 
             $water->Trace( "Search: connected prototype " . $prototype1->GetClass() . " with " . $prototype2->GetClass() );
             $water->Trace( "Search: connection type: $type" );
-
-            $this->mChanged = true;
         }
         public function AddPrototype( $prototype, $connectto = false, $connecttype = 'right' ) {
             global $water;
@@ -63,15 +60,13 @@
             if ( is_object( $connectto ) ) {
                 $this->Connect( $prototype, $connectto, $connecttype );
             }
-
-            $this->mChanged = true;
         }
         private function PrepareSelect() {
             global $water;
 
             $water->Profile( "Search: SELECT" );
 
-            $this->mQuery .= "SELECT";
+            $this->mQuery = "SELECT";
             $first = true;
             foreach ( $this->mPrototypes as $prototype ) {
                 $water->Trace( "Search: adding fields of prototype " . $prototype->GetClass(), $prototype->GetFields() );
@@ -253,8 +248,6 @@
             $this->SortTable = $prototype->GetTable();
             $this->SortField = $fields[ $property ];
             $this->SortOrder = strtoupper( $order );
-
-            $this->mChanged = true;
         }
         public function SetGroupBy( $prototype, $property ) {
             $this->ValidatePrototype( $prototype );
@@ -263,8 +256,6 @@
 
             $this->GroupByTable = $prototype->GetTable();
             $this->GroupByField = $fields[ $property ];
-
-            $this->mChanged = true;
         }
         // Search::Get() will create instances of $prototype->GetClass()
         private function CreateQuery() {
@@ -273,10 +264,6 @@
             if ( count( $this->mPrototypes ) == 0 ) {
                 $water->Warning( "No prototypes added to search!" );
                 return false;
-            }
-
-            if ( !$this->mChanged ) {
-                return true;
             }
 
             $this->PrepareSelect();
@@ -290,8 +277,6 @@
             w_assert( !empty( $this->mQuery ) );
 
             $water->Trace( "Query: " . $this->mQuery );
-
-            $this->mChanged = false;
 
             return true;
         }
@@ -347,7 +332,6 @@
             $this->mPrototypes  = array();
             $this->mConnected   = array();
             $this->mQuery       = "";
-            $this->mChanged     = false;
         }
     }
 
