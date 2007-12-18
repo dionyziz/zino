@@ -31,22 +31,22 @@
 		</div>
 		<div class="social">
 			<dl>
-				<dt>Σεξουαλικές προτιμήσεις</dt>
+				<dt><strong>Σεξουαλικές προτιμήσεις</strong></dt>
 				<dd>Gay</dd>
 				
-				<dt>Καπνίζεις;</dt>
+				<dt><strong>Καπνίζεις;</strong></dt>
 				<dd>Όχι</dd>
 				
-				<dt>Πίνεις;</dt>
+				<dt><strong>Πίνεις;</strong></dt>
 				<dd>Με παρέα</dd>
 				
-				<dt>Μόρφωση</dt>
+				<dt><strong>Μόρφωση</strong></dt>
 				<dd>Πανεπιστήμιο</dd>
 				
-				<dt>Θρήσκευμα</dt>
+				<dt><strong>Θρήσκευμα</strong></dt>
 				<dd>Αγνωστικισμός</dd>
 				
-				<dt>Πολιτική ιδεολογία</dt>
+				<dt><strong>Πολιτική ιδεολογία</strong></dt>
 				<dd>Δεξιά</dd>
 			</dl>
 		</div>

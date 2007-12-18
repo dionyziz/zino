@@ -90,13 +90,13 @@ div#profile div.sidebar div.social dl dt {
 div#profile div.sidebar div.social dl dd {
 	display: block;
 	text-align: left;
-	margin-left: 120px;
+	margin-left: 150px;
 	padding: 2px 0;
-	width: 160px;
+	width: 100px;
 }
 div#profile div.sidebar div.social dl dt {
 	float: left;
-	width: 100px;
+	width: 150px;
 }
 div#profile div.sidebar div.interests {
 
