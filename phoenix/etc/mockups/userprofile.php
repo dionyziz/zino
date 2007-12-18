@@ -240,6 +240,8 @@
 			</p>
 		</div>
 		<div class="comments">
+			<h3>Σχόλια</h3>
+			
 			<div class="comment newcomment">
 				<div class="toolbox">
 					<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
