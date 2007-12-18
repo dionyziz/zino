@@ -165,7 +165,7 @@ div#profile div.main {
 	padding: 14px 0 0 10px;
 }
 div#profile div.main div.photos {
-
+	width: 100%;
 }
 div#profile div.main div.photos ul {
 	padding: 0;
