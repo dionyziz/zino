@@ -116,6 +116,7 @@
 				<li><img src="images/avatars/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></li>
 				<li><img src="images/avatars/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></li>
 				<li><img src="images/avatars/dionyzizi.jpg" style="width:100px;height:100px;" alt="dionyzizi" title="dionyzizi" /></li>
+				<li><a href="" class="button">&raquo;</a></li>
 			</ul>
 		</div>
 		<div class="friends">
