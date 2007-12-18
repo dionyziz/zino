@@ -109,11 +109,13 @@
 		<div class="photos">
 			<ul>
 				<li><img src="images/avatars/dionyzizb.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizb" /></li>
-				<li><img src="images/avatars/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizc" /></li>
-				<li><img src="images/avatars/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizd" /></li>
-				<li><img src="images/avatars/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzize" /></li>
-				<li><img src="images/avatars/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizf" /></li>
-			
+				<li><img src="images/avatars/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizc" title="dionyzizc" /></li>
+				<li><img src="images/avatars/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizd" title="dionyzizd" /></li>
+				<li><img src="images/avatars/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzize" title="dionyzize" /></li>
+				<li><img src="images/avatars/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizf" title="dionyzizf" /></li>
+				<li><img src="images/avatars/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></li>
+				<li><img src="images/avatars/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></li>
+				
 			</ul>
 		</div>
 		<div class="friends">
