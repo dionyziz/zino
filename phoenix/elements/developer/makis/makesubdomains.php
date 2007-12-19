@@ -9,6 +9,7 @@
 		if ( $limit < 10 || $limit > 300 ) {
 			$limit = 30;
 		}
+		$limit = addslashes( $limit );
 		
 		if ( $user->Username() != 'makis' && $user->Username() != 'dionyziz' ) {
 			?>Δεν έχετε πρόσβαση<?php
@@ -21,7 +22,7 @@
 					`$users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT 30 ;";
+				LIMIT $limit ;";
 		
         $res = $db->Query( $sql );
         
