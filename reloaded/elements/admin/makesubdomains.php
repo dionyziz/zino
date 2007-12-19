@@ -21,14 +21,30 @@
         $rows = array();
 		$subdomains = array();
 		?><h2>Subdomains</h2>
-<table><?php
+		<table><?php
         while ( $row = $res->FetchArray() ) {
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
             ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
         }
-		?></table><br /><?php 
+		?></table><br /><?php
+		
 		$list = htmlspecialchars( implode( "', '", array_values( $subdomains ) ) ); 
-		echo "IN ( '$list' )"
+		echo "IN ( '$list' )";
+
+		$sql = "SELECT 
+					`user_id` , `user_name` , `user_subdomain`
+				FROM 
+					`$users` 
+				WHERE 
+					`user_subdomain` IN ( '$list' ) 
+				LIMIT 1;";
+		$sqlresult = $db->Query( $sql );
+		if ( $sqlresult->Results() ) { // If there is someone in the list with the same subdomain
+			$conflict = $sqlresult->FetchArray();
+			echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
+			return 2;
+		}
+
 		?><br />--<?php
 		
 	}
