@@ -121,17 +121,87 @@
                 }
                 if ( $comment->Id == $commentNew->Id ) {
                     $found = true;
-                    $this->AssertEquals( $comment->BulkId, $commentNew->BulkId, 'New comment found, but it is not equal' );
-                    $this->AssertEquals( $comment->ParentId, $commentNew->ParentId, 'New comment found, but it is not equal' );
+                    $this->AssertEquals( $comment->BulkId, $commentNew->BulkId, 'New comment found, but it is not the same' );
                 }
             }
             
             $this->Assert( $property, 'Every comment returned should have the properties of the prototype' );
             $this->Assert( $found, 'Search did not return all the comments it should' );
+
+            $commentNew->Delete();
         }
         public function TestMultipleFilters() {
+            $commentNew = New Comment();
+            $commentNew->BulkId = 1;
+            $commentNew->ParentId = 1;
+            $commentNew->UserId = 1;
+            $commentNew->ItemId = 10;
+            $commentNew->TypeId = 2;
+            $commentNew->DelId  = 2;
+            w_assert( $commentNew->Save() );
+
+            $commentPrototype = New CommentPrototype();
+            $commentPrototype->ParentId = 1;
+            $commentPrototype->BulkId   = 1;
+            $commentPrototype->UserId   = 1;
+            $commentPrototype->ItemId   = 10;
+            $commentPrototype->TypeId   = 2;
+
+            $search = New Search();
+            $search->AddPrototype( $commentPrototype );
+            $comments = $search->Get();
+
+            $this->Assert( is_array( $comments ), 'Search with multiple filters did not return an array' );
+            $this->Assert( count( $comments ) > 0, 'Search with multiple filters did not return comments, while there is at least one' );
+
+            $property = true;
+            $class = true;
+            $found = false;
+            foreach ( $comments as $comment ) {
+                if ( !$class instanceof Comment ) {
+                    $class = false;
+                }
+                if ( !$comment->ParentId == 1 && !$comment->BulkId == 1 && !$comment->UserId == 1 && !$comment->ItemId == 10 && !$comment->TypeId == 2 ) {
+                    $property = false;
+                }
+                if ( $comment->Id == $commentNew->Id ) {
+                    $found = true;
+                    $this->AssertEquals( $comment->DelId, $commentNew->DelId, 'New comment found, but it is not the same' );
+                }
+            }
+            
+            $this->Assert( $property, 'Every comment returned should have the properties of the prototype' );
+            $this->Assert( $found, 'Search did not return all the comments it should' );
+
+            $commentNew->Delete();
         }
         public function TestOrderBy() {
+            $user = New UserPrototype();
+
+            $search = New Search();
+            $search->AddPrototype( $user );
+            $search->SetOrderBy( $user, 'Id', 'ASC' );
+            $users = $search->Get();
+
+            $usercount = count( ListAllUsers() );
+            if ( $usercount > 100 ) {
+                $this->AssertEquals( 100, count( $users ) );
+            }
+            else {
+                $this->AssertEquals( $usercount, count( $users ) );
+            }
+
+            $order = true;
+
+            $previd = -1;
+            foreach ( $users as $user ) {
+                if ( $user->Id < $previd ) {
+                    $order = false;
+                    break;
+                }
+            }
+
+            $this->AssertTrue( $order );
         }
         public function TestGroupBy() {
         }
