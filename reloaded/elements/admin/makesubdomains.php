@@ -25,14 +25,23 @@
 		<table><?php
         while ( $row = $res->FetchArray() ) {
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
-            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
+            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
+			?><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td><?php 
+			?><td><?php echo 
+				"UPDATE 
+					`$users` 
+				SET 
+					`user_subdomain` = '". myescape( $subdomains[ $row[ 'user_id' ] ] ) . "' 
+				WHERE 
+					`user_id` =" . $row[ 'user_id' ] . " 
+				LIMIT 1 ;"; ?></td></tr>
+<?php
         }
 		?></table><br /><?php
 		// CHECKING FOR DUPLICATES
 		
 		// 1) in the array we've already got
 		$diff = array_diff_key( $subdomains, array_unique( $subdomains ) );
-		//echo htmlspecialchars( print_r( $diff ) ); ?><br /><?php
 		if( count( $diff ) > 0 ) {
 			?>Too bad.<br /><?php
 			foreach( $diff as $key => $val ) {
