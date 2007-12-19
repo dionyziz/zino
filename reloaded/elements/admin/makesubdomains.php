@@ -31,7 +31,7 @@
 		// CHECKING FOR DUPLICATES
 		
 		// 1) in the array we've already got
-		$diff = array_diff( $subdomains, array_unique( $subdomains ) );
+		$diff = array_diff_key( $subdomains, array_unique( $subdomains ) );
 		echo htmlspecialchars( $diff ); ?><br /><?php
 		// 2) in the rest of the database
 		$list = htmlspecialchars( implode( "', '", array_values( $subdomains ) ) ); 
