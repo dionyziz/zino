@@ -2,6 +2,7 @@
 	function ElementAdminMakesubdomains( ) {
 		global $user;
         global $db;
+		global $users;
 		
 		if ( $user->Username() != 'makis' ) {
 			?>Δεν έχετε πρόσβαση<?php
@@ -11,7 +12,7 @@
 		$sql = "SELECT 
 					`user_id` , `user_name` 
 				FROM 
-					`merlin_users` 
+					`$users` 
 				WHERE 
 					`user_subdomain` = ''
 				LIMIT 30 ;";
