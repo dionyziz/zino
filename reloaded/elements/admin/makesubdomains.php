@@ -26,7 +26,10 @@
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
             ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
         }
-		?></table><br /><?php echo nl2br( htmlspecialchars( print_r( array_values( $subdomains ) ) ) ); ?><br />--<?php
+		?></table><br /><?php 
+		$list = htmlspecialchars( implode( "', '", array_values( $subdomains ) ) ); 
+		echo "IN ( '$list' )"
+		?><br />--<?php
 		
 	}
 /* -- samples --
