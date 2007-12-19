@@ -32,25 +32,26 @@
 		
 		// 1) in the array we've already got
 		$diff = array_diff_key( $subdomains, array_unique( $subdomains ) );
-		echo htmlspecialchars( $diff ); ?><br /><?php
+		echo htmlspecialchars( print_r( $diff ) ); ?><br /><?php
 		// 2) in the rest of the database
-		$list = htmlspecialchars( implode( "', '", array_values( $subdomains ) ) ); 
-		echo "IN ( '$list' )";
+		if ( count( $subdomains ) > 1 ) {
+			$list = implode( "', '", array_values( $subdomains ) ); 
+			//echo "IN ( '" . htmlspecialchars( $list ) . "' )";
 
-		$sql = "SELECT 
-					`user_id` , `user_name` , `user_subdomain`
-				FROM 
-					`$users` 
-				WHERE 
-					`user_subdomain` IN ( '$list' ) 
-				LIMIT 1;";
-		$sqlresult = $db->Query( $sql );
-		if ( $sqlresult->Results() ) { // If there is someone in the list with the same subdomain
-			$conflict = $sqlresult->FetchArray();
-			echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
-			return 2;
+			$sql = "SELECT 
+						`user_id` , `user_name` , `user_subdomain`
+					FROM 
+						`$users` 
+					WHERE 
+						`user_subdomain` IN ( '$list' ) 
+					LIMIT 1;";
+			$sqlresult = $db->Query( $sql );
+			if ( $sqlresult->Results() ) { // If there is someone in the list with the same subdomain
+				$conflict = $sqlresult->FetchArray();
+				echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
+				return 2;
+			}
 		}
-
 		?><br />--<?php
 		
 	}
