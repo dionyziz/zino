@@ -1,8 +1,10 @@
 <?php
-	function ElementAdminMakesubdomains( ) {
+	function ElementAdminMakesubdomains( tInteger $update ) {
 		global $user;
         global $db;
 		global $users;
+		
+		$update = $update->Get();
 		
 		if ( $user->Username() != 'makis' ) {
 			?>Δεν έχετε πρόσβαση<?php
@@ -15,7 +17,7 @@
 					`$users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT 30 ;";
+				LIMIT 10 ;";
 		
         $res = $db->Query( $sql );
         
@@ -70,6 +72,26 @@
 		}
 		?><br />--<?php
 		
+		//If we've reached that far, everything is fine.
+		//Executing UPDATE queries
+		if ( $update != 1 ) {
+			return 0;
+		}
+		foreach( $subdomains as $uid => $val ) {
+			$sql = "UPDATE 
+						`$users` 
+					SET 
+						`user_subdomain` = '". myescape( $val ) . "' 
+					WHERE 
+						`user_id` =" . $uid . " 
+					LIMIT 1 ;";
+			$db->Query( $sql );
+			?>
+Updated key <?php echo $key; ?>! <br /><?php
+		}
+		
+		?><br />--Done--<?php
+		return 0;
 	}
 /* -- samples --
 "UPDATE `ccbeta`.`merlin_users` SET `user_subdomain` = '$subdomain' WHERE `merlin_users`.`user_id` =$userid LIMIT 1 ;"
