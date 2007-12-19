@@ -181,7 +181,10 @@
             return true;
         }
         public function Delete( $user = false ) {
-            if ( $this->HasChildren() || $this->IsDeleted() ) {
+            // TODO: implement $this->HasChildren with Search
+            // if ( $this->HasChildren() || $this->IsDeleted() ) {
+
+            if ( $this->IsDeleted() ) {
                 return false;
             }
 
