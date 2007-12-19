@@ -86,8 +86,8 @@
 						`user_id` =" . $uid . " 
 					LIMIT 1 ;";
 			$db->Query( $sql );
-			?>
-Updated key <?php echo $key; ?>! <br /><?php
+			?><br />
+Updated key <?php echo $key; ?>!<?php
 		}
 		
 		?><br />--Done--<?php
