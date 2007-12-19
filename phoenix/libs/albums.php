@@ -122,7 +122,7 @@
                 'album_userid'      => 'UserId',
                 'album_created'     => 'Date',
                 'album_description' => 'Description',
-                'album_host'        => 'UserIp',
+                'album_submithost'        => 'UserIp',
                 'album_name'        => 'Name',
                 'album_mainimage'   => 'MainImage',
                 'album_delid'       => 'DelId',
