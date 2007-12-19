@@ -28,7 +28,12 @@
             ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
         }
 		?></table><br /><?php
+		// CHECKING FOR DUPLICATES
 		
+		// 1) in the array we've already got
+		$diff = array_diff( $subdomains, array_unique( $subdomains ) );
+		echo htmlspecialchars( $diff ); ?><br /><?php
+		// 2) in the rest of the database
 		$list = htmlspecialchars( implode( "', '", array_values( $subdomains ) ) ); 
 		echo "IN ( '$list' )";
 
