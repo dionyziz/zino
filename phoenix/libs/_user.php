@@ -52,6 +52,46 @@
         return false;
     }
     
+	function User_DeriveSubdomain( $username ) {
+		/* RFC 1034 - They must start with a letter, 
+		end with a letter or digit,
+		and have as interior characters only letters, digits, and hyphen.
+		Labels must be 63 characters or less. */
+		$username = strtolower( $username );
+		$username = preg_replace( '/([^a-z0-9-]+)/i', '-', $username ); //convert invalid chars to hyphens
+		$pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
+		if ( !preg_match( $pattern, $username, $matches ) ) {
+			return false;
+		}
+		return $matches[0];
+	}
+	
+    function User_BySubdomain( $subdomain ) {
+        global $db;
+        global $users;
+		
+		if ( strlen( $subdomain ) < 1 ) {
+			return false;
+		}
+		$subdomain = myescape( $subdomain );
+		
+        $sql = "SELECT 
+                    `user_id`, `user_name`
+                FROM 
+                    `$users`
+                WHERE 
+                    `user_subdomain` = '$subdomain'
+				LIMIT 1;";
+        $res = $db->Query( $sql );
+        
+        $rows = array();
+        if ( $row = $res->FetchArray() ) {
+            return New User( $row[ 'user_id' ] );
+        }
+        
+        return false;
+	}
+	
 	function User_IpBan( $ip, $time, $sysopid = '' ) {
 		global $user;
 		global $bans;
@@ -85,14 +125,19 @@
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
+		$subdomain = myescape( User_DeriveSubdomain( $username ) ); //is already escaped, but may be empty
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
 			// reserved
 			return 2;
 		}
-		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' LIMIT 1;";
+		if ( strlen( $subdomain ) < 1 ) {
+			//subdomain is too small (either too small username or it couldn't produce enough output after the regexps)
+			return 2;
+		}
+		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' OR `user_subdomain`='$subdomain' LIMIT 1;";
 		$sqlresult = $db->Query( $sql );
-		if ( $sqlresult->Results() ) { // If there is someone with the same username
+		if ( $sqlresult->Results() ) { // If there is someone with the same username or subdomain
 			return 2;
 		}
 		if ( $email != "" ) {
@@ -123,8 +168,8 @@
 		$s_password = $password;
 		$password = addslashes( $password );
 		$email = addslashes( $email );
-		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '10' , '$email' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
+		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_subdomain` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
+							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '10' , '$email' , '$subdomain' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
 		$db->Query( $sql );
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
@@ -703,6 +748,7 @@
 		private $mNumImages;
         private $mUniid;
         private $mFrel_type; // If the instance is a friend of the actual user
+		private $mSubdomain;
 		
 		public function Href() {
 			return 'user/' . $this->Username();
@@ -773,6 +819,9 @@
 		}
 		public function Password() {
 			return $this->mPassword;
+		}
+		public function Subdomain() {
+			return $this->mSubdomain;
 		}
 		public function IsAnonymous() {
 			return ( $this->Username() == "" );
@@ -1791,6 +1840,7 @@
 			$this->mICQ		          	= isset( $fetched_array[ "user_icq" ]               ) ? $fetched_array[ "user_icq" ]            	: '0';
 			$this->mUsername	      	= isset( $fetched_array[ "user_name" ]              ) ? $fetched_array[ "user_name" ]           	: '';
 			$this->mPassword	      	= isset( $fetched_array[ "user_password" ]          ) ? $fetched_array[ "user_password" ]        	: '';
+			$this->mSubdomain	      	= isset( $fetched_array[ "user_subdomain" ]         ) ? $fetched_array[ "user_subdomain" ]          : '';
 			$this->mSignature	      	= isset( $fetched_array[ "user_signature" ]         ) ? $fetched_array[ "user_signature" ]        	: '';
 			$this->mEmail		      	= isset( $fetched_array[ "user_email" ]             ) ? $fetched_array[ "user_email" ]            	: '';
 			$this->mMSN		          	= isset( $fetched_array[ "user_msn" ]               ) ? $fetched_array[ "user_msn" ]              	: '';
