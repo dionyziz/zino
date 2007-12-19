@@ -22,7 +22,7 @@
 		$subdomains = array();
 		?><h2>Subdomains</h2>
 <table><?php
-        if ( $row = $res->FetchArray() ) {
+        while ( $row = $res->FetchArray() ) {
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
             ?><tr><td><?php echo htmlentities( $row[ 'user_id' ] ); ?>: <?php echo htmlentities( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
         }
