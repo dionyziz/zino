@@ -6,10 +6,10 @@
 		
 		$update = $update->Get();
 		
-		if ( $user->Username() != 'dionyziz' ) {
+/*		if ( $user->Username() != 'makis' ) {
 			?>Δεν έχετε πρόσβαση<?php
 			return 0;
-		}
+		} */
 		
 		$sql = "SELECT 
 					`user_id` , `user_name` 
