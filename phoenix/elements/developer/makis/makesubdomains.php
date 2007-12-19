@@ -10,7 +10,7 @@
 			$limit = 30;
 		}
 		
-		if ( $user->Username() != 'makis' ) {
+		if ( $user->Username() != 'makis' && $user->Username() != 'dionyziz' ) {
 			?>Δεν έχετε πρόσβαση<?php
 			return 0;
 		}
