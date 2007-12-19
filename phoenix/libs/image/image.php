@@ -330,7 +330,7 @@
 			return $size;
 		}
 		public function CommentAdded() {
-            $album = new Album( $this->AlbumId );
+            $album = new Album( (int)$this->AlbumId );
             $album->CommentAdded();
 		   
             ++$this->mNumComments;
