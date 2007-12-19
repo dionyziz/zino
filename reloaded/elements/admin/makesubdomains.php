@@ -32,11 +32,11 @@
 		
 		// 1) in the array we've already got
 		$diff = array_diff_key( $subdomains, array_unique( $subdomains ) );
-		echo htmlspecialchars( print_r( $diff ) ); ?><br /><?php
+		//echo htmlspecialchars( print_r( $diff ) ); ?><br /><?php
 		if( count( $diff ) > 0 ) {
 			?>Too bad.<br /><?php
 			foreach( $diff as $key => $val ) {
-				echo "User " . $key . ": " . htmlspecialchars( $val ) . " of this list conflicts with one of the above.";
+				echo "User " . $key . ": " . htmlspecialchars( $val ) . " (of this list) conflicts with one of the above.";
 			}
 			return 2;
 		}
