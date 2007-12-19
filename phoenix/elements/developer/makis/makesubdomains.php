@@ -6,7 +6,7 @@
 		
 		$update = $update->Get();
 		$limit = $limit->Get();
-		if ( $limit < 10 || $limit > 300 ) {
+		if ( $limit < 10 || $limit > 500 ) {
 			$limit = 30;
 		}
 		$limit = addslashes( $limit );
