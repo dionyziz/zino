@@ -91,7 +91,7 @@
         
         return false;
 	}
-
+	
 	function User_IpBan( $ip, $time, $sysopid = '' ) {
 		global $user;
 		global $bans;
