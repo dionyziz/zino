@@ -250,6 +250,12 @@
             $this->mText    = false;
             $this->mItem    = false;
             $this->mParent  = false;
+
+            $this->mItemId      = (int)$this->mItemId;
+            $this->mBulkId      = (int)$this->mBulkId;
+            $this->mParentId    = (int)$this->mParentId;
+            $this->mDelId       = (int)$this->mDelId;
+            $this->mUserId      = (int)$this->mUserId;
         }
     }
 	
