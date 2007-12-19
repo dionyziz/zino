@@ -6,7 +6,7 @@
 		
 		$update = $update->Get();
 		
-		if ( $user->Username() != 'makis' ) {
+		if ( $user->Username() != 'dionyziz' ) {
 			?>Δεν έχετε πρόσβαση<?php
 			return 0;
 		}
