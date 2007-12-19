@@ -87,7 +87,7 @@
 					LIMIT 1 ;";
 			$db->Query( $sql );
 			?><br />
-Updated key <?php echo $key; ?>!<?php
+Updated key <?php echo $uid; ?>!<?php
 		}
 		
 		?><br />--Done--<?php
