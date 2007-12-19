@@ -476,6 +476,10 @@
             }
         }
         public function Upload( $resizeto = false ) {
+            global $libs;
+
+            $libs->Load( 'image/server' );
+
             $path = $this->UserId . "/" . $this->Id;
 
             return Image_Upload( $path, $this->mTemporaryFile, $resizeto );
