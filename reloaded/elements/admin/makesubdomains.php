@@ -17,7 +17,7 @@
 					`$users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT 10 ;";
+				LIMIT 30 ;";
 		
         $res = $db->Query( $sql );
         
