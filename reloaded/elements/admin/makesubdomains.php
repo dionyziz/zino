@@ -14,7 +14,7 @@
 					`merlin_users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT 10 ;";
+				LIMIT 30 ;";
 		
         $res = $db->Query( $sql );
         
@@ -26,7 +26,7 @@
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
             ?><tr><td><?php echo htmlentities( $row[ 'user_id' ] ); ?>: <?php echo htmlentities( $row[ 'user_name' ] ); ?></td><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td></tr><?php
         }
-		?></table><br />--<?php
+		?></table><br /><?php echo htmlentities( nl2br( print_r( $subdomains ) ) ); ?><br />--<?php
 		
 	}
 /* -- samples --
