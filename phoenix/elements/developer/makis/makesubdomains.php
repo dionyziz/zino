@@ -1,10 +1,14 @@
 <?php
-	function ElementDeveloperMakisMakesubdomains( tInteger $update ) {
+	function ElementDeveloperMakisMakesubdomains( tInteger $update, tInteger $limit ) {
 		global $user;
         global $db;
 		global $users;
 		
 		$update = $update->Get();
+		$limit = $limit->Get();
+		if ( $limit < 10 || $limit > 300 ) {
+			$limit = 30;
+		}
 		
 		if ( $user->Username() != 'makis' ) {
 			?>Δεν έχετε πρόσβαση<?php
