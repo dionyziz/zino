@@ -81,7 +81,8 @@
 			foreach( $diff as $key => $val ) {
 				echo "User " . $key . ": " . htmlspecialchars( $val ) . " (of this list) conflicts with one of the above.<br />\n";
 				$uid = array_keys( $unique_subdomains, $val );
-				foreach( $uid as $k => $v ) {
+				foreach( $uid as $k ) {
+					echo " -$k <br />\n";
 					unset( $unique_subdomains[ $k ] );
 				}
 			}
