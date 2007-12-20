@@ -45,7 +45,11 @@
 		?><h2>Subdomains</h2>
 		<table><?php
         while ( $row = mysql_fetch_array( $res ) ) {
-			$subdomain = User_DeriveSubdomain( $row[ 'user_name' ] ) or User_DeriveSubdomain( 'u' . $row[ 'user_name' ] );
+			$subdomain = User_DeriveSubdomain( $row[ 'user_name' ] );
+			if ( strlen( $subdomain ) < 1 ) {
+				$subdomain = User_DeriveSubdomain( 'u' . $row[ 'user_name' ] );	
+			}
+			
 			if ( $subdomain != 'u' ) {
 				$subdomains[ $row[ 'user_id' ] ] = $subdomain;
 	            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
