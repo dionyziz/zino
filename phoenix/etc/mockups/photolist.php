@@ -27,8 +27,8 @@
 					ουρανοξύστης με αντανάκλαση ηλίου
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">34</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">34</span>
 				</div>
 			</div>
 		</li>
@@ -39,8 +39,8 @@
 					2 skyscrapers
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">53</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">53</span>
 				</div>
 			</div>
 		</li>
@@ -51,8 +51,8 @@
 					kaboom
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">298</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">298</span>
 				</div>
 			</div>
 		</li>
@@ -63,8 +63,8 @@
 					γαμάτο
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">21</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">21</span>
 				</div>
 			</div>
 		</li>
@@ -75,8 +75,8 @@
 					μαύρη μαυρίλα
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">931</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">931</span>
 				</div>
 			</div>
 		</li>
@@ -87,8 +87,8 @@
 					πορωτικό ε;;
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">31</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">31</span>
 				</div>	
 			</div>
 		</li>
@@ -99,8 +99,8 @@
 					μια πανέμορφη εικόνα
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">12</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">12</span>
 				</div>
 			</div>
 		</li>
@@ -111,8 +111,8 @@
 					και δίπλα σε ποτάμι
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">87</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">87</span>
 				</div>
 			</div>
 		</li>
@@ -123,8 +123,8 @@
 					ωραία σύννεφα
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">342</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">342</span>
 				</div>
 			</div>
 		</li>
@@ -135,8 +135,8 @@
 					σαν 2 πόδια
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">21</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">21</span>
 				</div>
 			</div>
 		</li>
@@ -147,8 +147,8 @@
 					στο Dubai, απλά γαμάει
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">223</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span>
+					<span class="commentsnum">223</span>
 				</div>
 			</div>
 		</li>
