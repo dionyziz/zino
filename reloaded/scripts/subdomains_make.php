@@ -103,8 +103,7 @@
 					FROM 
 						`$users` 
 					WHERE 
-						`user_subdomain` IN ( '$list' ) 
-					LIMIT 1;";
+						`user_subdomain` IN ( '$list' )";
 			$sqlresult = mysql_query( $sql );
 			if ( !$sqlresult ) {
 				?><br />Error with DB check! Length was <?php 
