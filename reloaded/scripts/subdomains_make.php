@@ -93,8 +93,8 @@
 			//return 2;
 		}
 		// 2) in the rest of the database
-		if ( count( $subdomains ) > 1 ) {
-			$list = implode( "', '", array_values( $subdomains ) ); 
+		if ( count( $unique_subdomains ) > 1 ) {
+			$list = implode( "', '", array_values( $unique_subdomains ) ); 
 			//echo "IN ( '" . htmlspecialchars( $list ) . "' )";
 
 			$sql = "SELECT 
@@ -107,7 +107,7 @@
 			$sqlresult = mysql_query( $sql );
 			if ( mysql_num_rows( $sqlresult ) ) { // If there is someone in the list with the same subdomain
 				while( $conflict = mysql_fetch_array( $sqlresult ) ) {
-					echo "Too bad. DB user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
+					echo "DB user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
 					$uid = array_keys( $unique_subdomains, $conflict[ 'user_subdomain' ] );
 					foreach( $uid as $k ) {
 						echo " -$k <br />\n";
