@@ -55,6 +55,7 @@ div.photo {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
+	display: inline;
 }
 /*
 div#photo a span {
