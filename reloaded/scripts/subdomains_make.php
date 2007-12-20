@@ -38,13 +38,13 @@
 					`user_subdomain` = ''
 				LIMIT $limit ;";
 		
-        $res = $db->Query( $sql );
+        $res = mysql_query( $sql );
         
         $rows = array();
 		$subdomains = array();
 		?><h2>Subdomains</h2>
 		<table><?php
-        while ( $row = $res->FetchArray() ) {
+        while ( $row = mysql_fetch_array() ) {
 			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
             ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
 			?><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td><?php 
@@ -52,7 +52,7 @@
 				"UPDATE 
 					`$users` 
 				SET 
-					`user_subdomain` = '". myescape( $subdomains[ $row[ 'user_id' ] ] ) . "' 
+					`user_subdomain` = '". addslashes( $subdomains[ $row[ 'user_id' ] ] ) . "' 
 				WHERE 
 					`user_id` =" . $row[ 'user_id' ] . " 
 				LIMIT 1 ;"; ?></td></tr>
@@ -82,9 +82,9 @@
 					WHERE 
 						`user_subdomain` IN ( '$list' ) 
 					LIMIT 1;";
-			$sqlresult = $db->Query( $sql );
-			if ( $sqlresult->Results() ) { // If there is someone in the list with the same subdomain
-				$conflict = $sqlresult->FetchArray();
+			$sqlresult = mysql_query( $sql );
+			if ( mysql_num_rows() ) { // If there is someone in the list with the same subdomain
+				$conflict = mysql_fetch_array();
 				echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
 				return 2;
 			}
@@ -104,9 +104,15 @@
 					WHERE 
 						`user_id` =" . $uid . " 
 					LIMIT 1 ;";
-			$db->Query( $sql );
-			?><br />
-Updated key <?php echo $uid; ?>!<?php
+			$res2 = mysql_query( $sql );
+			if ( $res2 ) {
+				?><br />
+Updated key <?php echo $uid; ?><?php
+			}
+			else {
+				?><br />
+<?php echo $uid; ?> FAILED!<?php
+			}
 		}
 		
 		?><br />--Done--<?php
