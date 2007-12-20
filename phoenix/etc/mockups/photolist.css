@@ -42,26 +42,13 @@ div#photolist ul li {
 	text-align: center;
 	display: inline;
 }
-/*
-div#photolist ul li div {
-	width: 200px;
-}
-div#photolist ul li h3 {
-	font-size: 100%;
-	font-weight: normal;
-	text-align: center;
-}
-*/
+
 div.photo {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
 	display: inline;
 }
-/*
-div#photo a span {
-	display: block;
-}*/
 div#photo div {
 	padding: 3px 0 0 0;
 	margin: 0;
