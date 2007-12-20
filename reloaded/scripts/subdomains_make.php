@@ -3,12 +3,15 @@
 	
 	global $users;
 	global $user;
+	global $water;
+	global $libs;
 	
 	require '../libs/rabbit/rabbit.php';
 	
     Rabbit_Construct();
 		
 	$water->Enable(); // on for all
+	$libs->Load( 'user' );
 
 	header( 'Content-Type: text/html; charset=iso-8859-7' );
 
