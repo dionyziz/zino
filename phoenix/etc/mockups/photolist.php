@@ -15,8 +15,8 @@
 					ωραίος ουρανοξύστης
 				</a>
 				<div>
-					<div class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
-					<div class="commentsnum">202</div>
+					<span class="addfav"><a href=""><img src="images/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></div>
+					<span class="commentsnum">202</div>
 				</div>
 			</div>
 		</li>

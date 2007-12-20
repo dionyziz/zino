@@ -9,10 +9,10 @@ ul.albums li {
     padding: 10px;
     margin: 0 15px 0 15px;
 }
-ul.albums li a {
+ul.albums li div a {
     font-weight: bold;
 }
-ul.albums li a img {
+ul.albums li div a img {
     background-image: url( 'images/album.png' );
     background-position: top left;
     background-repeat: no-repeat;
@@ -29,12 +29,12 @@ ul.albums li a span {
     text-align: center;
     margin: 5px 0 0 5px;
 }
-ul.albums li a img {
+ul.albums li a div img {
     margin: 0 10px 4px 0;
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
-ul.albums li a:hover img {
+ul.albums li a:hover div img {
     border: 2px solid white;
 }
 ul.albums li dl {
