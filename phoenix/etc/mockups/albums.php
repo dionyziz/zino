@@ -7,7 +7,7 @@
         	<span class="albummain">
         		<img src="images/apartments.jpg" alt="Φωτογραφίες" />
         	</span>
-            <span>Πολυκατοικίες</span>
+            <span class="desc">Πολυκατοικίες</span>
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
@@ -21,7 +21,7 @@
         	<span class="albummain">
             	<img src="images/boobs.jpg" alt="Φωτογραφίες" />
             </span>
-            <span>Boobs</span>
+            <span class="desc">Boobs</span>
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
@@ -35,7 +35,7 @@
         	<span class="albummain">
             	<img src="images/condom.jpg" alt="Φωτογραφίες" />
             </span>
-            <span>Πούτσες</span>
+            <span class="desc">Πούτσες</span>
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
@@ -49,7 +49,7 @@
 			<span class="albummain">
 				<img src="images/spade.jpg" alt="Φωτογραφίες" />
 			</span>
-            <span>Φτυάρια</span>
+            <span class="desc">Φτυάρια</span>
         </a>
         <dl>
             <dt><img src="images/imagegallery.png" alt="Φωτογραφίες" /></dt>
