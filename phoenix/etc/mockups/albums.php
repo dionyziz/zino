@@ -4,9 +4,7 @@
 <ul class="albums">
     <li>
         <a href="" onclick="return false;">
-        	<div>
-            	<img src="images/apartments.jpg" alt="Φωτογραφίες" />
-            </div>
+        	<img src="images/apartments.jpg" alt="Φωτογραφίες" />
             <span>Πολυκατοικίες</span>
         </a>
         <dl>
