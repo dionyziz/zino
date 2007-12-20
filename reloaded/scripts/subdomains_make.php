@@ -41,32 +41,51 @@
         
         $rows = array();
 		$subdomains = array();
+		$zerolengths = array();
 		?><h2>Subdomains</h2>
 		<table><?php
         while ( $row = mysql_fetch_array( $res ) ) {
-			$subdomains[ $row[ 'user_id' ] ] = User_DeriveSubdomain( $row[ 'user_name' ] );
-            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
-			?><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td><?php 
-			?><td><?php echo 
-				"UPDATE 
-					`$users` 
-				SET 
-					`user_subdomain` = '". addslashes( $subdomains[ $row[ 'user_id' ] ] ) . "' 
-				WHERE 
-					`user_id` =" . $row[ 'user_id' ] . " 
-				LIMIT 1 ;"; ?></td></tr>
+			$subdomain = User_DeriveSubdomain( $row[ 'user_name' ] ) or User_DeriveSubdomain( 'u' . $row[ 'user_name' ] );
+			if ( $subdomain != 'u' ) {
+				$subdomains[ $row[ 'user_id' ] ] = $subdomain;
+	            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
+				?><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td><?php 
+				?><td><?php echo 
+					"UPDATE 
+						`$users` 
+					SET 
+						`user_subdomain` = '". addslashes( $subdomains[ $row[ 'user_id' ] ] ) . "' 
+					WHERE 
+						`user_id` =" . $row[ 'user_id' ] . " 
+					LIMIT 1 ;"; ?></td></tr>
 <?php
-        }
+			}
+			else {
+				$zerolengths[ $row[ 'user_id' ] ] = $row[ 'user_name' ];
+			}
+		}
 		?></table><br /><?php
+		//WARNINGS
+		//Zero length subdomains:
+		foreach( $zerolengths as $uid => $uname ) {
+			?>-WARNING- User <?php echo $uid; ?>: <?php echo $uname; ?> produces a zero-length subdomain!<br />
+<?php
+		}
 		// CHECKING FOR DUPLICATES
 		
 		// 1) in the array we've already got
-		$diff = array_diff_key( $subdomains, array_unique( $subdomains ) );
+		$unique_subdomains = array_unique( $subdomains );
+		$diff = array_diff_key( $subdomains, $unique_subdomains );
 		if( count( $diff ) > 0 ) {
 			?>Too bad.<br /><?php
 			foreach( $diff as $key => $val ) {
 				echo "User " . $key . ": " . htmlspecialchars( $val ) . " (of this list) conflicts with one of the above.<br />\n";
+				$uid = array_keys( $unique_subdomains, $val );
+				foreach( $uid as $k => $v ) {
+					unset( $unique_subdomains[ $k ] );
+				}
 			}
+			print_r( $unique_subdomains );
 			return 2;
 		}
 		// 2) in the rest of the database
@@ -85,6 +104,10 @@
 			if ( mysql_num_rows( $sqlresult ) ) { // If there is someone in the list with the same subdomain
 				$conflict = mysql_fetch_array( $sqlresult );
 				echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
+/*				$uid = array_keys( $unique_subdomains, $val );
+				foreach( $uid as $k => $v ) {
+					unset( $unique_subdomains[ $k ] );
+				} */
 				return 2;
 			}
 		}
