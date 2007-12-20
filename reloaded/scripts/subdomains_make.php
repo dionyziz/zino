@@ -113,14 +113,14 @@
 			}
 		}
 		?><br />--<?php
-		print_r( $unique_subdomains );
+		//print_r( $unique_subdomains );
 		
 		//If we've reached that far, everything is fine.
 		//Executing UPDATE queries
 		if ( $update != 1 ) {
 			return 0;
 		}
-		foreach( $subdomains as $uid => $val ) {
+		foreach( $unique_subdomains as $uid => $val ) {
 			$sql = "UPDATE 
 						`$users` 
 					SET 
