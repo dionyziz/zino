@@ -40,6 +40,7 @@ div#photolist ul li {
 	width: 210px;
 	height: 270px;
 	text-align: center;
+	display: inline
 }
 /*
 div#photolist ul li div {
