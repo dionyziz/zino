@@ -63,12 +63,12 @@ div#photo a span {
 	display: block;
 }*/
 div#photo div {
-	padding: 3px 0 0 0;
-	margin: 0;
+/*	padding: 3px 0 0 0;
+	margin: 0;*/
 	display: inline;
 }
 div#photo div div.addfav {	
-/*	padding: 0 3px 0 18px;*/
+	padding: 0 3px 0 18px;
 	margin: 0;
 	display: inline;
 }
