@@ -106,12 +106,13 @@
 					LIMIT 1;";
 			$sqlresult = mysql_query( $sql );
 			if ( mysql_num_rows( $sqlresult ) ) { // If there is someone in the list with the same subdomain
-				$conflict = mysql_fetch_array( $sqlresult );
-				echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
-				$uid = array_keys( $unique_subdomains, $conflict[ 'user_subdomain' ] );
-				foreach( $uid as $k ) {
-					echo " -$k <br />\n";
-					unset( $unique_subdomains[ $k ] );
+				while( $conflict = mysql_fetch_array( $sqlresult ) ) {
+					echo "Too bad. DB user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
+					$uid = array_keys( $unique_subdomains, $conflict[ 'user_subdomain' ] );
+					foreach( $uid as $k ) {
+						echo " -$k <br />\n";
+						unset( $unique_subdomains[ $k ] );
+					}
 				}
 				//return 2;
 			}
