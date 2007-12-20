@@ -17,7 +17,7 @@ div#photolist dl dt.photonum {
 	display: inline;
 	font-size: 90%;
 }
-dt.commentsnum {
+dt.commentsnum, div.commentsnum {
 	background-image: url('images/comment.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
@@ -55,17 +55,16 @@ div.photo {
 	font-size: 100%;
 	font-weight: normal;
 	text-align: center;
-	display: inline;
 }
 /*
 div#photo a span {
 	display: block;
 }*/
-div#photo dl {
+div#photo div {
 	padding: 3px 0 0 0;
 	margin: 0;
 }
-div#photo dl dt.addfav {	
+div#photo div div.addfav {	
 	padding: 0 3px 0 18px;
 	margin: 0;
 	display: inline;
