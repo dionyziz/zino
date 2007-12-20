@@ -38,7 +38,7 @@ span.albummain img {
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
-ul.albums li a:hover div img {
+ul.albums li a:hover span img {
     border: 2px solid white;
 }
 ul.albums li dl {
