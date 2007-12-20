@@ -12,6 +12,12 @@ ul.albums li {
 ul.albums li a {
     font-weight: bold;
 }
+ul.albums li a span {
+    display: block;
+    width: 176px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+}
 /*
 ul.albums li a div {*/
 span.albummain {
@@ -24,12 +30,6 @@ span.albummain {
     display: block;
     text-align: center;
     vertical-align: middle;
-}
-ul.albums li a span {
-    display: block;
-    width: 176px;
-    text-align: center;
-    margin: 5px 0 0 5px;
 }
 /*
 ul.albums li a div img {*/
