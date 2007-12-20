@@ -86,8 +86,7 @@
 					unset( $unique_subdomains[ $k ] );
 				}
 			}
-			print_r( $unique_subdomains );
-			return 2;
+			//return 2;
 		}
 		// 2) in the rest of the database
 		if ( count( $subdomains ) > 1 ) {
@@ -105,14 +104,16 @@
 			if ( mysql_num_rows( $sqlresult ) ) { // If there is someone in the list with the same subdomain
 				$conflict = mysql_fetch_array( $sqlresult );
 				echo "Too bad. At least user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
-/*				$uid = array_keys( $unique_subdomains, $val );
-				foreach( $uid as $k => $v ) {
+				$uid = array_keys( $unique_subdomains, $conflict[ 'user_subdomain' ] );
+				foreach( $uid as $k ) {
+					echo " -$k <br />\n";
 					unset( $unique_subdomains[ $k ] );
-				} */
-				return 2;
+				}
+				//return 2;
 			}
 		}
 		?><br />--<?php
+		print_r( $unique_subdomains );
 		
 		//If we've reached that far, everything is fine.
 		//Executing UPDATE queries
