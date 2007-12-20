@@ -54,14 +54,15 @@
 				$subdomains[ $row[ 'user_id' ] ] = $subdomain;
 	            ?><tr><td><?php echo htmlspecialchars( $row[ 'user_id' ] ); ?>: <?php echo htmlspecialchars( $row[ 'user_name' ] ); ?></td><?php
 				?><td><?php echo $subdomains[ $row[ 'user_id' ] ]; ?></td><?php 
-				?><td><?php echo 
+				/* ?><td><?php echo 
 					"UPDATE 
 						`$users` 
 					SET 
 						`user_subdomain` = '". addslashes( $subdomains[ $row[ 'user_id' ] ] ) . "' 
 					WHERE 
 						`user_id` =" . $row[ 'user_id' ] . " 
-					LIMIT 1 ;"; ?></td></tr>
+					LIMIT 1 ;"; ?></td><?php */
+				?></tr>
 <?php
 			}
 			else {
