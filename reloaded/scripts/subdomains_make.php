@@ -1,11 +1,6 @@
 <?php
 	set_include_path( '../:./' );
 	
-	//global $users;
-	global $user;
-	global $water;
-	global $libs;
-	
 	require '../libs/rabbit/rabbit.php';
 	
     Rabbit_Construct();
@@ -40,7 +35,7 @@
 					`$users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT 30 ;";
+				LIMIT $limit ;";
 		
         $res = mysql_query( $sql );
         
