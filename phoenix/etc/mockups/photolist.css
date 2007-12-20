@@ -57,14 +57,15 @@ div.photo {
 	font-weight: normal;
 	text-align: center;
 	display: inline;
+	width: 200px;
 }
 /*
 div#photo a span {
 	display: block;
 }*/
 div#photo div {
-/*	padding: 3px 0 0 0;
-	margin: 0;*/
+	padding: 3px 0 0 0;
+	margin: 0;
 	display: inline;
 }
 div#photo div div.addfav {	
