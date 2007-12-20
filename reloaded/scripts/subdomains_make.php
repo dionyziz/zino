@@ -134,13 +134,9 @@
 						`user_id` =" . $uid . " 
 					LIMIT 1 ;";
 			$res2 = mysql_query( $sql );
-			if ( $res2 ) {
+			if ( !$res2 ) {
 				?><br />
-Updated key <?php echo $uid; ?><?php
-			}
-			else {
-				?><br />
-<?php echo $uid; ?> FAILED!<?php
+Key <?php echo $uid; ?> FAILED!<?php
 			}
 		}
 		
