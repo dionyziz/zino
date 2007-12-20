@@ -30,7 +30,6 @@ div#photolist ul {
 	margin: 0;
 	width: 100%;
 	list-style: none;
-	display: inline;
 	clear: both;
 	/*overflow: hidden;*/
 }
