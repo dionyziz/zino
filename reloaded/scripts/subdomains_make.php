@@ -65,7 +65,7 @@
 		if( count( $diff ) > 0 ) {
 			?>Too bad.<br /><?php
 			foreach( $diff as $key => $val ) {
-				echo "User " . $key . ": " . htmlspecialchars( $val ) . " (of this list) conflicts with one of the above.";
+				echo "User " . $key . ": " . htmlspecialchars( $val ) . " (of this list) conflicts with one of the above.<br />\n";
 			}
 			return 2;
 		}
