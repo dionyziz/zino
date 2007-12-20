@@ -19,7 +19,7 @@
 	<?php 
 		$update = $_GET[ 'update' ];
 		$limit = $_GET[ 'limit' ];
-		if ( $limit < 10 || $limit > 500 ) {
+		if ( $limit < 10 || $limit > 1000 ) {
 			$limit = 30;
 		}
 		$limit = addslashes( $limit );
