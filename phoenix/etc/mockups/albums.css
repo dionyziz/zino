@@ -31,9 +31,7 @@ span.albummain {
     text-align: center;
     vertical-align: middle;
 }
-/*
-ul.albums li a div img {*/
-span.albummain img {
+ul.albums li a span img {
     margin: 0 10px 4px 0;
     vertical-align: middle;
     border: 2px solid #7ea3c2;
