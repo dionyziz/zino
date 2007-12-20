@@ -11,7 +11,7 @@
 		<li>
 			<div class="photo">
 				<a href="">
-					<img src="images/ph1.jpg" alt="Ουρανοξύστης 1" title="Ουρανοξύστης 1" /><br />
+					<img src="images/ph1.jpg" alt="Ουρανοξύστης 1" title="Ουρανοξύστης 1" />
 					ωραίος ουρανοξύστης
 				</a>
 				<div>
