@@ -2,7 +2,6 @@
 	set_include_path( '../:./' );
 	
 	global $users;
-	global $db;
 	global $user;
 	
 	require '../libs/rabbit/rabbit.php';
@@ -38,7 +37,7 @@
 					`$users` 
 				WHERE 
 					`user_subdomain` = ''
-				LIMIT $limit ;";
+				LIMIT 30 ;";
 		
         $res = mysql_query( $sql );
         
