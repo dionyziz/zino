@@ -9,10 +9,10 @@ ul.albums li {
     padding: 10px;
     margin: 0 15px 0 15px;
 }
-ul.albums li div a {
+ul.albums li a div{
     font-weight: bold;
 }
-ul.albums li div a img {
+ul.albums li a div img {
     background-image: url( 'images/album.png' );
     background-position: top left;
     background-repeat: no-repeat;
