@@ -105,6 +105,11 @@
 						`user_subdomain` IN ( '$list' ) 
 					LIMIT 1;";
 			$sqlresult = mysql_query( $sql );
+			if ( !$sqlresult ) {
+				?><br />Error with DB check! Length was <?php 
+				echo strlen( $sql );
+				return -1;
+			}
 			if ( mysql_num_rows( $sqlresult ) ) { // If there is someone in the list with the same subdomain
 				while( $conflict = mysql_fetch_array( $sqlresult ) ) {
 					echo "DB user " . $conflict[ 'user_id' ] . ": " . htmlspecialchars( $conflict[ 'user_name' ] ) . " with subdomain " . $conflict[ 'user_subdomain' ] . " conflicts with one of the above list.";
@@ -125,6 +130,7 @@
 		if ( $update != 1 ) {
 			return 0;
 		}
+		?><br />Updating <?php echo count( $unique_subdomains ); ?> entries...<?php
 		foreach( $unique_subdomains as $uid => $val ) {
 			$sql = "UPDATE 
 						`$users` 
