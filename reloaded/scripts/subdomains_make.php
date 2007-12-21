@@ -20,7 +20,7 @@
 		$update = $_GET[ 'update' ];
 		$limit = $_GET[ 'limit' ];
 		if ( $limit < 10 || $limit > 1000 ) {
-			$limit = 30;
+			$limit = 1000;
 		}
 		$limit = addslashes( $limit );
 		
@@ -70,17 +70,21 @@
 			}
 		}
 		?></table><br /><?php
+		unset( $rows );
+		
 		//WARNINGS
 		//Zero length subdomains:
 		foreach( $zerolengths as $uid => $uname ) {
 			?>-WARNING- User <?php echo $uid; ?>: <?php echo $uname; ?> produces a zero-length subdomain!<br />
 <?php
 		}
+		
 		// CHECKING FOR DUPLICATES
 		
 		// 1) in the array we've already got
 		$unique_subdomains = array_unique( $subdomains );
 		$diff = array_diff_key( $subdomains, $unique_subdomains );
+		unset( $subdomains );
 		if( count( $diff ) > 0 ) {
 			?>Too bad.<br /><?php
 			foreach( $diff as $key => $val ) {
@@ -128,6 +132,7 @@
 		//If we've reached that far, everything is fine.
 		//Executing UPDATE queries
 		if ( $update != 1 ) {
+			?><br /><br /><a href="?update=1">Update now</a><?php
 			return 0;
 		}
 		?><br />Updating <?php echo count( $unique_subdomains ); ?> entries...<?php
