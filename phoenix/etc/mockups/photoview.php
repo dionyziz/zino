@@ -67,7 +67,7 @@ function Unhover( node ) {
 				</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
 			</div>
 			<div class="text">
-				<textarea></textarea>
+				<textarea rows="2" cols="50"></textarea>
 			</div>
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" />
