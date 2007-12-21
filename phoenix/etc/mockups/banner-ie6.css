@@ -1,3 +1,7 @@
 div.header h1 {
     top: 0px;
 }
+div.header ul {
+	display: inline;
+	padding: 0px;
+}
