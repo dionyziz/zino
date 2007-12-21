@@ -2,5 +2,6 @@ div.header h1 {
     top: 0px;
 }
 div.header ul {
+	position: relative;
 	top: 25px;
 }
