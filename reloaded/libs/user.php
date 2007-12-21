@@ -120,7 +120,15 @@
 		global $users;
 		global $db;
 		global $mc;
-
+		$reserved = Array(	//TODO: cleanup and improve this array
+		/*	"blog" , "invitations" , "cube" , "blogcube" ,
+			"accounts" , "profiles" , "staff" , "hades" ,
+			"guardian" , "turing" , "news" , "help" ,
+			"doc" , "documentation" , "admin" , "mysql" , 
+			"database" , "db" , "dbase" , "access" ,
+			"servers" , "status" , "blogger", */
+			'anonymous', 'www', 'beta' );
+		
         w_assert( $xc_settings[ "allowregisters" ] );
 		
 		$s_username = $username;
@@ -132,7 +140,10 @@
 			return 2;
 		}
 		if ( strlen( $subdomain ) < 1 ) {
-			//subdomain is too small (either too small username or it couldn't produce enough output after the regexps)
+			$subdomain = myescape( User_DeriveSubdomain( 'u' . $username ) ); //if username is only numbers, prepending a u will produce valid output
+		}
+		if ( $subdomain == 'u' || in_array( $subdomain , $reserved ) ) {
+			//subdomain is reserved, or too small (either too small username or nothing valid came up)
 			return 2;
 		}
 		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' OR `user_subdomain`='$subdomain' LIMIT 1;";
