@@ -3,5 +3,11 @@ div.header h1 {
 }
 div.header ul {
 	position: relative;
-	top: -40px;
+	top: -55px;
+}
+div.header ul li a.login {
+	background-image: url('images/up.png');
+}
+div.header ul li a.register {
+	background-image: url('images/bookmark_toolbar.png');
 }
