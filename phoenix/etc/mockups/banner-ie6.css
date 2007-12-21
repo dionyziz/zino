@@ -1,7 +1,6 @@
 div.header h1 {
     top: 0px;
 }
-div.header ul {
+div.header a.novisual {
 	display: inline;
-	padding: 0px;
 }
