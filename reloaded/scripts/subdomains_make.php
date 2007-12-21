@@ -152,6 +152,7 @@ Key <?php echo $uid; ?> FAILED!<?php
 		}
 		
 		?><br />--Done--<?php
+		?><br /><br /><a href="?update=1">More</a><?php
 		
 	?>
 	</body>
