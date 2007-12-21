@@ -22,7 +22,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
 		<!--[if IE]><link rel="stylesheet" type="text/css" href="banner-ie.css" /><![endif]-->
-		<!--[if IE6]><link rel="stylesheet" type="text/css" href="banner-ie6.css" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="banner-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="footer.css" />
 		<link rel="stylesheet" type="text/css" href="headlines.css" />
 		<link rel="stylesheet" type="text/css" href="people.css" />
