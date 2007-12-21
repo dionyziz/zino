@@ -1,8 +1,5 @@
-div.header ul {
-	display: inline;
-}
-div.header h1 {
-    top: 0px;
+div.header a.novisual {
+    display: inline;
 }
 div.header ul {
 	position: relative;
