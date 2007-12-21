@@ -115,6 +115,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	?></div><?php
 	include 'footer.php';
 	?>
-        <script type="text/javascript" src="../../../js/pngfix.js"></script>
+        <script type="text/javascript" src="../../js/pngfix.js"></script>
 	</body>
 </html>
