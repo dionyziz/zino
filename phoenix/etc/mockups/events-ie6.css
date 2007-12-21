@@ -1,3 +1,4 @@
 ul.events li div {
-	text-align: center;
+	position:relative;
+	left: 50px;
 }
