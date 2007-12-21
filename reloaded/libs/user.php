@@ -139,10 +139,7 @@
 			// reserved
 			return 2;
 		}
-		if ( strlen( $subdomain ) < 1 ) {
-			$subdomain = myescape( User_DeriveSubdomain( 'u' . $username ) ); //if username is only numbers, prepending a u will produce valid output
-		}
-		if ( $subdomain == 'u' || in_array( $subdomain , $reserved ) ) {
+		if ( strlen( $subdomain ) < 1 || in_array( $subdomain , $reserved ) ) {
 			//subdomain is reserved, or too small (either too small username or nothing valid came up)
 			return 2;
 		}
