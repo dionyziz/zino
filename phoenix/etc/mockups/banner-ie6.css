@@ -11,3 +11,6 @@ div.header ul li a.login {
 div.header ul li a.register {
 	background-image: url('images/_bookmark_toolbar_ie6.png');
 }
+div.header div.eof {
+	top: 0px;
+}
