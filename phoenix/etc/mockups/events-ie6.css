@@ -1,9 +1,3 @@
-ul.events li.poll div {
-	width: 20px;
-}
-ul.events li.photo div {
-	width: 20px;
-}
-ul.events li.journal div {
-	width: 20px;
+ul.events li div a {	
+	padding-left: 4px;
 }
