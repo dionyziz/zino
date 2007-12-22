@@ -914,17 +914,16 @@
 			return $this->mDOB;
 		}
 		public function Hobbies() {
+            global $libs;
+
 			if ( $this->mHobbies === false ) {
-				global $libs;
-				
 				$libs->Load( 'interesttag' );
-				$this->mHobbies = "";
 				$tags = InterestTag_List( $this );
+                $hobbies = array();
 				foreach ( $tags as $tag ) {
-					$this->mHobbies .= $tag->Text;
-					$this->mHobbies .= ",";
+                    $hobbies[] = $tag->Text;
 				}
-				$this->mHobbies[ strlen( $this->mHobbies )-1 ] = " "; // Remove the last comma
+				$this->mHobbies = implode(', ', $hobbies);
 			}
 			return $this->mHobbies;
 		}
@@ -934,9 +933,6 @@
 		public function Blog() {
 			return $this->mBlog;
 		}
-		/*public function LowRes() {
-			return $this->mLowRes;
-		}*/
 		public function SetPassword( $newpassword ) {
 			global $users;
 			global $db;
