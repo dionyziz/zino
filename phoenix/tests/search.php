@@ -203,8 +203,6 @@
                 }
             }
 
-            die( print_r( $ids ) );
-
             $this->AssertTrue( $order, "The order of the users returned by search was not the one requested" );
         }
         public function TestGroupBy() {
