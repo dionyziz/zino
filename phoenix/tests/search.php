@@ -188,7 +188,7 @@
                 $this->AssertEquals( 100, count( $users ), "Wrong number of users returned by search after setting order by" );
             }
             else {
-                $this->AssertEquals( $usercount, count( $users ) );
+                $this->AssertEquals( $usercount, count( $users ), "Wrong number of users returned by search after setting order by" );
             }
 
             $order = true;
