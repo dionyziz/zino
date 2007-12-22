@@ -218,7 +218,7 @@
             $parentids = array();
             $groupby = true;
             foreach ( $comments as $comment ) {
-                if ( isset( $parentids[ $comment->ParentId ] ) ) {
+                if ( in_array( $comment->ParentId, $parentids ) ) {
                     $groupby = false;
                     break;
                 }
@@ -228,6 +228,58 @@
             $this->AssertTrue( $groupby, "Search did not group the results as requested" );
         }
         public function TestOnePrototypeFull() {
+            $commentNew = New Comment();
+            $commentNew = New CommentPrototype();
+            $commentNew->UserId = 1;
+            $commentNew->BulkId = 1;
+            $commentNew->Date = '0000-00-00 00:00:00';
+            $commentNew->Save();
+
+            $commentNew = New Comment( $commentNew->Id ); // refresh properties
+
+            $search = New Search();
+            $search->AddPrototype( $comment );
+            $search->SetGroupBy( $comment, 'ParentId' );
+            $search->SetOrderBy( $comment, 'Id', 'DESC' );
+
+            $comments = $search->Get();
+
+            $this->Assert( is_array( $comments ), "Search did not return an array" );
+            $this->Assert( $search->Results(), "Search did not return any results" );
+            $this->AssertEquals( $search->Results(), count( $comments ), "Search Results not equal to count of objects returned" );
+            
+            $properties = true;
+            $order = true;
+            $group = true;
+            $found = false;
+
+            $previd = null;
+            $parentids = array();
+            foreach ( $comments as $comment ) {
+                if ( $comment->UserId != 1 || $comment->BulkId != 1 || $comment->Date != '0000-00-00 00:00:00' ) {
+                    $properties = false;
+                }
+                if ( $comment->Id > $previd && $previd != null ) {
+                    $order = false; 
+                }
+                if ( in_array( $comment->ParentId, $parentids ) ) {
+                    $group = false;
+                }
+                if ( $comment->Id = $commentNew->Id ) {
+                    $found = true;
+                    $this->AssertEquals( $commentNew, $comment, 'Comment returned by search is not equal to the one created' );
+                }
+
+                $previd = $comment->Id;
+                $parentids[] = $comment->ParentId;
+            }
+
+            $this->AssertTrue( $properties, "Properties of all comments should be same with the prototype" );
+            $this->AssertTrue( $order, "Order of the comments returned is not as requested" );
+            $this->AssertTrue( $group, "Comments are not grouped as requested" );
+            $this->AssertTrue( $found, "A comment matching the prototype was not on the list returned" );
+
+            $commentNew->Delete();
         }
         public function TestConnect() {
         }
