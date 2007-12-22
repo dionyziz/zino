@@ -231,7 +231,7 @@
             $commentNew = New Comment();
             $commentNew->UserId = 1;
             $commentNew->BulkId = 1;
-            $commentNew->Date = '0000-00-00 00:00:00';
+            $commentNew->Created = '0000-00-00 00:00:00';
             $commentNew->ParentId = 21;
             $commentNew->Save();
             $commentNew = New Comment( $commentNew->Id ); // refresh properties
@@ -260,7 +260,7 @@
             $previd = null;
             $parentids = array();
             foreach ( $comments as $comment ) {
-                if ( $comment->UserId != 1 || $comment->BulkId != 1 || $comment->Date != '0000-00-00 00:00:00' ) {
+                if ( $comment->UserId != 1 || $comment->BulkId != 1 || $comment->Created != '0000-00-00 00:00:00' ) {
                     $properties = false;
                 }
                 if ( $comment->Id > $previd && $previd != null ) {
