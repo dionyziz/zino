@@ -194,12 +194,16 @@
             $order = true;
 
             $previd = -1;
+            $ids = array();
             foreach ( $users as $user ) {
+                $ids[] = $user->Id;
                 if ( $user->Id < $previd ) {
                     $order = false;
                     break;
                 }
             }
+
+            die( print_r( $ids ) );
 
             $this->AssertTrue( $order, "The order of the users returned by search was not the one requested" );
         }
