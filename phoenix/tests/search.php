@@ -239,7 +239,7 @@
             $comment = New CommentPrototype();
             $comment->UserId = 1;
             $comment->BulkId = 1;
-            $comment->Date = '0000-00-00 00:00:00';
+            $comment->Created = '0000-00-00 00:00:00';
 
             $search = New Search();
             $search->AddPrototype( $comment );
