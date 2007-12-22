@@ -185,7 +185,7 @@
 
             $usercount = count( ListAllUsers() );
             if ( $usercount > 100 ) {
-                $this->AssertEquals( 100, count( $users ) );
+                $this->AssertEquals( 100, count( $users ), "Wrong number of users returned by search after setting order by" );
             }
             else {
                 $this->AssertEquals( $usercount, count( $users ) );
@@ -201,7 +201,7 @@
                 }
             }
 
-            $this->AssertTrue( $order );
+            $this->AssertTrue( $order, "The order of the users returned by search was not the one requested" );
         }
         public function TestGroupBy() {
         }
