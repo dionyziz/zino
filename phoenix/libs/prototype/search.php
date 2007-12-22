@@ -1,5 +1,27 @@
 <?php
 
+    final class SearchPrototypeProperty {
+        private $mPrototype;
+        private $mProperty;
+
+        public function BiggerThan( $value ) {
+            $this->mPrototype->$this->mProperty = array( ">", $value ); // MAGIC!
+        }
+        public function SmallerThan( $value ) {
+            $this->mPrototype->$this->mProperty = array( "<", $value ); // MAGIC!
+        }
+        public function Not( $value ) {
+            $this->mPrototype->$this->mProperty = array( "!=", $value ); // MAGIC!
+        }
+        public function Range( $min, $max ) {
+            $this->mPrototype->$this->mProperty = array( "range", $min, $max ); // MAGIC!
+        }
+        public function SearchPrototypeField( $prototype, $property ) {
+            $this->mPrototype   = $prototype;
+            $this->mProperty    = $property;
+        }
+    }
+
     abstract class SearchPrototype {
         protected $mValues;
         protected $mObject;
@@ -13,7 +35,10 @@
             if ( method_exists( $this, $methodname ) ) {
                 $this->$methodname( $value ); // MAGIC!
             }
-            $this->mValues[ $key ] = $value;
+            $this->mValues[ $key ][] = $value;
+        }
+        public function __get( $key ) {
+            return New SearchPrototypeProperty( $this, $key );
         }
         public function GetValues() {
             return $this->mValues;

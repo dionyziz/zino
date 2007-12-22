@@ -8,9 +8,6 @@
     global $libs;
     $libs->Load( 'prototype/search' );
 
-
-
-
     class Search {
         public $Limit;
         public $Offset;
@@ -176,27 +173,56 @@
 
             $this->mQuery .= "WHERE ";
 
-            $first = true;
+            $conditionsCount = array();
             foreach ( $this->mPrototypes as $prototype ) {
                 $table =  $prototype->GetTable();
-                $values = $prototype->GetValues();
+                $properties = $prototype->GetValues();
                 $fields = $prototype->GetFields();
 
                 if ( empty( $values ) ) {
                     continue;
                 }
 
-                foreach ( $values as $property => $value ) {
+                foreach ( $properties as $property => $values ) {
                     $field = $fields[ $property ];
 
-                    if ( !$first ) {
+                    if ( count( $conditionsCount ) ) {
                         $this->mQuery .= " AND ";
                     }
-                    else {
-                        $first = false;
+
+                    if ( !isset( $conditionsCount[ $table ] ) ) {
+                        $conditionsCount[ $table ] = array();
+                    }
+                    if ( !isset( $conditionsCount[ $table ][ $field ] ) ) {
+                        $conditionsCount[ $table ][ $field ] = 0;
                     }
 
-                    $this->mQuery .= "`$table`.`$field` = '$value'";
+                    if ( count( $values ) > 1 ) {
+                        $this->mQuery .= " ( ";
+                    }
+                    foreach ( $values as $value ) {
+                        if ( count( $conditionsCount[ $table ][ $field ] ) ) {
+                            $this->mQuery .= " OR ";
+                        }
+
+                        if ( !is_array( $value ) ) { // property equals value
+                            $this->mQuery .= "`$table`.`$field` = '$value'";
+                        }
+                        else if ( $value[ 0 ] != "range" )  { // property OPERATOR value
+                            w_assert( count( $value ) == 2 );
+
+                            $this->mQuery .= "`$table`.`$field` " . $value[ 0 ] . " '" . $value[ 1 ] . "'";
+                        }
+                        else { // property of range (min,max)
+                            w_assert( count( $value ) == 3 );
+
+                            $this->mQuery .= "( `$table`.`$field` > '" . $value[ 1 ] . "' AND `$table`.`$field` < '" . $value[ 1 ] . "' )";
+                        }
+                        ++$conditionsCount[ $table ][ $field ];
+                    }
+                    if ( count( $values ) > 1 ) {
+                        $this->mQuery .= " ) ";
+                    }
                 }
             }
 
