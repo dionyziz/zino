@@ -36,7 +36,7 @@
                 $this->$methodname( $value ); // MAGIC!
             }
 
-            w_assert( in_array( $key, $this->mFields ), "Trying to set a non-existing prototype field" );
+            w_assert( isset( $this->mFields[ $key ] ), "Trying to set a non-existing prototype property" );
 
             $this->mValues[ $key ][] = $value;
         }
