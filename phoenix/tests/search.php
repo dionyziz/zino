@@ -256,10 +256,15 @@
             $order = true;
             $group = true;
             $found = false;
+            $double = false;
 
             $previd = null;
             $parentids = array();
+            $ids = array();
             foreach ( $comments as $comment ) {
+                if ( in_array( $comment->Id, $ids ) ) {
+                    $double = true; 
+                }
                 if ( $comment->UserId != 1 || $comment->BulkId != 1 || $comment->Created != '0000-00-00 00:00:00' ) {
                     $properties = false;
                 }
@@ -269,25 +274,24 @@
                 if ( in_array( $comment->ParentId, $parentids ) ) {
                     $group = false;
                 }
-                if ( $comment->Id = $commentNew->Id ) {
-                    $found = true;
+                if ( $comment->Id == $commentNew->Id ) {
                     $this->AssertEquals( $commentNew, $comment, 'Comment returned by search is not equal to the one created' );
                 }
 
                 $previd = $comment->Id;
                 $parentids[] = $comment->ParentId;
+                $ids[] = $comment->Id;
             }
 
             $this->AssertTrue( $properties, "Properties of all comments should be same with the prototype" );
             $this->AssertTrue( $order, "Order of the comments returned is not as requested" );
             $this->AssertTrue( $group, "Comments are not grouped as requested" );
             $this->AssertTrue( $found, "A comment matching the prototype was not on the list returned" );
+            $this->AssertFalse( $double, "Same comment returned twice" );
 
             $commentNew->Delete();
         }
         public function TestConnect() {
-        }
-        public function TestComplex() {
         }
         public function TestRealWorld() {
         }
