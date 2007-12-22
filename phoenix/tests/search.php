@@ -248,6 +248,8 @@
 
             $comments = $search->Get();
 
+            die( print_r( $comments ) );
+
             $this->Assert( is_array( $comments ), "Search did not return an array" );
             $this->Assert( $search->NumRows(), "Search did not return any results" );
             $this->AssertEquals( $search->NumRows(), count( $comments ), "Search NumRows not equal to count of objects returned" );
