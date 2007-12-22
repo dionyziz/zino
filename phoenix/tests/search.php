@@ -243,7 +243,7 @@
 
             $search = New Search();
             $search->AddPrototype( $comment );
-            $search->SetGroupBy( $comment, 'ParentId' );
+            $search->SetGroupBy( $comment, 'ParentId' ); 
             $search->SetOrderBy( $comment, 'Id', 'DESC' );
 
             $comments = $search->Get();
