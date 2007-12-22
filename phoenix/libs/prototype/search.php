@@ -35,6 +35,9 @@
             if ( method_exists( $this, $methodname ) ) {
                 $this->$methodname( $value ); // MAGIC!
             }
+
+            w_assert( in_array( $this->mFields, $key ), "Trying to set a non-existing prototype field" );
+
             $this->mValues[ $key ][] = $value;
         }
         public function __get( $key ) {
