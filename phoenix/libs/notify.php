@@ -198,8 +198,8 @@
                 'notify_delid'      => 'DelId'
             ) );
 
-            $this->FromUser = false;
-            $this->ToUser   = false;
+            $this->mFromUser = false;
+            $this->mToUser   = false;
         }
     }
 
