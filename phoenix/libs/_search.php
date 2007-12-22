@@ -201,6 +201,7 @@
                         $this->mQuery .= " ( ";
                     }
                     foreach ( $values as $value ) {
+                        die( print_r( $conditionsCount ) );
                         if ( count( $conditionsCount[ $table ][ $field ] ) ) {
                             $this->mQuery .= " OR ";
                         }
