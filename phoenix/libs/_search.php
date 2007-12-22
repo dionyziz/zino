@@ -179,7 +179,7 @@
                 $properties = $prototype->GetValues();
                 $fields = $prototype->GetFields();
 
-                if ( empty( $values ) ) {
+                if ( empty( $properties ) ) {
                     continue;
                 }
 
