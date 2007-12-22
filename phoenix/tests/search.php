@@ -181,6 +181,7 @@
             $search = New Search();
             $search->AddPrototype( $user );
             $search->SetOrderBy( $user, 'Id', 'ASC' );
+
             $users = $search->Get();
 
             $usercount = count( ListAllUsers() );
@@ -194,9 +195,7 @@
             $order = true;
 
             $previd = -1;
-            $ids = array();
             foreach ( $users as $user ) {
-                $ids[] = $user->Id();
                 if ( $user->Id() < $previd ) {
                     $order = false;
                     break;
@@ -206,6 +205,27 @@
             $this->AssertTrue( $order, "The order of the users returned by search was not the one requested" );
         }
         public function TestGroupBy() {
+            $comment = New CommentPrototype();
+
+            $search = New Search();
+            $search->AddPrototype( $comment );
+            $search->SetGroupBy( $comment, 'ParentId' );
+
+            $comments = $search->Get();
+
+            $this->Assert( count( $comments ) > 0, "Search with group by did not return any results" );
+
+            $parentids = array();
+            $groupby = true;
+            foreach ( $comments as $comment ) {
+                if ( isset( $parentids[ $comment->ParentId ] ) ) {
+                    $groupby = false;
+                    break;
+                }
+                $parentids[] = $comment->ParentId;
+            }
+
+            $this->AssertTrue( $groupby, "Search did not group the results as requested" );
         }
         public function TestOnePrototypeFull() {
         }
@@ -225,4 +245,5 @@
     }
     
     return new TestSearch();
+
 ?>
