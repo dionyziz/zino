@@ -196,9 +196,8 @@
             $previd = -1;
             $ids = array();
             foreach ( $users as $user ) {
-                die( var_dump( $user ) );
-                $ids[] = $user->Id;
-                if ( $user->Id < $previd ) {
+                $ids[] = $user->Id();
+                if ( $user->Id() < $previd ) {
                     $order = false;
                     break;
                 }
