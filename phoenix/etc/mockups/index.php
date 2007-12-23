@@ -40,7 +40,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="comments.css" />
 		<link rel="stylesheet" type="text/css" href="pollview.css" />
 		<link rel="stylesheet" type="text/css" href="albums.css" />
-		<!--[if IE6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="polllist.css" />
 		<link rel="stylesheet" type="text/css" href="journalview.css" />
 		<link rel="stylesheet" type="text/css" href="journallist.css" />
