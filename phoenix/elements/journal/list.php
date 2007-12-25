@@ -4,7 +4,7 @@
 		
 		$page->AttachStyleSheet( 'css/journal/list.css' );
 		
-		Element( 'user/sections' );
+		Element( 'user/sections' , 'journal' );
 		?><div id="journallist">
 			<ul>
 				<li><?php
