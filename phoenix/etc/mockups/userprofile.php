@@ -132,6 +132,8 @@
 				ο dionyziz είναι online τώρα. <a href="" onclick="return false;">κάνε chat!</a>
 			</span>
 		</div>
+		<div class="ads" style="padding: 10px 10px;background-color:green;width:200px;height:300px;">
+		</div>
 		<div class="eof"></div>
 	</div>
 	<div class="main">
