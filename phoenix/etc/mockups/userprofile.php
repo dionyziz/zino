@@ -137,14 +137,14 @@
 	<div class="main">
 		<div class="photos">
 			<ul>
-				<li><img src="images/avatars/dionyzizb.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizb" /></li>
-				<li><img src="images/avatars/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizc" title="dionyzizc" /></li>
-				<li><img src="images/avatars/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizd" title="dionyzizd" /></li>
-				<li><img src="images/avatars/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzize" title="dionyzize" /></li>
-				<li><img src="images/avatars/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizf" title="dionyzizf" /></li>
-				<li><img src="images/avatars/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></li>
-				<li><img src="images/avatars/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></li>
-				<li><img src="images/avatars/dionyzizi.jpg" style="width:100px;height:100px;" alt="dionyzizi" title="dionyzizi" /></li>
+				<li><a href=""><img src="images/avatars/dionyzizb.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizb" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizc" title="dionyzizc" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizd" title="dionyzizd" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzize" title="dionyzize" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizf" title="dionyzizf" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></a></li>
+				<li><a href=""><img src="images/avatars/dionyzizi.jpg" style="width:100px;height:100px;" alt="dionyzizi" title="dionyzizi" /></a></li>
 				<li><a href="" class="button">&raquo;</a></li>
 			</ul>
 		</div>
