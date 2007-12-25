@@ -275,6 +275,9 @@
 			</dl>
 			<a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
 		</div>
+		<div class="ads" style="width:100%;overflow:hidden;height:60px;text-align:center;">
+			<img src="images/ads/ad234.jpg" style="padding: 2px 5px;" /><img src="images/ads/ad234.jpg" style="padding: 2px 5px;" /><img src="images/ads/ad234.jpg" style="padding: 2px 5px;" /><img src="images/ads/ad234.jpg" style="padding: 2px 5px;" />
+		</div>
 		<div class="comments">
 			<h3>Σχόλια στο προφίλ του dionyziz</h3>
 			<div class="comment newcomment">
