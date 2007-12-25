@@ -22,6 +22,7 @@
 				<li><?php
 				Element( 'journal/small' );
 				?></li>
-			</ul><?php
+			</ul>
+		</div><?php
 	}
 ?>
