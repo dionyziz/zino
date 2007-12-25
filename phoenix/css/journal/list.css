@@ -1,0 +1,13 @@
+div#journallist {
+	margin-bottom: 20px;
+}
+div#journallist ul {
+	padding: 0;
+	margin: 0 0 0 170px;
+	list-style: none;
+	width: 60%;
+}
+div#journallist ul li {
+	padding: 10px 0 25px 0;
+	margin: 0;
+}
