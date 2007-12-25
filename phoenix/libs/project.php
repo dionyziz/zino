@@ -45,6 +45,7 @@
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
 			"join" 				=> "user/join",
+			"journallist"		=> "journal/list",
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
