@@ -15,18 +15,18 @@
 					?> class="selected"<?php
 				}
 				?>><a href="">Albums</a></li>
-				<li>·</li>
+				<li>Β·</li>
 				<li<?php
 				if ( $section == 'poll' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="">Δημοσκοπήσεις</a></li>
-				<li>·</li>
+				?>><a href="">Ξ”Ξ·ΞΌΞΏΟƒΞΊΞΏΟ€Ξ®ΟƒΞµΞΉΟ‚</a></li>
+				<li>Β·</li>
 				<li<?php
 				if ( $section == 'journal' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="">Ημερολόγιο</a></li>
+				?>><a href="">Ξ—ΞΌΞµΟΞΏΞ»ΟΞ³ΞΉΞΏ</a></li>
 			</ul>
 		</div><?php
 	}
