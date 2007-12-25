@@ -65,6 +65,7 @@ div.bumpstrip {
 	border-top: 1px solid #cccccc;
 	border-bottom: 1px solid #cccccc;
 	background-color: #eeeeee;
+    margin-top: 50px;
 }
 div.filmstrip div.strip {
 	width: 1740px;

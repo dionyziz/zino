@@ -7,6 +7,7 @@
         $page->AttachStylesheet( 'css/sidebar.css' );
         $page->AttachScript( 'js/animations.js' );
         
+        Element( "photo/latest" );
         Element( "frontpage/leftbar" );
 
         $latestids = Element( "article/latest" );
@@ -19,12 +20,11 @@
         ?><br /><?php
 		Element( "user/birthdays" );
         ?><br /><br /><?php
-        Element( "photo/latest" );
         Element( "notify/frontpage" );
         ?><br />
 		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
-			echo $rabbit_settings[ 'applicationname' ];
-			?></a><br /><br /><?php
+        echo $rabbit_settings[ 'applicationname' ];
+        ?></a><br /><br /><?php
         Element( "ad/leaderboardgameplanet" );
     }
 ?>
