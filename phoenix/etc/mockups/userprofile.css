@@ -254,6 +254,20 @@ div#profile div.main div.lastjournal p {
 	margin: 0;
 	padding: 5px 0 20px 0;
 }
+div#profile div.main div.lastjournal dl {
+	text-align: right;
+}
+div#profile div.main div.lastjournal dl dd {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	font-size: 80%;
+}
+div#profile div.main div.lastjournal dl dd a {
+	background-image: url('images/comment.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
 div#profile div.main div.lastjournal a.button {
 	margin-left: 0;
 }

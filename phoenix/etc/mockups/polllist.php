@@ -69,7 +69,6 @@
 					</li>				
 				</ul>
 				<dl class="pollinfo">
-					
 					<dd><a href="">43 σχόλια</a></dd>
 				</dl>
 				<img src="images/barfade.jpg" alt="" />
