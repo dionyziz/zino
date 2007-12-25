@@ -193,6 +193,12 @@
         <i class="bl"></i>
         <i class="br"></i>
     </div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+	</div>
 	<div class="people">
 		<ul>
 			<li><a href=""><img src="images/avatars/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>προβολή προφίλ &raquo;</span></a></li>
@@ -214,5 +220,14 @@
             ... <a href="" onclick="">Επόμενη &raquo;</a>
             <span>βρέθηκαν 112 άτομα</span>
         </div>
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+	</div>
+	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
+		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
 </div>
