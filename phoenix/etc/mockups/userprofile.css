@@ -256,7 +256,7 @@ div#profile div.main div.lastjournal p {
 }
 div#profile div.main div.lastjournal dl {
 	text-align: right;
-	padding-bottom: 20px;
+	padding-bottom: 5px;
 }
 div#profile div.main div.lastjournal dl dd {
 	display: inline;
@@ -271,6 +271,7 @@ div#profile div.main div.lastjournal dl dd a {
 }
 div#profile div.main div.lastjournal a.button {
 	margin-left: 0;
+	margin-bottom: 20px;
 }
 div#profile div.main div.comments h3 {
 	padding: 20px 0 5px 0;
