@@ -67,22 +67,49 @@
 				</dd>
 				
 				<dt><strong>Αγαπημένα τραγούδια</strong></dt>
-				<dd>Papercut, Perfection is my direction, Over my head, Teenagers, Black parade</dd>
+				<dd>
+					<a href="">Papercut</a>, 
+					<a href="">Perfection is my direction</a>, 
+					<a href="">Over my head</a>, 
+					<a href="">Teenagers</a>, 
+					<a href="">Black parade</a>
+				</dd>
 			
 				<dt><strong>Αγαπημένες ταινίες</strong></dt>
-				<dd>Amelie, Elephant, Sommersturm, Lord of the Rings</dd>
+				<dd>
+					<a href="">Amelie</a>, 
+					<a href="">Elephant</a>, 
+					<a href="">Sommersturm</a>, 
+					<a href="">Lord of the Rings</a>
+				</dd>
 				
 				<dt><strong>Αγαπημένες σειρές</strong></dt>
-				<dd>Pixelperfect, Friends</dd>
+				<dd>
+					<a href="">Pixelperfect</a>, 
+					<a href="">Friends</a>
+				</dd>
 				
 				<dt><strong>Αγαπημένα βιβλία</strong></dt>
-				<dd>PHP cookbook, MySQL cookbook, Code complete</dd>
+				<dd>
+					<a href="">PHP cookbook</a>, 
+					<a href="">MySQL cookbook</a>, 
+					<a href="">Code complete</a>
+				</dd>
 				
 				<dt><strong>Αγαπημένοι καλλιτέχνες</strong></dt>
-				<dd>Angelina Jolie, Rowan Atkinson, Harisson Ford</dd>
+				<dd>
+					<a href="">Angelina Jolie</a>, 
+					<a href="">Rowan Atkinson</a>, 
+					<a href="">Harisson Ford</a>
+				</dd>
 				
 				<dt><strong>Αγαπημένα videogames</strong></dt>
-				<dd>WoW, Baldrus gate, Empire earth, Age of empires</dd>
+				<dd>
+					<a href="">WoW</a>, 
+					<a href="">Baldrus gate</a>, 
+					<a href="">Empire earth</a>, 
+					<a href="">Age of empires</a>
+				</dd>
 				
 				<dt><strong>Αγαπημένα ρητά</strong></dt>
 				<dd>Τον αράπη και αν τον πλένεις το σαπούνι σου χαλάς</dd>
