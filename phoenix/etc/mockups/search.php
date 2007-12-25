@@ -221,7 +221,7 @@
             <span>βρέθηκαν 112 άτομα</span>
         </div>
 	</div>
-	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
+	<div class="ads" style="margin: 5px 0 10px 0;text-align:center;overflow:hidden;height: 60px;">
 		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
 		<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
