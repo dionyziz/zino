@@ -425,8 +425,8 @@
 			</div>
 		</div>
 	</div>
+	<div class="eof"></div>
 	<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 90px;">
 		<img src="images/ads/ad728.jpg" style="width:728px;height:90px;margin: 0 5px;" alt="Διαφήμιση" />
 	</div>
-	<div class="eof"></div>
 </div>
