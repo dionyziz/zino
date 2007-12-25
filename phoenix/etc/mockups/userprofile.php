@@ -5,7 +5,7 @@
 				<a><img src="images/avatars/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" title="dionyziz" /><span class="name">dionyziz</span></a>
 			</h2>
 			<span class="subtitle">cold chocolate is superior to ice tea</span>
-			<div class="mood">Διάθεση: <img src="images/avatars/cool.gif" alt="cool" title="cool" /></div>
+			<div class="mood"><strong>Διάθεση</strong> <img src="images/avatars/cool.gif" alt="cool" title="cool" /></div>
 			<div class="info">
 				<dl>
 					<dt><strong>Ηλικία</strong></dt>
