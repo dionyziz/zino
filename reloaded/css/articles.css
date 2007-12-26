@@ -61,4 +61,5 @@ div.articles a.newarticle {
 }
 div.populararticles {
 	width: 100%;
+    margin-top: 30px;
 }
