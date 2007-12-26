@@ -1,0 +1,60 @@
+div.pollsmall {
+	padding: 10px 0;
+}
+div.pollsmall h4 {
+	padding: 0;
+	margin: 0;
+}
+div.pollsmall div.results ul {
+	padding: 0;
+	list-style: none;
+	width: 450px;
+}
+div.pollsmall div.results ul li {
+	height: 20px;
+	margin: 0;
+	padding: 3px 0;
+	width: 450px;
+}
+div.pollsmall div.results ul li dl {
+	padding: 0;
+	margin: 0;
+}
+div.pollsmall div.results ul li dl dt {
+	float: right;
+	padding: 0;
+	margin: 0;
+}
+div.pollsmall div.results ul li dl dd {
+	padding: 0;
+	margin: 0;
+}
+div.pollsmall div.results ul li dl dd span {
+	padding-left: 7px;
+}
+div.pollsmall div.results ul li dl dd div.percentagebar {
+	height: 13px;
+	float: left;
+}
+div.pollsmall div.results ul li dl dd div.percentagebar div.leftrounded {
+	float: left;
+	background-image: url('http://static.zino.gr/phoenix/percentagebar-left.jpg' );
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 13px;
+	width: 9px;
+}
+div.pollsmall div.results ul li dl dd div.percentagebar div.rightrounded {
+	float: right;
+	background-image: url( 'http://static.zino.gr/phoenix/percentagebar-right.jpg' );
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 13px;
+	width: 9px;
+}
+div.pollsmall div.results ul li dl dd div.percentagebar div.middlerounded {
+	background-image: url('images/percentagebar-fade.jpg');
+	background-repeat: repeat-x;
+	background-position: top;
+	height: 13px;
+}
