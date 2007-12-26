@@ -257,7 +257,7 @@
 				<div class="comment" style="margin-left: 20px">
 					<div class="toolbox" style="margin-right: 20px">
 						<span class="time">πριν 12 λεπτά</span>
-						<a href="" onclick="return false"><img src="images/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
+						<a href="" onclick="return false"><img src="http://static.zino.gr/phoenix/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
 					</div>
 					<div class="who">
 						<a href="user/dionyziz">
