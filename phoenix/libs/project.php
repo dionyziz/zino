@@ -44,6 +44,7 @@
     	return array(
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
+			"profile"			=> "user/profile/view",
 			"join" 				=> "user/join",
 			"journallist"		=> "journal/list",
             'unittest'          => 'developer/test/view',

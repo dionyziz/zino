@@ -1,0 +1,280 @@
+div#profile {
+	margin: 0;
+}
+div#profile div.sidebar {
+	background-color: white;
+	background-image: url('http://static.zino.gr/phoenix/sidebarbg.jpg');
+	background-repeat: repeat-y;
+	background-position: right;
+	float: left;
+	position: relative;
+	width: 300px;
+	padding: 14px 0 4px 0;
+}
+div#profile div.sidebar div.basicinfo {
+	padding: 4px;
+	margin-bottom: 20px;
+}
+div#profile div.sidebar div.basicinfo div.mood {
+	padding-top: 5px;
+}
+div#profile div.sidebar div.basicinfo div.info {
+	clear: left;
+}
+div#profile div.sidebar div.basicinfo div dl {
+	padding: 0;
+	margin: 0;
+}
+
+div#profile div.sidebar div.basicinfo dl dt {
+	display: block;
+	float: left;
+	width: 120px;
+	padding: 3px 0;
+}
+div#profile div.sidebar div.basicinfo dl dd {
+	display: block;
+	text-align: left;
+	margin-left: 120px;
+	padding: 3px 0;
+	width: 160px;
+}
+div#profile div.sidebar div.basicinfo h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 120%;
+	/*display: inline;*/
+}
+div#profile div.sidebar div.basicinfo h2 a img {
+	float: left;
+	margin: 3px 6px 20px 3px;
+	border: 1px solid #666;
+}
+div#profile div.sidebar div.basicinfo h2 a span.name {
+	font-size: 120%;
+	display: block;
+	font-weight: bold;
+}
+div#profile div.sidebar div.look {
+	clear: both;
+	padding: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background-color: white;
+}
+div#profile div.sidebar div.look ul li.dot {
+	color: #999;
+	font-size: 100%;
+}
+div#profile div.sidebar div.look img {
+	float: left;
+}
+div#profile div.sidebar div.look ul {
+	margin: 0 0 0 30px;
+	padding: 0;
+	list-style: none;
+}
+div#profile div.sidebar div.look ul li {
+	font-weight: bold;
+	padding: 1px;
+	display: inline;
+}
+div#profile div.sidebar div.social {
+	padding: 4px;
+	clear: both;
+}
+div#profile div.sidebar div.social dl {
+	padding: 0;
+	margin: 0;
+}
+div#profile div.sidebar div.social dl dt {
+	display: block;
+	float: left;
+	width: 120px;
+	padding: 2px 0;
+}
+div#profile div.sidebar div.social dl dd {
+	display: block;
+	text-align: left;
+	margin-left: 170px;
+	padding: 3px 0;
+	width: 100px;
+}
+div#profile div.sidebar div.social dl dt {
+	float: left;
+	width: 170px;
+	padding: 3px 0;
+}
+div#profile div.sidebar div.interests {
+	padding: 4px;
+	clear: both;
+}
+div#profile div.sidebar div.interests dl {
+	padding: 5px 0 0 0;
+	margin: 0;
+}
+div#profile div.sidebar div.interests dl dt {
+	display: block;
+	padding: 3px 0 1px 0;
+}
+div#profile div.sidebar div.interests dl dd {
+	display: block;
+	padding: 1px 0 5px 0;
+	margin: 0;
+}
+div#profile div.sidebar div.interests dl {
+	padding: 7px 0 0 0;
+	margin: 0;
+}
+div#profile div.sidebar div.contact {
+	padding: 4px;
+}
+div#profile div.sidebar div.contact dt {
+	float: left;
+	height: 18px;
+}
+div#profile div.sidebar div.contact dd {
+	height: 18px;
+	margin: 4px 4px 4px 20px;
+}
+div#profile div.sidebar div.notice {
+	margin: 10px 0 20px 0;
+	text-align: left;
+}
+div#profile div.sidebar div.notice span.online {
+	background-image: url('http://static.zino.gr/phoenix/bullet_green.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+div#profile div.sidebar div.notice span.online a {
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+}
+div#profile div.sidebar div.eof {
+    float: right;
+	position: relative;
+	top: 14px;
+	background-image: url('http://static.zino.gr/phoenix/sidebarend.jpg');
+	width: 41px;
+	height: 51px;
+}
+div#profile div.main {
+	padding: 14px 0 0 10px;
+	margin-left: 305px;
+}
+div#profile div.main div.photos {
+	height: 120px;
+}
+div#profile div.main div.photos ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+	height: 100px;
+}
+div#profile div.main div.photos ul li {
+	padding: 0 3px;
+	margin: 0;
+	float: left;
+}
+div#profile div.main div.friends {
+	padding-bottom: 20px;
+}
+div#profile div.main div.friends h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.people {
+	overflow: hidden;
+	height: 230px;
+}
+div#profile div.main div.friends a.button {
+	margin-left: 0;
+}
+div#profil div.main div.questions {
+	padding-bottom: 20px;
+}
+div#profile div.main div.questions h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.questions ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 70%;
+}
+div#profile div.main div.questions ul li {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.questions ul li p.question {
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-weight: bold;
+}
+div#profile div.main div.questions ul li p.answer {
+	padding: 0;
+	margin: 0;
+}
+div#profile div.main div.questions a.button {
+	margin-left: 0;
+}
+div#profile div.main div.lastpoll {
+	float: right;
+	padding-bottom: 20px;
+}
+
+div#profile div.main div.lastpoll h3 {
+	padding: 5px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.lastpoll h4 {
+	padding: 2px 0 0 0;
+	margin: 0;
+}
+div#profile div.main div.lastpoll a.button {
+	margin-left: 0;
+}
+div#profile div.main div.lastjournal {
+	padding-bottom: 20px;
+}
+div#profile div.main div.lastjournal h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal h4 {
+	padding: 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal p {
+	margin: 0;
+	padding: 5px 0 2px 0;
+}
+div#profile div.main div.lastjournal dl {
+	/*text-align: right;*/
+	padding: 0 0 15px 0;
+	margin: 0;
+}
+div#profile div.main div.lastjournal dl dd {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	font-size: 80%;
+}
+div#profile div.main div.lastjournal dl dd a {
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#profile div.main div.lastjournal a.button {
+	margin-left: 0;
+	margin-bottom: 20px;
+}
+div#profile div.main div.comments h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
