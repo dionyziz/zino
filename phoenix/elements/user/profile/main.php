@@ -22,7 +22,7 @@
 			</div>
 			<div class="lastpoll">
 				<h3>Δημοσκοπήσεις</h3><?php
-				Element( 'poll/small' );
+				Element( 'poll/small' , true );
 				?><a href="" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
 			</div>
 			<div class="questions">

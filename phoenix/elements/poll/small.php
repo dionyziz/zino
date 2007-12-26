@@ -1,7 +1,8 @@
 <?php
-	function ElementPollSmall() {
+	function ElementPollSmall( $showcommnum = false ) {
 		global $page;
 		
+		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
 		$page->AttachStyleSheet( 'css/poll/small.css' );
 		
 		?><div class="pollsmall">
@@ -67,9 +68,14 @@
 								<span>0,7%</span>
 							</dd>
 						</dl>
-					</li>				
-				</ul>
-			</div>
+					</li>	
+				</ul><?php
+				if ( $showcommnum ) {
+					?><dl class="pollinfo">
+						<dd><a href="">43 σχόλια</a></dd>
+					</dl><?php
+				}
+			?></div>
 		</div><?php
 	}
 ?>

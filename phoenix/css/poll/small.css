@@ -58,3 +58,17 @@ div.pollsmall div.results ul li dl dd div.percentagebar div.middlerounded {
 	background-position: top;
 	height: 13px;
 }
+div.pollsmall div.results dl.pollinfo {
+	text-align: right;
+}
+div.pollsmall div.results dl.pollinfo dd {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	font-size: 80%;
+}
+div.pollsmall div.results dl.pollinfo dd a {
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
