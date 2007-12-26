@@ -60,6 +60,8 @@ div.pollsmall div.results ul li dl dd div.percentagebar div.middlerounded {
 }
 div.pollsmall div.results dl.pollinfo {
 	text-align: right;
+	margin: 0;
+	padding: 0;
 }
 div.pollsmall div.results dl.pollinfo dd {
 	display: inline;
