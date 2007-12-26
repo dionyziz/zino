@@ -20,7 +20,8 @@
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" />
 			</div>
-		<?php //</div>?>
+			test
+		</div>
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
 				<span class="time">πριν 12 λεπτά</span>
