@@ -248,7 +248,7 @@
 
             $comments = $search->Get();
 
-            die( print_r( $comments ) );
+            // die( print_r( $comments ) );
 
             $this->Assert( is_array( $comments ), "Search did not return an array" );
             $this->Assert( $search->NumRows(), "Search did not return any results" );
