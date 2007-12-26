@@ -9,7 +9,7 @@ div.settings div.sidebar {
     padding-left: 50px;
 }
 div.settings div.sidebar span {
-    background-image: url('images/button_ok_22.png');
+    background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');
     background-repeat: no-repeat;
     padding-left: 25px;
     background-position: left;
@@ -19,7 +19,7 @@ div.settings div.sidebar span {
     vertical-align: middle;
 }
 div.settings div.sidebar a.backtoprofile {
-    background-image: url('images/forward22.png');
+    background-image: url('http://static.zino.gr/phoenix/forward22.png');
     background-repeat: no-repeat;
     margin: 10px;
     background-position: right;
@@ -52,19 +52,19 @@ div.settings div.sidebar ol li a {
     display: block;
 }
 div.settings div.sidebar ol li.personal a {
-    background-image: url('images/info.png');
+    background-image: url('http://static.zino.gr/phoenix/info.png');
 }
 div.settings div.sidebar ol li.characteristics a {
-    background-image: url('images/bookmark.png');
+    background-image: url('http://static.zino.gr/phoenix/bookmark.png');
 }
 div.settings div.sidebar ol li.interests a {
-    background-image: url('images/idea.png');
+    background-image: url('http://static.zino.gr/phoenix/idea.png');
 }
 div.settings div.sidebar ol li.contact a {
-    background-image: url('images/kontact_mail.png');
+    background-image: url('http://static.zino.gr/phoenix/kontact_mail.png');
 }
 div.settings div.sidebar ol li.settings a {
-    background-image: url('images/gear.png');
+    background-image: url('http://static.zino.gr/phoenix/gear.png');
 }
 div.settings div.tabs {
     margin-right: 350px;

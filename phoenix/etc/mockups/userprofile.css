@@ -3,7 +3,7 @@ div#profile {
 }
 div#profile div.sidebar {
 	background-color: white;
-	background-image: url('images/sidebarbg.jpg');
+	background-image: url('http://static.zino.gr/phoenix/sidebarbg.jpg');
 	background-repeat: repeat-y;
 	background-position: right;
 	float: left;
@@ -142,13 +142,13 @@ div#profile div.sidebar div.notice {
 	text-align: left;
 }
 div#profile div.sidebar div.notice span.online {
-	background-image: url('images/bullet_green.png');
+	background-image: url('http://static.zino.gr/phoenix/bullet_green.png');
 	background-repeat: no-repeat;
 	background-position: left;
 	padding-left: 20px;
 }
 div#profile div.sidebar div.notice span.online a {
-	background-image: url('images/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	background-position: left;
 	padding-left: 20px;
@@ -157,7 +157,7 @@ div#profile div.sidebar div.eof {
     float: right;
 	position: relative;
 	top: 14px;
-	background-image: url('images/sidebarend.jpg');
+	background-image: url('http://static.zino.gr/phoenix/sidebarend.jpg');
 	width: 41px;
 	height: 51px;
 }
@@ -266,7 +266,7 @@ div#profile div.main div.lastjournal dl dd {
 	font-size: 80%;
 }
 div#profile div.main div.lastjournal dl dd a {
-	background-image: url('images/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }

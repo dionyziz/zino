@@ -38,7 +38,7 @@ div.results ul li dl dd div.percentagebar {
 }
 div.results ul li dl dd div.percentagebar div.leftrounded {
 	float: left;
-	background-image: url('images/percentagebar-left.jpg' );
+	background-image: url('http://static.zino.gr/phoenix/percentagebar-left.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;
@@ -46,7 +46,7 @@ div.results ul li dl dd div.percentagebar div.leftrounded {
 }
 div.results ul li dl dd div.percentagebar div.rightrounded {
 	float: right;
-	background-image: url( 'images/percentagebar-right.jpg' );
+	background-image: url( 'http://static.zino.gr/phoenix/percentagebar-right.jpg' );
 	background-repeat: no-repeat;
 	background-position: top;
 	height: 13px;

@@ -10,7 +10,7 @@ div#photolist dl {
 	margin: 0;
 }
 div#photolist dl dt.photonum {
-	background-image: url('images/photo.png');
+	background-image: url('http://static.zino.gr/phoenix/photo.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 19px;
 	margin: 0;
@@ -18,7 +18,7 @@ div#photolist dl dt.photonum {
 	font-size: 90%;
 }
 dt.commentsnum, span.commentsnum {
-	background-image: url('images/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
 	margin: 0;

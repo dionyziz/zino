@@ -31,7 +31,7 @@ div#polllist ul li div.results dl.pollinfo dd {
 	font-size: 80%;
 }
 div#polllist ul li div.results dl.pollinfo dd a {
-	background-image: url('images/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
