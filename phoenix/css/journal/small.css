@@ -40,6 +40,9 @@ div#journallist ul li ul li {
 div#journallist ul li ul li.readwhole {
 	float: right;
 }
+div#journallist ul li ul li.readwhole a {
+	font-size: 90%;
+}
 div#journallist ul li ul li dl {
 	padding: 0
 	margin: 0;
