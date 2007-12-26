@@ -5,14 +5,14 @@ div#journallist ul li div.barfade {
 }
 div#journallist ul li div.barfade div.leftbar {
 	float: left;
-	background-image: url('images/barfade-left.jpg');
+	background-image: url('http://static.zino.gr/phoenix/barfade-left.jpg');
 	background-repeat: no-repeat;
 	height: 1px;
 	width: 153px;
 }
 div#journallist ul li div.barfade div.rightbar {
 	float: right;
-	background-image: url('images/barfade-right.jpg');
+	background-image: url('http://static.zino.gr/phoenix/barfade-right.jpg');
 	background-repeat: no-repeat;
 	height: 1px;
 	width: 153px;
@@ -51,7 +51,7 @@ div#journallist ul li ul li dt {
 	display: inline;
 }
 div#journallist ul li ul li dl dt.commentsnum {
-	background-image: url('images/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 4px;
 }
