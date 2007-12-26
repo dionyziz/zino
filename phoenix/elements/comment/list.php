@@ -20,7 +20,6 @@
 			<div class="bottom">
 				<input type="submit" value="Ó÷ïëßáóå!" />
 			</div>
-			test
 		</div>
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
