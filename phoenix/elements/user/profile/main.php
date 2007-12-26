@@ -4,41 +4,41 @@
 		?><div class="main">
 			<div class="photos">
 				<ul>
-					<li><a href=""><img src="images/avatars/dionyzizb.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizb" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizc" title="dionyzizc" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizd" title="dionyzizd" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzize" title="dionyzize" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizf" title="dionyzizf" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></a></li>
-					<li><a href=""><img src="images/avatars/dionyzizi.jpg" style="width:100px;height:100px;" alt="dionyzizi" title="dionyzizi" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizb.jpg" style="width:100px;height:100px;" alt="dionyzizb" title="dionyzizb" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizc.jpg" style="width:100px;height:100px;" alt="dionyzizc" title="dionyzizc" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizd.jpg" style="width:100px;height:100px;" alt="dionyzizd" title="dionyzizd" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzize.jpg" style="width:100px;height:100px;" alt="dionyzize" title="dionyzize" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizf.jpg" style="width:100px;height:100px;" alt="dionyzizf" title="dionyzizf" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizg.jpg" style="width:100px;height:100px;" alt="dionyzizg" title="dionyzizg" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizh.jpg" style="width:100px;height:100px;" alt="dionyzizh" title="dionyzizh" /></a></li>
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/dionyzizi.jpg" style="width:100px;height:100px;" alt="dionyzizi" title="dionyzizi" /></a></li>
 					<li><a href="" class="button">&raquo;</a></li>
 				</ul>
 			</div>
 			<div class="friends">
-				<h3>Οι φίλοι μου</h3>
+				<h3>ΞΞΉ Ο†Ξ―Ξ»ΞΏΞΉ ΞΌΞΏΟ…</h3>
 				<div class="people">
 					<ul>
-						<li><a href=""><img src="images/avatars/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>προβολή προφίλ &raquo;</span></a></li>
-						<li><a href=""><img src="images/avatars/14041.jpg" style="width:100px;height:75px" alt="klio" title="klio" /><strong>klio</strong><span>προβολή προφίλ &raquo;</span></a></li>
-						<li><a href=""><img src="images/avatars/20128.jpg" style="width:100px;height:88px" alt="finlandos" title="finlandos" /><strong>finlandos</strong><span>προβολή προφίλ &raquo;</span></a></li>
-						<li><a href=""><img src="images/avatars/28155.jpg" style="width:100px;height:75px" alt="elsa_kaulitz" title="elsa_kaulitz" /><strong>elsa_kaulitz</strong><span>προβολή προφίλ &raquo;</span></a></li>
-						<li><a href=""><img src="images/avatars/29203.jpg" style="width:100px;height:75px" alt="izual" title="izual" /><strong>izual</strong><span>προβολή προφίλ &raquo;</span></a></li>
-						<li><a href=""><img src="images/avatars/29230.jpg" style="width:100px;height:80px" alt="metalo92" title="metalo92" /><strong>metalo92</strong><span>προβολή προφίλ &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/14041.jpg" style="width:100px;height:75px" alt="klio" title="klio" /><strong>klio</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/20128.jpg" style="width:100px;height:88px" alt="finlandos" title="finlandos" /><strong>finlandos</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/28155.jpg" style="width:100px;height:75px" alt="elsa_kaulitz" title="elsa_kaulitz" /><strong>elsa_kaulitz</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/29203.jpg" style="width:100px;height:75px" alt="izual" title="izual" /><strong>izual</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
+						<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/29230.jpg" style="width:100px;height:80px" alt="metalo92" title="metalo92" /><strong>metalo92</strong><span>Ο€ΟΞΏΞ²ΞΏΞ»Ξ® Ο€ΟΞΏΟ†Ξ―Ξ» &raquo;</span></a></li>
 					</ul>
 					<div class="eof"></div>
 				</div>
-				<a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
+				<a href="" class="button">Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞΏΞΉ Ο†Ξ―Ξ»ΞΏΞΉ&raquo;</a>
 			</div>
 			<div class="lastpoll">
-				<h3>Δημοσκοπήσεις</h3>
-				<h4><a href="">Πόσες φορές τη μέρα βαράς μαλακία;</a></h4>
+				<h3>Ξ”Ξ·ΞΌΞΏΟƒΞΊΞΏΟ€Ξ®ΟƒΞµΞΉΟ‚</h3>
+				<h4><a href="">Ξ ΟΟƒΞµΟ‚ Ο†ΞΏΟΞ­Ο‚ Ο„Ξ· ΞΌΞ­ΟΞ± Ξ²Ξ±ΟΞ¬Ο‚ ΞΌΞ±Ξ»Ξ±ΞΊΞ―Ξ±;</a></h4>
 				<div class="results">	
 					<ul>
 						<li>
 							<dl>
 								<dt style="float:right;">
-									Μία
+									ΞΞ―Ξ±
 								</dt>
 								<dd><?php //max width will be 220px ?>
 									<div class="percentagebar" style="width:120px;">
@@ -53,7 +53,7 @@
 						<li>
 							<dl>
 								<dt style="float:right;">
-									Μεταξύ 2 και 5
+									ΞΞµΟ„Ξ±ΞΎΟ 2 ΞΊΞ±ΞΉ 5
 								</dt>
 								<dd>
 									<div class="percentagebar" style="width:150px;">
@@ -68,7 +68,7 @@
 						<li>
 							<dl>
 								<dt style="float:right;">
-									Από 5 μέχρι 10
+									Ξ‘Ο€Ο 5 ΞΌΞ­Ο‡ΟΞΉ 10
 								</dt>
 								<dd>
 									<div class="percentagebar" style="width:34px;">
@@ -83,7 +83,7 @@
 						<li>
 							<dl>
 								<dt style="float:right;">
-									Από 10 και πάνω
+									Ξ‘Ο€Ο 10 ΞΊΞ±ΞΉ Ο€Ξ¬Ξ½Ο‰
 								</dt>
 								<dd>
 									<div class="percentagebar" style="width:18px;">
@@ -97,179 +97,179 @@
 						</li>				
 					</ul>
 				</div>
-				<a href="" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
+				<a href="" class="button">Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞµΟ‚ Ξ΄Ξ·ΞΌΞΏΟƒΞΊΞΏΟ€Ξ®ΟƒΞµΞΉΟ‚&raquo;</a>
 			</div>
 			<div class="questions">
-				<h3>Ερωτήσεις</h3>
+				<h3>Ξ•ΟΟ‰Ο„Ξ®ΟƒΞµΞΉΟ‚</h3>
 				<ul>
 					<li>
-						<p class="question">Πόσα κιλά είναι η γιαγιά σου;</p>
-						<p class="answer">Είναι πολύ χοντρή</p>
+						<p class="question">Ξ ΟΟƒΞ± ΞΊΞΉΞ»Ξ¬ ΞµΞ―Ξ½Ξ±ΞΉ Ξ· Ξ³ΞΉΞ±Ξ³ΞΉΞ¬ ΟƒΞΏΟ…;</p>
+						<p class="answer">Ξ•Ξ―Ξ½Ξ±ΞΉ Ο€ΞΏΞ»Ο Ο‡ΞΏΞ½Ο„ΟΞ®</p>
 					</li>
 
 					<li>
-						<p class="question">Ποιο είναι το αγαπημένο σου φρούτο;</p>
-						<p class="answer">Το αχλάδι και το καρπούζι</p>
+						<p class="question">Ξ ΞΏΞΉΞΏ ΞµΞ―Ξ½Ξ±ΞΉ Ο„ΞΏ Ξ±Ξ³Ξ±Ο€Ξ·ΞΌΞ­Ξ½ΞΏ ΟƒΞΏΟ… Ο†ΟΞΏΟΟ„ΞΏ;</p>
+						<p class="answer">Ξ¤ΞΏ Ξ±Ο‡Ξ»Ξ¬Ξ΄ΞΉ ΞΊΞ±ΞΉ Ο„ΞΏ ΞΊΞ±ΟΟ€ΞΏΟΞ¶ΞΉ</p>
 					</li>
 					<li>
-						<p class="question">Πώς τη βλέπεις τη ζωή;</p>
-						<p class="answer">Δε τη βλέπω</p>
+						<p class="question">Ξ ΟΟ‚ Ο„Ξ· Ξ²Ξ»Ξ­Ο€ΞµΞΉΟ‚ Ο„Ξ· Ξ¶Ο‰Ξ®;</p>
+						<p class="answer">Ξ”Ξµ Ο„Ξ· Ξ²Ξ»Ξ­Ο€Ο‰</p>
 					</li>
 					<li>
-						<p class="question">Πώς θα ήθελες να πεθάνεις;</p>
-						<p class="answer">Από την πείνα</p>
+						<p class="question">Ξ ΟΟ‚ ΞΈΞ± Ξ®ΞΈΞµΞ»ΞµΟ‚ Ξ½Ξ± Ο€ΞµΞΈΞ¬Ξ½ΞµΞΉΟ‚;</p>
+						<p class="answer">Ξ‘Ο€Ο Ο„Ξ·Ξ½ Ο€ΞµΞ―Ξ½Ξ±</p>
 					</li>
 					<li style="padding-bottom:20px;">
-						<p class="question">Αν εμφανιζόταν ένα τζίνι και σου έλεγε πως μπορεί να πραγματοποιήσει μια ευχή σου, τι θα του ζητούσες;</p>
-						<p class="answer">Τίποτα</p>
+						<p class="question">Ξ‘Ξ½ ΞµΞΌΟ†Ξ±Ξ½ΞΉΞ¶ΟΟ„Ξ±Ξ½ Ξ­Ξ½Ξ± Ο„Ξ¶Ξ―Ξ½ΞΉ ΞΊΞ±ΞΉ ΟƒΞΏΟ… Ξ­Ξ»ΞµΞ³Ξµ Ο€Ο‰Ο‚ ΞΌΟ€ΞΏΟΞµΞ― Ξ½Ξ± Ο€ΟΞ±Ξ³ΞΌΞ±Ο„ΞΏΟ€ΞΏΞΉΞ®ΟƒΞµΞΉ ΞΌΞΉΞ± ΞµΟ…Ο‡Ξ® ΟƒΞΏΟ…, Ο„ΞΉ ΞΈΞ± Ο„ΞΏΟ… Ξ¶Ξ·Ο„ΞΏΟΟƒΞµΟ‚;</p>
+						<p class="answer">Ξ¤Ξ―Ο€ΞΏΟ„Ξ±</p>
 					</li>
 				</ul>
-				<a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
+				<a href="" class="button">Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞµΟ‚ ΞµΟΟ‰Ο„Ξ®ΟƒΞµΞΉΟ‚&raquo;</a>
 			</div>
 			<div style="clear:right"></div>
 			<div class="lastjournal">
-				<h3>Ημερολόγιο</h3>
+				<h3>Ξ—ΞΌΞµΟΞΏΞ»ΟΞ³ΞΉΞΏ</h3>
 				<h4><a href="">The MacGuyver Sandwich</a></h4>
 				<p>		
-					Εξεταστική και το κάψιμο βαράει κόκκινο. Κάτι έπρεπε λοιπόν να κάνω για να σπάσω τη μονοτονία της καθημερινότητας
-					και του διαβάσματος. Σήμερα είπα να φτιάξω βραδυνό με έναν προτότυπο τρόπο. Έφτιαξα λοιπόν
-					ένα sandwich χωρίς να έχω ψηστιέρα. Όπως όμως λέει και η γνωστή παροιμία όποιος δεν έχει ψηστιέρα έχει σίδερο...
+					Ξ•ΞΎΞµΟ„Ξ±ΟƒΟ„ΞΉΞΊΞ® ΞΊΞ±ΞΉ Ο„ΞΏ ΞΊΞ¬ΟΞΉΞΌΞΏ Ξ²Ξ±ΟΞ¬ΞµΞΉ ΞΊΟΞΊΞΊΞΉΞ½ΞΏ. ΞΞ¬Ο„ΞΉ Ξ­Ο€ΟΞµΟ€Ξµ Ξ»ΞΏΞΉΟ€ΟΞ½ Ξ½Ξ± ΞΊΞ¬Ξ½Ο‰ Ξ³ΞΉΞ± Ξ½Ξ± ΟƒΟ€Ξ¬ΟƒΟ‰ Ο„Ξ· ΞΌΞΏΞ½ΞΏΟ„ΞΏΞ½Ξ―Ξ± Ο„Ξ·Ο‚ ΞΊΞ±ΞΈΞ·ΞΌΞµΟΞΉΞ½ΟΟ„Ξ·Ο„Ξ±Ο‚
+					ΞΊΞ±ΞΉ Ο„ΞΏΟ… Ξ΄ΞΉΞ±Ξ²Ξ¬ΟƒΞΌΞ±Ο„ΞΏΟ‚. Ξ£Ξ®ΞΌΞµΟΞ± ΞµΞ―Ο€Ξ± Ξ½Ξ± Ο†Ο„ΞΉΞ¬ΞΎΟ‰ Ξ²ΟΞ±Ξ΄Ο…Ξ½Ο ΞΌΞµ Ξ­Ξ½Ξ±Ξ½ Ο€ΟΞΏΟ„ΟΟ„Ο…Ο€ΞΏ Ο„ΟΟΟ€ΞΏ. ΞΟ†Ο„ΞΉΞ±ΞΎΞ± Ξ»ΞΏΞΉΟ€ΟΞ½
+					Ξ­Ξ½Ξ± sandwich Ο‡Ο‰ΟΞ―Ο‚ Ξ½Ξ± Ξ­Ο‡Ο‰ ΟΞ·ΟƒΟ„ΞΉΞ­ΟΞ±. ΞΟ€Ο‰Ο‚ ΟΞΌΟ‰Ο‚ Ξ»Ξ­ΞµΞΉ ΞΊΞ±ΞΉ Ξ· Ξ³Ξ½Ο‰ΟƒΟ„Ξ® Ο€Ξ±ΟΞΏΞΉΞΌΞ―Ξ± ΟΟ€ΞΏΞΉΞΏΟ‚ Ξ΄ΞµΞ½ Ξ­Ο‡ΞµΞΉ ΟΞ·ΟƒΟ„ΞΉΞ­ΟΞ± Ξ­Ο‡ΞµΞΉ ΟƒΞ―Ξ΄ΞµΟΞΏ...
 				</p>
 				<dl>
-					<dd><a href="">57 σχόλια</a></dd>
+					<dd><a href="">57 ΟƒΟ‡ΟΞ»ΞΉΞ±</a></dd>
 				</dl>
-				<a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
+				<a href="" class="button">Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞµΟ‚ ΞΊΞ±Ο„Ξ±Ο‡Ο‰ΟΞ®ΟƒΞµΞΉΟ‚&raquo;</a>
 			</div>
 			<div class="ads" style="margin: 10px 0;text-align:center;overflow:hidden;height: 60px;">
-				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
-				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
-				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
-				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Διαφήμιση" />
+				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·" />
+				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·" />
+				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·" />
+				<img src="images/ads/ad234.jpg" style="width:234px;height:60px;margin: 0 5px;" alt="Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·" />
 			</div>
 			<div class="comments">
-				<h3>Σχόλια στο προφίλ του dionyziz</h3>
+				<h3>Ξ£Ο‡ΟΞ»ΞΉΞ± ΟƒΟ„ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ» Ο„ΞΏΟ… dionyziz</h3>
 				<div class="comment newcomment">
 					<div class="toolbox">
-						<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
+						<span class="time">Ο„Ξ± ΟƒΟ‡ΟΞ»ΞΉΞ± ΞµΞ―Ξ½Ξ±ΞΉ ΞµΟ€ΞµΞΎΞµΟΞ³Ξ¬ΟƒΞ·ΞΌΞ± Ξ³ΞΉΞ± Ξ­Ξ½Ξ± Ο„Ξ­Ο„Ξ±ΟΟ„ΞΏ</span>
 					</div>
 					<div class="who">
 						<a href="user/dionyziz">
-							<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+							<img src="http://static.zino.gr/phoenix/mockups/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 							dionyziz
-						</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
+						</a>Ο€ΟΟΟƒΞΈΞµΟƒΞµ Ξ­Ξ½Ξ± ΟƒΟ‡ΟΞ»ΞΉΞΏ ΟƒΟ„ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ» ΟƒΞΏΟ…
 					</div>
 					<div class="text">
 						<textarea></textarea>
 					</div>
 					<div class="bottom">
-						<input type="submit" value="Σχολίασε!" />
+						<input type="submit" value="Ξ£Ο‡ΞΏΞ»Ξ―Ξ±ΟƒΞµ!" />
 					</div>
 				</div>
 				<div class="comment" style="border-color: #dee;">
 					<div class="toolbox">
-						<span class="time">πριν 12 λεπτά</span>
+						<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 					</div>
 					<div class="who">
 						<a href="user/smilemagic">
-							<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+							<img src="http://static.zino.gr/phoenix/mockups/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 							SmilEMagiC
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						ρε μλκ τι είναι αυτά που γράφεις στο προφίλ μου? μωρή μαλακία...
+						ΟΞµ ΞΌΞ»ΞΊ Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ξ±Ο…Ο„Ξ¬ Ο€ΞΏΟ… Ξ³ΟΞ¬Ο†ΞµΞΉΟ‚ ΟƒΟ„ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ» ΞΌΞΏΟ…? ΞΌΟ‰ΟΞ® ΞΌΞ±Ξ»Ξ±ΞΊΞ―Ξ±...
 						<img src="images/emoticons/tongue.png" alt=":P" title=":P" /><br />
-						άμα σε πιάσω...<br />
-						χαχα!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
-						θα βρεθούμε το ΣΚ!??
+						Ξ¬ΞΌΞ± ΟƒΞµ Ο€ΞΉΞ¬ΟƒΟ‰...<br />
+						Ο‡Ξ±Ο‡Ξ±!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
+						ΞΈΞ± Ξ²ΟΞµΞΈΞΏΟΞΌΞµ Ο„ΞΏ Ξ£Ξ!??
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment" style="margin-left: 20px; border-color: #eed;">
 					<div class="toolbox" style="margin-right: 20px">
-						<span class="time">πριν 10 λεπτά</span>
+						<span class="time">Ο€ΟΞΉΞ½ 10 Ξ»ΞµΟ€Ο„Ξ¬</span>
 					</div>
 					<div class="who">
 						<a href="user/kostis90gr">
-							<img src="images/avatars/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
+							<img src="http://static.zino.gr/phoenix/mockups/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
 							kostis90gr
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						αχαχαχαχ έλεος ρε νίκο!!...
+						Ξ±Ο‡Ξ±Ο‡Ξ±Ο‡Ξ±Ο‡ Ξ­Ξ»ΞµΞΏΟ‚ ΟΞµ Ξ½Ξ―ΞΊΞΏ!!...
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment" style="margin-left: 20px; border-color: #ded">
 					<div class="toolbox" style="margin-right: 20px">
-						<span class="time">πριν 9 λεπτά</span>
+						<span class="time">Ο€ΟΞΉΞ½ 9 Ξ»ΞµΟ€Ο„Ξ¬</span>
 					</div>
 					<div class="who">
 						<a href="user/izual">
-							<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
+							<img src="http://static.zino.gr/phoenix/mockups/izual.jpg" class="avatar" alt="izual" />
 							izual
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						αφού τον ξέρεις μωρέ πώς κάνει..
+						Ξ±Ο†ΞΏΟ Ο„ΞΏΞ½ ΞΎΞ­ΟΞµΞΉΟ‚ ΞΌΟ‰ΟΞ­ Ο€ΟΟ‚ ΞΊΞ¬Ξ½ΞµΞΉ..
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment" style="margin-left: 40px; border-color: #dee">
 					<div class="toolbox" style="margin-right: 40px">
-						<span class="time">πριν 9 λεπτά</span>
+						<span class="time">Ο€ΟΞΉΞ½ 9 Ξ»ΞµΟ€Ο„Ξ¬</span>
 					</div>
 					<div class="who">
 						<a href="user/smilemagic">
-							<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+							<img src="http://static.zino.gr/phoenix/mockups/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 							SmilEMagiC
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						για πλάκα τα λέω ρε!!
+						Ξ³ΞΉΞ± Ο€Ξ»Ξ¬ΞΊΞ± Ο„Ξ± Ξ»Ξ­Ο‰ ΟΞµ!!
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment">
 					<div class="toolbox">
-						<span class="time">πριν 12 λεπτά</span>
+						<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 					</div>
 					<div class="who">
 						<a href="user/titi">
-							<img src="images/avatars/titi.jpg" class="avatar" alt="Titi" />
+							<img src="http://static.zino.gr/phoenix/mockups/titi.jpg" class="avatar" alt="Titi" />
 							Titi
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						αδερφούλη το πάρτυ θα είναι γαμάτο, έχω ήδη μαγειρέψει αίμα!!!
+						Ξ±Ξ΄ΞµΟΟ†ΞΏΟΞ»Ξ· Ο„ΞΏ Ο€Ξ¬ΟΟ„Ο… ΞΈΞ± ΞµΞ―Ξ½Ξ±ΞΉ Ξ³Ξ±ΞΌΞ¬Ο„ΞΏ, Ξ­Ο‡Ο‰ Ξ®Ξ΄Ξ· ΞΌΞ±Ξ³ΞµΞΉΟΞ­ΟΞµΞΉ Ξ±Ξ―ΞΌΞ±!!!
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment" style="margin-left: 20px">
 					<div class="toolbox" style="margin-right: 20px">
-						<span class="time">πριν 12 λεπτά</span>
-						<a href="" onclick="return false"><img src="images/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
+						<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
+						<a href="" onclick="return false"><img src="images/delete.png" alt="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" title="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" /></a>
 					</div>
 					<div class="who">
 						<a href="user/dionyziz">
-							<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+							<img src="http://static.zino.gr/phoenix/mockups/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 							dionyziz
-						</a> είπε:
+						</a> ΞµΞ―Ο€Ξµ:
 					</div>
 					<div class="text">
-						Τέλεια! Πήρες black light?
+						Ξ¤Ξ­Ξ»ΞµΞΉΞ±! Ξ Ξ®ΟΞµΟ‚ black light?
 					</div>
 					<div class="bottom">
-						<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+						<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 					</div>
 				</div>
 				<div class="comment oldcomment">
@@ -280,7 +280,7 @@
 					</div>
 					<div class="who">
 						<a href="user/dionyziz">
-							412 παλιότερα σχόλια
+							412 Ο€Ξ±Ξ»ΞΉΟΟ„ΞµΟΞ± ΟƒΟ‡ΟΞ»ΞΉΞ±
 						</a>
 					</div>
 					<div class="text">

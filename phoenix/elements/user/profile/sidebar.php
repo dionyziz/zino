@@ -4,7 +4,7 @@
 		?><div class="sidebar">
 			<div class="basicinfo">
 				<h2>
-					<a><img src="images/avatars/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" title="dionyziz" /><span class="name">dionyziz</span></a>
+					<a><img src="http://static.zino.gr/phoenix/mockups/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" title="dionyziz" /><span class="name">dionyziz</span></a>
 				</h2>
 				<span class="subtitle">cold chocolate is superior to ice tea</span>
 				<div class="mood"><strong>Διάθεση</strong> <img src="images/avatars/cool.gif" alt="cool" title="cool" /></div>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div class="look">
-				<img src="images/body-male-slim-short.jpg" alt="" />
+				<img src="http://static.zino.gr/phoenix/body-male-slim-short.jpg" alt="" />
 				<ul>
 					<li>Αγόρι</li>
 					<li class="dot">·</li>
@@ -119,13 +119,13 @@
 			</div>
 			<div class="contact">
 				<dl>
-					<dt><img src="images/skype.jpg" alt="skype" title="skype" /></dt>
+					<dt><img src="http://static.zino.gr/phoenix/skype.jpg" alt="skype" title="skype" /></dt>
 					<dd>dionyziz</dd>
 					
-					<dt><img src="images/msn.jpg" alt="msn" title="msn" /></dt>
+					<dt><img src="http://static.zino.gr/phoenix/msn.jpg" alt="msn" title="msn" /></dt>
 					<dd>dionyziz@hotmail.com</dd>
 					
-					<dt><img src="images/yahoo.jpg" alt="yahoo" title="yahoo" /></dt>
+					<dt><img src="http://static.zino.gr/phoenix/yahoo.jpg" alt="yahoo" title="yahoo" /></dt>
 					<dd>dionyziz</dd>
 				</dl>
 			</div>
@@ -133,8 +133,6 @@
 				<span class="online">
 					ο dionyziz είναι online τώρα. <a href="" onclick="return false;">κάνε chat!</a>
 				</span>
-			</div>
-			<div class="ads" style="padding: 10px 10px;background-color:green;width:250px;height:500px;">
 			</div>
 			<div class="eof"></div>
 		</div><?php
