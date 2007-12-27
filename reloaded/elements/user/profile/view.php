@@ -98,7 +98,7 @@
 			$search->SetSortMethod( 'date', 'DESC' );
 			$search->SetRequirement( 'text' );
             $search->SetRequirement( 'editors' );
-			$search->SetLimit( 20 );
+			$search->SetLimit( 30 );
 			$articles = $search->Get();
 		}
 		else {
