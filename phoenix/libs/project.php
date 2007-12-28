@@ -47,6 +47,7 @@
 			"profile"			=> "user/profile/view",
 			"join" 				=> "user/join",
 			"journallist"		=> "journal/list",
+			"polllist"			=> "poll/list",
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
