@@ -24,10 +24,6 @@
 					</dl>
 				</li>
 			</ul>
-			<div class="barfade">
-				<div class="leftbar"></div>
-				<div class="rightbar"></div>
-			</div>
 		</div><?php
 	}
 ?>

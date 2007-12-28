@@ -56,10 +56,7 @@
 			<div class="lastjournal">
 				<h3>Ημερολόγιο</h3><?php
 				Element( 'journal/small' );
-				?><dl>
-					<dd><a href="">57 σχόλια</a></dd>
-				</dl>
-				<a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
+				?><a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
 			</div>
 			<div class="comments">
 				<h3>Σχόλια στο προφίλ του dionyziz</h3><?php
