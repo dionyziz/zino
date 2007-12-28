@@ -10,7 +10,7 @@
 			</div>
 			<div class="who">
 				<a href="user/dionyziz">
-					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+					<img src="http://static.zino.gr/phoenix/mockups/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
 				</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
 			</div>
@@ -27,15 +27,15 @@
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
-					<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+					<img src="http://static.zino.gr/phoenix/mockups/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 					SmilEMagiC
 				</a> είπε:
 			</div>
 			<div class="text">
 				ρε μλκ τι είναι αυτά που γράφεις στο προφίλ μου? μωρή μαλακία...
-				<img src="images/emoticons/tongue.png" alt=":P" title=":P" /><br />
+				<img src="http://static.zino.gr/phoenix/emoticons/tongue.png" alt=":P" title=":P" /><br />
 				άμα σε πιάσω...<br />
-				χαχα!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
+				χαχα!! <img src="http://static.zino.gr/phoenix/emoticons/teeth.png" alt=":D" title=":D" /><br />
 				θα βρεθούμε το ΣΚ!??
 			</div>
 			<div class="bottom">
@@ -48,7 +48,7 @@
 			</div>
 			<div class="who">
 				<a href="user/kostis90gr">
-					<img src="images/avatars/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
+					<img src="http://static.zino.gr/phoenix/mockups/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
 					kostis90gr
 				</a> είπε:
 			</div>
@@ -65,7 +65,7 @@
 			</div>
 			<div class="who">
 				<a href="user/izual">
-					<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
+					<img src="http://static.zino.gr/phoenix/mockups/izual.jpg" class="avatar" alt="izual" />
 					izual
 				</a> είπε:
 			</div>
@@ -82,7 +82,7 @@
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
-					<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+					<img src="http://static.zino.gr/phoenix/mockups/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 					SmilEMagiC
 				</a> είπε:
 			</div>
@@ -99,7 +99,7 @@
 			</div>
 			<div class="who">
 				<a href="user/titi">
-					<img src="images/avatars/titi.jpg" class="avatar" alt="Titi" />
+					<img src="http://static.zino.gr/phoenix/mockups/titi.jpg" class="avatar" alt="Titi" />
 					Titi
 				</a> είπε:
 			</div>
@@ -117,7 +117,7 @@
 			</div>
 			<div class="who">
 				<a href="user/dionyziz">
-					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+					<img src="http://static.zino.gr/phoenix/mockups/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
 				</a> είπε:
 			</div>
@@ -131,7 +131,7 @@
 		<div class="comment oldcomment">
 			<div class="toolbox">
 				<a href="" onclick="return false" class="rss">
-					<img src="images/feed.png" alt="rss" title="RSS Feed" class="rss" />
+					<img src="http://static.zino.gr/phoenix/feed.png" alt="rss" title="RSS Feed" class="rss" />
 				</a>
 			</div>
 			<div class="who">
