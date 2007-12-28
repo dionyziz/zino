@@ -5,17 +5,20 @@ div.pollsmall h4 {
 	padding: 0;
 	margin: 0;
 }
+div.pollsmall div.results {
+	width: 450px;
+	padding-top: 10px;
+}
 div.pollsmall div.results ul {
 	padding: 0;
-	margin: 10px 0 0 0;
+	/*margin: 10px 0 0 0;*/
 	list-style: none;
-	width: 450px;
 }
 div.pollsmall div.results ul li {
 	height: 20px;
 	margin: 0;
 	padding: 3px 0;
-	width: 450px;
+	padding: 0;
 }
 div.pollsmall div.results ul li dl {
 	padding: 0;
