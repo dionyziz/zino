@@ -3,7 +3,7 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/poll/list.css' );
-		
+		Element( 'user/sections' , 'poll' );
 		?><div id="journallist">
 			<ul>
 				<li><?php
