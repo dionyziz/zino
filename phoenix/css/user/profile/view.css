@@ -245,40 +245,11 @@ div#profile div.main div.lastjournal {
 div#profile div.main div.lastjournal div.journalsmall {
 	margin-bottom: 10px;
 }
-/*
+
 div#profile div.main div.lastjournal h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
 }
-div#profile div.main div.lastjournal h4 {
-	padding: 0;
-	margin: 0;
-}
-div#profile div.main div.lastjournal p {
-	margin: 0;
-	padding: 5px 0 2px 0;
-}
-div#profile div.main div.lastjournal dl {
-	/*text-align: right;
-	padding: 0 0 15px 0;
-	margin: 0;
-}
-div#profile div.main div.lastjournal dl dd {
-	display: inline;
-	margin: 0;
-	padding: 0;
-	font-size: 80%;
-}
-div#profile div.main div.lastjournal dl dd a {
-	background-image: url('http://static.zino.gr/phoenix/comment.png');
-	background-repeat: no-repeat;
-	padding-left: 18px;
-}
-div#profile div.main div.lastjournal a.button {
-	margin-left: 0;
-	margin-bottom: 20px;
-}
-*/
 div.comments {
 	float: left;
 	width: 90%;
