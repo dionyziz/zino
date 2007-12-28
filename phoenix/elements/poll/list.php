@@ -4,8 +4,7 @@
 		
 		$page->AttachStyleSheet( 'css/poll/list.css' );
 		Element( 'user/sections' , 'poll' );
-		?><div id="journallist"><?php
-		/*
+		?><div id="journallist">
 			<ul>
 				<li><?php
 					Element( 'poll/small' );
@@ -20,11 +19,13 @@
 					Element( 'poll/small' );
 				?></li>
 			</ul>
+		<?php
+		/*
+		Element( 'poll/small' );
+		Element( 'poll/small' );
+		Element( 'poll/small' );
+		Element( 'poll/small' );
 		*/
-		Element( 'poll/small' );
-		Element( 'poll/small' );
-		Element( 'poll/small' );
-		Element( 'poll/small' );
 		?>
 		</div><?php
 	}
