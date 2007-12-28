@@ -242,6 +242,10 @@ div#profile div.main div.lastpoll a.button {
 div#profile div.main div.lastjournal {
 	padding-bottom: 20px;
 }
+div#profile div.main div.lastjournal div.journalsmall {
+	margin-bottom: 10px;
+}
+/*
 div#profile div.main div.lastjournal h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
@@ -255,7 +259,7 @@ div#profile div.main div.lastjournal p {
 	padding: 5px 0 2px 0;
 }
 div#profile div.main div.lastjournal dl {
-	/*text-align: right;*/
+	/*text-align: right;
 	padding: 0 0 15px 0;
 	margin: 0;
 }
@@ -274,6 +278,7 @@ div#profile div.main div.lastjournal a.button {
 	margin-left: 0;
 	margin-bottom: 20px;
 }
+*/
 div.comments {
 	float: left;
 	width: 90%;
