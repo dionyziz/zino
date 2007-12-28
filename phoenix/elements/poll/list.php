@@ -19,14 +19,6 @@
 					Element( 'poll/small' , true );
 				?></li>
 			</ul>
-		<?php
-		/*
-		Element( 'poll/small' );
-		Element( 'poll/small' );
-		Element( 'poll/small' );
-		Element( 'poll/small' );
-		*/
-		?>
 		</div><?php
 	}
 ?>
