@@ -39,6 +39,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="comments.css" />
 		<link rel="stylesheet" type="text/css" href="pollview.css" />
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="albums.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="polllist.css" />

@@ -1,0 +1,8 @@
+div.results ul li dl dd div.percentagebar div.rightrounded {
+	position: relative;
+	left: -6px;
+}
+div.results ul li dl dd div.percentagebar div.middlerounded {
+	position: relative;
+	left: -3px;
+}
