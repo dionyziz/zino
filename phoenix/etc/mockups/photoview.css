@@ -100,5 +100,4 @@ div#photoview div.thephoto {
 }
 img.hoverclass {
 	opacity: 0.6;
-	filter: alpha(opacity = 60);
 }
