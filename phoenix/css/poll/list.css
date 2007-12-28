@@ -16,3 +16,6 @@ div#journallist ul li {
 div#journallist ul li div.pollsmall div.results ul {
 	margin-left: 0;
 }
+div#journallist ul li div.pollsmall h4 {
+	margin-bottom: 10px;
+}
