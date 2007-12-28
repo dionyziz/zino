@@ -6,126 +6,126 @@
 		
 		?><div class="comment newcomment">
 			<div class="toolbox">
-				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
+				<span class="time">Ο„Ξ± ΟƒΟ‡ΟΞ»ΞΉΞ± ΞµΞ―Ξ½Ξ±ΞΉ ΞµΟ€ΞµΞΎΞµΟΞ³Ξ¬ΟƒΞ·ΞΌΞ± Ξ³ΞΉΞ± Ξ­Ξ½Ξ± Ο„Ξ­Ο„Ξ±ΟΟ„ΞΏ</span>
 			</div>
 			<div class="who">
 				<a href="user/dionyziz">
 					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
-				</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
+				</a>Ο€ΟΟΟƒΞΈΞµΟƒΞµ Ξ­Ξ½Ξ± ΟƒΟ‡ΟΞ»ΞΉΞΏ ΟƒΟ„ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ» ΟƒΞΏΟ…
 			</div>
 			<div class="text">
 				<textarea></textarea>
 			</div>
 			<div class="bottom">
-				<input type="submit" value="Σχολίασε!" />
+				<input type="submit" value="Ξ£Ο‡ΞΏΞ»Ξ―Ξ±ΟƒΞµ!" />
 			</div>
 		</div>
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 12 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 					SmilEMagiC
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				ρε μλκ τι είναι αυτά που γράφεις στο προφίλ μου? μωρή μαλακία...
+				ΟΞµ ΞΌΞ»ΞΊ Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ξ±Ο…Ο„Ξ¬ Ο€ΞΏΟ… Ξ³ΟΞ¬Ο†ΞµΞΉΟ‚ ΟƒΟ„ΞΏ Ο€ΟΞΏΟ†Ξ―Ξ» ΞΌΞΏΟ…? ΞΌΟ‰ΟΞ® ΞΌΞ±Ξ»Ξ±ΞΊΞ―Ξ±...
 				<img src="images/emoticons/tongue.png" alt=":P" title=":P" /><br />
-				άμα σε πιάσω...<br />
-				χαχα!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
-				θα βρεθούμε το ΣΚ!??
+				Ξ¬ΞΌΞ± ΟƒΞµ Ο€ΞΉΞ¬ΟƒΟ‰...<br />
+				Ο‡Ξ±Ο‡Ξ±!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
+				ΞΈΞ± Ξ²ΟΞµΞΈΞΏΟΞΌΞµ Ο„ΞΏ Ξ£Ξ!??
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment" style="margin-left: 20px; border-color: #eed;">
 			<div class="toolbox" style="margin-right: 20px">
-				<span class="time">πριν 10 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 10 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/kostis90gr">
 					<img src="images/avatars/kostis90gr.jpg" class="avatar" alt="kostis90gr" />
 					kostis90gr
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				αχαχαχαχ έλεος ρε νίκο!!...
+				Ξ±Ο‡Ξ±Ο‡Ξ±Ο‡Ξ±Ο‡ Ξ­Ξ»ΞµΞΏΟ‚ ΟΞµ Ξ½Ξ―ΞΊΞΏ!!...
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment" style="margin-left: 20px; border-color: #ded">
 			<div class="toolbox" style="margin-right: 20px">
-				<span class="time">πριν 9 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 9 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/izual">
 					<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
 					izual
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				αφού τον ξέρεις μωρέ πώς κάνει..
+				Ξ±Ο†ΞΏΟ Ο„ΞΏΞ½ ΞΎΞ­ΟΞµΞΉΟ‚ ΞΌΟ‰ΟΞ­ Ο€ΟΟ‚ ΞΊΞ¬Ξ½ΞµΞΉ..
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment" style="margin-left: 40px; border-color: #dee">
 			<div class="toolbox" style="margin-right: 40px">
-				<span class="time">πριν 9 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 9 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 					SmilEMagiC
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				για πλάκα τα λέω ρε!!
+				Ξ³ΞΉΞ± Ο€Ξ»Ξ¬ΞΊΞ± Ο„Ξ± Ξ»Ξ­Ο‰ ΟΞµ!!
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment">
 			<div class="toolbox">
-				<span class="time">πριν 12 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/titi">
 					<img src="images/avatars/titi.jpg" class="avatar" alt="Titi" />
 					Titi
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				αδερφούλη το πάρτυ θα είναι γαμάτο, έχω ήδη μαγειρέψει αίμα!!!
+				Ξ±Ξ΄ΞµΟΟ†ΞΏΟΞ»Ξ· Ο„ΞΏ Ο€Ξ¬ΟΟ„Ο… ΞΈΞ± ΞµΞ―Ξ½Ξ±ΞΉ Ξ³Ξ±ΞΌΞ¬Ο„ΞΏ, Ξ­Ο‡Ο‰ Ξ®Ξ΄Ξ· ΞΌΞ±Ξ³ΞµΞΉΟΞ­ΟΞµΞΉ Ξ±Ξ―ΞΌΞ±!!!
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment" style="margin-left: 20px">
 			<div class="toolbox" style="margin-right: 20px">
-				<span class="time">πριν 12 λεπτά</span>
-				<a href="" onclick="return false"><img src="images/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
+				<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
+				<a href="" onclick="return false"><img src="images/delete.png" alt="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" title="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" /></a>
 			</div>
 			<div class="who">
 				<a href="user/dionyziz">
 					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				Τέλεια! Πήρες black light?
+				Ξ¤Ξ­Ξ»ΞµΞΉΞ±! Ξ Ξ®ΟΞµΟ‚ black light?
 			</div>
 			<div class="bottom">
-				<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+				<a href="" onclick="return false;">Ξ‘Ο€Ξ¬Ξ½Ο„Ξ±</a> ΟƒΞµ Ξ±Ο…Ο„Ο Ο„ΞΏ ΟƒΟ‡ΟΞ»ΞΉΞΏ
 			</div>
 		</div>
 		<div class="comment oldcomment">
@@ -136,7 +136,7 @@
 			</div>
 			<div class="who">
 				<a href="user/dionyziz">
-					412 παλιότερα σχόλια
+					412 Ο€Ξ±Ξ»ΞΉΟΟ„ΞµΟΞ± ΟƒΟ‡ΟΞ»ΞΉΞ±
 				</a>
 			</div>
 			<div class="text">
