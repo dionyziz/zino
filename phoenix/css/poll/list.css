@@ -4,12 +4,11 @@ div#journallist {
 
 div#journallist ul {
 	padding: 0;
-	margin: 0 0 0 170px;
+	margin: 0 0 0 0;
 	list-style: none;
 	width: 60%;
 }
 div#journallist ul li {
-	padding: 0;
-	/*padding: 10px 0 25px 0;*/
+	padding: 5px 0 5px 0;
 	margin: 0;
 }
