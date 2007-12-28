@@ -7,16 +7,16 @@
 		?><div id="journallist">
 			<ul>
 				<li><?php
-					Element( 'poll/small' );
+					Element( 'poll/small' , true );
 				?></li>
 				<li><?php
-					Element( 'poll/small' );
+					Element( 'poll/small' , true );
 				?></li>
 				<li><?php
-					Element( 'poll/small' );
+					Element( 'poll/small' , true );
 				?></li>
 				<li><?php
-					Element( 'poll/small' );
+					Element( 'poll/small' , true );
 				?></li>
 			</ul>
 		<?php
