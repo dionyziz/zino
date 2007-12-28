@@ -12,7 +12,7 @@
 							<dt style="float:right;">
 								Μία
 							</dt>
-							<dd><?php //max width will be 220px ?>
+							<dd><?php //max width will be 220px and min width will be 24px ?>
 								<div class="percentagebar" style="width:120px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
@@ -58,7 +58,7 @@
 								Από 10 και πάνω
 							</dt>
 							<dd>
-								<div class="percentagebar" style="width:18px;">
+								<div class="percentagebar" style="width:24px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
 									<div class="middlerounded"></div>
@@ -114,7 +114,7 @@
 								Να καταργηθούνε
 							</dt>
 							<dd>
-								<div class="percentagebar" style="width:22px;">
+								<div class="percentagebar" style="width:24px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
 									<div class="middlerounded"></div>
@@ -201,7 +201,7 @@
 								Mazda 3 MPS
 							</dt>
 							<dd>
-								<div class="percentagebar" style="width:21px;">
+								<div class="percentagebar" style="width:24px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
 									<div class="middlerounded"></div>
@@ -258,7 +258,7 @@
 								Μεταξύ 2 και 4
 							</dt>
 							<dd>
-								<div class="percentagebar" style="width:18px;">
+								<div class="percentagebar" style="width:24px;">
 									<div class="leftrounded"></div>
 									<div class="rightrounded"></div>
 									<div class="middlerounded"></div>
