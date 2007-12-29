@@ -1,5 +1,5 @@
 <?php
-	function ElementAlbumPhotoSmall( $showfav = false, $showcomnum = false ) {
+	function ElementAlbumPhotoSmall( $showdesc = false, $showfav = false, $showcomnum = false ) {
 		//will take max width and height as parameters
 		//showfav is for showing favourites
 		//showcommnum is for showing comments number
@@ -10,9 +10,11 @@
 		
 		?><div class="photo">
 			<a href="">
-				<img src="http://static.zino.gr/phoenix/mockups/ph9.jpg" alt="Ουρανοξύστης 9" title="Ουρανοξύστης 9" /><br />
-				και δίπλα σε ποτάμι
-			</a><?php
+				<img src="http://static.zino.gr/phoenix/mockups/ph9.jpg" alt="Ουρανοξύστης 9" title="Ουρανοξύστης 9" /><?php
+				if ( $showdesc ) {
+					?><br />και δίπλα σε ποτάμι<?php
+				}
+			?></a><?php
 			if ( $showfav || $showcommnum ) {
 				?><div><?php
 					if ( $showfav ) {
