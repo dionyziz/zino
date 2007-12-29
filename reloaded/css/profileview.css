@@ -13,6 +13,7 @@ div.rightslide div.edge {
 	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
 	background-repeat: none;
 	background-position: top;
+	text-align: center;
 }
 div.rightslide a {
 	display: block;
