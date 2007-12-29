@@ -10,7 +10,7 @@
 			<h2><a href="index.php?p=story&amp;id=<?php 
 			echo $article->Id(); 
 			?>"><?php
-            Element( 'image', $article->Icon(), 100, 100, 'storyicon', '', $article->Title(), $article->Title() );
+            //Element( 'image', $article->Icon(), 100, 100, 'storyicon', '', $article->Title(), $article->Title() );
 			echo htmlspecialchars( $article->Title() );
 			?></a></h2><br />
 			<small>από <?php
