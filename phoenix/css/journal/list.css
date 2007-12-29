@@ -31,6 +31,6 @@ div#journallist ul li div.barfade div.rightbar {
 	width: 153px;
 }
 div#journallist ul li div.journalsmall ul {
-	padding-left: 0;
+	margin-left: 0;
 	width: 100%;
 }
