@@ -6,8 +6,9 @@
 		
 		Element( 'user/sections' , 'poll' );
 		?><div id="pollview"><?php
-			Element( 'poll/small' );
+			Element( 'poll/small' , false ); //don't show comments number
 			Element( 'comment/list' );
-		?></div><?php
+		?></div>
+		<div class="eof"></div><?php
 	}
 ?>
