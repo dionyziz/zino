@@ -26,8 +26,8 @@ div.upperslide {
 	margin-top: 60px;
 }
 div.upperside a {
-	display: inline;
 	float: right;
+	display: block;
 }
 div.upperslide a img {
 	padding: 3px 3px 0 3px;
