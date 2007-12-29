@@ -1,5 +1,7 @@
-div#pollview {
-
+div#pollview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
 }
 div#pollview div.pollsmall h4 {
 	margin: 0;

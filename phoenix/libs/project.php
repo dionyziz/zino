@@ -47,6 +47,7 @@
 			"profile"			=> "user/profile/view",
 			"join" 				=> "user/join",
 			"journallist"		=> "journal/list",
+			"journal"			=> "journal/view",
 			"polllist"			=> "poll/list",
 			"poll"				=> "poll/view",
             'unittest'          => 'developer/test/view',
