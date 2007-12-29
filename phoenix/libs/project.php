@@ -50,6 +50,8 @@
 			"journal"			=> "journal/view",
 			"polllist"			=> "poll/list",
 			"poll"				=> "poll/view",
+			"albums"			=> "album/list",
+			"album" 			=> "album/photo/list",
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
