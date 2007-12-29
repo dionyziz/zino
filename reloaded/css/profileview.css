@@ -5,7 +5,7 @@ div.rightslide {
 	background-image: url('http://static.zino.gr/phoenix/sidefade.jpg');
 	background-repeat: repeat-y;
 	background-position: top;
-	margin-top: 60px;
+	/*margin-top: 60px;*/
 }
 div.rightslide div.edge {
 	width: 145px;
@@ -20,7 +20,7 @@ div.upperslide {
 	background-image: url('http://static.zino.gr/phoenix/upperfade.jpg');
 	background-repeat: repeat-x;
 	background-position: top;
-	margin-top: 60px;
+	/*margin-top: 60px;*/
 }
 div.upperslide img {
 	padding: 3px 3px 0 3px;

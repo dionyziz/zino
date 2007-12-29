@@ -9,7 +9,7 @@
         $page->AttachScript( 'js/animations.js' );
         
         //Element( "photo/latest" );
-		?><div class="rightslide">
+		?><br /><br /><br /><br /><div class="rightslide">
 			<div class="edge">
 				<a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a>
 			</div>
