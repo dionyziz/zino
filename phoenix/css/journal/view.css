@@ -1,0 +1,43 @@
+div#journalview {
+	margin-bottom: 20px;
+}
+div#journalview h2 {
+	margin: 0;
+	padding: 0 0 3px 0;
+}
+div#journalview div.journal dl {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+div#journalview div.journal dl dd.commentsnum {
+	margin: 0;
+	padding: 0 0 0 18px;
+	display: inline;
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-repeat: no-repeat;
+	font-size: 90%;
+}
+div#journalview div.journal dl dd.addfav{
+	margin: 0;
+	padding: 0 0 0 2px;
+	display: inline;
+}
+div#journalview div.journal dl dd.lastentries {
+	padding-top: 2px;
+}
+div#journalview div.journal dl dd.addfav a {
+	background-image: url('http://static.zino.gr/phoenix/heart_add.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#journalview div.journal p {
+	text-align: left;
+	width: 70%;
+	margin: 0 0 20px 10px;
+}
+div#journalview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}	
