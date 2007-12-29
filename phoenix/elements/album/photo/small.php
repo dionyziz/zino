@@ -10,13 +10,13 @@
 		
 		?><div class="photo">
 			<a href="">
-				<img src="http://static.zino.gr/phoenix/mockups/ph9.jpg" alt="Ουρανοξύστης 9" title="Ουρανοξύστης 9" /><br />
-				και δίπλα σε ποτάμι
+				<img src="http://static.zino.gr/phoenix/mockups/ph9.jpg" alt="ΞΟ…ΟΞ±Ξ½ΞΏΞΎΟΟƒΟ„Ξ·Ο‚ 9" title="ΞΟ…ΟΞ±Ξ½ΞΏΞΎΟΟƒΟ„Ξ·Ο‚ 9" /><br />
+				ΞΊΞ±ΞΉ Ξ΄Ξ―Ο€Ξ»Ξ± ΟƒΞµ Ο€ΞΏΟ„Ξ¬ΞΌΞΉ
 			</a><?php
 			if ( $showfav || $showcommnum ) {
 				?><div><?php
 					if ( $showfav ) {
-						?><span class="addfav"><a href=""><img src="http://static.zino.gr/phoenix/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span><?php
+						?><span class="addfav"><a href=""><img src="http://static.zino.gr/phoenix/heart_add.png" alt="Ξ ΟΞΏΟƒΞΈΞ®ΞΊΞ· ΟƒΟ„Ξ± Ξ±Ξ³Ξ±Ο€Ξ·ΞΌΞ­Ξ½Ξ±" title="Ξ ΟΞΏΟƒΞΈΞ®ΞΊΞ· ΟƒΟ„Ξ± Ξ±Ξ³Ξ±Ο€Ξ·ΞΌΞ­Ξ½Ξ±" /></a></span><?php
 					}
 					if ( $showcommnum ) {
 						?><span class="commentsnum">87</span><?php
