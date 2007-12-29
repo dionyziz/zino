@@ -22,7 +22,7 @@
 			<img src="http://static.zino.gr/phoenix/mockups/img6.jpg" alt="img6" title="img6" />
 			<img src="http://static.zino.gr/phoenix/mockups/img7.jpg" alt="img7" title="img7" />
 			<img src="http://static.zino.gr/phoenix/mockups/img8.jpg" alt="img8" title="img8" />
-			<img src="http://static.zino.gr/phoenix/mockups/img9.jpg" alt="img9" title="img9" />
+			\
 		</div><?php
         Element( "frontpage/leftbar" );
 
