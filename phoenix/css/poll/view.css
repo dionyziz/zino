@@ -2,8 +2,8 @@ div#pollview {
 
 }
 div#pollview div.pollsmall {
-	/*margin-left: 170px;*/
+	margin-left: 170px;
 }
 div#pollview div.pollsmall div.results {
-	margin: 0 0 50px 170px;
+	margin-bottom: 30px;
 }
