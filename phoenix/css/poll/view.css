@@ -1,6 +1,10 @@
 div#pollview {
 
 }
+div#pollview div.pollsmall h4 {
+	margin: 0;
+	padding: 0;
+}
 div#pollview div.pollsmall {
 	margin-left: 170px;
 }
