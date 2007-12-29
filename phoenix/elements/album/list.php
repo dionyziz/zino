@@ -11,6 +11,7 @@
 					Element( 'album/small' );
 				?></li><?php
 			}
-		?></ul><?php
+		?></ul>
+		<div class="eof"></div><?php
 	}
 ?>

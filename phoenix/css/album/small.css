@@ -8,7 +8,7 @@ div.album a span.desc {
     margin: 5px 0 0 5px;
 }
 div.album a span.albummain {
-    background-image: url( 'images/album.png' );
+    background-image: url( 'http://static.zino.gr/phoenix/album.png' );
     background-position: top left;
     background-repeat: no-repeat;
     width: 185px;
