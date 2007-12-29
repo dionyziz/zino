@@ -46,10 +46,11 @@ div.articles div div.stuff span span {
 }
 div.articles div small span {
 	color: #aeaeae;
-}
+}/*
 div.newestarticles {
 	border-left: 1px solid #cfcfcf;
 }
+*/
 div.articles {
 	width: 600px;
 	overflow: hidden;
