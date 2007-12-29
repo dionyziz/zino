@@ -52,6 +52,7 @@
 			"poll"				=> "poll/view",
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
+			"photo"				=> "album/photo/view",
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
