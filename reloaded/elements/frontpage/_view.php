@@ -26,7 +26,8 @@
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img5.jpg" alt="img5" title="img5" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img6.jpg" alt="img6" title="img6" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img7.jpg" alt="img7" title="img7" /></a>
-		</div><?php
+		</div>
+		<div style="clear:both"></div><?php
         Element( "frontpage/leftbar" );
 
         $latestids = Element( "article/latest" );
