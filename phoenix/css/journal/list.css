@@ -23,10 +23,14 @@ div#journallist ul li div.barfade div.leftbar {
 	height: 1px;
 	width: 153px;
 }
-div#journallist ul li  div.barfade div.rightbar {
+div#journallist ul li div.barfade div.rightbar {
 	float: right;
 	background-image: url('http://static.zino.gr/phoenix/barfade-right.jpg');
 	background-repeat: no-repeat;
 	height: 1px;
 	width: 153px;
+}
+div#journallist ul li div.journalsmall ul {
+	padding-left: 0;
+	width: 100%;
 }
