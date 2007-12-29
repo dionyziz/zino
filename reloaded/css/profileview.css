@@ -1,0 +1,15 @@
+div.rightslide {
+	float: right;
+	width: 144px;
+	height: 500px;
+	background-image: url('http://static.zino.gr/phoenix/sidefade.jpg');
+	background-repeat: repeat-y;
+	background-position: top;
+}
+div.upperslide {
+	height:120px;
+	width: 100%;
+	background-image: url('http://static.zino.gr/phoenix/upperfade.jpg');
+	background-repeat: repeat-x;
+	background-position: top;
+}

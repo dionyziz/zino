@@ -5,12 +5,13 @@
         
         $page->SetTitle( "Είσαι μέσα?" );
         $page->AttachStylesheet( 'css/sidebar.css' );
+		$page->AttachStyleSheet( 'css/profileview.css' );
         $page->AttachScript( 'js/animations.js' );
         
         //Element( "photo/latest" );
-		?><div style="float:right;width:130px;height:500px;">
+		?><div class="rightslide">
 		</div>
-		<div style="height:120px;width: 100%;background-color: red;">
+		<div style="upperslide">
 		</div><?php
         Element( "frontpage/leftbar" );
 
