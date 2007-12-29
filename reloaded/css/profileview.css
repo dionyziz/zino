@@ -14,6 +14,10 @@ div.rightslide div.edge {
 	background-repeat: none;
 	background-position: top;
 }
+div.rightslide a {
+	display: block;
+	float: right;
+}
 div.rightslide a img {
 	padding: 3px 3px 3px 0;
 }
@@ -24,10 +28,6 @@ div.upperslide {
 	background-repeat: repeat-x;
 	background-position: top;
 	margin-top: 60px;
-}
-div.upperslide a {
-	float: right;
-	display: block;
 }
 div.upperslide a img {
 	padding: 3px 3px 0 3px;
