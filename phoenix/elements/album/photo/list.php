@@ -4,7 +4,7 @@
 		
 		$page->AttachStyleSheet( 'css/album/photo/list.css' );
 		
-		Element( 'user/sections' );
+		Element( 'user/sections', 'album' );
 		?><div id="photolist">
 			<h2>Ουρανοξύστες</h2>
 			<dl>
