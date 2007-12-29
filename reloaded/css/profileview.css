@@ -7,6 +7,13 @@ div.rightslide {
 	background-position: top;
 	margin-top: 60px;
 }
+div.rightslide div.edge {
+	width: 145px;
+	height: 113px;
+	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
+	background-repeat: none;
+	background-position: top;
+}
 div.upperslide {
 	height:120px;
 	width: 100%;

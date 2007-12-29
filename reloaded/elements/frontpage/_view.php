@@ -10,6 +10,8 @@
         
         //Element( "photo/latest" );
 		?><div class="rightslide">
+			<div class="edge">
+			</div>
 		</div>
 		<div class="upperslide">
 		</div><?php
