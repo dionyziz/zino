@@ -27,4 +27,5 @@ div.upperslide {
 }
 div.upperslide a img {
 	padding: 3px 3px 0 3px;
+	float: right;
 }
