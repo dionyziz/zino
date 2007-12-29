@@ -1,0 +1,50 @@
+div.album a {
+    font-weight: bold;
+}
+div.album a span.desc {
+    display: block;
+    width: 176px;
+    text-align: center;
+    margin: 5px 0 0 5px;
+}
+div.album a span.albummain {
+    background-image: url( 'images/album.png' );
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 185px;
+    height: 185px;
+    line-height: 175px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+div.album a span.albummain img {
+    margin: 0 10px 4px 0;
+    vertical-align: middle;
+    border: 2px solid #7ea3c2;
+}
+div.album a:hover span img {
+    border: 2px solid white;
+}
+div.album dl {
+    display: block;
+    margin: auto;
+    width: 100px;
+    padding-top: 5px;
+    white-space: nowrap;
+    overflow: visible;
+    text-align: center;
+}
+div.album dl dt {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+}
+div.album dl dd {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    font-size: 80%;
+}

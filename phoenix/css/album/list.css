@@ -1,0 +1,11 @@
+ul.albums {
+    padding: 0;
+    margin: 0 20px 0 200px;
+}
+ul.albums li {
+    float: left;
+    width: 180px;
+    list-style: none;
+    padding: 10px;
+    margin: 0 15px 0 15px;
+}
