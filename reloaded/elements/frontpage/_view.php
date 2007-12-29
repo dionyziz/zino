@@ -8,7 +8,7 @@
         $page->AttachScript( 'js/animations.js' );
         
         //Element( "photo/latest" );
-		?><div style="float:right;width:120px;height:500px;background-color: blue;">
+		?><div style="float:right;width:130px;height:500px;background-color: blue;">
 		</div>
 		<div style="height:120px;width: 100%;background-color: red;">
 		</div><?php
