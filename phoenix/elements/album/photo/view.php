@@ -14,7 +14,6 @@
 			</dl>
 			<div class="eof"></div>
 			<div class="thephoto">
-				<div style="float:right;background-color:green;width:250px;height: 400px;"></div>
 				<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 			</div>
 			<div class="photothumbs">

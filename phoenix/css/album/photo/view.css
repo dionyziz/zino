@@ -98,6 +98,11 @@ div#photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
 }
+div#photoview div.comments {
+	float: left;
+	width: 90%;
+	overflow: hidden;
+}
 img.hoverclass {
 	opacity: 0.6;
 }
