@@ -11,7 +11,7 @@
         //Element( "photo/latest" );
 		?><div class="rightslide">
 		</div>
-		<div style="upperslide">
+		<div class="upperslide">
 		</div><?php
         Element( "frontpage/leftbar" );
 
