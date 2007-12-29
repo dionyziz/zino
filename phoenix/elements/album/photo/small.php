@@ -18,7 +18,7 @@
 					if ( $showfav ) {
 						?><span class="addfav"><a href=""><img src="http://static.zino.gr/phoenix/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></span><?php
 					}
-					if ( $showcommnum ) {
+					if ( $showcomnum ) {
 						?><span class="commentsnum">87</span><?php
 					}
 				?></div><?php
