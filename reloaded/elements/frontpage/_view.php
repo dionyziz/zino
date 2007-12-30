@@ -23,9 +23,6 @@
 		</div>
 		<div style="clear:both"></div>
 		<div class="rightslide">
-			<div class="edge">
-				<a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a>
-			</div>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img11.jpg" alt="img11" title="img11" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img12.jpg" alt="img12" title="img12" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img13.jpg" alt="img13" title="img13" /></a>
