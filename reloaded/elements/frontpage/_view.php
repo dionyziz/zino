@@ -21,7 +21,6 @@
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img6.jpg" alt="img6" title="img6" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img7.jpg" alt="img7" title="img7" /></a>
 		</div>
-		<div style="clear:both"></div>
 		<div class="rightslide">
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img11.jpg" alt="img11" title="img11" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img12.jpg" alt="img12" title="img12" /></a>
