@@ -6,14 +6,6 @@ div.rightslide {
 	background-repeat: repeat-y;
 	background-position: top;
 }
-div.rightslide div.edge {
-	width: 145px;
-	height: 113px;
-	float: right;
-	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
-	background-repeat: none;
-	background-position: top;
-}
 div.rightslide div.edge a {
 	float: none;
 }
@@ -31,6 +23,14 @@ div.upperslide {
 	background-repeat: repeat-x;
 	background-position: top;
 	margin-top: 60px;
+}
+div.upperslide div.edge {
+	width: 145px;
+	height: 113px;
+	float: right;
+	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
+	background-repeat: none;
+	background-position: top;
 }
 div.upperslide a img {
 	padding: 3px 7px 0 7px;
