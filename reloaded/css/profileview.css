@@ -32,6 +32,9 @@ div.upperslide div.edge {
 	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
 	background-repeat: none;
 	background-position: top;
+	line-height: 197px;
+	vertical-align: bottom;
+	text-align: right;
 }
 div.upperslide a img {
 	padding: 3px 7px 0 7px;
