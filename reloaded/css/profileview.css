@@ -24,6 +24,7 @@ div.upperslide {
 	background-repeat: repeat-x;
 	background-position: top;
 	margin-top: 60px;
+	text-align: center;
 }
 div.upperslide div.edge {
 	width: 145px;
