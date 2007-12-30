@@ -9,7 +9,10 @@
         $page->AttachScript( 'js/animations.js' );
         
         //Element( "photo/latest" );
-		?><div class="upperslide">
+		?><div class="upperslide">			
+			<div class="edge">
+				<a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a>
+			</div>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img1.jpg" alt="img1" title="img1" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img2.jpg" alt="img2" title="img2" /></a>
 			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img3.jpg" alt="img3" title="img3" /></a>

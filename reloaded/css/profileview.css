@@ -5,11 +5,11 @@ div.rightslide {
 	background-image: url('http://static.zino.gr/phoenix/sidefade.jpg');
 	background-repeat: repeat-y;
 	background-position: top;
-	margin-top: 60px;
 }
 div.rightslide div.edge {
 	width: 145px;
 	height: 113px;
+	float: right;
 	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
 	background-repeat: none;
 	background-position: top;
