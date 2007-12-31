@@ -31,7 +31,7 @@ div.rightslide a {
 	float: right;
 }
 div.rightslide li img {
-	margin: 9px 9px 9px 0;
+	margin: 10px 9px 10px 0;
 }
 div.upperslide {
 	height:113px;
@@ -50,7 +50,7 @@ div.upperslide div.edge {
 	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
 	background-repeat: none;
 	background-position: t2op;
-	line-height: 197px;
+	line-height: 200px;
 	vertical-align: bottom;
 	text-align: right;
 }
