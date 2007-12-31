@@ -55,7 +55,7 @@
 				?>
 			</div>
 			<div class="rightslide"><?php
-				for ( $i = 7; $i <= 12; ++$i ) {
+				for ( $i = 9; $i <= 12; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;id=<?php
