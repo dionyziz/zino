@@ -11,8 +11,8 @@ ul.photolist li {
 }
 ul.photolist div.upperslide div.edge li a span, ul.photolist div.upperslide li a span, ul.photolist div.rightslide li a span {
 	position: absolute;
-	bottom: 9px;
-	right: 7px;
+	bottom: 2px;
+	right: 13px;
 	background-color: #cecece;
 	opacity: 0.7;
 }
