@@ -2,6 +2,9 @@ div.upperslide ul.photolist1 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	width: 100%;
+	overflow: hidden;
+	
 }
 div.upperslide ul.photolist1 li {
 	padding: 0;
@@ -36,6 +39,7 @@ div.rightslide ul.photolist2 {
 div.rightslide ul.photolist2 li {
 	padding: 0;
 	margin: 0;
+	display: inline;
 }
 div.rightslide a {
 	float: right;
