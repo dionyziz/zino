@@ -8,8 +8,9 @@
 		$page->AttachStyleSheet( 'css/profileview.css' );
         $page->AttachScript( 'js/animations.js' );
         
-        //Element( "photo/latest" );
-		?><ul class="photolist">
+        Element( "photo/latest" );
+		/*
+		<ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge">
 					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a></li>
@@ -28,7 +29,8 @@
 				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img13.jpg" alt="img13" title="img13" /></a></li>
 				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img14.jpg" alt="img14" title="img14" /></a></li>
 			</div>
-		</ul><?php
+		</ul>
+		*/
         Element( "frontpage/leftbar" );
 
         $latestids = Element( "article/latest" );

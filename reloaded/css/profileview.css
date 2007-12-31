@@ -8,6 +8,16 @@ ul.photolist li {
 	margin: 0;
 	display: inline;
 }
+ul.photolist li a span {
+	position: absolute;
+	bottom: 9px;
+	right: 7px;
+	background-color: #cecece;
+	opacity: 0.7;
+}
+ul.photolist li a span img {
+	margin: 0;
+}
 div.rightslide {
 	float: right;
 	clear: both;
