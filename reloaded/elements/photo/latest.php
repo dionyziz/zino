@@ -14,7 +14,7 @@
         
 		$latest = Image_LatestUnique( 13 );
 		
-		if ( $user->Id() == 58 ) {
+		if ( $user->Id() == 58 || $user->Id() == 1 ) {
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
