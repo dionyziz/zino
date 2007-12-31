@@ -28,6 +28,15 @@ div.rightslide {
 	background-repeat: repeat-y;
 	background-position: 1px 0;
 }
+div.rightslide ul.photolist2 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div.rightslide ul.photolist2 li {
+	padding: 0;
+	margin: 0;
+}
 div.rightslide a {
 	float: right;
 }
