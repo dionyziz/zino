@@ -13,7 +13,7 @@
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
 		$latest = Image_LatestUnique( 12 );
-		if ( $user->Id == 58 ) {
+		if ( $user->Id() == 58 ) {
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
