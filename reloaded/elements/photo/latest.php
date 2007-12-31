@@ -10,7 +10,7 @@
         
         $page->AttachStylesheet( 'css/images.css' );
         $page->AttachScript( 'js/bumpstrip.js' );
-		$page->AttachStyleSheet( 'css/profileview.css' );
+		$page->AttachStyleSheet( 'css/frontpage.css' );
         
 		$latest = Image_LatestUnique( 14 );
 		
