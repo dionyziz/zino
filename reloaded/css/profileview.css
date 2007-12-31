@@ -15,7 +15,7 @@ ul.photolist li a span {
 	background-color: #cecece;
 	opacity: 0.7;
 }
-ul.photolist li a span img {
+ul.photolist div.upperslide div.edge li a span img, ul.photolist div.upperslide li a span img, ul.photolist div.rightslide li a span img {
 	margin: 0;
 }
 div.rightslide {
@@ -35,7 +35,7 @@ div.rightslide a {
 	float: right;
 }
 div.rightslide a img {
-	padding: 9px 9px 9px 0;
+	margin: 9px 9px 9px 0;
 }
 div.upperslide {
 	height:113px;
@@ -52,7 +52,7 @@ div.upperslide div.edge {
 	float: right;
 	background-image: url('http://static.zino.gr/phoenix/edge.jpg');
 	background-repeat: none;
-	background-position: top;
+	background-position: t2op;
 	line-height: 197px;
 	vertical-align: bottom;
 	text-align: right;
