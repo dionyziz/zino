@@ -12,12 +12,12 @@
         $page->AttachScript( 'js/bumpstrip.js' );
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
-		$latest = Image_LatestUnique( 12 );
+		$latest = Image_LatestUnique( 14 );
 		
 		if ( $user->Id() == 58 || $user->Id() == 1 || $user->Id() == 1379 ) {
         ?><div class="upperslide">			
 			<div class="edge"><?php
-				$image = $latest[ 8 ];
+				$image = $latest[ 10 ];
 				if ( $image ) {
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><a href="?p=photo&amp;id=<?php
@@ -37,7 +37,7 @@
 				}
 			?></div>
 			<ul class="photolist1"><?php
-			for ( $i = 0; $i < 7; ++$i ) {
+			for ( $i = 0; $i < 9; ++$i ) {
 				if ( $image ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
@@ -61,7 +61,7 @@
 		</div>
 		<div class="rightslide">
 			<ul class="photolist2"><?php
-				for ( $i = 8; $i <= 11; ++$i ) {
+				for ( $i = 10; $i <= 13; ++$i ) {
 					if ( $image ) {
 						$image = $latest[ $i ];
 						$dimensions = $image->ProportionalSize( 100 , 100 );
