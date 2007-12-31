@@ -25,7 +25,7 @@ div.rightslide {
 	height: 450px;
 	background-image: url('http://static.zino.gr/phoenix/sidefade.jpg');
 	background-repeat: repeat-y;
-	background-position: top;
+	background-position: 1px 0;
 }
 div.rightslide a {
 	float: right;
