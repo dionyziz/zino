@@ -61,7 +61,7 @@
 		</div>
 		<div class="rightslide">
 			<ul class="photolist2"><?php
-				for ( $i = 10; $i <= 13; ++$i ) {
+				for ( $i = 11; $i <= 13; ++$i ) {
 					if ( $image ) {
 						$image = $latest[ $i ];
 						$dimensions = $image->ProportionalSize( 100 , 100 );
