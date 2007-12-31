@@ -1,4 +1,3 @@
-<<<<<<< .mine
 <?php
     function ElementPhotoLatest() {
         global $libs;
@@ -13,67 +12,74 @@
         $page->AttachScript( 'js/bumpstrip.js' );
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
-		$latest = Image_LatestUnique( 14 );
+		$latest = Image_LatestUnique( 12 );
 		
 		if ( $user->Id() == 58 || $user->Id() == 1 || $user->Id() == 1379 ) {
-        ?><div class="upperslide">			
-			<div class="edge"><?php
-				$image = $latest[ 9 ];
-				$dimensions = $image->ProportionalSize( 100 , 100 );
-				?><li><a href="?p=photo&amp;id=<?php
-				echo $image->Id();
-				?>"><?php
-				$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-				$photoname = htmlspecialchars( $image->Name() );
-				Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
-				if ( $image->NumComments() ) {
-					?><span><img src="<?php
-					echo $xc_settings[ 'staticimagesurl' ];
-					?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-					echo $image->NumComments();
-					?></span><?php
-				}
-			?></a>
-			</div>
-			<ul class="photolist1"><?php
-				for ( $i = 0; $i < 9; ++$i ) {
-					$image = $latest[ $i ];
-					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="?p=photo&amp;id=<?php
-					echo $image->Id();
-					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-					$photoname = htmlspecialchars( $image->Name() );
-					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
-					if ( $image->NumComments() ) {
-                        ?><span><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-                        echo $image->NumComments();
-                        ?></span><?php
-                    }
-					?></a></li><?php
-				}
-			?></ul>
-		</div>
-		<div class="rightslide"><?php
-				for ( $i = 10; $i <= 13; ++$i ) {
-					$image = $latest[ $i ];
-					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="?p=photo&amp;id=<?php
-					echo $image->Id();
-					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-					$photoname = htmlspecialchars( $image->Name() );
-					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ] , '' , $style , $photoname , $photoname );
-					if ( $image->NumComments() ) {
-						?><span><img src="<?php
-						echo $xc_settings[ 'staticimagesurl' ];
-						?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-						echo $image->NumComments();
-						?></span><?php
+        ?><ul class="photolist">
+			<div class="upperslide">			
+				<div class="edge"><?php
+					$image = $latest[ 8 ];
+					if ( $image ) {
+						$dimensions = $image->ProportionalSize( 100 , 100 );
+						?><li><a href="?p=photo&amp;id=<?php
+						echo $image->Id();
+						?>"><?php
+						$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+						$photoname = htmlspecialchars( $image->Name() );
+						Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
+						if ( $image->NumComments() ) {
+	                        ?><span><img src="<?php
+	                        echo $xc_settings[ 'staticimagesurl' ];
+	                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+	                        echo $image->NumComments();
+	                        ?></span><?php
+	                    }
+						?></a><?php
 					}
-					?></a></li><?php
+				?></div><?php
+			
+				for ( $i = 0; $i < 7; ++$i ) {
+					if ( $image ) {
+						$image = $latest[ $i ];
+						$dimensions = $image->ProportionalSize( 100 , 100 );
+						?><li><a href="?p=photo&amp;&id=<?php
+						echo $image->Id();
+						?>"><?php
+						$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+						$photoname = htmlspecialchars( $image->Name() );
+						Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
+						if ( $image->NumComments() ) {
+	                        ?><span><img src="<?php
+	                        echo $xc_settings[ 'staticimagesurl' ];
+	                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+	                        echo $image->NumComments();
+	                        ?></span><?php
+	                    }
+						?></a></li><?php
+					}
+				}
+				?>
+			</div>
+			<div class="rightslide"><?php
+				for ( $i = 8; $i <= 11; ++$i ) {
+						if ( $image ) {
+						$image = $latest[ $i ];
+						$dimensions = $image->ProportionalSize( 100 , 100 );
+						?><li><a href="?p=photo&amp;&id=<?php
+						echo $image->Id();
+						?>"><?php
+						$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+						$photoname = htmlspecialchars( $image->Name() );
+						Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ] , '' , $style , $photoname , $photoname );
+						if ( $image->NumComments() ) {
+							?><span><img src="<?php
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+							echo $image->NumComments();
+							?></span><?php
+						}
+						?></a></li><?php
+					}
 				}
 				?>
 			</div>
