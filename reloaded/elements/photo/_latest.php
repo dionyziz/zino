@@ -30,7 +30,7 @@
 						if ( $image->NumComments() ) {
 	                        ?><span><img src="<?php
 	                        echo $xc_settings[ 'staticimagesurl' ];
-	                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+	                        ?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
 	                        echo $image->NumComments();
 	                        ?></span><?php
 	                    }
@@ -51,7 +51,7 @@
 						if ( $image->NumComments() ) {
 	                        ?><span><img src="<?php
 	                        echo $xc_settings[ 'staticimagesurl' ];
-	                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+	                        ?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
 	                        echo $image->NumComments();
 	                        ?></span><?php
 	                    }
@@ -74,7 +74,7 @@
 						if ( $image->NumComments() ) {
 							?><span><img src="<?php
 							echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+							?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
 							echo $image->NumComments();
 							?></span><?php
 						}
@@ -99,7 +99,7 @@
                     if ( $image->NumComments() ) {
                         ?><span><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+                        ?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
                         echo $image->NumComments();
                         ?></span><?php
                     }
