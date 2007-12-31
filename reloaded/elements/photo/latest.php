@@ -12,7 +12,7 @@
         $page->AttachScript( 'js/bumpstrip.js' );
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
-		$latest = Image_LatestUnique( 15 );
+		$latest = Image_LatestUnique( 14 );
 		
 		if ( $user->Id() == 58 || $user->Id() == 1 ) {
         ?><ul class="photolist">
