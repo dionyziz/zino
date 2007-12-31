@@ -17,7 +17,7 @@
 		if ( $user->Id() == 58 || $user->Id() == 1 || $user->Id() == 1379 ) {
         ?><div class="upperslide">			
 			<div class="edge"><?php
-				$image = $latest[ 10 ];
+				$image = $latest[ 9 ];
 				if ( $image ) {
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><a href="?p=photo&amp;id=<?php
@@ -61,7 +61,7 @@
 		</div>
 		<div class="rightslide">
 			<ul class="photolist2"><?php
-				for ( $i = 11; $i <= 13; ++$i ) {
+				for ( $i = 10; $i <= 13; ++$i ) {
 					if ( $image ) {
 						$image = $latest[ $i ];
 						$dimensions = $image->ProportionalSize( 100 , 100 );
