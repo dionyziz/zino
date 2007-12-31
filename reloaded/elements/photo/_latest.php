@@ -3,16 +3,18 @@
         global $libs;
         global $page;
         global $xc_settings;
+		global $user;
         
         $libs->Load( 'search' );
         $libs->Load( 'image/image' );
         
-        //$page->AttachStylesheet( 'css/images.css' );
-        //$page->AttachScript( 'js/bumpstrip.js' );
+        $page->AttachStylesheet( 'css/images.css' );
+        $page->AttachScript( 'js/bumpstrip.js' );
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
 		$latest = Image_LatestUnique( 12 );
-		/*
+		
+		if ( $user->Id() == 58 ) {
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
@@ -75,7 +77,9 @@
 				?>
 			</div>
 		</ul><?php
-        */?><div class="bumpstrip" id="bumpstrip"><div class="strip">
+		}
+		else {
+        ?><div class="bumpstrip" id="bumpstrip"><div class="strip">
             <?php
                 foreach ($latest as $image) {
             		$dimensions = $image->ProportionalSize( 100 , 100 );
@@ -96,5 +100,6 @@
                 }
             ?>
         </div></div><?php
+		}
     }
 ?>
