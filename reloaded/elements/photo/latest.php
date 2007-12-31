@@ -18,7 +18,7 @@
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
-					$image = $latest[ 8 ];
+					$image = $latest[ 6 ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
@@ -29,12 +29,12 @@
 					if ( $image->NumComments() ) {
                         ?><span><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+                        ?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
                         echo $image->NumComments();
                         ?></span><?php
                     }
 				?></a></li></div><?php
-				for ( $i = 0; $i < 7; ++$i ) {
+				for ( $i = 0; $i < 6; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;id=<?php
@@ -46,7 +46,7 @@
 					if ( $image->NumComments() ) {
                         ?><span><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+                        ?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
                         echo $image->NumComments();
                         ?></span><?php
                     }
@@ -55,7 +55,7 @@
 				?>
 			</div>
 			<div class="rightslide"><?php
-				for ( $i = 8; $i <= 11; ++$i ) {
+				for ( $i = 7; $i <= 10; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;id=<?php
@@ -67,7 +67,7 @@
 					if ( $image->NumComments() ) {
 						?><span><img src="<?php
 						echo $xc_settings[ 'staticimagesurl' ];
-						?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
+						?>icons/comment_blue.gif" alt="Ξ£Ο‡ΟΞ»ΞΉΞ±" title="Ξ£Ο‡ΟΞ»ΞΉΞ±" /><?php
 						echo $image->NumComments();
 						?></span><?php
 					}
