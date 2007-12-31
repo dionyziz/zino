@@ -12,7 +12,7 @@
         if ( !$theuser->Exists() ) {
             return;
         }
-        $search = New Search_Images_Latest( $userid );
+        $search = New Search_Images_Latest( $userid, false );
         $search->SetLimit( 5000 );
         $images = $search->Get();
         foreach ( $images as $image ) {
