@@ -32,8 +32,6 @@ div.rightslide a {
 	float: right;
 }
 div.rightslide li img {
-	width: 100px;
-	height: 100px;
 	margin: 9px 9px 9px 0;
 }
 div.upperslide {
@@ -56,12 +54,6 @@ div.upperslide div.edge {
 	vertical-align: bottom;
 	text-align: right;
 }
-div.upperslide div.edge li img {
-	width: 100px;
-	height: 100px;
-}
 div.upperslide  li img {
-	width: 100px;
-	height: 100px;
 	margin: 3px 11px 0 11px;
 }
