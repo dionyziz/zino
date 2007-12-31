@@ -45,9 +45,10 @@ div.rightslide ul.photolist2 li {
 	position: relative;
     width: 100%;
     height: 120px;
-    line-height: 120px;
+    line-height: 100px;
     display: block;
     border: 1px solid yellow;
+    vertical-align: bottom;
 }
 div.rightslide a {
 	float: right;
