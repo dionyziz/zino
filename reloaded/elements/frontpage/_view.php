@@ -9,24 +9,26 @@
         $page->AttachScript( 'js/animations.js' );
         
         //Element( "photo/latest" );
-		?><div class="upperslide">			
-			<div class="edge">
-				<a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a>
+		?><ul>
+			<div class="upperslide">			
+				<div class="edge">
+					<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img10.jpg" alt="img10" title="img10" /></a></li>
+				</div>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img1.jpg" alt="img1" title="img1" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img2.jpg" alt="img2" title="img2" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img3.jpg" alt="img3" title="img3" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img4.jpg" alt="img4" title="img4" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img5.jpg" alt="img5" title="img5" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img6.jpg" alt="img6" title="img6" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img7.jpg" alt="img7" title="img7" /></a></li>
 			</div>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img1.jpg" alt="img1" title="img1" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img2.jpg" alt="img2" title="img2" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img3.jpg" alt="img3" title="img3" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img4.jpg" alt="img4" title="img4" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img5.jpg" alt="img5" title="img5" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img6.jpg" alt="img6" title="img6" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img7.jpg" alt="img7" title="img7" /></a>
-		</div>
-		<div class="rightslide">
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img11.jpg" alt="img11" title="img11" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img12.jpg" alt="img12" title="img12" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img13.jpg" alt="img13" title="img13" /></a>
-			<a href=""><img src="http://static.zino.gr/phoenix/mockups/img14.jpg" alt="img14" title="img14" /></a>
-		</div><?php
+			<div class="rightslide">
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img11.jpg" alt="img11" title="img11" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img12.jpg" alt="img12" title="img12" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img13.jpg" alt="img13" title="img13" /></a></li>
+				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/img14.jpg" alt="img14" title="img14" /></a></li>
+			</div>
+		</ul><?php
         Element( "frontpage/leftbar" );
 
         $latestids = Element( "article/latest" );
