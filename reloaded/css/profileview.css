@@ -7,6 +7,7 @@ ul.photolist li {
 	padding: 0;
 	margin: 0;
 	display: inline;
+	position: relative;
 }
 ul.photolist div.upperslide div.edge li a span, ul.photolist div.upperslide li a span, ul.photolist div.rightslide li a span {
 	position: absolute;
