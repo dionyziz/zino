@@ -59,7 +59,7 @@ div.filmstrip {
 	background-color: #eeeeee;
 }
 div.bumpstrip {
-    width: 910px;
+    width: 90%;
     position: relative;
 	overflow: hidden;
 	border-top: 1px solid #cccccc;
