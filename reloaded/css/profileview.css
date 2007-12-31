@@ -37,7 +37,7 @@ div.rightslide ul.photolist2 {
 div.rightslide ul.photolist2 li {
 	padding: 0;
 	margin: 0;
-	display: inline;
+	position: relative;
 }
 div.rightslide a {
 	float: right;
