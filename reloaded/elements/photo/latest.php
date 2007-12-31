@@ -33,8 +33,7 @@
                         echo $image->NumComments();
                         ?></span><?php
                     }
-				?></a></div><?php
-			
+				?></a></li></div><?php
 				for ( $i = 0; $i < 7; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
