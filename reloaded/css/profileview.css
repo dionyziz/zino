@@ -41,6 +41,7 @@ div.rightslide ul.photolist2 li {
 	display: inline;
     width: 100px;
     height: 100px;
+    display: block;
 }
 div.rightslide a {
 	float: right;
