@@ -41,6 +41,7 @@ div.upperslide {
 	background-position: top;
 	margin-top: 70px;
 	text-align: center;
+	overflow: hidden;
 }
 div.upperslide div.edge {
 	width: 145px;
