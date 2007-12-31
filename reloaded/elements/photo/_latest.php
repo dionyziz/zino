@@ -12,10 +12,10 @@
 		$page->AttachStyleSheet( 'css/profileview.css' );
         
 		$latest = Image_LatestUnique( 12 );
+		/*
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
-					/*
 					$image = $latest[ 8 ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;&id=<?php
@@ -30,7 +30,7 @@
                         ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
                         echo $image->NumComments();
                         ?></span><?php
-                    }*/
+                    }
 				?></div><?php
 			
 				for ( $i = 0; $i < 7; ++$i ) {
@@ -75,7 +75,7 @@
 				?>
 			</div>
 		</ul><?php
-        ?><div class="bumpstrip" id="bumpstrip"><div class="strip">
+        */?><div class="bumpstrip" id="bumpstrip"><div class="strip">
             <?php
                 foreach ($latest as $image) {
             		$dimensions = $image->ProportionalSize( 100 , 100 );
