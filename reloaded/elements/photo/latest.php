@@ -37,7 +37,7 @@
 				for ( $i = 0; $i < 7; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="?p=photo&amp;&id=<?php
+					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
 					?>"><?php
 					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
@@ -58,7 +58,7 @@
 				for ( $i = 8; $i <= 11; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="?p=photo&amp;&id=<?php
+					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
 					?>"><?php
 					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
