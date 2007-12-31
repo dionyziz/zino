@@ -27,14 +27,13 @@ div.rightslide {
 	background-repeat: repeat-y;
 	background-position: top;
 }
-div.rightslide div.edge a {
-	float: none;
-}
 div.rightslide a {
 	/*display: block;*/
 	float: right;
 }
 div.rightslide a img {
+	width: 100px;
+	height: 100px;
 	margin: 9px 9px 9px 0;
 }
 div.upperslide {
@@ -57,6 +56,12 @@ div.upperslide div.edge {
 	vertical-align: bottom;
 	text-align: right;
 }
+div.upperslide div.edge a img {
+	width: 100px;
+	height: 100px;
+}
 div.upperslide a img {
+	width: 100px;
+	height: 100px;
 	margin: 3px 11px 0 11px;
 }
