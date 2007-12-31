@@ -8,7 +8,7 @@ ul.photolist li {
 	margin: 0;
 	display: inline;
 }
-ul.photolist li a span {
+ul.photolist div.upperslide div.edge li a span, ul.photolist div.upperslide li a span, ul.photolist div.rightslide li a span {
 	position: absolute;
 	bottom: 9px;
 	right: 7px;
