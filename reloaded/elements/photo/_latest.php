@@ -15,6 +15,7 @@
         ?><ul class="photolist">
 			<div class="upperslide">			
 				<div class="edge"><?php
+					/*
 					$image = $latest[ 8 ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
 					?><li><a href="?p=photo&amp;&id=<?php
@@ -29,8 +30,9 @@
                         ?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
                         echo $image->NumComments();
                         ?></span><?php
-                    }
+                    }*/
 				?></div><?php
+			
 				for ( $i = 0; $i < 7; ++$i ) {
 					$image = $latest[ $i ];
 					$dimensions = $image->ProportionalSize( 100 , 100 );
