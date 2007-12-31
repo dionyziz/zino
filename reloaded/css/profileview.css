@@ -33,6 +33,8 @@ div.rightslide ul.photolist2 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+    height: 100%;
+    border: 1px solid green;
 }
 div.rightslide ul.photolist2 li {
 	padding: 0;
@@ -41,6 +43,7 @@ div.rightslide ul.photolist2 li {
     width: 100px;
     height: 100px;
     display: block;
+    border: 1px solid yellow;
 }
 div.rightslide a {
 	float: right;
