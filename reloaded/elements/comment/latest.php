@@ -20,7 +20,7 @@
 				<div style="float:left"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>soraleft.jpg" alt="" /></div>
-				<h3>ΞΞµΟΟ„ΞµΟΞ± ΟƒΟ‡ΟΞ»ΞΉΞ±</h3>
+				<h3>Νεότερα σχόλια</h3>
 			</div>
 			<div class="body"><?php
 				$i = 1;
@@ -31,13 +31,13 @@
                             Element( "user/icon" , $comment->User() , true , true );
                         }
                         else {
-                            ?>Ξ‘Ξ½ΟΞ½Ο…ΞΌΞΏΟ‚ <?php
+                            ?>Ανώνυμος <?php
                         }
-						?> ΟƒΟ„<?php
+						?> στ<?php
 						
 						switch ( $comment->TypeId() ) {
 							case 2:
-								?>Ξ·Ξ½ ΞµΞΉΞΊΟΞ½Ξ± <a href="?p=photo&amp;id=<?php
+								?>ην εικόνα <a href="?p=photo&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
@@ -45,7 +45,7 @@
 								break;
 							case 1:
 								if ( $comment->Page()->Gender() == 'female' ) {
-									?>Ξ·<?php
+									?>η<?php
                                     switch ( strtolower( substr( $comment->Page()->Username() , 0 , 1 ) ) ) {
                                         case 'a':
                                         case 'e':
@@ -55,13 +55,13 @@
                                         case 't':
                                         case 'p':
                                         case 'k':
-                                            ?>Ξ½<?php
+                                            ?>ν<?php
                                             break;
                                         default:
                                     }
 								}
 								else {
-									?>ΞΏΞ½<?php
+									?>ον<?php
 								}
 								?> <a href="user/<?php
 								echo $comment->Page()->Title();
@@ -77,7 +77,7 @@
 								?>"><?php
 								break;
                             case 3:
-								?>Ξ· Ξ΄Ξ·ΞΌΞΏΟƒΞΊΟΟ€Ξ·ΟƒΞ· <a href="?p=poll&amp;id=<?php
+								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
@@ -91,7 +91,7 @@
 						echo htmlspecialchars( $comment->Page()->Title() );
 						?></a><?php
 						
-						?><span>, Ο€ΟΞΉΞ½ <?php
+						?><span>, πριν <?php
 						echo dateDistance( $comment->SQLDate() );
 						?></span><div style="clear:left;"></div>
 					</div><?php
@@ -110,16 +110,16 @@
 					while ( $comment = array_shift( $latestcomments ) ) {
 					?><div><?php
                         if ( $comment->User()->Id() == 0 ) {
-                            ?>Ξ‘Ξ½ΟΞ½Ο…ΞΌΞΏΟ‚ <?php
+                            ?>Ανώνυμος <?php
                         }
                         else {
                             Element( "user/icon" , $comment->User() , true , true );
                         }
-						?> ΟƒΟ„<?php
+						?> στ<?php
 						
 						switch ( $comment->TypeId() ) { // TODO: remove code duplication by splitting into new element
 							case 2:
-								?>Ξ·Ξ½ ΞµΞΉΞΊΟΞ½Ξ± <a href="?p=photo&amp;id=<?php
+								?>ην εικόνα <a href="?p=photo&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
@@ -127,10 +127,10 @@
 								break;
 							case 1:
 								if ( $comment->Page()->Gender() == 'female' ) {
-									?>Ξ·<?php
+									?>η<?php
 								}
 								else {
-									?>ΞΏΞ½<?php
+									?>ον<?php
 								}
 								?> <a href="user/<?php
 								echo $comment->Page()->Title();
@@ -146,7 +146,7 @@
 								?>"><?php
 								break;
                             case 3:
-								?>Ξ· Ξ΄Ξ·ΞΌΞΏΟƒΞΊΟΟ€Ξ·ΟƒΞ· <a href="?p=poll&amp;id=<?php
+								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
@@ -160,7 +160,7 @@
 						echo htmlspecialchars( $comment->Page()->Title() );
 						?></a><?php
 						
-						?><span>, Ο€ΟΞΉΞ½ <?php
+						?><span>, πριν <?php
 						echo dateDistance( $comment->SQLDate() );
 						?></span><div style="clear:left;"></div>
 					</div><?php
@@ -171,7 +171,7 @@
 					}
 				}
 				
-				?></div><a id="commentslink" href="javascript:ShowMore('comments');" class="arrow" title="Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞ± ΟƒΟ‡ΟΞ»ΞΉΞ±"></a><?php
+				?></div><a id="commentslink" href="javascript:ShowMore('comments');" class="arrow" title="Περισσότερα σχόλια"></a><?php
 				}
 				
 			?></div>
