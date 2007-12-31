@@ -39,6 +39,8 @@ div.rightslide ul.photolist2 li {
 	margin: 0;
 	position: relative;
 	display: inline;
+    width: 100px;
+    height: 100px;
 }
 div.rightslide a {
 	float: right;
