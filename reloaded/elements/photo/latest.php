@@ -23,7 +23,7 @@
 					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
 					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
 					$photoname = htmlspecialchars( $image->Name() );
 					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
 					if ( $image->NumComments() ) {
@@ -40,7 +40,7 @@
 					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
 					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
 					$photoname = htmlspecialchars( $image->Name() );
 					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
 					if ( $image->NumComments() ) {
@@ -61,7 +61,7 @@
 					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id();
 					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;';
+					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
 					$photoname = htmlspecialchars( $image->Name() );
 					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ] , '' , $style , $photoname , $photoname );
 					if ( $image->NumComments() ) {

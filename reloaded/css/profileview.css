@@ -33,7 +33,6 @@ div.rightslide a {
 }
 div.rightslide li a img {
 	margin: 10px 9px 10px 0;
-	border: 1px solid gray;
 }
 div.upperslide {
 	height:113px;
@@ -55,10 +54,6 @@ div.upperslide div.edge {
 	vertical-align: bottom;
 	text-align: right;
 }
-div.upperslide div.edge li a  img {
-	border: 1px solid gray;
-}
 div.upperslide  li a img {
 	margin: 6px 13px 0 13px;
-	border: 1px solid gray;
 }
