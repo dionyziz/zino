@@ -27,12 +27,9 @@ div.rightslide {
 	background-repeat: repeat-y;
 	background-position: top;
 }
-/*
 div.rightslide a {
-	display: block;
 	float: right;
 }
-*/
 div.rightslide li img {
 	margin: 9px 9px 9px 0;
 }
