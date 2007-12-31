@@ -34,7 +34,7 @@
 	                        echo $image->NumComments();
 	                        ?></span><?php
 	                    }
-						?></a><?php
+						?></a></li><?php
 					}
 				?></div><?php
 			
