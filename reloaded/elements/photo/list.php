@@ -1,6 +1,6 @@
 <?php
     function ElementPhotoList( tInteger $userid ) {
-        global $excalibur_settings;
+        global $xc_settings;
         global $user;
         
         if ( !$user->IsSysOp() ) {
@@ -17,7 +17,7 @@
         $images = $search->Get();
         foreach ( $images as $image ) {
             ?><img src="<?php
-            echo $excalibur_settings[ 'imagesurl' ];
+            echo $xc_settings[ 'imagesurl' ];
             ?>/<?php
             echo $userid;
             ?>/<?php
