@@ -113,17 +113,17 @@ div.axel div.akuloggedout div.content div {
 	height: 100px;
 	overflow: hidden;
 }
-div.axel div.akuloggedout div.content div small label {
+div.axel div.akuloggedout div.content div div.small label {
 	float: left;
 	width: 60px;
 	height: 20px;
 	vertical-align: bottom;
     display: block;
 }
-div.axel div.akuloggedout div.content div small div.field {
+div.axel div.akuloggedout div.content div div.small div.field {
 	height: 20px;
 }
-div.axel div.akuloggedout div.content div small div.field input {
+div.axel div.akuloggedout div.content div div.small div.field input {
 	width: 100px;
 }
 div.axel div.akuloggedout div.content div a.submit {
@@ -165,7 +165,7 @@ div.aku div.content div h2 {
 	display: inline;
 	color: #1a4d84;
 }
-div.aku div.content div small {
+div.aku div.content div div.small {
 	font-size: 90%;
 }
 div.aku ul {
