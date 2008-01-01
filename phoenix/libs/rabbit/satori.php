@@ -1,25 +1,45 @@
 <?php
-    abstract class Satori { // basic domain-level object class; all domain-level objects should extend this
-        protected $mId; // most extensions will use this; some might not
-        protected $mDb; // database object referring to the database where the object is stored
-        protected $mDbTable; // table containing the object
-        protected $mPreviousValues;
-        protected $mExists; // whether the current object exists in the database
-        private $mDbFields;
-        private $mDbFieldKeys;
-        private $mReadOnlyFields;
-        
+    abstract class Overloadable {
         public function __set( $name, $value ) {
-            global $water;
-            
             // check if a custom setter is specified
             $methodname = 'Set' . $name;
             if ( method_exists( $this, $methodname ) ) {
                 $success = $this->$methodname( $value ); // MAGIC!
                 if ( $success !== false ) {
-                    return;
+                    return true;
                 }
-                /* else fallthru */
+            }
+            // else fallthru
+            return false;
+        }
+        public function __get( $name ) {
+            // check if a custom getter is specified
+            $methodname = 'Get' . $name;
+            if ( method_exists( $this, $methodname ) ) {
+                return $this->$methodname(); // MAGIC!
+            }
+            // else fallthru
+            return null; // use null here because we want to allow custom getters to return literal boolean false
+        }
+    }
+    
+    // Active Record Base
+    abstract class Satori extends Overloadable {
+        protected $mDb; // database object referring to the database where the object is stored
+        protected $mDbName; // name of the database we'll use for this object (defaults to your first database)
+        protected $mDbTable; // database table alias this object is mapped from
+        protected $mPersistentState; // stores the persistent state of this object (i.e. the stored-in-the-database version)
+        protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
+        private $mDbFields;
+        private $mDbFieldKeys;
+        private $mReadOnlyFields;
+        private $mPrimaryKeys;
+        
+        public function __set( $name, $value ) {
+            global $water;
+            
+            if ( parent::__set( $name, $value ) === true ) {
+                return;
             }
             
             if ( !in_array( $name, $this->mDbFields ) ) {
@@ -38,10 +58,8 @@
         public function __get( $name ) {
             global $water;
             
-            // check if a custom getter is specified
-            $methodname = 'Get' . $name;
-            if ( method_exists( $this, $methodname ) ) {
-                return $this->$methodname(); // MAGIC!
+            if ( !is_null( $got = parent::__get( $name ) ) ) {
+                return $got;
             }
             
             if ( !in_array( $name, $this->mDbFields ) ) {
@@ -59,11 +77,6 @@
             global $water;
             
             $water->Warning( 'Attempting to unset Satori property on a `' . get_class( $this ) . '\' instance; Satori properties cannot be unset' );
-        }
-        protected function WhereAmI() { 
-            // return an identifier that can be used along with WHERE to detect current entry in DB
-            // normally, `foo_id` = 5, but overloadable in case the particular table doesn't use an auto-increment primary key
-            return '`' . reset( $this->mDbFieldKeys ) . '` = ' . $this->mId;
         }
         protected function MakeReadOnly( /* $name1 [, $name2 [, ...]] */ ) {
             // make a member attribute read-only; this doesn't have any impact for custom setters
@@ -95,15 +108,16 @@
         }
         public function Exists() {
             // check if the current object exists; this can be overloaded if you wish, but you can also set $this->mExists
-            return ( $this->mId > 0 && $this->mExists );
+            return $this->mExists;
         }
         public function Save() {
             if ( $this->Exists() ) {
                 $sql = 'UPDATE
-                            `' . $this->mDbTable . '`
+                            :' . $this->mDbTable . '
                         SET
                             ';
                 $updates = array();
+                $bindings = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $varname = 'm' . $attributename;
                     $attributevalue = $this->$varname; // MAGIC!
@@ -112,17 +126,23 @@
                         die( var_dump( $this->mPreviousValues ) );
                     }
                     if ( $this->mPreviousValues[ $attributename ] != $attributevalue ) {
-                        $updates[] = '`' . $fieldname . '` = "' . myescape( $attributevalue ) . "\"\n";
+                        $updates[] = "`$fieldname` = :$fieldname";
+                        $bindings[ $fieldname ] = $attributevalue;
                         $this->mPreviousValues[ $attributename ] = $attributevalue;
                     }
                 }
                 if ( !count( $updates ) ) {
+                    // nothing to update
                     return true;
                 }
                 
                 $sql .= implode( ', ', $updates );
                 $sql .= 'WHERE ' . $this->WhereAmI() . ' LIMIT 1;';
-                return $this->mDb->Query( $sql );
+                $query = $this->mDb->Prepare( $sql );
+                $query->BindTable( $this->mDbTable );
+                foreach ( $bindings as $name => $value ) {
+                    $query->Bind( $name, $value );
+                }
             }
             else {
                 $inserts = array();
@@ -179,12 +199,29 @@
         protected function LoadDefaults() {
             // overload me
         }
-        protected function Satori( $construct = false ) {
+        protected function Relations() {
+            // overload me
+        }
+        protected function __construct( $construct = false ) {
+            // do not overload me!
             global $water;
+            global $rabbit_settings;
             
             w_assert( is_string( $this->mDbTable ), 'Please specify your database table by setting member attribute mDbTable for class `' . get_class( $this ) . '\'' );
-            w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $this->mDbTable ), 'Your table name is incorrect; make sure you have specified a valid database table name for class `' . get_class( $this ) . '\'' );
-            w_assert( $this->mDb instanceof Database, 'Please specify your database by setting member attribute mDb for class `' . get_class( $this ) . '\' to a valid database instance' );
+            w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $this->mDbTable ), 'Your database table alias is incorrect; make sure you have specified a valid database table alias for class `' . get_class( $this ) . '\'' );
+            if ( !isset( $this->mDbName ) ) {
+                if ( count( $rabbit_settings[ 'databases' ] ) ) {
+                    // default database
+                    $dbaliases = array_keys( $rabbit_settings[ 'databases' ] );
+                    $this->mDbName = $dbaliases[ 0 ];
+                }
+            }
+            w_assert( is_string( $this->mDbName ), 'Please specify your database by setting member attribute mDbName for class `' . get_class( $this ) . '\' to a valid database alias' );
+            if ( !isset( $GLOBALS[ $this->mDbName ] ) ) {
+                w_assert( is_string( $this->mDbName ), 'The mDbName database you have specified for class `' . get_class( $this ) . '\' does not exist in your settings file' );
+                $this->mDb = $GLOBALS[ $this->mDbName ];
+                w_assert( $this->mDb instanceof Database, 'The database specified for class `' . get_class( $this ) . '\' is not a valid database' );
+            }
             w_assert( is_array( $this->mDbFields ), 'Please specify your database fields by calling SetFields() for class `'. get_class( $this ) . '\'' );
             
             if ( $construct === false ) {

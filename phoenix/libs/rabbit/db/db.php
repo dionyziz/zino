@@ -53,6 +53,7 @@
 		protected $mCharSetApplied;
 		protected $mConnected;
 		protected $mDriver;
+        protected $mTables;
         
 		public function Database( $dbname = false, $driver = false ) {
             if ( $driver === false ) {
@@ -62,11 +63,12 @@
                 $this->mDriver = $driver;
             }
             w_assert( $this->mDriver instanceof DatabaseDriver );
-            w_assert( $dbname === false || is_string( $dbname ) );
+            w_assert( $dbname === false || is_string( $dbname ) ); // false because you can SwitchDb() later
 			$this->mDbName = $dbname;
 			$this->mConnected = false;
 			$this->mCharSetApplied = true;
 			$this->mCharSet = false;
+            $this->mTables = false;
 		}
 		public function Connect( $host = 'localhost' ) {
 			$this->mHost = $host;
@@ -96,7 +98,7 @@
                 if ( $this->mDbName != '' ) {
                     $selection = $this->mDriver->SelectDb( $this->mDbName, $this->mLink );
                     if ( $selection === false ) {
-                        $water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->LastError( $this->mLink ) );
+                        $water->Warning( "Failed to select the specified database:\n" . $this->mDriver->LastError( $this->mLink ) );
                         return false;
                     }
                 }
@@ -109,7 +111,7 @@
 			if ( !$this->mConnected ) {
 				$this->mLink = $this->mDriver->Connect( $this->mHost , $this->mUsername , $this->mPassword , false );
 				if ( $this->mLink === false ) {
-					$water->Warning( 'Connection to database failed:<br />' . $this->mDriver->LastError( $this->mLink ) );
+					$water->Warning( "Connection to database failed:\n" . $this->mDriver->LastError( $this->mLink ) );
 					return false;
 				}
                 $this->mConnected = true;
@@ -129,7 +131,7 @@
 		private function CharSetApply() {
 			if ( !$this->mCharSetApplied ) {
 				$this->mCharSetApplied = true;
-				$this->Query( 'SET NAMES ' . $this->mCharSet ); // TODO: this is only compatible with MySQL?
+				$this->Prepare( 'SET NAMES ' . $this->mCharSet )->Execute(); // TODO: this is only compatible with MySQL?
 			}
 		}
 		public function Query( $sql ) {
@@ -253,13 +255,18 @@
 			}
 			return $changes; // return an array of change
 		}
+        public function AttachTable( $alias, $actual ) {
+            w_assert( preg_match( '#/^[\.a-zA-Z0-9_\-]+$/#', $alias ) );
+            $this->mTables[ $alias ] = New DBTable( $this, $actual );
+        }
+        public function TableByAlias( $alias ) {
+            if ( !isset( $this->mTables[ $alias ] ) ) {
+                return false;
+            }
+            return $this->mTables[ $alias ];
+        }
 		public function Tables() {
-			$res = $this->Query( 'SHOW TABLES FROM `' . $this->mDbName . '`' );
-			$rows = array();
-			while ( $row = $res->FetchArray() ) {
-				$rows[] = New DBTable( $this, array_shift( $row ) );
-			}
-			return $rows;
+            return $this->mTables;
 		}
 		public function Link() {
 			return $this->mLink;
@@ -291,8 +298,20 @@
         public function Bind( $name, $argument ) {
             $this->mBindings[ ':' . ( string )$name ] = $this->Escape( $argument );
         }
+        public function BindTable( $alias ) {
+            global $water;
+            
+            w_assert( is_string( $alias ), 'Database table aliases must be strings' );
+            w_assert( strlen( $alias ), 'Database table aliases cannot be the empty string' );
+            $table = $this->mDatabase->TableByAlias( $alias );
+            if ( $table === false ) {
+                $water->Warning( 'Could not bind database table `' . $alias . '`' );
+                return;
+            }
+            $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
+        }
         public function Apply() {
-            return strtr( $this->mRawSQL, $this->mBindings );
+            return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTableBindings ) );
         }
         public function Execute() {
             return $this->mDatabase->Query( $this->Apply() );
@@ -359,7 +378,7 @@
 
             return $ret;
         }
-		public function NumRows() {
+		public function GetNumRows() {
 			return $this->mNumRows;
 		}
 		public function NumFields() {
@@ -370,19 +389,28 @@
 		}
 	}
 	
-	class DBTable {
+	class DBTable extends Overloadable {
 		protected $mDb;
 		protected $mTableName;
-		
-		public function DBTable( $db , $tablename ) {
+		protected $mAlias;
+        
+        protected function GetName() {
+            return $this->mTableName;
+        }
+        protected function GetAlias() {
+            return $this->mAlias;
+        }
+		public function DBTable( Database $db, $tablename, $alias ) {
+            w_assert( preg_match( '#/^[\.a-zA-Z0-9_\-]+$/#', $alias ) );
+            w_assert( preg_match( '#/^[\.a-zA-Z0-9_\-]+$/#', $tablename ) );
 			$this->mDb = $db;
 			$this->mTableName = $tablename;
-		}
-		public function Name() {
-			return $this->mTableName;
+            $this->mAlias = $alias;
 		}
 		public function Truncate() {
-			return $this->mDb->Query( 'TRUNCATE `' . $this->mTableName . '`;' );
+			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
+            $query->BindTable( $this->mAlias );
+            return $query->Execute();
 		}
 	}
 ?>

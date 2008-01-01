@@ -77,6 +77,7 @@
     	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
     		header( 'HTTP/1.1 301 Moved Permanently' );
             // TODO: append part of the original URL to the redirection URL?
+            // TODO: allow specific domains/subdomains (user-specified regex?)
     		header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
     		exit();
     	}
@@ -132,8 +133,8 @@
             $GLOBALS[ $dbname ]->Authenticate( $database[ 'username' ] , $database[ 'password' ] );
             $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] );
             
-            foreach ( $database[ 'tables' ] as $tablename => $realtablename ) {
-                $GLOBALS[ $tablename ] = $database[ 'prefix' ] . $realtablename;
+            foreach ( $database[ 'tables' ] as $alias => $tablename ) {
+                $GLOBALS[ $dbname ]->AttachTable( $alias, $database[ 'prefix' ] . $tablename );
             }
         }
     }
