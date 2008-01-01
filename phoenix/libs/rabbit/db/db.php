@@ -411,6 +411,8 @@
             return $this->mAlias;
         }
 		public function DBTable( Database $db, $tablename, $alias ) {
+            w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
+            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
 			$this->mDb = $db;

@@ -27,7 +27,7 @@
                 `user_id`, `user_name`,
                 `image_id`, `image_userid`
             FROM 
-                `:users` LEFT JOIN `:images`
+                :users LEFT JOIN :images
                     ON `user_icon` = `image_id`
             WHERE 
                 `user_name` IN :Usernames;"
