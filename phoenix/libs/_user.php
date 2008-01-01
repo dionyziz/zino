@@ -627,8 +627,7 @@
                 $query->Bind( 'AuthToken', $userauth );
                 $query->Bind( 'Locked', 'no' );
                 
-				$sqlresult = $db->Query( $sql );
-				$sqluser = $sqlresult->FetchArray();
+				$sqluser = $query->Execute()->FetchArray();
 				if ( $sqluser ) {
 					$_SESSION[ 's_username' ] = $sqluser[ 'user_name' ];
 					$_SESSION[ 's_password' ] = $sqluser[ 'user_password' ];
