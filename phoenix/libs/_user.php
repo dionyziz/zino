@@ -22,7 +22,7 @@
             return array();
         }
         
-        $db->Prepare(
+        $query = $db->Prepare(
             "SELECT 
                 `user_id`, `user_name`,
                 `image_id`, `image_userid`
@@ -116,7 +116,6 @@
     
     function MakeUser( $username , $password , $email ) {
         global $xc_settings;
-		global $users;
 		global $db;
 		global $mc;
 
@@ -124,8 +123,7 @@
 		
 		$s_username = $username;
 		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
-		$subdomain = myescape( User_DeriveSubdomain( $username ) ); //is already escaped, but may be empty
-		$username = myescape( $username );
+		$subdomain = User_DeriveSubdomain( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
 			// reserved
 			return 2;
@@ -134,42 +132,96 @@
 			//subdomain is too small (either too small username or it couldn't produce enough output after the regexps)
 			return 2;
 		}
-		$sql = "SELECT * FROM `$users` WHERE `user_name`='$username' OR `user_subdomain`='$subdomain' LIMIT 1;";
-		$sqlresult = $db->Query( $sql );
-		if ( $sqlresult->Results() ) { // If there is someone with the same username or subdomain
+		$query = $db->Prepare(
+            "SELECT 
+                * 
+            FROM 
+                :users
+            WHERE 
+                `user_name`=:Username
+                OR `user_subdomain`=:Subdomain
+            LIMIT 1;"
+        );
+        $query->Bind( 'Username', $username );
+        $query->Bind( 'Subdomain', $subdomain );
+        $query->BindTable( 'users' );
+		$res = $query->Execute();
+		if ( $res->Results() ) { // If there is someone with the same username or subdomain
 			return 2;
 		}
 		if ( $email != "" ) {
-			$sql = "SELECT * FROM `$users` WHERE `user_email`='$email' LIMIT 1;";
-			$sqlresult = $db->Query( $sql );
-			if ( $sqlresult->NumRows() ) { // If there is someone with the same email
+			$query = $db->Prepare(
+                "SELECT 
+                    * 
+                FROM 
+                    :users
+                WHERE 
+                    `user_email`=:Email
+                LIMIT 1;"
+            );
+            $query->Bind( 'Email', $email );
+            $query->BindTable( 'users' );
+			$res = $query->Execute();
+			if ( $res->NumRows() ) { // If there is someone with the same email
 				return 3;
 			}
 		}
 		$ip = UserIp();
-		$ip = addslashes( $ip );
 
         // for security against spambot automated account creation
-        $sql = "SELECT 
-                    COUNT(*) AS numusers
-                FROM
-                    `$users`
-                WHERE
-                    `user_registerhost` = '$ip'
-                    AND `user_created` + INTERVAL 15 MINUTE > NOW()";
-        $sqlresult = $db->Query( $sql );
-        $row = $sqlresult->FetchArray();
+        $query = $db->Prepare(
+            "SELECT 
+                COUNT(*) AS numusers
+            FROM
+                :users
+            WHERE
+                `user_registerhost` = :Ip
+                AND `user_created` + INTERVAL 15 MINUTE > NOW()"
+        );
+        $query->BindTable( 'users' );
+        $query->Bind( 'Ip', $ip );
+        $res = $query->Execute();
+        $row = $res->FetchArray();
         if ( $row[ 'numusers' ] >= 2 ) {
             return 5; // too many users from the same IP during the last 15 minutes
         }
         
 		$password = md5( $password );
 		$s_password = $password;
-		$password = addslashes( $password );
-		$email = addslashes( $email );
-		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_subdomain` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '10' , '$email' , '$subdomain' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
-		$db->Query( $sql );
+		$query = $db->Prepare(
+            "INSERT INTO 
+                :users
+            SET
+                `user_name` = :Username,
+                `user_password` = :Password,
+                `user_created` = NOW(),
+                `user_registerhost` = :Ip,
+                `user_lastlogon` = NOW(), 
+                `user_rights` = :Rights,
+                `user_email` = :Email,
+                `user_subdomain` = :Subdomain,
+                `user_signature` = :Signature,
+                `user_icon` = :Icon
+                `user_msn` = :MSN,
+                `user_yim` = :YIM,
+                `user_aim` = :AIM,
+                `user_icq` = :ICQ,
+                `user_skype` = :Skype;"
+        );
+        $query->BindTable( 'users' );
+        $query->Bind( 'Username', $s_username );
+        $query->Bind( 'Password', $password );
+        $query->Bind( 'Ip', $ip );
+        $query->Bind( 'Email', $email );
+        $query->Bind( 'Subdomain', $subdomain );
+        $query->Bind( 'Signature', '' );
+        $query->Bind( 'Icon', 0 );
+        $query->Bind( 'MSN', '' );
+        $query->Bind( 'YIM', '' );
+        $query->Bind( 'AIM', '' );
+        $query->Bind( 'ICQ', '' );
+        $query->Bind( 'Skype', '' );
+		$query->Execute();
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
 		
