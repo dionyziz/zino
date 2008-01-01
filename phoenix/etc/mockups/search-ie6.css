@@ -14,3 +14,7 @@ DIV#search DIV.ybubble I.br
 	bottom: 30%;
 	right: 0%
 }
+DIV.gender input
+{
+	border: transparent 0px;
+}
