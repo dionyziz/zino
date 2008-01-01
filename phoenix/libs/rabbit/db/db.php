@@ -279,6 +279,9 @@
         protected $mDatabase;
         
         public function DBQuery( $raw, Database $database ) {
+            w_assert( is_string( $raw ), 'Cannot prepare SQL query with a non-string SQL statement' );
+            w_assert( !empty( $raw ), 'Cannot prepare SQL query with an empty SQL statement' );
+            
             $this->mRawSQL = $raw;
             $this->mDatabase = $database;
         }
