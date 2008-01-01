@@ -319,7 +319,10 @@
             return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTableBindings ) );
         }
         public function Execute() {
-            return $this->mDatabase->Query( $this->Apply() );
+            $applied = $this->Apply();
+            w_assert( !empty( $applied ), 'Cannot execute empty SQL query' );
+            
+            return $this->mDatabase->Query( $applied );
         }
     }
     
