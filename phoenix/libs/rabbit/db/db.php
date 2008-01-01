@@ -318,8 +318,6 @@
         public function Apply() {
             w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );
             
-            die( var_dump( array_merge( $this->mBindings, $this->mTableBindings ) ) );
-            
             return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTableBindings ) );
         }
         public function Execute() {
