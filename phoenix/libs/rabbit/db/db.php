@@ -393,7 +393,7 @@
 
             return $ret;
         }
-		public function GetNumRows() {
+		public function NumRows() {
 			return $this->mNumRows;
 		}
 		public function NumFields() {
