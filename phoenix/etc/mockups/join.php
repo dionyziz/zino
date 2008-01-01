@@ -2,7 +2,7 @@
 	<div class="bubble">
 	    <i class="tl"></i><i class="tr"></i>
 		<h2>Γίνε μέλος!</h2>
-		<form class="joinform">
+		<form class="joinform" action="">
 			<div>
 				<label for="join_name">Όνομα χρήστη:</label>
 				<input type="text" id="join_name" value="" onfocus="Join.Focusinput( this );" onblur="Join.Unfocusinput( this);" />
