@@ -85,7 +85,7 @@
 
     // call this when a user reads a comment that was read 
     // without clicking the link of the notification
-    function Notify_CommentRead( $userid, $commentid, $typeid ) {
+    function Notify_CommentRead( $user, $comment, $typeid ) {
         global $notify;
         global $db;
 		
@@ -106,8 +106,8 @@
 		
 		// Assign query values
 		$query->Bind( 'NotifyDelId', 1 );
-		$query->Bind( 'NotifyToUserId', $userid );
-		$query->Bind( 'NotifyItemId', $commentid );
+		$query->Bind( 'NotifyToUserId', $user->Id() );
+		$query->Bind( 'NotifyItemId', $comment->Id );
 		$query->Bind( 'NotifyTypeId', $typeid );
 		$query->Bind( 'Limit', 1 );
 		

@@ -175,7 +175,7 @@
                         return false;
                     }
                     
-                    Notify_CommentRead( $user->Id(), $this->Parent, $this->TypeId );
+                    Notify_CommentRead( $user, $this->Parent, $this->TypeId );
                 }
             }
             return true;

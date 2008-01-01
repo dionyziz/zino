@@ -291,8 +291,8 @@
         protected $mAlbumId;
         protected $mAlbum;
         protected $mDescription;
-        protected $mPageViews;
-        protected $mCommentsNum;
+        protected $mPageviews;
+        protected $mNumComments;
         
         public function GetUser() {
             if ( $this->mUser === false ) {
@@ -550,14 +550,14 @@
                 'image_size'        => 'Size',
                 'image_mime'        => 'Mime',
                 'image_albumid'     => 'AlbumId',
-                'image_numcomments' => 'CommentsNum',
+                'image_numcomments' => 'NumComments',
                 'image_pageviews'   => 'Pageviews'
             ) );
 
             $this->Satori( $construct );
 
-            $this->User     = isset( $construct[ "user_id" ] )  ? New User( $construct )  : false;
-            $this->Album    = isset( $construct[ "album_id" ] ) ? New Album( $construct ) : false;
+            $this->mUser     = isset( $construct[ "user_id" ] )  ? New User( $construct )  : false;
+            $this->mAlbum    = isset( $construct[ "album_id" ] ) ? New Album( $construct ) : false;
 		}
     }
 		/*

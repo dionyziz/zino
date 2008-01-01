@@ -288,7 +288,7 @@
             global $water;
             
             if ( count( $this->mPrototypes ) == 0 ) {
-                $water->Warning( "No prototypes added to search!" );
+                $water->Notice( "No prototypes added to search!" );
                 return false;
             }
 
@@ -336,12 +336,12 @@
             }
 
             if ( empty( $this->Limit ) ) {
-                $water->Warning( "No limit applied to search; Setting limit to 100" );
+                $water->Notice( "No limit applied to search; Setting limit to 100" );
                 $this->Limit = 100;
             }
 
             if ( $this->Limit > 100 ) {
-                $water->Warning( "Too high limit was applied; Setting limit to 100" );
+                $water->Notice( "Too high limit was applied; Setting limit to 100" );
                 $this->Limit = 100;
             }
 
