@@ -9,8 +9,6 @@
     
     function User_ByUsername( $usernames ) {
         global $db;
-        global $users;
-        global $images;
         
         if ( is_array( $usernames ) ) {
             $wasarray = true;
@@ -24,19 +22,20 @@
             return array();
         }
         
-        foreach ( $usernames as $i => $username ) {
-            $usernames[ $i ] = addslashes( $username );
-        }
-        
-        $sql = "SELECT 
-                    `user_id`, `user_name`,
-                    `image_id`, `image_userid`
-                FROM 
-                    `$users` LEFT JOIN `$images`
-                        ON `user_icon` = `image_id`
-                WHERE 
-                    `user_name` IN ('" . implode( "', '", $usernames ) . "');";
-        $res = $db->Query( $sql );
+        $db->Prepare(
+            "SELECT 
+                `user_id`, `user_name`,
+                `image_id`, `image_userid`
+            FROM 
+                `:users` LEFT JOIN `:images`
+                    ON `user_icon` = `image_id`
+            WHERE 
+                `user_name` IN :Usernames;"
+        );
+        $query->Bind( 'Usernames', $usernames );
+        $query->BindTable( 'users' );
+        $query->BindTable( 'images' );
+        $res = $query->Execute( $sql );
         
         $rows = array();
         while ( $row = $res->FetchArray() ) {
