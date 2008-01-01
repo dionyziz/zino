@@ -231,7 +231,6 @@
             $commentNew = New Comment();
             $commentNew->UserId = 1;
             $commentNew->BulkId = 1;
-            $commentNew->Created = '0000-00-00 00:00:00';
             $commentNew->ParentId = 21;
             $commentNew->Save();
             $commentNew = New Comment( $commentNew->Id ); // refresh properties
@@ -239,7 +238,6 @@
             $comment = New CommentPrototype();
             $comment->UserId = 1;
             $comment->BulkId = 1;
-            $comment->Created = '0000-00-00 00:00:00';
 
             $search = New Search();
             $search->AddPrototype( $comment );
