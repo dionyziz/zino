@@ -284,6 +284,8 @@
             
             $this->mRawSQL = $raw;
             $this->mDatabase = $database;
+            $this->mBindings = array();
+            $this->mTableBindings = array();
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
