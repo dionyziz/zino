@@ -314,6 +314,8 @@
             $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
         }
         public function Apply() {
+            w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );
+            
             return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTableBindings ) );
         }
         public function Execute() {
