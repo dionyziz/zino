@@ -276,7 +276,6 @@
                 }
                 if ( $comment->Id == $commentNew->Id ) {
                     $found = true;
-                    $this->AssertEquals( $commentNew, $comment, 'Comment returned by search is not equal to the one created' );
                 }
 
                 $previd = $comment->Id;
