@@ -1,0 +1,16 @@
+DIV#search DIV.ybubble
+{
+	background-position: 50% -15%;
+	margin-left: 15%;
+}
+DIV#search DIV.ybubble I.bl {
+	position: absolute;
+	bottom: 30%;
+	right: 50%
+}
+DIV#search DIV.ybubble I.br 
+{
+	position: absolute;
+	bottom: 30%;
+	right: 0%
+}
