@@ -303,17 +303,22 @@
         public function Bind( $name, $argument ) {
             $this->mBindings[ ':' . ( string )$name ] = $this->Escape( $argument );
         }
-        public function BindTable( $alias ) {
+        public function BindTable( /* $alias1, $alias2, ... */ ) {
             global $water;
             
-            w_assert( is_string( $alias ), 'Database table aliases must be strings' );
-            w_assert( strlen( $alias ), 'Database table aliases cannot be the empty string' );
-            $table = $this->mDatabase->TableByAlias( $alias );
-            if ( $table === false ) {
-                $water->Warning( 'Could not bind database table `' . $alias . '`' );
-                return;
+            $args = func_get_args();
+            w_assert( count( $args ), 'Binding a table requires at least one argument containing a table alias' );
+            
+            foreach ( $args as $alias ) {
+                w_assert( is_string( $alias ), 'Database table aliases must be strings' );
+                w_assert( strlen( $alias ), 'Database table aliases cannot be the empty string' );
+                $table = $this->mDatabase->TableByAlias( $alias );
+                if ( $table === false ) {
+                    $water->Warning( 'Could not bind database table `' . $alias . '`' );
+                    return;
+                }
+                $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
-            $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
         }
         public function Apply() {
             w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );

@@ -558,40 +558,43 @@
 	}
 	
 	function CheckLogon( $logontype , $s_username = '' , $s_password = '' ) {
-		global $users;
-        global $images;
 		global $user;
 		global $db;
 		global $xc_settings;
 		
 		if ( $logontype == "session" ) {
-            $s_username = myescape( $s_username );
-            $s_password = myescape( $s_password );
+			$query = $db->Prepare(
+                "SELECT 
+                    *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+                FROM 
+                    :users LEFT JOIN :images
+                        ON `user_icon` = `image_id`
+                WHERE 
+                    `user_name` = :Username
+                    AND `user_password` = :Password
+                    AND `user_locked` = :Locked 
+                LIMIT 1;"
+            );
+            $query->BindTable( 'users', 'images' );
+            $query->Bind( 'Username', $s_username );
+            $query->Bind( 'Password', $s_password );
+            $query->Bind( 'Locked', 'no' );
             
-			$sql = "SELECT 
-						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-
-					FROM 
-						`$users` LEFT JOIN `$images`
-                            ON `user_icon` = `image_id`
-					WHERE 
-						`user_name`='$s_username' 
-						AND `user_password`='$s_password' 
-						AND `user_locked`!='yes' 
-					LIMIT 1;";
 			$res = $db->Query( $sql );
 			if ( $res->Results() ) {
-				$sqluser = $res->FetchArray();
-				$user = new User( $sqluser );
-				$nowdate = NowDate();
-				$sql = "UPDATE 
-							`$users` 
-						SET 
-							`user_lastactive`='$nowdate' 
-						WHERE 
-							`user_id`='" . $user->Id() . "' 
-						LIMIT 1;";
-				$db->Query( $sql );
+				$user = New User( $res->FetchArray() );
+				$query = $db->Prepare( 
+                    "UPDATE 
+                        :users
+                    SET 
+                        `user_lastactive` = NOW() 
+                    WHERE 
+                        `user_id` = :UserId
+                    LIMIT 1;"
+                );
+                $query->BindTable( 'users' );
+                $query->Bind( 'UserId', $user->Id() );
+				$query->Execute();
 			}
 			else {
 				$user = new User( "" );
@@ -607,33 +610,41 @@
                     $user = new User( array() );
                     return;
                 }
-				$userid = myescape( $userid );
-				$userauth = myescape( $userauth );
-				$sql = "SELECT 
-							* 
-						FROM 
-							`$users` LEFT JOIN `$images`
-                                ON `user_icon` = `image_id`
-						WHERE 
-							`user_id`='$userid' 
-							AND `user_authtoken`='$userauth' 
-							AND `user_locked`!='yes' 
-						LIMIT 1;";
+                $query = $db->Prepare(
+                    'SELECT 
+                        * 
+                    FROM 
+                        :users LEFT JOIN :images
+                            ON `user_icon` = `image_id`
+                    WHERE 
+                        `user_id` = :UserId
+                        AND `user_authtoken` = :AuthToken
+                        AND `user_locked` = :Locked
+                    LIMIT 1;'
+                );
+                $query->BindTable( 'users', 'images' );
+                $query->Bind( 'UserId', $userid );
+                $query->Bind( 'AuthToken', $userauth );
+                $query->Bind( 'Locked', 'no' );
+                
 				$sqlresult = $db->Query( $sql );
 				$sqluser = $sqlresult->FetchArray();
 				if ( $sqluser ) {
 					$_SESSION[ 's_username' ] = $sqluser[ 'user_name' ];
 					$_SESSION[ 's_password' ] = $sqluser[ 'user_password' ];
-					$user = new User( $sqluser );
-					$nowdate = NowDate();
-					$sql = "UPDATE 
-								`$users` 
-							SET 
-								`user_lastactive`='$nowdate' 
-							WHERE 
-								`user_id`='" . $user->Id() . "' 
-							LIMIT 1;";
-					$db->Query( $sql );
+					$user = New User( $sqluser );
+					$query = $db->Prepare(
+                        'UPDATE 
+                            :users
+                        SET 
+                            `user_lastactive` = NOW() 
+                        WHERE 
+                            `user_id` = :UserId
+                        LIMIT 1;'
+                    );
+                    $query->BindTable( 'users' );
+                    $query->Bind( 'UserId', $user->Id() );
+					$query->Execute();
 				}
 				else {
 					$user = new User( array() );
@@ -649,7 +660,6 @@
 	}
 	
 	function CheckIfUserBanned() {
-		global $bans;
 		global $user;
 		global $db;
 		global $water;
@@ -660,16 +670,18 @@
         
 		if ( !$user->CanModifyUsers() ) {
 			$ip = UserIp();
-			$sql = "SELECT 
-						* 
-					FROM 
-						`$bans` 
-					WHERE 
-						`ipban_ip`='$ip' 
-					LIMIT 1;";
-			$res = $db->Query( $sql );
-			$userban = $res->Results();
-			if ( !$userban && $user->HasBeenBanned() ) { // automatically ban IP if the user's rank is below userlevel
+			$query = $db->Prepare( 
+                "SELECT 
+                    * 
+                FROM 
+                    :bans 
+                WHERE 
+                    `ipban_ip` = :Ip 
+                LIMIT 1;"
+            );
+            $query->Bind( 'Ip', $ip );
+            $query->BindTable( 'bans' );
+			if ( !$query->Execute()->Results() && $user->HasBeenBanned() ) { // automatically ban IP if the user's rank is below userlevel
 				$insert = array(
 					'ipban_id' => '',
 					'ipban_ip' => UserIp(),
@@ -687,23 +699,6 @@
 		}
 	}
 
-	function ActivateUserShout() {
-		global $user;
-		global $users;
-		global $db;
-
-		$sql = "UPDATE 
-					`$users` 
-				SET 
-					`user_shoutboxactivated`='yes' 
-				WHERE 
-					`user_id`='" . $user->Id() . "' 
-				LIMIT 1;";
-
-		$db->Query( $sql );
-
-	}
-	
 	function getTodayBirthdays() {
 		global $users;
 		global $db;
