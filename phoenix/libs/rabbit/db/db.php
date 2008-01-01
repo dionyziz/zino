@@ -257,7 +257,7 @@
 		}
         public function AttachTable( $alias, $actual ) {
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
-            $this->mTables[ $alias ] = New DBTable( $this, $actual );
+            $this->mTables[ $alias ] = New DBTable( $this, $actual, $alias );
         }
         public function TableByAlias( $alias ) {
             if ( !isset( $this->mTables[ $alias ] ) ) {
