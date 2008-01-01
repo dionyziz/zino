@@ -95,8 +95,8 @@
 	magicquotes_off();
 
     $libs->Load( 'rabbit/typesafety' );
-	$libs->Load( 'rabbit/db/db' );
     $libs->Load( 'rabbit/satori' );
+	$libs->Load( 'rabbit/db/db' );
     
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
