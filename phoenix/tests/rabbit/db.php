@@ -1,5 +1,5 @@
 <?php
-    class TestRabbitSatori extends Testcase {
+    class TestRabbitDb extends Testcase {
         private $mFirstDatabase;
         
         public function TestClassesExist() {
