@@ -16,7 +16,11 @@
             // check if a custom getter is specified
             $methodname = 'Get' . $name;
             if ( method_exists( $this, $methodname ) ) {
-                return $this->$methodname(); // MAGIC!
+                $value = $this->$methodname(); // MAGIC!
+                var_dump( $name );
+                echo '/';
+                die( var_dump( $value ) );
+                return $value;
             }
             // else fallthru
             return null; // use null here because we want to allow custom getters to return literal boolean false
