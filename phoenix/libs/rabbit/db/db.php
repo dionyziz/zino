@@ -238,7 +238,7 @@
                     "$insertinto
 						:$tablealias
 					(`" . implode( '`, `' , $fields ) . "`) VALUES
-					" . implode( ',', $inserts ) . ";"
+					" . implode( ',', $bindings ) . ";"
                 ); // implode all value lists into (list1), (list2), ...
                 $i = 0;
                 foreach ( $insertvalues as $valuestuple ) {
