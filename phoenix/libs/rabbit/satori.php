@@ -193,8 +193,6 @@
                 $this->mDbFieldKeys[] = $column->Name;
             }
 
-            die( var_dump( $this->mDbFields ) );
-            
             $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 w_assert( is_string( $fieldname ) );
