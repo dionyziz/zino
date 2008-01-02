@@ -17,7 +17,7 @@ div#search div.ybubble i.br {
 div#search div.ybubble i.tl, div#search div.ybubble i.tr {
 	background-repeat: no-repeat;
 }
-div.gender input {
+div.search input {
 	border: transparent 0px;
 }
 div#search div.ybubble form input.submit {
