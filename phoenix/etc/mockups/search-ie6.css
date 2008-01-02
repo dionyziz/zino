@@ -5,13 +5,13 @@ div#search div.ybubble {
 div#search div.ybubble i.bl {
 	position: absolute;
 	bottom: 30%;
-	right: 28.5%
+	right: 28.5%;
 	background-repeat: no-repeat;
 }
 div#search div.ybubble i.br {
 	position: absolute;
 	bottom: 28.5%;
-	right: 0%
+	right: 0%;
 	background-repeat: no-repeat;
 }
 div#search div.ybubble i.tl, div#search div.ybubble i.tr {
