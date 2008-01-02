@@ -212,7 +212,7 @@
         protected function Relations() {
             // overload me
         }
-        public function __construct( $construct = false ) {
+        final public function __construct( $construct = false ) {
             // do not overload me!
             global $water;
             global $rabbit_settings;
