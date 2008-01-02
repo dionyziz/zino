@@ -31,6 +31,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="join.css" />
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="join-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="bubbles.css" />
 		<link rel="stylesheet" type="text/css" href="search.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]-->
