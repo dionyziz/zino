@@ -36,11 +36,17 @@
         private $mReadOnlyFields; // dictionary with class attributes (without the m) => true
         private $mDbColumns; // list with DBField instances
         private $mPrimaryKeys; // list with database fields that are primary keys (string)
+        private $mPrivateVariables;
         
         public function __set( $name, $value ) {
             global $water;
             
             if ( parent::__set( $name, $value ) === true ) {
+                return;
+            }
+
+            if ( in_array( $name, $this->mPrivateVariables ) ) {
+                $this->mPrivateVariables[ $name ] = $value;
                 return;
             }
             
@@ -63,6 +69,10 @@
             if ( !is_null( $got = parent::__get( $name ) ) ) {
                 return $got;
             }
+
+            if ( in_array( $name, $this->mPrivateVariables ) ) {
+                return $this->mPrivateVariables[ $name ];
+            }
             
             if ( !in_array( $name, $this->mDbFields ) ) {
                 $water->Warning( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
@@ -73,7 +83,7 @@
             return $this->$varname; // MAGIC!
         }
         public function __isset( $name ) {
-            return in_array( $name, $this->mDbFields );
+            return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mPrivateVariables );
         }
         public function __unset( $name ) {
             global $water;
@@ -239,6 +249,10 @@
             $this->InitializeFields();
             w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             w_assert( count( $this->mDbFields ), 'Database fields is the empty array for class `'. get_class( $this ) . '\'; does your mapped table have no columns?' );
+            
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                $this->mPrivateVariables[ 'm' . ucfirst( $attributename ) ] = false;
+            }
             
             if ( $construct === false ) {
                 // empty new object
