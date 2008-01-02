@@ -37,7 +37,12 @@
         private $mDbColumns; // list with DBField instances
         private $mPrimaryKeys; // list with database fields that are primary keys (string)
         private $mPrivateVariables;
-        
+
+        protected function IsInternalCall( $backtrace ) {
+            $backtrace = array_shift( $backtrace );
+            
+            return $backtrace[ 'object' ] == $this;
+        }
         public function __set( $name, $value ) {
             global $water;
             
@@ -45,9 +50,11 @@
                 return;
             }
 
-            if ( in_array( $name, $this->mPrivateVariables ) ) {
-                $this->mPrivateVariables[ $name ] = $value;
-                return;
+            if ( $this->IsInternalCall( debug_backtrace() ) ) {
+                if ( in_array( $name, $this->mPrivateVariables ) ) {
+                    $this->mPrivateVariables[ $name ] = $value;
+                    return;
+                }
             }
             
             if ( !in_array( $name, $this->mDbFields ) ) {
@@ -70,8 +77,10 @@
                 return $got;
             }
 
-            if ( in_array( $name, $this->mPrivateVariables ) ) {
-                return $this->mPrivateVariables[ $name ];
+            if ( $this->IsInternalCall( debug_backtrace() ) ) {
+                if ( in_array( $name, $this->mPrivateVariables ) ) {
+                    return $this->mPrivateVariables[ $name ];
+                }
             }
             
             if ( !in_array( $name, $this->mDbFields ) ) {
