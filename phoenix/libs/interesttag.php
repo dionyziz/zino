@@ -131,6 +131,7 @@
         return $query->Execute();
     }
     
+    /* // TODO: Convert to new Satori
     class InterestTag extends Satori {
         protected   $mId;
         protected   $mUserId;
@@ -241,7 +242,7 @@
         public function LoadDefaults() {
             $this->NextId = -1;
         }
-        public function InterestTag( $construct = false /* text */, $user = false ) {
+        public function InterestTag( $construct = false, $user = false ) { // construct = text
             global $db;
             global $interesttags;
 
@@ -291,5 +292,6 @@
             }
         }
     }
+    */
 
 ?>
