@@ -230,7 +230,7 @@
                 $bindings = array();
                 $i = 0;
                 foreach ( $insertvalues as $valuetuple ) {
-                    $bindings[] = 'insert' . $i;
+                    $bindings[] = ':insert' . $i;
                     ++$i;
                 }
                 
