@@ -188,7 +188,7 @@
 
             foreach ( $this->mDbColumns as $column ) {
                 $parts = explode( '_', $column->Name );
-                $attribute = ucefirst( $parts[ 1 ] );
+                $attribute = ucfirst( $parts[ 1 ] );
                 $this->mDbFields[ $column->Name ] = $attribute;
                 $this->mDbFieldKeys[] = $column->Name;
             }
