@@ -17,9 +17,6 @@
             $methodname = 'Get' . $name;
             if ( method_exists( $this, $methodname ) ) {
                 $value = $this->$methodname(); // MAGIC!
-                var_dump( $name );
-                echo '/';
-                die( var_dump( $value ) );
                 return $value;
             }
             // else fallthru
