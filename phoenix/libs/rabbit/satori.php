@@ -54,7 +54,7 @@
                 return;
             }
             
-            $varname = 'm' . $name;
+            $varname = 'm' . ucfirst( $name );
             $this->$varname = $value; // MAGIC!
         }
         public function __get( $name ) {
@@ -68,7 +68,7 @@
                 $water->Warning( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
                 return;
             }
-            $varname = 'm' . $name;
+            $varname = 'm' . ucfirst( $name );
             
             return $this->$varname; // MAGIC!
         }
@@ -121,7 +121,7 @@
                 $updates = array();
                 $bindings = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = 'm' . $attributename;
+                    $varname = 'm' . ucfirst( $attributename );
                     $attributevalue = $this->$varname; // MAGIC!
                     if ( !isset( $this->mPreviousValues[ $attributename ] ) ) {
                         echo $attributename . "\n";
@@ -149,7 +149,7 @@
             else {
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = 'm' . $attributename;
+                    $varname = 'm' . ucfirst( $attributename );
                     $attributevalue = $this->$varname; // MAGIC!
                     $inserts[ $fieldname ] = $attributevalue;
                     $this->mPreviousValues[ $attributename ] = $attributevalue;
@@ -200,7 +200,7 @@
                 w_assert( is_string( $attributename ) );
                 w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
                 
-                $varname = 'm' . $attributename;
+                $varname = 'm' . ucfirst( $attributename );
                 // default value
                 $this->$varname = false; // MAGIC!
             }
@@ -277,12 +277,12 @@
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( isset( $fetched_array[ $fieldname ] ) ) {
-                    $varname = 'm' . $attributename;
+                    $varname = 'm' . ucfirst( $attributename );
                     $this->$varname = $fetched_array[ $fieldname ]; // MAGIC!
                     $this->mPreviousValues[ $attributename ] = $fetched_array[ $fieldname ];
                 }
                 else {
-                    $varname = 'm' . $attributename;
+                    $varname = 'm' . ucfirst( $attributename );
                     if ( empty( $this->$varname ) ) { // MAGIC!
                         $this->$varname = false; // MAGIC!
                     }
