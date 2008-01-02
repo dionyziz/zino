@@ -119,7 +119,7 @@
                 $updates = array();
                 $bindings = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = 'm' . ucfirst( $attributename );
+                    $varname = ucfirst( $attributename );
                     $attributevalue = $this->$varname; // MAGIC!
                     if ( !isset( $this->mPreviousValues[ $attributename ] ) ) {
                         echo $attributename . "\n";
@@ -146,7 +146,7 @@
             else {
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = 'm' . ucfirst( $attributename );
+                    $varname = ucfirst( $attributename );
                     $attributevalue = $this->$varname; // MAGIC!
                     $inserts[ $fieldname ] = $attributevalue;
                     $this->mPreviousValues[ $attributename ] = $attributevalue;
@@ -201,7 +201,7 @@
                 w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
                 
                 // default value
-                $this->mCurrentValues[ 'm' . ucfirst( $attributename ) ] = false;
+                $this->mCurrentValues[ ucfirst( $attributename ) ] = false;
             }
 
             if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
@@ -276,12 +276,12 @@
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( isset( $fetched_array[ $fieldname ] ) ) {
-                    $varname = 'm' . ucfirst( $attributename );
+                    $varname = ucfirst( $attributename );
                     $this->$varname = $fetched_array[ $fieldname ]; // MAGIC!
                     $this->mPreviousValues[ $attributename ] = $fetched_array[ $fieldname ];
                 }
                 else {
-                    $varname = 'm' . ucfirst( $attributename );
+                    $varname = ucfirst( $attributename );
                     if ( empty( $this->$varname ) ) { // MAGIC!
                         $this->$varname = false; // MAGIC!
                     }
