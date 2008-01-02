@@ -1,18 +1,4 @@
 <?php
-	function LogThis() {
-		global $user;
-		
-        $log             = New Log();
-        $log->Date       = NowDate();
-        $log->Host       = UserIp();
-        $log->HostPort   = $_SERVER[ 'REMOTE_PORT' ];
-        $log->UserId     = $user->Id();
-        $log->RequestUri = $_SERVER[ 'REQUEST_URI' ];
-        $log->Query      = $_SERVER[ 'QUERY_STRING' ];
-        $log->UserAgent  = $_SERVER[ 'HTTP_USER_AGENT' ];
-        
-        $log->Save();
-    }
 	function TotalUserLogs() {
 		global $db;
 		global $logs;
@@ -107,5 +93,17 @@
 	
 	final class Log extends Satori {
         protected $mDbTable = 'logs';
+
+        protected function LoadDefaults() {
+            global $user;
+
+            $this->Date       = NowDate();
+            $this->Host       = UserIp();
+            $this->HostPort   = $_SERVER[ 'REMOTE_PORT' ];
+            $this->UserId     = $user->Id();
+            $this->RequestUri = $_SERVER[ 'REQUEST_URI' ];
+            $this->Query      = $_SERVER[ 'QUERY_STRING' ];
+            $this->UserAgent  = $_SERVER[ 'HTTP_USER_AGENT' ];
+        }
 	}
 ?>
