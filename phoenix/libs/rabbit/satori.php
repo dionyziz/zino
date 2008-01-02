@@ -119,11 +119,7 @@
                 $updates = array();
                 $bindings = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = ucfirst( $attributename );
-                    $attributevalue = $this->$varname; // MAGIC!
-                    if ( !isset( $this->mPreviousValues[ $attributename ] ) ) {
-                        echo $attributename . "\n";
-                    }
+                    $attributevalue = $this->mCurrentValues[ $attributename ];
                     if ( $this->mPreviousValues[ $attributename ] != $attributevalue ) {
                         $updates[] = "`$fieldname` = :$fieldname";
                         $bindings[ $fieldname ] = $attributevalue;
@@ -146,10 +142,8 @@
             else {
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                    $varname = ucfirst( $attributename );
-                    $attributevalue = $this->$varname; // MAGIC!
-                    $inserts[ $fieldname ] = $attributevalue;
-                    $this->mPreviousValues[ $attributename ] = $attributevalue;
+                    $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
+                    $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
                 $change = $this->mDb->Insert(
                     $inserts, $this->mDbTable
@@ -276,18 +270,17 @@
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( isset( $fetched_array[ $fieldname ] ) ) {
-                    $varname = ucfirst( $attributename );
-                    $this->$varname = $fetched_array[ $fieldname ]; // MAGIC!
+                    $this->mCurrentValues[ $attributename ] = $fetched_array[ $fieldname ];
                     $this->mPreviousValues[ $attributename ] = $fetched_array[ $fieldname ];
                 }
                 else {
-                    $varname = ucfirst( $attributename );
-                    if ( empty( $this->$varname ) ) { // MAGIC!
-                        $this->$varname = false; // MAGIC!
+                    if ( empty( $this->mCurrentValues[ $attributename ] ) ) {
+                        $this->mCurrentValues[ $attributename ] = false;
                     }
-                    $this->mPreviousValues[ $attributename ] = $this->$varname; // MAGIC!
+                    $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
             }
         }
     }
 ?>
+
