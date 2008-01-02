@@ -2,21 +2,26 @@
 
 	function Albums_List( $user ) {
         global $db;
-        global $albums;
 
         $sql = "SELECT
                     *
                 FROM
-                    `$albums`
+                    :albums
                 WHERE
-                    `album_userid` = '" . $user->Id() . "' AND
-                    `album_delid` = '0'
-                ;";
+                    `album_userid` = :UserId
+                    AND `album_delid` = :DelId;";
 
-        return $db->Query( $sql )->ToObjectsArray( 'Album' );
+        $query = $db->Prepare( $sql );
+        $query->BindTable( 'albums' );
+        $query->Bind( 'UserId', $user->Id() );
+        $query->Bind( 'DelId', 0 );
+        
+        $query->Execute()->ToObjectsArray( 'Album' );
     }
 
     class Album extends Satori {
+        protected $mDbTable = 'albums';
+        protected $mImageTable = 'images';
         protected $mId;
         protected $mUserId;
         protected $mUser;
@@ -30,22 +35,28 @@
         protected $mPhotosNum;
         protected $mCommentsNum;
 
-        public function GetImages( $offset = 0, $length = 16 ) {
+        public function GetImages( $offset = 0, $limit = 16 ) {
             if ( $offset != 0 ) {
-                $offset = $offset * $length - $length;
+                $offset = ( $offset - 1 ) * $limit;
             }
             
             $sql = "SELECT
                          * 
                     FROM 
-                        `" . $this->mImageTable . "` 
+                        :" . $this->mImageTable . "
                     WHERE 
-                        `image_albumid` = '" . $this->mId . "' AND `image_delid` = '0'
+                        `image_albumid` = :AlbumId
+                        AND `image_delid` = :DelId
                     LIMIT 
-                        " . $offset . " , " . $length . "
+                        :Offset, :Limit
                     ;";
-                        
-            return $db->Query( $sql )->ToObjectsArray( 'Image' );
+            $query->BindTable( $this->mImageTable );
+            $query->Bind( 'AlbumId', $this->mId );
+            $query->Bind( 'DelId', 0 );
+            $query->Bind( 'Offset', $offset );
+            $query->Bind( 'Limit', $limit );
+            
+            return $query->Execute()->ToObjectsArray( 'Image' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {
@@ -75,23 +86,18 @@
             $this->DelId = 1;
             $this->Save();
 			
-			// Prepared query
 			$query  = $this->mDb->Prepare("
-				UPDATE `" . $this->mImageTable . "`
+				UPDATE 
+                    :" . $this->mImageTable . "
 				SET
 					`image_delid` 	= :ImageDelId
 				WHERE
-				  	`image_albumid` = :AlbumId
-				;
+				  	`image_albumid` = :AlbumId;
 			");
-			
-			// Assign values to query
+			$query->BindTable( $this->mImageTable );
 			$query->Bind( 'ImageDelId', 1 );
 			$query->Bind( 'AlbumId', $this->Id );
-			
-			// Execute query
 			$query->Execute();
-			
 		}
         public function CommentAdded() {
 			++$this->mNumComments;
@@ -108,33 +114,6 @@
         public function LoadDefaults() {
             $this->Created = NowDate();
         }
-		public function Album( $construct ) {
-			global $db;
-			global $albums;
-            global $images;
-
-            $this->mDb          = $db;
-            $this->mDbTable     = $albums;
-            $this->mImageTable  = $images;
-			
-            $this->SetFields( array(
-                'album_id'          => 'Id',
-                'album_userid'      => 'UserId',
-                'album_created'     => 'Date',
-                'album_description' => 'Description',
-                'album_submithost'        => 'UserIp',
-                'album_name'        => 'Name',
-                'album_mainimage'   => 'MainImage',
-                'album_delid'       => 'DelId',
-                'album_pageviews'   => 'Pageviews',
-                'album_numcomments' => 'CommentsNum',
-                'album_numphotos'   => 'PhotosNum'
-            ) );
-            
-            $this->Satori( $construct );
-			
-			$this->User			= isset( $construct[ "user_id" ] )      ? New User( $construct )    : "";
-		}
     }
 
 ?>
