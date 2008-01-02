@@ -1,27 +1,17 @@
 <?php
-    global $libs;
-    $libs->Load( 'tag' );
-    $libs->Load( 'artisttag' );
-    $libs->Load( 'booktag' );
-    $libs->Load( 'interesttag' );
-    $libs->Load( 'movietag' );
-    $libs->Load( 'songtag' );
-    $libs->Load( 'tvshowtag' );
-    $libs->Load( 'videogametag' );
-
     class TestTag extends Testcase {
         private $mClass;
 
-        public function ClassesExist() {
+        private function ClassesExist() {
             $this->Assert( class_exists( $this->mClass ), $this->mClass . ' class does not exist' );
         }
         
-        public function FunctionsExist() {
+        private function FunctionsExist() {
             $this->Assert( function_exists( $this->mClass . '_List' ), $this->mClass . '_List function does not exist' );
             $this->Assert( function_exists( $this->mClass . '_Clear' ), $this->mClass . '_Clear function does not exist' );
         }
         
-        public function MethodsExist() {
+        private function MethodsExist() {
             $tag = New $this->mClass(); // MAGIC!
             $this->Assert( method_exists( $tag, 'Save' ), $this->mClass . '::Save method does not exist' );
             $this->Assert( method_exists( $tag, 'Delete' ), $this->mClass . '::Delete method does not exist' );
@@ -30,7 +20,7 @@
             $this->Assert( method_exists( $tag, 'Exists' ), $this->mClass . '::Exists method does not exist' );
         }
         
-        public function Clear() {
+        private function Clear() {
             $clear = $this->mClass . '_Clear';
             $list = $this->mClass . '_List';
 
@@ -41,7 +31,7 @@
             $this->Assert( empty( $list ), $list . ' did not return an empty array after Clear()' );
         }
         
-        public function Creation() {
+        private function Creation() {
             $test = New User( 'test' );
             // creating a new tag
             $tag = New $this->mClass(); // MAGIC!
@@ -58,13 +48,13 @@
             $tag->Save();
         }
         
-        public function QueryNonExisting() {
+        private function QueryNonExisting() {
             $test = New User( 'test' );
             $tag = New $this->mClass( 'some non-existing tag', $test );
             $this->AssertFalse( $tag->Exists(), 'Querying a non-existing tag yields to an existing tag' );
         }
         
-        public function QueryExisting() {
+        private function QueryExisting() {
             $test = New User( 'test' );
             $tag1 = New $this->mClass( 'Sin City', $test );
             $tag2 = New $this->mClass( 'Parkour', $test );
@@ -76,11 +66,11 @@
             $this->AssertEquals( $test, $tag2->User, 'I ain\'t the owner of Parkour, while I just created it' );
         }
         
-        public function Edit() {
+        private function Edit() {
             // no ability to edit tags!
         }
         
-        public function ValidText() {
+        private function ValidText() {
             $valid = $this->mClass . '_Valid';
 
         	$this->AssertFalse( $valid( "Dog gy" ), $valid . ' did not recognise an invalid tag' );
@@ -90,7 +80,7 @@
         	$this->AssertFalse( $valid( "    " ), $valid . ' did not recognise an invalid tag' );
         }
         
-        public function ListUsertags() {
+        private function ListUsertags() {
             $list = $this->mClass . '_List';
 
             $test = New User( 'test' );
@@ -114,7 +104,7 @@
             }
         }
         
-        public function Reorder() {
+        private function Reorder() {
             $list = $this->mClass . '_List';
 
             // moving tags
@@ -159,7 +149,7 @@
             }
         }
         
-        public function ListTexttags() {
+        private function ListTexttags() {
             $list = $this->mClass . '_List';
 
             // listing the tags with a particular text
@@ -175,8 +165,7 @@
             }
             $this->Assert( $found, 'I have a tag for Sin City, yet I\'m not in the list of users who have that tag' );
         }
-
-        public function Deletion() {
+        private function Deletion() {
             $list = $this->mClass . '_List';
 
             $test = New User( 'test' );
@@ -196,7 +185,7 @@
             $this->Assert( is_array( $tags ), 'InterestTag_List does not return an array after I delete all my tags' );
             $this->AssertEquals( 0, count( $tags ), 'InterestTag_List returned a non-empty array even though I don\'t have any tags left' );
         }
-        function ClassTest( $class ) {
+        private function ClassTest( $class ) {
             $this->mClass = $class;
 
             $this->ClassesExist();
@@ -213,25 +202,37 @@
             $this->ListTexttags();
             $this->Deletion();
         }
-        function TestArtistTags() {
+        protected function TestInitialize() {
+            global $libs;
+
+            $libs->Load( 'tag' );
+            $libs->Load( 'artisttag' );
+            $libs->Load( 'booktag' );
+            $libs->Load( 'interesttag' );
+            $libs->Load( 'movietag' );
+            $libs->Load( 'songtag' );
+            $libs->Load( 'tvshowtag' );
+            $libs->Load( 'videogametag' );
+        }
+        protected function TestArtistTags() {
             $this->ClassTest( 'ArtistTag' );
         }
-        function TestBookTags() {
+        protected function TestBookTags() {
             $this->ClassTest( 'BookTag' );
         }
-        function TestInterestTags() {
+        protected function TestInterestTags() {
             $this->ClassTest( 'InterestTag' );
         }
-        function TestMovieTags() {
+        protected function TestMovieTags() {
             $this->ClassTest( 'MovieTag' );
         }
-        function TestSongTags() {
+        protected function TestSongTags() {
             $this->ClassTest( 'SongTag' );
         }
-        function TestTvShowTags() {
+        protected function TestTvShowTags() {
             $this->ClassTest( 'TvShowTag' );
         }
-        function TestVideoGameTags() {
+        protected function TestVideoGameTags() {
             $this->ClassTest( 'VideoGameTag' );
         }
     }
