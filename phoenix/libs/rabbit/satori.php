@@ -204,6 +204,8 @@
                 // default value
                 $this->$varname = false; // MAGIC!
             }
+
+            die( var_dump( $this->mDbFields ) );
             
             if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
                 $this->MakeReadOnly( 'Id' );

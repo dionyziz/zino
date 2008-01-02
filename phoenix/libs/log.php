@@ -95,7 +95,6 @@
         protected $mDbTable = 'logs';
 
         protected function LoadDefaults() {
-            die( 'trexo' );
             global $user;
 
             $this->mDate       = NowDate();
