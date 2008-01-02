@@ -232,7 +232,8 @@
                 $this->mDb = $GLOBALS[ $this->mDbName ];
                 w_assert( $this->mDb instanceof Database, 'The database specified for class `' . get_class( $this ) . '\' is not a valid database' );
             }
-            w_assert( is_array( $this->mDbFields ), 'Please specify your database fields by calling SetFields() for class `'. get_class( $this ) . '\'' );
+            $this->InitializeFields();
+            w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             
             if ( $construct === false ) {
                 // empty new object
