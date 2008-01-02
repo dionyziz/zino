@@ -421,7 +421,6 @@
                 while ( $row = $res->FetchArray() ) {
                     $this->mFields[] = New DBField( $row );
                 }
-                var_dump( $this->mFields );
             }
             return $this->mFields;
         }
