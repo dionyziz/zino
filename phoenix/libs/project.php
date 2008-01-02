@@ -31,7 +31,7 @@
     	CheckIfUserBanned();
 
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
-        	LogThis();
+        	// LogThis();
         }
     }
     

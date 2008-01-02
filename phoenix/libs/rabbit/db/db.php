@@ -422,7 +422,6 @@
                     $this->mFields[] = New DBField( $row );
                 }
             }
-            die( var_dump( $this->mFields ) );
             return $this->mFields;
         }
 		public function DBTable( Database $db, $tablename, $alias = '' ) {
