@@ -162,7 +162,7 @@
         public function Prepare( $rawsql ) {
             return New DBQuery( $rawsql, $this );
         }
-		public function Insert( $inserts , $table , $ignore = false , $delayed = false , $quota = 500 ) {
+		public function Insert( $inserts , $tablealias , $ignore = false , $delayed = false , $quota = 500 ) {
 			// $table = 'table';
 			// $table = array( 'database' , 'table' )
 			// $insert = array( field1 => value1 , field2 => value2 , ... );
@@ -171,18 +171,10 @@
 			
 			w_assert( !( $ignore && $delayed ) );
 			
-			if ( is_array( $table ) ) {
-				w_assert( count( $table ) == 2 );
-				w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $table[ 0 ] ) );
-				w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $table[ 1 ] ) );
-				$table = '`' . $table[ 0 ] . '`.`' . $table[ 1 ] . '`';
-			}
-			else {
-				// assert correct table name
-				w_assert( preg_match( '/^[\.`a-zA-Z0-9_\-]+$/' , $table ) );
-				$table = '`' . $table . '`';
-			}
-			
+			// assert correct table name
+            $table = $this->TableByAlias( $tablealias );
+			w_assert( $table instanceof DBTable );
+
 			// assert at least one insert statement; or at least one field
 			w_assert( count( $inserts ) );
 			// if doing only one direct insert, call self with that special case;
@@ -231,18 +223,30 @@
 						// assert the fields are the same number and in the same order in each insert
 						$thisfield = each( $fields );
 						w_assert( $thisfield[ 'value' ] == $field );
-						// escape each value before inserting
-						$insert[ $field ] = myescape( $value );
 					}
-					// implode into a value list (value1, value2, value3, ...)
-					$insertvalues[] = '\'' . implode( '\', \'' , $insert ) . '\'';
+					$insertvalues[] = $insert;
 				}
 				w_assert( count( $insertvalues ) );
-				$sql = "$insertinto
-							$table
-						(`" . implode( '`, `' , $fields ) . "`) VALUES
-						(" . implode( '), (' , $insertvalues ) . ");"; // implode all value lists into (list1), (list2), ...
-				$changes[] = $this->Query( $sql );
+                $bindings = array();
+                $i = 0;
+                foreach ( $insertvalues as $valuetuple ) {
+                    $bindings[] = 'insert' . $i;
+                    ++$i;
+                }
+                
+				$query = $this->Prepare(
+                    "$insertinto
+						:$tablealias
+					(`" . implode( '`, `' , $fields ) . "`) VALUES
+					" . implode( ',', $inserts ) . ";"
+                ); // implode all value lists into (list1), (list2), ...
+                $i = 0;
+                foreach ( $insertvalues as $valuestuple ) {
+                    $query->Bind( $bindings[ $i ], $valuestuple );
+                    ++$i;
+                }
+                $query->BindTable( $tablealias );
+				$changes[] = $query->Execute();
 			}
 			if ( !$multipleinserts ) {
 				return end( $changes ); // only return the one and only single item of $changes
