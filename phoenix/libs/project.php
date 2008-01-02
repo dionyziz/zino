@@ -57,7 +57,8 @@
             'unittest'          => 'developer/test/view',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
-            'debug'             => 'developer/water'
+            'debug'             => 'developer/water',
+            'jslint'            => 'developer/js/lint'
     	);
     }
 ?>
