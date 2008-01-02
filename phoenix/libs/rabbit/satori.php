@@ -178,8 +178,8 @@
             return $this->mDb->Query( $sql );
         }
         protected function InitializeFields() {
-            $this->mColumns = $this->mDb->TableByAlias( $this->mDbTable )->Fields;
-            w_assert( count( $this->mColumns ), 'Database table `' . $this->mDbTable . '\' used for a Satori class `' . get_class( $this ) . '\' does not have any columns' );
+            $this->mDbColumns = $this->mDb->TableByAlias( $this->mDbTable )->Fields;
+            w_assert( count( $this->mDbColumns ), 'Database table `' . $this->mDbTable . '\' used for a Satori class `' . get_class( $this ) . '\' does not have any columns' );
            
             $this->mDbFields = array();
             $this->mDbFieldKeys = array();
