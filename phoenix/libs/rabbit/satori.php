@@ -30,10 +30,11 @@
         protected $mDbTable; // database table alias this object is mapped from
         protected $mPersistentState; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
-        private $mDbFields;
-        private $mDbFieldKeys;
-        private $mReadOnlyFields;
-        private $mPrimaryKeys;
+        private $mDbFields; // dictionary with database fields (string) => class attributes (without the m)
+        private $mDbFieldKeys; // list with database fields (string)
+        private $mReadOnlyFields; // dictionary with class attributes (without the m) => true
+        private $mDbColumns; // list with DBField instances
+        private $mPrimaryKeys; // list with database fields that are primary keys (string)
         
         public function __set( $name, $value ) {
             global $water;
@@ -165,18 +166,27 @@
         public function Delete() {
             w_assert( $this->Exists() );
             
-            $sql = 'DELETE FROM
-                        `' . $this->mDbTable . '`
-                    WHERE ' . $this->WhereAmI() . ' LIMIT 1;';
+            $query = $this->mDb->Prepare(
+                'DELETE FROM
+                    :' . $this->mDbTable . '
+                WHERE ' . $this->WhereAmI() . ' LIMIT 1;'
+            );
+            $query->BindTable( $this->mDbTable );
+            
             $this->mExists = false;
             return $this->mDb->Query( $sql );
         }
-        protected function SetFields( $dbfields ) {
-            w_assert( is_array( $dbfields ) );
-            w_assert( count( $dbfields ) );
+        protected function InitializeFields() {
+            $this->mColumns = $this->mDb->TableByAlias( $this->mDbTable )->Fields;
             
-            $this->mDbFields = $dbfields;
-            $this->mDbFieldKeys = array_keys( $this->mDbFields );
+            $this->mDbFields = array();
+            $this->mDbFieldKeys = array();
+            foreach ( $this->mColumns as $column ) {
+                $parts = explode( '_', $column->Name );
+                $attribute = $parts[ 1 ];
+                $this->mDbFields[ $column->Name ] = $attribute;
+                $this->mDbFieldKeys[] = $column->Name;
+            }
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 w_assert( is_string( $fieldname ) );
@@ -189,7 +199,7 @@
                 $this->$varname = false; // MAGIC!
             }
             
-            if ( reset( $this->mDbFields ) == 'Id' ) {
+            if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
                 $this->MakeReadOnly( 'Id' );
             }
         }
@@ -231,13 +241,16 @@
                 $this->LoadDefaults();
                 $fetched_array = array();
             }
-            else if ( ValidId( $construct ) ) {
+            else if ( ValidId( $construct ) ) { // TODO: use primary key instead
                 $this->mId = $construct; // overload constructor in case of ValidId() if you don't use Ids
-                $sql = 'SELECT
-                            ' . implode( ',', $this->mDbFieldKeys ) . '
-                        FROM 
-                            `' . $this->mDbTable . '`
-                        WHERE ' . $this->WhereAmI() . ' LIMIT 1';
+                $query = $this->mDb->Prepare(
+                    'SELECT
+                        ' . implode( ',', $this->mDbFieldKeys ) . '
+                    FROM 
+                        :' . $this->mDbTable . '
+                    WHERE ' . $this->WhereAmI() . ' LIMIT 1'
+                );
+                $query->BindTable( $this->mDbTable );
                 $res = $this->mDb->Query( $sql );
                 if ( $res->NumRows() != 1 ) {
                     $this->mExists = false;

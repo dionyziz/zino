@@ -6,12 +6,6 @@
 	
     global $libs;
     
-    /*
-    interface DatabaseFieldInfo {
-        public $name;
-    }
-    */
-    
     // implement this interface to add support for a different database
     interface DatabaseDriver {
         // returns number of affected rows by the last query performed
@@ -408,6 +402,7 @@
 		protected $mDb;
 		protected $mTableName;
 		protected $mAlias;
+        protected $mFields;
         
         protected function GetName() {
             return $this->mTableName;
@@ -415,14 +410,29 @@
         protected function GetAlias() {
             return $this->mAlias;
         }
-		public function DBTable( Database $db, $tablename, $alias ) {
+        protected function GetFields() {
+            if ( $this->mFields === false ) {
+                $query = $this->mDb->Prepare( 
+                    'SHOW FIELDS FROM :' . $this->mAlias . ';'
+                );
+                $query->BindTable( $this->mAlias );
+                $res = $query->Execute();
+                $this->mFields = array();
+                while ( $row = $res->FetchArray() ) {
+                    $this->mFields[] = New DBField( $row );
+                }
+            }
+            return $this->mFields;
+        }
+		public function DBTable( Database $db, $tablename, $alias = '' ) {
             w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
             w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
-            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
+            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
 			$this->mDb = $db;
 			$this->mTableName = $tablename;
             $this->mAlias = $alias;
+            $this->mFields = false;
 		}
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
@@ -430,4 +440,22 @@
             return $query->Execute();
 		}
 	}
+    
+    class DBField extends Overloadable {
+        protected $mName;
+        protected $mType;
+        protected $mIsPrimaryKey;
+        
+        protected function GetName() {
+            return $this->mName;
+        }
+        protected function GetType() {
+            return $this->mType;
+        }
+        public function DBField( $info ) {
+            $this->mName = $info[ 'Field' ];
+            $this->mType = $info[ 'Type' ];
+            $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
+        }
+    }
 ?>

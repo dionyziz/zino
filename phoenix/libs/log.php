@@ -17,7 +17,6 @@
 		global $db;
 		global $logs;
 		
-		// Prepared query
 		$query = $db->Prepare("
 			SELECT 
 				COUNT(*) AS logscount
@@ -27,11 +26,7 @@
 				`log_userid`= :LogUserId
 			;
 		");
-		
-		// Assign query values
 		$query->Bind( 'LogUserId', $id );
-		
-		// Execute query
 		$res = $query->Execute();
 		$fetched = $res->FetchArray();
 		
@@ -41,7 +36,6 @@
 		global $db;
 		global $logs;
 		
-		// Prepared query
 		$query = $db->Prepare("
 			SELECT
 				COUNT(*) AS lcount 
@@ -64,7 +58,6 @@
 		$uid = myescape( $uid );
 		$offset = myescape( $offset );
 		
-		// Prepared query
 		$query = $db->Prepare("
 			SELECT
 				*
@@ -78,13 +71,9 @@
 				:Offset , :Limit
 			;
 		");
-		
-		// Assign query values
 		$query->Bind( 'LogUserId', $uid );
 		$query->Bind( 'Offset', $offset );
 		$query->Bind( 'Limit' , 25 );
-	
-		// Execute query
 		$res = $query->Execute();
 		$ret = $res->MakeArray();
 		
@@ -95,7 +84,6 @@
 		global $db;
 		global $logs;
 		
-		// Prepared query
 		$query = $db->Prepare("
 			SELECT
 				`log_date`
@@ -118,55 +106,6 @@
 	}
 	
 	final class Log extends Satori {
-        protected $mId;
-		protected $mDate;
-        protected $mHost;
-        protected $mHostPort;
-		protected $mUserId;
-		protected $mRequestUri;
-		protected $mQuery;
-		protected $mUserAgent;
-		
-        public function Save() {
-            global $db;
-            global $logs;
-            
-            $insert = array(
-                'log_id'         => $this->mId,
-                'log_date'       => $this->mDate,
-                'log_host'       => $this->mHost,
-                'log_hostport'   => $this->mHostPort,
-                'log_userid'     => $this->mUserId,
-                'log_requesturi' => $this->mRequestUri,
-                'log_query'      => $this->mQuery,
-                'log_useragent'  => $this->mUserAgent
-            );
-            
-            $db->Insert(
-                $insert, $logs, false, true
-            );
-            $this->mExists = true;
-            
-            return true;
-        }
-		public function Log( $construct = false ) {
-            global $db;
-            global $logs;
-            
-            $this->mDb = $db;
-            $this->mDbTable = $logs;
-            $this->SetFields( array(
-                'log_id'         => 'Id',
-                'log_date'       => 'Date',
-                'log_host'       => 'Host',
-                'log_hostport'   => 'HostPort',
-                'log_userid'     => 'UserId',
-                'log_requesturi' => 'RequestUri',
-                'log_query'      => 'Query',
-                'log_useragent'  => 'UserAgent'
-            ) );
-            
-            $this->Satori( $construct );
-		}
+        protected $mDbTable = 'logs';
 	}
 ?>
