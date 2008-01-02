@@ -32,7 +32,7 @@ div#joined div.profinfo div.loginfo span {
 div#joined div.profinfo form div label {
 	padding: 10px 0 3px 0;
 	display: block;
-	background-color:#82a4b6;
+	border: 1px solid green
 }
 div#joined div.profinfo p {
 	font-size: 105%;
