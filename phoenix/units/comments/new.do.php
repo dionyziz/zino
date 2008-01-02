@@ -9,7 +9,10 @@
 		$text = $text->Get();
 		
 		if ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) {
-			die( "You are not allowed to comment!" );
+            ?>alert('Παρακαλώ ξανακάνε είσοδο στο ' + <?php
+            echo json_encode( $rabbit_settings[ 'applicationname' ] );
+            ?> + ' για να πραγματοποιήσεις το σχόλιό σου');window.location.reload();<?php
+            return;
 		}
 		
 		if ( $text == '' ) {
