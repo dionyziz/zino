@@ -106,7 +106,7 @@
         public function SetFoo( $value ) {
             $this->mFoo = $value;
         }
-        public function GetFoo() {
+        public function GetBar() {
             return $this->mFoo;
         }
     }
@@ -118,19 +118,19 @@
         }
         public function TestOverloadable() {
             $test = New TestRabbitOverloadable();
-            $this->AssertEquals( false, $test->Foo, 'Initial value of Foo is not false as expected' );
+            $this->AssertEquals( false, $test->Bar, 'Initial value of Foo is not false as expected' );
             $test->Foo = 5;
-            $this->AssertEquals( 5, $test->Foo, 'Value of Foo should have been changed to 5' );
+            $this->AssertEquals( 5, $test->Bar, 'Value of Foo should have been changed to 5' );
             $test->Foo = false;
-            $this->AssertEquals( false, $test->Foo, 'Value of Foo should have been changed back to false' );
+            $this->AssertEquals( false, $test->Bar, 'Value of Foo should have been changed back to false' );
             $test->Foo = true;
-            $this->AssertEquals( true, $test->Foo, 'Value of Foo should have been changed to true' );
+            $this->AssertEquals( true, $test->Bar, 'Value of Foo should have been changed to true' );
             $test->Foo = 'Somestring';
-            $this->AssertEquals( 'Somestring', $test->Foo, 'Unable to change value of Foo to an arbitrary string' );
+            $this->AssertEquals( 'Somestring', $test->Bar, 'Unable to change value of Foo to an arbitrary string' );
             $test->Foo = array( 2, 3, 5, 7, 11 );
-            $this->AssertEquals( array( 2, 3, 5, 7, 11 ), $test->Foo, 'Unable to change value of Foo to a non-scalar value' );
+            $this->AssertEquals( array( 2, 3, 5, 7, 11 ), $test->Bar, 'Unable to change value of Foo to a non-scalar value' );
             $test->Foo = $this;
-            $this->AssertEquals( $this, $test->Foo, 'Unable to change value of Foo to an object' );
+            $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
     }
     
