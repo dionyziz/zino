@@ -37,6 +37,7 @@
         private $mPrimaryKeys; // list with database fields that are primary keys (string)
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
+        protected $mAutoIncrementField;
 
         public function __set( $name, $value ) {
             global $water;
@@ -149,7 +150,7 @@
                     $inserts, $this->mDbTable
                 );
                 if ( $change->Impact() ) {
-                    $this->mId = $change->InsertId();
+                    $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
                 }
                 $this->mExists = true;
                 return $change;
@@ -179,12 +180,16 @@
            
             $this->mDbFields = array();
             $this->mDbFieldKeys = array();
+            $this->mAutoIncrementField = false;
 
             foreach ( $this->mDbColumns as $column ) {
                 $parts = explode( '_', $column->Name );
                 $attribute = ucfirst( $parts[ 1 ] );
                 $this->mDbFields[ $column->Name ] = $attribute;
                 $this->mDbFieldKeys[] = $column->Name;
+                if ( $column->IsAutoIncrement ) {
+                    $this->mAutoIncrementField = $column->Name;
+                }
             }
 
             $this->mCurrentValues = array();

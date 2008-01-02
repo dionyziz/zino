@@ -449,7 +449,11 @@
         protected $mName;
         protected $mType;
         protected $mIsPrimaryKey;
+        protected $mIsAutoIncrement;
 
+        protected function GetIsAutoIncrement() {
+            return $this->mIsAutoIncrement;
+        }
         protected function GetName() {
             return $this->mName;
         }
@@ -460,7 +464,9 @@
             $this->mName = $info[ 'Field' ];
             $this->mType = $info[ 'Type' ];
             $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
+            $this->mIsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
         }
     }
 
 ?>
+
