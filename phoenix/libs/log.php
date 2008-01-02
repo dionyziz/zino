@@ -90,20 +90,20 @@
 		
 		return $res->FetchArray();
 	}
-	
+
 	final class Log extends Satori {
         protected $mDbTable = 'logs';
 
         protected function LoadDefaults() {
             global $user;
-
-            $this->mDate       = NowDate();
-            $this->mHost       = UserIp();
-            $this->mHostport   = $_SERVER[ 'REMOTE_PORT' ];
-            $this->mUserid     = $user->Id();
-            $this->mRequesturi = $_SERVER[ 'REQUEST_URI' ];
-            $this->mQuery      = $_SERVER[ 'QUERY_STRING' ];
-            $this->mUseragent  = $_SERVER[ 'HTTP_USER_AGENT' ];
+            
+            $this->Date       = NowDate();
+            $this->Host       = UserIp();
+            $this->Hostport   = $_SERVER[ 'REMOTE_PORT' ];
+            $this->Userid     = $user->Id();
+            $this->Requesturi = $_SERVER[ 'REQUEST_URI' ];
+            $this->Query      = $_SERVER[ 'QUERY_STRING' ];
+            $this->Useragent  = $_SERVER[ 'HTTP_USER_AGENT' ];
         }
 	}
 ?>

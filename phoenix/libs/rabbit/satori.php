@@ -39,9 +39,6 @@
         private $mCurrentValues;
         private $mPreviousValues;
 
-        protected function IsInternalCall( $backtrace ) {
-            return $backtrace[ 1 ][ 'object' ] == $this;
-        }
         public function __set( $name, $value ) {
             global $water;
             
@@ -49,17 +46,6 @@
                 return;
             }
 
-            if ( isset( $this->mCurrentValues[ $name ] ) ) {
-                if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                    $this->mCurrentValues[ $name ] = $value;
-                    return;
-                }
-                else {
-                    $water->Warning( 'Cannot set private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
-                    return;
-                }
-            }
-            
             if ( !in_array( $name, $this->mDbFields ) ) {
                 $water->Warning( 'Attempting to write non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
                 return;
@@ -70,8 +56,7 @@
                 return;
             }
             
-            $varname = 'm' . ucfirst( $name );
-            $this->mCurrentValues[ $varname ] = $value;
+            $this->mCurrentValues[ ucfirst( $name ) ] = $value;
         }
         public function __get( $name ) {
             global $water;
@@ -80,23 +65,11 @@
                 return $got;
             }
 
-            if ( isset( $this->mCurrentValues[ $name ] ) ) {
-                if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                    return $this->mCurrentValues[ $name ];
-                }
-                else {
-                    $water->Warning( 'Cannot retrieve private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
-                    return;
-                }
-            }
-            
             if ( !in_array( $name, $this->mDbFields ) ) {
                 $water->Warning( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
                 return;
             }
-            $varname = 'm' . ucfirst( $name );
-
-            return $this->mCurrentValues[ $varname ];
+            return $this->mCurrentValues[ ucfirst( $name ) ];
         }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mCurrentValues );
