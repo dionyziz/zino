@@ -13,6 +13,8 @@
             $this->Assert( count( $rabbit_settings[ 'databases' ] ), '"databases" setting is empty -- cannot continue testing without some databases to work on' );
         }
         public function TestMethodsExist() {
+            global $rabbit_settings;
+            
             $this->mFirstDatabase = $GLOBALS[ reset( array_keys( $rabbit_settings[ 'databases' ] ) ) ];
             $this->Assert( $this->mFirstDatabase instanceof Database, 'Your first defined database does not appear to be consistent' );
             $this->Assert( method_exists( $this->mFirstDatabase, 'Tables' ), 'Method Database->Tables() does\'t exist' );
