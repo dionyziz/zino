@@ -1,5 +1,6 @@
 <?php
     class TestLog extends Testcase {
+        /*
         private $mLog;
         
         public function TestClassesExist() {
@@ -16,6 +17,8 @@
             $log->Save();
             $this->AssertTrue( $log->Exists(), 'Newly created log doesn\'t exist' );
         }
+
+        */
     }
     
     return New TestLog();

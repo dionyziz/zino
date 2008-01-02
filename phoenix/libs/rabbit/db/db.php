@@ -445,7 +445,7 @@
         protected $mName;
         protected $mType;
         protected $mIsPrimaryKey;
-        
+
         protected function GetName() {
             return $this->mName;
         }
@@ -458,4 +458,5 @@
             $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
         }
     }
+
 ?>
