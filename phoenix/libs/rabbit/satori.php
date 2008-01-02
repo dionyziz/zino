@@ -71,7 +71,7 @@
             }
             
             $varname = 'm' . ucfirst( $name );
-            $this->$varname = $value; // MAGIC!
+            $this->mCurrentValues[ $varname ] = $value;
         }
         public function __get( $name ) {
             global $water;
@@ -95,8 +95,8 @@
                 return;
             }
             $varname = 'm' . ucfirst( $name );
-            
-            return $this->$varname; // MAGIC!
+
+            return $this->mCurrentValues[ $varname ];
         }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mCurrentValues );
