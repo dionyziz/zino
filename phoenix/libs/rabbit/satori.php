@@ -49,7 +49,7 @@
                 return;
             }
 
-            if ( in_array( $name, $this->mCurrentValues ) ) {
+            if ( isset( $this->mCurrentValues[ $name ] ) ) {
                 if ( $this->IsInternalCall( debug_backtrace() ) ) {
                     $this->mCurrentValues[ $name ] = $value;
                     return;
@@ -80,7 +80,7 @@
                 return $got;
             }
 
-            if ( in_array( $name, $this->mCurrentValues ) ) {
+            if ( isset( $this->mCurrentValues[ $name ] ) ) {
                 if ( $this->IsInternalCall( debug_backtrace() ) ) {
                     return $this->mCurrentValues[ $name ];
                 }
@@ -151,7 +151,6 @@
                     $attributevalue = $this->$varname; // MAGIC!
                     if ( !isset( $this->mPreviousValues[ $attributename ] ) ) {
                         echo $attributename . "\n";
-                        die( var_dump( $this->mPreviousValues ) );
                     }
                     if ( $this->mPreviousValues[ $attributename ] != $attributevalue ) {
                         $updates[] = "`$fieldname` = :$fieldname";
@@ -233,8 +232,6 @@
                 $this->mCurrentValues[ 'm' . ucfirst( $attributename ) ] = false;
             }
 
-            $water->Trace( 'mCurrentValues for `' . get_class( $this ) . '\'', var_dump( $this->mCurrentValues ) );
-            
             if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
                 $this->MakeReadOnly( 'Id' );
             }
