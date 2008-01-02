@@ -227,11 +227,9 @@
                 }
             }
             w_assert( is_string( $this->mDbName ), 'Please specify your database by setting member attribute mDbName for class `' . get_class( $this ) . '\' to a valid database alias' );
-            if ( !isset( $GLOBALS[ $this->mDbName ] ) ) {
-                w_assert( is_string( $this->mDbName ), 'The mDbName database you have specified for class `' . get_class( $this ) . '\' does not exist in your settings file' );
-                $this->mDb = $GLOBALS[ $this->mDbName ];
-                w_assert( $this->mDb instanceof Database, 'The database specified for class `' . get_class( $this ) . '\' is not a valid database' );
-            }
+            w_assert( $GLOBALS[ $this->mDbName ], 'The mDbName database you have specified for class `' . get_class( $this ) . '\' does not exist in your settings file' );
+            $this->mDb = $GLOBALS[ $this->mDbName ];
+            w_assert( $this->mDb instanceof Database, 'The database specified for class `' . get_class( $this ) . '\' is not a valid database' );
             $this->InitializeFields();
             w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             
