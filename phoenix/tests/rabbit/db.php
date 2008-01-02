@@ -33,7 +33,6 @@
             }
         }
         
-        /*
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -50,7 +49,6 @@
                 }
             }
         }
-        */
     }
     
     return New TestRabbitDb();
