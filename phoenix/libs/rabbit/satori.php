@@ -203,16 +203,16 @@
                 $this->mDbFields[ $column->Name ] = $attribute;
                 $this->mDbFieldKeys[] = $column->Name;
             }
-            
+
+            $this->mPrivateVariables = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 w_assert( is_string( $fieldname ) );
                 w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
                 w_assert( is_string( $attributename ) );
                 w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
                 
-                $varname = 'm' . ucfirst( $attributename );
                 // default value
-                $this->$varname = false; // MAGIC!
+                $this->mPrivateVariables[ 'm' . ucfirst( $attributename ) ] = false; // MAGIC!
             }
 
             if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
@@ -249,11 +249,7 @@
             $this->InitializeFields();
             w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             w_assert( count( $this->mDbFields ), 'Database fields is the empty array for class `'. get_class( $this ) . '\'; does your mapped table have no columns?' );
-            
-            foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                $this->mPrivateVariables[ 'm' . ucfirst( $attributename ) ] = false;
-            }
-            
+
             if ( $construct === false ) {
                 // empty new object
                 // set defaults
