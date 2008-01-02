@@ -39,9 +39,7 @@
         private $mPrivateVariables;
 
         protected function IsInternalCall( $backtrace ) {
-            $backtrace = array_shift( $backtrace );
-            
-            return $backtrace[ 'object' ] == $this;
+            return $backtrace[ 1 ][ 'object' ] == $this;
         }
         public function __set( $name, $value ) {
             global $water;
@@ -50,9 +48,13 @@
                 return;
             }
 
-            if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                if ( in_array( $name, $this->mPrivateVariables ) ) {
+            if ( in_array( $name, $this->mPrivateVariables ) ) {
+                if ( $this->IsInternalCall( debug_backtrace() ) ) {
                     $this->mPrivateVariables[ $name ] = $value;
+                    return;
+                }
+                else {
+                    $water->Warning( 'Cannot set private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
                     return;
                 }
             }
@@ -77,9 +79,13 @@
                 return $got;
             }
 
-            if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                if ( in_array( $name, $this->mPrivateVariables ) ) {
+            if ( in_array( $name, $this->mPrivateVariables ) ) {
+                if ( $this->IsInternalCall( debug_backtrace() ) ) {
                     return $this->mPrivateVariables[ $name ];
+                }
+                else {
+                  $water->Warning( 'Cannot retrieve private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
+                  return;
                 }
             }
             
