@@ -31,6 +31,7 @@
     	CheckIfUserBanned();
 
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
+            // TODO: Re-enable this
         	// LogThis();
         }
     }
