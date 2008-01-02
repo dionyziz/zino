@@ -29,15 +29,14 @@
         protected $mDb; // database object referring to the database where the object is stored
         protected $mDbName; // name of the database we'll use for this object (defaults to your first database)
         protected $mDbTable; // database table alias this object is mapped from
-        protected $mPersistentState; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
-        private $mDbFields; // dictionary with database fields (string) => class attributes (without the m)
+        private $mDbFields; // dictionary with database fields (string) => class attributes
         private $mDbFieldKeys; // list with database fields (string)
-        private $mReadOnlyFields; // dictionary with class attributes (without the m) => true
+        private $mReadOnlyFields; // dictionary with class attributes => true
         private $mDbColumns; // list with DBField instances
         private $mPrimaryKeys; // list with database fields that are primary keys (string)
-        private $mCurrentValues;
-        private $mPreviousValues;
+        protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
+        protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
 
         public function __set( $name, $value ) {
             global $water;
@@ -194,6 +193,8 @@
                 $this->mDbFieldKeys[] = $column->Name;
             }
 
+            die( var_dump( $this->mDbFields ) );
+            
             $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 w_assert( is_string( $fieldname ) );
