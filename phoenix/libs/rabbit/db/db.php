@@ -242,7 +242,7 @@
                 ); // implode all value lists into (list1), (list2), ...
                 $i = 0;
                 foreach ( $insertvalues as $valuestuple ) {
-                    $query->Bind( $bindings[ $i ], $valuestuple );
+                    $query->Bind( substr( $bindings[ $i ], 1 ), $valuestuple );
                     ++$i;
                 }
                 $query->BindTable( $tablealias );
