@@ -29,7 +29,7 @@ div#joined div.profinfo div.loginfo span {
 	color:white;
 	padding:2px
 }
-div#joined div.profinfo form span {
+div#joined div.profinfo form label {
 	padding: 10px 0 3px 0;
 	display: block;
 }
