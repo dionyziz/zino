@@ -277,6 +277,7 @@
 	}
 
     class Image extends Satori {
+        protected $mDbTable = 'images';
         protected $mId;
         protected $mUserId;
         protected $mUserIp;
@@ -343,24 +344,19 @@
             return $this->Save();
         }
 		public function Delete() {
-			global $db;
-			global $images;
-			global $latestimages;
-			
             $this->DelId = 1;
             $this->Save();
 
             $this->Album->ImageDeleted( $this );
             Image_Removed( $this->User );
 
-			//update latest images
+			// update latest images
 			
-			// Prepared query
 			$query = $this->mDb->Prepare("
 				SELECT
 					`image_id`
 				FROM
-					`$images`
+					:images
 				WHERE
 					`image_userid` = :ImageUserId
 				AND
@@ -370,51 +366,41 @@
 				LIMIT :Limit
 				;
 			");
-			
-			// Assign query values
+			$query->BindTable( 'images' );
 			$query->Bind( 'ImageUserId', $this->UserId );
 			$query->Bind( 'ImageDelId', 0);
 			$query->Bind( 'Limit', 1);
-			
-			// Execute query
 			$res = $query->Execute();
 			
 			if ( !$res->Results() ) {
-				// Prepared query
 				$query = $this->mDb->Prepare("
 					DELETE FROM
-						`$latestimages`
+						:latestimages
 					WHERE
 						`latest_imageid` = 	:LatestImageId
 					LIMIT :Limit
 					;
 				");
-				
-				// Assign query values
+                $query->BindTable( 'latestimages' );
 				$query->Bind( 'LatestImageId', $this->Id );
 				$query->Bind( 'Limit', 1 );
-						
-				// Execute query
+
 				return $query->Execute();
 			}
 			else {
 				while( $row = $res->FetchArray() ) {
-					// Prepared query
-					
 					$query = $this->mDb->Prepare("
 						REPLACE INTO
-	                           `$latestimages`
+	                           :latestimages
                             ( `latest_userid`, `latest_imageid` )
                         VALUES
                             ( :LatestUserId , :LatestImageId )
 						;
 					");
-					
-					// Assign query values
+					$query->BindTable( 'latestimages' );
 					$query->Bind( 'LatestUserId' , $this->UserId );
 					$query->Bind( 'LatestImageId', $row[ 'image_id' ] );
-					
-					// Execute query
+
 					return $query->Execute();
 				}
 			}
@@ -505,20 +491,16 @@
             }
 
             if ( parent::Save() ) { // save again: Upload() has set size, width and height 
-                // Prepared query
 				$query = $this->mDb->Prepare("
 					REPLACE INTO 
-						`$latestimages` 
+						:latestimages
 							( `latest_userid`, `latest_imageid` ) 
 					VALUES  ( :LatestUserId , :LatestImageId )
 					;
 				");
-				
-				// Assign query values
+				$query->BindTable( 'latestimages' );
 				$query->Bind( 'LatestUserId' , $user->Id() );
 				$query->Bind( 'LatestImageId', $lastimgid );
-				
-				// Execute query
                 $query->Execute();
             }
 
@@ -530,59 +512,5 @@
             $this->Width    = 0;
             $this->Height   = 0;
         }
-		public function Image( $construct = false ) {
-			global $db;
-            global $images;
-			global $water;
-			
-		    $this->mDb = $db;
-            $this->mDbTable = $images;
-
-            $this->SetFields( array(
-                'image_id'          => 'Id',
-                'image_userid'      => 'UserId',
-                'image_created'     => 'Date',
-                'image_userip'      => 'UserIp',
-                'image_name'        => 'Name',
-                'image_description' => 'Description',
-                'image_width'       => 'Width',
-                'image_height'      => 'Height',
-                'image_size'        => 'Size',
-                'image_mime'        => 'Mime',
-                'image_albumid'     => 'AlbumId',
-                'image_numcomments' => 'NumComments',
-                'image_pageviews'   => 'Pageviews'
-            ) );
-
-            $this->Satori( $construct );
-
-            $this->mUser     = isset( $construct[ "user_id" ] )  ? New User( $construct )  : false;
-            $this->mAlbum    = isset( $construct[ "album_id" ] ) ? New Album( $construct ) : false;
-		}
     }
-		/*
-        public function Pageviews() {
-			global $db;
-			global $pageviews;
-			
-			if ( empty( $this->mPageviews ) ) {
-				$sql = "SELECT
-							COUNT( * )
-						AS 
-							numpages
-						FROM 
-							`$pageviews`
-						WHERE 
-							`pageview_itemid` = '" . $this->Id() . "' AND `pageview_type` = 'image';";
-							
-				$res = $db->Query( $sql );
-				$row = $res->FetchArray();
-				$views = $row[ "numpages" ];
-				
-				$this->SetPageviews( $views );
-			}
-			return $this->mPageviews;
-		}
-        */
-
 ?>
