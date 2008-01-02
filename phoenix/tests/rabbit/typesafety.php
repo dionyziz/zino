@@ -39,42 +39,49 @@
         }
         public function TestBaseTypesDefaults() {
             $int = New tInteger( '' );
-            $this->Assert( is_int( $int->Get() ) );
-            $this->Assert( $int->Get() === 0 );
+            $this->Assert( is_int( $int->Get() ), 'tInteger should scale to integer' );
+            $this->AssertEquals( 0, $int->Get(), 'Default tInteger value should be integer 0' );
             $float = New tFloat( '' );
-            $this->Assert( is_float( $float->Get() ) );
-            $this->Assert( $float->Get() === 0 );
+            $this->Assert( is_float( $float->Get() ), 'tFloat should scale to float' );
+            $this->AssertEquals( ( float )0, $float->Get(), 'Default tFloat value should be float 0' );
             $boolean = New tBoolean( '' );
-            $this->Assert( is_bool( $boolean->Get() ) );
-            $this->Assert( $boolean->Get() === false );
+            $this->Assert( is_bool( $boolean->Get() ), 'tBoolean should scale to boolean' );
+            $this->AssertEquals( false, $boolean->Get(), 'Default tBoolean value should be boolean false' );
             $string = New tString( '' );
-            $this->Assert( $string->Get() === '' );
+            $this->Assert( is_string( $string->Get() ), 'tString should scale to string' );
+            $this->AssertEquals( '', $string->Get(), 'Default tString value should be the empty string' );
         }
         public function TestBoolean() {
             $boolean = New tBoolean( '' );
-            $this->Assert( $boolean->Get() === false );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over the empty string should scale to boolean false' );
             $boolean = New tBoolean( false );
-            $this->Assert( $boolean->Get() === false );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over boolean false should scale to boolean false' );
             $boolean = New tBoolean( '0' );
-            $this->Assert( $boolean->Get() === false );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over string "0" should scale to boolean false' );
             $boolean = New tBoolean( 0 );
-            $this->Assert( $boolean->Get() === false );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over integer 0 should scale to boolean false' );
+            $boolean = New tBoolean( 'no' );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over string "no" should scale to boolean false' );
+            $boolean = New tBoolean( 'false' );
+            $this->AssertEquals( false, $boolean->Get(), 'tBoolean constructed over string "false" should scale to boolean false' );
             $boolean = New tBoolean( true );
-            $this->Assert( $boolean->Get() === true );
+            $this->AssertEquals( true, $boolean->Get(), 'tBoolean constructed over boolean true should scale to boolean true' );
             $boolean = New tBoolean( '1' );
-            $this->Assert( $boolean->Get() === true );
+            $this->AssertEquals( true, $boolean->Get(), 'tBoolean constructed over string "1" should scale to boolean true' );
             $boolean = New tBoolean( 1 );
-            $this->Assert( $boolean->Get() === true );
+            $this->AssertEquals( true, $boolean->Get(), 'tBoolean constructed over integer 1 should scale to boolean true' );
+            $boolean = New tBoolean( 'yes' );
+            $this->AssertEquals( true, $boolean->Get(), 'tBoolean constructed over string "yes" should scale to boolean true' );
+            $boolean = New tBoolean( 'true' );
+            $this->AssertEquals( true, $boolean->Get(), 'tBoolean constructed over string "true" should scale to boolean true' );
         }
         public function TestStringToType() {
             $int = New tInteger( 'bwahahah' );
-            $this->Assert( is_int( $int->Get() ) );
-            $this->AssertEquals( 0, $int->Get() );
+            $this->Assert( is_int( $int->Get() ), 'tInteger constructed over arbitrary string should scale to integer' );
+            $this->AssertEquals( 0, $int->Get(), 'tInteger constructed over non-numeric string should scale to integer 0' );
             $float = New tFloat( 'hoho' );
-            $this->Assert( is_float( $float->Get() ) );
-            $this->AssertEquals( 0, $float->Get() );
-            $boolean = New tBoolean( 'yes' );
-            $this->AssertEquals( true, $boolean->Get() );
+            $this->Assert( is_float( $float->Get() ), 'tFloat constructed over arbitrary string should scale to float' );
+            $this->AssertEquals( ( float )0, $float->Get(), 'tFloat constructed over arbitrary string should scale to float 0' );
         }
         public function TestFunctionsExist() {
             $this->Assert( function_exists( 'Rabbit_TypeSafe_Call' ), 'Rabbit_TypeSafe_Call function does not exist' );
@@ -100,11 +107,11 @@
         public function TestArgumentOrder() {
             $this->AssertEquals( 0.5, Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleFloat', array( 'hohohoinvalid' => 0.6 ) ) );
             $this->AssertEquals( 
-                array( 3, 0, true, '' ), 
+                array( 3, ( float )0, true, '' ), 
                 Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleMultiple', array( 'int' => 3, 'bool' => true ) ) 
             );
             $this->AssertEquals(
-                array( 0, 0, false, '' ),
+                array( 0, ( float )0, false, '' ),
                 Rabbit_TypeSafe_Call( 'TestRabbitTypeSafety_ExampleMultiple', array() )
             );
         }
