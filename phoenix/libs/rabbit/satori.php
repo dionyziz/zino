@@ -36,7 +36,8 @@
         private $mReadOnlyFields; // dictionary with class attributes (without the m) => true
         private $mDbColumns; // list with DBField instances
         private $mPrimaryKeys; // list with database fields that are primary keys (string)
-        private $mPrivateVariables;
+        private $mCurrentValues;
+        private $mPreviousValues;
 
         protected function IsInternalCall( $backtrace ) {
             return $backtrace[ 1 ][ 'object' ] == $this;
@@ -48,9 +49,9 @@
                 return;
             }
 
-            if ( in_array( $name, $this->mPrivateVariables ) ) {
+            if ( in_array( $name, $this->mCurrentValues ) ) {
                 if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                    $this->mPrivateVariables[ $name ] = $value;
+                    $this->mCurrentValues[ $name ] = $value;
                     return;
                 }
                 else {
@@ -79,13 +80,13 @@
                 return $got;
             }
 
-            if ( in_array( $name, $this->mPrivateVariables ) ) {
+            if ( in_array( $name, $this->mCurrentValues ) ) {
                 if ( $this->IsInternalCall( debug_backtrace() ) ) {
-                    return $this->mPrivateVariables[ $name ];
+                    return $this->mCurrentValues[ $name ];
                 }
                 else {
-                  $water->Warning( 'Cannot retrieve private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
-                  return;
+                    $water->Warning( 'Cannot retrieve private Satori property `' . $name . '\' of class `' . get_class( $this ) . '\'' );
+                    return;
                 }
             }
             
@@ -98,7 +99,7 @@
             return $this->$varname; // MAGIC!
         }
         public function __isset( $name ) {
-            return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mPrivateVariables );
+            return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mCurrentValues );
         }
         public function __unset( $name ) {
             global $water;
@@ -203,6 +204,8 @@
             return $this->mDb->Query( $sql );
         }
         protected function InitializeFields() {
+            global $water;
+            
             w_assert( $this->mDb instanceof Database );
             $table = $this->mDb->TableByAlias( $this->mDbTable );
             w_assert( $table instanceof DBTable );
@@ -219,7 +222,7 @@
                 $this->mDbFieldKeys[] = $column->Name;
             }
 
-            $this->mPrivateVariables = array();
+            $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 w_assert( is_string( $fieldname ) );
                 w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
@@ -227,9 +230,11 @@
                 w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
                 
                 // default value
-                $this->mPrivateVariables[ 'm' . ucfirst( $attributename ) ] = false; // MAGIC!
+                $this->mCurrentValues[ 'm' . ucfirst( $attributename ) ] = false;
             }
 
+            $water->Trace( 'mCurrentValues for `' . get_class( $this ) . '\'', var_dump( $this->mCurrentValues ) );
+            
             if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
                 $this->MakeReadOnly( 'Id' );
             }
