@@ -33,6 +33,7 @@
         return $ret;
     }
 
+    /* // TODO: Convert to new Satori
     class PollOption extends Satori {
         protected $mId;
         protected $mText;
@@ -102,7 +103,9 @@
             $this->Percentage   = ( $this->Poll->NumVotes > 0 ) ? ( $this->NumVotes / $this->Poll->NumVotes * 100 ) : 0;
         }
     }
-
+    */
+    
+    /* // TODO: Convert to new Satori
     class PollVote extends Satori {
         protected $mId;
         protected $mUserId;
@@ -150,7 +153,9 @@
             $this->OptionId = false;
         }
     }
+    */
 
+    /* // TODO: Convert to new Satori
     class Poll extends Satori {
         protected   $mId;
         protected   $mQuestion;
@@ -339,5 +344,6 @@
 
         }
     }
- 
+    */
+    
 ?>
