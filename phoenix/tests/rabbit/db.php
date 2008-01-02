@@ -47,4 +47,6 @@
             }
         }
     }
+    
+    return New TestRabbitDb();
 ?>
