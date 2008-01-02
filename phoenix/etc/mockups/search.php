@@ -5,14 +5,14 @@
         <i class="tr"></i>
         
         <form action="">
-            <div class="gender search">
+            <div class="search">
                 <h3>Φύλο:</h3>
                 <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια</label>
                 <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">Κοπέλες</label>
                 <input type="radio" name="gender" value="male" id="gender_both" checked="checked" /><label for="gender_both">Και τα δύο</label>
             </div>
             
-            <div class="age search">
+            <div class="search">
                 <h3>Ηλικία:</h3>
                 από: 
                 <select name="minage">
@@ -167,7 +167,7 @@
                 </select>
             </div>
             
-            <div class="location search">
+            <div class="search">
                 <h3>Περιοχή:</h3>
                 
                 <select name="location">
@@ -176,7 +176,7 @@
                 </select>
             </div>
 
-            <div class="orientation search">
+            <div class="search">
                 <h3>Σεξουαλικές προτιμήσεις:</h3>
                 
                 <select name="orientation">
