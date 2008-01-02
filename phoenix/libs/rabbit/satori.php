@@ -179,7 +179,6 @@
         }
         protected function InitializeFields() {
             $this->mColumns = $this->mDb->TableByAlias( $this->mDbTable )->Fields;
-            die( var_dump( $this->mColumns ) );
             w_assert( count( $this->mColumns ), 'Database table `' . $this->mDbTable . '\' used for a Satori class `' . get_class( $this ) . '\' does not have any columns' );
            
             $this->mDbFields = array();
