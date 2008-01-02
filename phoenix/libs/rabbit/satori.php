@@ -187,7 +187,7 @@
             $this->mDbFields = array();
             $this->mDbFieldKeys = array();
 
-            foreach ( $this->mColumns as $column ) {
+            foreach ( $this->mDbColumns as $column ) {
                 $parts = explode( '_', $column->Name );
                 $attribute = $parts[ 1 ];
                 $this->mDbFields[ $column->Name ] = $attribute;
