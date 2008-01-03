@@ -34,6 +34,7 @@ div.upperslide div.edge ul.photolist1 li a span img, div.upperslide ul.photolist
 }
 div.upperslide div.edge ul.photolist1 li a, div.upperslide ul.photolist1 li a, div.rightslide ul.photolist2 li a {
     position: relative;
+    _width: 110px;
 }
 div.rightslide {
 	float: right;
