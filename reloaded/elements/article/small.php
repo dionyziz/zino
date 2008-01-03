@@ -28,16 +28,7 @@
 			echo $article->SmallStory();
 			?></div>
 			<div class="stuff"><?php
-			if( is_object( $article->Category() ) ) {
-				?>στο <a href="?p=category&amp;id=<?php 
-				echo $article->Category()->Id(); 
-				?>"><?php
-				echo $article->Category()->Name();
-				?></a><span>, <?php
-			}
-			else {
-				?><span><?php
-			}
+            ?><span><?php
 			echo $article->NumComments();
 			?> σχόλι<?php
 			echo( $article->NumComments() != 1 ? "α" : "o" );
