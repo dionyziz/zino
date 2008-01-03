@@ -107,7 +107,7 @@
                 $obj = New ReflectionObject( $testcase );
                 $methods = $obj->getMethods();
                 $runresults = array();
-                $obj->SetUp();
+                $testcase->SetUp();
                 foreach ( $methods as $method ) {
                     $methodname = $method->getName();
                     if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
@@ -118,7 +118,7 @@
                         $water->ProfileEnd();
                     }
                 }
-                $obj->TearDown();
+                $testcase->TearDown();
                 $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
                 $water->ProfileEnd();
             }
