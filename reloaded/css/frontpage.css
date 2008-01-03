@@ -20,6 +20,9 @@ div.upperslide div.edge a span, div.upperslide ul.photolist1 li a span, div.righ
 	background-color: #cecece;
 	opacity: 0.7;
 }
+div.upperslide div.edge a span {
+    bottom: 6px;
+}
 div.rightslide ul.photolist2 li a span {
 	bottom: 12px;
 }
