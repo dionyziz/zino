@@ -111,7 +111,7 @@
         }
     }
     
-    class TestRabbitSatori extends Satori {
+    class TestRabbitSatoriExtension extends Satori {
         protected $mDbTable = 'rabbit_satori_test';
         
         public function LoadDefaults() {
@@ -172,8 +172,9 @@
             $this->Assert( class_exists( 'Satori' ), 'Class Satori is undefined' );
         }
         public function TestOverloadable() {
-            $this->Assert( class_exists( 'TestRabbitOverloadable' ) );
-            $test = New TestRabbitOverloadable();
+            $this->Assert( class_exists( 'TestRabbitSatoriExtension' ) );
+            $test = New TestRabbitSatoriExtension();
+            $this->Assert( $test instanceof TestRabbitSatoriExtension );
             $this->AssertEquals( false, $test->Bar, 'Initial value of Foo is not false as expected' );
             $test->Foo = 5;
             $this->AssertEquals( 5, $test->Bar, 'Value of Foo should have been changed to 5' );
