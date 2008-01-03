@@ -24,6 +24,9 @@ div.upperslide div.edge a span {
     bottom: 6px;
 }
 div.rightslide ul.photolist2 li a span {
+    right: 10px;
+}
+div.rightslide ul.photolist2 li a span {
 	bottom: 12px;
 }
 div.upperslide div.edge ul.photolist1 li a span img, div.upperslide ul.photolist1 li a span img, div.rightslide ul.photolist2 li a span img {
@@ -56,8 +59,9 @@ div.rightslide ul.photolist2 li {
     /* border: 1px solid yellow; */
     vertical-align: bottom;
 }
-div.rightslide a {
+div.rightslide ul li a {
 	float: right;
+    position: relative;
 }
 div.rightslide ul.photolist2 li a img {
 	margin: 10px 9px 10px 0;
