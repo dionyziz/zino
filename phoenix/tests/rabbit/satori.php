@@ -110,13 +110,69 @@
             return $this->mFoo;
         }
     }
+    
+    class TestRabbitSatori extends Satori {
+        protected $mDbTable = 'rabbit_satori_test';
+        
+        public function LoadDefaults() {
+            $this->Char = 'abcd';
+        }
+    }
         
     class TestRabbitSatori extends Testcase {
+        private $mDb;
+        private $mDbTable;
+        private $mObj;
+        
+        public function SetUp() {
+            global $rabbit_settings;
+            
+            w_assert( is_array( $rabbit_settings[ 'databases' ] ) );
+            w_assert( count( $rabbit_settings[ 'databases' ] ) );
+            $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
+            w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
+            $this->mDb = $GLOBALS[ $databasealiases[ 0 ] ];
+            w_assert( $this->mDb instanceof Database );
+            
+            // make sure we don't overwrite something
+            w_assert( $this->mDb->TableByAlias( 'rabbit_satori_test' ) === false );
+            
+            $this->mDbTable = New DBTable();
+            $this->mDbTable->Name = 'rabbit_satori_test';
+            $this->mDbTable->Db = $this->mDb;
+            
+            $field = New DBField();
+            $field->Name = 'test_id';
+            $field->Type = DB_TYPE_INT;
+            $field->IsAutoIncrement = true;
+            
+            $field2 = New DBField();
+            $field2->Name = 'test_char';
+            $field2->Type = DB_TYPE_CHAR;
+            $field2->Length = 4;
+            
+            $field3 = New DBField();
+            $field3->Name = 'test_int';
+            $field3->Type = DB_TYPE_INT;
+            
+            $this->mDbTable->CreateField( $field, $field2, $field3 );
+            
+            $primary = New DBIndex();
+            $primary->Type = DB_INDEX_PRIMARY;
+            $primary->AddField( $field );
+            
+            $this->mDbTable->CreateIndex( $primary );
+            
+            $this->mDbTable->Save();
+            
+            $this->mDb->AttachTable( 'rabbit_satori_test', 'rabbit_satori_test' );
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Overloadable' ), 'Class Overloadable is undefined' );
             $this->Assert( class_exists( 'Satori' ), 'Class Satori is undefined' );
         }
         public function TestOverloadable() {
+            $this->Assert( class_exists( 'TestRabbitOverloadable' ) );
             $test = New TestRabbitOverloadable();
             $this->AssertEquals( false, $test->Bar, 'Initial value of Foo is not false as expected' );
             $test->Foo = 5;
@@ -131,6 +187,31 @@
             $this->AssertEquals( array( 2, 3, 5, 7, 11 ), $test->Bar, 'Unable to change value of Foo to a non-scalar value' );
             $test->Foo = $this;
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
+        }
+        public function TestCreation() {
+            $this->Assert( class_exists( 'TestRabbitOverloadable' ) );
+            $this->mObj = New TestRabbitSatori();
+            $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
+            $this->mObj->Save();
+            $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
+        }
+        public function TestDefaults() {
+            $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
+            $this->AssertFalse( false, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to false' );
+        }
+        public function TestAssignment() {
+            $this->mObj->Char = 'cool';
+            $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
+            $this->mObj->Int = 5;
+            $this->AssertEquals( 5, $this->mObj->Int, 'Could not assign integer Satori attribute' );
+        }
+        public function TestDeletion() {
+            $this->mObj->Delete();
+            $this->AssertFalse( $this->mObj->Exists(), 'Satori-derived object should not exist after deletion' );
+        }
+        public function TearDown() {
+            $this->mDb->DetachTable( 'rabbit_satori_test' );
+            $this->mDbTable->Delete();
         }
     }
     
