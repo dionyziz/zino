@@ -27,15 +27,12 @@
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								$hobsar = explode( ",", $friend->Hobbies() );
-								$hobbis = "";
-								$hobslen = count( $hobsar );
-								for ( $i = 0; $i < $hobslen; ++$i ) {
-									$hobbis .= "<a href='tag/" . htmlspecialchars( urlencode( $hobsar[ $i ] ) ) . "'>" . htmlspecialchars( $hobsar[ $i ] ) . "</a>";
-									if ( $i != $hobslen-1 ) {
-										$hobbis .= ", ";
-									}
+								$hobbis = array();
+								foreach ( $hobsar as $hobbie ) {
+									$hobbie = trim( $hobbie );
+									$hobbis[] = "<a href='tag/" . htmlspecialchars( urlencode( $hobbie ) ) . "'>" . htmlspecialchars( $hobbie ) . "</a>";
 								}
-								echo $hobbis;
+								echo implode( ', ', $hobbis );
                                 ?></div><?php
 							}
 							if ( $friend->Id() != $uid || !$tags ) {
