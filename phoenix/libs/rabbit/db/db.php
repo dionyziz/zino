@@ -407,6 +407,7 @@
 		protected $mTableName;
 		protected $mAlias;
         protected $mFields;
+		protected $mExists;
         
         protected function GetName() {
             return $this->mTableName;
@@ -428,15 +429,22 @@
             }
             return $this->mFields;
         }
-		public function DBTable( Database $db, $tablename, $alias = '' ) {
-            w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
-            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
-            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
-            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
-			$this->mDb = $db;
-			$this->mTableName = $tablename;
-            $this->mAlias = $alias;
-            $this->mFields = false;
+		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
+            if ( $db === false ) { 
+				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
+			}
+			else {
+				w_assert( is_object( $db ), 'Database passed to DBTable must be an object' );
+				w_assert( $db instanceof Database, 'Database passed to DBTable must be an instance of Database ( ' . get_class( $db ) .' given ) ' );
+				w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
+	            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
+	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
+	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
+				$this->mDb = $db;
+				$this->mTableName = $tablename;
+			}
+			$this->mAlias = $alias;
+			$this->mFields = false;
 		}
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );

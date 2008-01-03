@@ -72,7 +72,7 @@
             return $this->mCurrentValues[ ucfirst( $name ) ];
         }
         public function __isset( $name ) {
-            return in_array( $name, $this->mDbFields ) || in_array( $name, $this->mCurrentValues );
+            return in_array( $name, $this->mDbFields );
         }
         public function __unset( $name ) {
             global $water;

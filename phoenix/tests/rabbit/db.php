@@ -1,6 +1,7 @@
 <?php
     class TestRabbitDb extends Testcase {
         private $mFirstDatabase;
+		private $mTestTable;
         
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Database' ), 'Class Database doesn\'t exist' );
@@ -48,6 +49,59 @@
                 }
             }
         }
+		public function TestCreateTable() {
+			
+			$table = New DBTable();
+			$table->Name = 'rabbit_test';
+
+			$field = New DBField();
+			$field->Name = 'user_id';
+			$field->Type = DB_TYPE_INT;
+			$field->IsAutoIncrement = true;
+
+			$field2 = New DBField();
+			$field2->Name = 'user_name';
+			$field2->Type = DB_TYPE_CHAR;
+			$field2->Length = 32;
+
+			$field3 = New DBField();
+			$field3->Name = 'user_subdomain';
+			$field3->Type = DB_TYPE_CHAR;
+			$field3->Length = 32;
+
+			$table->CreateField( $field ); // DBField or array of DBField
+			$table->CreateField( $field2 );
+
+			$primary = New DBIndex();
+			$primary->AddField( $field );
+			$primary->Type = DB_INDEX_PRIMARY;
+
+			$username = New DBIndex();
+			$username->AddField( $field2 );
+			$username->Type = DB_INDEX_UNIQUE;
+
+			$subdomain = New DBIndex();
+			$subdomain->AddField( $field2 ); // DBField or array of DBField
+			$subdomain->AddField( $field3 ); // order matters
+			$subdomain->Type = DB_INDEX;
+
+			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
+			$table->CreateIndex( $username );
+			$table->CreateIndex( $subdomain );
+
+			$table->Database = $this->mFirstDatabase;
+			
+			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist prior to creation' );
+			$table->Save();
+			$this->mTestTable = $table;
+			
+			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
+		}
+		
+		public function TestDeleteTable() {
+			$this->mTestTable->Delete();
+			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
+		}
         public function TestTableByAlias() {
         }
     }
