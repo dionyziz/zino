@@ -257,6 +257,11 @@
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
             $this->mTables[ $alias ] = New DBTable( $this, $actual, $alias );
         }
+        public function DetachTable( $alias, $actual ) {
+            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
+            w_assert( isset( $this->mTables[ $alias ] ), 'Cannot detach a table that has not been attached yet' );
+            unset( $this->mTables[ $alias ] );
+        }
         public function TableByAlias( $alias ) {
             if ( !isset( $this->mTables[ $alias ] ) ) {
                 return false;

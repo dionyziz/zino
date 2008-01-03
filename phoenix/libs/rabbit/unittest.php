@@ -3,7 +3,11 @@
         protected $mTester;
         protected $mName;
         
-        public function Testcase() {
+        final public function Testcase() {
+        }
+        public function SetUp() { // overridable
+        }
+        public function TearDown() { // overridable
         }
         public function SetName( $name ) {
             w_assert( is_string( $name ) );
@@ -103,6 +107,7 @@
                 $obj = New ReflectionObject( $testcase );
                 $methods = $obj->getMethods();
                 $runresults = array();
+                $obj->SetUp();
                 foreach ( $methods as $method ) {
                     $methodname = $method->getName();
                     if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
@@ -113,6 +118,7 @@
                         $water->ProfileEnd();
                     }
                 }
+                $obj->TearDown();
                 $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
                 $water->ProfileEnd();
             }
