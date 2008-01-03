@@ -2,7 +2,3 @@ div.join div.bubble form.joinform div a.button {
 	width: 130px;
 	height: 20px;
 }
-div.join div.bubble i.bl, div.join div.bubble i.br {
-	background-repeat: no-repeat;
-	background-position: 50% 6px;
-}

@@ -25,6 +25,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="banner-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="footer.css" />
 		<link rel="stylesheet" type="text/css" href="headlines.css" />
+		<link rel="stylesheet" type="text/css" href="bubbles.css" />
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="bubbles-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="frontpage.css" />
 		<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
@@ -32,7 +34,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="join.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="join-ie6.css" /><![endif]-->
-		<link rel="stylesheet" type="text/css" href="bubbles.css" />
 		<link rel="stylesheet" type="text/css" href="search.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="joined.css" />
