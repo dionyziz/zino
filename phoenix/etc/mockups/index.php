@@ -38,6 +38,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="joined.css" />
 		<link rel="stylesheet" type="text/css" href="usersections.css" />
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="photoview.css" />
 		<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="comments.css" />
