@@ -1,6 +1,6 @@
 <?php
 /*
-Copyright (c) 2006 - 2007, Dionysis Zindros <dionyziz@gmail.com> and Aleksis Brezas <abresas@gmail.com>
+Copyright (c) 2006 - 2008, Dionysis Zindros <dionyziz@gmail.com> and Aleksis Brezas <abresas@gmail.com>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -32,6 +32,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		$water->Assert( $condition, $reason );
 	}
 	
+    class ExceptionFailedAssertion extends Exception {
+    }
+    
 	final class Water {
 		private $mOutputAlerts;
 		private $mOutputProfiles;
@@ -499,7 +502,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 if ( !empty( $reason ) ) {
                     $msg .= ': ' . $reason;
                 }
-				throw New Exception( $msg );
+				throw New ExceptionFailedAssertion( $msg );
 			}
 		}
 		private function FatalError( $message, $data, $backtrace = false ) {
