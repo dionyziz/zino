@@ -24,6 +24,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     function Water_HandleException( Exception $exception ) {
         global $water;
         
+        die( var_dump( $exception->getTrace() ) );
+        
         $water->HandleException( $exception );
     }
 	function w_assert( $condition, $reason = '' ) {
