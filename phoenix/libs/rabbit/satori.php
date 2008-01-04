@@ -1,4 +1,8 @@
 <?php
+    /*
+        Developer: Dionyziz
+    */
+    
     abstract class Overloadable {
         public function __set( $name, $value ) {
             // check if a custom setter is specified
@@ -38,7 +42,7 @@
         private $mPrimaryKeyFields; // list with database fields that are primary keys (array of string)
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
-        protected $mAutoIncrementField;
+        protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
 
         public function __set( $name, $value ) {
             global $water;
