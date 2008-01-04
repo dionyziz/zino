@@ -82,7 +82,6 @@
             $this->AssertTrue( $runresult2->Success, 'RunResult with only successful assertions must be successful' );
             $this->AssertEquals( $runresult2->NumSuccessfulAssertions, $runresult2->NumAssertions, 'Number of successful assertions in successful RunResult must equal the total number of assertions' );
         }
-        /*
         public function TestTestcaseResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
@@ -90,13 +89,6 @@
             $goodresult = New RunResult( array( $good, $good ), 'run2' ); // success
             $testresult = New TestcaseResult( $this, array( $badresult, $goodresult ) ); // failure
             $testresult2 = New TestcaseResult( $this, array( $goodresult, $goodresult, $goodresult ) ); // success
-            
-            $this->Assert( method_exists( $testresult, 'Success'           ), 'TestcaseResult::Success method does not exist'           );
-            $this->Assert( method_exists( $testresult, 'NumAssertions'     ), 'TestcaseResult::NumAssertions method does not exist'     );
-            $this->Assert( method_exists( $testresult, 'NumRuns'           ), 'TestcaseResult::NumRuns method does not exist'           );
-            $this->Assert( method_exists( $testresult, 'NumSuccessfulRuns' ), 'TestcaseResult::NumSuccessfulRuns method does not exist' );
-            $this->Assert( method_exists( $testresult, 'Results'           ), 'TestcaseResult::Results method does not exist'           );
-            $this->Assert( method_exists( $testresult, 'Testcase'          ), 'TestcaseResult::Testcase method does not exist'          );
             
             $this->AssertEquals( $this, $testresult->Testcase, 'Testcase rerturned by TestResult does not match the one passed' );
             $this->AssertFalse( $testresult->Success, 'Testcase with unsuccessful testruns incorrectly marked as successful' );
@@ -121,7 +113,6 @@
             }
             $this->AssertEquals( 2, $i, 'Number of iterations does not match number of runs in TestcaseResult' );
         }
-        */
     }
     
     return New TestRabbitUnittesting();

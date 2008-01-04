@@ -160,10 +160,10 @@
         protected $mNumSuccessfulRuns;
         protected $mNumAssertions;
         
-        public function Testcase() {
+        protected function GetTestcase() {
             return $this->mTestcase;
         }
-        public function Results() {
+        protected function GetResults() {
             return $this->mRunResults;
         }
         public function rewind() {
