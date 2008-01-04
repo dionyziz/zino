@@ -200,7 +200,7 @@
             $this->mSuccess = true;
             foreach ( $runresults as $runresult ) {
                 w_assert( $runresult instanceof RunResult );
-                if ( $runresult->Success() ) {
+                if ( $runresult->Success ) {
                     ++$this->mNumSuccessfulRuns;
                 }
                 else {
@@ -256,7 +256,7 @@
             $this->mNumSuccessfulAssertions = 0;
             foreach ( $assertionresults as $assertionresult ) {
                 w_assert( $assertionresult instanceof AssertResult );
-                if ( $assertionresult->Success() ) {
+                if ( $assertionresult->Success ) {
                     ++$this->mNumSuccessfulAssertions;
                 }
                 else {
