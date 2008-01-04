@@ -16,7 +16,7 @@
         ?></label><?php
         if ( isset( $testsran[ $name ] ) ) {
             $testresult = $testcaseresults[ $indexbyname[ $name ] ];
-            if ( $testresult->Success() ) {
+            if ( $testresult->Success ) {
                 // testcase pass
                 ?>: <span class="pass">PASS</span> <span class="subject">(<?php
                 echo $testresult->NumAssertions;
