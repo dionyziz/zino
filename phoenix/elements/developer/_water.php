@@ -1,9 +1,13 @@
 <?php
 	function ElementDeveloperWater() {
+        global $rabbit_settings;
+        
 		?><script type="text/javascript"><?php	
 		ob_start();
 		?>
-			var imgfolder = "http://static.chit-chat.gr/images/water/";
+			var imgfolder = <?php
+            echo w_json_encode( $rabbit_settings[ 'imagesurl' ] );
+            ?> + 'water/';
 			var d = document;
 			var mywidth = screen.availWidth.toString() * 80/100;
 			var myspacer = "    ";
