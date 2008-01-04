@@ -53,7 +53,6 @@
             $this->AssertEquals( 'expected string 1', $bad->Expected, 'Unable to retrieve unsuccessful assertion expected value' );
             $this->AssertEquals( 'expected string 2', $good->Expected, 'Unable to retrieve successful assertion expected value' );
         }
-        /*
         public function TestRunResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
@@ -87,6 +86,7 @@
             $this->AssertTrue( $runresult2->Success, 'RunResult with only successful assertions must be successful' );
             $this->AssertEquals( $runresult2->NumSuccessfulAssertions, $runresult2->NumAssertions, 'Number of successful assertions in successful RunResult must equal the total number of assertions' );
         }
+        /*
         public function TestTestcaseResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
