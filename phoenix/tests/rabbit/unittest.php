@@ -11,7 +11,6 @@
             $this->Assert( method_exists( $this, 'AssertEquals'    ), 'Testcase::AssertEquals method does not exist'    );
             $this->Assert( method_exists( $this, 'AssertNotEquals' ), 'Testcase::AssertNotEquals method does not exist' );
         }
-        /*
         public function TestAssertions() {
             $this->Assert( true, 'Truth could not be asserted' );
             $this->Assert( 5, 'Positive integer should yield to true assertion' );
@@ -35,6 +34,7 @@
             $foobar = array();
             $this->AssertNull( $foobar[ 'foobar' ], 'AssertNull should succeed with a non-defined array index' );
         }
+        /*
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Testcase'       ), 'Testcase class does not exist'       );
             $this->Assert( class_exists( 'Tester'         ), 'Tester class does not exist'         );
