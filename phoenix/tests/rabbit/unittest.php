@@ -41,7 +41,6 @@
             $this->Assert( class_exists( 'RunResult'      ), 'RunResult class does not exist'      );
             $this->Assert( class_exists( 'AssertResult'   ), 'AssertResult class does not exist'   );
         }
-        /*
         public function TestAssertResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
@@ -58,6 +57,7 @@
             $this->AssertEquals( 'expected string 1', $bad->Expected, 'Unable to retrieve unsuccessful assertion expected value' );
             $this->AssertEquals( 'expected string 2', $good->Expected, 'Unable to retrieve successful assertion expected value' );
         }
+        /*
         public function TestRunResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
