@@ -28,6 +28,8 @@
     */
 
     final class TestSearch extends Testcase {
+        protected $mAppliesTo = 'libs/search';
+
         public function TestClassesExist() {
             global $libs;
 
