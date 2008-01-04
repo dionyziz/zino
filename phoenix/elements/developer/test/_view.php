@@ -11,7 +11,7 @@
         $validtests = Test_GetTestcases();
         $validtestsbyname = array();
         foreach ( $validtests as $testcase ) {
-            $validtestsbyname[ $testcase->Name() ] = $testcase;
+            $validtestsbyname[ $testcase->Name ] = $testcase;
         }
         
         $tester = New Tester();
