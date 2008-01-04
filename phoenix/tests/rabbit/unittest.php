@@ -96,7 +96,7 @@
             $this->AssertEquals( $badresult->NumAssertions + $goodresult->NumAssertions, $testresult->NumAssertions, 'Number of assertions returned by TestcaseResult does not match the sum of the relevant test RunResults' );
             $this->AssertEquals( 1, $testresult->NumSuccessfulRuns, 'Number of successful runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( 2, $testresult->NumRuns, 'Total number of runs in TestcaseResult is inaccurate' );
-            $this->AssertEquals( array( $badresult, $goodresult ), $testresult->Results(), 'Results returned by TestcaseResult do not match the ones passed to it' );
+            $this->AssertEquals( array( $badresult, $goodresult ), $testresult->Results, 'Results returned by TestcaseResult do not match the ones passed to it' );
             
             $this->Assert( $testresult instanceof Iterator, 'TestcaseResult must be iteratable' );
             $i = 0;
