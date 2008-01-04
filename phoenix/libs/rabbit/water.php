@@ -12,7 +12,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 	// Water version 4/PHP5/XC
 	
-    require 'libs/water/json.php';
+    require 'libs/rabbit/json.php';
     
 	function Water_HandleError( $errno , $errstr , $errfile , $errline , $errcontext ) {
 		global $water;
