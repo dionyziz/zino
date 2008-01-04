@@ -48,14 +48,14 @@
             $this->Assert( method_exists( $good, 'Message'  ), 'AssertResult::Message method does not exist'  );
             $this->Assert( method_exists( $good, 'Actual'   ), 'AssertResult::Actual method does not exist'   );
             $this->Assert( method_exists( $good, 'Expected' ), 'AssertResult::Expected method does not exist' );
-            $this->AssertFalse( $bad->Success(), 'Unsuccessful assertion indicated as successful' );
-            $this->AssertTrue( $good->Success(), 'Successful assertion indicated as non-successful' );
-            $this->AssertEquals( 'hello', $bad->Message(), 'Unable to retrieve unsuccessful assertion message' );
-            $this->AssertEquals( 'world', $good->Message(), 'Unable to retrieve successful assertion message' );
-            $this->AssertEquals( 'actual string 1', $bad->Actual(), 'Unable to retrieve unsuccessful assertion actual value' );
-            $this->AssertEquals( 'actual string 2', $good->Actual(), 'Unable to retrieve successful assertion actual value' );
-            $this->AssertEquals( 'expected string 1', $bad->Expected(), 'Unable to retrieve unsuccessful assertion expected value' );
-            $this->AssertEquals( 'expected string 2', $good->Expected(), 'Unable to retrieve successful assertion expected value' );
+            $this->AssertFalse( $bad->Success, 'Unsuccessful assertion indicated as successful' );
+            $this->AssertTrue( $good->Success, 'Successful assertion indicated as non-successful' );
+            $this->AssertEquals( 'hello', $bad->Message, 'Unable to retrieve unsuccessful assertion message' );
+            $this->AssertEquals( 'world', $good->Message, 'Unable to retrieve successful assertion message' );
+            $this->AssertEquals( 'actual string 1', $bad->Actual, 'Unable to retrieve unsuccessful assertion actual value' );
+            $this->AssertEquals( 'actual string 2', $good->Actual, 'Unable to retrieve successful assertion actual value' );
+            $this->AssertEquals( 'expected string 1', $bad->Expected, 'Unable to retrieve unsuccessful assertion expected value' );
+            $this->AssertEquals( 'expected string 2', $good->Expected, 'Unable to retrieve successful assertion expected value' );
         }
         public function TestRunResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
@@ -82,13 +82,13 @@
                 ++$i;
             }
             $this->AssertEquals( 4, $i, 'Number of iterations does not match number of assertions in RunResult' );
-            $this->AssertEquals( 4, $runresult->NumAssertions(), 'Number of assertion returned does not match actual number of assertions in RunResult' );
-            $this->AssertEquals( 1, $runresult->NumSuccessfulAssertions(), 'Number of successful assertions returned does not match actual number of successful assertions in RunResult' );
-            $this->AssertFalse( $runresult->Success() );
+            $this->AssertEquals( 4, $runresult->NumAssertions, 'Number of assertion returned does not match actual number of assertions in RunResult' );
+            $this->AssertEquals( 1, $runresult->NumSuccessfulAssertions, 'Number of successful assertions returned does not match actual number of successful assertions in RunResult' );
+            $this->AssertFalse( $runresult->Success );
 
             $runresult2 = New RunResult( array( $good, $good ), 'run2' );
-            $this->AssertTrue( $runresult2->Success(), 'RunResult with only successful assertions must be successful' );
-            $this->AssertEquals( $runresult2->NumSuccessfulAssertions(), $runresult2->NumAssertions(), 'Number of successful assertions in successful RunResult must equal the total number of assertions' );
+            $this->AssertTrue( $runresult2->Success, 'RunResult with only successful assertions must be successful' );
+            $this->AssertEquals( $runresult2->NumSuccessfulAssertions, $runresult2->NumAssertions, 'Number of successful assertions in successful RunResult must equal the total number of assertions' );
         }
         public function TestTestcaseResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
@@ -105,10 +105,10 @@
             $this->Assert( method_exists( $testresult, 'Results'           ), 'TestcaseResult::Results method does not exist'           );
             $this->Assert( method_exists( $testresult, 'Testcase'          ), 'TestcaseResult::Testcase method does not exist'          );
             
-            $this->AssertEquals( $this, $testresult->Testcase(), 'Testcase rerturned by TestResult does not match the one passed' );
-            $this->AssertFalse( $testresult->Success(), 'Testcase with unsuccessful testruns incorrectly marked as successful' );
-            $this->AssertTrue( $testresult2->Success(), 'Testcase with successful testruns incorrectly marked as unsuccessful' );
-            $this->AssertEquals( $badresult->NumAssertions() + $goodresult->NumAssertions(), $testresult->NumAssertions(), 'Number of assertions returned by TestcaseResult does not match the sum of the relevant test RunResults' );
+            $this->AssertEquals( $this, $testresult->Testcase, 'Testcase rerturned by TestResult does not match the one passed' );
+            $this->AssertFalse( $testresult->Success, 'Testcase with unsuccessful testruns incorrectly marked as successful' );
+            $this->AssertTrue( $testresult2->Success, 'Testcase with successful testruns incorrectly marked as unsuccessful' );
+            $this->AssertEquals( $badresult->NumAssertions + $goodresult->NumAssertions, $testresult->NumAssertions, 'Number of assertions returned by TestcaseResult does not match the sum of the relevant test RunResults' );
             $this->AssertEquals( 1, $testresult->NumSuccessfulRuns(), 'Number of successful runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( 2, $testresult->NumRuns(), 'Total number of runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( array( $badresult, $goodresult ), $testresult->Results(), 'Results returned by TestcaseResult do not match the ones passed to it' );
