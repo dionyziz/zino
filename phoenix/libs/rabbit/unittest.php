@@ -206,7 +206,7 @@
                 else {
                     $this->mSuccess = false;
                 }
-                $this->mNumAssertions += $runresult->NumAssertions();
+                $this->mNumAssertions += $runresult->NumAssertions;
             }
             $this->mTestcase = $testcase;
             $this->mRunResults = $runresults;
