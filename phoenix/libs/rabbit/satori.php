@@ -4,7 +4,7 @@
             // check if a custom setter is specified
             $methodname = 'Set' . $name;
             if ( method_exists( $this, $methodname ) ) {
-                $success = $this->$methodname( $value ); // MAGIC!
+                $success = call_user_func( array( $this, $methodname ), $value );
                 if ( $success !== false ) {
                     return true;
                 }
@@ -16,7 +16,7 @@
             // check if a custom getter is specified
             $methodname = 'Get' . $name;
             if ( method_exists( $this, $methodname ) ) {
-                $value = $this->$methodname(); // MAGIC!
+                $value = call_user_func( array( $this, $methodname ) );
                 return $value;
             }
             // else fallthru
