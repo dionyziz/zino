@@ -6,12 +6,16 @@
     abstract class Testcase {
         protected $mTester;
         protected $mName;
+        protected $mAppliesTo;
         
         final public function Testcase() {
         }
         public function SetUp() { // overridable
         }
         public function TearDown() { // overridable
+        }
+        final public function AppliesTo() {
+            return $this->mAppliesTo;
         }
         public function SetName( $name ) {
             w_assert( is_string( $name ) );
