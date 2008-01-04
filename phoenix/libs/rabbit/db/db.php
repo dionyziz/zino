@@ -151,8 +151,7 @@
 			$res = $this->mDriver->Query( $sql , $this->mLink );
 			$water->LogSQLEnd();
 			if ( $res === false ) {
-				$water->ThrowException( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
-                return false;
+				throw New Exception( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
 			}
 			else if ( $res === true ) {
 				return New DBChange( $this->mDriver, $this->mLink );

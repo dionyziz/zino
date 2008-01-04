@@ -39,12 +39,6 @@ abstract class Page {
         // $this->mOutputLevel = ob_get_level();
 	}
 	final protected function OutputEnd() {
-        /* 
-        global $water;
-        
-        if ( ob_get_level() != $this->mOutputLevel ) {
-            $water->ThrowException( 'Output buffering level is inconsistent (' . $this->mOutputLevel . '/' . ob_get_level() . ')' );
-        } */
 		echo ob_get_clean();
 	}
 	protected function GenerateBody() {

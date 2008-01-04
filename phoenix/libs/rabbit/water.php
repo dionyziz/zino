@@ -12,6 +12,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 	// Water version 4/PHP5/XC
 	
+    require 'libs/water/json.php';
+    
 	function Water_HandleError( $errno , $errstr , $errfile , $errline , $errcontext ) {
 		global $water;
 		
@@ -19,72 +21,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$water->HandleError( $errno , $errstr ); // the file, line, and context can be obtained by the calltrace
 		}
 	}
-	function w_die( $error = '' , $data = false ) {
-		global $water;
-		
-		$water->ThrowException( $error , false );
-	}
+    function Water_HandleException( Exception $exception ) {
+        global $water;
+        
+        $water->HandleException( $exception );
+    }
 	function w_assert( $condition, $reason = '' ) {
 		global $water;
 		
 		$water->Assert( $condition, $reason );
-	}
-	function w_json_encode( $what, $chopstrings = -1, $depth = 0, $ascii = true ) {
-		if ( $depth > 6 ) {
-			return '"[and more]"';
-		}
-		if ( is_int( $what ) || is_float( $what ) ) {
-			return $what;
-		}
-		if ( is_bool( $what ) ) {
-			return $what? 'true': 'false';
-		}
-		if ( is_string( $what ) ) {
-			if ( $chopstrings > 0 && $chopstrings < strlen( $what ) ) { 
-				// avoid SELECT queries ( There is no point in hiding them ) -- Aleksis
-				// NO. How do you know it's a query? The json encoding system should be generalized. 
-				// Say I have a 50MB-string starting with the word "SELECT", this doesn't mean it has to crash water! --dionyziz
-				$what = substr( $what, 0, $chopstrings ) . '...';
-			}
-			if ( $ascii ) {
-				return '"' . addcslashes( $what, "\\\"\n\r\t\0..\37" ) . '"';
-			}
-			else {
-				return '"' . addcslashes( $what, "\\\"\n\r\t\0..\37!@\@\177..\377" ) . '"';
-			}
-		}
-		if ( is_resource( $what ) ) {
-			return '"[resource: ' . get_resource_type( $what ) . ']"';
-		}
-		if ( is_null( $what ) ) {
-			return 'null';
-		}
-		if ( is_object( $what ) ) {
-			return '"[object: ' . get_class( $what ) . ']"';
-		}
-		if ( is_array( $what ) ) {
-			// check if it is non-assosiative
-			if ( array_keys( $what ) == range( 0, count( $what ) ) ) {
-				for ( $i = 0 ; $i < count( $what ) ; ++$i ) {
-					$what[ $i ] = w_json_encode( $what, $chopstrings, $depth + 1, $ascii );
-				}
-				return '[' . implode(',', $what) . ']';
-			}
-			$ret = '{';
-			reset( $what );
-			for ( $i = 0 ; $i < count( $what ) ; ++$i ) {
-				$item = each( $what );
-				$ret .= w_json_encode( $item[ 'key' ], $chopstrings, $depth, $ascii );
-				$ret .= ':';
-				$ret .= w_json_encode( $item[ 'value'], $chopstrings, $depth + 1, $ascii );
-				if ( $i + 1 < count( $what ) ) {
-					$ret .= ',';
-				}
-			}
-			$ret .= '}';
-			return $ret;
-		}
-		return '"[unknown]"';
 	}
 	
 	final class Water {
@@ -114,16 +59,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$this->mSettings[ $key ] = $value;
 		}
 		public function Trace( $message, $dump = false ) {
-			$this->HandleError( E_USER_TRACE , $message, $dump );
+			$this->HandleError( E_USER_TRACE , $message, $dump, debug_backtrace() );
 		}
 		public function Notice( $message, $dump = false ) {
-			$this->HandleError( E_USER_NOTICE , $message, $dump );
+			$this->HandleError( E_USER_NOTICE , $message, $dump, debug_backtrace() );
 		}
 		public function Warning( $message, $dump = false ) {
-			$this->HandleError( E_USER_WARNING , $message, $dump );
+			$this->HandleError( E_USER_WARNING , $message, $dump, debug_backtrace() );
 		}
 		public function Error( $message, $dump = false ) {
-			$this->HandleError( E_USER_ERROR , $message, $dump );
+			$this->HandleError( E_USER_ERROR , $message, $dump, debug_backtrace() );
 		}
 		public function Profile( $algorithm ) {
 			if ( !$this->mDebugEnabled ) {
@@ -236,13 +181,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		public function Enabled() {
 			return $this->mDebugEnabled;
 		}
-		private function AppendAlert( $errno, $errstr, $errdump ) {
+		private function AppendAlert( $errno, $errstr, $errdump, $backtrace = false ) {
 			$functions = $this->get_php_functions();
 			$dump = w_json_encode( $errdump , $this->mSettings[ 'maxstring' ] );
 			$alert = array(
 				'id' => $errno, 
 				'description' => $errstr, 
-				'calltrace' => $this->AlertCalltrace()
+				'calltrace' => $this->AlertCalltrace( $backtrace )
 			);
 			
 			if ( $errdump !== false ) {
@@ -251,11 +196,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 			$this->mOutputAlerts[] = $alert;
 		}
-        private function AlertCalltrace()
+        private function AlertCalltrace( $backtrace = false )
         {
             $calltrace = array();
 			if ( $this->mSettings[ 'calltraces' ] ) {
-				$lastword = $this->callstack_lastword();
+				$lastword = $this->callstack_lastword( $backtrace );
 			}
 			else {
 				$lastword = array();
@@ -509,10 +454,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			};
 			<?php
 		}
-		public function ThrowException( $message , $data ) {
-			$this->HandleException( New Exception( $message ) , $data );
-		}
-		public function HandleError( $errno , $errstr, $errdump = false ) {
+		public function HandleError( $errno, $errstr, $errdump = false, $backtrace = false ) {
 			if ( !$this->mDebugEnabled ) {
 				return;
 			}
@@ -545,11 +487,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                         return;
                     }
 			}
-			$this->AppendAlert( $errno , $errstr , $errdump );
+			$this->AppendAlert( $errno, $errstr, $errdump, $backtrace );
 		}
-		private function HandleException( $exception , $data = false ) {
+		private function HandleException( $exception, $data = false ) {
 			// since there has been no try/catch pair, this is a fatal exception
-			$this->FatalError( $exception->getMessage() , $data );
+			$this->FatalError( $exception->getMessage(), $data, $exception->getTrace() );
 		}
 		public function Assert( $expression, $reason = '' ) {
 			if ( !$expression ) {
@@ -557,10 +499,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 if ( !empty( $reason ) ) {
                     $msg .= ': ' . $reason;
                 }
-				$this->ThrowException( $msg );
+				throw New Exception( $msg );
 			}
 		}
-		private function FatalError( $message , $data ) {
+		private function FatalError( $message, $data, $backtrace = false ) {
 			global $page;
             
 			if ( function_exists( 'UserIp' ) ) {
@@ -634,14 +576,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             $quote = array_rand( $quotes );
             
             if ( $page instanceof PageHTML ) {
-                $this->die_html( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
+                $this->die_html( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ], $backtrace );
             }
             else {
-                $this->die_plaintext( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
+                $this->die_plaintext( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ], $backtrace );
             }
 			exit();
 		}
-        private function die_plaintext( $errmessage, $data, $trace, $quote ) {
+        private function die_plaintext( $errmessage, $data, $trace, $quote, $backtrace = false ) {
             if ( !headers_sent() ) {
                 header( 'Content-type: text/plain' );
             }
@@ -657,7 +599,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             }
             if ( $trace ) {
                 echo "\n";
-                echo $this->DumpTrace();
+                echo $this->DumpTrace( $backtrace );
                 echo "\n";
             }
             echo "\n";
@@ -761,7 +703,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                             ?></i><br /><?php
                         }
                         if ( $trace ) {
-                            echo $this->DumpTrace();
+                            echo $this->DumpTrace( $backtrace );
                         }
                         ?><br />
                         <div class="quote"><?php
@@ -771,10 +713,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 </body>
             </html><?php
         }
-		private function DumpTrace() {
+		private function DumpTrace( $backtrace = false ) {
 			ob_start();
             
-			$this->callstack_dump_lastword();
+			$this->callstack_dump_lastword( $backtrace );
             
 			return ob_get_clean();
 		}
@@ -805,9 +747,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			
 			return $memo;
 		}
-		private function callstack_lastword() {
-			$backtrace = debug_backtrace();
-			
+		private function callstack_lastword( $backtrace = false ) {
+            if ( $backtrace === false ) {
+                $backtrace = debug_backtrace();
+			}
+            
 			$i = count( $backtrace ) - 1;
 			foreach ( $backtrace as $call ) {
 				if ( !isset( $call[ 'file' ] ) ) {
@@ -1115,8 +1059,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			}
 			?></table></div><?php
 		}
-		private function callstack_dump_lastword() {
-			$this->callstack( $this->callstack_lastword() );
+		private function callstack_dump_lastword( $backtrace = false ) {
+			$this->callstack( $this->callstack_lastword( $backtrace ) );
 		}
         private function callstack( $callstack ) {
             global $page;
@@ -1158,6 +1102,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		// turn water on
 		set_error_handler( 'Water_HandleError' );
 	}
+    if ( function_exists( 'Water_HandleException' ) ) {
+        set_exception_handler( 'Water_HandleException' );
+    }
+    
 	error_reporting( E_ALL );
 
 	return New Water(); // singleton

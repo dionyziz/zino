@@ -218,7 +218,6 @@
         }
         final public function __construct( $construct = false ) {
             // do not overload me!
-            global $water;
             global $rabbit_settings;
             
             w_assert( is_string( $this->mDbTable ), 'Please specify your database table by setting member attribute mDbTable for class `' . get_class( $this ) . '\'' );
@@ -267,7 +266,7 @@
             }
             else {
                 if ( !is_array( $construct ) ) {
-                    $water->ThrowException( 'Satori construction must be done either voidly, by an Id integer, or by a fetched array. `' . $construct . '\' is not a valid construction parameter.' );
+                    throw New Exception( 'Satori construction must be done either voidly, by an Id integer, or by a fetched array. `' . $construct . '\' is not a valid construction parameter.' );
                 }
                 $fetched_array = $construct;
                 $this->mExists = count( $fetched_array ) > 0;

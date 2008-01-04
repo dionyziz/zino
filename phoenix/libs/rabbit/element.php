@@ -22,7 +22,7 @@
                     $this->mSettings[ $setting ] = $value;
                     break;
                 default:
-                    $this->mWater->ThrowException( 'Invalid Elemental setting' , $setting );
+                    throw New Exception( 'Invalid Elemental setting' , $setting );
             }
         }
         public function IncludeFile( $elementpath ) {

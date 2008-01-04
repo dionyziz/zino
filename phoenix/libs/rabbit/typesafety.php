@@ -87,9 +87,7 @@
             return $this->current() !== false;
         }
         public function Get() {
-            global $water;
-            
-            $water->ThrowException( 'Type Get() cannot be used on tArray; iterate over tArray and ->Get() on each value instead' );
+            throw New Exception( 'Type Get() cannot be used on tArray; iterate over tArray and ->Get() on each value instead' );
         }
     }
     
@@ -129,9 +127,7 @@
             return $this->mExists;
         }
         public function Get() {
-            global $water;
-            
-            $water->ThrowException( 'Type Get() cannot be used on tCoalaPointer; use "echo" directly with your pointer instead' );
+            throw New Exception( 'Type Get() cannot be used on tCoalaPointer; use "echo" directly with your pointer instead' );
         }
         public function __toString() {
             return $this->mValue;
@@ -196,15 +192,11 @@
             return '[uploaded file: ' . $this->mName . ']';
         }
         public function Get() {
-            global $water;
-            
-            $water->ThrowException( 'Type Get() cannot be used on tFile; use build-in methods and attributes directly with your file object instead' );
+            throw New Exception( 'Type Get() cannot be used on tFile; use build-in methods and attributes directly with your file object instead' );
         }
     }
 
     function Rabbit_TypeSafe_Call( $function , $req ) {
-        global $water;
-        
         w_assert( is_array( $req ) );
         
         // reflect!
@@ -216,11 +208,11 @@
             $paramname = $parameter->getName();
             $paramclass = $parameter->getClass();
             if ( !is_object( $paramclass ) ) {
-                $water->ThrowException( 'No type hinting specified for parameter ' . $paramname . ' of type-safe function ' . $function );
+                throw New Exception( 'No type hinting specified for parameter ' . $paramname . ' of type-safe function ' . $function );
             }
             else {
                 if ( !$paramclass->isSubclassOf( $basetype ) ) {
-                    $water->ThrowException( 'Type hint of parameter ' . $paramname . ' of type-safe function ' . $function . ' does not exist or is not derived from tBaseType' );
+                    throw New Exception( 'Type hint of parameter ' . $paramname . ' of type-safe function ' . $function . ' does not exist or is not derived from tBaseType' );
                 }
                 if ( isset( $req[ $paramname ] ) ) {
                     $params[] = $paramclass->newInstance( $req[ $paramname ] );

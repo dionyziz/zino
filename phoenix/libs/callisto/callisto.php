@@ -89,10 +89,10 @@
             
             $ri = ( string )$ri;
             if ( strlen( $ri ) > 1024 ) {
-                $water->ThrowException( 'Channel RI must not exceed 1024 characters' );
+                throw New Exception( 'Channel RI must not exceed 1024 characters' );
             }
             if ( !preg_match( '#^[A-Za-z0-9_\-/\.\?\!]*$#', $ri ) ) { // whitelist RI
-                $water->ThrowException( 'Channel RI does not match whitelist' );
+                throw New Exception( 'Channel RI does not match whitelist' );
             }
             
             $this->mRI = $ri;

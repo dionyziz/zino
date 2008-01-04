@@ -15,7 +15,7 @@
         
         $pageclass = 'Page' . $mode;
         if ( !class_exists( $pageclass ) ) {
-            $water->ThrowException( 'Invalid Rabbit_Contrust pagetype used: ' . $mode );
+            throw New Exception( 'Invalid Rabbit_Contrust pagetype used: ' . $mode );
             return;
         }
         

@@ -61,7 +61,7 @@
                 );
                 return Redirect( "?p=register&screwyou=yes&u=$username" );
     		default:
-    			w_die( "MakeUser() return value is invalid." ) ; //Throws an exception
+    			throw New Exception( "MakeUser() return value is invalid." );
     	}
     }
 ?>

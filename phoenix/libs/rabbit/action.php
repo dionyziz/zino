@@ -16,7 +16,7 @@
             Rabbit_Include( 'actions/' . $action );
             
             if ( !function_exists( $actionfunction ) ) {
-                $water->ThrowException( 'Action is not functional', $actionfunction );
+                throw New Exception( 'Action is not functional', $actionfunction );
             }
             
             return Rabbit_TypeSafe_Call( $actionfunction, $req );

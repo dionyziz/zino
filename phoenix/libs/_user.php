@@ -661,10 +661,9 @@
 	function CheckIfUserBanned() {
 		global $user;
 		global $db;
-		global $water;
         
         if ( !is_object( $user ) ) {
-            $water->ThrowException( 'Uninitialized user object' );
+            throw New Exception( 'Uninitialized user object' );
         }
         
 		if ( !$user->CanModifyUsers() ) {

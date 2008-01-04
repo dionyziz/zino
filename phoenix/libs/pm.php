@@ -453,10 +453,10 @@
 			return true;
 		}
 		public function Delete() {
-			w_die( "Tried to delete inbox folder" );
+			throw New Exception( "Tried to delete inbox folder" );
 		}
 		public function Save() {
-			w_die( "Tried to update inbox folder" );
+			throw New Exception( "Tried to update inbox folder" );
 		}
 		public function PMInbox( $name = '' ) {
 			global $user;
@@ -521,10 +521,10 @@
 			return true;
 		}
 		public function Delete() {
-			w_die( "Tried to delete outbox folder" );
+			throw New Exception( "Tried to delete outbox folder" );
 		}
 		public function Save() {
-			w_die( "Tried to update outbox folder" );
+			throw New Exception( "Tried to update outbox folder" );
 		}
 		public function PMOutbox( $name = '' ) {
 			global $user;
