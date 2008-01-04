@@ -3,7 +3,7 @@
         Developer: Dionyziz
     */
     
-    abstract class Testcase {
+    abstract class Testcase extends Overloadable {
         protected $mTester;
         protected $mName;
         protected $mAppliesTo;
@@ -17,12 +17,12 @@
         final public function AppliesTo() {
             return $this->mAppliesTo;
         }
-        public function SetName( $name ) {
+        protected function SetName( $name ) {
             w_assert( is_string( $name ) );
             w_assert( !empty( $name ) );
             $this->mName = $name;
         }
-        public function Name() {
+        protected function GetName() {
             return $this->mName;
         }
         protected function AssertNull( $actual, $message = '' ) {
@@ -93,7 +93,7 @@
                                     $water->Warning( "Rabbit Testcase $item/$df did not specify a valid 'mAppliesTo' path; skipping" );
                                 }
                                 else {
-                                    $testcase->SetName( substr( $item . '/' . $df, strlen( $rabbit_settings[ 'rootdir' ] . '/tests/' ), -strlen( '.php' ) ) );
+                                    $testcase->Name = substr( $item . '/' . $df, strlen( $rabbit_settings[ 'rootdir' ] . '/tests/' ), -strlen( '.php' ) );
                                     $ret[] = $testcase;
                                 }
                             }
