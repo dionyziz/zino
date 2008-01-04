@@ -43,7 +43,7 @@
         // This function is used for matching the value of the $p variable with the actual file on the server.
         // For example $p = register matches with the user/new file.
     	return array(
-    		""                 	=> "frontpage/view",
+    		""                 	=> "frontpage",
             "bennu"             => "bennu",
 			"profile"			=> "user/profile/view",
 			"join" 				=> "user/join",
