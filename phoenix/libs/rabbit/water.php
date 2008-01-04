@@ -505,8 +505,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		private function FatalError( $message, $data, $backtrace = false ) {
 			global $page;
             
-            die( var_dump( $backtrace ) );
-            
 			if ( function_exists( 'UserIp' ) ) {
 				$userip = UserIp();
 			}
@@ -586,6 +584,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			exit();
 		}
         private function die_plaintext( $errmessage, $data, $trace, $quote, $backtrace = false ) {
+            die( 'Plaintext ' . var_dump( $backtrace ) );
+            
             if ( !headers_sent() ) {
                 header( 'Content-type: text/plain' );
             }
@@ -608,6 +608,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             echo $quote;
         }
         private function die_html( $errmessage, $data, $trace, $quote ) {
+            die( 'HTML ' . var_dump( $backtrace ) );
+            
             if ( !headers_sent() ) {
                 header( 'Content-type: text/xml' );
             }
