@@ -34,7 +34,8 @@
         private $mDbFieldKeys; // list with database fields (string)
         private $mReadOnlyFields; // dictionary with class attributes => true
         private $mDbColumns; // list with DBField instances
-        private $mPrimaryKeys; // list with database fields that are primary keys (string)
+        private $mDbIndexes; // list with DBIndex instances
+        private $mPrimaryKeyFields; // list with database fields that are primary keys (array of string)
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
         protected $mAutoIncrementField;
@@ -111,6 +112,9 @@
             // check if the current object exists; this can be overloaded if you wish, but you can also set $this->mExists
             return $this->mExists;
         }
+        protected function GetPrimaryKeyFields() {
+            return $this->mPrimaryKeyFields;
+        }
         public function Save() {
             if ( $this->Exists() ) {
                 $sql = 'UPDATE
@@ -133,9 +137,18 @@
                 }
                 
                 $sql .= implode( ', ', $updates );
-                $sql .= 'WHERE ' . $this->WhereAmI() . ' LIMIT 1;';
+                $sql .= 'WHERE ';
+                $conditions = array();
+                foreach ( $this->PrimaryKeyFields as $primarykey ) {
+                    $conditions .= '`' . $primarykey . '` = :_' . $primarykey;
+                }
+                $sql .= implode( ' AND ', $conditions );
+                $sql .= $this->WhereAmI() . ' LIMIT 1;';
                 $query = $this->mDb->Prepare( $sql );
                 $query->BindTable( $this->mDbTable );
+                foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
+                    $this->Bind( '_' . $primarykey, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
+                }
                 foreach ( $bindings as $name => $value ) {
                     $query->Bind( $name, $value );
                 }
@@ -150,7 +163,9 @@
                     $inserts, $this->mDbTable
                 );
                 if ( $change->Impact() ) {
-                    $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
+                    if ( $this->mAutoIncrementField !== false ) {
+                        $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
+                    }
                 }
                 $this->mExists = true;
                 return $change;
@@ -159,11 +174,22 @@
         public function Delete() {
             w_assert( $this->Exists() );
             
-            $query = $this->mDb->Prepare(
-                'DELETE FROM
-                    :' . $this->mDbTable . '
-                WHERE ' . $this->WhereAmI() . ' LIMIT 1;'
-            );
+            $sql = 'DELETE FROM
+                        :' . $this->mDbTable . '
+                    WHERE ';
+            $conditions = array();
+            foreach ( $this->PrimaryKeyFields as $primary ) {
+                $conditions[] = '`' . $primary . '` = :' . $primary;
+            }
+            $sql .= implode( ' AND ', $conditions );
+            $sql .= ' LIMIT 1';
+            $query = $this->mDb->Prepare( $sql );
+            $i = 0;
+            foreach ( $this->PrimaryKeyFields as $primary ) {
+                $query->Bind( ':' . $primary, $this->mCurrentValues[ $this->mDbFields[ $primary ] ] );
+                ++$i;
+            }
+            $sql .= ' LIMIT 1;';
             $query->BindTable( $this->mDbTable );
             
             $this->mExists = false;
@@ -176,8 +202,10 @@
             $table = $this->mDb->TableByAlias( $this->mDbTable );
             w_assert( $table instanceof DBTable );
             $this->mDbColumns = $table->Fields;
-            w_assert( count( $this->mDbColumns ), 'Database table `' . $this->mDbTable . '\' used for a Satori class `' . get_class( $this ) . '\' does not have any columns' );
-           
+            w_assert( count( $this->mDbColumns ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
+            $this->mDbIndexes = $table->Indexes;
+            w_assert( count( $this->mDbIndexes ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
+            
             $this->mDbFields = array();
             $this->mDbFieldKeys = array();
             $this->mAutoIncrementField = false;
@@ -191,6 +219,18 @@
                     $this->mAutoIncrementField = $column->Name;
                 }
             }
+            
+            $this->mPrimaryKeyFields = array();
+            foreach ( $this->mDbIndexes as $index ) {
+                if ( $index->Type == DB_KEY_PRIMARY ) {
+                    foreach ( $index->Fields as $field ) {
+                        $this->mPrimaryKeyFields[] = $field->Name;
+                        // primary key attributes are read-only
+                        $this->MakeReadOnly( $this->mDbFields[ $field->Name ] );
+                    }
+                }
+            }
+            w_assert( count( $this->mPrimaryKeyFields ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
 
             $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
@@ -200,11 +240,7 @@
                 w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
                 
                 // default value
-                $this->mCurrentValues[ ucfirst( $attributename ) ] = false;
-            }
-
-            if ( reset( $this->mDbFields ) == 'Id' ) { // TODO: use primary keys instead
-                $this->MakeReadOnly( 'Id' );
+                $this->mCurrentValues[ $attributename ] = false;
             }
         }
         protected function GetFields() {
@@ -216,9 +252,20 @@
         protected function Relations() {
             // overload me
         }
-        final public function __construct( $construct = false ) {
+        final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {
             // do not overload me!
+            // possible invokations:
+            // 1) Empty object:
+            //     - $obj = New Object(); // creates brand new object
+            // 2) Existing object by primary key:
+            //     - $obj = New Object( $primaryfield1 [, $primaryfield2 [, ... ] ] );
+            //       ( e.g. $obj = New Object( $objectid ) )
+            // 3) Existing object by data:
+            //     - $obj = New Object( $fetched_array );
+            
             global $rabbit_settings;
+            
+            $args = func_get_args();
             
             w_assert( is_string( $this->mDbTable ), 'Please specify your database table by setting member attribute mDbTable for class `' . get_class( $this ) . '\'' );
             w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $this->mDbTable ), 'Your database table alias is incorrect; make sure you have specified a valid database table alias for class `' . get_class( $this ) . '\'' );
@@ -237,22 +284,38 @@
             w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             w_assert( count( $this->mDbFields ), 'Database fields is the empty array for class `'. get_class( $this ) . '\'; does your mapped table have no columns?' );
 
-            if ( $construct === false ) {
+            if ( !count( $args ) ) {
                 // empty new object
                 // set defaults
                 $this->mExists = false;
                 $this->LoadDefaults();
                 $fetched_array = array();
             }
-            else if ( ValidId( $construct ) ) { // TODO: use primary key instead
-                $this->mId = $construct; // overload constructor in case of ValidId() if you don't use Ids
-                $query = $this->mDb->Prepare(
-                    'SELECT
-                        ' . implode( ',', $this->mDbFieldKeys ) . '
-                    FROM 
-                        :' . $this->mDbTable . '
-                    WHERE ' . $this->WhereAmI() . ' LIMIT 1'
-                );
+            else if ( count( $args ) == 1 && is_array( $args[ 0 ] ) ) {
+                // construction by fetched array (instanciation of existing object without an SQL query)
+                // (you can use this when searching to avoid issuing one query per instanciated object when
+                //  instanciating multiple object -- the search system uses this)
+                $fetched_array = $construct;
+                $this->mExists = count( $fetched_array ) > 0;
+            }
+            else if ( count( $args ) == count( $this->mPrimaryKeyFields ) ) {
+                $sql = 'SELECT
+                            `' . implode( '`,`', $this->mDbFieldKeys ) . '`
+                        FROM 
+                            :' . $this->mDbTable . '
+                        WHERE ';
+                $conditions = array();
+                foreach ( $this->PrimaryKeyFields as $primary ) {
+                    $conditions[] = '`' . $primary . '` = :' . $primary;
+                }
+                $sql .= implode( ' AND ', $conditions );
+                $sql .= ' LIMIT 1';
+                $query = $this->mDb->Prepare( $sql );
+                $i = 0;
+                foreach ( $this->PrimaryKeyFields as $primary ) {
+                    $query->Bind( ':' . $primary, $args[ $i ] );
+                    ++$i;
+                }
                 $query->BindTable( $this->mDbTable );
                 $res = $this->mDb->Query( $sql );
                 if ( $res->NumRows() != 1 ) {
@@ -265,11 +328,7 @@
                 }
             }
             else {
-                if ( !is_array( $construct ) ) {
-                    throw New Exception( 'Satori construction must be done either voidly, by an Id integer, or by a fetched array. `' . $construct . '\' is not a valid construction parameter.' );
-                }
-                $fetched_array = $construct;
-                $this->mExists = count( $fetched_array ) > 0;
+                throw New Exception( 'Satori extensions must be constructed either voidly, by a primary key, or by a fetched array. `' . get_class( $this ) . '\' was instanciated unexpectedly using ' . count( $args ) . ' arguments.' );
             }
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
