@@ -489,7 +489,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			}
 			$this->AppendAlert( $errno, $errstr, $errdump, $backtrace );
 		}
-		private function HandleException( $exception, $data = false ) {
+		public function HandleException( $exception, $data = false ) {
 			// since there has been no try/catch pair, this is a fatal exception
 			$this->FatalError( $exception->getMessage(), $data, $exception->getTrace() );
 		}
