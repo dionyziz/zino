@@ -57,10 +57,6 @@
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
             $runresult = New RunResult( array( $bad, $good, $bad, $bad ), 'run1' );
-            $this->Assert( method_exists( $runresult, 'Success'                 ), 'RunResult::Success method does not exist' );
-            $this->Assert( method_exists( $runresult, 'RunName'                 ), 'RunResult::RunName method does not exist' );
-            $this->Assert( method_exists( $runresult, 'NumAssertions'           ), 'RunResult::NumAssertions method does not exist' );
-            $this->Assert( method_exists( $runresult, 'NumSuccessfulAssertions' ), 'RunResult::NumSuccessfulAssertions method does not exist' );
             $this->Assert( $runresult instanceof Iterator, 'RunResult must be iteratable' );
             
             $this->AssertEquals( $runresult->RunName, 'run1' );
