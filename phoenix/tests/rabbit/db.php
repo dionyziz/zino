@@ -20,6 +20,16 @@
             $this->mFirstDatabase = $GLOBALS[ reset( array_keys( $rabbit_settings[ 'databases' ] ) ) ];
             $this->Assert( $this->mFirstDatabase instanceof Database, 'Your first defined database does not appear to be consistent' );
             $this->Assert( method_exists( $this->mFirstDatabase, 'Tables' ), 'Method Database->Tables() does\'t exist' );
+			
+			// DBTable
+			$table = New DBTable();	
+			$this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() does\'t exist' );
+			$this->Assert( method_exists( $table, 'CreateIndex' ) , 'Method DBTable->CreateIndex() does\'t exist' );
+			
+			// DBIndex
+			$index = New DBIndex();	
+			$this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() does\'t exist' );
+			$this->Assert( method_exists( $index, 'CreateIndex' ) , 'Method DBIndex->CreateIndex() does\'t exist' );
         }
         public function TestPublicImport() {
             global $rabbit_settings;
@@ -50,6 +60,23 @@
                 }
             }
         }
+		public function TestConstantsExist() {
+			// Database data types
+			$this->Assert( defined( 'DB_TYPE_DATETIME' )	, 'Constant of database type DATETIME must be defined' );
+			$this->Assert( defined( 'DB_TYPE_VARCHAR' )		, 'Constant of database type VARCHAR must be defined' );
+			$this->Assert( defined( 'DB_TYPE_ENUM' )		, 'Constant of database type ENUM must be defined' );
+			$this->Assert( defined( 'DB_TYPE_CHAR' )		, 'Constant of database type CHAR must be defined' );
+			$this->Assert( defined( 'DB_TYPE_INT' )			, 'Constant of database type INT must be defined' );
+			$this->Assert( defined( 'DB_TYPE_TEXT' )		, 'Constant of database type TEXT must be defined' );
+			$this->Assert( defined( 'DB_TYPE_FLOAT' )		, 'Constant of database type FLOAT must be defined' );
+			
+			// Database key index types
+			$this->Assert( defined( 'DB_KEY_INDEX' )	, 'Constant of database key INDEX must be defined' );
+			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
+			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
+			
+		}
+					
 		public function TestCreateTable() {
 			
 			$table = New DBTable();
@@ -75,16 +102,16 @@
 
 			$primary = New DBIndex();
 			$primary->AddField( $field );
-			$primary->Type = DB_INDEX_PRIMARY;
+			$primary->Type = DB_KEY_PRIMARY;
 
 			$username = New DBIndex();
 			$username->AddField( $field2 );
-			$username->Type = DB_INDEX_UNIQUE;
+			$username->Type = DB_KEY_UNIQUE;
 
 			$subdomain = New DBIndex();
 			$subdomain->AddField( $field2 ); // DBField or array of DBField
 			$subdomain->AddField( $field3 ); // order matters
-			$subdomain->Type = DB_INDEX;
+			$subdomain->Type = DB_KEY_INDEX;
 
 			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
 			$table->CreateIndex( $username );

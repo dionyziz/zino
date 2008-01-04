@@ -4,7 +4,23 @@
 		Developer: dionyziz
 	*/
 	
-    global $libs;
+	global $libs;
+	
+	
+		
+	// Define database data types
+    define( 'DB_TYPE_INT' 		, 1 );
+    define( 'DB_TYPE_VARCHAR' 	, 2 );
+    define( 'DB_TYPE_CHAR' 		, 3 );
+    define( 'DB_TYPE_TEXT' 		, 4 );
+    define( 'DB_TYPE_DATETIME'	, 5 );
+    define( 'DB_TYPE_FLOAT'		, 6 );
+    define( 'DB_TYPE_ENUM'		, 7 );
+	
+	// Define database index types
+	define( 'DB_KEY_INDEX'		, 1 );
+	define( 'DB_KEY_UNIQUE'		, 2 );
+	define( 'DB_KEY_PRIMARY'	, 3 );
     
     // implement this interface to add support for a different database
     interface DatabaseDriver {
@@ -33,6 +49,10 @@
         public function FetchField( $driver_resource, $offset );
         // retrieves a user-friendly name for this driver as a string
         public function GetName();
+		// get a native database data type describing string by constant
+		public function DataTypeByConstant( $constant );
+		// get a rabbit DB data type from a native datatype describing string 
+		public function ConstantByDataType( $datatype );
     }
     
     $libs->Load( 'rabbit/db/mysql' ); // load mysql support
@@ -460,6 +480,9 @@
     class DBField extends Overloadable {
         protected $mName;
         protected $mType;
+		protected $mLength;
+		protected $mExists;
+		protected $mStoredState;
         protected $mIsPrimaryKey;
         protected $mIsAutoIncrement;
 
@@ -472,6 +495,16 @@
         protected function GetType() {
             return $this->mType;
         }
+		protected function SetType( $type ) {
+			w_assert( is_int( $type ), 'Database field data type specified is invalid' );
+			// TODO: add assert,  $type must be valid!!
+			$this->mType = $type;
+		}
+		protected function SetName( $name ) {
+			w_assert( is_string( $type ), 'Database field name specified is invalid' );
+			$this->mName = $name;
+			
+		} 
         public function DBField( $info ) {
             $this->mName = $info[ 'Field' ];
             $this->mType = $info[ 'Type' ];

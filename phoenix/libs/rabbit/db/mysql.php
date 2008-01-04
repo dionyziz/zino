@@ -5,7 +5,19 @@
     */
     
     class DatabaseDriver_MySQL implements DatabaseDriver {
-        public function GetName() {
+        // Rabbit DB constant to native mysql type descriptor
+		private $mDataTypes = array( 
+			DB_TYPE_INT 		=> 'INT',
+			DB_TYPE_VARCHAR 	=> 'VARCHAR',
+			DB_TYPE_CHAR		=> 'CHAR',
+			DB_TYPE_TEXT		=> 'TEXT',
+			DB_TYPE_DATETIME	=> 'DATETIME',
+			DB_TYPE_FLOAT		=> 'FLOAT',
+			DB_TYPE_ENUM		=> 'ENUM'
+		); 
+		private $mFlippedDataTypes = false;
+		
+		public function GetName() {
             return 'MySQL';
         }
         public function LastAffectedRows( $driver_link ) {
@@ -44,6 +56,15 @@
         public function FetchField( $driver_resource, $offset ) {
             return mysql_fetch_field( $driver_resource, $offset );
         }
+		public function DataTypeByConstant( $constant ) {
+			return $this->mDataTypes[ $constant ]; 
+		}
+		public function ConstantByDataType( $datatype ) {
+			if ( $this->mFlippedDataTypes === false ) {
+				$this->mFlippedDataTypes = array_flip( $this->mDataTypes );
+			}
+			return $this->mFlippedDataTypes[ $datatype ];
+		}
     }
     
 ?>
