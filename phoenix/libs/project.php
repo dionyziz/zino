@@ -58,7 +58,8 @@
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
             'debug'             => 'developer/water',
-            'jslint'            => 'developer/js/lint'
+            'jslint'            => 'developer/js/lint',
+            'developer/dionyziz/water' => 'developer/dionyziz/water'
     	);
     }
 ?>
