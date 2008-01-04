@@ -120,6 +120,7 @@
     }
         
     class TestRabbitSatori extends Testcase {
+        protected $mAppliesTo = 'libs/rabbit/satori';
         private $mDb;
         private $mDbTable;
         private $mObj;

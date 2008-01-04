@@ -1,5 +1,9 @@
 <?php
-    class Testcase {
+    /*
+        Developer: Dionyziz
+    */
+    
+    abstract class Testcase {
         protected $mTester;
         protected $mName;
         
@@ -56,6 +60,7 @@
     
     function Test_GetTestcases() { // fetch a list of all testcases
         global $rabbit_settings;
+        global $water;
         
         $ret = array();
         
@@ -74,9 +79,20 @@
                         }
                         else if ( substr( $df, -strlen( '.php' ) ) == '.php' ) {
                             $testcase = require $item . '/' . $df;
-                            w_assert( $testcase instanceof Testcase, "File $item/$df is not a valid Rabbit Testcase" );
-                            $testcase->SetName( substr( $item . '/' . $df, strlen( $rabbit_settings[ 'rootdir' ] . '/tests/' ), -strlen( '.php' ) ) );
-                            $ret[] = $testcase;
+                            if ( !( $testcase instanceof Testcase ) ) {
+                                $water->Warning( "File $item/$df is not a valid Rabbit Testcase; skipping" );
+                            }
+                            else {
+                                $appliesto = $testcase->AppliesTo();
+                                $fileloadresult = Mask( $appliesto );
+                                if ( isset( $fileloadresult[ 'error' ] ) ) {
+                                    $water->Warning( "Rabbit Testcase $item/$df did not specify a valid 'mAppliesTo' path; skipping" );
+                                }
+                                else {
+                                    $testcase->SetName( substr( $item . '/' . $df, strlen( $rabbit_settings[ 'rootdir' ] . '/tests/' ), -strlen( '.php' ) ) );
+                                    $ret[] = $testcase;
+                                }
+                            }
                         }
                 }
             }
@@ -132,7 +148,7 @@
         }
     }
     
-    class TestcaseResult implements Iterator { // a group of run results, the results for a complete testcase
+    class TestcaseResult extends Overloadable implements Iterator { // a group of run results, the results for a complete testcase
         protected $mRunResults;
         protected $mTestcase;
         protected $mSuccess;
@@ -161,16 +177,16 @@
         public function valid() {
             return $this->current() !== false;
         }
-        public function NumRuns() {
+        protected function GetNumRuns() {
             return $this->mNumRuns;
         }
-        public function NumSuccessfulRuns() {
+        protected function GetNumSuccessfulRuns() {
             return $this->mNumSuccessfulRuns;
         }
-        public function NumAssertions() {
+        protected function GetNumAssertions() {
             return $this->mNumAssertions;
         }
-        public function Success() {
+        protected function GetSuccess() {
             return $this->mSuccess;
         }
         public function TestcaseResult( Testcase $testcase, array $runresults ) {
@@ -193,7 +209,7 @@
         }
     }
     
-    class RunResult implements Iterator { // a group of assertion results, a result of a test (function in the testcase class)
+    class RunResult extends Overloadable implements Iterator { // a group of assertion results, a result of a test (function in the testcase class)
         protected $mAssertionResults;
         protected $mSuccess;
         protected $mRunName;
@@ -215,16 +231,16 @@
         public function valid() {
             return $this->current() !== false;
         }
-        public function RunName() {
+        protected function GetRunName() {
             return $this->mRunName;
         }
-        public function Success() {
+        protected function GetSuccess() {
             return $this->mSuccess;
         }
-        public function NumAssertions() {
+        protected function GetNumAssertions() {
             return $this->mNumAssertions;
         }
-        public function NumSuccessfulAssertions() {
+        protected function GetNumSuccessfulAssertions() {
             return $this->mNumSuccessfulAssertions;
         }
         public function RunResult( array $assertionresults, $runname ) {
@@ -247,22 +263,22 @@
         }
     }
     
-    class AssertResult { // most basic test, a simple assertion
+    class AssertResult extends Overloadable { // most basic test, a simple assertion
         protected $mSuccess;
         protected $mMessage;
         protected $mActual;
         protected $mExpected;
         
-        public function Success() {
+        protected function GetSuccess() {
             return $this->mSuccess;
         }
-        public function Message() {
+        protected function GetMessage() {
             return $this->mMessage;
         }
-        public function Actual() {
+        protected function GetActual() {
             return $this->mActual;
         }
-        public function Expected() {
+        protected function GetExpected() {
             return $this->mExpected;
         }
         public function AssertResult( $success, $message, $actual, $expected ) {

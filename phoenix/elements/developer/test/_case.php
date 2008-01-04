@@ -1,6 +1,6 @@
 <?php
     function ElementDeveloperTestCase( Testcase $testcase, array $testsran, array $testcaseresults, array $indexbyname ) {
-        $name = $testcase->Name();
+        $name = $testcase->Name;
         ?><li><input type="checkbox" name="runtests[]" value="<?php
         echo htmlspecialchars( $name );
         ?>" id="rabbit_test_<?php
@@ -19,26 +19,26 @@
             if ( $testresult->Success() ) {
                 // testcase pass
                 ?>: <span class="pass">PASS</span> <span class="subject">(<?php
-                echo $testresult->NumAssertions();
+                echo $testresult->NumAssertions;
                 ?> assertion<?php
-                if ( $testresult->NumAssertions() != 1 ) {
+                if ( $testresult->NumAssertions != 1 ) {
                     ?>s<?php
                 }
                 ?> in <?php
-                echo $testresult->NumRuns();
+                echo $testresult->NumRuns;
                 ?> run<?php
-                if ( $testresult->NumRuns() != 1 ) {
+                if ( $testresult->NumRuns != 1 ) {
                     ?>s<?php
                 }
                 ?>)</span><?php
             }
             else {
                 ?>: <span class="fail">FAIL</span> <span class="subject">(<?php
-                echo $testresult->NumSuccessfulRuns();
+                echo $testresult->NumSuccessfulRuns;
                 ?> out of <?php
-                echo $testresult->NumRuns();
+                echo $testresult->NumRuns;
                 ?> run<?php
-                if ( $testresult->NumRuns() != 1 ) {
+                if ( $testresult->NumRuns != 1 ) {
                     ?>s<?php
                 }
                 ?> pass)</span><br /><ol><?php

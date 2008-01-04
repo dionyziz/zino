@@ -1,5 +1,6 @@
 <?php
     class TestRabbitDb extends Testcase {
+        protected $mAppliesTo = 'libs/rabbit/db/db';
         private $mFirstDatabase;
 		private $mTestTable;
         

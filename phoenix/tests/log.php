@@ -1,5 +1,6 @@
 <?php
     class TestLog extends Testcase {
+        protected $mAppliesTo = 'libs/log';
         private $mLog;
         
         public function TestClassesExist() {

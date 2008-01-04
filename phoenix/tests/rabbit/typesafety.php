@@ -24,6 +24,8 @@
     }
     
     final class TestRabbitTypeSafety extends Testcase {
+        protected $mAppliesTo = 'libs/rabbit/typesafety';
+        
         public function TestBaseTypesExist() {
             $this->Assert( class_exists( 'tBaseType'     ), 'tBaseType class does not exist'     );
             $this->Assert( class_exists( 'tInteger'      ), 'tInteger class does not exist'      );

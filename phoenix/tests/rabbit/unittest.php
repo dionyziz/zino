@@ -1,5 +1,7 @@
 <?php
     final class TestRabbitUnittesting extends Testcase {
+        protected $mAppliesTo = 'libs/rabbit/unittest';
+        
         public function TestAssertionsExist() {
             $this->Assert( method_exists( $this, 'Assert'          ), 'Testcase::Assert method does not exist'          ); // ha!
             $this->Assert( method_exists( $this, 'AssertTrue'      ), 'Testcase::AssertTrue method does not exist'      );
