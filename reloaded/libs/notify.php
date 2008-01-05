@@ -85,6 +85,8 @@
     // call this when a user reads a comment that was read 
     // without clicking the link of the notification
     function Notify_CommentRead( $userid, $commentid, $typeid ) {
+        return;
+        /*
         global $notify;
         global $db;
 
@@ -102,6 +104,7 @@
         $change = $db->Query( $sql );
 
         return $change->Impact();
+        */
     }
 
     class Notify {
