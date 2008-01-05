@@ -1,6 +1,6 @@
 div.header {
 	position: relative;
-	background-image: url('images/roxasbg3.jpg');
+	background-image: url(images/roxasbg3.jpg);
 	background-repeat: repeat-x;
 	height: 50px;
 	margin: 0 30px 0 30px;
@@ -30,7 +30,7 @@ div.header h1 {
 	top: 0;
 	left: 0;
 	position: absolute;
-	background-image: url('images/banner-begin2.jpg');
+	background-image: url(images/banner-begin2.jpg);
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
@@ -65,16 +65,16 @@ div.header ul li {
 	color: white;
 }
 div.header ul li a.messages {
-	background-image: url('images/mail_generic.png');
+	background-image: url(images/mail_generic.png);
 }
 div.header ul li a.profile {
-	background-image: url('images/identity.png');
+	background-image: url(images/identity.png);
 }
 div.header ul li a.login {
-	background-image: url('images/up.png');
+	background-image: url(images/up.png);
 }
 div.header ul li a.register {
-	background-image: url('images/bookmark_toolbar.png');
+	background-image: url(images/bookmark_toolbar.png);
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
@@ -97,7 +97,7 @@ div.header div.search {
 	color: white;
 	margin: 0;
 	padding: 0 0 0 10px;
-	background-image: url('images/searchbg.png');
+	background-image: url(images/searchbg.png);
 	background-repeat: no-repeat;
 	background-position: top left;
 	width: 176px;
@@ -112,7 +112,7 @@ div.header div.search input.text {
 	margin: 11px 16px 10px 23px;
 	width: 137px;
 	padding: 2px 2px 2px 4px;
-    background-image: url('images/shadowytxt.jpg');
+    background-image: url(images/shadowytxt.jpg);
     background-position: top left;
     background-repeat: no-repeat;
 }
@@ -132,7 +132,7 @@ div.header a img {
 	vertical-align: text-top;
 }
 div.header a.logout {
-	background-image: url('http://static.zino.gr/images/icons/arrow_right.gif');
+	background-image: url(http://static.zino.gr/images/icons/arrow_right.gif);
 	background-repeat: no-repeat;
 	background-position: right;
 	padding-right: 20px;

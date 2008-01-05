@@ -18,7 +18,7 @@ div.usersections ul {
 	list-style: none;
 	text-align: right;
 	background-color: white;
-	background-image: url('images/copybg_rev.jpg');
+	background-image: url(images/copybg_rev.jpg);
 	background-repeat: repeat-x;
 	background-position: 0 -8px;
 	height: 30px;
