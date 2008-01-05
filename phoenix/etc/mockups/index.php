@@ -61,6 +61,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			case 'photoview':
 				?><link rel="stylesheet" type="text/css" href="photoview.css" />
 				<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]--><?php
+			case 'userprofile': // Intentionally ignoring break;
+				?><link rel="stylesheet" type="text/css" href="userprofile.css" /><?php
 			case 'polllist': // Intentionally ignoring break;
 				?><link rel="stylesheet" type="text/css" href="polllist.css" /><?php
 			case 'pollview':
@@ -87,9 +89,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'contactform':
 				?><link rel="stylesheet" type="text/css" href="contactform.css" /><?php
-				break;
-			case 'userprofile':
-				?><link rel="stylesheet" type="text/css" href="userprofile.css" /><?php
 				break;
 			case 'frontpage':
 			default:
