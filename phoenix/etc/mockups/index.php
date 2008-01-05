@@ -46,7 +46,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="albums.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
-		<link rel="stylesheet" type="text/css" href="polllist.css" />
+		
 		<link rel="stylesheet" type="text/css" href="journalview.css" />
 		<link rel="stylesheet" type="text/css" href="journallist.css" />
 		<link rel="stylesheet" type="text/css" href="photolist.css" />
@@ -57,6 +57,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="settings.css" />
 		<link rel="stylesheet" type="text/css" href="contactform.css" />
 		<link rel="stylesheet" type="text/css" href="userprofile.css" />
+		<link rel="stylesheet" type="text/css" href="polllist.css" />
 	</head>
 	<body><?php
 	if ( isset( $_GET[ 'p' ] ) ) {
