@@ -12,7 +12,7 @@ div#interestlist div.addhobby {
 	padding-top: 3px;
 }
 div#interestlist div.addhobby a {
-	background-image: url(images/add.png);
+	background-image: url('images/add.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }

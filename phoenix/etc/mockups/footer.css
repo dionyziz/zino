@@ -2,7 +2,7 @@ div.footer {
 	width: 100%;
 	padding: 15px 0 20px 0;
 	background-color: white;
-	background-image: url(images/copybg.jpg);
+	background-image: url('images/copybg.jpg');
 	background-repeat: repeat-x;
 	background-position: 0 10px;
 }

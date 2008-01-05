@@ -10,7 +10,7 @@ div#photoview dl dd.commentsnum {
 	margin: 0;
 	padding: 0 0 0 18px;
 	display: inline;
-	background-image: url(http://static.zino.gr/phoenix/comment.png);
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	font-size: 90%;
 }
@@ -20,7 +20,7 @@ div#photoview dl dd.addfav{
 	display: inline;
 }
 div#photoview dl dd.addfav a {
-	background-image: url(http://static.zino.gr/phoenix/heart_add.png);
+	background-image: url('http://static.zino.gr/phoenix/heart_add.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }

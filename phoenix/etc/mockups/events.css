@@ -18,15 +18,15 @@ ul.events li div {
 	padding-left: 20px;
 }
 ul.events li.poll div {
-	background-image: url(images/chart_bar.png);
+	background-image: url('images/chart_bar.png');
 }
 ul.events li.photo div {
-	background-image: url(images/photo.png);
+	background-image: url('images/photo.png');
 }
 ul.events li.photo img {
 	/*display: block;*/
 	padding: 3px 3px 3px 0px;
 }
 ul.events li.journal div {
-	background-image: url(images/book.png);
+	background-image: url('images/book.png');
 }
