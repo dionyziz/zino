@@ -270,6 +270,9 @@ final class PageHTML extends Page {
                 'filename' => $filename,
                 'ieversion' => $ieversion
             );
+            if ( count( $this->mStylesheets ) > 30 ) {
+                $water->Warning( 'You are approaching or over 32 CSS loaded stylesheets. Internet Explorer may not be able to handle this.' );
+            }
 		}
 	}
 	public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
