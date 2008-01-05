@@ -31,8 +31,8 @@
     	CheckIfUserBanned();
 
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
-        	$log = New Log();
-            $log->Save();
+        	// $log = New Log();
+            // $log->Save();
         }
     }
     
