@@ -31,16 +31,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="comments.css" />
-		<link rel="stylesheet" type="text/css" href="pollview.css" />
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]-->
-		<link rel="stylesheet" type="text/css" href="albums.css" />
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
-		
-		<link rel="stylesheet" type="text/css" href="journalview.css" />
-		<link rel="stylesheet" type="text/css" href="journallist.css" />
-		<link rel="stylesheet" type="text/css" href="photolist.css" />
-		<link rel="stylesheet" type="text/css" href="interestlist.css" />
-		<link rel="stylesheet" type="text/css" href="favourites.css" />
+		<link rel="stylesheet" type="text/css" href="usersections.css" />
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="events.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]-->
 		<?php
@@ -61,10 +53,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'joined':
 				?><link rel="stylesheet" type="text/css" href="joined.css" /><?php
-				break;
-			case 'usersections':
-				?><link rel="stylesheet" type="text/css" href="usersections.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]--><?php
 				break;
 			case 'albums':
 				?><link rel="stylesheet" type="text/css" href="albums.css" />
