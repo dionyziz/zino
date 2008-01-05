@@ -61,13 +61,11 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			case 'photoview':
 				?><link rel="stylesheet" type="text/css" href="photoview.css" />
 				<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]--><?php
-			case 'pollview':
-				?><link rel="stylesheet" type="text/css" href="polllist.css" />
-				<link rel="stylesheet" type="text/css" href="pollview.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]--><?php
-				break;
-			case 'polllist':
+			case 'polllist': // Intentionally ignoring break;
 				?><link rel="stylesheet" type="text/css" href="polllist.css" /><?php
+			case 'pollview':
+				?><link rel="stylesheet" type="text/css" href="pollview.css" />
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]--><?php
 				break;
 			case 'journalview':
 				?><link rel="stylesheet" type="text/css" href="journalview.css" /><?php
