@@ -97,4 +97,6 @@ div.settings div.tabs form div table tr td {
 div.settings div.tabs form div div.setting {
     margin-left: 300px;
     border: none;
+}form#settings h4 label {
+	font-weight:none;
 }
