@@ -75,10 +75,12 @@
 	θα προσπαθήσουμε να σας εξυπηρετήσουμε.
     </p>        
 	<form action="">
-		<p>Email</p>
-		<input type="text" id="mailadress"></input>
-		<p>Σχόλια (προαιρετικό)</p>
-		<textarea></textarea>
-		<a href="" class="button">Αποστολή&raquo;</a>	
+		<div>
+			<p>Email</p>
+			<input type="text" id="mailadress"></input>
+			<p>Σχόλια (προαιρετικό)</p>
+			<textarea cols="" rows=""></textarea>
+			<a href="" class="button">Αποστολή&raquo;</a>
+		</div>	
 	</form>
 </div>
