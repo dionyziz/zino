@@ -692,9 +692,9 @@
             </div>
         </form>
         <form id="settings" style="display:none" action="">
-        	<pre>
+        	<div style="">
         		<label>Να λαμβάνω ειδοποιήσεις:</label>
-        	</pre>
+        	</div>
             <div class="setting">
                 <table>
                     <thead>
