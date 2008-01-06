@@ -11,7 +11,7 @@
         <a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a>
     </div>
     <div class="tabs">
-        <form id="personal" style="display:none">
+        <form id="personal" style="display:none" action="">
             <div>
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth">
@@ -217,7 +217,7 @@
             <div>
                 <label for="aboutme">Λίγα λόγια για μένα:</label>
                 <div class="setting">
-                    <textarea id="aboutme"></textarea>
+                    <textarea id="aboutme" rows="" cols=""></textarea>
                 </div>
             </div>
             <div>
@@ -253,7 +253,7 @@
                 </div>
             </div>
         </form>
-        <form id="characteristics" style="display:none">
+        <form id="characteristics" style="display:none" action="">
             <div>
                 <label>Χρώμα μαλλιών</label>
                 <div class="setting">
@@ -564,7 +564,7 @@
                 </div>
             </div>
         </form>
-        <form id="interests" style="display:none">
+        <form id="interests" style="display:none" action="">
             <div>
                 <label>Αγαπημένες ταινίες:</label>
                 <div class="setting">
@@ -659,7 +659,7 @@
                 </div>
             </div>
         </form>
-        <form id="contact" style="display:none">
+        <form id="contact" style="display:none" action="">
             <div>
                 <label>E-mail:</label>
                 <div class="setting">
@@ -691,8 +691,10 @@
                 </div>
             </div>
         </form>
-        <form id="settings" style="display:none">
-            <label>Να λαμβάνω ειδοποιήσεις:</label>
+        <form id="settings" style="display:none" action="">
+        	<div>
+        		<label>Να λαμβάνω ειδοποιήσεις:</label>
+        	</div>
             <div class="setting">
                 <table>
                     <thead>
