@@ -93,7 +93,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			case 'frontpage':
 			default:
 				?><link rel="stylesheet" type="text/css" href="frontpage.css" />
-				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]--><?php
+				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
+				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie6.css" /><![endif]--><?php
 		}
 	?>
 	</head>
