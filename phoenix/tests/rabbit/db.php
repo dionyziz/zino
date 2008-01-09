@@ -19,17 +19,18 @@
             
             $this->mFirstDatabase = $GLOBALS[ reset( array_keys( $rabbit_settings[ 'databases' ] ) ) ];
             $this->Assert( $this->mFirstDatabase instanceof Database, 'Your first defined database does not appear to be consistent' );
-            $this->Assert( method_exists( $this->mFirstDatabase, 'Tables' ), 'Method Database->Tables() does\'t exist' );
+            $this->Assert( method_exists( $this->mFirstDatabase, 'Tables' ), 'Method Database->Tables() doesn\'t exist' );
 			
 			// DBTable
 			$table = New DBTable();	
-			$this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() does\'t exist' );
-			$this->Assert( method_exists( $table, 'CreateIndex' ) , 'Method DBTable->CreateIndex() does\'t exist' );
+			$this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() doesn\'t exist' );
+			$this->Assert( method_exists( $table, 'CreateIndex' ) , 'Method DBTable->CreateIndex() doesn\'t exist' );
+            $this->Assert( method_exists( $table, 'Exists' ), 'Method DBTable->Exists() doesn\'t exist' );
 			
 			// DBIndex
 			$index = New DBIndex();	
-			$this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() does\'t exist' );
-			$this->Assert( method_exists( $index, 'CreateIndex' ) , 'Method DBIndex->CreateIndex() does\'t exist' );
+			$this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() doesn\'t exist' );
+			$this->Assert( method_exists( $index, 'CreateIndex' ) , 'Method DBIndex->CreateIndex() doesn\'t exist' );
         }
         public function TestPublicImport() {
             global $rabbit_settings;

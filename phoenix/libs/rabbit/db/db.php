@@ -481,6 +481,9 @@
         public function CreateIndex( $index ) {
             w_assert( $index instanceof DBIndex );
         }
+        public function Exists() {
+            return $this->mDb instanceof Database && !empty( $this->mTableName );
+        }
 	}
     
     class DBField extends Overloadable {
