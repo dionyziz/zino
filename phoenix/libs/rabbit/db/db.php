@@ -513,4 +513,13 @@
         }
     }
 
+    class DBIndex extends Overloadable {
+        public function AddField() {
+        }
+        public function CreateIndex() {
+        }
+        public function DBIndex() {
+        }
+    }
+
 ?>
