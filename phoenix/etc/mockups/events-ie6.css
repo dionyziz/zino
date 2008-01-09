@@ -1,4 +1,4 @@
 ul.events li div {
-	position:relative;
-	left: 50px;
+	margin-left: 4px;
+	padding-left: 33px;
 }
