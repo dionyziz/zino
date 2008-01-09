@@ -342,6 +342,8 @@
                 $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
         }
+        public function BindType( /*  */ ) {
+        }
         public function Apply() {
             w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );
             
@@ -431,6 +433,9 @@
 		protected $mTableName;
 		protected $mAlias;
         protected $mFields;
+        protected $mNewFields;
+        protected $mIndexes;
+        protected $mNewIndexes;
 		protected $mExists;
         
         protected function GetName() {
@@ -469,19 +474,59 @@
 			}
 			$this->mAlias = $alias;
 			$this->mFields = false;
+            $this->mIndexes = false;
+            $this->mNewFields = array();
+            $this->mNewIndexes = array();
 		}
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
             $query->BindTable( $this->mAlias );
             return $query->Execute();
 		}
-        public function CreateField( $field ) {
-            w_assert( $field instanceof DBField );
+        public function CreateField( $fields ) {
+            if ( !is_array( $fields ) ) {
+                $fields = array( $fields );
+            }
+            foreach ( $fields as $field ) {
+                w_assert( $field instanceof DBField );
+                $this->mNewFields[] = $field;
+            }
         }
         public function CreateIndex( $index ) {
             w_assert( $index instanceof DBIndex );
+            $this->mNewIndexes[] = $index;
         }
-        public function Save() {
+        public function Save() {    
+            $query = "CREATE TABLE `" . $this->mTableName . "` ( ";
+            $first = true;
+            foreach ( $this->mNewFields as $field ) {
+                if ( $first ) {
+                    $first = false;
+                }
+                else {
+                    $query .= ", ";
+                }
+                $query .= "`" . $field->Name . "` ";
+                $query .= $field->Type;
+                if ( !empty( $field->Length ) ) {
+                    $query .= "(" . $field->Length . ")";
+                }
+                $query .= " ";
+                if ( !$field->Null ) {
+                    $query .= "NOT NULL ";
+                }
+                if ( !empty( $field->Default ) ) {
+                    $query .= "DEFAULT " . $field->Default . " ";
+                }
+                if ( $field->IsPrimaryKey ) {
+                    $query .= "PRIMARY KEY ";
+                }
+                if ( $field->IsAutoIncrement ) {
+                    $query .= "AUTO_INCREMENT";
+                }
+            }
+            $query .= ");";
+            die( $query );
         }
         public function Delete() {
         }
@@ -494,35 +539,69 @@
         protected $mName;
         protected $mType;
 		protected $mLength;
+        protected $mDefault;
 		protected $mExists;
+        protected $mNull;
 		protected $mStoredState;
         protected $mIsPrimaryKey;
         protected $mIsAutoIncrement;
 
-        protected function GetIsAutoIncrement() {
-            return $this->mIsAutoIncrement;
-        }
         protected function GetName() {
             return $this->mName;
         }
         protected function GetType() {
             return $this->mType;
         }
+        protected function GetDefault() {
+            return $this->mDefault;
+        }
+        protected function GetLength() {
+            return $this->mLength;
+        }
+        protected function GetNull() {
+            return $this->mNull;
+        }
+        protected function GetIsPrimaryKey() {
+            return $this->mIsPrimaryKey;
+        }
+        protected function GetIsAutoIncrement() {
+            return $this->mIsAutoIncrement;
+        }
+		protected function SetName( $name ) {
+			w_assert( is_string( $name ), 'Database field name specified is invalid' );
+			$this->mName = $name;
+		}
 		protected function SetType( $type ) {
 			w_assert( is_int( $type ), 'Database field data type specified is invalid' );
 			// TODO: add assert,  $type must be valid!!
 			$this->mType = $type;
 		}
-		protected function SetName( $name ) {
-			w_assert( is_string( $name ), 'Database field name specified is invalid' );
-			$this->mName = $name;
-			
-		} 
+        protected function SetDefault( $value ) {
+            w_assert( is_scalar( $value ), 'Non-scalar value set as default value for database field' );
+            $this->mDefault = $value;
+        }
+        protected function SetLength( $value ) {
+            w_assert( is_int( $value ) );
+            $this->mLength = $value;
+        }
+        protected function SetNull( $value ) {
+            w_assert( is_bool( $value ), 'Database field can only be null or not null (bool)' );
+            $this->mNull = $value;
+        }
+        protected function SetIsPrimaryKey( $value ) {
+            w_assert( is_bool( $value ) );
+            $this->mIsPrimaryKey = $value;
+        }
+        protected function SetIsAutoIncrement( $value ) {
+            w_assert( is_bool( $value ) );
+            $this->IsAutoIncrement = $value;
+        }
         public function DBField( $info ) {
             $this->mName = $info[ 'Field' ];
             $this->mType = $info[ 'Type' ];
             $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
             $this->mIsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
+            $this->mDefault = $info[ 'Default' ];
         }
     }
 
