@@ -481,6 +481,8 @@
         public function CreateIndex( $index ) {
             w_assert( $index instanceof DBIndex );
         }
+        public function Save() {
+        }
         public function Exists() {
             return $this->mDb instanceof Database && !empty( $this->mTableName );
         }
