@@ -501,7 +501,7 @@
 			$this->mType = $type;
 		}
 		protected function SetName( $name ) {
-			w_assert( is_string( $type ), 'Database field name specified is invalid' );
+			w_assert( is_string( $name ), 'Database field name specified is invalid' );
 			$this->mName = $name;
 			
 		} 
