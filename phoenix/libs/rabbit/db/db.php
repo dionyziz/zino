@@ -483,6 +483,8 @@
         }
         public function Save() {
         }
+        public function Delete() {
+        }
         public function Exists() {
             return $this->mDb instanceof Database && !empty( $this->mTableName );
         }
