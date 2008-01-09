@@ -4,3 +4,6 @@
 div.recentevents {
 	margin: 20px 40% 20px 3px;
 }
+ul.events li div {
+	padding-left: 33px;
+}
