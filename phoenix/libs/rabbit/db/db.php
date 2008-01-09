@@ -475,6 +475,12 @@
             $query->BindTable( $this->mAlias );
             return $query->Execute();
 		}
+        public function CreateField( $field ) {
+            w_assert( $field instanceof DBField );
+        }
+        public function CreateIndex( $index ) {
+            w_assert( $index instanceof DBIndex );
+        }
 	}
     
     class DBField extends Overloadable {
