@@ -78,7 +78,6 @@
 		}
 					
 		public function TestCreateTable() {
-			
 			$table = New DBTable();
 			$table->Name = 'rabbit_test';
 
@@ -118,6 +117,8 @@
 			$table->CreateIndex( $subdomain );
 
 			$table->Database = $this->mFirstDatabase;
+            
+            $this->mTestTable = New DBTable();
 			
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist prior to creation' );
 			$table->Save();
