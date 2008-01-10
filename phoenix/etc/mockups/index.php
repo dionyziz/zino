@@ -85,7 +85,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				?><link rel="stylesheet" type="text/css" href="favourites.css" /><?php
 				break;
 			case 'settings':
-				?><link rel="stylesheet" type="text/css" href="settings.css" /><?php
+				?><link rel="stylesheet" type="text/css" href="settings.css" />
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="settings-ie6.css" /><![endif]--><?php
 				break;
 			case 'contactform':
 				?><link rel="stylesheet" type="text/css" href="contactform.css" /><?php
@@ -94,7 +95,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			default:
 				?><link rel="stylesheet" type="text/css" href="frontpage.css" />
 				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
-				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie6.css" /><![endif]--><?php
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="frontpage-ie6.css" /><![endif]--><?php
 		}
 	?>
 	</head>

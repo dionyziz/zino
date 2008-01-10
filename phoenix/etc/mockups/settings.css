@@ -9,7 +9,8 @@ div.settings div.sidebar {
     padding-left: 50px;
 }
 div.settings div.sidebar span {
-    background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');
+    /*background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');*/
+    background-image: url('images/button_ok_22.png');
     background-repeat: no-repeat;
     padding-left: 25px;
     background-position: left;
