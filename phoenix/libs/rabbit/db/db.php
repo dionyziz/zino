@@ -461,7 +461,7 @@
 
             $this->mTableName = $value;
         }
-        protected function SetDatabase( $value ) {
+        protected function SetDatabase( $db ) {
             w_assert( is_object( $db ), 'Database passed to DBTable must be an object' );
             w_assert( $db instanceof Database, 'Database passed to DBTable must be an instance of Database ( ' . get_class( $db ) .' given ) ' );
 
