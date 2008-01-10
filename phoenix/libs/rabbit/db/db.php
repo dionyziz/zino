@@ -5,17 +5,15 @@
 	*/
 	
 	global $libs;
-	
-	
 		
 	// Define database data types
-    define( 'DB_TYPE_INT' 		, 1 );
-    define( 'DB_TYPE_VARCHAR' 	, 2 );
-    define( 'DB_TYPE_CHAR' 		, 3 );
-    define( 'DB_TYPE_TEXT' 		, 4 );
-    define( 'DB_TYPE_DATETIME'	, 5 );
-    define( 'DB_TYPE_FLOAT'		, 6 );
-    define( 'DB_TYPE_ENUM'		, 7 );
+    define( 'DB_TYPE_INT' 		, "DB_TYPE_INT" );
+    define( 'DB_TYPE_VARCHAR' 	, "BD_TYPE_VARCHAR" );
+    define( 'DB_TYPE_CHAR' 		, "DB_TYPE_CHAR" );
+    define( 'DB_TYPE_TEXT' 		, "DB_TYPE_TEXT" );
+    define( 'DB_TYPE_DATETIME'	, "DB_TYPE_DATETIME" );
+    define( 'DB_TYPE_FLOAT'		, "DB_TYPE_FLOAT" );
+    define( 'DB_TYPE_ENUM'		, "DB_TYPE_ENUM" );
 	
 	// Define database index types
 	define( 'DB_KEY_INDEX'		, 1 );
@@ -179,7 +177,7 @@
 			return New DBResource( $res, $this->mDriver );
 		}
         public function Prepare( $rawsql ) {
-            return New DBQuery( $rawsql, $this );
+            return New DBQuery( $rawsql, $this, $this->mDriver );
         }
 		public function Insert( $inserts , $tablealias , $ignore = false , $delayed = false , $quota = 500 ) {
 			// $table = 'table';
@@ -299,8 +297,9 @@
         protected $mRawSQL; // doesn't contain binded arguments
         protected $mBindings;
         protected $mDatabase;
+        protected $mDriver;
         
-        public function DBQuery( $raw, Database $database ) {
+        public function DBQuery( $raw, Database $database, DatabaseDriver $driver ) {
             w_assert( is_string( $raw ), 'Cannot prepare SQL query with a non-string SQL statement' );
             w_assert( !empty( $raw ), 'Cannot prepare SQL query with an empty SQL statement' );
             
@@ -308,6 +307,7 @@
             $this->mDatabase = $database;
             $this->mBindings = array();
             $this->mTableBindings = array();
+            $this->mTypeBindings = $driver->DataTypes();
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
@@ -342,12 +342,10 @@
                 $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
         }
-        public function BindType( /*  */ ) {
-        }
         public function Apply() {
             w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );
             
-            return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTableBindings ) );
+            return strtr( $this->mRawSQL, array_merge( $this->mBindings, $this->mTypeBindings, $this->mTableBindings ) );
         }
         public function Execute() {
             $applied = $this->Apply();
@@ -504,6 +502,7 @@
         public function Save() {    
             $query = "CREATE TABLE `" . $this->mTableName . "` ( ";
             $first = true;
+            $types = array();
             foreach ( $this->mNewFields as $field ) {
                 if ( $first ) {
                     $first = false;
@@ -512,7 +511,9 @@
                     $query .= ", ";
                 }
                 $query .= "`" . $field->Name . "` ";
-                $query .= $field->Type;
+                $query .= ":type" . count( $types );
+                $types[] = $field->Type;
+
                 if ( !empty( $field->Length ) ) {
                     $query .= "(" . $field->Length . ")";
                 }
@@ -531,7 +532,9 @@
                 }
             }
             $query .= ");";
-            die( $query );
+            $query = $this->mDb->Prepare( $query );
+            $query->BindDataTypes(); 
+		    $query->Execute();
         }
         public function Delete() {
         }

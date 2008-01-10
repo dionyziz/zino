@@ -65,6 +65,9 @@
 			}
 			return $this->mFlippedDataTypes[ $datatype ];
 		}
+        public function DataTypes() {
+            return $this->mDataTypes;
+        }
     }
     
 ?>
