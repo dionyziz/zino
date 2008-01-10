@@ -461,18 +461,25 @@
 
             $this->mTableName = $value;
         }
+        protected function SetDatabase( $value ) {
+            w_assert( is_object( $db ), 'Database passed to DBTable must be an object' );
+            w_assert( $db instanceof Database, 'Database passed to DBTable must be an instance of Database ( ' . get_class( $db ) .' given ) ' );
+
+            $this->mDb = $db;
+        }
 		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
-            if ( $db === false ) { 
+            if ( $db !== false ) {
+                $this->SetDatabase( $db ); // assertions etc
+            }
+
+            if ( $tablename === false ) {
 				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
 			}
 			else {
-				w_assert( is_object( $db ), 'Database passed to DBTable must be an object' );
-				w_assert( $db instanceof Database, 'Database passed to DBTable must be an instance of Database ( ' . get_class( $db ) .' given ) ' );
 				w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
 	            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
-				$this->mDb = $db;
 				$this->mTableName = $tablename;
 			}
 			$this->mAlias = $alias;

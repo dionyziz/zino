@@ -120,8 +120,8 @@
 			$table->Database = $this->mFirstDatabase;
             
             $this->mTestTable = New DBTable();
-			
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist prior to creation' );
+
 			$table->Save();
 			$this->mTestTable = $table;
 			
