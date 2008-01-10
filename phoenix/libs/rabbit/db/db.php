@@ -533,7 +533,6 @@
             }
             $query .= ");";
             $query = $this->mDb->Prepare( $query );
-            $query->BindDataTypes(); 
 		    $query->Execute();
         }
         public function Delete() {
@@ -580,7 +579,7 @@
 			$this->mName = $name;
 		}
 		protected function SetType( $type ) {
-			w_assert( is_int( $type ), 'Database field data type specified is invalid' );
+			// w_assert( is_int( $type ), 'Database field data type specified is invalid' );
 			// TODO: add assert,  $type must be valid!!
 			$this->mType = $type;
 		}
