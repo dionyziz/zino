@@ -543,7 +543,7 @@
             }
             $query .= ");";
             $query = $this->mDb->Prepare( $query );
-		    $query->Execute();
+		    die( $query->Apply() );
         }
         public function Delete() {
         }
