@@ -310,7 +310,7 @@
             $this->mDatabase = $database;
             $this->mBindings = array();
             $this->mTableBindings = array();
-            $this->mTypeBindings = $driver->DataTypes();
+            $this->mTypeBindings = $this->TypeBindings();
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
@@ -344,6 +344,16 @@
                 }
                 $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
+        }
+        public function TypeBindings() {
+            $driverTypes = $this->mDriver->DataTypes();
+            $typeBindings = array();
+
+            foreach ( $driverTypes as $constant => $type ) {
+                $typeBindings[ $constant ] = ":" . $type;
+            }
+
+            return $typeBindings;
         }
         public function Apply() {
             w_assert( !empty( $this->mRawSQL ), 'Cannot apply bindings to an empty SQL statement' );
