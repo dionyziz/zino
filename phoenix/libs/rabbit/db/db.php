@@ -346,7 +346,7 @@
                 $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
         }
-        public function TypeBindings() {
+        private function TypeBindings() {
             $driverTypes = $this->mDriver->DataTypes();
             $typeBindings = array();
 
@@ -482,6 +482,8 @@
             $this->mDb = $db;
         }
 		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
+            $this->mExists = false;
+
             if ( $db !== false ) {
                 $this->SetDatabase( $db ); // assertions etc
             }
@@ -495,6 +497,7 @@
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
 				$this->mTableName = $tablename;
+                $this->mExists = true;
 			}
 			$this->mAlias = $alias;
 			$this->mFields = false;
@@ -551,13 +554,26 @@
                 }
             }
             $query .= ");";
-            $query = $this->mDb->Prepare( $query );
-		    die( $query->Apply() );
+            $change = $this->mDb->Prepare( $query )->Execute();
+            if ( $change->Impact() ) {
+                $this->mExists = true;
+
+                return true;
+            }
+
+            return false;
         }
         public function Delete() {
+            $change = $this->mDb->Prepare( "DROP TABLE `" . $this->mTableName . "`;" )->Execute();
+            if ( $change->Impact() ) {
+                $this->mExists = false;
+
+                return true;
+            }
+            return false;
         }
         public function Exists() {
-            return $this->mDb instanceof Database && !empty( $this->mTableName );
+            return $this->mExists;
         }
 	}
     
