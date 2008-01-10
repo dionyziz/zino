@@ -512,7 +512,6 @@
         public function Save() {    
             $query = "CREATE TABLE `" . $this->mTableName . "` ( ";
             $first = true;
-            $types = array();
             foreach ( $this->mNewFields as $field ) {
                 if ( $first ) {
                     $first = false;
@@ -521,8 +520,7 @@
                     $query .= ", ";
                 }
                 $query .= "`" . $field->Name . "` ";
-                $query .= ":type" . count( $types );
-                $types[] = $field->Type;
+                $query .= ":" . $field->Type . " ";
 
                 if ( !empty( $field->Length ) ) {
                     $query .= "(" . $field->Length . ")";
