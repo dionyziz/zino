@@ -311,7 +311,7 @@
             $this->mBindings = array();
             $this->mTableBindings = array();
             $this->mDriver = $driver;
-            $this->mTypeBindings = $this->mDriver->DataTypes();
+            $this->mTypeBindings = $this->TypeBindings();
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
