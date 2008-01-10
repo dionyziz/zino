@@ -554,6 +554,7 @@
                 }
             }
             $query .= ");";
+            die( $this->mDb->Prepare( $query )->Apply() );
             $change = $this->mDb->Prepare( $query )->Execute();
             if ( $change->Impact() ) {
                 $this->mExists = true;
