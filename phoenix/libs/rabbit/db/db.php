@@ -458,6 +458,11 @@
             }
             return $this->mFields;
         }
+        protected function SetName( $value ) {
+            w_assert( is_scalar( $value ), "Table name should be scalar" );
+
+            $this->mTableName = $value;
+        }
 		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
             if ( $db === false ) { 
 				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );

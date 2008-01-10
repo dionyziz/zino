@@ -98,7 +98,7 @@
 			$field3->Length = 32;
 
 			$table->CreateField( $field ); // DBField or array of DBField
-			$table->CreateField( $field2 );
+			$table->CreateField( array( $field2, $field3 ) );
 
 			$primary = New DBIndex();
 			$primary->AddField( $field );
