@@ -310,7 +310,8 @@
             $this->mDatabase = $database;
             $this->mBindings = array();
             $this->mTableBindings = array();
-            $this->mTypeBindings = $this->TypeBindings();
+            $this->mDriver = $driver;
+            $this->mTypeBindings = $this->mDriver->DataTypes();
         }
         private function Escape( $argument ) {
             switch ( gettype( $argument ) ) {
@@ -350,7 +351,7 @@
             $typeBindings = array();
 
             foreach ( $driverTypes as $constant => $type ) {
-                $typeBindings[ $constant ] = ":" . $type;
+                $typeBindings[ ':' . $constant ] = $type;
             }
 
             return $typeBindings;
