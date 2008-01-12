@@ -15,9 +15,34 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	<head>
 		<title>Τάβλι</title>
 	
-	
+		<link rel="stylesheet" type="text/css" src="board.css" />
 	</head>
 	<body>
-	Τάβλι στο zino.
+		<div id="main">
+			<div class="board">
+				<div class="leftborder">
+				</div>
+				<div class="left">
+					<div class="up">
+					</div>
+					<div class="gamearea">
+					</div>
+					<div class="down">
+					</div>
+				</div>
+				<div class="middleborder">
+				</div>
+				<div class="right">
+					<div class="up">
+					</div>
+					<div class="gamearea">
+					</div>
+					<div class="down">
+					</div>
+				</div>
+				<div class="rightborder">
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
