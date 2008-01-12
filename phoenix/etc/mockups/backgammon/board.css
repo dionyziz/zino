@@ -23,7 +23,8 @@ div.board div.leftborder {
 div.board div.leftborder div.container1 {
 	width: 64px;
 	height: 227px;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
+	margin: 30px auto 0 auto;
 }
 div.board div.leftborder div.container1 div.up {
 	background-image: url( 'images/collector-up.jpg' );
@@ -43,24 +44,25 @@ div.board div.leftborder div.container1 div.bottom {
 	width: 64px;
 	height: 9px;
 }
-div.board div.container 2 {
+div.board div.container2 {
 	width: 64px;
 	height: 227px;
-	margin-top: 132px;
+	/*margin-top: 132px;*/
+	margin: 132px auto 0 auto;
 }
-div.board div.container2 div.up {
+div.board div.leftborder div.container2 div.up {
 	background-image: url( 'images/collector-up.jpg' );
 	background-repeat: no-repeat;
 	width: 64px;
 	height: 9px;
 }
-div.board div.container2 div.middle{
+div.board div.leftborder div.container2 div.middle{
 	background-image: url( 'images/collector-repeat.jpg' );
 	background-repeat: repeat-y;
 	width: 64px;
 	height: 209px;
 }
-div.board div.container2 div.bottom {
+div.board div.leftborder div.container2 div.bottom {
 	background-image: url( 'images/collector-down.jpg' );
 	background-repeat: no-repeat;
 	width: 64px;
