@@ -15,21 +15,26 @@ div.board {
 div.board div.leftborder {
 	float: left;
 	width: 79px;
+	height: 636px;
 }
 div.board div.left {
 	float: left;
 	width: 338px;
 	border: 1px solid green;
+	height: 636px;
 }
 div.board div.middleborder {
 	float: left;
+	height: 636px;
 }
 div.board div.right {
 	float: left;
 	width: 338px;
 	border: 1px solid green;
+	height: 636px;
 }
 div.board div.rightborder {
 	float: left;
 	width: 88px;
+	height: 636px;
 }
