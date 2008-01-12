@@ -18,10 +18,12 @@ div.board div.leftborder {
 	height: 636px;
 	background-image: url( 'images/border-left.jpg' );
 	background-repeat: no-repeat;
+	text-align: center;
 }
 div.board div.leftborder div.container1 {
 	width: 64px;
 	height: 227px;
+	margin-top: 30px;
 }
 div.board div.leftborder div.container1 div.up {
 	background-image: url( 'images/collector-up.jpg' );
@@ -42,13 +44,27 @@ div.board div.leftborder div.container1 div.bottom {
 	height: 9px;
 }
 div.board div.container 2 {
-
+	width: 64px;
+	height: 227px;
+	margin-top: 132px;
 }
 div.board div.container2 div.up {
+	background-image: url( 'images/collector-up.jpg' );
+	background-repeat: no-repeat;
+	width: 64px;
+	height: 9px;
 }
 div.board div.container2 div.middle{
+	background-image: url( 'images/collector-repeat.jpg' );
+	background-repeat: repeat-y;
+	width: 64px;
+	height: 209px;
 }
 div.board div.container2 div.bottom {
+	background-image: url( 'images/collector-down.jpg' );
+	background-repeat: no-repeat;
+	width: 64px;
+	height: 9px;
 }
 div.board div.left {
 	float: left;
