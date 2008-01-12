@@ -16,6 +16,8 @@ div.board div.leftborder {
 	float: left;
 	width: 79px;
 	height: 636px;
+	background-image: url( 'images/border-left.jpg' );
+	background-repeat: no-repeat;
 }
 div.board div.left {
 	float: left;
