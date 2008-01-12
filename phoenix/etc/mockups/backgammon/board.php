@@ -25,7 +25,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 						<div class="up">
 						</div>
 						<div class="middle">
-						</div class="bottom">
+						</div>
+						<div class="bottom">
 						</div>
 					</div>
 					<div class="container2">
