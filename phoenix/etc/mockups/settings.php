@@ -780,5 +780,5 @@
         window.setTimeout( SwitchSettings, 20 );
     }
     // setInterval( SwitchSettings, 500 );
-    window.setTimeout( function() { FocusSettingLink( document.getElementById( 'settingslist' ).getElementsByTagName( 'li' )[ 0 ], true); }, 500 );
+    window.setTimeout( SwitchSettings, 500 );
 // ]]></script>
