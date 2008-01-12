@@ -19,23 +19,23 @@ div.board div.leftborder {
 	background-image: url( 'images/border-left.jpg' );
 	background-repeat: no-repeat;
 }
-div.board div.container1 {
+div.board div.leftborder div.container1 {
 	width: 64px;
 	height: 227px;
 }
-div.board div.container1 div.up {
+div.board div.leftborder div.container1 div.up {
 	background-image: url( 'collector-up.jpg' );
 	background-repeat: no-repeat;
 	width: 64px;
 	height: 9px;
 }
-div.board div.container1 div.middle {
+div.board div.leftborder div.container1 div.middle {
 	background-image: url( 'collector-repeat.jpg' );
 	background-repeat: no-repeat;
 	width: 64px;
 	height: 209px;
 }
-div.board div.container1 div.bottom {
+div.board div.leftborder div.container1 div.bottom {
 	background-image: url( 'collector-down.jpg' );
 	background-repeat: no-repeat;
 	width: 64px;
