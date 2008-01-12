@@ -15,7 +15,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	<head>
 		<title>Τάβλι</title>
 	
-		<link rel="stylesheet" type="text/css" src="board.css" />
+		<link rel="stylesheet" type="text/css" href="board.css" />
 	</head>
 	<body>
 		<div id="main">
