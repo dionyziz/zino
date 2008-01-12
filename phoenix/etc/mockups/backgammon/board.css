@@ -76,7 +76,7 @@ div.board div.left {
 }
 div.board div.middleborder {
 	float: left;
-	background-image: ( 'images/border-middle.jpg' );
+	background-image: url( 'images/border-middle.jpg' );
 	background-repeat: none;
 	height: 636px;
 	width: 55px;
