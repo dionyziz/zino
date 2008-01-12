@@ -31,7 +31,7 @@ div.board div.leftborder div.container1 div.up {
 }
 div.board div.leftborder div.container1 div.middle {
 	background-image: url( 'images/collector-repeat.jpg' );
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	width: 64px;
 	height: 209px;
 }
