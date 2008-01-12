@@ -777,7 +777,8 @@
         }
     }
     function DoSwitchSettings() {
-        setTimeOut( SwitchSettings, 20 );
+        window.setTimeout( SwitchSettings, 20 );
     }
-    setInterval( SwitchSettings, 500 );
+    // setInterval( SwitchSettings, 500 );
+    window.setTimeout( FocusSettingLink( document.getElementById( 'settingslist' ).getElementsByTagName( 'li' )[0], true ), 500 );
 // ]]></script>
