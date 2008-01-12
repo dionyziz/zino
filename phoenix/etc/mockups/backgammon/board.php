@@ -21,6 +21,20 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<div id="main">
 			<div class="board">
 				<div class="leftborder">
+					<div class="container1">
+						<div class="up">
+						</div>
+						<div class="middle">
+						</div class="bottom">
+						</div>
+					</div>
+					<div class="container2">
+						<div class="up">
+						</div>
+						<div class="middle">
+						</div class="bottom">
+						</div>
+					</div>
 				</div>
 				<div class="left">
 					<div class="up">
