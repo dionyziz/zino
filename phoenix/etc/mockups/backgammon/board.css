@@ -9,7 +9,7 @@ div.main {
 }
 div.board {
 	border: 1px solid red;
-	width: 897px;
+	width: 1000px;
 	height: 636px;
 }
 div.board div.leftborder {
