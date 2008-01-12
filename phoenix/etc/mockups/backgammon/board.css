@@ -89,7 +89,7 @@ div.board div.right {
 }
 div.board div.rightborder {
 	float: left;
-	backround-image: url( 'images/border-right.jpg' );
+	background-image: url( 'images/border-right.jpg' );
 	background-repeat: no-repeat;
 	width: 88px;
 	height: 636px;
