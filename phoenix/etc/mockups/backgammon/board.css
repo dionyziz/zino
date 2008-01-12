@@ -1,0 +1,35 @@
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+div.main {
+	margin: 50px;
+}
+div.board {
+	border: 1px solid red;
+	width: 897px;
+	height: 636px;
+}
+div.board div.leftborder {
+	float: left;
+	width: 79px;
+}
+div.board div.left {
+	float: left;
+	width: 338px;
+	border: 1px solid green;
+}
+div.board div.middleborder {
+	float: left;
+}
+div.board div.right {
+	float: left;
+	width: 338px;
+	border: 1px solid green;
+}
+div.board div.rightborder {
+	float: left;
+	width: 88px;
+}
