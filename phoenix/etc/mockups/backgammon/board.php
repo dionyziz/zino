@@ -58,7 +58,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 						</div>
 						<div class="middle">
 						</div>
-						<div class="down" style="width: 400px;">
+						<div class="down">
 							<div class="left">
 							</div>
 							<div class="brown">
