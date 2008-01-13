@@ -15,6 +15,7 @@ div.board {
 div.board div.leftborder {
 	float: left;
 	width: 79px;
+	height: 636px;
 	background-image: url( 'images/border-left.jpg' );
 	background-repeat: no-repeat;
 	text-align: center;
@@ -70,6 +71,7 @@ div.board div.leftborder div.container2 div.bottom {
 div.board div.left {
 	float: left;
 	width: 340px;
+	height: 636px;
 }
 div.board div.left div.gamearea div.up {
 	height: 226px;
@@ -136,14 +138,17 @@ div.board div.middleborder {
 	background-image: url( 'images/border-middle.jpg' );
 	background-repeat: no-repeat;
 	width: 55px;
+	height: 636px;
 }
 div.board div.right {
 	float: left;
 	width: 340px;
+	height: 636px;
 }
 div.board div.rightborder {
 	float: left;
 	background-image: url( 'images/border-right.jpg' );
 	background-repeat: no-repeat;
 	width: 88px;
+	height: 636px;
 }
