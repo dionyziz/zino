@@ -59,6 +59,18 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 						<div class="middle">
 						</div>
 						<div class="down">
+							<div class="left">
+							</div>
+							<div class="brown">
+							</div>
+							<div class="white">
+							</div>
+							<div class="brown">
+							</div>
+							<div class="white">
+							</div>
+							<div class="right">
+							</div>
 						</div>
 					</div>
 					<div class="down">

@@ -15,7 +15,6 @@ div.board {
 div.board div.leftborder {
 	float: left;
 	width: 79px;
-	height: 636px;
 	background-image: url( 'images/border-left.jpg' );
 	background-repeat: no-repeat;
 	text-align: center;
@@ -71,7 +70,6 @@ div.board div.leftborder div.container2 div.bottom {
 div.board div.left {
 	float: left;
 	width: 340px;
-	height: 636px;
 }
 div.board div.left div.gamearea div.up {
 	height: 226px;
@@ -81,29 +79,24 @@ div.board div.left div.gamearea div.up div.left {
 	background-image: url( 'images/tri-left-up-brown.jpg' );
 	background-repeat: no-repeat;
 	width: 56px;
-	height: 226px;
 }
 div.board div.left div.gamearea div.up div.white {
 	float: left;
 	background-image: url( 'images/tri-up-white.jpg' );
 	background-repeat: no-repeat;
 	width: 57px;
-	height: 226px;
-	
 }
 div.board div.left div.gamearea div.up div.brown {
 	float: left;
 	background-image: url( 'images/tri-up-brown.jpg' );
 	background-repeat: no-repeat;
 	width: 57px;
-	height: 226px;
 }
 div.board div.left div.gamearea div.up div.right {
 	float: left;
 	background-image: url( 'images/tri-right-up-brown.jpg' );
 	background-repeat: no-repeat;
 	width: 56px;
-	height: 226px;
 
 }
 div.board div.left div.gamearea div.middle {
@@ -112,25 +105,45 @@ div.board div.left div.gamearea div.middle {
 	background-repeat: no-repeat;
 }
 div.board div.left div.gamearea div.down {
-
+	height: 226px;
+}
+div.board div.left div.gamearea div.down div.left {
+	float: left;
+	background-image: url( 'images/tri-left-down-white.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+}
+div.board div.left div.gamearea div.down div.white {
+	float: left;
+	background-image: url( 'images/tri-bottom-white.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+}
+div.board div.left div.gamearea div.down div.brown {
+	float: left;
+	background-image: url( 'images/tri-bottom-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+}
+div.board div.left div.gamearea div.down div.right {
+	float: left;
+	background-image: url( 'images/tri-right-down-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
 }
 div.board div.middleborder {
 	float: left;
 	background-image: url( 'images/border-middle.jpg' );
 	background-repeat: no-repeat;
 	width: 55px;
-	height: 636px;
 }
 div.board div.right {
 	float: left;
-	width: 338px;
-	height: 636px;
-	height: 636px;
+	width: 340px;
 }
 div.board div.rightborder {
 	float: left;
 	background-image: url( 'images/border-right.jpg' );
 	background-repeat: no-repeat;
 	width: 88px;
-	height: 636px;
 }
