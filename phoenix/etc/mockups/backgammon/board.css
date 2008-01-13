@@ -73,6 +73,9 @@ div.board div.left {
 	width: 340px;
 	height: 636px;
 }
+div.board div.left div.up {
+	height: 30px;
+}
 div.board div.left div.gamearea div.up {
 	height: 226px;
 }
@@ -139,6 +142,9 @@ div.board div.left div.gamearea div.down div.right {
 	background-repeat: no-repeat;
 	width: 56px;
 	height: 226px;
+}
+div.left div.down {
+	height: 25px;
 }
 div.board div.middleborder {
 	float: left;
