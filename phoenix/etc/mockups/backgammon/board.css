@@ -76,9 +76,7 @@ div.board div.left {
 div.board div.left div.up {
 	height: 30px;
 }
-div.board div.left div.gamearea {
-	width: 340px;
-}
+
 div.board div.left div.gamearea div.up {
 	height: 226px;
 }
