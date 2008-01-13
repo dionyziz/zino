@@ -74,6 +74,49 @@ div.board div.left {
 	border: 1px solid green;
 	height: 636px;
 }
+div.board div.left div.gamearea div.up {
+	width: 338px;
+	height: 227px;
+}
+div.board div.left div.gamearea div.up div.left {
+	float: left;
+	background-image: url( 'images/tri-left-up-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 227px;
+}
+div.board div.left div.gamearea div.up div.white {
+	float: left;
+	background-image: url( 'images/tri-up-white.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 227px;
+	
+}
+div.board div.left div.gamearea div.up div.brown {
+	float: left;
+	background-image: url( 'images/tri-up-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 227px;
+}
+div.board div.left div.gamearea div.up div.right {
+	float: left;
+	background-image: url( 'images/tri-right-up-white.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 227px;
+
+}
+div.board div.left div.gamearea div.middle {
+	width: 338px;
+	height: 129px;
+	background-image: url( 'images/left-middle.jpg' );
+	background-repeat: no-repeat;
+}
+div.board div.left div.gamearea div.down {
+	width: 338px;
+}
 div.board div.middleborder {
 	float: left;
 	background-image: url( 'images/border-middle.jpg' );

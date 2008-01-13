@@ -42,6 +42,24 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 					<div class="up">
 					</div>
 					<div class="gamearea">
+						<div class="up">
+							<div class="left">
+							</div>
+							<div class="">
+							</div>
+							<div class="">
+							</div>
+							<div class="">
+							</div>
+							<div class="">
+							</div>
+							<div class="right">
+							</div>
+						</div>
+						<div class="middle">
+						</div>
+						<div class="down">
+						</div>
 					</div>
 					<div class="down">
 					</div>
