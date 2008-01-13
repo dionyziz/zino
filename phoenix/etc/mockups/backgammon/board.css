@@ -71,7 +71,6 @@ div.board div.leftborder div.container2 div.bottom {
 div.board div.left {
 	float: left;
 	width: 338px;
-	border: 1px solid green;
 	height: 636px;
 }
 div.board div.left div.gamearea div.up {
@@ -102,7 +101,7 @@ div.board div.left div.gamearea div.up div.brown {
 }
 div.board div.left div.gamearea div.up div.right {
 	float: left;
-	background-image: url( 'images/tri-right-up-white.jpg' );
+	background-image: url( 'images/tri-right-up-brown.jpg' );
 	background-repeat: no-repeat;
 	width: 56px;
 	height: 227px;
@@ -127,7 +126,7 @@ div.board div.middleborder {
 div.board div.right {
 	float: left;
 	width: 338px;
-	border: 1px solid green;
+	height: 636px;
 	height: 636px;
 }
 div.board div.rightborder {

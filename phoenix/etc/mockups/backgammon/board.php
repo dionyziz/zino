@@ -45,13 +45,13 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 						<div class="up">
 							<div class="left">
 							</div>
-							<div class="">
+							<div class="white">
 							</div>
-							<div class="">
+							<div class="brown">
 							</div>
-							<div class="">
+							<div class="white">
 							</div>
-							<div class="">
+							<div class="brown">
 							</div>
 							<div class="right">
 							</div>
