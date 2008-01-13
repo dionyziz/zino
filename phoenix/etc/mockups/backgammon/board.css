@@ -125,14 +125,14 @@ div.board div.left div.gamearea div.down div.white {
 	float: left;
 	background-image: url( 'images/tri-bottom-white.jpg' );
 	background-repeat: no-repeat;
-	width: 57px;
+	width: 56px;
 	height: 226px;
 }
 div.board div.left div.gamearea div.down div.brown {
 	float: left;
 	background-image: url( 'images/tri-bottom-brown.jpg' );
 	background-repeat: no-repeat;
-	width: 57px;
+	width: 56px;
 	height: 226px;
 }
 div.board div.left div.gamearea div.down div.right {
