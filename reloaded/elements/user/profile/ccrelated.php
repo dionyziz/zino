@@ -16,7 +16,7 @@
 		?></h4>
 			<ul>
                 <?php
-                if ( $theuser->Rights() != 20 ) {
+                if ( $theuser->Username() == '_daemon_' || $theuser->Rights() < 20 ) {
                     ?>
     				<li><dl>
     					<dt>ρόλος</dt>
