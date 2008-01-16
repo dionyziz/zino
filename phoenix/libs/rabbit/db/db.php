@@ -7,13 +7,13 @@
 	global $libs;
 		
 	// Define database data types
-    define( 'DB_TYPE_INT' 		, "DB_TYPE_INT" );
-    define( 'DB_TYPE_VARCHAR' 	, "BD_TYPE_VARCHAR" );
-    define( 'DB_TYPE_CHAR' 		, "DB_TYPE_CHAR" );
-    define( 'DB_TYPE_TEXT' 		, "DB_TYPE_TEXT" );
-    define( 'DB_TYPE_DATETIME'	, "DB_TYPE_DATETIME" );
-    define( 'DB_TYPE_FLOAT'		, "DB_TYPE_FLOAT" );
-    define( 'DB_TYPE_ENUM'		, "DB_TYPE_ENUM" );
+    define( 'DB_TYPE_INT' 		, 1 );
+    define( 'DB_TYPE_VARCHAR' 	, 2 );
+    define( 'DB_TYPE_CHAR' 		, 3 );
+    define( 'DB_TYPE_TEXT' 		, 4 );
+    define( 'DB_TYPE_DATETIME'	, 5 );
+    define( 'DB_TYPE_FLOAT'		, 6 );
+    define( 'DB_TYPE_ENUM'		, 7 );
 	
 	// Define database index types
 	define( 'DB_KEY_INDEX'		, 1 );
@@ -470,6 +470,20 @@
             }
             return $this->mFields;
         }
+        protected function GetIndexes() {
+            if ( $this->mIndexes === false ) {
+                $query = $this->mDb->Prepare(
+                    'SHOW INDEX FROM :' . $this->mAlias . ';'
+                );
+                $query->BindTable( $this->mAlias );
+                $res = $query->Execute();
+                $this->mIndexes = array();
+                while ( $row = $res->FetchArray() ) {
+                    $this->mIndexes[] = New DBIndex( $row );
+                }
+            }
+            return $this->mIndexes;
+        }
         protected function SetName( $value ) {
             w_assert( is_scalar( $value ), "Table name should be scalar" );
 
@@ -519,8 +533,7 @@
                 $this->mNewFields[] = $field;
             }
         }
-        public function CreateIndex( $index ) {
-            w_assert( $index instanceof DBIndex );
+        public function CreateIndex( DBIndex $index ) {
             $this->mNewIndexes[] = $index;
         }
         public function Save() {    
@@ -649,11 +662,54 @@
     }
 
     class DBIndex extends Overloadable {
-        public function AddField() {
+        private $mExists;
+        private $mFields;
+        private $mName;
+        private $mType;
+        private $mCardinality;
+        
+        public function AddField( DBField $field ) {
         }
-        public function CreateIndex() {
+        public function Save() {
+            // TODO
         }
-        public function DBIndex() {
+        protected function GetType() {
+            return $this->mType;
+        }
+        protected function GetName() {
+            return $this->mName;
+        }
+        protected function SetType( $type ) {
+            $this->mType = $type;
+        }
+        protected function SetName( $name ) {
+            $this->mName = $name;
+        }
+        protected function GetCardinality() {
+            return $this->mCardinality;
+        }
+        public function DBIndex( $info = false ) {
+            if ( $info === false ) {
+                $this->mExists = false;
+            }
+            else {
+                $this->mExists = true;
+                w_assert( isset( $info[ 'Key_name' ] ) );
+                w_assert( isset( $info[ 'Non_unique' ] ) );
+                w_assert( isset( $info[ 'Cardinality' ] ) );
+                $this->mName = $info[ 'Key_name' ];
+                if ( $info[ 'Non_unique' ] == 1 ) {
+                    $this->mType = DB_KEY_INDEX;
+                }
+                else if ( $info[ 'Key_name' ] == 'PRIMARY' ) {
+                    $this->mType = DB_KEY_PRIMARY;
+                }
+                else {
+                    $this->mType = DB_KEY_UNIQUE;
+                }
+                // TODO: Build $this->mFields
+                // TODO: $info should contain multiple rows from SHOW INDEX!
+            }
         }
     }
 

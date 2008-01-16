@@ -349,4 +349,7 @@
             }
         }
     }
+    
+    class Collection {
+    }
 ?>
