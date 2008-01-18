@@ -712,6 +712,9 @@
         public function AddField( DBField $field ) {
             $this->mFields[] = $field;
         }
+        protected function GetFields() {
+            return $this->mFields;
+        }
         public function Save() {
             global $water;
             
