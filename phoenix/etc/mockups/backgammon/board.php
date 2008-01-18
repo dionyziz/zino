@@ -14,7 +14,6 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
 	<head>
 		<title>Τάβλι</title>
-	
 		<link rel="stylesheet" type="text/css" href="board.css" />
 	</head>
 	<body>
