@@ -496,9 +496,12 @@
             return $this->mIndexes;
         }
         protected function SetName( $value ) {
-            w_assert( is_scalar( $value ), "Table name should be scalar" );
+            w_assert( is_string( $value ), "Table name should be a string" );
 
             $this->mTableName = $value;
+        }
+        protected function SetAlias( $value ) {
+            $this->mAlias = $value;
         }
         protected function SetDatabase( Database $db ) {
             $this->mDb = $db;
@@ -693,6 +696,9 @@
         private $mCardinality;
         private $mParentTable;
         
+        public function Exists() {
+            return $this->mExists;
+        }
         public function AddField( DBField $field ) {
             $this->mFields[] = $field;
         }
