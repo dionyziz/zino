@@ -80,19 +80,30 @@
 					
 		public function TestCreateTable() {
 			$table = New DBTable();
+			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
+
 			$table->Name = 'rabbit_test';
+            $this->AssertEquals( 'rabbit_test', $table->Name, 'Table name could not be set' );
+            
             $table->Alias = 'rabbit_test';
+            $this->AssertEquals( 'rabbit_test', $table->Alias, 'Table alias could not be set' );
             
 			$field = New DBField();
-			$field->Name = 'user_id';
+            $this->AssertFalse( $field->Exists(), 'Field must not exist prior to creation' );
+            $field->Name = 'user_id';
+            $this->AssertEquals( 'user_id', $field->Name, 'Field name could not be set' );
 			$field->Type = DB_TYPE_INT;
+            $this->AssertEquals( DB_TYPE_INT, $field->Type, 'Field type could not be set to DB_TYPE_INT' );
 			$field->IsAutoIncrement = true;
+            $this->AssertEquals( true, $field->IsAutoIncrement, 'Field autoincrement could not be set' );
 
 			$field2 = New DBField();
 			$field2->Name = 'user_name';
 			$field2->Type = DB_TYPE_CHAR;
+            $this->AssertEquals( DB_TYPE_CHAR, $field->Type, 'Field type could not be set to DB_TYPE_CHAR' );
 			$field2->Length = 32;
-
+            $this->AssertEquals( 32, $field->Length, 'Field length could not be set' );
+            
 			$field3 = New DBField();
 			$field3->Name = 'user_subdomain';
 			$field3->Type = DB_TYPE_CHAR;
@@ -102,31 +113,40 @@
 			$table->CreateField( array( $field2, $field3 ) );
 
 			$primary = New DBIndex();
+            $this->AssertFalse( $primary->Exists(), 'Primary key must not exist prior to creation' );
+            $this->Assert( is_array( $primary->Fields ), 'Index fields must be an array, even when no fields have been added yet' );
+            $this->AssertEquals( 0, count( $primary->Fields ), 'Index fields must be the empty array when no fields have been added yet' );
 			$primary->AddField( $field );
-			$primary->Type = DB_KEY_PRIMARY;
+            $this->AssertEquals( 1, count( $primary->Fields ), 'Could not add one field to an index' );
+            $this->AssertEquals( $field, reset( $primary->Fields ), 'The field added to the index does not match the field specified' );
+		 	$primary->Type = DB_KEY_PRIMARY;
+            $this->AssertFalse( DB_KEY_PRIMARY, $primary->Type, 'Could not set key type to DB_KEY_PRIMARY' );
 
 			$username = New DBIndex();
 			$username->AddField( $field2 );
 			$username->Type = DB_KEY_UNIQUE;
+            $this->AssertFalse( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
 
 			$subdomain = New DBIndex();
 			$subdomain->AddField( $field2 ); // DBField or array of DBField
 			$subdomain->AddField( $field3 ); // order matters
+            $this->AssertEquals( 2, count( $subdomain->Fields ), 'Could not create a multifield index' );
+            $this->AssertEquals( $field2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
+            $this->AssertEquals( $field2, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
 			$subdomain->Type = DB_KEY_INDEX;
+            $this->AssertFalse( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
 
 			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
 			$table->CreateIndex( array( $username, $subdomain ) );
 
 			$table->Database = $this->mFirstDatabase;
+            $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
-			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
-
 			$table->Save();
 			$this->mTestTable = $table;
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
-		
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
