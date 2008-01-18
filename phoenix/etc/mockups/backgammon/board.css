@@ -8,7 +8,25 @@ div.main {
 	margin: 50px;
 }
 div.main table.board {
-
-
-
+	width: 1000px;
+	height: 700px;
+	border: 1px solid black;
+}
+div.main table.board tr td.outerleft {
+	width: 79px;
+	background-image: url( 'images/border-left.jpg' );
+	background-repeat: no-repeat;
+	border: 1px solid red;
+}
+div.main table.board tr td.outermiddle {
+	width: 55px;
+	background-image: url( 'images/border-migdle.jpg' );
+	background-repeat: no-repeat;
+	border: 1px solid red;
+}
+div.main table.board tr td.outerright {
+	width: 88px;
+	background-image: url( 'images/border-right.jpg' );
+	background-repeat: no-repeat;
+	border: 1px solid red;
 }
