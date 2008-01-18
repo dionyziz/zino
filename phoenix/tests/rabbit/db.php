@@ -132,9 +132,9 @@
 			$subdomain->AddField( $field3 ); // order matters
             $this->AssertEquals( 2, count( $subdomain->Fields ), 'Could not create a multifield index' );
             $this->AssertEquals( $field2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
-            $this->AssertEquals( $field2, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
+            $this->AssertEquals( $field3, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
 			$subdomain->Type = DB_KEY_INDEX;
-            $this->AssertFalse( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
+            $this->AssertEquals( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
 
 			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
 			$table->CreateIndex( array( $username, $subdomain ) );
