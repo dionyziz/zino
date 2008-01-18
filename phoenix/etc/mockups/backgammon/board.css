@@ -31,11 +31,67 @@ table.board tr td.gamearea1 table tr td.outerup {
 	height: 30px;
 	padding: 0;
 }
+table.board tr td.gamearea1 table tr td.upperleft {
+	background-image: url( 'images/tri-left-up-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 227px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.upperwhite {
+	background-image: url( 'images/tri-up-white.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 226px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.upperbrown {
+	background-image: url( 'images/tri-up-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 226px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.upperright {
+	background-image: url( 'images/tri-right-up-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 226px;
+	padding: 0;
+}
 table.board tr td.gamearea1 table tr td.middle {
 	background-image: url( 'images/left-middle.jpg' );
 	background-repeat: no-repeat;
 	width: 340px;
 	height: 129px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.downleft {
+	background-image: url( 'images/tri-bottom-white.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 227px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.downwhite {
+	background-image: url( 'images/tri-bottom-white.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 226px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.downbrown {
+	background-image: url( 'images/tri-bottom-brown.jpg.jpg' );
+	background-repeat: no-repeat;
+	width: 57px;
+	height: 226px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.downright {
+	background-image: url( 'images/tri-right-down-brown.jpg' );
+	background-repeat: no-repeat;
+	width: 56px;
+	height: 226px;
 	padding: 0;
 }
 table.board tr td.gamearea1 table tr td.outerdown {

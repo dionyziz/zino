@@ -29,12 +29,23 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<td class="outerup"></td>
 							</tr>
 							<tr>
-								
+								<td class="upperleft"></td>
+								<td class="upperwhite"></td>
+								<td class="upperbrown"></td>
+								<td class="upperwhite"></td>
+								<td class="upperbrown"></td>
+								<td class="upperright"></td>
 							</tr>
 							<tr>
 								<td class="middle"></td>
 							</tr>
 							<tr>
+								<td class="downleft"></td>
+								<td class="downwhite"></td>
+								<td class="downbrown"></td>
+								<td class="downwhite"></td>
+								<td class="downbrown"></td>
+								<td class="downright"></td>
 							
 							</tr>
 							<tr>
