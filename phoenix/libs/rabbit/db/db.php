@@ -625,6 +625,7 @@
 		protected $mStoredState;
         protected $mIsPrimaryKey;
         protected $mIsAutoIncrement;
+        protected $mParentTable;
         
         public function Exists() {
             return $this->mExists;
@@ -679,12 +680,21 @@
             w_assert( is_bool( $value ) );
             $this->IsAutoIncrement = $value;
         }
-        public function DBField( $info ) {
-            $this->mName = $info[ 'Field' ];
-            $this->mType = $info[ 'Type' ];
-            $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
-            $this->mIsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
-            $this->mDefault = $info[ 'Default' ];
+        public function DBField( $parenttable = false, $info = false ) {
+            if ( $info === false && $parenttable === false ) {
+                $this->mExists = false;
+            }
+            else {
+                $this->mExists = true;
+                w_assert( is_object( $parenttable ) );
+                w_assert( $parenttable instanceof DBTable );
+                $this->mParentTable = $parenttable;
+                $this->mName = $info[ 'Field' ];
+                $this->mType = $info[ 'Type' ];
+                $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
+                $this->mIsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
+                $this->mDefault = $info[ 'Default' ];
+            }
         }
     }
 
