@@ -53,7 +53,7 @@
 		public function ConstantByDataType( $datatype );
     }
     
-    $libs->Load( 'rabbit/db/mysql' ); // load mysql support
+    $libs->Load( 'rabbit/db/drivers/mysql' ); // load mysql support
     
 	class Database {
 		protected $mDbName;
@@ -445,9 +445,7 @@
 		protected $mTableName;
 		protected $mAlias;
         protected $mFields;
-        protected $mNewFields;
         protected $mIndexes;
-        protected $mNewIndexes;
 		protected $mExists;
         
         protected function GetName() {
@@ -455,6 +453,12 @@
         }
         protected function GetAlias() {
             return $this->mAlias;
+        }
+        protected function FieldByName( $name ) {
+            if ( !isset( $this->mFields[ $name ] ) ) {
+                return false;
+            }
+            return $this->mFields[ $name ];
         }
         protected function GetFields() {
             if ( $this->mFields === false ) {
@@ -465,7 +469,7 @@
                 $res = $query->Execute();
                 $this->mFields = array();
                 while ( $row = $res->FetchArray() ) {
-                    $this->mFields[] = New DBField( $row );
+                    $this->mFields[ $row[ 'Field' ] ] = New DBField( $row );
                 }
             }
             return $this->mFields;
@@ -478,8 +482,15 @@
                 $query->BindTable( $this->mAlias );
                 $res = $query->Execute();
                 $this->mIndexes = array();
+                $indexinfos = array();
                 while ( $row = $res->FetchArray() ) {
-                    $this->mIndexes[] = New DBIndex( $row );
+                    if ( !isset( $indexinfos[ $row[ 'Key_name' ] ] ) ) {
+                        $indexinfos[ $row[ 'Key_name' ] ] = array();
+                    }
+                    $indexinfos[ $row[ 'Key_name' ] ][] = $row;
+                }
+                foreach ( $indexinfos as $indexinfo ) {
+                    $this->mIndexes[] = New DBIndex( $indexinfo );
                 }
             }
             return $this->mIndexes;
@@ -489,11 +500,11 @@
 
             $this->mTableName = $value;
         }
-        protected function SetDatabase( $db ) {
-            w_assert( is_object( $db ), 'Database passed to DBTable must be an object' );
-            w_assert( $db instanceof Database, 'Database passed to DBTable must be an instance of Database ( ' . get_class( $db ) .' given ) ' );
-
+        protected function SetDatabase( Database $db ) {
             $this->mDb = $db;
+        }
+        protected function GetDatabase() {
+            return $this->mDb;
         }
 		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
             $this->mExists = false;
@@ -528,57 +539,67 @@
             if ( !is_array( $fields ) ) {
                 $fields = array( $fields );
             }
+            w_assert( count( $fields ) );
             foreach ( $fields as $field ) {
                 w_assert( $field instanceof DBField );
-                $this->mNewFields[] = $field;
+                $this->mFields[] = $field;
             }
         }
-        public function CreateIndex( DBIndex $index ) {
-            $this->mNewIndexes[] = $index;
+        public function CreateIndex( $indexes ) {
+            if ( !is_array( $indexes ) ) {
+                $indexes = array( $indexes );
+            }
+            w_assert( count( $indexes ) );
+            foreach ( $indexes as $index ) {
+                w_assert( $index instanceof DBIndex );
+                $this->mIndexes[] = $index;
+            }
         }
-        public function Save() {    
-            $query = "CREATE TABLE `" . $this->mTableName . "` ( ";
+        public function Save() {
+            w_assert( !$this->Exists() );
+            w_assert( !empty( $this->mAlias ) );
+            w_assert( !empty( $this->mTableName ) );
+            
+            $this->mDb->AttachTable( $this->mAlias, $this->mTableName );
+            
+            $sql = "CREATE TABLE :" . $this->mAlias . " ( ";
             $first = true;
             foreach ( $this->mNewFields as $field ) {
                 if ( $first ) {
                     $first = false;
                 }
                 else {
-                    $query .= ", ";
+                    $sql .= ", ";
                 }
-                $query .= "`" . $field->Name . "` ";
-                $query .= ":" . $field->Type . " ";
+                $sql .= "`" . $field->Name . "` ";
+                $sql .= ":" . $field->Type . " ";
 
                 if ( !empty( $field->Length ) ) {
-                    $query .= "(" . $field->Length . ")";
+                    $sql .= "(" . $field->Length . ")";
                 }
-                $query .= " ";
+                $sql .= " ";
                 if ( !$field->Null ) {
-                    $query .= "NOT NULL ";
+                    $sql .= "NOT NULL ";
                 }
                 if ( !empty( $field->Default ) ) {
-                    $query .= "DEFAULT " . $field->Default . " ";
+                    $sql .= "DEFAULT " . $field->Default . " ";
                 }
                 if ( $field->IsPrimaryKey ) {
-                    $query .= "PRIMARY KEY ";
+                    $sql .= "PRIMARY KEY ";
                 }
                 if ( $field->IsAutoIncrement ) {
-                    $query .= "AUTO_INCREMENT";
+                    $sql .= "AUTO_INCREMENT";
                 }
             }
-            $query .= ");";
-            die( $this->mDb->Prepare( $query )->Apply() );
-            $change = $this->mDb->Prepare( $query )->Execute();
-            if ( $change->Impact() ) {
-                $this->mExists = true;
-
-                return true;
-            }
-
-            return false;
+            $sql .= ");";
+            $query = $this->mDb->Prepare( $sql );
+            $query->BindTable( $this->mAlias );
+            $query->Execute();
+            $this->mExists = true;
         }
         public function Delete() {
-            $change = $this->mDb->Prepare( "DROP TABLE `" . $this->mTableName . "`;" )->Execute();
+            $query = $this->mDb->Prepare( "DROP TABLE " . $this->mAlias . ";" );
+            $query->BindTable( $this->mAlias );
             if ( $change->Impact() ) {
                 $this->mExists = false;
 
@@ -601,7 +622,10 @@
 		protected $mStoredState;
         protected $mIsPrimaryKey;
         protected $mIsAutoIncrement;
-
+        
+        public function Exists() {
+            return $this->mExists;
+        }
         protected function GetName() {
             return $this->mName;
         }
@@ -667,11 +691,38 @@
         private $mName;
         private $mType;
         private $mCardinality;
+        private $mParentTable;
         
         public function AddField( DBField $field ) {
+            $this->mFields[] = $field;
         }
         public function Save() {
-            // TODO
+            global $water;
+            
+            if ( $this->mExists ) {
+                $water->Warning( 'Cannot create DBIndex; DBIndex already exists' );
+                return;
+            }
+            w_assert( $this->mParentTable->Exists() );
+            $sql = 'ALTER TABLE :' . $this->mParentTable->Alias . ' ADD ';
+            if ( $this->mType == DB_KEY_PRIMARY ) {
+                $sql .= 'PRIMARY KEY ';
+            }
+            else {
+                if ( $this->mType == DB_KEY_UNIQUE ) {
+                    $sql .= 'UNIQUE ';
+                }
+                $sql = 'INDEX ';
+            }
+            $fields = array();
+            foreach ( $this->mFields as $field ) {
+                $fields[] = $field->Name;
+            }
+            $sql .= $this->mName;
+            $sql .= ' (`' . implode('`,`', $fields) . '`)';
+            $query = $this->mParentTable->Database->Prepare( $sql );
+            $query->BindTable( $this->mParentTable->Alias );
+            $query->Execute();
         }
         protected function GetType() {
             return $this->mType;
@@ -685,30 +736,44 @@
         protected function SetName( $name ) {
             $this->mName = $name;
         }
+        protected function SetParentTable( DBTable $table ) {
+            $this->mParentTable = $table;
+        }
         protected function GetCardinality() {
             return $this->mCardinality;
         }
-        public function DBIndex( $info = false ) {
-            if ( $info === false ) {
+        public function DBIndex( $parenttable = false, $info = false ) {
+            if ( $info === false && $parenttable === false ) {
                 $this->mExists = false;
             }
             else {
                 $this->mExists = true;
-                w_assert( isset( $info[ 'Key_name' ] ) );
-                w_assert( isset( $info[ 'Non_unique' ] ) );
-                w_assert( isset( $info[ 'Cardinality' ] ) );
-                $this->mName = $info[ 'Key_name' ];
-                if ( $info[ 'Non_unique' ] == 1 ) {
+                w_assert( is_object( $parenttable ) );
+                w_assert( $parenttable instanceof DBTable );
+                w_assert( $parenttable->Exists() );
+                $this->mParentTable = $parenttable;
+                
+                w_assert( is_array( $info ) );
+                w_assert( count( $info ) );
+                
+                $firstfield = $info[ 0 ];
+                
+                w_assert( isset( $firstfield[ 'Key_name' ] ) );
+                w_assert( isset( $firstfield[ 'Non_unique' ] ) );
+                w_assert( isset( $firstfield[ 'Cardinality' ] ) );
+                $this->mName = $firstfield[ 'Key_name' ];
+                if ( $firstfield[ 'Non_unique' ] == 1 ) {
                     $this->mType = DB_KEY_INDEX;
                 }
-                else if ( $info[ 'Key_name' ] == 'PRIMARY' ) {
+                else if ( $firstfield[ 'Key_name' ] == 'PRIMARY' ) {
                     $this->mType = DB_KEY_PRIMARY;
                 }
                 else {
                     $this->mType = DB_KEY_UNIQUE;
                 }
-                // TODO: Build $this->mFields
-                // TODO: $info should contain multiple rows from SHOW INDEX!
+                foreach ( $info as $field ) {
+                    $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $parenttable->FieldByName( $field[ 'Column_name' ] );
+                }
             }
         }
     }

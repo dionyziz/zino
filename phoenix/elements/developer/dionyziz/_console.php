@@ -1,6 +1,15 @@
 <?php
     function ElementDeveloperDionyzizConsole() {
-        var_dump( function_exists( 'runkit_lint' ) );
+        if ( $rabbit_settings[ 'production' ] !== false ) {
+            return;
+        }
+        
+        ?>
+        Interactive shell<br /><br />
+        <div>
+            rabbit &gt; <input />
+        </div>
+        <?php
         
         return array( 'tiny' => true );
     }
