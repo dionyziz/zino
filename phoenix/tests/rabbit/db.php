@@ -81,7 +81,8 @@
 		public function TestCreateTable() {
 			$table = New DBTable();
 			$table->Name = 'rabbit_test';
-
+            $table->Alias = 'rabbit_test';
+            
 			$field = New DBField();
 			$field->Name = 'user_id';
 			$field->Type = DB_TYPE_INT;
@@ -119,8 +120,7 @@
 
 			$table->Database = $this->mFirstDatabase;
             
-            $this->mTestTable = New DBTable();
-			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist prior to creation' );
+			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
 
 			$table->Save();
 			$this->mTestTable = $table;
