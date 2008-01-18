@@ -11,24 +11,25 @@ table.board {
 	width: 1000px;
 	height: 700px;
 	border: 1px solid black;
-	padding: 0;
-	margin: 0;
 }
 table.board tr td.outerleft {
 	width: 79px;
 	background-image: url( 'images/border-left.jpg' );
 	background-repeat: no-repeat;
 	border: 1px solid red;
+	padding: 0;
 }
 table.board tr td.outermiddle {
 	width: 55px;
-	background-image: url( 'images/border-migdle.jpg' );
+	background-image: url( 'images/border-middle.jpg' );
 	background-repeat: no-repeat;
 	border: 1px solid red;
+	padding: 0;
 }
 table.board tr td.outerright {
 	width: 88px;
 	background-image: url( 'images/border-right.jpg' );
 	background-repeat: no-repeat;
 	border: 1px solid red;
+	padding: 0;
 }
