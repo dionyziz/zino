@@ -469,7 +469,7 @@
                 $res = $query->Execute();
                 $this->mFields = array();
                 while ( $row = $res->FetchArray() ) {
-                    $this->mFields[ $row[ 'Field' ] ] = New DBField( $row );
+                    $this->mFields[ $row[ 'Field' ] ] = New DBField( $this, $row );
                 }
             }
             return $this->mFields;
