@@ -567,7 +567,7 @@
             
             $sql = "CREATE TABLE :" . $this->mAlias . " ( ";
             $first = true;
-            foreach ( $this->mNewFields as $field ) {
+            foreach ( $this->mFields as $field ) {
                 if ( $first ) {
                     $first = false;
                 }
