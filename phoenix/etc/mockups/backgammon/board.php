@@ -21,7 +21,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<div id="main">
 			<table style="width: 100px;border: 1px solid black;">
 				<tr>
-					<td style="border: 1px solid green;"></td>
+					<td style="border: 1px solid green;">asdgasgasdg</td>
 					<td style="border: 1px solid red;"></td>
 				</tr>
 			</table><!--
