@@ -142,7 +142,7 @@
 			$table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
-			// $table->Save();
+			$table->Save();
 			$this->mTestTable = $table;
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
