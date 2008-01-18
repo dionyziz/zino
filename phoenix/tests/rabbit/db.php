@@ -115,8 +115,7 @@
 			$subdomain->Type = DB_KEY_INDEX;
 
 			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
-			$table->CreateIndex( $username );
-			$table->CreateIndex( $subdomain );
+			$table->CreateIndex( array( $username, $subdomain ) );
 
 			$table->Database = $this->mFirstDatabase;
             
