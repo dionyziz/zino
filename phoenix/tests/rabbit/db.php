@@ -142,17 +142,19 @@
 			$table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
-			$table->Save();
+			// $table->Save();
 			$this->mTestTable = $table;
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
+        /*
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
 		}
         public function TestTableByAlias() {
         }
+        */
     }
     
     return New TestRabbitDb();
