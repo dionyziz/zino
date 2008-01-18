@@ -19,76 +19,28 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	</head>
 	<body>
 		<div id="main">
-			<div class="board">
-				<div class="leftborder">
-					<div class="container1">
-						<div class="up">
-						</div>
-						<div class="middle">
-						</div>
-						<div class="bottom">
-						</div>
-					</div>
-					<div class="container2">
-						<div class="up">
-						</div>
-						<div class="middle">
-						</div>
-						<div class="bottom">
-						</div>
-					</div>
-				</div>
-				<div class="left">
-					<div class="up">
-					</div>
-					<div class="gamearea">
-						<div class="up">
-							<div class="left">
-							</div>
-							<div class="white">
-							</div>
-							<div class="brown">
-							</div>
-							<div class="white">
-							</div>
-							<div class="brown">
-							</div>
-							<div class="right">
-							</div>
-						</div>
-						<div class="middle">
-						</div>
-						<div class="down">
-							<div class="left">
-							</div>
-							<div class="brown">
-							</div>
-							<div class="white">
-							</div>
-							<div class="brown">
-							</div>
-							<div class="white">
-							</div>
-							<div class="right">
-							</div>
-						</div>
-					</div>
-					<div class="down">
-					</div>
-				</div>
-				<div class="middleborder">
-				</div>
-				<div class="right">
-					<div class="up">
-					</div>
-					<div class="gamearea">
-					</div>
-					<div class="down">
-					</div>
-				</div>
-				<div class="rightborder">
-				</div>
-			</div>
+			<table style="width: 100px;border: 1px solid black;">
+				<tr>
+					<td style="border: 1px solid green;"></td>
+					<td style="border: 1px solid red;"></td>
+				</tr>
+			</table><!--
+			<table class="board">
+				<tr>	
+					<td class="outerleft">
+						
+					</td>
+					<td class="gamearea1">
+					</td>
+					<td class="outermiddle">
+					</td>
+					<td class="gamearea2">
+					</td>
+					<td class="outerright">
+					</td>
+				</tr>
+			</table>//-->
+			
 		</div>
 	</body>
 </html>
