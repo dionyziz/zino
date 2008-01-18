@@ -120,12 +120,12 @@
             $this->AssertEquals( 1, count( $primary->Fields ), 'Could not add one field to an index' );
             $this->AssertEquals( $field, reset( $primary->Fields ), 'The field added to the index does not match the field specified' );
 		 	$primary->Type = DB_KEY_PRIMARY;
-            $this->AssertFalse( DB_KEY_PRIMARY, $primary->Type, 'Could not set key type to DB_KEY_PRIMARY' );
+            $this->AssertEquals( DB_KEY_PRIMARY, $primary->Type, 'Could not set key type to DB_KEY_PRIMARY' );
 
 			$username = New DBIndex();
 			$username->AddField( $field2 );
 			$username->Type = DB_KEY_UNIQUE;
-            $this->AssertFalse( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
+            $this->AssertEquals( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
 
 			$subdomain = New DBIndex();
 			$subdomain->AddField( $field2 ); // DBField or array of DBField
