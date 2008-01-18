@@ -100,9 +100,9 @@
 			$field2 = New DBField();
 			$field2->Name = 'user_name';
 			$field2->Type = DB_TYPE_CHAR;
-            $this->AssertEquals( DB_TYPE_CHAR, $field->Type, 'Field type could not be set to DB_TYPE_CHAR' );
+            $this->AssertEquals( DB_TYPE_CHAR, $field2->Type, 'Field type could not be set to DB_TYPE_CHAR' );
 			$field2->Length = 32;
-            $this->AssertEquals( 32, $field->Length, 'Field length could not be set' );
+            $this->AssertEquals( 32, $field2->Length, 'Field length could not be set' );
             
 			$field3 = New DBField();
 			$field3->Name = 'user_subdomain';

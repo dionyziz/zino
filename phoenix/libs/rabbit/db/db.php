@@ -759,6 +759,7 @@
             return $this->mCardinality;
         }
         public function DBIndex( $parenttable = false, $info = false ) {
+            $this->mFields = array();
             if ( $info === false && $parenttable === false ) {
                 $this->mExists = false;
             }
