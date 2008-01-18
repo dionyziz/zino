@@ -30,7 +30,7 @@
 			// DBIndex
 			$index = New DBIndex();	
 			$this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() doesn\'t exist' );
-			$this->Assert( method_exists( $index, 'CreateIndex' ) , 'Method DBIndex->CreateIndex() doesn\'t exist' );
+			$this->Assert( method_exists( $index, 'Save' ) , 'Method DBIndex->Save() doesn\'t exist' );
         }
         public function TestPublicImport() {
             global $rabbit_settings;
