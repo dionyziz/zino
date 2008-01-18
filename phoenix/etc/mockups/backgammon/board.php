@@ -24,10 +24,44 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 						
 					</td>
 					<td class="gamearea1">
+						<table>
+							<tr>
+								<td class="outerup"></td>
+							</tr>
+							<tr>
+								
+							</tr>
+							<tr>
+								<td class="middle"></td>
+							</tr>
+							<tr>
+							
+							</tr>
+							<tr>
+								<td class="outerdown"></td>
+							</tr>
+						</table>
 					</td>
 					<td class="outermiddle">
 					</td>
 					<td class="gamearea2">
+						<table>
+							<tr>
+								<td class="outerup"></td>
+							</tr>
+							<tr>
+								
+							</tr>
+							<tr>
+								<td class="middle"></td>
+							</tr>
+							<tr>
+							
+							</tr>
+							<tr>
+								<td class="outerdown"></td>
+							</tr>
+						</table>
 					</td>
 					<td class="outerright">
 					</td>

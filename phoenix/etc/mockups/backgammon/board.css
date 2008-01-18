@@ -19,6 +19,25 @@ table.board tr td.outerleft {
 	border: 1px solid red;
 	padding: 0;
 }
+table.board tr td.gamearea1 {
+	width: 340px;
+	padding: 0;
+}
+table.board tr td.gamearea1 table tr td.outerup {
+	background-image: url( 'images/border-up1.jpg');
+	background-repeat: no-repeat;
+	height: 30px;
+}
+table.board tr td.gamearea1 table tr td.middle {
+	background-image: url( 'images/left-middle.jpg' );
+	background-repeat: no-repeat;
+	height: 129px;
+}
+table.board tr td.gamearea1 table tr td.outerdown {
+	background-image: url( 'images/border-down1.jpg' );
+	background-repeat: no-repeat;
+	height: 25px;
+}
 table.board tr td.outermiddle {
 	width: 55px;
 	background-image: url( 'images/border-middle.jpg' );
@@ -26,6 +45,26 @@ table.board tr td.outermiddle {
 	border: 1px solid red;
 	padding: 0;
 }
+table.board tr td.gamearea2 {
+	width: 340px;
+	padding: 0;
+}
+table.board tr td.gamearea2 table tr td.outerup {
+	background-image: url( 'images/border-up2.jpg');
+	background-repeat: no-repeat;
+	height: 30px;
+}
+table.board tr td.gamearea2 table tr td.middle {
+	background-image: url( 'images/right-middle.jpg' );
+	background-repeat: no-repeat;
+	height: 129px;
+}
+table.board tr td.gamearea1 table tr td.outerdown {
+	background-image: url( 'images/border-down2.jpg' );
+	background-repeat: no-repeat;
+	height: 27px;
+}
+
 table.board tr td.outerright {
 	width: 88px;
 	background-image: url( 'images/border-right.jpg' );
