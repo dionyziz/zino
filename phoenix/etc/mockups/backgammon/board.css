@@ -75,25 +75,25 @@ table.board td.leftarea table.conesdown1 {
 	width: 338px;
 	height: 226px;
 }
-table.board td.leftarea table table.conesup2 td.leftdown {
+table.board td.leftarea table table.conesdown1 td.leftdown {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-down-white.jpg.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table table.conesup2 td.browndown {
+table.board td.leftarea table table.conesdown1 td.browndown {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/brown-bottom.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table table.conesup2 td.whitedown {
+table.board td.leftarea table table.conesdown1 td.whitedown {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/white-bottom.jpg.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table table.conesup2 td.rightdown {
+table.board td.leftarea table table.conesdown1 td.rightdown {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-down-brown.jpg.jpg' );
