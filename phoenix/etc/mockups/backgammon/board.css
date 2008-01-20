@@ -78,7 +78,7 @@ table.board td.leftarea table.conesdown1 {
 table.board td.leftarea table table.conesdown1 td.leftdown {
 	width: 57px;
 	height: 226px;
-	background-image: url( 'images/left/tri-left-down-white.jpg.jpg' );
+	background-image: url( 'images/left/tri-left-down-white.jpg' );
 	background-repeat: no-repeat;
 }
 table.board td.leftarea table table.conesdown1 td.browndown {
@@ -90,13 +90,13 @@ table.board td.leftarea table table.conesdown1 td.browndown {
 table.board td.leftarea table table.conesdown1 td.whitedown {
 	width: 56px;
 	height: 226px;
-	background-image: url( 'images/left/white-bottom.jpg.jpg' );
+	background-image: url( 'images/left/white-bottom.jpg' );
 	background-repeat: no-repeat;
 }
 table.board td.leftarea table table.conesdown1 td.rightdown {
 	width: 57px;
 	height: 226px;
-	background-image: url( 'images/left/tri-left-down-brown.jpg.jpg' );
+	background-image: url( 'images/left/tri-left-down-brown.jpg' );
 	background-repeat: no-repeat;
 }
 
