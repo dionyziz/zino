@@ -7,6 +7,10 @@ body {
 div.main {
 	margin: 50px;
 }
+table {
+	padding: 0;
+	margin: 0;
+}
 table.board {
 	border: 1px solid red;
 }
