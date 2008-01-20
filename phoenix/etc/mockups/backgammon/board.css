@@ -104,9 +104,9 @@ table.board td.outerright {
 }
 
 table.board table {
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 table.board td {
 	padding: 0;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
