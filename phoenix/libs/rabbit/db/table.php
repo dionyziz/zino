@@ -135,7 +135,7 @@
                     $indexinfos[ $row[ 'Key_name' ] ][] = $row;
                 }
                 foreach ( $indexinfos as $indexinfo ) {
-                    $this->mIndexes[] = New DBIndex( $indexinfo );
+                    $this->mIndexes[] = New DBIndex( $this, $indexinfo );
                 }
             }
             return $this->mIndexes;

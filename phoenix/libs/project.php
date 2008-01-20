@@ -59,7 +59,8 @@
             'eventsearch'       => 'developer/abresas/search/events',
             'debug'             => 'developer/water',
             'jslint'            => 'developer/js/lint',
-            'developer/dionyziz/console' => 'developer/dionyziz/console'
+            'developer/dionyziz/console' => 'developer/dionyziz/console',
+            'developer/dionyziz/sqlite' => 'developer/dionyziz/sqlite'
     	);
     }
 ?>

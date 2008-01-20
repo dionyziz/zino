@@ -45,37 +45,6 @@
                 $this->Assert( $GLOBALS[ $key ] instanceof Database, 'Database imported into the global namespace does not appear to be a Database instance' );
             }
         }
-        public function TestTableList() {
-            $tables = $this->mFirstDatabase->Tables();
-            $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
-            $this->Assert( count( $tables ), 'Your first database does not contain any tables -- cannot continue testing without some tables to work on' );
-            foreach ( $tables as $table ) {
-                $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
-                $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
-                $fields = $table->Fields;
-                $this->Assert( is_array( $fields ), 'Value of attribute DBTable->Fields must be an array' );
-                $this->Assert( count( $fields ), 'One of your database tables does not contain any columns -- cannot continue testing without some fields to work on' );
-                foreach ( $fields as $field ) {
-                    $this->Assert( is_object( $field ), 'Item of array returned by DBTable->Fields was not an object' );
-                    $this->Assert( $field instanceof DBField, 'Item of array returned by DBTable->Fields was not an instance of DBField' );
-                }
-            }
-        }
-		public function TestConstantsExist() {
-			// Database data types
-			$this->Assert( defined( 'DB_TYPE_DATETIME' )	, 'Constant of database type DATETIME must be defined' );
-			$this->Assert( defined( 'DB_TYPE_VARCHAR' )		, 'Constant of database type VARCHAR must be defined' );
-			$this->Assert( defined( 'DB_TYPE_ENUM' )		, 'Constant of database type ENUM must be defined' );
-			$this->Assert( defined( 'DB_TYPE_CHAR' )		, 'Constant of database type CHAR must be defined' );
-			$this->Assert( defined( 'DB_TYPE_INT' )			, 'Constant of database type INT must be defined' );
-			$this->Assert( defined( 'DB_TYPE_TEXT' )		, 'Constant of database type TEXT must be defined' );
-			$this->Assert( defined( 'DB_TYPE_FLOAT' )		, 'Constant of database type FLOAT must be defined' );
-			
-			// Database key index types
-			$this->Assert( defined( 'DB_KEY_INDEX' )	, 'Constant of database key INDEX must be defined' );
-			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
-			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
-		}
 		public function TestCreateTable() {
 			$table = New DBTable();
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
@@ -155,10 +124,74 @@
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
+        public function TestTableList() {
+            $tables = $this->mFirstDatabase->Tables();
+            $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
+            $this->Assert( count( $tables ), 'Could not list the table that was just created -- no tables were returned' );
+            $found = false;
+            foreach ( $tables as $table ) {
+                if ( $table->Name == 'rabbit_test' ) {
+                    $found = true;
+                    $table2 = $table;
+                    break;
+                }
+            }
+            $this->Assert( $found, 'Could not find the recently created table within the list of tables' );
+            $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
+            
+            $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
+            $this->AssertEquals( $table, $table2, 'Table returned by TableByAlias() must match table returned by listing' );
+            $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
+            $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
+            $fields = $table->Fields;
+            $this->Assert( is_array( $fields ), 'Value of attribute DBTable->Fields must be an array' );
+            $this->AssertEquals( 3, count( $fields ), 'The number of fields of the recently created table is incorrect' );
+            $i = 0;
+            foreach ( $fields as $field ) {
+                $this->Assert( is_object( $field ), 'Item of array returned by DBTable->Fields was not an object' );
+                $this->Assert( $field instanceof DBField, 'Item of array returned by DBTable->Fields was not an instance of DBField' );
+                switch ( $i ) {
+                    case 0:
+                        $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
+                        break;
+                    case 1:
+                        $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
+                        break;
+                    case 2:
+                        $this->AssertEquals( 'user_subdomain', $field->Name, 'The third column must be "user_subdomain"' );
+                        break;
+                }
+                ++$i;
+            }
+            $indexes = $table->Indexes;
+            $this->Assert( is_array( $indexes ), 'Value of attribute DBTable->Indexes must be an array' );
+            $this->AssertEquals( 3, count( $indexes ), 'The number of indexes of the recently created table is incorrect' );
+            $i = 0;
+            foreach ( $indexes as $index ) {
+                $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
+                $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
+                ++$i;
+            }
+        }
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
 		}
+		public function TestConstantsExist() {
+			// Database data types
+			$this->Assert( defined( 'DB_TYPE_DATETIME' )	, 'Constant of database type DATETIME must be defined' );
+			$this->Assert( defined( 'DB_TYPE_VARCHAR' )		, 'Constant of database type VARCHAR must be defined' );
+			$this->Assert( defined( 'DB_TYPE_ENUM' )		, 'Constant of database type ENUM must be defined' );
+			$this->Assert( defined( 'DB_TYPE_CHAR' )		, 'Constant of database type CHAR must be defined' );
+			$this->Assert( defined( 'DB_TYPE_INT' )			, 'Constant of database type INT must be defined' );
+			$this->Assert( defined( 'DB_TYPE_TEXT' )		, 'Constant of database type TEXT must be defined' );
+			$this->Assert( defined( 'DB_TYPE_FLOAT' )		, 'Constant of database type FLOAT must be defined' );
+			
+			// Database key index types
+			$this->Assert( defined( 'DB_KEY_INDEX' )	, 'Constant of database key INDEX must be defined' );
+			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
+			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
+        }
         public function TestTableByAlias() {
         }
     }
