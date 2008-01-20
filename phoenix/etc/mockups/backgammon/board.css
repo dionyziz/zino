@@ -102,6 +102,11 @@ table.board td.outerright {
 	background-image: url( 'images/border-right.jpg' );
 	background-repeat: no-repeat;
 }
+
+table.board table {
+	border: 1px solid red;
+}
 table.board td {
 	padding: 0;
+	border: 1px solid red;
 }
