@@ -141,7 +141,7 @@
             $this->mDbTable = New DBTable();
             $this->mDbTable->Name = 'rabbit_satori_test';
             $this->mDbTable->Alias = 'rabbit_satori_test';
-            $this->mDbTable->Db = $this->mDb;
+            $this->mDbTable->Database = $this->mDb;
             
             $field = New DBField();
             $field->Name = 'test_id';
