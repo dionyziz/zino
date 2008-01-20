@@ -34,31 +34,31 @@ table.board td.leftarea table td.outerup1 {
 	background-image: url( 'images/border-up1.jpg' );
 	background-repeat: no-repeat;
 }
-/*
-table.board td.leftarea table td.conesup1 {
+
+table.board td.leftarea table table.conesup1 {
 	width: 338px;
 	height: 226px;
 }
-*/
-table.board td.leftarea table td.leftup {
+
+table.board td.leftarea table table.conesup1 td.leftup {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-up-brown.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.brownup {
+table.board td.leftarea table table.conesup1 td.brownup {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/brown-up.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.whiteup {
+table.board td.leftarea table table.conesup1td.whiteup {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/white-up.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.rightup {
+table.board td.leftarea table table.conesup1 td.rightup {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-up-white.jpg' );
@@ -71,32 +71,29 @@ table.board td.leftarea table td.middle1 {
 	background-image: url( 'images/left-middle.jpg' );
 	background-repeat: no-repeat;
 }
-/*
-table.board td.leftarea table td.conesdown1 {
+table.board td.leftarea table.conesdown1 {
 	width: 338px;
 	height: 226px;
 }
-*/
-
-table.board td.leftarea table td.leftdown {
+table.board td.leftarea table table.conesup2 td.leftdown {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-down-white.jpg.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.browndown {
+table.board td.leftarea table table.conesup2 td.browndown {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/brown-bottom.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.whitedown {
+table.board td.leftarea table table.conesup2 td.whitedown {
 	width: 56px;
 	height: 226px;
 	background-image: url( 'images/left/white-bottom.jpg.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.leftarea table td.rightdown {
+table.board td.leftarea table table.conesup2 td.rightdown {
 	width: 57px;
 	height: 226px;
 	background-image: url( 'images/left/tri-left-down-brown.jpg.jpg' );
