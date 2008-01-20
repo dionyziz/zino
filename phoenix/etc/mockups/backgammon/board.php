@@ -18,26 +18,26 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	</head>
 	<body>
 		<div id="main">
-			<table class="board" style="width:897px;height:636px;">
+			<table class="board">
 				<tr>
-					<td style="width:79px;height:636px;">
+					<td class="outerleft">
 					</td>
-					<td style="width:338px;height:636px;">
-						<table style="width:338px;height:636px;">
+					<td class="leftarea">
+						<table>
 							<tr>
-								<td style="width:338px;height:30px;"></td>
+								<td class="outerup1"></td>
 							</tr>
 							<tr>
-								<td style="width:338px;height:226px;"></td>
+								<td class="conesup1"></td>
 							</tr>
 							<tr>
-								<td style="width:338px;height:129px;"></td>
+								<td class="middle1"></td>
 							</tr>
 							<tr>
-								<td style="width:338px;height:226px;"></td>
+								<td class="conesdown1"></td>
 							</tr>
 							<tr>
-								<td style="width:338px;height:25px;"></td>
+								<td class="outerdown1"></td>
 							</tr>
 						</table>
 					</td>

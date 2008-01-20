@@ -12,7 +12,45 @@ table {
 }
 table.board {
 	border: 1px solid red;
+	width: 897px;
+	height: 636px;
+	
 }
+table.board td.outerleft {
+	width: 79px;
+	height: 636px;
+}
+table.board td.leftarea {
+	width: 338px;
+	height: 636px;
+}
+table.board td.leftarea table {
+	width:338px;
+	height: 636px;
+}
+table.board td.leftarea table td.outerup1 {
+	width: 338px;
+	height: 30px;
+}
+table.board td.leftarea table td.conesup {
+	width: 338px;
+	height: 226px;
+}
+table.board td.leftarea table td.middle1 {
+	width: 338px;
+	height: 129px;
+}
+table.board td.leftarea table td.conesdown1 {
+	width: 338px;
+	height: 226px;
+}
+table.board td.leftarea table outerdown1 {
+	width: 338px;
+	height: 25x;
+}
+
+
+
 table.board table {
 	border: 1px solid red;
 }
