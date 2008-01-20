@@ -34,20 +34,75 @@ table.board td.leftarea table td.outerup1 {
 	background-image: url( 'images/border-up1.jpg' );
 	background-repeat: no-repeat;
 }
+/*
 table.board td.leftarea table td.conesup1 {
 	width: 338px;
 	height: 226px;
 }
+*/
+table.board td.leftarea table td.leftup {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/left/tri-left-up-brown.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.brownup {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/left/brown-up.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.whiteup {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/left/white-up.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.rightup {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/left/tri-left-up-white.jpg' );
+	background-repeat: no-repeat;
+}
+
 table.board td.leftarea table td.middle1 {
 	width: 338px;
 	height: 129px;
 	background-image: url( 'images/left-middle.jpg' );
 	background-repeat: no-repeat;
 }
+/*
 table.board td.leftarea table td.conesdown1 {
 	width: 338px;
 	height: 226px;
 }
+*/
+
+table.board td.leftarea table td.leftdown {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/left/tri-left-down-white.jpg.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.browndown {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/left/brown-bottom.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.whitedown {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/left/white-bottom.jpg.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.leftarea table td.rightdown {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/left/tri-left-down-brown.jpg.jpg' );
+	background-repeat: no-repeat;
+}
+
 table.board td.leftarea table td.outerdown1 {
 	width: 338px;
 	height: 25x;

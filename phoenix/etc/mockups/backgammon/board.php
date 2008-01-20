@@ -28,13 +28,23 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<td class="outerup1"></td>
 							</tr>
 							<tr>
-								<td class="conesup1"></td>
+								<td class="leftup"></td>
+								<td class="whiteup"></td>
+								<td class="brownup"></td>
+								<td class="whiteup"></td>
+								<td class="brownup"></td>
+								<td class="rightup"></td>
 							</tr>
 							<tr>
 								<td class="middle1"></td>
 							</tr>
 							<tr>
-								<td class="conesdown1"></td>
+								<td class="leftdown"></td>
+								<td class="whitedown"></td>
+								<td class="browndown"></td>
+								<td class="whitedown"></td>
+								<td class="browndown"></td>
+								<td class="rightdown"></td>
 							</tr>
 							<tr>
 								<td class="outerdown1" style="width: 338px;height: 25px;"></td>
