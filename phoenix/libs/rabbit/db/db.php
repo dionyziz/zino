@@ -7,52 +7,20 @@
 	global $libs;
 		
 	// Define database data types
-    define( 'DB_TYPE_INT' 		, 1 );
-    define( 'DB_TYPE_VARCHAR' 	, 2 );
-    define( 'DB_TYPE_CHAR' 		, 3 );
-    define( 'DB_TYPE_TEXT' 		, 4 );
-    define( 'DB_TYPE_DATETIME'	, 5 );
-    define( 'DB_TYPE_FLOAT'		, 6 );
-    define( 'DB_TYPE_ENUM'		, 7 );
+    define( 'DB_TYPE_INT' 		, 'DB_TYPE_INT' );
+    define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
+    define( 'DB_TYPE_CHAR' 		, 'DB_TYPE_CHAR' );
+    define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
+    define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
+    define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
+    define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
 	
 	// Define database index types
 	define( 'DB_KEY_INDEX'		, 1 );
 	define( 'DB_KEY_UNIQUE'		, 2 );
 	define( 'DB_KEY_PRIMARY'	, 3 );
     
-    // implement this interface to add support for a different database
-    interface DatabaseDriver {
-        // returns number of affected rows by the last query performed
-        public function LastAffectedRows( $link );
-        // returns the insertid of the last query performed
-        public function LastInsertId( $link );
-        // executes an SQL query
-        public function Query( $sql, $link );
-        // selects a database for performing queries on
-        public function SelectDb( $name, $link );
-        // connects to the database and authenticates
-        public function Connect( $host, $username, $password, $persist = true );
-        // retrieves the last error number
-        public function LastErrorNumber( $link );
-        // retrieves the last error message as a user-friendly string
-        public function LastError( $link );
-        // retrieves the number of rows in the resultset identified by passed resource
-        public function NumRows( $driver_resource );
-        // retrieves the number of fields in the resultset identified by passed resource
-        public function NumFields( $driver_resource );
-        // fetches the next row of the resultset in an associative array, or returns boolean false 
-        // if there are no more rows
-        public function FetchAssociativeArray( $driver_resource );
-        // fetches information about field #offset in the resultset in the form of an object
-        public function FetchField( $driver_resource, $offset );
-        // retrieves a user-friendly name for this driver as a string
-        public function GetName();
-		// get a native database data type describing string by constant
-		public function DataTypeByConstant( $constant );
-		// get a rabbit DB data type from a native datatype describing string 
-		public function ConstantByDataType( $datatype );
-    }
-    
+    $libs->Load( 'rabbit/db/drivers/base' );
     $libs->Load( 'rabbit/db/drivers/mysql' ); // load mysql support
     
 	class Database {
@@ -182,97 +150,6 @@
         public function Prepare( $rawsql ) {
             return New DBQuery( $rawsql, $this, $this->mDriver );
         }
-		public function Insert( $inserts , $tablealias , $ignore = false , $delayed = false , $quota = 500 ) {
-			// $table = 'table';
-			// $table = array( 'database' , 'table' )
-			// $insert = array( field1 => value1 , field2 => value2 , ... );
-			// ->Insert( $insert , $table );
-			// ->Insert( array( $insert1 , $insert2 , ... ) , $table );
-			
-			w_assert( !( $ignore && $delayed ) );
-			
-			// assert correct table name
-            $table = $this->TableByAlias( $tablealias );
-			w_assert( $table instanceof DBTable );
-
-			// assert at least one insert statement; or at least one field
-			w_assert( count( $inserts ) );
-			// if doing only one direct insert, call self with that special case;
-			// keep in mind that in single inserts, the values of the array must be scalar
-			// while in multiple inserts, the values are arrays of scalar values
-			if ( !is_array( end( $inserts ) ) ) {
-				$inserts = array( $inserts );
-				$multipleinserts = false;
-			}
-			else {
-				$multipleinserts = true;
-			}
-			
-			if ( $ignore ) {
-				$insertinto = 'INSERT IGNORE INTO';
-			}
-			else if ( $delayed ) {
-				$insertinto = 'INSERT DELAYED INTO';
-			}
-			else {
-				$insertinto = 'INSERT INTO';
-			}
-			
-			// get last insert to get the fields of the insert
-			$lastinsert = end( $inserts );
-			$fields = array();
-			// build fields list (only once)
-			foreach ( $lastinsert as $field => $value ) {
-				// assert correct field names
-				w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $field ) );
-				$fields[] = $field;
-			}
-			// assert there is at least one field
-			w_assert( count( $fields ) );
-			// return value will be an array of change structures
-			$changes = array();
-			// split insert into 500's, for speed and robustness; this also limits the chance of getting out of query
-			// size bounds
-			for ( $i = 0 ; $i < count( $inserts ) ; $i += $quota ) {
-				$partinserts = array_slice( $inserts , $i , $quota );
-				w_assert( count( $partinserts ) );
-				$insertvalues = array();
-				foreach ( $partinserts as $insert ) {
-					reset( $fields );
-					foreach ( $insert as $field => $value ) {
-						// assert the fields are the same number and in the same order in each insert
-						$thisfield = each( $fields );
-						w_assert( $thisfield[ 'value' ] == $field );
-					}
-					$insertvalues[] = $insert;
-				}
-				w_assert( count( $insertvalues ) );
-                $bindings = array();
-                $i = 0;
-                foreach ( $insertvalues as $valuetuple ) {
-                    $bindings[] = ':insert' . $i;
-                    ++$i;
-                }
-                
-				$query = $this->Prepare(
-                    "$insertinto
-						:$tablealias
-					(`" . implode( '`, `' , $fields ) . "`) VALUES
-					" . implode( ',', $bindings ) . ";"
-                ); // implode all value lists into (list1), (list2), ...
-                $i = 0;
-                foreach ( $insertvalues as $valuestuple ) {
-                    $query->Bind( substr( $bindings[ $i ], 1 ), $valuestuple );
-                    ++$i;
-                }
-                $query->BindTable( $tablealias );
-				$changes[] = $query->Execute();
-			}
-			if ( !$multipleinserts ) {
-				return end( $changes ); // only return the one and only single item of $changes
-			}
-			return $changes; // return an array of change
-		}
         public function AttachTable( $alias, $actual ) {
             w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
             $this->mTables[ $alias ] = New DBTable( $this, $actual, $alias );
@@ -351,7 +228,7 @@
             $typeBindings = array();
 
             foreach ( $driverTypes as $constant => $type ) {
-                $typeBindings[ ':' . $constant ] = $type;
+                $typeBindings[ ':_' . $constant ] = $type;
             }
 
             return $typeBindings;
@@ -448,6 +325,92 @@
         protected $mIndexes;
 		protected $mExists;
         
+		public function InsertInto( $inserts, $ignore = false, $delayed = false, $quota = 500 ) {
+			// $insert = array( field1 => value1 , field2 => value2 , ... );
+			// ->Insert( $insert );
+			// ->Insert( array( $insert1 , $insert2 , ... ) );
+			
+			w_assert( !( $ignore && $delayed ) );
+            w_assert( $this->Exists() ); // cannot insert into a non-existing table
+            
+			// assert at least one insert statement; or at least one field
+			w_assert( count( $inserts ) );
+			// if doing only one direct insert, call self with that special case;
+			// keep in mind that in single inserts, the values of the array must be scalar
+			// while in multiple inserts, the values are arrays of scalar values
+			if ( !is_array( end( $inserts ) ) ) {
+				$inserts = array( $inserts );
+				$multipleinserts = false;
+			}
+			else {
+				$multipleinserts = true;
+			}
+			
+			if ( $ignore ) {
+				$insertinto = 'INSERT IGNORE INTO';
+			}
+			else if ( $delayed ) {
+				$insertinto = 'INSERT DELAYED INTO';
+			}
+			else {
+				$insertinto = 'INSERT INTO';
+			}
+			
+			// get last insert to get the fields of the insert
+			$lastinsert = end( $inserts );
+			$fields = array();
+			// build fields list (only once)
+			foreach ( $lastinsert as $field => $value ) {
+				// assert correct field names
+				w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $field ) );
+				$fields[] = $field;
+			}
+			// assert there is at least one field
+			w_assert( count( $fields ) );
+			// return value will be an array of change structures
+			$changes = array();
+			// split insert into 500's, for speed and robustness; this also limits the chance of getting out of query
+			// size bounds
+			for ( $i = 0 ; $i < count( $inserts ) ; $i += $quota ) {
+				$partinserts = array_slice( $inserts , $i , $quota );
+				w_assert( count( $partinserts ) );
+				$insertvalues = array();
+				foreach ( $partinserts as $insert ) {
+					reset( $fields );
+					foreach ( $insert as $field => $value ) {
+						// assert the fields are the same number and in the same order in each insert
+						$thisfield = each( $fields );
+						w_assert( $thisfield[ 'value' ] == $field );
+					}
+					$insertvalues[] = $insert;
+				}
+				w_assert( count( $insertvalues ) );
+                $bindings = array();
+                $i = 0;
+                foreach ( $insertvalues as $valuetuple ) {
+                    $bindings[] = ':insert' . $i;
+                    ++$i;
+                }
+                
+				$query = $this->Prepare(
+                    "$insertinto
+						:" . $this->mAlias . "
+					(`" . implode( '`, `' , $fields ) . "`) VALUES
+					" . implode( ',', $bindings ) . ";"
+                ); // implode all value lists into (list1), (list2), ...
+                $i = 0;
+                foreach ( $insertvalues as $valuestuple ) {
+                    $query->Bind( substr( $bindings[ $i ], 1 ), $valuestuple );
+                    ++$i;
+                }
+                $query->BindTable( $this->mAlias );
+				$changes[] = $query->Execute();
+			}
+			if ( !$multipleinserts ) {
+				return end( $changes ); // only return the one and only single item of $changes
+			}
+			return $changes; // return an array of change
+		}
         protected function GetName() {
             return $this->mTableName;
         }
@@ -565,43 +528,26 @@
             
             $this->mDb->AttachTable( $this->mAlias, $this->mTableName );
             
-            $sql = "CREATE TABLE :" . $this->mAlias . " ( ";
             $first = true;
+            $fieldsql = array();
             foreach ( $this->mFields as $field ) {
-                if ( $first ) {
-                    $first = false;
-                }
-                else {
-                    $sql .= ", ";
-                }
-                $sql .= "`" . $field->Name . "` ";
-                $sql .= ":" . $field->Type . " ";
-
-                if ( !empty( $field->Length ) ) {
-                    $sql .= "(" . $field->Length . ")";
-                }
-                $sql .= " ";
-                if ( !$field->Null ) {
-                    $sql .= "NOT NULL ";
-                }
-                if ( !empty( $field->Default ) ) {
-                    $sql .= "DEFAULT " . $field->Default . " ";
-                }
-                if ( $field->IsPrimaryKey ) {
-                    $sql .= "PRIMARY KEY ";
-                }
-                if ( $field->IsAutoIncrement ) {
-                    $sql .= "AUTO_INCREMENT";
-                }
+                $fieldsql[] = $field->SQL;
             }
-            $sql .= ");";
+            $indexsql = array();
+            foreach ( $this->mIndexes as $index ) {
+                $indexsql[] = $index->SQL;
+            }
+            $sql = "CREATE TABLE :" . $this->mAlias . " ( ";
+            $sql .= implode( ', ', $fieldsql );
+            $sql .= implode( ', ', $indexsql );
+            $sql .= " );";
             $query = $this->mDb->Prepare( $sql );
             $query->BindTable( $this->mAlias );
             $query->Execute();
             $this->mExists = true;
         }
         public function Delete() {
-            $query = $this->mDb->Prepare( "DROP TABLE " . $this->mAlias . ";" );
+            $query = $this->mDb->Prepare( "DROP TABLE :" . $this->mAlias . ";" );
             $query->BindTable( $this->mAlias );
             if ( $change->Impact() ) {
                 $this->mExists = false;
@@ -680,6 +626,27 @@
             w_assert( is_bool( $value ) );
             $this->IsAutoIncrement = $value;
         }
+        public function GetSQL() {
+            // returns a string representation of the field as it would be used within a CREATE or 
+            // ALTER query
+            $sql = "`" . $this->Name . "` ";
+            $sql .= ":_" . $this->Type . " "; // autobound
+
+            if ( !empty( $this->Length ) ) {   
+                $sql .= "(" . $this->Length . ")";
+            }
+            $sql .= " ";
+            if ( !$this->Null ) {
+                $sql .= "NOT NULL ";
+            }
+            if ( !empty( $this->Default ) ) {
+                $sql .= "DEFAULT " . $this->Default . " ";
+            }
+            if ( $this->IsAutoIncrement ) {
+                $sql .= "AUTO_INCREMENT";
+            }
+            return $sql;
+        }
         public function DBField( $parenttable = false, $info = false ) {
             if ( $info === false && $parenttable === false ) {
                 $this->mExists = false;
@@ -723,7 +690,14 @@
                 return;
             }
             w_assert( $this->mParentTable->Exists() );
-            $sql = 'ALTER TABLE :' . $this->mParentTable->Alias . ' ADD ';
+            $query = $this->mParentTable->Database->Prepare( 
+                'ALTER TABLE :' . $this->mParentTable->Alias . ' ADD ' . $this->SQL
+            );
+            $query->BindTable( $this->mParentTable->Alias );
+            $query->Execute();
+        }
+        public function GetSQL() {
+            $sql = '';
             if ( $this->mType == DB_KEY_PRIMARY ) {
                 $sql .= 'PRIMARY KEY ';
             }
@@ -731,17 +705,15 @@
                 if ( $this->mType == DB_KEY_UNIQUE ) {
                     $sql .= 'UNIQUE ';
                 }
-                $sql = 'INDEX ';
+                $sql .= 'INDEX ';
             }
             $fields = array();
             foreach ( $this->mFields as $field ) {
                 $fields[] = $field->Name;
             }
             $sql .= $this->mName;
-            $sql .= ' (`' . implode('`,`', $fields) . '`)';
-            $query = $this->mParentTable->Database->Prepare( $sql );
-            $query->BindTable( $this->mParentTable->Alias );
-            $query->Execute();
+            $sql .= ' (`' . implode('`, `', $fields) . '`)';
+            return $sql;
         }
         protected function GetType() {
             return $this->mType;
