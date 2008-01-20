@@ -231,14 +231,8 @@
         public function Delete() {
             $query = $this->mDb->Prepare( "DROP TABLE :" . $this->mAlias . ";" );
             $query->BindTable( $this->mAlias );
-            $change = $query->Execute();
-            
-            if ( $change->Impact() ) {
-                $this->mExists = false;
-
-                return true;
-            }
-            return false;
+            $query->Execute();
+            $this->mExists = false;
         }
         public function Exists() {
             return $this->mExists;
