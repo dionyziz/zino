@@ -126,6 +126,8 @@
 			$username->AddField( $field2 );
 			$username->Type = DB_KEY_UNIQUE;
             $this->AssertEquals( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
+            $username->Name = 'USER_UNIQUE';
+            $this->AssertEquals( 'USER_UNIQUE', $username->Name, 'Could not set the name of a unique index' );
 
 			$subdomain = New DBIndex();
 			$subdomain->AddField( $field2 ); // DBField or array of DBField
@@ -133,6 +135,8 @@
             $this->AssertEquals( 2, count( $subdomain->Fields ), 'Could not create a multifield index' );
             $this->AssertEquals( $field2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
             $this->AssertEquals( $field3, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
+            $subdomain->Name = 'USER_UNIQUE_SUBDOMAIN';
+            $this->AssertEquals( 'USER_UNIQUE_SUBDOMAIN', $subdomain->Name, 'Could not set the name of an index prior to specifying its type' );
 			$subdomain->Type = DB_KEY_INDEX;
             $this->AssertEquals( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
 
@@ -153,14 +157,12 @@
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
-        /*
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
 		}
         public function TestTableByAlias() {
         }
-        */
     }
     
     return New TestRabbitDb();
