@@ -18,66 +18,54 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	</head>
 	<body>
 		<div id="main">
-			<table class="board">
-				<tr>	
-					<td class="outerleft">
-						
+			<table class="board" style="width:897px;height:636px;">
+				<tr>
+					<td style="width:79px;height:636px;">
 					</td>
-					<td class="gamearea1">
-						<table>
+					<td style="width:338px;height:636px;">
+						<table style="width:338px;height:636px;">
 							<tr>
-								<td class="outerup"></td>
+								<td style="width:338px;height:30px;"></td>
 							</tr>
 							<tr>
-								<td class="upperleft"></td>
-								<td class="upperwhite"></td>
-								<td class="upperbrown"></td>
-								<td class="upperwhite"></td>
-								<td class="upperbrown"></td>
-								<td class="upperright"></td>
+								<td style="width:338px;height:226px;"></td>
 							</tr>
 							<tr>
-								<td class="middle"></td>
+								<td style="width:338px;height:129px;"></td>
 							</tr>
 							<tr>
-								<td class="downleft"></td>
-								<td class="downwhite"></td>
-								<td class="downbrown"></td>
-								<td class="downwhite"></td>
-								<td class="downbrown"></td>
-								<td class="downright"></td>
-							
+								<td style="width:338px;height:226px;"></td>
 							</tr>
 							<tr>
-								<td class="outerdown"></td>
+								<td style="width:338px;height:25px;"></td>
 							</tr>
 						</table>
 					</td>
-					<td class="outermiddle">
+					<td style="width:54px;height:636px;">
 					</td>
-					<td class="gamearea2">
-						<table>
+					<td style="width:337px;height:636px;">
+						<table style="width:337px;height:636px;">
 							<tr>
-								<td class="outerup"></td>
+								<td style="width:337px;height:30px;"></td>
 							</tr>
 							<tr>
-								
+								<td style="width:337px;height:226px;"></td>
 							</tr>
 							<tr>
-								<td class="middle"></td>
+								<td style="width:337px;height:129px;"></td>
 							</tr>
 							<tr>
-							
+								<td style="width:337px;height:226px;"></td>
 							</tr>
 							<tr>
-								<td class="outerdown"></td>
+								<td style="width:337px;height:25px;"></td>
 							</tr>
 						</table>
 					</td>
-					<td class="outerright">
+					<td style="width:89px;height:636px;">
 					</td>
 				</tr>
-			</table>
+			</table>	
 		</div>
 	</body>
 </html>
