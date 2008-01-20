@@ -46,10 +46,10 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<table class="conesdown1">
 									<tr>
 										<td class="leftdown"></td>
-										<td class="whitedown"></td>
 										<td class="browndown"></td>
 										<td class="whitedown"></td>
 										<td class="browndown"></td>
+										<td class="whitedown"></td>
 										<td class="rightdown"></td>
 									</tr>
 								</table>
@@ -85,10 +85,10 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<table class="conesdown2">
 									<tr>
 										<td class="leftdown"></td>
-										<td class="whitedown"></td>
 										<td class="browndown"></td>
 										<td class="whitedown"></td>
 										<td class="browndown"></td>
+										<td class="whitedown"></td>
 										<td class="rightdown"></td>
 									</tr>
 								</table>
