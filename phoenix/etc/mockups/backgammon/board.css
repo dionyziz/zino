@@ -11,7 +11,6 @@ table {
 	border-collapse: collapse;
 }
 table.board {
-	border: 1px solid red;
 	width: 897px;
 	height: 636px;
 }
