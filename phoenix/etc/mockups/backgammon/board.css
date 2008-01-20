@@ -127,20 +127,72 @@ table.board td.rightarea table td.outerup2 {
 	background-image: url( 'images/border-up2.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.rightarea table td.conesup2 {
+table.board td.rightarea table table.conesup2 {
 	width: 337px;
 	height: 226px;
 }
+
+table.board td.rightarea table table.conesup2 td.leftup {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/right/tri-right-up-brown.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesup2 td.brownup {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/right/brown-up.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesup2 td.whiteup {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/right/white-up.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesup2 td.rightup {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/right/tri-right-up-white.jpg' );
+	background-repeat: no-repeat;
+}
+
 table.board td.rightarea table td.middle2 {
 	width: 337px;
 	height: 129px;
 	background-image: url( 'images/right-middle.jpg' );
 	background-repeat: no-repeat;
 }
-table.board td.rightarea table td.conesdown2 {
+table.board td.rightarea table table.conesdown2 {
 	width: 337px;
 	height: 226px;
 }
+
+table.board td.rightarea table table.conesdown2 td.leftdown {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/right/tri-right-down-white.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesdown2 td.browndown {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/right/brown-bottom.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesdown2 td.whitedown {
+	width: 56px;
+	height: 226px;
+	background-image: url( 'images/right/white-bottom.jpg' );
+	background-repeat: no-repeat;
+}
+table.board td.rightarea table table.conesdown2 td.rightdown {
+	width: 57px;
+	height: 226px;
+	background-image: url( 'images/right/tri-right-down-brown.jpg' );
+	background-repeat: no-repeat;
+}
+
 table.board td.rightarea table td.outerdown2 {
 	width: 337px;
 	height: 25px;

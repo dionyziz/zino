@@ -67,13 +67,31 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<td class="outerup2"></td>
 							</tr>
 							<tr>
-								<td class="conesup2"></td>
+								<table class="conesup2">
+									<tr>
+										<td class="leftup"></td>
+										<td class="whiteup"></td>
+										<td class="brownup"></td>
+										<td class="whiteup"></td>
+										<td class="brownup"></td>
+										<td class="rightup"></td>
+									</tr>
+								</table>
 							</tr>
 							<tr>
 								<td class="middle2"></td>
 							</tr>
 							<tr>
-								<td class="conesdown2"></td>
+								<table class="conesdown2">
+									<tr>
+										<td class="leftdown"></td>
+										<td class="whitedown"></td>
+										<td class="browndown"></td>
+										<td class="whitedown"></td>
+										<td class="browndown"></td>
+										<td class="rightdown"></td>
+									</tr>
+								</table>
 							</tr>
 							<tr>
 								<td class="outerdown2"></td>
