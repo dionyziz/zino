@@ -41,28 +41,28 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 							</tr>
 						</table>
 					</td>
-					<td style="width:54px;height:636px;">
+					<td class="middlearea" style="width:54px;height:636px;">
 					</td>
-					<td style="width:337px;height:636px;">
-						<table style="width:337px;height:636px;">
+					<td class="rightarea" style="width:337px;height:636px;">
+						<table>
 							<tr>
-								<td style="width:337px;height:30px;"></td>
+								<td class="outerup2"></td>
 							</tr>
 							<tr>
-								<td style="width:337px;height:226px;"></td>
+								<td class="conesup2"></td>
 							</tr>
 							<tr>
-								<td style="width:337px;height:129px;"></td>
+								<td class="middle2"></td>
 							</tr>
 							<tr>
-								<td style="width:337px;height:226px;"></td>
+								<td class="conesdown2"></td>
 							</tr>
 							<tr>
-								<td style="width:337px;height:25px;"></td>
+								<td class="outerdown2"></td>
 							</tr>
 						</table>
 					</td>
-					<td style="width:89px;height:636px;">
+					<td class="outerright">
 					</td>
 				</tr>
 			</table>	

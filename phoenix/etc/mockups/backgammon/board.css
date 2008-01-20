@@ -44,12 +44,47 @@ table.board td.leftarea table td.conesdown1 {
 	width: 338px;
 	height: 226px;
 }
-table.board td.leftarea table outerdown1 {
+table.board td.leftarea table.outerdown1 {
 	width: 338px;
 	height: 25x;
 }
 
-
+table.board td.middlearea {
+	width: 54px;
+	height: 636px;
+}
+table.board td.rightarea {
+	width: 337px;
+	height: 636px;
+}
+table.board td.rightarea table {
+	width: 337px;
+	height: 636px;
+}
+table.board td.rightarea table td.outerup2 {
+	width: 337px;
+	height: 30px;
+}
+table.board td.rightarea table td.conesup2 {
+	width: 337px;
+	height: 226px;
+}
+table.board td.rightarea table td.middle2 {
+	width: 337px;
+	height: 129px;
+}
+table.board td.rightarea table td.conesdown2 {
+	width: 337px;
+	height: 226px;
+}
+table.board td.rightarea table td.outerdown2 {
+	width: 337px;
+	height: 25px;
+}
+table.board td.outerright {
+	width: 89px;
+	height: 636px;
+}
 
 table.board table {
 	border: 1px solid red;
