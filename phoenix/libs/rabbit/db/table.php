@@ -204,9 +204,10 @@
             }
         }
         public function Save() {
-            w_assert( !$this->Exists() );
-            w_assert( !empty( $this->mAlias ) );
-            w_assert( !empty( $this->mTableName ) );
+            w_assert( !$this->Exists(), 'Cannot create database table; the table already exists' );
+            w_assert( !empty( $this->mAlias ), 'You must set an alias when saving a database table, in order to make it accessible through binding' );
+            w_assert( !empty( $this->mTableName ), 'You cannot create a database table without a name' );
+            w_assert( $this->mDb instanceof Database );
             
             $this->mDb->AttachTable( $this->mAlias, $this->mTableName );
             
