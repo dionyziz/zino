@@ -75,9 +75,7 @@
 			$this->Assert( defined( 'DB_KEY_INDEX' )	, 'Constant of database key INDEX must be defined' );
 			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
 			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
-			
 		}
-					
 		public function TestCreateTable() {
 			$table = New DBTable();
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
