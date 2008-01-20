@@ -37,7 +37,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 								<td class="conesdown1"></td>
 							</tr>
 							<tr>
-								<td class="outerdown1"></td>
+								<td class="outerdown1" style="width: 338px;height: 25px;"></td>
 							</tr>
 						</table>
 					</td>
