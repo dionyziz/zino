@@ -72,7 +72,12 @@
             $field->Name = $info[ 'Field' ];
             $field->Type = $info[ 'Type' ];
             $field->IsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
-            $field->Default = $info[ 'Default' ];
+            if ( isset( $info[ 'Default' ] ) ) {
+                $field->Default = $info[ 'Default' ];
+            }
+            else {
+                $field->Default = false;
+            }
         }
     }
     
