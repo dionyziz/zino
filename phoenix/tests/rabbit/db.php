@@ -153,6 +153,7 @@
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
+        /*
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -251,6 +252,7 @@
         }
         public function TestTableByAlias() {
         }
+        */
     }
     
     return New TestRabbitDb();
