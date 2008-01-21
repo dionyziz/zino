@@ -197,7 +197,13 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        // $this->AssertEquals( $this->mField1, $field, 'The first column created must match the one read' );
+                        try {
+                            $this->AssertEquals( $this->mField1, $field, 'The first column created must match the one read' );
+                        }
+                        catch ( Exception $e ) {
+                            die( var_dump( $e ) );
+                        }
+                        
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
