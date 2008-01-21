@@ -65,6 +65,7 @@
         }
 		public function TestCreateTable() {
 			$table = New DBTable();
+            $this->Assert( $table->Equals( $table ), 'A new table must be equal to itself' );
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
             $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must be an array when creating a new table' );
             $this->AssertEquals( 0, count( $table->Fields ), 'No fields must exist before we add them to a new database table' );
