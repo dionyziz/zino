@@ -42,6 +42,14 @@
 			// w_assert( is_int( $type ), 'Database field data type specified is invalid' );
 			// TODO: add assert,  $type must be valid!!
 			$this->mType = $type;
+            if ( $this->mLength === false ) {
+                // no length specified, use default lengths
+                switch ( $this->mType ) {
+                    case DB_TYPE_INT:
+                        $this->Length = 11;
+                        break;
+                }
+            }
 		}
         protected function SetDefault( $value ) {
             w_assert( is_scalar( $value ), 'Non-scalar value set as default value for database field' );
@@ -94,6 +102,7 @@
             return $sql;
         }
         public function DBField( $parenttable = false, $info = false ) {
+            $this->mLength = false;
             if ( $info === false && $parenttable === false ) {
                 $this->mExists = false;
             }
