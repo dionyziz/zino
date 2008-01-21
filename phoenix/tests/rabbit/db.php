@@ -3,6 +3,9 @@
         protected $mAppliesTo = 'libs/rabbit/db/db';
         private $mFirstDatabase;
 		private $mTestTable;
+        private $mField1;
+        private $mField2;
+        private $mField3;
         
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Database' ), 'Class Database doesn\'t exist' );
@@ -48,37 +51,63 @@
 		public function TestCreateTable() {
 			$table = New DBTable();
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
-
+            $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must be an array when creating a new table' );
+            $this->AssertEquals( 0, count( $table->Fields ), 'No fields must exist before we add them to a new database table' );
+            
 			$table->Name = 'rabbit_test';
             $this->AssertEquals( 'rabbit_test', $table->Name, 'Table name could not be set' );
             
             $table->Alias = 'rabbit_test';
             $this->AssertEquals( 'rabbit_test', $table->Alias, 'Table alias could not be set' );
             
-			$field = New DBField();
-            $this->AssertFalse( $field->Exists(), 'Field must not exist prior to creation' );
-            $field->Name = 'user_id';
-            $this->AssertEquals( 'user_id', $field->Name, 'Field name could not be set' );
-			$field->Type = DB_TYPE_INT;
-            $this->AssertEquals( DB_TYPE_INT, $field->Type, 'Field type could not be set to DB_TYPE_INT' );
-			$field->IsAutoIncrement = true;
-            $this->AssertEquals( true, $field->IsAutoIncrement, 'Field autoincrement could not be set' );
+			$this->mField1 = New DBField();
+            $this->AssertFalse( $this->mField1->Exists(), 'Field must not exist prior to creation' );
+            $this->mField1->Name = 'user_id';
+            $this->AssertEquals( 'user_id', $this->mField1->Name, 'Field name could not be set' );
+			$this->mField1->Type = DB_TYPE_INT;
+            $this->AssertEquals( DB_TYPE_INT, $this->mField1->Type, 'Field type could not be set to DB_TYPE_INT' );
+			$this->mField1->IsAutoIncrement = true;
+            $this->AssertEquals( true, $this->mField1->IsAutoIncrement, 'Field autoincrement could not be set' );
 
-			$field2 = New DBField();
-			$field2->Name = 'user_name';
-			$field2->Type = DB_TYPE_CHAR;
-            $this->AssertEquals( DB_TYPE_CHAR, $field2->Type, 'Field type could not be set to DB_TYPE_CHAR' );
-			$field2->Length = 32;
-            $this->AssertEquals( 32, $field2->Length, 'Field length could not be set' );
+			$this->mField2 = New DBField();
+			$this->mField2->Name = 'user_name';
+			$this->mField2->Type = DB_TYPE_CHAR;
+            $this->AssertEquals( DB_TYPE_CHAR, $this->mField2->Type, 'Field type could not be set to DB_TYPE_CHAR' );
+			$this->mField2->Length = 32;
+            $this->AssertEquals( 32, $this->mField2->Length, 'Field length could not be set' );
             
-			$field3 = New DBField();
-			$field3->Name = 'user_subdomain';
-			$field3->Type = DB_TYPE_CHAR;
-			$field3->Length = 32;
+			$this->mField3 = New DBField();
+			$this->mField3->Name = 'user_subdomain';
+			$this->mField3->Type = DB_TYPE_CHAR;
+			$this->mField3->Length = 32;
 
-			$table->CreateField( $field ); // DBField or array of DBField
-			$table->CreateField( array( $field2, $field3 ) );
-
+			$table->CreateField( $this->mField1 ); // DBField or array of DBField
+			$table->CreateField( array( $this->mField2, $this->mField3 ) );
+            
+            $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must contain the fields to be created, even prior to table creation' );
+            $this->AssertEquals( 3, count( $table->Fields ), 'Created 3 fields, but they\'re not there' );
+            $i = 0;
+            foreach ( $table->Fields as $field ) {
+                switch ( $i ) {
+                    case 0:
+                        $this->Assert( is_object( $field ), 'The field of the table must be an object (1)' );
+                        $this->Assert( $field instanceof DBField, 'The field of the table must be a DBField (1)' );
+                        $this->AssertEquals( $this->mField1, $field, 'Field1 was not in place' );
+                        break;
+                    case 1:
+                        $this->Assert( is_object( $field ), 'The field of the table must be an object (2)' );
+                        $this->Assert( $field instanceof DBField, 'The field of the table must be a DBField (2)' );
+                        $this->AssertEquals( $this->mField2, $field, 'Field2 was not in place' );
+                        break;
+                    case 2:
+                        $this->Assert( is_object( $field ), 'The field of the table must be an object (3)' );
+                        $this->Assert( $field instanceof DBField, 'The field of the table must be a DBField (3)' );
+                        $this->AssertEquals( $this->mField3, $field, 'Field3 was not in place' );
+                        break;
+                }
+                ++$i;
+            }
+            
 			$primary = New DBIndex();
             $this->AssertFalse( $primary->Exists(), 'Primary key must not exist prior to creation' );
             $this->Assert( is_array( $primary->Fields ), 'Index fields must be an array, even when no fields have been added yet' );
@@ -153,12 +182,15 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
+                        $this->AssertEquals( $this->mField1, $field, 'The first column created must match the one read' );
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
+                        $this->AssertEquals( $this->mField2, $field, 'The second column created must match the one read' );
                         break;
                     case 2:
                         $this->AssertEquals( 'user_subdomain', $field->Name, 'The third column must be "user_subdomain"' );
+                        $this->AssertEquals( $this->mField3, $field, 'The third column created must match the one read' );
                         break;
                 }
                 ++$i;
@@ -170,6 +202,31 @@
             foreach ( $indexes as $index ) {
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
+                switch ( $i ) {
+                    case 0:
+                        $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
+                        $this->Assert( is_array( $index->Fields ), 'Primary key fields must be an array' );
+                        $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for primary key' );
+                        $this->AssertEquals( reset( $index->Fields ) instanceof DBIndex, 'Primary key field is not a field instance' );
+                        $this->AssertEquals( $this->mField1, reset( $index->Fields ), 'Primary key field is not the expected one' );
+                        break;
+                    case 1:
+                        $this->AssertEquals( DB_KEY_UNIQUE, $index->Type, 'Could not read UNIQUE KEY type' );
+                        $this->Assert( is_array( $index->Fields ), 'Unique key fields must be an array' );
+                        $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for unique key' );
+                        $this->AssertEquals( reset( $index->Fields ) instanceof DBIndex, 'Unique key field is not a field instance' );
+                        $this->AssertEquals( $this->mField2, reset( $index->Fields ), 'Unique key field is not the expected one' );
+                        break;
+                    case 2:
+                        $this->AssertEquals( DB_KEY_INDEX, $index->Type, 'Could not read INDEX KEY type' );
+                        $this->AssertEquals( 2, count( $index->Fields ), 'Incorrect number of fields defined for index key' );
+                        $this->AssertEquals( reset( $index->Fields ) instanceof DBIndex, 'Index key field is not a field instance (1)' );
+                        $this->AssertEquals( $this->mField2, reset( $index->Fields ), 'Index key field is not the expected one (1)' );
+                        next( $index->Fields );
+                        $this->AssertEquals( current( $index->Fields ) instanceof DBIndex, 'Index key field is not a field instance (2)' );
+                        $this->AssertEquals( $this->mField3, current( $index->Fields ), 'Index key field is not the expected one (2)' );
+                        break;
+                }
                 ++$i;
             }
         }

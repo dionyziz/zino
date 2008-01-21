@@ -99,7 +99,7 @@
         protected function GetAlias() {
             return $this->mAlias;
         }
-        protected function FieldByName( $name ) {
+        public function FieldByName( $name ) {
             if ( !isset( $this->mFields[ $name ] ) ) {
                 return false;
             }
