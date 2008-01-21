@@ -94,11 +94,18 @@
 			return $changes; // return an array of change
 		}
         public function Equals( DBTable $target ) {
-            return
-                   $this->Exists() == $target->Exists()
-                && $this->Name == $target->Name
-                && $this->Alias == $target->Alias
-                && $this->Database->Equals( $target->Database );
+            if (    $this->Exists() != $target->Exists()
+                 || $this->Name != $target->Name
+                 || $this->Alias != $target->Alias ) {
+                return false;
+            }
+            if ( $this->Database !== false ) {
+                if ( $target->Database === false ) {
+                    return false;
+                }
+                return $this->Database->Equals( $target->Database );
+            }
+            return true;
         }
         protected function GetName() {
             return $this->mTableName;
@@ -165,9 +172,14 @@
             $this->mExists = false;
 
             if ( $db !== false ) {
+                w_assert( is_object( $db ) );
+                w_assert( $db instanceof Database );
                 $this->Database = $db;
             }
-
+            else {
+                $this->Database = false;
+            }
+            
             if ( $tablename === false ) {
                 // new table
 				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
