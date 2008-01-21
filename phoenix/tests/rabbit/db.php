@@ -168,6 +168,7 @@
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
+        /*
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -245,6 +246,7 @@
                 ++$i;
             }
         }
+        */
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
