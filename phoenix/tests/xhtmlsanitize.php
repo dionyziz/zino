@@ -3,6 +3,8 @@
     $libs->Load( 'sanitizer' );
 
     final class TestXHTMLSanitizer extends Testcase {
+        protected $mAppliesTo = 'libs/sanitizer';
+        
         public function TestClassesExist() {
             $this->Assert( class_exists( 'XHTMLSanitizer' ) );
             $this->Assert( class_exists( 'XHTMLSaneTag' ) );

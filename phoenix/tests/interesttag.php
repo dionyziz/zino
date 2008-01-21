@@ -3,6 +3,8 @@
     $libs->Load( 'interesttag' );
     
     final class TestInterestTag extends Testcase {
+        protected $mAppliesTo = 'libs/interesttag';
+        
         public function TestClassesExist() {
             $this->Assert( class_exists( 'InterestTag' ), 'InterestTag class does not exist' );
         }

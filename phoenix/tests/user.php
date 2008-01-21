@@ -6,6 +6,8 @@
     $libs->Load( 'user' );
 
     final class TestUser extends Testcase {
+        protected $mAppliesTo = 'libs/user';
+        
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
         }
