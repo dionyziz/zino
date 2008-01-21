@@ -112,25 +112,25 @@
             $this->AssertFalse( $primary->Exists(), 'Primary key must not exist prior to creation' );
             $this->Assert( is_array( $primary->Fields ), 'Index fields must be an array, even when no fields have been added yet' );
             $this->AssertEquals( 0, count( $primary->Fields ), 'Index fields must be the empty array when no fields have been added yet' );
-			$primary->AddField( $field );
+			$primary->AddField( $this->mField1 );
             $this->AssertEquals( 1, count( $primary->Fields ), 'Could not add one field to an index' );
-            $this->AssertEquals( $field, reset( $primary->Fields ), 'The field added to the index does not match the field specified' );
+            $this->AssertEquals( $this->mField1, reset( $primary->Fields ), 'The field added to the index does not match the field specified' );
 		 	$primary->Type = DB_KEY_PRIMARY;
             $this->AssertEquals( DB_KEY_PRIMARY, $primary->Type, 'Could not set key type to DB_KEY_PRIMARY' );
 
 			$username = New DBIndex();
-			$username->AddField( $field2 );
+			$username->AddField( $this->mField2 );
 			$username->Type = DB_KEY_UNIQUE;
             $this->AssertEquals( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
             $username->Name = 'USER_UNIQUE';
             $this->AssertEquals( 'USER_UNIQUE', $username->Name, 'Could not set the name of a unique index' );
 
 			$subdomain = New DBIndex();
-			$subdomain->AddField( $field2 ); // DBField or array of DBField
-			$subdomain->AddField( $field3 ); // order matters
+			$subdomain->AddField( $this->mField2 ); // DBField or array of DBField
+			$subdomain->AddField( $this->mField3 ); // order matters
             $this->AssertEquals( 2, count( $subdomain->Fields ), 'Could not create a multifield index' );
-            $this->AssertEquals( $field2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
-            $this->AssertEquals( $field3, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
+            $this->AssertEquals( $this->mField2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
+            $this->AssertEquals( $this->mField3, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
             $subdomain->Name = 'USER_UNIQUE_SUBDOMAIN';
             $this->AssertEquals( 'USER_UNIQUE_SUBDOMAIN', $subdomain->Name, 'Could not set the name of an index prior to specifying its type' );
 			$subdomain->Type = DB_KEY_INDEX;

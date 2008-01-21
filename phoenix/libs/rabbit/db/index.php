@@ -11,6 +11,7 @@
             return $this->mExists;
         }
         public function AddField( DBField $field ) {
+            w_assert( is_object( $field ) );
             $this->mFields[] = $field;
         }
         protected function GetFields() {
