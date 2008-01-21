@@ -1,11 +1,12 @@
 <?php
-
-    global $libs;
-    $libs->Load( 'bennu' );
-
     final class TestBennu extends Testcase { 
         protected $mAppliesTo = 'libs/bennu';
         
+        public function SetUp() {
+            global $libs;
+            
+            $libs->Load( 'bennu' );
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Bennu' ), 'Class bennu does not exist' );
             $this->Assert( class_exists( 'BennuRule' ), 'BennuRule class does not exist' );

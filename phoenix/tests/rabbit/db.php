@@ -211,10 +211,12 @@
                 }
                 ++$i;
             }
+            */
             $indexes = $table->Indexes;
             $this->Assert( is_array( $indexes ), 'Value of attribute DBTable->Indexes must be an array' );
             $this->AssertEquals( 3, count( $indexes ), 'The number of indexes of the recently created table is incorrect' );
             $i = 0;
+            /*
             foreach ( $indexes as $index ) {
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );

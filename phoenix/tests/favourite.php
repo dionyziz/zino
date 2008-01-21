@@ -1,15 +1,15 @@
 <?php
-
-    global $libs;
-    $libs->Load( 'favourites' );
-
-    $libs->Load( 'journal' );
-    $libs->Load( 'poll' );
-    $libs->Load( 'image/image' );
-
     final class TestFavourites extends Testcase {
         protected $mAppliesTo = 'libs/favourites';
         
+        public function SetUp() {
+            global $libs;
+            $libs->Load( 'favourite' );
+
+            $libs->Load( 'journal' );
+            $libs->Load( 'poll' );
+            $libs->Load( 'image/image' );
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Favourite' ), 'Favourite class does not exist' );
             $this->Assert( class_exists( 'Poll' ), 'Poll class does not exist' );

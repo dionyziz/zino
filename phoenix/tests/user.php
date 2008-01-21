@@ -2,12 +2,14 @@
 
     // TODO: tags testing?
 
-    global $libs;
-    $libs->Load( 'user' );
-
     final class TestUser extends Testcase {
         protected $mAppliesTo = 'libs/user';
         
+        public function SetUp() {
+            global $libs;
+            
+            $libs->Load( 'user' );
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
         }

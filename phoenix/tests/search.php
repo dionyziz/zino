@@ -1,8 +1,4 @@
 <?php
-
-    global $libs;
-    $libs->Load( 'search' );
-
     /*
         $comment = New CommentPrototype();
         $comment->TypeId = 1;
@@ -30,6 +26,11 @@
     final class TestSearch extends Testcase {
         protected $mAppliesTo = 'libs/search';
 
+        public function SetUp() {
+            global $libs;
+            
+            $libs->Load( 'search' );
+        }
         public function TestClassesExist() {
             global $libs;
 
