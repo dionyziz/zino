@@ -64,6 +64,19 @@
             w_assert( is_bool( $value ) );
             $this->IsAutoIncrement = $value;
         }
+        protected function GetParentTable() {
+            return $this->mParentTable;
+        }
+        public function Equals( DBField $target ) {
+            return
+                   $this->Exists() == $target->Exists()
+                && $this->Name == $target->Name
+                && $this->Length == $target->Length
+                && $this->IsAutoIncrement == $target->AutoIncrement
+                && $this->Default == $target->Default
+                && $this->Type == $target->Type
+                && $this->ParentTable->Equals( $target->ParentTable );
+        }
         public function GetSQL() {
             // returns a string representation of the field as it would be used within a CREATE or 
             // ALTER query

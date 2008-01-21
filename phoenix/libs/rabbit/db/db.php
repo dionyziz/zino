@@ -74,6 +74,9 @@
         public function Port() {
             return $this->mPort;
         }
+        public function Equals( Database $target ) {
+            return $this->Link() == $target->Link();
+        }
         public function SwitchDb( $dbname ) {
             global $water;
             

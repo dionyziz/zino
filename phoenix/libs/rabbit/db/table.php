@@ -93,6 +93,13 @@
 			}
 			return $changes; // return an array of change
 		}
+        public function Equals( DBTable $target ) {
+            return
+                   $this->Exists() == $target->Exists()
+                && $this->Name == $target->Name
+                && $this->Alias == $target->Alias
+                && $this->Database->Equals( $target->Database );
+        }
         protected function GetName() {
             return $this->mTableName;
         }
