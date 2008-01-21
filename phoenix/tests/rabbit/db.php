@@ -194,7 +194,6 @@
             foreach ( $fields as $field ) {
                 $this->Assert( is_object( $field ), 'Item of array returned by DBTable->Fields was not an object' );
                 $this->Assert( $field instanceof DBField, 'Item of array returned by DBTable->Fields was not an instance of DBField' );
-                /*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
@@ -209,7 +208,6 @@
                         $this->AssertEquals( $this->mField3, $field, 'The third column created must match the one read' );
                         break;
                 }
-                */
                 ++$i;
             }
             $indexes = $table->Indexes;
