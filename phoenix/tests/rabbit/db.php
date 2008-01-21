@@ -169,7 +169,6 @@
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
         public function TestTableList() {
-            /*
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
             $this->Assert( count( $tables ), 'Could not list the table that was just created -- no tables were returned' );
@@ -184,6 +183,7 @@
             $this->Assert( $found, 'Could not find the recently created table within the list of tables' );
             $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
             
+            /*
             $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
             $this->AssertEquals( $table, $table2, 'Table returned by TableByAlias() must match table returned by listing' );
             $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
