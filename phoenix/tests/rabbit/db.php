@@ -192,9 +192,9 @@
             $this->AssertEquals( 3, count( $fields ), 'The number of fields of the recently created table is incorrect' );
             $i = 0;
             foreach ( $fields as $field ) {
-                /*
                 $this->Assert( is_object( $field ), 'Item of array returned by DBTable->Fields was not an object' );
                 $this->Assert( $field instanceof DBField, 'Item of array returned by DBTable->Fields was not an instance of DBField' );
+                /*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
@@ -217,9 +217,9 @@
             $this->AssertEquals( 3, count( $indexes ), 'The number of indexes of the recently created table is incorrect' );
             $i = 0;
             foreach ( $indexes as $index ) {
-                /*
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
+                /*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
