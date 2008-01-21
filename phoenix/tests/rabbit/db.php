@@ -185,10 +185,10 @@
             $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
             
             $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
-            $this->Assert( $table->Equals( $table2 ), 'Table returned by TableByAlias() must match table returned by listing (1)' );
-            $this->Assert( $table2->Equals( $table ), 'Table returned by TableByAlias() must match table returned by listing (2)' );
             $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
             $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
+            $this->Assert( $table->Equals( $table2 ), 'Table returned by TableByAlias() must match table returned by listing (1)' );
+            $this->Assert( $table2->Equals( $table ), 'Table returned by TableByAlias() must match table returned by listing (2)' );
             $fields = $table->Fields;
             $this->Assert( is_array( $fields ), 'Value of attribute DBTable->Fields must be an array' );
             $this->AssertEquals( 3, count( $fields ), 'The number of fields of the recently created table is incorrect' );
@@ -200,6 +200,10 @@
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
                         try {
+                            var_dump( $this->mField1 );
+                            echo '--------------------';
+                            var_dump( $field );
+                            die();
                             $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
                         }
                         catch ( Exception $e ) {
