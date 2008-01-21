@@ -7,7 +7,6 @@
 		protected $mExists;
         protected $mNull;
 		protected $mStoredState;
-        protected $mIsPrimaryKey;
         protected $mIsAutoIncrement;
         protected $mParentTable;
         
@@ -56,10 +55,6 @@
             w_assert( is_bool( $value ), 'Database field can only be null or not null (bool)' );
             $this->mNull = $value;
         }
-        protected function SetIsPrimaryKey( $value ) {
-            w_assert( is_bool( $value ) );
-            $this->mIsPrimaryKey = $value;
-        }
         protected function SetIsAutoIncrement( $value ) {
             w_assert( is_bool( $value ) );
             $this->IsAutoIncrement = $value;
@@ -107,11 +102,7 @@
                 w_assert( is_object( $parenttable ) );
                 w_assert( $parenttable instanceof DBTable );
                 $this->mParentTable = $parenttable;
-                $this->mName = $info[ 'Field' ];
-                $this->mType = $info[ 'Type' ];
-                $this->mIsPrimaryKey = $info[ 'Key' ] == 'PRI';
-                $this->mIsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
-                $this->mDefault = $info[ 'Default' ];
+                $this->mParentTable->Database->ConstructField( $this, $info );
             }
         }
     }

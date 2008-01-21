@@ -68,6 +68,12 @@
         public function DataTypes() {
             return $this->mDataTypes;
         }
+        public function ConstructField( DBField $field, $info ) {
+            $field->Name = $info[ 'Field' ];
+            $field->Type = $info[ 'Type' ];
+            $field->IsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
+            $field->Default = $info[ 'Default' ];
+        }
     }
     
 ?>

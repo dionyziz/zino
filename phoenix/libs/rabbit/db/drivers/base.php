@@ -33,5 +33,7 @@
         // get an associative array pointing from data type constants to native database driver 
         // string representations of the types to-be-used within queries
         public function DataTypes();
+        // construct a DBField based on info returned by the database
+        public function ConstructField( DBField $target, $info );
     }
 ?>

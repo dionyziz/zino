@@ -178,6 +178,9 @@
 		public function Link() {
 			return $this->mLink;
 		}
+        public function ConstructField( DBField $field, $info ) {
+            $this->mDriver->ConstructField( $field, $info );
+        }
 	}
 
 	class DBChange {
