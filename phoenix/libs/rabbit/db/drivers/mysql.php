@@ -63,14 +63,28 @@
 			if ( $this->mFlippedDataTypes === false ) {
 				$this->mFlippedDataTypes = array_flip( $this->mDataTypes );
 			}
-			return $this->mFlippedDataTypes[ $datatype ];
+            if ( isset( $this->mFlippedDataTypes[ $datatype ] ) ) {
+    			return $this->mFlippedDataTypes[ $datatype ];
+            }
+            return false;
 		}
         public function DataTypes() {
             return $this->mDataTypes;
         }
         public function ConstructField( DBField $field, $info ) {
             $field->Name = $info[ 'Field' ];
-            $field->Type = $info[ 'Type' ];
+            $type = strtoupper( $info[ 'Type' ] );
+            if ( strpos( $type, '(' ) !== false ) {
+                $typeinfo = explode( '(', $type );
+                $type = $typeinfo[ 0 ];
+                $typeinfo[ 1 ] = str_replace( ')', '', $typeinfo[ 1 ] );
+                $length = $typeinfo[ 1 ];
+                $type = trim( $type );
+                $length = trim( $length );
+                $length = ( int )$length;
+                $field->Length = $length;
+            }
+            $field->Type = $this->ConstantByDataType( $type );
             $field->IsAutoIncrement = $info[ 'Extra' ] == 'auto_increment';
             if ( isset( $info[ 'Default' ] ) ) {
                 $field->Default = $info[ 'Default' ];
