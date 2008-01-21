@@ -158,22 +158,25 @@
             $this->mExists = false;
 
             if ( $db !== false ) {
-                $this->SetDatabase( $db ); // assertions etc
+                $this->Database = $db;
             }
 
             if ( $tablename === false ) {
+                // new table
 				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
+    			$this->mFields = array(); // no fields defined yet
 			}
 			else {
+                // existing table
 				w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
 	            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
 	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
 				$this->mTableName = $tablename;
                 $this->mExists = true;
+    			$this->mFields = false; // not retrieved yet
 			}
 			$this->mAlias = $alias;
-			$this->mFields = false;
             $this->mIndexes = false;
             $this->mNewFields = array();
             $this->mNewIndexes = array();
