@@ -185,7 +185,8 @@
             $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
             
             $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
-            $this->AssertEquals( $table, $table2, 'Table returned by TableByAlias() must match table returned by listing' );
+            $this->Assert( $table->Equals( $table2 ), 'Table returned by TableByAlias() must match table returned by listing (1)' );
+            $this->Assert( $table2->Equals( $table ), 'Table returned by TableByAlias() must match table returned by listing (2)' );
             $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
             $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
             $fields = $table->Fields;
