@@ -86,7 +86,9 @@
                 
                 w_assert( isset( $firstfield[ 'Key_name' ] ) );
                 w_assert( isset( $firstfield[ 'Non_unique' ] ) );
-                w_assert( isset( $firstfield[ 'Cardinality' ] ) );
+                if ( isset( $firstfield[ 'Cardinality' ] ) ) {
+                    $this->mCardinality = $firstfield[ 'Cardinality' ];
+                }
                 $this->mName = $firstfield[ 'Key_name' ];
                 if ( $firstfield[ 'Non_unique' ] == 1 ) {
                     $this->mType = DB_KEY_INDEX;
