@@ -236,10 +236,12 @@
             $first = true;
             $fieldsql = array();
             foreach ( $this->mFields as $field ) {
+                $field->Exists = true;
                 $fieldsql[] = $field->SQL;
             }
             $indexsql = array();
             foreach ( $this->mIndexes as $index ) {
+                $index->Exists = true;
                 $indexsql[] = $index->SQL;
             }
             $query = $this->mDb->Prepare( 

@@ -97,7 +97,7 @@
                                 <a href="http://dev.mysql.com/doc/refman/5.0/en/numeric-type-overview.html"><span class="type">INT</span></a><span class="type">(11)</span> <span class="type"> NOT NULL </span>
                                 <xsl:if test="not(@autoincrement='yes')">
                                     <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>
-                                    <span class="string"> '<xsl:choose test="@default">
+                                    <span class="string"> '<xsl:choose>
                                         <xsl:when test="not(@default)">0</xsl:when>
                                         <xsl:otherwise><xsl:value-of select="@default" /></xsl:otherwise>
                                     </xsl:choose>'</span>
@@ -115,7 +115,7 @@
                                 </xsl:choose>'</span>
                             </xsl:when>
                             <xsl:when test="@type='varchar'">
-                                <a href="http://dev.mysql.com/doc/refman/5.0/en/char.html"><span class="type">VARCHAR</span></a><span class="type">(<xsl:choose test="">
+                                <a href="http://dev.mysql.com/doc/refman/5.0/en/char.html"><span class="type">VARCHAR</span></a><span class="type">(<xsl:choose>
                                         <xsl:when test="not(@length)">32</xsl:when>
                                         <xsl:otherwise>
                                             <xsl:value-of select="@length" />

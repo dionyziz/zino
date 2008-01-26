@@ -101,6 +101,12 @@
             }
             return $sql;
         }
+        public function SetExists( $value ) {
+            // called by table creation method
+            w_assert( is_bool( $value ) );
+            w_assert( $value === true );
+            $this->mExists = $value;
+        }
         public function DBField( $parenttable = false, $info = false ) {
             $this->mLength = false;
             if ( $info === false && $parenttable === false ) {

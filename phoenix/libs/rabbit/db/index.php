@@ -68,6 +68,11 @@
         protected function GetCardinality() {
             return $this->mCardinality;
         }
+        protected function SetExists( $value ) {
+            w_assert( is_bool( $value ) );
+            w_assert( $value === true );
+            $this->mExists = $value;
+        }
         public function DBIndex( $parenttable = false, $info = false ) {
             $this->mFields = array();
             if ( $info === false && $parenttable === false ) {
