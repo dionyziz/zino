@@ -167,12 +167,12 @@
             catch ( Exception $e ) {
                 $this->Assert( false, 'Failed to execute table creation query' );
             }
-            die( 'Faith2' );
             
 			$this->mTestTable = $table;
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
+        /*
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -233,7 +233,7 @@
             foreach ( $indexes as $index ) {
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
-                /*
+                /--*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
@@ -259,7 +259,7 @@
                         $this->AssertEquals( $this->mField3, current( $index->Fields ), 'Index key field is not the expected one (2)' );
                         break;
                 }
-                */
+                *--/
                 ++$i;
             }
         }
@@ -269,6 +269,7 @@
 		}
         public function TestTableByAlias() {
         }
+        */
     }
     
     return New TestRabbitDb();
