@@ -103,6 +103,10 @@
                 if ( $target->mDatabase === false ) {
                     return false;
                 }
+                echo '--';
+                var_dump( $this->mDatabase );
+                echo '--';
+                die();
                 w_assert( is_object( $this->mDatabase ) );
                 w_assert( $this->mDatabase instanceof Database );
                 return $this->mDatabase->Equals( $target->Database );
