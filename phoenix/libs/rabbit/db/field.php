@@ -70,6 +70,10 @@
         protected function GetParentTable() {
             return $this->mParentTable;
         }
+        protected function SetParentTable( DBTable $value ) {
+            // called by table save
+            $this->mParentTable = $value;
+        }
         public function Equals( DBField $target ) {
             return
                    $this->Exists() == $target->Exists()

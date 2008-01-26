@@ -239,11 +239,13 @@
             $fieldsql = array();
             foreach ( $this->mFields as $field ) {
                 $field->Exists = true;
+                $field->ParentTable = $this;
                 $fieldsql[] = $field->SQL;
             }
             $indexsql = array();
             foreach ( $this->mIndexes as $index ) {
                 $index->Exists = true;
+                $index->ParentTable = $this;
                 $indexsql[] = $index->SQL;
             }
             $query = $this->mDb->Prepare( 
