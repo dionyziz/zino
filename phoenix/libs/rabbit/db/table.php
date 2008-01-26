@@ -99,11 +99,11 @@
                  || $this->Alias != $target->Alias ) {
                 return false;
             }
-            if ( $this->Database !== false ) {
-                if ( $target->Database === false ) {
+            if ( $this->mDatabase !== false ) {
+                if ( $target->mDatabase === false ) {
                     return false;
                 }
-                return $this->Database->Equals( $target->Database );
+                return $this->mDatabase->Equals( $target->Database );
             }
             return true;
         }
@@ -174,7 +174,7 @@
             if ( $db !== false ) {
                 w_assert( is_object( $db ) );
                 w_assert( $db instanceof Database );
-                $this->Database = $db;
+                $this->mDatabase = $db;
             }
             else {
                 $this->mDatabase = false;
