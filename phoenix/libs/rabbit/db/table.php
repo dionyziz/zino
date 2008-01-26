@@ -99,17 +99,11 @@
                  || $this->Alias != $target->Alias ) {
                 return false;
             }
-            if ( $this->mDatabase !== false ) {
-                if ( $target->mDatabase === false ) {
+            if ( $this->mDb !== false ) {
+                if ( $target->mDb === false ) {
                     return false;
                 }
-                echo '--';
-                var_dump( $this->mDatabase );
-                echo '--';
-                die();
-                w_assert( is_object( $this->mDatabase ) );
-                w_assert( $this->mDatabase instanceof Database );
-                return $this->mDatabase->Equals( $target->Database );
+                return $this->mDb->Equals( $target->Database );
             }
             return true;
         }
@@ -182,10 +176,10 @@
             if ( $db !== false ) {
                 w_assert( is_object( $db ) );
                 w_assert( $db instanceof Database );
-                $this->mDatabase = $db;
+                $this->mDb = $db;
             }
             else {
-                $this->mDatabase = false;
+                $this->mDb = false;
             }
             
             if ( $tablename === false ) {
