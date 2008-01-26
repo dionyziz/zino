@@ -206,7 +206,7 @@
                         
                         echo "test<br /><br />\n\n";
                         
-                        $field;
+                        var_dump( $field );
                         
                         exit();
                         
