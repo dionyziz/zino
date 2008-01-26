@@ -63,6 +63,9 @@
 			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
 			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
         }
+        public function TestDatabase() {
+            $this->Assert( $this->mFirstDatabase->Equals( $this->mFirstDatabase ), 'A database should be equal to itself' );
+        }
 		public function TestCreateTable() {
 			$table = New DBTable();
             $this->Assert( $table->Equals( $table ), 'A new table must be equal to itself' );
@@ -199,16 +202,7 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        try {
-                            var_dump( $this->mField1 );
-                            echo '--------------------';
-                            var_dump( $field );
-                            die();
-                            $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
-                        }
-                        catch ( Exception $e ) {
-                            die( var_dump( $e ) );
-                        }
+                        $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
                         
                         break;
                     case 1:
