@@ -177,7 +177,7 @@
                 $this->Database = $db;
             }
             else {
-                $this->Database = false;
+                $this->mDatabase = false;
             }
             
             if ( $tablename === false ) {
