@@ -172,7 +172,6 @@
 			
 			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
 		}
-        /*
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -189,6 +188,7 @@
             $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
             
             $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
+        /*
             $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
             $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
             $this->Assert( $table->Equals( $table2 ), 'Table returned by TableByAlias() must match table returned by listing (1)' );
@@ -262,8 +262,8 @@
                 *--/
                 ++$i;
             }
+            */
         }
-        */
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
