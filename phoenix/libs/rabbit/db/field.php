@@ -109,6 +109,7 @@
         }
         public function DBField( $parenttable = false, $info = false ) {
             $this->mLength = false;
+            $this->mIsAutoIncrement = false;
             if ( $info === false && $parenttable === false ) {
                 $this->mExists = false;
             }
