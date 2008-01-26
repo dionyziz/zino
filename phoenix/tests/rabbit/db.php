@@ -202,12 +202,19 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        var_dump( $this->mField1 );
                         
-                        echo "test<br /><br />\n\n";
+                        echo "1 -- ";
+                        flush();
+                        
+                        var_dump( $this->mField1 );
+                        flush();
+                        
+                        echo "2 --";
+                        flush();
                         
                         var_dump( $field );
                         
+                        echo "3 --";
                         exit();
                         
                         $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
