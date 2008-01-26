@@ -161,13 +161,13 @@
 			$table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
-            die( 'Faith' );
             try {
                 $table->Save();
             }
             catch ( Exception $e ) {
                 $this->Assert( false, 'Failed to execute table creation query' );
             }
+            die( 'Faith2' );
             
 			$this->mTestTable = $table;
 			
