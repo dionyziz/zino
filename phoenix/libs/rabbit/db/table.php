@@ -165,6 +165,8 @@
             $this->mAlias = $value;
         }
         protected function SetDatabase( Database $db ) {
+            w_assert( is_object( $db ) );
+            w_assert( $db instanceof Database );
             $this->mDb = $db;
         }
         protected function GetDatabase() {
