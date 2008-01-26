@@ -202,7 +202,7 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        $this->mField1;
+                        var_dump( $this->mField1 );
                         
                         echo "test<br /><br />\n\n";
                         
