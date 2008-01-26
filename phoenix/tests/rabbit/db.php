@@ -188,7 +188,6 @@
             $table = $this->mFirstDatabase->TableByAlias( 'rabbit_test' );
             
             $this->Assert( $table !== false, 'Could not find recently created table using TableByAlias() on the parent database' );
-        /*
             $this->Assert( is_object( $table ), 'Item of array returned by Database->Tables() was not an object' );
             $this->Assert( $table instanceof DBTable, 'Item of array returned by Database->Tables() was not an instance of DBTable' );
             $this->Assert( $table->Equals( $table2 ), 'Table returned by TableByAlias() must match table returned by listing (1)' );
@@ -197,6 +196,7 @@
             $this->Assert( is_array( $fields ), 'Value of attribute DBTable->Fields must be an array' );
             $this->AssertEquals( 3, count( $fields ), 'The number of fields of the recently created table is incorrect' );
             $i = 0;
+        /*
             foreach ( $fields as $field ) {
                 $this->Assert( is_object( $field ), 'Item of array returned by DBTable->Fields was not an object' );
                 $this->Assert( $field instanceof DBField, 'Item of array returned by DBTable->Fields was not an instance of DBField' );
