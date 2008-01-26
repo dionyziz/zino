@@ -203,7 +203,7 @@
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
                         $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
-                        
+                        $this->Assert( $this->mField1->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same' );
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
@@ -221,9 +221,9 @@
             $this->AssertEquals( 3, count( $indexes ), 'The number of indexes of the recently created table is incorrect' );
             $i = 0;
             foreach ( $indexes as $index ) {
-                /*
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
+                /*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
