@@ -161,6 +161,7 @@
 			$table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
+            die( 'Faith' );
             try {
                 $table->Save();
             }
