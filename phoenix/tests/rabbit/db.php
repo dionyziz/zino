@@ -209,14 +209,15 @@
                         $this->AssertEquals( $this->mField1->Default, $field->Default, 'Identical fields should have identical default values' );
                         $this->AssertEquals( $this->mField1->Type, $field->Type, 'Identical fields should have identical types' );
                         $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
+                        $this->Assert( $field->Equals( $this->mField1 ), 'The first column created must match the one read' );
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
-                        // $this->AssertEquals( $this->mField2, $field, 'The second column created must match the one read' );
+                        $this->Assert( $this->mField2->Equals( $field ), 'The second column created must match the one read' );
                         break;
                     case 2:
                         $this->AssertEquals( 'user_subdomain', $field->Name, 'The third column must be "user_subdomain"' );
-                        // $this->AssertEquals( $this->mField3, $field, 'The third column created must match the one read' );
+                        $this->AssertEquals( $this->mField3->Equals( $field ), 'The third column created must match the one read' );
                         break;
                 }
                 ++$i;
