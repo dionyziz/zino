@@ -79,7 +79,7 @@
                    $this->Exists() == $target->Exists()
                 && $this->Name == $target->Name
                 && $this->Length == $target->Length
-                && $this->IsAutoIncrement == $target->AutoIncrement
+                && $this->IsAutoIncrement == $target->IsAutoIncrement
                 && $this->Default == $target->Default
                 && $this->Type == $target->Type
                 && $this->ParentTable->Equals( $target->ParentTable );
