@@ -202,7 +202,7 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        
+                        /*
                         echo "1 -- ";
                         flush();
                         
@@ -216,7 +216,7 @@
                         
                         echo "3 --";
                         exit();
-                        
+                        */
                         $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
                         $this->Assert( $this->mField1->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same' );
                         break;
