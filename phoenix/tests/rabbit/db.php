@@ -217,8 +217,13 @@
                         echo "3 --";
                         exit();
                         */
+                        $this->AssertEquals( $this->mField1->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same' );
+                        $this->AssertEquals( $this->mField1->Exists(), $field->Exists(), 'Identical fields should have identical existance values' );
+                        $this->AssertEquals( $this->mField1->Length, $field->Length, 'Identical fields should have the same length' );
+                        $this->AssertEquals( $this->mField1->IsAutoIncrement, $field->IsAutoIncrement, 'Identical fields should have identical autoincrement values' );
+                        $this->AssertEquals( $this->mField1->Default, $field->Default, 'Identical fields should have identical default values' );
+                        $this->AssertEquals( $this->mField1->Type, $field->Type, 'Identical fields should have identical types' );
                         $this->Assert( $this->mField1->Equals( $field ), 'The first column created must match the one read' );
-                        $this->Assert( $this->mField1->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same' );
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
