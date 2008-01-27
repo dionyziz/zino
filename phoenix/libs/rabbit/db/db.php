@@ -181,6 +181,12 @@
         public function ConstructField( DBField $field, $info ) {
             $this->mDriver->ConstructField( $field, $info );
         }
+        public function __toString() {
+            if ( !empty( $this->mDbName ) ) {
+                return '`' . $this->mDbName . '`';
+            }
+            return '[database on ' . $this->mHost . ']';
+        }
 	}
 
 	class DBChange {
@@ -252,8 +258,5 @@
 		public function Results() {
 			return $this->NumRows() > 0;
 		}
-        public function __toString() {
-            return '`' . $this->mDbName . '`';
-        }
 	}
 ?>
