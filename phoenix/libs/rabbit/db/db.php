@@ -252,5 +252,8 @@
 		public function Results() {
 			return $this->NumRows() > 0;
 		}
+        public function __toString() {
+            return '`' . $this->mDbName . '`';
+        }
 	}
 ?>

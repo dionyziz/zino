@@ -206,13 +206,13 @@
                         echo "1 -- ";
                         flush();
                         
-                        var_dump( $this->mField1 );
+                        echo $this->mField1;
                         flush();
                         
                         echo "2 --";
                         flush();
                         
-                        var_dump( $field );
+                        echo $field;
                         
                         echo "3 --";
                         exit();

@@ -266,5 +266,8 @@
         public function Exists() {
             return $this->mExists;
         }
+        public function __toString() {
+            return ( string )$this->mDb . '.`' . $this->mTableName . '`';
+        }
 	}
 ?>

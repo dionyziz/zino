@@ -127,5 +127,8 @@
                 $this->mParentTable->Database->ConstructField( $this, $info );
             }
         }
+        public function __toString() {
+            return ( string )$this->mParentTable . '.`' . $this->mName . '`';
+        }
     }
 ?>
