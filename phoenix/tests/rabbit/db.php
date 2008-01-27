@@ -217,7 +217,7 @@
                         break;
                     case 2:
                         $this->AssertEquals( 'user_subdomain', $field->Name, 'The third column must be "user_subdomain"' );
-                        $this->AssertEquals( $this->mField3->Equals( $field ), 'The third column created must match the one read' );
+                        $this->Assert( $this->mField3->Equals( $field ), 'The third column created must match the one read' );
                         break;
                 }
                 ++$i;
