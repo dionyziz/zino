@@ -213,6 +213,12 @@
                         break;
                     case 1:
                         $this->AssertEquals( 'user_name', $field->Name, 'The second column must be "user_name"' );
+                        $this->Assert( $this->mField2->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same (2)' );
+                        $this->AssertEquals( $this->mField2->Exists(), $field->Exists(), 'Identical fields should have identical existance values (2)' );
+                        $this->AssertEquals( $this->mField2->Length, $field->Length, 'Identical fields should have the same length (2)' );
+                        $this->AssertEquals( $this->mField2->IsAutoIncrement, $field->IsAutoIncrement, 'Identical fields should have identical autoincrement values (2)' );
+                        $this->AssertEquals( $this->mField2->Default, $field->Default, 'Identical fields should have identical default values (2)' );
+                        $this->AssertEquals( $this->mField2->Type, $field->Type, 'Identical fields should have identical types (2)' );
                         $this->Assert( $this->mField2->Equals( $field ), 'The second column created must match the one read' );
                         break;
                     case 2:
