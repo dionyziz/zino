@@ -202,21 +202,6 @@
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( 'user_id', $field->Name, 'The first column must be "user_id"' );
-                        /*
-                        echo "1 -- ";
-                        flush();
-                        
-                        echo $this->mField1;
-                        flush();
-                        
-                        echo "2 --";
-                        flush();
-                        
-                        echo $field;
-                        
-                        echo "3 --";
-                        exit();
-                        */
                         $this->Assert( $this->mField1->ParentTable->Equals( $field->ParentTable ), 'The parent table of the same field should be the same' );
                         $this->AssertEquals( $this->mField1->Exists(), $field->Exists(), 'Identical fields should have identical existance values' );
                         $this->AssertEquals( $this->mField1->Length, $field->Length, 'Identical fields should have the same length' );
@@ -243,7 +228,6 @@
             foreach ( $indexes as $index ) {
                 $this->Assert( is_object( $index ), 'Item of array returned by DBTable->Indexes was not an object' );
                 $this->Assert( $index instanceof DBIndex, 'Item of array returned by DBTable->Indexes was not an instance of DBIndex' );
-                /*
                 switch ( $i ) {
                     case 0:
                         $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
@@ -269,7 +253,6 @@
                         $this->AssertEquals( $this->mField3, current( $index->Fields ), 'Index key field is not the expected one (2)' );
                         break;
                 }
-                */
                 ++$i;
             }
         }
