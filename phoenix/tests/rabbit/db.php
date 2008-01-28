@@ -367,6 +367,11 @@
                         next( $index->Fields );
                         $this->Assert( current( $index->Fields ) instanceof DBField, 'Index key field is not a field instance (2)' );
                         $this->Assert( $this->mField3->Equals( current( $index->Fields ) ), 'Index key field is not the expected one (2)' );
+                        echo '---';
+                        echo ( string )$this->mField3;
+                        echo '<br /><br />';
+                        echo ( string )current( $index->Fields );
+                        die();
                         break;
                 }
                 ++$i;
