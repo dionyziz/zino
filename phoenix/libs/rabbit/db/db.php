@@ -202,7 +202,7 @@
 		protected $mAffectedRows;
 		protected $mInsertId;
 		
-		public function DBChange( DatabaseDriver $driver, $driver_link ) {
+		public function __construct( DBDriver $driver, $driver_link ) {
 			$this->mAffectedRows = $driver->LastAffectedRows( $driver_link );
 			$this->mInsertId = $driver->LastInsertId( $driver_link );
 		}
@@ -223,7 +223,7 @@
 		protected $mNumRows;
 		protected $mNumFields;
 		
-		public function DBResource( $sqlresource, DatabaseDriver $driver ) {
+		public function __construct( $sqlresource, DBDriver $driver ) {
             $this->mDriver = $driver;
 			$this->mSQLResource = $sqlresource;
 			$this->mNumRows = $this->mDriver->NumRows( $sqlresource );

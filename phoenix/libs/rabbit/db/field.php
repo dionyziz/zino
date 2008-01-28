@@ -90,15 +90,15 @@
             $sql = "`" . $this->Name . "` ";
             $sql .= ":_" . $this->Type . " "; // autobound
 
-            if ( !empty( $this->Length ) ) {   
-                $sql .= "(" . $this->Length . ")";
+            if ( !empty( $this->mLength ) ) {   
+                $sql .= "(" . $this->mLength . ")";
             }
             $sql .= " ";
             if ( !$this->Null ) {
                 $sql .= "NOT NULL ";
             }
-            if ( !empty( $this->Default ) ) {
-                $sql .= "DEFAULT " . $this->Default . " ";
+            if ( !empty( $this->mDefault ) ) {
+                $sql .= "DEFAULT " . $this->mDefault . " ";
             }
             if ( $this->IsAutoIncrement ) {
                 $sql .= "AUTO_INCREMENT";
