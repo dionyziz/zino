@@ -170,7 +170,7 @@
         protected function GetDatabase() {
             return $this->mDb;
         }
-		public function DBTable( $db = false, $tablename = false, $alias = '' ) {
+		public function __construct( $db = false, $tablename = false, $alias = '' ) {
             $this->mExists = false;
 
             if ( $db !== false ) {

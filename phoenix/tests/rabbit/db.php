@@ -1,6 +1,51 @@
 <?php
+    class TestRabbitDbDriver implements DBDriver {
+        public function LastAffectedRows( $link ) {
+            return 12;
+        }
+        public function LastInsertId( $link ) {
+            return 1337;
+        }
+        public function Query( $sql, $link ) {
+            $sql = trim( $sql );
+            $sql = explode( ' ', $sql );
+            $sql = $sql[ 0 ];
+            $sql = strtoupper( $sql );
+            switch ( $sql ) {
+                case 'SELECT':
+                    return 'dbresource';
+            }
+        }
+        public function SelectDb( $name, $link ) {}
+        public function Connect( $host, $username, $password, $persist = true ) {
+            return 'dblink';
+        }
+        public function LastErrorNumber( $link ) {
+            return 0;
+        }
+        public function LastError( $link ) {
+            return 'dberror';
+        }
+        public function NumRows( $driver_resource ) {
+            return 3;
+        }
+        public function NumFields( $driver_resource ) {
+            return 2;
+        }
+        public function FetchAssociativeArray( $driver_resource ) {}
+        public function FetchField( $driver_resource, $offset ) {}
+        public function GetName() {
+            return 'TestRabbitDbDriver';
+        }
+		public function DataTypeByConstant( $constant ) {}
+		public function ConstantByDataType( $datatype ) {}
+        public function DataTypes() {}
+        public function ConstructField( DBField $target, $info ) {}
+    }
+    
     class TestRabbitDb extends Testcase {
         protected $mAppliesTo = 'libs/rabbit/db/db';
+        private $mDummyDb;
         private $mFirstDatabase;
 		private $mTestTable;
         private $mField1;
@@ -9,6 +54,11 @@
         
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Database' ), 'Class Database doesn\'t exist' );
+            $this->Assert( class_exists( 'DBDriver' ), 'Interface DBDriver doesn\'t exist' );
+            $this->Assert( class_exists( 'DBField' ), 'Class DBField doesn\'t exist' );
+            $this->Assert( class_exists( 'DBIndex' ), 'Class DBIndex doesn\'t exist' );
+            $this->Assert( class_exists( 'DBTable' ), 'Class DBTable doesn\'t exist' );
+            $this->Assert( class_exists( 'DBException' ), 'Class DBException doesn\'t exist' );
         }
         public function TestSettings() {
             global $rabbit_settings;
@@ -17,13 +67,26 @@
             $this->Assert( is_array( $rabbit_settings[ 'databases' ] ), '"databases" setting is not an array -- cannot continue testing without some databases to work on' );
             $this->Assert( count( $rabbit_settings[ 'databases' ] ), '"databases" setting is empty -- cannot continue testing without some databases to work on' );
         }
-        public function TestMethodsExist() {
+        public function TestDatabase() {
             global $rabbit_settings;
             
             $this->mFirstDatabase = $GLOBALS[ reset( array_keys( $rabbit_settings[ 'databases' ] ) ) ];
             $this->Assert( $this->mFirstDatabase instanceof Database, 'Your first defined database does not appear to be consistent' );
-            $this->Assert( method_exists( $this->mFirstDatabase, 'Tables' ), 'Method Database->Tables() doesn\'t exist' );
-			
+            
+            $driver = New TestRabbitDbDriver();
+            $this->mDummyDb = New Database( 'test', $driver );
+            $this->mDummyDb->Connect( 'example.org' );
+            $this->mDummyDb->Authenticate( 'rabbit', 'secret' );
+            $this->mDummyDb->SetCharset( 'UTF-8' );
+        }
+        public function TestMethodsExist() {
+            $this->Assert( method_exists( $this->mDummyDb, 'Tables' ), 'Method Database->Tables() doesn\'t exist' );
+            $this->Assert( method_exists( $this->mDummyDb, 'Connect' ), 'Method Database->Connect() doesn\'t exist' );
+            $this->Assert( method_exists( $this->mDummyDb, 'Authenticate' ), 'Method Database->Authenticate() doesn\'t exist' );
+            $this->Assert( method_exists( $this->mDummyDb, 'Equals' ), 'Method Database->Equals() doesn\'t exist' );
+            $this->Assert( method_exists( $this->mDummyDb, 'SetCharset' ), 'Method Database->SetCharset() doesn\'t exist' );
+            $this->Assert( method_exists( $this->mDummyDb, 'SwitchDb' ), 'Method Database->SwitchDb() doesn\'t exist' );
+            
 			// DBTable
 			$table = New DBTable();	
 			$this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() doesn\'t exist' );
@@ -38,15 +101,16 @@
         public function TestPublicImport() {
             global $rabbit_settings;
             
-            foreach ( $rabbit_settings[ 'databases' ] as $key => $database ) {
-                $this->Assert( is_string( $key ), 'Each database alias should be a string' );
-                $this->Assert( isset( $database[ 'name' ] ), '"name" attribute is obligatory for all databases' );
-                $this->Assert( isset( $database[ 'driver' ] ), '"driver" attribute is obligatory for all databases' );
-                $this->Assert( isset( $database[ 'hostname' ] ), '"hostname" attribute is obligatory for all databases' );
-                $this->Assert( isset( $GLOBALS[ $key ] ), 'Database was not imported into the global namespace' );
-                $this->Assert( is_object( $GLOBALS[ $key ] ), 'Database imported into the global namespace was not an object' );
-                $this->Assert( $GLOBALS[ $key ] instanceof Database, 'Database imported into the global namespace does not appear to be a Database instance' );
-            }
+            $keys = array_keys( $rabbit_settings[ 'databases' ] );
+            $key = reset( $keys );
+            $database = reset( $rabbit_settings[ 'databases' ] );
+            $this->Assert( is_string( $key ), 'Each database alias should be a string' );
+            $this->Assert( isset( $database[ 'name' ] ), '"name" attribute is obligatory for all databases' );
+            $this->Assert( isset( $database[ 'driver' ] ), '"driver" attribute is obligatory for all databases' );
+            $this->Assert( isset( $database[ 'hostname' ] ), '"hostname" attribute is obligatory for all databases' );
+            $this->Assert( isset( $GLOBALS[ $key ] ), 'Database was not imported into the global namespace' );
+            $this->Assert( is_object( $GLOBALS[ $key ] ), 'Database imported into the global namespace was not an object' );
+            $this->Assert( $GLOBALS[ $key ] instanceof Database, 'Database imported into the global namespace does not appear to be a Database instance' );
         }
 		public function TestConstantsExist() {
 			// Database data types
@@ -63,12 +127,52 @@
 			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
 			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
         }
-        public function TestDatabase() {
-            $this->Assert( $this->mFirstDatabase->Equals( $this->mFirstDatabase ), 'A database should be equal to itself' );
+        public function TestDatabaseEquality() {
+            $this->Assert( $this->mFirstDatabase->Equals( $this->mFirstDatabase ), 'A database should be equal to itself (1)' );
+            $this->Assert( $this->mDummyDb->Equals( $this->mDummyDb ), 'A database should be equal to itself (2)' );
+        }
+        public function TestAttachTable() {
+            $tables = $this->mDummyDb->Tables();
+            $this->Assert( is_array( $tables ), 'Database->Tables() should return an array' );
+            $this->AssertEquals( 0, count( $tables ), 'Number of tables attached is incorrect (should be 0)' );
+            $this->mDummyDb->AttachTable( 'alias', 'actual' );
+            $this->Assert( is_object( $this->mDummyDb->TableByAlias( 'alias' ) ), 'TableByAlias() should return an object for existing tables' );
+            $this->Assert( $this->mDummyDb->TableByAlias( 'alias' ) instanceof DBTable, 'TableByAlias() should return a DBTable instance for existing tables' );
+            $this->AssertEquals( 'actual', $this->mDummyDb->TableByAlias( 'alias' )->Name, 'Could not retrieve table by alias (1)' );
+            $this->mDummyDb->AttachTable( 'hello', 'world' );
+            $this->AssertEquals( 'world', $this->mDummyDb->TableByAlias( 'hello' )->Name, 'Could not retrieve table by alias (2)' );
+            $this->AssertEquals( false, $this->mDummyDb->TableByAlias( 'foo' ), 'Non-existing tables should result in a false return value when calling TableByAlias on a Database instance (1)' );
+            $this->AssertEquals( false, $this->mDummyDb->TableByAlias( 'world' ), 'Non-existing tables should result in a false return value when calling TableByAlias on a Database instance (2)' );
+            $tables = $this->mDummyDb->Tables();
+            $this->AssertEquals( 2, count( $tables ), 'Number of tables attached is incorrect (should be 2)' );
+            $this->Assert( isset( $tables[ 'alias' ] ), 'Table "alias" could not be read' );
+            $this->Assert( isset( $tables[ 'hello' ] ), 'Table "hello" could not be read' );
+            $this->AssertEquals( 'actual', $tables[ 'alias' ]->Name, 'Table "alias" should have the name "actual"' );
+            $this->AssertEquals( 'world', $tables[ 'hello' ]->Name, 'Table "hello" should have the name "world"' );
+            $this->mDummyDb->DetachTable( 'alias' );
+            $tables = $this->mDummyDb->Tables();
+            $this->AssertEquals( 1, count( $tables ), 'Number of tables attached is incorrect (should be 1)' );
+            $detachnonexisting = true;
+            try {
+                $this->mDummyDb->DetachTable( 'foo' );
+            }
+            catch ( DBException $e ) {
+                $detachnonexisting = false;
+            }
+            $this->AssertFalse( $detachnonexisting, 'Attempts to detach a non-existing table should throw an exception' );
+            $this->AssertEquals( 1, count( $tables ), 'Number of tables attached is incorrect (should be 1 again)' );
+            $this->mDummyDb->DetachTable( 'hello' );
+            $this->AssertEquals( 0, count( $tables ), 'Number of tables attached should be zero after detaching all existing tables' );
+        }
+        public function TestTableEquality() {
+			$table = New DBTable();
+            $this->Assert( $table->Equals( $table ), 'A new table must be equal to itself' );
+            
+            $this->mDummyDb->AttachTable( 'alias', 'actual' );
+            $table = $this->mDummyDb->TableByAlias( 'alias' );
         }
 		public function TestCreateTable() {
 			$table = New DBTable();
-            $this->Assert( $table->Equals( $table ), 'A new table must be equal to itself' );
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
             $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must be an array when creating a new table' );
             $this->AssertEquals( 0, count( $table->Fields ), 'No fields must exist before we add them to a new database table' );
@@ -269,8 +373,6 @@
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
 		}
-        public function TestTableByAlias() {
-        }
     }
     
     return New TestRabbitDb();

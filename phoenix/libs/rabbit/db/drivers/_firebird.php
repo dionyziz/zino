@@ -4,7 +4,7 @@
         Developer: Dionyziz
     */
     
-    class DatabaseDriver_FireBird_ResultSet {
+    class DBDriver_FireBird_ResultSet {
         private $mRows;
         private $mNumRows;
         private $mFirebirdResource;
@@ -35,7 +35,7 @@
         }
     }
     
-    class DatabaseDriver_FireBird implements DatabaseDriver {
+    class DatabaseDriver_FireBird implements DBDriver {
         private $mLastAffectedRows;
         
         public function GetName() {

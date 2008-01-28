@@ -117,8 +117,8 @@
             }
             
             if ( isset( $database[ 'driver' ] ) ) {
-                w_assert( class_exists( 'DatabaseDriver_' . $database[ 'driver' ] ), 'Database driver \'' . $database[ 'driver' ] . '\' used for database alias $' . $dbname . ' is invalid' );
-                $drivername = 'DatabaseDriver_' . $database[ 'driver' ];
+                w_assert( class_exists( 'DBDriver_' . $database[ 'driver' ] ), 'Database driver \'' . $database[ 'driver' ] . '\' used for database alias $' . $dbname . ' is invalid' );
+                $drivername = 'DBDriver_' . $database[ 'driver' ];
                 $driver = New $drivername(); // MAGIC
             }
             else {

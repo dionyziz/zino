@@ -27,6 +27,9 @@
     $libs->Load( 'rabbit/db/field' );
     $libs->Load( 'rabbit/db/index' );
     
+    class DBException extends Exception {
+    }
+    
 	class Database {
 		protected $mDbName;
 		protected $mHost;
@@ -39,7 +42,7 @@
 		protected $mDriver;
         protected $mTables;
         
-		public function Database( $dbname = false, $driver = false ) {
+		public function __construct( $dbname = false, $driver = false ) {
             if ( $driver === false ) {
                 $this->mDriver = New DatabaseDriver_MySQL();
             }
@@ -158,12 +161,18 @@
             return New DBQuery( $rawsql, $this, $this->mDriver );
         }
         public function AttachTable( $alias, $actual ) {
-            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
+            if ( !preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ) ) {
+                throw New DBException( 'Invalid database table alias `' . $alias . '\'' );
+            }
             $this->mTables[ $alias ] = New DBTable( $this, $actual, $alias );
         }
-        public function DetachTable( $alias, $actual ) {
-            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ), 'Invalid database table alias `' . $alias . '\'' );
-            w_assert( isset( $this->mTables[ $alias ] ), 'Cannot detach a table that has not been attached yet' );
+        public function DetachTable( $alias ) {
+            if ( !preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ) ) {
+                throw New DBException( 'Invalid database table alias `' . $alias . '\'' );
+            }
+            if ( !isset( $this->mTables[ $alias ] ) ) {
+                throw New DBException( 'Cannot detach a table that has not been attached yet' );
+            }
             unset( $this->mTables[ $alias ] );
         }
         public function TableByAlias( $alias ) {

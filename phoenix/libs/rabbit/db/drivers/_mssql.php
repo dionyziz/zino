@@ -4,7 +4,7 @@
         Developer: Dionyziz
     */
     
-    class DatabaseDriver_MSSQL_ResultSet {
+    class DBDriver_MSSQL_ResultSet {
         private $mRows;
         private $mNumRows;
         private $mMSSQLResource;
@@ -24,7 +24,7 @@
         public function FetchField( $offset ) {
             return mssql_fetch_field( $this->mMSSQLResource, $offset );
         }
-        public function DatabaseDriver_MSSQL_ResultSet( DatabaseDriver_MSSQL $driver, $resource ) {
+        public function __construct( DatabaseDriver_MSSQL $driver, $resource ) {
             $this->mRows = array();
             // we need to buffer all results returned in order to be able to server numrows requests
             while ( $row = mssql_fetch_assoc( $resource ) ) {
@@ -36,7 +36,7 @@
         }
     }
     
-    class DatabaseDriver_MSSQL implements DatabaseDriver {
+    class DBDriver_MSSQL implements DBDriver {
         public function GetName() {
             return 'MSSQL';
         }
@@ -58,7 +58,7 @@
                 return $res;
             }
 
-            return New DatabaseDriver_MSSQL_ResultSet( $this, $res );
+            return New DBDriver_MSSQL_ResultSet( $this, $res );
         }
         public function SelectDb( $name, $driver_link ) {
             return mssql_select_db( $name, $driver_link );

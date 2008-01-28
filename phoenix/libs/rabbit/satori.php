@@ -28,6 +28,9 @@
         }
     }
     
+    class SatoriException extends Exception {
+    }
+    
     // Active Record Base
     abstract class Satori extends Overloadable {
         protected $mDb; // database object referring to the database where the object is stored
@@ -45,34 +48,27 @@
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
 
         public function __set( $name, $value ) {
-            global $water;
-            
             if ( parent::__set( $name, $value ) === true ) {
                 return;
             }
 
             if ( !in_array( $name, $this->mDbFields ) ) {
-                $water->Warning( 'Attempting to write non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
-                return;
+                throw New SatoriException( 'Attempting to write non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
             
             if ( isset( $this->mReadOnlyFields[ $name ] ) ) {
-                $water->Warning( 'Attempting to write read-only Satori attribute `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
-                return;
+                throw New SatoriException( 'Attempting to write read-only Satori attribute `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
             
             $this->mCurrentValues[ ucfirst( $name ) ] = $value;
         }
         public function __get( $name ) {
-            global $water;
-            
             if ( !is_null( $got = parent::__get( $name ) ) ) {
                 return $got;
             }
 
             if ( !in_array( $name, $this->mDbFields ) ) {
-                $water->Warning( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
-                return;
+                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
             return $this->mCurrentValues[ ucfirst( $name ) ];
         }
@@ -80,34 +76,26 @@
             return in_array( $name, $this->mDbFields );
         }
         public function __unset( $name ) {
-            global $water;
-            
-            $water->Warning( 'Attempting to unset Satori property on a `' . get_class( $this ) . '\' instance; Satori properties cannot be unset' );
+            throw New SatoriException( 'Attempting to unset Satori property on a `' . get_class( $this ) . '\' instance; Satori properties cannot be unset' );
         }
         protected function MakeReadOnly( /* $name1 [, $name2 [, ...]] */ ) {
             // make a member attribute read-only; this doesn't have any impact for custom setters
-            global $water;
-            
             $args = func_get_args();
             w_assert( count( $args ) );
             foreach ( $args as $name ) {
                 if ( !in_array( $name, $this->mDbFields ) ) {
-                    $water->Warning( 'Attempting to convert non-existing Satori property `' . $name . '\' to read-only on a `' . get_class( $this ) . '\' instance' );
-                    return;
+                    throw New SatoriException( 'Attempting to convert non-existing Satori property `' . $name . '\' to read-only on a `' . get_class( $this ) . '\' instance' );
                 }
                 $this->mReadOnlyFields[ $name ] = true;
             }
         }
         protected function MakeWritable( /* $name1 [, $name2 [, ...]] */ ) {
             // turn a member attribute that was previously changed to read-only into writable again
-            global $water;
-            
             $args = func_get_args();
             w_assert( count( $args ) );
             foreach ( $args as $name ) {
                 if ( !in_array( $name, $this->mDbFields ) ) {
-                    $water->Warning( 'Attempting to convert non-existing Satori property `' . $name . '\' to read-write on a `' . get_class( $this ) . '\' instance' );
-                    return;
+                    throw New SatoriException( 'Attempting to convert non-existing Satori property `' . $name . '\' to read-write on a `' . get_class( $this ) . '\' instance' );
                 }
                 unset( $this->mReadOnlyFields[ $name ] );
             }
@@ -176,7 +164,9 @@
             }
         }
         public function Delete() {
-            w_assert( $this->Exists() );
+            if ( !$this->Exists() ) {
+                throw New SatoriException( 'Cannot delete non-existing Satori object' );
+            }
             
             $sql = 'DELETE FROM
                         :' . $this->mDbTable . '
@@ -200,15 +190,24 @@
             return $this->mDb->Query( $sql );
         }
         protected function InitializeFields() {
-            global $water;
+            if ( !( $this->mDb instanceof Database ) ) {
+                throw New SatoriException( 'Database not specified or invalid for Satori class `' . get_class( $this ). '\'' );
+            }
             
-            w_assert( $this->mDb instanceof Database );
             $table = $this->mDb->TableByAlias( $this->mDbTable );
-            w_assert( $table instanceof DBTable );
+            
+            if ( !( $table instanceof DBTable ) ) {
+                throw New SatoriException( 'Database table not specified or invalid for Satori class `' . get_class( $this ) . '\'' );
+            }
+            
             $this->mDbColumns = $table->Fields;
-            w_assert( count( $this->mDbColumns ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
+            if ( !count( $this->mDbColumns ) ) {
+                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
+            }
             $this->mDbIndexes = $table->Indexes;
-            w_assert( count( $this->mDbIndexes ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
+            if ( !count( $this->mDbIndexes ) ) {
+                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
+            }
             
             $this->mDbFields = array();
             $this->mDbFieldKeys = array();
@@ -221,6 +220,8 @@
                 $this->mDbFieldKeys[] = $column->Name;
                 if ( $column->IsAutoIncrement ) {
                     $this->mAutoIncrementField = $column->Name;
+                    // autoincrement attributes are read-only
+                    $this->MakeReadOnly( $attribute );
                 }
             }
             
@@ -229,12 +230,12 @@
                 if ( $index->Type == DB_KEY_PRIMARY ) {
                     foreach ( $index->Fields as $field ) {
                         $this->mPrimaryKeyFields[] = $field->Name;
-                        // primary key attributes are read-only
-                        $this->MakeReadOnly( $this->mDbFields[ $field->Name ] );
                     }
                 }
             }
-            w_assert( count( $this->mPrimaryKeyFields ), 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
+            if ( !count( $this->mPrimaryKeyFields ) ) {
+                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
+            }
 
             $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {

@@ -81,15 +81,12 @@ var Interpolators = {
 		
 		x *= PULSE_SCALE;
 		if ( x < 1 ) {
-			ret = x - ( 1 - Math.exp( -x ) );
+			return x - ( 1 - Math.exp( -x ) );
 		}
-		else {
-			start = Math.exp( -1 );
-			x -= 1;
-			expx = 1 - Math.exp( -x );
-			ret = start + ( expx * ( 1 - start ) );
-		}
-		return ret;
+        float start = Math.exp( -1 );
+        x -= 1;
+        float expx = 1 - Math.exp( -x );
+        return start + ( expx * ( 1 - start ) );
 	},
 	PulseNormalize: 1,
 	Pulse: function ( x ) {

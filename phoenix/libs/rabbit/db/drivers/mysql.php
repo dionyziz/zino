@@ -4,7 +4,7 @@
         Developer: Dionyziz
     */
     
-    class DatabaseDriver_MySQL implements DatabaseDriver {
+    class DBDriver_MySQL implements DBDriver {
         // Rabbit DB constant to native mysql type descriptor
 		private $mDataTypes = array( 
 			DB_TYPE_INT 		=> 'INT',

@@ -1,4 +1,4 @@
 <?php
-    class DatabaseDriver_Memory extends DatabaseDriver {
+    class DBDriver_Memory implements DBDriver {
     }
 ?>

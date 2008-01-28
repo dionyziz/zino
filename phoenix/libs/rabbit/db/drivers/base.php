@@ -1,6 +1,6 @@
 <?php
     // implement this interface to add support for a different database
-    interface DatabaseDriver {
+    interface DBDriver {
         // returns number of affected rows by the last query performed
         public function LastAffectedRows( $link );
         // returns the insertid of the last query performed
