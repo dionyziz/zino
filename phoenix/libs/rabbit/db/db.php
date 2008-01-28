@@ -55,7 +55,7 @@
 			$this->mConnected = false;
 			$this->mCharSetApplied = true;
 			$this->mCharSet = false;
-            $this->mTables = false;
+            $this->mTables = array();
 		}
 		public function Connect( $host = 'localhost' ) {
 			$this->mHost = $host;
