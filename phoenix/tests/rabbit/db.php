@@ -162,6 +162,7 @@
             $this->AssertFalse( $detachnonexisting, 'Attempts to detach a non-existing table should throw an exception' );
             $this->AssertEquals( 1, count( $tables ), 'Number of tables attached is incorrect (should be 1 again)' );
             $this->mDummyDb->DetachTable( 'hello' );
+            $tables = $this->mDummyDb->Tables();
             $this->AssertEquals( 0, count( $tables ), 'Number of tables attached should be zero after detaching all existing tables' );
         }
         public function TestTableEquality() {
