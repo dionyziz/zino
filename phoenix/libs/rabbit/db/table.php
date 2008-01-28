@@ -172,7 +172,7 @@
         }
 		public function __construct( $db = false, $tablename = false, $alias = '' ) {
             $this->mExists = false;
-
+            
             if ( $db !== false ) {
                 w_assert( is_object( $db ) );
                 w_assert( $db instanceof Database );
