@@ -346,7 +346,7 @@
                         $this->Assert( is_array( $index->Fields ), 'Primary key fields must be an array' );
                         $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for primary key' );
                         reset( $index->Fields );
-                        $this->AssertEquals( current( $index->Fields ) instanceof DBField, 'Primary key field is not a field instance' );
+                        $this->Assert( current( $index->Fields ) instanceof DBField, 'Primary key field is not a field instance' );
                         $this->Assert( $this->mField1->Equals( current( $index->Fields ) ), 'Primary key field is not the expected one' );
                         break;
                     case 1:
