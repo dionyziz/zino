@@ -345,15 +345,17 @@
                         $this->AssertEquals( DB_KEY_PRIMARY, $index->Type, 'Could not read PRIMARY KEY type' );
                         $this->Assert( is_array( $index->Fields ), 'Primary key fields must be an array' );
                         $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for primary key' );
-                        $this->AssertEquals( reset( $index->Fields ) instanceof DBField, 'Primary key field is not a field instance' );
-                        $this->Assert( $this->mField1->Equals( $index->Fields ), 'Primary key field is not the expected one' );
+                        reset( $index->Fields );
+                        $this->AssertEquals( current( $index->Fields ) instanceof DBField, 'Primary key field is not a field instance' );
+                        $this->Assert( $this->mField1->Equals( current( $index->Fields ) ), 'Primary key field is not the expected one' );
                         break;
                     case 1:
                         $this->AssertEquals( DB_KEY_UNIQUE, $index->Type, 'Could not read UNIQUE KEY type' );
                         $this->Assert( is_array( $index->Fields ), 'Unique key fields must be an array' );
                         $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for unique key' );
-                        $this->AssertEquals( reset( $index->Fields ) instanceof DBField, 'Unique key field is not a field instance' );
-                        // $this->AssertEquals( $this->mField2, reset( $index->Fields ), 'Unique key field is not the expected one' );
+                        reset( $index->Fields );
+                        $this->AssertEquals( current( $index->Fields ) instanceof DBField, 'Unique key field is not a field instance' );
+                        $this->Assert( $this->mField2->Equals( current( $index->Fields ) ), 'Unique key field is not the expected one' );
                         break;
                     case 2:
                         $this->AssertEquals( DB_KEY_INDEX, $index->Type, 'Could not read INDEX KEY type' );

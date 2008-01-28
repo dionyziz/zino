@@ -75,6 +75,9 @@
             $this->mParentTable = $value;
         }
         public function Equals( DBField $target ) {
+            if ( !is_object( $target ) ) {
+                return false;
+            }
             return
                    $this->Exists() == $target->Exists()
                 && $this->Name == $target->Name
