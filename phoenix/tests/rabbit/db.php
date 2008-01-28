@@ -54,7 +54,7 @@
         
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Database' ), 'Class Database doesn\'t exist' );
-            $this->Assert( class_exists( 'DBDriver' ), 'Interface DBDriver doesn\'t exist' );
+            $this->Assert( interface_exists( 'DBDriver' ), 'Interface DBDriver doesn\'t exist' );
             $this->Assert( class_exists( 'DBField' ), 'Class DBField doesn\'t exist' );
             $this->Assert( class_exists( 'DBIndex' ), 'Class DBIndex doesn\'t exist' );
             $this->Assert( class_exists( 'DBTable' ), 'Class DBTable doesn\'t exist' );
