@@ -90,7 +90,7 @@
                 $field->Default = $info[ 'Default' ];
             }
             else {
-                $field->Default = false;
+                $field->Default = '';
             }
         }
     }
