@@ -346,7 +346,7 @@
                         $this->Assert( is_array( $index->Fields ), 'Primary key fields must be an array' );
                         $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for primary key' );
                         $this->AssertEquals( reset( $index->Fields ) instanceof DBField, 'Primary key field is not a field instance' );
-                        $this->AssertEquals( $this->mField1, reset( $index->Fields ), 'Primary key field is not the expected one' );
+                        $this->Assert( $this->mField1->Equals( $index->Fields ), 'Primary key field is not the expected one' );
                         break;
                     case 1:
                         $this->AssertEquals( DB_KEY_UNIQUE, $index->Type, 'Could not read UNIQUE KEY type' );
