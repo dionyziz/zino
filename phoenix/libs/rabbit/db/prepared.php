@@ -5,7 +5,7 @@
         protected $mDatabase;
         protected $mDriver;
         
-        public function DBQuery( $raw, Database $database, DatabaseDriver $driver ) {
+        public function DBQuery( $raw, Database $database, DBDriver $driver ) {
             w_assert( is_string( $raw ), 'Cannot prepare SQL query with a non-string SQL statement' );
             w_assert( !empty( $raw ), 'Cannot prepare SQL query with an empty SQL statement' );
             
