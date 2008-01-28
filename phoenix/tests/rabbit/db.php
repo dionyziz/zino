@@ -354,18 +354,19 @@
                         $this->Assert( is_array( $index->Fields ), 'Unique key fields must be an array' );
                         $this->AssertEquals( 1, count( $index->Fields ), 'Incorrect number of fields defined for unique key' );
                         reset( $index->Fields );
-                        $this->AssertEquals( current( $index->Fields ) instanceof DBField, 'Unique key field is not a field instance' );
+                        $this->Assert( current( $index->Fields ) instanceof DBField, 'Unique key field is not a field instance' );
                         $this->Assert( $this->mField2->Equals( current( $index->Fields ) ), 'Unique key field is not the expected one' );
                         break;
                     case 2:
                         $this->AssertEquals( DB_KEY_INDEX, $index->Type, 'Could not read INDEX KEY type' );
                         $this->Assert( is_array( $index->Fields ), 'Index key fields must be an array' );
                         $this->AssertEquals( 2, count( $index->Fields ), 'Incorrect number of fields defined for index key' );
-                        $this->AssertEquals( reset( $index->Fields ) instanceof DBField, 'Index key field is not a field instance (1)' );
-                        // $this->AssertEquals( $this->mField2, reset( $index->Fields ), 'Index key field is not the expected one (1)' );
+                        reset( $index->Fields );
+                        $this->Assert( current( $index->Fields ) instanceof DBField, 'Index key field is not a field instance (1)' );
+                        $this->Assert( $this->mField2->Equals( current( $index->Fields ) ), 'Index key field is not the expected one (1)' );
                         next( $index->Fields );
-                        $this->AssertEquals( current( $index->Fields ) instanceof DBField, 'Index key field is not a field instance (2)' );
-                        // $this->AssertEquals( $this->mField3, current( $index->Fields ), 'Index key field is not the expected one (2)' );
+                        $this->Assert( current( $index->Fields ) instanceof DBField, 'Index key field is not a field instance (2)' );
+                        $this->Assert( $this->mField3->Equals( current( $index->Fields ) ), 'Index key field is not the expected one (2)' );
                         break;
                 }
                 ++$i;
