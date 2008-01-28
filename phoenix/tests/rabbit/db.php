@@ -370,10 +370,12 @@
                 ++$i;
             }
         }
+        /*
 		public function TestDeleteTable() {
 			$this->mTestTable->Delete();
 			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
 		}
+        */
     }
     
     return New TestRabbitDb();
