@@ -49,7 +49,7 @@
             else {
                 $this->mDriver = $driver;
             }
-            w_assert( $this->mDriver instanceof DatabaseDriver );
+            w_assert( $this->mDriver instanceof DBDriver );
             w_assert( $dbname === false || is_string( $dbname ) ); // false because you can SwitchDb() later
 			$this->mDbName = $dbname;
 			$this->mConnected = false;
