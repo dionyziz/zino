@@ -203,7 +203,7 @@
             if ( !count( $this->mDbColumns ) ) {
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
             }
-            $this->mDbIndexes = $table->Indexes;
+            $this->mDbIndexes = $this->mDbTable->Indexes;
             if ( !count( $this->mDbIndexes ) ) {
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
             }
