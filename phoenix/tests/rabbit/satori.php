@@ -210,6 +210,12 @@
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
             $this->AssertFalse( false, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to false' );
         }
+        public function TestLookup() {
+            $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
+            $this->AssertEquals( $obj->Id, $this->mObj->Id, 'Retrieved object should match the one saved (Id)' );
+            $this->AssertEquals( $obj->Int, $this->mObj->Int, 'Retrieved object should match the one saved (Int)' );
+            $this->AssertEquals( $obj->Char, $this->mObj->Char, 'Retrieved object should match the one saved (Char)' );
+        }
         public function TestAssignment() {
             $this->mObj->Char = 'cool';
             $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
@@ -222,12 +228,6 @@
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
-        }
-        public function TestLookup() {
-            $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
-            $this->AssertEquals( $obj->Id, $this->mObj->Id, 'Retrieved object should match the one saved (Id)' );
-            $this->AssertEquals( $obj->Int, $this->mObj->Int, 'Retrieved object should match the one saved (Int)' );
-            $this->AssertEquals( $obj->Char, $this->mObj->Char, 'Retrieved object should match the one saved (Char)' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
