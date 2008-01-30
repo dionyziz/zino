@@ -192,8 +192,8 @@
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
         public function TestCreation() {
-            $this->Assert( class_exists( 'TestRabbitSatori' ) );
-            $this->mObj = New TestRabbitSatori();
+            $this->Assert( class_exists( 'TestRabbitSatoriExtension' ) );
+            $this->mObj = New TestRabbitSatoriExtension();
             $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
