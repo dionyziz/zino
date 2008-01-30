@@ -320,7 +320,7 @@
                     ++$i;
                 }
                 $query->BindTable( $this->mDbTableAlias );
-                $res = $this->mDb->Query( $sql );
+                $res = $query->Execute();
                 if ( $res->NumRows() != 1 ) {
                     $this->mExists = false;
                     $fetched_array = array();
