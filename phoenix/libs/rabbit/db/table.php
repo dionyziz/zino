@@ -74,7 +74,7 @@
                     ++$i;
                 }
                 
-				$query = $this->Prepare(
+				$query = $this->mDb->Prepare(
                     "$insertinto
 						:" . $this->mAlias . "
 					(`" . implode( '`, `' , $fields ) . "`) VALUES
