@@ -159,7 +159,15 @@
             
             $this->mDbTable->CreateField( $field, $field2, $field3 );
             
-            die( count( $this->mDbTable->Fields ) );
+            ?>---<ol><?php
+            foreach ( $this->mDbTable->Fields as $field ) {
+                ?><li><?php
+                echo ( string )$field;
+                ?></li><?php
+            }
+            ?></ol>---<?php
+            
+            die();
             
             $primary = New DBIndex();
             $primary->Type = DB_KEY_PRIMARY;
