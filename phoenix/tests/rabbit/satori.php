@@ -117,6 +117,9 @@
         public function LoadDefaults() {
             $this->Char = 'abcd';
         }
+        protected function GetDb() {
+            return $this->mDb;
+        }
     }
         
     class TestRabbitSatori extends Testcase {
@@ -192,8 +195,12 @@
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
         public function TestCreation() {
+            global $rabbit_settings;
+            
             $this->Assert( class_exists( 'TestRabbitSatoriExtension' ) );
             $this->mObj = New TestRabbitSatoriExtension();
+            reset( $rabbit_settings[ 'databases' ] );
+            $this->AssertEquals( $this->mObj->Db, $GLOBALS[ key( $rabbit_settings[ 'databases' ] ) ] );
             $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
