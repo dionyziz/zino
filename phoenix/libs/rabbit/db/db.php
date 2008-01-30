@@ -199,7 +199,7 @@
 		
 		public function __construct( DBDriver $driver, $driver_link ) {
 			$this->mAffectedRows = $driver->LastAffectedRows( $driver_link );
-			$this->mInsertId = $driver->LastInsertId( $driver_link );
+			$this->mInsertId = ( int )$driver->LastInsertId( $driver_link );
 		}
 		public function AffectedRows() {
 			return $this->mAffectedRows;

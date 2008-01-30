@@ -212,9 +212,9 @@
         }
         public function TestLookup() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
-            $this->AssertEquals( $obj->Id, $this->mObj->Id, 'Retrieved object should match the one saved (Id)' );
-            $this->AssertEquals( $obj->Int, $this->mObj->Int, 'Retrieved object should match the one saved (Int)' );
-            $this->AssertEquals( $obj->Char, $this->mObj->Char, 'Retrieved object should match the one saved (Char)' );
+            $this->AssertEquals( $this->mObj->Id, $obj->Id, 'Retrieved object should match the one saved (Id)' );
+            $this->AssertEquals( $this->mObj->Int, $obj->Int, 'Retrieved object should match the one saved (Int)' );
+            $this->AssertEquals( $this->mObj->Char, $obj->Char, 'Retrieved object should match the one saved (Char)' );
         }
         public function TestAssignment() {
             $this->mObj->Char = 'cool';
