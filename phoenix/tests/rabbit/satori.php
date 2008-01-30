@@ -160,7 +160,7 @@
             $this->mDbTable->CreateField( $field, $field2, $field3 );
             
             $primary = New DBIndex();
-            $primary->Type = DB_INDEX_PRIMARY;
+            $primary->Type = DB_KEY_PRIMARY;
             $primary->AddField( $field );
             
             $this->mDbTable->CreateIndex( $primary );

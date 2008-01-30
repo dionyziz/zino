@@ -172,6 +172,17 @@
             $this->mDummyDb->AttachTable( 'alias', 'actual' );
             $table = $this->mDummyDb->TableByAlias( 'alias' );
         }
+        public function TestWrongIndex() {
+            $index = New DBIndex();
+            $caught = false;
+            try {
+                $index->Type = 'foobar';
+            }
+            catch ( DBException $e ) {
+                $caught = true;
+            }
+            $this->Assert( $caught, 'Wrong index types should not be allowed -- an exception is expected' );
+        }
 		public function TestCreateTable() {
 			$table = New DBTable();
 			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
