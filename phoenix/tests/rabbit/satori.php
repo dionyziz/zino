@@ -127,6 +127,7 @@
         private $mDb;
         private $mDbTable;
         private $mObj;
+        private $mObj2;
         
         public function SetUp() {
             global $rabbit_settings;
@@ -214,6 +215,17 @@
             $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
             $this->mObj->Int = 5;
             $this->AssertEquals( 5, $this->mObj->Int, 'Could not assign integer Satori attribute' );
+            $this->AssertEquals( 1, $this->mObj->Id, 'First object auto-increment ID should be 1' );
+            $this->Assert( is_int( $this->mObj->Id ), 'Autoincrement fields should be ints' );
+            $this->Assert( is_int( $this->mObj->Int ), 'Integer fields should be ints' );
+        }
+        public function TestNonExisting() {
+            $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
+            $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
+        }
+        public function TestLookup() {
+            $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
+            $this->Assert( $obj == $this->mObj, 'Retrieved object should match the one saved' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
