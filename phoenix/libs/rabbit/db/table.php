@@ -205,20 +205,16 @@
             $query->BindTable( $this->mAlias );
             return $query->Execute();
 		}
-        public function CreateField( $fields ) {
-            if ( !is_array( $fields ) ) {
-                $fields = array( $fields );
-            }
+        public function CreateField( /* $field1, $field2, ... */ ) {
+            $fields = func_get_args();
             w_assert( count( $fields ) );
             foreach ( $fields as $field ) {
                 w_assert( $field instanceof DBField );
                 $this->mFields[] = $field;
             }
         }
-        public function CreateIndex( $indexes ) {
-            if ( !is_array( $indexes ) ) {
-                $indexes = array( $indexes );
-            }
+        public function CreateIndex( /* $indexe1, $index2, ... */ ) {
+            $indexes = func_get_args();
             w_assert( count( $indexes ) );
             foreach ( $indexes as $index ) {
                 w_assert( $index instanceof DBIndex );

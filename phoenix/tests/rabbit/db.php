@@ -216,8 +216,8 @@
 			$this->mField3->Type = DB_TYPE_CHAR;
 			$this->mField3->Length = 32;
 
-			$table->CreateField( $this->mField1 ); // DBField or array of DBField
-			$table->CreateField( array( $this->mField2, $this->mField3 ) );
+			$table->CreateField( $this->mField1 ); // DBField
+			$table->CreateField( $this->mField2, $this->mField3 );
             
             $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must contain the fields to be created, even prior to table creation' );
             $this->AssertEquals( 3, count( $table->Fields ), 'Created 3 fields, but they\'re not there' );
@@ -271,8 +271,8 @@
 			$subdomain->Type = DB_KEY_INDEX;
             $this->AssertEquals( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
 
-			$table->CreateIndex( $primary ); // DBIndex or array of DBIndex
-			$table->CreateIndex( array( $username, $subdomain ) );
+			$table->CreateIndex( $primary ); // DBIndex
+			$table->CreateIndex( $username, $subdomain );
 
 			$table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
