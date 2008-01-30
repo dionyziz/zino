@@ -157,7 +157,9 @@
             $field3->Name = 'test_int';
             $field3->Type = DB_TYPE_INT;
             
-            $this->mDbTable->CreateField( $field, $field2, $field3 );
+            $this->mDbTable->CreateField( $field );
+            $this->mDbTable->CreateField( $field2 );
+            $this->mDbTable->CreateField( $field3 );
             
             ?>---<ol><?php
             foreach ( $this->mDbTable->Fields as $field ) {
