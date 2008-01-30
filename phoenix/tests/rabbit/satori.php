@@ -174,9 +174,9 @@
             $this->Assert( class_exists( 'Satori' ), 'Class Satori is undefined' );
         }
         public function TestOverloadable() {
-            $this->Assert( class_exists( 'TestRabbitSatoriExtension' ) );
-            $test = New TestRabbitSatoriExtension();
-            $this->Assert( $test instanceof TestRabbitSatoriExtension );
+            $this->Assert( class_exists( 'TestRabbitOverloadable' ) );
+            $test = New TestRabbitOverloadable();
+            $this->Assert( $test instanceof TestRabbitOverloadable );
             $this->AssertEquals( false, $test->Bar, 'Initial value of Foo is not false as expected' );
             $test->Foo = 5;
             $this->AssertEquals( 5, $test->Bar, 'Value of Foo should have been changed to 5' );
@@ -192,7 +192,7 @@
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
         public function TestCreation() {
-            $this->Assert( class_exists( 'TestRabbitOverloadable' ) );
+            $this->Assert( class_exists( 'TestRabbitSatori' ) );
             $this->mObj = New TestRabbitSatori();
             $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
             $this->mObj->Save();
