@@ -182,7 +182,6 @@
                 $query->Bind( ':' . $primary, $this->mCurrentValues[ $this->mDbFields[ $primary ] ] );
                 ++$i;
             }
-            $sql .= ' LIMIT 1;';
             $query->BindTable( $this->mDbTableAlias );
             
             $this->mExists = false;

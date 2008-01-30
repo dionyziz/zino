@@ -43,8 +43,7 @@
                 w_assert( strlen( $alias ), 'Database table aliases cannot be the empty string' );
                 $table = $this->mDatabase->TableByAlias( $alias );
                 if ( $table === false ) {
-                    $water->Warning( 'Could not bind database table `' . $alias . '`' );
-                    return;
+                    throw New DBException( 'Could not bind database table `' . $alias . '`' );
                 }
                 $this->mTableBindings[ ':' . $alias ] = '`' . $table->Name . '`';
             }
