@@ -1,4 +1,9 @@
 <?php
+	// Define database index types
+	define( 'DB_KEY_INDEX'		, 1 );
+	define( 'DB_KEY_UNIQUE'		, 2 );
+	define( 'DB_KEY_PRIMARY'	, 3 );
+    
     class DBIndex extends Overloadable {
         private $mExists;
         private $mFields;
@@ -57,7 +62,15 @@
             return $this->mName;
         }
         protected function SetType( $type ) {
-            $this->mType = $type;
+            switch ( $type ) {
+                case DB_KEY_INDEX:
+                case DB_KEY_UNIQUE:
+                case DB_KEY_PRIMARY:
+                    $this->mType = $type;
+                    return;
+                default:
+                    throw New DBException( 'Invalid index type `' . $type . '\'' );
+            }
         }
         protected function SetName( $name ) {
             $this->mName = $name;

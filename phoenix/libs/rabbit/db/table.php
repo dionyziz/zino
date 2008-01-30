@@ -199,8 +199,6 @@
 			}
 			$this->mAlias = $alias;
             $this->mIndexes = false;
-            $this->mNewFields = array();
-            $this->mNewIndexes = array();
 		}
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );

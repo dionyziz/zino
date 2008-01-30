@@ -159,6 +159,8 @@
             
             $this->mDbTable->CreateField( $field, $field2, $field3 );
             
+            die( count( $this->mDbTable->Fields ) );
+            
             $primary = New DBIndex();
             $primary->Type = DB_KEY_PRIMARY;
             $primary->AddField( $field );

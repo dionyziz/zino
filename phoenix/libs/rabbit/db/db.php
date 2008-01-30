@@ -15,11 +15,6 @@
     define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
     define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
 	
-	// Define database index types
-	define( 'DB_KEY_INDEX'		, 1 );
-	define( 'DB_KEY_UNIQUE'		, 2 );
-	define( 'DB_KEY_PRIMARY'	, 3 );
-    
     $libs->Load( 'rabbit/db/drivers/base' );
     $libs->Load( 'rabbit/db/drivers/mysql' ); // load mysql support
     $libs->Load( 'rabbit/db/prepared' );
