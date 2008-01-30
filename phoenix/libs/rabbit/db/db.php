@@ -145,7 +145,7 @@
                 // This leads to a Fatal Error: Wrong parameters for Exception( [string $exception [, long $code]] )
 				// throw New Exception( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
                 $water->Trace( 'SQL failed: ' . $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) . '; "' . $sql . '"' );
-				throw New Exception( 'Database query failed' , $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) );
+				throw New Exception( 'Database query failed: ' . $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) . '; "' . $sql . '"', $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) );
 			}
 			else if ( $res === true ) {
 				return New DBChange( $this->mDriver, $this->mLink );
