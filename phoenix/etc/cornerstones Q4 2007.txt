@@ -1,0 +1,16 @@
+Excalibur Version 6.5 Cornerstones
+
+1) Tags (October 30th) -- DONE
+2) Chat (10)(11) (September 30th) -- DONE
+3) PMs (September 30th) -- DONE
+4) XHTML Sanitization (September 7th) -- DONE
+5) WYSIWYG (4) (September 15th) -- DONE
+6) YouTube Video Embed (5) (September 17th) -- DONE
+7) Contact / Advertising Contact (September 3rd) -- DONE
+8) Polls on User Profiles (September 15th) -- DONE
+9) Extended customization (textures) (September 30th)
+10) Ice Queen (September 25th) -- DONE
+11) Cador (September 30th) -- DONE
+12) Comet (October 15th)
+13) Chess (12) (November 15th)
+14) Banners Exchanging System (September 5th)
