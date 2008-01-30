@@ -316,7 +316,7 @@
                 $query = $this->mDb->Prepare( $sql );
                 $i = 0;
                 foreach ( $this->PrimaryKeyFields as $primary ) {
-                    $query->Bind( ':' . $primary, $args[ $i ] );
+                    $query->Bind( $primary, $args[ $i ] );
                     ++$i;
                 }
                 $query->BindTable( $this->mDbTableAlias );
