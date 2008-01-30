@@ -35,7 +35,8 @@
     abstract class Satori extends Overloadable {
         protected $mDb; // database object referring to the database where the object is stored
         protected $mDbName; // name of the database we'll use for this object (defaults to your first database)
-        protected $mDbTable; // database table alias this object is mapped from
+        protected $mDbTableAlias; // database table alias this object is mapped from
+        protected $mDbTable; // DBTable instance for the database table this object is mapped from
         protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
         private $mDbFields; // dictionary with database fields (string) => class attributes
         private $mDbFieldKeys; // list with database fields (string)
@@ -110,7 +111,7 @@
         public function Save() {
             if ( $this->Exists() ) {
                 $sql = 'UPDATE
-                            :' . $this->mDbTable . '
+                            :' . $this->mDbTableAlias . '
                         SET
                             ';
                 $updates = array();
@@ -137,7 +138,7 @@
                 $sql .= implode( ' AND ', $conditions );
                 $sql .= $this->WhereAmI() . ' LIMIT 1;';
                 $query = $this->mDb->Prepare( $sql );
-                $query->BindTable( $this->mDbTable );
+                $query->BindTable( $this->mDbTableAlias );
                 foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
                     $this->Bind( '_' . $primarykey, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
                 }
@@ -151,9 +152,7 @@
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
-                $change = $this->mDb->Insert(
-                    $inserts, $this->mDbTable
-                );
+                $change = $this->mDbTable->Insert( $inserts );
                 if ( $change->Impact() ) {
                     if ( $this->mAutoIncrementField !== false ) {
                         $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
@@ -169,7 +168,7 @@
             }
             
             $sql = 'DELETE FROM
-                        :' . $this->mDbTable . '
+                        :' . $this->mDbTableAlias . '
                     WHERE ';
             $conditions = array();
             foreach ( $this->PrimaryKeyFields as $primary ) {
@@ -184,7 +183,7 @@
                 ++$i;
             }
             $sql .= ' LIMIT 1;';
-            $query->BindTable( $this->mDbTable );
+            $query->BindTable( $this->mDbTableAlias );
             
             $this->mExists = false;
             return $this->mDb->Query( $sql );
@@ -194,19 +193,19 @@
                 throw New SatoriException( 'Database not specified or invalid for Satori class `' . get_class( $this ). '\'' );
             }
             
-            $table = $this->mDb->TableByAlias( $this->mDbTable );
+            $this->mDbTable = $this->mDb->TableByAlias( $this->mDbTableAlias );
             
-            if ( !( $table instanceof DBTable ) ) {
+            if ( !( $this->mDbTable instanceof DBTable ) ) {
                 throw New SatoriException( 'Database table not specified or invalid for Satori class `' . get_class( $this ) . '\'' );
             }
             
-            $this->mDbColumns = $table->Fields;
+            $this->mDbColumns = $this->mDbTable->Fields;
             if ( !count( $this->mDbColumns ) ) {
-                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
+                throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
             }
             $this->mDbIndexes = $table->Indexes;
             if ( !count( $this->mDbIndexes ) ) {
-                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
+                throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
             }
             
             $this->mDbFields = array();
@@ -234,7 +233,7 @@
                 }
             }
             if ( !count( $this->mPrimaryKeyFields ) ) {
-                throw New SatoriException( 'Database table `' . $this->mDbTable . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
+                throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
             }
 
             $this->mCurrentValues = array();
@@ -272,8 +271,8 @@
             
             $args = func_get_args();
             
-            w_assert( is_string( $this->mDbTable ), 'Please specify your database table by setting member attribute mDbTable for class `' . get_class( $this ) . '\'' );
-            w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $this->mDbTable ), 'Your database table alias is incorrect; make sure you have specified a valid database table alias for class `' . get_class( $this ) . '\'' );
+            w_assert( is_string( $this->mDbTableAlias ), 'Please specify your database table by setting member attribute mDbTableAlias for class `' . get_class( $this ) . '\'' );
+            w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $this->mDbTableAlias ), 'Your database table alias is incorrect; make sure you have specified a valid database table alias for class `' . get_class( $this ) . '\'' );
             if ( !isset( $this->mDbName ) ) {
                 if ( count( $rabbit_settings[ 'databases' ] ) ) {
                     // default database
@@ -307,7 +306,7 @@
                 $sql = 'SELECT
                             `' . implode( '`,`', $this->mDbFieldKeys ) . '`
                         FROM 
-                            :' . $this->mDbTable . '
+                            :' . $this->mDbTableAlias . '
                         WHERE ';
                 $conditions = array();
                 foreach ( $this->PrimaryKeyFields as $primary ) {
@@ -321,7 +320,7 @@
                     $query->Bind( ':' . $primary, $args[ $i ] );
                     ++$i;
                 }
-                $query->BindTable( $this->mDbTable );
+                $query->BindTable( $this->mDbTableAlias );
                 $res = $this->mDb->Query( $sql );
                 if ( $res->NumRows() != 1 ) {
                     $this->mExists = false;

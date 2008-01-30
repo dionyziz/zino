@@ -112,7 +112,7 @@
     }
     
     class TestRabbitSatoriExtension extends Satori {
-        protected $mDbTable = 'rabbit_satori_test';
+        protected $mDbTableAlias = 'rabbit_satori_test';
         
         public function LoadDefaults() {
             $this->Char = 'abcd';
