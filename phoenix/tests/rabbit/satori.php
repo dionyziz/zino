@@ -220,8 +220,8 @@
             $this->AssertFalse( $this->mObj->Exists(), 'Satori-derived object should not exist after deletion' );
         }
         public function TearDown() {
-            $this->mDb->DetachTable( 'rabbit_satori_test' );
             $this->mDbTable->Delete();
+            $this->mDb->DetachTable( 'rabbit_satori_test' );
         }
     }
     
