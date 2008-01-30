@@ -179,13 +179,13 @@
             $query = $this->mDb->Prepare( $sql );
             $i = 0;
             foreach ( $this->PrimaryKeyFields as $primary ) {
-                $query->Bind( ':' . $primary, $this->mCurrentValues[ $this->mDbFields[ $primary ] ] );
+                $query->Bind( $primary, $this->mCurrentValues[ $this->mDbFields[ $primary ] ] );
                 ++$i;
             }
             $query->BindTable( $this->mDbTableAlias );
             
             $this->mExists = false;
-            return $this->mDb->Query( $sql );
+            return $query->Execute();
         }
         protected function InitializeFields() {
             if ( !( $this->mDb instanceof Database ) ) {
