@@ -169,7 +169,6 @@
             
             $this->mDb->AttachTable( 'rabbit_satori_test', 'rabbit_satori_test' );
         }
-        /*
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Overloadable' ), 'Class Overloadable is undefined' );
             $this->Assert( class_exists( 'Satori' ), 'Class Satori is undefined' );
@@ -217,7 +216,6 @@
             $this->mDb->DetachTable( 'rabbit_satori_test' );
             $this->mDbTable->Delete();
         }
-        */
     }
     
     return New TestRabbitSatori();
