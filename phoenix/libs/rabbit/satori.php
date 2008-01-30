@@ -152,7 +152,7 @@
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
-                $change = $this->mDbTable->Insert( $inserts );
+                $change = $this->mDbTable->InsertInto( $inserts );
                 if ( $change->Impact() ) {
                     if ( $this->mAutoIncrementField !== false ) {
                         $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
