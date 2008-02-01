@@ -140,11 +140,13 @@
                 $query = $this->mDb->Prepare( $sql );
                 $query->BindTable( $this->mDbTableAlias );
                 foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
-                    $this->Bind( '_' . $primarykey, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
+                    $query->Bind( '_' . $primarykey, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
                 }
                 foreach ( $bindings as $name => $value ) {
                     $query->Bind( $name, $value );
                 }
+                $change = $query->Execute();
+                return $change;
             }
             else {
                 $inserts = array();
