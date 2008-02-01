@@ -5,11 +5,11 @@
     //
     
     class Place extends Satori {
-        protected $mDbTable = 'places';
+        protected $mDbTableAlias = 'places';
     }
     
     class Bulk extends Satori {
-        protected $mDbTable = 'bulk';
+        protected $mDbTableAlias = 'bulk';
     }
     
     //
@@ -17,7 +17,7 @@
     //
     
     class Space extends Satori {
-        protected $mDbTable = 'spaces';
+        protected $mDbTableAlias = 'spaces';
         protected $mDb = 'db';
         
         protected function Relations() {
@@ -30,7 +30,7 @@
     //
     
     class Photo extends Satori {
-        protected $mDbTable = 'photos';
+        protected $mDbTableAlias = 'photos';
         
         protected function Relations() {
             $this->mAlbum = $this->BelongsTo( 'Album', 'photo_albumid', array( 'albums', 'album_id' ) );
@@ -38,7 +38,7 @@
     }
     
     class Album extends Satori {
-        protected $mDbTable = 'albums';
+        protected $mDbTableAlias = 'albums';
         
         protected function Relations() {
             $this->mPhotos = $this->HasMany( 'Photo', 'album_id', array( 'photos', 'photo_albumid' ) );
@@ -51,7 +51,7 @@
     //
     
     class User extends Satori {
-        protected $mDbTable = 'users';
+        protected $mDbTableAlias = 'users';
         
         protected function Relations() {
             $this->mJournalAuthors = $this->HasMany( 'JournalAuthor', 'user_id', array( 'journalauthors', 'journalauthor_userid' ) );
@@ -63,7 +63,7 @@
     }
     
     class JournalAuthor extends Satori {
-        protected $mDbTable = 'journalauthors';
+        protected $mDbTableAlias = 'journalauthors';
         
         protected function Relations() {
             $this->mJournal = $this->BelongsTo( 'Journal', 'journalauthor_journalid', array( 'journals', 'journal_id' ) );
@@ -72,11 +72,11 @@
     }
         
     class UserSetting extends Satori {
-        protected $mDbTable = 'usersettings';
+        protected $mDbTableAlias = 'usersettings';
     }
     
     class Journal extends Satori {
-        protected $mDbTable = 'journals';
+        protected $mDbTableAlias = 'journals';
         
         public function GetText() {
             return $this->Bulk->Text;
@@ -127,7 +127,6 @@
         private $mDb;
         private $mDbTable;
         private $mObj;
-        private $mObj2;
         
         public function SetUp() {
             global $rabbit_settings;
