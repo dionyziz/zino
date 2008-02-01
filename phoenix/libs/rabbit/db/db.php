@@ -6,15 +6,6 @@
 	
 	global $libs;
 		
-	// Define database data types
-    define( 'DB_TYPE_INT' 		, 'DB_TYPE_INT' );
-    define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
-    define( 'DB_TYPE_CHAR' 		, 'DB_TYPE_CHAR' );
-    define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
-    define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
-    define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
-    define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
-	
     $libs->Load( 'rabbit/db/drivers/base' );
     $libs->Load( 'rabbit/db/drivers/mysql' ); // load mysql support
     $libs->Load( 'rabbit/db/prepared' );

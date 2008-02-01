@@ -38,10 +38,10 @@
         protected $mDbTableAlias; // database table alias this object is mapped from
         protected $mDbTable; // DBTable instance for the database table this object is mapped from
         protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
-        private $mDbFields; // dictionary with database fields (string) => class attributes
+        private $mDbFields; // dictionary with full database field name (string) => class attribute name
         private $mDbFieldKeys; // list with database fields (string)
         private $mReadOnlyFields; // dictionary with class attributes => true
-        private $mDbColumns; // list with DBField instances
+        private $mDbColumns; // dictionary with field name (string) => DBField instance
         private $mDbIndexes; // list with DBIndex instances
         private $mPrimaryKeyFields; // list with database fields that are primary keys (array of string)
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
@@ -198,7 +198,10 @@
                 throw New SatoriException( 'Database table not specified or invalid for Satori class `' . get_class( $this ) . '\'' );
             }
             
-            $this->mDbColumns = $this->mDbTable->Fields;
+            $this->mDbColumns = array();
+            foreach ( $this->mDbTable->Fields as $field ) {
+                $this->mDbColumns[ $field->Name ] = $field;
+            }
             if ( !count( $this->mDbColumns ) ) {
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
             }
@@ -336,8 +339,7 @@
             
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( isset( $fetched_array[ $fieldname ] ) ) {
-                    $this->mCurrentValues[ $attributename ] = $fetched_array[ $fieldname ];
-                    $this->mPreviousValues[ $attributename ] = $fetched_array[ $fieldname ];
+                    $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( $fetched_array[ $fieldname ] );
                 }
                 else {
                     if ( empty( $this->mCurrentValues[ $attributename ] ) ) {

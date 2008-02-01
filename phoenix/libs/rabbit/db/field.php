@@ -1,5 +1,23 @@
 <?php
+	// Define database data types
+    define( 'DB_TYPE_INT' 		, 'DB_TYPE_INT' );
+    define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
+    define( 'DB_TYPE_CHAR' 		, 'DB_TYPE_CHAR' );
+    define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
+    define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
+    define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
+    define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
+	
     class DBField extends Overloadable {
+        protected $mValidDataTypes = array(
+            DB_TYPE_INT,
+            DB_TYPE_VARCHAR,
+            DB_TYPE_CHAR,
+            DB_TYPE_TEXT,
+            DB_TYPE_DATETIME,
+            DB_TYPE_FLOAT,
+            DB_TYPE_ENUM
+        );
         protected $mName;
         protected $mType;
 		protected $mLength;
@@ -39,8 +57,9 @@
 			$this->mName = $name;
 		}
 		protected function SetType( $type ) {
-			// w_assert( is_int( $type ), 'Database field data type specified is invalid' );
-			// TODO: add assert,  $type must be valid!!
+            if ( !in_array( $type, $this->mValidDataTypes ) ) {
+                throw New DBException( 'Database field data type specified is invalid' );
+            }
 			$this->mType = $type;
             if ( $this->mLength === false ) {
                 // no length specified, use default lengths
@@ -113,6 +132,21 @@
             w_assert( is_bool( $value ) );
             w_assert( $value === true );
             $this->mExists = $value;
+        }
+        public function CastValueToNativeType( $value ) {
+            switch ( $this->mType ) {
+                case DB_TYPE_INT:
+                    return ( int )$value;
+                case DB_TYPE_FLOAT:
+                    return ( float )$value;
+                case DB_TYPE_DATETIME:
+                case DB_TYPE_ENUM:
+                case DB_TYPE_VARCHAR:
+                case DB_TYPE_CHAR:
+                case DB_TYPE_TEXT:
+                default:
+                    return ( string )$value;
+            }
         }
         public function DBField( $parenttable = false, $info = false ) {
             $this->mLength = false;
