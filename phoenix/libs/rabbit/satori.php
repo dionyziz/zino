@@ -133,7 +133,7 @@
                 $sql .= ' WHERE ';
                 $conditions = array();
                 foreach ( $this->PrimaryKeyFields as $primarykey ) {
-                    $conditions .= '`' . $primarykey . '` = :_' . $primarykey;
+                    $conditions[] = '`' . $primarykey . '` = :_' . $primarykey;
                 }
                 $sql .= implode( ' AND ', $conditions );
                 $sql .= ' LIMIT 1;';
