@@ -343,7 +343,7 @@
                 }
                 else {
                     if ( empty( $this->mCurrentValues[ $attributename ] ) ) {
-                        $this->mCurrentValues[ $attributename ] = false;
+                        $this->mCurrentValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( false );
                     }
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
