@@ -205,6 +205,7 @@
             $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
+            $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
         }
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
@@ -224,6 +225,29 @@
             $this->AssertEquals( 1, $this->mObj->Id, 'First object auto-increment ID should be 1' );
             $this->Assert( is_int( $this->mObj->Id ), 'Autoincrement fields should be ints' );
             $this->Assert( is_int( $this->mObj->Int ), 'Integer fields should be ints' );
+        }
+        public function TestUpdate() {
+            $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id ); // return to persistent state
+            $this->mObj->Int = 42;
+            $this->mObj->Char = 'awesome';
+            $caught = false;
+            try {
+                $this->mObj->Id = 1337;
+            }
+            catch ( SatoriException $e ) {
+                $caught = true;
+            }
+            $this->Assert( $caught, 'Read-only satori attributes should not be changeable' );
+            $this->AssertEquals( 1, $this->mObj->Id, 'Read-only satori attributes should remain unchanged after exception is thrown' );
+            $this->mObj->Save();
+            $this->Assert( $this->mObj->Exists(), 'Object should still exist after saving' );
+            $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment value should remain unchanged after updating object' );
+            $this->AssertEquals( 'awesome', $this->mObj->Char, 'Issuing save to update should not affect char value' );
+            $this->AssertEquals( 42, $this->mObj->Int, 'Issuing save to update should not affect int value' );
+            $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id) ; // return to persistent state
+            $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment value was incorrectly updated' );
+            $this->AssertEquals( 'awesome', $this->mObj->Char, 'Char value was incorrectly updated' );
+            $this->AssertEquals( 42, $this->mObj->Int, 'Int value was incorrectly updated' );
         }
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
