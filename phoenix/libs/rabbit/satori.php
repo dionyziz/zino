@@ -136,7 +136,7 @@
                     $conditions .= '`' . $primarykey . '` = :_' . $primarykey;
                 }
                 $sql .= implode( ' AND ', $conditions );
-                $sql .= $this->WhereAmI() . ' LIMIT 1;';
+                $sql .= ' LIMIT 1;';
                 $query = $this->mDb->Prepare( $sql );
                 $query->BindTable( $this->mDbTableAlias );
                 foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
