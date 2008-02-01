@@ -5,28 +5,20 @@
         <table name="journals">
 			<field name="journal_id" type="int" autoincrement="yes" />
 			<field name="journal_created" type="datetime" default="0000-00-00 00:00:00" />
-            <field name="journal_delid" type="int" />
             <field name="journal_numcomments" type="int" />
             <field name="journal_numviews" type="int" />
-            <field name="journal_title" type="text" />
+            <field name="journal_title" type="varchar" length="512" />
             <field name="journal_bulkid" type="int" ref="bulk.bulk_id" />
+            <field name="journal_userid" type="int" ref="users.user_id" />
 			<index type="primary">
 				<indexfield>journal_id</indexfield>
 			</index>
-        </table>
-        <table name="journalauthors">
-            <field name="journalauthor_journalid" ref="journals.journal_id" />
-            <field name="journalauthor_userid" ref="users.user_id" />
-            <index type="primary"><!-- needed for user journals -->
-                <indexfield>journalauthor_userid</indexfield>
-                <indexfield>journalauthor_journalid</indexfield>
-            </index>
-            <index type="index" name="LATEST_JOURNALS">
-                <indexfield>journalauthor_journalid</indexfield>
+            <index type="index" name="AUTHOR">
+                <indexfield>journal_userid</indexfield>
             </index>
         </table>
         <table name="userspaces"><!-- vertical partitioning of `users` -->
-            <field name="space_userid" type="int" autoincrement="yes" />
+            <field name="space_userid" type="int" autoincrement="yes" ref="users.user_id" />
             <field name="space_bulkid" type="int" ref="bulk.bulk_id" />
             <field name="space_updated" type="datetime" />
             <index type="primary">
