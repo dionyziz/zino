@@ -130,7 +130,7 @@
                 }
                 
                 $sql .= implode( ', ', $updates );
-                $sql .= 'WHERE ';
+                $sql .= ' WHERE ';
                 $conditions = array();
                 foreach ( $this->PrimaryKeyFields as $primarykey ) {
                     $conditions .= '`' . $primarykey . '` = :_' . $primarykey;
