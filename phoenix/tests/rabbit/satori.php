@@ -229,7 +229,7 @@
         public function TestUpdate() {
             $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id ); // return to persistent state
             $this->mObj->Int = 42;
-            $this->mObj->Char = 'awesome';
+            $this->mObj->Char = 'neat';
             $caught = false;
             try {
                 $this->mObj->Id = 1337;
@@ -242,11 +242,11 @@
             $this->mObj->Save();
             $this->Assert( $this->mObj->Exists(), 'Object should still exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment value should remain unchanged after updating object' );
-            $this->AssertEquals( 'awesome', $this->mObj->Char, 'Issuing save to update should not affect char value' );
+            $this->AssertEquals( 'neat', $this->mObj->Char, 'Issuing save to update should not affect char value' );
             $this->AssertEquals( 42, $this->mObj->Int, 'Issuing save to update should not affect int value' );
             $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id) ; // return to persistent state
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment value was incorrectly updated' );
-            $this->AssertEquals( 'awesome', $this->mObj->Char, 'Char value was incorrectly updated' );
+            $this->AssertEquals( 'neat', $this->mObj->Char, 'Char value was incorrectly updated' );
             $this->AssertEquals( 42, $this->mObj->Int, 'Int value was incorrectly updated' );
         }
         public function TestNonExisting() {
