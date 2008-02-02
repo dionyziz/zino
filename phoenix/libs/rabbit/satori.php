@@ -269,7 +269,7 @@
             $this->LoadDefaults();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( $this->mCurrentValues[ $attributename ] !== false ) {
-                    $this->mDefaultValues[ $attributename ] = $value;
+                    $this->mDefaultValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                     $this->mCurrentValues[ $attributename ] = false; // revert to false (doesn't invoke attribute setter)
                 }
                 else {
