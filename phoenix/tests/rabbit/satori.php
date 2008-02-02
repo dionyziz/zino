@@ -116,6 +116,7 @@
         
         public function LoadDefaults() {
             $this->Char = 'abcd';
+            $this->Name = 'coco';
         }
         protected function GetDb() {
             return $this->mDb;
@@ -159,6 +160,11 @@
             $field3 = New DBField();
             $field3->Name = 'test_int';
             $field3->Type = DB_TYPE_INT;
+            
+            $field4 = New DBField();
+            $field4->Name = 'test_name';
+            $field4->Type = DB_TYPE_CHAR;
+            $field4->Length = 4;
             
             $this->mDbTable->CreateField( $field, $field2, $field3 );
             
@@ -205,6 +211,9 @@
             $this->AssertEquals( false, $this->mObj->Id, 'Prior to saving, all domain attributes should be false (0)' );
             $this->AssertEquals( false, $this->mObj->Int, 'Prior to saving, all domain attributes should be false (1)' );
             $this->AssertEquals( false, $this->mObj->Char, 'Prior to saving, all domain attributes should be false (2)' );
+            $this->AssertEquals( false, $this->mObj->Name, 'Prior to saving, all domain attributes should be false (3)' );
+            $this->mObj->Name = 'haha';
+            $this->AssertEquals( 'haha', $this->mObj->Name, 'Prior to saving, modified domain attributes should reflect modifications' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
@@ -212,6 +221,7 @@
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
             $this->AssertEquals( 0, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to the default value of the given type' );
+            $this->AssertEquals( 'haha', $this->mObj->Name, 'Default values should not override explicitly specified values' );
         }
         public function TestLookup() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
