@@ -149,7 +149,7 @@
             $this->Assert( $caseresult instanceof TestcaseResult, 'An item of a Tester\'s results must be a TestcaseResult' );
             $this->Assert( 2, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
             $this->Assert( 1, $caseresult->NumSuccessfulRuns, 'Number of case successful runs is 1' );
-            $runresults = $caseresults->Results;
+            $runresults = $caseresult->Results;
             $this->Assert( is_array( $runresults ), 'Case Results must be an array' );
             $this->AssertEquals( 2, count( $results ), 'Number of case results must match number of testruns' );
             $i = 0;
