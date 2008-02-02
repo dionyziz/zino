@@ -138,7 +138,7 @@
                             $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                         }
                         catch ( Exception $e ) {
-                            $runresults[] = New FailedRunResult( $methodname );
+                            $runresults[] = New FailedRunResult( $methodname, $e->getMessage() );
                         }
                         $water->ProfileEnd();
                     }
