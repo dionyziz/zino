@@ -148,6 +148,11 @@
             $this->Assert( 3, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
             $this->Assert( 1, $caseresult->NumSuccessfulRuns, 'Number of case successful runs is 1' );
             $runresults = $caseresults->Results;
+            
+            echo '----';
+            var_dump( $runresults );
+            die( '----' );
+            
             $this->Assert( is_array( $runresults ), 'Case Results must be an array' );
             $this->AssertEquals( 3, count( $results ), 'Number of case results must match number of testruns' );
             $i = 0;
