@@ -150,6 +150,7 @@
                 return $change;
             }
             else {
+                $this->ResolveDefaultValues();
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
@@ -256,6 +257,11 @@
             return $this->mDbFields;
         }
         private function GrabDefaults() {
+            // fills in the $this->mDefaultValues based on:
+            // 1) LoadDefaults(), if it contains some defaulting rule
+            // 2) The default value of each data type (e.g. 0 for db integers)
+            //
+            // sets current/previous values to boolean false
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 $this->mPreviousValues[ $attributename ] = false;
                 $this->mCurrentValues[ $attributename ] = false;
@@ -268,6 +274,15 @@
                 }
                 else {
                     $this->mDefaultValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( false );
+                }
+            }
+        }
+        private function ResolveDefaultValues() {
+            // sets the values of the domain attributes that remain unresolved (as "false")
+            // to the default ones they should be
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                if ( $this->mCurrentValues[ $attributename ] === false ) {
+                    $this->mCurrentValues[ $attributename ] = $this->mDefaultValues[ $attributename ];
                 }
             }
         }
