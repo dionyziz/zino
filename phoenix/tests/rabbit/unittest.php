@@ -172,7 +172,7 @@
                     case 2:
                         $this->Assert( is_object( $result ), 'Each item of a case\'s results must be an object (2)' );
                         $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (2)' );
-                        $this->Assert( $result instanceof FailedRunResult, 'This item of a a case\'s results must be an instance of FailedRunResult' );
+                        $this->Assert( $result instanceof RunResultFailedByException, 'This item of a a case\'s results must be an instance of FailedRunResult' );
                         $this->AssertEquals( false, $result->Success, 'This test was unanticipately unsuccessful; it should be reported as such' );
                         $this->AssertEquals( 'TestDoomedToFailure', $result->RunName, 'Runname of an item of Tester\'s results is invalid (2)' );
                         break;

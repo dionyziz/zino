@@ -138,7 +138,7 @@
                             $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                         }
                         catch ( Exception $e ) {
-                            $runresults[] = New FailedRunResult( $methodname, $e->getMessage() );
+                            $runresults[] = New RunResultFailedByException( $methodname, $e->getMessage() );
                         }
                         $water->ProfileEnd();
                     }
@@ -273,16 +273,16 @@
         }
     }
     
-    class FailedRunResult extends RunResult {
+    class RunResultFailedByException extends RunResult {
         protected $mExceptionMessage;
         
         protected function GetMessage() {
             return $this->mExceptionMessage;
         }
-        public function FailedRunResult( $runname, $exceptionmessage ) {
+        public function RunResultFailedByException( $runname, $exceptionmessage ) {
             $this->mRunName = $runname;
             $this->mExceptionMessage = $exceptionmessage;
-            $this->mSucess = false;
+            $this->mSuccess = false;
         }
     }
 
