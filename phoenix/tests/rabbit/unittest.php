@@ -1,4 +1,25 @@
 <?php
+    class TestRabbitUnittestingSimulation extends Testcase { // this is a simulation testcase
+        protected $mAppliesTo = 'libs/rabbit/unittest';
+        
+        public function TestSuccessful() {
+            $this->Assert( true, 'True is true' );
+            $this->AssertEquals( 1, 1, '1 = 1' );
+            $this->AssertFalse( false, 'False is false' );
+        }
+        public function TestFailed() {
+            $this->Assert( true, 'True is true' );
+            $this->Assert( false, 'We think we can assert false' );
+            $this->AssertEquals( 1, 2, 'We think 1 = 2' );
+            $this->AssertEquals( 2, 2, '2 = 2' );
+        }
+        public function TestDoomedToFailure() {
+            $this->Assert( true, 'True is true' );
+            throw New Exception( 'Unanticipated Failure' );
+            $this->Assert( false, 'This will not execute anyway' );
+        }
+    }
+    
     final class TestRabbitUnittesting extends Testcase {
         protected $mAppliesTo = 'libs/rabbit/unittest';
         
@@ -112,6 +133,44 @@
                 ++$i;
             }
             $this->AssertEquals( 2, $i, 'Number of iterations does not match number of runs in TestcaseResult' );
+        }
+        public function TestTester() {
+            $tester = New Tester();
+            $testcase = New TestRabbitUnittestingSimulation();
+            $tester->AddTestcase( $testcase );
+            $tester->Run();
+            $results = $tester->GetResults();
+            $this->Assert( is_array( $results ), 'Results returned by Tester must be an array' );
+            $this->AssertEquals( 3, count( $results ), 'Number of results must match number of testruns' );
+            $i = 0;
+            foreach ( $results as $result ) {
+                switch ( $i ) {
+                    case 0:
+                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (0)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of RunResult (0)' );
+                        $this->AssertEquals( true, $result->Success, 'This test was successful; it should be reported as such' );
+                        $this->AssertEquals( 3, $result->NumAssertions, 'The number of assertions for this test seem incorrect (0)' );
+                        $this->AssertEquals( $result->NumAssertions, $this->NumSuccessfulAssertions, 'All assertions of this run were successful' );
+                        $this->AssertEquals( 'Successful', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
+                        break;
+                    case 1:
+                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (1)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of TestcaseResult (1)' );
+                        $this->AssertEquals( false, $result->Success, 'This test failed; it should be reported as such' );
+                        $this->AssertEquals( 4, $result->NumAssertions, 'The number of assertions for this test seem incorrect (1)' );
+                        $this->AssertEquals( 2, $this->NumSuccessfulAssertions, 'Only 2 assertions of this run were successful' );
+                        $this->AssertEquals( 'Failed', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
+                        break;
+                    case 2:
+                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (2)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of RunResult (2)' );
+                        $this->Assert( $result instanceof FailedRunResult, 'This item of a Tester\'s results must be an instance of FailedRunResult' );
+                        $this->AssertEquals( false, $result->Success, 'This test was unanticipately unsuccessful; it should be reported as such' );
+                        $this->AssertEquals( 'DoomedToFailure', $result->RunName, 'Runname of an item of Tester\'s results is invalid (2)' );
+                        break;
+                }
+                ++$i;
+            }
         }
     }
     
