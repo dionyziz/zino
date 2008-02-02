@@ -47,7 +47,7 @@
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
-        protected $mDefaultValues; // dectionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
+        protected $mDefaultValues; // dictionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
 
         public function __set( $name, $value ) {
             if ( parent::__set( $name, $value ) === true ) {
@@ -360,12 +360,6 @@
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( isset( $fetched_array[ $fieldname ] ) ) {
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( $fetched_array[ $fieldname ] );
-                }
-                else {
-                    if ( empty( $this->mCurrentValues[ $attributename ] ) ) {
-                        $this->mCurrentValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( false );
-                    }
-                    $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
             }
         }
