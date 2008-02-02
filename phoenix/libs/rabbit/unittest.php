@@ -123,7 +123,7 @@
             $this->mTestcaseResults = array();
             foreach ( $this->mTestcases as $i => $testcase ) {
                 $water->Profile( 'Running testcase ' . $testcase->Name );
-                $testcase->SetTester( $this );
+                $testcase->SetTester( $this ); // allows testcase to report results back to this tester
                 $obj = New ReflectionObject( $testcase );
                 $methods = $obj->getMethods();
                 $runresults = array();
@@ -133,8 +133,13 @@
                     if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
                         $water->Profile( 'Running testrun ' . $methodname );
                         $this->mAssertResults = array();
-                        call_user_func( array( $testcase, $methodname ) ); // MAGIC
-                        $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+                        try {
+                            call_user_func( array( $testcase, $methodname ) ); // MAGIC
+                            $runresults[] = New RunResult( $this->mAssertResults, $methodname );
+                        }
+                        catch ( Exception $e ) {
+                            $runresults[] = New FailedRunResult( $methodname );
+                        }
                         $water->ProfileEnd();
                     }
                 }
@@ -267,6 +272,19 @@
         }
     }
     
+    class FailedRunResult extends RunResult {
+        protected $mExceptionMessage;
+        
+        protected function GetMessage() {
+            return $this->mExceptionMessage;
+        }
+        public function FailedRunResult( $runname, $exceptionmessage ) {
+            $this->mRunName = $runname;
+            $this->mExceptionMessage = $exceptionmessage;
+            $this->mSucess = false;
+        }
+    }
+
     class AssertResult extends Overloadable { // most basic test, a simple assertion
         protected $mSuccess;
         protected $mMessage;
