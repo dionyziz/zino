@@ -48,7 +48,7 @@
             $this->AssertNotNull( false, 'AssertNotNull should succeed with the boolean false parameter' );
             $this->AssertNotNull( array( true ), 'AssertNotNull should succeed with a non-empty array parameter' );
             $this->AssertNotNull( array(), 'AssertNotNull should succeed with the empty array parameter' );
-            $this->AssertNull( $foobar, 'AssertNull should succeed with a non-defined variable' );
+            $this->AssertNull( $foobar, 'AssertNull should succeed with an undefined variable' );
             $foobar = null;
             $this->AssertNull( $foobar, 'AssertNull should succeed with a null variable' );
             $this->AssertNull( $GLOBALS[ 'foobar' ], 'AssertNull should succeed with a non-defined array index in $GLOBALS' );
@@ -139,32 +139,40 @@
             $testcase = New TestRabbitUnittestingSimulation();
             $tester->AddTestcase( $testcase );
             $tester->Run();
-            $results = $tester->GetResults();
-            $this->Assert( is_array( $results ), 'Results returned by Tester must be an array' );
-            $this->AssertEquals( 3, count( $results ), 'Number of results must match number of testruns' );
+            $testerresults = $tester->GetResults();
+            $this->Assert( is_array( $testerresults ), 'Results returned by Tester must be an array' );
+            $this->AssertEquals( 1, count( $testerresults ), 'Number of testcase results returned by Tester must match the number of testcases' );
+            $caseresult = array_shift( $testerresults );
+            $this->Assert( is_object( $caseresult ), 'An item of a Tester\'s results must be an object' );
+            $this->Assert( $caseresult instanceof TestcaseResult, 'An item of a Tester\'s results must be a TestcaseResult' );
+            $this->Assert( 3, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
+            $this->Assert( 1, $caseresult->NumSuccessfulRuns, 'Number of case successful runs is 1' );
+            $runresults = $caseresults->Results;
+            $this->Assert( is_array( $runresults ), 'Case Results must be an array' );
+            $this->AssertEquals( 3, count( $results ), 'Number of case results must match number of testruns' );
             $i = 0;
-            foreach ( $results as $result ) {
+            foreach ( $runresults as $result ) {
                 switch ( $i ) {
                     case 0:
-                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (0)' );
-                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of RunResult (0)' );
+                        $this->Assert( is_object( $result ), 'Each item of a case\'s results must be an object (0)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (0)' );
                         $this->AssertEquals( true, $result->Success, 'This test was successful; it should be reported as such' );
                         $this->AssertEquals( 3, $result->NumAssertions, 'The number of assertions for this test seem incorrect (0)' );
                         $this->AssertEquals( $result->NumAssertions, $this->NumSuccessfulAssertions, 'All assertions of this run were successful' );
                         $this->AssertEquals( 'Successful', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
                         break;
                     case 1:
-                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (1)' );
-                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of TestcaseResult (1)' );
+                        $this->Assert( is_object( $result ), 'Each item of a case\'s results must be an object (1)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (1)' );
                         $this->AssertEquals( false, $result->Success, 'This test failed; it should be reported as such' );
                         $this->AssertEquals( 4, $result->NumAssertions, 'The number of assertions for this test seem incorrect (1)' );
                         $this->AssertEquals( 2, $this->NumSuccessfulAssertions, 'Only 2 assertions of this run were successful' );
                         $this->AssertEquals( 'Failed', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
                         break;
                     case 2:
-                        $this->Assert( is_object( $result ), 'Each item of a Tester\'s results must be an object (2)' );
-                        $this->Assert( $result instanceof RunResult, 'Each item of a Tester\'s results must be an instance of RunResult (2)' );
-                        $this->Assert( $result instanceof FailedRunResult, 'This item of a Tester\'s results must be an instance of FailedRunResult' );
+                        $this->Assert( is_object( $result ), 'Each item of a case\'s results must be an object (2)' );
+                        $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (2)' );
+                        $this->Assert( $result instanceof FailedRunResult, 'This item of a a case\'s results must be an instance of FailedRunResult' );
                         $this->AssertEquals( false, $result->Success, 'This test was unanticipately unsuccessful; it should be reported as such' );
                         $this->AssertEquals( 'DoomedToFailure', $result->RunName, 'Runname of an item of Tester\'s results is invalid (2)' );
                         break;
