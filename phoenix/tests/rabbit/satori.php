@@ -202,13 +202,16 @@
             reset( $rabbit_settings[ 'databases' ] );
             $this->AssertEquals( $this->mObj->Db, $GLOBALS[ key( $rabbit_settings[ 'databases' ] ) ] );
             $this->AssertFalse( $this->mObj->Exists(), 'New Satori-derived object should not exist prior to saving' );
+            $this->AssertEquals( false, $this->mObj->Id, 'Prior to saving, all domain attributes should be false (0)' );
+            $this->AssertEquals( false, $this->mObj->Int, 'Prior to saving, all domain attributes should be false (1)' );
+            $this->AssertEquals( false, $this->mObj->Char, 'Prior to saving, all domain attributes should be false (2)' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
         }
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
-            $this->AssertFalse( false, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to false' );
+            $this->AssertEquals( 0, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to the default value of the given type' );
         }
         public function TestLookup() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id );

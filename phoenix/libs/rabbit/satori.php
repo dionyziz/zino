@@ -47,6 +47,7 @@
         protected $mPreviousValues; // stores the persistent state of this object (i.e. the stored-in-the-database version)
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
+        protected $mDefaultValues; // dectionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
 
         public function __set( $name, $value ) {
             if ( parent::__set( $name, $value ) === true ) {
@@ -254,6 +255,22 @@
         protected function GetFields() {
             return $this->mDbFields;
         }
+        private function GrabDefaults() {
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                $this->mPreviousValues[ $attributename ] = false;
+                $this->mCurrentValues[ $attributename ] = false;
+            }
+            $this->LoadDefaults();
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                if ( $this->mCurrentValues[ $attributename ] !== false ) {
+                    $this->mDefaultValues[ $attributename ] = $value;
+                    $this->mCurrentValues[ $attributename ] = false; // revert to false (doesn't invoke attribute setter)
+                }
+                else {
+                    $this->mDefaultValues[ $attributename ] = $this->mDbColumns[ $fieldname ]->CastValueToNativeType( false );
+                }
+            }
+        }
         protected function LoadDefaults() {
             // overload me
         }
@@ -292,11 +309,12 @@
             w_assert( is_array( $this->mDbFields ), 'Database fields not properly specified for class `'. get_class( $this ) . '\'; did you incorrectly override InitializeFields()?' );
             w_assert( count( $this->mDbFields ), 'Database fields is the empty array for class `'. get_class( $this ) . '\'; does your mapped table have no columns?' );
 
+
             if ( !count( $args ) ) {
                 // empty new object
                 // set defaults
                 $this->mExists = false;
-                $this->LoadDefaults();
+                $this->GrabDefaults();
                 $fetched_array = array();
             }
             else if ( count( $args ) == 1 && is_array( $args[ 0 ] ) ) {
