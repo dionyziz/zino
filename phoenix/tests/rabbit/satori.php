@@ -166,7 +166,7 @@
             $field4->Type = DB_TYPE_CHAR;
             $field4->Length = 4;
             
-            $this->mDbTable->CreateField( $field, $field2, $field3 );
+            $this->mDbTable->CreateField( $field, $field2, $field3, $field4 );
             
             $primary = New DBIndex();
             $primary->Type = DB_KEY_PRIMARY;
