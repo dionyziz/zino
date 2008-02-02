@@ -133,13 +133,13 @@
                     if ( $method->isPublic() && substr( $methodname, 0, strlen( 'Test' ) ) == 'Test' && $methodname != 'Testcase' ) {
                         $water->Profile( 'Running testrun ' . $methodname );
                         $this->mAssertResults = array();
-                        // try {
+                        try {
                             call_user_func( array( $testcase, $methodname ) ); // MAGIC
                             $runresults[] = New RunResult( $this->mAssertResults, $methodname );
-                        // }
-                        // catch ( Exception $e ) {
-                        //     $runresults[] = New FailedRunResult( $methodname, $e->getMessage() );
-                        // }
+                        }
+                        catch ( Exception $e ) {
+                            $runresults[] = New FailedRunResult( $methodname, $e->getMessage() );
+                        }
                         $water->ProfileEnd();
                     }
                 }
