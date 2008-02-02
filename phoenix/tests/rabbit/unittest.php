@@ -13,13 +13,11 @@
             $this->AssertEquals( 1, 2, 'We think 1 = 2' );
             $this->AssertEquals( 2, 2, '2 = 2' );
         }
-        /*
         public function TestDoomedToFailure() {
             $this->Assert( true, 'True is true' );
             throw New Exception( 'Unanticipated Failure' );
             $this->Assert( false, 'This will not execute anyway' );
         }
-        */
     }
     
     final class TestRabbitUnittesting extends Testcase {
@@ -147,11 +145,11 @@
             $caseresult = array_shift( $testerresults );
             $this->Assert( is_object( $caseresult ), 'An item of a Tester\'s results must be an object' );
             $this->Assert( $caseresult instanceof TestcaseResult, 'An item of a Tester\'s results must be a TestcaseResult' );
-            $this->Assert( 2, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
+            $this->Assert( 3, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
             $this->Assert( 1, $caseresult->NumSuccessfulRuns, 'Number of case successful runs is 1' );
             $runresults = $caseresult->Results;
             $this->Assert( is_array( $runresults ), 'Case Results must be an array' );
-            $this->AssertEquals( 2, count( $runresults ), 'Number of case results must match number of testruns' );
+            $this->AssertEquals( 3, count( $runresults ), 'Number of case results must match number of testruns' );
             $i = 0;
             foreach ( $runresults as $result ) {
                 switch ( $i ) {
