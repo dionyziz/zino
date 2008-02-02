@@ -118,7 +118,7 @@
             $this->AssertEquals( 1, $testresult->NumSuccessfulRuns, 'Number of successful runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( 2, $testresult->NumRuns, 'Total number of runs in TestcaseResult is inaccurate' );
             $this->AssertEquals( array( $badresult, $goodresult ), $testresult->Results, 'Results returned by TestcaseResult do not match the ones passed to it' );
-            
+
             $this->Assert( $testresult instanceof Iterator, 'TestcaseResult must be iteratable' );
             $i = 0;
             foreach ( $testresult as $runresult ) {
@@ -147,7 +147,7 @@
             $this->Assert( $caseresult instanceof TestcaseResult, 'An item of a Tester\'s results must be a TestcaseResult' );
             $this->Assert( 3, $caseresult->NumRuns, 'Number of case runs must match number of runs' );
             $this->Assert( 1, $caseresult->NumSuccessfulRuns, 'Number of case successful runs is 1' );
-            // $runresults = $caseresults->Results;
+            $runresults = $caseresults->Results;
             $this->Assert( is_array( $runresults ), 'Case Results must be an array' );
             $this->AssertEquals( 3, count( $results ), 'Number of case results must match number of testruns' );
             $i = 0;

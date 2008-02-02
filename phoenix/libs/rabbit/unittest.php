@@ -169,7 +169,6 @@
             return $this->mTestcase;
         }
         protected function GetResults() {
-            die( 'fohoko' );
             return $this->mRunResults;
         }
         public function rewind() {
