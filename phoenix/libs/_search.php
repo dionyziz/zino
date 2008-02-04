@@ -13,7 +13,7 @@
 
             $res = $query->Execute();
             $ret = array();
-            foreach ( $res as $row ) {
+            while ( $row = $res->FetchArray() ) {
                 $ret[] = New $class( $row );
             }
 
