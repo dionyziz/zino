@@ -55,6 +55,7 @@
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",
             'unittest'          => 'developer/test/view',
+            'search'            => 'developer/abresas/search',
             'commentsearch'     => 'developer/abresas/search/comments',
             'eventsearch'       => 'developer/abresas/search/events',
             'debug'             => 'developer/water',
