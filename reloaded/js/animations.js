@@ -83,9 +83,9 @@ var Interpolators = {
 		if ( x < 1 ) {
 			return x - ( 1 - Math.exp( -x ) );
 		}
-        float start = Math.exp( -1 );
+        var start = Math.exp( -1 );
         x -= 1;
-        float expx = 1 - Math.exp( -x );
+        var expx = 1 - Math.exp( -x );
         return start + ( expx * ( 1 - start ) );
 	},
 	PulseNormalize: 1,
