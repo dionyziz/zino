@@ -48,7 +48,10 @@
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
         protected $mDefaultValues; // dictionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
-
+        
+        protected function GetDbTable() {
+            return $this->mDbTable;
+        }
         public function __set( $name, $value ) {
             if ( parent::__set( $name, $value ) === true ) {
                 return;
