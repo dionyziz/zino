@@ -26,7 +26,7 @@
                             ?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
-								$hobsar = explode( ",", $friend->Hobbies() );
+								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
 								$hobbis = array();
 								foreach ( $hobsar as $hobbie ) {
 									$hobbie = trim( $hobbie );
