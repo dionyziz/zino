@@ -19,7 +19,7 @@
 
         public function Get() {
             $query = $this->mDb->Prepare( 'SELECT * FROM :' . $this->mDbTable . ';' );
-            $query->Bind( $this->mDbTable );
+            $query->BindTable( $this->mDbTable );
 
             $res = $query->Execute();
             $ret = array();
