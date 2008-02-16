@@ -1,20 +1,30 @@
 <?php
 
+    /*
+    class UserSearch extends Search {
+        protected $mModel = 'User';
+
+        public function GetLatest( $n = 5 ) {
+            $this->Limit = $n;
+            $this->OrderBy = 'Created';
+
+            return $this->Get();
+        }
+    }
+    */
+
     class Search {
-        public $mDb;
+        protected $mDb;
+        protected $mDbTable;
 
-        public function Get( $prototype ) {
-            $class = get_class( $prototype );
-
-            $table = $prototype->GetTableAlias();
-
-            $query = $this->mDb->Prepare( "SELECT * FROM :$table;" );
-            $query->Bind( $table );
+        public function Get() {
+            $query = $this->mDb->Prepare( 'SELECT * FROM :' . $this->mDbTable . ';' );
+            $query->Bind( $this->mDbTable );
 
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $ret[] = New $class( $row );
+                $ret[] = New $this->mModel( $row );
             }
 
             return $ret;
@@ -28,6 +38,9 @@
             else {
                 $this->mDb = $db;
             }
+
+            $prototype = New $this->mModel(); // MAGIC!
+            $this->mDbTable = $prototype->DbTable;
         }
     }
 
