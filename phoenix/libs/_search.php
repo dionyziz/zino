@@ -27,15 +27,19 @@
         protected function SetOffset( $offset ) {
             $this->mOffset = $offset;
         }
-        protected function SetSortBy( $field ) {
-            $this->mSortBy = $field;
+        protected function SetSortBy( $table = false, $field ) {
+            if ( $table == false ) {
+                $table == $this->mDbTable;
+            }
+
+            $this->mSortBy = strtolower( "`$table`.`$field`" );
             $this->mOrder = 'DESC';
         }
         protected function SetOrder( $order ) {
-            $this->mOrder = $order;
+            $this->mOrder = strtoupper( $order );
         }
         private function CreateQuery() {
-            $query = 'SELECT * FROM ' . $this->mDbTable->Alias . ' ';
+            $query = 'SELECT * FROM ' . $this->mDbTable . ' ';
             
             if ( $this->mSortBy != NULL ) {
                 $query .= ' ORDER BY ' . $this->mSortBy . ' ' . $this->mOrder . ' ';
