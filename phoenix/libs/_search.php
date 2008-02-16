@@ -13,14 +13,39 @@
     }
     */
 
-    class Search {
+    class Search extends Overloadable {
         protected $mDb;
         protected $mDbTable;
+        protected $mLimit;
+        protected $mOffset;
+        protected $mSortBy;
+        protected $mOrder;
 
+        protected function SetLimit( $limit ) {
+            $this->mLimit = $limit;
+        }
+        protected function SetOffset( $offset ) {
+            $this->mOffset = $offset;
+        }
+        protected function SetSortBy( $field ) {
+            $this->mSortBy = $field;
+            $this->mOrder = 'DESC';
+        }
+        protected function SetOrder( $order ) {
+            $this->mOrder = $order;
+        }
+        private function CreateQuery() {
+            $query = 'SELECT * FROM ' . $this->mDbTable->Alias . ' ';
+            
+            if ( $this->mSortBy != NULL ) {
+                $query .= ' ORDER BY ' . $this->mSortBy . ' ' . $this->mOrder . ' ';
+            }
+            $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
+
+            return $this->mDb->Prepare( $query );
+        }
         public function Get() {
-            $query = $this->mDb->Prepare( 'SELECT * FROM ' . $this->mDbTable . ';' );
-
-            $res = $query->Execute();
+            $res = $this->CreateQuery()->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
                 $ret[] = New $this->mModel( $row );
@@ -40,6 +65,8 @@
 
             $prototype = New $this->mModel(); // MAGIC!
             $this->mDbTable = $prototype->DbTable;
+            $this->mLimit = 20;
+            $this->mOffset = 0;
         }
     }
 

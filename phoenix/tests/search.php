@@ -13,9 +13,9 @@
         protected $mModel = 'TestModel';
 
         public function GetMax( $n = 5 ) {
-            $this->SortBy = 'Num';
-            $this->Order = 'DESC';
-            $this->Limit = $n;
+            $this->SetSortBy( 'Num' );
+            $this->SetOrder( 'DESC' );
+            $this->SetLimit( $n );
 
             return $this->Get();
         }
@@ -121,7 +121,7 @@
             $objects = $search->Get();
 
             $this->Assert( is_array( $objects ), 'Get did not return an array' );
-            $this->AssertEquals( count( $objects ), $this->mObjectsCount, 'Get did not return the right number of objects' );
+            $this->AssertEquals( $this->mObjectsCount, count( $objects ), 'Get did not return the right number of objects' );
             $this->Assert( is_object( $objects[ 0 ] ) );
             $this->Assert( $objects[ 0 ] instanceof TestModel, "Objects returned by Get() are not instances of the right class" );
         }
@@ -129,16 +129,16 @@
             $search = new TestSearchExtension();
             $objects = $search->GetMax( 3 );
 
-            $this->AssertEquals( count( $objects ), 3, 'GetMax did not return the right number of objects' );
+            $this->AssertEquals( 3, count( $objects ), 'GetMax did not return the right number of objects' );
 
             $object0 = $objects[ 0 ];
-            $this->AssertEquals( $object0->Num, 15, 'object0 should have num=15' );
+            $this->AssertEquals( 15, $object0->Num, 'object0 should have num=15' );
             
             $object1 = $objects[ 1 ];
-            $this->AssertEquals( $object1->Num, 10, 'object1 should have num=10' );
+            $this->AssertEquals( 10, $object1->Num, 'object1 should have num=10' );
             
             $object2 = $objects[ 2 ];
-            $this->AssertEquals( $object2->Num, 4, 'object2 should have num=4' );
+            $this->AssertEquals( 4, $object2->Num, 'object2 should have num=4' );
         }
         public function TearDown() {
             $this->mDbTable->Delete();
