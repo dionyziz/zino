@@ -9,7 +9,7 @@
         }
     }
 
-    class TestController extends Search {
+    class TestSearchExtension extends Search {
         protected $mModel = 'TestModel';
 
         public function GetMax( $n = 5 ) {
@@ -117,9 +117,8 @@
             $this->Assert( class_exists( 'Search' ), 'Search class does not exist' );
         }
         public function TestFetchAll() {
-            $search = New TestController();
-            // $objects = $search->Get();
-            $objects = array();
+            $search = New TestSearchExtension();
+            $objects = $search->Get();
 
             $this->Assert( is_array( $objects ), 'Get did not return an array' );
             $this->AssertEquals( count( $objects ), $this->mObjectsCount, 'Get did not return the right number of objects' );
