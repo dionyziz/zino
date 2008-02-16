@@ -118,7 +118,8 @@
         }
         public function TestFetchAll() {
             $search = New TestController();
-            $objects = $search->Get();
+            // $objects = $search->Get();
+            $objects = array();
 
             $this->Assert( is_array( $objects ), 'Get did not return an array' );
             $this->AssertEquals( count( $objects ), $this->mObjectsCount, 'Get did not return the right number of objects' );
