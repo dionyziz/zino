@@ -121,12 +121,14 @@
             $objects = $search->Get();
 
             $this->Assert( is_array( $objects ), 'Get did not return an array' );
-            $this->Assert( count( $objects ) == $this->mObjectsCount, 'Get did not return the right number of objects' );
+            $this->AssertEquals( count( $objects ), $this->mObjectsCount, 'Get did not return the right number of objects' );
         }
         public function TearDown() {
             $this->mDbTable->Delete();
             $this->mDb->DetachTable( 'rabbit_satori_test' );
         }
     }
+
+    return New TestSearch();
 
 ?>
