@@ -125,7 +125,7 @@
         }
         public function TearDown() {
             $this->mDbTable->Delete();
-            $this->mDb->DetachTable( 'rabbit_satori_test' );
+            $this->mDb->DetachTable( 'search_test' );
         }
     }
 
