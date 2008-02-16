@@ -27,9 +27,9 @@
         protected function SetOffset( $offset ) {
             $this->mOffset = $offset;
         }
-        protected function SetSortBy( $table = false, $field ) {
-            if ( $table == false ) {
-                $table == $this->mDbTable;
+        protected function SetSortBy( $field, $table = false ) {
+            if ( $table === false ) {
+                $table = $this->mDbTable->Alias;
             }
 
             $this->mSortBy = strtolower( "`$table`.`$field`" );
