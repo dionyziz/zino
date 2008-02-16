@@ -26,22 +26,22 @@
             return $this->mName;
         }
         protected function AssertNull( $actual, $message = '' ) {
-            $this->InformTester(
+            return $this->InformTester(
                 New AssertResult( is_null( $actual ), $message, $actual, null )
             );
         }
         protected function AssertNotNull( $actual, $message = '' ) {
-            $this->InformTester(
+            return $this->InformTester(
                 New AssertResult( !is_null( $actual ), $message, $actual, null )
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            $this->InformTester(
+            return $this->InformTester(
                 New AssertResult( $actual === $expected, $message, $actual, $expected )
             );
         }
         protected function AssertNotEquals( $notexpected, $actual, $message = '' ) {
-            $this->InformTester(
+            return $this->InformTester(
                 New AssertResult( $actual != $expected, $message, $actual, $expected )
             );
         }
@@ -54,8 +54,13 @@
         protected function AssertFalse( $actual, $message = '' ) {
             return $this->AssertEquals( false, $actual, $message ); // ===
         }
+        protected function RequireSuccess( AssertResult $result ) {
+            if ( !$result->Success ) {
+                $this->mTester->RequireFailed( $result );
+            }
+        }
         protected function InformTester( AssertResult $result ) {
-            $this->mTester->Inform( $result );
+            return $this->mTester->Inform( $result );
         }
         public function SetTester( Tester $tester ) {
             $this->mTester = $tester;
@@ -109,7 +114,8 @@
         protected $mTestResults;
         protected $mTestcases;
         protected $mAssertResults;
-        
+        protected $mRequirementsFullfilled;
+
         public function Tester() {
             $this->mTestcases = array();
         }
@@ -139,6 +145,8 @@
                         }
                         catch ( Exception $e ) {
                             $runresults[] = New RunResultFailedByException( $methodname, $e->getMessage() );
+                            $water->ProfileEnd();
+                            break;
                         }
                         $water->ProfileEnd();
                     }
@@ -154,6 +162,10 @@
         }
         public function Inform( AssertResult $result ) {
             $this->mAssertResults[] = $result;
+            return $result;
+        }
+        public function RequireFailed( AssertResult $result ) {
+            throw New Exception( "Required assertion failed yielding to immediate TearDown: " . $result->Message );
         }
     }
     
