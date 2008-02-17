@@ -55,8 +55,10 @@
             $res = $this->CreateQuery()->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                die( print_r( $row ) );
                 $ret[] = New $this->mModel( $row );
+                print_r( $row );
+                print_r( $ret[ count( $ret ) - 1 ] );
+                die( true );
             }
 
             return $ret;
