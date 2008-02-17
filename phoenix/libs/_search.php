@@ -76,11 +76,7 @@
             $this->mDbTable = $prototype->DbTable;
             $this->mDbFields = array();
 
-            die( "prepare fields" );
-
-            $fields = $prototype->DbFields;
-            print_r( $fields );
-            die( "foo" );
+            $fields = $prototype->GetFields();
             foreach ( $fields as $field => $attribute ) {
                 $this->mDbFields[ $attribute ] = $field;    
             }
