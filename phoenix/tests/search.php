@@ -125,7 +125,7 @@
             $this->Assert( is_object( $objects[ 0 ] ) );
             $this->Assert( $objects[ 0 ] instanceof TestModel, "Objects returned by Get() are not instances of the right class" );
         }
-        public function TestGetMax() {
+        public function TestSort() {
             $search = new TestSearchExtension();
             $objects = $search->GetMax( 3 );
 
@@ -139,6 +139,22 @@
             
             $object2 = $objects[ 2 ];
             $this->AssertEquals( 4, $object2->Num, 'object2 should have num=4' );
+        }
+        public function TestFilters() {
+            $search = New TestSearchExtension();
+            $search->Text = "foobar";
+            $objects = $search->Get();
+
+            $this->AssertEquals( 2, count( $objects ) );
+            $object0 = $objects[ 0 ];
+            $this->AssertEquals( 1, $object0->Id );
+            $this->AssertEquals( 10, $object0->Num );
+            $this->AssertEquals( "foobar", $object0->Text );
+
+            $object1 = $objects[ 1 ];
+            $this->AssertEquals( 6, $object1->Id );
+            $this->AssertEquals( 4, $object1->Num );
+            $this->AssertEquals( "foobar", $object1->Text );
         }
         public function TearDown() {
             $this->mDbTable->Delete();

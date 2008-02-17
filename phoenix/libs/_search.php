@@ -13,7 +13,7 @@
     }
     */
 
-    class Search extends Overloadable {
+    abstract class Search {
         protected $mDb;
         protected $mDbTable;
         protected $mDbFields;
@@ -21,7 +21,15 @@
         protected $mOffset;
         protected $mSortBy;
         protected $mOrder;
+        protected $mValues;
 
+        public function __set( $attribute, $value ) {
+            w_assert( isset( $this->mDbFields[ $attribute ] ) );
+            
+            $this->mValues[ $this->GetFieldFromAttribute( $attribute ) ] = $value;
+
+            return $value;
+        }
         protected function SetLimit( $limit ) {
             $this->mLimit = $limit;
         }
@@ -43,6 +51,22 @@
         }
         private function CreateQuery() {
             $query = 'SELECT * FROM ' . $this->mDbTable . ' ';
+
+            $table = $this->mDbTable->Alias;
+
+            if ( count( $this->mValues ) ) {
+                $query .= ' WHERE ';
+                $first = true;
+                foreach ( $this->mValues as $field => $value ) {
+                    if ( !$first ) {
+                        $query .= " AND ";
+                    }
+                    else {
+                        $first = false;
+                    }
+                    $query .= " `$table`.`$alias` = '$value' ";
+                }
+            }
             
             if ( $this->mSortBy != NULL ) {
                 $query .= ' ORDER BY ' . $this->mSortBy . ' ' . $this->mOrder . ' ';
