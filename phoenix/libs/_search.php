@@ -29,7 +29,7 @@
             $this->mOffset = $offset;
         }
         protected function SetSortBy( $attribute ) {
-            $this->mSortBy = GetFieldFromAttribute( $attribute );
+            $this->mSortBy = $this->GetFieldFromAttribute( $attribute );
             $this->mOrder = 'DESC';
         }
         protected function SetOrder( $order ) {
