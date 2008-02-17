@@ -49,6 +49,8 @@
             }
             $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
 
+            die( $query );
+
             return $this->mDb->Prepare( $query );
         }
         public function Get() {
@@ -57,8 +59,6 @@
             while ( $row = $res->FetchArray() ) {
                 $ret[] = New $this->mModel( $row );
             }
-
-            print_r( $ret );
 
             return $ret;
         }
