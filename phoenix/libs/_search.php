@@ -62,8 +62,6 @@
         public function __construct( $database = false ) {
             global $db;
 
-            die( "search construct" );
-
             if ( $database !== false ) {
                 $this->mDb = $database;
             }
@@ -77,6 +75,8 @@
             $prototype = New $this->mModel(); // MAGIC!
             $this->mDbTable = $prototype->DbTable;
             $this->mDbFields = array();
+
+            die( "prepare fields" );
 
             $fields = $prototype->DbFields;
             print_r( $fields );
