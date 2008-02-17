@@ -49,7 +49,7 @@
             }
             $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
 
-            if ( $this->mSort != NULL ) {
+            if ( $this->mSortBy != NULL ) {
                 die( $query );
             }
 
