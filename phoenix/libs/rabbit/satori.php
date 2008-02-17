@@ -52,6 +52,9 @@
         protected function GetDbTable() {
             return $this->mDbTable;
         }
+        protected function GetDbFields() {
+            return $this->mDbFields;
+        }
         public function __set( $name, $value ) {
             if ( parent::__set( $name, $value ) === true ) {
                 return;

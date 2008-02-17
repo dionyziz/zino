@@ -134,6 +134,9 @@
             $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] );
             
             foreach ( $database[ 'tables' ] as $alias => $tablename ) {
+                if ( is_int( $alias ) ) {
+                    $alias = $tablename;
+                }
                 $GLOBALS[ $dbname ]->AttachTable( $alias, $database[ 'prefix' ] . $tablename );
             }
         }

@@ -229,6 +229,21 @@
             $this->AssertEquals( $this->mObj->Int, $obj->Int, 'Retrieved object should match the one saved (Int)' );
             $this->AssertEquals( $this->mObj->Char, $obj->Char, 'Retrieved object should match the one saved (Char)' );
         }
+        public function TestFetchedArray() {
+            $obj = New TestRabbitSatoriExtension(
+                array(
+                    'test_id' => 512,
+                    'test_char' => 'q',
+                    'test_int' => 974,
+                    'test_name' => 'tree'
+                )
+            );
+            $this->Assert( $obj->Exists(), 'Objects created using fetched arrays must exist' );
+            $this->AssertEquals( 512, $obj->Id, 'Could not set Id through fetched array' );
+            $this->AssertEquals( 'q', $obj->Char, 'Could not set Char through fetched array' );
+            $this->AssertEquals( 974, $obj->Int, 'Could not set Int through fetched array' );
+            $this->AssertEquals( 'tree', $obj->Name, 'Could not set Name through fetched array' );
+        }
         public function TestAssignment() {
             $this->mObj->Char = 'cool';
             $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
