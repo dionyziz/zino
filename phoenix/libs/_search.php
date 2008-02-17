@@ -49,16 +49,13 @@
             }
             $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
 
-            if ( $this->mSortBy != NULL ) {
-                die( $query );
-            }
-
             return $this->mDb->Prepare( $query );
         }
         public function Get() {
             $res = $this->CreateQuery()->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
+                die( $row );
                 $ret[] = New $this->mModel( $row );
             }
 

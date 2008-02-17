@@ -132,7 +132,7 @@
             $this->AssertEquals( 3, count( $objects ), 'GetMax did not return the right number of objects' );
 
             $object0 = $objects[ 0 ];
-            $this->AssertEquals( 15, $object0->Num, 'object0 should have num=15' );
+            $this->AssertEquals( 14, $object0->Num, 'object0 should have num=15' );
             
             $object1 = $objects[ 1 ];
             $this->AssertEquals( 10, $object1->Num, 'object1 should have num=10' );
