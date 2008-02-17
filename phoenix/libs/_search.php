@@ -58,6 +58,8 @@
                 $ret[] = New $this->mModel( $row );
             }
 
+            print_r( $ret );
+
             return $ret;
         }
         public function __construct( $database = false ) {
