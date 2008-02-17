@@ -259,9 +259,6 @@
                 $this->mCurrentValues[ $attributename ] = false;
             }
         }
-        public function GetFields() {
-            return $this->mDbFields;
-        }
         private function GrabDefaults() {
             // fills in the $this->mDefaultValues based on:
             // 1) LoadDefaults(), if it contains some defaulting rule
