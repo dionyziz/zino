@@ -62,6 +62,8 @@
         public function __construct( $database = false ) {
             global $db;
 
+            die( "search construct" );
+
             if ( $database !== false ) {
                 $this->mDb = $database;
             }
