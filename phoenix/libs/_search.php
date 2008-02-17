@@ -55,10 +55,9 @@
             $res = $this->CreateQuery()->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $ret[] = New $this->mModel( $row );
-                print_r( $row );
+                $ret[] = New TestModel( array( "test_id" => 1, "test_text" => "foobar",  "test_num" => 10 ) );
                 print_r( $ret[ count( $ret ) - 1 ] );
-                die( true );
+                die();
             }
 
             return $ret;
