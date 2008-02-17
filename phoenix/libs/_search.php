@@ -29,7 +29,10 @@
             $this->mOffset = $offset;
         }
         protected function SetSortBy( $attribute ) {
-            $this->mSortBy = $this->GetFieldFromAttribute( $attribute );
+            $field = $this->GetFieldFromAttribute( $attribute );
+            $table = $this->mDbTable->Alias;
+
+            $this->mSortBy = "`$table`.`$field`";
             $this->mOrder = 'DESC';
         }
         protected function SetOrder( $order ) {
@@ -45,10 +48,6 @@
                 $query .= ' ORDER BY ' . $this->mSortBy . ' ' . $this->mOrder . ' ';
             }
             $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
-
-            if ( $this->mSortBy != NULL ) {
-                die( $query );
-            }
 
             return $this->mDb->Prepare( $query );
         }
