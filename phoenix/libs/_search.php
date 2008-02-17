@@ -77,6 +77,8 @@
             $this->mDbFields = array();
 
             $fields = $prototype->DbFields;
+            print_r( $fields );
+            die( "foo" );
             foreach ( $fields as $field => $attribute ) {
                 $this->mDbFields[ $attribute ] = $field;    
             }
