@@ -15,30 +15,26 @@
 
     abstract class Search {
         protected $mDb;
-        protected $mDbTable;
-        protected $mDbFields;
+        protected $mPrototype;
         protected $mLimit;
         protected $mOffset;
         protected $mSortBy;
         protected $mOrder;
         protected $mValues;
 
-        public function __set( $attribute, $value ) {
-            w_assert( isset( $this->mDbFields[ $attribute ] ) );
-            
-            $this->mValues[ $this->GetFieldFromAttribute( $attribute ) ] = $value;
-
-            return $value;
-        }
         protected function SetLimit( $limit ) {
             $this->mLimit = $limit;
         }
         protected function SetOffset( $offset ) {
             $this->mOffset = $offset;
         }
-        protected function SetSortBy( $attribute ) {
-            $field = $this->GetFieldFromAttribute( $attribute );
-            $table = $this->mDbTable->Alias;
+        protected function SetSortBy( $attribute, $prototype = false ) {
+            if ( $prototype === false ) {
+                $prototype = $this->mPrototype;
+            }
+
+            $field = $this->GetFieldFromAttribute( $attribute, $prototype );
+            $table = $prototype->DbTable->Alias;
 
             $this->mSortBy = "`$table`.`$field`";
             $this->mOrder = 'DESC';
@@ -46,13 +42,30 @@
         protected function SetOrder( $order ) {
             $this->mOrder = strtoupper( $order );
         }
-        private function GetFieldFromAttribute( $attribute ) {
-            return $this->mDbFields[ $attribute ];
+        private function GetChangedAttributes() {
+            $attributes = array();
+            foreach ( $this->mPrototype as $attribute => $value ) {
+                $attributes[ $attribute ] = $value;
+            }
+
+            die( print_r( $attributes ) );
+
+            return $attributes;
+        }
+        private function GetFieldFromAttribute( $attribute, $prototype ) {
+            $fields = $prototype->DbFields;
+            foreach ( $fields as $field => $prototype_attribute ) {
+                if ( $prototype_attribute == $attribute ) {
+                    return $field;
+                }
+            }
+
+            return false;
         }
         private function CreateQuery() {
-            $query = 'SELECT * FROM ' . $this->mDbTable . ' ';
+            $query = 'SELECT * FROM ' . $this->mPrototype->DbTable . ' ';
 
-            $table = $this->mDbTable->Alias;
+            $table = $this->mPrototype->mDbTable->Alias;
 
             if ( count( $this->mValues ) ) {
                 $query .= ' WHERE ';
@@ -64,7 +77,7 @@
                     else {
                         $first = false;
                     }
-                    $query .= " `$table`.`$alias` = '$value' ";
+                    $query .= " `$table`.`$field` = '$value' ";
                 }
             }
             
@@ -97,14 +110,7 @@
             $this->mLimit = 20;
             $this->mOffset = 0;
 
-            $prototype = New $this->mModel(); // MAGIC!
-            $this->mDbTable = $prototype->DbTable;
-            $this->mDbFields = array();
-
-            $fields = $prototype->DbFields;
-            foreach ( $fields as $field => $attribute ) {
-                $this->mDbFields[ $attribute ] = $field;    
-            }
+            $this->mPrototype = New $this->mModel(); // MAGIC!
         }
     }
 

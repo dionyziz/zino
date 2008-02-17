@@ -19,8 +19,10 @@
 
             return $this->Get();
         }
-        public function SearchText( $text ) {
-            $this->Text = $text;
+        public function GetByText( $text ) {
+            $obj = New TestModel();
+            $obj->Text = "foobar";
+            $this->Prototype = $obj;
 
             return $this->Get();
         }
@@ -141,9 +143,9 @@
             $this->AssertEquals( 4, $object2->Num, 'object2 should have num=4' );
         }
         public function TestFilters() {
-            $search = New TestSearchExtension();
-            $search->Text = "foobar";
-            $objects = $search->Get();
+            $objects = New TestSearchExtension();
+            $objects->GetByText( "foobar" );
+            $objects = $objects->Get();
 
             $this->AssertEquals( 2, count( $objects ) );
             $object0 = $objects[ 0 ];
