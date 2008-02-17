@@ -256,7 +256,7 @@
                 $this->mCurrentValues[ $attributename ] = false;
             }
         }
-        protected function GetFields() {
+        public function GetFields() {
             return $this->mDbFields;
         }
         private function GrabDefaults() {
