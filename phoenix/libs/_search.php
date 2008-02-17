@@ -55,7 +55,7 @@
             $res = $this->CreateQuery()->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                die( $row );
+                die( print_r( $row ) );
                 $ret[] = New $this->mModel( $row );
             }
 
