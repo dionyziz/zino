@@ -16,6 +16,7 @@
     class Search extends Overloadable {
         protected $mDb;
         protected $mDbTable;
+        protected $mDbFields;
         protected $mLimit;
         protected $mOffset;
         protected $mSortBy;
@@ -27,16 +28,15 @@
         protected function SetOffset( $offset ) {
             $this->mOffset = $offset;
         }
-        protected function SetSortBy( $field, $table = false ) {
-            if ( $table === false ) {
-                $table = $this->mDbTable->Alias;
-            }
-
-            $this->mSortBy = strtolower( "`$table`.`$field`" );
+        protected function SetSortBy( $attribute ) {
+            $this->mSortBy = GetFieldFromAttribute( $attribute );
             $this->mOrder = 'DESC';
         }
         protected function SetOrder( $order ) {
             $this->mOrder = strtoupper( $order );
+        }
+        private function GetFieldFromAttribute( $attribute ) {
+            return $this->mDbFields[ $attribute ];
         }
         private function CreateQuery() {
             $query = 'SELECT * FROM ' . $this->mDbTable . ' ';
@@ -67,10 +67,17 @@
                 $this->mDb = $db;
             }
 
-            $prototype = New $this->mModel(); // MAGIC!
-            $this->mDbTable = $prototype->DbTable;
             $this->mLimit = 20;
             $this->mOffset = 0;
+
+            $prototype = New $this->mModel(); // MAGIC!
+            $this->mDbTable = $prototype->DbTable;
+            $this->mDbFields = array();
+
+            $fields = $prototype->DbFields;
+            foreach ( $fields as $field => $attribute ) {
+                $this->mDbFields[ $attribute ] = $field;    
+            }
         }
     }
 
