@@ -79,7 +79,7 @@
             $this->mDbTable = $prototype->DbTable;
             $this->mDbFields = array();
 
-            $fields = $prototype->GetFields();
+            $fields = $prototype->DbFields;
             foreach ( $fields as $field => $attribute ) {
                 $this->mDbFields[ $attribute ] = $field;    
             }
