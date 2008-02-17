@@ -342,7 +342,7 @@
                 // construction by fetched array (instanciation of existing object without an SQL query)
                 // (you can use this when searching to avoid issuing one query per instanciated object when
                 //  instanciating multiple object -- the search system uses this)
-                $fetched_array = $construct;
+                $fetched_array = $args[ 0 ];
                 $this->mExists = count( $fetched_array ) > 0;
             }
             else if ( count( $args ) == count( $this->mPrimaryKeyFields ) ) {
