@@ -42,7 +42,7 @@
         protected function SetOrder( $order ) {
             $this->mOrder = strtoupper( $order );
         }
-        private function GetChangedAttributes() {
+        public function GetChangedAttributes() {
             $attributes = array();
             foreach ( $this->mPrototype as $attribute => $value ) {
                 $attributes[ $attribute ] = $value;
@@ -52,7 +52,11 @@
 
             return $attributes;
         }
-        private function GetFieldFromAttribute( $attribute, $prototype ) {
+        private function GetFieldFromAttribute( $attribute, $prototype = false ) {
+            if ( $prototype === false ) {
+                $prototype = $this->mPrototype;
+            }
+
             $fields = $prototype->DbFields;
             foreach ( $fields as $field => $prototype_attribute ) {
                 if ( $prototype_attribute == $attribute ) {
@@ -67,23 +71,28 @@
 
             $table = $this->mPrototype->mDbTable->Alias;
 
-            if ( count( $this->mValues ) ) {
+            $changed = $this->GetChangedAttributes();
+            if ( count( $changed ) ) {
                 $query .= ' WHERE ';
+
                 $first = true;
-                foreach ( $this->mValues as $field => $value ) {
-                    if ( !$first ) {
-                        $query .= " AND ";
+                foreach ( $changed as $attribute => $value ) {
+                    if ( $first ) {
+                        $query .= ' AND ';
                     }
                     else {
                         $first = false;
                     }
-                    $query .= " `$table`.`$field` = '$value' ";
+
+                    $field = $this->GetFieldFromAttribute( $attribute );
+                    $query .= " `$field` = '$value' ";
                 }
             }
-            
+
             if ( $this->mSortBy != NULL ) {
                 $query .= ' ORDER BY ' . $this->mSortBy . ' ' . $this->mOrder . ' ';
             }
+
             $query .= ' LIMIT ' . $this->mOffset . ', ' . $this->mLimit . ';';
 
             return $this->mDb->Prepare( $query );
