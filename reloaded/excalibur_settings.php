@@ -1,7 +1,7 @@
 <?php
     return array(
     	'readonly'       	=> 0,
-        'allowuploads'	 	=> 10,
+        'allowuploads'	 	=> 60,
     	'membername'     	=> 'Chit-Chatter',
     	'nocomments'     	=> false,
     	'nofilters'      	=> true,
