@@ -466,6 +466,8 @@
                         $linkhref = '';
                     }
                 }
+
+                $linkhref = str_replace( "\n", "", $linkhref );
                 
             	return '<a href="' . htmlspecialchars( $linkhref ) . '">' . htmlspecialchars( $linkname ) . '</a>';
             case 'icon':
