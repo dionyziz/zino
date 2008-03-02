@@ -23,7 +23,7 @@
 		$tags = InterestTag_List( $text, $offset, 20);
 		$all = InterestTag_Count();
 		if ( $all == 0 ) {
-			?><b>Λυπάμε, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
+			?><b>Λυπάμαι, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
         
