@@ -17,7 +17,9 @@
 		}
 		else if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) { 
 			?><br />
-			<a style="text-decoration:none" href="index.php?p=editspace"><img src="../images/edit.png" alt="" /> Επεξεργασία χώρου</a><?php
+			<a style="text-decoration:none" href="index.php?p=editspace"><img src="<?php
+            echo $xc_settings[ 'staticimagesurl' ];
+            ?>icons/edit.png" alt="" /> Επεξεργασία χώρου</a><?php
 		}
 		?><br /><br /><?php
 		?><div style="text-align: center;"><?php
