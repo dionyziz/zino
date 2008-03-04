@@ -9,7 +9,9 @@
 		if ( $theuser->Blog() == 0 ) {
 			if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 				?><br /><a style="text-decoration:none" href="do/user/space/activate">
-				<img src="../images/edit.png" alt="" /> Επεξεργασία χώρου</a><?php
+				<img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>icons/edit.png" alt="" /> Επεξεργασία χώρου</a><?php
 			}
 			return;
 		}
