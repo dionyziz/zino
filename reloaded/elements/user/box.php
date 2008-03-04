@@ -39,8 +39,8 @@
                     ?><li><a class="options" href="?p=p">Επιλογές</a></li><?php
                 }
 
-                ?><li><a class="profile" href="user/<?php 
-                echo $user->Username(); 
+                ?><li><a class="profile" href="<?php 
+                Element( 'user/url', $user ); 
                 ?>">Προφίλ</a></li><?php
                 if ( $user->Rights() >= $xc_settings[ 'chat' ][ 'enabled' ] ) {
                     ?><li><a class="chat" href="" onclick="window.open('chat', 'ccchat');return false;">Chat</a></li><?php
