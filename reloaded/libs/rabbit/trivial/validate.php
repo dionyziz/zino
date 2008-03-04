@@ -8,10 +8,8 @@
 	}
 
 	function ValidURL( $url ) {
-		$pattern = "/^[a-zA-Z0-9_\/\?\=\-%\:\.#]$/";
-		if ( !preg_match( $pattern, $url ) ) {
-			return true;
-		}
-		return false;
+		$pattern = "/^(http|https)\:\/\/[a-zA-Z0-9_\/\?\=\-%\:\.#&]*$/";
+		return preg_match( $pattern, $url );
 	}
+
 ?>
