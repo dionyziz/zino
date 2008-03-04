@@ -14,77 +14,6 @@
         
 		$latest = Image_LatestUnique( 14 );
 		
-		if ( $user->Id() == 58 || $user->Id() == 1 || $user->Id() == 1379 ) {
-        ?><div class="upperslide">			
-			<div class="edge"><?php
-				$image = $latest[ 9 ];
-				if ( $image ) {
-					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><a href="?p=photo&amp;id=<?php
-					echo $image->Id();
-					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-					$photoname = htmlspecialchars( $image->Name() );
-					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
-					if ( $image->NumComments() ) {
-						?><span><img src="<?php
-						echo $xc_settings[ 'staticimagesurl' ];
-						?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-						echo $image->NumComments();
-						?></span><?php
-					}
-					?></a><?php
-				}
-			?></div>
-			<ul class="photolist1"><?php
-			for ( $i = 0; $i < 9; ++$i ) {
-				if ( $image ) {
-					$image = $latest[ $i ];
-					$dimensions = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="?p=photo&amp;id=<?php
-					echo $image->Id();
-					?>"><?php
-					$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-					$photoname = htmlspecialchars( $image->Name() );
-					Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ], '' , $style, $photoname, $photoname );
-					if ( $image->NumComments() ) {
-						?><span><img src="<?php
-						echo $xc_settings[ 'staticimagesurl' ];
-						?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-						echo $image->NumComments();
-						?></span><?php
-					}
-					?></a></li><?php
-				}
-			}
-			?></ul>
-		</div>
-		<div class="rightslide">
-			<ul class="photolist2"><?php
-				for ( $i = 10; $i <= 13; ++$i ) {
-					if ( $image ) {
-						$image = $latest[ $i ];
-						$dimensions = $image->ProportionalSize( 100 , 100 );
-						?><li><a href="?p=photo&amp;id=<?php
-						echo $image->Id();
-						?>"><?php
-						$style = 'width'.$dimensions[ 0 ].'px;height:'.$dimensions[ 1 ].'px;border: 1px solid gray;';
-						$photoname = htmlspecialchars( $image->Name() );
-						Element( 'image' , $image , $dimensions[ 0 ] , $dimensions[ 1 ] , '' , $style , $photoname , $photoname );
-						if ( $image->NumComments() ) {
-							?><span><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/comment_blue.gif" alt="Σχόλια" title="Σχόλια" /><?php
-							echo $image->NumComments();
-							?></span><?php
-						}
-						?></a></li><?php
-					}
-				}
-			?></ul>
-		</div><?php
-		}
-		else {
         ?><div class="bumpstrip" id="bumpstrip"><div class="strip">
             <?php
                 foreach ($latest as $image) {
@@ -106,6 +35,5 @@
                 }
             ?>
         </div></div><?php
-		}
     }
 ?>
