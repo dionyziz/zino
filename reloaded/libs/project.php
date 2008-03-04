@@ -38,6 +38,12 @@
     function Project_Destruct() {
     }
     
+    function Project_OnBeforeSessionStart() {
+        global $xc_settings;
+        
+        session_set_cookie_params( 24 * 3600, '/', $xc_settings[ 'cookiedomain' ] );
+    }
+    
     function Project_PagesMap() {
         // This function is used for matching the value of the $p variable with the actual file on the server.
         // For example $p = register matches with the user/new file.

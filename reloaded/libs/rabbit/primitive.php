@@ -88,8 +88,6 @@
 		date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
 	}
 	
-	session_start(); // this needs to be performed before unregister_GLOBALS so that session variables get injected into the main scope
-
 	// manual register_globals off
 	registerglobals_off(); 
 	magicquotes_off();
@@ -148,4 +146,13 @@
 
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
+
+    if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
+        Project_OnBeforeSessionStart();
+    }
+	session_start(); 
+    registerglobals_off(); // this needs to be performed again now that session_start has been fired
+    if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
+        Project_OnAfterSessionStart();
+    }
 ?>
