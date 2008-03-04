@@ -11,8 +11,9 @@
 		$subdomain = $subdomain->Get();
         $oldcomments = $oldcomments->Get();
         
+        $page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/userprofile.js' );
-		
+        
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
         $libs->Load( 'albums' );
@@ -62,7 +63,7 @@
         $page->AttachStyleSheet( 'css/user.css' );
         $page->AttachStyleSheet( 'css/articles.css' );
         $page->AttachStyleSheet( 'css/rounded.css' );
-        $page->AttachScript( 'js/coala.js' );
+		
         if ( $theuser->Subtitle() ) {
             $description = htmlspecialchars( $theuser->Subtitle() );
         }

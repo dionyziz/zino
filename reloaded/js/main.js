@@ -4,7 +4,6 @@ var Users = {
 	}
 };
 
-
 var d = document;
 
 function g(i){
@@ -90,7 +89,8 @@ function ShowMore( section, ext ) {
 }
 
 function submitenter( myform, e ) {
-	var keycode;
+	var keycode;
+
 	if (window.event) {
 		keycode = window.event.keyCode;
 	}

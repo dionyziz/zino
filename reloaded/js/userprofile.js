@@ -59,3 +59,5 @@ if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
 if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
 	UserTabs.Activate( friendsTab );
 }
+
+Coala.BaseURL = window.location.protocol + '//' + window.location.host + '/';
