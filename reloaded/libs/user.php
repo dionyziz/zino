@@ -1471,7 +1471,7 @@
 			$userid = $this->Id();
 			
 			$sql = "SELECT 
-						`relation_userid`, `relation_created`, `user_id` , `user_name`,
+						`relation_userid`, `relation_created`, `user_id` , `user_name`, `user_subdomain`
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
                         `image_id`, `image_userid`, `frel_type`
 					FROM 
@@ -1500,7 +1500,7 @@
 			
 			$userid = $this->Id();
 			$sql = "SELECT 
-						`relation_friendid`, `relation_created`, `user_id` , `user_name`,
+						`relation_friendid`, `relation_created`, `user_id` , `user_name`, `user_subdomain`
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
                         `image_id`, `image_userid`, `frel_type`
 					FROM 
