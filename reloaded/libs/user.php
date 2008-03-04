@@ -1410,7 +1410,7 @@
 				//return $xc_settings[ 'cookiename' ] . "=$uid:$uauth; expires=" . date( "r" , $eofw ) . "; path=/; domain=" . $xc_settings[ 'cookiedomain' ];
 			}
 			else { // clear
-				setcookie( $xc_settings[ 'cookiename' ], '' , time() - 86400, $xc_settings[ 'cookiedomain' ] );
+				setcookie( $xc_settings[ 'cookiename' ], '' , time() - 86400, '/', $xc_settings[ 'cookiedomain' ] );
 				//return $xc_settings[ 'cookiename' ] . "=; expires=" . date( "r" , time() - 86400 );
 			}
 		}
