@@ -541,6 +541,7 @@
 				'`comment_storyid`'		=> 'comment_storyid',
 				'`user_id`'           	=> 'user_id',
 				'`user_name`'         	=> 'user_name',
+                '`user_subdomain`'      => 'user_subdomain',
 				'`user_rights`'       	=> 'user_rights',
 				'`user_lastprofedit`' 	=> 'user_lastprofedit',
 				'`user_icon`'			=> 'user_icon',

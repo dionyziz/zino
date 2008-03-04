@@ -183,6 +183,7 @@
 						`revision_articleid`,
 						`user_id` ,
 						`user_name` ,
+                        `user_subdomain` ,
 						`user_rights` ,
 						`user_lastprofedit`,
 						`user_icon`
