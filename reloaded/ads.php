@@ -29,10 +29,13 @@
     <body>
         <?php
         switch ($type) {
+            case 'leaderboard':
             case 'cc':
+            case 'banner':
+            default:
                 ?><a href="http://www.zino.gr/myalbums.php" target="_top"><img src="http://static.zino.gr/images/ads/albums.jpg" alt="Albums" title="Zino Albums" /></a><?php
                 break;
-            case 'leaderboard':
+                /*
                 ?>
                 <script type="text/javascript">
                 google_ad_client = "pub-9675840962794412";
@@ -48,8 +51,9 @@
                 </script>
                 <?php
                 break;
-            case 'banner':
-            default:
+                */
+                
+                /*
                 ?>
                 <script type="text/javascript">
                 google_ad_client = "pub-9675840962794412";
@@ -62,6 +66,7 @@
                 </script>
                 <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                 </script><?php
+                */
         }
         ?>
     </body>
