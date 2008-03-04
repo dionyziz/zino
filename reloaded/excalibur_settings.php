@@ -2,9 +2,10 @@
     return array(
     	'readonly'       	=> 0,
         'allowuploads'	 	=> 10,
-    	'membername'     	=> 'Chit-Chatter',
+    	'membername'     	=> 'Zino',
     	'nocomments'     	=> false,
     	'nofilters'      	=> true,
+        'usersubdomains'    => '*.beta.chit-chat.gr',
     	'ushoutbox'      	=> 'shoutbox',
     	'cookiename'     	=> 'cc_login_7',
         'cookiedomain'    	=> '.beta.chit-chat.gr',

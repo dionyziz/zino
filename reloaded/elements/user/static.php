@@ -1,5 +1,7 @@
 <?php
 	function ElementUserStatic( $theuser, $link = true, $bold = false ) {
+        global $xc_settings;
+        
 		$boldstart = $boldend = $linkstart = $linkend = "";
 		
         $link = $link && $theuser->Exists();
@@ -21,7 +23,9 @@
 				$xstyle = " style=\"border-bottom: 1px dashed gray;\"";
 			}
 			$id = $theuser->Id();
-            $linkstart = "<a href=\"user/" . $theuser->Username() . "\" class=\"journalist\"$xstyle>";
+            $linkstart = "<a href=\"" 
+                         . str_replace( '*', $theuser->Username(), $xc_settings[ 'usersubdomains' ] )
+                         . "\" class=\"journalist\"$xstyle>";
             $linkend = "</a>";
 		}
 		if ( $bold ) {
