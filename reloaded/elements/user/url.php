@@ -9,6 +9,11 @@
             return;
         }
         
-        echo str_replace( '*', $theuser->Username(), $xc_settings[ 'usersubdomains' ] );
+        if ( $theuser->Subdomain() != '' ) {
+            echo str_replace( '*', urlencode( $theuser->Subdomain() ), $xc_settings[ 'usersubdomains' ] );
+        }
+        else {
+            echo '/user/' . urlencode( $theuser->Username() );
+        }
     }
 ?>
