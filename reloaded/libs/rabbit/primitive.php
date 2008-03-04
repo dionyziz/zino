@@ -59,9 +59,6 @@
     if ( strlen( $_SERVER[ 'REQUEST_METHOD' ] ) ) { // if we're running on a web environment
         w_assert( isset( $rabbit_settings[ 'webaddress' ] )    , "`webaddress' setting is not defined in a web environment" );
         w_assert( is_string( $rabbit_settings[ 'webaddress' ] ), "`webaddress' setting must be a string" );
-        w_assert( isset( $rabbit_settings[ 'hostname' ] )      , "`hostname' setting is not defined in a web environment" );
-        w_assert( is_string( $rabbit_settings[ 'hostname' ] )  , "`hostname' setting must be a string" );
-        w_assert( strlen( $rabbit_settings[ 'hostname' ] ) >= 2, "`hostname' setting must be at least two characters long" );
         w_assert( isset( $rabbit_settings[ 'url' ] )           , "`url' setting is not defined in a web environment" );
         w_assert( is_string( $rabbit_settings[ 'url' ] )       , "`url' setting must be a string" );
         w_assert( isset( $rabbit_settings[ 'port' ] )          , "`port' setting not defined in a web environment" );
@@ -76,12 +73,14 @@
         $httphost = $_SERVER[ 'HTTP_HOST' ];
         $httphost = explode( ':', $httphost );
         $httphost = strtolower( $httphost[ 0 ] );
-    	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
-    		header( 'HTTP/1.1 301 Moved Permanently' );
-            // TODO: append part of the original URL to the redirection URL?
-    		header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
-    		exit();
-    	}
+        if ( $rabbit_settings[ 'hostname' ] !== false ) {
+            w_assert( is_string( $rabbit_settings[ 'hostname' ] ) );
+        	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
+        		header( 'HTTP/1.1 301 Moved Permanently' );
+        		header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
+        		exit();
+        	}
+        }
     }
     
     // define timezone, as of PHP 5.1.0
