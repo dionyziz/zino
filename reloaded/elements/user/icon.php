@@ -6,8 +6,8 @@
 		
         $link = $link && $theuser->Exists();
 		if ( $link ) {
-			?><a href="user/<?php
-			echo $theuser->Username();
+			?><a href="<?php
+            Element( 'user/url', $theuser );
 			?>"><?php
 		}
 		if ( $tiny ) {

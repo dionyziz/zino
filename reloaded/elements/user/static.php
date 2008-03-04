@@ -2,38 +2,32 @@
 	function ElementUserStatic( $theuser, $link = true, $bold = false ) {
         global $xc_settings;
         
-		$boldstart = $boldend = $linkstart = $linkend = "";
-		
-        $link = $link && $theuser->Exists();
+        $link = $link && $theuser->Exists(); // don't link to a non-existing user even if forced
         
 		if ( $link ) {
-			$newchanges = false;
+            ?><a href="<?php
+            Element( 'user/url', $theuser );
+            ?>"<?php
 			if ( $theuser->LPE() != "0000-00-00" ) {
 				$nowdate = strtotime( NowDate() );
 				$olddate = strtotime( $theuser->LPE() );
 				$diff = $nowdate - $olddate;
 				if ( $diff < 86400 ) {
 					// one day
-					$newchanges = true;
+    				?> style="border-bottom: 1px dashed gray;"<?php
 				}
 			}
-
-			$xstyle = "";
-			if ( $newchanges ) {
-				$xstyle = " style=\"border-bottom: 1px dashed gray;\"";
-			}
-			$id = $theuser->Id();
-            $linkstart = "<a href=\"" 
-                         . str_replace( '*', $theuser->Username(), $xc_settings[ 'usersubdomains' ] )
-                         . "\" class=\"journalist\"$xstyle>";
-            $linkend = "</a>";
+            ?> class="journalist"><?php
 		}
-		if ( $bold ) {
-			$boldstart = "<b>";
-			$boldend = "</b>";
-		}
-		$uname = "$linkstart$boldstart" . $theuser->Username() . "$boldend$linkend";
-		
-		echo $uname;
+        if ( $bold ) {
+            ?><strong><?php
+        }
+        echo $theuser->Username();
+        if ( $bold ) {
+            ?></strong><?php
+        }
+        if ( $link ) {
+            ?></a><?php
+        }
 	}
 ?>
