@@ -50,14 +50,17 @@ for ( i = 0; i < children_divs.length; ++i ) {
 	} )( j );
 }
 
-var viewingTabs = g( 'userprofile_viewingtabs' ).childNodes[ 0 ].nodeValue;
-var friendsTab 	= g( 'userprofile_friendstab' ).childNodes[ 0 ].nodeValue;
-
-if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
-	UserTabs.Activate( viewingTabs );
+if ( g( 'userprofile_viewingtabs' ) ) {
+    var viewingTabs = g( 'userprofile_viewingtabs' ).childNodes[ 0 ].nodeValue;
+    if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
+    	UserTabs.Activate( viewingTabs );
+    }
 }
-if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
-	UserTabs.Activate( friendsTab );
+if ( g( 'userprofile_friendstab' ) ) {
+    var friendsTab = g( 'userprofile_friendstab' ).childNodes[ 0 ].nodeValue;
+    if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
+    	UserTabs.Activate( friendsTab );
+    }
 }
 
 Coala.BaseURL = window.location.protocol + '//' + window.location.host + '/';
