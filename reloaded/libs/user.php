@@ -29,7 +29,7 @@
         }
         
         $sql = "SELECT 
-                    `user_id`, `user_name`,
+                    `user_id`, `user_name`, `user_subdomain`,
                     `image_id`, `image_userid`
                 FROM 
                     `$users` LEFT JOIN `$images`
@@ -444,7 +444,8 @@
 		
 		$sql = "SELECT 
 					`user_id`,
-					`user_name` 
+					`user_name`,
+                    `user_subdomain`
 				FROM 
 					`$users`
 				ORDER BY
@@ -483,8 +484,6 @@
 		global $user;
 		global $users;
 		global $db;
-		
-		// TODO: Check: escape imageid?
 		
 		$uid = $user->Id();
 		$sql = "UPDATE
@@ -671,7 +670,7 @@
 		$birthdays = $mc->get( $key = 'birthdays:' . $nowdate ); // no need to invalidate, let it expire
 		if ( !is_array( $birthdays ) ) {
 			$sql = "SELECT 
-						`user_name`, `user_id`, `user_rights` 
+						`user_name`, `user_id`, `user_rights` , `user_subdomain`
 					FROM 
 						`$users` 
 					WHERE 
