@@ -245,7 +245,7 @@ var Comments = {
 		Comments.Wait( true, parent );
 	},
 	DisplayComments : function ( rise ) { // rise determines whether the number of comments will increase or decrease
-		if ( typeof UserTabs.Activate != 'undefined' ) { 
+		if ( typeof UserTabs != 'undefined' ) { 
 			var numcomments = parseInt( g( 'user_statistics_profcomms' ).firstChild.nodeValue );
 			numcomments += (rise)?1:-1;
 			g( 'user_statistics_profcomms' ).firstChild.nodeValue = numcomments;
