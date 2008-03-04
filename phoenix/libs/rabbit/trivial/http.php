@@ -16,9 +16,12 @@
     function Redirect( $target = '' ) {
         global $rabbit_settings;
         
-        $url = $rabbit_settings[ 'webaddress' ] . '/' . $target;
-        if ( !ValidURL( $url ) ) {
-            $url = $rabbit_settings[ 'webaddress' ] . '/';
+        $url = $target;
+        if ( !ValidURL( $target ) ) {
+            $url = $rabbit_settings[ 'webaddress' ] . '/' . $target;
+            if ( !ValidURL( $url ) ) {
+                $url = $rabbit_settings[ 'webaddress' ] . '/';
+            }
         }
         
         return New HTTPRedirection( $url );
