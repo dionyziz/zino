@@ -16,6 +16,7 @@
     function Redirect( $target = '' ) {
         global $rabbit_settings;
         
+        $url = $target;
         if ( !ValidURL( $target ) ) {
             $url = $rabbit_settings[ 'webaddress' ] . '/' . $target;
             if ( !ValidURL( $url ) ) {
