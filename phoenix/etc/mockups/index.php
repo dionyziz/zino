@@ -93,9 +93,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'frontpage':
 			default:
-				?><link rel="stylesheet" type="text/css" href="frontpage.css" />
-				<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="frontpage-ie6.css" /><![endif]--><?php
+				?><link rel="stylesheet" type="text/css" href="frontpage.css" /><?php
+				 //<!--[if IE]><link rel="stylesheet" type="text/css" href="frontpage-ie.css" /><![endif]-->
+				 //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="frontpage-ie6.css" /><![endif]-->
 		}
 	?>
 	</head>
