@@ -5,7 +5,7 @@
     	'membername'     	=> 'Zino',
     	'nocomments'     	=> false,
     	'nofilters'      	=> true,
-        'usersubdomains'    => 'http://*.beta.chit-chat.gr/reloaded/',
+        'usersubdomains'    => 'http://*.beta.zino.gr/reloaded/',
     	'ushoutbox'      	=> 'shoutbox',
     	'cookiename'     	=> 'cc_login_7',
         'cookiedomain'    	=> '.beta.chit-chat.gr',

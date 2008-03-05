@@ -5,10 +5,10 @@
         'resourcesdir'    => '/var/www/chit-chat.gr/beta/resources',
         'imagesurl'       => 'http://static.zino.gr/images/',
         'production'      => false,
-        'hostname'        => 'beta.chit-chat.gr',
+        'hostname'        => 'beta.zino.gr',
         'url'             => '/reloaded',
         'port'            => 80,
-        'webaddress'      => 'https://beta.chit-chat.gr/reloaded',
+        'webaddress'      => 'https://beta.zino.gr/reloaded',
         'timezone'        => 'UTC',
         'language'        => 'el',
         'databases'       => array( // prefix all keys with "db"
