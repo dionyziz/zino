@@ -159,5 +159,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	include 'footer.php';
 	?>
 	<script type="text/javascript" src="../../js/pngfix.js"></script>
+	<script type="text/javascript" src="ie7/IE7.js"></script>
+	<script type="text/javascript" src="ie7/IE8.js"></script>
+	<script type="text/javascript" src="ie7/ie7-recalc.js"></script>
+	<? // Always include ie7-recalc.js at the end of the list. Allows refreshing IE7 rules when DOM is used ?>
 	</body>
 </html>

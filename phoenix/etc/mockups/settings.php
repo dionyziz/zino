@@ -765,20 +765,12 @@
     function FocusSettingLink( li, focus ) {
     	var len = li.className.length;
         if ( focus ) {
-        	/*
-            li.style.fontWeight = 'bold';
-            li.style.backgroundColor = '#047cbb';
-            li.style.backgroundImage = 'url("images/setting-selected.png")';*/
             if ( len <= 14 ) {
             	li.className += " selected";
             }
             li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
         }
         else {
-        	/*
-            li.style.fontWeight = '';
-            li.style.backgroundColor = 'white';
-            li.style.backgroundImage = 'none';*/
             if ( len > 14 ) {
 	            li.className = li.className.substr( 0, len-9 ); // remove the selected CSS class
 	        }
