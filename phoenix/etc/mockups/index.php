@@ -157,8 +157,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	}
 	?></div><?php
 	include 'footer.php';
+	//<script type="text/javascript" src="../../js/pngfix.js"></script>
 	?>
-	<script type="text/javascript" src="../../js/pngfix.js"></script>
 	<script type="text/javascript" src="ie7/IE7.js"></script>
 	<script type="text/javascript" src="ie7/IE8.js"></script>
 	<script type="text/javascript" src="ie7/ie7-recalc.js"></script>
