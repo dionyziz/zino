@@ -65,16 +65,16 @@ div.header ul li {
 	color: white;
 }
 div.header ul li a.messages {
-	background-image: url('images/mail_generic.png');
+	background-image: url('images/mail_generic-trans.png');
 }
 div.header ul li a.profile {
-	background-image: url('images/identity.png');
+	background-image: url('images/identity-trans.png');
 }
 div.header ul li a.login {
-	background-image: url('images/up.png');
+	background-image: url('images/up-trans.png');
 }
 div.header ul li a.register {
-	background-image: url('images/bookmark_toolbar.png');
+	background-image: url('images/bookmark_toolbar-trans.png');
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
@@ -97,7 +97,7 @@ div.header div.search {
 	color: white;
 	margin: 0;
 	padding: 0 0 0 10px;
-	background-image: url('images/searchbg.png');
+	background-image: url('images/searchbg-trans.png');
 	background-repeat: no-repeat;
 	background-position: top left;
 	width: 176px;

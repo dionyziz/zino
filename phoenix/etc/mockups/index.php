@@ -17,7 +17,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 			Zino - είσαι μέσα;
 		</title>
 		<link rel="stylesheet" type="text/css" href="modal.css" />
-		<!--[if IE]><link rel="stylesheet" type="text/css" href="modal-ie.css" /><![endif]-->
+		<?php
+		//<!--[if IE]><link rel="stylesheet" type="text/css" href="modal-ie.css" /><![endif]-->
+		?>
 		<link rel="stylesheet" type="text/css" href="default.css" />
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
@@ -36,7 +38,9 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="forms.css" />
 		<link rel="stylesheet" type="text/css" href="comments.css" />
 		<link rel="stylesheet" type="text/css" href="usersections.css" />
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
+		<?php
+		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
+		?>
 		<link rel="stylesheet" type="text/css" href="events.css" />
 		<?php
 		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]-->
@@ -49,29 +53,29 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		switch ( $p ) {
 			case 'join':
 				?><link rel="stylesheet" type="text/css" href="join.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="join-ie6.css" /><![endif]--><?php
+				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="join-ie6.css" /><![endif]-->
 				break;
 			case 'search':
 				?><link rel="stylesheet" type="text/css" href="search.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]--><?php
+				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]-->
 				break;
 			case 'joined':
 				?><link rel="stylesheet" type="text/css" href="joined.css" /><?php
 				break;
 			case 'albums':
 				?><link rel="stylesheet" type="text/css" href="albums.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]--><?php
+				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
 				break;
 			case 'photoview':
 				?><link rel="stylesheet" type="text/css" href="photoview.css" />
-				<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]--><?php
+				<?php //<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]-->
 			case 'userprofile': // Intentionally ignoring break;
 				?><link rel="stylesheet" type="text/css" href="userprofile.css" /><?php
 			case 'polllist': // Intentionally ignoring break;
 				?><link rel="stylesheet" type="text/css" href="polllist.css" /><?php
 			case 'pollview':
 				?><link rel="stylesheet" type="text/css" href="pollview.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]--><?php
+				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="pollview-ie6.css" /><![endif]-->
 				break;
 			case 'journalview':
 				?><link rel="stylesheet" type="text/css" href="journalview.css" /><?php
@@ -90,7 +94,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'settings':
 				?><link rel="stylesheet" type="text/css" href="settings.css" />
-				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="settings-ie6.css" /><![endif]--><?php
+				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="settings-ie6.css" /><![endif]-->
 				break;
 			case 'contactform':
 				?><link rel="stylesheet" type="text/css" href="contactform.css" /><?php
