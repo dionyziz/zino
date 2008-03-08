@@ -21,12 +21,16 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="default.css" />
 		<link rel="stylesheet" type="text/css" href="links.css" />
 		<link rel="stylesheet" type="text/css" href="banner.css" />
-		<!--[if IE]><link rel="stylesheet" type="text/css" href="banner-ie.css" /><![endif]-->
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="banner-ie6.css" /><![endif]-->
+		<?php
+		/*<!--[if IE]><link rel="stylesheet" type="text/css" href="banner-ie.css" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="banner-ie6.css" /><![endif]-->*/
+		?>
 		<link rel="stylesheet" type="text/css" href="footer.css" />
 		<link rel="stylesheet" type="text/css" href="headlines.css" />
 		<link rel="stylesheet" type="text/css" href="bubbles.css" />
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="bubbles-ie6.css" /><![endif]-->
+		<?php
+		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="bubbles-ie6.css" /><![endif]-->
+		?>
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
@@ -34,8 +38,8 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="usersections.css" />
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="events.css" />
-		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]-->
 		<?php
+		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]-->
 		if ( isset( $_GET[ 'p' ] ) ) {
 			$p = $_GET[ 'p' ];
 		}
