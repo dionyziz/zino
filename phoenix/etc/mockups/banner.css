@@ -71,10 +71,10 @@ div.header ul li a.profile {
 	background-image: url('images/identity-trans.png');
 }
 div.header ul li a.login {
-	background-image: url('images/up-trans.png');
+	background-image: url('images/up.png');
 }
 div.header ul li a.register {
-	background-image: url('images/bookmark_toolbar-trans.png');
+	background-image: url('images/bookmark_toolbar.png');
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
@@ -97,7 +97,7 @@ div.header div.search {
 	color: white;
 	margin: 0;
 	padding: 0 0 0 10px;
-	background-image: url('images/searchbg-trans.png');
+	background-image: url('images/searchbg.png');
 	background-repeat: no-repeat;
 	background-position: top left;
 	width: 176px;

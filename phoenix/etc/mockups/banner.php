@@ -1,7 +1,7 @@
 <script type="text/javascript" src="../../js/animations.js"></script>
 <script type="text/javascript" src="js/banner.js"></script>
 <div class="header" id="banner">
-	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/zino.png" alt="Zino" /></a></h1>
+	<h1><a href="http://www.chit-chat.gr/" onclick="return false"><img src="images/zino-trans.png" alt="Zino" /></a></h1>
     <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
 	<ul><?php   
         if ( !isset( $_GET[ 'loggedin' ] ) ) {
