@@ -5,12 +5,6 @@ div.header ul {
 	position: relative;
 	top: -50px;
 }
-div.header ul li a.login {
-	background-image: url('images/_up_ie6.png');
-}
-div.header ul li a.register {
-	background-image: url('images/_bookmark_toolbar_ie6.png');
-}
 div.header div.eof {
 	top: 0px;
 }
