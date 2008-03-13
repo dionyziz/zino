@@ -1,6 +1,7 @@
 <?php
     function Project_Construct( $mode ) {
     	global $xc_settings;
+        global $rabbit_settings;
     	global $page;
         global $water;
         global $page;
@@ -11,7 +12,7 @@
     	$libs->Load( 'log' );
     	$libs->Load( 'user' );
         
-        $xc_settings = require_once 'excalibur_settings.php';
+        $xc_settings = $rabbit_settings[ '_excalibur' ];
 
         $libs->Load( 'memcache/mc' ); // needs xc_settings
         
