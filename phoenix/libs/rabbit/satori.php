@@ -259,6 +259,15 @@
                 $this->mCurrentValues[ $attributename ] = false;
             }
         }
+        public function FetchPrototypeChanges() {
+            $mods = array();
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                if ( $this->mCurrentValues[ $attributename ] !== false ) {
+                    $mods[ $fieldname ] = $this->mCurrentValue;
+                }
+            }
+            return $mods;
+        }
         private function GrabDefaults() {
             // fills in the $this->mDefaultValues based on:
             // 1) LoadDefaults(), if it contains some defaulting rule
