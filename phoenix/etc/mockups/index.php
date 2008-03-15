@@ -65,7 +65,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'photoview':
 				?><link rel="stylesheet" type="text/css" href="photoview.css" />
-				<?php //<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]-->
+				<!--[if IE]><link rel="stylesheet" type="text/css" href="photoview-ie.css" /><![endif]--><?php
 			case 'userprofile': // Intentionally ignoring break;
 				?><link rel="stylesheet" type="text/css" href="userprofile.css" /><?php
 			case 'polllist': // Intentionally ignoring break;
