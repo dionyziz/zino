@@ -63,7 +63,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'albums':
 				?><link rel="stylesheet" type="text/css" href="albums.css" />
-				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]-->
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="albums-ie6.css" /><![endif]--><?php 
 				break;
 			case 'photoview':
 				?><link rel="stylesheet" type="text/css" href="photoview.css" />
