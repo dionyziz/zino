@@ -5,6 +5,6 @@
 		
 		?><div class="copy"><?php
 		echo $rabbit_settings[ 'applicationname' ];
-		?> <span>&copy; <?= date('Y') ?> <a href="http://www.kamibu.com/">Kamibu</a></span></div><?php
+		?> <span>&copy; <?php echo date('Y') ?> <a href="http://www.kamibu.com/">Kamibu</a></span></div><?php
 	}
 ?>
