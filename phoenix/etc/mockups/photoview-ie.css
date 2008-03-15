@@ -1,6 +1,4 @@
 div#photoview div.photothumbs ol li {
     display: inline;
     vertical-align: middle;
-}img.hoverclass {
-	filter: alpha(opacity = 60);
 }
