@@ -29,9 +29,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		<link rel="stylesheet" type="text/css" href="footer.css" />
 		<link rel="stylesheet" type="text/css" href="headlines.css" />
 		<link rel="stylesheet" type="text/css" href="bubbles.css" />
-		<?php
-		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="bubbles-ie6.css" /><![endif]-->
-		?>
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="bubbles-ie6.css" /><![endif]-->
 		<link rel="stylesheet" type="text/css" href="people.css" />
 		<link rel="stylesheet" type="text/css" href="paginate.css" />
 		<link rel="stylesheet" type="text/css" href="forms.css" />
