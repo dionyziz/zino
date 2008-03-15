@@ -31,7 +31,7 @@
                 echo $user->Authtoken();
                 ?>" />
                 <param name="address" value="<?php
-                echo $rabbit_settings[ 'hostname' ];
+                echo $xc_settings[ 'chat' ][ 'hostname' ];
                 ?>" />
                 <b>Πρέπει να έχεις εγκατεστημένο το Java Runtime Environment για να τρέξεις αυτό το πρόγραμμα</b>
             </applet>
