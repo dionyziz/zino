@@ -1,8 +1,8 @@
 <?php
     return array(
         'applicationname' => 'Zino',
-        'rootdir'         => '/var/www/chit-chat.gr/beta/reloaded',
-        'resourcesdir'    => '/var/www/chit-chat.gr/beta/resources',
+        'rootdir'         => '/var/www/zino.gr/beta/reloaded',
+        'resourcesdir'    => '/var/www/zino.gr/beta/resources',
         'imagesurl'       => 'http://static.zino.gr/images/',
         'production'      => false,
         'hostname'        => 'beta.zino.gr',

@@ -8,7 +8,7 @@
         'usersubdomains'    => 'http://*.beta.zino.gr/reloaded/',
     	'ushoutbox'      	=> 'shoutbox',
     	'cookiename'     	=> 'cc_login_7',
-        'cookiedomain'    	=> '.beta.chit-chat.gr',
+        'cookiedomain'    	=> '.beta.zino.gr',
         'staticimagesurl' 	=> 'http://static.zino.gr/images/',
         'imagesurl'       	=> 'http://images.zino.gr/',
 		'anonymouscomments' => false,
