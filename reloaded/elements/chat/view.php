@@ -19,7 +19,7 @@
         
 		?>
         <div style="text-align:center">
-            <b>Δοκιμαστική έκδοση μόνο για δημοσιογράφους</b><br /><br />
+            <b>Δοκιμαστική έκδοση</b><br /><br />
             <applet code="Frontend" width="100%" height="500">
                 <param name="userid" value="<?php
                 echo $user->Id();
