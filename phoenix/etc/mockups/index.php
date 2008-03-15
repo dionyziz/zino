@@ -54,7 +54,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'search':
 				?><link rel="stylesheet" type="text/css" href="search.css" />
-				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]-->
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="search-ie6.css" /><![endif]--><?php
 				break;
 			case 'joined':
 				?><link rel="stylesheet" type="text/css" href="joined.css" /><?php
