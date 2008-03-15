@@ -90,7 +90,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 				break;
 			case 'settings':
 				?><link rel="stylesheet" type="text/css" href="settings.css" />
-				<?php //<!--[if IE 6]><link rel="stylesheet" type="text/css" href="settings-ie6.css" /><![endif]-->
+				<!--[if IE 6]><link rel="stylesheet" type="text/css" href="settings-ie6.css" /><![endif]--><?php
 				break;
 			case 'contactform':
 				?><link rel="stylesheet" type="text/css" href="contactform.css" /><?php
