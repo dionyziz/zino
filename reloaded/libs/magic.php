@@ -345,7 +345,7 @@
                 }
                 break;
             case 'img':
-            	if ( isset( $args[ 0 ] ) ) {
+            	if ( isset( $args[ 0 ] ) && is_numeric( $imageid ) ) {
                     $lookups[ 'images' ][ $imageid = $args[ 0 ] ] = false;
                 }
                 break;
@@ -500,7 +500,6 @@
             	if ( !isset( $args[ 0 ] ) ) {
                     return '';
             	}
-                $imageid = ( integer )$args[ 0 ];
             	
             	if ( isset( $args[ 1 ] ) ) {
             		$class = $args[ 1 ];
@@ -509,6 +508,21 @@
             		$class = 'ccimage';
             	}
             	
+                if ( !is_numeric( $args[ 0 ] ) ) {
+                    $linkhref = $args[ 0 ];
+                    if ( strpos( $linkhref, ':' ) !== false ) {
+                        if (   substr( strtolower( $linkhref ), 0, strlen( 'http://' ) ) != 'http://'
+                            && substr( strtolower( $linkhref ), 0, strlen( 'https://') ) != 'https://'
+                            && substr( strtolower( $linkhref ), 0, strlen( 'ftp://'  ) ) != 'ftp://' ) {
+                            $linkhref = '';
+                        }
+                    }
+
+                    $linkhref = str_replace( "\n", "", $linkhref );
+                    
+                	return '<img src="' . htmlspecialchars( $linkhref ) . '" alt="" class="' . $class . '" />';
+                }
+                $imageid = ( integer )$args[ 0 ];
                 if ( isset( $lookups[ 'images' ][ $imageid ] ) ) {
             		$image = $lookups[ 'images' ][ $imageid ];
                 }
