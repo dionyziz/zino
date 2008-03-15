@@ -1,5 +1,5 @@
 span.albummain img { /* Not perfect, bt looks ok like that. Maybe js would solve some probs*/
-	margin: 15px 10px 0px 0px;
+	margin: 30px 10px 0px 0px;
 }
 ul.albums li a:hover span img {
 	cursor: pointer;
