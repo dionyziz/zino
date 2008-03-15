@@ -39,8 +39,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="usersections-ie6.css" /><![endif]-->
 		?>
 		<link rel="stylesheet" type="text/css" href="events.css" />
-		<?php
-		//<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="events-ie6.css" /><![endif]--><?php
 		if ( isset( $_GET[ 'p' ] ) ) {
 			$p = $_GET[ 'p' ];
 		}

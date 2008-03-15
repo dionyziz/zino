@@ -3,7 +3,7 @@
 	<div style="padding: 5px 0 0 20px;"><a href="">&laquo;Επιστροφή στο προφίλ</a></div>
 	<div class="list">
 		<ul class="favcategories">
-			<li><a href=""><img src="images/chart_bar.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
+			<li><a href=""><img src="images/chart_bar-trans.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
 			<li><a href=""><img src="images/book.png" alt="Ημερολόγιο" title="Ημερολόγιο" /></a></li>
 			<li><a href=""><img src="images/photo.png" alt="Εικόνες" title="Εικόνες" /></a></li>
 			<li class="selected" style="width:40px;"><a href="">Όλα</a></li>
