@@ -41,7 +41,6 @@
     function Project_OnBeforeSessionStart() {
         global $xc_settings;
         
-        die( 'setting params' );
         session_set_cookie_params( 24 * 3600, '/', $xc_settings[ 'cookiedomain' ] );
     }
     
