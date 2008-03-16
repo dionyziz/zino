@@ -76,6 +76,7 @@
         </head>
         <body>
         <script type="text/javascript"><?php
+        $imageid = $res[ 'id '];
 		$image = New Image( $imageid );
     	if ( $albumid != 0 ) {
     		$album = New Album( $albumid );
