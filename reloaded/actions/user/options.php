@@ -94,8 +94,10 @@
     		}
     		
     		$icon = submit_photo( $_FILES['usericon']['name'], $tempfile, 0, '', Array( 50, 50 ) );
-    		
-    		UserSetIcon( $icon );
+
+            if ( isset( $icon[ 'id' ] ) ) {
+    		  UserSetIcon( $icon[ 'id' ] );
+            }
     	}
     	
     	if ( $invaliddob ) {

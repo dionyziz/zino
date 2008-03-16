@@ -39,12 +39,6 @@ abstract class Page {
         // $this->mOutputLevel = ob_get_level();
 	}
 	final protected function OutputEnd() {
-        /* 
-        global $water;
-        
-        if ( ob_get_level() != $this->mOutputLevel ) {
-            $water->ThrowException( 'Output buffering level is inconsistent (' . $this->mOutputLevel . '/' . ob_get_level() . ')' );
-        } */
 		echo ob_get_clean();
 	}
 	protected function GenerateBody() {
@@ -115,13 +109,14 @@ final class PageEmpty extends Page {
     }
 }
 
-final class PageHTML extends Page {
-	private $mSupportsXML;
-	private $mStylesheets;
-	private $mScripts;
-    private $mScriptsInline;
-	private $mBase;
-    private $mMeta;
+class PageHTML extends Page {
+	protected $mSupportsXML;
+	protected $mStylesheets;
+	protected $mScripts;
+    protected $mScriptsInline;
+	protected $mBase;
+    protected $mMeta;
+    protected $mFavIcon;
     
     public function PageHTML() {
 		$this->mElements      = array();
@@ -129,11 +124,15 @@ final class PageHTML extends Page {
         $this->mScriptsInline = array();
 		$this->mStylesheets   = array();
         $this->mMeta          = array();
+        $this->mFavIcon       = false;
 		$this->CheckXML();
         $this->Page();
     }
     public function XMLStrict() {
         return $this->mSupportsXML;
+    }
+    public function SetIcon( $favicon ) {
+        $this->mFavIcon = $favicon;
     }
     protected function OutputPage() {
 		$this->OutputHeaders();
@@ -191,6 +190,14 @@ final class PageHTML extends Page {
             ?>" content="<?php
             echo htmlspecialchars( $content );
             ?>" /><?php
+        }
+        if ( $this->mFavIcon !== false ) {
+            ?><link rel="shortcut icon" href="<?php
+            echo htmlspecialchars( $this->mFavIcon );
+            ?>" type="image/vnd.microsoft.icon" />
+            <link rel="icon" href="<?php
+            echo htmlspecialchars( $this->mFavIcon );
+            ?>" type="image/vnd.microsoft.icon" /><?php
         }
 		foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
@@ -276,6 +283,9 @@ final class PageHTML extends Page {
                 'filename' => $filename,
                 'ieversion' => $ieversion
             );
+            if ( count( $this->mStylesheets ) > 30 ) {
+                $water->Warning( 'You are approaching or over 32 CSS loaded stylesheets. Internet Explorer may not be able to handle this.' );
+            }
 		}
 	}
 	public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {

@@ -144,6 +144,7 @@
 		}
 		else if ( strpos( $data, "error" ) !== false ) {
 			$upload[ 'successful' ] = false;
+            $upload[ 'error' ] = $data;
 		}
 		else if ( strpos( $data, "success" ) !== false ) {
 			$upload[ 'successful' ] = true;
@@ -533,7 +534,7 @@
 		$upload = Image_Upload( $userid."/".$lastimgid , $temp_location, $resizeto );
 		
         if ( !is_array( $upload ) ) {
-            return $upload; // errorcode
+            return array( 'errorcode' => $upload ); // errorcode
         }
         
 		if ( $upload[ 'successful' ] ) {
@@ -544,11 +545,11 @@
                 $sql = "REPLACE INTO `$latestimages` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
                 $db->Query( $sql );
 
-				return $lastimgid;
+				return array( 'id' => $lastimgid );
 			}
-            return -64;
+            return array( 'errorcode' => -64 );
 		}
-        return -65;
+        return array( 'errorcode' => -65, 'error' => $upload[ 'error' ] );
 	}
 	
 	function delete_photo( $photo_id ) {

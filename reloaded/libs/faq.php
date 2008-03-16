@@ -49,7 +49,8 @@
 			$imagename = 'noname' . rand( 1 , 20 ) . $extension;
 		}
 		
-		return submit_photo( $imagename ,$tempfile ,0 , '' );
+		$res = submit_photo( $imagename ,$tempfile ,0 , '' );
+        return $res[ 'id' ];
 	}
 	function FAQ_CanModify( $theuser ) {
 		return $theuser->CanModifyCategories();

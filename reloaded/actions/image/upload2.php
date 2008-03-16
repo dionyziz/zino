@@ -56,12 +56,12 @@
     	if ( $noextname == '' ) {
     		$imagename = 'noname' . rand( 1 , 20 ) . $extension;
     	}
-    	$imageid = submit_photo( $imagename , $tempfile , $albumid , '' );
-    	if ( $imageid < 0 ) {
+    	$res = submit_photo( $imagename , $tempfile , $albumid , '' );
+    	if ( !isset( $res[ 'id' ] ) ) {
 			?><html><head><title>Upload error</title><script type="text/javascript">
-    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
-                echo $errornum = $imageid;
-                ?>)' );
+    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (' + <?php
+                echo w_json_encode( $res[ 'error' ] );
+                ?> + ')' );
     			window.location.href = <?php
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
     			?>;
