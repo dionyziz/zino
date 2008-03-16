@@ -50,13 +50,15 @@ for ( i = 0; i < children_divs.length; ++i ) {
 	} )( j );
 }
 
-if ( document.getElementById( 'userprofile_viewingtabs' ) ) {
+Coala.BaseURL = window.location.protocol + '//' + window.location.host + '/';
+
+if ( g( 'userprofile_viewingtabs' ) ) {
     var viewingTabs = g( 'userprofile_viewingtabs' ).childNodes[ 0 ].nodeValue;
     if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
     	UserTabs.Activate( viewingTabs );
     }
 }
-if ( document.getElementById( 'userprofile_friendstab' ) ) {
+if ( g( 'userprofile_friendstab' ) ) {
     var friendsTab = g( 'userprofile_friendstab' ).childNodes[ 0 ].nodeValue;
     if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
     	UserTabs.Activate( friendsTab );
