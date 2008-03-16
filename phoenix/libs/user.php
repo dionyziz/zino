@@ -9,7 +9,7 @@
         protected $mModel = 'User';
         
         public function FindAll() {
-            
+            return $this->FindByPrototype( New User() );
         }
     }
     class UserPreferences extends Satori {

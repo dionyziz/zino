@@ -109,13 +109,14 @@ final class PageEmpty extends Page {
     }
 }
 
-final class PageHTML extends Page {
-	private $mSupportsXML;
-	private $mStylesheets;
-	private $mScripts;
-    private $mScriptsInline;
-	private $mBase;
-    private $mMeta;
+class PageHTML extends Page {
+	protected $mSupportsXML;
+	protected $mStylesheets;
+	protected $mScripts;
+    protected $mScriptsInline;
+	protected $mBase;
+    protected $mMeta;
+    protected $mFavIcon;
     
     public function PageHTML() {
 		$this->mElements      = array();
@@ -123,11 +124,15 @@ final class PageHTML extends Page {
         $this->mScriptsInline = array();
 		$this->mStylesheets   = array();
         $this->mMeta          = array();
+        $this->mFavIcon       = false;
 		$this->CheckXML();
         $this->Page();
     }
     public function XMLStrict() {
         return $this->mSupportsXML;
+    }
+    public function SetIcon( $favicon ) {
+        $this->mFavIcon = $favicon;
     }
     protected function OutputPage() {
 		$this->OutputHeaders();
@@ -185,6 +190,14 @@ final class PageHTML extends Page {
             ?>" content="<?php
             echo htmlspecialchars( $content );
             ?>" /><?php
+        }
+        if ( $this->mFavIcon !== false ) {
+            ?><link rel="shortcut icon" href="<?php
+            echo htmlspecialchars( $this->mFavIcon );
+            ?>" type="image/vnd.microsoft.icon" />
+            <link rel="icon" href="<?php
+            echo htmlspecialchars( $this->mFavIcon );
+            ?>" type="image/vnd.microsoft.icon" /><?php
         }
 		foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {

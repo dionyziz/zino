@@ -13,6 +13,10 @@
             <field name="user_icon" type="int" ref="merlin_images.image_id" />
             <field name="user_dob" type="datetime" />
             <field name="user_email" type="varchar" size="256" />
+            <field name="user_emailverified" type="enum">
+                <value default="yes">no</value>
+                <value>yes</value>
+            </field>
 			<field name="user_subdomain" type="char" size="32" />
             <field name="user_gender" type="enum">
                  <value>-</value>
@@ -28,7 +32,7 @@
                 <value>no</value>
             </field>
         </table>
-        <table name="merlin_settings">
+        <table name="merlin_usersettings">
             <field name="setting_userid" type="int" ref="merlin_users.user_id" />
             <field name="setting_email_profile" type="enum">
                 <value>yes</value>
@@ -71,7 +75,7 @@
                 <value>no</value>
             </field>
         </table>
-        <table name="merlin_profiles">
+        <table name="merlin_userprofiles">
             <field name="profile_userid" ref="merlin_users.user_id" />
             <field name="profile_location" type="int" ref="merlin_places.place_id" />
             <field name="profile_education" type="enum">
@@ -121,7 +125,7 @@
                 <value>brown</value>
                 <value>red</value>
                 <value>blond</value>
-                <value>antaugeia</value><!-- english? -->
+                <value>highlights</value>
                 <value>dark</value>
                 <value>grey</value>
                 <value>skinhead</value>
@@ -153,6 +157,9 @@
             <field name="user_msn" type="varchar" size="256" />
             <field name="user_gtalk" type="varchar" size="256" />
             <field name="user_yim" type="varchar" size="256" />
+            <field name="user_homepage" type="varchar" size="256" />
+            <field name="user_firstname" type="varchar" size="256" />
+            <field name="user_lastname" type="varchar" size="256" />
         </table>
         <table name="merlin_moods">
             <field name="mood_id" type="int" autoincrement="yes" />
