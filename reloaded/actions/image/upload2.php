@@ -76,12 +76,7 @@
         </head>
         <body>
         <script type="text/javascript"><?php
-        $imageid = $res[ 'id '];
-        
-        if ( $user->IsSysOp() ) {
-            var_dump( $res );
-            die();
-        }
+        $imageid = $res[ 'id' ];
         
 		$image = New Image( $imageid );
     	if ( $albumid != 0 ) {
