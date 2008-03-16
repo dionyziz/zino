@@ -23,19 +23,30 @@
             $sql = 'SELECT
                 *
             FROM
-                :' . $prototype->DbTable->Alias . '
-            WHERE
-                ';
+                :' . $prototype->DbTable->Alias;
+            $where = array();
+            foreach ( $mods as $column => $value ) {
+                $where[] = '`' . $column . '` = ' . ':_' . $column;
+            }
+            if ( count( $where ) ) {
+                $sql .= ' WHERE ' . implode( ' AND ', $where );
+            }
             $query = $this->mDb->Prepare( $sql );
+            $query->BindTable( $this->mModel->DbTable->Alias );
+            foreach ( $mods as $column => $value ) {
+                $query->Bind( '_' . $column, $value );
+            }
+            $res = $query->Execute();
             if ( $primary ) {
                 // lookup by primary key
+                return New $this->mModel( $res->FetchArray() );
             }
+            return $this->FindBySQLResource( $res );
         }
         protected function FindBySQLResource( DBResource $res ) {
             return $res->ToObjectsArray( $this->mModel );
         }
         final public function __construct() {
-            
         }
     }
 ?>

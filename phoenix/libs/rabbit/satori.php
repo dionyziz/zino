@@ -3,30 +3,10 @@
         Developer: Dionyziz
     */
     
-    abstract class Overloadable {
-        public function __set( $name, $value ) {
-            // check if a custom setter is specified
-            $methodname = 'Set' . $name;
-            if ( method_exists( $this, $methodname ) ) {
-                $success = call_user_func( array( $this, $methodname ), $value );
-                if ( $success !== false ) {
-                    return true;
-                }
-            }
-            // else fallthru
-            return false;
-        }
-        public function __get( $name ) {
-            // check if a custom getter is specified
-            $methodname = 'Get' . $name;
-            if ( method_exists( $this, $methodname ) ) {
-                $value = call_user_func( array( $this, $methodname ) );
-                return $value;
-            }
-            // else fallthru
-            return null; // use null here because we want to allow custom getters to return literal boolean false
-        }
-    }
+    global $libs;
+    
+    $libs->Load( 'rabbit/overloadable' );
+    $libs->Load( 'rabbit/finder' );
     
     class SatoriException extends Exception {
     }
@@ -48,7 +28,31 @@
         protected $mCurrentValues; // stores the current state of this object (i.e. the active state that will be saved into the database upon the issue of ->Save())
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
         protected $mDefaultValues; // dictionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
+        protected $mRelations;
         
+        protected function Relations() {
+            // override me
+        }
+        protected function HasOne( $className, $foreignKey ) {
+            // TODO: lazy loading
+            if ( !is_array( $foreignKey ) ) {
+                $foreignKey = array( $foreignKey );
+            }
+            
+            $args = array();
+            foreach ( $foreignKey as $column ) {
+                if ( !isset( $this->mDbFieldKeys[ $column ] ) ) {
+                    throw New SatoriException( 'Relation foreign key ' . $column . ' defined in Satori extension ' . get_class( $this ) . ' is not an existing column name in table ' . $this->mDbTableAlias );
+                }
+                $args[] = $this->mCurrentValues[ $this->mDbFields[ $column ] ];
+            }
+            
+            // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
+            $class = New ReflectionClass( $className );
+            $target = $class->newInstanceArgs( $args );
+            
+            return $target;
+        }
         protected function GetDbTable() {
             return $this->mDbTable;
         }
@@ -299,9 +303,6 @@
             }
         }
         protected function LoadDefaults() {
-            // overload me
-        }
-        protected function Relations() {
             // overload me
         }
         final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {

@@ -3,7 +3,7 @@
     This source code and all other source code files in
     this repository, unless otherwise stated, are
 
-    Copyright (c) 2005 - 2007, Kamibu Development Group.
+    Copyright (c) 2005 - 2008, Kamibu Development Group.
     
     More information can be found at /etc/legal.txt.
     
