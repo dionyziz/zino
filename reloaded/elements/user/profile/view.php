@@ -56,6 +56,11 @@
             }
 			return;
 		}
+        ob_start();
+        Element( 'user/url', $theuser );
+        $page->AttachInlineScript(
+            "Coala.BaseURL = " . w_json_encode( ob_get_clean() ) . ";"
+        );
         $id = $theuser->Id();
         $commentscount = $theuser->Contribs();
         

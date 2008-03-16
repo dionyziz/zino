@@ -1,5 +1,5 @@
 <?php
-    function ElementUserURL( $theuser ) {
+    function ElementUserURL( $theuser, $base = false ) {
         global $xc_settings;
         
         if ( !is_object( $theuser ) ) {
@@ -13,6 +13,9 @@
             echo str_replace( '*', urlencode( $theuser->Subdomain() ), $xc_settings[ 'usersubdomains' ] );
         }
         else {
+            if ( $base ) {
+                return;
+            }
             echo '/user/' . urlencode( $theuser->Username() );
         }
     }
