@@ -345,7 +345,7 @@
                 }
                 break;
             case 'img':
-            	if ( isset( $args[ 0 ] ) && is_numeric( $imageid ) ) {
+            	if ( isset( $args[ 0 ] ) && is_numeric( $args[ 0 ] ) ) {
                     $lookups[ 'images' ][ $imageid = $args[ 0 ] ] = false;
                 }
                 break;
@@ -527,7 +527,7 @@
             		$image = $lookups[ 'images' ][ $imageid ];
                 }
                 else {
-                    $water->Notice( 'Image lookup failed', $lookups );
+                    $water->Notice( 'Image lookup åfailed', $lookups );
                 }
             	if ( !isset( $image ) || !is_object( $image ) || !( $imageid > 0 ) || !$image->exists() ) {
             		if ( isset( $args[ 2 ] ) && $args[ 2 ] == "left" ) {
