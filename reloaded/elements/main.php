@@ -9,6 +9,7 @@
         $page->AttachStylesheet( 'css/main.css' );
         $page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
         $page->AttachScript( 'js/main.js' );
+        $page->SetIcon( 'favicon.ico' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
