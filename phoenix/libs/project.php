@@ -19,21 +19,44 @@
     	$_SESSION[ 'previousuri' ] = ( isset ( $_SESSION[ 'thisuri' ] ) ? $_SESSION[ 'thisuri' ] : "" );
     	$_SESSION[ 'thisuri' ] = $_SERVER[ 'REQUEST_URI' ];
     	
+        $finder = New UserFinder();
     	if ( !empty( $_SESSION[ 's_username' ] ) && !empty( $_SESSION[ 's_password' ] ) ) {
-    		CheckLogon( "session" , $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
+    		$user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
     	}
     	else if ( !empty( $_COOKIE[ $xc_settings[ 'cookiename' ] ] ) ) {
-    		CheckLogon( "cookie" );
+            $logininfo = $_COOKIE[ $xc_settings['cookiename'] ];
+            $logininfos = explode( ':' , $logininfo );
+            $userid = $logininfos[ 0 ];
+            $userauth = $logininfos[ 1 ];
+            if ( strlen( $userauth ) != 32 ) {
+                $user = new User( array() );
+            }
+            else {
+                $user = $finder->FindByIdAndAuthtoken( $userid, $userauth );
+            }
     	}
     	else {
     		$user = new User( array() );
     	}
-    		
-    	CheckIfUserBanned();
-
+    	
+        $banfinder = New BanFinder();
+        $banned = false;
+        if ( $user->Banned ) {
+            $banned = true;
+        }
+        
+        $ban = $banfinder->FindByIp( UserIp() );
+        if ( $ban !== false && !$ban->Expired ) {
+            $banned = true;
+        }
+        
+        if ( $banned ) {
+            return Element( 'user/banned' );
+        }
+        
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
-        	// $log = New Log();
-            // $log->Save();
+        	$log = New Log();
+            $log->Save();
         }
     }
     
