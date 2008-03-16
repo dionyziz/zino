@@ -520,7 +520,7 @@
 
                     $linkhref = str_replace( "\n", "", $linkhref );
                     
-                	return '<div style=\"text-align:center\"><img src="' . htmlspecialchars( $linkhref ) . '" alt="" class="' . $class . '" /></div>';
+                	return '<div style="text-align:center"><img src="' . htmlspecialchars( $linkhref ) . '" alt="" class="' . $class . '" /></div>';
                 }
                 $imageid = ( integer )$args[ 0 ];
                 if ( isset( $lookups[ 'images' ][ $imageid ] ) ) {
