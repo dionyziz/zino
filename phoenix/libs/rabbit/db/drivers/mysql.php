@@ -66,7 +66,7 @@
             if ( isset( $this->mFlippedDataTypes[ $datatype ] ) ) {
     			return $this->mFlippedDataTypes[ $datatype ];
             }
-            return false;
+            throw New DBException( 'Invalid data type specified for field: ' . $datatype );
 		}
         public function DataTypes() {
             return $this->mDataTypes;
