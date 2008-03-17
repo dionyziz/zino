@@ -72,6 +72,9 @@
             return $this->mDataTypes;
         }
         public function ConstructField( DBField $field, $info ) {
+            w_assert( isset( $info[ 'Type' ] ) );
+            w_assert( isset( $info[ 'Field' ] ) );
+            
             $field->Name = $info[ 'Field' ];
             $type = strtoupper( $info[ 'Type' ] );
             if ( strpos( $type, '(' ) !== false ) {
