@@ -54,6 +54,10 @@
     // load the trivial libraries
     $libs->Load( 'rabbit/trivial/trivial' );
     
+    if ( !function_exists( 'ValidURL' ) ) {
+        throw New Exception( 'Could not load the Rabbit trivial libraries; check your "rootdir" setting in your settings.php file?' );
+    }
+    
     if ( strlen( $_SERVER[ 'REQUEST_METHOD' ] ) ) { // if we're running on a web environment
         w_assert( isset( $rabbit_settings[ 'webaddress' ] )    , "`webaddress' setting is not defined in a web environment" );
         w_assert( is_string( $rabbit_settings[ 'webaddress' ] ), "`webaddress' setting must be a string" );
