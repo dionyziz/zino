@@ -26,6 +26,7 @@
 		if ( $offset == 0 ) {
 			$offset = 1 ;
 		}
+		die( 'izual' );
 		$shouts = LatestShouts( $offset , 20 );
 		
 		?><br /><br /><br /><br />
@@ -34,7 +35,6 @@
         foreach ( $shouts as $i => $thisshout ) {
             $shouttexts[ $i ] = $thisshout->Text();
         }
-		die( 'izual' );
         $shouttexts = mformatshouts( $shouttexts );
 		foreach ( $shouts as $i => $thisshout ) {
 			?><div class="thisshout" style="clear:both;min-height:50px"><?php
