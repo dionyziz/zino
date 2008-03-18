@@ -65,4 +65,5 @@
 			</form>
 		</div>
 	</div>
+	<div class="eof"></div>
 </div>
