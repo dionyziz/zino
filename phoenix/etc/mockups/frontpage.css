@@ -42,20 +42,18 @@ div.latestimages ul li {
 div.latestimages ul li img {
 	border: 1px solid #cce;
 }
-div.members > div{
-	float: left;
-	width: 50%;
-}
 div.members div.join {
 	background-image: url( 'images/frontpagejoin.jpg' );
 	background-repeat: no-repeat;
 	height: 189px;
+	width: 495px;
 	text-align: right;
+	float: left;
 }
 div.members div.join form {
 	text-align: left;
 	width: 40%;
 }
 div.members div.login {
-
+	float: left;
 }
