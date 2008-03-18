@@ -26,7 +26,6 @@
 		if ( $offset == 0 ) {
 			$offset = 1 ;
 		}
-		die( 'izual' );
 		$shouts = LatestShouts( $offset , 20 );
 		
 		?><br /><br /><br /><br />
