@@ -23,11 +23,6 @@ div.frontpage div.ybubble form div {
 div.frontpage div.ybubble form div span {
 	padding-right: 3px;
 }
-div.meetfriends div.people {
- 	height: 260px;
-	overflow: hidden;
-	text-align: left;
-}
 div.latestimages {
 	height: 135px;
 	overflow: hidden;
@@ -46,4 +41,15 @@ div.latestimages ul li {
 }
 div.latestimages ul li img {
 	border: 1px solid #cce;
+}
+div.members > div{
+	float: left;
+	width: 50%;
+}
+div.members div.join {
+	background-image: url( 'images/frontpagejoin.jpg' );
+	background-repeat: no-repeat;
+}
+div.members div.login {
+
 }
