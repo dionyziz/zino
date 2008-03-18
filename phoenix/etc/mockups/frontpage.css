@@ -54,6 +54,7 @@ div.members div.join {
 }
 div.members div.join form {
 	text-align: left;
+	width: 40%;
 }
 div.members div.login {
 
