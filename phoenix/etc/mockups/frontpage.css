@@ -50,6 +50,10 @@ div.members div.join {
 	background-image: url( 'images/frontpagejoin.jpg' );
 	background-repeat: no-repeat;
 	height: 189px;
+	text-align: right;
+}
+div.members div.join form {
+	text-align: left;
 }
 div.members div.login {
 
