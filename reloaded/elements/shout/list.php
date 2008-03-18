@@ -26,7 +26,7 @@
 				<div style="float:left"><img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>soraleft.jpg" alt="" /></div>
-				<h3>Μικρά νέα</h3>
+				<h3>Συζήτηση</h3>
 			</div>
 			<div class="body"><?php
 		            if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
