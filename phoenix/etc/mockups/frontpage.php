@@ -67,44 +67,4 @@
 	    <i class="qbottom"></i>
 	    <i class="bl"></i><i class="br"></i>
 	</div>
-	<div class="recentevents">
-		<h2>Πρόσφατα γεγονότα</h2>
-		<ul class="events">
-			<li class="poll">
-				<div><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a></div>
-			</li>
-			<li class="journal">
-				<div>Ο <a href="">Izual</a> έγραψε <a href="">σχόλιο στο MacGuyver sandwich</a></div>
-			</li>
-			<li class="journal">
-				<div><a href="">MacGuyver sandwich</a> από <a href="">Izual</a></div>
-			</li>
-			<li class="photo">
-				<div>
-					<a href="">Γαμάτος ουρανοξύστης από Izual<br />
-						<img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
-					</a>
-				</div>
-			</li>
-			<li class="journal">
-				<div><a href="">Tokio Hotel</a> από <a href="">Skater</a></div>
-			</li>
-			<li class="poll">
-				<div><a href="">Τι να γίνει με τις μαθητικές παρελάσεις;</a> από <a href="">loliza</a></div>
-			</li>
-			<li class="photo">
-				<div>
-					<a href="">klio ψώνιο από klio<br />
-						<img src="images/kliosexy.jpg" alt="klio ψώνιο" title="klio ψώνιο" />
-					</a>
-				</div>
-			</li>
-			<li class="journal">
-				<div><a href="">Scooter</a> από <a href="">Izual</a></div>
-			</li>
-			<li class="journal last">
-				<div><a href="">Parkour</a> από <a href="">dionyziz</a></div>
-			</li>
-		</ul>
-    </div>
 </div>
