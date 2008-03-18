@@ -54,12 +54,14 @@
             if ( $banned ) {
                 return Element( 'user/banned' );
             }
+			
+		    if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
+				$log = New Log();
+				$log->Save();
+			}
         }
         
-        if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
-        	$log = New Log();
-            $log->Save();
-        }
+
     }
     
     function Project_Destruct() {
