@@ -23,17 +23,20 @@
 	?>	
 	<div class="latestimages">
 		<ul>
-			<li><a href="" onclick=""><img src="images/avatars/rapper.jpg" alt="rapper" title="rapper" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/dionyziz2.jpg" alt="dionyziz" title="dionyziz" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/klio.jpg" alt="klio" title="klio" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/izual2.jpg" alt="izual" title="izual" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/arianti.jpg" alt="arianti" title="arianti" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/cafrillio.jpg" alt="cafrillio" title="cafrillio" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/emo4life.jpg" alt="emo4life" title="emo4life" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/ax_tom_ax.jpg" alt="ax_tom_ax" title="ax_tom_ax" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/seraphim.jpg" alt="seraphim" title="seraphim" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/elsa.jpg" alt="elsa" title="elsa" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/elenh.jpg" alt="elenh" title="elenh" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/izual.jpg" alt="izual" title="izual" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/morvena.jpg" alt="morvena" title="morvena" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/ulee.jpg" alt="ulee" title="ulee" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/teddy.jpg" alt="teddy" title="teddy" /></a></li>
+			<?php
+			/*<li><a href="" onclick=""><img src="images/avatars/ax_tom_ax.jpg" alt="ax_tom_ax" title="ax_tom_ax" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/rakimu.jpg" alt="rakimu" title="rakimu" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/paaa.jpg" alt="paaa" title="paaa" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/irini_th_bill.jpg" alt="irini_th_bill" title="irini_th_bill" /></a></li>
+			*/
+			?>
 		</ul>
 	</div>
 	<div class="meetfriends">
