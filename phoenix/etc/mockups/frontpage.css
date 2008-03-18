@@ -49,6 +49,7 @@ div.members > div{
 div.members div.join {
 	background-image: url( 'images/frontpagejoin.jpg' );
 	background-repeat: no-repeat;
+	height: 189px;
 }
 div.members div.login {
 
