@@ -32,7 +32,7 @@
 		            if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 		                ?><a href="javascript:Shoutbox.New()"><img class="newshout" src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/page_new.gif" title="Προσθήκη μικρού νέου" alt="+" /></a><?php
+                        ?>icons/page_new.gif" title="Προσθήκη" alt="+" /></a><?php
 		            }
 					$i = 1;
 					while ( $shout = array_shift( $latestshouts ) ) {
@@ -69,7 +69,7 @@
 				    </div><?php
 				}
 
-				?><a id="shoutboxlink" href="" onclick="ShowMore('shoutbox' );return false;" class="arrow" title="Περισσότερα μικρά νέα"></a>
+				?><a id="shoutboxlink" href="" onclick="ShowMore('shoutbox' );return false;" class="arrow" title="Περισσότερες καταχωρήσεις"></a>
 			</div>
 		</div><?php
 	}

@@ -9,7 +9,7 @@
         $offset = $offset->Get();
         
 		$libs->Load( 'shoutbox' );
-		$page->SetTitle( "Μικρά νέα" );
+		$page->SetTitle( "Συζήτηση" );
 		$page->AttachStyleSheet( 'css/allshouts.css' );
 		
 		if ( $offset < 1 ) {
@@ -29,7 +29,7 @@
 		$shouts = LatestShouts( $offset , 20 );
 		
 		?><br /><br /><br /><br />
-		<span class="heading">Μικρά νέα</span><br /><br /><div class="allshouts"><?php
+		<span class="heading">Συζήτηση</span><br /><br /><div class="allshouts"><?php
         $shouttexts = array();
         foreach ( $shouts as $i => $thisshout ) {
             $shouttexts[ $i ] = $thisshout->Text();
@@ -48,9 +48,9 @@
 			if ( $user->CanModifyCategories() || ( $user->CanModifyStories() && $thisshout->UserId() == $user->Id() ) ) {
 				?><a style="cursor: pointer;" onclick="Shoutbox.Edit( <?php
 				echo $thisshout->Id();
-				?> );return false;" href="" title="Επεξεργασία Μικρού Νέου"><img src="<?php
+				?> );return false;" href="" title="Επεξεργασία"><img src="<?php
 				echo $xc_settings[ 'staticimagesurl' ];
-				?>icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία Ερώτησης" /></a><?php
+				?>icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία" /></a><?php
 			}
 			?></div>
 			<div style="display: none;" id="shoutedit_<?php

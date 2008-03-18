@@ -20,15 +20,15 @@
 		if ( $canmodify && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 			?><a style="cursor: pointer;" onclick="Shoutbox.Edit( <?php
 			echo $shout->Id();
-			?> );return false;" href="" title="Επεξεργασία Μικρού Νέου"><img src="<?php
+			?> );return false;" href="" title="Επεξεργασία"><img src="<?php
 			echo $xc_settings[ 'staticimagesurl' ];
-			?>icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία Μικρού Νέου" /></a>
+			?>icons/icon_wand.gif" width="16" height="16" alt="Επεξεργασία" /></a>
 			<a style="cursor: pointer;" onclick="Shoutbox.deleteShout( <?php
 			echo $shout->Id();
-			?> );return false;" href="" title="Διαγραφή Μικρού Νέου">
+			?> );return false;" href="" title="Διαγραφή">
 			<img src="<?php
 			echo $xc_settings[ 'staticimagesurl' ];
-			?>icons/delete_sm.png" alt="Διαγραφή Μικρού Νέου" /></a><?php
+			?>icons/delete_sm.png" alt="Διαγραφή" /></a><?php
 		}
 		
 		?></div>
