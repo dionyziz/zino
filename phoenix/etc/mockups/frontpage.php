@@ -38,4 +38,31 @@
 			?>
 		</ul>
 	</div>
+	<div class="members">
+		<div class="join">
+			<form>
+				Δημιούργησε το προφίλ σου:
+				<div>
+					<label>Όνομα:</label> <input type="text" name="username" />
+				</div>
+				<div>
+					<input value="Δημιουργία &raquo;" type="submit" /> 
+				</div>
+			</form>
+		</div>
+		<div class="login">
+			<form>
+				Είσοδος στο zino
+				<div>
+					<label>Όνομα:</label> <input type="text" name="username" />
+				</div>
+				<div>
+					<label>Κωδικός:</label> <input type="password" name="password" />
+				</div>
+				<div>
+					<input type="submit" value="Έισοδος &raquo;" />
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
