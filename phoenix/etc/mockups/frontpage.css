@@ -31,9 +31,7 @@ div.meetfriends div.people {
 div.latestimages {
 	height: 135px;
 	overflow: hidden;
-	border-bottom: 1px solid #e4e4e4;
 	margin: 0 4px 0 4px;
-	background-color: #f6f6f6;
 }
 div.latestimages ul {
 	margin: 0;
