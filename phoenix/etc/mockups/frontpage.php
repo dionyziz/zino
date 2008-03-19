@@ -164,37 +164,46 @@
 	<div class="latestcomments">
 		<h2>Νεότερα σχόλια</h2>
 		<div class="lastcomment">
-			<a href="http://morvena.zino.gr">
-				<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
-			</a> σχολίασε
-			στο ημερολόγιο <a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+			<div class="who">
+				<a href="http://morvena.zino.gr">
+					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+				</a> σχολίασε στο ημερολόγιο
+			</div>
+			<div class="subject">
+				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+			</div>
 		</div>
 		<div class="lastcomment"> 
 			<a href="http://teddy.zino.gr">
 				<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
-			</a> σχολίασε
-			στη φωτογραφία
+			</a> σχολίασε στη φωτογραφία
+			<div class="subject">
+			
+			</div>
 		</div>
 		<div class="lastcomment">
 			<a href="http://izual.zino.gr">
 				<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
-			</a> σχολίασε
-			στη δημοσκόπηση <a href="#">Τι θα ψηφίσεις στις εκλογές;</a>
+			</a> σχολίασε στη δημοσκόπηση 
+			<div class="subject">
+				<a href="#">Τι θα ψηφίσεις στις εκλογές;</a>
+			</div>
 		</div>
 		<div class="lastcomment">
 			<a href="http://dionyziz.zino.gr">
 				<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
-			</a> σχολίασε 
-			στη φωτογραφία
+			</a> σχολίασε στη φωτογραφία
+			<div class="subject">
+			
+			</div>
 		</div>
 		<div class="lastcomment">
 			<a href="http://elenh.zino.gr">
 				<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
-			</a> σχολίασε 
-			στο προφίλ της 
-			<a href="http://elsa.zino.gr">
-				<img src="images/avatars/elsa.jpg" class="avatar2" alt="elsa" />
-			</a>
+			</a> σχολίασε στο προφίλ της 
+			<div class="subject">
+				<a href="http://elsa.zino.gr">elsa</a>
+			</div>
 		</div>
 	</div>
 	<div class="eof"></div>
