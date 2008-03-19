@@ -189,9 +189,12 @@
 		</div>
 		<div class="lastcomment">
 			<a href="http://elenh.zino.gr">
-				<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
+				<img src="images/avatars/elenh.jpg" alt="_El3nh_" />
 			</a> σχολίασε 
 			στο προφίλ της 
+			<a href="http://elsa.zino.gr">
+				<img src="images/avatars/elsa.jpg" alt="elsa" />
+			</a>
 		</div>
 	</div>
 	<div class="eof"></div>
