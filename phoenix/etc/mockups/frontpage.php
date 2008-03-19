@@ -230,7 +230,7 @@
 				</a> σχολίασε στo προφίλ της 
 			</div>
 			<div class="subject">
-				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
 			</div>
 		</div>
 	</div>
