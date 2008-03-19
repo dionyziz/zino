@@ -177,36 +177,60 @@
 				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
-		<div class="lastcomment"> 
-			<a href="http://teddy.zino.gr">
-				<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
-			</a> σχολίασε στη φωτογραφία
+		<div class="lastcomment">
+			<div class="toolbox">
+				<span class="time">πριν λίγο</span>
+			</div>
+			<div class="who">
+				<a href="http://teddy.zino.gr">
+					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					Teddy
+				</a> σχολίασε στη φωτογραφία
+			</div>
 			<div class="subject">
-			
+				
 			</div>
 		</div>
 		<div class="lastcomment">
-			<a href="http://izual.zino.gr">
-				<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
-			</a> σχολίασε στη δημοσκόπηση 
+			<div class="toolbox">
+				<span class="time">πριν λίγο</span>
+			</div>
+			<div class="who">
+				<a href="http://elenh.zino.gr">
+					<img src="images/avatars/elenh.jpg" class="avatar" alt="morvena" />
+					_El3nh_
+				</a> σχολίασε στη δημοσκόπηση
+			</div>
 			<div class="subject">
-				<a href="#">Τι θα ψηφίσεις στις εκλογές;</a>
+				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
 		<div class="lastcomment">
-			<a href="http://dionyziz.zino.gr">
-				<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
-			</a> σχολίασε στη φωτογραφία
+			<div class="toolbox">
+				<span class="time">πριν 1 λεπτό</span>
+			</div>
+			<div class="who">
+				<a href="http://morvena.zino.gr">
+					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="morvena" />
+					dionyziz
+				</a> σχολίασε στην εικόνα
+			</div>
 			<div class="subject">
-			
+				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
 		<div class="lastcomment">
-			<a href="http://elenh.zino.gr">
-				<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
-			</a> σχολίασε στο προφίλ της 
+			<div class="toolbox">
+				<span class="time">πριν λίγο</span>
+			</div>
+			<div class="who">
+				<a href="http://izual.zino.gr">
+					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					izual
+				</a> σχολίασε στo προφίλ της 
+			</div>
 			<div class="subject">
-				<a href="http://elsa.zino.gr">elsa</a>
+				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
 	</div>
