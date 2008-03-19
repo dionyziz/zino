@@ -56,6 +56,9 @@ div.members div.join form {
 	margin: 50px 20px 0 auto;
 	color: #ffffff;
 }
+div.members div.join form div {
+	margin: 3px;
+}
 div.members div.login {
 	float: left;
 }
