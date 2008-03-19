@@ -167,7 +167,7 @@
 			<a href="http://morvena.zino.gr">
 				<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
 			</a> σχολίασε
-			στο ημερολόγιο "
+			στο ημερολόγιο <a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 		</div>
 		<div class="lastcomment"> 
 			<a href="http://teddy.zino.gr">
