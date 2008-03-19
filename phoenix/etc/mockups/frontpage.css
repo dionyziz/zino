@@ -48,7 +48,7 @@ div.members div.join {
 	height: 133px;
 	width: 486px;
 	float: left;
-	margin-right: 150px;
+	margin-right: 100px;
 }
 div.members div.join form {
 	text-align: left;
@@ -77,7 +77,7 @@ div.members div.login {
 	background-repeat: no-repeat;
 	text-align: left;
 	height: 129px;
-	width: 48%;
+	width: 293px;
 	float: left;
 	padding: 20px 0 0 10px;
 }
