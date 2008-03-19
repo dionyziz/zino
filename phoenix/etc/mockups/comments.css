@@ -2,6 +2,7 @@ div.comments {
 	float: left;
 	width: 90%;
 	overflow: hidden;
+	text-align: left;
 }
 div.comments div.comment {
 	float: left;
