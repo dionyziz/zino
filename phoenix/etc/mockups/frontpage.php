@@ -183,7 +183,7 @@
 			</div>
 			<div class="who">
 				<a href="http://teddy.zino.gr">
-					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
 					Teddy
 				</a> σχολίασε στη φωτογραφία
 			</div>
@@ -210,7 +210,7 @@
 				<span class="time">πριν 1 λεπτό</span>
 			</div>
 			<div class="who">
-				<a href="http://morvena.zino.gr">
+				<a href="http://dionyziz.zino.gr">
 					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="morvena" />
 					dionyziz
 				</a> σχολίασε στην εικόνα
@@ -225,7 +225,7 @@
 			</div>
 			<div class="who">
 				<a href="http://izual.zino.gr">
-					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					<img src="images/avatars/izual.jpg" class="avatar" alt="morvena" />
 					izual
 				</a> σχολίασε στo προφίλ της 
 			</div>
