@@ -163,19 +163,29 @@
 	</div>
 	<div class="latestcomments">
 		<div class="lastcomment">
-			<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+			<a href="http://morvena.zino.gr">
+				<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+			</a>
 		</div>
 		<div class="lastcomment"> 
-			<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
+			<a href="http://teddy.zino.gr">
+				<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
+			</a>
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
+			<a href="http://izual.zino.gr">
+				<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
+			</a>
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
+			<a href="http://dionyziz.zino.gr">
+				<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
+			</a>
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
+			<a href="http://elenh.zino.gr">
+				<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
+			</a>
 		</div>
 	</div>
 	<div class="eof"></div>
