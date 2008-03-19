@@ -68,10 +68,10 @@ div.members div.login {
 	background-image: url( 'images/frontpagelogin.jpg' );
 	background-repeat: no-repeat;
 	text-align: left;
-	height: 484px;
-	width: 129px;
-	
+	height: 129px;
+	width: 484px;
 	float: left;
+	padding-top: 3px;
 }
 div.members div.login form div {
 	margin: 5px; 
