@@ -107,7 +107,7 @@ div.latestcomments {
 }
 div.latestcomments div.lastcomment {
 	clear: both;
-	padding-bottom: 3px;
+	padding-top: 10px;
 }
 div.latestcomments div.lastcomment a img {
 	width: 50px;
