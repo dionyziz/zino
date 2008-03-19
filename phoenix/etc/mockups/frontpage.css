@@ -61,6 +61,13 @@ div.members div.join form div {
 	margin: 9px 0 9px 0;
 	width: 123%;
 }
+div.members div.join form h2 {
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	display: inline;
+	font-size: 100%;
+}
 div.members form label {
 	margin-right: 5px;
 }
@@ -70,12 +77,17 @@ div.members div.login {
 	text-align: left;
 	height: 129px;
 	width: 484px;
-	float: left;
+	float: right;
 	padding-top: 20px;
 	margin: 2px 0 0 5px;
 }
 div.members div.login form div {
 	margin: 5px; 
+}
+div.members div.login form h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 110%;
 }
 div.members div.login form div label {
 	float: left;

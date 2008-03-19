@@ -41,7 +41,7 @@
 	<div class="members">
 		<div class="join">
 			<form>
-				Δημιούργησε το προφίλ σου!
+				<h2>Δημιούργησε το προφίλ σου!</h2>
 				<div>
 					<label>Όνομα:</label><input type="text" name="username" />
 				</div>
@@ -52,7 +52,7 @@
 		</div>
 		<div class="login">
 			<form>
-				Είσοδος στο zino
+				<h2>Είσοδος στο zino</h2>
 				<div>
 					<label>Όνομα:</label> <input type="text" name="username" />
 				</div>
