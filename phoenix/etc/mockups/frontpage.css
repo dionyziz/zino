@@ -65,22 +65,22 @@ div.members form label {
 	margin-right: 5px;
 }
 div.members div.login {
-	background-image: url( '' );
+	background-image: url( 'images/frontpagelogin.jpg' );
 	background-repeat: no-repeat;
 	text-align: left;
 	float: left;
 }
-div.shoutbox {
-	width: 60%;
-}
 div.members div.login form div {
-	margin: 3px; 
+	margin: 5px; 
 }
 div.members div.login form div label {
 	float: left;
 	display: block;
-	width: 80px;
+	width: 70px;
 }
 div.members div.login form input {
 	
+}
+div.shoutbox {
+	width: 60%;
 }
