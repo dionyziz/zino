@@ -73,9 +73,14 @@ div.members div.login {
 div.shoutbox {
 	width: 60%;
 }
+div.members div.login form div {
+	margin: 3px; 
+}
 div.members div.login form div label {
 	float: left;
+	display: block;
+	width: 80px;
 }
 div.members div.login form input {
-	margin-left: 50px;
+	
 }
