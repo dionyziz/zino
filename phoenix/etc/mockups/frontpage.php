@@ -193,7 +193,7 @@
 			</a> σχολίασε 
 			στο προφίλ της 
 			<a href="http://elsa.zino.gr">
-				<img src="images/avatars/elsa.jpg" alt="elsa" />
+				<img src="images/avatars/elsa.jpg" class="avatar2" alt="elsa" />
 			</a>
 		</div>
 	</div>
