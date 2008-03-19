@@ -165,7 +165,7 @@
 		<h2>Νεότερα σχόλια</h2>
 		<div class="lastcomment">
 			<div class="toolbox">
-				πρίν λίγο
+				<span class="time">πριν λίγο</span>
 			</div>
 			<div class="who">
 				<a href="http://morvena.zino.gr">

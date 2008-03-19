@@ -114,6 +114,10 @@ div.latestcomments div.lastcomment div.toolbox {
 	float: right;
 	padding: 2px 6px 2px 2px;
 }
+div.latestcomments div.lastcomment div.toolbox span.time {
+	color: #999;
+	font-size: 80%;
+}
 div.latestcomments div.lastcomment div.who {
 	border-top: 1px solid #ccc !important;
 	display: block;
