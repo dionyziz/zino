@@ -58,11 +58,11 @@ div.members div.join form {
 	font-weight: bold;
 }
 div.members div.join form div {
-	margin: 5px 0 5px 0;
+	margin: 7px 0 7px 0;
 	width: 100%;
 }
 div.members form label {
-	margin-right: 3px;
+	margin-right: 5px;
 }
 div.members div.login {
 	float: left;
