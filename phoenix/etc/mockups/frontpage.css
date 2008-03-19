@@ -47,7 +47,7 @@ div.members div.join {
 	background-repeat: no-repeat;
 	height: 133px;
 	width: 486px;
-	text-align: right;
+	/*text-align: right;*/
 	float: left;
 }
 div.members div.join form {
@@ -65,8 +65,17 @@ div.members form label {
 	margin-right: 5px;
 }
 div.members div.login {
+	background-image: url( '' );
+	background-repeat: no-repeat;
+	text-align: left;
 	float: left;
 }
 div.shoutbox {
 	width: 60%;
+}
+div.members div.login form div label {
+	float: left;
+}
+div.members div.login form input {
+	margin-left: 50px;
 }
