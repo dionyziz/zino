@@ -230,7 +230,7 @@
 				</a> σχολίασε στo προφίλ της 
 			</div>
 			<div class="subject">
-				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
+				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" class="avatar2" /></a>
 			</div>
 		</div>
 	</div>
