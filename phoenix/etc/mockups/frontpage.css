@@ -67,6 +67,7 @@ div.members div.join form h2 {
 	font-weight: normal;
 	display: inline;
 	font-size: 100%;
+	color: #ffffff;
 }
 div.members form label {
 	margin-right: 5px;
@@ -78,7 +79,7 @@ div.members div.login {
 	height: 129px;
 	width: 484px;
 	float: right;
-	padding-top: 20px;
+	padding: 20px 0 0 10px;
 }
 div.members div.login form div {
 	margin: 5px; 
