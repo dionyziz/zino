@@ -185,7 +185,7 @@
 				<a href="http://teddy.zino.gr">
 					<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
 					Teddy
-				</a> σχολίασε στη φωτογραφία
+				</a> σχολίασε στην εικόνα
 			</div>
 			<div class="subject">
 				
@@ -199,10 +199,10 @@
 				<a href="http://elenh.zino.gr">
 					<img src="images/avatars/elenh.jpg" class="avatar" alt="morvena" />
 					_El3nh_
-				</a> σχολίασε στη δημοσκόπηση
+				</a> σχολίασε στη δημοσκόπηση 
 			</div>
 			<div class="subject">
-				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+				<a href="#">All star, Vans ή DC?</a>
 			</div>
 		</div>
 		<div class="lastcomment">
@@ -216,7 +216,7 @@
 				</a> σχολίασε στην εικόνα
 			</div>
 			<div class="subject">
-				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+				<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
 			</div>
 		</div>
 		<div class="lastcomment">
