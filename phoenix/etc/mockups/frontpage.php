@@ -164,9 +164,13 @@
 	<div class="latestcomments">
 		<h2>Νεότερα σχόλια</h2>
 		<div class="lastcomment">
+			<div class="toolbox">
+				πρίν λίγο
+			</div>
 			<div class="who">
 				<a href="http://morvena.zino.gr">
 					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					Morvena
 				</a> σχολίασε στο ημερολόγιο
 			</div>
 			<div class="subject">
