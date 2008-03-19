@@ -71,7 +71,8 @@ div.members div.login {
 	height: 129px;
 	width: 484px;
 	float: left;
-	padding-top: 3px;
+	padding-top: 40px;
+	margin: 2px 0 0 5px;
 }
 div.members div.login form div {
 	margin: 5px; 
