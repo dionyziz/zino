@@ -106,8 +106,9 @@ div.latestcomments {
 	text-align: left;
 }
 div.latestcomments div.lastcomment {
+	float: left;
 	clear: both;
-	margin: 3px 0 2px 0;
+	margin: 0px 0 5px 0;
 }
 div.latestcomments div.lastcomment a img {
 	width: 50px;
