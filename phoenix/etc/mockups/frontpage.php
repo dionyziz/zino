@@ -65,18 +65,16 @@
 			</form>
 		</div>
 	</div>
+	<div class="eof"></div>
 	<div class="shoutbox">
 		<h2>Συζήτηση</h2>
 			<div class="comments">
 			<div class="comment newcomment">
-				<div class="toolbox">
-					<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
-				</div>
 				<div class="who">
 					<a href="user/dionyziz">
 						<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 						dionyziz
-					</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
+					</a>πρόσθεσε ένα σχόλιο στη συζήτηση
 				</div>
 				<div class="text">
 					<textarea rows="2" cols="50"></textarea>
