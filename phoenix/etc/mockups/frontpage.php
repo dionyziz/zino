@@ -60,7 +60,7 @@
 					<label>Κωδικός:</label> <input type="password" name="password" />
 				</div>
 				<div>
-					<input type="submit" value="Έισοδος &raquo;" />
+					<input type="submit" value="Είσοδος &raquo;" />
 				</div>
 			</form>
 		</div>

@@ -67,3 +67,6 @@ div.members form label {
 div.members div.login {
 	float: left;
 }
+div.shoutbox {
+	width: 70%;
+}
