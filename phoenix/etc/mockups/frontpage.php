@@ -41,7 +41,7 @@
 	<div class="members">
 		<div class="join">
 			<form>
-				Δημιούργησε το προφίλ σου:
+				Δημιούργησε το προφίλ σου!
 				<div>
 					<label>Όνομα:</label> <input type="text" name="username" />
 				</div>

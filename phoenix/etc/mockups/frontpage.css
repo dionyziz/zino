@@ -53,11 +53,12 @@ div.members div.join {
 div.members div.join form {
 	text-align: left;
 	width: 40%;
-	margin: 50px 20px 0 auto;
+	margin: 30px 40px 0 auto;
 	color: #ffffff;
+	font-weight: bold;
 }
 div.members div.join form div {
-	margin: 3px;
+	margin: 5px;
 }
 div.members div.login {
 	float: left;
