@@ -193,7 +193,7 @@
 		</div>
 		<div class="lastcomment">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 1 λεπτό</span>
 			</div>
 			<div class="who">
 				<a href="http://elenh.zino.gr">
@@ -221,7 +221,7 @@
 		</div>
 		<div class="lastcomment">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 3 λεπτά</span>
 			</div>
 			<div class="who">
 				<a href="http://izual.zino.gr">
