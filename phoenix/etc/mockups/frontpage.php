@@ -162,6 +162,7 @@
 		</div>
 	</div>
 	<div class="latestcomments">
+		<h2>Νεότερα σχόλια</h2>
 		<div class="lastcomment">
 			<a href="http://morvena.zino.gr">
 				<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
