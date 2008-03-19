@@ -95,11 +95,7 @@
 					</a> είπε:
 				</div>
 				<div class="text">
-					ρε μλκ τι είναι αυτά που γράφεις στο προφίλ μου? μωρή μαλακία...
-					<img src="images/emoticons/tongue.png" alt=":P" title=":P" /><br />
-					άμα σε πιάσω...<br />
-					χαχα!! <img src="images/emoticons/teeth.png" alt=":D" title=":D" /><br />
-					θα βρεθούμε το ΣΚ!??
+					pao na pai3o WoW... geia sas malakies!!!
 				</div>
 			</div>
 			
