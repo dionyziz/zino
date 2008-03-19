@@ -166,27 +166,32 @@
 		<div class="lastcomment">
 			<a href="http://morvena.zino.gr">
 				<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
-			</a>
+			</a> σχολίασε
+			στο ημερολόγιο "
 		</div>
 		<div class="lastcomment"> 
 			<a href="http://teddy.zino.gr">
 				<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
-			</a>
+			</a> σχολίασε
+			στη φωτογραφία
 		</div>
 		<div class="lastcomment">
 			<a href="http://izual.zino.gr">
 				<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
-			</a>
+			</a> σχολίασε
+			στη δημοσκόπηση <a href="#">Τι θα ψηφίσεις στις εκλογές;</a>
 		</div>
 		<div class="lastcomment">
 			<a href="http://dionyziz.zino.gr">
 				<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
-			</a>
+			</a> σχολίασε 
+			στη φωτογραφία
 		</div>
 		<div class="lastcomment">
 			<a href="http://elenh.zino.gr">
 				<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
-			</a>
+			</a> σχολίασε 
+			στο προφίλ της 
 		</div>
 	</div>
 	<div class="eof"></div>
