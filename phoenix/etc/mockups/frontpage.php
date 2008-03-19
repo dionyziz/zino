@@ -188,7 +188,7 @@
 				</a> σχολίασε στην εικόνα
 			</div>
 			<div class="subject">
-				
+				<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
 			</div>
 		</div>
 		<div class="lastcomment">
