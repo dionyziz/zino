@@ -109,7 +109,7 @@
 				</div>
 				<div class="who">
 					<a href="user/smilemagic">
-						<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+						<img src="images/avatars/izual.jpg" class="avatar" alt="SmilEMagiC" />
 						Izual
 					</a> είπε:
 				</div>
@@ -124,8 +124,8 @@
 				</div>
 				<div class="who">
 					<a href="user/smilemagic">
-						<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
-						Kogi
+						<img src="images/avatars/ulee.jpg" class="avatar" alt="SmilEMagiC" />
+						uLee
 					</a> είπε:
 				</div>
 				<div class="text">
@@ -139,7 +139,7 @@
 				</div>
 				<div class="who">
 					<a href="user/smilemagic">
-						<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+						<img src="images/avatars/elsa.jpg" class="avatar" alt="SmilEMagiC" />
 						elsa
 					</a> είπε:
 				</div>
@@ -154,8 +154,8 @@
 				</div>
 				<div class="who">
 					<a href="user/smilemagic">
-						<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
-						akatonomastos
+						<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
+						_El3nh_
 					</a> είπε:
 				</div>
 				<div class="text">
