@@ -99,4 +99,8 @@ div.members div.login form input {
 }
 div.shoutbox {
 	width: 60%;
+	float: left;
+}
+div.latestcomments {
+	float: left;
 }

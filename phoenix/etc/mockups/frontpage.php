@@ -163,19 +163,19 @@
 	</div>
 	<div class="latestcomments">
 		<div class="lastcomment">
-			<img src="images/avatars/morvena.jpg" alt="morvena" />
+			<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
 		</div>
 		<div class="lastcomment"> 
-			<img src="images/avatars/teddy.jpg" alt="teddy" />
+			<img src="images/avatars/teddy.jpg" class="avatar" alt="teddy" />
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/izual.jpg" alt="izual" />
+			<img src="images/avatars/izual.jpg" class="avatar" alt="izual" />
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/dionyziz.jpg" alt="dionyziz" />
+			<img src="images/avatars/dionyziz.jpg" class="avatar" alt="dionyziz" />
 		</div>
 		<div class="lastcomment">
-			<img src="images/avatars/elenh.jpg" alt="_El3nh_" />
+			<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
 		</div>
 	</div>
 	<div class="eof"></div>
