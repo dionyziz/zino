@@ -161,5 +161,22 @@
 			</div>	
 		</div>
 	</div>
+	<div class="latestcomments">
+		<div class="lastcomment">
+			<img src="images/avatars/morvena.jpg" alt="morvena" />
+		</div>
+		<div class="lastcomment"> 
+			<img src="images/avatars/teddy.jpg" alt="teddy" />
+		</div>
+		<div class="lastcomment">
+			<img src="images/avatars/izual.jpg" alt="izual" />
+		</div>
+		<div class="lastcomment">
+			<img src="images/avatars/dionyziz.jpg" alt="dionyziz" />
+		</div>
+		<div class="lastcomment">
+			<img src="images/avatars/elenh.jpg" alt="_El3nh_" />
+		</div>
+	</div>
 	<div class="eof"></div>
 </div>

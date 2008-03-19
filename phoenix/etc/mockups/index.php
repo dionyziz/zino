@@ -46,6 +46,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 		else {
 			$p = 'frontpage';
 		}
+		//load css according to the element loaded
 		switch ( $p ) {
 			case 'join':
 				?><link rel="stylesheet" type="text/css" href="join.css" />
@@ -106,6 +107,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 	<body><?php
     include 'banner.php';
 	?><div class="content" id="content"><?php
+	//load the appropriate element
 	switch ( $p ) {
 		case 'join':
 			include 'join.php';
