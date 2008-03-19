@@ -53,9 +53,7 @@
 		<div class="login">
 			<form>
 				Είσοδος στο zino
-				<div>
-					<label>Όνομα:</label> <input type="text" name="username" />
-				</div>
+				<div><label>Όνομα:</label><input type="text" name="username" /></div>
 				<div>
 					<label>Κωδικός:</label> <input type="password" name="password" />
 				</div>

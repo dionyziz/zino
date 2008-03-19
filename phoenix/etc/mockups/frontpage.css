@@ -59,6 +59,7 @@ div.members div.join form {
 }
 div.members div.join form div {
 	margin: 5px;
+	width: 100%;
 }
 div.members div.login {
 	float: left;
