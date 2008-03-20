@@ -115,7 +115,7 @@ div.latestcomments h2 {
 div.latestcomments div.lastcomment {
 	float: left;
 	clear: both;
-	margin: 0px 0 5px 0;
+	margin: 0 0 15px 0;
 	width: 100%;
 }
 div.latestcomments div.lastcomment div.toolbox {
