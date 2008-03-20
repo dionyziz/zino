@@ -260,12 +260,16 @@
 			<a href="http://mpoompoo.zino.gr"><img src="images/avatars/mpoompoo.jpg" alt="mpoompoo" /></a>
 			<a href="http://hara16.zino.gr"><img src="images/avatars/hara16.jpg" alt="hara16" /></a>
 			<a href="http://olia_kaulitz.zino.gr"><img src="images/avatars/olia_kaulitz.jpg" alt="olia_kaulitz" /></a>
-			<a href="http://nenooz.zino.gr"><img src="images/avatars/nenooz.jpg" alt="nenooz" /></a>
+			<a href="http://nenoooz.zino.gr"><img src="images/avatars/nenoooz.jpg" alt="nenoooz" /></a>
 			<a href="http://vivika.zino.gr"><img src="images/avatars/vivika.jpg" alt="vivika" /></a>
 			<a href="http://tnt.zino.gr"><img src="images/avatars/tnt.jpg" alt="tnt" /></a>
 			<a href="http://titi.zino.gr"><img src="images/avatars/titi.jpg" alt="titi" /></a>
 			<a href="http://zoulou.zino.gr"><img src="images/avatars/zoulou.jpg" alt="zoulou" /></a>
-			<a href="http://akatonomastos.zino.gr"><img src="images/avatars/akatonomastos.jpg" alt="akatonomastos" /></a>
+			<a href="http://vacilina.zino.gr"><img src="images/avatars/vacilina.jpg" alt="vacilina" /></a>
+			<a href="http://aserhcp.zino.gr"><img src="images/avatars/aserhcp.jpg" alt="aserhcp" /></a>
+			<a href="http://argiro-18.zino.gr"><img src="images/avatars/argiro-18.jpg" alt="argiro_18" /></a>
+			<a href="http://arloucoz.zino.gr"><img src="images/avatars/arloucoz.jpg" alt="arloucoz" /></a>
+			<a href="http://aztokiohotel09.zino.gr"><img src="images/avatars/aztokiohotel09.jpg" alt="aztokiohotel09" /></a>			
 		</div>
 	</div>
 	<div class="eof"></div>
