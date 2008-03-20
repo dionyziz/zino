@@ -112,48 +112,6 @@ div.latestcomments {
 div.latestcomments h2 {
 	margin-bottom: 13px;
 }
-/*
-div.latestcomments div.list {
-	padding-top: 1px;
-	overflow: hidden;
-}
-div.latestcomments div.list div.lastcomment {
-	float: left;
-	clear: both;
-	margin: 0 0 20px 0;
-	width: 100%;
-}
-div.latestcomments div.list div.lastcomment div.toolbox {
-	float: right;
-	padding: 2px 6px 2px 2px;
-}
-div.latestcomments div.list div.lastcomment div.toolbox span.time {
-	color: #999;
-	font-size: 80%;
-}
-div.latestcomments div.list div.lastcomment div.who {
-	border-top: 1px solid #ccc !important;
-	display: block;
-	padding: 2px 0 2px 4px;
-	background-color: #f4f4f4;
-	color: #666;
-}
-div.latestcomments div.list div.lastcomment a img.avatar {
-	width: 50px;
-	height: 50px;
-	border: 1px solid #666;
-	float: left;
-	margin: 0 4px 0 0;
-}
-div.latestcomments div.list div.lastcomment div.subject {
-	padding-top: 5px;
-}
-div.latestcomments div.list div.lastcomment div.subject a img.avatar2 {
-	width: 50px;
-	height: 50px;
-	border: 1px solid #666;
-}
-*/
 div.nowonline {
 	text-align: left;
 }
@@ -163,6 +121,10 @@ div.nowonline a {
 }
 div.nowonline a img {
 	border: 1px solid #666;
+}
+div.latestevents {
+	float: left;
+	width: 40%;
 }
 /* events css */
 div.list {
