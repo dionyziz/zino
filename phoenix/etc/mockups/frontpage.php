@@ -254,4 +254,5 @@
 			<a href="http://smilemagic.zino.gr"><img src="images/avatars/smilemagic.jpg" alt="smilemagic" /></a>
 		</div>
 	</div>
+	<div class="eof"></div>
 </div>
