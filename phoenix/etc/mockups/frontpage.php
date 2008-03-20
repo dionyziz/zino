@@ -251,7 +251,21 @@
 			<a href="http://ulee.zino.gr"><img src="images/avatars/ulee.jpg" alt="uLee" /></a>
 			<a href="http://scorpion.zino.gr"><img src="images/avatars/scorpion.jpg" alt="scorpion" /></a>
 			<a href="http://porcelain-barbie.zino.gr"><img src="images/avatars/porcelain_barbie.jpg" alt="porcelain_barbie" /></a>
-			<a href="http://smilemagic.zino.gr"><img src="images/avatars/smilemagic.jpg" alt="smilemagic" /></a>
+			<a href="http://rhapsody.zino.gr"><img src="images/avatars/rhapsody.jpg" alt="rhapsody" /></a>
+			<a href="http://katrine.zino.gr"><img src="images/avatars/katrine.jpg" alt="katrine" /></a>
+			<a href="http://gatoni.zino.gr"><img src="images/avatars/gatoni.jpg" alt="gatoni" /></a>
+			<a href="http://georgia.zino.gr"><img src="images/avatars/georgia.jpg" alt="georgia" /></a>
+			<a href="http://drag.zino.gr"><img src="images/avatars/drag.jpg" alt="drag" /></a>
+			<a href="http://eva483.zino.gr"><img src="images/avatars/eva483.jpg" alt="eva483" /></a>
+			<a href="http://mpoompoo.zino.gr"><img src="images/avatars/mpoompoo.jpg" alt="mpoompoo" /></a>
+			<a href="http://hara16.zino.gr"><img src="images/avatars/hara16.jpg" alt="hara16" /></a>
+			<a href="http://olia_kaulitz.zino.gr"><img src="images/avatars/olia_kaulitz.jpg" alt="olia_kaulitz" /></a>
+			<a href="http://nenooz.zino.gr"><img src="images/avatars/nenooz.jpg" alt="nenooz" /></a>
+			<a href="http://vivika.zino.gr"><img src="images/avatars/vivika.jpg" alt="vivika" /></a>
+			<a href="http://tnt.zino.gr"><img src="images/avatars/tnt.jpg" alt="tnt" /></a>
+			<a href="http://titi.zino.gr"><img src="images/avatars/titi.jpg" alt="titi" /></a>
+			<a href="http://zoulou.zino.gr"><img src="images/avatars/zoulou.jpg" alt="zoulou" /></a>
+			<a href="http://akatonomastos.zino.gr"><img src="images/avatars/akatonomastos.jpg" alt="akatonomastos" /></a>
 		</div>
 	</div>
 	<div class="eof"></div>
