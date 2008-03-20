@@ -69,101 +69,187 @@
 		</div>
 		<div class="eof"></div><?php
 	} 
-	?><div class="shoutbox">
-		<h2>Συζήτηση</h2>
-		<div class="comments">
-			<div class="comment newcomment">
-				<div class="who">
-					<a href="user/dionyziz">
-						<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
-						dionyziz
-					</a>πρόσθεσε ένα σχόλιο στη συζήτηση
+	else {
+	?><div>
+		<div class="shoutbox">
+			<h2>Συζήτηση</h2>
+			<div class="comments">
+				<div class="comment newcomment">
+					<div class="who">
+						<a href="user/dionyziz">
+							<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
+							dionyziz
+						</a>πρόσθεσε ένα σχόλιο στη συζήτηση
+					</div>
+					<div class="text">
+						<textarea rows="2" cols="50"></textarea>
+					</div>
+					<div class="bottom">
+						<input type="submit" value="Σχολίασε!" />
+					</div>
 				</div>
-				<div class="text">
-					<textarea rows="2" cols="50"></textarea>
+				
+				<div class="comment" style="border-color: #dee;">
+					<div class="toolbox">
+						<span class="time">πριν 12 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="user/smilemagic">
+							<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
+							SmilEMagiC
+						</a> είπε:
+					</div>
+					<div class="text">
+						pao na pai3o WoW... geia sas malakies!!!
+					</div>
 				</div>
-				<div class="bottom">
-					<input type="submit" value="Σχολίασε!" />
+				
+				<div class="comment" style="border-color: #dee;">
+					<div class="toolbox">
+						<span class="time">πριν 12 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="user/smilemagic">
+							<img src="images/avatars/izual.jpg" class="avatar" alt="SmilEMagiC" />
+							Izual
+						</a> είπε:
+					</div>
+					<div class="text">
+						Βαριέμαι ρε ψόλες...
+					</div>
+				</div>
+				
+				<div class="comment" style="border-color: #dee;">
+					<div class="toolbox">
+						<span class="time">πριν 13 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="user/smilemagic">
+							<img src="images/avatars/ulee.jpg" class="avatar" alt="SmilEMagiC" />
+							uLee
+						</a> είπε:
+					</div>
+					<div class="text">
+						Φοράω τα φτερά μου και το παίζω πεταλούδος... yeah zouzounitsa mou
+					</div>
+				</div>
+				
+				<div class="comment" style="border-color: #dee;">
+					<div class="toolbox">
+						<span class="time">πριν 16 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="user/smilemagic">
+							<img src="images/avatars/elsa.jpg" class="avatar" alt="SmilEMagiC" />
+							elsa
+						</a> είπε:
+					</div>
+					<div class="text">
+						Re georgia ama se piaso... na deis ti 8a ginei
+					</div>
+				</div>
+				
+				<div class="comment" style="border-color: #dee;">
+					<div class="toolbox">
+						<span class="time">πριν 17 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="user/smilemagic">
+							<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
+							_El3nh_
+						</a> είπε:
+					</div>
+					<div class="text">
+						Re zouzounitsa se agapao pragmatika kai eisai to pan gia mena...<br />
+						O fterotos petaloudos sou
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="latestcomments latestcomments<?php
+		if ( !$loggedin ) {
+			?>1<?php
+		}
+		else {
+			?>2<?php
+		}
+		?>">
+			<h2>Νεότερα σχόλια</h2>
+			<div class="list">
+				<div class="event">
+					<div class="toolbox">
+						<span class="time">πριν λίγο</span>
+					</div>
+					<div class="who">
+						<a href="http://morvena.zino.gr">
+							<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+							Morvena
+						</a> έγραψε σχόλιο στο ημερολόγιο
+					</div>
+					<div class="subject">
+						<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+					</div>
+				</div>
+				<div class="event">
+					<div class="toolbox">
+						<span class="time">πριν λίγο</span>
+					</div>
+					<div class="who">
+						<a href="http://teddy.zino.gr">
+							<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
+							Teddy
+						</a> έγραψε σχόλιο στην εικόνα
+					</div>
+					<div class="subject">
+						<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
+					</div>
+				</div>
+				<div class="event">
+					<div class="toolbox">
+						<span class="time">πριν 1 λεπτό</span>
+					</div>
+					<div class="who">
+						<a href="http://elenh.zino.gr">
+							<img src="images/avatars/elenh.jpg" class="avatar" alt="morvena" />
+							_El3nh_
+						</a> έγραψε σχόλιο στη δημοσκόπηση 
+					</div>
+					<div class="subject">
+						<a href="#">All star, Vans ή DC?</a>
+					</div>
+				</div>
+				<div class="event">
+					<div class="toolbox">
+						<span class="time">πριν 1 λεπτό</span>
+					</div>
+					<div class="who">
+						<a href="http://dionyziz.zino.gr">
+							<img src="images/avatars/dionyziz.jpg" class="avatar" alt="morvena" />
+							dionyziz
+						</a> έγραψε σχόλιο στην εικόνα
+					</div>
+					<div class="subject">
+						<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
+					</div>
+				</div>
+				<div class="event">
+					<div class="toolbox">
+						<span class="time">πριν 3 λεπτά</span>
+					</div>
+					<div class="who">
+						<a href="http://izual.zino.gr">
+							<img src="images/avatars/izual.jpg" class="avatar" alt="morvena" />
+							izual
+						</a> έγραψε σχόλιο στo προφίλ της 
+					</div>
+					<div class="subject">
+						<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
+					</div>
 				</div>
 			</div>
-			
-			<div class="comment" style="border-color: #dee;">
-				<div class="toolbox">
-					<span class="time">πριν 12 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="user/smilemagic">
-						<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
-						SmilEMagiC
-					</a> είπε:
-				</div>
-				<div class="text">
-					pao na pai3o WoW... geia sas malakies!!!
-				</div>
-			</div>
-			
-			<div class="comment" style="border-color: #dee;">
-				<div class="toolbox">
-					<span class="time">πριν 12 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="user/smilemagic">
-						<img src="images/avatars/izual.jpg" class="avatar" alt="SmilEMagiC" />
-						Izual
-					</a> είπε:
-				</div>
-				<div class="text">
-					Βαριέμαι ρε ψόλες...
-				</div>
-			</div>
-			
-			<div class="comment" style="border-color: #dee;">
-				<div class="toolbox">
-					<span class="time">πριν 13 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="user/smilemagic">
-						<img src="images/avatars/ulee.jpg" class="avatar" alt="SmilEMagiC" />
-						uLee
-					</a> είπε:
-				</div>
-				<div class="text">
-					Φοράω τα φτερά μου και το παίζω πεταλούδος... yeah zouzounitsa mou
-				</div>
-			</div>
-			
-			<div class="comment" style="border-color: #dee;">
-				<div class="toolbox">
-					<span class="time">πριν 16 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="user/smilemagic">
-						<img src="images/avatars/elsa.jpg" class="avatar" alt="SmilEMagiC" />
-						elsa
-					</a> είπε:
-				</div>
-				<div class="text">
-					Re georgia ama se piaso... na deis ti 8a ginei
-				</div>
-			</div>
-			
-			<div class="comment" style="border-color: #dee;">
-				<div class="toolbox">
-					<span class="time">πριν 17 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="user/smilemagic">
-						<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
-						_El3nh_
-					</a> είπε:
-				</div>
-				<div class="text">
-					Re zouzounitsa se agapao pragmatika kai eisai to pan gia mena...<br />
-					O fterotos petaloudos sou
-				</div>
-			</div>	
 		</div>
 	</div><?php
+	}
 	if ( $loggedin) {
 		?><div class="latestevents">
 			<h2>Συνέβησαν πρόσφατα</h2>
@@ -382,88 +468,7 @@
 		</div><?php
 	}
 	?>
-	<div class="latestcomments latestcomments<?php
-	if ( !$loggedin ) {
-		?>1<?php
-	}
-	else {
-		?>2<?php
-	}
-	?>">
-		<h2>Νεότερα σχόλια</h2>
-		<div class="list">
-			<div class="event">
-				<div class="toolbox">
-					<span class="time">πριν λίγο</span>
-				</div>
-				<div class="who">
-					<a href="http://morvena.zino.gr">
-						<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
-						Morvena
-					</a> έγραψε σχόλιο στο ημερολόγιο
-				</div>
-				<div class="subject">
-					<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
-				</div>
-			</div>
-			<div class="event">
-				<div class="toolbox">
-					<span class="time">πριν λίγο</span>
-				</div>
-				<div class="who">
-					<a href="http://teddy.zino.gr">
-						<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
-						Teddy
-					</a> έγραψε σχόλιο στην εικόνα
-				</div>
-				<div class="subject">
-					<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
-				</div>
-			</div>
-			<div class="event">
-				<div class="toolbox">
-					<span class="time">πριν 1 λεπτό</span>
-				</div>
-				<div class="who">
-					<a href="http://elenh.zino.gr">
-						<img src="images/avatars/elenh.jpg" class="avatar" alt="morvena" />
-						_El3nh_
-					</a> έγραψε σχόλιο στη δημοσκόπηση 
-				</div>
-				<div class="subject">
-					<a href="#">All star, Vans ή DC?</a>
-				</div>
-			</div>
-			<div class="event">
-				<div class="toolbox">
-					<span class="time">πριν 1 λεπτό</span>
-				</div>
-				<div class="who">
-					<a href="http://dionyziz.zino.gr">
-						<img src="images/avatars/dionyziz.jpg" class="avatar" alt="morvena" />
-						dionyziz
-					</a> έγραψε σχόλιο στην εικόνα
-				</div>
-				<div class="subject">
-					<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
-				</div>
-			</div>
-			<div class="event">
-				<div class="toolbox">
-					<span class="time">πριν 3 λεπτά</span>
-				</div>
-				<div class="who">
-					<a href="http://izual.zino.gr">
-						<img src="images/avatars/izual.jpg" class="avatar" alt="morvena" />
-						izual
-					</a> έγραψε σχόλιο στo προφίλ της 
-				</div>
-				<div class="subject">
-					<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
-				</div>
-			</div>
-		</div>
-	</div><div class="eof"></div>
+	<div class="eof"></div>
 	<div class="nowonline">
 		<h2>Είναι online τώρα</h2>
 		<div class="list">
