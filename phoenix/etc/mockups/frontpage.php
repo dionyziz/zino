@@ -70,7 +70,7 @@
 		<div class="eof"></div><?php
 	} 
 	else {
-	?><div>
+	?><div style="float:left;width:60%;">
 		<div class="shoutbox">
 			<h2>Συζήτηση</h2>
 			<div class="comments">
@@ -166,14 +166,7 @@
 				</div>	
 			</div>
 		</div>
-		<div class="latestcomments latestcomments<?php
-		if ( !$loggedin ) {
-			?>1<?php
-		}
-		else {
-			?>2<?php
-		}
-		?>">
+		<div class="latestcomments latestcomments">
 			<h2>Νεότερα σχόλια</h2>
 			<div class="list">
 				<div class="event">
@@ -251,7 +244,7 @@
 	</div><?php
 	}
 	if ( $loggedin) {
-		?><div class="latestevents">
+		?><div class="latestevents1">
 			<h2>Συνέβησαν πρόσφατα</h2>
 			<div class="list">
 				<div class="event">
