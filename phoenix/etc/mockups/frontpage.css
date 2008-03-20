@@ -112,6 +112,7 @@ div.latestcomments {
 div.latestcomments h2 {
 	margin-bottom: 13px;
 }
+/*
 div.latestcomments div.list {
 	padding-top: 1px;
 	overflow: hidden;
@@ -152,13 +153,12 @@ div.latestcomments div.list div.lastcomment div.subject a img.avatar2 {
 	height: 50px;
 	border: 1px solid #666;
 }
+*/
 div.nowonline {
 	text-align: left;
 }
 div.nowonline a {
 	float: left;
-}
-div.nowonline a {
 	margin: 0 12px 12px 0;
 }
 div.nowonline a img {

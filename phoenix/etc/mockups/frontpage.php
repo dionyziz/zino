@@ -246,7 +246,7 @@
 	<div class="latestcomments">
 		<h2>Νεότερα σχόλια</h2>
 		<div class="list">
-			<div class="lastcomment">
+			<div class="event">
 				<div class="toolbox">
 					<span class="time">πριν λίγο</span>
 				</div>
@@ -260,7 +260,7 @@
 					<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 				</div>
 			</div>
-			<div class="lastcomment">
+			<div class="event">
 				<div class="toolbox">
 					<span class="time">πριν λίγο</span>
 				</div>
@@ -274,7 +274,7 @@
 					<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
 				</div>
 			</div>
-			<div class="lastcomment">
+			<div class="event">
 				<div class="toolbox">
 					<span class="time">πριν 1 λεπτό</span>
 				</div>
@@ -288,7 +288,7 @@
 					<a href="#">All star, Vans ή DC?</a>
 				</div>
 			</div>
-			<div class="lastcomment">
+			<div class="event">
 				<div class="toolbox">
 					<span class="time">πριν 1 λεπτό</span>
 				</div>
@@ -302,7 +302,7 @@
 					<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
 				</div>
 			</div>
-			<div class="lastcomment">
+			<div class="event">
 				<div class="toolbox">
 					<span class="time">πριν 3 λεπτά</span>
 				</div>
