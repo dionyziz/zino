@@ -230,9 +230,28 @@
 				</a> έγραψε σχόλιο στo προφίλ της 
 			</div>
 			<div class="subject">
-				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" class="avatar2" /></a>
+				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
 			</div>
 		</div>
 	</div>
 	<div class="eof"></div>
+	<div class="nowonline">
+		<h2>Είναι online τώρα</h2>
+		<div class="list">
+			<a href="http://klio.zino.gr"><img src="images/avatars/klio.jpg" alt="klio" /></a>
+			<a href="http://teddy.zino.gr"><img src="images/avatars/teddy.jpg" alt="teddy" /></a>
+			<a href="http://elenh.zino.gr"><img src="images/avatars/elenh.jpg" alt="_El3nh_" /></a>
+			<a href="http://dionyziz.zino.gr"><img src="images/avatars/dionyziz.jpg" alt="dionyziz" /></a>
+			<a href="http://seraphim.zino.gr"><img src="images/avatars/seraphim.jpg" alt="seraphim" /></a>
+			<a href="http://morvena.zino.gr"><img src="images/avatars/morvena.jpg" alt="morvena" /></a>
+			<a href="http://kostis90gr.zino.gr"><img src="images/avatars/kostis90gr.jpg" alt="kostis90gr" /></a>
+			<a href="http://ctef.zino.gr"><img src="images/avatars/ctef.jpg" alt="ctef" /></a>
+			<a href="http://izual.zino.gr"><img src="images/avatars/izual.jpg" alt="izual" /></a>
+			<a href="http://cafrillio.zino.gr"><img src="images/avatars/cafrillio.jpg" alt="cafrillio" /></a>
+			<a href="http://ulee.zino.gr"><img src="images/avatars/ulee.jpg" alt="uLee" /></a>
+			<a href="http://scorpion.zino.gr"><img src="images/avatars/scorpion.jpg" alt="scorpion" /></a>
+			<a href="http://porcelain-barbie.zino.gr"><img src="images/avatars/porcelain-barbie.jpg" alt="porcelain-barbie" /></a>
+			<a href="http://smilemagic.zino.gr"><img src="images/avatars/smilemagic.jpg" alt="smilemagic" /></a>
+		</div>
+	</div>
 </div>
