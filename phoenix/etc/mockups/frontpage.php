@@ -166,7 +166,7 @@
 				</div>	
 			</div>
 		</div>
-		<div class="latestcomments latestcomments">
+		<div class="latestcomments">
 			<h2>Νεότερα σχόλια</h2>
 			<div class="list">
 				<div class="event">
