@@ -131,7 +131,7 @@ div.latestcomments div.lastcomment div.who {
 	display: block;
 	padding: 2px 0 2px 4px;
 	background-color: #ffffff;
-	background-image: url( 'latestcommentfade.jpg' );
+	background-image: url( 'images/latestcommentfade.jpg' );
 	background-repeat: repeat-y;
 	color: #666;
 }
