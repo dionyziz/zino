@@ -71,7 +71,7 @@
 		<div style="float:left;width:60%;"><?php
 		include 'frontpage_shoutbox.php';
 		?></div>
-		<div style="float:left;"><?php
+		<div style="float:left;width:40%;"><?php
 		include 'frontpage_latestcomments.php';
 		?></div>
 		
