@@ -382,7 +382,11 @@
 		</div><?php
 	}
 	?>
-	<div class="latestcomments">
+	<div class="latestcomments"<?php
+	if ( $loggedin ) {
+		?> style="float: none;"<?php
+	}
+	?>>
 		<h2>Νεότερα σχόλια</h2>
 		<div class="list">
 			<div class="event">
