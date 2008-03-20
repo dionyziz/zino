@@ -29,10 +29,11 @@
     	}
     		
     	CheckIfUserBanned();
-
-        if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
-        	//LogThis();
-        }
+		/*
+		if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
+			LogThis();
+		}
+		*/
     }
     
     function Project_Destruct() {
