@@ -1,30 +1,30 @@
 <div class="shoutbox">
-	<h2>Συζήτηση</h2>
+	<h2>Ξ£Ο…Ξ¶Ξ®Ο„Ξ·ΟƒΞ·</h2>
 	<div class="comments">
 		<div class="comment newcomment">
 			<div class="who">
 				<a href="user/dionyziz">
 					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
-				</a>πρόσθεσε ένα σχόλιο στη συζήτηση
+				</a>Ο€ΟΟΟƒΞΈΞµΟƒΞµ Ξ­Ξ½Ξ± ΟƒΟ‡ΟΞ»ΞΉΞΏ ΟƒΟ„Ξ· ΟƒΟ…Ξ¶Ξ®Ο„Ξ·ΟƒΞ·
 			</div>
 			<div class="text">
 				<textarea rows="2" cols="50"></textarea>
 			</div>
 			<div class="bottom">
-				<input type="submit" value="Σχολίασε!" />
+				<input type="submit" value="Ξ£Ο‡ΞΏΞ»Ξ―Ξ±ΟƒΞµ!" />
 			</div>
 		</div>
 		
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 12 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/smilemagic.jpg" class="avatar" alt="SmilEMagiC" />
 					SmilEMagiC
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
 				pao na pai3o WoW... geia sas malakies!!!
@@ -33,43 +33,43 @@
 		
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 12 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 12 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/izual.jpg" class="avatar" alt="SmilEMagiC" />
 					Izual
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				Βαριέμαι ρε ψόλες...
+				Ξ’Ξ±ΟΞΉΞ­ΞΌΞ±ΞΉ ΟΞµ ΟΟΞ»ΞµΟ‚...
 			</div>
 		</div>
 		
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 13 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 13 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/ulee.jpg" class="avatar" alt="SmilEMagiC" />
 					uLee
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
-				Φοράω τα φτερά μου και το παίζω πεταλούδος... yeah zouzounitsa mou
+				Ξ¦ΞΏΟΞ¬Ο‰ Ο„Ξ± Ο†Ο„ΞµΟΞ¬ ΞΌΞΏΟ… ΞΊΞ±ΞΉ Ο„ΞΏ Ο€Ξ±Ξ―Ξ¶Ο‰ Ο€ΞµΟ„Ξ±Ξ»ΞΏΟΞ΄ΞΏΟ‚... yeah zouzounitsa mou
 			</div>
 		</div>
 		
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 16 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 16 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/elsa.jpg" class="avatar" alt="SmilEMagiC" />
 					elsa
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
 				Re georgia ama se piaso... na deis ti 8a ginei
@@ -78,13 +78,13 @@
 		
 		<div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
-				<span class="time">πριν 17 λεπτά</span>
+				<span class="time">Ο€ΟΞΉΞ½ 17 Ξ»ΞµΟ€Ο„Ξ¬</span>
 			</div>
 			<div class="who">
 				<a href="user/smilemagic">
 					<img src="images/avatars/elenh.jpg" class="avatar" alt="_El3nh_" />
 					_El3nh_
-				</a> είπε:
+				</a> ΞµΞ―Ο€Ξµ:
 			</div>
 			<div class="text">
 				Re zouzounitsa se agapao pragmatika kai eisai to pan gia mena...<br />
