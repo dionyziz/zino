@@ -167,6 +167,7 @@ div.nowonline a img {
 /* events css */
 div.list {
 	overflow: hidden;
+	text-align: left;
 }
 div.list div.event {
 	float: left;
