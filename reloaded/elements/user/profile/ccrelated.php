@@ -2,7 +2,7 @@
 
 	function ElementUserProfileCCRelated( $theuser ) {
 		global $rabbit_settings;
-		
+
 		?><div class="ccrelated">
 			<h4>σχετικά με <?php
 		echo $rabbit_settings[ 'applicationname' ];
@@ -37,8 +37,27 @@
 					<dd>εδώ και <?php
 						echo $theuser->RegisterSince();
 					?></dd>
-				</dl></li><?php		
-			?></ul>
+				</dl></li>
+				<li><dl class="l">
+					<dt><?php
+					if ( $theuser->Gender() == "-" || $theuser->Gender() == "male" ) { 
+						?>συνδεδεμένος <?php
+					}
+					else { 
+						?>συνδεδεμένη <?php
+					} 
+					?></dt>
+					<dd><?php
+					if ( $theuser->IsOnline() ) {
+						?>αυτή τη στιγμή! <?php
+					}
+					else { 
+						?>πριν <?php
+						echo $theuser->ActiveSince(); 
+					} 
+					?></dd>
+				</dl></li>
+			</ul>
 		</div><?php
 	}
 	
