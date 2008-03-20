@@ -148,3 +148,13 @@ div.latestcomments div.lastcomment div.subject a img.avatar2 {
 	height: 50px;
 	border: 1px solid #666;
 }
+div.nowonline {
+	text-align: left;
+}
+div.nowonline a {
+	float: left;
+}
+div.nowonline a {
+	padding: 0 5px 5px 0;
+}
+	

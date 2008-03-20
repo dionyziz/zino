@@ -250,7 +250,7 @@
 			<a href="http://cafrillio.zino.gr"><img src="images/avatars/cafrillio.jpg" alt="cafrillio" /></a>
 			<a href="http://ulee.zino.gr"><img src="images/avatars/ulee.jpg" alt="uLee" /></a>
 			<a href="http://scorpion.zino.gr"><img src="images/avatars/scorpion.jpg" alt="scorpion" /></a>
-			<a href="http://porcelain-barbie.zino.gr"><img src="images/avatars/porcelain-barbie.jpg" alt="porcelain-barbie" /></a>
+			<a href="http://porcelain-barbie.zino.gr"><img src="images/avatars/porcelain_barbie.jpg" alt="porcelain_barbie" /></a>
 			<a href="http://smilemagic.zino.gr"><img src="images/avatars/smilemagic.jpg" alt="smilemagic" /></a>
 		</div>
 	</div>
