@@ -130,9 +130,9 @@ div.latestcomments div.lastcomment div.who {
 	border-top: 1px solid #ccc !important;
 	display: block;
 	padding: 2px 0 2px 4px;
-	background-color: #f4f4f4;
-	background-repeat: no-repeat;
-	background-position: top right;
+	background-color: #ffffff;
+	background-image: url( 'latestcommentfade.jpg' );
+	background-repeat: repeat-y;
 	color: #666;
 }
 div.latestcomments div.lastcomment a img.avatar {
