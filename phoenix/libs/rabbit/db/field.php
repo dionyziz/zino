@@ -151,7 +151,7 @@
                 case DB_TYPE_LONGTEXT:
                     return ( string )$value;
                 default:
-                    throw New DBException( 'Invalid DB datatype: ' . $value );
+                    throw New DBException( 'Invalid DB datatype: ' . $this->mType );
             }
         }
         public function DBField( $parenttable = false, $info = false ) {
