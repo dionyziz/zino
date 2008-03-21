@@ -128,7 +128,7 @@ div.inshoutbox {
 div.inlatestcomments {
 	clear: left;
 	width: 90%;
-	margin-top: 10px;
+	padding-top: 20px;
 }
 /* events css */
 div.list {
