@@ -39,6 +39,7 @@ span.albummain img {
 }
 ul.albums li a:hover span img {
     border: 2px solid white;
+    cursor: pointer;
 }
 ul.albums li dl {
     display: block;
