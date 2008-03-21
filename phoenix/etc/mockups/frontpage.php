@@ -80,7 +80,7 @@
 		include 'frontpage_shoutbox.php';
 		include 'frontpage_latestcomments.php';
 	?></div><?php
-	include 'frontpage_events';
+	include 'frontpage_events.php';
 	}
 	?><div class="eof"></div>
 	<div class="nowonline">
