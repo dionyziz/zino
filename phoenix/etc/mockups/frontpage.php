@@ -40,41 +40,48 @@
 		</ul>
 	</div><?php
 	if ( !$loggedin ) {
-	?><div class="members">
-		<div class="join">
-			<form>
-				<h2>Δημιούργησε το προφίλ σου!</h2>
-				<div>
-					<label>Όνομα:</label><input type="text" name="username" />
-				</div>
-				<div>
-					<input value="Δημιουργία &raquo;" type="submit" /> 
-				</div>
-			</form>
+		?><div class="members">
+			<div class="join">
+				<form>
+					<h2>Δημιούργησε το προφίλ σου!</h2>
+					<div>
+						<label>Όνομα:</label><input type="text" name="username" />
+					</div>
+					<div>
+						<input value="Δημιουργία &raquo;" type="submit" /> 
+					</div>
+				</form>
+			</div>
+			<div class="login">
+				<form>
+					<h2>Είσοδος στο zino</h2>
+					<div>
+						<label>Όνομα:</label> <input type="text" name="username" />
+					</div>
+					<div>
+						<label>Κωδικός:</label> <input type="password" name="password" />
+					</div>
+					<div>
+						<input type="submit" value="Είσοδος &raquo;" />
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="login">
-			<form>
-				<h2>Είσοδος στο zino</h2>
-				<div>
-					<label>Όνομα:</label> <input type="text" name="username" />
-				</div>
-				<div>
-					<label>Κωδικός:</label> <input type="password" name="password" />
-				</div>
-				<div>
-					<input type="submit" value="Είσοδος &raquo;" />
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="eof"></div>
-	<div style="float:left;width:60%;"><?php
-	include 'frontpage_shoutbox.php';
-	?></div>
-	<div style="float:left;width:40%;"><?php
-	include 'frontpage_latestcomments.php';
-	?></div><?php
+		<div class="eof"></div>
+		<div style="float:left;width:60%;"><?php
+		include 'frontpage_shoutbox.php';
+		?></div>
+		<div style="float:left;width:40%;"><?php
+		include 'frontpage_latestcomments.php';
+		?></div><?php
 	} 
+	else {
+	?><div style="float:left;width:60%;"><?php
+		include 'frontpage_shoutbox.php';
+		include 'frontpage_latestcomments.php';
+	?></div><?php
+	include 'frontpage_events';
+	}
 	?><div class="eof"></div>
 	<div class="nowonline">
 		<h2>Είναι online τώρα</h2>

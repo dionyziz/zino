@@ -131,10 +131,6 @@ div.nowonline a {
 div.nowonline a img {
 	border: 1px solid #666;
 }
-div.latestevents {
-	float: left;
-	width: 40%;
-}
 /* events css */
 div.list {
 	overflow: hidden;
