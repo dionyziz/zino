@@ -53,6 +53,9 @@
             
             return $target;
         }
+        protected function GetDb() {
+            return $this->mDb;
+        }
         protected function GetDbTable() {
             return $this->mDbTable;
         }
