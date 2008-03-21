@@ -78,8 +78,10 @@
 	else {
 		?><div style="float:left;width:60%;"><?php
 			include 'frontpage_shoutbox.php';
+			?><div style="clear:left;width:90%;"><?php
 			include 'frontpage_latestcomments.php';
-		?></div><br />
+			?></div>
+		</div>
 		<div style="float:left;width:40%;"><?php
 		include 'frontpage_events.php';
 		?></div><?php
