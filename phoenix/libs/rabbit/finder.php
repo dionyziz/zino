@@ -1,6 +1,7 @@
 <?php
     abstract class Finder {
         protected $mModel = '';
+        protected $mDbTableAlias;
         protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25 ) {
@@ -37,7 +38,7 @@
             }
             $sql .= ' LIMIT :__offset, :__limit';
             $query = $this->mDb->Prepare( $sql );
-            $query->BindTable( $this->mModel->DbTable->Alias );
+            $query->BindTable( $this->mDbTableAlias );
             foreach ( $mods as $column => $value ) {
                 $query->Bind( '_' . $column, $value );
             }
@@ -56,6 +57,7 @@
         final public function __construct() {
             $prototype = New $this->mModel();
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
+            $this->mDbTableAlias = $prototype->DbTable->Alias;
         }
     }
 ?>
