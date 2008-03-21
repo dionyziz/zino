@@ -144,6 +144,7 @@
                 case DB_TYPE_FLOAT:
                     return ( float )$value;
                 case DB_TYPE_DATETIME:
+                case DB_TYPE_DATE:
                 case DB_TYPE_ENUM:
                 case DB_TYPE_VARCHAR:
                 case DB_TYPE_CHAR:
