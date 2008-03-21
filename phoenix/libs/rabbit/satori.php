@@ -267,7 +267,7 @@
             $mods = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
                 if ( $this->mCurrentValues[ $attributename ] !== false ) {
-                    $mods[ $fieldname ] = $this->mCurrentValue;
+                    $mods[ $fieldname ] = $this->mCurrentValues[ $attributename ];
                 }
             }
             return $mods;
