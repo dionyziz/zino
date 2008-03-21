@@ -1,62 +1,20 @@
 <?php
-
-	function Albums_List( $user ) {
-        global $db;
-
-        $sql = "SELECT
-                    *
-                FROM
-                    :albums
-                WHERE
-                    `album_userid` = :UserId
-                    AND `album_delid` = :DelId;";
-
-        $query = $db->Prepare( $sql );
-        $query->BindTable( 'albums' );
-        $query->Bind( 'UserId', $user->Id() );
-        $query->Bind( 'DelId', 0 );
+    class AlbumFinder extends Finder {
+        protected $mModel = 'Album';
         
-        $query->Execute()->ToObjectsArray( 'Album' );
+        public function FindByUserId( $userid ) {
+            $prototype = New Album();
+            $album->UserId = $userid;
+            $album->DelId = 0;
+            return $this->FindByPrototype( $prototype );
+        }
     }
-
+    
     class Album extends Satori {
         protected $mDbTable = 'albums';
-        protected $mImageTable = 'images';
-        protected $mId;
-        protected $mUserId;
-        protected $mUser;
-        protected $mDate;
-        protected $mUserIp;
-        protected $mName;
-        protected $mMainImage;
-        protected $mDescription;
-        protected $mDelId;
-        protected $mPageviews;
-        protected $mPhotosNum;
-        protected $mCommentsNum;
 
-        public function GetImages( $offset = 0, $limit = 16 ) {
-            if ( $offset != 0 ) {
-                $offset = ( $offset - 1 ) * $limit;
-            }
-            
-            $sql = "SELECT
-                         * 
-                    FROM 
-                        :" . $this->mImageTable . "
-                    WHERE 
-                        `image_albumid` = :AlbumId
-                        AND `image_delid` = :DelId
-                    LIMIT 
-                        :Offset, :Limit
-                    ;";
-            $query->BindTable( $this->mImageTable );
-            $query->Bind( 'AlbumId', $this->mId );
-            $query->Bind( 'DelId', 0 );
-            $query->Bind( 'Offset', $offset );
-            $query->Bind( 'Limit', $limit );
-            
-            return $query->Execute()->ToObjectsArray( 'Image' );
+        public function Relations() {
+            $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbumId', 'albumid' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {

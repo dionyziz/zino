@@ -53,6 +53,8 @@
         public function Relations() {
             $this->Preferences = $this->HasOne( 'UserPreferences', 'userid' );
             $this->Profile = $this->HasOne( 'UserProfile', 'userid' );
+            $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUserId', 'userid' );
+            $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUserId', 'userid' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );
