@@ -11,6 +11,7 @@
     	$libs->Load( 'magic' );
     	$libs->Load( 'log' );
     	$libs->Load( 'user' );
+    	$libs->Load( 'ban' );
         
         $xc_settings = $rabbit_settings[ '_excalibur' ];
 
