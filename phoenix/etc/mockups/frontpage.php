@@ -68,21 +68,21 @@
 			</div>
 		</div>
 		<div class="eof"></div>
-		<div style="float:left;width:60%;"><?php
+		<div class="outshoutbox"><?php
 		include 'frontpage_shoutbox.php';
 		?></div>
-		<div style="float:left;width:40%;"><?php
+		<div class="outlatestcomments"><?php
 		include 'frontpage_latestcomments.php';
 		?></div><?php
 	} 
 	else {
-		?><div style="float:left;width:60%;"><?php
+		?><div class="inshoutbox"><?php
 			include 'frontpage_shoutbox.php';
-			?><div style="clear:left;width:90%;"><?php
+			?><div class="inlatestcomments"><?php
 			include 'frontpage_latestcomments.php';
 			?></div>
 		</div>
-		<div style="float:left;width:40%;"><?php
+		<div class="inevents" style="float:left;width:40%;"><?php
 		include 'frontpage_events.php';
 		?></div><?php
 	}

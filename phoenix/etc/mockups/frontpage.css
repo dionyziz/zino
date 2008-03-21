@@ -97,27 +97,9 @@ div.members div.login form div label {
 div.members div.login form input {
 	
 }
-/*
-div.shoutbox {
-	width: 60%;
-	float: left;
-}
-*/
 div.shoutbox h2 {	
 	margin-bottom: 10px;
 }
-/*
-div.latestcomments1 {
-	float: left;
-	text-align: left;
-	width: 40%;
-}
-div.latestcomments2 {
-	text-align: left;
-	width: 54%;
-	float: left;
-}
-*/
 div.latestcomments h2 {
 	margin-bottom: 13px;
 }
@@ -130,6 +112,23 @@ div.nowonline a {
 }
 div.nowonline a img {
 	border: 1px solid #666;
+}
+div.outshoutbox {
+	float: left;
+	width: 60%;
+}
+div.outlatestcomments {
+	float: left;
+	width: 40%;
+}
+div.inshoutbox {
+	float: left;
+	width: 60%;
+}
+div.inlatestcomments {
+	clear: left;
+	width: 90%;
+	margin-top: 10px;
 }
 /* events css */
 div.list {
