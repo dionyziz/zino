@@ -1,6 +1,7 @@
 <?php
     abstract class Finder {
         protected $mModel = '';
+        protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25 ) {
             w_assert( $prototype instanceof $this->mModel );
@@ -53,6 +54,8 @@
             return $res->ToObjectsArray( $this->mModel );
         }
         final public function __construct() {
+            $prototype = New $this->mModel();
+            $this->mDb = $prototype->mDb; // TODO: cache this across all finder instances?
         }
     }
 ?>
