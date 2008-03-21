@@ -79,7 +79,7 @@
 		?><div style="float:left;width:60%;"><?php
 			include 'frontpage_shoutbox.php';
 			include 'frontpage_latestcomments.php';
-		?></div>
+		?></div><br />
 		<div style="float:left;width:40%;"><?php
 		include 'frontpage_events.php';
 		?></div><?php
