@@ -55,7 +55,7 @@
         }
         final public function __construct() {
             $prototype = New $this->mModel();
-            $this->mDb = $prototype->mDb; // TODO: cache this across all finder instances?
+            $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
         }
     }
 ?>
