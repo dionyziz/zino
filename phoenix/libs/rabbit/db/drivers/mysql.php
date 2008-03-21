@@ -13,6 +13,7 @@
 			DB_TYPE_TEXT		=> 'TEXT',
             DB_TYPE_LONGTEXT    => 'LONGTEXT',
 			DB_TYPE_DATETIME	=> 'DATETIME',
+			DB_TYPE_DATE        => 'DATE',
 			DB_TYPE_FLOAT		=> 'FLOAT',
 			DB_TYPE_ENUM		=> 'ENUM'
 		); 

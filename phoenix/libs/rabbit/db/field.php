@@ -6,6 +6,7 @@
     define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
     define( 'DB_TYPE_LONGTEXT'  , 'DB_TYPE_LONGTEXT' );
     define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
+    define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATE' );
     define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
     define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
 	
@@ -17,6 +18,7 @@
             DB_TYPE_TEXT,
             DB_TYPE_LONGTEXT,
             DB_TYPE_DATETIME,
+            DB_TYPE_DATE,
             DB_TYPE_FLOAT,
             DB_TYPE_ENUM
         );
