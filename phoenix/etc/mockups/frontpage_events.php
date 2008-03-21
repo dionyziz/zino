@@ -46,7 +46,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν ένα τέταρτο</span>
 			</div>
 			<div class="who">
 				<a href="http://cafrillio.zino.gr">
@@ -60,7 +60,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 23 λεπτά</span>
 			</div>
 			<div class="who">
 				<a href="http://elsa.zino.gr">
@@ -76,7 +76,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 5 ώρες</span>
 			</div>
 			<div class="who">
 				<a href="http://argiro-18.zino.gr">
@@ -90,7 +90,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 18 ώρες</span>
 			</div>
 			<div class="who">
 				<a href="http://hara16.zino.gr">
@@ -104,7 +104,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν μία μέρα και 14 ώρες</span>
 			</div>
 			<div class="who">
 				<a href="http://dionyziz.zino.gr">
@@ -118,7 +118,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 3 μέρες και 2 ώρες</span>
 			</div>
 			<div class="who">
 				<a href="http://porcelain-barbie.zino.gr">
@@ -132,7 +132,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν μια εβδομάδα</span>
 			</div>
 			<div class="who">
 				<a href="http://morvena.zino.gr">
@@ -146,7 +146,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν μια εβδομάδα</span>
 			</div>
 			<div class="who">
 				<a href="http://akatonomastos.zino.gr">
@@ -160,7 +160,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 8 ημέρες και 4 ώρες</span>
 			</div>
 			<div class="who">
 				<a href="http://georgia.zino.gr">
@@ -169,12 +169,12 @@
 				</a> ανανέωσε το προφίλ της
 			</div>
 			<div class="subject">
-				Όρισε τη δίαθεση σε χαρούμενη.
+				Όρισε τη διάθεση σε χαρούμενη.
 			</div>					
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 9 μέρες</span>
 			</div>
 			<div class="who">
 				<a href="http://gatoni.zino.gr">
