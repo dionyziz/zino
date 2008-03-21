@@ -64,7 +64,7 @@
 			</div>
 			<div class="who">
 				<a href="http://elsa.zino.gr">
-					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+					<img src="images/avatars/elsa.jpg" class="avatar" alt="morvena" />
 					elsa
 				</a> ανέβασε τις εικόνες
 			</div>
@@ -169,7 +169,7 @@
 				</a> ανανέωσε το προφίλ της
 			</div>
 			<div class="subject">
-				Όρισε τη διάθεση σε χαρούμενη.
+				Όρισε τη διάθεση σε χαρούμενη
 			</div>					
 		</div>
 		<div class="event">
