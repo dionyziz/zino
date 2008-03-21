@@ -122,7 +122,7 @@
 			</div>
 			<div class="who">
 				<a href="http://porcelain-barbie.zino.gr">
-					<img src="images/avatars/parcelain_barbie.jpg" class="avatar" alt="porcelain_barbie" />
+					<img src="images/avatars/porcelain_barbie.jpg" class="avatar" alt="porcelain_barbie" />
 					porcelain_barbie
 				</a> έγραψε σχόλιο στο ημερολόγιο
 			</div>
@@ -155,7 +155,7 @@
 				</a> ανανέωσε το προφίλ του
 			</div>
 			<div class="subject">
-				<a href="#">Όρισε το ύψος σε 1,83</a>
+				Όρισε το ύψος σε 1,83
 			</div>					
 		</div>
 		<div class="event">
