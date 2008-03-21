@@ -4,6 +4,7 @@
     define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
     define( 'DB_TYPE_CHAR' 		, 'DB_TYPE_CHAR' );
     define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
+    define( 'DB_TYPE_LONGTEXT'  , 'DB_TYPE_LONGTEXT' );
     define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
     define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
     define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
@@ -14,6 +15,7 @@
             DB_TYPE_VARCHAR,
             DB_TYPE_CHAR,
             DB_TYPE_TEXT,
+            DB_TYPE_LONGTEXT,
             DB_TYPE_DATETIME,
             DB_TYPE_FLOAT,
             DB_TYPE_ENUM
@@ -144,8 +146,10 @@
                 case DB_TYPE_VARCHAR:
                 case DB_TYPE_CHAR:
                 case DB_TYPE_TEXT:
-                default:
+                case DB_TYPE_LONGTEXT:
                     return ( string )$value;
+                default:
+                    throw New DBException( 'Invalid DB datatype: ' . $value );
             }
         }
         public function DBField( $parenttable = false, $info = false ) {
