@@ -52,7 +52,7 @@
         }
         
         if ( $banned ) {
-            $page->AttachMainElement( 'user/banned' );
+            $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             return;
         }
