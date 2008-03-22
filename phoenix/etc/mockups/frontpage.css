@@ -168,7 +168,7 @@ div.list div.event div.subject {
 }
 div.list div.event div.subject p {
 	padding: 0;
-	margin: 0;
+	margin: 0 0 4px 0;
 }
 div.list div.event div.subject p span.text {
 	font-style: oblique;
