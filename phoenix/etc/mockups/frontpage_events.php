@@ -32,7 +32,7 @@
 		</div>
 		<div class="event">
 			<div class="toolbox">
-				<span class="time">πριν λίγο</span>
+				<span class="time">πριν 8 λεπτά</span>
 			</div>
 			<div class="who">
 				<a href="http://teddy.zino.gr">
@@ -169,7 +169,7 @@
 				</a> ανανέωσε το προφίλ της
 			</div>
 			<div class="subject">
-				Όρισε τη διάθεση σε χαρούμενη
+				Όρισε τη διάθεση σε <img src="images/avatars/cool.gif" alt="Cool" />
 			</div>					
 		</div>
 		<div class="event">
