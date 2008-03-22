@@ -72,7 +72,7 @@
 				<p>
 					<span class="text">"Είναι πολύ ωραία, πήγα πρ...</span>
 					, στη φωτογραφία
-					<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
+					<a href="#" class="itempic"><img src="images/paris.jpg" alt="paris" /></a>
 				</p>
 				<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
 			</div>
@@ -91,7 +91,7 @@
 				<p>
 					<span class="text">"ante re skatoulaki me to pi8agoreio, lo..."</span>
 					, στο προφίλ της
-					<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
+					<a href="#" class="itempic"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
 				</p>
 				<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
 			</div>
