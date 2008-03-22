@@ -94,8 +94,8 @@ div.members div.login form div label {
 	display: block;
 	width: 70px;
 }
-div.members div.login form input {
-	
+div.shoutbox div.comments {
+	width: 100%;
 }
 div.shoutbox h2 {	
 	margin-bottom: 10px;
