@@ -171,3 +171,6 @@ div.list div.event div.subject p {
 	margin: 0;
 	font-style: oblique;
 }
+div.list div.event div.subject p span {
+	font-style: none;
+}

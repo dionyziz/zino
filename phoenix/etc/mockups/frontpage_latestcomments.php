@@ -9,10 +9,13 @@
 				<a href="http://morvena.zino.gr">
 					<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
 					Morvena
-				</a> έγραψε σχόλιο στο ημερολόγιο
+				</a> έγραψε
 			</div>
 			<div class="subject">
-				<p>"eleos mori skatoulitsa"</p>
+				<p>
+					"eleos mori skatoulitsa"
+					<span>, στο ημερολόγιο</span>
+				</p>
 				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
