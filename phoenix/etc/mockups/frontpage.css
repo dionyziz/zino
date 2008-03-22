@@ -95,6 +95,7 @@ div.members div.login form div label {
 	width: 70px;
 }
 div.shoutbox {
+	float: left;
 	padding: 10px;
 	border: 1px solid #ccc;
 }
