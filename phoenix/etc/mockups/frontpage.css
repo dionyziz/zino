@@ -132,10 +132,10 @@ div.inlatestcomments {
 	width: 90%;
 	padding-top: 20px;
 }
-div.inlatestcomments {
+div.inevents {
+	float: left;
 	width: 45%;
 	padding: 10px;
-	float: left;
 	border: 1px solid #ccc;
 }
 /* events css */
