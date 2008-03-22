@@ -54,7 +54,7 @@
         if ( $banned ) {
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
-            return;
+            exit();
         }
         
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
