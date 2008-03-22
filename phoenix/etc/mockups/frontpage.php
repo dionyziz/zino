@@ -24,16 +24,16 @@
 	?>	
 	<div class="latestimages">
 		<ul>
-			<li><a href="" onclick=""><img src="images/avatars/seraphim.jpg" alt="seraphim" title="seraphim" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/elsa.jpg" alt="elsa" title="elsa" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/elenh.jpg" alt="elenh" title="elenh" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/izual.jpg" alt="izual" title="izual" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/morvena.jpg" alt="morvena" title="morvena" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/ulee.jpg" alt="ulee" title="ulee" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/seraphim2.jpg" alt="seraphim" title="seraphim" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/elsa2.jpg" alt="elsa" title="elsa" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/elenh2.jpg" alt="elenh" title="elenh" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/izual2.jpg" alt="izual" title="izual" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/morvena2.jpg" alt="morvena" title="morvena" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/ulee2.jpg" alt="ulee" title="ulee" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/teddy.jpg" alt="teddy" title="teddy" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/klio.jpg" alt="klio" title="klio" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/cafrillio.jpg" alt="cafrillio" title="cafrillio" /></a></li>
-			<li><a href="" onclick=""><img src="images/avatars/dionyziz.jpg" alt="dionyziz" title="dionyziz" /></a></li><?php /*
+			<li><a href="" onclick=""><img src="images/avatars/dionyziz2.jpg" alt="dionyziz" title="dionyziz" /></a></li><?php /*
 			<li><a href="" onclick=""><img src="images/avatars/irini_th_bill.jpg" alt="irini_th_bill" title="irini_th_bill" /></a></li>
 			*/
 			?>
