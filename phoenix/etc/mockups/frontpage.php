@@ -70,9 +70,6 @@
 		<div class="eof"></div>
 		<div class="outshoutbox"><?php
 		include 'frontpage_shoutbox.php';
-		?></div>
-		<div class="outlatestcomments"><?php
-		include 'frontpage_latestcomments.php';
 		?></div><?php
 	} 
 	else {
