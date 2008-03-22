@@ -1,5 +1,5 @@
 <div class="latestcomments">
-	<h2>Νεότερα σχόλια</h2>
+	<h2>Πρόσφατα σχόλια</h2>
 	<div class="list">
 		<div class="event">
 			<div class="toolbox">
