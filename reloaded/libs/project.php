@@ -103,7 +103,8 @@
 			'uniadmin'			=> 'universities/create',
 			'tag'				=> 'interesttag/view',
             'wysiwyg'           => 'developer/dionyziz/wysiwyg',
-            'photolist'         => 'photo/list'
+            'photolist'         => 'photo/list',
+            'memcache'          => 'admin/memcache'
     	);
     }
 ?>
