@@ -13,9 +13,9 @@
 			</div>
 			<div class="subject">
 				<p>
-					"eleos mori skatoulitsa"
-					<span>, στο ημερολόγιο</span>
-					Βάζω τα φτερά μου και το παίζω πεταλούδος
+					<span class="text">"eleos mori skatoulitsa"</span>
+					, στο ημερολόγιο
+					<span class="item">Βάζω τα φτερά μου και το παίζω πεταλούδος</span>
 				</p>
 				<a href="#">Προβολή σχολίου&raquo;</a>
 			</div>

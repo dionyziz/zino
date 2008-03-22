@@ -169,8 +169,10 @@ div.list div.event div.subject {
 div.list div.event div.subject p {
 	padding: 0;
 	margin: 0;
+}
+div.list div.event div.subject p span.text {
 	font-style: oblique;
 }
-div.list div.event div.subject p span {
-	font-style: normal;
+div.lsit div.event div.subject p span.item {
+	font-weight: 700;
 }
