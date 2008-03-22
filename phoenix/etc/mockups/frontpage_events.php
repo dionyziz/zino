@@ -169,7 +169,7 @@
 				</a> ανανέωσε το προφίλ της
 			</div>
 			<div class="subject">
-				Όρισε τη διάθεση σε <img src="images/avatars/cool.gif" alt="Cool" />
+				H georgia είναι <img src="images/avatars/cool.gif" alt="Cool" />
 			</div>					
 		</div>
 		<div class="event">
