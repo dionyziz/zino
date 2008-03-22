@@ -33,7 +33,7 @@
 			<div class="subject">
 				<p>
 					<span class="text">"etsi american muscle, respe..."</span>
-					, στη φωτογραφία
+					<span class="onwhat">, στη φωτογραφία</span>
 					<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
 					<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
 				</p>

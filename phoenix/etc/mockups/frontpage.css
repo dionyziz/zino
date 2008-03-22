@@ -173,6 +173,9 @@ div.list div.event div.subject p {
 div.list div.event div.subject p span.text {
 	font-style: oblique;
 }
+div.list div.event div.subject p span.onwhat {	
+	float: left;
+}
 div.lsit div.event div.subject a.viewcom {
 	color: #094ca5;
 }
