@@ -52,9 +52,12 @@
         }
         
         if ( $banned ) {
+            /*
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             exit();
+            */
+            $water->Trace( 'You are banned' );
         }
         
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
