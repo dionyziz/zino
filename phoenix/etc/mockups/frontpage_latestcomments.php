@@ -12,8 +12,8 @@
 				</a> έγραψε σχόλιο στο ημερολόγιο
 			</div>
 			<div class="subject">
-				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 				<p>"eleos mori skatoulitsa"</p>
+				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 			</div>
 		</div>
 		<div class="event">

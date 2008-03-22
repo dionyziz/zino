@@ -164,5 +164,10 @@ div.list div.event div.who a img.avatar {
 	margin: 0 4px 0 0;
 }
 div.list div.event div.subject {
-	padding-top: 5px;
+	padding: 5px 0 0 60px;
+}
+div.list div.event div.subject p {
+	padding: 0;
+	margin: 0;
+	font-style: oblique;
 }
