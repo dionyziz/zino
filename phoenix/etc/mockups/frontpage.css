@@ -125,32 +125,19 @@ div.nowonline a img {
 div.outshoutbox {
 	float: left;
 	width: 95%;
-	/*
-	padding: 10px;
-	border: 1px solid #ccc;
-	*/
 }
 div.inshoutbox {
 	float: left;
 	width: 47%;
 	margin-right: 20px;
-	/*
-	padding: 10px;
-	margin-right: 20px;
-	border: 1px solid #ccc;
-	*/
 }
 div.inlatestcomments {
 	clear: left;
-	/*width: 90%;*/
 	padding-top: 20px;
 }
 div.inevents {
 	float: left;
 	width: 45%;
-	/*padding: 10px;
-	border: 1px solid #ccc;
-	*/
 }
 div.latestevents {
 	padding: 10px;
