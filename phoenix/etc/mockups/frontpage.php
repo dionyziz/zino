@@ -79,7 +79,7 @@
 			include 'frontpage_latestcomments.php';
 			?></div>
 		</div>
-		<div class="inevents" style="float:left;width:40%;"><?php
+		<div class="inevents"><?php
 		include 'frontpage_events.php';
 		?></div><?php
 	}
