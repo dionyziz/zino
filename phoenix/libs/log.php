@@ -60,7 +60,7 @@
     }
     
 	final class Log extends Satori {
-        protected $mDbTable = 'logs';
+        protected $mDbTableAlias = 'logs';
 
         protected function LoadDefaults() {
             global $user;
