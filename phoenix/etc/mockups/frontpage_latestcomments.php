@@ -70,7 +70,7 @@
 			</div>
 			<div class="subject">
 				<p>
-					<span class="text">"Είναι πολύ ωραία, πήγα πρ...</span>
+					<span class="text">"Είναι πολύ ωραία, πήγα πρ..."</span>
 					, στη φωτογραφία
 					<a href="#" class="itempic"><img src="images/paris.jpg" alt="paris" /></a>
 				</p>
