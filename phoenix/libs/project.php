@@ -52,7 +52,9 @@
         }
         
         if ( $banned ) {
-            return Element( 'user/banned' );
+            $page->AttachMainElement( 'user/banned' );
+            $page->Output();
+            return;
         }
         
         if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
