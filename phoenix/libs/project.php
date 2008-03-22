@@ -42,7 +42,7 @@
         
         $banfinder = New BanFinder();
         $banned = false;
-        if ( $user->Banned ) {
+        if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $banned = true;
         }
         
@@ -60,7 +60,7 @@
             $water->Trace( 'You are banned' );
         }
         
-        if ( $xc_settings[ "readonly" ] <= $user->Rights() ) {
+        if ( !$xc_settings[ "readonly" ] ) {
             $log = New Log();
             $log->Save();
         }

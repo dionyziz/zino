@@ -47,9 +47,6 @@
     class User extends Satori {
         protected $mDbTableAlias = 'users';
         
-        public function GetBanned() {
-            return $this->Rights < 10;
-        }
         public function Relations() {
             $this->Preferences = $this->HasOne( 'UserPreferences', 'userid' );
             $this->Profile = $this->HasOne( 'UserProfile', 'userid' );
@@ -58,6 +55,9 @@
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );
+        }
+        public function HasPermission( $permission ) {
+            return $this->Rights >= $permission;
         }
     }
 ?>
