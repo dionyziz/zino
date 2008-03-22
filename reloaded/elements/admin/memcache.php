@@ -1,6 +1,11 @@
 <?php
     function ElementAdminMemcache( tString $key ) {
         global $mc;
+        global $user;
+        
+        if ( !$user->IsSysOp() ) {
+            return;
+        }
         
         $key = $key->Get();
         if ( !empty( $key ) ) {
