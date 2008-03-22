@@ -122,12 +122,21 @@ div.outshoutbox {
 }
 div.inshoutbox {
 	float: left;
-	width: 60%;
+	width: 45%;
+	padding: 10px;
+	margin-right: 20px;
+	border: 1px solid #ccc;
 }
 div.inlatestcomments {
 	clear: left;
 	width: 90%;
 	padding-top: 20px;
+}
+div.inlatestcomments {
+	width: 45%;
+	padding: 10px;
+	float: left;
+	border: 1px solid #ccc;
 }
 /* events css */
 div.list {
