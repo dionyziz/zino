@@ -362,10 +362,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				die( $json );
 			}
 			?>
-			water_debug_data = <?php
+			var water_debug_data = <?php
 			echo $json;
 			?>;
-			water_debug_uri = "<?php
+			var water_debug_uri = "<?php
 			echo $_SERVER[ "REQUEST_URI" ];
 			?>";
 			var Water = {
