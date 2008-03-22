@@ -18,7 +18,7 @@
         $questions = AllQuestions();
         if ( count( $questions ) ) {
             ?><br />
-            <a href="javascript:Questions.create()" id="newq">Δημιούργησε μία Ερώτηση Προφίλ</a><br />
+            <a href="javascript:Questions.create()" id="newq">Δημιούργησε μία Ερώτηση Προφίλ</a> (<a href="https://code.kamibu.com/wiki/Zino_questions">οδηγίες</a>)<br />
             <form id="newqform" action="do/question/new" method="post" style="display: none;" onkeypress="return submitenter( this, event )">
                 <input type="hidden" name="action" value="create" />
                 <input type="text" name="question" class="bigtext" value="Γράψε εδώ την νέα Ερώτηση!" onfocus="((this.value=='Γράψε εδώ την νέα Ερώτηση!') ? this.value='' : this.value=this.value);" /> 
