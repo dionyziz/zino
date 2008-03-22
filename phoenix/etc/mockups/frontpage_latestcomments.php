@@ -15,8 +15,9 @@
 				<p>
 					"eleos mori skatoulitsa"
 					<span>, στο ημερολόγιο</span>
+					<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
 				</p>
-				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+				<a href="#">Προβολή σχολίου&raquo;</a>
 			</div>
 		</div>
 		<div class="event">
