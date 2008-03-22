@@ -13,6 +13,7 @@
 			</div>
 			<div class="subject">
 				<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+				<p>"eleos mori skatoulitsa"</p>
 			</div>
 		</div>
 		<div class="event">
@@ -27,6 +28,7 @@
 			</div>
 			<div class="subject">
 				<a href="#"><img src="images/dodge.jpg" alt="dodge" /></a>
+				<p>"etsi american muscle, respe..."</p>
 			</div>
 		</div>
 		<div class="event">
@@ -41,6 +43,7 @@
 			</div>
 			<div class="subject">
 				<a href="#">All star, Vans ή DC?</a>
+				<p>"ola oraia einai, alla protimo DC"</p>
 			</div>
 		</div>
 		<div class="event">
@@ -55,6 +58,7 @@
 			</div>
 			<div class="subject">
 				<a href="#"><img src="images/paris.jpg" alt="paris" /></a>
+				<p>"Είναι πολύ ωραία, πήγα πρ...</p>
 			</div>
 		</div>
 		<div class="event">
@@ -69,6 +73,7 @@
 			</div>
 			<div class="subject">
 				<a href="#"><img src="images/avatars/elsa.jpg" alt="elsa" /></a>
+				<p>"ante re skatoulaki me to pi8agoreio, lo..."</p>
 			</div>
 		</div>
 	</div>
