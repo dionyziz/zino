@@ -57,11 +57,9 @@
             $query->Bind( '__limit', $limit );
             $res = $query->Execute();
             if ( $unique ) {
-                die( 'Unique Lookup: ' . $query->Apply() );
                 // lookup by primary key
                 return New $this->mModel( $res->FetchArray() );
             }
-            die( 'Group Lookup: ' . $query->Apply() );
             return $this->FindBySQLResource( $res );
         }
         protected function FindBySQLResource( DBResource $res ) {

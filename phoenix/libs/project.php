@@ -46,9 +46,11 @@
         }
         
         $banfinder = New BanFinder();
-        $ban = $banfinder->FindByIp( UserIp() );
-        if ( $ban !== false && !$ban->Expired ) {
-            $banned = true;
+        $bans = $banfinder->FindByIp( UserIp() );
+        foreach ( $bans as $ban ) {
+            if ( !$ban->Expired ) {
+                $banned = true;
+            }
         }
         
         if ( $banned ) {
