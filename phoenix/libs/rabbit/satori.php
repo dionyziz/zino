@@ -239,7 +239,7 @@
                 if ( $column->IsAutoIncrement ) {
                     $this->mAutoIncrementField = $column->Name;
                     // autoincrement attributes are read-only
-                    $this->MakeReadOnly( $attribute );
+                    // $this->MakeReadOnly( $attribute );
                 }
             }
             
