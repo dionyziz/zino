@@ -4,6 +4,7 @@ var Banner = {
 		var banner = document.getElementById( 'banner' );
 		var menu = banner.getElementsByTagName( 'ul' )[ 0 ];
 		var options = menu.getElementsByTagName( 'li' );
+		var options = $( 'div#banner ul li' );
 		if ( Banner.isanimating ) {
 			return;
 		}
