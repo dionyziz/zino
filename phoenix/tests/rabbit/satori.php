@@ -127,6 +127,7 @@
         protected $mModel = 'TestRabbitSatoriExtension';
         
         public function FindUnique( $id ) {
+            w_assert( is_int( $id ) );
             $prototype = New TestRabbitSatoriExtension();
             $prototype->Id = $id;
             var_dump( $prototype->FetchPrototypeChanges() );
