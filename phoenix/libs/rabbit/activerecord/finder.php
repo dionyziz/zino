@@ -55,7 +55,7 @@
             }
             $query->Bind( '__offset', $offset );
             $query->Bind( '__limit', $limit );
-            $res = $query->Execute();
+            $res = var_dump( $query->Apply() );
             if ( $unique ) {
                 // lookup by primary key
                 return New $this->mModel( $res->FetchArray() );

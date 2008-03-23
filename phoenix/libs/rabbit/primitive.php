@@ -95,7 +95,7 @@
 	magicquotes_off();
 
     $libs->Load( 'rabbit/typesafety' );
-    $libs->Load( 'rabbit/satori' );
+    $libs->Load( 'rabbit/activerecord/satori' );
 	$libs->Load( 'rabbit/db/db' );
     
     // set up databases
