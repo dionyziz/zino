@@ -62,9 +62,10 @@ $( document ).ready( function(){
 	$( 'form.joinform p a' ).click( function () {
 		Join.ShowTos();
 		return false;
-	});
+	});/*
 	$( 'div#join_tos a' ).click( function() {
-		setTimeout( Modals.Destroy, 20 );
+		Modals.Destroy();
 		return false;
 	});
+	*/
 });
