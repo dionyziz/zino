@@ -58,11 +58,6 @@
             // exit();
             $water->Trace( 'banned' );
         }
-        
-        if ( !$xc_settings[ "readonly" ] ) {
-            $log = New Log();
-            $log->Save();
-        }
     }
     
     function Project_Destruct() {

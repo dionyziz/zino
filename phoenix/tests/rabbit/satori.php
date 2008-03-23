@@ -266,7 +266,6 @@
             $this->Assert( is_int( $this->mObj->Id ), 'Autoincrement fields should be ints' );
             $this->Assert( is_int( $this->mObj->Int ), 'Integer fields should be ints' );
         }
-        /*
         public function TestUpdate() {
             $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id ); // return to persistent state
             $this->mObj->Int = 42;
@@ -290,7 +289,6 @@
             $this->AssertEquals( 'neat', $this->mObj->Char, 'Char value was incorrectly updated' );
             $this->AssertEquals( 42, $this->mObj->Int, 'Int value was incorrectly updated' );
         }
-        */
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );

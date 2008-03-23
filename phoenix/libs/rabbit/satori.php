@@ -29,6 +29,7 @@
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
         protected $mDefaultValues; // dictionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
         protected $mRelations;
+        protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         
         protected function Relations() {
             // override me
@@ -53,6 +54,9 @@
             
             return $target;
         }
+        protected function HasMany() {
+            throw New Exception( 'TODO: Satori->HasMany()' );
+        }
         protected function GetDb() {
             return $this->mDb;
         }
@@ -72,6 +76,10 @@
             }
             
             if ( isset( $this->mReadOnlyFields[ $name ] ) ) {
+                if ( !$this->Exists() ) {
+                    $this->mReadOnlyModified = true;
+                    return;
+                }
                 throw New SatoriException( 'Attempting to write read-only Satori attribute `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
             
@@ -123,6 +131,9 @@
             return $this->mPrimaryKeyFields;
         }
         public function Save() {
+            if ( $this->mReadOnlyModified ) {
+                throw New SatoriException( 'This object has modified read-only attributes; it cannot be made persistent' );
+            }
             if ( $this->Exists() ) {
                 $sql = 'UPDATE
                             :' . $this->mDbTableAlias . '
@@ -239,7 +250,7 @@
                 if ( $column->IsAutoIncrement ) {
                     $this->mAutoIncrementField = $column->Name;
                     // autoincrement attributes are read-only
-                    // $this->MakeReadOnly( $attribute );
+                    $this->MakeReadOnly( $attribute );
                 }
             }
             
