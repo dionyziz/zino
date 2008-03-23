@@ -8,13 +8,6 @@ var Join = {
 		$( node ).css( "border" , "1px solid #999" );
 	},
 	Checkpwd : function() {
-		/*
-		var parent = node.parentNode.parentNode;
-		var divlist = parent.getElementsByTagName( 'div' );
-		var div = divlist[ 0 ];
-		var inputlist = parent.getElementsByTagName( 'input' );
-		var pwd = inputlist[ 0 ];
-		*/
 		var node = $( 'form.joinform div div input' )[ 0 ];
 		var pwd = $( 'form.joinform div input' )[ 1 ];
 		var div = $( 'form.joinform div div' )[ 0 ];
@@ -26,31 +19,21 @@ var Join = {
 			if ( node.value == pwd.value && node.value !== '' && !Join.hadcorrect ) {
 				Join.hadcorrect = true;
 				$( node ).css( "display" , "inline" );
-				//node.style.display = 'inline';
 				var okpwd = document.createElement( 'img' );
 				okpwd.src = 'images/button_ok_16.png';
 				okpwd.alt = 'Σωστή επαλήθευση';
 				okpwd.title = 'Σωστή επαλήθευση';
 				$( okpwd ).css( "padding-left" , "5px" );
-				//okpwd.style.paddingLeft = '5px';
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
 					$( okpwd ).css( "opacity" , "0" );
-					//Animations.SetAttribute( okpwd, 'opacity', 0 );
 					$( div ).append( okpwd );
-					//div.appendChild( okpwd );
 					$( okpwd ).animate( {opacity: "1"} , 2000 ); 
-					//Animations.Create( okpwd, 'opacity', 2000, 0, 1 );
 				}
 				else {
 					$( div ).append( okpwd );
-					//div.appendChild( okpwd );
 				}
 			}
 			else {
-				/*
-				var imglist = parent.getElementsByTagName( 'img' );
-				var okpwd = imglist[ 0 ];
-				*/
 				var okpwd = $( 'form.joinform div img' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
 					div.removeChild( okpwd );
