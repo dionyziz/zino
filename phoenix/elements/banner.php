@@ -11,7 +11,7 @@
 		<h1><a href="http://www.zino.gr/" onclick="return false"><img src="images/zino.png" alt="Zino" /></a></h1>
 	    <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
 		<ul><?php   
-	        if ( !isset( $loggedin ) ) {
+	        if ( !$loggedin ) {
 	            ?><li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
 	            <li>·</li>
 	            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
