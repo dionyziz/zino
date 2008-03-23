@@ -132,6 +132,7 @@
             return $this->FindByPrototype( $prototype );
         }
         public function FindAll() {
+            die( 'breakpoint 104' );
             return $this->FindByPrototype( New TestRabbitSatoriExtension() );
         }
     }
@@ -303,7 +304,6 @@
             $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );
             $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
-            die( 'breakpoint 105' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
