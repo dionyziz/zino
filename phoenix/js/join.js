@@ -16,7 +16,7 @@ var Join = {
 		var pwd = inputlist[ 0 ];
 		*/
 		var pwd = $( 'form.joinform div input' )[ 1 ];
-		
+		var div = $( 'form.joinform div div' )[ 0 ];
 		if ( Join.timervar !== 0 ) {
 			clearTimeout( Join.timervar );
 		}
@@ -40,8 +40,11 @@ var Join = {
 				}
 			}
 			else {
+				/*
 				var imglist = parent.getElementsByTagName( 'img' );
 				var okpwd = imglist[ 0 ];
+				*/
+				var okpwd = $( 'form.joinform div img' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
 					div.removeChild( okpwd );
 					Join.hadcorrect = false;
