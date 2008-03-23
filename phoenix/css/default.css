@@ -12,6 +12,6 @@ div.content {
 div.eof {
 	clear: both;
 }
-li.invisible {
+.invisible {
 	display: none;
 }
