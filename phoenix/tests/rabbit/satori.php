@@ -295,14 +295,14 @@
         }
         public function TestFinder() {
             $finder = New TestRabbitSatoriExtensionFinder();
-            $this->Assert( is_object( $finder ) );
-            $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder );
+            $this->Assert( is_object( $finder ), 'Finders must be objects' );
+            $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
             $all = $finder->FindAll();
-            $this->Assert( is_array( $all ) );
+            $this->Assert( is_array( $all ), 'Group finder functions must return arrays' );
             $one = $finder->FindUnique( 1 );
-            $this->Assert( is_object( $one ) );
+            $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );
-            $this->AssertFalse( $none );
+            $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
