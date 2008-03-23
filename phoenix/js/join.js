@@ -51,10 +51,13 @@ var Join = {
 	ShowTos : function () {
 		var area = document.getElementById( 'join_tos' ).cloneNode( true );
 		$( area ).css( "display" , "block" );
-		//area.style.display = 'block';
 		Modals.Create( area, 620, 520 );
 	}
 };
+$( document ).ready( function(){
+	$( '#join_name' ).focus();
+});/*
 setTimeout( function () {
 		document.getElementById( 'join_name' ).focus();
 }, 20 );
+*/
