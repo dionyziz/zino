@@ -122,6 +122,19 @@
             return $this->mDb;
         }
     }
+    
+    class TestRabbitSatoriExtensionFinder extends Finder {
+        protected $mModel = 'TestRabbitSatoriExtension';
+        
+        public function FindUnique( $id ) {
+            $prototype = New TestRabbitSatoriExtension();
+            $prototype->Id = $id;
+            return $this->FindByPrototype( $prototype );
+        }
+        public function FindAll() {
+            return $this->FindByPrototype( New TestRabbitSatoriExtension() );
+        }
+    }
         
     class TestRabbitSatori extends Testcase {
         protected $mAppliesTo = 'libs/rabbit/satori';
@@ -279,6 +292,17 @@
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
+        }
+        public function TestFinder() {
+            $finder = New TestRabbitSatoriExtensionFinder();
+            $this->Assert( is_object( $finder ) );
+            $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder );
+            $all = $finder->FindAll();
+            $this->Assert( is_array( $all ) );
+            $one = $finder->FindUnique( 1 );
+            $this->Assert( is_object( $one ) );
+            $none = $finder->FindUnique( 1337 );
+            $this->AssertFalse( $none );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
