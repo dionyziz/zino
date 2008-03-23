@@ -8,6 +8,7 @@
         global $user;
         global $libs;
         
+        $libs->Load( 'permission' );
     	$libs->Load( 'magic' );
     	$libs->Load( 'log' );
     	$libs->Load( 'user' );
@@ -40,12 +41,12 @@
             $user = new User( array() );
         }
         
-        $banfinder = New BanFinder();
         $banned = false;
         if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $banned = true;
         }
         
+        $banfinder = New BanFinder();
         $ban = $banfinder->FindByIp( UserIp() );
         if ( $ban !== false && !$ban->Expired ) {
             $banned = true;

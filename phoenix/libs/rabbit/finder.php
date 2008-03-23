@@ -15,7 +15,7 @@
             }
             // check if this is a primary key lookup
             $keys = $prototype->PrimaryKeyFields;
-            $primary = false;
+            $unique = false;
             if ( count( $keys ) == count( $mods ) ) {
                 $primary = true;
                 foreach ( $keys as $field ) {
