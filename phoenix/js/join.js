@@ -1,7 +1,6 @@
 var Join = {
 	timervar : 0,
 	hadcorrect : false,
-
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -54,6 +53,6 @@ var Join = {
 };
 $( document ).ready( function(){
 	$( '#join_name' ).focus();
-	$( 'form.joinform div input' ).focus( Focusinput( this ) );
-	$( 'form.joinform div input' ).blur( Unfocusinput( this ) );
+	$( 'form.joinform div input' ).focus( Join.Focusinput( this ) );
+	$( 'form.joinform div input' ).blur( Join.Unfocusinput( this ) );
 });
