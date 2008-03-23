@@ -25,14 +25,17 @@ var Join = {
 		Join.timervar = setTimeout( function() {
 			if ( node.value == pwd.value && node.value !== '' && !Join.hadcorrect ) {
 				Join.hadcorrect = true;
-				node.style.display = 'inline';
+				$( node ).css( "display" , "inline" );
+				//node.style.display = 'inline';
 				var okpwd = document.createElement( 'img' );
 				okpwd.src = 'images/button_ok_16.png';
 				okpwd.alt = 'Σωστή επαλήθευση';
 				okpwd.title = 'Σωστή επαλήθευση';
-				okpwd.style.paddingLeft = '5px';
+				$( okpwd ).css( "padding-left" , "5px" );
+				//okpwd.style.paddingLeft = '5px';
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
-					Animations.SetAttribute( okpwd, 'opacity', 0 );
+					$( okpwd ).css( "opacity" , "0" );
+					//Animations.SetAttribute( okpwd, 'opacity', 0 );
 					div.appendChild( okpwd );
 					Animations.Create( okpwd, 'opacity', 2000, 0, 1 );
 				}
