@@ -1,19 +1,13 @@
 var Join = {
 	timervar : 0,
 	hadcorrect : false,
-	$( 'form.joinform div input' ).focus( function() {
-		$( this ).css( "border" , "1px solid #bdbdff" );
-	},
-	$( 'form.joinform div input' ).blur( function() {
-		$( this ).css( "border" , "1px solid #999" );
-	},/*
+
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
 	Unfocusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #999" );
 	},
-	*/
 	Checkpwd : function( node ) {
 		var parent = node.parentNode.parentNode;
 		var divlist = parent.getElementsByTagName( 'div' );
@@ -60,4 +54,6 @@ var Join = {
 };
 $( document ).ready( function(){
 	$( '#join_name' ).focus();
+	$( 'form.joinform div input' ).focus( Focusinput( this ) );
+	$( 'form.joinform div input' ).blur( Unfocusinput( this ) );
 });
