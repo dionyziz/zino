@@ -129,10 +129,10 @@
         public function FindUnique( $id ) {
             $prototype = New TestRabbitSatoriExtension();
             $prototype->Id = $id;
+            die( 'breakpoint 107' );
             return $this->FindByPrototype( $prototype );
         }
         public function FindAll() {
-            die( 'breakpoint 104' );
             return $this->FindByPrototype( New TestRabbitSatoriExtension() );
         }
     }
