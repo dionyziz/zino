@@ -16,7 +16,7 @@
             if ( $runresult instanceof RunResultFailedByException ) {
                 ?><span class="fail">UNANTICIPATED FAIL</span><br />
                 <strong>Unhandled Exception: </strong><br /><?php
-                echo htmlspecialchars( $runresult->ExceptionMessage );
+                echo htmlspecialchars( $runresult->Message );
                 ?><br /><?php
             }
             else {
