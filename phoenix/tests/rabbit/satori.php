@@ -129,7 +129,6 @@
         public function FindUnique( $id ) {
             $prototype = New TestRabbitSatoriExtension();
             $prototype->Id = $id;
-            die( 'breakpoint 107' );
             return $this->FindByPrototype( $prototype );
         }
         public function FindAll() {

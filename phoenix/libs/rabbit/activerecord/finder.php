@@ -11,6 +11,7 @@
             w_assert( is_int( $limit ) );
             
             $mods = $prototype->FetchPrototypeChanges();
+            die( var_dump( $mods ) );
             if ( !count( $mods ) ) {
                 return array();
             }
