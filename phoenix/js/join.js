@@ -36,7 +36,8 @@ var Join = {
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
 					$( okpwd ).css( "opacity" , "0" );
 					//Animations.SetAttribute( okpwd, 'opacity', 0 );
-					div.appendChild( okpwd );
+					$( div ).append( okpwd );
+					//div.appendChild( okpwd );
 					Animations.Create( okpwd, 'opacity', 2000, 0, 1 );
 				}
 				else {
