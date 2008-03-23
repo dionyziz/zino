@@ -43,7 +43,7 @@ var Join = {
 		}, 200 );
 	},
 	ShowTos : function () {
-		var area = $( '#join_tos' )[ 0 ].cloneNode( true );
+		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
 	}
@@ -58,5 +58,11 @@ $( document ).ready( function(){
 	$( 'form.joinform div input:first' )[ 0 ].focus();
 	$( 'form.joinform div div input' ).keyup( function() {
 		Join.Checkpwd();
+	});
+	$( 'form.joinform p a' ).click( function () {
+		Join.ShowTos();
+	});
+	$( 'div#join_tos a' ).click( function() {
+		Modals.Destroy();
 	});
 });
