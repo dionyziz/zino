@@ -10,7 +10,6 @@
         
         $libs->Load( 'permission' );
     	$libs->Load( 'magic' );
-    	$libs->Load( 'log' );
     	$libs->Load( 'user' );
     	$libs->Load( 'ban' );
         
