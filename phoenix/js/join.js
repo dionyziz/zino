@@ -38,10 +38,12 @@ var Join = {
 					//Animations.SetAttribute( okpwd, 'opacity', 0 );
 					$( div ).append( okpwd );
 					//div.appendChild( okpwd );
-					Animations.Create( okpwd, 'opacity', 2000, 0, 1 );
+					$( okpwd ).animate( {opacity: "1"} , 2000 ); 
+					//Animations.Create( okpwd, 'opacity', 2000, 0, 1 );
 				}
 				else {
-					div.appendChild( okpwd );
+					$( div ).append( okpwd );
+					//div.appendChild( okpwd );
 				}
 			}
 			else {
