@@ -46,12 +46,14 @@
         }
         
         $banfinder = New BanFinder();
+        /*
         $bans = $banfinder->FindByIp( UserIp() );
         foreach ( $bans as $ban ) {
             if ( !$ban->Expired ) {
                 $banned = true;
             }
         }
+        */
         
         if ( $banned ) {
             // $page->AttachMainElement( 'user/banned', array() );
