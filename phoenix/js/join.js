@@ -55,5 +55,6 @@ $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( Join.Focusinput( this ) );
 	$( 'form.joinform div input' ).blur( Join.Unfocusinput( this ) );
 	$( '#join_name' ).focus();
+	$( '#join_name' ).css( "border" , "1px solid red" );
 	alert( "ok" );
 });
