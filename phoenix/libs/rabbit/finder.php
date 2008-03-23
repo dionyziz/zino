@@ -2,6 +2,7 @@
     abstract class Finder {
         protected $mModel = '';
         protected $mDbTableAlias;
+        protected $mDbIndexes;
         protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25 ) {
@@ -13,18 +14,28 @@
             if ( !count( $mods ) ) {
                 return array();
             }
-            // check if this is a primary key lookup
-            $keys = $prototype->PrimaryKeyFields;
+            // check if this lookup will yield to a unique result
+            // this type of lookups will either return a single record or none
             $unique = false;
-            if ( count( $keys ) == count( $mods ) ) {
-                $primary = true;
-                foreach ( $keys as $field ) {
-                    if ( !isset( $mods[ $field ] ) ) {
-                        $primary = false;
-                        break;
-                    }
+            foreach ( $this->mDbIndexes as $index ) {
+                switch ( $index->Type ) {
+                    case DB_KEY_UNIQUE:
+                    case DB_KEY_PRIMARY:
+                        $unique = true;
+                        foreach ( $index->Fields as $field ) {
+                            if ( !isset( $mods[ $field->Name ] ) ) {
+                                $unique = false;
+                                break;
+                            }
+                        }
+                    default:
+                }
+                if ( $unique ) {
+                    // if this lookup is a subseteq of at least one unique/primary key, this is sufficient
+                    break;
                 }
             }
+            
             $sql = 'SELECT
                         *
                     FROM
@@ -45,7 +56,7 @@
             $query->Bind( '__offset', $offset );
             $query->Bind( '__limit', $limit );
             $res = $query->Execute();
-            if ( $primary ) {
+            if ( $unique ) {
                 // lookup by primary key
                 return New $this->mModel( $res->FetchArray() );
             }
@@ -58,6 +69,7 @@
             $prototype = New $this->mModel();
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
             $this->mDbTableAlias = $prototype->DbTable->Alias;
+            $this->mDbIndexes = $prototype->DbTable->Indexes;
         }
     }
 ?>
