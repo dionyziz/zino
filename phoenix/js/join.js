@@ -61,8 +61,10 @@ $( document ).ready( function(){
 	});
 	$( 'form.joinform p a' ).click( function () {
 		Join.ShowTos();
+		return false;
 	});
 	$( 'div#join_tos a' ).click( function() {
 		Modals.Destroy();
+		return false;
 	});
 });
