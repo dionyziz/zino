@@ -8,11 +8,15 @@ var Join = {
 		$( node ).css( "border" , "1px solid #999" );
 	},
 	Checkpwd : function( node ) {
+		/*
 		var parent = node.parentNode.parentNode;
 		var divlist = parent.getElementsByTagName( 'div' );
 		var div = divlist[ 0 ];
 		var inputlist = parent.getElementsByTagName( 'input' );
 		var pwd = inputlist[ 0 ];
+		*/
+		var pwd = $( 'form.joinform div input' )[ 1 ];
+		
 		if ( Join.timervar !== 0 ) {
 			clearTimeout( Join.timervar );
 		}
