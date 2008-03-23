@@ -12,12 +12,12 @@
 	    <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
 		<ul><?php   
 	        if ( !$loggedin ) {
-	            ?><li><a href="register" onclick="return false" class="register icon">Δημιούργησε λογαριασμό</a></li>
+	            ?><li><a href="?p=join" class="register icon">Δημιούργησε λογαριασμό</a></li>
 	            <li>·</li>
 	            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
-	            <li style="display:none">·</li>
-	            <li style="display:none">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
-	            <li style="display:none"><input type="button" value="Είσοδος" class="button" /></li><?php
+	            <li class="invisible">·</li>
+	            <li class="invisible">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
+	            <li class="invisible"><input type="button" value="Είσοδος" class="button" /></li><?php
 	        }
 	        else {
 	    		?><li><a href="user/dionyziz" class="self icon" style="background-image: url('../images/avatars/dionyziz.25.jpg');" onclick="return false">dionyziz</a></li>
