@@ -53,9 +53,10 @@
         }
         
         if ( $banned ) {
-            $page->AttachMainElement( 'user/banned', array() );
-            $page->Output();
-            exit();
+            // $page->AttachMainElement( 'user/banned', array() );
+            // $page->Output();
+            // exit();
+            $water->Trace( 'banned' );
         }
         
         if ( !$xc_settings[ "readonly" ] ) {
