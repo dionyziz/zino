@@ -17,8 +17,12 @@
             // check if this lookup will yield to a unique result
             // this type of lookups will either return a single record or none
             $unique = false;
-            var_dump( $this->mDbIndexes );
+            foreach ( $this->mDbIndexes as $index ) {
+                echo $index->Type;
+                ?> <?php
+            }
             die();
+            
             foreach ( $this->mDbIndexes as $index ) {
                 switch ( $index->Type ) {
                     case DB_KEY_UNIQUE:
