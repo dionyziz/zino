@@ -6,7 +6,6 @@
 		global $libs;
 		global $rabbit_settings;
 		
-		//$page->AttachStylesheet( 'css/main.css' );
 		//attaching all the default styling files
 		$page->AttachStylesheet( 'css/default.css' );
 		$page->AttachStylesheet( 'css/headlines.css' );
