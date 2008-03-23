@@ -59,6 +59,4 @@ $( document ).ready( function(){
 		Join.Unfocusinput( this );
 	});
 	$( '#join_name' )[ 0 ].focus();
-	$( '#join_name' ).css( "border" , "1px solid red" );
-	alert( "ok" );
 });
