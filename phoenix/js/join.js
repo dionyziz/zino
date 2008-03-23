@@ -52,7 +52,8 @@ var Join = {
 	}
 };
 $( document ).ready( function(){
-	$( '#join_name' ).focus();
 	$( 'form.joinform div input' ).focus( Join.Focusinput( this ) );
 	$( 'form.joinform div input' ).blur( Join.Unfocusinput( this ) );
+	$( '#join_name' ).focus();
+	alert( "ok" );
 });
