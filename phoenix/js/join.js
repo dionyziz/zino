@@ -7,7 +7,7 @@ var Join = {
 	Unfocusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #999" );
 	},
-	Checkpwd : function( node ) {
+	Checkpwd : function() {
 		/*
 		var parent = node.parentNode.parentNode;
 		var divlist = parent.getElementsByTagName( 'div' );
@@ -15,6 +15,7 @@ var Join = {
 		var inputlist = parent.getElementsByTagName( 'input' );
 		var pwd = inputlist[ 0 ];
 		*/
+		var node = $( 'form.joinform div div input' )[ 0 ];
 		var pwd = $( 'form.joinform div input' )[ 1 ];
 		var div = $( 'form.joinform div div' )[ 0 ];
 		if ( Join.timervar !== 0 ) {
@@ -67,6 +68,6 @@ $( document ).ready( function(){
 	});
 	$( 'form.joinform div input:first' )[ 0 ].focus();
 	$( 'form.joinform div div input' ).keyup( function() {
-		Join.Checkpwd( this );
+		Join.Checkpwd();
 	});
 });
