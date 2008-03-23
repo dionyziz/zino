@@ -64,7 +64,7 @@ $( document ).ready( function(){
 		return false;
 	});
 	$( 'div#join_tos a' ).click( function() {
-		Modals.Destroy();
+		setTimeout( Modals.Destroy, 20 );
 		return false;
 	});
 });
