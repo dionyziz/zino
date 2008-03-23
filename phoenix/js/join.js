@@ -52,9 +52,13 @@ var Join = {
 	}
 };
 $( document ).ready( function(){
-	$( 'form.joinform div input' ).focus( Join.Focusinput( this ) );
-	$( 'form.joinform div input' ).blur( Join.Unfocusinput( this ) );
-	$( '#join_name' ).focus();
+	$( 'form.joinform div input' ).focus( function() {
+		Join.Focusinput( this ) );
+	});
+	$( 'form.joinform div input' ).blur( function() {
+		Join.Unfocusinput( this ) );
+	});
+	$( '#join_name' )[ 0 ].focus();
 	$( '#join_name' ).css( "border" , "1px solid red" );
 	alert( "ok" );
 });
