@@ -2,9 +2,15 @@
     /*
         Developer: Dionyziz
     */
-    
+
     class UserException extends Exception {
     }
+
+    global $libs;
+    $libs->Load( 'user/preferences' );
+    $libs->Load( 'user/profile' );
+    $libs->Load( 'user/space' );
+    
     class UserFinder extends Finder {
         protected $mModel = 'User';
         
@@ -24,26 +30,6 @@
             return $this->FindByPrototype( $prototype );
         }
     }
-    class UserPreferences extends Satori {
-        protected $mDbTableAlias = 'userpreferences';
-        
-        public function Relations() {
-            $this->User = $this->HasOne( 'User', 'userid' );
-        }
-        public function Delete() {
-            throw New UserException( 'User preferences cannot be deleted' );
-        }
-    }
-    class UserProfile extends Satori {
-        protected $mDbTableAlias = 'userprofiles';
-        
-        public function Relations() {
-            $this->User = $this->HasOne( 'User', 'userid' );
-        }
-        public function Delete() {
-            throw New UserException( 'User profiles cannot be deleted' );
-        }
-    }
     class User extends Satori {
         protected $mDbTableAlias = 'users';
         
@@ -52,6 +38,7 @@
             $this->Profile = $this->HasOne( 'UserProfile', 'userid' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUserId', 'userid' );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUserId', 'userid' );
+            $this->Space = $this->HasOne( 'UserSpace', 'userid' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );
