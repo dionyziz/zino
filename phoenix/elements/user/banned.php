@@ -22,7 +22,7 @@
             echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
             ?>. Εάν θεωρείς ότι έχεις χρησιμοποιήσει τον λογαριασμό σου στο <?php 
             echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
-            ?> σύμφωνα με τους Όρους Χρήσης, παρακαλώ επικοινώνησε μαζί μας για να επιλύσουμε αυτό το πρόβλημα.
+            ?> σύμφωνα με τους Όρους Χρήσης, παρακαλώ <a href="mailto:webmaster@zino.gr">επικοινώνησε μαζί μας</a> για να επιλύσουμε αυτό το πρόβλημα.
         </div><?php
     }
 ?>
