@@ -54,7 +54,7 @@
             
             return $target;
         }
-        protected function HasMany() {
+        protected function HasMany( $finder, $method, $foreignKey ) {
             throw New Exception( 'TODO: Satori->HasMany()' );
         }
         protected function GetDb() {

@@ -10,7 +10,7 @@
         
         $libs->Load( 'permission' );
     	$libs->Load( 'magic' );
-    	$libs->Load( 'user' );
+    	$libs->Load( 'user/user' );
     	$libs->Load( 'ban' );
         
         $xc_settings = $rabbit_settings[ '_excalibur' ];
