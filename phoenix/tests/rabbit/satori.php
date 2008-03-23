@@ -294,7 +294,6 @@
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
         }
         public function TestFinder() {
-            die( 'breakpoint 104' );
             $finder = New TestRabbitSatoriExtensionFinder();
             $this->Assert( is_object( $finder ), 'Finders must be objects' );
             $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
@@ -304,6 +303,7 @@
             $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );
             $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
+            die( 'breakpoint 105' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();
