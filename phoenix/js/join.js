@@ -1,14 +1,19 @@
 var Join = {
 	timervar : 0,
 	hadcorrect : false,
+	$( 'form.joinform div input' ).focus( function() {
+		$( this ).css( "border" , "1px solid #bdbdff" );
+	},
+	$( 'form.joinform div input' ).blur( function() {
+		$( this ).css( "border" , "1px solid #999" );
+	},/*
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
-		//node.style.border = '1px solid #bdbdff';
 	},
 	Unfocusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #999" );
-		//node.style.border = '1px solid #999';
 	},
+	*/
 	Checkpwd : function( node ) {
 		var parent = node.parentNode.parentNode;
 		var divlist = parent.getElementsByTagName( 'div' );
@@ -40,7 +45,6 @@ var Join = {
 			else {
 				var imglist = parent.getElementsByTagName( 'img' );
 				var okpwd = imglist[ 0 ];
-				//alert( okpwd );
 				if ( node.value != pwd.value && okpwd ) {
 					div.removeChild( okpwd );
 					Join.hadcorrect = false;
@@ -56,8 +60,4 @@ var Join = {
 };
 $( document ).ready( function(){
 	$( '#join_name' ).focus();
-});/*
-setTimeout( function () {
-		document.getElementById( 'join_name' ).focus();
-}, 20 );
-*/
+});

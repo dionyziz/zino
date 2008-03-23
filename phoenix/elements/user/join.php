@@ -14,20 +14,20 @@
 				<form class="joinform">
 					<div>
 						<label for="join_name">Όνομα χρήστη:</label>
-						<input type="text" id="join_name" value="" onfocus="Join.Focusinput( this );" onblur="Join.Unfocusinput( this);" />
+						<input type="text" id="join_name" value="" />
 						<p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>
 					</div>
 					<div>
 						<label for="join_pwd">Κωδικός πρόσβασης:</label>
-						<input type="password" id="join_pwd" value="" style="margin-bottom:5px;" onfocus="Join.Focusinput( this );" onblur="Join.Unfocusinput( this );" />
+						<input type="password" id="join_pwd" value="" style="margin-bottom:5px;" />
 						<div>
 							<label for="join_repwd">Πληκτρολόγησε τον ξανά:</label>
-							<input type="password"  id="join_repwd" value="" style="vertical-align:top;" onfocus="Join.Focusinput( this );" onblur="Join.Unfocusinput( this );" onkeyup="Join.Checkpwd( this );" />
+							<input type="password"  id="join_repwd" value="" style="vertical-align:top;" onkeyup="Join.Checkpwd( this );" />
 						</div>
 					</div>
 					<div>
 						<label for="join_email">E-mail (προαιρετικά):</label>
-						<input type="text" id="join_email" value="" style="width:200px;" onfocus="Join.Focusinput( this );" onblur="Join.Unfocusinput( this );" />
+						<input type="text" id="join_email" value="" style="width:200px;" />
 						<p>Αν συμπληρώσεις το e-mail σου θα μπορείς να επαναφέρεις τον κωδικό σου σε περίπτωση που τον ξεχάσεις.</p>
 					</div>
 					
