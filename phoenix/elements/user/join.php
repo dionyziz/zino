@@ -123,11 +123,6 @@
 				</p>
 			</div>
 			<a href="" class="button" onclick="Modals.Destroy();return false;">Κλείσιμο</a>
-		</div>
-		<?php
-		/*
-		<script type="text/javascript" src="js/join.js"></script>
-		<script type="text/javascript" src="../../js/modal.js"></script>
-		*/
+		</div><?php
 	}
 ?>
