@@ -33,10 +33,8 @@
 			<li><a href="" onclick=""><img src="images/avatars/teddy.jpg" alt="teddy" title="teddy" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/klio.jpg" alt="klio" title="klio" /></a></li>
 			<li><a href="" onclick=""><img src="images/avatars/cafrillio.jpg" alt="cafrillio" title="cafrillio" /></a></li>
-			<li><a href="" onclick=""><img src="images/dionyziz2.jpg" alt="dionyziz" title="dionyziz" /></a></li><?php /*
-			<li><a href="" onclick=""><img src="images/avatars/irini_th_bill.jpg" alt="irini_th_bill" title="irini_th_bill" /></a></li>
-			*/
-			?>
+			<li><a href="" onclick=""><img src="images/dionyziz2.jpg" alt="dionyziz" title="dionyziz" /></a></li>
+			<li><a href="" onclick=""><img src="images/avatars/argiro-18.jpg" alt="argiro_18" title="argiro_18" /></a></li>
 		</ul>
 	</div><?php
 	if ( !$loggedin ) {
