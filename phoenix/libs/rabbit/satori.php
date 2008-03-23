@@ -236,13 +236,11 @@
                 $attribute = ucfirst( $parts[ 1 ] );
                 $this->mDbFields[ $column->Name ] = $attribute;
                 $this->mDbFieldKeys[] = $column->Name;
-                /*
                 if ( $column->IsAutoIncrement ) {
                     $this->mAutoIncrementField = $column->Name;
                     // autoincrement attributes are read-only
                     $this->MakeReadOnly( $attribute );
                 }
-                */
             }
             
             $this->mPrimaryKeyFields = array();
