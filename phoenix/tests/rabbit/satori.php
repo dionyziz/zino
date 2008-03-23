@@ -294,6 +294,7 @@
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
         }
         public function TestFinder() {
+            die( 'breakpoint 104' );
             $finder = New TestRabbitSatoriExtensionFinder();
             $this->Assert( is_object( $finder ), 'Finders must be objects' );
             $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
