@@ -2,10 +2,12 @@ var Join = {
 	timervar : 0,
 	hadcorrect : false,
 	Focusinput : function ( node ) {
-		node.style.border = '1px solid #bdbdff';
+		$( node ).css( "border" , "1px solid #bdbdff" );
+		//node.style.border = '1px solid #bdbdff';
 	},
 	Unfocusinput : function ( node ) {
-		node.style.border = '1px solid #999';
+		$( node ).css( "border" , "1px solid #bdbdff" );
+		//node.style.border = '1px solid #999';
 	},
 	Checkpwd : function( node ) {
 		var parent = node.parentNode.parentNode;
