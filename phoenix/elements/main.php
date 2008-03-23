@@ -12,7 +12,9 @@
 		$page->AttachStylesheet( 'css/headlines.css' );
 		$page->AttachStylesheet( 'css/links.css' );
 		$page->AttachStylesheet( 'css/forms.css' );
-        $page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
+		$page->AttachScript( 'js/jquery.js' );
+		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
+		//$page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
         $page->AttachScript( 'js/main.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
