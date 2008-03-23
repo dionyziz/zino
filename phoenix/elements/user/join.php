@@ -22,7 +22,7 @@
 						<input type="password" id="join_pwd" value="" style="margin-bottom:5px;" />
 						<div>
 							<label for="join_repwd">Πληκτρολόγησε τον ξανά:</label>
-							<input type="password"  id="join_repwd" value="" style="vertical-align:top;" onkeyup="Join.Checkpwd( this );" />
+							<input type="password"  id="join_repwd" value="" style="vertical-align:top;" />
 						</div>
 					</div>
 					<div>

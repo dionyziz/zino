@@ -59,4 +59,7 @@ $( document ).ready( function(){
 		Join.Unfocusinput( this );
 	});
 	$( '#join_name' )[ 0 ].focus();
+	$( 'form.joinform div div input' ).keyup( function() {
+		Join.Checkpwd( this );
+	});
 });
