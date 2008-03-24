@@ -37,6 +37,13 @@
 
             $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
         }
+        public function TestFindOne() {
+            $finder = New BulkFinder();
+
+            $bulk = $finder->FindById( $this->mTestId );
+            $this->Assert( $bulk instanceof Bulk, 'Value returned by BulkFinder::FindById is not an instance of Bulk' );
+            $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
+        }
         public function TestDelete() {
             $bulk = New Bulk( $this->mTestId );
             $this->Assert( $bulk->Exists(), 'Bulk does not exist before deleting' );
@@ -46,13 +53,6 @@
 
             $bulk = New Bulk( $this->mTestId );
             $this->AssertFalse( $bulk->Exists(), 'Bulk seems to exist after creating a new instance' );
-        }
-        public function TestFindOne() {
-            $finder = New BulkFinder();
-
-            $bulk = $finder->FindById( $this->mTestId );
-            $this->Assert( is_object( $bulk ), 'Bulk returned by BulkFinder::FindById is not an object' );
-            $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
         }
         public function TestFindMany() {
             $bulk0 = New Bulk();
