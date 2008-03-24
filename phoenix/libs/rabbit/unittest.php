@@ -51,7 +51,7 @@
         protected function AssertTrue( $actual, $message = '' ) {
             if ( !is_bool( $actual ) ) {
                 return $this->InformTester(
-                    New AssertResult( false, $message, $actual, true )
+                    New AssertResult( false, $message, '[non boolean value]', true )
                 );
             }
             if ( $actual != true ) {
@@ -60,8 +60,12 @@
                 );
             }
         }
-        protected function AssertFalse( $actual, $message = '' ) {
+        protected function AssertFalse( $actual, $message = '', $debug = false ) {
             if ( !is_bool( $actual ) ) {
+                if ( $debug ) {
+                    var_dump( $actual );
+                    die();
+                }
                 return $this->InformTester(
                     New AssertResult( false, $message, $actual, false )
                 );
