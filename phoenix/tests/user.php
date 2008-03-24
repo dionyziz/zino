@@ -3,7 +3,7 @@
     // TODO: tags testing?
 
     final class TestUser extends Testcase {
-        protected $mAppliesTo = 'libs/user';
+        protected $mAppliesTo = 'libs/user/user';
         
         public function SetUp() {
             global $libs;
@@ -86,7 +86,7 @@
             $this->AssertEquals( $user->Rights, 10, 'User rights changed after saving user' );
             $this->AssertEquals( $user->Avatar, new Image( 1 ), 'User icon changed after saving user' );
             $this->AssertEquals( strlen( $user->Authtoken ), 32, 'User does not have a valid authtoken after creation' );
-            $this->AssertEquals( $user->RegiterHost, UserIp(), 'User register host should be set to the current user\'s IP by default' );
+            $this->AssertEquals( $user->RegisterHost, UserIp(), 'User register host should be set to the current user\'s IP by default' );
         }
         public function TestProfileDefaults() {
             $user = New User( 'usertest' );

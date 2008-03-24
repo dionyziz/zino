@@ -3,10 +3,10 @@
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
         
-        public function FindByUserId( $userid ) {
+        public function FindByUser( $user, $offset = 0, $order = array( 'Created', 'DESC' ) ) {
             $prototype = New Journal();
-            $prototype->UserId = $userid;
-            return $this->FindByPrototype( $prototype );
+            $prototype->UserId = $user->Id;
+            return $this->FindByPrototype( $prototype, $offset, $order );
         }
     }
     
