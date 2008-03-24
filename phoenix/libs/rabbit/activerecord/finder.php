@@ -3,6 +3,7 @@
         protected $mModel = '';
         protected $mDbTableAlias;
         protected $mDbIndexes;
+        protected $mAttribute2DbField;
         protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false ) {
@@ -49,8 +50,33 @@
                 $sql .= ' WHERE ' . implode( ' AND ', $where );
             }
             if ( $order !== false ) {
-                w_assert( preg_match( '#^[a-zA-Z_\-0-9]+$#', $order ) );
-                $sql .= ' ORDER BY `' . $order . '`';
+                if ( is_string( $order ) ) {
+                    $column = $order;
+                    $sort = 'ASC';
+                }
+                else if ( is_array( $order ) ) {
+                    if ( count( $order ) != 2 ) {
+                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: It must be a string or a 2-item array; ' . count( $order ) . '-item array given.' );
+                    }
+                    if ( !isset( $order[ 0 ] ) ) {
+                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: The 2-item array must be numerically indexed.' );
+                    }
+                    if ( !isset( $order[ 1 ] ) ) {
+                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: The 2-item array must be numerically indexed.' );
+                    }
+                    $column = $order[ 0 ];
+                    $sort = $order[ 1 ];
+                }
+                if ( !preg_match( '#^[a-zA-Z_\-0-9]+$#', $column ) ) {
+                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Attribute field must contain a legal attribute name, "' . $column . '" given.' );
+                }
+                if ( $sort != 'ASC' && $sort != 'DESC' ) {
+                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Sort field must be ASC or DESC, "' . $sort . '" given.' );
+                }
+                if ( !isset( $this->mAttribute2DbField[ $column ] ) ) {
+                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Attribute field "' . $column . '" does not exist in corresponding model as a domain-level attribute.' );
+                }
+                $sql .= ' ORDER BY ' . $this->mAttribute2DbField[ $column ] . ' ' . $sort;
             }
             $sql .= ' LIMIT :__offset, :__limit';
             $query = $this->mDb->Prepare( $sql );
@@ -78,6 +104,7 @@
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
+            $this->mAttribute2DbField = array_flip( $prototype->DbFields );
         }
     }
 ?>
