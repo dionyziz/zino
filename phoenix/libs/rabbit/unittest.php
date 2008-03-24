@@ -49,10 +49,14 @@
             return $this->AssertEquals( true, ( bool )$actual, $message ); // ==
         }
         protected function AssertTrue( $actual, $message = '' ) {
-            return $this->AssertEquals( true, $actual, $message ); // ===
+            return $this->InformTester(
+                New AssertResult( is_boolean( $actual ) && $actual == true, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
+            );
         }
         protected function AssertFalse( $actual, $message = '' ) {
-            return $this->AssertEquals( false, $actual, $message ); // ===
+            return $this->InformTester(
+                New AssertResult( is_boolean( $actual ) && $actual == false, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
+            );
         }
         protected function RequireSuccess( AssertResult $result ) {
             if ( !$result->Success ) {
