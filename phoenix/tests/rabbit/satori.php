@@ -297,9 +297,9 @@
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
         }
         public function TestPrototyping() {
-        /*
             $obj = New TestRabbitSatoriExtension();
             $this->AssertEquals( array(), $obj->FetchPrototypeChanges(), 'Non-modified object should return no prototype changes' );
+        /*
             $obj->Char = '-ko-';
             $this->AssertEquals( array( 'test_char' => '-ko-' ), $obj->FetchPrototypeChanges(), 'Prototype changes should be reflected by FetchPrototypeChanges()' );
             $obj->Id = 1;
