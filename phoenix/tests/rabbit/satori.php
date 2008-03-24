@@ -216,7 +216,6 @@
             $test->Foo = $this;
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
-        /*
         public function TestCreation() {
             global $rabbit_settings;
             
@@ -235,6 +234,7 @@
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
         }
+        /*
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
             $this->AssertEquals( 0, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to the default value of the given type' );
