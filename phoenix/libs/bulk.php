@@ -30,7 +30,7 @@
             }
 
             if ( count( $ids ) ) {
-                $ret += $this->Fetch( $ids );
+                $ret = $ret + $this->Fetch( $ids );
             }
 
             if ( $was_array ) {
