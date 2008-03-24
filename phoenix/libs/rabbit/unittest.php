@@ -63,8 +63,7 @@
         protected function AssertFalse( $actual, $message = '', $debug = false ) {
             if ( !is_bool( $actual ) ) {
                 if ( $debug ) {
-                    // var_dump( $actual );
-                    die( 'foo' );
+                    die( is_object( $actual ) . " ... " . get_class( $actual ) );
                 }
                 return $this->InformTester(
                     New AssertResult( false, $message, $actual, false )
