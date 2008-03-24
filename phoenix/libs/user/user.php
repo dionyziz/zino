@@ -44,7 +44,7 @@
         protected $mDbTableAlias = 'users';
         
         public function Relations() {
-            $this->Preferences = $this->HasOne( 'UserPreferences', 'Id' );
+            $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
