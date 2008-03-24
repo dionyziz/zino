@@ -43,6 +43,8 @@
         }
         protected function HasOne( $className, $foreignKey ) {
             // TODO: lazy loading
+            return New Relation();
+            
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
@@ -62,10 +64,12 @@
             $class = New ReflectionClass( $className );
             $target = $class->newInstanceArgs( $args );
             
-            return New Relation(); // $target;
+            return $target;
         }
         protected function HasMany( $finderName, $methodName, $foreignKey ) {
             // TODO: lazy loading
+            return New Relation();
+            
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasMany relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
@@ -79,7 +83,7 @@
             if ( !method_exists( $finder, $methodName ) ) {
                 throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
             }
-            return New Relation(); // $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
+            return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
         }
         protected function GetDb() {
             return $this->mDb;
