@@ -13,7 +13,8 @@ var Banner = {
 		}
 		Banner.isanimating = true;
 		if ( options[ 0 ].style.display == '' ) {
-			Animations.Create( menu, 'opacity', 500, 1, 0, function () {
+			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
+			$( menu ).animate( { opacity: "0" } , function() {
 				$( options[ 0 ] ).hide();
 				$( options[ 1 ] ).hide();
 				$( options[ 3 ] ).show();
