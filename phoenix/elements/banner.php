@@ -15,7 +15,7 @@
 	            ?><li><a href="?p=join" class="register icon">Δημιούργησε λογαριασμό</a></li>
 	            <li>·</li>
 	            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
-	            <li style="display:nnne;">·</li>
+	            <li style="display:none;">·</li>
 	            <li style="display:none;">Όνομα: <input type="text" /> Κωδικός: <input type="password" /></li>
 	            <li style="display:none;"><input type="button" value="Είσοδος" class="button" /></li><?php
 	        }
