@@ -11,6 +11,11 @@
     class SatoriException extends Exception {
     }
     
+    class Relation {
+        public function __constructor() {
+        }
+    }
+    
     // Active Record Base
     abstract class Satori extends Overloadable {
         protected $mDb; // database object referring to the database where the object is stored
@@ -57,7 +62,7 @@
             $class = New ReflectionClass( $className );
             $target = $class->newInstanceArgs( $args );
             
-            return $target;
+            return New Relation(); // $target;
         }
         protected function HasMany( $finderName, $methodName, $foreignKey ) {
             // TODO: lazy loading
@@ -74,7 +79,7 @@
             if ( !method_exists( $finder, $methodName ) ) {
                 throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
             }
-            return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
+            return New Relation(); // $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
         }
         protected function GetDb() {
             return $this->mDb;
