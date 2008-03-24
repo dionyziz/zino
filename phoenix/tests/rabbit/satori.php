@@ -130,8 +130,6 @@
             w_assert( is_int( $id ) );
             $prototype = New TestRabbitSatoriExtension();
             $prototype->Id = $id;
-            /* var_dump( $prototype->FetchPrototypeChanges() );
-            die(); */
             return $this->FindByPrototype( $prototype );
         }
         public function FindAll() {
