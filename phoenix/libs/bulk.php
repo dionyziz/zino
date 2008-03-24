@@ -62,7 +62,10 @@
                 self::$mFetched[ $row[ "bulk_id" ] ] = $row; // add data to cache
             }
 
-            w_assert( count( $ret ) );
+            if ( !count( $ret ) ) {
+                echo "ids: ";
+                print_r( $ids );
+            }
 
             return $ret;
         }
