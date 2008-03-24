@@ -239,13 +239,13 @@
             $this->AssertEquals( 0, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to the default value of the given type' );
             $this->AssertEquals( 'haha', $this->mObj->Name, 'Default values should not override explicitly specified values' );
         }
-        /*
         public function TestLookup() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
             $this->AssertEquals( $this->mObj->Id, $obj->Id, 'Retrieved object should match the one saved (Id)' );
             $this->AssertEquals( $this->mObj->Int, $obj->Int, 'Retrieved object should match the one saved (Int)' );
             $this->AssertEquals( $this->mObj->Char, $obj->Char, 'Retrieved object should match the one saved (Char)' );
         }
+        /*
         public function TestFetchedArray() {
             $obj = New TestRabbitSatoriExtension(
                 array(
