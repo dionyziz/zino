@@ -21,7 +21,7 @@
         protected $mDb = 'db';
         
         protected function Relations() {
-            $this->mBulk = $this->HasOne( 'Bulk', 'space_bulkid', array( 'bulk', 'bulk_id' ) );
+            $this->mBulk = $this->HasOne( 'Bulk', 'bulkid' );
         }
     }
     
@@ -33,7 +33,7 @@
         protected $mDbTableAlias = 'photos';
         
         protected function Relations() {
-            $this->mAlbum = $this->BelongsTo( 'Album', 'photo_albumid', array( 'albums', 'album_id' ) );
+            $this->mAlbum = $this->HasOne( 'Album', 'albumid' );
         }
     }
     
@@ -41,8 +41,8 @@
         protected $mDbTableAlias = 'albums';
         
         protected function Relations() {
-            $this->mPhotos = $this->HasMany( 'Photo', 'album_id', array( 'photos', 'photo_albumid' ) );
-            $this->mUser = $this->BelongsTo( 'User', 'album_userid', array( 'users', 'user_id' ) );
+            $this->mPhotos = $this->HasMany( 'PhotoFinder', 'FindByAlbum', 'albumid' );
+            $this->mUser = $this->HasOne( 'User', 'userid' );
         }
     }
     
@@ -54,20 +54,20 @@
         protected $mDbTableAlias = 'users';
         
         protected function Relations() {
-            $this->mJournalAuthors = $this->HasMany( 'JournalAuthor', 'user_id', array( 'journalauthors', 'journalauthor_userid' ) );
-            $this->mSettings = $this->HasOne( 'UserSetting', 'user_id', array( 'usersettings', 'setting_userid' ) );
-            $this->mProfiles = $this->HasOne( 'UserProfile', 'user_id', array( 'userprofiles', 'profile_userid' ) );
-            $this->mPlace = $this->HasOne( 'Place', 'user_placeid', array( 'places', 'place_id' ) );
-            $this->mAlbums = $this->HasMany( 'Album', 'user_id', array( 'albums', 'album_userid' ) );
+            $this->mJournalAuthors = $this->HasMany( 'JournalAuthorshipFinder', 'FindByUser', $this );
+            $this->mSettings = $this->HasOne( 'UserSetting', 'user_id' );
+            $this->mProfiles = $this->HasOne( 'UserProfile', 'user_id' );
+            $this->mPlace = $this->HasOne( 'Place', 'placeid' );
+            $this->mAlbums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
         }
     }
     
-    class JournalAuthor extends Satori {
+    class JournalAuthorship extends Satori {
         protected $mDbTableAlias = 'journalauthors';
         
         protected function Relations() {
-            $this->mJournal = $this->BelongsTo( 'Journal', 'journalauthor_journalid', array( 'journals', 'journal_id' ) );
-            $this->mAuthor = $this->BelongsTo( 'User', 'journalauthor_userid', array( 'users', 'user_id' ) );
+            $this->mJournal = $this->HasOne( 'Journal', 'journalid' );
+            $this->mAuthor = $this->HasOne( 'User', 'userid' );
         }
     }
         

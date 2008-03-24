@@ -46,8 +46,8 @@
         public function Relations() {
             $this->Preferences = $this->HasOne( 'UserPreferences', 'userid' );
             $this->Profile = $this->HasOne( 'UserProfile', 'userid' );
-            $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUserId', 'userid' );
-            $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUserId', 'userid' );
+            $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
+            $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'userid' );
         }
         public function Delete() {
