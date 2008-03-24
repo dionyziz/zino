@@ -292,11 +292,11 @@
             $this->AssertEquals( 'neat', $this->mObj->Char, 'Char value was incorrectly updated' );
             $this->AssertEquals( 42, $this->mObj->Int, 'Int value was incorrectly updated' );
         }
-        /*
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
         }
+        /*
         public function TestPrototyping() {
             $obj = New TestRabbitSatoriExtension();
             $this->AssertEquals( array(), $obj->FetchPrototypeChanges(), 'Non-modified object should return no prototype changes' );
