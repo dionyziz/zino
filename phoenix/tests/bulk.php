@@ -51,7 +51,6 @@
             $finder = New BulkFinder();
 
             $bulk = $finder->FindById( $this->mTestId );
-            var_dump( $bulk );
             $this->Assert( is_object( $bulk ), 'Bulk returned by BulkFinder::FindById is not an object' );
             $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
         }

@@ -37,6 +37,8 @@
                 return $ret;
             }
 
+            w_assert( count( $ret ) );
+
             return array_shift( $ret );
         }
 
@@ -59,6 +61,8 @@
                 $ret[ $row[ "bulk_id" ] ] = New Bulk( $row );
                 self::$mFetched[ $row[ "bulk_id" ] ] = $row; // add data to cache
             }
+
+            w_assert( count( $ret ) );
 
             return $ret;
         }
