@@ -5,7 +5,7 @@
         protected $mDbIndexes;
         protected $mDb;
         
-        protected function FindByPrototype( $prototype, $offset = 0, $limit = 25 ) {
+        protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false ) {
             w_assert( $prototype instanceof $this->mModel );
             w_assert( is_int( $offset ) );
             w_assert( is_int( $limit ) );
@@ -47,6 +47,10 @@
             }
             if ( count( $where ) ) {
                 $sql .= ' WHERE ' . implode( ' AND ', $where );
+            }
+            if ( $order !== false ) {
+                w_assert( preg_match( '#^[a-zA-Z_\-0-9]+$#', $order ) );
+                $sql .= ' ORDER BY `' . $order . '`';
             }
             $sql .= ' LIMIT :__offset, :__limit';
             $query = $this->mDb->Prepare( $sql );

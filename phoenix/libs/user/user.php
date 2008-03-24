@@ -19,14 +19,24 @@
         }
         public function FindByNameAndPassword( $username, $password ) {
             $prototype = New User();
-            $prototype->Username = $username;
+            $prototype->Name = $username;
             $prototype->Password = $password;
             return $this->FindByPrototype( $prototype );
         }
         public function FindByIdAndAuthtoken( $username, $authtoken ) {
             $prototype = New User();
-            $prototype->Username = $username;
+            $prototype->Name = $username;
             $prototype->Authtoken = $authtoken;
+            return $this->FindByPrototype( $prototype );
+        }
+        public function FindByName( $name ) {
+            $prototype = New User();
+            $prototype->Name = $name;
+            return $this->FindByPrototype( $prototype );
+        }
+        public function FindBySubdomain( $subdomain ) {
+            $prototype = New User();
+            $prototype->Subdomain = $subdomain;
             return $this->FindByPrototype( $prototype );
         }
     }
