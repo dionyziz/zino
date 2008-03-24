@@ -64,7 +64,7 @@
     }
 
     final class Bulk extends Satori {
-        protected $mDbTable = 'bulk';
+        protected $mDbTableAlias = 'bulk';
     }
 
 ?>
