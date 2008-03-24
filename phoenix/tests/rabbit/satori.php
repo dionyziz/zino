@@ -245,7 +245,6 @@
             $this->AssertEquals( $this->mObj->Int, $obj->Int, 'Retrieved object should match the one saved (Int)' );
             $this->AssertEquals( $this->mObj->Char, $obj->Char, 'Retrieved object should match the one saved (Char)' );
         }
-        /*
         public function TestFetchedArray() {
             $obj = New TestRabbitSatoriExtension(
                 array(
@@ -261,6 +260,7 @@
             $this->AssertEquals( 974, $obj->Int, 'Could not set Int through fetched array' );
             $this->AssertEquals( 'tree', $obj->Name, 'Could not set Name through fetched array' );
         }
+        /*
         public function TestAssignment() {
             $this->mObj->Char = 'cool';
             $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
