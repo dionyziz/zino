@@ -300,7 +300,7 @@
             $obj = New TestRabbitSatoriExtension();
             $this->AssertEquals( array(), $obj->FetchPrototypeChanges(), 'Non-modified object should return no prototype changes' );
             $obj->Char = '-ko-';
-            $this->AssertEquals( array( 'char' => '-ko-' ), $obj->FetchPrototypeChanged(), 'Prototype changed should be reflected by FetchPrototypeChanged()' );
+            $this->AssertEquals( array( 'char' => '-ko-' ), $obj->FetchPrototypeChanges(), 'Prototype changed should be reflected by FetchPrototypeChanged()' );
         }
         public function TestFinder() {
             $finder = New TestRabbitSatoriExtensionFinder();
