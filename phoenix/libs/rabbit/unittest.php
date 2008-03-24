@@ -50,12 +50,12 @@
         }
         protected function AssertTrue( $actual, $message = '' ) {
             return $this->InformTester(
-                New AssertResult( is_boolean( $actual ) && $actual == true, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
+                New AssertResult( is_bool( $actual ) && $actual == true, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
             );
         }
         protected function AssertFalse( $actual, $message = '' ) {
             return $this->InformTester(
-                New AssertResult( is_boolean( $actual ) && $actual == false, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
+                New AssertResult( is_bool( $actual ) && $actual == false, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
             );
         }
         protected function RequireSuccess( AssertResult $result ) {
