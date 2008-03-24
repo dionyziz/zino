@@ -37,8 +37,8 @@ var Banner = {
 			} );
 		}
 		else {
-			//$( menu ).animate( { opacity: "1" } , 500 , function() {
-			Animations.Create( menu, 'opacity', 500, 1, 0, function () {
+			$( menu ).animate( { opacity: "1" } , 500 , function() {
+			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
 				/*
 				$( options[ 0 ] ).show();
 				$( options[ 1 ] ).show();
@@ -53,8 +53,8 @@ var Banner = {
 				options[ 4 ].style.display = 'none';
 				options[ 5 ].style.display = 'none';
 				
-				//$( menu ).animate( { opacity: "1" } , 500 , function() {
-				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				$( menu ).animate( { opacity: "1" } , 500 , function() {
+				//Animations.Create( menu, 'opacity', 500, 0, 1, function() {
 					Banner.isanimating = false;
 				} );
 			} );
