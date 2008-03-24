@@ -296,16 +296,18 @@
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
         }
-        /*
         public function TestPrototyping() {
+        /*
             $obj = New TestRabbitSatoriExtension();
             $this->AssertEquals( array(), $obj->FetchPrototypeChanges(), 'Non-modified object should return no prototype changes' );
             $obj->Char = '-ko-';
             $this->AssertEquals( array( 'test_char' => '-ko-' ), $obj->FetchPrototypeChanges(), 'Prototype changes should be reflected by FetchPrototypeChanges()' );
             $obj->Id = 1;
             $this->AssertEquals( array( 'test_char' => '-ko-', 'test_id' => 1 ), $obj->FetchPrototypeChanges(), 'Multiple prototype changes should be reflected by FetchPrototypeChanges()' );
+        */
         }
         public function TestFinder() {
+        /*
             $finder = New TestRabbitSatoriExtensionFinder();
             $this->Assert( is_object( $finder ), 'Finders must be objects' );
             $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
@@ -315,12 +317,12 @@
             $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );
             $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
+        */
         }
         public function TestDeletion() {
             $this->mObj->Delete();
             $this->AssertFalse( $this->mObj->Exists(), 'Satori-derived object should not exist after deletion' );
         }
-        */
         public function TearDown() {
             $this->mDbTable->Delete();
             $this->mDb->DetachTable( 'rabbit_satori_test' );
