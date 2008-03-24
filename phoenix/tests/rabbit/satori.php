@@ -194,7 +194,6 @@
             
             $this->mDb->AttachTable( 'rabbit_satori_test', 'rabbit_satori_test' );
         }
-        /*
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Overloadable' ), 'Class Overloadable is undefined' );
             $this->Assert( class_exists( 'Satori' ), 'Class Satori is undefined' );
@@ -217,6 +216,7 @@
             $test->Foo = $this;
             $this->AssertEquals( $this, $test->Bar, 'Unable to change value of Foo to an object' );
         }
+        /*
         public function TestCreation() {
             global $rabbit_settings;
             
