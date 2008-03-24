@@ -44,11 +44,11 @@
         protected $mDbTableAlias = 'users';
         
         public function Relations() {
-            $this->Preferences = $this->HasOne( 'UserPreferences', 'userid' );
-            $this->Profile = $this->HasOne( 'UserProfile', 'userid' );
+            $this->Preferences = $this->HasOne( 'UserPreferences', 'Id' );
+            $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
-            $this->Space = $this->HasOne( 'UserSpace', 'userid' );
+            $this->Space = $this->HasOne( 'UserSpace', 'Id' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );
