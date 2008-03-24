@@ -47,7 +47,7 @@
             
             $args = array();
             foreach ( $foreignKey as $attribute ) {
-                if ( !isset( $this->mAttribute2DbField[ $column ] ) ) {
+                if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
                     throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . get_class( $this ) . ' is not an existing attribute name' );
                 }
                 $args[] = $this->mCurrentValues[ $attribute ];
