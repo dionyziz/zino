@@ -78,9 +78,10 @@
             if ( isset( $this->mReadOnlyFields[ $name ] ) ) {
                 if ( !$this->Exists() ) {
                     $this->mReadOnlyModified = true;
-                    return;
                 }
-                throw New SatoriException( 'Attempting to write read-only Satori attribute `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+                else {
+                    throw New SatoriException( 'Attempting to write read-only Satori attribute `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+                }
             }
             
             $this->mCurrentValues[ ucfirst( $name ) ] = $value;
