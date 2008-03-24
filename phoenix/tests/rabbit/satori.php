@@ -234,12 +234,12 @@
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
         }
-        /*
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
             $this->AssertEquals( 0, $this->mObj->Int, 'Default values not set using LoadDefaults() should default to the default value of the given type' );
             $this->AssertEquals( 'haha', $this->mObj->Name, 'Default values should not override explicitly specified values' );
         }
+        /*
         public function TestLookup() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id );
             $this->AssertEquals( $this->mObj->Id, $obj->Id, 'Retrieved object should match the one saved (Id)' );
