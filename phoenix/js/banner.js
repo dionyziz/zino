@@ -52,7 +52,7 @@ var Banner = {
 				options[ 3 ].style.display = 'none';
 				options[ 4 ].style.display = 'none';
 				options[ 5 ].style.display = 'none';
-				*/
+				
 				//$( menu ).animate( { opacity: "1" } , 500 , function() {
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
 					Banner.isanimating = false;
