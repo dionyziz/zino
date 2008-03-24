@@ -302,9 +302,7 @@
             $obj->Char = '-ko-';
             $this->AssertEquals( array( 'test_char' => '-ko-' ), $obj->FetchPrototypeChanges(), 'Prototype changes should be reflected by FetchPrototypeChanges()' );
             $obj->Id = 1;
-        /*
             $this->AssertEquals( array( 'test_char' => '-ko-', 'test_id' => 1 ), $obj->FetchPrototypeChanges(), 'Multiple prototype changes should be reflected by FetchPrototypeChanges()' );
-        */
         }
         public function TestFinder() {
         /*
