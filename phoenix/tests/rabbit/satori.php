@@ -305,10 +305,10 @@
             $this->AssertEquals( array( 'test_id' => 1, 'test_char' => '-ko-' ), $obj->FetchPrototypeChanges(), 'Multiple prototype changes should be reflected by FetchPrototypeChanges()' );
         }
         public function TestFinder() {
-        /*
             $finder = New TestRabbitSatoriExtensionFinder();
             $this->Assert( is_object( $finder ), 'Finders must be objects' );
             $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
+        /*
             $all = $finder->FindAll();
             $this->Assert( is_array( $all ), 'Group finder functions must return arrays' );
             $one = $finder->FindUnique( 1 );
