@@ -37,14 +37,23 @@ var Banner = {
 			} );
 		}
 		else {
-			Animations.Create( menu, 'opacity', 500, 1, 0, function () {
+			$( menu ).animate( { opacity: "1" } , 0 , function() {
+			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
+				$menu( options[ 0 ] ).show();
+				$menu( options[ 1 ] ).show();
+				$menu( options[ 3 ] ).hide();
+				$menu( options[ 4 ] ).hide();
+				$menu( options[ 5 ] ).hide();
+				/*
 				options[ 0 ].style.display = '';
 				options[ 1 ].style.display = '';
 				//options[ 2 ].style.display = 'none';
 				options[ 3 ].style.display = 'none';
 				options[ 4 ].style.display = 'none';
 				options[ 5 ].style.display = 'none';
-				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
+				*/
+				$( menu ).animate( { opacity: "1" } , 1 , function() {
+				//Animations.Create( menu, 'opacity', 500, 0, 1, function() {
 					Banner.isanimating = false;
 				} );
 			} );
