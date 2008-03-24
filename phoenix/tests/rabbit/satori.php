@@ -313,7 +313,7 @@
             $one = $finder->FindUnique( 1 );
             $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );
-            $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target', true );
+            $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
         }
         public function TestDeletion() {
             $this->mObj->Delete();

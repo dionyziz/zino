@@ -38,13 +38,13 @@
                             <dt>Expected</dt>
                             <dd class="expected"><?php
                             ob_start();
-                            var_dump( $assertresult->Expected );
+                            Test_VarDump( $assertresult->Expected );
                             echo nl2br( htmlspecialchars( ob_get_clean() ) );
                             ?></dd>
                             <dt>Actual</dt>
                             <dd class="actual"><?php
                             ob_start();
-                            var_dump( $assertresult->Actual );
+                            Test_VarDump( $assertresult->Actual );
                             echo nl2br( htmlspecialchars( ob_get_clean() ) );
                             ?></dd>
                         </dl>

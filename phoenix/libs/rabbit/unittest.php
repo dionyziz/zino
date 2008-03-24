@@ -51,7 +51,7 @@
         protected function AssertTrue( $actual, $message = '' ) {
             if ( !is_bool( $actual ) ) {
                 return $this->InformTester(
-                    New AssertResult( false, $message, '[non boolean value]', true )
+                    New AssertResult( false, $message, $actual, true )
                 );
             }
             if ( $actual != true ) {
@@ -60,11 +60,8 @@
                 );
             }
         }
-        protected function AssertFalse( $actual, $message = '', $debug = false ) {
+        protected function AssertFalse( $actual, $message = '' ) {
             if ( !is_bool( $actual ) ) {
-                if ( $debug ) {
-                    die( is_object( $actual ) . " ... " . get_class( $actual ) );
-                }
                 return $this->InformTester(
                     New AssertResult( false, $message, $actual, false )
                 );
@@ -129,6 +126,31 @@
         }
         
         return $ret;
+    }
+    
+    function Test_VarDump( $var ) {
+        if ( is_scalar( $var ) ) {
+            return var_dump( $var );
+        }
+        if ( is_object( $var ) ) {
+            ?>[ <?php 
+            echo get_class( $var );
+            ?> object: <?php
+            echo ( string )$var;
+            ?> ]<?php
+            return;
+        }
+        if ( is_array( $var ) ) {
+            ?>[ array of <?php 
+            echo count( $var );
+            ?> items: <?php
+            foreach ( $var as $key => $value ) {
+                Test_VarDump( $key );
+                ?> => <?php
+                Test_VarDump( $value );
+            }
+            ?> ]<?php
+        }
     }
     
     class Tester {
