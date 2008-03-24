@@ -7,7 +7,7 @@
     }
 
     global $libs;
-    $libs->Load( 'user/preferences' );
+    $libs->Load( 'user/settings' );
     $libs->Load( 'user/profile' );
     $libs->Load( 'user/space' );
     
