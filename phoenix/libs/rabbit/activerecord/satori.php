@@ -406,6 +406,23 @@
                 }
             }
         }
+        public function __toString() {
+            if ( $this->Exists() ) {
+                $str = 'Persistent ';
+            }
+            else {
+                $str = 'Non-persistent ';
+            }
+            $str .= 'Satori object ' . get_class( $this );
+            $updates = array();
+            foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                if ( $this->mPreviousValues[ $attributename ] != $this->mCurrentValues[ $attributename ] ) {
+                    $str .= ' (modified)';
+                    break;
+                }
+            }
+            return $str;
+        }
     }
     
     class Collection {
