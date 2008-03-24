@@ -24,9 +24,13 @@ var Banner = {
 				options[ 4 ].style.display = '';
 				options[ 5 ].style.display = '';
 				*/
+				$( menu ).animate( { opacity: "1" } , 500 , function() {
+					Banner.isanimating = false;
+				} );/*(
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
 					Banner.isanimating = false;
 				} );
+				*/
 				menu.getElementsByTagName( 'input' )[ 0 ].value = '';
 				menu.getElementsByTagName( 'input' )[ 0 ].focus();
 			} );
