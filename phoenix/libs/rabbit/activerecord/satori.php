@@ -98,6 +98,10 @@
             if ( parent::__set( $name, $value ) === true ) {
                 return;
             }
+            if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
+                $this->mRelations[ $name ] = $value;
+                return;
+            }
 
             if ( !in_array( $name, $this->mDbFields ) ) {
                 throw New SatoriException( 'Attempting to write non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
