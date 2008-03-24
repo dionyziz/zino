@@ -130,8 +130,8 @@
             w_assert( is_int( $id ) );
             $prototype = New TestRabbitSatoriExtension();
             $prototype->Id = $id;
-            var_dump( $prototype->FetchPrototypeChanges() );
-            die();
+            /* var_dump( $prototype->FetchPrototypeChanges() );
+            die(); */
             return $this->FindByPrototype( $prototype );
         }
         public function FindAll() {
@@ -295,6 +295,12 @@
         public function TestNonExisting() {
             $obj = New TestRabbitSatoriExtension( $this->mObj->Id + 1 );
             $this->AssertFalse( $obj->Exists(), 'Non-existing objects should not exist' );
+        }
+        public function TestPrototyping() {
+            $obj = New TestRabbitSatoriExtension();
+            $this->AssertEquals( array(), $obj->FetchPrototypeChanges(), 'Non-modified object should return no prototype changes' );
+            $obj->Char = '-ko-';
+            $this->AssertEquals( array( 'char' => '-ko-' ), $obj->FetchPrototypeChanged(), 'Prototype changed should be reflected by FetchPrototypeChanged()' );
         }
         public function TestFinder() {
             $finder = New TestRabbitSatoriExtensionFinder();
