@@ -47,7 +47,7 @@
             $args = array();
             foreach ( $foreignKey as $column ) {
                 if ( !isset( $this->mDbFieldKeys[ $column ] ) ) {
-                    throw New SatoriException( 'Relation foreign key ' . $column . ' defined in Satori extension ' . get_class( $this ) . ' is not an existing column name in table ' . $this->mDbTableAlias );
+                    throw New SatoriException( 'Relation foreign key `' . $column . '\' defined in Satori extension ' . get_class( $this ) . ' is not an existing column name in table ' . $this->mDbTableAlias );
                 }
                 $args[] = $this->mCurrentValues[ $this->mDbFields[ $column ] ];
             }
@@ -64,14 +64,14 @@
                 throw New SatoriException( 'HasMany relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
             if ( !class_exists( $finderName ) ) {
-                throw New SatoriException( 'Finder class ' . $finderName . ' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
+                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
             }
             $finder = New $finderName(); // MAGIC!
             if ( !is_subclass_of( $finder, 'Finder' ) ) {
-                throw New SatoriException( 'Finder class ' . $finderName . ' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
+                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
             }
             if ( !method_exists( $finder, $methodName ) ) {
-                throw New SatoriException( 'Method ' . $methodName . ' of finder class ' . $finderName . ' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
+                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
             }
             return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
         }
