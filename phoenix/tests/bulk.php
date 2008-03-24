@@ -29,11 +29,11 @@
             $bulk->Text = "foobarblah";
             $bulk->Save();
 
-            $this->AssertFalse( is_numeric( $bulk->Id ), 'Bulk Id should not be empty after saving' );
+            $this->Assert( is_numeric( $bulk->Id ), 'Bulk Id should be numeric after saving' );
 
             $this->mTestId = $bulk->Id;
 
-            $bulk = New Bulk( $id );
+            $bulk = New Bulk( $this->mTestId );
 
             $this->AssertEquals( "foobarblah", $bulk->Text, 'Bulk text not the one saved after creating a new instance' );
         }
