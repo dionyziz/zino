@@ -15,8 +15,10 @@ var Banner = {
 		if ( options[ 0 ].style.display == '' ) {
 			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
 			$( menu ).animate( { opacity: "0" } , function() {
-				$( options[ 0 ] ).hide();
-				$( options[ 1 ] ).hide();
+				options[ 0 ].style.display = 'none';
+				options[ 1 ].style.display = 'none';
+				//$( options[ 0 ] ).hide();
+				//$( options[ 1 ] ).hide();
 				$( options[ 3 ] ).show();
 				$( options[ 4 ] ).show();
 				$( options[ 5 ] ).show();
