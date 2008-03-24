@@ -30,7 +30,7 @@
             }
 
             if ( count( $ids ) ) {
-                $ret = $ret + $this->Fetch( $ids );
+                $ret += $this->Fetch( $ids );
             }
 
             if ( $was_array ) {
@@ -54,6 +54,7 @@
             $query->Bind( 'Ids', $ids );
             
             $res = $query->Execute();
+            $ret = array();
             while ( $row = $res->FetchArray() ) {
                 $ret[ $row[ "bulk_id" ] ] = New Bulk( $row );
                 self::$mFetched[ $row[ "bulk_id" ] ] = $row; // add data to cache
