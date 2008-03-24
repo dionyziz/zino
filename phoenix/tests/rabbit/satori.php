@@ -132,6 +132,17 @@
             $prototype->Id = $id;
             return $this->FindByPrototype( $prototype );
         }
+        public function FindSQL() {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :rabbit_satori_test;'
+            );
+            $query->BindTable( 'rabbit_satori_test' );
+            $res = $query->Execute();
+            $this->FindBySQLResult( $res );
+        }
         public function FindAll() {
             return $this->FindByPrototype( New TestRabbitSatoriExtension() );
         }
