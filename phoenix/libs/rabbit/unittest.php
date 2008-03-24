@@ -49,9 +49,16 @@
             return $this->AssertEquals( true, ( bool )$actual, $message ); // ==
         }
         protected function AssertTrue( $actual, $message = '' ) {
-            return $this->InformTester(
-                New AssertResult( is_bool( $actual ) && $actual == true, $message, $actual, $expected ) // is_boolean( $actual ) && $actual == $expected is faster (and for infinite recursion objects comparisons, it's infinitely faster)
-            );
+            if ( !is_bool( $actual ) ) {
+                return $this->InformTester(
+                    false, $message, '[non boolean value]', true
+                );
+            }
+            if ( $actual != true ) {
+                return $this->InformTester(
+                    New AssertResult( false, $message, false, true )
+                );
+            }
         }
         protected function AssertFalse( $actual, $message = '' ) {
             if ( !is_bool( $actual ) ) {
