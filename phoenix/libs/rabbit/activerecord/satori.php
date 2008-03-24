@@ -19,6 +19,7 @@
         protected $mDbTable; // DBTable instance for the database table this object is mapped from
         protected $mExists; // whether the current object exists in the database (this is false if a new object is created before it is saved in the database)
         private $mDbFields; // dictionary with full database field name (string) => class attribute name
+        private $mAttribute2DbField; // flip of the above
         private $mDbFieldKeys; // list with database fields (string)
         private $mReadOnlyFields; // dictionary with class attributes => true
         private $mDbColumns; // dictionary with field name (string) => DBField instance
@@ -45,11 +46,11 @@
             }
             
             $args = array();
-            foreach ( $foreignKey as $column ) {
-                if ( !isset( $this->mDbFieldKeys[ $column ] ) ) {
-                    throw New SatoriException( 'Relation foreign key `' . $column . '\' defined in Satori extension ' . get_class( $this ) . ' is not an existing column name in table ' . $this->mDbTableAlias );
+            foreach ( $foreignKey as $attribute ) {
+                if ( !isset( $this->mAttribute2DbField[ $column ] ) ) {
+                    throw New SatoriException( 'Foreign key `' . $column . '\' of HasOne relation of ' . get_class( $this ) . ' is not an existing attribute name' );
                 }
-                $args[] = $this->mCurrentValues[ $this->mDbFields[ $column ] ];
+                $args[] = $this->mCurrentValues[ $attribute ];
             }
             
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
@@ -272,6 +273,7 @@
                     $this->MakeReadOnly( $attribute );
                 }
             }
+            $this->mAttribute2DbField = array_flip( $this->mDbFields );
             
             $this->mPrimaryKeyFields = array();
             foreach ( $this->mDbIndexes as $index ) {
