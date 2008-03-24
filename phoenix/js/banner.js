@@ -14,11 +14,16 @@ var Banner = {
 		Banner.isanimating = true;
 		if ( options[ 0 ].style.display == '' ) {
 			Animations.Create( menu, 'opacity', 500, 1, 0, function () {
-				options[ 0 ].style.display = 'none';
-				options[ 1 ].style.display = 'none';
+				$( options[ 0 ] ).hide();
+				$( options[ 1 ] ).hide();
+				$( options[ 3 ] ).show();
+				$( options[ 4 ] ).show();
+				$( options[ 5 ] ).show();
+				/*
 				options[ 3 ].style.display = '';
 				options[ 4 ].style.display = '';
 				options[ 5 ].style.display = '';
+				*/
 				Animations.Create( menu, 'opacity', 500, 0, 1, function() {
 					Banner.isanimating = false;
 				} );
