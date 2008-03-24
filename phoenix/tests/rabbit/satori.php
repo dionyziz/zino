@@ -260,7 +260,6 @@
             $this->AssertEquals( 974, $obj->Int, 'Could not set Int through fetched array' );
             $this->AssertEquals( 'tree', $obj->Name, 'Could not set Name through fetched array' );
         }
-        /*
         public function TestAssignment() {
             $this->mObj->Char = 'cool';
             $this->AssertEquals( 'cool', $this->mObj->Char, 'Could not assign string Satori attribute' );
@@ -270,6 +269,7 @@
             $this->Assert( is_int( $this->mObj->Id ), 'Autoincrement fields should be ints' );
             $this->Assert( is_int( $this->mObj->Int ), 'Integer fields should be ints' );
         }
+        /*
         public function TestUpdate() {
             $this->mObj = New TestRabbitSatoriExtension( $this->mObj->Id ); // return to persistent state
             $this->mObj->Int = 42;
