@@ -12,7 +12,7 @@
 				<li><a href="help" onclick="return false">Βοήθεια</a></li>
 			</ul>
 			<div class="copy">
-				&copy; 2007 <a href="http://www.kamibu.com/">Kamibu</a>
+				&copy; 2008 <a href="http://www.kamibu.com/">Kamibu</a>
 			</div>
 		</div><?php
 	}

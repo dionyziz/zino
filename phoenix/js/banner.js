@@ -42,3 +42,11 @@ var Banner = {
 		}
 	}
 };
+$( document ).ready( function() {
+	$( 'div.search form input.text' ).focus( function() {
+		this.value = '';
+	});
+	$( 'div.search form input.text' ).blur( function() {
+		this.value = 'αναζήτησε φίλους';
+	});
+});
