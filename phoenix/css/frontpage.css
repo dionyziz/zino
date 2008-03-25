@@ -1,5 +1,5 @@
 div.frontpage {
-	text-align: center;
+	text-align: left;
 }
 div.frontpage div.ybubble {
 	padding-top: 0;
@@ -23,17 +23,10 @@ div.frontpage div.ybubble form div {
 div.frontpage div.ybubble form div span {
 	padding-right: 3px;
 }
-div.meetfriends div.people {
- 	height: 260px;
-	overflow: hidden;
-	text-align: left;
-}
 div.latestimages {
 	height: 135px;
 	overflow: hidden;
-	border-bottom: 1px solid #e4e4e4;
 	margin: 0 4px 0 4px;
-	background-color: #f6f6f6;
 }
 div.latestimages ul {
 	margin: 0;
@@ -43,73 +36,161 @@ div.latestimages ul {
 div.latestimages ul li {
 	float: left;
 	padding: 5px;
-	_width: 110px;
 	height: 200px;
 	text-align: center;
 }
 div.latestimages ul li img {
 	border: 1px solid #cce;
 }
-div.meetfriends h2 {
-	font-size: 130%;
+div.members div.join {
+	background-image: url( 'images/frontpagejoin.jpg' );
+	background-repeat: no-repeat;
+	height: 133px;
+	width: 486px;
+	float: left;
+	margin-right: 100px;
+}
+div.members div.join form {
+	text-align: left;
+	width: 40%;
+	margin: 30px 0 0 250px;
+	color: #ffffff;
+	font-weight: bold;
+}
+div.members div.join form div {
+	margin: 9px 0 9px 0;
+	width: 123%;
+}
+div.members div.join form h2 {
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	display: inline;
+	font-size: 100%;
+	color: #ffffff;
+}
+div.members form label {
+	margin-right: 5px;
+}
+div.members div.login {
+	background-image: url( 'images/frontpagelogin.jpg' );
+	background-repeat: no-repeat;
+	text-align: left;
+	height: 129px;
+	width: 293px;
+	float: left;
+	padding: 20px 0 0 10px;
+}
+div.members div.login form div {
+	margin: 5px; 
+}
+div.members div.login form h2 {
+	padding: 0;
+	margin: 0;
+	font-size: 110%;
+}
+div.members div.login form div label {
+	float: left;
+	display: block;
+	width: 70px;
+}
+div.shoutbox {
+	float: left;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+div.shoutbox div.comments {
+	width: 100%;
+}
+div.shoutbox h2 {	
+	margin-bottom: 10px;
+}
+div.latestcomments {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+div.latestcomments h2 {
+	margin-bottom: 13px;
+}
+div.nowonline {
+	text-align: left;
+}
+div.nowonline a {
+	float: left;
+	margin: 0 12px 12px 0;
+}
+div.nowonline a img {
+	border: 1px solid #666;
+}
+div.outshoutbox {
+	float: left;
+	width: 95%;
+}
+div.outshoutbox div.shoutbox {
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+div.inshoutbox {
+	float: left;
+	width: 47%;
+	margin-right: 20px;
+}
+div.inlatestcomments {
+	clear: left;
+	padding-top: 20px;
+}
+div.inevents {
+	float: left;
+	width: 45%;
+}
+div.latestevents {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+/* events css */
+div.list {
+	overflow: hidden;
+	text-align: left;
+}
+div.list div.event {
+	float: left;
+	clear: both;
+	margin: 0 0 20px 0;
+	width: 100%;
+}
+div.list div.event div.toolbox {
+	float: right;
+	padding: 2px 6px 2px 2px;
+}
+div.list div.event div.toolbox span.time {
+	color: #999;
+	font-size: 80%;
+}
+div.list div.event div.who {
+	border-top: 1px solid #ccc !important;
+	display: block;
+	padding: 2px 0 2px 4px;
+	background-color: #f4f4f4;
 	color: #666;
-	text-align: left;
 }
-div.frontpage div.bubble {
-    width: 65%;
-    margin: auto;
-	text-align: left;
+div.list div.event div.who a img.avatar {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #666;
+	float: left;
+	margin: 0 4px 0 0;
 }
-div.frontpage div.bubble form {
-    margin: 10px;
-    float: left;
+div.list div.event div.subject {
+	padding: 5px 0 0 60px;
 }
-div.frontpage div.bubble form div {
-    margin: 10px 0 5px 0;
+div.list div.event div.subject p {
+	padding: 0;
+	margin: 0 0 4px 0;
 }
-div.frontpage div.bubble form div.inline {
-    display: inline;
+div.list div.event div.subject p span.text {
+	font-style: oblique;
 }
-div.frontpage div.bubble form div label {
-    float: left;
-    width: 40%;
-    text-align: left;
-}
-div.frontpage div.bubble form div input.text {
-    margin: 0 5px;
-    width: 50%;
-}
-div.frontpage div.bubble h2 {
-    font-size: 120%;
-    margin-top: 0;
-}
-div.frontpage div.bubble form.memberform {
-    width: 35%;
-    text-align: center;
-}
-div.frontpage div.bubble form.memberform input.button {
-    margin: auto;
-}
-div.frontpage div.bubble form.joinform {
-    border-left: 1px solid #ddd;
-    padding: 5px 0 5px 10px;
-    margin: 6px;
-    height: 100px;
-    width: 50%;
-}
-div.frontpage div.bubble form.joinform div input {
-    font-size: 100%;
-}
-div.frontpage div.bubble form input.button {
-    background-color: #105cb6;
-    color: white;
-    padding: 1px 7px;
-}
-div.recentevents {
-    width: 500px;
-    margin: 0 0 20px 3px;
-}
-div.recentevents h3 {
-    margin: 0 0 10px 0;
-    font-size: 100%;
+div.list div.event div.subject p a.itempic {
+	float: right;
+	margin-top: -17px;
 }
