@@ -33,7 +33,7 @@
 		}
 	    ?><div class="search">
 			<form action="" method="get">
-				<input type="text" class="text" onfocus="" value="αναζήτησε φίλους" />
+				<input type="text" class="text" value="αναζήτησε φίλους" />
 				<input type="submit" class="submit" value="ψάξε" />
 			</form>
 		</div>
