@@ -25,7 +25,6 @@
             <field name="user_signature" type="text" size="256" />
             <field name="user_lastlogon" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
-            <field name="user_lastactive" type="datetime" />
             <field name="user_locked" type="enum" default="no">
                 <value>yes</value>
                 <value>no</value>
@@ -160,6 +159,10 @@
             <field name="user_homepage" type="varchar" size="256" />
             <field name="user_firstname" type="varchar" size="256" />
             <field name="user_lastname" type="varchar" size="256" />
+        </table>
+        <table name="merlin_lastactive">
+            <field name="user_id" type="int" ref="merlin_users.user_id" />
+            <field name="user_lastactive" type="datetime" />
         </table>
         <table name="merlin_moods">
             <field name="mood_id" type="int" autoincrement="yes" />

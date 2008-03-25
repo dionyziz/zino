@@ -10,6 +10,7 @@
     $libs->Load( 'user/settings' );
     $libs->Load( 'user/profile' );
     $libs->Load( 'user/space' );
+    $libs->Load( 'user/lastactive' );
     
     class UserFinder extends Finder {
         protected $mModel = 'User';
@@ -42,13 +43,17 @@
     }
     class User extends Satori {
         protected $mDbTableAlias = 'users';
-        
+       
+        public function GetLastActive() {
+            return $this->LastActivity->Date;
+        }
         public function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );
+            $this->LastActivity = $this->HasOne( 'UserLastActive', 'Id' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );
@@ -57,4 +62,5 @@
             return $this->Rights >= $permission;
         }
     }
+
 ?>
