@@ -5,7 +5,7 @@
         'resourcesdir'    => '/var/www/zino.gr/beta/resources',
         'imagesurl'       => 'http://static.zino.gr/images/',
         'production'      => false,
-        'hostname'        => 'beta.zino.gr',
+        /* 'hostname'        => 'beta.zino.gr', */
         'url'             => '/reloaded',
         'port'            => 80,
         'webaddress'      => 'https://beta.zino.gr/reloaded',
