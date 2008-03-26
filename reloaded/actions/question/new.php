@@ -2,13 +2,13 @@
     function ActionQuestionNew( tString $question ) {
     	global $user;
     	global $libs;
-    	
+
     	$libs->Load( 'question' );
-    	
+
     	if ( !( $user->CanModifyCategories() ) ) {
             return Redirect();
     	}
-		$question	= $question->Get();
+		$question = trim($question->Get());
         if ( $question != '' ) {
 			$eid = AddQuestion( $question );
         }
