@@ -8,8 +8,8 @@
     	if ( !( $user->CanModifyCategories() ) ) {
             return Redirect();
     	}
-		$question = trim($question->Get());
-        if ( $question != '' ) {
+		$question = $question->Get();
+        if ( trim( $question ) != '' ) {
 			$eid = AddQuestion( $question );
         }
         return Redirect( '?p=questions' );

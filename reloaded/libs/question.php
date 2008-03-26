@@ -24,7 +24,7 @@
 		global $user;
 		global $db;
 		
-		$question = myescape( $question );
+		$question = myescape( trim( $question ) );
 		$nowdate = NowDate();
 		$ip = UserIp();
 		$userId = $user->Id();
@@ -42,7 +42,7 @@
 		global $user;
 		global $db;
 		
-		$question = myescape( $question );
+		$question = myescape( trim( $question ) );
 		$eid = myescape( $eid );
 		$nowdate = NowDate();
 		$ip = UserIp();

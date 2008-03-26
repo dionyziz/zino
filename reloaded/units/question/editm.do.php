@@ -8,9 +8,9 @@
 		if( !( $user->CanModifyCategories() ) ) {
             return Redirect();
     	}
-    	$question	= trim($question->Get());
+    	$question	= $question->Get();
         $eid		= $eid->Get();
-        if( $question != '' && $eid != 0 ) {
+        if( trim( $question ) != '' && $eid != 0 ) {
         	UpdateQuestion( $eid, $question );
         }
     }
