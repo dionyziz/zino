@@ -9,7 +9,7 @@ var JournalList = {
 			linknode.href = '';
 			linknode.title = 'Είναι αγαπημένο';
 			$( linknode ).animate( { opacity: "1" } , 800 );
-			$( linknode ).click() = function() {
+			$( linknode ).click( function() {
 				return false;
 			});
 		});
