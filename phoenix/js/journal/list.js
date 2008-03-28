@@ -5,7 +5,7 @@ var JournalList = {
 		that needs to be faved. Maybe a user id is also needed to fav a journal
 		*/
 		$( linknode ).animate( { opacity: "0" } , 800 , function() {
-			linknode.src = '../../images/heart.png';
+			linknode.src = 'http://static.zino.gr/phoenix/heart.png';
 			$( linknode ).animate( { opacity: "1" } , 800 );
 		});
 		
