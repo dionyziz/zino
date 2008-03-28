@@ -7,8 +7,8 @@ var JournalList = {
 		$( linknode ).animate( { opacity: "0" } , 800 , function() {
 			linknode.src = '../../images/heart.png';
 			$( linknode ).animate( { opacity: "1" } , 800 );
-		};
+		});
 		
 		//make Coala call
 	}
-}
+};
