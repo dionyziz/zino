@@ -6,7 +6,12 @@ var JournalList = {
 		*/
 		$( linknode ).animate( { opacity: "0" } , 800 , function() {
 			linknode.firstChild.src = 'http://static.zino.gr/phoenix/heart.png';
+			linknode.href = '';
+			linknode.title = 'Είναι αγαπημένο';
 			$( linknode ).animate( { opacity: "1" } , 800 );
+			$( linknode ).click() = function() {
+				return false;
+			});
 		});
 		
 		//make Coala call
