@@ -41,6 +41,8 @@ div.latestimages ul li {
 }
 div.latestimages ul li img {
 	border: 1px solid #cce;
+	width: 100px;
+	height: 100px;
 }
 div.members div.join {
 	background-image: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' );
@@ -121,6 +123,8 @@ div.nowonline a {
 }
 div.nowonline a img {
 	border: 1px solid #666;
+	width: 100px;
+	height: 100px;
 }
 div.outshoutbox {
 	float: left;
