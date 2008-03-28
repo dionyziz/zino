@@ -7,10 +7,9 @@ var JournalList = {
 		if ( linknode.firstChild.src == 'http://static.zino.gr/phoenix/heart_add.png' ) {
 			$( linknode ).animate( { opacity: "0" } , 800 , function() {
 				linknode.firstChild.src = 'http://static.zino.gr/phoenix/heart.png';
+				linknode.firstChild.title = 'Είναι αγαπημένο';
 				linknode.href = '';
-				linknode.title = 'Είναι αγαπημένο';
-				$( linknode ).animate( { opacity: "1" } , 800 ).css( {cursor : "default" } );
-				$( linknode ).click( function() {
+				$( linknode ).animate( { opacity: "1" } , 800 ).css( {cursor : "default" } ).click( function() {
 					return false;
 				});
 			});
