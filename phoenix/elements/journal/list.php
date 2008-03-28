@@ -3,7 +3,7 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/journal/list.css' );
-		
+		$page->AttachScript( 'js/journal/list.js' );
 		Element( 'user/sections' , 'journal' );
 		?><div id="journallist">
 			<ul>
