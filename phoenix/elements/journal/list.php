@@ -43,6 +43,6 @@
 					</div>
 				</li>
 			</ul>
-		</div><?php
+		</div><img src="http://static.zino.gr/phoenix/heart.png" style="display:none;" /><?php
 	}
 ?>

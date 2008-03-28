@@ -9,7 +9,7 @@ var JournalList = {
 				linknode.firstChild.src = 'http://static.zino.gr/phoenix/heart.png';
 				linknode.href = '';
 				linknode.title = 'Είναι αγαπημένο';
-				$( linknode ).animate( { opacity: "1" } , 800 );
+				$( linknode ).animate( { opacity: "1" } , 800 ).css( {pointer : "normal" } );
 				$( linknode ).click( function() {
 					return false;
 				});
