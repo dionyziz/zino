@@ -132,7 +132,10 @@
         w_assert( $xc_settings[ "allowregisters" ] );
 		
 		$s_username = $username;
-		w_assert( preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ); // Make sure the username contains valid characters
+		if ( !preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ) {
+            // Make sure the username contains valid characters
+            return 4;
+        }
 		$subdomain = myescape( User_DeriveSubdomain( $username ) ); //is already escaped, but may be empty
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed

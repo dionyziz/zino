@@ -51,6 +51,9 @@
     		case 3:
     			// existing e-mail
                 return Redirect( "?p=register&emailexists=yes&u=$username" );
+            case 4:
+                // invalid characters
+                return Redirect( "?p=register&usernameinvalid=yes&e=$email" );
             case 5:
     			// spambot (too many registrations from the same IP during the last couple minutes)
                 mail( 
