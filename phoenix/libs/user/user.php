@@ -12,6 +12,7 @@
     $libs->Load( 'user/space' );
     $libs->Load( 'user/lastactive' );
     $libs->Load( 'journal' );
+    $libs->Load( 'album' );
     
     class UserFinder extends Finder {
         protected $mModel = 'User';
