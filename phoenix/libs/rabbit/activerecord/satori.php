@@ -101,13 +101,13 @@
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
-            return New RelationHasOne( $className, $foreignKey );
+            return New RelationHasOne( $this, $className, $foreignKey );
         }
         protected function HasMany( $finderName, $methodName, $foreignKey ) {
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
-            return New RelationHasMany( $finderName, $methodName, $foreignKey );
+            return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
         }
         protected function GetDb() {
             return $this->mDb;
