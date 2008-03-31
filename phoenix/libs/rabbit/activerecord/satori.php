@@ -11,8 +11,63 @@
     class SatoriException extends Exception {
     }
     
-    class Relation {
-        public function __constructor() {
+    abstract class Relation {
+        protected $mQueryModel;
+        
+        public abstract function __construct();
+        public abstract function MakeObj();
+    }
+    
+    class RelationHasOne extends Relation {
+        protected $mModelClass;
+        protected $mForeignKey;
+        
+        public function __construct( $queryModel, $modelClass, $foreignKey ) {
+            if ( !is_array( $foreignKey ) ) {
+                $foreignKey = array( $foreignKey );
+            }
+            $this->mModelClass = $modelClass;
+            $this->mForeignKey = $foreignKey;
+        }
+        public function MakeObj() {
+            $args = array();
+            foreach ( $this->mForeignKey as $attribute ) {
+                if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
+                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . get_class( $this ) . ' is not an existing attribute name' );
+                }
+                $args[] = $this->mCurrentValues[ $attribute ];
+            }
+            
+            // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
+            $class = New ReflectionClass( $className );
+            $target = $class->newInstanceArgs( $args );
+            
+            return $target;
+        }
+    }
+    
+    class RelationHasMany extends Relation {
+        protected $mFinderClass;
+        protected $mFinderMethod;
+        protected $mForeignKey;
+        
+        public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
+            if ( !class_exists( $finderClass ) ) {
+                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $queryModel ) . '\' specified for HasMany relation does not exist' );
+            }
+            $this->mFinderClass = $finderClass;
+            $this->mFinderMethod = $finderMethod;
+            $this->mForeignKey = $foreignKey;
+        }
+        public function MakeObj() {
+            $finder = New $finderName(); // MAGIC!
+            if ( !is_subclass_of( $finder, 'Finder' ) ) {
+                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
+            }
+            if ( !method_exists( $finder, $methodName ) ) {
+                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
+            }
+            return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
         }
     }
     
@@ -42,48 +97,16 @@
             // override me
         }
         protected function HasOne( $className, $foreignKey ) {
-            // TODO: lazy loading
-            return New Relation();
-            
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
-            if ( !is_array( $foreignKey ) ) {
-                $foreignKey = array( $foreignKey );
-            }
-            
-            $args = array();
-            foreach ( $foreignKey as $attribute ) {
-                if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
-                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . get_class( $this ) . ' is not an existing attribute name' );
-                }
-                $args[] = $this->mCurrentValues[ $attribute ];
-            }
-            
-            // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
-            $class = New ReflectionClass( $className );
-            $target = $class->newInstanceArgs( $args );
-            
-            return $target;
+            return New RelationHasOne( $className, $foreignKey );
         }
         protected function HasMany( $finderName, $methodName, $foreignKey ) {
-            // TODO: lazy loading
-            return New Relation();
-            
             if ( !$this->mAllowRelationDefinition ) {
-                throw New SatoriException( 'HasMany relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
-            if ( !class_exists( $finderName ) ) {
-                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' specified for HasMany relation does not exist' );
-            }
-            $finder = New $finderName(); // MAGIC!
-            if ( !is_subclass_of( $finder, 'Finder' ) ) {
-                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
-            }
-            if ( !method_exists( $finder, $methodName ) ) {
-                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
-            }
-            return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
+            return New RelationHasMany( $finderName, $methodName, $foreignKey );
         }
         protected function GetDb() {
             return $this->mDb;
