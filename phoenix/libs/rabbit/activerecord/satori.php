@@ -26,7 +26,7 @@
             if ( !is_array( $foreignKey ) ) {
                 $foreignKey = array( $foreignKey );
             }
-            $this->mModelClass = $modelClass;
+            $this->mQueryModel = $queryModel;
             $this->mForeignKey = $foreignKey;
         }
         public function MakeObj() {
@@ -50,11 +50,12 @@
         protected $mFinderClass;
         protected $mFinderMethod;
         protected $mForeignKey;
-        
+
         public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
             if ( !class_exists( $finderClass ) ) {
                 throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . get_class( $queryModel ) . '\' specified for HasMany relation does not exist' );
             }
+            $this->mQueryModel = $queryModel;
             $this->mFinderClass = $finderClass;
             $this->mFinderMethod = $finderMethod;
             $this->mForeignKey = $foreignKey;
