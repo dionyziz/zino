@@ -2,7 +2,7 @@
 	function ElementFrontpageShoutbox() {
 		?><div class="shoutbox">
 		<h2>Συζήτηση</h2><?php
-		Element( 'comments/list' );
+		Element( 'comment/list' );
 		/*
 		<div class="comments">
 			<div class="comment newcomment">
