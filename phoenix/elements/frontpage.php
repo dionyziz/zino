@@ -1,8 +1,9 @@
 <?php
     function ElementFrontpage() {
         global $page;
-        
-    	$newuser = isset( $_GET[ 'newuser' ] ) ? true : false;
+        global $user;
+
+    	$newuser = isset( $_GET[ 'newuser' ] ) ? true : false; // TODO
         
         $page->AttachScript( 'js/frontpage.js' );
 		$page->AttachStyleSheet( 'css/frontpage.css' );
@@ -41,7 +42,7 @@
 			<li><a href="" onclick=""><img src="images/avatars/argiro-18.jpg" alt="argiro_18" title="argiro_18" /></a></li>
 		</ul>
 	</div><?php
-	if ( !$loggedin ) {
+	if ( $user->Exists() ) {
 		?><div class="members">
 			<div class="join">
 				<form>
@@ -71,18 +72,18 @@
 		</div>
 		<div class="eof"></div>
 		<div class="outshoutbox"><?php
-		include 'frontpage_shoutbox.php';
+		include 'frontpage_shoutbox.php'; // TODO
 		?></div><?php
 	} 
 	else {
 		?><div class="inshoutbox"><?php
 			include 'frontpage_shoutbox.php';
 			?><div class="inlatestcomments"><?php
-			include 'frontpage_latestcomments.php';
+			include 'frontpage_latestcomments.php'; // TODO
 			?></div>
 		</div>
 		<div class="inevents"><?php
-		include 'frontpage_events.php';
+		include 'frontpage_events.php'; // TODO: Element()
 		?></div><?php
 	}
 	?><div class="eof"></div>
