@@ -469,7 +469,7 @@
             $this->mAllowRelationDefinition = true;
             $this->Relations();
             $this->mAllowRelationDefinition = false;
-            $this->AfterConstruct();
+            call_user_func_array( array( $this, 'AfterConstruct' ), $args );
         }
         public function __toString() {
             if ( $this->Exists() ) {
