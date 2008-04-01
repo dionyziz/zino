@@ -23,7 +23,7 @@
                  <value>f</value>
             </field>
             <field name="user_signature" type="text" size="256" />
-            <field name="user_lastlogon" type="datetime" />
+            <field name="user_lastlogin" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
             <field name="user_locked" type="enum" default="no">
                 <value>yes</value>
