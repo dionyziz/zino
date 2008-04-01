@@ -12,7 +12,7 @@
             ?>zino-150-reflection.jpg" alt="<?php 
             echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] ); 
             ?>" style="float:left;margin:10px;" />
-            <div style="margin-left:150px;">
+            <div style="margin-left:170px;">
                 <br />Το σύστημά μας παρατήρησε ότι πραγματοποιείς ασυνήθιστη χρήση του λογαριασμού σου. Προκειμένου να προστατευθούν οι χρήστες του <?php 
                 echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
                 ?> από την ενδεχομένως επιβλαβή χρήση του <?php
