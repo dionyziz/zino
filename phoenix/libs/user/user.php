@@ -84,7 +84,7 @@
             $this->Rights = 10; // logged out permissions
         }
         public function UpdateLastLogin() {
-            $this->LastLogin = time();
+            $this->Lastlogin = time();
         }
         public function RenewAuthtoken() {
             // generate authtoken
