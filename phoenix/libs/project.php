@@ -38,6 +38,12 @@
         }
 
         $banned = false;
+        if ( !is_object( $user ) && UserIp() == ip2long( '92.253.19.82' ) ) {
+            ob_start();
+            var_dump( $user );
+            echo ob_get_clean();
+            die( 'dead!' );
+        }
         if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $banned = true;
         }
