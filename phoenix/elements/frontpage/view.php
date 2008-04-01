@@ -6,7 +6,7 @@
     	$newuser = isset( $_GET[ 'newuser' ] ) ? true : false; // TODO
         
         $page->AttachScript( 'js/frontpage.js' );
-		$page->AttachStyleSheet( 'css/frontpage.css' );
+		$page->AttachStyleSheet( 'css/frontpage/view.css' );
         ?><div class="frontpage"><?php
 		if ( $newuser ) {
 			?><div class="ybubble">
@@ -84,7 +84,8 @@
 				?></div>
 			</div>
 			<div class="inevents"><?php
-			include 'frontpage_events.php'; // TODO: Element()
+			Element( 'frontpage/events' );
+			//include 'frontpage_events.php'; // TODO: Element()
 			?></div><?php
 		}
 		?><div class="eof"></div>
