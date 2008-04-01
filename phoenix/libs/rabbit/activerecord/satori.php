@@ -377,6 +377,9 @@
         protected function LoadDefaults() {
             // overload me
         }
+        protected function AfterConstruct( /* [ $arg1 [, $arg2, [, ... ] ] ] */ ) {
+            // overload me
+        }
         final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {
             // do not overload me!
             // possible invokations:
@@ -466,6 +469,7 @@
             $this->mAllowRelationDefinition = true;
             $this->Relations();
             $this->mAllowRelationDefinition = false;
+            $this->AfterConstruct();
         }
         public function __toString() {
             if ( $this->Exists() ) {

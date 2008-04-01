@@ -67,7 +67,22 @@
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
-            $this->Rights = 10; // logged-out permissions
+            $this->Rights = 30; // default permissions of user right after registering
+        }
+        protected function AfterConstruct( /* ... */ ) {
+            $args = func_get_args();
+            if ( count( $args ) == 1 ) {
+                if ( is_array( $args[ 0 ] ) ) {
+                    if ( count( $args[ 0 ] ) == 0 ) {
+                        // construction by empty array -- logged out user
+                        $this->ConstructLoggedOut();
+                    }
+                }
+            }
+        }
+        protected function ConstructLoggedOut() {
+            $this->Rights = 10; // logged out permissions
         }
     }
 ?>
+
