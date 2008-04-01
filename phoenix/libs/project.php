@@ -20,6 +20,10 @@
         $finder = New UserFinder();
         if ( !empty( $_SESSION[ 's_username' ] ) && !empty( $_SESSION[ 's_password' ] ) ) {
             $user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
+            if ( $user === false ) {
+                // username/password combination in session is invalid
+                $user = new User( array() );
+            }
         }
         else {
             $cookie = User_GetCookie();
