@@ -41,19 +41,16 @@
         
         $banned = false;
         if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
-            $water->Trace( 'Logged out rights: ' . $user->Rights );
             $banned = true;
         }
         
         $banfinder = New BanFinder();
-        /*
         $bans = $banfinder->FindByIp( UserIp() );
         foreach ( $bans as $ban ) {
             if ( !$ban->Expired ) {
                 $banned = true;
             }
         }
-        */
         
         if ( $banned ) {
             // $page->AttachMainElement( 'user/banned', array() );
