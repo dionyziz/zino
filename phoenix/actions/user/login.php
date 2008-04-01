@@ -18,7 +18,7 @@
     		return Redirect( "?p=a" );
     	}
         // else...
-        $user->UpdateLastLogon();
+        $user->UpdateLastLogin();
         $user->RenewAuthtoken();
         $user->Save();
         User_SetCookie( $user->Id, $user->Authtoken );
