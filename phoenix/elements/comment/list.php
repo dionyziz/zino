@@ -1,9 +1,11 @@
 <?php
 	function ElementCommentList() {
 		global $page;
+		global $user;
 		
 		$page->AttachStyleSheet( 'css/comment.css' );
 		
+		if ( $user->Exists() ) {
 		?><div class="comment newcomment">
 			<div class="toolbox">
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
@@ -20,8 +22,9 @@
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" />
 			</div>
-		</div>
-		<div class="comment" style="border-color: #dee;">
+		</div><?php
+		}
+		?><div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
 				<span class="time">πριν 12 λεπτά</span>
 			</div>

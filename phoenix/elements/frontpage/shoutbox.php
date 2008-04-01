@@ -1,7 +1,9 @@
 <?php
 	function ElementFrontpageShoutbox() {
 		?><div class="shoutbox">
-		<h2>Συζήτηση</h2>
+		<h2>Συζήτηση</h2><?php
+		Element( 'comments/list' );
+		/*
 		<div class="comments">
 			<div class="comment newcomment">
 				<div class="who">
@@ -94,6 +96,7 @@
 				</div>
 			</div>	
 		</div>
-	</div><?php
+	</div>
+	*/
 	}
 	?>
