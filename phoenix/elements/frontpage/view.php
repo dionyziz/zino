@@ -79,12 +79,10 @@
 				Element( 'frontpage/shoutbox' );
 				?><div class="inlatestcomments"><?php
 				Element( 'frontpage/comments' );
-				//include 'frontpage_latestcomments.php'; // TODO
 				?></div>
 			</div>
 			<div class="inevents"><?php
 			Element( 'frontpage/events' );
-			//include 'frontpage_events.php'; // TODO: Element()
 			?></div><?php
 		}
 		?><div class="eof"></div>
