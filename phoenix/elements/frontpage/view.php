@@ -1,5 +1,5 @@
 <?php
-    function ElementFrontpage() {
+    function ElementFrontpageView() {
         global $page;
         global $user;
 
