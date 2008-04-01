@@ -42,7 +42,7 @@
 			<li><a href="" onclick=""><img src="images/avatars/argiro-18.jpg" alt="argiro_18" title="argiro_18" /></a></li>
 		</ul>
 	</div><?php
-	if ( $user->Exists() ) {
+	if ( !$user->Exists() ) {
 		?><div class="members">
 			<div class="join">
 				<form>
