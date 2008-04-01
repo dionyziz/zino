@@ -77,7 +77,7 @@
 		} 
 		else {
 			?><div class="inshoutbox"><?php
-				Element( 'frontpage/shoutobox' );
+				Element( 'frontpage/shoutbox' );
 				//include 'frontpage_shoutbox.php';
 				?><div class="inlatestcomments"><?php
 				include 'frontpage_latestcomments.php'; // TODO
