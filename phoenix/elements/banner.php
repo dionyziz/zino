@@ -33,7 +33,7 @@
 	        ?>
 		</ul><?php
 	    if ( $user->Exists() ) {
-	        ?><a href="logout" class="logout" onclick="return false;">Έξοδος</a><?php
+	        ?><a href="do/user/logout" class="logout" onclick="return false;">Έξοδος</a><?php
 		}
 	    ?><div class="search">
 			<form action="" method="get">
