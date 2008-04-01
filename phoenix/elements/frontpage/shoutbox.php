@@ -1,9 +1,11 @@
 <?php
 	function ElementFrontpageShoutbox() {
+		global $page;
+		
+		$page->AttachStyleSheet( 'css/frontpage/shoutbox.css' );
+		$page->AttachStyleSheet( 'css/comment.css' );
 		?><div class="shoutbox">
-		<h2>Συζήτηση</h2><?php
-		Element( 'comment/list' );
-		/*
+		<h2>Συζήτηση</h2>
 		<div class="comments">
 			<div class="comment newcomment">
 				<div class="who">
@@ -96,8 +98,6 @@
 				</div>
 			</div>	
 		</div>
-	</div>
-	*/
-		?></div><?php
+	</div><?php
 	}
-	?>
+?>
