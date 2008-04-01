@@ -64,9 +64,10 @@ div.comments div.oldcomment div.who a {
 }
 div.comments div.newcomment {
 	margin: 6px 0 6px 3px;
+	padding: 0;
 }
 div.comments div.newcomment div.who {
-	padding-left: 2px;
+	padding-left: 4px;
 	padding-top: 4px;
 }
 div.comments div.newcomment div.toolbox span.time {
