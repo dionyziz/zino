@@ -61,7 +61,7 @@ div.newcomment {
 	padding: 0; /* a fix for the newcomment box */
 }
 div.newcomment div.who {
-	padding-left: 2px;
+	padding-left: 4px; /* made 4px from 2px */
 	padding-top: 4px;
 }
 div.newcomment div.toolbox span.time {
