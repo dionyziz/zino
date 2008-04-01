@@ -56,7 +56,7 @@
 				</form>
 			</div>
 			<div class="login">
-				<form>
+				<form action="do/user/login" method="post">
 					<h2>Είσοδος στο zino</h2>
 					<div>
 						<label>Όνομα:</label> <input type="text" name="username" />
