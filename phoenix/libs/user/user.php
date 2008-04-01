@@ -7,6 +7,8 @@
     }
 
     global $libs;
+
+    $libs->Load( 'user/permission' );
     $libs->Load( 'user/settings' );
     $libs->Load( 'user/profile' );
     $libs->Load( 'user/space' );
@@ -43,13 +45,14 @@
             return $this->FindByPrototype( $prototype );
         }
     }
+
     class User extends Satori {
         protected $mDbTableAlias = 'users';
        
-        public function GetLastActive() {
+        protected function GetLastActive() {
             return $this->LastActivity->Date;
         }
-        public function Relations() {
+        protected function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
@@ -63,6 +66,8 @@
         public function HasPermission( $permission ) {
             return $this->Rights >= $permission;
         }
+        protected function LoadDefaults() {
+            $this->Rights = 10; // logged-out permissions
+        }
     }
-
 ?>

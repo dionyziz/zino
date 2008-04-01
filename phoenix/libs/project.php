@@ -8,7 +8,6 @@
         global $user;
         global $libs;
         
-        $libs->Load( 'permission' );
     	$libs->Load( 'magic' );
     	$libs->Load( 'user/user' );
     	$libs->Load( 'ban' );
@@ -42,6 +41,7 @@
         
         $banned = false;
         if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
+            $water->Trace( 'Logged out rights: ' . $user->Rights );
             $banned = true;
         }
         
