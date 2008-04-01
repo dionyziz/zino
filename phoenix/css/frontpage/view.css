@@ -115,19 +115,6 @@ div.nowonline a img {
 	width: 100px;
 	height: 100px;
 }
-div.outshoutbox {
-	float: left;
-	width: 95%;
-}
-div.outshoutbox div.shoutbox {
-	border: none;
-	border-bottom: 1px solid #ccc;
-}
-div.inshoutbox {
-	float: left;
-	width: 47%;
-	margin-right: 20px;
-}
 div.inlatestcomments {
 	clear: left;
 	padding-top: 20px;

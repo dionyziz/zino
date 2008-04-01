@@ -9,3 +9,16 @@ div.shoutbox div.comments {
 div.shoutbox h2 {	
 	margin-bottom: 10px;
 }
+div.outshoutbox {
+	float: left;
+	width: 95%;
+}
+div.outshoutbox div.shoutbox {
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+div.inshoutbox {
+	float: left;
+	width: 47%;
+	margin-right: 20px;
+}
