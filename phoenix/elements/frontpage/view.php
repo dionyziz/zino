@@ -78,7 +78,8 @@
 			?><div class="inshoutbox"><?php
 				Element( 'frontpage/shoutbox' );
 				?><div class="inlatestcomments"><?php
-				include 'frontpage_latestcomments.php'; // TODO
+				Element( 'frontpage/comments' );
+				//include 'frontpage_latestcomments.php'; // TODO
 				?></div>
 			</div>
 			<div class="inevents"><?php
