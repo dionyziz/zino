@@ -14,7 +14,7 @@
         $finder = New UserFinder();
         $user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
     	
-        if ( !$user->Exists() ) {
+        if ( $user === false ) {
     		return Redirect( "?p=a" );
     	}
         // else...
