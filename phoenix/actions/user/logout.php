@@ -7,8 +7,9 @@
     	$_SESSION[ 's_password' ] = '';
 
     	$user->RenewAuthtoken();
-    	$user->SetCookie( true );
+        $user->Save();
+        User_ClearCookie();
 
-    	return Redirect( substr( $_SERVER[ 'HTTP_REFERER' ] , strlen( $rabbit_settings[ 'webaddress' ] . '/' ) ) );
+    	return Redirect( $_SERVER[ 'HTTP_REFERER' ] );
     }
 ?>

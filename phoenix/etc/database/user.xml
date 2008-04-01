@@ -7,7 +7,7 @@
             <field name="user_name" type="char" size="32" />
             <field name="user_password" type="char" size="32" />
             <field name="user_authtoken" type="char" size="32" />
-            <field name="user_registerhost" type="unsigned int" />
+            <field name="user_registerhost" type="int" signed="no" />
             <field name="user_created" type="datetime" />
             <field name="user_rights" type="int" />
             <field name="user_icon" type="int" ref="merlin_images.image_id" />
@@ -25,10 +25,15 @@
             <field name="user_signature" type="text" size="256" />
             <field name="user_lastlogin" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
-            <field name="user_locked" type="enum" default="no">
-                <value>yes</value>
-                <value>no</value>
-            </field>
+            <index type="primary">
+                <indexfield>user_id</indexfield>
+            </index>
+            <index type="unique" name="name">
+                <indexfield>user_name</indexfield>
+            </index>
+            <index type="unique" name="subdomain">
+                <indexfield>user_subdomain</indexfield>
+            </index>
         </table>
         <table name="merlin_usersettings">
             <field name="setting_userid" type="int" ref="merlin_users.user_id" />
@@ -72,11 +77,14 @@
                 <value>yes</value>
                 <value>no</value>
             </field>
+            <index type="primary">
+                <indexfield>setting_userid</indexfield>
+            </index>
         </table>
         <table name="merlin_userprofiles">
-            <field name="profile_userid" ref="merlin_users.user_id" />
+            <field name="profile_userid" type="int" ref="merlin_users.user_id" />
             <field name="profile_location" type="int" ref="merlin_places.place_id" />
-            <field name="user_dob" type="datetime" />
+            <field name="profile_dob" type="datetime" />
             <field name="profile_education" type="enum">
                 <value>-</value>
                 <value>elementary</value>
@@ -91,7 +99,7 @@
                 <value>bi</value>
                 <value>gay</value>
             </field>
-            <field name="user_religion" type="enum">
+            <field name="profile_religion" type="enum">
                 <value>-</value>
                 <value>christian</value>
                 <value>muslim</value>
@@ -99,7 +107,7 @@
                 <value>agnostic</value>
                 <value>nothing</value>
             </field>
-            <field name="user_politics" type="enum">
+            <field name="profile_politics" type="enum">
                 <value>-</value>
                 <value>right</value>
                 <value>left</value>
@@ -108,9 +116,9 @@
                 <value>radical right</value>
                 <value>nothing</value>
             </field>
-            <field name="user_aboutme" type="text" />
-            <field name="user_mood" type="int" ref="merlin_moods.mood_id" />
-            <field name="user_eyecolor" type="enum">
+            <field name="profile_aboutme" type="text" />
+            <field name="profile_mood" type="int" ref="merlin_moods.mood_id" />
+            <field name="profile_eyecolor" type="enum">
                 <value>-</value>
                 <value>black</value>
                 <value>brown</value>
@@ -118,7 +126,7 @@
                 <value>blue</value>
                 <value>grey</value>
             </field>
-            <field name="user_haircolor" type="enum">
+            <field name="profile_haircolor" type="enum">
                 <value>-</value>
                 <value>black</value>
                 <value>brown</value>
@@ -129,45 +137,49 @@
                 <value>grey</value>
                 <value>skinhead</value>
             </field>
-            <field name="user_height" type="tinyint" />
-            <field name="user_weight" type="tinyint" />
-            <field name="user_smoker" type="enum">
+            <field name="profile_height" type="int" />
+            <field name="profile_weight" type="int" />
+            <field name="profile_smoker" type="enum">
                 <value>-</value>
                 <value>yes</value>
                 <value>no</value>
                 <value>socially</value>
             </field>
-            <field name="user_drinker" type="enum">
+            <field name="profile_drinker" type="enum">
                 <value>-</value>
                 <value>yes</value>
                 <value>no</value>
                 <value>socially</value>
             </field>
-            <!-- <tags>
-            <field name="user_favmovies" type="text" />
-            <field name="user_favbooks" type="text" />
-            <field name="user_favsongs" type="text" />
-            <field name="user_favartists" type="text" />
-            <field name="user_favvideogames" type="text" />
-            <field name="user_favtvshows" type="text" />
-            </tags> -->
-            <field name="user_favquote" type="text" />
-            <field name="user_skype" type="varchar" size="256" />
-            <field name="user_msn" type="varchar" size="256" />
-            <field name="user_gtalk" type="varchar" size="256" />
-            <field name="user_yim" type="varchar" size="256" />
-            <field name="user_homepage" type="varchar" size="256" />
-            <field name="user_firstname" type="varchar" size="256" />
-            <field name="user_lastname" type="varchar" size="256" />
+            <field name="profile_favquote" type="text" />
+            <field name="profile_skype" type="varchar" size="256" />
+            <field name="profile_msn" type="varchar" size="256" />
+            <field name="profile_gtalk" type="varchar" size="256" />
+            <field name="profile_yim" type="varchar" size="256" />
+            <field name="profile_homepage" type="varchar" size="256" />
+            <field name="profile_firstname" type="varchar" size="256" />
+            <field name="profile_lastname" type="varchar" size="256" />
+            <index type="primary">
+                <indexfield>profile_userid</indexfield>
+            </index>
         </table>
         <table name="merlin_lastactive">
-            <field name="user_id" type="int" ref="merlin_users.user_id" />
-            <field name="user_lastactive" type="datetime" />
+            <field name="lastactive_userid" type="int" ref="merlin_users.user_id" />
+            <field name="lastactive_updated" type="datetime" />
+            <index type="primary">
+                <indexfield>lastactive_userid</indexfield>
+            </index>
+            <index type="index" name="online">
+                <indexfield>lastactive_updated</indexfield>
+            </index>
         </table>
         <table name="merlin_moods">
             <field name="mood_id" type="int" autoincrement="yes" />
             <field name="mood_label" type="text" />
             <field name="mood_icon" type="int" ref="merlin_images.image_id" />
+            <index type="primary">
+                <indexfield>mood_id</indexfield>
+            </index>
         </table>
     </database>
 </project>

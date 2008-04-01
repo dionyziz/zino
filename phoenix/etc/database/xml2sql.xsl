@@ -94,7 +94,11 @@
                         <span class="name">`<xsl:value-of select="@name" />` </span>
                         <xsl:choose>
                             <xsl:when test="@type='int'">
-                                <a href="http://dev.mysql.com/doc/refman/5.0/en/numeric-type-overview.html"><span class="type">INT</span></a><span class="type">(11)</span> <span class="type"> NOT NULL </span>
+                                <a href="http://dev.mysql.com/doc/refman/5.0/en/numeric-type-overview.html"><span class="type">INT</span></a><span class="type">(11)</span> 
+                                <xsl:if test="@signed='no'">
+                                    UNSIGNED
+                                </xsl:if>
+                                <span class="type"> NOT NULL </span>
                                 <xsl:if test="not(@autoincrement='yes')">
                                     <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>
                                     <span class="string"> '<xsl:choose>
@@ -121,6 +125,27 @@
                                             <xsl:value-of select="@length" />
                                         </xsl:otherwise>
                                 </xsl:choose>) </span>
+                                <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>
+                                <span class="string"> '<xsl:choose>
+                                    <xsl:when test="not(@default)"></xsl:when>
+                                    <xsl:otherwise><xsl:value-of select="@default" /></xsl:otherwise>
+                                </xsl:choose>'</span>
+                            </xsl:when>
+                            <xsl:when test="@type='char'">
+                                <a href="http://dev.mysql.com/doc/refman/5.0/en/char.html"><span class="type">CHAR</span></a><span class="type">(<xsl:choose>
+                                        <xsl:when test="not(@length)">32</xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:value-of select="@length" />
+                                        </xsl:otherwise>
+                                </xsl:choose>) </span>
+                                <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>
+                                <span class="string"> '<xsl:choose>
+                                    <xsl:when test="not(@default)"></xsl:when>
+                                    <xsl:otherwise><xsl:value-of select="@default" /></xsl:otherwise>
+                                </xsl:choose>'</span>
+                            </xsl:when>
+                            <xsl:when test="@type='text'">
+                                <a href="http://dev.mysql.com/doc/refman/5.0/en/char.html"><span class="type">TEXT </span></a>
                                 <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>
                                 <span class="string"> '<xsl:choose>
                                     <xsl:when test="not(@default)"></xsl:when>
