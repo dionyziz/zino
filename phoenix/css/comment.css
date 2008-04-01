@@ -58,6 +58,7 @@ div.oldcomment div.who a {
 }
 div.newcomment {
 	margin: 6px 0 6px 3px;
+	padding: 0; /* a fix for the newcomment box */
 }
 div.newcomment div.who {
 	padding-left: 2px;
