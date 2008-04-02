@@ -1,13 +1,51 @@
 <?php
 	function ElementUserProfileSidebarSocial( $theuser ) {
 		$educations = array( 
-				'elementary' => 'δημοτικό',
-				'gymnasium' => 'γυμνάσιο',
+				'elementary' => 'Δημοτικό',
+				'gymnasium' => 'Γυμνάσιο',
 				'TEE' => 'ΤΕΕ',
-				'lyceum' => 'λύκειο',
+				'lyceum' => 'Λύκειο',
 				'ΤΕΙ' => 'TEI',
-				'university' => 'πανεπιστήμιο'
+				'university' => 'Πανεπιστήμιο'
 		);
+		if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
+			$religions = array( 
+				'christian' => 'Χριστιανός',
+				'muslim' => 'Ισλαμιστής',
+				'atheist' => 'Άθεος',
+				'agnostic' => 'Αγνωστικιστής',
+				'nothing' => 'Καμία'
+			);
+		}
+		else {
+			$religions = array( 
+				'christian' => 'Χριστιανή',
+				'muslim' => 'Ισλαμίστρια',
+				'atheist' => 'Άθεη',
+				'agnostic' => 'Αγνωστικιστής',
+				'nothing' => 'Καμία'
+			);
+		}
+		if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
+			$politics = array( 
+				'right' => 'Δεξιός',
+				'left' => 'Αριστερός',
+				'center' => 'Κεντρώος',
+				'radical left' => 'Ακροαριστερός',
+				'radical right' => 'Ακροδεξιός',
+				'nothing' => 'Τίποτα'
+			);
+		}
+		else {
+			$politics = array( 
+				'right' => 'Δεξιά',
+				'left' => 'Αριστερή',
+				'center' => 'Κεντρώα',
+				'radical left' => 'Ακροαριστερή',
+				'radical right' => 'Ακροδεξιά',
+				'nothing' => 'Τίποτα'
+			);
+		}
 		?><dl>
 			<dt><strong>Σεξουαλικές προτιμήσεις</strong></dt>
 			<dd>Gay</dd>
@@ -24,10 +62,14 @@
 			?></dd>
 			
 			<dt><strong>Θρήσκευμα</strong></dt>
-			<dd>Αγνωστικισμός</dd>
+			<dd><?php
+			echo $religions[ $theuser->Profile->Religion ];
+			?></dd>
 			
 			<dt><strong>Πολιτική ιδεολογία</strong></dt>
-			<dd>Δεξιά</dd>
+			<dd><?php
+			echo $politics[ $theuser->Profile->Politics ];
+			?></dd>
 		</dl><?php
 	}
 ?>
