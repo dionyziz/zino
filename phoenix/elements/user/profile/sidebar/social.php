@@ -1,5 +1,13 @@
 <?php
 	function ElementUserProfileSidebarSocial( $theuser ) {
+		$educations = array( 
+				'elementary' => 'δημοτικό',
+				'gymnasium' => 'γυμνάσιο',
+				'TEE' => 'ΤΕΕ',
+				'lyceum' => 'λύκειο',
+				'ΤΕΙ' => 'TEI',
+				'university' => 'πανεπιστήμιο'
+		);
 		?><dl>
 			<dt><strong>Σεξουαλικές προτιμήσεις</strong></dt>
 			<dd>Gay</dd>
@@ -11,7 +19,9 @@
 			<dd>Με παρέα</dd>
 			
 			<dt><strong>Μόρφωση</strong></dt>
-			<dd>Πανεπιστήμιο</dd>
+			<dd><?php
+			echo $educations[ $theuser->Profile->Education ];
+			?></dd>
 			
 			<dt><strong>Θρήσκευμα</strong></dt>
 			<dd>Αγνωστικισμός</dd>
