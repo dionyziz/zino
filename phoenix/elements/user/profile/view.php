@@ -18,7 +18,7 @@
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
 		
 		?><div id="profile"><?php
-			Element( 'user/profile/sidebar' );
+			Element( 'user/profile/sidebar/view' );
 			Element( 'user/profile/main' );
 			?><div class="eof"></div>
 		</div><?php
