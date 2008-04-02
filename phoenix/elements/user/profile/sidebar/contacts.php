@@ -22,7 +22,7 @@
 			if ( $theuser->Profile->Gtalk != '' ) {
 				?><dt><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>gtalk.jpg" alt="gtalk" title="Gtalk" /></dt>
+				?>gtalk.png" alt="gtalk" title="Gtalk" /></dt>
 				<dd><?php
 				echo htmlspecialchars( $theuser->Profile->Gtalk );
 				?></dd><?php
