@@ -3,7 +3,7 @@
 		?><div class="sidebar">
 			<div class="basicinfo"><?php
 				Element( 'user/profile/sidebar/who' , $theuser );
-				Element( 'user/profile/sidebar/signature' , $theuser );
+				Element( 'user/profile/sidebar/slogan' , $theuser );
 				Element( 'user/profile/sidebar/mood' , $theuser );
 				Element( 'user/profile/sidebar/info' , $theuser );
 			?></div>
