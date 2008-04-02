@@ -44,6 +44,19 @@
             $prototype->Subdomain = $subdomain;
             return $this->FindByPrototype( $prototype );
         }
+        public function ClearPlace( $placeid ) {
+            $query = $this->mDb->Prepare(
+                'UPDATE
+                    :users
+                SET
+                    `placeid` = 0
+                WHERE
+                    `placeid` = :placeid'
+            );
+            $query->BindTable( 'users' );
+            $query->Bind( 'placeid', $placeid );
+            $query->Execute();
+        }
     }
 
     class User extends Satori {
@@ -59,6 +72,7 @@
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );
             $this->LastActivity = $this->HasOne( 'UserLastActive', 'Id' );
+            $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );

@@ -1,12 +1,11 @@
 <?php
-
     function Image_Upload( $path, $tempfile, $resizeto = false ) {
         global $xc_settings;
         global $rabbit_settings;
 		global $user;              
 
-		if ( $user->Rights() < $xc_settings[ "allowuploads" ] ) {
-			return -1; // disallowed uploads
+		if ( !$user->HasPermission( PERMISSION_UPLOAD_IMAGE ) ) {
+			return -1;
 		}
         
         $curl = curl_init();
@@ -47,7 +46,8 @@
 
         $upload = array();
 
-		if ( strpos( $data, "error" ) !== false && $user->IsSysOp() ) {
+		if ( strpos( $data, "error" ) !== false ) {
+            // err'd
 			die( $data );
 		}
 		else if ( strpos( $data, "error" ) !== false ) {
@@ -67,9 +67,8 @@
 			$upload[ 'filesize' ] = (integer) $filesize;
 		}
         else {
-            if ( $user->IsSysOp() ) {
-                die( $data );
-            }
+            // err'd
+            die( $data );
         }
 
 		return $upload;

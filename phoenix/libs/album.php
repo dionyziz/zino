@@ -15,32 +15,32 @@
 
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbumId', 'albumid' );
+            $this->User = $this->HasOne( 'User', 'userid' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {
                 $value = utf8_substr( $value, 0, 100 );
             }
 
-            $this->mName = $value;
+            $this->mCurrentValues[ 'name' ] = $value;
         }
         public function SetDescription( $value ) {
             if ( strlen( $value ) > 200 ) {
                 $value = utf8_substr( value, 0, 200 );
             }
 
-            $this->mDescription = $value;
-        }
-        public function GetUser() {
-            if ( $user === false || !$user instanceof User ) {
-                $this->mUser = New User( $this->UserId );
-            }
-
-            return $this->mUser;
+            $this->mCurrentValues[ 'description' ] = $value;
         }
 		public function IsDeleted() {
 			return $this->DelId > 0;
 		}
 		public function Delete() {
+            global $water;
+            
+            if ( $this->IsDeleted() ) {
+                $water->Notice( 'Album already deleted; skipping' );
+                return;
+            }
             $this->DelId = 1;
             $this->Save();
 			

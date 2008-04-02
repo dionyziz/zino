@@ -13,9 +13,16 @@
     
     abstract class Relation {
         protected $mQueryModel;
+        protected $mRetrieved = false;
         
         public abstract function __construct();
         public abstract function MakeObj();
+        public function Retrieve() {
+            if ( $this->mRetrieved === false ) {
+                $this->mRetrieved = $this->MakeObj();
+            }
+            return $this->mRetrieved;
+        }
     }
     
     class RelationHasOne extends Relation {
@@ -146,7 +153,11 @@
             if ( !is_null( $got = parent::__get( $name ) ) ) {
                 return $got;
             }
-
+            
+            if ( isset( $this->mRelations[ $name ] ) ) {
+                return $this->mRelations[ $name ]->Retrieve();
+            }
+            
             if ( !in_array( $name, $this->mDbFields ) ) {
                 throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
@@ -228,6 +239,7 @@
                     $query->Bind( $name, $value );
                 }
                 $change = $query->Execute();
+                $this->OnUpdate();
                 return $change;
             }
             else {
@@ -244,8 +256,15 @@
                     }
                 }
                 $this->mExists = true;
+                $this->OnCreate();
                 return $change;
             }
+        }
+        protected function OnUpdate() {
+            // override me
+        }
+        protected function OnCreate() {
+            // override me
         }
         public function Delete() {
             if ( !$this->Exists() ) {

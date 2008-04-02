@@ -5,6 +5,7 @@
         
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Location = $this->HasOne( 'Place', 'Placeid' );
         }
         public function Delete() {
             throw New UserException( 'User profiles cannot be deleted' );

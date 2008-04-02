@@ -1,192 +1,88 @@
 <?php
 	/*
-	images media structure for images 
-	includes a class for the media and storing is made to the HD and not to the db
-	Developer: Izual
+	Images media structure for images 
 	*/
 	
 	global $libs;
 	
 	$libs->Load( 'search' );
 	$libs->Load( 'albums' );
+    $libs->Load( 'image/server' );
 	
-	function Image_Added( $user ) {
-		global $users;
-        global $latestimages;
-		global $images;
-        global $user;
-		global $db;
-		
-        $numimages = $user->CountImages() - 1;
-		// Prepared query
-		$query = $db->Prepare("
-			UPDATE 
-				`$users` 
-			SET 
-				`user_numimages` = `user_numimages` + 1 
-			WHERE `user_id` = :UserId
-			LIMIT :Limit
-			;
-		");
-		
-		// Assign values to query
-		$query->Bind( 'UserId', $user->Id() );
-		$query->Bind( 'Limit' , 1 );
-		
-		// Execute query
-		$change = $query->Execute();
-       
-        if ( !$change->Impact() ) {
-            return false;
-        }
-
-        if ( $numimages > 0 ) {
-			// Prepared query
-			$query = $db->Prepare("
-				SELECT 
-					max( `image_id` ) AS maximg 
-				FROM `$images` 
-				WHERE `image_userid` = :ImageUserId
-				LIMIT :Limit
-				;
-			");
-			
-			// Assign values to query
-			$query->Bind( 'ImageUserId', $user->Id() );
-			$query->Bind( 'Limit', 1 );
-			
-            // Execute query 
-            $res = $query->Execute()->FetchArray();
-            $maximg = $res[ 'maximg' ];
-			
-			$query = $db->Prepare("
-				UPDATE 
-					`$latestimages` 
-				SET 
-					`latest_imageid`  = :LatestImageId
-				WHERE `latest_userid` = :LatestUserId
-				;
-			");
-            
-			// Assign values to query
-			$query->Bind( 'LatestImageId', $res[ 'maximg' ] );
-			$query->Bind( 'LatestUserId', $user->Id() );
-			
-			// Execute query
-            $change = $query->Execute();
-        }
-        else {
-			$query = $db->Prepare("
-				DELETE FROM 
-					`$latestimages` 
-				WHERE 
-					`latest_userid` = :LatestUserId
-				;
-			");
-			
-			// Assign values to query
-			$query->Bind( 'LatestUserId', $user->Id() );
-            
-			// Execute query
-            $change = $query->Execute();
-        }
-		
-		return $change->Impact();
-	}
-	function Image_Removed( $user ) {
-		global $users;
-		global $user;
-		global $db;
-		
-		// Prepared query
-		$query = $db->Prepare("
-		UPDATE 
-			`$users` 
-		SET 
-			`user_numimages` = `user_numimages` - 1 
-		WHERE `user_id` = :UserId 
-		LIMIT :Limit
-		;
-		");
-		
-		// Assign values to query
-		$query->Bind( 'UserId', $user->Id() );
-		$query->Bind( 'Limit', 1);
-		
-		// Execute query
-		$change = $query->Execute();
-		
-		return $change->Impact();
-	}
-	
-    function Image_ListById( $imageids ) {
-        global $db;
-        global $images;
+    class ImageFinder {
+        protected $mModel = 'Image';
         
-        if ( is_array( $imageids ) ) {
+        public function FindByIds( $imageids ) {
+            w_assert( is_array( $imageids ) );
+            foreach ( $imagesids as $imageid ) {
+                w_assert( is_int( $imageid ) );
+            }
             if ( !count( $imageids ) ) {
                 return array();
             }
-            $wasarray = true;
-        }
-        else {
-            $imageids = array( $imageids );
-            $wasarray = false;
-        }
-        foreach ( $imageids as $i => $imageid ) {
-            $imageids[ $i ] = ( integer )$imageid;
-        }
-        
-		// TODO: Bind must take an array parameter for implode implementation 
-        $sql = "SELECT
+            
+            $query = $this->mDb->Prepare(
+                'SELECT
                     *
                 FROM
-                    `$images`
+                    :images
                 WHERE
-                    `image_id` IN (" . implode(',', $imageids) . ");";
-        $res = $db->Query( $sql );
-        
-        $rows = array();
-        while ( $row = $res->FetchArray() ) {
-            $rows[ $row[ 'image_id' ] ] = New Image( $row );
+                    `image_id` IN :imageids'
+            );
+            $query->BindTable( 'images' );
+            $query->Bind( 'imageids', $imageids );
+            
+            return $this->FindBySQLResource( $query->Execute() );
         }
-        
-        if ( $wasarray ) {
-            return $rows;
+        public function FindByUser( User $theuser, $offset = 0, $limit = 15 ) {
+            $prototype = New Image();
+            $image->Userid = $theuser->Id;
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ) );
         }
-        if ( count( $rows ) ) {
-            return array_shift( $rows );
+        public function FindByAlbum( Album $album, $offset = 0, $limit = 25 ) {
+            $prototype = New Image();
+            $image->Albumid = $album->Id;
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'ImageId', 'DESC' ) );
         }
-        return array();
+        public function FindFrontpage( $offset = 0, $limit = 15 ) {
+            $finder = New FrontpageImageFinder();
+            $found = $finder->FindLatest( $offset, $limit );
+            $imageids = array();
+            foreach ( $found as $frontpageimage ) {
+                $imageids[] = $frontpageimage->Imageid;
+            }
+            if ( !count( $imageids ) ) {
+                return array();
+            }
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :images
+                WHERE
+                    `image_id` IN :imageids'
+            );
+            $query->BindTable( 'images' );
+            $query->Bind( 'imageids', $imageids );
+            return $this->FindBySQLResource( $query->Execute() );
+        }
+        public function Count() {
+    		$query = $this->mDb->Prepare("
+    			SELECT 
+    				COUNT(*) AS imagesnum
+    			AS 
+    				imagesnum
+    			FROM 
+    				`:images`
+    			WHERE
+    				`image_delid` = 0;");
+            $query->BindTable( 'images' );
+            
+    		$res = $query->Execute();
+    		$row = $res->FetchArray();
+    		return $row[ "imagesnum" ];
+    	}
     }
-	
-    function Image_Count() {
-		global $images;
-		global $db;
-		
-		// Prepared query
-		$query = $db->Prepare("
-			SELECT 
-				COUNT( * )
-			AS 
-				imagesnum
-			FROM 
-				`$images`
-			WHERE
-				`image_delid` = :ImageDelId
-			;
-		");
-		
-		// Assign query values
-		$query->Bind( 'ImageDelId', 0 );
-		
-		// Execute query
-		$res = $query->Execute();
-		$num = $res->FetchArray();
-		$num = $num[ "imagesnum" ];
-		
-		return $num;
-	}
 	
     function Image_NoExtensionName( $filename ) {
 		$dotposition = strrpos( $filename , ".");
@@ -197,7 +93,7 @@
 		
 		return $filename;
 	}
-	function Image_GetExtension( $filename ) {
+	function Filename2Extension( $filename ) {
 		$strlength = strlen( $filename );
 		$dotposition = strrpos( $filename , "." );
 		$extension = substr( $filename , $dotposition + 1 , $strlength - $dotposition + 1 );	
@@ -233,76 +129,12 @@
 		}	
 	}
 	
-	function Image_LatestUnique( $limit ) {
-		global $db;
-        global $users;
-        global $images;
-		global $latestimages;
-		
-		//$limit = mysql_escape_string( $limit );
-		
-		// Prepared query
-		$query = $db->Prepare("
-			SELECT
-				`latest_imageid`
-			FROM
-				`$latestimages`
-			CROSS JOIN
-				`$images`
-			ON
-				`latest_imageid` = `image_id`
-			WHERE 
-				`image_albumid` != :ImageAlbumId
-			ORDER BY
-				`latest_imageid`
-				DESC
-			LIMIT
-				:Limit
-		");
-		
-		// Assign values to query
-		$query->Bind( 'ImageAlbumId', 0 );
-		$query->Bind( 'Limit', $limit );
-		
-		// Execute query
-		$res = $query->Execute();
-		
-		$rows = array();
-		
-		while ( $row = $res->FetchArray() ) {
-            $rows[] = New Image( $row[ 'latest_imageid' ] );
-        }
-		
-		return $rows;
-	}
-
     class Image extends Satori {
-        protected $mDbTable = 'images';
-        protected $mId;
-        protected $mUserId;
-        protected $mUserIp;
-        protected $mUser;
-        protected $mDate;
-        protected $mName;
-        protected $mWidth;
-        protected $mHeight;
-        protected $mSize;
-        protected $mMime;
-        protected $mExtension;
-        protected $mAlbumId;
-        protected $mAlbum;
-        protected $mDescription;
-        protected $mPageviews;
-        protected $mNumComments;
+        protected $mDbTableAlias = 'images';
         
-        public function GetUser() {
-            if ( $this->mUser === false ) {
-                $this->mUser = New User( $this->UserId );
-            }
-            return $this->mUser;
-        }
-        public function GetTitle() {
-            return $this->Name;
+        public function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Album = $this->HasOne( 'Album', 'Albumid' );
         }
 		public function GetServerUrl() {
 			global $rabbit_settings;
@@ -331,16 +163,15 @@
 			return $size;
 		}
 		public function CommentAdded() {
-            if ( ValidId( $this->AlbumId ) ) {
-                $album = new Album( (int)$this->AlbumId );
-                $album->CommentAdded();
+            if ( $this->Albumid > 0 ) {
+                $this->Album->CommentAdded();
             }
 		   
-            ++$this->mNumComments;
+            ++$this->NumComments;
 		    return $this->Save();
 		}
         public function AddPageview() {
-            ++$this->mPageviews;
+            ++$this->Pageviews;
             return $this->Save();
         }
 		public function Delete() {
@@ -348,62 +179,24 @@
             $this->Save();
 
             $this->Album->ImageDeleted( $this );
-            Image_Removed( $this->User );
+            --$theuser->Numimages;
+            $theuser->Save();
 
+            $finder = New ImageFinder();
+            
 			// update latest images
-			
-			$query = $this->mDb->Prepare("
-				SELECT
-					`image_id`
-				FROM
-					:images
-				WHERE
-					`image_userid` = :ImageUserId
-				AND
-					`image_delid` = :ImageDelId
-				ORDER BY
-					`image_id` DESC
-				LIMIT :Limit
-				;
-			");
-			$query->BindTable( 'images' );
-			$query->Bind( 'ImageUserId', $this->UserId );
-			$query->Bind( 'ImageDelId', 0);
-			$query->Bind( 'Limit', 1);
-			$res = $query->Execute();
-			
-			if ( !$res->Results() ) {
-				$query = $this->mDb->Prepare("
-					DELETE FROM
-						:latestimages
-					WHERE
-						`latest_imageid` = 	:LatestImageId
-					LIMIT :Limit
-					;
-				");
-                $query->BindTable( 'latestimages' );
-				$query->Bind( 'LatestImageId', $this->Id );
-				$query->Bind( 'Limit', 1 );
-
-				return $query->Execute();
-			}
-			else {
-				while( $row = $res->FetchArray() ) {
-					$query = $this->mDb->Prepare("
-						REPLACE INTO
-	                           :latestimages
-                            ( `latest_userid`, `latest_imageid` )
-                        VALUES
-                            ( :LatestUserId , :LatestImageId )
-						;
-					");
-					$query->BindTable( 'latestimages' );
-					$query->Bind( 'LatestUserId' , $this->UserId );
-					$query->Bind( 'LatestImageId', $row[ 'image_id' ] );
-
-					return $query->Execute();
-				}
-			}
+            if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
+    			$images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
+                $frontpageimage = New FrontpageImage( $this->Userid );
+                if ( !count( $images ) ) {
+                    // no previous images uploaded
+                    $frontpageimage->Delete();
+                }
+                else {
+                    $frontpageimage->Imageid = $images[ 0 ]->Id;
+                    $frontpageimage->Save();
+                }
+            }
 		}
         public function CommentDeleted() {
             if ( !$this->Album->CommentDeleted() ) {
@@ -413,19 +206,10 @@
             --$this->NumComments;
             return $this->Save();
         }
-        public function SetAlbumId( $value ) {
-            global $user;
-
-            $album = New Album( $value );
-            if ( $album->Exists() && $album->User->Id() != $user->Id() ) {
-                return false;
-            }
-            $this->mAlbumId = $value;
-        }
         public function SetTemporaryFile( $value ) {
             $this->mTemporaryFile = $value;
 
-            if ( filesize( $value ) > 1024*1024 ) {
+            if ( filesize( $value ) > 1024 * 1024 ) {
                 return -1;
             }
             
@@ -457,17 +241,12 @@
             $this->mExtension = $value;
         }
         public function SetDescription( $value ) {
-            $this->mDescription = $value;
-
             if ( strlen( $value ) > 200 ) {
-                $this->mDescription = utf8_substr( $value, 0, 200 );
+                $value = utf8_substr( $value, 0, 200 );
             }
+            $this->mCurrentValues[ 'Description' ] = $value;
         }
         public function Upload( $resizeto = false ) {
-            global $libs;
-
-            $libs->Load( 'image/server' );
-
             $path = $this->UserId . "/" . $this->Id;
 
             return Image_Upload( $path, $this->mTemporaryFile, $resizeto );
@@ -476,8 +255,9 @@
             if ( $this->Exists() ) {
                 return parent::Save();
             }
-
-            // else
+            
+            // else: only when creating
+            
             $this->Size = filesize( $this->mTemporaryFile );
             $this->Mime = Image_MimeByExtension( $extension );
             
@@ -491,26 +271,25 @@
             }
 
             if ( parent::Save() ) { // save again: Upload() has set size, width and height 
-				$query = $this->mDb->Prepare("
-					REPLACE INTO 
-						:latestimages
-							( `latest_userid`, `latest_imageid` ) 
-					VALUES  ( :LatestUserId , :LatestImageId )
-					;
-				");
-				$query->BindTable( 'latestimages' );
-				$query->Bind( 'LatestUserId' , $user->Id() );
-				$query->Bind( 'LatestImageId', $lastimgid );
-                $query->Execute();
+                if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
+                    $frontpageimage = New FrontpageImage( $this->Userid );
+                    if ( !$frontpageimage->Exists() ) {
+                        $frontpageimage = New FrontpageImage();
+                        $frontpageimage->Userid = $this->Userid;
+                    }
+                    $frontpageimage->Imageid = $this->Id;
+                    $frontpageimage->Save();
+                }
             }
-
-            Image_Added();
+            
+            ++$theuser->Numimages;
+            $theuser->Save();
         }
-        public function SetDefaults() {
-            $this->mDate    = NowDate();
-            $this->mUserIp  = UserIp();
-            $this->Width    = 0;
-            $this->Height   = 0;
+        public function LoadDefaults() {
+            $this->Created = NowDate();
+            $this->UserIp  = UserIp();
+            $this->Width   = 0;
+            $this->Height  = 0;
         }
     }
 ?>

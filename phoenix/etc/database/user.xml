@@ -25,6 +25,7 @@
             <field name="user_signature" type="text" size="256" />
             <field name="user_lastlogin" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
+            <field name="user_egoalbumid" type="int" ref="merlin_albums.album_id" />
             <index type="primary">
                 <indexfield>user_id</indexfield>
             </index>
@@ -83,8 +84,9 @@
         </table>
         <table name="merlin_userprofiles">
             <field name="profile_userid" type="int" ref="merlin_users.user_id" />
-            <field name="profile_location" type="int" ref="merlin_places.place_id" />
-            <field name="profile_dob" type="datetime" />
+            <field name="profile_placeid" type="int" ref="merlin_places.place_id" />
+            <field name="profile_dob" type="date" />
+            <field name="profile_slogan" type="varchar" length="511" />
             <field name="profile_education" type="enum">
                 <value>-</value>
                 <value>elementary</value>
