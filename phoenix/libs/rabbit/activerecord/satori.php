@@ -27,6 +27,7 @@
     
     class RelationHasOne extends Relation {
         protected $mForeignKey;
+        protected $mAttribute2DbField;
         
         public function __construct( $queryModel, $modelClass, $foreignKey ) {
             if ( !is_array( $foreignKey ) ) {
@@ -34,6 +35,7 @@
             }
             $this->mQueryModel = $queryModel;
             $this->mForeignKey = $foreignKey;
+            $this->mAttribute2DbField = $queryModel->Attribute2DbField;
         }
         public function MakeObj() {
             $args = array();
@@ -102,6 +104,9 @@
         
         protected function Relations() {
             // override me
+        }
+        public function GetAttribute2DbField() {
+            return $this->mAttribute2DbField;
         }
         protected function HasOne( $className, $foreignKey ) {
             if ( !$this->mAllowRelationDefinition ) {
