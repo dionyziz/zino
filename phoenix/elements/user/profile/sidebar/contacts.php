@@ -1,26 +1,36 @@
 <?php
 	function ElementUserProfileSidebarContacts( $theuser ) {
+		global $rabbit_settings;
+		
 		?><dl><?php
 			if ( $theuser->Profile->Skype != '' ) {
-				?><dt><img src="http://static.zino.gr/phoenix/skype.jpg" alt="skype" title="skype" /></dt>
+				?><dt><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>skype.jpg" alt="skype" title="Skype" /></dt>
 				<dd><?php 
 				echo htmlspecialchars( $theuser->Profile->Skype );
 				?></dd><?php
 			}
 			if ( $theuser->Profile->Msn != '' ) {
-				?><dt><img src="http://static.zino.gr/phoenix/msn.jpg" alt="msn" title="msn" /></dt>
+				?><dt><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>msn.jpg" alt="msn" title="MSN" /></dt>
 				<dd><?php
 				echo htmlspecialchars( $theuser->Profile->Msn );
 				?></dd><?php
 			}
 			if ( $theuser->Profile->Gtalk != '' ) {
-				?><dt><img src="http://static.zino.gr/phoenix/gtalk.jpg" alt="msn" title="msn" /></dt>
+				?><dt><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>jpg" alt="gtalk" title="Gtalk" /></dt>
 				<dd><?php
 				echo htmlspecialchars( $theuser->Profile->Gtalk );
 				?></dd><?php
 			}
 			if ( $theuser->Profile->Yim != '' ) {
-				?><dt><img src="http://static.zino.gr/phoenix/yahoo.jpg" alt="yahoo" title="yahoo" /></dt>
+				?><dt><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>/yahoo.jpg" alt="yahoo" title="Yahoo" /></dt>
 				<dd><?php
 				echo htmlspecialchars( $theuser->Profile->Yim );
 				?></dd><?php

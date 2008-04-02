@@ -1,5 +1,7 @@
 <?php
 	function ElementUserProfileSidebarView( $theuser ) {
+		global $rabbit_settings;
+		
 		?><div class="sidebar">
 			<div class="basicinfo"><?php
 				Element( 'user/profile/sidebar/who' , $theuser );
@@ -8,7 +10,9 @@
 				Element( 'user/profile/sidebar/info' , $theuser );
 			?></div>
 			<div class="look">
-				<img src="http://static.zino.gr/phoenix/body-male-slim-short.jpg" alt="" /><?php
+				<img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>body-male-slim-short.jpg" alt="" /><?php
 				Element( 'user/profile/sidebar/look' , $theuser );
 			?></div>
 			<div class="social"><?php
