@@ -10,11 +10,15 @@
 			<div class="toolbox">
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
 			</div>
-			<div class="who">
+			<div class="who"><?php
+				Element( 'user/display' , $user );
+				/*
 				<a href="user/dionyziz">
 					<img src="http://static.zino.gr/phoenix/mockups/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 					dionyziz
-				</a>πρόσθεσε ένα σχόλιο στο προφίλ σου
+				</a>
+				*/
+				?>πρόσθεσε ένα σχόλιο στο προφίλ σου
 			</div>
 			<div class="text">
 				<textarea></textarea>
