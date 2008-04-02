@@ -1,11 +1,11 @@
 <?php
 	function ElementUserProfileSidebarSocialDrinker( $theuser ) {
 		$drinker = array( 
-			'yes' => 'Ναι',
-			'no' => 'Όχι',
-			'socially' => 'Με παρέα'
+			'yes' => 'ΞΞ±ΞΉ',
+			'no' => 'ΞΟ‡ΞΉ',
+			'socially' => 'ΞΞµ Ο€Ξ±ΟΞ­Ξ±'
 		);
-		?><dt><strong>Πίνεις;</strong></dt>
+		?><dt><strong>Ξ Ξ―Ξ½ΞµΞΉΟ‚;</strong></dt>
 		<dd><?php
 		echo $drinker[ $theuser->Profile->Drinker ];
 		?></dd><?php
