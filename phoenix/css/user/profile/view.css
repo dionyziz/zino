@@ -134,9 +134,13 @@ div#profile div.sidebar div.contact {
 }
 div#profile div.sidebar div.contact dt {
 	float: left;
+	clear: left;
 	height: 18px;
+	padding: 5px 5px 5px 0;
 }
 div#profile div.sidebar div.contact dd {
+	float: left;
+	padding: 5px 0 5px 0;
 	height: 18px;
 	margin: 4px 4px 4px 20px;
 }
