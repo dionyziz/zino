@@ -1,6 +1,19 @@
 <?php
-	function ElementUserProfileView() {
+	function ElementUserProfileView( tString $name , tString $subdomain ) {
 		global $page;
+		
+		$name = $name->Get();
+		$subdomain = $subdomain->Get();
+		$finder = New UserFinder();
+		if ( $name != '' ) {
+			$theuser = $finder->FindByUsername( $name );
+		}
+		else {
+			$theuser = $finder->FindBySubdomain( $subdomain );
+		}
+		if ( $theuser === false ) {
+			return Element( '404' );
+		}
 		
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
 		
