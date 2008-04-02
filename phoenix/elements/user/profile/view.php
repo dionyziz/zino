@@ -15,7 +15,7 @@
 			return Element( '404' );
 		}
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
-		die( var_dump( is_subclass_of( $page, 'Page' ) ) );
+		$page->SetTitle( 'test' );
 		
 		?><div id="profile"><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
