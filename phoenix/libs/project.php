@@ -76,7 +76,7 @@
     	return array(
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
-			"profile"			=> "user/profile/view",
+			"user"			=> "user/profile/view",
 			"join" 				=> "user/join",
 			"journallist"		=> "journal/list",
 			"journal"			=> "journal/view",
