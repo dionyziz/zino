@@ -16,10 +16,10 @@
 		}
 		
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
-		
+		$page-SetTitle( $theuser->Name );
 		?><div id="profile"><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
-			Element( 'user/profile/main' );
+			Element( 'user/profile/main/view' , $theuser );
 			?><div class="eof"></div>
 		</div><?php
 	}
