@@ -16,7 +16,7 @@
 						<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 						dionyziz
 					</a>
-					*/?>πρόσθεσε ένα σχόλιο στη συζήτηση
+					*/?> πρόσθεσε ένα σχόλιο στη συζήτηση
 				</div>
 				<div class="text">
 					<textarea rows="2" cols="50"></textarea>
