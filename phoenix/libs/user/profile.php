@@ -1,5 +1,8 @@
 <?php
-
+    global $libs;
+    
+    $libs->Load( 'place' );
+    
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
         
