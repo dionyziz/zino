@@ -9,14 +9,14 @@
             return;
         }
         
-        if ( $theuser-Subdomain() != '' ) {
-            echo str_replace( '', urlencode( $theuser-Subdomain() ), $xc_settings[ 'usersubdomains' ] );
+        if ( $theuser->Subdomain != '' ) {
+            echo str_replace( '', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] );
         }
         else {
             if ( $base ) {
                 return;
             }
-            echo 'user' . urlencode( $theuser-Username() );
+            echo 'user/' . urlencode( $theuser->Name );
         }
     }
 ?>
