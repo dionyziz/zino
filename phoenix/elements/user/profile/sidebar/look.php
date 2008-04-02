@@ -22,18 +22,18 @@
 			if ( ( $showgender && $showweight ) || ( $showgender && !$showweight && $showheight ) ) {
 				?><li class="dot">·</li><?php
 			}
-			if ( $showweight ) {
-				?><li><?php
-				echo $theuser->Profile->Weight;
-				?>kg</li><?php
-			}
-			if ( $showweight && $showheight ) {
-				?><li class="dot">·</li><?php
-			}
 			if ( $showheight ) {
 				?><li><?php
 				echo $theuser->Profile->Height / 100;
 				?>m</li><?php
+			}
+			if ( $showweight && $showheight ) {
+				?><li class="dot">·</li><?php
+			}
+			if ( $showweight ) {
+				?><li><?php
+				echo $theuser->Profile->Weight;
+				?>kg</li><?php
 			}
 		?></ul><?php
 	}
