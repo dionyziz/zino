@@ -23,7 +23,8 @@
         protected $mDbTableAlias = 'universities';
         
         protected function Relations() {
-            $this->Place = $this->HasOne( 'Place', 'placeid' );
+            $this->Place = $this->HasOne( 'Place', 'Placeid' );
+            $this->User = $this->HasOne( 'User', 'Userid' );
         }
 		public function Delete() {
 			$this->DelId = 1;

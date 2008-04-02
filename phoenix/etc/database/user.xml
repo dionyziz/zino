@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
     <database name="cclive" type="mysql">
-        <table name="merlin_users">
+        <table name="users">
             <field name="user_id" type="int" autoincrement="yes" />
             <field name="user_name" type="char" size="32" />
             <field name="user_password" type="char" size="32" />
@@ -10,7 +10,7 @@
             <field name="user_registerhost" type="int" signed="no" />
             <field name="user_created" type="datetime" />
             <field name="user_rights" type="int" />
-            <field name="user_icon" type="int" ref="merlin_images.image_id" />
+            <field name="user_icon" type="int" ref="images.image_id" />
             <field name="user_email" type="varchar" size="256" />
             <field name="user_emailverified" type="enum">
                 <value default="yes">no</value>
@@ -25,7 +25,7 @@
             <field name="user_signature" type="text" size="256" />
             <field name="user_lastlogin" type="datetime" />
             <field name="user_lastprofedit" type="datetime" />
-            <field name="user_egoalbumid" type="int" ref="merlin_albums.album_id" />
+            <field name="user_egoalbumid" type="int" ref="albums.album_id" />
             <index type="primary">
                 <indexfield>user_id</indexfield>
             </index>
@@ -36,8 +36,8 @@
                 <indexfield>user_subdomain</indexfield>
             </index>
         </table>
-        <table name="merlin_usersettings">
-            <field name="setting_userid" type="int" ref="merlin_users.user_id" />
+        <table name="usersettings">
+            <field name="setting_userid" type="int" ref="users.user_id" />
             <field name="setting_email_profile" type="enum">
                 <value>yes</value>
                 <value>no</value>
@@ -82,11 +82,12 @@
                 <indexfield>setting_userid</indexfield>
             </index>
         </table>
-        <table name="merlin_userprofiles">
-            <field name="profile_userid" type="int" ref="merlin_users.user_id" />
-            <field name="profile_placeid" type="int" ref="merlin_places.place_id" />
+        <table name="userprofiles">
+            <field name="profile_userid" type="int" ref="users.user_id" />
+            <field name="profile_placeid" type="int" ref="places.place_id" />
             <field name="profile_dob" type="date" />
             <field name="profile_slogan" type="varchar" length="511" />
+            <field name="profile_uniid" type="int" ref="universities.uni_id" />
             <field name="profile_education" type="enum">
                 <value>-</value>
                 <value>elementary</value>
@@ -121,7 +122,7 @@
                 <value>nothing</value>
             </field>
             <field name="profile_aboutme" type="text" />
-            <field name="profile_mood" type="int" ref="merlin_moods.mood_id" />
+            <field name="profile_mood" type="int" ref="moods.mood_id" />
             <field name="profile_eyecolor" type="enum">
                 <value>-</value>
                 <value>black</value>
@@ -167,8 +168,8 @@
                 <indexfield>profile_userid</indexfield>
             </index>
         </table>
-        <table name="merlin_lastactive">
-            <field name="lastactive_userid" type="int" ref="merlin_users.user_id" />
+        <table name="lastactive">
+            <field name="lastactive_userid" type="int" ref="users.user_id" />
             <field name="lastactive_updated" type="datetime" />
             <index type="primary">
                 <indexfield>lastactive_userid</indexfield>
@@ -177,10 +178,10 @@
                 <indexfield>lastactive_updated</indexfield>
             </index>
         </table>
-        <table name="merlin_moods">
+        <table name="moods">
             <field name="mood_id" type="int" autoincrement="yes" />
             <field name="mood_label" type="text" />
-            <field name="mood_icon" type="int" ref="merlin_images.image_id" />
+            <field name="mood_icon" type="int" ref="images.image_id" />
             <index type="primary">
                 <indexfield>mood_id</indexfield>
             </index>
