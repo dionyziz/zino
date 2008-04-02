@@ -14,7 +14,7 @@
 		if ( $theuser === false ) {
 			return Element( '404' );
 		}
-		
+		die( get_class( $page ) );
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
 		$page->SetTitle( $theuser->Name );
 		?><div id="profile"><?php
