@@ -14,7 +14,7 @@
 			$showheight = true;
 		}
 		?><ul><?php
-			if ( $shogender ) {
+			if ( $showgender ) {
 				?><li><?php
 				echo $sex[ $theuser->Gender ];
 				?></li><?php
@@ -33,7 +33,7 @@
 			if ( $showheight ) {
 				?><li><?php
 				echo $theuser->Profile->Height / 100;
-				?></li><?php
+				?>m</li><?php
 			}
 		?></ul><?php
 	}
