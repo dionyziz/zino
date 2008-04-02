@@ -47,7 +47,7 @@
             }
             
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
-            $class = New ReflectionClass( $className );
+            $class = New ReflectionClass( get_class( $this->mQueryModel ) );
             $target = $class->newInstanceArgs( $args );
             
             return $target;
