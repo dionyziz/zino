@@ -34,7 +34,7 @@
 				if ( $theuser->Profile->Eyecolor != '' ) {
 					?><dt><strong>Χρώμα ματιών</strong></dt>
 					<dd><?php
-					echo $hair[ $theuser->Profile->Eyecolor ];
+					echo $eyes[ $theuser->Profile->Eyecolor ];
 					?></dd><?php
 				}
 			?></dl>
