@@ -22,9 +22,9 @@
 				</form><?php
 	        }
 	        else {
-	    		?><li><a href="user/dionyziz" class="self icon" style="background-image: url('../images/avatars/dionyziz.25.jpg');" onclick="return false"><?php
-				echo $user->Name;
-				?></a></li>
+	    		?><li><?php
+				Element( 'user/name' , $user );
+				?></li>
 	    		<li>·</li>
 	    		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
 	    		<li>·</li>
