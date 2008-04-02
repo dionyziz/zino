@@ -2,6 +2,7 @@
     global $libs;
     
     $libs->Load( 'place' );
+    $libs->Load( 'university' );
     
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
