@@ -1,18 +1,22 @@
 <?php
 	function ElementFrontpageShoutbox() {
 		global $page;
+		global $user;
 		
 		$page->AttachStyleSheet( 'css/frontpage/shoutbox.css' );
 		$page->AttachStyleSheet( 'css/comment.css' );
 		?><div class="shoutbox">
 		<h2>Συζήτηση</h2>
-		<div class="comments">
-			<div class="comment newcomment">
-				<div class="who">
-					<a href="user/dionyziz">
+		<div class="comments"><?php
+			if ( $user->Exists() ) {
+			?><div class="comment newcomment">
+				<div class="who"><?php
+					Element( 'user/display' , $user );
+					/*<a href="user/dionyziz">
 						<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" />
 						dionyziz
-					</a>πρόσθεσε ένα σχόλιο στη συζήτηση
+					</a>
+					*/?>πρόσθεσε ένα σχόλιο στη συζήτηση
 				</div>
 				<div class="text">
 					<textarea rows="2" cols="50"></textarea>
@@ -20,9 +24,9 @@
 				<div class="bottom">
 					<input type="submit" value="Σχολίασε!" />
 				</div>
-			</div>
-			
-			<div class="comment" style="border-color: #dee;">
+			</div><?php
+			}
+			?><div class="comment" style="border-color: #dee;">
 				<div class="toolbox">
 					<span class="time">πριν 12 λεπτά</span>
 				</div>
