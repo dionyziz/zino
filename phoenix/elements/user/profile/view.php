@@ -6,7 +6,7 @@
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $name != '' ) {
-			$theuser = $finder->FindByUsername( $name );
+			$theuser = $finder->FindByName( $name );
 		}
 		else {
 			$theuser = $finder->FindBySubdomain( $subdomain );
