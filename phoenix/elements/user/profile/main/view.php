@@ -22,16 +22,16 @@
 			<div style="clear:right"></div>
 			<div class="lastjournal">
 				<h3>Ημερολόγιο</h3><?php
-				Element( 'jourmal/small' , $theuser );
+				Element( 'journal/small' , $theuser );
 				?><a href="" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
 			</div>
 			<div class="comments">
 				<h3>Σχόλια στο προφίλ <?php
 				if ( $theuser->Gender == 'm' || $user->Gender == '-' ) {
-					?>του<?php
+					?>του <?php
 				}
 				else {
-					?>της<?php
+					?>της <?php
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
