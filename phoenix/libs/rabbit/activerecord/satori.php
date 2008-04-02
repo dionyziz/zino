@@ -28,12 +28,15 @@
     class RelationHasOne extends Relation {
         protected $mForeignKey;
         protected $mAttribute2DbField;
+        protected $mTargetModelClass;
         
-        public function __construct( $queryModel, $modelClass, $foreignKey ) {
+        public function __construct( $queryModel, $targetModelClass, $foreignKey ) {
             if ( !is_array( $foreignKey ) ) {
                 $foreignKey = array( $foreignKey );
             }
             $this->mQueryModel = $queryModel;
+            $this->mTargetModelClass = $targetModelClass;
+            w_assert( class_exists( $this->mTargetModelClass ), 'Model class `' . $this->mTargetModelClass . '\' used in HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not defined' );
             $this->mForeignKey = $foreignKey;
             $this->mAttribute2DbField = $queryModel->Attribute2DbField;
         }
@@ -41,13 +44,13 @@
             $args = array();
             foreach ( $this->mForeignKey as $attribute ) {
                 if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
-                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . $this->mQueryModel . ' is not an existing attribute name' );
+                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not an existing attribute name' );
                 }
                 $args[] = $this->mCurrentValues[ $attribute ];
             }
             
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
-            $class = New ReflectionClass( get_class( $this->mQueryModel ) );
+            $class = New ReflectionClass( $this->mTargetModelClass );
             $target = $class->newInstanceArgs( $args );
             
             return $target;
