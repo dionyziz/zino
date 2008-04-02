@@ -1,5 +1,7 @@
 <?php
 	function ElementUserProfileSidebarSignature( $theuser ) {
-		?><span class="subtitle">cold chocolate is superior to ice tea</span><?php
+		?><span class="subtitle"><?php
+		htmlspecialchars( $theuser->Profile->Slogan );
+		?></span><?php
 	}
 ?>
