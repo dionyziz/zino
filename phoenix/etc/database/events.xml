@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/RecentEvents">
     <database name="cclive" type="mysql">
-			<table name="merlin_events">
+		<table name="merlin_events">
 			<field name="event_id" type="int" autoincrement="yes" />
 			<field name="event_typeid" type="int" />
 			<field name="event_itemid" type="int" />
@@ -13,6 +13,10 @@
 			</index>
 			<index type="index" name="USER_EVENTS">
 				<indexfield>event_userid</indexfield>
+				<indexfield>event_typeid</indexfield>
+			</index>
+			<index type="index" name="EVENTS">
+				<indexfield>event_typeid</indexfield>
 			</index>
 		</table>
 	</database>
