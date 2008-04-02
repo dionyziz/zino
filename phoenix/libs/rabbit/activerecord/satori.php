@@ -306,7 +306,7 @@
             $this->mDbTable = $this->mDb->TableByAlias( $this->mDbTableAlias );
             
             if ( !( $this->mDbTable instanceof DBTable ) ) {
-                throw New SatoriException( 'Database table not specified or invalid for Satori class `' . get_class( $this ) . '\'' );
+                throw New SatoriException( 'Database table not specified, invalid, or database table alias non-existing for Satori class `' . get_class( $this ) . '\'' );
             }
             
             $this->mDbColumns = array();
