@@ -105,6 +105,13 @@
         public function UpdateLastLogin() {
             $this->Lastlogin = time();
         }
+        protected function OnCreate() {
+            $this->Profile->Save();
+            $this->Settings->Save();
+            $this->EgoAlbum->Save();
+            $this->Egoalbumid = $this->EgoAlbum->Id;
+            $this->Save();
+        }
         public function RenewAuthtoken() {
             // generate authtoken
             // first generate 16 random bytes

@@ -91,10 +91,10 @@
                 <value>-</value>
                 <value>elementary</value>
                 <value>gymnasium</value>
-                <value>lyceum</value>
                 <value>TEE</value>
-                <value>university</value>
+                <value>lyceum</value>
                 <value>TEI</value>
+                <value>university</value>
                 <value>finished</value>
             </field>
             <field name="profile_sexualorientation" type="enum">
