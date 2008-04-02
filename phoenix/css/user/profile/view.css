@@ -45,12 +45,14 @@ div#profile div.sidebar div.basicinfo h2 {
 	font-size: 120%;
 	/*display: inline;*/
 }
-div#profile div.sidebar div.basicinfo h2 a img {
+div#profile div.sidebar div.basicinfo h2  img {
 	float: left;
 	margin: 3px 6px 20px 3px;
 	border: 1px solid #666;
+	width: 150px;
+	height: 150px;
 }
-div#profile div.sidebar div.basicinfo h2 a span.name {
+div#profile div.sidebar div.basicinfo h2 span.name {
 	font-size: 120%;
 	display: block;
 	font-weight: bold;
