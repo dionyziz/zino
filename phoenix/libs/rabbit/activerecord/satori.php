@@ -26,7 +26,6 @@
     }
     
     class RelationHasOne extends Relation {
-        protected $mModelClass;
         protected $mForeignKey;
         
         public function __construct( $queryModel, $modelClass, $foreignKey ) {
@@ -40,7 +39,7 @@
             $args = array();
             foreach ( $this->mForeignKey as $attribute ) {
                 if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
-                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . $this->mModelClass . ' is not an existing attribute name' );
+                    throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . $this->mQueryModel . ' is not an existing attribute name' );
                 }
                 $args[] = $this->mCurrentValues[ $attribute ];
             }
@@ -60,7 +59,7 @@
 
         public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
             if ( !class_exists( $finderClass ) ) {
-                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . $this->mModelClass . '\' specified for HasMany relation does not exist' );
+                throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . $this->mQueryModel . '\' specified for HasMany relation does not exist' );
             }
             $this->mQueryModel = $queryModel;
             $this->mFinderClass = $finderClass;
