@@ -14,9 +14,8 @@
 		if ( $theuser === false ) {
 			return Element( '404' );
 		}
-		die( $page->Title() );
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
-		$page->SetTitle( $theuser->Name );
+		var_dump( function_exists( array( $page, 'SetTitle' ) ) );
 		?><div id="profile"><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
 			Element( 'user/profile/main/view' , $theuser );
