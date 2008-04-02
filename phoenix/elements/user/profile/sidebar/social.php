@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocial( $theuser ) {
-		$educations = array( 
+		$education = array( 
 				'elementary' => 'Δημοτικό',
 				'gymnasium' => 'Γυμνάσιο',
 				'TEE' => 'ΤΕΕ',
@@ -58,7 +58,7 @@
 			
 			<dt><strong>Μόρφωση</strong></dt>
 			<dd><?php
-			echo $educations[ $theuser->Profile->Education ];
+			echo $education[ $theuser->Profile->Education ];
 			?></dd>
 			
 			<dt><strong>Θρήσκευμα</strong></dt>

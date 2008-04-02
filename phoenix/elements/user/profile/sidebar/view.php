@@ -12,7 +12,7 @@
 				Element( 'user/profile/sidebar/look' , $theuser );
 			?></div>
 			<div class="social"><?php
-				Element( 'user/profile/sidebar/social' , $theuser );
+				Element( 'user/profile/sidebar/social/view' , $theuser );
 			?></div>
 			<div class="interests"><?php
 				Element( 'user/profile/sidebar/interests' , $theuser );
