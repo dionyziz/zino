@@ -33,7 +33,7 @@
 				else {
 					?>της<?php
 				}
-				?> <?php
+				?></h3> <?php
 				Element( 'user/name' , $theuser , false );
 				Element( 'comment/list' );
 			?></div>
