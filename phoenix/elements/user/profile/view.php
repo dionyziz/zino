@@ -16,7 +16,7 @@
 		}
 		
 		$page->AttachStyleSheet( 'css/user/profile/view.css' );
-		$page-SetTitle( $theuser->Name );
+		$page->SetTitle( $theuser->Name );
 		?><div id="profile"><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
 			Element( 'user/profile/main/view' , $theuser );
