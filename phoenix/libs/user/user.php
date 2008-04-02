@@ -68,6 +68,7 @@
         protected function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
+            $this->Settings = $this->HasOne( 'UserSettings', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );

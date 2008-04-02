@@ -46,7 +46,7 @@
                 if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
                     throw New SatoriException( 'Foreign key `' . $attribute . '\' of HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not an existing attribute name' );
                 }
-                $args[] = $this->mCurrentValues[ $attribute ];
+                $args[] = $this->mQueryModel->$attribute;
             }
             
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
