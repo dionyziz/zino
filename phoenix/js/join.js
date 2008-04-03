@@ -130,7 +130,7 @@ $( document ).ready( function(){
 		}
 		if ( create ) {
 			//Coala call
-			Coala.Warm( 'units/user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
+			Coala.Warm( 'unit/user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
 		}
 		return false;
 	});
