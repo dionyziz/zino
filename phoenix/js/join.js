@@ -70,7 +70,7 @@ $( document ).ready( function(){
 		}
 	});
 	$( $( 'form.joinform div input' )[ 0 ] ).change( function() {
-		alert( 'gamisou' );
+		alert( '.change function ' , Join.usernameexists );
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
 			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
