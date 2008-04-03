@@ -66,6 +66,12 @@
     class User extends Satori {
         protected $mDbTableAlias = 'users';
        
+        protected function SetPassword( $value ) {
+            $this->mCurrentValues[ 'Password' ] = md5( $value );
+        }
+        protected function GetPassword() {
+            throw New UserException( 'User passwords cannot be retrieved, as they are encrypted' );
+        }
         protected function GetLastActive() {
             return $this->LastActivity->Date;
         }
