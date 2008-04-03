@@ -31,13 +31,21 @@ div.join div.bubble form.joinform div label {
 div.join div.bubble form.joinform div input {
 	display: inline;
 }
+div.join div.bubble form.joinform div > span {
+	vertical-align: bottom;
+}
 div.join div.bubble form.joinform div span span {
 	font-size: 80%;
 	font-weight: bold;
+	vertical-align: 3px;
+}
+div.join div.bubble form.joinform div div > span {
+	vertical-align: bottom;
 }
 div.join div.bubble form.joinform div div span span {
 	font-size: 80%;
 	font-weight: bold;
+	vertical-align: 3px;
 }
 div.join div.bubble form.joinform div p {
 	padding: 3px 0 0 0;
