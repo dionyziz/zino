@@ -100,12 +100,14 @@ $( document ).ready( function(){
 		return false;
 	});
 	$( 'div a.button' ).click( function() {
+		var create = true;
 		if ( Join.username.value == '' ) {
 			if ( !Join.usernameerror ) {
 				Join.usernameerror = true;
 				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 			}
 			Join.username.focus();
+			create = false;
 		}
 		if ( Join.password.value.length < 4 ) {
 			if ( !Join.pwderror ) {
@@ -116,6 +118,7 @@ $( document ).ready( function(){
 				//if the username and password are empty then focus the username inputbox
 				Join.password.focus();
 			}
+			create = false;
 		}
 		if ( Join.password.value != Join.repassword.value && Join.password.value.length >= 4 ) {
 			if ( !Join.repwderror ) {
@@ -123,6 +126,10 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
 			}
 			Join.repassword.focus();
+			create = false;
+		}
+		if ( create ) {
+			//Coala call
 		}
 		return false;
 	});
