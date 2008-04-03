@@ -67,9 +67,9 @@ $( document ).ready( function(){
 		//alert the username, password and email
 		var username = $( 'form.joinform div input' )[ 0 ].value;
 		var password = $( 'form.joinform div input' )[ 1 ].value;
-		alert( password );
-		/*
 		var email = $( 'form.joinform div input' ) [ 3 ].value;
+		alert( email );
+		/*
 		alert ( 'username: ' , username , ' password: ' , password , ' email: ' , email );\
 		*/
 		return false;
