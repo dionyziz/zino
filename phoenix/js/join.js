@@ -1,9 +1,11 @@
 var Join = {
 	timervar : 0,
 	hadcorrect : false,
-	nousernamecounter : 0,
-	nopasswordcounter : 0,
-	repasswordcounter : 0,
+	usernameerror : false, //used to check if a username has been given
+	pwderror : false, //used to check if a password has been given
+	repwderror : false, //used to check if password is equal with the retyped password
+	shortpwd : false, //used to check if the password is short
+	username : $( 'form.joinform div input' )[ 0 ],
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -55,6 +57,15 @@ $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
 		Join.Focusinput( this );
 	});
+	$( 'form.joinform div input' ).keyup( function() {
+		if ( Join.usernameerror ) {
+			//var username = $( 'form.joinform div input' )[ 0 ];
+			if ( Join.username.value != '' ) {
+				Join.usernameerror = false;
+				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 );
+			}
+		}
+	});
 	$( 'form.joinform div input' ).blur( function() {
 		Join.Unfocusinput( this );
 	});
@@ -73,7 +84,9 @@ $( document ).ready( function(){
 		var repassword = $( 'form.joinform div input' )[ 2 ];
 		var email = $( 'form.joinform div input' ) [ 3 ];
 		if ( username.value == '' ) {
-			if ( Join.nousernamecounter == 0 ) {
+			Join.usernameerror = true;
+			$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
+			/*if ( Join.nousernamecounter == 0 ) {
 				++Join.nousernamecounter;
 				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
 					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
@@ -81,9 +94,11 @@ $( document ).ready( function(){
 					});
 				});
 			}
+			*/
 			username.focus();
 		}
-		if ( password.value == '' && username.value != '' ) {
+		if ( password.value == '' ) {
+			Join.pwderror = true;
 			if ( Join.nopasswordcounter == 0 ) {
 				++Join.nopasswordcounter;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
@@ -94,7 +109,8 @@ $( document ).ready( function(){
 			}
 			password.focus();
 		}
-		if ( password.value != repassword.value && password.value != '' && username.value != '' ) {
+		if ( password.value != repassword.value && password.value != '' ) {
+			Join.repwderror = true;
 			if ( Join.repasswordcounter == 0 ) {
 				++Join.repasswordcounter;
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
