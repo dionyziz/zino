@@ -79,11 +79,11 @@ $( document ).ready( function(){
 		}
 	});
 	
-	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
+	$( $( 'form.joinform div input' )[ 2 ] ).keyup( function() {
 		if ( Join.repwderror ) {
 			if ( Join.repassword.value == Join.password.value ) {
 				Join.repwderror = false;
-				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 200 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 200 );
 			}
 		}
 	});
