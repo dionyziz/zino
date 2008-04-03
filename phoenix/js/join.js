@@ -60,12 +60,21 @@ $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
 		Join.Focusinput( this );
 	});
+	
 	$( $( 'form.joinform div input' )[ 0 ] ).keyup( function() {
 		if ( Join.usernameerror ) {
-			//var username = $( 'form.joinform div input' )[ 0 ];
 			if ( Join.username.value != '' ) {
 				Join.usernameerror = false;
 				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 );
+			}
+		}
+	});
+	
+	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
+		if ( Join.pwderror ) {
+			if ( Join.pwd.value != '' ) {
+				Join.pwderror = false;
+				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
 	});
