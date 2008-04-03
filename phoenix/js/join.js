@@ -4,7 +4,6 @@ var Join = {
 	usernameerror : false, //used to check if a username has been given
 	pwderror : false, //used to check if a password has been given
 	repwderror : false, //used to check if password is equal with the retyped password
-	shortpwd : false, //used to check if the password is short
 	username : $( 'form.joinform div input' )[ 0 ],
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
@@ -113,7 +112,10 @@ $( document ).ready( function(){
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
 			}
-			Join.password.focus();
+			if ( Join.username.value != '' ) {
+				//if the username and password are empty then focus the username inputbox
+				Join.password.focus();
+			}
 		}
 		if ( Join.password.value != Join.repassword.value && Join.password.value.length >= 4 ) {
 			if ( !Join.repwderror ) {
