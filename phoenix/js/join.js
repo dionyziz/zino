@@ -63,4 +63,8 @@ $( document ).ready( function(){
 		Join.ShowTos();
 		return false;
 	});
+	$( 'div a.button' ).click( function() {
+	
+	
+	});
 });
