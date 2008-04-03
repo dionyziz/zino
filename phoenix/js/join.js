@@ -72,12 +72,22 @@ $( document ).ready( function(){
 	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
-			if ( Join.pwderror.value != '' ) {
+			if ( Join.password.value != '' ) {
 				Join.pwderror = false;
 				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
 	});
+	
+	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
+		if ( Join.repwderror ) {
+			if ( Join.repassword.value == Join.password.value ) {
+				Join.repwderror = false;
+				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 200 );
+			}
+		}
+	});
+	
 	$( 'form.joinform div input' ).blur( function() {
 		Join.Unfocusinput( this );
 	});
@@ -132,15 +142,20 @@ $( document ).ready( function(){
 			Join.password.focus();
 		}
 		if ( Join.password.value != Join.repassword.value && Join.password.value != '' ) {
-			Join.repwderror = true;
-			if ( Join.repasswordcounter == 0 ) {
-				++Join.repasswordcounter;
-				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-					$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
-						Join.repasswordcounter = 0;
-						$( $( 'form.joinform div div > span' )[ 0 ] ).css( "display" , "none" );
+			if ( !Join.repwderror ) {
+				Join.repwderror = true;
+				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+				/*
+				if ( Join.repasswordcounter == 0 ) {
+					++Join.repasswordcounter;
+					$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
+						$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
+							Join.repasswordcounter = 0;
+							$( $( 'form.joinform div div > span' )[ 0 ] ).css( "display" , "none" );
+						});
 					});
-				});
+				}
+				*/
 			}
 			Join.repassword.focus();
 		}
