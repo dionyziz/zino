@@ -6,6 +6,9 @@ var Join = {
 	repwderror : false, //used to check if password is equal with the retyped password
 	shortpwd : false, //used to check if the password is short
 	username : $( 'form.joinform div input' )[ 0 ],
+	password : $( 'form.joinform div input' )[ 1 ],
+	repassword : $( 'form.joinform div input' )[ 2 ],
+	email : $( 'form.joinform div input' ) [ 3 ],
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -79,11 +82,13 @@ $( document ).ready( function(){
 	});
 	$( 'div a.button' ).click( function() {
 		//alert the username, password and email
+		/*
 		var username = $( 'form.joinform div input' )[ 0 ];
 		var password = $( 'form.joinform div input' )[ 1 ];
 		var repassword = $( 'form.joinform div input' )[ 2 ];
 		var email = $( 'form.joinform div input' ) [ 3 ];
-		if ( username.value == '' ) {
+		*/
+		if ( Join.username.value == '' ) {
 			Join.usernameerror = true;
 			$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 			/*if ( Join.nousernamecounter == 0 ) {
@@ -95,9 +100,9 @@ $( document ).ready( function(){
 				});
 			}
 			*/
-			username.focus();
+			Join.username.focus();
 		}
-		if ( password.value == '' ) {
+		if ( Join.password.value == '' ) {
 			Join.pwderror = true;
 			if ( Join.nopasswordcounter == 0 ) {
 				++Join.nopasswordcounter;
@@ -107,9 +112,9 @@ $( document ).ready( function(){
 					});
 				});
 			}
-			password.focus();
+			Join.password.focus();
 		}
-		if ( password.value != repassword.value && password.value != '' ) {
+		if ( Join.password.value != Join.repassword.value && Join.password.value != '' ) {
 			Join.repwderror = true;
 			if ( Join.repasswordcounter == 0 ) {
 				++Join.repasswordcounter;
@@ -120,7 +125,7 @@ $( document ).ready( function(){
 					});
 				});
 			}
-			repassword.focus();
+			Join.repassword.focus();
 		}
 		return false;
 	});
