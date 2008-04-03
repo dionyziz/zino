@@ -62,7 +62,7 @@ $( document ).ready( function(){
 			//var username = $( 'form.joinform div input' )[ 0 ];
 			if ( Join.username.value != '' ) {
 				Join.usernameerror = false;
-				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 );
+				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 1000 );
 			}
 		}
 	});
