@@ -67,8 +67,8 @@ $( document ).ready( function(){
 				Join.usernameerror = false;
 				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css ( "display" , "none");
-				}
-			});
+				});
+			}
 		}
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
