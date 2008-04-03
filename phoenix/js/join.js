@@ -67,8 +67,9 @@ $( document ).ready( function(){
 		//alert the username, password and email
 		var username = $( 'form.joinform div input' )[ 0 ].value;
 		var password = $( 'form.joinform div input' )[ 1 ].value;
+		var repassword = $( 'form.joinform div input' )[ 2 ].value;
 		var email = $( 'form.joinform div input' ) [ 3 ].value;
-		if ( Join.hadcorrect ) {
+		if ( password == repassword ) {
 			alert( 'goto register user' );
 		}
 		return false;
