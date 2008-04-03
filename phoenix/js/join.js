@@ -4,6 +4,7 @@ var Join = {
 	usernameerror : false, //used to check if a username has been given
 	pwderror : false, //used to check if a password has been given
 	repwderror : false, //used to check if password is equal with the retyped password
+	usernameexists : false,
 	username : $( 'form.joinform div input' )[ 0 ],
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
@@ -67,13 +68,17 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
+		if ( Join.usernameexists ) {
+			Join.usernameexists = false;
+			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
+		}
 	});
 	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
 			if ( Join.password.value != '' ) {
 				Join.pwderror = false;
-				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
 	});
@@ -82,8 +87,8 @@ $( document ).ready( function(){
 		if ( Join.repwderror ) {
 			if ( Join.repassword.value == Join.password.value ) {
 				Join.repwderror = false;
-				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 200 , function() {
-					$( $( 'form.joinform div > span' )[ 2 ] ).css( "display" , "none" );
+				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 700 , function() {
+					$( $( 'form.joinform div > span' )[ 3 ] ).css( "display" , "none" );
 				});
 			}
 		}
@@ -112,7 +117,7 @@ $( document ).ready( function(){
 		if ( Join.password.value.length < 4 ) {
 			if ( !Join.pwderror ) {
 				Join.pwderror = true;
-				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
 			}
 			if ( Join.username.value != '' ) {
 				//if the username and password are empty then focus the username inputbox

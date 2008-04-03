@@ -22,6 +22,11 @@
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
 						<span>Πρέπει να δώσεις ένα όνομα χρήστη!</span>
 						</span>
+						<span><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
+						<span>Το όνομα που διάλεξες υπάρχει ήδη!</span>
+						</span>
 						<p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>
 					</div>
 					<div>

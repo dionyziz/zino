@@ -8,7 +8,10 @@
 		$email = $email->Get();
 		$finder = New UserFinder(); 
 		if ( $finder->FindByName( $username ) ) {
-			?>alert( "exists" );<?php
+			?>Join.usernameexists = true;
+			Join.username.focus();
+			Join.username.select();
+			alert( "exists" );<?php
 		}
 		/*
 		if ( Valid_User( $username ) ) {
