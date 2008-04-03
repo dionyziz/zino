@@ -6,8 +6,14 @@
 		$username = $username->Get();
 		$password = $password->Get();
 		$email = $email->Get();
+		$finder = New UserFinder(); 
+		if ( $finder->FindByName( $username ) ) {
+			?>alert( "exists" );<?php
+		}
+		/*
 		if ( Valid_User( $username ) ) {
 			?>alert( 'OK' );<?php
 		}
+		*/
 	}
 ?>
