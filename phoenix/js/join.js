@@ -65,12 +65,21 @@ $( document ).ready( function(){
 	});
 	$( 'div a.button' ).click( function() {
 		//alert the username, password and email
-		var username = $( 'form.joinform div input' )[ 0 ].value;
-		var password = $( 'form.joinform div input' )[ 1 ].value;
-		var repassword = $( 'form.joinform div input' )[ 2 ].value;
-		var email = $( 'form.joinform div input' ) [ 3 ].value;
-		if ( password == repassword ) {
-			alert( 'goto register user' );
+		var username = $( 'form.joinform div input' )[ 0 ];
+		var password = $( 'form.joinform div input' )[ 1 ];
+		var repassword = $( 'form.joinform div input' )[ 2 ];
+		var email = $( 'form.joinform div input' ) [ 3 ];
+		if ( username.value == '' ) {
+			alert( 'Πρέπει να δώσεις ένα όνομα χρήστη.' );
+			username.focus();
+		}
+		if ( password.value == '' ) {
+			alert( 'Πρέπει να δώσεις έναν κωδικό πρόσβασης' );
+			password.focus();
+		}
+		if ( password.value != repassword.value ) {
+			alert( 'Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης 2 φορές' );
+			repassword.focus();
 		}
 		return false;
 	});
