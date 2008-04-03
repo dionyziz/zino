@@ -39,8 +39,7 @@ var Join = {
 			else {
 				var okpwd = $( 'form.joinform div div img' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
-					okpwd.style.borderColor = '1px solid red';
-					div.removeChild( okpwd );
+					$( 'form.joinform div div img' ).remove();
 					Join.hadcorrect = false;
 				}
 			}
