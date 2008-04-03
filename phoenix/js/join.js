@@ -72,7 +72,7 @@ $( document ).ready( function(){
 	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
-			if ( Join.pwd.value != '' ) {
+			if ( Join.pwderror.value != '' ) {
 				Join.pwderror = false;
 				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
 			}
