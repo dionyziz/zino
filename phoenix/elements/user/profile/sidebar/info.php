@@ -21,10 +21,10 @@
 			<dl>
 				<dt><strong>Ηλικία</strong></dt>
 				<dd>19</dd><?php
-				if ( $theuser->Place->Name != '' ) {
+				if ( $theuser->Profile->Place->Name != '' ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
-					echo $theuser->Place->Name;
+					echo $theuser->Profile->Place->Name;
 					?></dd><?php
 				}
 				?><dt><strong>Πανεπιστήμιο</strong></dt>
