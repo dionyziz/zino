@@ -24,7 +24,7 @@
 				if ( $theuser->Profile->Place->Name != '' ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
-					echo $theuser->Profile->Place->Name;
+					echo $theuser->Place->Name;
 					?></dd><?php
 				}
 				?><dt><strong>Πανεπιστήμιο</strong></dt>
