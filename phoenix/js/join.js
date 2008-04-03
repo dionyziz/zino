@@ -83,7 +83,9 @@ $( document ).ready( function(){
 		if ( Join.repwderror ) {
 			if ( Join.repassword.value == Join.password.value ) {
 				Join.repwderror = false;
-				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 200 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 200 , function() {
+					$( $( 'form.joinform div > span' )[ 2 ] ).css( "display" , "none" );
+				});
 			}
 		}
 	});
