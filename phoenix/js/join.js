@@ -60,7 +60,7 @@ $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
 		Join.Focusinput( this );
 	});
-	$( 'form.joinform div input' ).keyup( function() {
+	$( $( 'form.joinform div input' )[ 0 ] ).keyup( function() {
 		if ( Join.usernameerror ) {
 			//var username = $( 'form.joinform div input' )[ 0 ];
 			if ( Join.username.value != '' ) {
@@ -104,14 +104,18 @@ $( document ).ready( function(){
 		}
 		if ( Join.password.value == '' ) {
 			Join.pwderror = true;
+			$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+			/*
 			if ( Join.nopasswordcounter == 0 ) {
 				++Join.nopasswordcounter;
+				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
 					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 4000 , function() {
 						Join.nopasswordcounter = 0;
 					});
 				});
 			}
+			*/
 			Join.password.focus();
 		}
 		if ( Join.password.value != Join.repassword.value && Join.password.value != '' ) {
