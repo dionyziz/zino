@@ -9,12 +9,14 @@ var Join = {
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
 	email : $( 'form.joinform div input' ) [ 3 ],
+	/*
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
 	Unfocusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #999" );
 	},
+	*/
 	Checkpwd : function() {
 		var node = $( 'form.joinform div div input' )[ 0 ];
 		var pwd = $( 'form.joinform div input' )[ 1 ];
@@ -58,7 +60,13 @@ var Join = {
 };
 $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
-		Join.Focusinput( this );
+		//Join.Focusinput( this );
+		$( this ).css( "border" , "1px solid #bdbdff" );
+	});
+	
+	$( 'form.joinform div input' ).blur( function() {
+		//Join.Unfocusinput( this );
+		$( this ).css( "border" , "1px solid #999" );
 	});
 	
 	$( $( 'form.joinform div input' )[ 0 ] ).keyup( function() {
@@ -90,9 +98,6 @@ $( document ).ready( function(){
 		}
 	});
 	
-	$( 'form.joinform div input' ).blur( function() {
-		Join.Unfocusinput( this );
-	});
 	$( 'form.joinform div input:first' )[ 0 ].focus();
 	$( 'form.joinform div div input' ).keyup( function() {
 		Join.Checkpwd();
