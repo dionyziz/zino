@@ -31,11 +31,11 @@ div.join div.bubble form.joinform div label {
 div.join div.bubble form.joinform div input {
 	display: inline;
 }
-div.join div.bubble form.joinform div span {
+div.join div.bubble form.joinform div span span {
 	font-size: 80%;
 	font-weight: bold;
 }
-div.join div.bubble form.joinform div div span {
+div.join div.bubble form.joinform div div span span {
 	font-size: 80%;
 	font-weight: bold;
 }
