@@ -104,7 +104,7 @@ $( document ).ready( function(){
 			}
 			Join.username.focus();
 		}
-		if ( Join.password.value == '' ) {
+		if ( Join.password.value.length < 4 ) {
 			if ( !Join.pwderror ) {
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );

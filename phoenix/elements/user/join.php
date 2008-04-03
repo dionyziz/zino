@@ -29,7 +29,7 @@
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-						<span>Πρέπει να δώσεις έναν κωδικό πρόσβασης!</span>
+						<span>Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
 						</span>
 						<div>
 							<label for="join_repwd" style="padding-top: 5px;">Πληκτρολόγησε τον ξανά:</label>
