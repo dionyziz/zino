@@ -98,33 +98,37 @@ $( document ).ready( function(){
 		var email = $( 'form.joinform div input' ) [ 3 ];
 		*/
 		if ( Join.username.value == '' ) {
-			Join.usernameerror = true;
-			$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
-			/*if ( Join.nousernamecounter == 0 ) {
-				++Join.nousernamecounter;
-				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
-						Join.nousernamecounter = 0;
+			if ( !Join.usernameerror ) {
+				Join.usernameerror = true;
+				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
+				/*if ( Join.nousernamecounter == 0 ) {
+					++Join.nousernamecounter;
+					$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
+						$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
+							Join.nousernamecounter = 0;
+						});
 					});
-				});
+				}
+				*/
 			}
-			*/
 			Join.username.focus();
 		}
 		if ( Join.password.value == '' ) {
-			Join.pwderror = true;
-			$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
-			/*
-			if ( Join.nopasswordcounter == 0 ) {
-				++Join.nopasswordcounter;
+			if ( !Join.pwderror ) {
+				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
-				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 4000 , function() {
-						Join.nopasswordcounter = 0;
+				/*
+				if ( Join.nopasswordcounter == 0 ) {
+					++Join.nopasswordcounter;
+					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
+						$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 4000 , function() {
+							Join.nopasswordcounter = 0;
+						});
 					});
-				});
+				}
+				*/
 			}
-			*/
 			Join.password.focus();
 		}
 		if ( Join.password.value != Join.repassword.value && Join.password.value != '' ) {
