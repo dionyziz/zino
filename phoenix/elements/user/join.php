@@ -18,7 +18,7 @@
 						<input type="text" value="" />
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
-						?>.exclamation.png" alt="Προσοχή" title="Προσοχή" />
+						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
 						Πρέπει να δώσεις ένα όνομα χρήστη!
 						</span>
 						<p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>

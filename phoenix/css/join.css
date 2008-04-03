@@ -29,7 +29,15 @@ div.join div.bubble form.joinform div label {
 	padding: 0 0 3px 0;
 }
 div.join div.bubble form.joinform div input {
-	display: block;
+	display: inline;
+}
+div.join div.bubble form.joinform div span {
+	font-size: 80%;
+	font-weight: bold;
+}
+div.join div.bubble form.joinform div div span {
+	font-size: 80%;
+	font-weight: bold;
 }
 div.join div.bubble form.joinform div p {
 	padding: 3px 0 0 0;
