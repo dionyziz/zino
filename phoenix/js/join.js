@@ -66,9 +66,12 @@ $( document ).ready( function(){
 	$( 'div a.button' ).click( function() {
 		//alert the username, password and email
 		var username = $( 'form.joinform div input' )[ 0 ].value;
+		alert( username );
+		/*
 		var password = $( 'form.joinform div input' )[ 1 ].value;
 		var email = $( 'form.joinform div input' ) [ 3 ].value;
-		alert ( 'username: ' , username , ' password: ' , password , ' email: ' , email );
+		alert ( 'username: ' , username , ' password: ' , password , ' email: ' , email );\
+		*/
 		return false;
 	});
 });
