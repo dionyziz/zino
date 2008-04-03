@@ -19,7 +19,7 @@
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-						Πρέπει να δώσεις ένα όνομα χρήστη!
+						<span>Πρέπει να δώσεις ένα όνομα χρήστη!</span>
 						</span>
 						<p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>
 					</div>
@@ -29,7 +29,7 @@
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-						Πρέπει να δώσεις έναν κωδικό πρόσβασης!
+						<span>Πρέπει να δώσεις έναν κωδικό πρόσβασης!</span>
 						</span>
 						<div>
 							<label for="join_repwd">Πληκτρολόγησε τον ξανά:</label>
@@ -37,7 +37,7 @@
 							<span><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-							Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!
+							<span>Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
 							</span>
 						</div>
 					</div>
