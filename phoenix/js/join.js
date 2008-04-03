@@ -68,12 +68,9 @@ $( document ).ready( function(){
 		var username = $( 'form.joinform div input' )[ 0 ].value;
 		var password = $( 'form.joinform div input' )[ 1 ].value;
 		var email = $( 'form.joinform div input' ) [ 3 ].value;
-		alert ( username );
-		alert( password );
-		alert( email );
-		/*
-		alert ( 'username: ' , username , ' password: ' , password , ' email: ' , email );\
-		*/
+		if ( Join.hadcorrect ) {
+			alert( 'goto register user' );
+		}
 		return false;
 	});
 });
