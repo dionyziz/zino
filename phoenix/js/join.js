@@ -68,15 +68,11 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
-	});
-	$( $( 'form.joinform div input' )[ 0 ] ).change( function() {
-		alert( '.change function ' , Join.usernameexists );
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
 			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
 		}
-	});
-	
+	});	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
 			if ( Join.password.value != '' ) {
