@@ -100,7 +100,7 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
 					$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 , function() {
 						Join.repasswordcounter = 0;
-					});
+					}).css( "display" , "none" );
 				});
 			}
 			repassword.focus();
