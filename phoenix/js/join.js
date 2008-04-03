@@ -75,8 +75,8 @@ $( document ).ready( function(){
 		if ( username.value == '' ) {
 			if ( Join.nousernamecounter == 0 ) {
 				++Join.nousernamecounter;
-				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
-					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 , function() {
+				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 1000 , function() {
+					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
 						Join.nousernamecounter = 0;
 					});
 				});
@@ -86,8 +86,8 @@ $( document ).ready( function(){
 		if ( password.value == '' && username.value != '' ) {
 			if ( Join.nopasswordcounter == 0 ) {
 				++Join.nopasswordcounter;
-				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
-					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 3000 , function() {
+				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 1000 , function() {
+					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 4000 , function() {
 						Join.nopasswordcounter = 0;
 					});
 				});
@@ -97,8 +97,8 @@ $( document ).ready( function(){
 		if ( password.value != repassword.value && password.value != '' && username.value != '' ) {
 			if ( Join.repasswordcounter == 0 ) {
 				++Join.repasswordcounter;
-				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
-					$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 , function() {
+				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 1000 , function() {
+					$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
 						Join.repasswordcounter = 0;
 					}).css( "display" , "none" );
 				});
