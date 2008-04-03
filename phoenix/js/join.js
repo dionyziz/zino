@@ -64,7 +64,10 @@ $( document ).ready( function(){
 		return false;
 	});
 	$( 'div a.button' ).click( function() {
-	
-	
+		//alert the username, password and email
+		var username = $( 'form.joinform div input' )[ 0 ].value;
+		var password = $( 'form.joinform div input' )[ 1 ].value;
+		var email = $( 'form.joinform div input' ) [ 3 ].value;
+		alert ( 'username: ' , username , ' password: ' , password , ' email: ' , email );
 	});
 });
