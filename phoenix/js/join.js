@@ -102,26 +102,10 @@ $( document ).ready( function(){
 		return false;
 	});
 	$( 'div a.button' ).click( function() {
-		//alert the username, password and email
-		/*
-		var username = $( 'form.joinform div input' )[ 0 ];
-		var password = $( 'form.joinform div input' )[ 1 ];
-		var repassword = $( 'form.joinform div input' )[ 2 ];
-		var email = $( 'form.joinform div input' ) [ 3 ];
-		*/
 		if ( Join.username.value == '' ) {
 			if ( !Join.usernameerror ) {
 				Join.usernameerror = true;
 				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
-				/*if ( Join.nousernamecounter == 0 ) {
-					++Join.nousernamecounter;
-					$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-						$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
-							Join.nousernamecounter = 0;
-						});
-					});
-				}
-				*/
 			}
 			Join.username.focus();
 		}
@@ -129,17 +113,6 @@ $( document ).ready( function(){
 			if ( !Join.pwderror ) {
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
-				/*
-				if ( Join.nopasswordcounter == 0 ) {
-					++Join.nopasswordcounter;
-					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
-					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-						$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 4000 , function() {
-							Join.nopasswordcounter = 0;
-						});
-					});
-				}
-				*/
 			}
 			Join.password.focus();
 		}
@@ -147,17 +120,6 @@ $( document ).ready( function(){
 			if ( !Join.repwderror ) {
 				Join.repwderror = true;
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
-				/*
-				if ( Join.repasswordcounter == 0 ) {
-					++Join.repasswordcounter;
-					$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 , function() {
-						$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 4000 , function() {
-							Join.repasswordcounter = 0;
-							$( $( 'form.joinform div div > span' )[ 0 ] ).css( "display" , "none" );
-						});
-					});
-				}
-				*/
 			}
 			Join.repassword.focus();
 		}
