@@ -8,14 +8,12 @@
 		$email = $email->Get();
 		$finder = New UserFinder(); 
 		if ( $finder->FindByName( $username ) ) {
-			?>alert( Join.usernameexists );
-			if ( !Join.usernameexists ) {
+			?>if ( !Join.usernameexists ) {
 				Join.usernameexists = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 			}
 			Join.username.focus();
-			Join.username.select();
-			alert( Join.usernameexists );<?php
+			Join.username.select();<?php
 		}
 		/*
 		if ( Valid_User( $username ) ) {
