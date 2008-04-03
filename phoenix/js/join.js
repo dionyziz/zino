@@ -88,7 +88,7 @@ $( document ).ready( function(){
 		}
 	});
 	
-	username.focus();
+	Join.username.focus();
 	$( 'form.joinform div div input' ).keyup( function() {
 		Join.Checkpwd();
 	});
