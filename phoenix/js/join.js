@@ -21,8 +21,8 @@ var Join = {
 				$( node ).css( "display" , "inline" );
 				var okpwd = document.createElement( 'img' );
 				okpwd.src = 'images/button_ok_16.png';
-				okpwd.alt = '����� ����������';
-				okpwd.title = '����� ����������';
+				okpwd.alt = 'Σωστή επαλήθευση';
+				okpwd.title = 'Σωστή επαλήθευση';
 				$( okpwd ).css( "padding-left" , "5px" );
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
 					$( okpwd ).css( "opacity" , "0" );
@@ -77,7 +77,7 @@ $( document ).ready( function(){
 			alert( 'Πρέπει να δώσεις έναν κωδικό πρόσβασης' );
 			password.focus();
 		}
-		if ( password.value != repassword.value && password.value != '' ) {
+		if ( password.value != repassword.value && password.value != '' && username.value != '' ) {
 			alert( 'Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης 2 φορές' );
 			repassword.focus();
 		}

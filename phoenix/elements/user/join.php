@@ -1,6 +1,7 @@
 <?php
 	function ElementUserJoin() {
 		global $page;
+		global $rabbit_settings;
 		
 		$page->AttachStylesheet( 'css/join.css' );
 		$page->AttachStylesheet( 'css/modal.css' );
@@ -15,14 +16,29 @@
 					<div>
 						<label for="join_name">Όνομα χρήστη:</label>
 						<input type="text" value="" />
+						<span><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>.exclamation.png" alt="Προσοχή" title="Προσοχή" />
+						Πρέπει να δώσεις ένα όνομα χρήστη!
+						</span>
 						<p>Το όνομα με το οποίο θα εμφανίζεσαι, δεν μπορείς να το αλλάξεις αργότερα.</p>
 					</div>
 					<div>
 						<label for="join_pwd">Κωδικός πρόσβασης:</label>
 						<input type="password" value="" style="margin-bottom:5px;" />
+						<span><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
+						Πρέπει να δώσεις έναν κωδικό πρόσβασης!
+						</span>
 						<div>
 							<label for="join_repwd">Πληκτρολόγησε τον ξανά:</label>
 							<input type="password" value="" style="vertical-align:top;" />
+							<span><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
+							Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!
+							</span>
 						</div>
 					</div>
 					<div>
