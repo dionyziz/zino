@@ -73,11 +73,11 @@ $( document ).ready( function(){
 			alert( 'Πρέπει να δώσεις ένα όνομα χρήστη.' );
 			username.focus();
 		}
-		if ( password.value == '' ) {
+		if ( password.value == '' && username.value != '' ) {
 			alert( 'Πρέπει να δώσεις έναν κωδικό πρόσβασης' );
 			password.focus();
 		}
-		if ( password.value != repassword.value ) {
+		if ( password.value != repassword.value && password.value != '' ) {
 			alert( 'Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης 2 φορές' );
 			repassword.focus();
 		}
