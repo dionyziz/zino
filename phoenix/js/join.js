@@ -2,6 +2,7 @@ var Join = {
 	timervar : 0,
 	hadcorrect : false,
 	nousernamecounter : 0,
+	nopasswordcounter : 0,
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -73,8 +74,8 @@ $( document ).ready( function(){
 		if ( username.value == '' ) {
 			if ( Join.nousernamecounter == 0 ) {
 				++Join.nousernamecounter;
-				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 2000 , function() {
-					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 2000 , function() {
+				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
+					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 , function() {
 						Join.nousernamecounter = 0;
 					});
 				});
@@ -82,7 +83,14 @@ $( document ).ready( function(){
 			username.focus();
 		}
 		if ( password.value == '' && username.value != '' ) {
-			alert( 'Πρέπει να δώσεις έναν κωδικό πρόσβασης' );
+			if ( Join.nopasswordcounter == 0 ) {
+				++Join.nopasswordcounter;
+				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
+					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 3000 , function() {
+						Join.nopasswordcounter = 0;
+					});
+				});
+			}
 			password.focus();
 		}
 		if ( password.value != repassword.value && password.value != '' && username.value != '' ) {
