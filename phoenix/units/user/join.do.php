@@ -8,7 +8,10 @@
 		$email = $email->Get();
 		$finder = New UserFinder(); 
 		if ( $finder->FindByName( $username ) ) {
-			?>Join.usernameexists = true;
+			?>if ( !Join.usernameexists ) {
+				Join.usernameexists = true;
+				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
+			}
 			Join.username.focus();
 			Join.username.select();
 			alert( "exists" );<?php

@@ -68,6 +68,8 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 );
 			}
 		}
+	});
+	$( $( 'form.joinform div input' )[ 0 ] ).change( function() {
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
 			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
