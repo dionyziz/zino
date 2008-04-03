@@ -26,7 +26,7 @@ var Join = {
 				okpwd.src = 'images/button_ok_16.png';
 				okpwd.alt = 'Σωστή επαλήθευση';
 				okpwd.title = 'Σωστή επαλήθευση';
-				$( okpwd ).css( "padding-left" , "5px" );
+				$( okpwd ).addClass( 'okpwd' );
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
 					$( okpwd ).css( "opacity" , "0" );
 					$( div ).append( okpwd );
@@ -37,7 +37,7 @@ var Join = {
 				}
 			}
 			else {
-				var okpwd = $( 'form.joinform div div img' )[ 0 ];
+				var okpwd = $( 'form.joinform div div img.okpwd' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
 					$( okpwd ).remove();
 					Join.hadcorrect = false;

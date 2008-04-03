@@ -33,7 +33,7 @@
 						</span>
 						<div>
 							<label for="join_repwd" style="padding-top: 5px;">Πληκτρολόγησε τον ξανά:</label>
-							<input type="password" value="" style="vertical-align:top;" />
+							<input type="password" value="" />
 							<span><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>exclamation.png" alt="Προσοχή" title="Προσοχή" />

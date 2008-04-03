@@ -44,6 +44,9 @@ div.join div.bubble form.joinform div div > span {
 	vertical-align: bottom;
 	display: none;
 }
+div.join div.bubble form.joinform div div > span img.okpwd {
+	padding-left: 5px;
+}
 div.join div.bubble form.joinform div div span span {
 	font-size: 80%;
 	font-weight: bold;
