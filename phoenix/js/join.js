@@ -9,6 +9,7 @@ var Join = {
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
 	email : $( 'form.joinform div input' ) [ 3 ],
+	/*
 	Checkpwd : function() {
 		var node = $( 'form.joinform div div input' )[ 0 ];
 		var pwd = $( 'form.joinform div input' )[ 1 ];
@@ -44,6 +45,7 @@ var Join = {
 			}
 		}, 200 );
 	},
+	*/
 	ShowTos : function () {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
@@ -89,9 +91,11 @@ $( document ).ready( function(){
 	});
 	
 	Join.username.focus();
+	/*
 	$( 'form.joinform div div input' ).keyup( function() {
 		Join.Checkpwd();
 	});
+	*/
 	$( 'form.joinform p a' ).click( function () {
 		Join.ShowTos();
 		return false;
