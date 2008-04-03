@@ -70,7 +70,7 @@ $( document ).ready( function(){
 		var repassword = $( 'form.joinform div input' )[ 2 ];
 		var email = $( 'form.joinform div input' ) [ 3 ];
 		if ( username.value == '' ) {
-			$( $( 'form.joinform div > span' )[ 0 ] ).show( 'slow' );
+			$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).animate( {opacity: "1" } , 2000 );
 			username.focus();
 		}
 		if ( password.value == '' && username.value != '' ) {
