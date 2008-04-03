@@ -12,5 +12,6 @@
 		alert( 'email: <?php
 		echo $email;
 		?>' );<?php
+		$newuser = new User();
 	}
 ?>
