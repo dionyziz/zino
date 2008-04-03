@@ -2,6 +2,7 @@
 	function ElementUserJoin() {
 		global $page;
 		global $rabbit_settings;
+		global $libs;
 		
 		$page->AttachStylesheet( 'css/join.css' );
 		$page->AttachStylesheet( 'css/modal.css' );
