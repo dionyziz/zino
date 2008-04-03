@@ -30,16 +30,16 @@ var Join = {
 				if ( typeof okpwd.style.opacity != 'undefined' ) {
 					$( okpwd ).css( "opacity" , "0" );
 					$( div ).append( okpwd );
-					$( okpwd ).animate( {opacity: "1"} , 2000 ); 
+					$( okpwd ).animate( { opacity: "1" } , 2000 ); 
 				}
 				else {
 					$( div ).append( okpwd );
 				}
 			}
 			else {
-				var okpwd = $( 'form.joinform div img' )[ 0 ];
+				var okpwd = $( 'form.joinform div div img' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
-					$( div ).removeChild( okpwd );
+					div.removeChild( okpwd );
 					Join.hadcorrect = false;
 				}
 			}
