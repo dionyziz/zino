@@ -21,12 +21,14 @@
 			<dl>
 				<dt><strong>Ηλικία</strong></dt>
 				<dd>19</dd><?php
+				/*
 				if ( $theuser->Profile->Place->Name != '' ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
 					echo $theuser->Profile->Place->Name;
 					?></dd><?php
 				}
+				*/
 				?><dt><strong>Πανεπιστήμιο</strong></dt>
 				<dd>Ηλεκτρολόγων Μηχ/κων και Μηχ/κων Υπολογιστών - Αθήνα</dd><?php
 				if ( $theuser->Profile->Haircolor != '' ) {
