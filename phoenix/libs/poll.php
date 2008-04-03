@@ -1,5 +1,4 @@
 <?php
-    
     function Poll_GetByUser( $theuser, $limit = 0 ) {
         global $polls;
         global $votes; // for finding if the current user has voted or not
