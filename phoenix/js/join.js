@@ -1,6 +1,7 @@
 var Join = {
 	timervar : 0,
 	hadcorrect : false,
+	nousernamecounter : 0,
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -70,7 +71,14 @@ $( document ).ready( function(){
 		var repassword = $( 'form.joinform div input' )[ 2 ];
 		var email = $( 'form.joinform div input' ) [ 3 ];
 		if ( username.value == '' ) {
-			$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( {opacity: "1" } , 2000 );
+			if ( Join.nousernamecounter == 0 ) {
+				++Join.nousernamecounter;
+				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 2000 , function() {
+					this.animate( { opacity: "1" } , 2000 , function() {
+						Join.nousernamecounter = 0;
+					});
+				});
+			}
 			username.focus();
 		}
 		if ( password.value == '' && username.value != '' ) {
