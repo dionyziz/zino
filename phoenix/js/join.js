@@ -37,8 +37,10 @@ var Join = {
 				}
 			}
 			else {
-				//var okpwd = $( 'form.joinform div div img' )[ 0 ];
+				var okpwd = $( 'form.joinform div div img' )[ 0 ];
 				if ( node.value != pwd.value && okpwd ) {
+					alert( okpwd );
+					alert( div );
 					div.removeChild( okpwd );
 					Join.hadcorrect = false;
 				}
