@@ -111,7 +111,7 @@ $( document ).ready( function(){
 			}
 			Join.password.focus();
 		}
-		if ( Join.password.value != Join.repassword.value && Join.password.value != '' ) {
+		if ( Join.password.value != Join.repassword.value && Join.password.value.length < 4 ) {
 			if ( !Join.repwderror ) {
 				Join.repwderror = true;
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
