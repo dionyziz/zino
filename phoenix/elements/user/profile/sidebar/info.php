@@ -21,7 +21,7 @@
 			<dl>
 				<dt><strong>Ηλικία</strong></dt>
 				<dd>19</dd><?php
-				if ( $theuser->Profile->Place->Name != '' ) {
+				if ( $theuser->Place->Name != '' ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
 					echo $theuser->Place->Name;
