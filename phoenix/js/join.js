@@ -3,6 +3,7 @@ var Join = {
 	hadcorrect : false,
 	nousernamecounter : 0,
 	nopasswordcounter : 0,
+	repasswordcounter : 0,
 	Focusinput : function ( node ) {
 		$( node ).css( "border" , "1px solid #bdbdff" );
 	},
@@ -94,7 +95,14 @@ $( document ).ready( function(){
 			password.focus();
 		}
 		if ( password.value != repassword.value && password.value != '' && username.value != '' ) {
-			alert( 'Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης 2 φορές' );
+			if ( Join.repasswordcounter == 0 ) {
+				++Join.repasswordcounter;
+				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 3000 , function() {
+					$( $( 'form.joinform div div > span' )[ 0 ] ).animate( { opacity: "0" } , 3000 , function() {
+						Join.repasswordcounter = 0;
+					});
+				});
+			}
 			repassword.focus();
 		}
 		return false;
