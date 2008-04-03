@@ -70,7 +70,7 @@ $( document ).ready( function(){
 		var repassword = $( 'form.joinform div input' )[ 2 ];
 		var email = $( 'form.joinform div input' ) [ 3 ];
 		if ( username.value == '' ) {
-			alert( 'Πρέπει να δώσεις ένα όνομα χρήστη.' );
+			$( $( 'form.joinform div > span' )[ 0 ] ).show( 'slow' );
 			username.focus();
 		}
 		if ( password.value == '' && username.value != '' ) {
