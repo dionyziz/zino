@@ -25,14 +25,14 @@
 					</div>
 					<div>
 						<label for="join_pwd">Κωδικός πρόσβασης:</label>
-						<input type="password" value="" style="margin-bottom:5px;" />
+						<input type="password" value="" />
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
 						<span>Πρέπει να δώσεις έναν κωδικό πρόσβασης!</span>
 						</span>
 						<div>
-							<label for="join_repwd">Πληκτρολόγησε τον ξανά:</label>
+							<label for="join_repwd" style="padding-top: 5px;">Πληκτρολόγησε τον ξανά:</label>
 							<input type="password" value="" style="vertical-align:top;" />
 							<span><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
