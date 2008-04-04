@@ -63,23 +63,23 @@ $( document ).ready( function(){
 	
 	$( $( 'form.joinform div input' )[ 0 ] ).keyup( function() {
 		if ( Join.usernameerror ) {
-			if ( Join.username.value != '' ) {
+			if ( Join.username.value.length >= 4 ) {
 				Join.usernameerror = false;
-				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 , function() {
+				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 400 , function() {
 					$( this ).css ( "display" , "none");
 				});
 			}
 		}
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
-			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 );
+			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 400 );
 		}
 	});	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
-			if ( Join.password.value != '' ) {
+			if ( Join.password.value.length >= 4 ) {
 				Join.pwderror = false;
-				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 700 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 400 );
 			}
 		}
 	});
@@ -107,7 +107,7 @@ $( document ).ready( function(){
 	});
 	$( 'div a.button' ).click( function() {
 		var create = true;
-		if ( Join.username.value == '' ) {
+		if ( Join.username.value.length < 4 ) {
 			if ( !Join.usernameerror ) {
 				Join.usernameerror = true;
 				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
