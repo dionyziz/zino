@@ -64,7 +64,7 @@
 			
             $user->Name = 'usertest';
             $user->Password = 'secret';
-            $user->Dob = '1989-17-11 00:00:00';
+            $user->Profile->Dob = '1989-17-11 00:00:00';
             $user->Email = 'test@kamibu.com';
             $user->Gender = 'male';
             $user->Signature = 'Foo bar blah';
