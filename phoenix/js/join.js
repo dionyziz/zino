@@ -73,7 +73,7 @@ $( document ).ready( function(){
 		if ( Join.emailerror ) {
 			if ( Join.email.value == '' || Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
 				Join.emailerror = false;
-				$( $( 'form.joinform div > span' )[ 4 ] ).animate( { opacity: "0" } , 700 , function() {
+				$( $( 'form.joinform div > span' )[ 5 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" );
 				});
 			}
@@ -130,7 +130,7 @@ $( document ).ready( function(){
 			if ( !Join.emailerror ) {
 				alert( 'error yo' );
 				Join.emailerror = true;
-				$( $( 'form.joinform div > span' )[ 4 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
+				$( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
 			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) && Join.password.value >= 4 ) {
 				Join.email.focus();
