@@ -17,7 +17,7 @@
     $libs->Load( 'album' );
     
     function User_Valid( $username ) {
-        return preg_match( '^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$' );
+        return preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$#', $username );
     }
     
     class UserFinder extends Finder {
