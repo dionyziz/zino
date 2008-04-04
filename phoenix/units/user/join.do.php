@@ -29,7 +29,6 @@
 				}
 				$_SESSION[ 's_password' ] = $password;
 				$_SESSION[ 's_username' ] = $username;
-				$newuser->RenewAuthtoken();
 				$newuser->Save();
 				User_SetCookie( $newuser->Id, $newuser->Authtoken );
 				?>location.href=<?php
