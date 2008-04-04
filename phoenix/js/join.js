@@ -6,6 +6,7 @@ var Join = {
 	pwderror : false, //used to check if a password has been given
 	repwderror : false, //used to check if password is equal with the retyped password
 	usernameexists : false,
+	emailerror : false,
 	username : $( 'form.joinform div input' )[ 0 ],
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
@@ -68,6 +69,17 @@ $( document ).ready( function(){
 		}
 	});
 	
+	$( $( 'form.joinform div input' )[ 3 ] ).keyup( function() {
+		if ( Join.emailerror ) {
+			if ( Join.email.value == '' || Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
+				Join.emailerror = false;
+				$( $( 'form.joinform div > span' )[ 4 ] ).animate( { opacity: "0" } , 700 , function() {
+					$( this ).css( "display" , "none" );
+				});
+			}
+		}
+	});
+	
 	Join.username.focus();
 	
 	$( 'form.joinform p a' ).click( function () {
@@ -110,6 +122,14 @@ $( document ).ready( function(){
 				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
 			Join.repassword.focus();
+			create = false;
+		}
+		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
+			if ( !Join.emailerror ) {
+				Join.emailerror = true;
+				$( $( 'form.joinform div > span' )[ 4 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
+			}
+			Join.email.focus();
 			create = false;
 		}
 		if ( create ) {
