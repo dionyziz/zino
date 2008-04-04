@@ -6,7 +6,7 @@
 		$finder = New UserFinder(); 
 
 		if ( User_Valid( $username ) ) {
-			if ( ( bool )preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $username ) ) {
+			if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $username ) == 0 ) {
 				?>alert( 'error' );<?php
 				return;
 			}
