@@ -114,7 +114,7 @@ $( document ).ready( function(){
 		}
 		if ( create ) {
 			//Coala call
-			document.body.cursor = 'hourglass';
+			document.body.cursor = 'wait';
 			Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
 		}
 		return false;
