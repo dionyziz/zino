@@ -48,7 +48,7 @@
             $this->AssertTrue( User_Valid( 'AbreSaS' ), 'User_Valid did not accept a string of lowercase and uppercase letters' );
             $this->AssertTrue( User_Valid( 'aBr3S4s' ), 'User_Valid did not accept an alphanumeric string' );
             $this->AssertFalse( User_Valid( '4Br3S4s' ), 'User_Valid should not accept a number in the beginning of the username' );
-            $this->AssertTrue( User_Valid( 'abresas\finland\os' ), 'User_Valid did not accept an alphanumeric string with \ character' );
+            $this->AssertFalse( User_Valid( 'abresas\finland\os' ), 'User_Valid must not accept an alphanumeric string with \ character' );
             $this->AssertFalse( User_Valid( '\abresas\finlandos' ), 'User_Valid should not accept a string starting with \ character' );
             $this->AssertTrue( User_Valid( 'abresas_finlandos_os' ), 'User_Valid did not accept an alphanumeric string with _ character' );
             $this->AssertFalse( User_Valid( '_abresas_finlandos' ), 'User_Valid should not accept a string starting with _ character' );
