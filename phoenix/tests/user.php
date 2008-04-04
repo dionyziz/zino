@@ -12,14 +12,22 @@
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
+			$this->Assert( class_exists( 'UserFinder' ), 'UserFinder class does not exist' );
         }
         public function TestFunctionsExist() {
             $this->Assert( function_exists( 'User_Valid' ), 'User_Valid function does not exist' );            
         }
+		public function TestFindersExists() {
+			$finder = New UserFinder();
+			$this->Assert( method_exists( $finder, 'FindByNameAndPassword' ), 'UserFinder::FindByNameAndPassword does not exist' );
+			$this->Assert( method_exists( $finder, 'FindByIdAndAuthtoken' ), 'UserFinder::FindByIdAndAuthtoken does not exist' );
+			$this->Assert( method_exists( $finder, 'FindByName' ), 'UserFinder::FindByName does not exist' );
+			$this->Assert( method_exists( $finder, 'FindBySubdomain' ), 'UserFinder::FindBySubdomain does not exist' );
+		}
         public function TestProperties() {
             $user = New User();
             $this->Assert( is_object( $user->Profile ), 'User::Profile is not an object' );
-            $this->Assert( is_object( $user->Settings ), 'User:Settings is not an object' );
+            $this->Assert( is_object( $user->Preferences ), 'User::Preferences is not an object' );
         }
         public function TestMethodsExist() {
             $user = New User();
@@ -31,7 +39,7 @@
             $profile = $user->Profile;
             $this->Assert( method_exists( $profile, 'Save' ), 'Profile::Save method does not exist' );
 
-            $settings = $user->Settings;
+            $settings = $user->Preferences;
             $this->Assert( method_exists( $settings, 'Save' ), 'Settings::Save method does not exist' );
         }
         public function TestValidUser() {
@@ -97,7 +105,7 @@
         public function TestSettingsDefaults() {
             $user = New User( 'usertest' );
            
-            $settings = $user->Settings;
+            $settings = $user->Preferences;
             $this->Assert( is_array( $settings->EmailNotify ), 'Settings::EmailNotify did not return an array' );
             $this->Assert( empty( $settings->EmailNotify ), 'Settings::EmailNotify should return an empty array by default' );
             $this->Assert( is_array( $settings->SiteNotify ), 'Settings::SiteNotify did not return an array' );
@@ -376,7 +384,7 @@
         public function TestEditSettings() {
             $user = New User( 'usertest' );
 
-            $settings = $user->Settings;
+            $settings = $user->Preferences;
             $settings->EmailNotify = array( 'photos', 'friends' );
             $settings->SiteNotify = array( 'photos', 'friends', 'replies' );
             $user->Save();
