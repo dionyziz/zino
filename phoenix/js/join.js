@@ -127,12 +127,14 @@ $( document ).ready( function(){
 		alert( Join.email.value != '' );
 		alert( !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) );
 		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
-			alert( 'error yo' );
 			if ( !Join.emailerror ) {
+				alert( 'error yo' );
 				Join.emailerror = true;
 				$( $( 'form.joinform div > span' )[ 4 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
-			Join.email.focus();
+			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) && Join.password.value >= 4 ) {
+				Join.email.focus();
+			}
 			create = false;
 		}
 		if ( create ) {
