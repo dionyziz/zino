@@ -18,5 +18,8 @@
 		if ( User_Valid( $username ) ) {
 			?>alert( 'OK' );<?php
 		}
+		else { 
+			?>alert( 'ton peoulo' );<?php
+		}
 	}
 ?>
