@@ -8,7 +8,8 @@
 	$libs->Load( 'search' );
 	$libs->Load( 'albums' );
     $libs->Load( 'image/server' );
-	
+	$libs->Load( 'image/frontpage' );
+    
     class ImageFinder {
         protected $mModel = 'Image';
         
@@ -83,51 +84,6 @@
     		return $row[ "imagesnum" ];
     	}
     }
-	
-    function Image_NoExtensionName( $filename ) {
-		$dotposition = strrpos( $filename , ".");
-		if( $dotposition === false ) {
-			return $filename;
-		}
-		$filename = substr( $filename , 0 , $dotposition );	
-		
-		return $filename;
-	}
-	function Filename2Extension( $filename ) {
-		$strlength = strlen( $filename );
-		$dotposition = strrpos( $filename , "." );
-		$extension = substr( $filename , $dotposition + 1 , $strlength - $dotposition + 1 );	
-		
-		return $extension;
-	}
-	function Image_MimeByFilename( $filename  ) {
-		$ext = Image_GetExtension( $filename );
-		$ext = strtolower( $ext );
-		
-		return Image_MimeByExtension( $ext );
-	}
-	function Image_MimeByExtension( $ext ) {
-		$mimetypes = array( 
-			"jpg" => "image/jpeg" , 
-			"png" => "image/png" , 
-			"bmp" => "image/bmp" ,
-			"gif" => "image/gif" ,
-			"tiff" =>"image/tiff" ,
-			"tif" =>"image/tiff" ,
-			"ico" =>"image/x-icon" , 
-			"jpe" =>"image/jpeg" ,
-			"pjpeg" =>"image/jpeg",
-			"jpeg" =>"image/jpeg" ,
-			"rgb" =>"image/x-rgb" ,
-		);	
-		
-		if ( !$mimetypes[ $ext ] ) {
-			return false;
-		}
-		else {
-			return $mimetypes[ $ext ];
-		}	
-	}
 	
     class Image extends Satori {
         protected $mDbTableAlias = 'images';

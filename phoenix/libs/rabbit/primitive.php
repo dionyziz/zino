@@ -51,8 +51,8 @@
     // to make debugging the libraries system easier
 	$libs = require_once 'libs/rabbit/lib.php';
 
-    // load the trivial libraries
-    $libs->Load( 'rabbit/trivial/trivial' );
+    // load the helper libraries
+    $libs->Load( 'rabbit/helpers/helpers' );
     
     if ( !function_exists( 'ValidURL' ) ) {
         throw New Exception( 'Could not load the Rabbit trivial libraries; check your "rootdir" setting in your settings.php file?' );

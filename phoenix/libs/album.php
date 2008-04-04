@@ -69,6 +69,14 @@
             $this->mNumComments -= $image->NumComments();
             $this->Save();
         }
+        protected function OnUpdate( $attributes ) {
+            if ( isset( $attributes[ 'Mainimage' ] ) ) {
+                if ( $this->User->EgoAlbum->Id == $this->Id ) {
+                    $this->User->Icon = $this->Mainimage->Id;
+                    $this->User->Save();
+                }
+            }
+        }
         public function LoadDefaults() {
             $this->Created = NowDate();
         }

@@ -216,11 +216,13 @@
                             ';
                 $updates = array();
                 $bindings = array();
+                $updatedAttributes = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $attributevalue = $this->mCurrentValues[ $attributename ];
                     if ( $this->mPreviousValues[ $attributename ] != $attributevalue ) {
                         $updates[] = "`$fieldname` = :$fieldname";
                         $bindings[ $fieldname ] = $attributevalue;
+                        $updatedAttributes[ $attributename ] = true;
                         $this->mPreviousValues[ $attributename ] = $attributevalue;
                     }
                 }
@@ -246,7 +248,7 @@
                     $query->Bind( $name, $value );
                 }
                 $change = $query->Execute();
-                $this->OnUpdate();
+                $this->OnUpdate( $updatedAttributes );
                 return $change;
             }
             else {

@@ -96,6 +96,7 @@
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );
             $this->LastActivity = $this->HasOne( 'UserLastActive', 'Id' );
             $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
+            $this->Avatar = $this->HasOne( 'Image', 'Icon' );
         }
         public function Delete() {
             throw New UserException( 'Users cannot be deleted' );

@@ -30,7 +30,7 @@
             $this->Assert( method_exists( $user, 'Save' ), 'User::Save method does not exist' );
             $this->Assert( method_exists( $user, 'Delete' ), 'User::Delete method does not exist' );
             $this->Assert( method_exists( $user, 'Exists' ), 'User::Exists method does not exist' );
-            $this->Assert( method_exists( $user, 'ScrambleAuthtoken' ), 'User::ScrambleAuthtoken method does not exist' );
+            $this->Assert( method_exists( $user, 'RenewAuthtoken' ), 'User::RenewAuthtoken method does not exist' );
 
             $profile = $user->Profile;
             $this->Assert( method_exists( $profile, 'Save' ), 'Profile::Save method does not exist' );
@@ -107,15 +107,15 @@
             $this->Assert( is_array( $settings->SiteNotify ), 'Settings::SiteNotify did not return an array' );
             $this->Assert( empty( $settings->SiteNotify ), 'Settings::SiteNotify should return an empty array by default' );
         }
-        public function TestScrambleAuthtoken() {
+        public function TestRenewAuthtoken() {
             $user = New User( 'usertest' );
             $oldAuth = $user->Authtoken;
             
-            $user->ScrambleAuthtoken();
+            $user->RenewAuthtoken();
             $newAuth = $user->Authtoken;
 
-            $this->AssertNotEquals( $oldAuth, $newAuth, 'User::ScrambleAuthtoken did not change the authtoken of the user' );
-            $this->AssertEquals( strlen( $newAuth ), 32, 'User::ScrambleAuthtoken did not produce a valid authtoken' );
+            $this->AssertNotEquals( $oldAuth, $newAuth, 'User::RenewAuthtoken did not change the authtoken of the user' );
+            $this->AssertEquals( strlen( $newAuth ), 32, 'User::RenewAuthtoken did not produce a valid authtoken' );
         }
         public function TestListUsers() {
             $user = New User( 'usertest' );
