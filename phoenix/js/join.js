@@ -114,8 +114,8 @@ $( document ).ready( function(){
 		}
 		if ( create ) {
 			//Coala call
-			alert( 'gamis' );
-			document.body.style.cursor = 'wait';
+			
+			alert( document.body.style.cursor = 'wait' );
 			Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
 		}
 		return false;
