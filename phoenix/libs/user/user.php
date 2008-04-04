@@ -17,7 +17,7 @@
     $libs->Load( 'album' );
     
     function User_Valid( $username ) {
-        return preg_match( '^[a-zA-Z\-_0-9]{3,128}$' );
+        return preg_match( '^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$' );
     }
     
     class UserFinder extends Finder {
@@ -48,6 +48,18 @@
             $prototype->Subdomain = $subdomain;
             return $this->FindByPrototype( $prototype );
         }
+		public function Count() {
+			$query = $this->mDb->Prepare(
+				'SELECT
+					COUNT(*) AS numusers
+				FROM
+					:users;'
+			);
+			$query->BindTable( 'users' );
+			$res = $query->Execute();
+			$row = $res->FetchArray();
+			return $row[ 'numusers' ];
+		}
         public function ClearPlace( $placeid ) {
             $query = $this->mDb->Prepare(
                 'UPDATE

@@ -23,6 +23,7 @@
 			$this->Assert( method_exists( $finder, 'FindByIdAndAuthtoken' ), 'UserFinder::FindByIdAndAuthtoken does not exist' );
 			$this->Assert( method_exists( $finder, 'FindByName' ), 'UserFinder::FindByName does not exist' );
 			$this->Assert( method_exists( $finder, 'FindBySubdomain' ), 'UserFinder::FindBySubdomain does not exist' );
+			$this->Assert( method_exists( $finder, 'Count' ), 'UserFinder::Count does not exist' );
 		}
         public function TestProperties() {
             $user = New User();
@@ -57,9 +58,10 @@
         }
         public function TestCreation() {
             $user = New User();
-    
-            $oldcount = User_Count();
-
+			$finder = New UserFinder();
+			
+            $oldcount = $finder->Count();
+			
             $user->Name = 'usertest';
             $user->Password = 'secret';
             $user->Dob = '1989-17-11 00:00:00';
@@ -70,12 +72,11 @@
             $user->Avatar = new Image( 1 );
             
             $this->AssertFalse( $user->Exists(), 'User exists before creation' );
-            $this->AssertFalse( $user->Locked, 'User should not be locked by default' );
             $this->AssertEquals( $user->Password, md5( 'secret' ), 'User password not encrypted with md5 before saving' );
 
             $user->Save();
 
-            $this->AssertEquals( User_Count() + 1, $oldcount, 'User_Count did not increase by 1 when a new user was created' );
+            $this->AssertEquals( $oldcount + 1, $finder->Count(), 'User_Count did not increase by 1 when a new user was created' );
 
             $this->AssertTrue( $user->Exists(), 'User created but does not seem to exist' );
             $this->AssertEquals( $user->Name, 'usertest', 'User name changed after saving user' );
