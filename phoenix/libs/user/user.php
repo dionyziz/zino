@@ -13,6 +13,7 @@
     $libs->Load( 'user/profile' );
     $libs->Load( 'user/space' );
     $libs->Load( 'user/lastactive' );
+    $libs->Load( 'image/image' );
     $libs->Load( 'journal' );
     $libs->Load( 'album' );
     
