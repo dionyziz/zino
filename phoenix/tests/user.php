@@ -14,12 +14,7 @@
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
         }
         public function TestFunctionsExist() {
-            $this->Assert( function_exists( 'User_List' ), 'User_List function does not exist' );
-            $this->Assert( function_exists( 'User_Authenticate' ), 'User_Authenticate function does not exist' );
-            $this->Assert( function_exists( 'User_Login' ), 'User_Login function does not exist' );
-            $this->Assert( function_exists( 'User_Logout' ), 'User_Logout function does not exist' );
-            $this->Assert( function_exists( 'User_Valid' ), 'User_Valid function does not exist' );
-            $this->Assert( function_exists( 'User_Count' ), 'User_Count function does not exist' );
+            $this->Assert( function_exists( 'User_Valid' ), 'User_Valid function does not exist' );            
         }
         public function TestProperties() {
             $user = New User();
@@ -50,7 +45,7 @@
             $this->AssertFalse( User_Valid( '_abresas_finlandos' ), 'User_Valid should not accept a string starting with _ character' );
             $this->AssertTrue( User_Valid( 'abresas-finlandos-os' ), 'User_Valid did not accept an alphanumeric string with - character' );
             $this->AssertFalse( User_Valid( '-abresas-finlandos' ), 'User_Valid should not accept a string starting with - character' );
-            $this->AssertTrue( User_Valid( 'aBr\3S4s\fin-laNd_oS' ), 'User_Valid did not accept an alphanumeric string with \, - and _ characters' );
+            $this->AssertTrue( User_Valid( 'aBr3S4sfin-laNd_oS' ), 'User_Valid did not accept an alphanumeric string with - and _ characters' );
         }
         public function TestCreation() {
             $user = New User();
