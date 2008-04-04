@@ -127,7 +127,7 @@
         }
         protected function OnCreate() {
             $this->Profile->Save();
-            $this->Settings->Save();
+            $this->Preferences->Save();
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
             $this->Save();
