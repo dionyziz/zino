@@ -12,7 +12,8 @@
 					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 				}
 				Join.username.focus();
-				Join.username.select();<?php
+				Join.username.select();
+				body.cursor = 'default';<?php
 			}
 			else {
 				?>alert( 'OK' );<?php
