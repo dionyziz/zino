@@ -73,7 +73,7 @@ $( document ).ready( function(){
 		if ( Join.emailerror ) {
 			if ( Join.email.value == '' || Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
 				Join.emailerror = false;
-				$( $( 'form.joinform div > span' )[ 5 ] ).animate( { opacity: "0" } , 700 , function() {
+				$( $( 'form.joinform div > span' )[ 4 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" );
 				});
 			}
@@ -125,6 +125,7 @@ $( document ).ready( function(){
 			create = false;
 		}
 		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
+			alert( 'error yo' );
 			if ( !Join.emailerror ) {
 				Join.emailerror = true;
 				$( $( 'form.joinform div > span' )[ 4 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
