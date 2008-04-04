@@ -5,11 +5,6 @@
     final class TestUser extends Testcase {
         protected $mAppliesTo = 'libs/user/user';
         
-        public function SetUp() {
-            global $libs;
-            
-            $libs->Load( 'user' );
-        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
 			$this->Assert( class_exists( 'UserFinder' ), 'UserFinder class does not exist' );
