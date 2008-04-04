@@ -13,7 +13,7 @@
 				}
 				Join.username.focus();
 				Join.username.select();
-				body.cursor = 'default';<?php
+				document.body.cursor = 'default';<?php
 			}
 			else {
 				?>alert( 'OK' );<?php
