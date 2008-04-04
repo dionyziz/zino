@@ -1,8 +1,8 @@
 <?php
 	function UnitUserJoin( tString $username , tString $password , tString $email ) {
-		global $libs;
+		//global $libs;
 		
-		$libs->Load( 'user/user' );
+		//$libs->Load( 'user/user' );
 		$username = $username->Get();
 		$password = $password->Get();
 		$email = $email->Get();
@@ -15,10 +15,8 @@
 			Join.username.focus();
 			Join.username.select();<?php
 		}
-		/*
-		if ( Valid_User( $username ) ) {
+		if ( User_Valid( $username ) ) {
 			?>alert( 'OK' );<?php
 		}
-		*/
 	}
 ?>
