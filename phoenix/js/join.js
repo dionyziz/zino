@@ -124,11 +124,8 @@ $( document ).ready( function(){
 			Join.repassword.focus();
 			create = false;
 		}
-		alert( Join.email.value != '' );
-		alert( !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) );
 		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
 			if ( !Join.emailerror ) {
-				alert( 'error yo' );
 				Join.emailerror = true;
 				$( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
