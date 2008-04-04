@@ -9,6 +9,7 @@
 		$page->AttachStylesheet( 'css/bubbles.css' );
 		$page->AttachScript( 'js/join.js' );
 		$page->AttachScript( 'js/modal.js' );
+		$page->SetTitle( 'Γίνε μέλος!' );
 		?><div class="join">
 			<div class="bubble">
 				<i class="tl"></i><i class="tr"></i>
