@@ -106,6 +106,7 @@
         }
         protected function LoadDefaults() {
             $this->Rights = 30; // default permissions of user right after registering
+            $this->RenewAuthtoken(); // create a basic authtoken
         }
         protected function AfterConstruct( /* ... */ ) {
             $args = func_get_args();
