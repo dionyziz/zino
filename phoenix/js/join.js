@@ -124,6 +124,8 @@ $( document ).ready( function(){
 			Join.repassword.focus();
 			create = false;
 		}
+		alert( Join.email.value != '' );
+		alert( !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) );
 		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
 			alert( 'error yo' );
 			if ( !Join.emailerror ) {
