@@ -1,17 +1,14 @@
 <?php
 	function UnitUserJoin( tString $username , tString $password , tString $email ) {
+		global $rabbit_settings;
+		
 		$username = $username->Get();
 		$password = $password->Get();
 		$email = $email->Get();
 		$finder = New UserFinder(); 
 
 		if ( User_Valid( $username ) ) {
-			if ( !preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
-				?>alert( 'error' );<?php
-				return;
-			}
 			if ( strlen( $password ) < 4 ) {
-				?>alert( 'pwd error' );<?php
 				return;
 			}
 			if ( $finder->FindByName( $username ) ) {
@@ -24,8 +21,22 @@
 				document.body.style.cursor = 'default';<?php
 			}
 			else {
-				?>alert( 'OK' );<?php
+				$newuser = new User();
+				$newuser->Name = $username;
+				$newuser->Password = $password;
+				if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
+					$newuser->Email = $email;
+				}
+				$_SESSION[ 's_password' ] = $password;
+				$_SESSION[ 's_username' ] = $username;
+				$newuser->RenewAuthtoken();
+				$newuser->Save();
+				User_SetCookie( $newuser->Id, $newuser->Authtoken );
+				?>location.href=<?php
+				echo $rabbit_settings[ 'webaddress' ];
+				?>;<?php
 			}
 		}
+		?>document.body.style.cursor = 'default';<?php
 	}
 ?>
