@@ -10,43 +10,6 @@ var Join = {
 	password : $( 'form.joinform div input' )[ 1 ],
 	repassword : $( 'form.joinform div input' )[ 2 ],
 	email : $( 'form.joinform div input' ) [ 3 ],
-	/*
-	Checkpwd : function() {
-		var node = $( 'form.joinform div div input' )[ 0 ];
-		var pwd = $( 'form.joinform div input' )[ 1 ];
-		var div = $( 'form.joinform div div' )[ 0 ];
-		if ( Join.timervar !== 0 ) {
-			clearTimeout( Join.timervar );
-		}
-		
-		Join.timervar = setTimeout( function() {
-			if ( node.value == pwd.value && node.value !== '' && !Join.hadcorrect ) {
-				Join.hadcorrect = true;
-				$( node ).css( "display" , "inline" );
-				var okpwd = document.createElement( 'img' );
-				okpwd.src = 'images/button_ok_16.png';
-				okpwd.alt = 'Σωστή επαλήθευση';
-				okpwd.title = 'Σωστή επαλήθευση';
-				$( okpwd ).addClass( 'okpwd' );
-				if ( typeof okpwd.style.opacity != 'undefined' ) {
-					$( okpwd ).css( "opacity" , "0" );
-					$( div ).append( okpwd );
-					$( okpwd ).animate( { opacity: "1" } , 2000 ); 
-				}
-				else {
-					$( div ).append( okpwd );
-				}
-			}
-			else {
-				var okpwd = $( 'form.joinform div div img.okpwd' )[ 0 ];
-				if ( node.value != pwd.value && okpwd ) {
-					$( okpwd ).remove();
-					Join.hadcorrect = false;
-				}
-			}
-		}, 200 );
-	},
-	*/
 	ShowTos : function () {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
@@ -56,9 +19,7 @@ var Join = {
 $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
 		$( this ).css( "border" , "1px solid #bdbdff" );
-	});
-	
-	$( 'form.joinform div input' ).blur( function() {
+	}).blur( function() {
 		$( this ).css( "border" , "1px solid #999" );
 	});
 	
@@ -84,6 +45,7 @@ $( document ).ready( function(){
 			});
 		}
 	});	
+	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
 			if ( Join.password.value.length >= 4 ) {
@@ -107,15 +69,12 @@ $( document ).ready( function(){
 	});
 	
 	Join.username.focus();
-	/*
-	$( 'form.joinform div div input' ).keyup( function() {
-		Join.Checkpwd();
-	});
-	*/
+	
 	$( 'form.joinform p a' ).click( function () {
 		Join.ShowTos();
 		return false;
 	});
+	
 	$( 'div a.button' ).click( function() {
 		var create = true;
 		if ( Join.username.value.length < 4 ) {
@@ -126,7 +85,7 @@ $( document ).ready( function(){
 			Join.username.focus();
 			create = false;
 		}
-		if ( Join.username.value.length >= 4 && !Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$/ ) ) {
+		if ( Join.username.value.length >= 4 && !Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) ) {
 			if ( !Join.invalidusername ) {
 				Join.invalidusername = true;
 				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
@@ -139,7 +98,7 @@ $( document ).ready( function(){
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
-			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$/ ) ) {
+			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) ) {
 				//if the username and password are empty then focus the username inputbox
 				Join.password.focus();
 			}
