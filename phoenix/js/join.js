@@ -65,14 +65,20 @@ $( document ).ready( function(){
 		if ( Join.usernameerror ) {
 			if ( Join.username.value.length >= 4 ) {
 				Join.usernameerror = false;
-				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 400 , function() {
+				$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css ( "display" , "none");
 				});
 			}
 		}
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
-			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 400 , function() {
+			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 , function() {
+				$( this ).css( "display" , "none" );
+			});
+		}
+		if ( Join.invalidusername ) {
+			Join.invalidusername = false;
+			$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 700 , function() {
 				$( this ).css( "display" , "none" );
 			});
 		}
@@ -81,7 +87,7 @@ $( document ).ready( function(){
 		if ( Join.pwderror ) {
 			if ( Join.password.value.length >= 4 ) {
 				Join.pwderror = false;
-				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 400 , function() {
+				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" )
 				});
 			}
@@ -114,7 +120,15 @@ $( document ).ready( function(){
 		if ( Join.username.value.length < 4 ) {
 			if ( !Join.usernameerror ) {
 				Join.usernameerror = true;
-				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
+				$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
+			}
+			Join.username.focus();
+			create = false;
+		}
+		if ( Join.username.value.match( #^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$# ) ) {
+			if ( !Join.invalidusername ) {
+				Join.invalidusername = true;
+				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
 			}
 			Join.username.focus();
 			create = false;
@@ -122,7 +136,7 @@ $( document ).ready( function(){
 		if ( Join.password.value.length < 4 ) {
 			if ( !Join.pwderror ) {
 				Join.pwderror = true;
-				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
 			if ( Join.username.value != '' ) {
 				//if the username and password are empty then focus the username inputbox
@@ -133,7 +147,7 @@ $( document ).ready( function(){
 		if ( Join.password.value != Join.repassword.value && Join.password.value.length >= 4 ) {
 			if ( !Join.repwderror ) {
 				Join.repwderror = true;
-				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+				$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
 			Join.repassword.focus();
 			create = false;
