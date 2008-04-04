@@ -81,7 +81,7 @@ $( document ).ready( function(){
 		if ( Join.pwderror ) {
 			if ( Join.password.value.length >= 4 ) {
 				Join.pwderror = false;
-				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 400 , function() {
+				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 400 , function() {
 					$( this ).css( "display" , "none" )
 				});
 			}
@@ -92,7 +92,7 @@ $( document ).ready( function(){
 		if ( Join.repwderror ) {
 			if ( Join.repassword.value == Join.password.value ) {
 				Join.repwderror = false;
-				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 700 , function() {
+				$( $( 'form.joinform div > span' )[ 4 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" );
 				});
 			}
@@ -122,7 +122,7 @@ $( document ).ready( function(){
 		if ( Join.password.value.length < 4 ) {
 			if ( !Join.pwderror ) {
 				Join.pwderror = true;
-				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
+				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 700 );
 			}
 			if ( Join.username.value != '' ) {
 				//if the username and password are empty then focus the username inputbox
