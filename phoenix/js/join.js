@@ -2,6 +2,7 @@ var Join = {
 	timervar : 0,
 	hadcorrect : false,
 	usernameerror : false, //used to check if a username has been given
+	invalidusername : false,
 	pwderror : false, //used to check if a password has been given
 	repwderror : false, //used to check if password is equal with the retyped password
 	usernameexists : false,
@@ -125,7 +126,7 @@ $( document ).ready( function(){
 			Join.username.focus();
 			create = false;
 		}
-		if ( Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$/ ) ) {
+		if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$/ ) ) {
 			if ( !Join.invalidusername ) {
 				Join.invalidusername = true;
 				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
