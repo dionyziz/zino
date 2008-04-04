@@ -72,14 +72,18 @@ $( document ).ready( function(){
 		}
 		if ( Join.usernameexists ) {
 			Join.usernameexists = false;
-			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 400 );
+			$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 400 , function() {
+				$( this ).css( "display" , "none" );
+			});
 		}
 	});	
 	$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
 		if ( Join.pwderror ) {
 			if ( Join.password.value.length >= 4 ) {
 				Join.pwderror = false;
-				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 400 );
+				$( $( 'form.joinform div > span' )[ 2 ] ).animate( { opacity: "0" } , 400 , function() {
+					$( this ).css( "display" , "none" )
+				});
 			}
 		}
 	});
@@ -89,7 +93,7 @@ $( document ).ready( function(){
 			if ( Join.repassword.value == Join.password.value ) {
 				Join.repwderror = false;
 				$( $( 'form.joinform div > span' )[ 3 ] ).animate( { opacity: "0" } , 700 , function() {
-					$( $( 'form.joinform div > span' )[ 3 ] ).css( "display" , "none" );
+					$( this ).css( "display" , "none" );
 				});
 			}
 		}
