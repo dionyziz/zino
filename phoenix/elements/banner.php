@@ -13,7 +13,7 @@
 		<ul><?php   
 	        if ( !$user->Exists() ) {
 	            ?><form action="do/user/login" method="post">
-					<li><a href="?p=join" class="register icon">Δημιούργησε λογαριασμό</a></li>
+					<li><a href="/join" class="register icon">Δημιούργησε λογαριασμό</a></li>
 		            <li>·</li>
 		            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
 		            <li style="display:none;">·</li>

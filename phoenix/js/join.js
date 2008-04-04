@@ -139,7 +139,7 @@ $( document ).ready( function(){
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
-			if ( Join.username.value != '' ) {
+			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,128}$/ ) ) {
 				//if the username and password are empty then focus the username inputbox
 				Join.password.focus();
 			}
