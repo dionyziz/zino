@@ -10,7 +10,9 @@
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
-		?><div id="joined">
+		?><div id="joined"><script type="text/javascript">alert( '<?php
+		echo $user->Name;
+		?>' );</script>
 			<div class="ybubble">
 		        <div>Συγχαρητήρια! Mόλις δημιουργήσες λογαριασμό στο <?php
 				echo $rabbit_settings[ 'applicationname' ];
