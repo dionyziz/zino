@@ -18,9 +18,13 @@
 			'gray'	=> 'Γκρι'
 		);
 		?><div class="info">
-			<dl>
-				<dt><strong>Ηλικία</strong></dt>
-				<dd>19</dd><?php
+			<dl><?php
+				if ( $theuser->Profile->Age ) {
+					?><dt><strong>Ηλικία</strong></dt>
+					<dd><?php
+					echo $theuser->Age;
+					?></dd><?php
+				}
 				if ( $theuser->Profile->Location->Name != '' ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php

@@ -71,7 +71,7 @@ $( document ).ready( function(){
 	
 	$( $( 'form.joinform div input' )[ 3 ] ).keyup( function() {
 		if ( Join.emailerror ) {
-			if ( Join.email.value == '' || Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
+			if ( Join.email.value == '' || /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
 				Join.emailerror = false;
 				$( $( 'form.joinform div > span' )[ 5 ] ).animate( { opacity: "0" } , 700 , function() {
 					$( this ).css( "display" , "none" );
@@ -97,7 +97,7 @@ $( document ).ready( function(){
 			Join.username.focus();
 			create = false;
 		}
-		if ( Join.username.value.length >= 4 && !Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) ) {
+		if ( Join.username.value.length >= 4 && !/^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
 			if ( !Join.invalidusername ) {
 				Join.invalidusername = true;
 				$( $( 'form.joinform div > span' )[ 2 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );
@@ -110,7 +110,7 @@ $( document ).ready( function(){
 				Join.pwderror = true;
 				$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
-			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) ) {
+			if ( Join.username.value.length >= 4 && /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
 				//if the username and password are empty then focus the username inputbox
 				Join.password.focus();
 			}
@@ -124,12 +124,12 @@ $( document ).ready( function(){
 			Join.repassword.focus();
 			create = false;
 		}
-		if ( Join.email.value != '' && !Join.email.value.match( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/ ) ) {
+		if ( Join.email.value != '' && !/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
 			if ( !Join.emailerror ) {
 				Join.emailerror = true;
 				$( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 			}
-			if ( Join.username.value.length >= 4 && Join.username.value.match( /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/ ) && Join.password.value >= 4 ) {
+			if ( Join.username.value.length >= 4 && /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) && Join.password.value >= 4 ) {
 				Join.email.focus();
 			}
 			create = false;
