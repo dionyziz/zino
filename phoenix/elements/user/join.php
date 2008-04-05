@@ -5,7 +5,7 @@
 		global $libs;
 		global $user;
 		
-		$page->AttachStylesheet( 'css/join.css' );
+		$page->AttachStylesheet( 'css/user/join.css' );
 		$page->AttachStylesheet( 'css/modal.css' );
 		$page->AttachStylesheet( 'css/bubbles.css' );
 		$page->AttachScript( 'js/join.js' );

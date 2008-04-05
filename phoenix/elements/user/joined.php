@@ -4,15 +4,13 @@
 		global $rabbit_settings;
 		global $page;
 		
-		$page->AttachStyleSheet( 'css/joined.css' );
+		$page->AttachStyleSheet( 'css/user/joined.css' );
 		$page->AttachStyleSheet( 'css/bubbles.css' );
 		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
-		?><div id="joined"><script type="text/javascript">alert( '<?php
-		echo $user->Name;
-		?>' );</script>
+		?><div id="joined">
 			<div class="ybubble">
 		        <div>Συγχαρητήρια! Mόλις δημιουργήσες λογαριασμό στο <?php
 				echo $rabbit_settings[ 'applicationname' ];
