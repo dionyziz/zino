@@ -3,6 +3,7 @@
 		global $page;
 		global $rabbit_settings;
 		global $libs;
+		global $user;
 		
 		$page->AttachStylesheet( 'css/join.css' );
 		$page->AttachStylesheet( 'css/modal.css' );
@@ -10,6 +11,9 @@
 		$page->AttachScript( 'js/join.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->SetTitle( 'Γίνε μέλος!' );
+		if ( $user->Exists() ) {
+			Redirect( $rabbit_settings[ 'webadresss' ] );
+		}
 		?><div class="join">
 			<div class="bubble">
 				<i class="tl"></i><i class="tr"></i>
