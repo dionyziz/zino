@@ -2,7 +2,9 @@
 	function ElementUserJoined() {
 		global $user;
 		global $rabbit_settings;
+		global $page;
 		
+		$page->AttachStyleSheet( 'css/joined.css' );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}

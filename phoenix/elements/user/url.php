@@ -1,6 +1,5 @@
 <?php
     function ElementUserURL( $theuser, $base = false ) {
-        global $xc_settings;
         
         if ( !is_object( $theuser ) ) {
             return;
