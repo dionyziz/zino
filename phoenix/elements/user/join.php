@@ -8,7 +8,7 @@
 		$page->AttachStylesheet( 'css/user/join.css' );
 		$page->AttachStylesheet( 'css/modal.css' );
 		$page->AttachStylesheet( 'css/bubbles.css' );
-		$page->AttachScript( 'js/join.js' );
+		$page->AttachScript( 'js/user/join.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->SetTitle( 'Γίνε μέλος!' );
 		if ( $user->Exists() ) {
