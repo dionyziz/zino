@@ -22,7 +22,7 @@
 				if ( $theuser->Profile->Age ) {
 					?><dt><strong>Ηλικία</strong></dt>
 					<dd><?php
-					echo $theuser->Age;
+					echo $theuser->Profile->Age;
 					?></dd><?php
 				}
 				if ( $theuser->Profile->Location->Name != '' ) {
