@@ -5,7 +5,8 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/joined.css' );
-		$page-AttachStyleSheet( 'css/bubbles.css' );
+		$page->AttachStyleSheet( 'css/bubbles.css' );
+		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
