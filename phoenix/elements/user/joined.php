@@ -5,6 +5,7 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/joined.css' );
+		$page-AttachStyleSheet( 'css/bubbles.css' );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
