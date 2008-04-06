@@ -81,7 +81,7 @@
 						<select>
 							<option value="0" selected="selected">-</option>
 							<option value="m">άντρας</option>
-							<option value="w">γυναίκα</option>
+							<option value="f">γυναίκα</option>
 						</select>
 					</div>
 					<div>
