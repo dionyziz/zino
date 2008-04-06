@@ -215,7 +215,8 @@
 		private $mDescription;
 		private $mPageviews;
 		private $mNumComments;
-		
+		private $mDelId;
+        
 		public function Exists() {
 			return $this->mExists;
 		}
@@ -447,6 +448,9 @@
 			
 			return $db->Query( $sql )->Impact();
 		}
+        public function DelId() {
+            return $this->mDelId;
+        }
 		public function Image( $construct = false ) {
 			// New image( $id )
 			// New image( $fetch_array )
@@ -495,6 +499,7 @@
 			$this->mAlbumid 	= isset( $imagearray[ "image_albumid" ] )     ? $imagearray[ "image_albumid" ] : 0;
 			$this->mDescription = isset( $imagearray[ "image_description" ] ) ? $imagearray[ "image_description" ] : '';
 			$this->mNumComments = isset( $imagearray[ "image_numcomments" ] ) ? $imagearray[ "image_numcomments" ] : 0;
+            $this->mDelId       = isset( $imagearray[ 'image_delid' ] )       ? $imagearray[ 'image_delid' ]: 0;
 			$this->mPageviews	= "";
 		}
 	}
