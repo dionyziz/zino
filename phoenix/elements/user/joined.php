@@ -79,9 +79,7 @@
 						<span>Φύλο:</span>
 						<select>
 							<option value="0" selected="selected">-</option>
-							<option value="boy">αγόρι</option>
 							<option value="man">άντρας</option>
-							<option value="girl">κορίτσι</option>
 							<option value="woman">γυναίκα</option>
 						</select>
 					</div>
