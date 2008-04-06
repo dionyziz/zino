@@ -25,10 +25,9 @@ a.button:hover {
 	background-color: #eef;
 }
 a.button_disabled {
-	padding: 5px;
-    margin: 2px;
-    border: 1px solid #ccf;
-    background-color: white;
 	opacity: 0.5;
 	cursor: default;
+}
+a.button_disabled:hover {
+	background-color: white; /* if the class coexists with the button class it overwrites the hover behaviour */
 }
