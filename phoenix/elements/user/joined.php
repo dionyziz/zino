@@ -6,6 +6,7 @@
 		
 		$page->AttachStyleSheet( 'css/user/joined.css' );
 		$page->AttachStyleSheet( 'css/bubbles.css' );
+		$page->AttachScript( 'js/user/joined.js' );
 		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
