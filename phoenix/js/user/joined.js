@@ -7,7 +7,8 @@ var Joined = {
 };
 $( document ).ready( function() {
 	$( 'div a.button' ).click( function() {
-		Coala.Warm( 'user/joined' , { doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
+		Coala.Warm( 'user/joined' , { 
+			doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
 			dobm : Joined.dobm.options[ Joined.dobm.selectedIndex ].value,
 			dobd : Joined.dobd.options[ Joined.dobd.selectedIndex ].value,
 			gender : Joined.gender.options[ Joined.gender.selectedIndex ].value,

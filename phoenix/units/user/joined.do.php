@@ -8,10 +8,15 @@
 		$gender = $gender->Get();
 		$location = $location->Get();
 		
-		?>alert( '<?php echo $doby; ?>' );
-		alert( '<?php echo $dobm; ?>' );
-		alert( '<?php echo $dobd; ?>' );
-		alert( '<?php echo $gender; ?>' );
-		alert( '<?php echo $location; ?>' );<?php
+		if ( ( $doby >= 1940 && $doby <= 2000 ) && ( $dobm >= 1 && $dobm <= 12 ) && ( $dobd >= 1 && $dobd <= 31 ) ) {
+			?>alert( 'dob ok' );<?php
+		}
+		if( $gender == 'm' || $gender == 'f' ) {
+			?>alert( 'gender ok' );<?php
+		}
+		$place = new Location( $location );
+		if ( $place->Exists() ) {
+			?>alert( 'location ok' );<?php
+		}
 	}
 ?>
