@@ -17,3 +17,10 @@ a.button {
 a.button:hover {
 	background-color: #eef;
 }
+a.button_disabled {
+	padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccf;
+    background-color: white;
+	opacity: 0.5;
+}
