@@ -7,12 +7,11 @@ var Joined = {
 };
 $( document ).ready( function() {
 	$( 'div a.button' ).click( function() {
-		alert( Joined.doby );
-		alert( Joined.doby.options[ selectedIndex ].value );
-		alert( Joined.dobm.options[ selectedIndex ].value );
-		alert( Joined.dobd.options[ selectedIndex ].value );
-		alert( Joined.gender.options[ selectedIndex ].value );
-		alert( Joined.location.options[ selectedIndex ].value );
+		alert( Joined.doby.options[ Joined.doby.selectedIndex ].value );
+		alert( Joined.dobm.options[ Joined.dobm.selectedIndex ].value );
+		alert( Joined.dobd.options[ Joined.dobd.selectedIndex ].value );
+		alert( Joined.gender.options[ Joined.gender.selectedIndex ].value );
+		alert( Joined.location.options[ Joined.location.selectedIndex ].value );
 		return false;
 	});
 
