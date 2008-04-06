@@ -12,7 +12,7 @@ $( document ).ready( function() {
 		alert( 'day ' , Joined.dobd.selected );
 		alert( 'gender ' , Joined.gender.selected );
 		alert( 'location ' , Joined.location.selected );
-	
+		return false;
 	});
 
 });
