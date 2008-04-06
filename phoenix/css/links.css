@@ -30,4 +30,5 @@ a.button_disabled {
 }
 a.button_disabled:hover {
 	background-color: white; /* if the class coexists with the button class it overwrites the hover behaviour */
+	color: #105cb6; 
 }
