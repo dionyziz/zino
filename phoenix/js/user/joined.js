@@ -15,6 +15,9 @@ $( document ).ready( function() {
 			gender : Joined.gender.options[ Joined.gender.selectedIndex ].value,
 			location : Joined.location.options[ Joined.location.selectedIndex ].value 
 		});
+		$( this ).click( function() {
+			return false;
+		});
 		return false;
 	});
 
