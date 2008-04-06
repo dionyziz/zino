@@ -7,17 +7,13 @@ var Joined = {
 };
 $( document ).ready( function() {
 	$( 'div a.button' ).click( function() {
-		alert( Joined.doby.options[ Joined.doby.selectedIndex ].value );
-		alert( Joined.dobm.options[ Joined.dobm.selectedIndex ].value );
-		alert( Joined.dobd.options[ Joined.dobd.selectedIndex ].value );
-		alert( Joined.gender.options[ Joined.gender.selectedIndex ].value );
-		alert( Joined.location.options[ Joined.location.selectedIndex ].value );
+		Coala.Warm( 'user/joined' , { doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
+			dobm : Joined.dobm.options[ Joined.dobm.selectedIndex ].value,
+			dobd : Joined.dobd.options[ Joined.dobd.selectedIndex ].value,
+			gender : Joined.gender.options[ Joined.gender.selectedIndex ].value,
+			location : Joined.location.options[ Joined.location.selectedIndex ].value 
+		});
 		return false;
 	});
-	Coala.Warm( 'user/joined' , { doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
-				dobm : Joined.dobm.options[ Joined.dobm.selectedIndex ].value,
-				dobd : Joined.dobd.options[ Joined.dobd.selectedIndex ].value,
-				gender : Joined.gender.options[ Joined.gender.selectedIndex ].value,
-				location : Joined.location.options[ Joined.location.selectedIndex ].value 
-	});
+
 });
