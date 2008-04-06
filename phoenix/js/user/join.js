@@ -15,7 +15,8 @@ var Join = {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
 		Modals.Create( area, 620, 520 );
-	}
+	},
+	enabled : true
 };
 $( document ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
@@ -135,8 +136,11 @@ $( document ).ready( function(){
 			create = false;
 		}
 		if ( create ) {
-			document.body.style.cursor = 'wait';
-			Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
+			if ( Join.enabled ) {
+				document.body.style.cursor = 'wait';
+				$( this ).addClass( 'button_disabled' );
+				Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
+			}
 		}
 		return false;
 	});

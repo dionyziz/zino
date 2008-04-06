@@ -18,7 +18,9 @@
 				}
 				Join.username.focus();
 				Join.username.select();
-				document.body.style.cursor = 'default';<?php
+				document.body.style.cursor = 'default';
+				$( 'div a.button' ).removeClass( 'button_disabled' );
+				Join.enabled = true;<?php
 			}
 			else {
 				$newuser = new User();
@@ -36,6 +38,5 @@
 				?>;<?php
 			}
 		}
-		?>document.body.style.cursor = 'default';<?php
 	}
 ?>
