@@ -30,4 +30,5 @@ a.button_disabled {
     border: 1px solid #ccf;
     background-color: white;
 	opacity: 0.5;
+	cursor: default;
 }
