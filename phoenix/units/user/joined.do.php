@@ -1,7 +1,9 @@
 <?php
 	function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tString $gender , tInteger $location ) {
 		global $user;
+		//global $libs;
 		
+		//$libs->Load( 'place' );
 		$doby = $doby->Get();
 		$dobm = $dobm->Get();
 		$dobd = $dobd->Get();
@@ -14,7 +16,7 @@
 		if( $gender == 'm' || $gender == 'f' ) {
 			?>alert( 'gender ok' );<?php
 		}
-		$place = new Location( $location );
+		$place = new Place( $location );
 		if ( $place->Exists() ) {
 			?>alert( 'location ok' );<?php
 		}
