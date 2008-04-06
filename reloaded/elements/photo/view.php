@@ -23,6 +23,10 @@
 			?>Αυτή η φωτογραφία δεν ανήκει σε κανένα album.<?php
 			return;
 		}
+        if ( $photo->DelId() > 0 ) {
+			?>Αυτή η φωτογραφία έχει διαγραφεί.<?php
+			return;
+        }
 		$photoname = NoExtensionName( $photo->Name() );
 		$page->SetTitle( $photoname );
 		$page->AttachScript( 'js/photos.js' );
