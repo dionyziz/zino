@@ -1,7 +1,7 @@
 var Joined = {
-	dobd : $( 'div.profinfo form div select' )[ 0 ],
-	dobm : $( 'div.profinfo form div select' )[ 1 ],
 	doby : $( 'div.profinfo form div select' )[ 2 ],
+	dobm : $( 'div.profinfo form div select' )[ 1 ],
+	dobd : $( 'div.profinfo form div select' )[ 0 ],
 	gender : $( 'div.profinfo form div select' )[ 3 ],
 	location : $( 'div.profinfo form div select' )[ 4 ]
 };
@@ -14,5 +14,10 @@ $( document ).ready( function() {
 		alert( Joined.location.options[ Joined.location.selectedIndex ].value );
 		return false;
 	});
-
+	Coala.Warm( 'user/joined' , { doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
+				dobm : Joined.dobm.options[ Joined.dobm.selectedIndex ].value,
+				dobd : Joined.dobd.options[ Joined.dobd.selectedIndex ].value,
+				gender : Joined.gender.options[ Joined.gender.selectedIndex ].value,
+				location : Joined.location.options[ Joined.location.selectedIndex ].value 
+	});
 });
