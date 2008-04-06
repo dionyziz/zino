@@ -7,11 +7,14 @@ var Joined = {
 };
 $( document ).ready( function() {
 	$( 'div a.button' ).click( function() {
+		alert( Joined.doby );
 		alert( 'year ' , Joined.doby.selectedIndex );
+		/*
 		alert( 'month' , Joined.dobm.selectedIndex );
 		alert( 'day ' , Joined.dobd.selectedIndex );
 		alert( 'gender ' , Joined.gender.selectedIndex );
 		alert( 'location ' , Joined.location.selectedIndex );
+		*/
 		return false;
 	});
 
