@@ -94,7 +94,7 @@
 				</form>
 			</div>
 			<div style="text-align:center;">
-				<a href="" class="button">Συνέχεια &raquo;</a>
+				<a href="" class="button button_big">Συνέχεια &raquo;</a>
 			</div>
 		</div><?php
 }

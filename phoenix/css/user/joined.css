@@ -37,11 +37,7 @@ div#joined div.profinfo p {
 	font-size: 105%;
 }
 div#joined div a.button {
-	font-size: 120%;
-	padding: 5px 10px;
-	font-weight: bold;
 	display: block;
 	width: 120px;
 	margin: 20px auto 0 auto;
-	text-align: center;
 }

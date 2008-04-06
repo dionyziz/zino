@@ -13,6 +13,13 @@ a.button {
     margin: 2px;
     border: 1px solid #ccf;
     background-color: white;
+	text-align: center;
+}
+a.button_big {
+	font-size: 120%;
+	padding: 5px 10px;
+	font-weight: bold;
+	
 }
 a.button:hover {
 	background-color: #eef;
