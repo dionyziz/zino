@@ -38,6 +38,7 @@ var Settings = {
 	},
 	DoSwitchSettings : function() {
 		setTimeout( Settings.SwitchSettings, 20 );
+		return false;
 	},
 };
 setInterval( Settings.SwitchSettings, 500 );
