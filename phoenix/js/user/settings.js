@@ -13,7 +13,7 @@ var Settings = {
 			}
 			else {
 				document.getElementById( validtabs[ i ] ).style.display = 'none';
-				Settings.FocusSettingLink( settingslis[ i ], true );
+				Settings.FocusSettingLink( settingslis[ i ], false );
 			}
 		}
 		
