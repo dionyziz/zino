@@ -9,11 +9,11 @@
 		?><div class="settings">
 		    <div class="sidebar">
 		        <ol id="settingslist">
-		            <li class="personal"><a href="#personal" onclick="Settings.DoSwitchSettings()">Πληροφορίες</a></li>
-		            <li class="characteristics"><a href="#characteristics" onclick="Settings.DoSwitchSettings()">Χαρακτηριστικά</a></li>
-		            <li class="interests"><a href="#interests" onclick="Settings.DoSwitchSettings()">Ενδιαφέροντα</a></li>
-		            <li class="contact"><a href="#contact" onclick="Settings.DoSwitchSettings()">Επικοινωνία</a></li>
-		            <li class="settings"><a href="#settings" onclick="Settings.DoSwitchSettings()">Ρυθμίσεις</a></li>
+		            <li class="personal"><a href="#personal" onclick="Settings.DoSwitchSettings();return false;">Πληροφορίες</a></li>
+		            <li class="characteristics"><a href="#characteristics" onclick="Settings.DoSwitchSettings();return false;">Χαρακτηριστικά</a></li>
+		            <li class="interests"><a href="#interests" onclick="Settings.DoSwitchSettings();return false;">Ενδιαφέροντα</a></li>
+		            <li class="contact"><a href="#contact" onclick="Settings.DoSwitchSettings();return false;">Επικοινωνία</a></li>
+		            <li class="settings"><a href="#settings" onclick="Settings.DoSwitchSettings();return false;">Ρυθμίσεις</a></li>
 		        </ol>
 		        <span>Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
 		        <a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a>
