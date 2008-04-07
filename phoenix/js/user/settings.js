@@ -6,7 +6,7 @@ var Settings = {
 		var settingslis = document.getElementById( 'settingslist' ).getElementsByTagName( 'li' );
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
-			if ( hash == validtabs[ i ] ) {
+			if ( hash == Settings.validtabs[ i ] ) {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
@@ -21,7 +21,7 @@ var Settings = {
 			document.getElementById( validtabs[ 0 ] ).style.display = '';
 			Settings.FocusSettingLink( settingslis[ 0 ] );
 		}
-	}
+	},
 	FocusSettingLink : function( li, focus ) {
 		if ( focus ) {
 			li.style.fontWeight = 'bold';
@@ -35,9 +35,9 @@ var Settings = {
 			li.style.backgroundImage = 'none';
 			li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 		}
-	}
+	},
 	DoSwitchSettings : function() {
-		setTimeOut( SwitchSettings, 20 );
-	}
-	setInterval( SwitchSettings, 500 );
+		setTimeOut( Settings.SwitchSettings, 20 );
+	},
+	setInterval( Settings.SwitchSettings, 500 );
 };
