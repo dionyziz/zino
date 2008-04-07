@@ -6,6 +6,7 @@
 		
 		$page->AttachStyleSheet( 'css/user/settings.css' );
 		$page->AttachScript( 'js/user/settings.js' );
+		$page-SetTitle( 'Ρυθμίσεις' );
 		?><div class="settings">
 		    <div class="sidebar">
 		        <ol id="settingslist">

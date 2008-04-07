@@ -10,16 +10,16 @@ var Settings = {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
-			}
+			}/*
 			else {
 				document.getElementById( validtabs[ i ] ).style.display = 'none';
-				Settings.FocusSettingLink( settingslis[ i ], false );
-			}
+				Settings.FocusSettingLink( settingslis[ i ], true );
+			}*/
 		}
 		
 		if ( !found ) {
 			document.getElementById( validtabs[ 0 ] ).style.display = '';
-			Settings.FocusSettingLink( settingslis[ 0 ] );
+			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
 	},
 	FocusSettingLink : function( li, focus ) {
