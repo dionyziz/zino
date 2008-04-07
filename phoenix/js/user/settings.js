@@ -25,13 +25,11 @@ var Settings = {
 	FocusSettingLink : function( li, focus ) {
 		if ( focus ) {
 			$( li ).addClass( 'selected' );
-			$( li + 'a' ).css( "color" , "white" );
-			//li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
+			li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 		}
 		else {
 			$( li ).removeClass( 'selected' );
-			$( li + 'a' ).css( "color" , "#105cb6" );
-			//li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
+			li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 		}
 	},
 	DoSwitchSettings : function() {
