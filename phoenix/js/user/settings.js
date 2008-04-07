@@ -24,22 +24,14 @@ var Settings = {
 	},
 	FocusSettingLink : function( li, focus ) {
 		if ( focus ) {
-			/*
-			li.style.fontWeight = 'bold';
-			li.style.backgroundColor = '#047cbb';
-			li.style.backgroundImage = 'url("images/setting-selected.png")';
-			*/
 			$( li ).addClass( 'selected' );
-			li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
+			$( li + 'a' ).css( "color" , "white" );
+			//li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 		}
 		else {
-			/*
-			li.style.fontWeight = '';
-			li.style.backgroundColor = 'white';
-			li.style.backgroundImage = 'none';
-			*/
 			$( li ).removeClass( 'selected' );
-			li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
+			$( li + 'a' ).css( "color" , "#105cb6" );
+			//li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 		}
 	},
 	DoSwitchSettings : function() {
