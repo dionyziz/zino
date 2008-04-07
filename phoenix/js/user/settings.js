@@ -10,11 +10,11 @@ var Settings = {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
-			}/*
+			}
 			else {
 				document.getElementById( validtabs[ i ] ).style.display = 'none';
 				Settings.FocusSettingLink( settingslis[ i ], true );
-			}*/
+			}
 		}
 		
 		if ( !found ) {
