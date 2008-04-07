@@ -40,6 +40,14 @@ div.settings div.sidebar ol li {
     margin: 0 0 0 22px;
     background-repeat: no-repeat;
     background-position: left;
+	background-color: white;
+	background-image: none;
+}
+div.settings div.sidebar ol li.selected {
+	font-weight: bold;
+	background-color: #047cbb;
+	background-image: url( 'http://static.zino.gr/phoenix/setting-selected.png' );
+
 }
 div.settings div.sidebar ol li a {
     background-repeat: no-repeat;

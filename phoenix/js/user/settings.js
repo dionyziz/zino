@@ -3,7 +3,7 @@ var Settings = {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
-		var settingslis = document.getElementById( 'settingslist' ).getElementsByTagName( 'li' );
+		var settingslis = $( 'div.settings div.sidebar ol li' );
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( hash == validtabs[ i ] ) {
@@ -24,15 +24,21 @@ var Settings = {
 	},
 	FocusSettingLink : function( li, focus ) {
 		if ( focus ) {
+			/*
 			li.style.fontWeight = 'bold';
 			li.style.backgroundColor = '#047cbb';
 			li.style.backgroundImage = 'url("images/setting-selected.png")';
+			*/
+			$( li ).addClass( 'selected' );
 			li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 		}
 		else {
+			/*
 			li.style.fontWeight = '';
 			li.style.backgroundColor = 'white';
 			li.style.backgroundImage = 'none';
+			*/
+			$( li ).removeClass( 'selected' );
 			li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 		}
 	},
