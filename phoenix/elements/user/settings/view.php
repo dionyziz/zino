@@ -25,7 +25,7 @@
 					Element( 'user/settings/contact' );
 		        ?></form>
 		        <form id="settings" style="display:none"><?php
-					Element( 'user/settings/contact' );
+					Element( 'user/settings/settings' );
 		        ?></form>
 		    </div>
 		</div>
