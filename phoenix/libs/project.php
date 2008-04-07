@@ -77,6 +77,7 @@
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
 			"user"				=> "user/profile/view",
+			"settings"			=> "user/settings/view",
 			"join" 				=> "user/join",
 			"joined"			=> "user/joined",
 			"journallist"		=> "journal/list",
