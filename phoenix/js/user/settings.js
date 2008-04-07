@@ -8,18 +8,18 @@ var Settings = {
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( hash == validtabs[ i ] ) {
 				document.getElementById( validtabs[ i ] ).style.display = '';
-				FocusSettingLink( settingslis[ i ], true );
+				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
 			}
 			else {
 				document.getElementById( validtabs[ i ] ).style.display = 'none';
-				FocusSettingLink( settingslis[ i ], false );
+				Settings.FocusSettingLink( settingslis[ i ], false );
 			}
 		}
 		
 		if ( !found ) {
 			document.getElementById( validtabs[ 0 ] ).style.display = '';
-			FocusSettingLink( settingslis[ 0 ] );
+			Settings.FocusSettingLink( settingslis[ 0 ] );
 		}
 	}
 	FocusSettingLink : function( li, focus ) {
@@ -40,4 +40,4 @@ var Settings = {
 		setTimeOut( SwitchSettings, 20 );
 	}
 	setInterval( SwitchSettings, 500 );
-}
+};
