@@ -6,7 +6,7 @@ var Settings = {
 		var settingslis = document.getElementById( 'settingslist' ).getElementsByTagName( 'li' );
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
-			if ( hash == Settings.validtabs[ i ] ) {
+			if ( hash == validtabs[ i ] ) {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
