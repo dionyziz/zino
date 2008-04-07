@@ -46,4 +46,9 @@ var Settings = {
 		setTimeout( Settings.SwitchSettings, 20 );
 	},
 };
+$( document ).ready( function() {
+	$( 'div.settings div.sidebar ol li' ).click( function() {
+		Settings.DoSwitchSettings();
+	});
+});
 setInterval( Settings.SwitchSettings, 500 );
