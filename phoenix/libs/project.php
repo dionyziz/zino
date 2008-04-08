@@ -76,7 +76,7 @@
     	return array(
     		""                 	=> "frontpage/view",
             "bennu"             => "bennu",
-			"user"				=> "user/profile/view",
+			"user"			    => "user/profile/view",
 			"settings"			=> "user/settings/view",
 			"join" 				=> "user/join",
 			"joined"			=> "user/joined",
@@ -87,6 +87,7 @@
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",
+            'tos'               => 'about/tos/view',
             'unittest'          => 'developer/test/view',
             'search'            => 'developer/abresas/search',
             'commentsearch'     => 'developer/abresas/search/comments',

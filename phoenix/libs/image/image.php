@@ -5,8 +5,7 @@
 	
 	global $libs;
 	
-	$libs->Load( 'search' );
-	$libs->Load( 'albums' );
+	$libs->Load( 'album' );
     $libs->Load( 'image/server' );
 	$libs->Load( 'image/frontpage' );
     
