@@ -246,8 +246,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             return $calltrace;
         }
 		public function DebugThis() {
+            ?><script type="text/javascript"><?php
 			$this->GenerateJS();
-			?><br /><a href="" onclick="Water.OpenWindow();return false;">Debug this</a><?php
+            ?></script><br /><a href="" onclick="Water.OpenWindow();return false;">Debug this</a><?php
 			die();
 		}
 		public function GenerateHTML() {
