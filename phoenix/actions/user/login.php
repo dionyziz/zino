@@ -2,7 +2,7 @@
     function ActionUserLogin( tString $username, tString $password ) {
     	global $user;
         global $rabbit_settings;
-    	global $page;
+    	global $water;
         
     	$s_username = $username->Get();
     	$s_password = $password->Get();
@@ -13,9 +13,8 @@
     	
         $finder = New UserFinder();
         $user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
-    	
-        $page->AttachMainElement( 'main', array() );
-        $page->Output();
+        
+    	$water->DebugThis();
         exit();
         
         if ( $user === false ) {
