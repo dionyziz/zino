@@ -408,6 +408,19 @@
         protected function AfterConstruct( /* [ $arg1 [, $arg2, [, ... ] ] ] */ ) {
             // overload me
         }
+        final public function DefinePrimaryKeyAttributes( $values ) {
+            if ( count( $values ) != count( $this->mPrimaryKeyFields ) ) {
+                throw New SatoriException( 'DefinePrimaryKeyAttributes called with an incorrect number of arguments' );
+            }
+            reset( $values );
+            foreach ( $this->mPrimaryKeyFields as $primary ) {
+                if ( $this->mAutoIncrementField !== false && $primary == $this->mAutoIncrementField ) {
+                    next( $values );
+                    continue;
+                }
+                $this->mCurrentValues[ $this->mDbFields[ $primary ] ] = each( $values );
+            }
+        }
         final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {
             // do not overload me!
             // possible invokations:
