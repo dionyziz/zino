@@ -52,8 +52,7 @@
 			}
 
 			w_assert( $order[ 1 ] == 'DESC' || $order[ 1 ] == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
-
-			/* optimization, needs to be tested
+/*
 			if ( count( $typeids ) == 1 ) {
 				$type = $typeids[ 0 ];
 				$model = Event_ModelByType( $type );
@@ -89,7 +88,7 @@
 
 				return $ret;
 			}
-			*/
+*/
 
 			$prototype = New Event();
 			$prototype->Typeid = $typeids; // Dionyziz: array allowed?
@@ -106,19 +105,18 @@
 	class Event extends Satori {
 		protected $mDbTableAlias = 'events';
 
-		/*
-		public function SetModel( $model ) {
-			$this->Model = $model;
+		public function SetModel( $value ) {
+			if ( $value instanceof Relation ) {
+				return parent::__set( 'Model', $value );
+			}
+			$this->Model = $value;
 		}
-		*/
 		public function Relations() {
 			global $water;
 			$model = Event_ModelByType( $this->Typeid );
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
-				$water->Trace( "Event model", $model );
-				$water->Trace( "Event itemid", $this->Itemid );
 				$this->Model = $this->HasOne( $model, 'Itemid' );
 			}
 		}
