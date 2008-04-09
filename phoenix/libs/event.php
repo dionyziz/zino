@@ -123,7 +123,7 @@
             parent::Save();
         }
 		public function LoadDefaults() {
-			$this->Created = Now();
+			$this->Created = NowDate();
 		}
 	}
 
