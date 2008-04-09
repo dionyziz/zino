@@ -28,7 +28,7 @@
         }
         public function TestCreateEvent() {
             $event = New Event();
-            $event->Typeid = EVENT_USER_PROFILE_VISITED;
+            $event->Typeid = EVENT_USER_MOOD_CHANGED;
             $event->Itemid = 1;
             $event->Userid = 3;
             $this->AssertFalse( $event->Exists(), 'Event appears to exist before saving' );

@@ -21,7 +21,7 @@
 			array( 'EVENT_COMMENT_CREATED', 'Comment' ),
 			array( 'EVENT_FRIEND_ADDED', 'Relation' ),
 			array( 'EVENT_USER_MOOD_CHANGED', 'User' ),
-			array( 'EVENT_USER_PROFILE_VISITED', 'Profile' )
+			array( 'EVENT_USER_PROFILE_VISITED', 'UserProfile' )
 		);
 	}
 
