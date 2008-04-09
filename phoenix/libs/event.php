@@ -113,7 +113,9 @@
 			$model = Event_ModelByType( $this->Typeid );
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Model = $this->HasOne( $model, 'Itemid' );
+			if ( $this->Exists() ) {
+				$this->Model = $this->HasOne( $model, 'Itemid' );
+			}
 		}
         public function Save() {
             if ( $this->Exists() ) {
