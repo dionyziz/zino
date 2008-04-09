@@ -116,6 +116,7 @@
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
 				$water->Trace( "Event model", $model );
+				$water->Trace( "Event itemid", $this->Itemid );
 				$this->Model = $this->HasOne( $model, 'Itemid' );
 			}
 		}
