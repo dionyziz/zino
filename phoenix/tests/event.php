@@ -54,12 +54,14 @@
 			$this->Assert( $exception, "No exception was thrown when tried to edit an event" );
         }
 		public function TestFindByType() {
-			$events = Event_FindByType( EVENT_USER_PROFILE_VISITED, 0, 1 );
+			$finder = New EventFinder();
+			$events = $finder->FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
+			$events = Event_FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
 			$this->AssertEquals( 1, count( $events ), 'Only one event should be returned by finder when called with limit 1' );
 			
 			$event = $events[ 0 ];
 			$this->AssertEquals( $this->mEventId, $event->Id );
-			$this->AssertEquals( EVENT_USER_PROFILE_VISITED, $event->Typeid );
+			$this->AssertEquals( EVENT_USER_MOOD_CHANGED, $event->Typeid );
 			$this->AssertEquals( 1, $event->Itemid );
 			$this->AssertEquals( 3, $event->Userid );
 			$this->Assert( $event->Model instanceof User );
