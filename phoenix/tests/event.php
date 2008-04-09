@@ -63,7 +63,7 @@
 			$this->AssertEquals( EVENT_USER_MOOD_CHANGED, $event->Typeid );
 			$this->AssertEquals( 1, $event->Itemid );
 			$this->AssertEquals( 3, $event->Userid );
-			$this->Assert( $event->Model instanceof User );
+			$this->Assert( $event->Model instanceof User, 'Event model should be instance of User' );
 		}
 		public function TestFindByUser() {
 		}
