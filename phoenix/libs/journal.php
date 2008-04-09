@@ -17,8 +17,8 @@
             return $this->Bulk->Text;
         }
         public function Relations() {
-            $this->User = $this->HasOne( 'User', 'userid' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'bulkid' );
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
     }
 
