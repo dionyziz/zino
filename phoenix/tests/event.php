@@ -54,6 +54,8 @@
 			$this->Assert( $exception, "No exception was thrown when tried to edit an event" );
         }
 		public function TestFindByType() {
+			global $water; 
+
 			$finder = New EventFinder();
 			$events = $finder->FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
 			$this->AssertEquals( 1, count( $events ), 'Only one event should be returned by finder when called with limit 1' );
@@ -63,7 +65,9 @@
 			$this->AssertEquals( EVENT_USER_MOOD_CHANGED, $event->Typeid );
 			$this->AssertEquals( 1, $event->Itemid );
 			$this->AssertEquals( 3, $event->Userid );
-			var_dump( $event->Model );
+			
+			$water->Trace( "event model", $event->Model );
+		
 			$this->Assert( $event->Model instanceof User, 'Event model should be instance of User' );
 		}
 		public function TestFindByUser() {
