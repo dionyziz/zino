@@ -110,10 +110,12 @@
 			$this->Model = $model;
 		}
 		public function Relations() {
+			global $water;
 			$model = Event_ModelByType( $this->Typeid );
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
+				$water->Trace( "Event model", $model );
 				$this->Model = $this->HasOne( $model, 'Itemid' );
 			}
 		}
