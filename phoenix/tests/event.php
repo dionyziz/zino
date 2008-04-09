@@ -56,7 +56,6 @@
 		public function TestFindByType() {
 			$finder = New EventFinder();
 			$events = $finder->FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
-			$events = Event_FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
 			$this->AssertEquals( 1, count( $events ), 'Only one event should be returned by finder when called with limit 1' );
 			
 			$event = $events[ 0 ];
