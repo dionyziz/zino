@@ -12,14 +12,10 @@
 		
         // no privcheck after this point
 		public function Delete() {
-            $this->DelId = 1;
-			$change = $this->Save();
-            
-			if ( $change->Impact() ) {
-				// Prepared query
-                $finder = New UserFinder();
-                $finder->ClearPlace( $this->Id );
-			}
+            $this->Delid = 1;
+			$this->Save();
+            $finder = New UserFinder();
+            $finder->ClearPlace( $this->Id );
 		}
         public function LoadDefaults() {
             $this->Delid = 0;
