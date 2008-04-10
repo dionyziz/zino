@@ -24,7 +24,7 @@
         public function LoadDefaults() {
 			global $user;
             
-            $this->UpdateUserId = $user->Id();
+            $this->UpdateUserId = $user->Id;
             $this->UpdateDate   = NowDate();
             $this->UpdateIp     = UserIp();
             $this->DelId        = 0;
