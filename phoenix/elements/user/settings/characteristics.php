@@ -1,19 +1,27 @@
 <?php
 	function ElementUserSettingsCharacteristics() {
 		global $user;
+		
 		?><div>
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
-				<select name="haircolor">
-					<option value="-">-</option>
-					<option value="black">Μάυρα</option>
-					<option value="brown">Καστανά</option>
-					<option value="red">Κόκκινα</option>
-					<option value="blond">Ξανθά</option>
-					<option value="highlights">Ανταύγιες</option>
-					<option value="grey">Γκρίζα</option>
-					<option value="skinhead">Φαλακρός</option><!-- /ή -->
-				</select>
+				<select name="haircolor"><?php
+					if ( $user->Haircolor == "-" ) {
+						?><option value="-">-</option><?php
+					}
+					$hairs = array( 'black' , 'brown' , 'red' , 'blond' , 'highlights' , 'grey' , 'skinhead' );
+					foreach ( $hairs as $hair ) {
+						?><option value="<?php
+						echo $hair;
+						?>"<?php
+						if ( $user->Haircolor == $hair ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						Element( 'user/haircolor' , $user->Haircolor );
+						?></option><?php
+					}
+				?></select>
 			</div>
 		</div>
 		<div>
