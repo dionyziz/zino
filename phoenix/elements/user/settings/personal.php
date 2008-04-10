@@ -1,8 +1,6 @@
 <?php
 	function ElementUserSettingsPersonal() {
-		global $libs;
-		
-		$libs->Load( 'place' );
+		global $water;
 		?><div>
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth">
@@ -63,6 +61,7 @@
 					<option value="0" >(δεν έχεις επιλέξει)</option><?php
 					$finder = New PlaceFinder();
 					$places = $finder->FindAll();
+					$water->Trace( 'places count ' . count( $places ) );
 					foreach ( $places as $place ) {
 						?><option value="<?php
 						echo $place->Id;
