@@ -27,6 +27,12 @@
 						echo $i;
 						?>"><?php
 						echo $i / 100;
+						if ( $i % 10 == 0 ) {
+							?>.0<?php
+						}
+						if ( $i % 100 == 0 ) {
+							?>.00<?php
+						}
 						?></option><?php
 					}
 					?><option value="-3">Πάνω από 2.20</option>
@@ -44,12 +50,6 @@
 						echo $i;
 						?>"><?php
 						echo $i;
-						if ( $i % 10 == 0 ) {
-							?>0<?php
-						}
-						if ( $i % 100 == 0 ) {
-							?>00<?php
-						}
 						?>kg</option><?php
 					}
 					?><option value="-3">πάνω από 150kg</option><?php
