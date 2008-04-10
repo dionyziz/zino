@@ -1,5 +1,7 @@
 <?php
     class PlaceFinder extends Finder {
+        protected $mModel = 'Place';
+        
         public function FindAll( $offset = 0, $limit = 10000 ) {
             return $this->FindByPrototype( New Place(), $offset, $limit, 'Name' );
         }
