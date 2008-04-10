@@ -1,120 +1,58 @@
 <?php
 	function ElementUserSettingsPersonal() {
+		global $libs;
+		
+		$libs->Load( 'place' );
 		?><div>
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth">
-				<select name="day" class="small">
-					<option>01</option>
-					<option>02</option>
-					<option>03</option>
-					<option>04</option>
-					<option>05</option>
-					<option>06</option>
-					<option>07</option>
-					<option>08</option>
-					<option>09</option>
-					<option>10</option>
-					<option>11</option>
-					<option>12</option>
-					<option>13</option>
-					<option>14</option>
-					<option>15</option>
-					<option>16</option>
-					<option>17</option>
-					<option>18</option>
-					<option>19</option>
-					<option>20</option>
-					<option>21</option>
-					<option>22</option>
-					<option>23</option>
-					<option>24</option>
-					<option>25</option>
-					<option>26</option>
-					<option>27</option>
-					<option>28</option>
-					<option>29</option>
-					<option>30</option>
-					<option>31</option>
-				</select>
+				<select name="day" class="small"><?php
+					for ( $i = 1; $i <= 31; ++$i ) {
+						?><option value="<?php
+						if ( $i <= 9 ) {
+							?>0<?php
+						}
+						echo $i;
+						?>"><?php
+						if ( $i <= 9 ) {
+							?>0<?php
+						}
+						echo $i;
+						?></option><?php
+					}
+				?></select>
 				<select name="month" class="small">
-					<option>Ιανουαρίου</option>
-					<option>Φεβρουαρίου</option>
-					<option>Μαρτίου</option>
-					<option>Απριλίου</option>
-					<option>Μαϊου</option>
-					<option>Ιουνίου</option>
-					<option>Ιουλίου</option>
-					<option>Αυγούστου</option>
-					<option>Σεπτεμβρίου</option>
-					<option>Οκτωβρίου</option>
-					<option>Νοεμβρίου</option>
-					<option>Δεκεμβρίου</option>
+					<option value="01">Ιανουαρίου</option>
+					<option value="02">Φεβρουαρίου</option>
+					<option value="03">Μαρτίου</option>
+					<option value="04">Απριλίου</option>
+					<option value="05">Μαϊου</option>
+					<option value="06">Ιουνίου</option>
+					<option value="07">Ιουλίου</option>
+					<option value="08">Αυγούστου</option>
+					<option value="09">Σεπτεμβρίου</option>
+					<option value="10">Οκτωβρίου</option>
+					<option value="11">Νοεμβρίου</option>
+					<option value="12">Δεκεμβρίου</option>
 				</select>
-				<select name="month" class="small">
-					<option>2001</option>
-					<option>2000</option>
-					<option>1999</option>
-					<option>1998</option>
-					<option>1997</option>
-					<option>1996</option>
-					<option>1995</option>
-					<option>1994</option>
-					<option>1993</option>
-					<option>1992</option>
-					<option>1991</option>
-					<option>1989</option>
-					<option>1988</option>
-					<option>1987</option>
-					<option>1986</option>
-					<option>1985</option>
-					<option>1984</option>
-					<option>1983</option>
-					<option>1982</option>
-					<option>1981</option>
-					<option>1980</option>
-					<option>1979</option>
-					<option>1978</option>
-					<option>1977</option>
-					<option>1976</option>
-					<option>1975</option>
-					<option>1974</option>
-					<option>1973</option>
-					<option>1972</option>
-					<option>1971</option>
-					<option>1970</option>
-					<option>1969</option>
-					<option>1968</option>
-					<option>1967</option>
-					<option>1966</option>
-					<option>1965</option>
-					<option>1964</option>
-					<option>1963</option>
-					<option>1962</option>
-					<option>1961</option>
-					<option>1960</option>
-					<option>1959</option>
-					<option>1958</option>
-					<option>1957</option>
-					<option>1956</option>
-					<option>1955</option>
-					<option>1954</option>
-					<option>1953</option>
-					<option>1952</option>
-					<option>1951</option>
-					<option>1950</option>
-				</select>
+				<select name="month" class="small"><?php
+					for ( $i = 2001; $i >= 1950; --$i ) {
+						?><option value="<?php
+						echo $i;
+						?>"><?php
+						echo $i;
+						?></option><?php
+					}
+				?></select>
 			</div>
 		</div>
 		<div>
 			<label for="gender">Φύλο:</label>
 			<div class="setting">
 				<select id="gender">
-					<option>-</option>
-					<option>Αγόρι</option>
-					<option>Κορίτσι</option>
-					<option>Άνδρας</option>
-					<option>Γυναίκα</option>
-					<option>Τρανσέξουαλ/Άλλο</option>
+					<option value="-">-</option>
+					<option value="m">Άνδρας</option>
+					<option value="f">Γυναίκα</option>
 				</select>
 			</div>
 		</div>
@@ -131,11 +69,13 @@
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting">
 				<select name="education" id="education">
-					<option>Δημοτικό</option>
-					<option>Γυμνάσιο</option>
-					<option>Λύκειο</option>
-					<option>Πανεπιστήμιο/ΤΕΙ</option>
-					<option>Έχω τελειώσει</option>
+					<option value="-">-</option>
+					<option value="elementary">Δημοτικό</option>
+					<option value="gymnasium">Γυμνάσιο</option>
+					<option value="TEE">ΤΕΕ</option>
+					<option value="lyceum">Λύκειο</option>
+					<option value="TEI">TEI</option>
+					<option value="university">Πανεπιστήμιο</option>
 				</select>
 			</div>
 		</div>
@@ -167,10 +107,9 @@
 			<div class="setting">
 				<select id="sexualorientation">
 					<option>-</option>
-					<option>Straight</option>
-					<option>Bisexual</option>
-					<option>Gay</option><!-- Lesbian if female? -->
-					<option>Αναποφάσιστος</option> <!-- αναποφάσιστη -->
+					<option value="straight">Straight</option>
+					<option value="bi">Bisexual</option>
+					<option value="gay">Gay</option><!-- Lesbian if female? -->
 				</select>
 			</div>
 		</div>
@@ -178,16 +117,12 @@
 			<label for="religion">Θρήσκευμα:</label>
 			<div class="setting">
 				<select id="religion">
-					<option>-</option>
-					<option>Χριστιανός</option><!-- χριστιανή if female etc. -->
-					<option>Μουσουλμάνος</option>
-					<option>Βουδιστής</option>
-					<option>Ινδουιστής</option>
-					<option>Σατανιστής</option>
-					<option>Άθεος</option>
-					<option>Αγνωστικιστής</option>
-					<option>Δεν ασχολούμαι</option>
-					<option>Άλλο</option>
+					<option value="-">-</option>
+					<option value="christian">Χριστιανός</option><!-- χριστιανή if female etc. -->
+					<option value="muslim">Μουσουλμάνος</option>
+					<option value="atheist">Άθεος</option>
+					<option value="agnostic">Αγνωστικιστής</option>
+					<option value="nothing">Τίποτα</option>
 				</select>
 			</div>
 		</div>
@@ -196,12 +131,12 @@
 			<div class="setting">
 				<select id="politics">
 					<option>-</option>
-					<option>Αριστερά</option>
-					<option>Δεξιά</option>
-					<option>Κεντροώα</option>
-					<option>Ακροαριστερά</option>
-					<option>Ακροδεξιά</option>
-					<option>Δεν ασχολούμαι</option>
+					<option value="right">Δεξιά</option>
+					<option value="left">Αριστερά</option>
+					<option value="center">Κεντροώα</option>
+					<option value="radical right">Ακροδεξιά</option>
+					<option value="radical left">Ακροαριστερά</option>
+					<option value="nothing">Τίποτα</option>
 				</select>
 			</div>
 		</div>

@@ -1,4 +1,6 @@
 var Settings = {
+	saver : 0,
+	queue : {},
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -35,10 +37,30 @@ var Settings = {
 	DoSwitchSettings : function() {
 		setTimeout( Settings.SwitchSettings, 20 );
 	},
+	Enqueue : function( key , value ) {
+		if ( Settings.saver != 0 ) {
+			clearTimeout( Settings.saver );
+		}
+		Settings.saver = setTimeout( Settings.Save , 3000 );
+		Settings.queue[ key ] = value;
+	},
+	Dequeue : function() {
+		Settings.queue = {};
+	},
+	Save : function() {
+		Coala.Warm( 'user/settings/save' , Settings.queue );
+		Settings.Dequeue();
+	}
 };
 $( document ).ready( function() {
 	$( 'div.settings div.sidebar ol li' ).click( function() {
 		Settings.DoSwitchSettings();
 	});
+	var inputids = [ "age" ];
+	for ( i = 0; i < ids.length; ++i ) {
+		$( '#' + ids[ i ] ).change( function() {
+			Settings.Enqueue( ids[ i ] , this[ 0 ].value );
+		});
+	}
 });
 setInterval( Settings.SwitchSettings, 500 );
