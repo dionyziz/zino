@@ -20,12 +20,38 @@
     function User_Valid( $username ) {
         return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$#', $username );
     }
+	function User_DeriveSubdomain( $username ) {
+		/* RFC 1034 - They must start with a letter, 
+		end with a letter or digit,
+		and have as interior characters only letters, digits, and hyphen.
+		Labels must be 63 characters or less. */
+		$username = strtolower( $username );
+		$username = preg_replace( '/([^a-z0-9-])/i', '-', $username ); //convert invalid chars to hyphens
+		$pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
+		if ( !preg_match( $pattern, $username, $matches ) ) {
+			return false;
+		}
+		return $matches[ 0 ];
+	}
     
     class UserFinder extends Finder {
         protected $mModel = 'User';
         
         public function FindAll() {
             return $this->FindByPrototype( New User() );
+        }
+        public function IsTaken( $username ) {
+            if ( $this->FindByName( $username ) !== false ) {
+                return true;
+            }
+            $subdomain = User_DeriveSubdomain( $username );
+            if ( $subdomain === false ) {
+                return true;
+            }
+            if ( $this->FindBySubdomain( $subdomain ) !== false ) {
+                return true;
+            }
+            return false;
         }
         public function FindByNameAndPassword( $username, $password ) {
             $prototype = New User();

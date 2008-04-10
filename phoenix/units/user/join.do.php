@@ -11,7 +11,7 @@
 			if ( strlen( $password ) < 4 ) {
 				return;
 			}
-			if ( $finder->FindByName( $username ) ) {
+			if ( $finder->IsTaken( $username ) ) {
 				?>if ( !Join.usernameexists ) {
 					Join.usernameexists = true;
 					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
@@ -25,6 +25,7 @@
 			else {
 				$newuser = new User();
 				$newuser->Name = $username;
+                $newuser->Subdomain = User_DeriveSubdomain( $username );
 				$newuser->Password = $password;
 				if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
 					$newuser->Email = $email;
