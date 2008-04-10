@@ -7,6 +7,9 @@
 		$page->AttachStyleSheet( 'css/user/settings.css' );
 		$page->AttachScript( 'js/user/settings.js' );
 		$page->SetTitle( 'Ρυθμίσεις' );
+		if ( !$user->Exists() ) {
+			Redirect( $rabbit_settings[ 'webaddress' ] );
+		}
 		?><div class="settings">
 		    <div class="sidebar"><?php
 				Element( 'user/settings/sidebar' );

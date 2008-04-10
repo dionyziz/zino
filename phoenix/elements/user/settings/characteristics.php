@@ -1,17 +1,18 @@
 <?php
 	function ElementUserSettingsCharacteristics() {
+		global $user;
 		?><div>
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
-				<select name="haircolour">
-					<option>-</option>
-					<option>Μάυρα</option>
-					<option>Καστανά</option>
-					<option>Κόκκινα</option>
-					<option>Ξανθά</option>
-					<option>Ανταύγιες</option>
-					<option>Γκριζωπά</option>
-					<option>Είμαι φαλακρός</option><!-- /ή -->
+				<select name="haircolor">
+					<option value="-">-</option>
+					<option value="black">Μάυρα</option>
+					<option value="brown">Καστανά</option>
+					<option value="red">Κόκκινα</option>
+					<option value="blond">Ξανθά</option>
+					<option value="highlights">Ανταύγιες</option>
+					<option value="grey">Γκρίζα</option>
+					<option value="skinhead">Φαλακρός</option><!-- /ή -->
 				</select>
 			</div>
 		</div>
@@ -19,140 +20,16 @@
 			<label>Ύψος</label>
 			<div class="setting">
 				<select name="height">
-					<option>-</option>
-					<option>Κάτω από 1.20</option>
-					<option>1.20</option>
-					<option>1.21</option>
-					<option>1.22</option>
-					<option>1.23</option>
-					<option>1.24</option>
-					<option>1.25</option>
-					<option>1.26</option>
-					<option>1.27</option>
-					<option>1.28</option>
-					<option>1.29</option>
-					<option>1.30</option>
-					<option>1.31</option>
-					<option>1.32</option>
-					<option>1.33</option>
-					<option>1.34</option>
-					<option>1.35</option>
-					<option>1.36</option>
-					<option>1.37</option>
-					<option>1.38</option>
-					<option>1.39</option>
-					<option>1.40</option>
-					<option>1.41</option>
-					<option>1.42</option>
-					<option>1.43</option>
-					<option>1.44</option>
-					<option>1.45</option>
-					<option>1.46</option>
-					<option>1.47</option>
-					<option>1.48</option>
-					<option>1.49</option>
-					<option>1.50</option>
-					<option>1.51</option>
-					<option>1.52</option>
-					<option>1.53</option>
-					<option>1.54</option>
-					<option>1.55</option>
-					<option>1.56</option>
-					<option>1.57</option>
-					<option>1.58</option>
-					<option>1.59</option>
-					<option>1.60</option>
-					<option>1.61</option>
-					<option>1.62</option>
-					<option>1.63</option>
-					<option>1.64</option>
-					<option>1.65</option>
-					<option>1.66</option>
-					<option>1.67</option>
-					<option>1.68</option>
-					<option>1.69</option>
-					<option>1.70</option>
-					<option>1.71</option>
-					<option>1.72</option>
-					<option>1.73</option>
-					<option>1.74</option>
-					<option>1.75</option>
-					<option>1.76</option>
-					<option>1.77</option>
-					<option>1.78</option>
-					<option>1.79</option>
-					<option>1.80</option>
-					<option>1.81</option>
-					<option>1.82</option>
-					<option>1.83</option>
-					<option>1.84</option>
-					<option>1.85</option>
-					<option>1.86</option>
-					<option>1.87</option>
-					<option>1.88</option>
-					<option>1.89</option>
-					<option>1.90</option>
-					<option>1.91</option>
-					<option>1.92</option>
-					<option>1.93</option>
-					<option>1.94</option>
-					<option>1.95</option>
-					<option>1.96</option>
-					<option>1.97</option>
-					<option>1.98</option>
-					<option>1.99</option>
-					<option>2.00</option>
-					<option>2.01</option>
-					<option>2.02</option>
-					<option>2.03</option>
-					<option>2.04</option>
-					<option>2.05</option>
-					<option>2.06</option>
-					<option>2.07</option>
-					<option>2.08</option>
-					<option>2.09</option>
-					<option>2.10</option>
-					<option>2.11</option>
-					<option>2.12</option>
-					<option>2.13</option>
-					<option>2.14</option>
-					<option>2.15</option>
-					<option>2.16</option>
-					<option>2.17</option>
-					<option>2.18</option>
-					<option>2.19</option>
-					<option>2.20</option>
-					<option>2.21</option>
-					<option>2.22</option>
-					<option>2.23</option>
-					<option>2.24</option>
-					<option>2.25</option>
-					<option>2.26</option>
-					<option>2.27</option>
-					<option>2.28</option>
-					<option>2.29</option>
-					<option>2.30</option>
-					<option>2.31</option>
-					<option>2.32</option>
-					<option>2.33</option>
-					<option>2.34</option>
-					<option>2.35</option>
-					<option>2.36</option>
-					<option>2.37</option>
-					<option>2.38</option>
-					<option>2.39</option>
-					<option>2.40</option>
-					<option>2.41</option>
-					<option>2.42</option>
-					<option>2.43</option>
-					<option>2.44</option>
-					<option>2.45</option>
-					<option>2.46</option>
-					<option>2.47</option>
-					<option>2.48</option>
-					<option>2.49</option>
-					<option>2.50</option>
-					<option>Πάνω από 2.50</option>
+					<option value="-1">-</option>
+					<option value="-2">Κάτω από 1.20</option><?php
+					for ( $i = 120; $i <= 220; ++$i ) {
+						?><option value="<?php
+						echo $i;
+						?>"><?php
+						echo $i / 100;
+						?></option><?php
+					}
+					?><option value="-3">Πάνω από 2.20</option>
 				</select>
 			</div>
 		</div>
@@ -160,141 +37,27 @@
 			<label>Βάρος</label>
 			<div class="setting">
 				<select name="weight">
-					<option>-</option>
-					<option>κάτω από 30kg</option>
-					<option>30kg</option>
-					<option>31kg</option>
-					<option>32kg</option>
-					<option>33kg</option>
-					<option>34kg</option>
-					<option>35kg</option>
-					<option>36kg</option>
-					<option>37kg</option>
-					<option>38kg</option>
-					<option>39kg</option>
-					<option>40kg</option>
-					<option>41kg</option>
-					<option>42kg</option>
-					<option>43kg</option>
-					<option>44kg</option>
-					<option>45kg</option>
-					<option>46kg</option>
-					<option>47kg</option>
-					<option>48kg</option>
-					<option>49kg</option>
-					<option>50kg</option>
-					<option>51kg</option>
-					<option>52kg</option>
-					<option>53kg</option>
-					<option>54kg</option>
-					<option>55kg</option>
-					<option>56kg</option>
-					<option>57kg</option>
-					<option>58kg</option>
-					<option>59kg</option>
-					<option>60kg</option>
-					<option>61kg</option>
-					<option>62kg</option>
-					<option>63kg</option>
-					<option>64kg</option>
-					<option>65kg</option>
-					<option>66kg</option>
-					<option>67kg</option>
-					<option>68kg</option>
-					<option>69kg</option>
-					<option>70kg</option>
-					<option>71kg</option>
-					<option>72kg</option>
-					<option>73kg</option>
-					<option>74kg</option>
-					<option>75kg</option>
-					<option>76kg</option>
-					<option>77kg</option>
-					<option>78kg</option>
-					<option>79kg</option>
-					<option>80kg</option>
-					<option>82kg</option>
-					<option>82kg</option>
-					<option>83kg</option>
-					<option>84kg</option>
-					<option>85kg</option>
-					<option>86kg</option>
-					<option>87kg</option>
-					<option>88kg</option>
-					<option>89kg</option>
-					<option>90kg</option>
-					<option>91kg</option>
-					<option>92kg</option>
-					<option>93kg</option>
-					<option>94kg</option>
-					<option>95kg</option>
-					<option>96kg</option>
-					<option>97kg</option>
-					<option>98kg</option>
-					<option>99kg</option>
-					<option>100kg</option>
-					<option>101kg</option>
-					<option>102kg</option>
-					<option>103kg</option>
-					<option>104kg</option>
-					<option>105kg</option>
-					<option>106kg</option>
-					<option>107kg</option>
-					<option>108kg</option>
-					<option>109kg</option>
-					<option>110kg</option>
-					<option>111kg</option>
-					<option>112kg</option>
-					<option>113kg</option>
-					<option>114kg</option>
-					<option>115kg</option>
-					<option>116kg</option>
-					<option>117kg</option>
-					<option>118kg</option>
-					<option>119kg</option>
-					<option>120kg</option>
-					<option>121kg</option>
-					<option>122kg</option>
-					<option>123kg</option>
-					<option>124kg</option>
-					<option>125kg</option>
-					<option>126kg</option>
-					<option>127kg</option>
-					<option>128kg</option>
-					<option>129kg</option>
-					<option>130kg</option>
-					<option>131kg</option>
-					<option>132kg</option>
-					<option>133kg</option>
-					<option>134kg</option>
-					<option>135kg</option>
-					<option>136kg</option>
-					<option>137kg</option>
-					<option>138kg</option>
-					<option>139kg</option>
-					<option>140kg</option>
-					<option>141kg</option>
-					<option>142kg</option>
-					<option>143kg</option>
-					<option>144kg</option>
-					<option>145kg</option>
-					<option>146kg</option>
-					<option>147kg</option>
-					<option>148kg</option>
-					<option>149kg</option>
-					<option>150kg</option> <!-- omg βούβαλε -->
-					<option>πάνω από 150kg</option>
-				</select>
+					<option value="-1">-</option>
+					<option value="-2">κάτω από 30kg</option><?php
+					for ( $i = 1; $i <= 150; ++$i ) {
+						?><option value="<?php
+						echo $i;
+						?>"><?php
+						echo $i;
+						?>kg</option>
+						<option value="-3">πάνω από 150kg</option><?php
+					}
+				?></select>
 			</div>
 		</div>
 		<div>
 			<label>Καπνίζεις;</label>
 			<div class="setting">
 				<select name="smoker">
-					<option>-</option>
-					<option>Ναι</option>
-					<option>Όχι</option>
-					<option>Με παρέα</option>
+					<option value="-">-</option>
+					<option value="yes">Ναι</option>
+					<option value="no">Όχι</option>
+					<option value="socially">Με παρέα</option>
 				</select>
 			</div>
 		</div>
@@ -302,12 +65,12 @@
 			<label>Πίνεις;</label>
 			<div class="setting">
 				<select name="drinker">
-					<option>-</option>
-					<option>Ναι</option>
-					<option>Όχι</option>
-					<option>Με παρέα</option>
+					<option value="-">-</option>
+					<option value="yes">Ναι</option>
+					<option value="no">Όχι</option>
+					<option value="socially">Με παρέα</option>
 				</select>
 			</div>
-		</div><?php
+		</div><?php	
 	}
 ?>
