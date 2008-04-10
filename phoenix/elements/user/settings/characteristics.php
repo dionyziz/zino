@@ -6,10 +6,7 @@
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
 				<select name="haircolor"><?php
-					if ( $user->Profile->Haircolor == "-" ) {
-						?><option value="-">-</option><?php
-					}
-					$hairs = array( 'black' , 'brown' , 'red' , 'blond' , 'highlights' , 'grey' , 'skinhead' );
+					$hairs = array( '-' , 'black' , 'brown' , 'red' , 'blond' , 'highlights' , 'grey' , 'skinhead' );
 					foreach ( $hairs as $hair ) {
 						?><option value="<?php
 						echo $hair;

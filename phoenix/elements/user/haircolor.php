@@ -1,6 +1,7 @@
 <?php
 	function ElementUserHaircolor( $color ) {
-		$hairs = array( 'black' => 'Μαύρα', 
+		$hairs = array( '-'		=> '-',
+						'black' => 'Μαύρα', 
 						'brown' => 'Καστανά',
 						'red' 	=> 'Κόκκινα',
 						'blond' => 'Ξανθά',
