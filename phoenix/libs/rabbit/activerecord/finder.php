@@ -100,7 +100,7 @@
             return $res->ToObjectsArray( $this->mModel );
         }
         final public function __construct() {
-            if ( !empty( $this->mModel ) ) {
+            if ( empty( $this->mModel ) ) {
                 throw New SatoriException( 'mModel not defined for Finder class `' . get_class( $this ) . '\'' );
             }
             $prototype = New $this->mModel();
