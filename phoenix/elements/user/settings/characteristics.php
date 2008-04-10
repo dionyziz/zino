@@ -18,7 +18,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/haircolor' , $user->Profile->Haircolor );
+						Element( 'user/haircolor' , $hair );
 						?></option><?php
 					}
 				?></select>
