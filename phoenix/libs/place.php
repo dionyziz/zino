@@ -22,11 +22,6 @@
 			}
 		}
         public function LoadDefaults() {
-			global $user;
-            
-            $this->UpdateUserId = $user->Id;
-            $this->UpdateDate   = NowDate();
-            $this->UpdateIp     = UserIp();
             $this->DelId        = 0;
             $this->mX           = 0;
             $this->mY           = 0;
