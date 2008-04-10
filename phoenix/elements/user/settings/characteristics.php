@@ -44,9 +44,15 @@
 						echo $i;
 						?>"><?php
 						echo $i;
-						?>kg</option>
-						<option value="-3">πάνω από 150kg</option><?php
+						if ( $i % 10 == 0 ) {
+							?>0<?php
+						}
+						if ( $i % 100 == 0 ) {
+							?>00<?php
+						}
+						?>kg</option><?php
 					}
+					?><option value="-3">πάνω από 150kg</option><?php
 				?></select>
 			</div>
 		</div>
