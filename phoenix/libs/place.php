@@ -22,9 +22,9 @@
 			}
 		}
         public function LoadDefaults() {
-            $this->DelId        = 0;
-            $this->mX           = 0;
-            $this->mY           = 0;
+            $this->Delid = 0;
+            $this->mX    = 0;
+            $this->mY    = 0;
         }
 	}
 ?>
