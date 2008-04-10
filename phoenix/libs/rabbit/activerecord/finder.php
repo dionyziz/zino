@@ -12,9 +12,7 @@
             w_assert( is_int( $limit ) );
             
             $mods = $prototype->FetchPrototypeChanges();
-            if ( !count( $mods ) ) {
-                return array();
-            }
+            
             // check if this lookup will yield to a unique result
             // this type of lookups will either return a single record or none
             $unique = false;
