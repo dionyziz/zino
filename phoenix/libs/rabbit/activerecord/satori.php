@@ -13,12 +13,18 @@
     
     abstract class Relation {
         protected $mQueryModel;
-        protected $mRetrieved = false;
+        protected $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
         
         public abstract function __construct();
-        public abstract function MakeObj();
+        protected abstract function MakeObj();
+        protected abstract function Modified();
+        public function Rebuild() {
+            if ( $this->Modified() ) {
+                $this->mRetrieved = $this->MakeObj();
+            }
+        }
         public function Retrieve() {
-            if ( $this->mRetrieved === false ) {
+            if ( $this->mRetrieved === 0 ) {
                 $this->mRetrieved = $this->MakeObj();
             }
             return $this->mRetrieved;
@@ -29,6 +35,7 @@
         protected $mForeignKey;
         protected $mAttribute2DbField;
         protected $mTargetModelClass;
+        protected $mCurrentArgs;
         
         public function __construct( $queryModel, $targetModelClass, $foreignKey ) {
             if ( !is_array( $foreignKey ) ) {
@@ -39,8 +46,9 @@
             w_assert( class_exists( $this->mTargetModelClass ), 'Model class `' . $this->mTargetModelClass . '\' used in HasOne relation of ' . get_class( $this->mQueryModel ) . ' is not defined' );
             $this->mForeignKey = $foreignKey;
             $this->mAttribute2DbField = $queryModel->Attribute2DbField;
+            $this->mCurrentArgs = false;
         }
-        public function MakeObj() {
+        protected function RetrieveCurrentArgs() {
             $args = array();
             foreach ( $this->mForeignKey as $attribute ) {
                 if ( !isset( $this->mAttribute2DbField[ $attribute ] ) ) {
@@ -48,11 +56,25 @@
                 }
                 $args[] = $this->mQueryModel->$attribute;
             }
-            
+            return $args;
+        }
+        protected function Modified() {
+            if ( $this->RetrieveCurrentArgs() != $this->mCurrentArgs ) {
+                return true;
+            }
+            return false;
+        }
+        protected function MakeObj() {
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
+            // create object instance to referenced object
             $target = $class->newInstanceArgs( $args );
-            
+            if ( !$target->Exists() ) { // no such object
+                // create empty new object instance
+                $target = $class->newInstanceArgs( array() );
+                // define primary keys
+                $target->DefinePrimaryKeyAttributes( $args );
+            }
             return $target;
         }
     }
@@ -70,6 +92,9 @@
             $this->mFinderClass = $finderClass;
             $this->mFinderMethod = $finderMethod;
             $this->mForeignKey = $foreignKey;
+        }
+        public function Modified() {
+            return false; // too expensive to detect automatically
         }
         public function MakeObj() {
             $finder = New $finderName(); // MAGIC!
@@ -248,6 +273,9 @@
                     $query->Bind( $name, $value );
                 }
                 $change = $query->Execute();
+                foreach ( $this->mRelations as $relation ) {
+                    
+                }
                 $this->OnUpdate( $updatedAttributes );
                 return $change;
             }
