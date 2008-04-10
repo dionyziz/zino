@@ -45,7 +45,7 @@
 				<select name="weight">
 					<option value="-1">-</option>
 					<option value="-2">κάτω από 30kg</option><?php
-					for ( $i = 1; $i <= 150; ++$i ) {
+					for ( $i = 30; $i <= 150; ++$i ) {
 						?><option value="<?php
 						echo $i;
 						?>"><?php
