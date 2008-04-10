@@ -23,8 +23,8 @@
 		}
         public function LoadDefaults() {
             $this->Delid = 0;
-            $this->mX    = 0;
-            $this->mY    = 0;
+            $this->X     = 0;
+            $this->Y     = 0;
         }
 	}
 ?>
