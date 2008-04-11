@@ -103,7 +103,7 @@
 			<label>Πίνεις;</label>
 			<div class="setting">
 				<select name="drinker"><?php
-					$yesno = array( '-' , 'yes' , 'no' );
+					$yesno = array( '-' , 'yes' , 'no' , 'socially' );
 					foreach ( $yesno as $answer ) {
 						?><option value="<?php
 						echo $answer;

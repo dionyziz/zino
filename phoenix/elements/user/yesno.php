@@ -2,7 +2,8 @@
 	function ElementUserYesno( $answer ) {
 		$yesno = array( '-'		=> '-',
 						'yes' => 'Ναι', 
-						'no' => 'Όχι'
+						'no' => 'Όχι',
+						'socially' => 'Με παρέα'
 		);
 		echo htmlspecialchars( $yesno[ $answer ] );
 	}
