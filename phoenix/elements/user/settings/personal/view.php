@@ -51,20 +51,20 @@
 		</div>
 		<div>
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
-			<div class="setting"><?php
-				Element( 'user/settings/personal/sex' , $user->Gender );
+			<div class="setting" id="sex"><?php
+				Element( 'user/settings/personal/sex' , $user->Profile->Sexualorientation , $user->Gender );
 			?></div>
 		</div>
 		<div>
 			<label for="religion">Θρήσκευμα:</label>
 			<div class="setting" id="religion"><?php
-				Element( 'user/settings/personal/religion' , $user->Gender );
+				Element( 'user/settings/personal/religion' , $user->Profile->Religion , $user->Gender );
 			?></div>
 		</div>
 		<div>
 			<label for="politics">Πολιτικές πεποιθήσεις:</label>
-			<div class="setting"><?php
-				Element( 'user/settings/personal/politics' , $user->Gender );
+			<div class="setting" id="politics"><?php
+				Element( 'user/settings/personal/politics' , $user->Profile->Politics , $user->Gender );
 			?></div>
 		</div>
 		<div>

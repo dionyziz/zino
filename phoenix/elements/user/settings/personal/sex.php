@@ -1,15 +1,13 @@
 <?php
 
-	function ElementUserSettingsPersonalSex( $gender ) {
-		global $user;
-		
-		?><select id="sexualorientation"><?php
+	function ElementUserSettingsPersonalSex( $selected , $gender ) {		
+		?><select><?php
 		$sexs = array( '-' , 'straight' , 'gay' , 'bi' );
 		foreach ( $sexs as $sex ) {
 			?><option value="<?php
 			echo $sex;
 			?>"<?php
-			if ( $user->Profile->Sexualorientation == $sex ) {
+			if ( $selected == $sex ) {
 				?> selected="selected"<?php
 			}
 			?>><?php

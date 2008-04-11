@@ -1,15 +1,13 @@
 <?php
 
-	function ElementUserSettingsPersonalReligion( $gender) {
-		global $user;
-		
+	function ElementUserSettingsPersonalReligion( $selected , $gender ) {
 		?><select><?php
 			$religions = array( '-' , 'christian' , 'muslim' , 'atheist' , 'agnostic' , 'nothing' );
 			foreach ( $religions as $religion ) {
 				?><option value="<?php
 				echo $religion;
 				?>"<?php
-				if ( $user->Profile->Religion == $religion ) {
+				if ( $selected == $religion ) {
 					?> selected="selected"<?php
 				}
 				?>><?php

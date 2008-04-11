@@ -63,7 +63,15 @@ $( document ).ready( function() {
 		});
 	}
 	$( '#gender select' ).change( function() {
-		Coala.Cold( 'user/settings/genderupdate' , { gender : this.value } );
+		var sexselected = $( '#sex select' )[ 0 ].value;
+		var relselected = $( '#religion select' )[ 0 ].value;
+		var polselected = $( '#politics select' )[ 0 ].value;
+		Coala.Cold( 'user/settings/genderupdate' , { 
+			gender : this.value,
+			sex : sexselected,
+			religion : relselected,
+			politics : polselected
+		} );
 	});
 });
 setInterval( Settings.SwitchSettings, 500 );

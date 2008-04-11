@@ -1,15 +1,13 @@
 <?php
 
-	function ElementUserSettingsPersonalPolitics( $gender ) {
-		global $user;
-		
-		?><select id="politics"><?php
+	function ElementUserSettingsPersonalPolitics( $selected , $gender ) {
+		?><select><?php
 			$politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'nothing' );
 			foreach ( $politics as $politic ) {
 				?><option value="<?php
 				echo $politic;
 				?>"<?php
-				if ( $user->Profile->Politics == $politic ) {
+				if ( $selected == $politic ) {
 					?> selected="selected"<?php
 				}
 				?>><?php
