@@ -34,7 +34,7 @@
 			if ( $showweight ) {
 				?><li><?php
 				Element( 'user/weight' , $theuser->Profile->Weight );
-				?>kg</li><?php
+				?></li><?php
 			}
 		?></ul><?php
 	}
