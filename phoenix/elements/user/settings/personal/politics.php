@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserSettingsPersonalPolitics() {
+	function ElementUserSettingsPersonalPolitics( $gender ) {
 		global $user;
 		
 		?><select id="politics"><?php
@@ -13,7 +13,7 @@
 					?> selected="selected"<?php
 				}
 				?>><?php
-				Element( 'user/trivial/politics' , $politic , $user->Gender );
+				Element( 'user/trivial/politics' , $politic , $gender );
 				?></option><?php
 			}
 			?>

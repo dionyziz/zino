@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserSettingsPersonalReligion() {
+	function ElementUserSettingsPersonalReligion( $gender) {
 		global $user;
 		
 		?><select id="religion"><?php
@@ -13,7 +13,7 @@
 					?> selected="selected"<?php
 				}
 				?>><?php
-				Element( 'user/trivial/religion' , $religion , $user->Gender );
+				Element( 'user/trivial/religion' , $religion , $gender );
 				?></option><?php
 			}
 			?>

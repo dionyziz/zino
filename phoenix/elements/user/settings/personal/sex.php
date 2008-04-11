@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserSettingsPersonalSex() {
+	function ElementUserSettingsPersonalSex( $gender ) {
 		global $user;
 		
 		?><select id="sexualorientation"><?php
@@ -13,7 +13,7 @@
 				?> selected="selected"<?php
 			}
 			?>><?php
-			Element( 'user/trivial/sex' , $sex , $user->Gender );
+			Element( 'user/trivial/sex' , $sex , $gender );
 			?></option><?php
 		}
 		?></select><?php

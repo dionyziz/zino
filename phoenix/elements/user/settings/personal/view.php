@@ -1,6 +1,7 @@
 <?php
 	function ElementUserSettingsPersonalView() {
 		global $water;
+		global $user;
 		
 		?><div>
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
@@ -51,19 +52,19 @@
 		<div>
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
 			<div class="setting"><?php
-				Element( 'user/settings/personal/sex' );
+				Element( 'user/settings/personal/sex' , $user->Gender );
 			?></div>
 		</div>
 		<div>
 			<label for="religion">Θρήσκευμα:</label>
-			<div class="setting"><?php
-				Element( 'user/settings/personal/religion' );
+			<div class="setting" id="religion"><?php
+				Element( 'user/settings/personal/religion' , $user->Gender );
 			?></div>
 		</div>
 		<div>
 			<label for="politics">Πολιτικές πεποιθήσεις:</label>
 			<div class="setting"><?php
-				Element( 'user/settings/personal/politics' );
+				Element( 'user/settings/personal/politics' , $user->Gender );
 			?></div>
 		</div>
 		<div>
