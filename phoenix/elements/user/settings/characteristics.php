@@ -83,23 +83,39 @@
 		<div>
 			<label>Καπνίζεις;</label>
 			<div class="setting">
-				<select name="smoker">
-					<option value="-">-</option>
-					<option value="yes">Ναι</option>
-					<option value="no">Όχι</option>
-					<option value="socially">Με παρέα</option>
-				</select>
+				<select name="smoker"><?php
+					$yesno = array( '-' , 'yes' , 'no' );
+					foreach ( $yesno as $answer ) {
+						?><option value="<?php
+						echo $answer;
+						?>"<?php
+						if ( $user->Profile->Smoker == $answer ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						Element( 'user/yesno' , $answer );
+						?></option><?php
+					}
+				?></select>
 			</div>
 		</div>
 		<div>
 			<label>Πίνεις;</label>
 			<div class="setting">
-				<select name="drinker">
-					<option value="-">-</option>
-					<option value="yes">Ναι</option>
-					<option value="no">Όχι</option>
-					<option value="socially">Με παρέα</option>
-				</select>
+				<select name="drinker"><?php
+					$yesno = array( '-' , 'yes' , 'no' );
+					foreach ( $yesno as $answer ) {
+						?><option value="<?php
+						echo $answer;
+						?>"<?php
+						if ( $user->Profile->Drinker == $answer ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						Element( 'user/yesno' , $answer );
+						?></option><?php
+					}
+				?></select>
 			</div>
 		</div><?php	
 	}
