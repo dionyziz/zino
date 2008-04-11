@@ -2,7 +2,10 @@
 
 	function ElementUserSettingsCharacteristics() {
 		global $user;
+		global $water;
 		
+		$water->Trace( 'smoker :' , $user->Profile->Smoker );
+		$water->Trace( 'drinker :' , $user->Profile->Drinker );
 		?><div>
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
