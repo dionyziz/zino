@@ -10,7 +10,7 @@
 		</div>
 		<div>
 			<label for="gender">Φύλο:</label>
-			<div class="setting"><?php
+			<div class="setting" id="gender"><?php
 				Element( 'user/settings/personal/gender' );
 			?></div>
 		</div>
