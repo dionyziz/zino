@@ -56,11 +56,11 @@
 						?><option value="<?php
 						echo $genders[ $gender ];
 						?>"<?php
-						if ( $theuser->Gender == $genders[ $gender ] ) {
+						if ( $user->Gender == $genders[ $gender ] ) {
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/trivial/gender' , $theuser->Gender );
+						Element( 'user/trivial/gender' , $user->Gender );
 						?></option><?php
 					}
 				?></select>
