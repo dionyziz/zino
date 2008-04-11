@@ -4,6 +4,11 @@
 		protected $mAppliesTo = 'libs/poll/poll';
         private $mPollId;
 
+        public function SetUp() {
+            global $libs;
+
+            $libs->Load( 'poll/poll' );
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Poll' ), 'Poll class does not exist' );
             $this->Assert( class_exists( 'PollFinder' ), 'PollFinder class does not exist' );
