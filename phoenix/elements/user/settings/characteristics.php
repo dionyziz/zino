@@ -71,20 +71,36 @@
 			<label>Βάρος</label>
 			<div class="setting">
 				<select name="weight">
-					<option value="-1"><?php
+					<option value="-1"<?php					
+					if ( $user->Profile->Weight == -1 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
 					Element( 'user/weight' , -1 );
 					?></option>
-					<option value="-2"><?php
+					<option value="-2"<?php
+					if ( $user->Profile->Weight == -2 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
 					Element( 'user/weight' , -2 );
 					?></option><?php
 					for ( $i = 30; $i <= 150; ++$i ) {
 						?><option value="<?php
 						echo $i;
-						?>"><?php
+						?>"<?php
+						if ( $user->Profile->Weight == $i ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
 						Element( 'user/weight' , $weight );
 						?></option><?php
 					}
-					?><option value="-3"><?php
+					?><option value="-3"<?php
+					if ( $user->Profile->Weight == -3 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
 					Element( 'user/weight' , -3 );
 					?></option><?php
 				?></select>
