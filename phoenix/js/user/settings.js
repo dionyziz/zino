@@ -58,9 +58,12 @@ $( document ).ready( function() {
 	});
 	var inputids = [ "age" ];
 	for ( i = 0; i < ids.length; ++i ) {
-		$( '#' + ids[ i ] ).change( function() {
-			Settings.Enqueue( ids[ i ] , this[ 0 ].value );
+		$( '#' + inputids[ i ] ).change( function() {
+			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
 		});
 	}
+	$( '#gender' ).change( function() {
+		alert( this.value );
+	});
 });
 setInterval( Settings.SwitchSettings, 500 );
