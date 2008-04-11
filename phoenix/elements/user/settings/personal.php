@@ -131,7 +131,7 @@
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
 			<div class="setting">
 				<select id="sexualorientation"><?php
-					$sexs = array( '-' , 'straight' , 'gay' , 'bisexual' );
+					$sexs = array( '-' , 'straight' , 'gay' , 'bi' );
 					foreach ( $sexs as $sex ) {
 						?><option value="<?php
 						echo $sex;
