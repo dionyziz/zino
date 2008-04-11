@@ -1,12 +1,5 @@
 <?php
 	function ElementUserProfileSidebarInfo( $theuser ) {
-		$eyes = array( 
-			'black' => 'Μαύρο',
-			'brown' => 'Καφέ',
-			'green' => 'Πράσινο',
-			'blue'	=> 'Μπλε',
-			'gray'	=> 'Γκρι'
-		);
 		?><div class="info">
 			<dl><?php
 				if ( $theuser->Profile->Age ) {
@@ -32,7 +25,7 @@
 				if ( $theuser->Profile->Eyecolor != '-' ) {
 					?><dt><strong>Χρώμα ματιών</strong></dt>
 					<dd><?php
-					echo $eyes[ $theuser->Profile->Eyecolor ];
+					Element( 'user/eyecolor' , $theuser->Profile->Eyecolor );
 					?></dd><?php
 				}
 			?></dl>

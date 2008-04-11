@@ -1,9 +1,7 @@
 <?php
 	function ElementUserSettingsCharacteristics() {
 		global $user;
-		global $water;
 		
-		$water->Trace( 'haircolor :' , $user->Profile->Haircolor );
 		?><div>
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
@@ -18,6 +16,25 @@
 						}
 						?>><?php
 						Element( 'user/haircolor' , $hair );
+						?></option><?php
+					}
+				?></select>
+			</div>
+		</div>
+		<div>
+			<label>Χρώμα ματιών</label>
+			<div class="setting">
+				<select name="haircolor"><?php
+					$eyes = array( '-' , 'black' , 'brown' , 'green' , 'blue' , 'gray' );
+					foreach ( $eyes as $eye ) {
+						?><option value="<?php
+						echo $eye;
+						?>"<?php
+						if ( $user->Profile->Haircolor == $eye ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						Element( 'user/eyecolor' , $eye );
 						?></option><?php
 					}
 				?></select>
