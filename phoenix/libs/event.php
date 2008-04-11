@@ -105,12 +105,14 @@
 	class Event extends Satori {
 		protected $mDbTableAlias = 'events';
 
+		/*
 		public function SetModel( $value ) {
 			if ( $value instanceof Relation ) {
 				return parent::__set( 'Model', $value );
 			}
 			$this->Model = $value;
 		}
+		*/
 		public function Relations() {
 			global $water;
 			$model = Event_ModelByType( $this->Typeid );
