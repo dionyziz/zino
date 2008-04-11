@@ -25,7 +25,7 @@
 			}
 			if ( $showheight ) {
 				?><li><?php
-				Element( 'user/height' , $theuser->Profile->Height );
+				Element( 'user/trivial/height' , $theuser->Profile->Height );
 				?></li><?php
 			}
 			if ( $showweight && $showheight ) {
@@ -33,7 +33,7 @@
 			}
 			if ( $showweight ) {
 				?><li><?php
-				Element( 'user/weight' , $theuser->Profile->Weight );
+				Element( 'user/trivial/weight' , $theuser->Profile->Weight );
 				?></li><?php
 			}
 		?></ul><?php

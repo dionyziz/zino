@@ -20,13 +20,13 @@
 				if ( $theuser->Profile->Haircolor != '-' ) {
 					?><dt><strong>Χρώμα μαλλιών</strong></dt>
 					<dd><?php
-					Element( 'user/haircolor' , $theuser->Profile->Haircolor );
+					Element( 'user/trivial/haircolor' , $theuser->Profile->Haircolor );
 					?></dd><?php
 				}
 				if ( $theuser->Profile->Eyecolor != '-' ) {
 					?><dt><strong>Χρώμα ματιών</strong></dt>
 					<dd><?php
-					Element( 'user/eyecolor' , $theuser->Profile->Eyecolor );
+					Element( 'user/trivial/eyecolor' , $theuser->Profile->Eyecolor );
 					?></dd><?php
 				}
 			?></dl>

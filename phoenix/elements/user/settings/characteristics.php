@@ -22,7 +22,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/haircolor' , $hair );
+						Element( 'user/trivial/haircolor' , $hair );
 						?></option><?php
 					}
 				?></select>
@@ -41,7 +41,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/eyecolor' , $eye );
+						Element( 'user/trivial/eyecolor' , $eye );
 						?></option><?php
 					}
 				?></select>
@@ -56,14 +56,14 @@
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/height' , -1 );
+					Element( 'user/trivial/height' , -1 );
 					?></option>
 					<option value="-2"<?php
 					if ( $user->Profile->Height == -2 ) {
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/height' , -2 );
+					Element( 'user/trivial/height' , -2 );
 					?></option><?php
 					for ( $i = 120; $i <= 220; ++$i ) {
 						?><option value="<?php
@@ -73,7 +73,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/height' , $i );
+						Element( 'user/trivial/height' , $i );
 						?></option><?php
 					}
 					?><option value="-3"<?php
@@ -81,7 +81,7 @@
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/height' , -3  );
+					Element( 'user/trivial/height' , -3  );
 					?></option>
 				</select>
 			</div>
@@ -95,14 +95,14 @@
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/weight' , -1 );
+					Element( 'user/trivial/weight' , -1 );
 					?></option>
 					<option value="-2"<?php
 					if ( $user->Profile->Weight == -2 ) {
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/weight' , -2 );
+					Element( 'user/trivial/weight' , -2 );
 					?></option><?php
 					for ( $i = 30; $i <= 150; ++$i ) {
 						?><option value="<?php
@@ -112,7 +112,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/weight' , $i );
+						Element( 'user/trivial/weight' , $i );
 						?></option><?php
 					}
 					?><option value="-3"<?php
@@ -120,7 +120,7 @@
 						?> selected="selected"<?php
 					}
 					?>><?php
-					Element( 'user/weight' , -3 );
+					Element( 'user/trivial/weight' , -3 );
 					?></option><?php
 				?></select>
 			</div>
@@ -138,7 +138,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/yesno' , $answer );
+						Element( 'user/trivial/yesno' , $answer );
 						?></option><?php
 					}
 				?></select>
@@ -157,7 +157,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/yesno' , $answer );
+						Element( 'user/trivial/yesno' , $answer );
 						?></option><?php
 					}
 				?></select>
