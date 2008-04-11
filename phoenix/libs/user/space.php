@@ -1,5 +1,8 @@
 <?php
-
+    global $libs;
+    
+    $libs->Load( 'bulk' );
+    
     class UserSpace extends Satori {
         protected $mDbTableAlias = 'userspaces';
         
