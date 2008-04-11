@@ -43,12 +43,12 @@
             $poll2 = New Poll( $poll->Id );
             $this->Assert( $poll2->Exists(), 'Poll does not appear to exist after creating new instance' );
 
-            $this->AssertEqual( $poll->Userid, $poll2->Userid, 'Poll Userid changed on new instance' );
-            $this->AssertEqual( $poll->Question, $poll2->Question, 'Poll Question changed on new instance' );
-            $this->AssertEqual( $poll->Created, $poll2->Created, 'Poll Created changed on new instance' );
+            $this->AssertEquals( $poll->Userid, $poll2->Userid, 'Poll Userid changed on new instance' );
+            $this->AssertEquals( $poll->Question, $poll2->Question, 'Poll Question changed on new instance' );
+            $this->AssertEquals( $poll->Created, $poll2->Created, 'Poll Created changed on new instance' );
             
-            $this->AssertEqual( 0, $poll->Numcomments, 'Numcomments should be 0 on a new poll' );
-            $this->AssertEqual( 0, $poll->Numvotes, 'Numvotes should be 0 on a new poll' );
+            $this->AssertEquals( 0, $poll->Numcomments, 'Numcomments should be 0 on a new poll' );
+            $this->AssertEquals( 0, $poll->Numvotes, 'Numvotes should be 0 on a new poll' );
             
             $this->mPollId = $poll->Id;
         }
