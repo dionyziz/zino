@@ -66,6 +66,9 @@ $( document ).ready( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
 		var relselected = $( '#religion select' )[ 0 ].value;
 		var polselected = $( '#politics select' )[ 0 ].value;
+		alert( 'sexselected ' + sexselected );
+		alert( 'relselected ' + relselected );
+		alert( 'polselected ' + polselected );
 		Coala.Cold( 'user/settings/genderupdate' , { 
 			gender : this.value,
 			sex : sexselected,
