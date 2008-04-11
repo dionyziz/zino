@@ -55,7 +55,7 @@
         public function TestCreateOptions() {
             $poll = New Poll( $this->mPollId );
 
-            $option = New Option();
+            $option = New PollOption();
             $option->Text = "John Lennon";
             $option->Pollid = $poll->Id;
             $this->AssertFalse( $option->Exists(), 'Option appears to exist before saving' );
@@ -64,7 +64,7 @@
 
             $this->Assert( ValidId( $option->Id ), 'Option Id not valid after saving' );
 
-            $option2 = New Option( $option2->Id );
+            $option2 = New PollOption( $option2->Id );
             $this->Assert( $option2->Exists(), 'Option does not appear to exist after creating a new instance' );
 
             $this->Assert( $option->Text, $option2->Text, 'Option text changed on new instance' );
