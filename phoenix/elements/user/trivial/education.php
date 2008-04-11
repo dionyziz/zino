@@ -3,7 +3,7 @@
 	function ElementUserTrivialEducation( $education ) {
 		$educations = array( '-' => '-',
 							 'elementary' => 'Δημοτικό',
-							 'gymnasioum' => 'Γυμνάσιο',
+							 'gymnasium' => 'Γυμνάσιο',
 							 'TEE' 		  => 'ΤΕΕ',
 							 'lyceum' 	  => 'Λύκειο',
 							 'TEI'		  => 'ΤΕΙ',
