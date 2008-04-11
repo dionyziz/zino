@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocialSmoker( $theuser ) {
-		if ( $theuser->Profile->Smoker != '' ) {
+		if ( $theuser->Profile->Smoker != '-' ) {
 			$smoker = array( 
 				'yes' => 'Ναι',
 				'no' => 'Όχι',

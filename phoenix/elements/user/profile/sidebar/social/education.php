@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocialEducation( $theuser ) {
-		if ( $theuser->Profile->Education != '' ) {
+		if ( $theuser->Profile->Education != '-' ) {
 			$education = array( 
 					'elementary' => 'Δημοτικό',
 					'gymnasium' => 'Γυμνάσιο',

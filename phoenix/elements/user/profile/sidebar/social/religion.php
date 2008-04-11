@@ -1,6 +1,6 @@
 <?php	
 	function ElementUserProfileSidebarSocialReligion( $theuser ) {
-		if ( $theuser->Profile->Religion != '' ) {
+		if ( $theuser->Profile->Religion != '-' ) {
 			if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
 				$religions = array( 
 					'christian' => 'Χριστιανός',

@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocialPolitics( $theuser ) {
-		if ( $theuser->Profile->Politics != '' ) {
+		if ( $theuser->Profile->Politics != '-' ) {
 			if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
 				$politics = array( 
 					'right' => 'Δεξιός',

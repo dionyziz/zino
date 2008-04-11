@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocialSex( $theuser ) {
-		if ( $theuser->Profile->Sexualorientation != '' ) {
+		if ( $theuser->Profile->Sexualorientation != '-' ) {
 			if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
 				$sex = array( 
 					'straight' => 'Straight',

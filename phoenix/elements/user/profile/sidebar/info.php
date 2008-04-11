@@ -29,7 +29,7 @@
 					Element( 'user/haircolor' , $theuser->Profile->Haircolor );
 					?></dd><?php
 				}
-				if ( $theuser->Profile->Eyecolor != '' ) {
+				if ( $theuser->Profile->Eyecolor != '-' ) {
 					?><dt><strong>Χρώμα ματιών</strong></dt>
 					<dd><?php
 					echo $eyes[ $theuser->Profile->Eyecolor ];
