@@ -60,7 +60,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/trivial/gender' , $user->Gender );
+						Element( 'user/trivial/gender' , $gender );
 						?></option><?php
 					}
 				?></select>
