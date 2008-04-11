@@ -16,10 +16,10 @@
 		    ?></div>
 		    <div class="tabs">
 		        <form id="personal" style="display:none"><?php
-					Element( 'user/settings/personal' );
+					Element( 'user/settings/personal/view' );
 		        ?></form>
 		        <form id="characteristics" style="display:none"><?php
-					Element( 'user/settings/characteristics' );
+					Element( 'user/settings/characteristics/view' );
 		        ?></form>
 		        <form id="interests" style="display:none"><?php
 					Element( 'user/settings/interests' );
