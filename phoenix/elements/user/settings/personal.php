@@ -50,11 +50,20 @@
 		<div>
 			<label for="gender">Φύλο:</label>
 			<div class="setting">
-				<select id="gender">
-					<option value="-">-</option>
-					<option value="m">Άνδρας</option>
-					<option value="f">Γυναίκα</option>
-				</select>
+				<select id="gender"><?php
+					$genders = array( '-' , 'm' , 'f' );
+					foreach( $genders as $gender ) {
+						?><option value="<?php
+						echo $genders[ $gender ];
+						?>"<?php
+						if ( $theuser->Gender == $genders[ $gender ] ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						Element( 'user/trivial/gender' , $theuser->Gender );
+						?></option><?php
+					}
+				?></select>
 			</div>
 		</div>
 		<div>
