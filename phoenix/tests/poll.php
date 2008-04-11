@@ -96,6 +96,6 @@
         }
 	}
 
-	return New PollTestcase;
+	return New TestPoll();
 
 ?>
