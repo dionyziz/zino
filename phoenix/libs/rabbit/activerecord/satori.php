@@ -69,7 +69,12 @@
             $class = New ReflectionClass( $this->mTargetModelClass );
 			w_assert( $class->isInstantiable(), "reflection class is not instantable!" );
             // create object instance to referenced object
-            $target = $class->newInstanceArgs( $args );
+			if ( is_null( $args ) ) {
+				$target = $class->newInstance();
+			}
+			else {
+				$target = $class->newInstanceArgs( $args );
+			}
 			if ( !is_object( $target ) ) {			
 				var_dump( $target );
 				echo "<br /><br />";
