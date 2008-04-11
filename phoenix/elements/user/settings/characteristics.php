@@ -1,4 +1,5 @@
 <?php
+
 	function ElementUserSettingsCharacteristics() {
 		global $user;
 		
@@ -84,7 +85,7 @@
 			<label>Καπνίζεις;</label>
 			<div class="setting">
 				<select name="smoker"><?php
-					$yesno = array( '-' , 'yes' , 'no' );
+					$yesno = array( '-' , 'yes' , 'no' , 'socially' );
 					foreach ( $yesno as $answer ) {
 						?><option value="<?php
 						echo $answer;
@@ -118,5 +119,5 @@
 				?></select>
 			</div>
 		</div><?php	
-	}
+		}
 ?>

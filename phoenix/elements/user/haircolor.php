@@ -1,4 +1,5 @@
 <?php
+
 	function ElementUserHaircolor( $color ) {
 		$hairs = array( '-'		=> '-',
 						'black' => 'Μαύρo', 

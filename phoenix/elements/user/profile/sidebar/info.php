@@ -1,4 +1,5 @@
 <?php
+
 	function ElementUserProfileSidebarInfo( $theuser ) {
 		?><div class="info">
 			<dl><?php

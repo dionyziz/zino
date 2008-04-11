@@ -1,4 +1,5 @@
 <?php 
+
 	function ElementUserProfileSidebarLook( $theuser ) {
 		$sex = array( 
 			'm' => 'Άνδρας',
