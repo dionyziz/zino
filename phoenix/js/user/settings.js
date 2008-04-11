@@ -62,7 +62,7 @@ $( document ).ready( function() {
 			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
 		});
 	}
-	$( '#gender' ).change( function() {
+	$( '#gender select' ).change( function() {
 		alert( this.value );
 	});
 });
