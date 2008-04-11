@@ -2,12 +2,12 @@
 
 	function ElementUserTrivialEducation( $education ) {
 		$educations = array( '-' => '-',
-							 'elementary' => 'Δημοτικό',
-							 'gymnasioum' => 'Γυμνάσιο',
-							 'TEE' 		  => 'ΤΕΕ',
-							 'lyceum' 	  => 'Λύκειο',
-							 'TEI'		  => 'ΤΕΙ',
-							 'university' => 'Πανεπιστήμιο'
+							 'elementary' => 'Ξ”Ξ·ΞΌΞΏΟ„ΞΉΞΊΟ',
+							 'gymnasioum' => 'Ξ“Ο…ΞΌΞ½Ξ¬ΟƒΞΉΞΏ',
+							 'TEE' 		  => 'Ξ¤Ξ•Ξ•',
+							 'lyceum' 	  => 'Ξ›ΟΞΊΞµΞΉΞΏ',
+							 'TEI'		  => 'Ξ¤Ξ•Ξ™',
+							 'university' => 'Ξ Ξ±Ξ½ΞµΟ€ΞΉΟƒΟ„Ξ®ΞΌΞΉΞΏ'
 		);
 		echo htmlspecialchars( $educations[ $education ] );
 	}
