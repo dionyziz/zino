@@ -72,6 +72,10 @@
             $target = $class->newInstanceArgs( $args );
 			if ( !is_object( $target ) ) {			
 				var_dump( $target );
+				echo "<br /><br />";
+				var_dump( $this->mTargetModelClass );
+				echo "<br /><br />";
+				var_dump( $args );
 				die( "target is not an object!" );
 			}
             if ( !$target->Exists() ) { // no such object
