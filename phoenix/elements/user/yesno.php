@@ -1,9 +1,9 @@
 <?php
 	function ElementUserYesno( $answer ) {
-		$yesno = array( '-'		=> '-',
-						'yes' => 'Ναι', 
-						'no' => 'Όχι',
-						'socially' => 'Με παρέα'
+		$yesno = array( '-'	  => '-',
+						'yes' => 'ΞΞ±ΞΉ', 
+						'no' => 'ΞΟ‡ΞΉ',
+						'socially' => 'ΞΞµ Ο€Ξ±ΟΞ­Ξ±'
 		);
 		echo htmlspecialchars( $yesno[ $answer ] );
 	}
