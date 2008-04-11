@@ -1,7 +1,10 @@
 <?php
 
+	global $libs;
+	$libs->Load( 'poll/vote' );
+
 	class PollOptionFinder extends Finder {
-		protected $mModel = 'Poll';
+		protected $mModel = 'PollOption';
 
 		public function FindByPoll( $poll ) {
 			$option = New PollOption();
