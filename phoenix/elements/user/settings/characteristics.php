@@ -71,16 +71,22 @@
 			<label>Βάρος</label>
 			<div class="setting">
 				<select name="weight">
-					<option value="-1">-</option>
-					<option value="-2">κάτω από 30kg</option><?php
+					<option value="-1"><?php
+					Element( 'user/weight' , -1 );
+					?></option>
+					<option value="-2"><?php
+					Element( 'user/weight' , -2 );
+					?></option><?php
 					for ( $i = 30; $i <= 150; ++$i ) {
 						?><option value="<?php
 						echo $i;
 						?>"><?php
-						echo $i;
-						?>kg</option><?php
+						Element( 'user/weight' , $weight );
+						?></option><?php
 					}
-					?><option value="-3">πάνω από 150kg</option><?php
+					?><option value="-3"><?php
+					Element( 'user/weight' , -3 );
+					?></option><?php
 				?></select>
 			</div>
 		</div>
