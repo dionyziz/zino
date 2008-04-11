@@ -72,7 +72,7 @@
 			$this->Haircolor = '-';
 			$this->Smoker = '-';
 			$this->Drinker = '-';
-			$this->Pleaceid = 0;
+			$this->Placeid = 0;
 			$this->Height = 0;
 			$this->Weight = 0;
 		}
