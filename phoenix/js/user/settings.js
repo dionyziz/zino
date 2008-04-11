@@ -63,7 +63,7 @@ $( document ).ready( function() {
 		});
 	}
 	$( '#gender select' ).change( function() {
-		alert( this.value );
+		Coala.Cold( 'user/settings/genderupdate' , { gender : this.value } );
 	});
 });
 setInterval( Settings.SwitchSettings, 500 );
