@@ -13,7 +13,7 @@
 		}
 	}
 
-	class PollOption {
+	class PollOption extends Satori {
 		protected $mDbTableAlias = 'polloptions';
 
         public function Vote( $user ) {
