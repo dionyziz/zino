@@ -1,13 +1,14 @@
 <?php
 	function ElementUserHaircolor( $color ) {
 		$hairs = array( '-'		=> '-',
-						'black' => 'Μαύρα', 
-						'brown' => 'Καστανά',
-						'red' 	=> 'Κόκκινα',
-						'blond' => 'Ξανθά',
+						'black' => 'Μαύρo', 
+						'brown' => 'Καστανό',
+						'red' 	=> 'Κόκκινο',
+						'blond' => 'Ξανθό',
 						'highlights' => 'Ανταύγιες',
-						'grey'		=> 'Γκρίζα',
-						'skinhead'	=> 'Φαλακρός'
+						'dark' => 'Σκούρο καφέ',
+						'grey' => 'Γκρι', 
+						'skinhead' => 'Skinhead'
 		);
 		echo htmlspecialchars( $hairs[ $color ] );
 	}

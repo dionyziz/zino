@@ -1,15 +1,5 @@
 <?php
 	function ElementUserProfileSidebarInfo( $theuser ) {
-		$hair = array( 
-			'black' => 'Μαύρο',
-			'brown' => 'Καστανό',
-			'red' => 'Κόκκινο',
-			'blond' => 'Ξανθό',
-			'highlights' => 'Ανταύγειες',
-			'dark' => 'Σκούρο καφέ',
-			'grey' => 'Γκρι', 
-			'skinhead' => 'Skinhead'
-		);
 		$eyes = array( 
 			'black' => 'Μαύρο',
 			'brown' => 'Καφέ',
@@ -33,10 +23,10 @@
 				}
 				?><dt><strong>Πανεπιστήμιο</strong></dt>
 				<dd>Ηλεκτρολόγων Μηχ/κων και Μηχ/κων Υπολογιστών - Αθήνα</dd><?php
-				if ( $theuser->Profile->Haircolor != '' ) {
+				if ( $theuser->Profile->Haircolor != '-' ) {
 					?><dt><strong>Χρώμα μαλλιών</strong></dt>
 					<dd><?php
-					echo $hair[ $theuser->Profile->Haircolor ];
+					Element( 'user/haircolor' , $theuser->Profile->Haircolor );
 					?></dd><?php
 				}
 				if ( $theuser->Profile->Eyecolor != '' ) {
