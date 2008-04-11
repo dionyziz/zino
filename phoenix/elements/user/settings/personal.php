@@ -98,7 +98,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						Element( 'user/trivial/education' , $user->Profile->Education );
+						Element( 'user/trivial/education' , $education );
 						?></option><?php
 					}
 				?></select>
