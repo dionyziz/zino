@@ -1,6 +1,6 @@
 <?php
 
-	function ElemetUserSettingsPersonalMood() {
+	function ElementUserSettingsPersonalMood() {
 		global $user;
 		
 		?><select id="mood">
