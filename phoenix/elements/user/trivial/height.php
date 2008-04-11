@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserHeight( $height ) {
+	function ElementUserTrivialHeight( $height ) {
 		if ( $height == -1 ) {
 			?>-<?php
 		}

@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserEyecolor( $color ) {
+	function ElementUserTrivialEyecolor( $color ) {
 		$eyes = array( 
 			'-'		=> '-',
 			'black' => 'Μαύρο',

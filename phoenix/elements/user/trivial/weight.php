@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserWeight( $weight ) {
+	function ElementUserTrivialWeight( $weight ) {
 		if ( $weight == -1 ) {
 			?>-<?php
 		}

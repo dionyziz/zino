@@ -1,5 +1,5 @@
 <?php
-	function ElementUserYesno( $answer ) {
+	function ElementUserTrivialYesno( $answer ) {
 		$yesno = array( '-'	  => '-',
 						'yes' => 'Ναι', 
 						'no' => 'Όχι',

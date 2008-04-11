@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserHaircolor( $color ) {
+	function ElementUserTrivialHaircolor( $color ) {
 		$hairs = array( '-'		=> '-',
 						'black' => 'Μαύρo', 
 						'brown' => 'Καστανό',
