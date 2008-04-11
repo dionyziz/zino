@@ -16,7 +16,7 @@
 						'muslim' 	  => 'Ισλαμίστρια',
 						'atheist' 	  => 'Άθεη',
 						'agnostic'	  => 'Αγνωστικιστής',
-						'nothing' 	  => 'Καμία'
+						'nothing' 	  => 'Τίποτα'
 			);
 		}
 		echo htmlspecialchars( $religions[ $religion ] );
