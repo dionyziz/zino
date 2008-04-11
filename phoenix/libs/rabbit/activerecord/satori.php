@@ -69,31 +69,15 @@
 
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
-			w_assert( $class->isInstantiable(), "reflection class is not instantable!" );
+			$args = $this->RetrieveCurrentArgs();
+
             // create object instance to referenced object
-			if ( is_null( $args ) ) {
-				$target = $class->newInstance();
-			}
-			else {
-				$target = $class->newInstanceArgs( $args );
-			}
-			if ( !is_object( $target ) ) {			
-				var_dump( $target );
-				echo "<br /><br />";
-				var_dump( $this->mTargetModelClass );
-				echo "<br /><br />";
-				var_dump( $args );
-				die( "target is not an object!" );
-			}
+			$target = $class->newInstanceArgs( $args );
             if ( !$target->Exists() ) { // no such object
                 // create empty new object instance
                 $target = $class->newInstanceArgs( array() );
                 // define primary keys
-				try {
-	                $target->DefinePrimaryKeyAttributes( $args );
-				} catch ( SatoriException $e ) {
-					$water->Warning( $e->getMessage() );					
-				}
+				$target->DefinePrimaryKeyAttributes( $args );
             }
             return $target;
         }
