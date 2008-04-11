@@ -3,9 +3,9 @@
 	function ElementUserTrivialReligion( $religion , $gender ) {
 		if ( $gender == 'm' || $gender == '-' ) {
 			$religions = array( '-'   => '-',
-						'christian'   => 'Χριστιανισμός',
-						'muslim'      => 'Ισλαμισμός',
-						'atheist'	  => 'Αθεϊσμός',
+						'christian'   => 'Χριστιανός',
+						'muslim'      => 'Ισλαμιστής',
+						'atheist'	  => 'Άθεος',
 						'agnostic'	  => 'Αγνωστικιστής',
 						'nothing'	  => 'Τίποτα'
 			);
