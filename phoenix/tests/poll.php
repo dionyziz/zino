@@ -40,7 +40,7 @@
 
             $this->Assert( ValidId( $poll->Id ), 'Poll id is not valid after saving' );
 
-            $poll = New Poll( $poll->Id );
+            $poll2 = New Poll( $poll->Id );
             $this->Assert( $poll2->Exists(), 'Poll does not appear to exist after creating new instance' );
 
             $this->AssertEqual( $poll->Userid, $poll2->Userid, 'Poll Userid changed on new instance' );
