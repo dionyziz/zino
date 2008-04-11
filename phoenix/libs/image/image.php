@@ -242,7 +242,7 @@
         }
         public function LoadDefaults() {
             $this->Created = NowDate();
-            $this->UserIp  = UserIp();
+            $this->Userip  = UserIp();
             $this->Width   = 0;
             $this->Height  = 0;
         }
