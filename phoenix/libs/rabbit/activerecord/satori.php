@@ -70,6 +70,10 @@
 			w_assert( $class->isInstantiable(), "reflection class is not instantable!" );
             // create object instance to referenced object
             $target = $class->newInstanceArgs( $args );
+			if ( !is_object( $target ) ) {			
+				var_dump( $target );
+				die( "target is not an object!" );
+			}
             if ( !$target->Exists() ) { // no such object
                 // create empty new object instance
                 $target = $class->newInstanceArgs( array() );
