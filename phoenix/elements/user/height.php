@@ -11,7 +11,7 @@
 			?>Πάνω από 2.20m<?php
 		}
 		else {
-			htmlspecialchars( $height / 100 );
+			echo htmlspecialchars( $height / 100 );
 			if ( ( $height % 10 == 0 ) && ( $height % 100 != 0 ) ) {
 				?>0<?php
 			}
