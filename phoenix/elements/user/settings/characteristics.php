@@ -76,7 +76,13 @@
 						Element( 'user/height' , $i );
 						?></option><?php
 					}
-					?><option value="-3">Πάνω από 2.20</option>
+					?><option value="-3"<?php
+					if ( $user->Profile->Height == -3 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
+					Element( 'user/height' , -3  );
+					?></option>
 				</select>
 			</div>
 		</div>
