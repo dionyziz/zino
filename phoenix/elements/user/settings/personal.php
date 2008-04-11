@@ -1,6 +1,8 @@
 <?php
 	function ElementUserSettingsPersonal() {
 		global $water;
+		global $user;
+		
 		?><div>
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth">
