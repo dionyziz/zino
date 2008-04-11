@@ -24,13 +24,13 @@
 		<div>
 			<label>Χρώμα ματιών</label>
 			<div class="setting">
-				<select name="haircolor"><?php
+				<select name="eyecolor"><?php
 					$eyes = array( '-' , 'black' , 'brown' , 'green' , 'blue' , 'gray' );
 					foreach ( $eyes as $eye ) {
 						?><option value="<?php
 						echo $eye;
 						?>"<?php
-						if ( $user->Profile->Haircolor == $eye ) {
+						if ( $user->Profile->Eyecolor == $eye ) {
 							?> selected="selected"<?php
 						}
 						?>><?php
