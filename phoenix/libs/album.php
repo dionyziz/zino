@@ -44,6 +44,7 @@
             $this->DelId = 1;
             $this->Save();
 			
+            // TODO: Encapsulate image update logic into the images model
 			$query  = $this->mDb->Prepare("
 				UPDATE 
                     :" . $this->mImageTable . "
