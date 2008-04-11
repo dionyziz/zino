@@ -57,7 +57,7 @@ $( document ).ready( function() {
 		Settings.DoSwitchSettings();
 	});
 	var inputids = [ "age" ];
-	for ( i = 0; i < ids.length; ++i ) {
+	for ( i = 0; i < inputids.length; ++i ) {
 		$( '#' + inputids[ i ] ).change( function() {
 			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
 		});
