@@ -8,10 +8,10 @@
 		if ( $theuser->Gender != '-' ) {
 			$showgender = true;
 		}
-		if ( $theuser->Profile->Weight != '0' ) {
+		if ( $theuser->Profile->Weight != '-1' ) {
 			$showweight = true;
 		}
-		if ( $theuser->Profile->Height != '0' ) {
+		if ( $theuser->Profile->Height != '-1' ) {
 			$showheight = true;
 		}
 		?><ul><?php
@@ -25,8 +25,8 @@
 			}
 			if ( $showheight ) {
 				?><li><?php
-				echo $theuser->Profile->Height / 100;
-				?>m</li><?php
+				Element( 'user/height' , $theuser->Profile->Height );
+				?></li><?php
 			}
 			if ( $showweight && $showheight ) {
 				?><li class="dot">·</li><?php

@@ -5,13 +5,13 @@
 			?>-<?php
 		}
 		else if ( $weight == -2 ) {
-			?>κάτω από 30kg<?php
+			?>Kάτω από 30kg<?php
 		}
 		else if ( $weight == -3 ) {
-			?>πάνω από 150kg<?php
+			?>Πάνω από 150kg<?php
 		}
 		else {
-			echo $weight;
+			echo htmlspecialchars( $weight );
 			?>kg<?php
 		}
 	}

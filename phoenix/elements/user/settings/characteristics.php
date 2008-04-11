@@ -51,19 +51,29 @@
 			<label>Ύψος</label>
 			<div class="setting">
 				<select name="height">
-					<option value="-1">-</option>
-					<option value="-2">Κάτω από 1.20</option><?php
+					<option value="-1"<?php
+					if ( $user->Profile->Height == -1 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
+					Element( 'user/height' , -1 );
+					?></option>
+					<option value="-2"<?php
+					if ( $user->Profile->Height == -2 ) {
+						?> selected="selected"<?php
+					}
+					?>><?php
+					Element( 'user/height' , -2 );
+					?></option><?php
 					for ( $i = 120; $i <= 220; ++$i ) {
 						?><option value="<?php
 						echo $i;
-						?>"><?php
-						echo $i / 100;
-						if ( ( $i % 10 == 0 ) && ( $i % 100 != 0 ) ) {
-							?>0<?php
+						?>"<?php
+						if ( $user->Profile->Height == $i ) {
+							?> selected="selected"<?php
 						}
-						if ( $i % 100 == 0 ) {
-							?>.00<?php
-						}
+						?>><?php
+						Element( 'user/height' , $i );
 						?></option><?php
 					}
 					?><option value="-3">Πάνω από 2.20</option>
