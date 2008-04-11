@@ -63,6 +63,19 @@
         public function Delete() {
             throw New UserException( 'User profiles cannot be deleted' );
         }
+		protected function LoadDefaults() {
+			$this->Education = '-';
+			$this->Sexualorientation = '-';
+			$this->Religion = '-';
+			$this->Politics = '-';	
+			$this->Eyecolor = '-';
+			$this->Haircolor = '-';
+			$this->Smoker = '-';
+			$this->Drinker = '-';
+			$this->Pleaceid = 0;
+			$this->Height = 0;
+			$this->Weight = 0;
+		}
     }
 
 ?>
