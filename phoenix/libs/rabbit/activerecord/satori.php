@@ -65,6 +65,8 @@
             return false;
         }
         protected function MakeObj() {
+			global $water; 
+
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
 			w_assert( $class->isInstantiable(), "reflection class is not instantable!" );
@@ -87,7 +89,11 @@
                 // create empty new object instance
                 $target = $class->newInstanceArgs( array() );
                 // define primary keys
-                $target->DefinePrimaryKeyAttributes( $args );
+				try {
+	                $target->DefinePrimaryKeyAttributes( $args );
+				} catch ( SatoriException $e ) {
+					$water->Warning( $e->getMessage() );					
+				}
             }
             return $target;
         }
