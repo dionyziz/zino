@@ -1,10 +1,6 @@
 <?php 
 
 	function ElementUserProfileSidebarLook( $theuser ) {
-		$sex = array( 
-			'm' => 'Άνδρας',
-			'f' => 'Γυναίκα'
-		);
 		if ( $theuser->Gender != '-' ) {
 			$showgender = true;
 		}
@@ -17,7 +13,7 @@
 		?><ul><?php
 			if ( $showgender ) {
 				?><li><?php
-				echo $sex[ $theuser->Gender ];
+				Element( 'user/trivial/gender' , $theuser->Gender );
 				?></li><?php
 			}
 			if ( ( $showgender && $showweight ) || ( $showgender && !$showweight && $showheight ) ) {
