@@ -54,7 +54,7 @@
 					$genders = array( '-' , 'm' , 'f' );
 					foreach( $genders as $gender ) {
 						?><option value="<?php
-						echo $genders[ $gender ];
+						echo $gender;
 						?>"<?php
 						if ( $user->Gender == $gender ) {
 							?> selected="selected"<?php
