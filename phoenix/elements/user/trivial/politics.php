@@ -3,6 +3,7 @@
 	function ElementUserTrivialPolitics( $politic , $gender ) {
 		if ( $gender == 'm' || $gender == '-' ) {				
 			$politics = array( 
+					'-' => '-',
 					'right' => 'Δεξιός',
 					'left' => 'Αριστερός',
 					'center' => 'Κεντρώος',
@@ -13,6 +14,7 @@
 		}
 		else {
 			$politics = array( 
+					'-' => '-',
 					'right' => 'Δεξιά',
 					'left' => 'Αριστερή',
 					'center' => 'Κεντρώα',
