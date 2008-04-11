@@ -68,7 +68,7 @@
 			
 			$water->Trace( "event model", $event->Model );
 		
-			// $this->Assert( $event->Model instanceof User, 'Event model should be instance of User' );
+			$this->Assert( $event->Model instanceof User, 'Event model should be instance of User' );
 		}
 		public function TestFindByUser() {
 		}
