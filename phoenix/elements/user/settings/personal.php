@@ -56,7 +56,7 @@
 						?><option value="<?php
 						echo $genders[ $gender ];
 						?>"<?php
-						if ( $user->Gender == $genders[ $gender ] ) {
+						if ( $user->Gender == $gender ) {
 							?> selected="selected"<?php
 						}
 						?>><?php
