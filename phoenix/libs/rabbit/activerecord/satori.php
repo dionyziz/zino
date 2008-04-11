@@ -278,7 +278,7 @@
                 }
                 $change = $query->Execute();
                 foreach ( $this->mRelations as $relation ) {
-                    
+                    $relation->Rebuild();
                 }
                 $this->OnUpdate( $updatedAttributes );
                 return $change;
@@ -297,6 +297,9 @@
                     }
                 }
                 $this->mExists = true;
+                foreach ( $this->mRelations as $relation ) {
+                    $relation->Rebuild();
+                }
                 $this->OnCreate();
                 return $change;
             }
