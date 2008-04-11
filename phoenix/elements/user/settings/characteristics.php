@@ -1,7 +1,9 @@
 <?php
 	function ElementUserSettingsCharacteristics() {
 		global $user;
+		global $water;
 		
+		$water->Trace( 'haircolor :' , $user->Profile->Haircolor );
 		?><div>
 			<label>Χρώμα μαλλιών</label>
 			<div class="setting">
