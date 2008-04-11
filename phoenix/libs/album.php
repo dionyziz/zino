@@ -11,7 +11,7 @@
     }
     
     class Album extends Satori {
-        protected $mDbTable = 'albums';
+        protected $mDbTableAlias = 'albums';
 
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbumId', 'albumid' );
