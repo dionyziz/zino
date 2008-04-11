@@ -1,6 +1,6 @@
 <?php
 	function ElementUserProfileSidebarSocialDrinker( $theuser ) {
-		if ( $theuser->Profile->Drinker != '' ) {
+		if ( $theuser->Profile->Drinker != '-' ) {
 			$drinker = array( 
 				'yes' => 'Ναι',
 				'no' => 'Όχι',
