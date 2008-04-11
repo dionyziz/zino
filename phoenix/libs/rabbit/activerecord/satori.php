@@ -67,6 +67,7 @@
         protected function MakeObj() {
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
+			w_assert( $class->isInstantiable(), "reflection class is not instantable!" );
             // create object instance to referenced object
             $target = $class->newInstanceArgs( $args );
             if ( !$target->Exists() ) { // no such object
