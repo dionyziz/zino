@@ -1,8 +1,8 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaved : $( 'div.settings div.sidebar span.saved' ),
-	showsaving : $( 'div.settings div.sidebar span.saving' ),
+	showsaved : $( 'div.settings div.sidebar div span.saved' ),
+	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];

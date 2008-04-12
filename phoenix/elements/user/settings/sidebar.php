@@ -9,11 +9,13 @@
 			<li class="contact"><a href="?p=settings#contact">Επικοινωνία</a></li>
 			<li class="settings"><a href="?p=settings#settings">Ρυθμίσεις</a></li>
 		</ol>
-		<span class="saving"><img src="<?php
-		echo $rabbit_settings[ 'imagesurl' ];
-		?>ajax-loader.gif" /> Αποθήκευση...
-		</span>
-		<span class="saved">Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
+		<div>
+			<span class="saving"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>ajax-loader.gif" /> Αποθήκευση...
+			</span>
+			<span class="saved">Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
+		</div>
 		<a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a><?php
 	}
 ?>

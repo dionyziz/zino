@@ -8,10 +8,13 @@ div.settings div.sidebar {
     background-color: white;
     padding-left: 50px;
 }
-div.settings div.sidebar span  {
+div.settings div.sidebar div {
+	height: 30px;
+}
+div.settings div.sidebar div span  {
 	display: none;
 }
-div.settings div.sidebar span.saved {
+div.settings div.sidebar div span.saved {
     background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');
     background-repeat: no-repeat;
     padding-left: 25px;
