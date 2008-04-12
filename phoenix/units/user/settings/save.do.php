@@ -40,6 +40,7 @@
 			}
 			if ( $aboutme ) {
 				?>alert( '<?php echo $aboutme; ?>' );<?php
+				//if aboutme == -1 then save the empty string
 			}
 			?>$( Settings.showsaving )
 				.animate( { opacity : "0" } , 200 , function() {
