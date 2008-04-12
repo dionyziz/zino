@@ -4,6 +4,9 @@
 		global $user;
 	
 		if ( $user->Exists() ) {
+			$dobd = $dobd->Get();
+			$dobm = $dobm->Get();
+			$doby = $doby->Get();
 			$gender = $gender->Get();
 			$place = $place->Get();
 			$education = $education->Get();
@@ -11,7 +14,12 @@
 			$religion = $religion->Get();
 			$politics = $politics->Get();
 			$aboutme = $aboutme->Get();
-			/*
+			
+			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
+				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
+					?>alert( '<?php echo $doby . '-' . $dobm . '-' . $dobd; ?>' );<?php
+				}
+			}
 			if ( $gender ) {
 				?>alert( '<?php echo $gender; ?>' );<?php
 			}
@@ -33,7 +41,6 @@
 			if ( $aboutme ) {
 				?>alert( '<?php echo $aboutme; ?>' );<?php
 			}
-			*/
 			?>$( Settings.showsaving )
 				.animate( { opacity : "0" } , 200 , function() {
 				$( Settings.showsaving ).css( "display" , "none" );
