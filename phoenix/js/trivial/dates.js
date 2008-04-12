@@ -21,7 +21,7 @@ var Dates = {
 			case 12:
 				return 31;
 			case 2:
-				if ( LeapYear( year ) ) {
+				if ( Dates.LeapYear( year ) ) {
 					return 29;
 				}
 				return 28;
