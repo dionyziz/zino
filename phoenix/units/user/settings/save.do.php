@@ -35,8 +35,9 @@
 			}
 			*/
 			?>$( Settings.showsaving )
-			.animate( { opacity : "0" } , 200 )
-			.css( "display" , "none" )
+			.animate( { opacity : "0" } , 200 , function() {
+				$( Settings.showsaving ).css( "display" , "none" )
+			});
 			$( Settings.showsaved )
 			.css( "display" , "block" )
 			.css( "opacity" , "1" )
