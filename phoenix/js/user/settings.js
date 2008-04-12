@@ -55,9 +55,6 @@ var Settings = {
 			.animate( { opacity : "1" } , 200 );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
-		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
-			$( Settings.showsaved ).animate( { opacity : "0" } , 2000 );
-		});
 	}
 };
 $( document ).ready( function() {
