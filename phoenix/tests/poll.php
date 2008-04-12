@@ -116,7 +116,7 @@
             $finder = New PollVoteFinder();
             $votes = $finder->FindByPoll( $this->mPoll );
 
-            $this->AssertEqual( 4, count( $votes ), 'Number of votes returned by FindFotesByPoll is wrong' );
+            $this->AssertEquals( 4, count( $votes ), 'Number of votes returned by FindFotesByPoll is wrong' );
         }
         public function TestFindUserVote() {
         }
