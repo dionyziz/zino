@@ -2,9 +2,17 @@
 
 	function ElementUserSettingsPersonalDob() {
 		global $user;
+		global $water;
 		
+		$water->Trace( 'dob day: ' . $user->Profile->BirthDay );
+		$water->Trace( 'dob month: ' . $user->Profile->BirthMonth );
+		$water->Trace( 'dob year: ' . $user->Profile->BirthYear );
 		?><select name="day" class="small">
-			<option value="-1">-</option><?php
+			<option value="-1"<?php
+			if ( !$user->Age ) {
+				?> selected="selected"<?php
+			}
+			?>>-</option><?php
 			for ( $i = 1; $i <= 31; ++$i ) {
 				?><option value="<?php
 				if ( $i <= 9 ) {
@@ -24,7 +32,11 @@
 			}
 		?></select>
 		<select name="month" class="small">
-			<option value="-1"><?php
+			<option value="-1"<?php
+			if ( !$user->Age ) {
+				?> selected="selected"<?php
+			}
+			?>><?php
 			Element( 'user/trivial/month' , '-' );
 			?></option><?php
 			for ( $i = 1; $i <= 12; ++$i ) {
@@ -43,7 +55,11 @@
 			}
 		?></select>
 		<select name="month" class="small">
-			<option value="-">-</option><?php
+			<option value="-"<?php
+			if ( !$user->Age ) {
+				?> selected="selected"<?php
+			}
+			?>>-</option><?php
 			for ( $i = 2001; $i >= 1950; --$i ) {
 				?><option value="<?php
 				echo $i;
