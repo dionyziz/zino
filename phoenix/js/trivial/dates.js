@@ -28,7 +28,7 @@ var Dates = {
 		}
 		return 30;
 	},
-	ValidDate( day , month , year ) {
+	ValidDate : function( day , month , year ) {
 		var daysinmonth = Dates.DaysInMonth( month , year );
 		if ( day < 0 || day > daysinmonth ) {
 			return false;
