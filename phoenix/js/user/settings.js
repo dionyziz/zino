@@ -89,7 +89,7 @@ $( document ).ready( function() {
 		if ( Dates.ValidDate( day , month , year ) ) {
 			alert( 'date is ok' );
 			if ( Settings.invaliddob ) {
-				$( 'div.settings div.tabs form.personal div span.invaliddob' )
+				$( 'div.settings div.tabs form#personal div span.invaliddob' )
 					.animate( { opacity: "0" } , 1000 )
 					.css( "display" , "none" );
 				Settings.invaliddob = false;
@@ -97,7 +97,7 @@ $( document ).ready( function() {
 		}
 		else {
 			if ( !Settings.invaliddob ) {
-				$( 'div.settings div.tabs form.personal div span.invaliddob' )
+				$( 'div.settings div.tabs form#personal div span.invaliddob' )
 					.css( "display" , "inline" )
 					.animate( { opacity: "1" } , 200 );	
 				Settings.invaliddob = true;
