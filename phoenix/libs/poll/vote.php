@@ -51,7 +51,7 @@
 			$this->Option = $this->HasOne( 'PollOption', 'Optionid' );
 			$this->Poll = $this->HasOne( 'Poll', 'Pollid' );	
 		}
-        protected function LeadDefaults() {
+        protected function LoadDefaults() {
             $this->Created = NowDate();
         }
 	}
