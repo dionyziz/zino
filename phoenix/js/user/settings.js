@@ -49,7 +49,7 @@ var Settings = {
 	},
 	Save : function() {
 		alert( 'saving' );
-		//Coala.Warm( 'user/settings/save' , Settings.queue );
+		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	}
 };
