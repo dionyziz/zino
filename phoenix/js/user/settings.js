@@ -131,9 +131,5 @@ $( document ).ready( function() {
 	$( '#aboutme textarea' ).change( function() {
 		Settings.Enqueue( 'aboutme' , this.value , 2000 );
 	});
-	/*
-	$( Settings.showsaved ).css( "opacity" , "0" );
-	$( Settings.showsaving ).css( "opacity" , "0" );
-	*/
 });
 setInterval( Settings.SwitchSettings , 500 );
