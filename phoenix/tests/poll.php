@@ -96,7 +96,7 @@
 
             $this->Assert( $vote->Exists(), 'Vote does not appear to exist after saving' );
 
-            $vote = New PollVote( $this->mOptionId, 3 );
+            $vote2 = New PollVote( $this->mOptionId, 3 );
             $this->Assert( $vote2->Exists(), 'Vote does not appear to exist after creating a new instance' );
             $this->AssertEquals( $vote->Created, $vote2->Created, 'Vote created changed on new instance' );
             $this->AssertEquals( $vote->Userid, $vote2->Userid, 'Vote userid changed on new instance' );
