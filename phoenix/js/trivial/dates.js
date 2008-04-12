@@ -12,15 +12,15 @@ var Dates = {
 	},
 	DaysInMonth : function( month , year ) {
 		switch ( month ) {
-			case 1:
-			case 3:
-			case 5:
-			case 7:
-			case 8:
+			case 01:
+			case 03:
+			case 05:
+			case 07:
+			case 08:
 			case 10:
 			case 12:
 				return 31;
-			case 2:
+			case 02:
 				if ( Dates.LeapYear( year ) ) {
 					return 29;
 				}
