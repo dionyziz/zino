@@ -2,12 +2,17 @@
 	function ElementUserSettingsPersonalView() {
 		global $water;
 		global $user;
+		global $rabbit_settings;
 		
 		?><div>
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth"><?php
 				Element( 'user/settings/personal/dob' );
-			?></div>
+			?><span class="invaliddob"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>exclamation.png" />
+			</span>
+			</div>
 		</div>
 		<div>
 			<label for="gender">Φύλο:</label>

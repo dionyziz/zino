@@ -11,7 +11,6 @@ var Dates = {
 		return false;
 	},
 	DaysInMonth : function( month , year ) {
-		alert( 'month ' + month );
 		switch ( month ) {
 			case '01':
 			case '03':

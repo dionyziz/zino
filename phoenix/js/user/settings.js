@@ -3,6 +3,7 @@ var Settings = {
 	queue : {},
 	showsaved : $( 'div.settings div.sidebar div span.saved' ),
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
+	invaliddob : false,
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -84,12 +85,23 @@ $( document ).ready( function() {
 		var day = $( '#dateofbirth select' )[ 0 ].value;
 		var month = $( '#dateofbirth select' )[ 1 ].value;
 		var year = $( '#dateofbirth select' )[ 2 ].value;
-		//check for lvaliddate
+		//check for validdate
 		if ( Dates.ValidDate( day , month , year ) ) {
 			alert( 'date is ok' );
+			if ( Settings.invaliddob ) {
+				$( 'div.settings div.tabs form.personal div span.invaliddob' )
+					.animate( { opacity: "0" } , 1000 )
+					.css( "display" , "none" );
+				Settings.invaliddob = false;
+			}
 		}
 		else {
-			alert( 'da poul' );
+			if ( !Settings.invaliddob ) {
+				$( 'div.settings div.tabs form.personal div span.invaliddob' )
+					.css( "display" , "inline" )
+					.animate( { opacity: "1" } , 200 );	
+				Settings.invaliddob = true;
+			}
 		}
 	});
 	$( '#place select' ).change( function() {
