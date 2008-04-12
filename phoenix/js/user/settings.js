@@ -13,6 +13,7 @@ var Settings = {
 			if ( hash == validtabs[ i ] ) {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
+				window.scrollTo( 0 , 0 );
 				found = true;
 			}
 			else {
