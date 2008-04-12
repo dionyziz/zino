@@ -53,7 +53,7 @@
             $this->AssertEquals( 0, $poll->Numcomments, 'Numcomments should be 0 on a new poll' );
             $this->AssertEquals( 0, $poll->Numvotes, 'Numvotes should be 0 on a new poll' );
             
-            $this->mPoll = $poll->Id;
+            $this->mPoll = $poll;
         }
         public function TestCreateOptions() {
             $poll = New Poll( $this->mPoll );
