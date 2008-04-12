@@ -106,3 +106,6 @@ div.settings div.tabs form div div.setting {
     margin-left: 300px;
     border: none;
 }
+div.settings div.tabs form#contact div div.setting input {
+	width: 300px;
+}
