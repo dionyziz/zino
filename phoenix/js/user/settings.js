@@ -81,28 +81,28 @@ $( document ).ready( function() {
 	});
 	$( '#place select' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'place' , this.value );
+		Settings.Enqueue( 'place' , this.value );
 	});
 	$( '#education select' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'education' , this.value );
+		Settings.Enqueue( 'education' , this.value );
 	});
 	$( '#sex select' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'sex' , this.value );
+		Settings.Enqueue( 'sex' , this.value );
 	});
 	$( '#religion select' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'religion' , this.value );
+		Settings.Enqueue( 'religion' , this.value );
 	});
 	$( '#politics select' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'politics' , this.value );
+		Settings.Enqueue( 'politics' , this.value );
 	
 	});
 	$( '#aboutme textarea' ).change( function() {
 		alert( this.value );
-		//Settings.Enqueue( 'aboutme' , this.value );
+		Settings.Enqueue( 'aboutme' , this.value );
 	});
 	
 });
