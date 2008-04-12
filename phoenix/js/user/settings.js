@@ -90,7 +90,7 @@ $( document ).ready( function() {
 			alert( 'date is ok' );
 			if ( Settings.invaliddob ) {
 				$( 'div.settings div.tabs form#personal div span.invaliddob' )
-					.animate( { opacity: "0" } , 1000 )
+					.animate( { opacity: "0" } , 2000 )
 					.css( "display" , "none" );
 				Settings.invaliddob = false;
 			}
