@@ -9,7 +9,7 @@
 		$water->Trace( 'dob year: ' . $user->Profile->BirthYear );
 		?><select name="day" class="small">
 			<option value="-1"<?php
-			if ( !$user->Age ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
@@ -33,7 +33,7 @@
 		?></select>
 		<select name="month" class="small">
 			<option value="-1"<?php
-			if ( !$user->Age ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>><?php
@@ -56,7 +56,7 @@
 		?></select>
 		<select name="month" class="small">
 			<option value="-"<?php
-			if ( !$user->Age ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
