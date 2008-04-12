@@ -13,6 +13,7 @@ div.settings div.sidebar div {
 }
 div.settings div.sidebar div span  {
 	display: none;
+	opacity: 0;
 }
 div.settings div.sidebar div span.saved {
     background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');
