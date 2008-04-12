@@ -11,7 +11,11 @@
 					?>0<?php
 				}
 				echo $i;
-				?>"><?php
+				?>"<?php
+				if ( $user->Profile->Birthday == $i ) {
+					?> selected="selected"<?php
+				}
+				?>><?php
 				if ( $i <= 9 ) {
 					?>0<?php
 				}
