@@ -10,7 +10,7 @@
 		$religion = $religion->Get();
 		$politics = $politics->Get();
 		$aboutme = $aboutme->Get();
-		
+		/*
 		if ( $gender ) {
 			?>alert( '<?php echo $gender; ?>' );<?php
 		}
@@ -32,5 +32,6 @@
 		if ( $aboutme ) {
 			?>alert( '<?php echo $aboutme; ?>' );<?php
 		}
+		*/
 	}
 ?>
