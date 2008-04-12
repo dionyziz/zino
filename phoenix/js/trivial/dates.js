@@ -30,14 +30,11 @@ var Dates = {
 	},
 	ValidDate : function( day , month , year ) {
 		var daysinmonth = Dates.DaysInMonth( month , year );
+		alert( 'days in month: ' + daysinmonth );
 		if ( day < 0 || day > daysinmonth ) {
 			return false;
 		}
 		if ( month < 0 || month >12 ) {
-			return false;
-		}
-		//we work just with positive years
-		if ( year < 0 ) {
 			return false;
 		}
 		return true;
