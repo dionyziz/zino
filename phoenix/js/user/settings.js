@@ -1,6 +1,7 @@
 var Settings = {
 	saver : 0,
 	queue : {},
+	showsaved : $( 'div.settings div.sidebar span' ),
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -49,8 +50,12 @@ var Settings = {
 	},
 	Save : function() {
 		alert( 'saving' );
+		
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
+		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
+			$( Settings.showsaved ).animate( { opacity : "0" } , 500 );
+		});
 	}
 };
 $( document ).ready( function() {
@@ -74,7 +79,7 @@ $( document ).ready( function() {
 			religion : relselected,
 			politics : polselected
 		} );
-		//push to queue
+		Settings.Enqueue( 'gender' , this.value );
 	});
 	$( '#dateofbirth select' ).change( function() {
 	
@@ -98,5 +103,6 @@ $( document ).ready( function() {
 		Settings.Enqueue( 'aboutme' , this.value );
 	});
 	
+	$( Settings.showsaved ).css( "opacity" , "0" );
 });
 setInterval( Settings.SwitchSettings , 500 );
