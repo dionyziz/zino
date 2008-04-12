@@ -1,6 +1,19 @@
 <?php
 	function ElementUserSettingsInterests() {
 		?><div>
+			<label>Hobbies:</label>
+			<div class="setting">
+				<ol>
+					<li>PHP</li>
+					<li>MySQL</li>
+					<li>C++</li>
+					<li>Javascript</li>
+					<li>Ninjutsu</li>
+					<li>Boys</li>
+				</ol>
+			</div>
+		</div>
+		<div>
 			<label>Αγαπημένες ταινίες:</label>
 			<div class="setting">
 				<ol>
@@ -77,19 +90,6 @@
 					<li>Pixel Perfect</li>
 					<li>Salad Fingers</li>
 					<li>Southpark</li>
-				</ol>
-			</div>
-		</div>
-		<div>
-			<label>Hobbies:</label>
-			<div class="setting">
-				<ol>
-					<li>PHP</li>
-					<li>MySQL</li>
-					<li>C++</li>
-					<li>Javascript</li>
-					<li>Ninjutsu</li>
-					<li>Boys</li>
 				</ol>
 			</div>
 		</div><?php
