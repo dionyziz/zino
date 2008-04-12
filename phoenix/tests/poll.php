@@ -64,7 +64,7 @@
 
             $this->Assert( ValidId( $option->Id ), 'Option Id not valid after saving' );
 
-            $option2 = New PollOption( $option2->Id );
+            $option2 = New PollOption( $option->Id );
             $this->Assert( $option2->Exists(), 'Option does not appear to exist after creating a new instance' );
 
             $this->Assert( $option->Text, $option2->Text, 'Option text changed on new instance' );
