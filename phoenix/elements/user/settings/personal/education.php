@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalEducation() {
 		global $user;
 		
-		?><select name="education" id="education"><?php
+		?><select><?php
 			$educations = array( '-' , 'elementary' , 'gymnasium' , 'TEE' , 'lyceum' , 'TEI' , 'university' );
 			foreach ( $educations as $education ) {
 				?><option value="<?php

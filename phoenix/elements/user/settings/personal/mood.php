@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalMood() {
 		global $user;
 		
-		?><select id="mood">
+		?><select>
 			<option>-</option>
 			<option>Είμαι χαρούμενος</option> <!-- /η -->
 			<option>Είμαι λυπημένος</option>

@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalGender() {
 		global $user;
 		
-		?><select id="gender"><?php
+		?><select><?php
 			$genders = array( '-' , 'm' , 'f' );
 			foreach( $genders as $gender ) {
 				?><option value="<?php

@@ -83,7 +83,7 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div style="border-bottom:0;">
 			<label>Αγαπημένες σειρές:</label>
 			<div class="setting">
 				<ol>

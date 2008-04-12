@@ -17,13 +17,13 @@
 		</div>
 		<div>
 			<label for="place">Περιοχή:</label>
-			<div class="setting"><?php
+			<div class="setting" id="place"><?php
 				Element( 'user/settings/personal/place' );
 			?></div>
 		</div>
 		<div>
 			<label for="education">Εκπαίδευση:</label>
-			<div class="setting"><?php
+			<div class="setting" id="education"><?php
 				Element( 'user/settings/personal/education' );
 			?></div>
 		</div>
@@ -69,13 +69,13 @@
 		</div>
 		<div>
 			<label for="aboutme">Λίγα λόγια για μένα:</label>
-			<div class="setting"><?php
+			<div class="setting" id="aboutme"><?php
 				Element( 'user/settings/personal/aboutme' );
 			?></div>
 		</div>
 		<div>
 			<label for="mood">Διάθεση:</label>
-			<div class="setting"><?php
+			<div class="setting" id="mood"><?php
 				Element( 'user/settings/personal/mood' );
 			?></div>
 		</div><?php

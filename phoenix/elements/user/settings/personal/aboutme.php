@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalAboutme() {
 		global $user;
 		
-		?><textarea id="aboutme"><?php
+		?><textarea><?php
 		echo htmlspecialchars( $user->Profile->Aboutme );
 		?></textarea><?php
 	}

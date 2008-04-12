@@ -73,6 +73,36 @@ $( document ).ready( function() {
 			religion : relselected,
 			politics : polselected
 		} );
+		//push to queue
 	});
+	$( '#dateofbirth select' ).change( function() {
+	
+	});
+	$( '#place select' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'place' , this.value );
+	});
+	$( '#education select' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'education' , this.value );
+	});
+	$( '#sex select' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'sex' , this.value );
+	});
+	$( '#religion select' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'religion' , this.value );
+	});
+	$( '#politics select' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'politics' , this.value );
+	
+	});
+	$( '#aboutme input' ).change( function() {
+		alert( this.value );
+		//Settings.Enqueue( 'aboutme' , this.value );
+	});
+	
 });
 setInterval( Settings.SwitchSettings , 500 );

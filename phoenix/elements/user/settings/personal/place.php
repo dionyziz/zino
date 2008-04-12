@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalPlace() {
 		global $user;
 		
-		?><select name="place" id="place">
+		?><select name="place">
 			<option value="-1" >-</option><?php
 			$finder = New PlaceFinder();
 			$places = $finder->FindAll();
