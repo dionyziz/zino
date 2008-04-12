@@ -3,7 +3,7 @@
 	function ElementUserSettingsCharacteristicsDrinker() {
 		global $user;
 		
-		?><select name="drinker"><?php
+		?><select><?php
 			$yesno = array( '-' , 'yes' , 'no' , 'socially' );
 			foreach ( $yesno as $answer ) {
 				?><option value="<?php

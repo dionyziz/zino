@@ -3,7 +3,7 @@
 	function ElementUserSettingsCharacteristicsHaircolor() {
 		global $user;
 		
-		?><select name="haircolor"><?php
+		?><select><?php
 			$hairs = array( '-' , 'black' , 'brown' , 'red' , 'blond' , 'highlights' , 'grey' , 'skinhead' );
 			foreach ( $hairs as $hair ) {
 				?><option value="<?php

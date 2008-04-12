@@ -3,7 +3,7 @@
 	function ElementUserSettingsCharacteristicsWeight() {
 		global $user;
 		
-		?><select name="weight">
+		?><select>
 			<option value="-1"<?php					
 			if ( $user->Profile->Weight == -1 ) {
 				?> selected="selected"<?php

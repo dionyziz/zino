@@ -3,7 +3,7 @@
 	function ElementUserSettingsCharacteristicsHeight() {
 		global $user;
 		
-		?><select name="height">
+		?><select>
 			<option value="-1"<?php
 			if ( $user->Profile->Height == -1 ) {
 				?> selected="selected"<?php

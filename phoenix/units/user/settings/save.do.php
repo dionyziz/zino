@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tInteger $smoker , tInteger $drinker ) {
 		global $user;
 	
 		if ( $user->Exists() ) {
@@ -14,6 +14,12 @@
 			$religion = $religion->Get();
 			$politics = $politics->Get();
 			$aboutme = $aboutme->Get();
+			$haircolor = $haircolor->Get();
+			$eyecolor = $eyecolor->Get();
+			$height = $height->Get();
+			$weight = $weight->Get();
+			$smoker = $smoker->Get();
+			$drinker = $drinker->Get();
 			
 			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
 				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
@@ -41,6 +47,24 @@
 			if ( $aboutme ) {
 				?>alert( '<?php echo $aboutme; ?>' );<?php
 				//if aboutme == -1 then save the empty string
+			}
+			if ( $haircolor ) {
+				?>alert( '<?php echo $haircolor; ?>' );<?php
+			}
+			if ( $eyecolor ) {
+				?>alert( '<?php echo $eyecolor; ?>' );<?php
+			}
+			if ( $height == -1 || $height == -2 || $height == -3 || $height >= 120 && $height <= 220 ) {
+				?>alert( '<?php echo $height; ?>' );<?php
+			}
+			if ( $weight == -1 || $weight == -2 || $weight == -3 || $weight >= 20 && $weight <= 150 ) {
+				?>alert( '<?php echo $weight; ?>' );<?php
+			}
+			if ( $smoker ) {
+				?>alert( '<?php echo $smoker; ?>' );<?php
+			}
+			if ( $drinker ) {
+				?>alert( '<?php echo $drinker; ?>' );<?php
 			}
 			?>$( Settings.showsaving )
 				.animate( { opacity : "0" } , 200 , function() {

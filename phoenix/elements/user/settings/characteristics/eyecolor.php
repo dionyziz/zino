@@ -3,7 +3,7 @@
 	function ElementUserSettingsCharacteristicsEyecolor() {
 		global $user;
 		
-		?><select name="eyecolor"><?php
+		?><select><?php
 			$eyes = array( '-' , 'black' , 'brown' , 'green' , 'blue' , 'gray' );
 			foreach ( $eyes as $eye ) {
 				?><option value="<?php
