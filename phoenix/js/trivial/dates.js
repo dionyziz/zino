@@ -21,7 +21,6 @@ var Dates = {
 			case '12':
 				return 31;
 			case '02':
-				alert( 'case 2' );
 				if ( Dates.LeapYear( year ) ) {
 					return 29;
 				}
@@ -31,7 +30,6 @@ var Dates = {
 	},
 	ValidDate : function( day , month , year ) {
 		var daysinmonth = Dates.DaysInMonth( month , year );
-		alert( 'days in month: ' + daysinmonth );
 		if ( day < 0 || day > daysinmonth ) {
 			return false;
 		}
