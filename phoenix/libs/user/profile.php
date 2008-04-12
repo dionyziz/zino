@@ -13,23 +13,20 @@
                 $validdob = true;
                 $nowdate = getdate();
                 $nowyear = $nowdate[ "year" ];
-                $dobyear = ( int )date( 'Y', $this->Dob );
-                $dobmonth = ( int )date( 'n', $this->Dob );
-                $dobday = ( int )date( 'j', $this->Dob );
-                $ageyear = $nowyear - $dobyear;
+                $ageyear = $nowyear - $this->BirthYear;
                 $nowmonth = $nowdate[ "mon" ];
                 $nowday = $nowdate[ "mday" ];
                 $hasbirthday = false;
-                if ( $nowmonth < $dobmonth ) {
+                if ( $nowmonth < $this->BirthMonth ) {
                     --$ageyear;
                 }
                 else {
-                    if ( $nowmonth == $dobmonth ) {
-                        if ( $nowday < $dobday ) {
+                    if ( $nowmonth == $this->BirthMonth ) {
+                        if ( $nowday < $this->BirthDay ) {
                             --$ageyear;
                         }
                         else {
-                            if ( $nowday == $dobday ) {
+                            if ( $nowday == $this->BirthDay ) {
                                 $hasbirthday = true;
                             }
                         }
@@ -40,6 +37,15 @@
                 return $ageyear;
             }
             return false;
+        }
+        protected function GetBirthDay() {
+            return ( int )date( 'j', $this->Dob );
+        }
+        protected function GetBirthMonth() {
+            return ( int )date( 'n', $this->Dob );
+        }
+        protected function GetBirthYear() {
+            return ( int )date( 'Y', $this->Dob );
         }
         protected function GetHasBirthday() {
     		if ( $this->Dob != "0000-00-00" ) {
