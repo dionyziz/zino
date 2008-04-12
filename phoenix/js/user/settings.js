@@ -62,14 +62,7 @@ $( document ).ready( function() {
 	$( 'div.settings div.sidebar ol li' ).click( function() {
 		Settings.DoSwitchSettings();
 	});
-	/*
-	var inputids = [ "age" ];
-	for ( i = 0; i < inputids.length; ++i ) {
-		$( '#' + inputids[ i ] ).change( function() {
-			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
-		});
-	}
-	*/
+
 	
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
@@ -111,6 +104,14 @@ $( document ).ready( function() {
 			}
 		}
 	});
+	
+	var inputids = [ "place" , "education" , "sex" , "religion" , "politics" ];
+	for ( i = 0; i < inputids.length; ++i ) {
+		$( '#' + inputids[ i ] ).change( function() {
+			Settings.Enqueue( inputids[ i ] , this.value , 2000 );
+		});
+	}
+	/*
 	$( '#place select' ).change( function() {
 		Settings.Enqueue( 'place' , this.value , 2000 );
 	});
@@ -126,6 +127,7 @@ $( document ).ready( function() {
 	$( '#politics select' ).change( function() {
 		Settings.Enqueue( 'politics' , this.value , 2000 );
 	});
+	*/
 	$( '#aboutme textarea' ).change( function() {
 		Settings.Enqueue( 'aboutme' , this.value , 2000 );
 	});
