@@ -69,7 +69,7 @@
 
             $this->Assert( $option->Text, $option2->Text, 'Option text changed on new instance' );
             $this->Assert( $option->Pollid, $option2->Pollid, 'Option pollid changed on new instance' );
-            $this->Assert( 0, $option2->Numvotes, 'Option numvotes should be 0 on a new option' );
+            $this->AssertEquals( 0, $option2->Numvotes, 'Option numvotes should be 0 on a new option' );
 
             $option = $poll->CreateOption( 'Paul Mc Cartney' );
             $this->Assert( $option->Exists(), 'Option returned by Poll::CreateOption does not seem to exist' );
