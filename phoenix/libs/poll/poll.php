@@ -24,6 +24,9 @@
             
             return $option;
         }
+        public function IsDeleted() {
+            return $this->mDelid > 0;
+        }
         public function Delete() {
             $this->Delid = 1;
             $this->Save();

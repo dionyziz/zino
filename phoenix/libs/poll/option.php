@@ -29,8 +29,11 @@
             $vote->Pollid = $this->Pollid;
             $vote->Save();
         }
+        public function IsDeleted() {
+            return $this->Delid > 0;
+        }
         public function Delete() {
-            $this->DelId = 1;
+            $this->Delid = 1;
             $this->Save();
 
             $this->OnUpdate();
