@@ -2,6 +2,7 @@ var Settings = {
 	saver : 0,
 	queue : {},
 	showsaved : $( 'div.settings div.sidebar span' ),
+	saving : false,
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -49,13 +50,15 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		alert( 'saving' );
-		
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
-		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
-			$( Settings.showsaved ).animate( { opacity : "0" } , 500 );
-		});
+		if ( !Settings.saving ) {
+			Settings.saving = true;
+			$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
+				$( Settings.showsaved ).animate( { opacity : "0" } , 1000 );
+				Settings.saving = false;
+			});
+		}
 	}
 };
 $( document ).ready( function() {
