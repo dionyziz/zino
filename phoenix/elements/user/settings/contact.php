@@ -41,6 +41,14 @@
 				echo htmlspecialchars( $user->Profile->Yim );
 				?>" />
 			</div>
+		</div>
+		<div>
+			<label>Ιστοσελίδα:</label>
+			<div class="setting">
+				<input type="text" name="yahoo" class="small" value="<?php
+				echo htmlspecialchars( $user->Profile->Homepage );
+				?>" />
+			</div>
 		</div><?php
 	}
 ?>
