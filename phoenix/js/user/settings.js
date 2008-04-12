@@ -74,7 +74,7 @@ $( document ).ready( function() {
 			religion : relselected,
 			politics : polselected
 		} );
-		Settings.Enqueue( 'gender' , this.value , 2000 );
+		Settings.Enqueue( 'gender' , this.value , 3000 );
 	});
 	$( '#dateofbirth select' ).change( function() {
 		var day = $( '#dateofbirth select' )[ 0 ].value;
@@ -92,7 +92,7 @@ $( document ).ready( function() {
 				}
 				Settings.Enqueue( 'dobd' , day , 4000 );
 				Settings.Enqueue( 'dobm' , month , 4000 );
-				Settings.Enqueue( 'doby' , year , 2000 );
+				Settings.Enqueue( 'doby' , year , 3000 );
 			}
 			else {
 				if ( !Settings.invaliddob ) {
@@ -108,7 +108,7 @@ $( document ).ready( function() {
 	var inputids = [ "place" , "education" , "sex" , "religion" , "politics" ];
 	for ( i = 0; i < inputids.length; ++i ) {
 		$( '#' + inputids[ i ] ).change( function() {
-			Settings.Enqueue( inputids[ i ] , this.value , 2000 );
+			Settings.Enqueue( inputids[ i ] , this.value , 3000 );
 		});
 	}
 	/*
@@ -129,7 +129,7 @@ $( document ).ready( function() {
 	});
 	*/
 	$( '#aboutme textarea' ).change( function() {
-		Settings.Enqueue( 'aboutme' , this.value , 2000 );
+		Settings.Enqueue( 'aboutme' , this.value , 3000 );
 	});
 });
 setInterval( Settings.SwitchSettings , 500 );

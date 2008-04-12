@@ -11,7 +11,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#sex select' ).change( function() {
-			Settings.Enqueue( 'sex' , this.value , 2000 );
+			Settings.Enqueue( 'sex' , this.value , 3000 );
 		});
 		$( '#religion' ).html( <?php
 		    ob_start();
@@ -19,7 +19,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#religion select' ).change( function() {
-			Settings.Enqueue( 'religion' , this.value , 2000 );
+			Settings.Enqueue( 'religion' , this.value , 3000 );
 		});
 		$( '#politics' ).html( <?php
 		    ob_start();
@@ -27,7 +27,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#politics select' ).change( function() {
-			Settings.Enqueue( 'politics' , this.value , 2000 );
+			Settings.Enqueue( 'politics' , this.value , 3000 );
 		});<?php
 	}
 ?>
