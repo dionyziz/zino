@@ -5,7 +5,7 @@
 		$sex = $sex->Get();
 		$religion = $religion->Get();
 		$politics = $politics->Get();
-		?>alert( 'coala call' );$( '#sex' ).html( <?php
+		?>$( '#sex' ).html( <?php
 		    ob_start();
     		Element( 'user/settings/personal/sex' , $sex , $gender );
     		echo w_json_encode( ob_get_clean() );
