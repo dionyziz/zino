@@ -10,7 +10,7 @@
 				Element( 'user/settings/personal/dob' );
 			?><span class="invaliddob"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
-			?>exclamation.png" />
+			?>exclamation.png" /> Η ημερομηνία δεν είναι έγκυρη
 			</span>
 			</div>
 		</div>
