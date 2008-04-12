@@ -34,6 +34,14 @@
 				?>alert( '<?php echo $aboutme; ?>' );<?php
 			}
 			*/
+			?>$( Settings.showsaving )
+			.animate( { opacity : "0" } , 200 )
+			.css( "display" , "none" );
+			$( Settings.showsaved )
+			.css( "display" , "block" )
+			.animate( { opacity : "0" } , 2000 , function() {
+				$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
+			});<?php
 		}
 	}
 ?>

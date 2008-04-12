@@ -53,16 +53,7 @@ var Settings = {
 		$( Settings.showsaving )
 			.css( "display" , "inline" )
 			.animate( { opacity : "1" } , 200 );
-		Coala.Warm( 'user/settings/save' , Settings.queue , function() {
-			$( Settings.showsaving )
-			.animate( { opacity : "0" } , 200 )
-			.css( "display" , "none" );
-			$( Settings.showsaved )
-			.css( "display" , "inline" )
-			.animate( { opacity : "0" } , 2000 , function() {
-				$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
-			});
-		});
+		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
 			$( Settings.showsaved ).animate( { opacity : "0" } , 2000 );
