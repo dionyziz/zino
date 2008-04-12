@@ -13,7 +13,6 @@ var Settings = {
 			if ( hash == validtabs[ i ] ) {
 				document.getElementById( validtabs[ i ] ).style.display = '';
 				Settings.FocusSettingLink( settingslis[ i ], true );
-				window.scrollTo( 0 , 0 );
 				found = true;
 			}
 			else {
@@ -82,7 +81,10 @@ $( document ).ready( function() {
 		Settings.Enqueue( 'gender' , this.value );
 	});
 	$( '#dateofbirth select' ).change( function() {
-	
+		var day = this[ 0 ].value;
+		var month = this[ 1 ].value;
+		var year = this[ 2 ].value;
+		alert( day + ' ' + month + ' ' + year );
 	});
 	$( '#place select' ).change( function() {
 		Settings.Enqueue( 'place' , this.value );
