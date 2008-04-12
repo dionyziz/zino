@@ -49,6 +49,11 @@ var Settings = {
 	},
 	Save : function() {
 		alert( 'saving' );
+		var savior = '';
+		for ( i = 0; i < Settings.queue.length; ++i ) {
+			savior += Settings.queue[ i ] + ' ';
+		}
+		alert( savior );
 		//Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	}
@@ -80,28 +85,21 @@ $( document ).ready( function() {
 	
 	});
 	$( '#place select' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'place' , this.value );
 	});
 	$( '#education select' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'education' , this.value );
 	});
 	$( '#sex select' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'sex' , this.value );
 	});
 	$( '#religion select' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'religion' , this.value );
 	});
 	$( '#politics select' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'politics' , this.value );
-	
 	});
 	$( '#aboutme textarea' ).change( function() {
-		alert( this.value );
 		Settings.Enqueue( 'aboutme' , this.value );
 	});
 	
