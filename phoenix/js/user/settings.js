@@ -81,7 +81,7 @@ $( document ).ready( function() {
 			religion : relselected,
 			politics : polselected
 		} );
-		Settings.Enqueue( 'gender' , this.value );
+		Settings.Enqueue( 'gender' , this.value , 2000 );
 	});
 	$( '#dateofbirth select' ).change( function() {
 		var day = $( '#dateofbirth select' )[ 0 ].value;
