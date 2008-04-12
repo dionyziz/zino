@@ -4,6 +4,7 @@ var Settings = {
 	showsaved : $( 'div.settings div.sidebar div span.saved' ),
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
+	aboutmetext : $( '#aboutme textarea' )[ 0 ].value,
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -130,6 +131,12 @@ $( document ).ready( function() {
 	*/
 	$( '#aboutme textarea' ).change( function() {
 		Settings.Enqueue( 'aboutme' , this.value , 3000 );
+	});
+	$( '#aboutme textarea' ).keyup( function() {
+		alert( $( this ).value );
+		if ( Settings.aboutmetext != $( this ).value ) {
+			Settings.aboutmetext = $( this ).value;
+		}
 	});
 });
 setInterval( Settings.SwitchSettings , 500 );
