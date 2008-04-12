@@ -10,15 +10,27 @@
     		Element( 'user/settings/personal/sex' , $sex , $gender );
     		echo w_json_encode( ob_get_clean() );
 		?> );
+		$( '#sex select' ).change( function() {
+			alert( this.value );
+			//Settings.Enequeue( 'sex' , this.value );
+		});
 		$( '#religion' ).html( <?php
 		    ob_start();
     		Element( 'user/settings/personal/religion' , $religion , $gender );
     		echo w_json_encode( ob_get_clean() );
 		?> );
+		$( '#religion select' ).change( function() {
+			alert( this.value );
+			//Settings.Enequeue( 'religion' , this.value );
+		});
 		$( '#politics' ).html( <?php
 		    ob_start();
     		Element( 'user/settings/personal/politics' , $politics , $gender );
     		echo w_json_encode( ob_get_clean() );
-		?> );<?php
+		?> );
+		$( '#politics select' ).change( function() {
+			alert( this.value );
+			//Settings.Enequeue( 'politics' , this.value );
+		});<?php
 	}
 ?>
