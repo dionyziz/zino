@@ -81,9 +81,9 @@ $( document ).ready( function() {
 		Settings.Enqueue( 'gender' , this.value );
 	});
 	$( '#dateofbirth select' ).change( function() {
-		var day = this[ 0 ].value;
-		var month = this[ 1 ].value;
-		var year = this[ 2 ].value;
+		var day = $( '#dateofbirth select' )[ 0 ].value;
+		var month = $( '#dateofbirth select' )[ 1 ].value;
+		var year = $( '#dateofbirth select' )[ 2 ].value;
 		alert( day + ' ' + month + ' ' + year );
 	});
 	$( '#place select' ).change( function() {
