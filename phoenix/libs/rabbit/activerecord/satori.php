@@ -19,7 +19,7 @@
         protected abstract function MakeObj();
         protected abstract function Modified();
         public function Rebuild() {
-            if ( $this->Modified() ) {
+            if ( $this->mRetrieved == 0 && $this->Modified() ) {
                 $this->mRetrieved = $this->MakeObj();
             }
         }
@@ -110,7 +110,14 @@
             if ( !method_exists( $finder, $methodName ) ) {
                 throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $this->mFinderClass . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
             }
-            return $finder->$methodName( ucfirst( $this->mForeignKey ) ); // MAGIC!
+            if ( is_string( $this->mForeignKey ) ) { // passing of an attribute name -- the "normal" way to do it, as it allows detecting changes
+                $key = ucfirst( $this->mForeignKey );
+                $value = $this->mQueryModel->$key;
+            }
+            else if ( is_object( $this->mForeignKey ) ) { // direct passing of value (allowed for convenience)
+                $value = $this->mForeignKey;
+            }
+            return $finder->$methodName( $value ); // MAGIC!
         }
     }
     
