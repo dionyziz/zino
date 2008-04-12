@@ -101,14 +101,16 @@
             return false; // too expensive to detect automatically
         }
         public function MakeObj() {
-            $finder = New $finderName(); // MAGIC!
+            $finder = New $this->mFinderClass(); // MAGIC!
             if ( !is_subclass_of( $finder, 'Finder' ) ) {
-                throw New SatoriException( 'Finder class `' . $finderName . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
+                throw New SatoriException( 'Finder class `' . $this->mFinderClass . '\' used in HasMany relation of `' . get_class( $this ) . '\' does not extend the "Finder" base' );
             }
+
+            $methodName = $this->mFinderMethod;
             if ( !method_exists( $finder, $methodName ) ) {
-                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $finderName . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
+                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $this->mFinderClass . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
             }
-            return $finder->$methodName( ucfirst( $this->$foreignKey ) ); // MAGIC!
+            return $finder->$methodName( ucfirst( $this->mForeignKey ) ); // MAGIC!
         }
     }
     
