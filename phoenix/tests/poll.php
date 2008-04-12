@@ -107,7 +107,7 @@
             $option->Vote( 2 );
             $option->Vote( 4 );
 
-            $option = New Option( $this->mOption->Id - 1 );
+            $option = New PollOption( $this->mOption->Id - 1 );
             $option->Vote( 1 );
         }
         public function TestFindPollVotes() {
