@@ -54,12 +54,12 @@ var Settings = {
 			.css( "display" , "block" )
 			.animate( { opacity : "1" } , 200 );
 		Coala.Warm( 'user/settings/save' , Settings.queue , function() {
-			$( Settings.showsaving ).css( "display" , "none" );
 			$( Settings.showsaved )
 			.css( "display" , "block" )
 			.animate( { opacity : "0" } , 2000 , function() {
 				$( Settings.showsaved ).css( "display" , "none" );
 			});
+			$( Settings.showsaving ).css( "display" , "none" );
 		});
 		Settings.Dequeue();
 		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
