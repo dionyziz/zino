@@ -109,7 +109,6 @@ $( document ).ready( function() {
 	var inputids = [ "place" , "education" , "sex" , "religion" , "politics" , "haircolor" , "eyecolor" , "height" , "weight" , "smoker" , "drinker" ];
 	for ( i = 0; i < inputids.length; ++i ) {
 		$( '#' + inputids[ i ] + ' select' ).change( function() {
-			alert( this.value );
 			Settings.Enqueue( inputids[ i ] , this.value , 3000 );
 		});
 	}
