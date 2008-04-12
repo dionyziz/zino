@@ -29,7 +29,7 @@ var Dates = {
 		return 30;
 	},
 	ValidDate : function( day , month , year ) {
-		alert( day , month , year );
+		alert( day + ' ' + month + ' ' + year );
 		var daysinmonth = Dates.DaysInMonth( month , year );
 		alert( 'days in month: ' + daysinmonth );
 		if ( day < 0 || day > daysinmonth ) {
