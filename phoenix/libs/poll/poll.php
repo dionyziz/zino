@@ -18,14 +18,14 @@
 
         public function CreateOption( $text ) {
             $option = New PollOption();
-            $option->Text = "text";
+            $option->Text = $text;
             $option->Pollid = $this->Id;
             $option->Save();
             
             return $option;
         }
         public function IsDeleted() {
-            return $this->mDelid > 0;
+            return $this->Delid > 0;
         }
         public function Delete() {
             $this->Delid = 1;
