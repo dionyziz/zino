@@ -5,14 +5,20 @@
 
         public function FindByOption( $option ) {
             $vote = New PollVote();
-            $vote->OptionId = $vote->Id;
+            $vote->Optionid = $vote->Id;
+            
+            return $this->FindByPrototype( $vote );
+        }
+        public function FindByPoll( $poll ) {
+            $vote = New PollVote();
+            $vote->Pollid = $poll->Id;
             
             return $this->FindByPrototype( $vote );
         }
 		public function FindByPollAndUser( $poll, $user ) {
 			$vote = New PollVote();
-			$vote->PollId = $poll->Id;
-			$vote->UserId = $user->Id;
+			$vote->Pollid = $poll->Id;
+			$vote->Userid = $user->Id;
 
 			return $this->FindByPrototype( $vote );
 		}	
@@ -26,16 +32,6 @@
 			
 			parent::Save();
 		}
-        public function Delete() {
-            $this->Delid = 1;
-            $this->Save();
-        }
-        public function UndoDelete() {
-            $this->Delid = 0;
-            $this->Save();
-
-            $this->OnCreate();
-        }
 		protected function OnCreate() {
 			$this->Poll->Numvotes = $this->Poll->Numvotes + 1;
 			$this->Poll->Save();

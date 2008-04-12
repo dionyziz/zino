@@ -17,7 +17,14 @@
 		protected $mDbTableAlias = 'polloptions';
 
         public function Vote( $user ) {
+            if ( $user instanceof User ) {
+                $user = $user->Id;
+            }
+
+            w_assert( ValidId( $user ), 'Invalid user id on PollOption::Vote!' );
+
             $vote = New PollVote();
+            $vote->Userid = $user;
             $vote->Optionid = $this->Id;
             $vote->Pollid = $this->Pollid;
             $vote->Save();
@@ -28,18 +35,9 @@
 
             $this->OnDelete();
         }
-        public function OnDelete() {
-            foreach ( $this->Votes as $vote ) {
-                $vote->Delete();
-            }
-        }
         public function UndoDelete() {
             $this->DelId = 0;
             $this->Save();
-
-            foreach ( $this->Votes as $vote ) {
-                $vote->UndoDelete();
-            }
         }
 		protected function Relations() {
 			$this->Poll = $this->HasOne( 'Poll', 'Pollid' );

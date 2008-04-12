@@ -33,15 +33,6 @@
         public function UndoDelete() {
             $this->Delid = 0;
             $this->Save();
-
-            foreach ( $this->Options as $option ) {
-                $option->UndoDelete();
-            }
-        }
-        public function OnDelete() {
-            foreach ( $this->Options as $option ) {
-                $option->Delete();
-            }
         }
         protected function LoadDefaults() {
             $this->Created = NowDate();

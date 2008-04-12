@@ -2,7 +2,8 @@
 
 	class TestPoll extends Testcase {
 		protected $mAppliesTo = 'libs/poll/poll';
-        private $mPollId;
+        private $mPoll;
+        private $mOption;
 
         public function SetUp() {
             global $libs;
@@ -50,10 +51,10 @@
             $this->AssertEquals( 0, $poll->Numcomments, 'Numcomments should be 0 on a new poll' );
             $this->AssertEquals( 0, $poll->Numvotes, 'Numvotes should be 0 on a new poll' );
             
-            $this->mPollId = $poll->Id;
+            $this->mPoll = $poll->Id;
         }
         public function TestCreateOptions() {
-            $poll = New Poll( $this->mPollId );
+            $poll = New Poll( $this->mPoll );
 
             $option = New PollOption();
             $option->Text = "John Lennon";
@@ -63,6 +64,8 @@
             $this->Assert( $option->Exists(), 'Option does not appear to exist after saving' );
 
             $this->Assert( ValidId( $option->Id ), 'Option Id not valid after saving' );
+            
+            $this->mOption = $option;
 
             $option2 = New PollOption( $option->Id );
             $this->Assert( $option2->Exists(), 'Option does not appear to exist after creating a new instance' );
@@ -74,7 +77,7 @@
             $option = $poll->CreateOption( 'Paul Mc Cartney' );
             $this->Assert( $option->Exists(), 'Option returned by Poll::CreateOption does not seem to exist' );
             $this->Assert( 'Paul Mc Cartney', $option->Text, 'Option returned by Poll::CreateOption does not have the text specified' );
-            $this->Assert( $this->mPollId, $option->Pollid, 'Option returned by Poll::CreateOption does not have the right poll id' );
+            $this->Assert( $this->mPoll->Id, $option->Pollid, 'Option returned by Poll::CreateOption does not have the right poll id' );
             
             $poll->CreateOption( 'Ringo Starr' );
             $poll->CreateOption( 'George Harrison' );
@@ -84,18 +87,53 @@
             $this->Assert( 5, count( $options ), 'Wrong number of options in Options property' );
         }
         public function TestVote() {
+            $vote = New PollVote();
+            $vote->Userid = 3;
+            $vote->Optionid = $this->mOption->Id;
+            $vote->Pollid = $this->mPoll->Id;
+            $this->AssertFalse( $vote->Exists(), 'Vote appears to exist before saving' );
+            $vote->Save();
+
+            $this->Assert( $vote->Exists(), 'Vote does not appear to exist after saving' );
+            $this->Assert( ValidId( $vote->Id ), 'Vote does not have a valid id after saving' );
+
+            $vote2 = New PollVote( $vote->Id );
+            $this->Assert( $vote2->Exists(), 'Vote does not appear to exist after creating a new instance' );
+            $this->AssertEquals( $vote->Id, $vote2->Id, 'Vote id changed on new instance' );
+            $this->AssertEquals( $vote->Created, $vote2->Created, 'Vote created changed on new instance' );
+            $this->AssertEquals( $vote->Userid, $vote2->Userid, 'Vote userid changed on new instance' );
+            $this->AssertEquals( $vote->Optionid, $vote2->Optionid, 'Vote optionid changed on new instance' );
+            $this->AssertEquals( $vote->Pollid, $vote2->Pollid, 'Vote pollid changed on new instance' );
+
+            $option = $this->mOption;
+            $option->Vote( 2 );
+            $option->Vote( 4 );
+
+            $option = New Option( $this->mOption->Id - 1 );
+            $option->Vote( 1 );
         }
-        public function TestFindVotes() {
+        public function TestFindPollVotes() {
+            $finder = New PollVoteFinder();
+            $votes = $finder->FindVotesByPoll( $this->mPoll );
+
+            $this->AssertEqual( 4, count( $votes ), 'Number of votes returned by FindFotesByPoll is wrong' );
         }
-        public function TestFindOptions() {
+        public function TestFindUserVote() {
         }
-        public function TestFindPolls() {
+        public function TestFindPollOptions() {
+        }
+        public function TestFindUserPolls() {
         }
         public function TestDeleteOption() {
         }
         public function TestUndoDeleteOption() {
         }
         public function TestDeletePoll() {
+            $poll = $this->mPoll;
+            $poll->Delete();
+            
+            $this->Assert( $poll->IsDeleted(), 'Poll::IsDeleted() did not return true on a deleted poll' );
+            $this->AssertEquals( 1, $poll->Delid, 'Poll Delid should be 1 on deleted polls' );
         }
         public function TestUndoDeletePoll() {
         }
