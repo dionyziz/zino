@@ -84,7 +84,13 @@ $( document ).ready( function() {
 		var day = $( '#dateofbirth select' )[ 0 ].value;
 		var month = $( '#dateofbirth select' )[ 1 ].value;
 		var year = $( '#dateofbirth select' )[ 2 ].value;
-		alert( day + ' ' + month + ' ' + year );
+		//check for lvaliddate
+		if ( Dates.ValidDate( day , month , year ) ) {
+			alert( 'date is ok' );
+		}
+		else {
+			alert( 'da poul' );
+		}
 	});
 	$( '#place select' ).change( function() {
 		Settings.Enqueue( 'place' , this.value );

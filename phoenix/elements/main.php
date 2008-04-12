@@ -15,6 +15,7 @@
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
 		//$page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
         $page->AttachScript( 'js/main.js' );
+		$page->AttachScript( 'js/trivial/dates.js' );
 		$page->AttachScript( 'js/coala.js' );
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
