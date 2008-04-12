@@ -1,8 +1,8 @@
 var Settings = {
 	saver : 0,
 	queue : {},
-	showsaved : $( 'div.settings div.sidebar span' ),
-	saving : false,
+	showsaved : $( 'div.settings div.sidebar span.saved' ),
+	showsaving : $( 'div.settings div.sidebar span.saving' ),
 	SwitchSettings : function() {
 		var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -50,15 +50,21 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		Coala.Warm( 'user/settings/save' , Settings.queue );
-		Settings.Dequeue();
-		if ( !Settings.saving ) {
-			Settings.saving = true;
-			$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
-				$( Settings.showsaved ).animate( { opacity : "0" } , 2000 );
-				Settings.saving = false;
+		$( Settings.showsaving )
+			.css( "display" , "block" )
+			.animate( { opacity : "1" } , 200 );
+		Coala.Warm( 'user/settings/save' , Settings.queue , function() {
+			$( Settings.showsaving ).css( "display" , "none" );
+			$( Settings.showsaved )
+			.css( "display" , "block" )
+			.animate( { opacity : "0" } , 2000 , function() {
+				$( Settings.showsaved ).css( "display" , "none" );
 			});
-		}
+		});
+		Settings.Dequeue();
+		$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
+			$( Settings.showsaved ).animate( { opacity : "0" } , 2000 );
+		});
 	}
 };
 $( document ).ready( function() {
@@ -107,5 +113,6 @@ $( document ).ready( function() {
 	});
 	
 	$( Settings.showsaved ).css( "opacity" , "0" );
+	$( Settings.showsaving ).css( "opacity" , "0" );
 });
 setInterval( Settings.SwitchSettings , 500 );
