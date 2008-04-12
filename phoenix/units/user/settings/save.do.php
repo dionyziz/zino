@@ -40,7 +40,7 @@
 				$( Settings.showsaved )
 					.css( "display" , "block" )
 					.css( "opacity" , "1" )
-					.animate( { opacity : "0" } , 1000 , function() {
+					.animate( { opacity : "0" } , 1500 , function() {
 						$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
 					});
 			});
