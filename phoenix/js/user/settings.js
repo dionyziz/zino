@@ -62,6 +62,7 @@ $( document ).ready( function() {
 			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
 		});
 	}
+	
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
 		var relselected = $( '#religion select' )[ 0 ].value;
@@ -74,4 +75,4 @@ $( document ).ready( function() {
 		} );
 	});
 });
-setInterval( Settings.SwitchSettings, 500 );
+setInterval( Settings.SwitchSettings , 500 );
