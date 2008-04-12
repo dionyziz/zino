@@ -10,7 +10,7 @@ var Dates = {
 		}
 		return false;
 	},
-	DaysInMonth( month , year ) {
+	DaysInMonth : function( month , year ) {
 		switch ( month ) {
 			case 1:
 			case 3:
