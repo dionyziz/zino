@@ -2,11 +2,7 @@
 
 	function ElementUserSettingsPersonalDob() {
 		global $user;
-		global $water;
-		
-		$water->Trace( 'dob day: ' . $user->Profile->BirthDay );
-		$water->Trace( 'dob month: ' . $user->Profile->BirthMonth );
-		$water->Trace( 'dob year: ' . $user->Profile->BirthYear );
+
 		?><select class="small">
 			<option value="-1"<?php
 			if ( !$user->Profile->Age ) {
