@@ -28,7 +28,9 @@
             $this->Assert( method_exists( $optionfinder, 'FindByPoll' ), 'PollOptionFinder::FindByPoll method does not exist' );
 
             $votefinder = New PollVoteFinder();
-            $this->Assert( method_exists( $votefinder, 'FindByPollAndUser' ), 'PollVote::FindByPollAndUser method does not exist' );
+            $this->Assert( method_exists( $votefinder, 'FindByOption' ), 'PollVoteFinder::FindByOption method does not exist' );
+            $this->Assert( method_exists( $votefinder, 'FindByPoll' ), 'PollVoteFinder::FindByPoll method does not exist' );
+            $this->Assert( method_exists( $votefinder, 'FindByPollAndUser' ), 'PollVoteFinder::FindByPollAndUser method does not exist' );
         }
         public function TestCreatePolls() {
             $poll = New Poll();
@@ -70,14 +72,14 @@
             $option2 = New PollOption( $option->Id );
             $this->Assert( $option2->Exists(), 'Option does not appear to exist after creating a new instance' );
 
-            $this->Assert( $option->Text, $option2->Text, 'Option text changed on new instance' );
-            $this->Assert( $option->Pollid, $option2->Pollid, 'Option pollid changed on new instance' );
+            $this->AssertEquals( $option->Text, $option2->Text, 'Option text changed on new instance' );
+            $this->AssertEquals( $option->Pollid, $option2->Pollid, 'Option pollid changed on new instance' );
             $this->AssertEquals( 0, $option2->Numvotes, 'Option numvotes should be 0 on a new option' );
 
             $option = $poll->CreateOption( 'Paul Mc Cartney' );
             $this->Assert( $option->Exists(), 'Option returned by Poll::CreateOption does not seem to exist' );
-            $this->Assert( 'Paul Mc Cartney', $option->Text, 'Option returned by Poll::CreateOption does not have the text specified' );
-            $this->Assert( $this->mPoll->Id, $option->Pollid, 'Option returned by Poll::CreateOption does not have the right poll id' );
+            $this->AssertEquals( 'Paul Mc Cartney', $option->Text, 'Option returned by Poll::CreateOption does not have the text specified' );
+            $this->AssertEquals( $this->mPoll->Id, $option->Pollid, 'Option returned by Poll::CreateOption does not have the right poll id' );
             
             $poll->CreateOption( 'Ringo Starr' );
             $poll->CreateOption( 'George Harrison' );
@@ -112,7 +114,7 @@
         }
         public function TestFindPollVotes() {
             $finder = New PollVoteFinder();
-            $votes = $finder->FindVotesByPoll( $this->mPoll );
+            $votes = $finder->FindByPoll( $this->mPoll );
 
             $this->AssertEqual( 4, count( $votes ), 'Number of votes returned by FindFotesByPoll is wrong' );
         }
