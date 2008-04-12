@@ -130,11 +130,19 @@ $( document ).ready( function() {
 	});
 	*/
 	$( '#aboutme textarea' ).change( function() {
-		Settings.Enqueue( 'aboutme' , this.value , 3000 );
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'aboutme' , text , 3000 );
 	});
 	$( '#aboutme textarea' ).keyup( function() {
 		if ( Settings.aboutmetext != this.value ) {
-			Settings.Enqueue( 'aboutme' , this.value , 3000 );
+			var text = this.value;
+			if ( this.value == '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'aboutme' , text , 3000 );
 			Settings.aboutmetext = this.value;
 		}
 	});
