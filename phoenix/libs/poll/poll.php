@@ -28,7 +28,7 @@
             $this->Delid = 1;
             $this->Save();
 
-            $this->OnDelete();
+            $this->OnUpdate();
         }
         public function UndoDelete() {
             $this->Delid = 0;
