@@ -87,10 +87,9 @@ $( document ).ready( function() {
 		var year = $( '#dateofbirth select' )[ 2 ].value;
 		//check for validdate
 		if ( Dates.ValidDate( day , month , year ) ) {
-			alert( 'date is ok' );
 			if ( Settings.invaliddob ) {
 				$( 'div.settings div.tabs form#personal div span.invaliddob' )
-					.animate( { opacity: "0" } , 2000 , function() {
+					.animate( { opacity: "0" } , 1000 , function() {
 						$( this ).css( "display" , "none" );
 					});
 				Settings.invaliddob = false;
