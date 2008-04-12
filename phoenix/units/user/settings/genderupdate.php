@@ -11,8 +11,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#sex select' ).change( function() {
-			alert( this.value );
-			//Settings.Enequeue( 'sex' , this.value );
+			Settings.Enequeue( 'sex' , this.value );
 		});
 		$( '#religion' ).html( <?php
 		    ob_start();
@@ -20,8 +19,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#religion select' ).change( function() {
-			alert( this.value );
-			//Settings.Enequeue( 'religion' , this.value );
+			Settings.Enequeue( 'religion' , this.value );
 		});
 		$( '#politics' ).html( <?php
 		    ob_start();
@@ -29,8 +27,7 @@
     		echo w_json_encode( ob_get_clean() );
 		?> );
 		$( '#politics select' ).change( function() {
-			alert( this.value );
-			//Settings.Enequeue( 'politics' , this.value );
+			Settings.Enequeue( 'politics' , this.value );
 		});<?php
 	}
 ?>

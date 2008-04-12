@@ -49,11 +49,6 @@ var Settings = {
 	},
 	Save : function() {
 		alert( 'saving' );
-		var savior = '';
-		for ( i = 0; i < Settings.queue.length; ++i ) {
-			savior += Settings.queue[ i ] + ' ';
-		}
-		alert( savior );
 		//Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	}
