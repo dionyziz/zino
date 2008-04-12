@@ -39,13 +39,13 @@
             return false;
         }
         protected function GetBirthDay() {
-            return ( int )date( 'j', $this->Dob );
+            return ( int )date( 'j', strtotime( $this->Dob ) );
         }
         protected function GetBirthMonth() {
-            return ( int )date( 'n', $this->Dob );
+            return ( int )date( 'n', strtotime( $this->Dob ) );
         }
         protected function GetBirthYear() {
-            return ( int )date( 'Y', $this->Dob );
+            return ( int )date( 'Y', strtotime( $this->Dob ) );
         }
         protected function MakeBirthdate( $day, $month, $year ) {
             w_assert( is_int( $day ) );
