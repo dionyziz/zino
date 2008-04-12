@@ -43,7 +43,7 @@ var Settings = {
 		if ( Settings.saver != 0 ) {
 			clearTimeout( Settings.saver );
 		}
-		Settings.saver = setTimeout( Settings.Save , 3000 );
+		Settings.saver = setTimeout( Settings.Save , 2000 );
 		Settings.queue[ key ] = value;
 	},
 	Dequeue : function() {
