@@ -48,7 +48,8 @@ var Settings = {
 		Settings.queue = {};
 	},
 	Save : function() {
-		Coala.Warm( 'user/settings/save' , Settings.queue );
+		alert( 'saving' );
+		//Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	}
 };
@@ -99,7 +100,7 @@ $( document ).ready( function() {
 		//Settings.Enqueue( 'politics' , this.value );
 	
 	});
-	$( '#aboutme input' ).change( function() {
+	$( '#aboutme textarea' ).change( function() {
 		alert( this.value );
 		//Settings.Enqueue( 'aboutme' , this.value );
 	});
