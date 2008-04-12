@@ -133,8 +133,8 @@ $( document ).ready( function() {
 		Settings.Enqueue( 'aboutme' , this.value , 3000 );
 	});
 	$( '#aboutme textarea' ).keyup( function() {
-		alert( this.value );
 		if ( Settings.aboutmetext != this.value ) {
+			Settings.Enqueue( 'aboutme' , this.value , 3000 );
 			Settings.aboutmetext = this.value;
 		}
 	});
