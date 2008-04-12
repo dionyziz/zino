@@ -136,6 +136,7 @@ $( document ).ready( function() {
 		}
 		Settings.Enqueue( 'aboutme' , text , 3000 );
 	});
+	/*
 	$( '#aboutme textarea' ).keyup( function() {
 		if ( Settings.aboutmetext != this.value ) {
 			var text = this.value;
@@ -146,5 +147,6 @@ $( document ).ready( function() {
 			Settings.aboutmetext = this.value;
 		}
 	});
+	*/
 });
 setInterval( Settings.SwitchSettings , 500 );
