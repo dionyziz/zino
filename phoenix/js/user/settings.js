@@ -40,11 +40,11 @@ var Settings = {
 	DoSwitchSettings : function() {
 		setTimeout( Settings.SwitchSettings, 20 );
 	},
-	Enqueue : function( key , value ) {
+	Enqueue : function( key , value , timerinterval ) {
 		if ( Settings.saver != 0 ) {
 			clearTimeout( Settings.saver );
 		}
-		Settings.saver = setTimeout( Settings.Save , 2000 );
+		Settings.saver = setTimeout( Settings.Save , timerinterval );
 		Settings.queue[ key ] = value;
 	},
 	Dequeue : function() {
@@ -62,12 +62,14 @@ $( document ).ready( function() {
 	$( 'div.settings div.sidebar ol li' ).click( function() {
 		Settings.DoSwitchSettings();
 	});
+	/*
 	var inputids = [ "age" ];
 	for ( i = 0; i < inputids.length; ++i ) {
 		$( '#' + inputids[ i ] ).change( function() {
 			Settings.Enqueue( inputids[ i ] , this[ 0 ].value );
 		});
 	}
+	*/
 	
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
@@ -95,9 +97,9 @@ $( document ).ready( function() {
 						});
 					Settings.invaliddob = false;
 				}
-				Settings.Enqueue( 'dobd' , day );
-				Settings.Enqueue( 'dobm' , month );
-				Settings.Enqueue( 'doby' , year );
+				Settings.Enqueue( 'dobd' , day , 4000 );
+				Settings.Enqueue( 'dobm' , month , 4000 );
+				Settings.Enqueue( 'doby' , year , 2000 );
 			}
 			else {
 				if ( !Settings.invaliddob ) {
@@ -110,22 +112,22 @@ $( document ).ready( function() {
 		}
 	});
 	$( '#place select' ).change( function() {
-		Settings.Enqueue( 'place' , this.value );
+		Settings.Enqueue( 'place' , this.value , 2000 );
 	});
 	$( '#education select' ).change( function() {
-		Settings.Enqueue( 'education' , this.value );
+		Settings.Enqueue( 'education' , this.value , 2000 );
 	});
 	$( '#sex select' ).change( function() {
-		Settings.Enqueue( 'sex' , this.value );
+		Settings.Enqueue( 'sex' , this.value , 2000 );
 	});
 	$( '#religion select' ).change( function() {
-		Settings.Enqueue( 'religion' , this.value );
+		Settings.Enqueue( 'religion' , this.value , 2000 );
 	});
 	$( '#politics select' ).change( function() {
-		Settings.Enqueue( 'politics' , this.value );
+		Settings.Enqueue( 'politics' , this.value , 2000 );
 	});
 	$( '#aboutme textarea' ).change( function() {
-		Settings.Enqueue( 'aboutme' , this.value );
+		Settings.Enqueue( 'aboutme' , this.value , 2000 );
 	});
 	/*
 	$( Settings.showsaved ).css( "opacity" , "0" );

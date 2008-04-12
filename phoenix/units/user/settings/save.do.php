@@ -35,14 +35,16 @@
 			}
 			*/
 			?>$( Settings.showsaving )
-				.animate( { opacity : "0" } , 200 )
-				.css( "display" , "none" );
-			$( Settings.showsaved )
-			.css( "display" , "block" )
-			.css( "opacity" , "1" )
-			.animate( { opacity : "0" } , 3000 , function() {
-				$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
-			});<?php
+				.animate( { opacity : "0" } , 200 , function() {
+				$( Settings.showsaving ).css( "display" , "none" );
+				$( Settings.showsaved )
+					.css( "display" , "block" )
+					.css( "opacity" , "1" )
+					.animate( { opacity : "0" } , 3000 , function() {
+						$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
+					});
+			});
+			<?php
 		}
 	}
 ?>
