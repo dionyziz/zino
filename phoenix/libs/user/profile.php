@@ -47,6 +47,36 @@
         protected function GetBirthYear() {
             return ( int )date( 'Y', $this->Dob );
         }
+        protected function MakeBirthdate( $day, $month, $year ) {
+            w_assert( is_int( $day ) );
+            w_assert( is_int( $month ) );
+            w_assert( is_int( $year ) );
+            if ( $month < 10 ) {
+                $month = '0' . ( string )$month;
+            }
+            else {
+                $month = ( string )$month;
+            }
+            if ( $day < 10 ) {
+                $day = '0' . ( string )$day;
+            }
+            else {
+                $day = ( string )$day;
+            }
+            return "$year-$month-$day";
+        }
+        protected function SetBirthDay( $value ) {
+            w_assert( is_int( $value ) );
+            $this->Dob = $this->MakeBirthdate( $value, $this->BirthMonth, $this->BirthYear );
+        }
+        protected function SetBirthMonth( $value ) {
+            w_assert( is_int( $value ) );
+            $this->Dob = $this->MakeBirthdate( $this->BirthDay, $value, $this->BirthYear );
+        }
+        protected function SetBirthYear( $value ) {
+            w_assert( is_int( $value ) );
+            $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
+        }
         protected function GetHasBirthday() {
     		if ( $this->Dob != "0000-00-00" ) {
                 $nowdate = getdate();
