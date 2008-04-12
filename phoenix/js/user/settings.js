@@ -55,7 +55,7 @@ var Settings = {
 		if ( !Settings.saving ) {
 			Settings.saving = true;
 			$( Settings.showsaved ).animate( { opacity : "1" } , 400 , function() {
-				$( Settings.showsaved ).animate( { opacity : "0" } , 1000 );
+				$( Settings.showsaved ).animate( { opacity : "0" } , 2000 );
 				Settings.saving = false;
 			});
 		}
