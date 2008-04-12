@@ -86,21 +86,26 @@ $( document ).ready( function() {
 		var month = $( '#dateofbirth select' )[ 1 ].value;
 		var year = $( '#dateofbirth select' )[ 2 ].value;
 		//check for validdate
-		if ( Dates.ValidDate( day , month , year ) ) {
-			if ( Settings.invaliddob ) {
-				$( 'div.settings div.tabs form#personal div span.invaliddob' )
-					.animate( { opacity: "0" } , 1000 , function() {
-						$( this ).css( "display" , "none" );
-					});
-				Settings.invaliddob = false;
+		if ( day != -1 && month != -1 && year != -1 ) {
+			if ( Dates.ValidDate( day , month , year ) ) {
+				if ( Settings.invaliddob ) {
+					$( 'div.settings div.tabs form#personal div span.invaliddob' )
+						.animate( { opacity: "0" } , 1000 , function() {
+							$( this ).css( "display" , "none" );
+						});
+					Settings.invaliddob = false;
+				}
+				Settings.Enqueue( 'dobd' , day );
+				Settings.Enqueue( 'dobm' , month );
+				Settings.Enqueue( 'doby' , year );
 			}
-		}
-		else {
-			if ( !Settings.invaliddob ) {
-				$( 'div.settings div.tabs form#personal div span.invaliddob' )
-					.css( "display" , "inline" )
-					.animate( { opacity: "1" } , 200 );	
-				Settings.invaliddob = true;
+			else {
+				if ( !Settings.invaliddob ) {
+					$( 'div.settings div.tabs form#personal div span.invaliddob' )
+						.css( "display" , "inline" )
+						.animate( { opacity: "1" } , 200 );	
+					Settings.invaliddob = true;
+				}
 			}
 		}
 	});

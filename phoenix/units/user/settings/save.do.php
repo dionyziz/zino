@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme ) {
 		global $user;
 	
 		if ( $user->Exists() ) {
