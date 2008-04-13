@@ -2,8 +2,6 @@
 	function ElementDeveloperWater() {
         global $rabbit_settings;
         
-        die( 'Breakpoint 1333' );
-        
 		?><script type="text/javascript"><?php	
 		ob_start();
 		?>
@@ -822,5 +820,6 @@
 		echo htmlspecialchars( ob_get_clean() );
 
 		?></script><?php
+        die( 'Breakpoint 1337' );
 	}
 ?>
