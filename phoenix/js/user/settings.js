@@ -42,6 +42,7 @@ var Settings = {
 		setTimeout( Settings.SwitchSettings, 20 );
 	},
 	Enqueue : function( key , value , timerinterval ) {
+		alert( 'enqueue called' );
 		if ( Settings.saver != 0 ) {
 			clearTimeout( Settings.saver );
 		}
