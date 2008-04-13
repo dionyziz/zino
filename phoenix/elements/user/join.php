@@ -11,7 +11,7 @@
 		$page->AttachScript( 'js/modal.js' );
 		$page->SetTitle( 'Γίνε μέλος!' );
 		if ( $user->Exists() ) {
-			Redirect( $rabbit_settings[ 'webadresss' ] );
+			return Redirect( $rabbit_settings[ 'webadresss' ] );
 		}
 		?><div class="join">
 			<div class="bubble">
