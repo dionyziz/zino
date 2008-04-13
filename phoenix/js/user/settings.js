@@ -46,7 +46,6 @@ var Settings = {
 			clearTimeout( Settings.saver );
 		}
 		Settings.saver = setTimeout( Settings.Save , timerinterval );
-		alert( 'adding to queue ' + key + ' with value ' + value );
 		Settings.queue[ key ] = value;
 	},
 	Dequeue : function() {
@@ -106,15 +105,13 @@ $( document ).ready( function() {
 			}
 		}
 	});
-	
+	/*
 	var inputids = [ "place" , "education" , "sex" , "religion" , "politics" , "haircolor" , "eyecolor" , "height" , "weight" , "smoker" , "drinker" ];
 	for ( i = 0; i < inputids.length; ++i ) {
 		$( '#' + inputids[ i ] + ' select' ).change( function() {
 			Settings.Enqueue( inputids[ i ] , this.value , 3000 );
 		});
-	}
-	/*
-	
+	}*/
 	$( '#place select' ).change( function() {
 		Settings.Enqueue( 'place' , this.value , 2000 );
 	});
@@ -130,7 +127,25 @@ $( document ).ready( function() {
 	$( '#politics select' ).change( function() {
 		Settings.Enqueue( 'politics' , this.value , 2000 );
 	});
-	*/
+	$( '#haircolor select' ).change( function() {
+		Settings.Enqueue( 'haircolor' , this.value , 2000 );
+	});
+	$( '#eyecolor select' ).change( function() {
+		Settings.Enqueue( 'eyecolor' , this.value , 2000 );
+	});
+	$( '#height select' ).change( function() {
+		Settings.Enqueue( 'height' , this.value , 2000 );
+	});
+	$( '#weight select' ).change( function() {
+		Settings.Enqueue( 'weight' , this.value , 2000 );
+	});
+	$( '#smoker select' ).change( function() {
+		Settings.Enqueue( 'smoker' , this.value , 2000 );
+	});
+	$( '#drinker select' ).change( function() {
+		Settings.Enqueue( 'drinker' , this.value , 2000 );
+	});
+	
 	$( '#aboutme textarea' ).change( function() {
 		var text = this.value;
 		if ( this.value == '' ) {
