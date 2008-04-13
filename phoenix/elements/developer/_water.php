@@ -820,6 +820,5 @@
 		echo htmlspecialchars( ob_get_clean() );
 
 		?></script><?php
-        die( 'Breakpoint 1337' );
 	}
 ?>
