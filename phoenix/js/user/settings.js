@@ -66,6 +66,7 @@ $( document ).ready( function() {
 	for ( i = 0; i < validtabs.length; ++i ) {
 		$( 'div.settings div.sidebar ol li ' + validtabs[ i ] ).click( function() {
 			Settings.SwitchSettings( validtabs[ i ] );
+			return false;
 		});
 	}
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
