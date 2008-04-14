@@ -16,6 +16,9 @@ var Settings = {
 				$( '#' + divtoshow ).css( "display" , "block" );
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
+				if ( divtoshow == 'interests' ) {
+					window.scrollTo( 0 , 0 );
+				}
 				found = true;
 			}
 			else {
@@ -29,7 +32,6 @@ var Settings = {
 			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
-		window.scrollTo( 0 , 0 );
 	},
 	FocusSettingLink : function( li, focus ) {
 		if ( focus ) {
