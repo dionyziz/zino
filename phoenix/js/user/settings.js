@@ -5,26 +5,26 @@ var Settings = {
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
 	aboutmetext : $( '#aboutme textarea' )[ 0 ].value,
-	SwitchSettings : function() {
-		var hash = window.location.hash.substr( 1 );
+	SwitchSettings : function( divtoshow ) {
+		//var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
 		var settingslis = $( 'div.settings div.sidebar ol li' );
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
-			if ( hash == validtabs[ i ] ) {
-				document.getElementById( validtabs[ i ] ).style.display = '';
+			if ( divtoshow == validtabs[ i ] ) {
+				$( '#' + divtoshow ).css( "display" , "block" );
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				found = true;
 			}
 			else {
-				document.getElementById( validtabs[ i ] ).style.display = 'none';
+				$( '#' + validtabs[ i ] ).css( "display" , "none" );
 				Settings.FocusSettingLink( settingslis[ i ], false );
 			}
 		}
 		
 		if ( !found ) {
-			document.getElementById( validtabs[ 0 ] ).style.display = '';
+			$( '#' + validtabs[ 0 ] ).css( "display" , "block" );
 			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
 	},
@@ -60,10 +60,13 @@ var Settings = {
 	}
 };
 $( document ).ready( function() {
-	$( 'div.settings div.sidebar ol li' ).click( function() {
-		Settings.SwitchSettings();
-	});
-	Settings.SwitchSettings();
+	var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
+	for ( i = 0; i < validtabs.length; ++i ) {
+		$( 'div.settings div.sidebar ol li ' + validtabs[ i ] ).click( function() {
+			Settings.SwitchSettings( validtabs[ i ] );
+		});
+	}
+	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
 		var relselected = $( '#religion select' )[ 0 ].value;
