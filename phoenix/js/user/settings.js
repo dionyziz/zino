@@ -62,12 +62,22 @@ var Settings = {
 	}
 };
 $( document ).ready( function() {
-	var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
-	for ( i = 0; i < validtabs.length; ++i ) {
-		$( 'div.settings div.sidebar ol li ' + validtabs[ i ] ).click( function() {
-			Settings.SwitchSettings( validtabs[ i ] );
-		});
-	}
+	//var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
+	$( 'div.settings div.sidebar ol li personal' ).click( function() {
+		Settings.SwitchSettings( 'personal' );
+	});
+	$( 'div.settings div.sidebar ol li characteristics' ).click( function() {
+		Settings.SwitchSettings( 'characteristics' );
+	});
+	$( 'div.settings div.sidebar ol li interests' ).click( function() {
+		Settings.SwitchSettings( 'interests' );
+	});
+	$( 'div.settings div.sidebar ol li contact' ).click( function() {
+		Settings.SwitchSettings( 'contact' );
+	});
+	$( 'div.settings div.sidebar ol li settings' ).click( function() {
+		Settings.SwitchSettings( 'settings' );
+	});
 	$( 'div.settings div.sidebar ol li a' ).click( function() {
 		return false;
 	});
