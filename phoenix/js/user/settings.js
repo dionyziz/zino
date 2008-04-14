@@ -13,16 +13,17 @@ var Settings = {
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
-				$( '#' + divtoshow ).css( "display" , "block" );
+				$( '#' + divtoshow + 'info' ).css( "display" , "block" );
 				Settings.FocusSettingLink( settingslis[ i ], true );
-				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
+				/*window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				if ( divtoshow == 'interests' ) {
 					window.scrollTo( 0 , 0 );
 				}
+				*/
 				found = true;
 			}
 			else {
-				$( '#' + validtabs[ i ] ).css( "display" , "none" );
+				$( '#' + validtabs[ i ] + 'info' ).css( "display" , "none" );
 				Settings.FocusSettingLink( settingslis[ i ], false );
 				
 			}
