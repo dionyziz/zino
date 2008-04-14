@@ -66,9 +66,11 @@ $( document ).ready( function() {
 	for ( i = 0; i < validtabs.length; ++i ) {
 		$( 'div.settings div.sidebar ol li ' + validtabs[ i ] ).click( function() {
 			Settings.SwitchSettings( validtabs[ i ] );
-			return false;
 		});
 	}
+	$( 'div.settings div.sidebar ol li a' ).click( function() {
+		return false;
+	});
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
