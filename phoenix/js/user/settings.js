@@ -63,6 +63,7 @@ var Settings = {
 };
 $( document ).ready( function() {
 	//var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
+	/*
 	$( 'div.settings div.sidebar ol li personal a' ).click( function() {
 		Settings.SwitchSettings( 'personal' );
 		return false;
