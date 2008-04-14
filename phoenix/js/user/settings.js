@@ -167,4 +167,4 @@ $( document ).ready( function() {
 		}
 	});
 });
-setInterval( Settings.SwitchSettings , 500 );
+//setInterval( Settings.SwitchSettings , 500 );
