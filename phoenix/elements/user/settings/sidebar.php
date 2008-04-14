@@ -3,11 +3,11 @@
 		global $rabbit_settings;
 		
 		?><ol id="settingslist">
-			<li class="personal"><a href="?p=settings#personal">Πληροφορίες</a></li>
-			<li class="characteristics"><a href="?p=settings#characteristics">Χαρακτηριστικά</a></li>
-			<li class="interests"><a href="?p=settings#interests">Ενδιαφέροντα</a></li>
-			<li class="contact"><a href="?p=settings#contact">Επικοινωνία</a></li>
-			<li class="settings"><a href="?p=settings#settings">Ρυθμίσεις</a></li>
+			<li class="personal"><a href="">Πληροφορίες</a></li>
+			<li class="characteristics"><a href="">Χαρακτηριστικά</a></li>
+			<li class="interests"><a href="">Ενδιαφέροντα</a></li>
+			<li class="contact"><a href="">Επικοινωνία</a></li>
+			<li class="settings"><a href="">Ρυθμίσεις</a></li>
 		</ol>
 		<div>
 			<span class="saving"><img src="<?php

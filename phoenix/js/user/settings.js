@@ -20,11 +20,13 @@ var Settings = {
 			else {
 				$( '#' + validtabs[ i ] ).css( "display" , "none" );
 				Settings.FocusSettingLink( settingslis[ i ], false );
+				
 			}
 		}
 		
 		if ( !found ) {
 			$( '#' + validtabs[ 0 ] ).css( "display" , "block" );
+			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
 	},
