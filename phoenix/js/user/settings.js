@@ -63,24 +63,31 @@ var Settings = {
 };
 $( document ).ready( function() {
 	//var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
-	$( 'div.settings div.sidebar ol li personal' ).click( function() {
+	$( 'div.settings div.sidebar ol li personal a' ).click( function() {
 		Settings.SwitchSettings( 'personal' );
+		return false;
 	});
 	$( 'div.settings div.sidebar ol li characteristics' ).click( function() {
-		Settings.SwitchSettings( 'characteristics' );
+		Settings.SwitchSettings( 'characteristics a' );
+		return false;
 	});
-	$( 'div.settings div.sidebar ol li interests' ).click( function() {
-		Settings.SwitchSettings( 'interests' );
+	$( 'div.settings div.sidebar ol li interests a' ).click( function() {
+		Settings.SwitchSettings( 'interests a' );
+		return false;
 	});
-	$( 'div.settings div.sidebar ol li contact' ).click( function() {
+	$( 'div.settings div.sidebar ol li contact a' ).click( function() {
 		Settings.SwitchSettings( 'contact' );
+		return false;
 	});
-	$( 'div.settings div.sidebar ol li settings' ).click( function() {
+	$( 'div.settings div.sidebar ol li settings a' ).click( function() {
 		Settings.SwitchSettings( 'settings' );
+		return false;
 	});
+	/*
 	$( 'div.settings div.sidebar ol li a' ).click( function() {
 		return false;
 	});
+	*/
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
