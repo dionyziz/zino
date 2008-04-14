@@ -114,7 +114,7 @@ $( document ).ready( function() {
 		if ( day != -1 && month != -1 && year != -1 ) {
 			if ( Dates.ValidDate( day , month , year ) ) {
 				if ( Settings.invaliddob ) {
-					$( 'div.settings div.tabs form#personal div span.invaliddob' )
+					$( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
 						.animate( { opacity: "0" } , 1000 , function() {
 							$( this ).css( "display" , "none" );
 						});
@@ -126,7 +126,7 @@ $( document ).ready( function() {
 			}
 			else {
 				if ( !Settings.invaliddob ) {
-					$( 'div.settings div.tabs form#personal div span.invaliddob' )
+					$( 'div.settings div.tabs form#personalinfo div span.invaliddob' )
 						.css( "display" , "inline" )
 						.animate( { opacity: "1" } , 200 );	
 					Settings.invaliddob = true;
