@@ -9,11 +9,25 @@
 		return $hash;
 	}
 
+	function Trust_HashInUse( $hash ) {
+		global $db;
+
+		$sql = "SELECT * FROM `ddos` WHERE `session_hash` = '$hash' LIMIT 1;";
+
+		$res = $db->Query( $sql );
+
+		return $res->Results();
+	}
+
 	function Trust_NewSession() {
 		global $db;
 	
 		$ip = UserIp();
 		$hash = Trust_CreateHash();
+
+		while ( Trust_HashInUse( $hash ) ) {
+			$hash = Trust_CreateHash();
+		}
 		
 		$insert = array(
 			'session_hash' => $hash,
