@@ -43,6 +43,9 @@
 	function Trust_Confirm( $hash ) {
 		global $db;
 
+		w_assert( is_string( $hash )) ;
+		w_assert( strlen( $hash ) == 32 );
+
 		$sql = "UPDATE `ddos` SET `session_jsconfirmed` = 'yes' AND `session_date`='" . NowDate() . "' WHERE `session_hash` = '$hash' LIMIT 1;";
 
 		return $db->Query( $sql )->Impact();
