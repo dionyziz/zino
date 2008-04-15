@@ -35,7 +35,7 @@
 			'session_confirmed' => 'no'
 		);
 
-		$db->Insert( 'merlin_ddos', $insert );
+		$db->Insert( $insert, 'ddos' );
 
 		return $hash;
 	}
