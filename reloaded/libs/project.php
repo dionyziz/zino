@@ -10,6 +10,7 @@
     	$libs->Load( 'magic' );
     	$libs->Load( 'log' );
     	$libs->Load( 'user' );
+        $libs->Load( 'trust' );
         
         $xc_settings = require_once 'excalibur_settings.php';
 

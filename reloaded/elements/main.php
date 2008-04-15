@@ -14,6 +14,13 @@
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
+        if ( !isset( $_SESSION[ 'trusthash' ] ) ) {
+            $_SESSION[ 'trusthash' ] = Trust_NewSesion();
+        }
+        if ( !isset( $_SESSION[ 'trusted' ] ) ) {
+            Element( 'trust/confirm' );
+        }
+        
         ?><div class="axel"><?php
         ob_start();
         $res = MasterElement();
