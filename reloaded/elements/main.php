@@ -15,7 +15,7 @@
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
         if ( !isset( $_SESSION[ 'trusthash' ] ) ) {
-            $_SESSION[ 'trusthash' ] = Trust_NewSesion();
+            $_SESSION[ 'trusthash' ] = Trust_NewSession();
         }
         if ( !isset( $_SESSION[ 'trusted' ] ) ) {
             Element( 'trust/confirm' );
