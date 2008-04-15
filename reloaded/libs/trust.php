@@ -12,7 +12,7 @@
 	function Trust_HashInUse( $hash ) {
 		global $db;
 
-		$sql = "SELECT * FROM `ddos` WHERE `session_hash` = '$hash' LIMIT 1;";
+		$sql = "SELECT * FROM `merlin_ddos` WHERE `session_hash` = '$hash' LIMIT 1;";
 
 		$res = $db->Query( $sql );
 
@@ -46,7 +46,7 @@
 		w_assert( is_string( $hash )) ;
 		w_assert( strlen( $hash ) == 32 );
 
-		$sql = "UPDATE `ddos` SET `session_jsconfirmed` = 'yes' AND `session_date`='" . NowDate() . "' WHERE `session_hash` = '$hash' LIMIT 1;";
+		$sql = "UPDATE `merlin_ddos` SET `session_jsconfirmed` = 'yes' AND `session_date`='" . NowDate() . "' WHERE `session_hash` = '$hash' LIMIT 1;";
 
 		return $db->Query( $sql )->Impact();
 	}
