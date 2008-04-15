@@ -17,8 +17,7 @@
                 FROM 
                     `merlin_ddos`
                 WHERE 
-                    `session_jsconfirmed` = 'no' AND
-                    `session_date` > NOW() - INTERVAL 15 MINUTE
+                    `session_jsconfirmed` = 'no'
                 GROUP BY 
                     `session_ip`
                 HAVING 
