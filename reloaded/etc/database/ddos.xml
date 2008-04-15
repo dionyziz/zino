@@ -10,9 +10,9 @@
 				<value>yes</value>
 			</field>
 			<field name="session_date" type="datetime" />
-            <index type="unique" name="HASH">
-                <indexfield>session_hash</indexfield>
-            </index>
+			<index type="primary">
+				<indexfield>session_hash</indexfield>
+			</index>
 		</table>
 	</database>
 </project>
