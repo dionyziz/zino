@@ -11,7 +11,7 @@
 		$newalbumid = Albums_CreateAlbum( $albumname , $albumdescription );
 		?>location.href = '<?php
 		echo $rabbit_settings[ 'webaddress' ];
-		?>/index.php?p=album&id=<?php
+		?>/?p=album&id=<?php
 		echo $newalbumid;
 		?>';<?php
 	}

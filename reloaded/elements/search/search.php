@@ -77,7 +77,7 @@
 					<div class="middle"></div>
 				</div>
 				<div class="registeropts">
-					<form action="index.php" method="get" id="searchform">
+					<form action="/" method="get" id="searchform">
 						<input type="hidden" name="p" value="search" />
 						<input type="text" name="q" size="35" value="<?php
 						echo htmlspecialchars( $q );

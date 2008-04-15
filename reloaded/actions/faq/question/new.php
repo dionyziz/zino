@@ -24,7 +24,7 @@
             return Redirect( "?p=addfaqq$urleid&noquestion=yes" );
     	}
     	if ( empty( $answer ) ) {
-            return Redirect( "index.php?p=addfaqq$urleid&noanswer=yes" );
+            return Redirect( "?p=addfaqq$urleid&noanswer=yes" );
     	}
     	
     	if ( $eid != 0 ) {

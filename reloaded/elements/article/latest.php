@@ -36,7 +36,7 @@
 		    else {
 				?><br /><?php
 			}
-		?><br /><a href="index.php?p=allarticles&amp;offset=1" style="padding-left:5px;">Παλαιότερα άρθρα</a>
+		?><br /><a href="?p=allarticles&amp;offset=1" style="padding-left:5px;">Παλαιότερα άρθρα</a>
 		</div>
 		<?php
 		return $latestids;	

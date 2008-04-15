@@ -48,7 +48,7 @@
 					Element( 'article/new/filmstrip' , false );
 					?><br /><a href="" onclick="Photos.Newphoto( this );return false;" class="addphoto" id="newphotolink">Νέα φωτογραφία&#187;</a>
 					<br /><br /><div style="padding-left:30px;width:350px;height:100px;display:none;" id="newphoto">
-					<iframe src="index.php?p=uploadframe&amp;albumid=0" frameborder="no" style="width:350px;height:100px;overflow:hidden;"></iframe>
+					<iframe src="?p=uploadframe&amp;albumid=0" frameborder="no" style="width:350px;height:100px;overflow:hidden;"></iframe>
 					</div><?php
 				}
 

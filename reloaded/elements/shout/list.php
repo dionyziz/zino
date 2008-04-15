@@ -53,7 +53,7 @@
 							}
 						}
 						?><div class="boxlink">
-							<a href="index.php?p=allshouts&amp;offset=1">Προβολή Όλων</a>
+							<a href="?p=allshouts&amp;offset=1">Προβολή Όλων</a>
 						</div><?php 
 					}
 					?>

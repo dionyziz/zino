@@ -36,13 +36,13 @@
     	
     	if ( $oldpassword != "" ) {
     		if ( $newpassword != $newpassword2 ) {
-                return Redirect( 'index.php?p=p&match=0' );
+                return Redirect( '?p=p&match=0' );
     		}
     		if ( md5( $oldpassword ) != $user->Password() ) {
-    			return Redirect( 'index.php?p=p&invalid=1' );
+    			return Redirect( '?p=p&invalid=1' );
     		}
     		if ( $newpassword == "" ) {
-    			return Redirect( 'index.php?p=p&newpassword=0' );
+    			return Redirect( '?p=p&newpassword=0' );
     		}
     	}
     	$updateduser = UpdateUser( $signature ,$newpassword ,$email, $gender, $dob, $slogan, $place );
@@ -61,7 +61,7 @@
     			$convert_to_jpg = true;
     		}
     		else if ( $extension != ".jpg" && $extension != ".jpeg" ) {
-                return Redirect( 'index.php?p=p&extok=no' );
+                return Redirect( '?p=p&extok=no' );
     		}
     		
     		$image = substr( $imageid , 0 , $extpos );

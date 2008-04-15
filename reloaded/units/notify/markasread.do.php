@@ -20,7 +20,7 @@
     			switch ( $typeid ) {
     				case 0:
     					$artcl = $comm->Page();
-    					?>index.php?p=story&id=<?php
+    					?>?p=story&id=<?php
     					echo $artcl->Id();
     					?>#comment_<?php
     					echo $notif->Itemid();
@@ -35,14 +35,14 @@
     				case 2:
                     case 5:
     					$artcl = $comm->Page();
-    					?>index.php?p=photo&id=<?php
+    					?>?p=photo&id=<?php
     					echo $artcl->Id();
     					?>#comment_<?php
     					echo $notif->Itemid();
     					break;
 					case 3:
 						$artcl = $comm->Page();
-						?>index.php?p=poll&id=<?php
+						?>?p=poll&id=<?php
 						echo $artcl->Id();
 						?>#comment_<?php
 						echo $notif->Itemid();

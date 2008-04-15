@@ -34,7 +34,7 @@
     		$_SESSION[ 's_seid' ] 			= $eid;
     		$_SESSION[ 's_sicon' ] 			= $icon;
     		$_SESSION[ 's_sshowemoticons' ] = $showemoticons;
-    		return Redirect( 'index.php?p=addstory&id=' . $eid . '&preview=yes' );
+    		return Redirect( '?p=addstory&id=' . $eid . '&preview=yes' );
     	}
     	else {
     		if ( $eid != 0 ) {

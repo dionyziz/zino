@@ -7,7 +7,7 @@
 		$page->AttachStylesheet( 'css/articles.css' );
 		
 		?><div><br />
-			<h2><a href="index.php?p=story&amp;id=<?php 
+			<h2><a href="?p=story&amp;id=<?php 
 			echo $article->Id(); 
 			?>"><?php
             //Element( 'image', $article->Icon(), 100, 100, 'storyicon', '', $article->Title(), $article->Title() );

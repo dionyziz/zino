@@ -45,7 +45,7 @@
 		?><br />
 			<div class="tabs">
 			</div>
-			<br /><a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
+			<br /><a href="?p=advertise">&#187;Διαφημιστείτε στο <?php
 			echo $rabbit_settings[ 'applicationname' ];
 			?></a><br /><br /><?php
             Element( "ad/leaderboard" );
