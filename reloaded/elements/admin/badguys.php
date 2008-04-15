@@ -1,5 +1,5 @@
 <?php
-    function ElementBadGuys() {
+    function ElementAdminBadGuys() {
         global $user;
         
         if ( !$user->IsSysOp() ) {
