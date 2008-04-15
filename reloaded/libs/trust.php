@@ -3,7 +3,7 @@
 	function Trust_CreateHash() {
 		$hash = "";
 		for ( $i = 0; $i < 32; ++$i ) {
-			$hash .= dectohex( 0, 15 );
+			$hash .= dechex( 0, 15 );
 		}
 
 		return $hash;
