@@ -9,6 +9,32 @@
 		return $hash;
 	}
 
+    function Trust_GetUntrusted() {
+        global $db;
+        
+        $sql = "SELECT 
+                    *, COUNT( * ) AS howmany
+                FROM 
+                    `merlin_ddos`
+                WHERE 
+                    `session_jsconfirmed` = 'no' AND
+                    `session_date` > NOW() - INTERVAL 15 MINUTE
+                GROUP BY 
+                    `session_ip`
+                HAVING 
+                    howmany > 10
+                ORDER BY 
+                    `howmany` DESC
+                LIMIT 30;";
+        $res = $db->Query( $sql );
+        
+        $ips = array();
+        while ( $row = $res->FetchArray() ) {
+            $ips[] = long2ip( $row[ 'session_ip' ] );
+        }
+        return $ips;
+    }
+    
 	function Trust_HashInUse( $hash ) {
 		global $db;
 

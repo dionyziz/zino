@@ -105,7 +105,8 @@
 			'tag'				=> 'interesttag/view',
             'wysiwyg'           => 'developer/dionyziz/wysiwyg',
             'photolist'         => 'photo/list',
-            'memcache'          => 'admin/memcache'
+            'memcache'          => 'admin/memcache',
+            'badguys'           => 'admin/badguys'
     	);
     }
 ?>
