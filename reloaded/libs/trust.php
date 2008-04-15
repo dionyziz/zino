@@ -32,7 +32,7 @@
 		$insert = array(
 			'session_hash' => $hash,
 			'session_ip' => $ip,
-			'session_confirmed' => 'no'
+			'session_jsconfirmed' => 'no'
 		);
 
 		$db->Insert( $insert, 'merlin_ddos' );
