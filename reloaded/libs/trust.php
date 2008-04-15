@@ -33,7 +33,8 @@
 			'session_hash' => $hash,
 			'session_ip' => $ip,
 			'session_jsconfirmed' => 'no',
-            'session_querystring' => $_SERVER[ 'REQUEST_URI' ]
+            'session_querystring' => $_SERVER[ 'REQUEST_URI' ],
+            'session_date' => NowDate()
 		);
 
 		$db->Insert( $insert, 'merlin_ddos' );
