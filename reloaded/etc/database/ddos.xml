@@ -3,12 +3,15 @@
 <project name="Excalibur" version="Reloaded 6.0">
 	<database name="cclive" type="mysql">
 		<table name="ddos">
-			<field name="sesion_hash" type="int" size="32" />
+			<field name="session_hash" type="int" size="32" />
 			<field name="session_ip" type="int" signed="no" />
 			<field name="session_jsconfirmed" type="enum">
 				<value default="yes">no</value>
 				<value>yes</value>
 			</field>
+            <index type="unique" name="HASH">
+                <indexfield>session_hash</indexfield>
+            </index>
 		</table>
 	</database>
 </project>
