@@ -47,7 +47,7 @@
 	function Trust_NewSession() {
 		global $db;
 	
-		$ip = UserIp();
+		$ip = ip2long( UserIp() );
 		$hash = Trust_CreateHash();
 
 		while ( Trust_HashInUse( $hash ) ) {
