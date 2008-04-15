@@ -9,6 +9,7 @@
 				<value default="yes">no</value>
 				<value>yes</value>
 			</field>
+			<field name="session_date" type="datetime" />
             <index type="unique" name="HASH">
                 <indexfield>session_hash</indexfield>
             </index>
