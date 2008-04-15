@@ -1,6 +1,12 @@
 <?php
 
 	function Trust_CreateHash() {
+		$hash = "";
+		for ( $i = 0; $i < 32; ++$i ) {
+			$hash .= dectohex( 0, 15 );
+		}
+
+		return $hash;
 	}
 
 	function Trust_NewSession() {
