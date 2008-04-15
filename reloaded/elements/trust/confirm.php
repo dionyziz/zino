@@ -1,5 +1,7 @@
 <?php
     function ElementTrustConfirm() {
+        global $page;
+        
         if ( isset( $_SESSION[ 'trusted' ] ) || !isset( $_SESSION[ 'trusthash' ] ) ) {
             return;
         }
