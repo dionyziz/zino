@@ -21,6 +21,7 @@
                 'charset'  => 'DEFAULT',
                 'prefix'   => 'merlin_',
                 'tables'   => array(
+					'ddos'				=> 'ddos',
                 	'articles'      	=> 'articles',
                 	'bans'          	=> 'ipban',
                 	'bulk'          	=> 'bulk',
