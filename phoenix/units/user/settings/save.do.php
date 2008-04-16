@@ -2,7 +2,7 @@
 
 	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
-		?>alert( 'unit called' );<?php
+
 		if ( $user->Exists() ) {
 			$dobd = $dobd->Get();
 			$dobm = $dobm->Get();
@@ -51,7 +51,12 @@
 				?>alert( '<?php echo $politics; ?>' );<?php
 			}
 			if ( $aboutme ) {
-				?>alert( '<?php echo $aboutme; ?>' );<?php
+				if ( $aboutme == '-1' ) {
+				
+				}
+				else {
+					?>alert( '<?php echo $aboutme; ?>' );<?php
+				}
 				//if aboutme == -1 then save the empty string
 			}
 			if ( $haircolor ) {
@@ -73,11 +78,31 @@
 				?>alert( '<?php echo $drinker; ?>' );<?php
 			}
 			if ( $email ) {
-				?>alert( '<?php echo $email; ?>' );<?php
+				if ( $email == '-1' ) {
+					?>alert( 'save no email' );<?php
+				}
+				else {
+					if ( $preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
+						?>alert( 'email <?php echo $email; ?>' );<?php
+					}
+					else {
+					
+					}
+				}
 				//if email == -1 save empty
 			}
 			if ( $msn ) {
-				?>alert( '<?php echo $msn; ?>' );<?php
+				if ( $msn == '-1' ) {
+					?>alert( 'save no msn' );<?php
+				}
+				else {
+					if ( $preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $msn ) ) {
+						?>alert( 'msn <?php echo $msn; ?>' );<?php
+					}
+					else {
+					
+					}
+				}
 			}
 			if ( $gtalk ) {
 				?>alert( '<?php echo $gtalk; ?>' );<?php
