@@ -171,13 +171,24 @@ $( document ).ready( function() {
 		if ( this.value == '' ) {
 			text = '-1';
 		}
-		Settings.Enqueue( 'email' , text , 1000 );
+		Settings.Enqueue( 'email' , text , 500 );
 	}).keyup( function() {
 		var text = this.value;
-		if ( this.value == '' ) {
-			text = '-1';
+		if ( Settings.invalidemail ) {
+			if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+				$( 'div#email span' ).animate( { opacity: "0" } , 1000 , function() {
+					$( 'div#email span' ).css( "display" , "none" );
+				});
+				Settings.invalidemail = false;
+				Settings.Enqueue( 'email' , text , 3000 );
+			}
 		}
-		Settings.Enqueue( 'email' , text , 3000 );
+		else {
+			if ( this.value == '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'email' , text , 3000 );
+		}
 		Settings.email = this.value;
 	});
 	
@@ -186,13 +197,24 @@ $( document ).ready( function() {
 		if ( this.value == '' ) {
 			text = '-1';
 		}
-		Settings.Enqueue( 'msn' , text , 1000 );
+		Settings.Enqueue( 'msn' , text , 500 );
 	}).keyup( function() {
 		var text = this.value;
-		if ( this.value == '' ) {
-			text = '-1';
+		if ( Settings.invalidmsn ) {
+			if ( /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( text ) ) {
+				$( 'div#msn span' ).animate( { opacity: "0" } , 1000 , function() {
+					$( 'div#msn span' ).css( "display" , "none" );
+				});
+				Settings.invalidmsn = false;
+				Settings.Enqueue( 'msn' , text , 3000 );
+			}
 		}
-		Settings.Enqueue( 'msn' , text , 3000 );
+		else {
+			if ( this.value == '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'msn' , text , 3000 );
+		}
 		Settings.msn = this.value;
 	});
 	
@@ -201,7 +223,7 @@ $( document ).ready( function() {
 		if ( this.value == '' ) {
 			text = '-1';
 		}
-		Settings.Enqueue( 'gtalk' , text , 1000 );
+		Settings.Enqueue( 'gtalk' , text , 500 );
 	}).keyup( function() {
 		var text = this.value;
 		if ( this.value == '' ) {
@@ -216,7 +238,7 @@ $( document ).ready( function() {
 		if ( this.value == '' ) {
 			text = '-1';
 		}
-		Settings.Enqueue( 'skype' , text , 1000 );
+		Settings.Enqueue( 'skype' , text , 500 );
 	}).keyup( function() {
 		var text = this.value;
 		if ( this.value == '' ) {
@@ -231,7 +253,7 @@ $( document ).ready( function() {
 		if ( this.value == '' ) {
 			text = '-1';
 		}
-		Settings.Enqueue( 'yahoo' , text , 1000 );
+		Settings.Enqueue( 'yahoo' , text , 500 );
 	}).keyup( function() {
 		var text = this.value;
 		if ( this.value == '' ) {
