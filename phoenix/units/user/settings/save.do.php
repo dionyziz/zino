@@ -126,6 +126,7 @@
 				?>alert( '<?php echo $web; ?>' );<?php
 			}
 			?>$( Settings.showsaving ).animate( { opacity : "0" } , 200 , function() {
+				alert( 'debug 0' );
 				$( Settings.showsaving ).css( "display" , "none" );
 			});<?php
 			if ( !$emailerror && !$msnerror ) {
@@ -133,6 +134,7 @@
 					.css( "display" , "block" )
 					.css( "opacity" , "1" )
 					.animate( { opacity : "0" } , 1500 , function() {
+						alert( 'debug #1' );
 						$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
 					});
 				});
