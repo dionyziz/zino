@@ -34,6 +34,7 @@
         return $ips;
     }
     
+
 	function Trust_HashInUse( $hash ) {
 		global $db;
 
@@ -46,6 +47,8 @@
 
 	function Trust_NewSession() {
 		global $db;
+		global $userbrowser_name;
+		global $userbrowser_version;
 	
 		$ip = ip2long( UserIp() );
 		$hash = Trust_CreateHash();
@@ -53,11 +56,14 @@
 		while ( Trust_HashInUse( $hash ) ) {
 			$hash = Trust_CreateHash();
 		}
+
+		$useragent = $userbrowser_name . ' ' . $userbrowser_version;
 		
 		$insert = array(
 			'session_hash' => $hash,
 			'session_ip' => $ip,
 			'session_jsconfirmed' => 'no',
+			'session_useragent' => $useragent,
             'session_querystring' => $_SERVER[ 'REQUEST_URI' ],
             'session_date' => NowDate()
 		);
@@ -73,7 +79,7 @@
 		w_assert( is_string( $hash )) ;
 		w_assert( strlen( $hash ) == 32 );
 
-		$sql = "UPDATE `merlin_ddos` SET `session_jsconfirmed` = 'yes' AND `session_date`=NOW() WHERE `session_hash` = '$hash' LIMIT 1;";
+		$sql = "UPDATE `merlin_ddos` SET `session_jsconfirmed` = 'yes', `session_date`='" . NowDate() . "' WHERE `session_hash` = '$hash' LIMIT 1;";
 
 		return $db->Query( $sql )->Impact();
 	}
