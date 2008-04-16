@@ -29,7 +29,7 @@ var Settings = {
 			}
 		}
 		if ( !found ) {
-			$( '#' + validtabs[ 0 ] ).css( "display" , "block" );
+			$( '#' + validtabs[ 0 ] + 'info' ).css( "display" , "block" );
 			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
