@@ -138,6 +138,12 @@
 				});
 				<?php
 			}
+			else {
+				?>$( Settings.showsaving )
+				.animate( { opacity : "0" } , 200 , function() {
+						$( Settings.showsaving ).css( "display" , "none" );
+					});<?php		
+			}
 		}
 	}
 ?>
