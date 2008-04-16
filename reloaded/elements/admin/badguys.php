@@ -9,12 +9,10 @@
         $untrusted = Trust_GetUntrusted();
         ?>There are <?php
         echo count( $untrusted );
-        ?> recent bad guys sneakin' around!<br /><br /><ul><?php
+        ?> recent bad guys sneakin' around!<br /><br /><?php
         foreach ( $untrusted as $ip ) {
-            ?><li><?php
             echo htmlspecialchars( $ip );
-            ?></li><?php
+            ?><br /><?php
         }
-        ?></ul><?php
     }
 ?>
