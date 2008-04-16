@@ -86,6 +86,7 @@
 						?>alert( 'email <?php echo $email; ?>' );<?php
 					}
 					else {
+						$emailerror = true;
 						?>$( 'div#email span' ).css( "display" , "inline" )
 						.animate( { opacity: "1"} , 200 , function() {
 							Settings.invalidemail = true;
@@ -103,7 +104,8 @@
 						?>alert( 'msn <?php echo $msn; ?>' );<?php
 					}
 					else {
-						?>$( 'div#email span' ).css( "display" , "inline" )
+						$msnerror = true;
+						?>$( 'div#msn span' ).css( "display" , "inline" )
 						.animate( { opacity: "1"} , 200 , function() {
 							Settings.invalidmsn = true;
 						} );<?php
@@ -123,17 +125,19 @@
 			if ( $web ) {
 				?>alert( '<?php echo $web; ?>' );<?php
 			}
-			?>$( Settings.showsaving )
-				.animate( { opacity : "0" } , 200 , function() {
-				$( Settings.showsaving ).css( "display" , "none" );
-				$( Settings.showsaved )
-					.css( "display" , "block" )
-					.css( "opacity" , "1" )
-					.animate( { opacity : "0" } , 1500 , function() {
-						$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
-					});
-			});
-			<?php
+			if ( !$emailerror && !$msnerror ) {
+				?>$( Settings.showsaving )
+					.animate( { opacity : "0" } , 200 , function() {
+					$( Settings.showsaving ).css( "display" , "none" );
+					$( Settings.showsaved )
+						.css( "display" , "block" )
+						.css( "opacity" , "1" )
+						.animate( { opacity : "0" } , 1500 , function() {
+							$( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
+						});
+				});
+				<?php
+			}
 		}
 	}
 ?>
