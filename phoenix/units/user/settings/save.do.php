@@ -131,7 +131,7 @@
 				alert( 'debug 0' );
 				$( Settings.showsaving ).css( "display" , "none" );
 			});<?php
-			if ( !$emailerror && !$msnerror ) {
+			//if ( !$emailerror && !$msnerror ) {
 				?>$( Settings.showsaved )
 					.css( "display" , "block" )
 					.css( "opacity" , "1" )
@@ -141,7 +141,7 @@
 					});
 				});
 				<?php
-			}
+			//}
 		}
 	}
 ?>
