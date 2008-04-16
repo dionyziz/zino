@@ -6,8 +6,8 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th>Ειδοποίηση μέσω e-mail</th>
-						<th>Ειδοποίηση μέσα στο site</th>
+						<th>Μέσω e-mail</th>
+						<th>Μέσα στο site</th>
 					</tr>
 				</thead>
 				<tbody>

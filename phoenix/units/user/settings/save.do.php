@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
 	
 		if ( $user->Exists() ) {
@@ -20,6 +20,12 @@
 			$weight = $weight->Get();
 			$smoker = $smoker->Get();
 			$drinker = $drinker->Get();
+			$email = $email->Get();
+			$msn = $msn->Get();
+			$gtalk = $gtalk->Get();
+			$skype = $skype->Get();
+			$yahoo = $yahoo->Get();
+			$web = $web->Get();
 			
 			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
 				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
@@ -65,6 +71,26 @@
 			}
 			if ( $drinker ) {
 				?>alert( '<?php echo $drinker; ?>' );<?php
+			}
+			if ( $email ) {
+				?>alert( '<?php echo $email; ?>' );<?php
+				//if email == -1 save empty
+			}
+			if ( $msn ) {
+				?>alert( '<?php echo $msn; ?>' );<?php
+			}
+			if ( $gtalk ) {
+				?>alert( '<?php echo $gtalk; ?>' );<?php
+			
+			}
+			if ( $skype ) {
+				?>alert( '<?php echo $skype; ?>' );<?php
+			}
+			if ( $yahoo ) {
+				?>alert( '<?php echo $yahoo; ?>' );<?php
+			}
+			if ( $web ) {
+				?>alert( '<?php echo $web; ?>' );<?php
 			}
 			?>$( Settings.showsaving )
 				.animate( { opacity : "0" } , 200 , function() {

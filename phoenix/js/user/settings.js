@@ -5,6 +5,12 @@ var Settings = {
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
 	aboutmetext : $( '#aboutme textarea' )[ 0 ].value,
+	email : $( '#email input' )[ 0 ].value,
+	msn : $( '#msn input' )[ 0 ].value,
+	gtalk : $( '#gtalk input' )[ 0 ].value,
+	skype : $( '#skype input' )[ 0 ].value,
+	yahoo : $( '#yahoo input' )[ 0 ].value,
+	web : $( '#web input' )[ 0 ].value,
 	SwitchSettings : function( divtoshow ) {
 		//var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -66,33 +72,6 @@ var Settings = {
 	}
 };
 $( document ).ready( function() {
-	//var validtabs = [ "personal" , "characteristics" , "interests" , "contact" , "settings" ];
-	/*
-	$( 'div.settings div.sidebar ol li personal a' ).click( function() {
-		Settings.SwitchSettings( 'personal' );
-		return false;
-	});
-	$( 'div.settings div.sidebar ol li characteristics' ).click( function() {
-		Settings.SwitchSettings( 'characteristics a' );
-		return false;
-	});
-	$( 'div.settings div.sidebar ol li interests a' ).click( function() {
-		Settings.SwitchSettings( 'interests a' );
-		return false;
-	});
-	$( 'div.settings div.sidebar ol li contact a' ).click( function() {
-		Settings.SwitchSettings( 'contact' );
-		return false;
-	});
-	$( 'div.settings div.sidebar ol li settings a' ).click( function() {
-		Settings.SwitchSettings( 'settings' );
-		return false;
-	});
-	/*
-	$( 'div.settings div.sidebar ol li a' ).click( function() {
-		return false;
-	});
-	*/
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
@@ -134,14 +113,6 @@ $( document ).ready( function() {
 			}
 		}
 	});
-	/*
-	this doesn't work correctly
-	var inputids = [ "place" , "education" , "sex" , "religion" , "politics" , "haircolor" , "eyecolor" , "height" , "weight" , "smoker" , "drinker" ];
-	for ( i = 0; i < inputids.length; ++i ) {
-		$( '#' + inputids[ i ] + ' select' ).change( function() {
-			Settings.Enqueue( inputids[ i ] , this.value , 3000 );
-		});
-	}*/
 	$( '#place select' ).change( function() {
 		Settings.Enqueue( 'place' , this.value , 3000 );
 	});
@@ -182,8 +153,7 @@ $( document ).ready( function() {
 			text = '-1';
 		}
 		Settings.Enqueue( 'aboutme' , text , 3000 );
-	});
-	$( '#aboutme textarea' ).keyup( function() {
+	}).keyup( function() {
 		if ( Settings.aboutmetext != this.value ) {
 			var text = this.value;
 			if ( this.value == '' ) {
@@ -192,6 +162,81 @@ $( document ).ready( function() {
 			Settings.Enqueue( 'aboutme' , text , 3000 );
 			Settings.aboutmetext = this.value;
 		}
+	});
+	
+	$( '#email input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'email' , text , 3000 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'email' , text , 3000 );
+		Settings.email = this.value;
+	});
+	
+	$( '#msn input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'msn' , text , 3000 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'msn' , text , 3000 );
+		Settings.msn = this.value;
+	});
+	
+	$( '#gtalk input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'gtalk' , text , 3000 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'gtalk' , text , 3000 );
+		Settings.gtalk = this.value;
+	});
+	
+	$( '#skype input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'skype' , text , 3000 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'skype' , text , 3000 );
+		Settings.skype = this.value;
+	});
+	
+	$( '#yahoo input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'yahoo' , text , 3000 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'yahoo' , text , 3000 );
+		Settings.yahoo = this.value;
 	});
 });
 //setInterval( Settings.SwitchSettings , 500 );
