@@ -16,6 +16,8 @@
 			</span>
 			<span class="saved">Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
 		</div>
-		<a class="backtoprofile" href="" onclick="return false">Επιστροφή στο προφίλ</a><?php
+		<a class="backtoprofile button" style="padding-top:0;padding-bottom:0;" href="<?php
+		Element( 'user/url' , $user );
+		?>">Επιστροφή στο προφίλ</a><?php
 	}
 ?>

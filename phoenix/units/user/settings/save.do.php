@@ -45,7 +45,7 @@
 				$user->Profile->Education = $education;
 			}
 			if ( $sex ) {	
-				$user->Profile->Sex = $sex;
+				$user->Profile->Sexualorientation = $sex;
 			}
 			if ( $religion ) {
 				$user->Profile->Religion =  $religion;
