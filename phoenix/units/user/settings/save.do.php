@@ -2,7 +2,7 @@
 
 	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
-	
+		?>alert( 'unit called' );<?php
 		if ( $user->Exists() ) {
 			$dobd = $dobd->Get();
 			$dobm = $dobm->Get();
