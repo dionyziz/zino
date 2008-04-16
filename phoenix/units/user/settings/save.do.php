@@ -125,8 +125,7 @@
 			if ( $web ) {
 				?>alert( '<?php echo $web; ?>' );<?php
 			}
-			?>$( Settings.showsaving )
-				.animate( { opacity : "0" } , 200 , function() {
+			?>$( Settings.showsaving ).animate( { opacity : "0" } , 200 , function() {
 				$( Settings.showsaving ).css( "display" , "none" );
 			});<?php
 			if ( !$emailerror && !$msnerror ) {
