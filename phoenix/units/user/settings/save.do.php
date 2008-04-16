@@ -78,6 +78,7 @@
 				?>alert( '<?php echo $drinker; ?>' );<?php
 			}
 			if ( $email ) {
+				$emailerror = false;
 				if ( $email == '-1' ) {
 					?>alert( 'save no email' );<?php
 				}
@@ -96,6 +97,7 @@
 				//if email == -1 save empty
 			}
 			if ( $msn ) {
+				$msnerror = false;
 				if ( $msn == '-1' ) {
 					?>alert( 'save no msn' );<?php
 				}
