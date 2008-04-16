@@ -87,7 +87,7 @@
 					}
 					else {
 						?>$( 'div#email span' ).css( "display" , "inline" )
-						.animate( { opacity: "1" , 200 , function() {
+						.animate( { opacity: "1"} , 200 , function() {
 							Settings.invalidemail = true;
 						} );<?php
 					}
@@ -104,7 +104,7 @@
 					}
 					else {
 						?>$( 'div#email span' ).css( "display" , "inline" )
-						.animate( { opacity: "1" , 200 , function() {
+						.animate( { opacity: "1"} , 200 , function() {
 							Settings.invalidmsn = true;
 						} );<?php
 					}
