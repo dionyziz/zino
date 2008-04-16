@@ -21,7 +21,7 @@ var Settings = {
 		
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
-				$( '#' + divtoshow + 'info' ).show( 'fast' );
+				$( '#' + divtoshow + 'info' ).show( 'slow' );
 				Settings.FocusSettingLink( settingslis[ i ], true );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				/*if ( divtoshow == 'interests' ) {
@@ -31,13 +31,13 @@ var Settings = {
 				found = true;
 			}
 			else {
-				$( '#' + validtabs[ i ] + 'info' ).hide( 'fast' );
+				$( '#' + validtabs[ i ] + 'info' ).hide( 'slow' );
 				Settings.FocusSettingLink( settingslis[ i ], false );
 				
 			}
 		}
 		if ( !found ) {
-			$( '#' + validtabs[ 0 ] + 'info' ).show( 'fast' );
+			$( '#' + validtabs[ 0 ] + 'info' ).show( 'slow' );
 			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
