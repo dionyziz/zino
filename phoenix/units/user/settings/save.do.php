@@ -125,7 +125,7 @@
 			if ( $web ) {
 				?>alert( '<?php echo $web; ?>' );<?php
 			}
-			//if ( !$emailerror && !$msnerror ) {
+			if ( !$emailerror && !$msnerror ) {
 				?>$( Settings.showsaving )
 					.animate( { opacity : "0" } , 200 , function() {
 					$( Settings.showsaving ).css( "display" , "none" );
@@ -137,6 +137,7 @@
 						});
 				});
 				<?php
+			}
 		}
 	}
 ?>
