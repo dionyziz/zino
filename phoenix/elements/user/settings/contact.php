@@ -1,6 +1,7 @@
 <?php
 	function ElementUserSettingsContact() {
 		global $user;
+		global $rabbit_settings;
 		
 		?><div>
 			<label>E-mail:</label>
@@ -8,6 +9,11 @@
 				<input type="text" name="email" class="small" value="<?php
 				echo htmlspecialchars( $user->Email );
 				?>" />
+				<span>
+					<img src="<?php
+					echo $rabbit_settings[ "imagesurl" ];
+					?>exclamation.png" /> Το email δεν είναι έγκυρο
+				</span>
 			</div>
 		</div>
 		<div>
@@ -16,6 +22,11 @@
 				<input type="text" name="msn" class="small" value="<?php
 				echo htmlspecialchars( $user->Profile->Msn );
 				?>" />
+				<span>
+					<img src="<?php
+					echo $rabbit_settings[ "imagesurl" ];
+					?>exclamation.png" /> Το ΜΣΝ δεν είναι έγκυρο
+				</span>
 			</div>
 		</div>
 		<div>

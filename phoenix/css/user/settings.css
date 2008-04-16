@@ -125,3 +125,11 @@ div.settings div.tabs form div div.setting {
 div.settings div.tabs form#contactinfo div div.setting input {
 	width: 300px;
 }
+div#email span {
+	font-weight: bold;
+	font-size: 80%;
+}
+div#msn span {
+	font-weight: bold;
+	font-size: 80%;
+}
