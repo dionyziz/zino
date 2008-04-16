@@ -33,57 +33,57 @@
 				}
 			}
 			if ( $gender ) {
-				?>alert( '<?php echo $gender; ?>' );<?php
+				$user->Profile->Gender = $gender;
 			}
 			if ( $place ) {
-				?>alert( '<?php echo $place; ?>' );<?php
+				$newplace = new Place( $place );
+				if ( $newplace->Exists() ) {
+					$user->Profile->Location = $place;
+				}
 			}
 			if ( $education ) {
-				?>alert( '<?php echo $education; ?>' );<?php
+				$user->Profile->Education = $education;
 			}
 			if ( $sex ) {	
-				?>alert( '<?php echo $sex; ?>' );<?php
+				$user->Profile->Sex = $sex;
 			}
 			if ( $religion ) {
-				?>alert( '<?php echo $religion; ?>' );<?php
+				$user->Profile->Religion =  $religion;
 			}
 			if ( $politics ) {
-				?>alert( '<?php echo $politics; ?>' );<?php
+				$user->Profile->Politics = $politics;
 			}
 			if ( $aboutme ) {
 				if ( $aboutme == '-1' ) {
-				
+					$aboutme = '';
 				}
-				else {
-					?>alert( '<?php echo $aboutme; ?>' );<?php
-				}
-				//if aboutme == -1 then save the empty string
+				$user->Profile->Aboutme = $aboutme;
 			}
 			if ( $haircolor ) {
-				?>alert( '<?php echo $haircolor; ?>' );<?php
+				$user->Profile->Haircolor = $haircolor;
 			}
 			if ( $eyecolor ) {
-				?>alert( '<?php echo $eyecolor; ?>' );<?php
+				$user->Profile->Eyecolor = $eyecolor;
 			}
-			if ( $height == -1 || $height == -2 || $height == -3 || $height >= 120 && $height <= 220 ) {
-				?>alert( '<?php echo $height; ?>' );<?php
+			if ( $height ) {
+				$user->Profile->Height = $height;
 			}
-			if ( $weight == -1 || $weight == -2 || $weight == -3 || $weight >= 20 && $weight <= 150 ) {
-				?>alert( '<?php echo $weight; ?>' );<?php
+			if ( $weight ) {
+				$user->Profile->Weight = $weight;
 			}
 			if ( $smoker ) {
-				?>alert( '<?php echo $smoker; ?>' );<?php
+				$user->Profile->Smoker = $smoker;
 			}
 			if ( $drinker ) {
-				?>alert( '<?php echo $drinker; ?>' );<?php
+				$user->Profile->Drinker = $drinker;
 			}
 			if ( $email ) {
 				if ( $email == '-1' ) {
-					?>alert( 'save no email' );<?php
+					$user->Email = '';
 				}
 				else {
 					if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
-						?>alert( 'email <?php echo $email; ?>' );<?php
+						$user->Email = $email;
 					}
 					else {
 						$emailerror = true;
@@ -97,11 +97,11 @@
 			}
 			if ( $msn ) {
 				if ( $msn == '-1' ) {
-					?>alert( 'save no msn' );<?php
+					$user->Profile->Msn = '';
 				}
 				else {
 					if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $msn ) ) {
-						?>alert( 'msn <?php echo $msn; ?>' );<?php
+						$user->Profile->Msn = $msn;
 					}
 					else {
 						$msnerror = true;
@@ -113,17 +113,17 @@
 				}
 			}
 			if ( $gtalk ) {
-				?>alert( '<?php echo $gtalk; ?>' );<?php
+				$user->Profile->Gtalk = $gtalk;
 			
 			}
 			if ( $skype ) {
-				?>alert( '<?php echo $skype; ?>' );<?php
+				$user->Profile->Skype = $skype;
 			}
 			if ( $yahoo ) {
-				?>alert( '<?php echo $yahoo; ?>' );<?php
+				$user->Profile->Yahoo = $yahoo;
 			}
 			if ( $web ) {
-				?>alert( '<?php echo $web; ?>' );<?php
+				$user->Profile->Web = $web;
 			}
 			if ( !$emailerror && !$msnerror ) {
 				?>$( Settings.showsaving )
