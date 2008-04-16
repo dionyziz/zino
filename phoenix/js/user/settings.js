@@ -15,8 +15,8 @@ var Settings = {
 			if ( divtoshow == validtabs[ i ] ) {
 				$( '#' + divtoshow + 'info' ).css( "display" , "block" );
 				Settings.FocusSettingLink( settingslis[ i ], true );
-				/*window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
-				if ( divtoshow == 'interests' ) {
+				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
+				/*if ( divtoshow == 'interests' ) {
 					window.scrollTo( 0 , 0 );
 				}
 				*/
