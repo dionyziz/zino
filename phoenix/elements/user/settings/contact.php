@@ -25,7 +25,7 @@
 				<span>
 					<img src="<?php
 					echo $rabbit_settings[ "imagesurl" ];
-					?>exclamation.png" /> Το ΜΣΝ δεν είναι έγκυρο
+					?>exclamation.png" /> Το MSN δεν είναι έγκυρο
 				</span>
 			</div>
 		</div>

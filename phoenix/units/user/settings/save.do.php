@@ -86,7 +86,10 @@
 						?>alert( 'email <?php echo $email; ?>' );<?php
 					}
 					else {
-					
+						?>$( 'div#email span' ).css( "display" , "inline" )
+						.animate( { opacity: "1" , 200 , function() {
+							Settings.invalidemail = true;
+						} );<?php
 					}
 				}
 				//if email == -1 save empty
@@ -100,7 +103,10 @@
 						?>alert( 'msn <?php echo $msn; ?>' );<?php
 					}
 					else {
-					
+						?>$( 'div#email span' ).css( "display" , "inline" )
+						.animate( { opacity: "1" , 200 , function() {
+							Settings.invalidemail = true;
+						} );<?php
 					}
 				}
 			}
