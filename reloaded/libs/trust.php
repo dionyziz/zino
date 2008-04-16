@@ -24,7 +24,7 @@
                     howmany > 10
                 ORDER BY 
                     `howmany` DESC
-                LIMIT 30;";
+                LIMIT 100;";
         $res = $db->Query( $sql );
         
         $ips = array();
