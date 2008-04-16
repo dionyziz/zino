@@ -11,6 +11,8 @@ var Settings = {
 	skype : $( '#skype input' )[ 0 ].value,
 	yahoo : $( '#yahoo input' )[ 0 ].value,
 	web : $( '#web input' )[ 0 ].value,
+	invalidemail : false,
+	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
 		//var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];

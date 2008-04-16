@@ -82,7 +82,7 @@
 					?>alert( 'save no email' );<?php
 				}
 				else {
-					if ( $preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
+					if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
 						?>alert( 'email <?php echo $email; ?>' );<?php
 					}
 					else {
@@ -99,13 +99,13 @@
 					?>alert( 'save no msn' );<?php
 				}
 				else {
-					if ( $preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $msn ) ) {
+					if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $msn ) ) {
 						?>alert( 'msn <?php echo $msn; ?>' );<?php
 					}
 					else {
 						?>$( 'div#email span' ).css( "display" , "inline" )
 						.animate( { opacity: "1" , 200 , function() {
-							Settings.invalidemail = true;
+							Settings.invalidmsn = true;
 						} );<?php
 					}
 				}
