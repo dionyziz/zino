@@ -34,7 +34,6 @@
 		$page->AttachScript( 'js/albumview.js' );
 		
 		$page->AttachStyleSheet( 'css/rounded.css' );
-		$page->AttachStyleSheet( 'css/images_list.css' );
 		$page->AttachStyleSheet( 'css/photos.css' );
 		
         if ( !ValidId( $offset ) ) {

@@ -2,6 +2,7 @@
 	function ElementPhotoUploadForm( tInteger $albumid ) {
 		global $page;
 		global $water;
+        global $rabbit_settings;
         
         $albumid = $albumid->Get();
 		$page->AttachScript( 'js/photos.js' );
@@ -42,8 +43,9 @@
 				</div>
 			</div>
 		</div>
-		<img src="images/ajax-loader.gif" style="display:none;" />
-        <?php
+		<img src="<?php
+        echo $rabbit_settings[ 'imagesurl' ];
+        ?>ajax-loader.gif" style="display:none;" /><?php
         
         return array( 'tiny' => true );
 	}
