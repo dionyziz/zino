@@ -10,7 +10,7 @@
 		$libs->Load( 'image/image' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		$page->AttachStyleSheet( 'css/albums.css' );
-		$page->AttachScript( 'javascript' , 'js/albums.js' );
+		$page->AttachScript( 'js/albums.js' );
         $dummy = false;
 		if ( $dummy ) {
 			$mainimage = 0;
