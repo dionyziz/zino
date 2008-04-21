@@ -158,7 +158,7 @@
         protected function OnCreate() {
             global $water;
             
-            $water->Trace( 'User OnCreate: $this->Profile->Id = ' . $this->Profile->Id );
+            $water->Trace( 'User OnCreate: $this->Profile->Userid = ' . $this->Profile->Userid );
             
             $this->Profile->Save();
             $this->Preferences->Save();
