@@ -19,7 +19,7 @@
         protected abstract function MakeObj();
         protected abstract function Modified();
         public function Rebuild() {
-            if ( $this->mRetrieved == 0 && $this->Modified() ) {
+            if ( ( !is_object( $this->mRetrieved ) && $this->mRetrieved == 0 ) && $this->Modified() ) {
                 $this->mRetrieved = $this->MakeObj();
             }
         }
@@ -48,6 +48,12 @@
             $this->mAttribute2DbField = $queryModel->Attribute2DbField;
             $this->mCurrentArgs = false;
         }
+        protected function Args() {
+            if ( $this->mCurrentArgs === false ) {
+                $this->mCurrentArgs = $this->RetrieveCurrentArgs();
+            }
+            return $this->mCurrentArgs;
+        }
         protected function RetrieveCurrentArgs() {
             $args = array();
             foreach ( $this->mForeignKey as $attribute ) {
@@ -59,7 +65,8 @@
             return $args;
         }
         protected function Modified() {
-            if ( $this->RetrieveCurrentArgs() != $this->mCurrentArgs ) {
+            if ( ( $args = $this->RetrieveCurrentArgs() ) != $this->mCurrentArgs ) {
+                $this->mCurrentArgs = $args;
                 return true;
             }
             return false;
@@ -69,8 +76,10 @@
 
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
-			$args = $this->RetrieveCurrentArgs();
-
+			$args = $this->Args();
+            
+            $water->Trace( 'Building HasOne relation object of class `' .$this->mTargetModelClass . '\' for query model `' . get_class( $this->mQueryModel ) . '\'', $args );
+            
             // create object instance to referenced object
 			$target = $class->newInstanceArgs( $args );
             if ( !$target->Exists() ) { // no such object
