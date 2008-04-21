@@ -67,16 +67,13 @@
             $user->Icon = 1;
             
             $this->AssertFalse( $user->Exists(), 'User exists before creation' );
-            $this->AssertEquals( $user->Password, md5( 'secret' ), 'User password not encrypted with md5 before saving' );
-
+            
             $user->Save();
 
             $this->AssertEquals( $oldcount + 1, $finder->Count(), 'User_Count did not increase by 1 when a new user was created' );
 
             $this->AssertTrue( $user->Exists(), 'User created but does not seem to exist' );
             $this->AssertEquals( $user->Name, 'usertest', 'User name changed after saving user' );
-            $this->AssertNotEquals( $user->Password, 'secret', 'User password not encrypted with md5' );
-            $this->AssertEquals( $user->Password, md5( 'secret' ), 'User password changed after saving user' );
             $this->AssertEquals( $user->RegisterHost, UserIp(), 'User register host changed after saving user' );
             $this->AssertEquals( $user->Dob, '1989-17-11 00:00:00', 'User dob changed after saving user' );
             $this->AssertEquals( $user->Email, 'test@kamibu.com', 'User email changed after saving user' );
