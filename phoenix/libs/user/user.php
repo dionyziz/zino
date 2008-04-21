@@ -156,6 +156,10 @@
             $this->Lastlogin = time();
         }
         protected function OnCreate() {
+            global $water;
+            
+            $water->Trace( 'User OnCreate: $this->Profile->Id = ' . $this->Profile->Id );
+            
             $this->Profile->Save();
             $this->Preferences->Save();
             $this->EgoAlbum->Save();
