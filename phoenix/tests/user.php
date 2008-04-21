@@ -64,7 +64,7 @@
             $user->Gender = 'male';
             $user->Signature = 'Foo bar blah';
             $user->Rights = 10;
-            $user->Avatar = new Image( 1 );
+            $user->Icon = 1;
             
             $this->AssertFalse( $user->Exists(), 'User exists before creation' );
             $this->AssertEquals( $user->Password, md5( 'secret' ), 'User password not encrypted with md5 before saving' );
