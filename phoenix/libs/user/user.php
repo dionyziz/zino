@@ -75,6 +75,9 @@
             $prototype->Subdomain = $subdomain;
             return $this->FindByPrototype( $prototype );
         }
+        public function FindLatest() {
+            return $this->FindByPrototype( New User(), 0, 25, array('Created', 'DESC') );
+        }
 		public function Count() {
 			$query = $this->mDb->Prepare(
 				'SELECT
