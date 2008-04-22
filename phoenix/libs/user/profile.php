@@ -102,7 +102,7 @@
         protected function AfterConstruct() {
             global $water;
             
-            $water->Trace('UserProfile::AfterConstruct parameters:' . serialize(func_get_args()));
+            $water->Trace('UserProfile::AfterConstruct parameters:' . serialize(func_get_args()) . ', Userid = ' . $this->Userid);
         }
 		protected function LoadDefaults() {
 			$this->Education = '-';
