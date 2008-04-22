@@ -1,14 +1,13 @@
 <?php
 	include "album/list.css";
 	include "album/small.css";
-	include "photo/list.css";
-	include "photo/small.css";
-	include "photo/view.css";
+	include "album/photo/list.css";
+	include "album/photo/small.css";
+	include "album/photo/view.css";
 	include "frontpage/comments.css";
 	include "frontpage/events.css";
 	include "frontpage/shoutbox.css";
 	include "frontpage/view.css";
-	include "journal/journalllist.css";
 	include "journal/list.css";
 	include "journal/small.css";
 	include "journal/view.css";
