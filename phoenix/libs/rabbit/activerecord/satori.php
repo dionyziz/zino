@@ -477,6 +477,8 @@
                 }
                 $this->mCurrentValues[ $this->mDbFields[ $primary ] ] = each( $values );
             }
+
+            $water->Trace('Primary key attributes values copied to empty object of class `' . get_class( $this ) . '\'', $this->mCurrentValues);
         }
         final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {
             // do not overload me!
