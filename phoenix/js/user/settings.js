@@ -263,4 +263,3 @@ $( 'div.settings' ).ready( function() {
 		Settings.yahoo = this.value;
 	});
 });
-//setInterval( Settings.SwitchSettings , 500 );
