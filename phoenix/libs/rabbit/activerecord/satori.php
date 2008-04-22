@@ -462,6 +462,10 @@
             // overload me
         }
         final public function DefinePrimaryKeyAttributes( $values ) {
+            global $water;
+            
+            $water->Trace('Copying primary key attributes to empty object of class `' . get_class( $this ) . '\'', $values);
+            
             if ( count( $values ) != count( $this->mPrimaryKeyFields ) ) {
                 throw New SatoriException( 'DefinePrimaryKeyAttributes called with an incorrect number of arguments' );
             }
