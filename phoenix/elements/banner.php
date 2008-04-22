@@ -1,7 +1,7 @@
 <?php
 	
 	function ElementBanner() {
-		//global $page;
+		global $page;
 		global $user;
 		
 		//$page->AttachStylesheet( 'css/banner.css' );
