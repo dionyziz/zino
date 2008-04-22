@@ -99,6 +99,11 @@
         public function Delete() {
             throw New UserException( 'User profiles cannot be deleted' );
         }
+        protected function AfterConstruct() {
+            global $water;
+            
+            $water->Trace('UserProfile::AfterConstruct parameters:' . serialize(func_get_args()));
+        }
 		protected function LoadDefaults() {
 			$this->Education = '-';
 			$this->Sexualorientation = '-';
