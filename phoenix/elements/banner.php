@@ -5,8 +5,8 @@
 		global $user;
 		
 		//$page->AttachStylesheet( 'css/banner.css' );
-		$page->AttachScript( 'js/banner.js' );
-		$page->AttachScript( 'js/animations.js' );
+		//$page->AttachScript( 'js/banner.js' );
+		//$page->AttachScript( 'js/animations.js' );
 		
 		?><div class="header" id="banner">
 		<h1><a href="http://www.zino.gr/" onclick="return false"><img src="images/zino.png" alt="Zino" /></a></h1>

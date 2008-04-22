@@ -42,7 +42,7 @@ var Banner = {
 		}
 	}
 };
-$( document ).ready( function() {
+$( 'div.banner' ).ready( function() {
 	$( 'div.search form input.text' ).focus( function() {
 		this.value = '';
 	});

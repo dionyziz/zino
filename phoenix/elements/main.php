@@ -49,12 +49,20 @@
 		
 		
 		//end of css attaching
+		//start javascript attaching
+		//$page->AttachScript( 'js/animations.js' );
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
-		//$page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );
+		$page->AttachScript( 'js/modal.js' );
         $page->AttachScript( 'js/main.js' );
 		$page->AttachScript( 'js/trivial/dates.js' );
 		$page->AttachScript( 'js/coala.js' );
+		$page->AttachScript( 'js/user/join.js' );
+		$page->AttachScript( 'js/user/joined.js' );
+		$page->AttachScript( 'js/user/settings.js' );
+		$page->AttachScript( 'js/banner.js' );
+		
+		//end of javascript attaching
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
