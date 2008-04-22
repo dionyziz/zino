@@ -19,7 +19,7 @@
         protected abstract function MakeObj();
         protected abstract function Modified();
         public function Rebuild() {
-            if ( ( !is_object( $this->mRetrieved ) && $this->mRetrieved == 0 ) && $this->Modified() ) {
+            if ( ( !is_object( $this->mRetrieved ) && $this->mRetrieved == 0 ) || $this->Modified() ) {
                 $this->mRetrieved = $this->MakeObj();
             }
         }
