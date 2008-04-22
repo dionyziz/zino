@@ -1,0 +1,36 @@
+<?php
+	include "css/album/list.css";
+	include "css/album/small.css";
+	include "css/photo/list.css";
+	include "css/photo/small.css";
+	include "css/photo/view.css";
+	include "css/frontpage/comments.css";
+	include "css/frontpage/events.css";
+	include "css/frontpage/shoutbox.css";
+	include "css/frontpage/view.css";
+	include "css/journal/journalllist.css";
+	include "css/journal/list.css";
+	include "css/journal/small.css";
+	include "css/journal/view.css";
+	include "css/poll/list.css";
+	include "css/poll/small.css";
+	include "css/poll/view.css";
+	include "css/user/join.css";
+	include "css/user/joined.css";
+	include "css/user/list.css";
+	include "css/user/sections.css";
+	include "css/user/settings.css";
+	include "css/user/profile/view.css";
+	include "css/banner.css";
+	include "css/bubbles.css";
+	include "css/comment.css";
+	include "css/default.css";
+	include "css/favourites.css";
+	include "css/footer.css";
+	include "css/forms.css";
+	include "css/headlines.css";
+	include "css/links.css";
+	include "css/modal.css";
+	include "css/people.css";
+	include "css/search.css";
+?>
