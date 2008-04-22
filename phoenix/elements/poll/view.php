@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementPollView() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/poll/view.css' );
+		//$page->AttachStyleSheet( 'css/poll/view.css' );
 		
 		Element( 'user/sections' , 'poll' );
 		?><div id="pollview"><?php

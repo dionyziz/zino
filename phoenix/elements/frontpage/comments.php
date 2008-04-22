@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementFrontpageComments() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/frontpage/comments.css' );
+		//$page->AttachStyleSheet( 'css/frontpage/comments.css' );
 		?><div class="latestcomments">
 		<h2>Πρόσφατα σχόλια</h2>
 		<div class="list">

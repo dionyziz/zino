@@ -1,9 +1,10 @@
 <?php
+	
 	function ElementPollSmall( $showcommnum = false ) {
-		global $page;
+		//global $page;
 		
 		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
-		$page->AttachStyleSheet( 'css/poll/small.css' );
+		//$page->AttachStyleSheet( 'css/poll/small.css' );
 		
 		?><div class="pollsmall">
 			<h4><a href="">Πόσες φορές τη μέρα βαράς μαλακία;</a></h4>
@@ -79,3 +80,4 @@
 		</div><?php
 	}
 ?>
+

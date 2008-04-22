@@ -1,10 +1,11 @@
 <?php
+	
 	function ElementFrontpageShoutbox() {
-		global $page;
+		//global $page;
 		global $user;
 		
-		$page->AttachStyleSheet( 'css/frontpage/shoutbox.css' );
-		$page->AttachStyleSheet( 'css/comment.css' );
+		//$page->AttachStyleSheet( 'css/frontpage/shoutbox.css' );
+		//$page->AttachStyleSheet( 'css/comment.css' );
 		?><div class="shoutbox">
 		<h2>Συζήτηση</h2>
 		<div class="comments"><?php

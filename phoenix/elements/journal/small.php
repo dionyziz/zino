@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementJournalSmall() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/journal/small.css' );
+		//$page->AttachStyleSheet( 'css/journal/small.css' );
 		
 		?><div class="journalsmall">
 			<h4><a href="">The MacGyver sandwich</a></h4>

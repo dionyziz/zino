@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementAlbumPhotoList() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/album/photo/list.css' );
+		//$page->AttachStyleSheet( 'css/album/photo/list.css' );
 		
 		Element( 'user/sections', 'album' );
 		?><div id="photolist">

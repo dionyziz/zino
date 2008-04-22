@@ -1,8 +1,9 @@
 <?php
+
 	function ElementUserSections( $section ) {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/user/sections.css' );
+		//$page->AttachStyleSheet( 'css/user/sections.css' );
 		
 		?><div class="usersections">
 			<a href="">

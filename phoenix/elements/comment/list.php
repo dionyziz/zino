@@ -1,9 +1,10 @@
 <?php
+	
 	function ElementCommentList() {
-		global $page;
+		//global $page;
 		global $user;
 		
-		$page->AttachStyleSheet( 'css/comment.css' );
+		//$page->AttachStyleSheet( 'css/comment.css' );
 		
 		if ( $user->Exists() ) {
 		?><div class="comment newcomment">

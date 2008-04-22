@@ -1,8 +1,9 @@
 <?php
+
 	function ElementUserList() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/user/list.css' );
+		//$page->AttachStyleSheet( 'css/user/list.css' );
 		?><div class="people">
 			<ul>
 				<li><a href=""><img src="http://static.zino.gr/phoenix/mockups/2400.jpg" style="width:100px;height:67px" alt="dionyziz" title="dionyziz" /><strong>dionyziz</strong><span>προβολή προφίλ &raquo;</span></a></li>

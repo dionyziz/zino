@@ -73,7 +73,7 @@ var Settings = {
 		Settings.Dequeue();
 	}
 };
-$( document ).ready( function() {
+$( 'div.settings' ).ready( function() {
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;

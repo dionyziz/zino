@@ -4,9 +4,9 @@
 		//showfav is for showing favourites
 		//showcommnum is for showing comments number
 		
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/album/photo/small.css' );
+		//$page->AttachStyleSheet( 'css/album/photo/small.css' );
 		
 		?><div class="photo">
 			<a href="">

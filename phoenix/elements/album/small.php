@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementAlbumSmall() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/album/small.css' );
+		//$page->AttachStyleSheet( 'css/album/small.css' );
 		
 		?><div class="album">
 			<a href="" onclick="return false;">

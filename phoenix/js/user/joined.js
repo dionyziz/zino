@@ -6,7 +6,7 @@ var Joined = {
 	location : $( 'div.profinfo form div select' )[ 4 ],
 	enabled : true
 };
-$( document ).ready( function() {
+$( 'div#joined' ).ready( function() {
 	$( 'div a.button' ).click( function() {
 		if ( Joined.enabled ) {
 			$( this ).addClass( 'button_disabled' );

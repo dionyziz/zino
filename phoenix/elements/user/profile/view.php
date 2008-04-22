@@ -1,4 +1,5 @@
 <?php
+	
 	function ElementUserProfileView( tString $name , tString $subdomain ) {
 		global $page;
 		
@@ -14,7 +15,7 @@
 		if ( $theuser === false ) {
 			return Element( '404' );
 		}
-		$page->AttachStyleSheet( 'css/user/profile/view.css' );
+		//$page->AttachStyleSheet( 'css/user/profile/view.css' );
 		$page->SetTitle( $theuser->Name );
 		
 		?><div id="profile"><?php

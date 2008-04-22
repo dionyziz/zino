@@ -1,9 +1,10 @@
 <?php
+	
 	function ElementBanner() {
-		global $page;
+		//global $page;
 		global $user;
 		
-		$page->AttachStylesheet( 'css/banner.css' );
+		//$page->AttachStylesheet( 'css/banner.css' );
 		$page->AttachScript( 'js/banner.js' );
 		$page->AttachScript( 'js/animations.js' );
 		

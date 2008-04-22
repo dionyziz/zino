@@ -18,7 +18,7 @@ var Join = {
 	},
 	enabled : true
 };
-$( document ).ready( function(){
+$( 'div#join' ).ready( function(){
 	$( 'form.joinform div input' ).focus( function() {
 		$( this ).css( "border" , "1px solid #bdbdff" );
 	}).blur( function() {

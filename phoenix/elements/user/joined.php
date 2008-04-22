@@ -1,11 +1,12 @@
 <?php
-	function ElementUserJoined() {
+
+	function	ElementUserJoined() {
 		global $user;
 		global $rabbit_settings;
 		global $page;
 		
-		$page->AttachStyleSheet( 'css/user/joined.css' );
-		$page->AttachStyleSheet( 'css/bubbles.css' );
+		//$page->AttachStyleSheet( 'css/user/joined.css' );
+		//$page->AttachStyleSheet( 'css/bubbles.css' );
 		$page->AttachScript( 'js/user/joined.js' );
 		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
 		if ( !$user->Exists() ) {
@@ -79,7 +80,7 @@
 					<div>
 						<span>Φύλο:</span>
 						<select>
-							<option value="0" selected="selected">-</option>
+							<option value="-" selected="selected">-</option>
 							<option value="m">άντρας</option>
 							<option value="f">γυναίκα</option>
 						</select>

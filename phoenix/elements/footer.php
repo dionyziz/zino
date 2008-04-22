@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementFooter() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStylesheet( 'css/footer.css' );
+		//$page->AttachStylesheet( 'css/footer.css' );
 		?><div class="footer">
 			<ul>
 				<li><a href="http://www.kamibu.com/" onclick="return false">Η ομάδα μας</a></li>

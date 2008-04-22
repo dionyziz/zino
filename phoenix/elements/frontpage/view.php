@@ -1,12 +1,13 @@
 <?php
-    function ElementFrontpageView() {
+   
+   function ElementFrontpageView() {
         global $page;
         global $user;
 
     	$newuser = isset( $_GET[ 'newuser' ] ) ? true : false; // TODO
         
         $page->AttachScript( 'js/frontpage.js' );
-		$page->AttachStyleSheet( 'css/frontpage/view.css' );
+		//$page->AttachStyleSheet( 'css/frontpage/view.css' );
         ?><div class="frontpage"><?php
 		if ( $newuser ) {
 			?><div class="ybubble">
@@ -127,3 +128,4 @@
 	</div><?php
 	}
 	?>
+	

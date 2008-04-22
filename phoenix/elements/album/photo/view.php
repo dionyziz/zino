@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementAlbumPhotoView() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/album/photo/view.css' );
+		//$page->AttachStyleSheet( 'css/album/photo/view.css' );
 		
 		Element( 'user/sections', 'album' );
 		?><div id="photoview">

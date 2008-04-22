@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementAlbumList() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/album/list.css' );
+		//$page->AttachStyleSheet( 'css/album/list.css' );
 		
 		Element( 'user/sections', 'album' );
 		?><ul class="albums"><?php

@@ -6,11 +6,49 @@
 		global $libs;
 		global $rabbit_settings;
 		
-		//attaching all the default styling files
+		//attaching ALL css files
+		//$page->AttachStylesheet( 'css/default.css' );
+		//$page->AttachStylesheet( 'css/headlines.css' );
+		//$page->AttachStylesheet( 'css/links.css' );
+		//$page->AttachStylesheet( 'css/forms.css' );
+		$page->AttachStylesheet( 'css/album/list.css' );
+		$page->AttachStylesheet( 'css/album/small.css' );
+		$page->AttachStylesheet( 'css/photo/list.css' );
+		$page->AttachStylesheet( 'css/photo/small.css' );
+		$page->AttachStylesheet( 'css/photo/view.css' );
+		$page->AttachStylesheet( 'css/frontpage/comments.css' );
+		$page->AttachStylesheet( 'css/frontpage/events.css' );
+		$page->AttachStylesheet( 'css/frontpage/shoutbox.css' );
+		$page->AttachStylesheet( 'css/frontpage/view.css' );
+		$page->AttachStylesheet( 'css/journal/journalllist.css' );
+		$page->AttachStylesheet( 'css/journal/list.css' );
+		$page->AttachStylesheet( 'css/journal/small.css' );
+		$page->AttachStylesheet( 'css/journal/view.css' );
+		$page->AttachStylesheet( 'css/poll/list.css' );
+		$page->AttachStylesheet( 'css/poll/small.css' );
+		$page->AttachStylesheet( 'css/poll/view.css' );
+		$page->AttachStylesheet( 'css/user/join.css' );
+		$page->AttachStylesheet( 'css/user/joined.css' );
+		$page->AttachStylesheet( 'css/user/list.css' );
+		$page->AttachStylesheet( 'css/user/sections.css' );
+		$page->AttachStylesheet( 'css/user/settings.css' );
+		$page->AttachStylesheet( 'css/user/profile/view.css' );
+		$page->AttachStylesheet( 'css/banner.css' );
+		$page->AttachStylesheet( 'css/bubbles.css' );
+		$page->AttachStylesheet( 'css/comment.css' );
 		$page->AttachStylesheet( 'css/default.css' );
+		$page->AttachStylesheet( 'css/favourites.css' );
+		$page->AttachStylesheet( 'css/footer.css' );
+		$page->AttachStylesheet( 'css/forms.css' );
 		$page->AttachStylesheet( 'css/headlines.css' );
 		$page->AttachStylesheet( 'css/links.css' );
-		$page->AttachStylesheet( 'css/forms.css' );
+		$page->AttachStylesheet( 'css/modal.css' );
+		$page->AttachStylesheet( 'css/people.css' );
+		$page->AttachStylesheet( 'css/search.css' );
+		$page->AttachStylesheet( 'css/usersections.css' );
+		
+		
+		//end of css attaching
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
 		//$page->AttachScript( 'js/pngfix.js' , 'javascript', false, '7' );

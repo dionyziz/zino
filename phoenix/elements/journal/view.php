@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementJournalView() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/journal/view.css' );
+		//$page->AttachStyleSheet( 'css/journal/view.css' );
 		
 		Element( 'user/sections' , 'journal' );
 		?><div id="journalview">

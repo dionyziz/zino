@@ -1,8 +1,9 @@
 <?php
+	
 	function ElementFrontpageEvents() {
-		global $page;
+		//global $page;
 		
-		$page->AttachStyleSheet( 'css/frontpage/events.css' );
+		//$page->AttachStyleSheet( 'css/frontpage/events.css' );
 	?><div class="latestevents">
 		<h2>Συνέβησαν πρόσφατα</h2>
 		<div class="list">
