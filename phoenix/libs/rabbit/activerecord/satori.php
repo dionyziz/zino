@@ -475,7 +475,7 @@
                     next( $values );
                     continue;
                 }
-                $this->mCurrentValues[ $this->mDbFields[ $primary ] ] = each( $values );
+                list( $this->mCurrentValues[ $this->mDbFields[ $primary ] ] ) = each( $values );
             }
 
             $water->Trace('Primary key attributes values copied to empty object of class `' . get_class( $this ) . '\'', $this->mCurrentValues);
