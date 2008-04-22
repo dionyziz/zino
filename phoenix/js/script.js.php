@@ -1,7 +1,7 @@
 <?php
 	header( 'Content-type: text/javascript' );
 	include "jquery.js";
-	include "modal.cs";
+	include "modal.js";
 	include "main.js";
 	include "trivial/dates.js";
 	include "coala.js";
