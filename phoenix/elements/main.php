@@ -62,9 +62,9 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/user/join.js' );
 		$page->AttachScript( 'js/user/joined.js' );
-		$page->AttachScript( 'js/user/settings.js' );
+		$page->AttachScript( 'js/user/settings.js' );*/
 		$page->AttachScript( 'js/banner.js' );
-		*/
+		
 		//end of javascript attaching
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
