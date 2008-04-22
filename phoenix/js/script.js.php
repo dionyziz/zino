@@ -8,5 +8,5 @@
 	include "user/join.js";
 	include "user/joined.js";
 	include "user/settings.js";
-	//include "banner.js";
+	include "banner.js";
 ?>
