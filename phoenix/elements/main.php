@@ -11,8 +11,8 @@
 		//$page->AttachStylesheet( 'css/headlines.css' );
 		//$page->AttachStylesheet( 'css/links.css' );
 		//$page->AttachStylesheet( 'css/forms.css' );
-		//$page->AttachStylesheet( 'css/style.css.php' );
-		
+		$page->AttachStylesheet( 'css/style.css.php' );
+		/*
 		$page->AttachStylesheet( 'css/album/list.css' );
 		$page->AttachStylesheet( 'css/album/small.css' );
 		$page->AttachStylesheet( 'css/photo/list.css' );
@@ -47,7 +47,7 @@
 		$page->AttachStylesheet( 'css/modal.css' );
 		$page->AttachStylesheet( 'css/people.css' );
 		$page->AttachStylesheet( 'css/search.css' );
-		
+		*/
 		
 		//end of css attaching
 		//start javascript attaching
