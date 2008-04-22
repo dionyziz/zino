@@ -1,4 +1,5 @@
 <?php
+	header( 'Content-type: text/css' );
 	include "album/list.css";
 	include "album/small.css";
 	include "album/photo/list.css";
