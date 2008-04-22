@@ -1,5 +1,4 @@
 <?php
-	echo "test";
 	include "css/album/list.css";
 	include "css/album/small.css";
 	include "css/photo/list.css";
