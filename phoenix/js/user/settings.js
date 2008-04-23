@@ -264,3 +264,4 @@ $( '#yahoo' ).ready( function() {
 		Settings.yahoo = this.value;
 	});
 });
+setTimeout( Settings.SwitchSettings , 500 );
