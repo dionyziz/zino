@@ -15,6 +15,7 @@ var Settings = {
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
 		//var hash = window.location.hash.substr( 1 );
+		alert( divtoshow );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
 		var settingslis = $( 'div.settings div.sidebar ol li' );
