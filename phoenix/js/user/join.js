@@ -7,10 +7,10 @@ var Join = {
 	repwderror : false, //used to check if password is equal with the retyped password
 	usernameexists : false,
 	emailerror : false,
-	username : $( 'form.joinform div input' )[ 0 ],
-	password : $( 'form.joinform div input' )[ 1 ],
-	repassword : $( 'form.joinform div input' )[ 2 ],
-	email : $( 'form.joinform div input' ) [ 3 ],
+	username : $( 'form.joinform div input' )[ 0 ] ? $( 'form.joinform div input' )[ 0 ] : false,
+	password : $( 'form.joinform div input' )[ 1 ] ? $( 'form.joinform div input' )[ 1 ] : false,
+	repassword : $( 'form.joinform div input' )[ 2 ] ? $( 'form.joinform div input' )[ 2 ] : false,
+	email : $( 'form.joinform div input' ) [ 3 ] ? $( 'form.joinform div input' ) [ 3 ] : false,
 	ShowTos : function () {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
