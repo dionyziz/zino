@@ -14,7 +14,6 @@ var Settings = {
 	invalidemail : false,
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
-		alert( divtoshow );
 		//var hash = window.location.hash.substr( 1 );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
@@ -264,4 +263,3 @@ $( '#yahoo' ).ready( function() {
 		Settings.yahoo = this.value;
 	});
 });
-setTimeout( "Settings.SwitchSettings('" + window.location.hash.substr( 1 ) + "')" , 500 );
