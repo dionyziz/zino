@@ -31,7 +31,7 @@
 			$this->Save();
 		}
 		protected function LoadDefaults() {
-			$this->Date = NowDate();
+			$this->Created = NowDate();
 		}
 	}
 ?>
