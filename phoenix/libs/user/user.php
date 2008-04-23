@@ -127,8 +127,20 @@
             $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
             $this->Avatar = $this->HasOne( 'Image', 'Icon' );
         }
-        public function Delete() {
-            throw New UserException( 'Users cannot be deleted' );
+        public function Delete() { // for unit testing
+            if ( $this->Profile->Exists() ) {
+                $this->Profile->Delete();
+            }
+            if ( $this->Preferences->Exists() ) {
+                $this->Preferences->Delete();
+            }
+            foreach ( $this->Albums as $album ) {
+                $album->Delete();
+            }
+            foreach ( $this->Journals as $journal ) {
+                $journal->Delete();
+            }
+            return parent::Delete();
         }
         public function HasPermission( $permission ) {
             return $this->Rights >= $permission;
