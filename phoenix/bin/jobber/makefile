@@ -1,5 +1,5 @@
-jobber: jobber.o error.o network.o job.o string.o client.o
-	g++ -O0 -g jobber.o error.o network.o job.o string.o client.o -o $@
+jobber: jobber.o error.o string.o network.o job.o client.o
+	g++ -O0 -g jobber.o error.o string.o network.o job.o client.o -o $@
 jobber.o: jobber.cpp
 	g++ -O0 -g -c jobber.cpp
 error.o: error.cpp

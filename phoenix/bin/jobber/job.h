@@ -2,13 +2,14 @@
 #define JOB_H
 
 #include <ctime>
+#include <string>
 
 using namespace std;
 
 struct job {
     int id;
     int type;
-    time_t time;
+    string date;
     int priority;
 };
 
@@ -18,5 +19,7 @@ void remove_priority( int p );
 job job_pop();
 void job_push( job j );
 job job_create( int id, int type, int priority );
+bool job_empty();
+int job_size();
 
 #endif

@@ -44,15 +44,24 @@ void Client::Pop( const bool success, string data ) {
     int n = atoi( data.c_str() );
     Trace << "Pop: " << n;
 
-    string s = "";
+    string s = "POPPED\n";
+
     for ( int i = 0; i < n; ++i ) {
+        if ( job_empty() ) {
+            s += "E\n";
+            break;
+        }
         job j = job_pop();
         s.append( 1, j.id + 48 );
         s.append( 1, ' ' );
         s.append( 1, j.type + 48 );
         s.append( 1, ' ' );
+        s += j.date;
+        s.append( 1, ' ' );
         s.append( 1, j.priority + 48 );
+        s.append( 1, '\n' );
     }
 
     this->mCommunicator->Send( s ); 
+    this->Initiate();
 }

@@ -4,11 +4,16 @@
 #include <vector>
 #include <map>
 #include <queue>
+#include <cstdio>
+#include <cstdlib>
+
+#include "string.h"
 
 set< int > priorities; // the different priorities used currently
 vector< int > priority_vector; // this vector has p times the priority p
 map< int, int > priority_start; // priority => index of priority_vector where priority starts
 map< int, queue< job > > jobs; // priority => jobs with that priority
+int job_count = 0;
 
 int priority() {
     int p = priority_vector[ rand() % priority_vector.size() ];
@@ -48,6 +53,8 @@ job job_pop() {
         remove_priority( p );
     }
 
+    --job_count;
+
     return j;
 }
 
@@ -57,16 +64,29 @@ void job_push( job j ) {
     }
 
     jobs[ j.priority ].push( j );
+
+    ++job_count;
 }
 
+bool job_empty() {
+    return job_count == 0;
+}
+
+int job_size() {
+    return job_count;
+}
+
+#include <iostream>
+
 job job_create( int id, int type, int priority ) {
-    time_t date;
-    time( &date );
+    struct tm * now = NULL;
+    time_t date = 0;
+    date = time( NULL );
 
     job j;
     j.id = id;
     j.type = type;
-    j.time = date; // TODO: change this to fit needs
+    j.date = itoa( (int)date );
     j.priority = priority;
 
     return j;

@@ -66,3 +66,13 @@ string stringmap( const string& s , int ( * mapper ) ( int s ) ) {
     return ret;
 }
 
+#include <sstream>
+
+string itoa( int n ) {
+    stringstream ss;
+    string s;
+    ss << n;
+    ss >> s;
+
+    return s;
+}

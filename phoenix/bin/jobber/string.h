@@ -13,6 +13,7 @@ vector< string > explode( const string& , const string& , int = 0 );
 string strtolower( const string& );
 string strtoupper( const string& );
 string stringmap( const string& , int ( * ) ( int ) );
+string itoa( int n );
 
 #endif
 
