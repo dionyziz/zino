@@ -1,7 +1,0 @@
-#!/bin/bash
-
-NOW=`date +%d-%b-%y-%H-%M`;
-FILE="/var/backups/abresas/jobber/jobber-$NOW.tar.bz2";
-tar -cvjf $FILE ./
-
-echo "Done creating backup file $FILE.";
