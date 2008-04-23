@@ -34,7 +34,7 @@
 						Element( 'user/icon' , $theuser );
 						?></div><?php
 						++$i;
-						if ( $i > 20 ) {
+						if ( $i > 50 ) {
 							break;
 						}
 					}
