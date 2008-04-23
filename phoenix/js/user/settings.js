@@ -74,7 +74,7 @@ var Settings = {
 		Settings.Dequeue();
 	}
 };
-$( 'div.settings' ).ready( function() {
+$( '#yahoo' ).ready( function() {
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
 		var sexselected = $( '#sex select' )[ 0 ].value;
