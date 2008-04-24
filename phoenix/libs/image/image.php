@@ -9,7 +9,7 @@
     $libs->Load( 'image/server' );
 	$libs->Load( 'image/frontpage' );
     
-    class ImageFinder {
+    class ImageFinder extends Finder {
         protected $mModel = 'Image';
         
         public function FindByIds( $imageids ) {
