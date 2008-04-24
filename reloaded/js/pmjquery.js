@@ -40,11 +40,11 @@ var pms = {
 	ExpandPm : function( pmdiv , notread , pmid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
-		//var messagesdivdivs = $( '#' + pmid + ' div')[ 0 ];
-		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
-		var textpm = messagesdivdivs[ 4 ];
-		//var textpm = $( '#' + pmid + ' div.text' )[ 0 ];
-		//var lowerlinepm = $( '#' + pmid + ' div.lowerline' )[ 0 ];
+		var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
+		//var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
+		//var textpm = messagesdivdivs[ 4 ];
+		var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
+		var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
 		var lowerlinepm = messagesdivdivs[ 6 ];
 		/*
 		if ( pms.activepm !== 0 ) {
