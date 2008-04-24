@@ -14,7 +14,7 @@
         protected $mDbTableAlias = 'albums';
 
         public function Relations() {
-            $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbumId', 'albumid' );
+            $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             $this->User = $this->HasOne( 'User', 'userid' );
         }
         public function SetName( $value ) {
