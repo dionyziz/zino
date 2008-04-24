@@ -4,24 +4,28 @@ var pms = {
 	node : 0,
 	activepm : 0,
 	pmsinfolder : 0,
-	messagescontainer : document.getElementById( 'messages' ),
+	messagescontainer : $( '#messages' ),
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
 		if ( pms.activefolder === 0 ) {
-			pms.node = document.getElementById( 'firstfolder' );
+			pms.node = $( '#firstfolder' );
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
-			pms.activefolder.className = 'folder top';
+			$( pms.activefolder ).addClass( "top" );
+			//pms.activefolder.className = 'folder top';
 		}
 		else {
-			pms.activefolder.className = 'folder';
+			$( pms.activefolder ).removeClass( "top" );
+			//pms.activefolder.className = 'folder';
 		}
 		if ( folder != pms.node ) {
-			folder.className = 'activefolder top';
+			$( pms.activefolder ).addClass( "top" );
+			//folder.className = 'activefolder top';
 		}
 		else {
-			folder.className = 'activefolder';
+			$( pms.activefolder ).removeClass( "top" );
+			//folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function( errcode ) {
@@ -370,14 +374,11 @@ $( document ).ready( function() {
 		hoverClass: "hoverfolder",
 		tolerance: "pointer",
 		drop: function(ev, ui) {
-			var folderid = $( this ).attr( "id" );
-			var pmid = ui.draggable.attr( "id" );
 			ui.draggable.animate( { 
 				opacity: "0",
 				height: "0",
 				} , 700 , function() {
 					ui.draggable.remove();
-					alert( "moving pm " + pmid + " to folder " + folderid );
 			});
 		}
 	});
