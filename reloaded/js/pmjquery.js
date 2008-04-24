@@ -72,7 +72,7 @@ var pms = {
 		if ( notread ) {
 			//remove the unread icon
 			//var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
-			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
+			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
 			var unreadicon = infobaricons[ 1 ];
 			if ( unreadicon ) {
 				$( unreadicon ).css( "opacity" , "1" );
