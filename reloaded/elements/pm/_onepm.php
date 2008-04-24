@@ -8,17 +8,13 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
         ?>">
-		<div class="infobar"<?php
+		<div class="infobar<?php
 		
 		if ( $folder != -2 ) {
-			/*
-			?> onmousedown="pms.DragPm( 'pm_<?php
-			echo $pmobj->Id;
-			?>' );"<?php
-			*/
+			?> received"<?php
 		}
 		else {
-			?> style="cursor:default;"<?php
+			?>" style="cursor:default;"<?php
 		}
 		?>><?php
 			if ( $folder != -2 ) {
