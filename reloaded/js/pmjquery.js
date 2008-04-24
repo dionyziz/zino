@@ -40,9 +40,12 @@ var pms = {
 	ExpandPm : function( pmdiv , notread , pmid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
-		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
-		var textpm = messagesdivdivs[ 4 ];
-		var lowerlinepm = messagesdivdivs[ 6 ];
+		var messagesdivdivs = $( '#' + pmid );
+		//var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
+		//var textpm = messagesdivdivs[ 4 ];
+		var textpm = $( '#' + pmid + ' div.text' )[ 0 ];
+		var lowerlinepm = $( '#' + pmid + ' div.lowerline' )[ 0 ];
+		//var lowerlinepm = messagesdivdivs[ 6 ];
 		/*
 		if ( pms.activepm !== 0 ) {
 			//minimizing previous pm
@@ -68,11 +71,14 @@ var pms = {
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
-			var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
+			var infobaricons = $( '#' + pmid + ' div.infobar img' );
+			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
 			var unreadicon = infobaricons[ 1 ];
 			if ( unreadicon ) {
-				unreadicon.style.opacity = '1';
-				unreadicon.style.padding = '0px';
+				$( unreadicon ).css( "opacity" , "1" )
+				.css( "padding" , "0px" );
+				//unreadicon.style.opacity = '1';
+				//unreadicon.style.padding = '0px';
 				pms.UpdateUnreadPms( - 1 );
 				Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
 						unreadicon.parentNode.removeChild( unreadicon );
