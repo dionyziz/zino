@@ -119,9 +119,6 @@
 					?>><dt>ηλικία</dt>
 						<dd><?php
 							echo $ageyear;
-							if ( $theuser->Id() == $user->Id() ) {
-								?><a href="faq/age_shown" style="margin-left: 20px; font-size: 90%;">Πώς ξέρετε την ηλικία μου?</a><?php
-							}
 						?></dd>
 					</dl></li><?php
 				}
