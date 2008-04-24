@@ -27,11 +27,12 @@
 		$page->AttachScript( 'js/jquery.dimensions.js' );
 		$userfolders = PM_UserFolders();
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
-		?><script type="text/javascript">
+		/*<script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadmsgs;
 		?>
 		</script>
+		*/?>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
