@@ -39,7 +39,7 @@ function UnitPmMakefolder( tString $foldername ) {
 	?> ) );
 	newfolder.appendChild( newfolderhref );
 	newfolderlink.parentNode.insertBefore( newfolder , newfolderlink );
-	var test = new YAHOO.util.DDTarget( newfolder );
+	//var test = new YAHOO.util.DDTarget( newfolder );
 	//making the new folder drag 'n drop targetable
 	pms.activefolder = newfolder;
 	pms.CancelNewFolder();
