@@ -364,9 +364,9 @@ var pms = {
 	}
 };
 $( document ).ready( function() {
-	$( 'div.message' ).draggable();
+	$( 'div.message' ).draggable( { helper : 'clone });
 	$( 'div.createdfolder' ).droppable( {
-		accept: "div.message" 
+		accept : "div.message", 
 		drop : function( ev , ui ) {
 			alert( ev );
 			alert( ui );
