@@ -161,11 +161,9 @@ var pms = {
 	NewMessage : function( touser , answertext ) {
 		pms.ClearMessages();
 		var receiversdiv = document.createElement( 'div' );
-		
 		var receiversinput = document.createElement( 'input' );
 		receiversinput.type = 'text';
-		receiversinput.style.width = '250px';
-		receiversinput.style.color = '#9d9d9d';
+		$( receiversinput ).css( "width" , "250px" ).css( "color" , "#9d9d9d" );
 		if ( touser !== '' ) {
 			receiversinput.value = touser;
 		}
@@ -173,10 +171,13 @@ var pms = {
 		
 		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
+			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
+			/*
 			textmargin.style.border = '1px dotted #b9b8b8';
 			textmargin.style.padding = '4px';
 			textmargin.style.color = '#767676';
 			textmargin.style.width = '550px';
+			*/
 			textmargin.appendChild( document.createTextNode( answertext ) );
 			pms.messagescontainer.appendChild( textmargin );
 			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
@@ -184,18 +185,22 @@ var pms = {
 		}
 		
 		var receiverstext = document.createElement( 'span' );
-		receiverstext.style.paddingRight = '30px';
+		$( receiverstext ).css( "padding-right" , "30px" );
+		//receiverstext.style.paddingRight = '30px';
 		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
-		receiverstext.style.fontWeight = 'bold';
+		//receiverstext.style.fontWeight = 'bold';
+		$( receiverstext ).css( "font-weight" , "bold" );
 		receiversdiv.appendChild( receiverstext );
 		receiversdiv.appendChild( receiversinput );
 		receiversdiv.appendChild( document.createElement( 'br' ) );
 		receiversdiv.appendChild( document.createElement( 'br' ) );
 		
 		var pmtext = document.createElement( 'textarea' );
+		$( pmtext ).css( "width" , "550px" ).css( "height" , "330px" );
+		/*
 		pmtext.style.width = '550px';
 		pmtext.style.height = '300px';
-		
+		*/
 		var sendbutton = document.createElement( 'input' );
 		sendbutton.type = 'button';
 		sendbutton.value = 'Αποστολή';
