@@ -370,6 +370,12 @@ $( document ).ready( function() {
 		hoverClass: "hoverfolder",
 		drop: function(ev, ui) {
 			alert( ui.draggable.attr( "id" ) );
+			ui.draggable.animate( { 
+				opacity: "0",
+				height: "0",
+				} , 400 , function() {
+					ui.draggable.remove();
+			});
 		}
 	});
 });
