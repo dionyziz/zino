@@ -512,3 +512,6 @@ var pms = {
 	}
 };
 pms.DragPm2();
+$( document ).ready( function() {
+	$( 'div.received' ).draggable();
+} );
