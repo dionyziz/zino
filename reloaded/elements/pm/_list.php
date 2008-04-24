@@ -28,12 +28,10 @@
 		
 		$userfolders = PM_UserFolders();
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
-		/*<script type="text/javascript">
+		?><script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadmsgs;
-		
-		</script>
-		*/?>
+		?></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script> <?php
 		/*
         <script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
