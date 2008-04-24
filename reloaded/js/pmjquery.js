@@ -253,7 +253,7 @@ var pms = {
 			}
 			//msgnode.style.margin = '0px';
 			//$( msgnode ).css( "margin" , "0" );
-			$( msgnode ).animate( { opacity : "0" , height : "0" , margin : "0" } , 800 , function() {
+			$( msgnode ).hide( 800 , function() {
 				$( this ).remove();
 			} );
 			/*
