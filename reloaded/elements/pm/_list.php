@@ -24,6 +24,7 @@
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
+		$page->AttachScript( 'js/jquery.dimensions.js' );
 		$userfolders = PM_UserFolders();
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
 		?><script type="text/javascript">
