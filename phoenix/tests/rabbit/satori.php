@@ -146,6 +146,13 @@
         public function FindAll() {
             return $this->FindByPrototype( New TestRabbitSatoriExtension() );
         }
+        public function FindByCharInOrder( $char ) {
+            $prototype = New TestRabbitSatoriExtension();
+            $prototype->Char = $char;
+            $offset = 0;
+            $limit = 3;
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'test_id', 'DESC' ) );
+        }
     }
         
     class TestRabbitSatori extends Testcase {
@@ -319,6 +326,7 @@
             $this->Assert( $finder instanceof TestRabbitSatoriExtensionFinder, 'Finders must be objects of the desired class' );
             $all = $finder->FindAll();
             $this->Assert( is_array( $all ), 'Group finder functions must return arrays' );
+            $this->AssertEquals( 1, count( $all ), 'Group finder function for "all" must return 1 when only 1 object exists' );
             $one = $finder->FindUnique( 1 );
             $this->Assert( is_object( $one ), 'Unique finder functions must return objects' );
             $none = $finder->FindUnique( 1337 );

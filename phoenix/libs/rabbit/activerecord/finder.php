@@ -7,7 +7,7 @@
         protected $mDb;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false ) {
-            w_assert( $prototype instanceof $this->mModel );
+            w_assert( $prototype instanceof $this->mModel, 'Prototype specified in FindByPrototype call in finder `' . get_class( $this ) . '\' must be an instance of `' . $this->mModel . '\'' );
             w_assert( is_int( $offset ) );
             w_assert( is_int( $limit ) );
             
@@ -54,25 +54,25 @@
                 }
                 else if ( is_array( $order ) ) {
                     if ( count( $order ) != 2 ) {
-                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: It must be a string or a 2-item array; ' . count( $order ) . '-item array given.' );
+                        throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: It must be a string or a 2-item array; ' . count( $order ) . '-item array given.' );
                     }
                     if ( !isset( $order[ 0 ] ) ) {
-                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: The 2-item array must be numerically indexed.' );
+                        throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: The 2-item array must be numerically indexed.' );
                     }
                     if ( !isset( $order[ 1 ] ) ) {
-                        throw New SatoriException( 'Order clause specified for prototype finder is invalid: The 2-item array must be numerically indexed.' );
+                        throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: The 2-item array must be numerically indexed.' );
                     }
                     $column = $order[ 0 ];
                     $sort = $order[ 1 ];
                 }
                 if ( !preg_match( '#^[a-zA-Z_\-0-9]+$#', $column ) ) {
-                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Attribute field must contain a legal attribute name, "' . $column . '" given.' );
+                    throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: Attribute field must contain a legal attribute name, "' . $column . '" given.' );
                 }
                 if ( $sort != 'ASC' && $sort != 'DESC' ) {
-                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Sort field must be ASC or DESC, "' . $sort . '" given.' );
+                    throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: Sort field must be ASC or DESC, "' . $sort . '" given.' );
                 }
                 if ( !isset( $this->mAttribute2DbField[ $column ] ) ) {
-                    throw New SatoriException( 'Order clause specified for prototype finder is invalid: Attribute field "' . $column . '" does not exist in corresponding model as a domain-level attribute.' );
+                    throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\'is invalid: Attribute field "' . $column . '" does not exist in corresponding model as a domain-level attribute.' );
                 }
                 $sql .= ' ORDER BY ' . $this->mAttribute2DbField[ $column ] . ' ' . $sort;
             }
@@ -99,9 +99,12 @@
         }
         final public function __construct() {
             if ( empty( $this->mModel ) ) {
-                throw New SatoriException( 'mModel not defined for Finder class `' . get_class( $this ) . '\'' );
+                throw New SatoriException( 'mModel not defined for finder `' . get_class( $this ) . '\'' );
             }
             $prototype = New $this->mModel();
+            if ( !is_subclass_of( $prototype, 'Satori' ) ) {
+                throw New SatoriException( 'mModel defined for finder `' . get_class( $this ) . '\' must be a class extending Satori' );
+            }
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
