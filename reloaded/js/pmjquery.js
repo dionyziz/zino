@@ -74,11 +74,11 @@ var pms = {
 			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
 			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
 			//var unreadicon = infobaricons[ 1 ];
+			//Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
-				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 2000 , function() {
+				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 1000 , function() {
 					$( unreadicon ).remove();
-					//Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 				});
 				/*
 				Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
