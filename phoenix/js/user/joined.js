@@ -6,7 +6,7 @@ var Joined = {
 	location : $( 'div.profinfo form div select' )[ 4 ],
 	enabled : true
 };
-$( 'div#joined' ).ready( function() {
+$( document ).ready( function() {
 	alert( 'joined' );
 	$( 'div a.button' ).click( function() {
 		if ( Joined.enabled ) {

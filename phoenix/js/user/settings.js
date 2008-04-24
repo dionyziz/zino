@@ -72,7 +72,7 @@ var Settings = {
 		Settings.Dequeue();
 	}
 };
-$( '#yahoo' ).ready( function() {
+$( document ).ready( function() {
 	alert( 'settings' );
 	Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 	$( '#gender select' ).change( function() {
