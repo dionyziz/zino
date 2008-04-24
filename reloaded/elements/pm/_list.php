@@ -20,7 +20,7 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
-        /*$page->AttachScript( 'js/jquery.js' );
+        $page->AttachScript( 'js/jquery.js' );/*
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
@@ -33,13 +33,12 @@
 		echo $unreadmsgs;
 		?>
 		</script>
-		*/?>
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-  
-<script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
-  <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
-  <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js"></script>
-  <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.ext.js"></script>
+		
+		<script src="http://code.jquery.com/jquery-latest.js"></script> */ ?>
+        <script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
+        <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
+		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js"></script>
+		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.ext.js"></script>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
