@@ -45,7 +45,7 @@ var pms = {
 		//var textpm = messagesdivdivs[ 4 ];
 		var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
 		var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
-		var lowerlinepm = messagesdivdivs[ 6 ];
+		//var lowerlinepm = messagesdivdivs[ 6 ];
 		/*
 		if ( pms.activepm !== 0 ) {
 			//minimizing previous pm
@@ -71,9 +71,9 @@ var pms = {
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
-			var infobaricons = $( '#' + pmid + ' div.infobar img' );
+			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
 			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
-			var unreadicon = infobaricons[ 1 ];
+			//var unreadicon = infobaricons[ 1 ];
 			if ( unreadicon ) {
 				$( unreadicon ).css( "opacity" , "1" )
 				.css( "padding" , "0px" );
