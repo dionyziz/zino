@@ -117,7 +117,7 @@
 
             $methodName = $this->mFinderMethod;
             if ( !method_exists( $finder, $methodName ) ) {
-                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $this->mFinderClass . '\' used for HasMany relation of `' . get_class( $this ) . '\' is not defined' );
+                throw New SatoriException( 'Method `' . $methodName . '\' of finder class `' . $this->mFinderClass . '\' used for HasMany relation of `' . get_class( $this->mQueryModel ) . '\' is not defined' );
             }
             if ( is_string( $this->mForeignKey ) ) { // passing of an attribute name -- the "normal" way to do it, as it allows detecting changes
                 $key = ucfirst( $this->mForeignKey );
