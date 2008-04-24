@@ -7,7 +7,6 @@ var Joined = {
 	enabled : true
 };
 $( document ).ready( function() {
-	alert( 'joined' );
 	$( 'div a.button' ).click( function() {
 		if ( Joined.enabled ) {
 			$( this ).addClass( 'button_disabled' );
