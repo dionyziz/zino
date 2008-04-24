@@ -66,13 +66,9 @@
 						echo $folder->Id;
 						?>' );return false;"><?php
 						echo htmlspecialchars( $folder->Name );
-						?></a></div>
-						<script type="text/javascript">var test = new YAHOO.util.DDTarget( "folder_<?php
-						echo $folder->Id;
-						?>" );</script>
-						<?php
-					} ?>
-					<div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
+						?></a></div><?php
+					} 
+					?><div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
 				</div><br />
 				<a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="<?php
 				echo $xc_settings[ 'staticimagesurl' ];

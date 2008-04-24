@@ -137,7 +137,7 @@ var pms = {
 				$( this ).remove();
 				pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
 			} );
-			//Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
+			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
 		} );
 	}
 	,
@@ -155,7 +155,7 @@ var pms = {
             'folderid': folderid,
             'newname': name
         } );
-        document.getElementById( 'folder_' + folderid ).getElementsByTagName( 'a' )[ 0 ].firstChild.nodeValue = name;
+        $( '#folder_' + folderid + ' a.folderlinks' ).html( name );
     }
     ,
 	NewMessage : function( touser , answertext ) {
