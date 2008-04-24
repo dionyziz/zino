@@ -364,13 +364,12 @@ var pms = {
 	}
 };
 $( document ).ready( function() {
-	$( 'div.message' ).draggable( { helper : 'clone' });
+	$( 'div.message' ).draggable( { helper : 'clone' } );
 	$( 'div.createdfolder' ).droppable({
 		accept: "div.message",
+		hoverClass: "hoverfolder",
 		drop: function(ev, ui) {
-			alert( ev );
-			alert( ui );
-			alert( 'dropped' );
+			alert( ui.draggable.attr( "id" ) );
 		}
 	});
 });

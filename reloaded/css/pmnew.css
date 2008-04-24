@@ -51,6 +51,7 @@ div.folder {
 	padding: 3px 3px 3px 22px;
 	min-width: 108px;
 }
+/*
 div.hoverfolder {
 	background-color: #f4f5f7;
 	background-image: url( 'http://static.zino.gr/images/folder.png' );
@@ -59,6 +60,7 @@ div.hoverfolder {
 	padding: 3px 3px 3px 22px;
 	min-width: 108px;
 }
+*/
 div.newfolder {
 	/*border-top: 1px solid #d7d7d7;*/
 	background-image: url( 'http://static.zino.gr/images/folder_add.png' );
@@ -178,4 +180,7 @@ div.messages div.message div.toolbar ul li  a:hover {
 }
 a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:hover {
 	text-decoration: none;
+}
+div.hoverfolder {
+	background-color: #f4f5f7;
 }
