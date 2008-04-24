@@ -4,8 +4,8 @@
         
         public function FindByUser( User $theuser ) {
             $prototype = New Album();
-            $album->UserId = $theuser->Id;
-            $album->DelId = 0;
+            $album->Userid = $theuser->Id;
+            $album->Delid = 0;
             return $this->FindByPrototype( $prototype );
         }
     }
@@ -15,7 +15,7 @@
 
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
-            $this->User = $this->HasOne( 'User', 'userid' );
+            $this->User = $this->HasOne( 'User', 'Userid' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {
