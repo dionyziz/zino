@@ -363,7 +363,4 @@ var pms = {
 		}
 	}
 };
-$( document ).ready( function() {
-	alert( 'loaded' );
-	$( 'div.received' ).draggable();
-} );
+alert( $( 'div.received' ) );
