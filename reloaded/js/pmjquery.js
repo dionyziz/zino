@@ -134,7 +134,7 @@ var pms = {
 		//the function for deleting a pm folder
 		Modals.Confirm( 'Θέλεις σίγουρα να σβήσεις τον φάκελο;' , function () {
 			$( '#folder_' + folderid ).animate( { opacity : "0" , height : "0" } , 1000 , function() {
-				this.remove();
+				$( this ).remove();
 				pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
 			} );
 			//Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
