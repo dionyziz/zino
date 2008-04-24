@@ -172,12 +172,6 @@ var pms = {
 		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
 			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
-			/*
-			textmargin.style.border = '1px dotted #b9b8b8';
-			textmargin.style.padding = '4px';
-			textmargin.style.color = '#767676';
-			textmargin.style.width = '550px';
-			*/
 			textmargin.appendChild( document.createTextNode( answertext ) );
 			pms.messagescontainer.appendChild( textmargin );
 			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
@@ -186,9 +180,7 @@ var pms = {
 		
 		var receiverstext = document.createElement( 'span' );
 		$( receiverstext ).css( "padding-right" , "30px" );
-		//receiverstext.style.paddingRight = '30px';
 		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
-		//receiverstext.style.fontWeight = 'bold';
 		$( receiverstext ).css( "font-weight" , "bold" );
 		receiversdiv.appendChild( receiverstext );
 		receiversdiv.appendChild( receiversinput );
@@ -197,10 +189,6 @@ var pms = {
 		
 		var pmtext = document.createElement( 'textarea' );
 		$( pmtext ).css( "width" , "550px" ).css( "height" , "330px" );
-		/*
-		pmtext.style.width = '550px';
-		pmtext.style.height = '300px';
-		*/
 		var sendbutton = document.createElement( 'input' );
 		sendbutton.type = 'button';
 		sendbutton.value = 'Αποστολή';
@@ -246,29 +234,41 @@ var pms = {
 	DeletePm : function( msgnode , msgid , read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
 			pms.activepms = 0;
+			/*
 			var msgnodedivs = msgnode.getElementsByTagName( 'div' );
 			var msgnodeimgs = msgnode.getElementsByTagName( 'img' );
 			var delimg = msgnodeimgs[ 0 ];
-			var delimg2 = msgnodeimgs[ 1 ];
-			var lowerdiv = msgnodedivs[ 6 ];
-			lowerdiv.style.display = 'none';
-			delimg.style.display = 'none';
+			*/
+			var delimg2 = $( '#pm_' + pmid + ' img' )[ 1 ];
+			//var lowerdiv = msgnodedivs[ 6 ];
+			 
+			//lowerdiv.style.display = 'none';
+			$( '#pm_' + pmid + ' div.lowerline' ).hide();
+			$( $( '#pm_' + pmid + ' img' )[ 0 ] ).hide();
+			//delimg.style.display = 'none';
 			if ( delimg2 ) {
 				//if the message is already read there is no such image
-				delimg2.style.display = 'none';
+				$( delimg2 ).hide();
+				//delimg2.style.display = 'none';
 			}
-			msgnode.style.margin = '0px';
+			//msgnode.style.margin = '0px';
+			$( msgnode ).css( "margin" , "0" );
+			$( msgnode ).animate( { opacity : "0" , height : "0" } , 800 , function() {
+				$( this ).remove();
+			} );
+			/*
 			Animations.Create( msgnode , 'opacity' , 2000 , 1 , 0 );
 			Animations.Create( msgnode , 'height' , 3000 , msgnode.offsetHeight , 0 , function() {
 					msgnode.parentNode.removeChild( msgnode );
 			} );
+			*/
 			//check whether the msg is read or not, if it in unread only then execute the next function : TODO
 			if ( !read ) {
 				pms.UpdateUnreadPms( -1 );
 			}
 			pms.pmsinfolder--;
 			pms.WriteNoPms();
-			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
+			//Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
 		} );
 		
 	},
