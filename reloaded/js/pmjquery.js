@@ -43,6 +43,7 @@ var pms = {
 		var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
 		var textpm = messagesdivdivs[ 4 ];
 		var lowerlinepm = messagesdivdivs[ 6 ];
+		/*
 		if ( pms.activepm !== 0 ) {
 			//minimizing previous pm
 			var activepmdivdivs = pms.activepm.parentNode.parentNode.getElementsByTagName( 'div' );
@@ -51,6 +52,10 @@ var pms = {
 			acttextpm.style.display = 'none';
 			actlowerlinepm.style.display = 'none';
 		}	
+		*/
+		$( textpm ).toggle();
+		$( lowerlinepm ).toggle();
+		/*
 		if ( textpm.style.display == 'none' ) {
 			textpm.style.display = 'block';
 			lowerlinepm.style.display = 'block';
@@ -59,6 +64,7 @@ var pms = {
 			textpm.style.display = 'none';
 			lowerlinepm.style.display = 'none';
 		}
+		*/
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
