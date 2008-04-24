@@ -365,4 +365,12 @@ var pms = {
 };
 $( document ).ready( function() {
 	$( 'div.message' ).draggable();
+	$( 'div.createdfolder' ).droppable( {
+		accept: "div.message" 
+		drop : function( ev , ui ) {
+			alert( ev );
+			alert( ui );
+			alert( 'dropped' );
+		}
+	} );
 } );

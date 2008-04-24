@@ -58,7 +58,7 @@
 					?></a></div>
 					<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><?php
 					foreach ( $userfolders as $folder ) {
-						?><div class="folder top" id="folder_<?php
+						?><div class="createdfolder folder top" id="folder_<?php
 						echo $folder->Id;
 						?>" alt="<?php
 						echo htmlspecialchars( $folder->Name );
