@@ -20,11 +20,11 @@ var pms = {
 			//pms.activefolder.className = 'folder';
 		}
 		if ( folder != pms.node ) {
-			$( folder ).addClass( "top" );
+			$( folder ).addClass( "activefolder" );
 			//folder.className = 'activefolder top';
 		}
 		else {
-			$( folder ).removeClass( "top" );
+			$( folder ).removeClass( "activefolder" );
 			//folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
