@@ -12,20 +12,16 @@ var pms = {
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
-			$( pms.activefolder ).addClass( "top" );
-			//pms.activefolder.className = 'folder top';
+			pms.activefolder.className = 'folder top';
 		}
 		else {
-			$( pms.activefolder ).removeClass( "top" );
-			//pms.activefolder.className = 'folder';
+			pms.activefolder.className = 'folder';
 		}
 		if ( folder != pms.node ) {
-			$( folder ).addClass( "activefolder" );
-			//folder.className = 'activefolder top';
+			folder.className = 'activefolder top';
 		}
 		else {
-			$( folder ).removeClass( "activefolder" );
-			//folder.className = 'activefolder';
+			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function( errcode ) {
