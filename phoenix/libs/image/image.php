@@ -37,12 +37,12 @@
         public function FindByUser( User $theuser, $offset = 0, $limit = 15 ) {
             $prototype = New Image();
             $image->Userid = $theuser->Id;
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindByAlbum( Album $album, $offset = 0, $limit = 25 ) {
             $prototype = New Image();
             $image->Albumid = $album->Id;
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindFrontpage( $offset = 0, $limit = 15 ) {
             $finder = New FrontpageImageFinder();

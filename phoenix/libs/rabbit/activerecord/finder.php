@@ -72,7 +72,7 @@
                     throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: Sort field must be ASC or DESC, "' . $sort . '" given.' );
                 }
                 if ( !isset( $this->mAttribute2DbField[ $column ] ) ) {
-                    throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\'is invalid: Attribute field "' . $column . '" does not exist in corresponding model as a domain-level attribute.' );
+                    throw New SatoriException( 'Order clause specified for prototype finder `' . get_class( $this ) . '\' is invalid: Attribute field "' . $column . '" does not exist in corresponding model as a domain-level attribute.' );
                 }
                 $sql .= ' ORDER BY ' . $this->mAttribute2DbField[ $column ] . ' ' . $sort;
             }
