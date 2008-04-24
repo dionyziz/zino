@@ -19,6 +19,7 @@ var Join = {
 	enabled : true
 };
 $( 'div#join' ).ready( function(){
+	alert( 'join' );
 	$( 'form.joinform div input' ).focus( function() {
 		$( this ).css( "border" , "1px solid #bdbdff" );
 	}).blur( function() {
