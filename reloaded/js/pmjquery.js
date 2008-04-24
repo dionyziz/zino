@@ -77,7 +77,7 @@ var pms = {
 			//Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
-				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 1000 , function() {
+				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
 					$( unreadicon ).remove();
 				});
 				/*
@@ -95,21 +95,25 @@ var pms = {
 	,
 	NewFolder : function() {
 		//showing modal dialog for new folder name
-		var newfolderdiv = document.getElementById( 'newfolderlink' );
+		var newfolderdiv = $( '#newfolderlink' );
 		var newfoldermodal = document.getElementById( 'newfoldermodal' ).cloneNode( true );
-		newfoldermodal.style.display = '';
+		$( newfoldermodal ).show();
+		//newfoldermodal.style.display = '';
 		newfoldermodalinput = newfoldermodal.getElementsByTagName( 'input' );
 		textbox = newfoldermodalinput[ 0 ];
 		Modals.Create( newfoldermodal , 250 , 80 );
 		textbox.focus();
 		textbox.select();
-		newfolderdiv.style.backgroundColor = '#e1e9f2';
+		//newfolderdiv.style.backgroundColor = '#e1e9f2';
+		$( newfolderdiv ).css( "background-color" , "#e1e9f2" );
 		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
 		var newfolderlink = newfolderdivlinks[ 0 ];
-		newfolderlink.style.color = '#aaa8a8';
-		newfolderlink.style.fontWeight = 'bold';
+		$( newfolderlink ).css( "color" , "#aaa8a8" )
+		.css( "font-weight" , "bold" );
+		//newfolderlink.style.color = '#aaa8a8';
+		//newfolderlink.style.fontWeight = 'bold';
 		if ( pms.activefolder === 0 ) {
-			pms.node = document.getElementById( 'firstfolder' );
+			pms.node = $( '#firstfolder' );
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
@@ -122,7 +126,7 @@ var pms = {
 	,
 	CancelNewFolder : function () {
 		if ( pms.activefolder === 0 ) {
-			pms.node = document.getElementById( 'firstfolder' );
+			pms.node = $( '#firstfolder' );
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
@@ -131,12 +135,16 @@ var pms = {
 		else {
 			pms.activefolder.className = 'activefolder';
 		}
-		var newfolderdiv = document.getElementById( 'newfolderlink' );
-		newfolderdiv.style.backgroundColor = '#ffffff';
+		//var newfolderdiv = document.getElementById( 'newfolderlink' );
+		//newfolderdiv.style.backgroundColor = '#ffffff';
+		$( '#newfolderlink' ).css( "background-color" , "#ffffff" );
+		$( $( '#newfolderlink a' )[ 0 ] ).css( "color" , "#d0cfcf" ).css( "font-weight" , "normal" );
+		/*
 		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
 		var newfolderlink = newfolderdivlinks[ 0 ];
 		newfolderlink.style.color = '#d0cfcf';
 		newfolderlink.style.fontWeight = '';
+		*/
 		Modals.Destroy();
 	}
 	,
