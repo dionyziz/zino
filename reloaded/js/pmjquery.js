@@ -71,21 +71,28 @@ var pms = {
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
-			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
+			//var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
 			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
-			//var unreadicon = infobaricons[ 1 ];
+			var unreadicon = infobaricons[ 1 ];
 			if ( unreadicon ) {
-				$( unreadicon ).css( "opacity" , "1" )
-				.css( "padding" , "0px" );
+				$( unreadicon ).css( "opacity" , "1" );
+				
 				//unreadicon.style.opacity = '1';
 				//unreadicon.style.padding = '0px';
 				pms.UpdateUnreadPms( - 1 );
+				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 2000 , function() {
+					$( unreadicon ).remove();
+					//Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
+				});
+				/*
 				Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
 						unreadicon.parentNode.removeChild( unreadicon );
 					} );
+				
 				Animations.Create( unreadicon , 'width' , 1500 , unreadicon.offsetWidth , 0 );
 				//mark the pm as read in the database through a coala call
 				Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
+				*/
 			}
 		}
 	}
