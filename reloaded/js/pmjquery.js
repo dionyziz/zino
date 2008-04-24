@@ -42,10 +42,10 @@ var pms = {
 		//notread is true when the pm hasn't been read else it is true
 		var messagesdivdivs = $( '#' + pmid );
 		//var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
-		//var textpm = messagesdivdivs[ 4 ];
-		var textpm = $( '#' + pmid + ' div.text' )[ 0 ];
-		var lowerlinepm = $( '#' + pmid + ' div.lowerline' )[ 0 ];
-		//var lowerlinepm = messagesdivdivs[ 6 ];
+		var textpm = messagesdivdivs[ 4 ];
+		//var textpm = $( '#' + pmid + ' div.text' )[ 0 ];
+		//var lowerlinepm = $( '#' + pmid + ' div.lowerline' )[ 0 ];
+		var lowerlinepm = messagesdivdivs[ 6 ];
 		/*
 		if ( pms.activepm !== 0 ) {
 			//minimizing previous pm
