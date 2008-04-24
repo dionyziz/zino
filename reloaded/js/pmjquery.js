@@ -137,7 +137,7 @@ var pms = {
 				this.remove();
 				pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
 			} );
-			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
+			//Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
 		} );
 	}
 	,
