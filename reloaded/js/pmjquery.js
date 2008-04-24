@@ -375,7 +375,7 @@ $( document ).ready( function() {
 			ui.draggable.animate( { 
 				opacity: "0",
 				height: "0",
-				} , 400 , function() {
+				} , 700 , function() {
 					ui.draggable.remove();
 					alert( "moving pm " + pmid + " to folder " + folderid );
 			});
