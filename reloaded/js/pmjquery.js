@@ -33,7 +33,7 @@ var pms = {
 		//this function uses the ShowFolder function to show the contents of a folder using a little animation
 		pms.activepm = 0;
 		pms.writingnewpm = false;
-		pms.ShowAnimation( 'Παρακαλώ περιμένετε...' );
+		pms.ShowAnimation( 'Ξ Ξ±ΟΞ±ΞΊΞ±Ξ»Ο Ο€ΞµΟΞΉΞΌΞ­Ξ½ΞµΟ„Ξµ...' );
 		pms.ShowFolder( folder , folderid );
 	}
 	,
@@ -127,7 +127,7 @@ var pms = {
 	,
     ValidFolderName : function ( name ) {
 		var name = name.replace(/(\s+$)|(^\s+)/g, '');
-		if ( name == 'Εισερχόμενα' || name == 'Απεσταλμένα' ) {
+		if ( name == 'Ξ•ΞΉΟƒΞµΟΟ‡ΟΞΌΞµΞ½Ξ±' || name == 'Ξ‘Ο€ΞµΟƒΟ„Ξ±Ξ»ΞΌΞ­Ξ½Ξ±' ) {
             return false;
 		}
 		else if ( name.length <= 2 ) {
@@ -145,29 +145,29 @@ var pms = {
 		inputbox = formnodeinput[ 0 ];
 		var foldername = inputbox.value;
 		if ( !pms.ValidFolderName( foldername ) ) {
-			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
+			alert( 'Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΞµΞ―Ο‚ Ξ½Ξ± ΞΏΞ½ΞΏΞΌΞ¬ΟƒΞµΞΉΟ‚ Ξ­Ο„ΟƒΞΉ Ο„ΞΏΞ½ Ο†Ξ¬ΞΊΞµΞ»Ο ΟƒΞΏΟ…' );
 			inputbox.select();
             return;
 		}
-        pms.ShowAnimation( 'Δημιουργία φακέλου...' );
+        pms.ShowAnimation( 'Ξ”Ξ·ΞΌΞΉΞΏΟ…ΟΞ³Ξ―Ξ± Ο†Ξ±ΞΊΞ­Ξ»ΞΏΟ…...' );
         Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
 	}
 	,
 	DeleteFolder : function( folderid ) {
 		//the function for deleting a pm folder
-		Modals.Confirm( 'Θέλεις σίγουρα να σβήσεις τον φάκελο;' , function () {
+		Modals.Confirm( 'ΞΞ­Ξ»ΞµΞΉΟ‚ ΟƒΞ―Ξ³ΞΏΟ…ΟΞ± Ξ½Ξ± ΟƒΞ²Ξ®ΟƒΞµΞΉΟ‚ Ο„ΞΏΞ½ Ο†Ξ¬ΞΊΞµΞ»ΞΏ;' , function () {
 			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
 		} );
 	}
 	,
     RenameFolder : function ( folderid ) {
-        var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
+        var name = prompt( 'Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ξ­Ξ½Ξ± Ξ½Ξ­ΞΏ ΟΞ½ΞΏΞΌΞ± Ξ³ΞΉΞ± Ο„ΞΏΞ½ Ο†Ξ¬ΞΊΞµΞ»Ο ΟƒΞΏΟ…' );
         
         if ( name === null ) {
             return;
         }
         if ( !pms.ValidFolderName( name ) ) {
-            alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
+            alert( 'Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΞµΞ―Ο‚ Ξ½Ξ± ΞΏΞ½ΞΏΞΌΞ¬ΟƒΞµΞΉΟ‚ Ξ­Ο„ΟƒΞΉ Ο„ΞΏΞ½ Ο†Ξ¬ΞΊΞµΞ»Ο ΟƒΞΏΟ…' );
             return;
         }
         Coala.Warm( 'pm/folder/rename', {
@@ -204,7 +204,7 @@ var pms = {
 		
 		var receiverstext = document.createElement( 'span' );
 		receiverstext.style.paddingRight = '30px';
-		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
+		receiverstext.appendChild( document.createTextNode( 'Ξ Ξ±ΟΞ±Ξ»Ξ®Ο€Ο„ΞµΟ‚' ) );
 		receiverstext.style.fontWeight = 'bold';
 		receiversdiv.appendChild( receiverstext );
 		receiversdiv.appendChild( receiversinput );
@@ -217,7 +217,7 @@ var pms = {
 		
 		var sendbutton = document.createElement( 'input' );
 		sendbutton.type = 'button';
-		sendbutton.value = 'Αποστολή';
+		sendbutton.value = 'Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ®';
 		sendbutton.onclick = ( function() {
 			return function() {
 				pms.SendPm();
@@ -226,7 +226,7 @@ var pms = {
 		
 		var cancelbutton = document.createElement( 'input' );
 		cancelbutton.type = 'button';
-		cancelbutton.value = 'Επαναφορά';
+		cancelbutton.value = 'Ξ•Ο€Ξ±Ξ½Ξ±Ο†ΞΏΟΞ¬';
 		cancelbutton.onclick = ( function() {
 			return function() {
 				receiversinput.value = '';
@@ -241,7 +241,7 @@ var pms = {
 		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
 		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
 		pms.messagescontainer.appendChild( actions );
-		pms.ShowFolderNameTop( 'Νέο μήνυμα' );
+		pms.ShowFolderNameTop( 'ΞΞ­ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ±' );
 		receiversinput.focus();
 		receiversinput.select();
 		pms.writingnewpm = true;
@@ -253,12 +253,12 @@ var pms = {
 		var receiverslist = messagesdivinputlist[ 0 ];
 		var messagesdivtextarealist = pms.messagescontainer.getElementsByTagName( 'textarea' );
 		var pmtext = messagesdivtextarealist[ 0 ];
-		pms.ShowAnimation( 'Αποστολή μηνύματος...' );
+		pms.ShowAnimation( 'Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ® ΞΌΞ·Ξ½ΟΞΌΞ±Ο„ΞΏΟ‚...' );
 		Coala.Warm( 'pm/sendpm' , { usernames : receiverslist.value , pmtext : pmtext.value } );
 	}
 	,
 	DeletePm : function( msgnode , msgid , read ) {
-		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
+		Modals.Confirm( 'ΞΞ­Ξ»ΞµΞΉΟ‚ ΟƒΞ―Ξ³ΞΏΟ…ΟΞ± Ξ½Ξ± Ξ΄ΞΉΞ±Ξ³ΟΞ¬ΟΞµΞΉΟ‚ Ο„ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ±;' , function() {
 			pms.activepms = 0;
 			var msgnodedivs = msgnode.getElementsByTagName( 'div' );
 			var msgnodeimgs = msgnode.getElementsByTagName( 'img' );
@@ -447,27 +447,27 @@ var pms = {
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
-				newtext = document.createTextNode( 'Εισερχόμενα (' + unreadpms + ')' );
+				newtext = document.createTextNode( 'Ξ•ΞΉΟƒΞµΟΟ‡ΟΞΌΞµΞ½Ξ± (' + unreadpms + ')' );
 				if ( unreadpms == 1 ) {
-					newtext2 = document.createTextNode( '1 Νέο Μήνυμα' );
+					newtext2 = document.createTextNode( '1 ΞΞ­ΞΏ ΞΞ®Ξ½Ο…ΞΌΞ±' );
 				}
 				else {
-					newtext2 = document.createTextNode( unreadpms + ' Νέα Μηνύματα' );
+					newtext2 = document.createTextNode( unreadpms + ' ΞΞ­Ξ± ΞΞ·Ξ½ΟΞΌΞ±Ο„Ξ±' );
 				}
 			}
 			else {
-				newtext = document.createTextNode( 'Εισερχόμενα (' + specnumber + ')' );
-				newtext2 = document.createTextNode( specnumber + ' Νέα Μηνύματα' );
+				newtext = document.createTextNode( 'Ξ•ΞΉΟƒΞµΟΟ‡ΟΞΌΞµΞ½Ξ± (' + specnumber + ')' );
+				newtext2 = document.createTextNode( specnumber + ' ΞΞ­Ξ± ΞΞ·Ξ½ΟΞΌΞ±Ο„Ξ±' );
 			}
 		}
 		else {
 			newtext2 = document.createElement( 'img' );
 			newtext2.src = 'http://static.zino.gr/images/icons/email.png';
-			newtext2.alt = 'Μηνύματα';
+			newtext2.alt = 'ΞΞ·Ξ½ΟΞΌΞ±Ο„Ξ±';
 			newtext2.style.width = '16px';
 			newtext2.style.height = '16px';
 			newtext2.style.verticalAlign = 'bottom';
-			newtext = document.createTextNode( 'Εισερχόμενα' );
+			newtext = document.createTextNode( 'Ξ•ΞΉΟƒΞµΟΟ‡ΟΞΌΞµΞ½Ξ±' );
 		}
 		unreadmsgbanner.appendChild( newtext2 );
 		incominglink.appendChild( newtext );
@@ -504,7 +504,7 @@ var pms = {
 		if ( messagescontainerdivlist.length / 12 == 1 ) {
 			//var messagescontainer = document.getElementById( 'messages' );
 			nopmsspan = document.createElement( 'span' );
-			nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
+			nopmsspan.appendChild( document.createTextNode( 'Ξ”ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΞΌΞ·Ξ½ΟΞΌΞ±Ο„Ξ± ΟƒΞµ Ξ±Ο…Ο„ΟΞ½ Ο„ΞΏΞ½ Ο†Ξ¬ΞΊΞµΞ»ΞΏ' ) );
 			nopmsspan.style.opacity = '0';
 			pms.messagescontainer.appendChild( nopmsspan );
 			Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
