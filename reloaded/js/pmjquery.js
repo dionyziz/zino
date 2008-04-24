@@ -95,7 +95,7 @@ var pms = {
 	,
 	NewFolder : function() {
 		//showing modal dialog for new folder name
-		var newfolderdiv = $( '#newfolderlink' );
+		var newfolderdiv = $( '#newfolderlink' )[ 0 ];
 		var newfoldermodal = document.getElementById( 'newfoldermodal' ).cloneNode( true );
 		$( newfoldermodal ).show();
 		//newfoldermodal.style.display = '';
