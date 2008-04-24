@@ -368,6 +368,8 @@ $( document ).ready( function() {
 	$( 'div.createdfolder' ).droppable({
 		accept: "div.message",
 		drop: function(ev, ui) {
+			alert( ev );
+			alert( ui );
 			alert( 'dropped' );
 		}
 	});
