@@ -113,7 +113,7 @@ var pms = {
 		//newfolderlink.style.color = '#aaa8a8';
 		//newfolderlink.style.fontWeight = 'bold';
 		if ( pms.activefolder === 0 ) {
-			pms.node = $( '#firstfolder' );
+			pms.node = $( '#firstfolder' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
