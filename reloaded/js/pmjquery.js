@@ -363,7 +363,7 @@ var pms = {
 		}
 	}
 };
-pms.DragPm2();
 $( document ).ready( function() {
+	alert( 'loaded' );
 	$( 'div.received' ).draggable();
 } );
