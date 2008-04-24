@@ -231,7 +231,7 @@ var pms = {
 		Coala.Warm( 'pm/sendpm' , { usernames : receiverslist.value , pmtext : pmtext.value } );
 	}
 	,
-	DeletePm : function( msgnode , msgid , read ) {
+	DeletePm : function( msgnode , pmid , read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
 			pms.activepms = 0;
 			/*
