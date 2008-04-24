@@ -257,13 +257,13 @@ var pms = {
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one
 		//if specnumber is - 1 the unread pms number is reduced by one, else the specnumber is used as the number for the unread msgs
-		var unreadmsgbanner = document.getElementById( 'messagesunread' );
-		var incomingdiv = document.getElementById( 'firstfolder' );
+		var unreadmsgbanner = $( '#messagesunread' );
+		var incomingdiv = $( '#firstfolder' );
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
 		var newtext2;
-		incominglink.removeChild( incominglink.firstChild );
-		unreadmsgbanner.removeChild( unreadmsgbanner.firstChild );
+		$( incominglink.firstChild ).remove();
+		$( unreadmsgbanner.firstChild ).remove();
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
@@ -284,9 +284,12 @@ var pms = {
 			newtext2 = document.createElement( 'img' );
 			newtext2.src = 'http://static.zino.gr/images/icons/email.png';
 			newtext2.alt = 'Μηνύματα';
+			$( newtext2 ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
+			/*
 			newtext2.style.width = '16px';
 			newtext2.style.height = '16px';
 			newtext2.style.verticalAlign = 'bottom';
+			*/
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		unreadmsgbanner.appendChild( newtext2 );
