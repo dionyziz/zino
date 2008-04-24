@@ -41,54 +41,21 @@ var pms = {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
 		var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
-		//var messagesdivdivs = pmdiv.parentNode.parentNode.getElementsByTagName( 'div' );
-		//var textpm = messagesdivdivs[ 4 ];
 		var textpm = $( '#pm_' + pmid + ' div.text' )[ 0 ];
 		var lowerlinepm = $( '#pm_' + pmid + ' div.lowerline' )[ 0 ];
-		//var lowerlinepm = messagesdivdivs[ 6 ];
-		/*
-		if ( pms.activepm !== 0 ) {
-			//minimizing previous pm
-			var activepmdivdivs = pms.activepm.parentNode.parentNode.getElementsByTagName( 'div' );
-			var acttextpm = activepmdivdivs[ 4 ];
-			var actlowerlinepm = activepmdivdivs[ 6 ];
-			acttextpm.style.display = 'none';
-			actlowerlinepm.style.display = 'none';
-		}	
-		*/
 		$( textpm ).toggle();
 		$( lowerlinepm ).toggle();
-		/*
-		if ( textpm.style.display == 'none' ) {
-			textpm.style.display = 'block';
-			lowerlinepm.style.display = 'block';
-		}
-		else {
-			textpm.style.display = 'none';
-			lowerlinepm.style.display = 'none';
-		}
-		*/
+		
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
 			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
-			//var infobaricons = messagesdivdivs[ 0 ].getElementsByTagName( 'img' );
-			//var unreadicon = infobaricons[ 1 ];
-			//Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
+			Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
 				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
 					$( unreadicon ).remove();
 				});
-				/*
-				Animations.Create( unreadicon , 'opacity' , 2000 , 1 , 0 , function() {
-						unreadicon.parentNode.removeChild( unreadicon );
-					} );
-				
-				Animations.Create( unreadicon , 'width' , 1500 , unreadicon.offsetWidth , 0 );
-				//mark the pm as read in the database through a coala call
-				Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
-				*/
 			}
 		}
 	}
@@ -98,20 +65,15 @@ var pms = {
 		var newfolderdiv = $( '#newfolderlink' )[ 0 ];
 		var newfoldermodal = document.getElementById( 'newfoldermodal' ).cloneNode( true );
 		$( newfoldermodal ).show();
-		//newfoldermodal.style.display = '';
 		newfoldermodalinput = newfoldermodal.getElementsByTagName( 'input' );
 		textbox = newfoldermodalinput[ 0 ];
 		Modals.Create( newfoldermodal , 250 , 80 );
 		textbox.focus();
 		textbox.select();
-		//newfolderdiv.style.backgroundColor = '#e1e9f2';
 		$( newfolderdiv ).css( "background-color" , "#e1e9f2" );
 		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
 		var newfolderlink = newfolderdivlinks[ 0 ];
-		$( newfolderlink ).css( "color" , "#aaa8a8" )
-		.css( "font-weight" , "bold" );
-		//newfolderlink.style.color = '#aaa8a8';
-		//newfolderlink.style.fontWeight = 'bold';
+		$( newfolderlink ).css( "color" , "#aaa8a8" ).css( "font-weight" , "bold" );
 		if ( pms.activefolder === 0 ) {
 			pms.node = $( '#firstfolder' )[ 0 ];
 			pms.activefolder = pms.node;
@@ -135,16 +97,8 @@ var pms = {
 		else {
 			pms.activefolder.className = 'activefolder';
 		}
-		//var newfolderdiv = document.getElementById( 'newfolderlink' );
-		//newfolderdiv.style.backgroundColor = '#ffffff';
 		$( '#newfolderlink' ).css( "background-color" , "#ffffff" );
 		$( $( '#newfolderlink a' )[ 0 ] ).css( "color" , "#d0cfcf" ).css( "font-weight" , "normal" );
-		/*
-		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
-		var newfolderlink = newfolderdivlinks[ 0 ];
-		newfolderlink.style.color = '#d0cfcf';
-		newfolderlink.style.fontWeight = '';
-		*/
 		Modals.Destroy();
 	}
 	,
@@ -371,7 +325,7 @@ var pms = {
 	ClearMessages : function() {
 		//clears the area where pms appear
 		while ( pms.messagescontainer.firstChild ) {
-			pms.messagescontainer.removeChild( pms.messagescontainer.firstChild );
+			$( pms.messagescontainer.firstChild ).remove();
 		}
 	},
 	WriteNoPms : function() {
