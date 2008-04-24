@@ -369,12 +369,15 @@ $( document ).ready( function() {
 		accept: "div.message",
 		hoverClass: "hoverfolder",
 		drop: function(ev, ui) {
+			var folderid = $( this ).attr( "id" );
+			var pmid = ui.draggable.attr( "id" );
 			ui.draggable.animate( { 
 				opacity: "0",
 				height: "0",
 				tolerance: "pointer",
 				} , 400 , function() {
 					ui.draggable.remove();
+					alert( "moving pm " + pmid + " to folder " + folderid );
 			});
 		}
 	});
