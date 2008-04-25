@@ -208,13 +208,18 @@ var pms = {
 			};
 		})();
 		var actions = document.createElement( 'div' );
+		$( actions ).append( sendbutton ).append( cancelbutton );
+		/*
 		actions.appendChild( sendbutton );
 		actions.appendChild( cancelbutton );
-		
+		*/
+		$( pms.messagescontainer ).append ( pmtext ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) ).append( actions );
+		/*
 		pms.messagescontainer.appendChild( pmtext );
 		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
 		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
 		pms.messagescontainer.appendChild( actions );
+		*/
 		pms.ShowFolderNameTop( 'Νέο μήνυμα' );
 		receiversinput.focus();
 		receiversinput.select();
