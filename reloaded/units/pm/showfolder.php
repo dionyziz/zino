@@ -47,14 +47,7 @@
     	else {
     		$folder = PMFolder_Factory( $folderid );
     		if ( $folder->UserId == $user->Id() ) {
-    			?>$( deletelink ).css( "display" , "block" ).click( function( folderid ) {
-					pms.DeleteFolder( <?php
-					echo $folderid;
-					?> );
-					return false;
-				} );
-				/*
-				deletelink.style.display = 'block';
+    			?>$( deletelink ).css( "display" , "block" );
     			deletelink.onclick = ( function( folderid ) {
     				return function() {
     					pms.DeleteFolder( folderid );
@@ -63,16 +56,7 @@
     			})( <?php 
     			echo $folderid;
     			?> );
-				*/
-				$( renamelink ).css( "display" , "block" ).click( function( folderid ) {
-					pms.RenameFolder( <?php
-					echo $folderid;
-					?> );
-					return false;
-				} );
-				
-				/*
-                renamelink.style.display = 'block';
+				$( renamelink ).css( "display" , "block" );
                 renamelink.onclick = ( function( folderid ) {
                     return function () {
                         pms.RenameFolder( folderid );
@@ -81,7 +65,6 @@
                 } )( <?php
                 echo $folderid;
                 ?> );
-				*/
     			pms.messagescontainer.innerHTML = <?php
     			ob_start();
     			Element( 'pm/showfolder' , $folder );
