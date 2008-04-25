@@ -172,33 +172,52 @@ var pms = {
 		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
 			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
-			textmargin.appendChild( document.createTextNode( answertext ) );
+			$( textmargin ).append( document.createTextNode( answertext ) );
+			$( pms.messagescontainer ).append( textmargin ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) );
+			/*
 			pms.messagescontainer.appendChild( textmargin );
 			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
 			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
+			*/
 		}
 		
 		var receiverstext = document.createElement( 'span' );
 		$( receiverstext ).css( "padding-right" , "30px" );
 		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
 		$( receiverstext ).css( "font-weight" , "bold" );
+		$( receiversdiv ).append( receiverstext ).append( receiversinput ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) ); 
+		/*
 		receiversdiv.appendChild( receiverstext );
 		receiversdiv.appendChild( receiversinput );
 		receiversdiv.appendChild( document.createElement( 'br' ) );
 		receiversdiv.appendChild( document.createElement( 'br' ) );
-		
+		*/
 		var pmtext = document.createElement( 'textarea' );
 		$( pmtext ).css( "width" , "550px" ).css( "height" , "330px" );
 		var sendbutton = document.createElement( 'input' );
+		$( sendbutton ).attr( { type : 'button' , value : 'Αποστολή' } );
+		/*
 		sendbutton.type = 'button';
 		sendbutton.value = 'Αποστολή';
+		*/
+		$( sendbutton ).click( function() {	
+			pms.SendPm();
+		});
+		/*
 		sendbutton.onclick = ( function() {
 			return function() {
 				pms.SendPm();
 			};
 		})();
+		*/
 		
 		var cancelbutton = document.createElement( 'input' );
+		$( cancelbutton ).attr( { type : 'button' , value : 'Επαναφορά' } );
+		$( cancelbutton ).click( function() {
+			receiversinput.value = '';
+			pmtext.value = '';
+		});
+		/*
 		cancelbutton.type = 'button';
 		cancelbutton.value = 'Επαναφορά';
 		cancelbutton.onclick = ( function() {
@@ -207,6 +226,7 @@ var pms = {
 				pmtext.value = '';
 			};
 		})();
+		*/
 		var actions = document.createElement( 'div' );
 		$( actions ).append( sendbutton ).append( cancelbutton );
 		/*
