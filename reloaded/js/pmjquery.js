@@ -295,7 +295,7 @@ var pms = {
 		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		if ( messagescontainerdivlist.length / 12 == 1 ) {
 			nopmsspan = document.createElement( 'span' );
-			$( nopmsspan ).append( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
+			$( nopmsspan ).html( 'Δεν έχεις μηνύματα σε αυτό το φάκελο.<br />Μετακίνησε κάποια μηνύματα με το ποντίκι σε αυτό το φάκελο για να τα μεταφέρεις εδώ.' );
 			$( pms.messagescontainer ).append( nopmsspan );
 			$( nopmsspan ).animate( { opacity : "1" } , 2000 );
 		}
