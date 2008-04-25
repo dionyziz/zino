@@ -6,14 +6,21 @@
     	$libs->Load( "pm" );	
     	
     	$folderid = $folderid->Get();
-    	?>var deletelink = document.getElementById( 'deletefolderlink' );
-    	var renamelink = document.getElementById( 'renamefolderlink' );<?php
+    	?>var deletelink = $( '#deletefolderlink' )[ 0 ];
+    	var renamelink = $( '#renamefolderlink' )[ 0 ];<?php
     	if ( $folderid == -1 || $folderid == -2 ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
     		Element( 'pm/showfolder' , $folderid );
     		echo w_json_encode( ob_get_clean() );
     		?>;
+			$( deletelink ).hide().click( function() {
+				return false;
+			} );
+			$( renamelink ).hide().click( function() {
+				return false;
+			} );
+			/*
     		deletelink.style.display = 'none';
     		deletelink.onclick = function() {
     			return false;
@@ -22,6 +29,7 @@
             renamelink.onclick = function () {
                 return false;
             };
+			*/
     		pms.ShowFolderNameTop( '<?php 
     		if ( $folderid == - 1 ) {
     			?>Εισερχόμενα' );<?php
@@ -39,7 +47,12 @@
     	else {
     		$folder = PMFolder_Factory( $folderid );
     		if ( $folder->UserId == $user->Id() ) {
-    			?>deletelink.style.display = 'block';
+    			?>$( deletelink ).show().click( function( folderid ) {
+					pms.DeleteFolder( folderid );
+					return false;
+				} );
+				/*
+				deletelink.style.display = 'block';
     			deletelink.onclick = ( function( folderid ) {
     				return function() {
     					pms.DeleteFolder( folderid );
@@ -48,6 +61,12 @@
     			})( <?php 
     			echo $folderid;
     			?> );
+				*/
+				$( renamelink ).show().click( function( folderid ) {
+					pms.RenameFolder( folderid );
+					return false;
+				} );
+				/*
                 renamelink.style.display = 'block';
                 renamelink.onclick = ( function( folderid ) {
                     return function () {
@@ -57,6 +76,7 @@
                 } )( <?php
                 echo $folderid;
                 ?> );
+				*/
     			pms.messagescontainer.innerHTML = <?php
     			ob_start();
     			Element( 'pm/showfolder' , $folder );
