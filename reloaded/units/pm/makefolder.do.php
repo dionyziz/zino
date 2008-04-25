@@ -31,7 +31,21 @@ function UnitPmMakefolder( tString $foldername ) {
 	}).append( document.createTextNode( <?php
 	echo $foldername;
 	?> ) );
-	$( newfolder ).append( newfolderhref ).droppable();
+	$( newfolder ).append( newfolderhref ).droppable( {
+		accept: "div.message",
+		hoverClass: "hoverfolder",
+		tolerance: "pointer",
+		drop: function(ev, ui) {
+			//alert( 'pmid is ' + ui.draggable.attr( "id" ).substring( 3 ) + ' folderid: ' + $( this ).attr( "id" ).substring( 7 ) );
+			Coala.Warm( 'pm/transfer' , { pmid : ui.draggable.attr( "id" ).substring( 3 ) , folderid : $( this ).attr( "id" ).substring( 7 ) } );
+			ui.draggable.animate( { 
+				opacity: "0",
+				height: "0"
+				} , 700 , function() {
+					ui.draggable.remove();
+			} );
+		}
+	} );
 	newfolderlink.parentNode.insertBefore( newfolder , newfolderlink );
 	pms.activefolder = newfolder;
 	pms.CancelNewFolder();

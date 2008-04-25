@@ -303,7 +303,7 @@ var pms = {
 };
 $( document ).ready( function() {
 	$( 'div.message' ).draggable( { helper : 'clone' } );
-	$( 'div.createdfolder' ).droppable({
+	$( 'div.createdfolder' ).droppable( {
 		accept: "div.message",
 		hoverClass: "hoverfolder",
 		tolerance: "pointer",
@@ -315,7 +315,7 @@ $( document ).ready( function() {
 				height: "0"
 				} , 700 , function() {
 					ui.draggable.remove();
-			});
+			} );
 		}
-	});
+	} );
 } );
