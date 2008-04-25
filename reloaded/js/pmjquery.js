@@ -241,7 +241,7 @@ var pms = {
 				//if the message is already read there is no such image
 				$( delimg2 ).hide();
 			}
-			$( msgnode ).hide( 800 , function() {
+			$( msgnode ).hide( 700 , function() {
 				$( this ).remove();
 			} );
 			//check whether the msg is read or not, if it in unread only then execute the next function : TODO
@@ -285,11 +285,6 @@ var pms = {
 			newtext2.src = 'http://static.zino.gr/images/icons/email.png';
 			newtext2.alt = 'Μηνύματα';
 			$( newtext2 ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
-			/*
-			newtext2.style.width = '16px';
-			newtext2.style.height = '16px';
-			newtext2.style.verticalAlign = 'bottom';
-			*/
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		unreadmsgbanner.appendChild( newtext2 );
@@ -308,12 +303,16 @@ var pms = {
 	ShowAnimation : function( texttoshow ) {
 		pms.ClearMessages();
 		var loadinggif = document.createElement( 'img' );
+		$( loadinggif ).attr( { src : 'http://static.zino.gr/images/ajax-loader.gif' , alt : texttoshow , title : texttoshow } );
+		/*
 		loadinggif.src = 'http://static.zino.gr/images/ajax-loader.gif';
 		loadinggif.alt = texttoshow;
 		loadinggif.title = texttoshow;
+		*/
 		var loadingtext = document.createTextNode( ' ' + texttoshow );
-		pms.messagescontainer.appendChild( loadinggif );
-		pms.messagescontainer.appendChild( loadingtext );
+		$( pms.messagescontainer ).append( loadinggif ).append( loadingtext );
+		//pms.messagescontainer.appendChild( loadinggif );
+		//pms.messagescontainer.appendChild( loadingtext );
 	}
 	,
 	ClearMessages : function() {
