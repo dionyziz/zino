@@ -25,6 +25,7 @@ var pms = {
 		}
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function() {
+				alert( 'showed' );
 				$( 'div.message' ).draggable( { helper : 'clone' } );
 		} );	
 	}
