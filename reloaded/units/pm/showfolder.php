@@ -62,7 +62,7 @@
     			echo $folderid;
     			?> );
 				*/
-				$( renamelink ).css( "css" , "block" ).click( function( folderid ) {
+				$( renamelink ).css( "display" , "block" ).click( function( folderid ) {
 					pms.RenameFolder( folderid );
 					return false;
 				} );
