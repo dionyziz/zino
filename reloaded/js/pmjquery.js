@@ -135,9 +135,8 @@ var pms = {
 		Modals.Confirm( 'Θέλεις σίγουρα να σβήσεις τον φάκελο;' , function () {
 			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
 			$( '#folder_' + folderid ).animate( { opacity : "0" , height : "0" } , 800 , function() {
-				$( '#folder_' + folderid ).remove();
 				if ( !pms.writingnewpm ) {
-					//pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
+					pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
 				}
 			} );
 		} );
