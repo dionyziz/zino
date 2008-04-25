@@ -324,4 +324,4 @@ $( document ).ready( function() {
 			});
 		}
 	});
-});
+} );

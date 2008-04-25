@@ -47,7 +47,7 @@
     	else {
     		$folder = PMFolder_Factory( $folderid );
     		if ( $folder->UserId == $user->Id() ) {
-    			?>$( deletelink ).show().click( function( folderid ) {
+    			?>$( deletelink ).css( "display" , "block" ).click( function( folderid ) {
 					pms.DeleteFolder( folderid );
 					return false;
 				} );
@@ -62,7 +62,7 @@
     			echo $folderid;
     			?> );
 				*/
-				$( renamelink ).show().click( function( folderid ) {
+				$( renamelink ).css( "css" , "block" ).click( function( folderid ) {
 					pms.RenameFolder( folderid );
 					return false;
 				} );
