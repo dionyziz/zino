@@ -317,9 +317,12 @@ var pms = {
 	,
 	ClearMessages : function() {
 		//clears the area where pms appear
+		$( pms.messagescontainer ).empty();
+		/*
 		while ( pms.messagescontainer.firstChild ) {
 			$( pms.messagescontainer.firstChild ).remove();
 		}
+		*/
 	},
 	WriteNoPms : function() {
 		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
