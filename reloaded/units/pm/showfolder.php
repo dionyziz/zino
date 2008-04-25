@@ -67,6 +67,6 @@
     			?> );<?php
     		}
     	}
-		?>pms.DragPm2();<?php
+		?>$( 'div.message' ).draggable( { helper : 'clone' } );<?php
     }
 ?>
