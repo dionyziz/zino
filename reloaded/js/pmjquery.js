@@ -145,7 +145,6 @@ var pms = {
 	,
     RenameFolder : function ( folderid ) {
         var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
-        
         if ( name === null ) {
             return;
         }
@@ -170,14 +169,12 @@ var pms = {
 			receiversinput.value = touser;
 		}
 		pms.messagescontainer.appendChild( receiversdiv );
-		
 		if ( answertext !== '' ) {
 			var textmargin = document.createElement( 'div' );
 			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
 			$( textmargin ).append( document.createTextNode( answertext ) );
 			$( pms.messagescontainer ).append( textmargin ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) );
 		}
-		
 		var receiverstext = document.createElement( 'span' );
 		$( receiverstext ).css( "padding-right" , "30px" );
 		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
@@ -266,18 +263,11 @@ var pms = {
 		}
 		else {
 			newtext2 = document.createElement( 'img' );
-			//newtext2.src = 'http://static.zino.gr/images/icons/email.png';
-			//newtext2.alt = 'Μηνύματα';
-			
 			$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		$( unreadmsgbanner ).append( newtext2 );
 		$( incominglink ).append( newtext );
-		/*
-		unreadmsgbanner.appendChild( newtext2 );
-		incominglink.appendChild( newtext );
-		*/
 	}
 	,
 	ShowFolderNameTop : function( texttoshow ) {
@@ -322,6 +312,7 @@ $( document ).ready( function() {
 				opacity: "0",
 				height: "0"
 				} , 700 , function() {
+					Coala.Warm( 'pm/transfer' , { pmid : ui.draggable.attr( "id" ).substring( 3 ) , folderid : $( this ).attr( "id" ).substring( 7 ) } );
 					ui.draggable.remove();
 			});
 		}
