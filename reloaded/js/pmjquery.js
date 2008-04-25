@@ -231,7 +231,7 @@ var pms = {
 			}
 			pms.pmsinfolder--;
 			pms.WriteNoPms();
-			Coala.Warm( 'pm/deletepm' , { pmid : msgid } );
+			Coala.Warm( 'pm/deletepm' , { pmid : pmid } );
 		} );
 		
 	},
