@@ -325,12 +325,13 @@ var pms = {
 	WriteNoPms : function() {
 		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		if ( messagescontainerdivlist.length / 12 == 1 ) {
-			//var messagescontainer = document.getElementById( 'messages' );
 			nopmsspan = document.createElement( 'span' );
 			nopmsspan.appendChild( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
-			nopmsspan.style.opacity = '0';
-			pms.messagescontainer.appendChild( nopmsspan );
-			Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
+			//nopmsspan.style.opacity = '0';
+			//pms.messagescontainer.appendChild( nopmsspan );
+			$( pms.messagescontainer ).append( nopmsspan );
+			$( nopmsspan ).animate( { opacity : "1" } , 2000 );
+			//Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
 		}
 	}
 };
