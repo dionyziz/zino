@@ -282,13 +282,18 @@ var pms = {
 		}
 		else {
 			newtext2 = document.createElement( 'img' );
-			newtext2.src = 'http://static.zino.gr/images/icons/email.png';
-			newtext2.alt = 'Μηνύματα';
-			$( newtext2 ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
+			//newtext2.src = 'http://static.zino.gr/images/icons/email.png';
+			//newtext2.alt = 'Μηνύματα';
+			
+			$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
+		$( unreadmsgbanner ).append( newtext2 );
+		$( incominglink ).append( newtext );
+		/*
 		unreadmsgbanner.appendChild( newtext2 );
 		incominglink.appendChild( newtext );
+		*/
 	}
 	,
 	ShowFolderNameTop : function( texttoshow ) {
