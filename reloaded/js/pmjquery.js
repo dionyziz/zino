@@ -102,8 +102,8 @@ var pms = {
 		Modals.Destroy();
 	}
 	,
-    ValidFolderName : function ( name ) {
-		var name = name.replace(/(\s+$)|(^\s+)/g, '');
+    ValidFolderName : function ( text ) {
+		var name = text.replace(/(\s+$)|(^\s+)/g , '');
 		if ( name == 'Εισερχόμενα' || name == 'Απεσταλμένα' ) {
             return false;
 		}
@@ -318,7 +318,7 @@ $( document ).ready( function() {
 		drop: function(ev, ui) {
 			ui.draggable.animate( { 
 				opacity: "0",
-				height: "0",
+				height: "0"
 				} , 700 , function() {
 					ui.draggable.remove();
 			});
