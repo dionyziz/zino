@@ -174,11 +174,6 @@ var pms = {
 			$( textmargin ).css( "border" , "1px dotted #b9b8b8" ).css( "padding" , "4px" ).css( "color" , "#767676" ).css( "width" , "550px" );
 			$( textmargin ).append( document.createTextNode( answertext ) );
 			$( pms.messagescontainer ).append( textmargin ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) );
-			/*
-			pms.messagescontainer.appendChild( textmargin );
-			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
-			pms.messagescontainer.appendChild( document.createElement( 'br' ) );
-			*/
 		}
 		
 		var receiverstext = document.createElement( 'span' );
@@ -186,60 +181,22 @@ var pms = {
 		receiverstext.appendChild( document.createTextNode( 'Παραλήπτες' ) );
 		$( receiverstext ).css( "font-weight" , "bold" );
 		$( receiversdiv ).append( receiverstext ).append( receiversinput ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) ); 
-		/*
-		receiversdiv.appendChild( receiverstext );
-		receiversdiv.appendChild( receiversinput );
-		receiversdiv.appendChild( document.createElement( 'br' ) );
-		receiversdiv.appendChild( document.createElement( 'br' ) );
-		*/
 		var pmtext = document.createElement( 'textarea' );
 		$( pmtext ).css( "width" , "550px" ).css( "height" , "330px" );
 		var sendbutton = document.createElement( 'input' );
 		$( sendbutton ).attr( { type : 'button' , value : 'Αποστολή' } );
-		/*
-		sendbutton.type = 'button';
-		sendbutton.value = 'Αποστολή';
-		*/
 		$( sendbutton ).click( function() {	
 			pms.SendPm();
 		});
-		/*
-		sendbutton.onclick = ( function() {
-			return function() {
-				pms.SendPm();
-			};
-		})();
-		*/
-		
 		var cancelbutton = document.createElement( 'input' );
 		$( cancelbutton ).attr( { type : 'button' , value : 'Επαναφορά' } );
 		$( cancelbutton ).click( function() {
 			receiversinput.value = '';
 			pmtext.value = '';
 		});
-		/*
-		cancelbutton.type = 'button';
-		cancelbutton.value = 'Επαναφορά';
-		cancelbutton.onclick = ( function() {
-			return function() {
-				receiversinput.value = '';
-				pmtext.value = '';
-			};
-		})();
-		*/
 		var actions = document.createElement( 'div' );
 		$( actions ).append( sendbutton ).append( cancelbutton );
-		/*
-		actions.appendChild( sendbutton );
-		actions.appendChild( cancelbutton );
-		*/
 		$( pms.messagescontainer ).append ( pmtext ).append( document.createElement( 'br' ) ).append( document.createElement( 'br' ) ).append( actions );
-		/*
-		pms.messagescontainer.appendChild( pmtext );
-		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
-		pms.messagescontainer.appendChild( document.createElement( 'br' ) );
-		pms.messagescontainer.appendChild( actions );
-		*/
 		pms.ShowFolderNameTop( 'Νέο μήνυμα' );
 		receiversinput.focus();
 		receiversinput.select();
@@ -326,44 +283,29 @@ var pms = {
 		var messagesdivparent = pms.messagescontainer.parentNode.parentNode;
 		var messagesdivdiv = messagesdivparent.getElementsByTagName( 'div' );
 		var foldertext = messagesdivdiv[ 1 ];
-		foldertext.removeChild( foldertext.firstChild );
-		foldertext.appendChild( document.createTextNode( texttoshow ) );
+		$( foldertext.firstChild ).remove();
+		$( foldertext ).append( document.createTextNode( texttoshow ) );
 	}
 	,
 	ShowAnimation : function( texttoshow ) {
 		pms.ClearMessages();
 		var loadinggif = document.createElement( 'img' );
 		$( loadinggif ).attr( { src : 'http://static.zino.gr/images/ajax-loader.gif' , alt : texttoshow , title : texttoshow } );
-		/*
-		loadinggif.src = 'http://static.zino.gr/images/ajax-loader.gif';
-		loadinggif.alt = texttoshow;
-		loadinggif.title = texttoshow;
-		*/
 		var loadingtext = document.createTextNode( ' ' + texttoshow );
 		$( pms.messagescontainer ).append( loadinggif ).append( loadingtext );
-		//pms.messagescontainer.appendChild( loadinggif );
-		//pms.messagescontainer.appendChild( loadingtext );
 	}
 	,
 	ClearMessages : function() {
 		//clears the area where pms appear
 		$( pms.messagescontainer ).empty();
-		/*
-		while ( pms.messagescontainer.firstChild ) {
-			$( pms.messagescontainer.firstChild ).remove();
-		}
-		*/
 	},
 	WriteNoPms : function() {
 		var messagescontainerdivlist = pms.messagescontainer.getElementsByTagName( 'div' );
 		if ( messagescontainerdivlist.length / 12 == 1 ) {
 			nopmsspan = document.createElement( 'span' );
 			$( nopmsspan ).append( document.createTextNode( 'Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο' ) );
-			//nopmsspan.style.opacity = '0';
-			//pms.messagescontainer.appendChild( nopmsspan );
 			$( pms.messagescontainer ).append( nopmsspan );
 			$( nopmsspan ).animate( { opacity : "1" } , 2000 );
-			//Animations.Create( nopmsspan , 'opacity' , 3000 , 0 , 1 );
 		}
 	}
 };
