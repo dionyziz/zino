@@ -31,7 +31,7 @@ function UnitPmMakefolder( tString $foldername ) {
 	}).append( document.createTextNode( <?php
 	echo $foldername;
 	?> ) );
-	$( newfolder ).append( newfolderhref );
+	$( newfolder ).append( newfolderhref ).droppable();
 	newfolderlink.parentNode.insertBefore( newfolder , newfolderlink );
 	pms.activefolder = newfolder;
 	pms.CancelNewFolder();
