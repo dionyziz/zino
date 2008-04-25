@@ -67,7 +67,7 @@
 				$( renamelink ).css( "display" , "block" ).click( function( folderid ) {
 					pms.RenameFolder( <?php
 					echo $folderid;
-					?>
+					?> );
 					return false;
 				} );
 				
