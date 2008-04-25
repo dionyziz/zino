@@ -9,7 +9,7 @@
         if ( $folder->UserId != $user->Id() ) {
             return;
         }
-		?>
+		/*
 		$( '#folder_<?php 
 		echo $folderid;
 		?>' ).animate( { opacity : '0' , height : '0' } , 700 , function() {
@@ -18,7 +18,7 @@
 				pms.ShowFolderPm( $( '#firstfolder' )[ 0 ] , -1 );
 			}
 		} );<?php
-		
+		*/
         $folder->Delete();
     }
 ?>
