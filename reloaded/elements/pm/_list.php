@@ -21,6 +21,7 @@
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
         $page->AttachScript( 'js/jquery.js' );
+		$page->AttachScript( 'js/jquery-latest.js' );
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
