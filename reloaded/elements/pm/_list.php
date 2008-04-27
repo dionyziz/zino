@@ -32,10 +32,9 @@
 		<script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadmsgs;
-		?></script><?php
-		/*		
+		?></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script> <?php
-		
+		/*
         <script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
         <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
 		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js"></script>
