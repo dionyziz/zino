@@ -13,7 +13,7 @@
 		$libs->Load( 'pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
         
-		$page->AttachStyleSheet( 'css/pmnew.css' );
+		$page->AttachStyleSheet( 'css/pm.css' );
 		$page->AttachStyleSheet( 'css/modal.css' );
         
 		$page->AttachScript( 'js/pm.js' );
