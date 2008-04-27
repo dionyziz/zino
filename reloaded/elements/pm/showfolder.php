@@ -6,12 +6,10 @@
     	
     	if ( is_int( $folder ) ) {
     		if ( $folder == -1 ) {
-    			$water->Trace( 'inbox selected for viewing' );
     			$inbox = new PMInbox();
     			$messages = $inbox->Messages();
     		}
     		else if ( $folder == -2 ) {
-                $water->Trace( 'outbox selected for viewing' );
                 $outbox = new PMOutbox();
                 $messages = $outbox->Messages();
     		}
@@ -19,11 +17,11 @@
     	else {
     		$messages = $folder->Messages();
     	}
-    	$water->Trace( 'messages number: ' . count( $messages ) );
 		$pmsinfolder = count( $messages );
 		
     	if ( $pmsinfolder == 0 ) {
-    		?>Δεν υπάρχουν μηνύματα σε αυτόν τον φάκελο<?php
+    		?>Δεν έχεις μηνύματα σε αυτό το φάκελο.<br />
+			Μετακίνησε κάποια μηνύματα με το ποντίκι σε αυτό το φάκελο για να τα μεταφέρεις εδώ.<?php
     	}
     	else {
     		foreach ( $messages as $msg ) {

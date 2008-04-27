@@ -8,14 +8,13 @@ function ElementPmOnepm( $pmobj , $folder ) {
 	?><div class="message" style="width:620px;" id="pm_<?php
         echo $pmobj->Id;
         ?>">
-		<div class="infobar"<?php
+		<div class="infobar<?php
+		
 		if ( $folder != -2 ) {
-			?> onmousedown="pms.DragPm( 'pm_<?php
-			echo $pmobj->Id;
-			?>' );"<?php
+			?> received"<?php
 		}
 		else {
-			?> style="cursor:default;"<?php
+			?>" style="cursor:default;"<?php
 		}
 		?>><?php
 			if ( $folder != -2 ) {
@@ -67,36 +66,10 @@ function ElementPmOnepm( $pmobj , $folder ) {
                 $pmuser = $pmuser[ 0 ];
             }
             if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender() == 'female' ) {
-                ?>η<?php
-                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
-                    case 'a':
-                    case 'e':
-                    case 'o':
-                    case 'u':
-                    case 'i':
-                    case 't':
-                    case 'p':
-                    case 'k':
-                        ?>ν<?php
-                        break;
-                    default:
-                }
+                ?>ην<?php
             }
             else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
-                ?>ο<?php
-                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
-                    case 'a':
-                    case 'e':
-                    case 'o':
-                    case 'u':
-                    case 'i':
-                    case 't':
-                    case 'p':
-                    case 'k':
-                        ?>ν<?php
-                        break;
-                    default:
-                }
+                ?>ον<?php
             }
 			?> </div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
