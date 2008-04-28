@@ -147,6 +147,7 @@
 					});<?php		
 			}
 			$user->Save();
+			$user->Profile->Save();
 		}
 	}
 ?>
