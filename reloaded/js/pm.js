@@ -305,7 +305,8 @@ $( document ).ready( function() {
 	$( 'div.message' ).draggable( { 
 		helper : 'clone',
 		start : function( e , ui ) {
-			ui.draggable.animate( { opacity : "0.5" } , 700 );		
+			alert( 'dragging started' );
+			//ui.draggable.animate( { opacity : "0.5" } , 700 );		
 		}	
 	} );
 	$( 'div.createdfolder' ).droppable( {
