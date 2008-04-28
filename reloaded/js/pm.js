@@ -304,6 +304,7 @@ var pms = {
 $( document ).ready( function() {
 	$( 'div.message' ).draggable( { 
 		helper : 'original',
+		revert : 'true',
 		cursor : 'move'
 	} );
 	$( 'div.createdfolder' ).droppable( {
