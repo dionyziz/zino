@@ -29,11 +29,13 @@
 			
 			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
 				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
-					?>alert( '<?php echo $doby . '-' . $dobm . '-' . $dobd; ?>' );<?php
+					$user->Profile->BirthDay = $dobd;
+					$user->Profile->BirthMonth = $dobm;
+					$user->Profile->BirthYear = $doby;
 				}
 			}
 			if ( $gender ) {
-				$user->Profile->Gender = $gender;
+				$user->Gender = $gender;
 			}
 			if ( $place ) {
 				$newplace = new Place( $place );
@@ -144,6 +146,7 @@
 						$( Settings.showsaving ).css( "display" , "none" );
 					});<?php		
 			}
+			$user->Save();
 		}
 	}
 ?>
