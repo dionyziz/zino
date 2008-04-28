@@ -303,11 +303,8 @@ var pms = {
 };
 $( document ).ready( function() {
 	$( 'div.message' ).draggable( { 
-		helper : 'clone',
-		start : function( e , ui ) {
-			alert( ui.draggable.css( "border" , "1px solid red" ) );
-			//ui.draggable.animate( { opacity : "0.5" } , 700 );		
-		}	
+		helper : 'original',
+		cursor : 'move'
 	} );
 	$( 'div.createdfolder' ).droppable( {
 		accept: "div.message",
