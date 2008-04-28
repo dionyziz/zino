@@ -8,7 +8,7 @@
 	new comment
 
 	$event = New Event();
-	$event->Typeid = COMMENT_CREATED;
+	$event->Typeid = EVENT_COMMENT_CREATED;
 	$event->Itemid = $comment->Id;
 	$event->Created = $comment->Created;
 	$event->Userid = $comment->Userid;

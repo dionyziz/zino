@@ -1,17 +1,14 @@
 <?php
+
+    /*
+        Developer: abresas
+    */
+
     define( 'COMMENT_JOURNAL', 0 );
     define( 'COMMENT_PROFILE', 1 );
     define( 'COMMENT_IMAGE',   2 );
     define( 'COMMENT_POLL',    3 );
     
-	global $libs;
-	
-	// $libs->Load( 'article' );
-    $libs->Load( 'bulk' );
-	$libs->Load( 'image/image' );
-	$libs->Load( 'search' );
-    $libs->Load( 'poll' );
-
     function Comment_MakeTree( $comments, $reverse = false ) {
         $parented = array();
         if ( !is_array( $comments ) ) {
@@ -20,136 +17,160 @@
 
         foreach( $comments as $comment ) {
             if ( $reverse ) {
-                array_push( $parented[ $comment->ParentId ], $comment );
+                array_push( $parented[ $comment->Parentid ], $comment );
             }
             else {
-                $parented[ $comment->ParentId ][] = $comment;
+                $parented[ $comment->Parentid ][] = $comment;
             }
-        }
+         }
         
         return $parented;
     }
-	
-    class Comment extends Satori {
-        protected $mId;
-        protected $mCreated; // mysql datetime
-        protected $mDate; // day _greekmonth_ year
-        public $Since; // e.g. 5 hours ago
-        protected $mUserId;
-        protected $mUser;
-        protected $mUserIp;
-        protected $mText;
-        protected $mParentId;
-        protected $mParent;
-        protected $mDelId;
-        protected $mTypeId;
-        protected $mItem;
-        protected $mItemId;
-        protected $mBulkId;
-        protected $mCreateYear;
-        protected $mCreateMonth;
-        protected $mCreateDay;
-        protected $mCreateHour;
-        protected $mCreateMinute;
-        protected $mCreateSecond;
 
-        public function GetText() {
-            global $blk;
+    function Comment_UserIsSpamBot() {
+        $finder = New CommentFinder();
+        if ( $finder->UserIsSpamBot() ) {
+            // email dio
+            $subject = "WARNING! Comment spambot detected!";
+            $message = "Text submitted: " . $this->Text . "\n\n SpamBot Ip: " . UserIp();
 
-            if ( $this->mText === false ) {
-                if ( $this->BulkId === false ) {
-                    return "";
-                }
-                $this->mText = $blk->Get( $this->BulkId ); 
-            }
+            mail( 'dionyziz@gmail.com', $subject, $message );
 
-            return $this->mText;
+            return true;
         }
-        public function GetURL() {
-            return $this->Item->Url . "#comment_" . $this->Id;
-        }
-        public function IsDeleted() {
-            return $this->DelId > 0;
-        }
-        public function GetParent() {
-            if ( $this->mParent === false ) {
-                $this->mParent = new Comment( $this->ParentId );
+
+        return false;
+    }
+
+    class CommentFinder extends Finder {
+        protected $mModel = 'Comment';
+
+        public function CommentHasChildren( $comment ) {
+            $query = $this->mDb->Prepare( "
+                SELECT 
+                    COUNT( * ) AS childcount
+                FROM 
+                    :comments
+                WHERE
+                    `comment_parentid` = :CommentId AND
+                    `comment_delid` = '0'
+                LIMIT 1;" 
+            );
+
+            $query->Bind( 'CommentId', $comment->Id );
+            $query->BindTable( 'comments' );
+
+            $row = $query->Execute()->FetchRow();
+            if ( $row[ "childcount" ] > 0 ) {
+                return true;
             }
-            return $this->mParent;
-        }
-        public function GetItem() {
-            if ( $this->mItem === false ) {
-                switch ( $this->TypeId ) {
-                    case COMMENT_JOURNAL:
-                        // TODO
-                        break;
-                    case COMMENT_PROFILE:
-                        $this->mItem = New User( $this->ItemId );
-                        break;
-                    case COMMENT_IMAGE:
-                        $this->mItem = New Image( $this->ItemId );
-                        break;
-                    case COMMENT_POLL:
-                        $this->mItem = New Poll( $this->ItemId );
-                        break;
-                }
-            }
-            
-            return $this->mItem;
-        }
-        public function SetItem( $item ) {
-            $this->mItem = $item;
-        }
-		public function GetUser() {
-            if ( $this->mUser === false ) {
-                $this->mUser = New User( $this->UserId );
-            }
-            return $this->mUser;
-		}
-        public function IsEditableBy( User $user ) {
-            if ( !$user->Exists() ) {
+            else {
                 return false;
             }
-    		return $user->CanModifyCategories() || ( $user->Exists() && $this->User()->Id() == $user->Id() && daysDistance( $this->SQLDate() ) < 1 );
         }
-        public function UserIsSpamBot() {
-            // Prepared query
+        public function UserIsSpamBot( $ip = false ) {
+            if ( $ip === false ) {
+                $ip = UserIp();
+            }
 
-			$query = $this->mDb->Prepare("
-				SELECT
-                    *
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    COUNT( * ) AS comcount
                 FROM
-                    `" . $this->mDbTable. "`
+                    :comments
                 WHERE
                     `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
                     `comment_userip` = :UserIp
                 ;
-			");
-			
-			// Assign values to query
-			$query->Bind( 'UserIp', UserIp() );
-			
-			// Execute query
-            if ( $query->Execute() ) {
-                // email dio
-                $subject = "WARNING! Comment spambot detected!";
-                $message = "Text submitted: " . $this->Text . "\n\n SpamBot Ip: " . UserIp();
+            ");
+            
+            $query->BindTable( 'comments' );
+            $query->Bind( 'UserIp', $ip );
+            
+            // Execute query
+            $row = $query->Execute()->FetchRow();
 
-                mail( 'dionyziz@gmail.com', $subject, $message );
-
+            if ( $row[ "comcount" ] > 0 ) {
                 return true;
             }
 
             return false;
         }
-        public function Save( $user = false ) {
-            global $mc;
-            global $libs;
+    }
 
-            if ( $user === false ) {
-                $user = $this->User;
+    class Comment extends Satori {
+        protected $mDbTableAlias = 'comments';
+
+        public function GetText() {
+            return $this->Bulk->Text;
+        }
+        public function IsDeleted() {
+            return $this->Delid > 0;
+        }
+        public function Delete( $theuser ) {
+            $finder = New CommentFinder();
+            if ( $finder->CommentHasChildren() || !$this->IsEditableBy( $theuser ) || $this->IsDeleted() ) {
+                return false;
             }
-            if ( $this->Exists() && ( !$this->IsEditableBy( $user ) || $this->UserIsSpamBot() ) ) {
+
+            $this->Delid = 1;
+            $this->Save();
+
+            $this->User->RemoveContrib();
+            $this->Item->OnCommentDelete();
+        }
+        public function UndoDelete( $user ) {
+            if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
+                return false;
+            }
+
+            $this->Delid = 0;
+            if ( $this->Save() ) {
+				$this->Item()->OnCommentCreate();
+                $this->User->AddContrib();
+                return true;
+            }
+
+            return false;
+        }
+        public function OnCreate() {
+            $mc->delete( 'latestcomments' );
+
+            $this->Item->OnCommentCreate();
+            $theuser->AddContrib();
+
+            /* EVENTS!
+            if ( $this->Parent->Exists() ) {
+                $libs->Load( 'notify' );
+
+                $notify = New Notify();
+                $notify->FromUserId   = $this->User->Id();
+                $notify->ToUserId     = $this->Parent->User->Id();
+                $notify->ItemId       = $this->Id;
+                $notify->TypeId       = $this->TypeId;
+                if ( !$notify->Save() ) {
+                    return false;
+                }
+                
+                // Notify_CommentRead( $theuser, $this->Parent, $this->TypeId );
+            }
+            */
+
+            $event = New Event();
+            $event->Typeid = EVENT_COMMENT_CREATED;
+            $event->Itemid = $this->Id;
+            $event->Created = $this->Created;
+            $event->Userid = $this->Userid;
+            $event->Save();
+        }
+        public function Save( $theuser = false ) {
+            global $mc;
+            global $user;
+
+            if ( $theuser === false ) {
+                $theuser = $user;
+            }
+            if ( $this->Exists() && ( !$this->IsEditableBy( $theuser ) || Comment_UserIsSpamBot() ) ) {
                 return false;
             }
             $existed = $this->Exists();
@@ -158,11 +179,9 @@
                 return false;
             }
             else if ( !$existed ) {
-                if ( is_object( $this->Item ) ) {
-                    $this->Item->CommentAdded();
-                }
+                $this->Item->OnCommentCreate();
                 $mc->delete( 'latestcomments' );
-                $user->AddContrib();
+                $theuser->AddContrib();
                 if ( $this->Parent->Exists() ) {
                     $libs->Load( 'notify' );
 
@@ -175,91 +194,43 @@
                         return false;
                     }
                     
-                    Notify_CommentRead( $user, $this->Parent, $this->TypeId );
+                    Notify_CommentRead( $theuser, $this->Parent, $this->TypeId );
                 }
             }
             return true;
         }
-        public function Delete( $user = false ) {
-            // TODO: implement $this->HasChildren with Search
-            // if ( $this->HasChildren() || $this->IsDeleted() ) {
-
-            if ( $this->IsDeleted() ) {
-                return false;
+        public function Relations() {
+            switch ( $this->Typeid ) {
+                case 'COMMENT_JOURNAL':
+                    $class = 'Journal';
+                    break;
+                case 'COMMENT_PROFILE':
+                    $class = 'UserProfile';
+                    break;
+                case 'COMMENT_IMAGE':
+                    $class = 'Image';
+                    break;
+                case 'COMMENT_POLL':
+                    $class = 'Poll';
+                    break;
             }
 
-            $this->DelId = 1;
-            if ( $this->Save( $user ) ) {
-                $this->Item->CommentAdded();
-                $this->User->RemoveContrib();
-
-                return true;
-            }
-
-            return false;
+            $this->Item = $this->HasOne( $class, 'Itemid' );
+            $this->Parent = $this->HasOne( 'Comment', 'Parentid' );
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
-        public function UndoDelete( $user ) {
-            if ( !$this->IsDeleted() || $parent->IsDeleted() ) {
-                return false;
-            }
-
-            $this->DelId = 0;
-            if ( $this->Save() ) {
-				$this->Item()->CommentAdded();
-                $this->User->AddContrib();
-                return true;
-            }
-
-            return false;
+        public function LoadDefaults() {
+            $this->Created = NowDate();
+            $this->Userip = UserIp();
         }
-        public function SetDefaults() {
-			$this->Created  = NowDate();
-		    $this->UserIp   = UserIp();
-        }
-        public function Comment( $construct = false ) {
-            global $db;
-            global $comments;
-
-            $this->mDb      = $db;
-            $this->mDbTable = $comments;
-
-            $this->SetFields( array(
-                'comment_id'        => 'Id',
-                'comment_userid'    => 'UserId',
-                'comment_created'   => 'Created',
-                'comment_userip'    => 'UserIp',
-                'comment_itemid'    => 'ItemId',
-                'comment_typeid'    => 'TypeId',
-                'comment_parentid'  => 'ParentId',
-                'comment_delid'     => 'DelId',
-                'comment_bulkid'    => 'BulkId'
-            ) );
-
-            $this->Satori( $construct );
-			
-            if ( $this->mCreated ) {
-				ParseDate( $this->mCreated , 
-							$this->mCreateYear , $this->mCreateMonth , $this->mCreateDay ,
-							$this->mCreateHour , $this->mCreateMinute , $this->mCreateSecond );
-				
-				$dateTimestamp = gmmktime( $this->mCreateHour , $this->mCreateMinute , $this->mCreateSecond ,
-										   $this->mCreateMonth , $this->mCreateDay , $this->mCreateYear );
-				
-				$this->mDate = MakeDate( $this->mCreated );
-				$this->Since = dateDiff( $this->mCreated, NowDate() );
-			}
-           
-			$this->mUser    = isset( $construct[ "user_id" ] )  ? New User( $construct ) : false;
-            $this->mText    = false;
-            $this->mItem    = false;
-            $this->mParent  = false;
-
-            $this->mItemId      = (int)$this->mItemId;
-            $this->mBulkId      = (int)$this->mBulkId;
-            $this->mParentId    = (int)$this->mParentId;
-            $this->mDelId       = (int)$this->mDelId;
-            $this->mUserId      = (int)$this->mUserId;
+        public function AfterConstruct() {
+            if ( $this->Exists() ) {
+    			$this->Since = dateDiff( $this->Created, NowDate() );
+            }
         }
     }
+    
+
 	
 ?>
