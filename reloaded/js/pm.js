@@ -305,7 +305,7 @@ $( document ).ready( function() {
 	$( 'div.message' ).draggable( { 
 		helper : 'clone',
 		start : function( e , ui ) {
-			alert( ui.draggable.css( "border" , "1px solid red" );
+			alert( ui.draggable.css( "border" , "1px solid red" ) );
 			//ui.draggable.animate( { opacity : "0.5" } , 700 );		
 		}	
 	} );
