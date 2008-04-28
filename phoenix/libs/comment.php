@@ -134,10 +134,12 @@
             return false;
         }
         public function OnCreate() {
+            global $mc;
+
             $mc->delete( 'latestcomments' );
 
             $this->Item->OnCommentCreate();
-            $theuser->AddContrib();
+            $this->User->AddContrib();
 
             /* EVENTS!
             if ( $this->Parent->Exists() ) {
@@ -164,7 +166,6 @@
             $event->Save();
         }
         public function Save( $theuser = false ) {
-            global $mc;
             global $user;
 
             if ( $theuser === false ) {
@@ -173,31 +174,7 @@
             if ( $this->Exists() && ( !$this->IsEditableBy( $theuser ) || Comment_UserIsSpamBot() ) ) {
                 return false;
             }
-            $existed = $this->Exists();
-            if ( !parent::Save() ) {
-                die( "parent failed" );
-                return false;
-            }
-            else if ( !$existed ) {
-                $this->Item->OnCommentCreate();
-                $mc->delete( 'latestcomments' );
-                $theuser->AddContrib();
-                if ( $this->Parent->Exists() ) {
-                    $libs->Load( 'notify' );
-
-                    $notify = New Notify();
-                    $notify->FromUserId   = $this->User->Id();
-                    $notify->ToUserId     = $this->Parent->User->Id();
-                    $notify->ItemId       = $this->Id;
-                    $notify->TypeId       = $this->TypeId;
-                    if ( !$notify->Save() ) {
-                        return false;
-                    }
-                    
-                    Notify_CommentRead( $theuser, $this->Parent, $this->TypeId );
-                }
-            }
-            return true;
+            return parent::Save();
         }
         public function Relations() {
             switch ( $this->Typeid ) {
