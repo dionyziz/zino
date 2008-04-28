@@ -81,7 +81,9 @@ $( document ).ready( function(){
 		}
 	});
 	
-	Join.username.focus();
+	if ( Join.username ) {
+		Join.username.focus();
+	}
 	
 	$( 'form.joinform p a' ).click( function () {
 		Join.ShowTos();
