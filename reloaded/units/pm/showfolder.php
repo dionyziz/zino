@@ -75,6 +75,10 @@
     			?> );<?php
     		}
     	}
-		?>$( 'div.message' ).draggable( { helper : 'clone' } );<?php
+		?>$( 'div.message' ).draggable( { 
+			helper : 'original',
+			revert : 'true',
+			cursor : 'move'
+		} );<?php
     }
 ?>
