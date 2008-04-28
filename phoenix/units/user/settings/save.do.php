@@ -116,13 +116,12 @@
 			}
 			if ( $gtalk ) {
 				$user->Profile->Gtalk = $gtalk;
-			
 			}
 			if ( $skype ) {
 				$user->Profile->Skype = $skype;
 			}
 			if ( $yahoo ) {
-				$user->Profile->Yahoo = $yahoo;
+				$user->Profile->Yim = $yahoo;
 			}
 			if ( $web ) {
 				$user->Profile->Web = $web;
