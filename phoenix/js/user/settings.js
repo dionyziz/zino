@@ -261,4 +261,19 @@ $( document ).ready( function() {
 		Settings.Enqueue( 'yahoo' , text , 3000 );
 		Settings.yahoo = this.value;
 	});
+	
+	$( '#web input' ).change( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'web' , text , 500 );
+	}).keyup( function() {
+		var text = this.value;
+		if ( this.value == '' ) {
+			text = '-1';
+		}
+		Settings.Enqueue( 'web' , text , 3000 );
+		Settings.skype = this.value;
+	});
 });
