@@ -124,7 +124,7 @@
 				$user->Profile->Yim = $yahoo;
 			}
 			if ( $web ) {
-				$user->Profile->Web = $web;
+				$user->Profile->Homepage = $web;
 			}
 			if ( !$emailerror && !$msnerror ) {
 				?>$( Settings.showsaving )
