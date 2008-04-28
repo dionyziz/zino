@@ -304,7 +304,7 @@ var pms = {
 $( document ).ready( function() {
 	$( 'div.message' ).draggable( { 
 		helper : 'clone',
-		start : function( ev , ui ) {
+		start : function( e , ui ) {
 			ui.draggable.animate( { opacity : "0.5" } , 700 );		
 		}	
 	} );
