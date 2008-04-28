@@ -302,12 +302,17 @@ var pms = {
 	}
 };
 $( document ).ready( function() {
-	$( 'div.message' ).draggable( { helper : 'clone' } );
+	$( 'div.message' ).draggable( { 
+		helper : 'clone',
+		start : function( ev , ui ) {
+			ui.draggable.animate( { opacity : "0.5" } , 700 );		
+		}	
+	} );
 	$( 'div.createdfolder' ).droppable( {
 		accept: "div.message",
 		hoverClass: "hoverfolder",
 		tolerance: "pointer",
-		drop: function(ev, ui) {
+		drop : function(ev, ui) {
 			//alert( 'pmid is ' + ui.draggable.attr( "id" ).substring( 3 ) + ' folderid: ' + $( this ).attr( "id" ).substring( 7 ) );
 			Coala.Warm( 'pm/transfer' , { pmid : ui.draggable.attr( "id" ).substring( 3 ) , folderid : $( this ).attr( "id" ).substring( 7 ) } );
 			ui.draggable.animate( { 
