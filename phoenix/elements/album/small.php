@@ -7,7 +7,7 @@
 			$commentsnum = $album->Numcomments;
 			$photonum = $album->Numphotos;
 			?><div class="album">
-				<a href="?p=album&id=<?php
+				<a href="?p=album&amp;id=<?php
 				echo $album->Id;
 				?>">
 		        	<span class="albummain">
