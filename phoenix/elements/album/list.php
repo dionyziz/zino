@@ -4,6 +4,7 @@
 		global $water;
 		
 		$username = $username->Get();
+		$water->Trace( 'username: ' . $username ) ;
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $name != '' ) {
