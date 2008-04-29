@@ -15,7 +15,6 @@
 		}
 		$finder = New AlbumFinder();
 		$albums = $finder->FindByUser( $theuser );
-		$water->Trace( 'album number: ' . count( $theuser->Albums ) );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
 			foreach ( $albums as $album ) {
