@@ -3,10 +3,8 @@
 	function ElementAlbumSmall( $album ) {
 		global $water;
 		
-		//$commentsnum = $album->Numcomments;
-		//$photonum = $album->Numphotos;
-		$water->Trace( 'commentsnum: ' . $album->Numcomments );
-		$water->Trace( 'photonum: ' . $album->Numphotos );
+		$commentsnum = $album->Numcomments;
+		$photonum = $album->Numphotos;
 		?><div class="album">
 			<a href="" onclick="return false;">
 	        	<span class="albummain">
@@ -16,12 +14,20 @@
 				echo htmlspecialchars( $album->Name );
 				?></span>
 	        </a>
-	        <dl>
-	            <dt><img src="http://static.zino.gr/phoenix/imagegallery.png" alt="Φωτογραφίες" /></dt>
-	            <dd>20</dd>
-	            <dt><img src="http://static.zino.gr/phoenix/comment.png" alt="Σχόλια" /></dt>
-	            <dd>184</dd>
-	        </dl>
+	        <dl><?php
+				if ( $photonum > 0 ) {
+		            ?><dt><img src="http://static.zino.gr/phoenix/imagegallery.png" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
+		            <dd><?php
+					echo $photonum;
+					?></dd><?php
+				}
+				if ( $commentsnum > 0 ) {
+					?><dt><img src="http://static.zino.gr/phoenix/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+					<dd><?php
+					echo $commentsnum;
+					?></dd><?php
+				}
+	        ?></dl>
 		</div><?php
 	}
 ?>
