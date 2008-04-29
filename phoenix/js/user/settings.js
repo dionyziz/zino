@@ -4,7 +4,7 @@ var Settings = {
 	showsaved : $( 'div.settings div.sidebar div span.saved' ),
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
-	aboutmetext : $( '#aboutme textarea' )[ 0 ].value ? $( '#aboutme textarea' )[ 0 ].value  : false,
+	aboutmetext : $( '#aboutme textarea' )[ 0 ].value ? $( '#aboutme textarea' )[ 0 ].value : false,
 	email : $( '#email input' )[ 0 ].value ? $( '#email input' )[ 0 ].value : false,
 	msn : $( '#msn input' )[ 0 ].value ? $( '#msn input' )[ 0 ].value : false,
 	gtalk : $( '#gtalk input' )[ 0 ].value ? $( '#gtalk input' )[ 0 ].value : false,
