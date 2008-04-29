@@ -8,6 +8,7 @@ ul.albums li {
     list-style: none;
     padding: 10px;
     margin: 0 15px 0 15px;
+	height: 220px;
 }
 ul.albums li a {
     font-weight: bold;
