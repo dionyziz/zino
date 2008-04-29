@@ -27,7 +27,7 @@
 			Element( 'album/small' , false , true );
 		?></div>
 		<div class="create">
-			<a href="" class="new"><img src="http://static.zino.gr/phoenix/add.png" />Δημιουργία album</a>
+			<a href="" class="new"><img src="http://static.zino.gr/phoenix/add.png" />Ξ”Ξ·ΞΌΞΉΞΏΟ…ΟΞ³Ξ―Ξ± album</a>
 		</div>
 		<div class="eof"></div><?php
 	}
