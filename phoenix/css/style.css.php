@@ -1,6 +1,7 @@
 <?php
 	header( 'Content-type: text/css' );
 	include "album/list.css";
+	include "album/list-ie6.css";
 	include "album/small.css";
 	include "album/photo/list.css";
 	include "album/photo/small.css";
