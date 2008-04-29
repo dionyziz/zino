@@ -1,9 +1,8 @@
 <?php
 	
 	function ElementAlbumList( tString $username ) {
-		//global $page;
+		global $water;
 		
-		//$page->AttachStyleSheet( 'css/album/list.css' );
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
