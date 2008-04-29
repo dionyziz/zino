@@ -156,7 +156,7 @@ var pms = {
             'folderid': folderid,
             'newname': name
         } );
-        $( '#folder_' + folderid + ' a.folderlinks' ).append( document.createTextNode( name ) );
+        $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
     }
     ,
 	NewMessage : function( touser , answertext ) {
