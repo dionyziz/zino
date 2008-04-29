@@ -38,13 +38,12 @@ div.album dl {
 div.album dl dt {
     display: inline;
     margin: 0;
-    padding: 0;
-    padding-left: 5px;
+    padding: 0  0 0 5px;
 }
 div.album dl dd {
     display: inline;
     margin: 0;
-    padding: 0;
-    padding-right: 5px;
+    padding: 0 5px 0 0;
     font-size: 80%;
+	vertical-align: 3px;
 }
