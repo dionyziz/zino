@@ -45,7 +45,7 @@
 		if ( !$user->Exists() ) {
 			?><div class="members">
 				<div class="join">
-					<form>
+					<form action="?p=join" method="get">
 						<h2>Δημιούργησε το προφίλ σου!</h2>
 						<div>
 							<label>Όνομα:</label><input type="text" name="username" />

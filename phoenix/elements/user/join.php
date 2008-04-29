@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserJoin() {
+	function ElementUserJoin( tString $username) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
@@ -14,6 +14,7 @@
 		if ( $user->Exists() ) {
 			return Redirect( $rabbit_settings[ 'webadresss' ] );
 		}
+		$username = $username->Get();
 		?><div class="join">
 			<div class="bubble">
 				<i class="tl"></i><i class="tr"></i>
@@ -21,7 +22,9 @@
 				<form class="joinform">
 					<div>
 						<label for="join_name">Όνομα χρήστη:</label>
-						<input type="text" value="" id="join_name" />
+						<input type="text" value="<?php
+						echo $username;
+						?>" id="join_name" />
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
