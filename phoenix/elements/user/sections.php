@@ -1,14 +1,12 @@
 <?php
 
-	function ElementUserSections( $section ) {
-		//global $page;
-		
-		//$page->AttachStyleSheet( 'css/user/sections.css' );
-		
+	function ElementUserSections( $section , $theuser ) {
 		?><div class="usersections">
 			<a href="">
 				<img src="http://static.zino.gr/phoenix/mockups/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" />
-				<span class="name">dionyziz</span>
+				<span class="name"><?php
+				echo $theuser->Name;
+				?></span>
 			</a>
 			<ul>
 				<li<?php
