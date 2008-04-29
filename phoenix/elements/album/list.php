@@ -19,12 +19,7 @@
 		?><ul class="albums"><?php
 			foreach ( $albums as $album ) {
 				?><li><?php
-				Element( 'album/small' );
-				?></li><?php
-			}
-			for ( $i = 0; $i < 3; ++$i ) {
-				?><li><?php
-					Element( 'album/small' );
+				Element( 'album/small' , $album );
 				?></li><?php
 			}
 		?></ul>

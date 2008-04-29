@@ -1,16 +1,20 @@
 <?php
 	
-	function ElementAlbumSmall() {
-		//global $page;
+	function ElementAlbumSmall( $album ) {
+		global $water;
 		
-		//$page->AttachStyleSheet( 'css/album/small.css' );
-		
+		//$commentsnum = $album->Numcomments;
+		//$photonum = $album->Numphotos;
+		$water->Trace( 'commentsnum: ' . $album->Numcomments );
+		$water->Trace( 'photonum: ' . $album->Numphotos );
 		?><div class="album">
 			<a href="" onclick="return false;">
 	        	<span class="albummain">
 	        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="Φωτογραφίες" />
 	        	</span>
-	            <span class="desc">Πολυκατοικίες</span>
+	            <span class="desc"><?php
+				echo htmlspecialchars( $album->Name );
+				?></span>
 	        </a>
 	        <dl>
 	            <dt><img src="http://static.zino.gr/phoenix/imagegallery.png" alt="Φωτογραφίες" /></dt>
