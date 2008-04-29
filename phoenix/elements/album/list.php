@@ -1,13 +1,14 @@
 <?php
 	
 	function ElementAlbumList( tString $username ) {
-		global $water;
+		global $page;
 		
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
+			$page->SetTitle( $username . " Albums" );
 		}
 		if ( $theuser === false ) {
 			return Element( '404' );

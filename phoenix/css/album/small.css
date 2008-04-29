@@ -6,6 +6,7 @@ div.album a span.desc {
     width: 176px;
     text-align: center;
     margin: 5px 0 0 5px;
+	overflow: hidden;
 }
 div.album a span.albummain {
     background-image: url( 'http://static.zino.gr/phoenix/album.png' );

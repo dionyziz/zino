@@ -8,7 +8,9 @@
 		?><div class="album">
 			<a href="" onclick="return false;">
 	        	<span class="albummain">
-	        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="Φωτογραφίες" />
+	        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="Φωτογραφίες" title="<?php
+					echo htmlspecialchars( $album-Name );
+					?>" />
 	        	</span>
 	            <span class="desc"><?php
 				echo htmlspecialchars( $album->Name );
