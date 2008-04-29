@@ -1,8 +1,11 @@
 $( document ).ready( function() {
 	$( 'div.create a.new' ).click( function() {
-		alert( 'albums' );
 		var newalbum = document.createElement( 'li' );
-		$( newalbum ).html( $( 'div.creationmakeup div.createalbum' ).html() );
+		$( newalbum ).append(  $( 'div.createalbum' ).clone() );
+		$( newalbum.getElementsByTagName( 'div' )[ 0 ] ).removeClass( 'createalbum' );
+		$( 'ul.albums' ).append( newalbum );
 		
+		
+		return false;
 	} );
 } );
