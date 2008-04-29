@@ -23,6 +23,7 @@
 				?></li><?php
 			}
 		?></ul>
+		<div class="eof"></div>
 		<div class="creationmakeup"><?php
 			Element( 'album/small' , false , true );
 		?></div>
