@@ -48,10 +48,10 @@
 					<form action="" method="get">
 						<h2>Δημιούργησε το προφίλ σου!</h2>
 						<div>
+							<input type="hidden" name="p" value="join" />
 							<label>Όνομα:</label><input type="text" name="username" />
 						</div>
 						<div>
-							<input type="hidden" name="p" value="join" />
 							<input value="Δημιουργία &raquo;" type="submit" /> 
 						</div>
 					</form>
