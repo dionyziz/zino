@@ -42,13 +42,15 @@ var Settings = {
 		}
 	},
 	FocusSettingLink : function( li, focus ) {
-		if ( focus ) {
-			$( li ).addClass( 'selected' );
-			li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
-		}
-		else {
-			$( li ).removeClass( 'selected' );
-			li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
+		if ( li ) {
+			if ( focus ) {
+				$( li ).addClass( 'selected' );
+				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
+			}
+			else {
+				$( li ).removeClass( 'selected' );
+				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
+			}
 		}
 	},
 	DoSwitchSettings : function() {
