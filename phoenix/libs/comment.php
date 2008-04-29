@@ -8,7 +8,40 @@
     define( 'COMMENT_PROFILE', 1 );
     define( 'COMMENT_IMAGE',   2 );
     define( 'COMMENT_POLL',    3 );
-    
+
+    define( 'COMMENT_PAGE_LIMIT', 50 );
+
+    function Comment_CountChildren( $commments, $id ) {
+        if ( empty( $comments[ $id ] ) ) {
+            return 1;
+        }
+
+        $count = 1;
+        foreach ( $comments[ $id ] as $child ) {
+            $count += Comment_CountChildren( $comments, $child );
+        }
+
+        return $count;
+    }
+   
+    function Comment_Pagify( $comments, $reverse = false ) {
+        $comments = Comment_MakeTree( $comments, $reverse );
+
+        $pages = array();
+        $page = 0;
+        $page_count = 0;
+        foreach ( $comments[ 0 ] as $id => $children ) {
+            $page_count += Comment_CountChildren( $comments, $id );
+            $pages[ $page ][] = $id;
+            if ( $page_count > COMMENT_PAGE_LIMIT ) {
+                $page_count = 0;
+                ++$page;
+            }
+        }
+
+        return array( $pages, $comments );
+    }
+
     function Comment_MakeTree( $comments, $reverse = false ) {
         $parented = array();
         if ( !is_array( $comments ) ) {
