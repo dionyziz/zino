@@ -63,3 +63,6 @@ ul.albums li dl dd {
     padding-right: 5px;
     font-size: 80%;
 }
+div.creationmakeup {
+	display: none;
+}
