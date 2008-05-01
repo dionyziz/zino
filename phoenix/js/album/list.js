@@ -5,11 +5,14 @@ $( document ).ready( function() {
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				var spandesc = document.createElement( 'span' );
 				var albumname = $( 'span.desc input' )[ 0 ].value;
-				$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
-				$( this ).parent().parent().find( "a" ).append( spandesc );
-				$( this ).parent().remove();
+				if ( albumname !== '' ) {
+					var spandesc = document.createElement( 'span' );
+					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
+					$( this ).parent().parent().find( "a" ).append( spandesc );
+					$( this ).parent().remove();
+					//coala call
+				}
 			}
 		} );
 		$( 'span.desc input' )[ 0 ].focus();
