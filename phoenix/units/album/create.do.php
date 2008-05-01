@@ -13,7 +13,7 @@
 			?>;
 			$( albumnode ).find( "div.album a" ).attr( "href" , "?p=album&amp;id=<?php
 			echo $album->Id;
-			?>";<?php
+			?>");<?php
 		}
 	}
 ?>
