@@ -12,8 +12,8 @@ $( document ).ready( function() {
 				$( this ).parent().remove();
 			}
 		} );
-		$( 'span.desc input' )[ 0 ].select();
 		$( 'span.desc input' )[ 0 ].focus();
+		$( 'span.desc input' )[ 0 ].select();
 		//make creation link disabled
 		return false;
 	} );
