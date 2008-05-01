@@ -19,7 +19,7 @@ var AlbumList = {
 		$( 'span.desc input' )[ 0 ].focus();
 		$( 'span.desc input' )[ 0 ].select();
 		var link = document.createElement( "a" );
-		$( link ).attr( { href: "" } ).addClass( "new" ).html( "&laquo;Ακύρωση" ).click( function() {
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( unescape( '%C2%AB' ) + "Ακύρωση" ) ).click( function() {
 			$( newalbum ).animate( { width: "0" } , 400 , function() {
 				$( newalbum ).remove();
 			} );
