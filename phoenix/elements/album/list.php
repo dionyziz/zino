@@ -42,7 +42,7 @@
 			<div class="creating">
 				<img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
+				?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Δημιουργία
 			</div><?php
 		}
 		?><div class="eof"></div><?php
