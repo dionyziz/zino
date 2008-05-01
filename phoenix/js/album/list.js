@@ -11,6 +11,7 @@ var AlbumList = {
 					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
 					$( this ).parent().parent().find( "a" ).append( spandesc );
 					$( this ).parent().remove();
+					AlbumList.Cancel( newalbum , false );
 					Coala.Warm( 'album/create' , { albumname : albumname } );
 				}
 			}
@@ -22,15 +23,17 @@ var AlbumList = {
 			$( newalbum ).animate( { width: "0" } , 400 , function() {
 				$( newalbum ).remove();
 			} );
-			AlbumList.Cancel();
+			AlbumList.Cancel( newalbum , true );
 			return false;
 		} );
 		$( 'li.create' ).empty().append( link );
 	},
-	Cancel : function( albumnode ) {
-		$( albumnode ).animate( { width: "0" } , 400 , function() {
-			$( albumnode ).remove();
-		} );
+	Cancel : function( albumnode , vanquish ) {
+		if ( vanquish ) {
+			$( albumnode ).animate( { width: "0" } , 400 , function() {
+				$( albumnode ).remove();
+			} );
+		}
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
