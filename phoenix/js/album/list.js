@@ -19,7 +19,7 @@ var AlbumList = {
 		$( 'span.desc input' )[ 0 ].focus();
 		$( 'span.desc input' )[ 0 ].select();
 		var link = document.createElement( "a" );
-		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "&laquo;Ακύρωση" ) ).click( function() {
+		$( link ).attr( { href: "" } ).addClass( "new" ).html( "&laquo;Ακύρωση" ).click( function() {
 			$( newalbum ).animate( { width: "0" } , 400 , function() {
 				$( newalbum ).remove();
 			} );
@@ -30,7 +30,7 @@ var AlbumList = {
 	},
 	Cancel : function( albumnode , vanquish ) {
 		if ( vanquish ) {
-			$( albumnode ).animate( { width: "0" } , 400 , function() {
+			$( albumnode ).animate( { width: "0" } , 300 , function() {
 				$( albumnode ).remove();
 			} );
 		}
@@ -53,9 +53,6 @@ var AlbumList = {
 $( document ).ready( function() {
 	$( 'li.create a.new' ).click( function() {
 		AlbumList.Create();
-		//make creation link disabled
-		
-
 		return false;
 	} );
 } );
