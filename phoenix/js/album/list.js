@@ -12,7 +12,7 @@ var AlbumList = {
 					$( this ).parent().parent().find( "a" ).append( spandesc );
 					$( this ).parent().remove();
 					AlbumList.Cancel( newalbum , false );
-					Coala.Warm( 'album/create' , { albumname : albumname } );
+					Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
 				}
 			}
 		} );
