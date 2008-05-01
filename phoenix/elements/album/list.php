@@ -3,6 +3,7 @@
 	function ElementAlbumList( tString $username ) {
 		global $page;
 		global $user;
+		global $rabbit_settings;
 		
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
@@ -37,7 +38,12 @@
 		if ( $theuser->Id == $user->Id ) {
 			?><div class="creationmakeup"><?php
 				Element( 'album/small' , false , true );
-			?></div><?php
+			?></div>
+			<div class="creating">
+				<img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
+			</div><?php
 		}
 		?><div class="eof"></div><?php
 	}

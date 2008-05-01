@@ -73,7 +73,7 @@ ul.albums li dl dd {
     padding-right: 5px;
     font-size: 80%;
 }
-div.creationmakeup {
+div.creationmakeup , div.creating {
 	display: none;
 }
 div.createalbum span.desc {
