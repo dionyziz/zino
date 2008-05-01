@@ -17,14 +17,28 @@ var AlbumList = {
 		} );
 		$( 'span.desc input' )[ 0 ].focus();
 		$( 'span.desc input' )[ 0 ].select();
-		AlbumList.Cancel( newalbum );
+		var link = document.createElement( "a" );
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "&laquo;Ακύρωση" ) ).click( function() {
+			$( newalbum ).animate( { width: "0" } , 400 , function() {
+				$( newalbum ).remove();
+			} );
+			AlbumList.Cancel();
+			return false;
+		} );
+		$( 'li.create' ).empty().append( link );
 	},
 	Cancel : function( albumnode ) {
 		$( albumnode ).animate( { width: "0" } , 400 , function() {
 			$( albumnode ).remove();
 		} );
 		var link = document.createElement( "a" );
-		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "&laquo;�������" ) ).click( function() {
+		var createimg = document.createElement( "img" );
+		$( createimg ).attr( {
+			src: "http://static.zino.gr/phoenix/add3.png",
+			alt: "Δημιουργία album",
+			title: "Δημιουργία album"
+		} );
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία" ) ).click( function() {
 			AlbumList.Create();
 			return false;
 		} );
