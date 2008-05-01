@@ -4,7 +4,6 @@
 		global $user;
 		
 		$albumname = $albumname->Get();
-		$albumnode = $albumnode->Get();
 		if ( $albumname !== '' ) {
 			$album = new Album();
 			$album->Name = $albumname;
