@@ -22,14 +22,14 @@
                 $value = utf8_substr( $value, 0, 100 );
             }
 
-            $this->mCurrentValues[ 'name' ] = $value;
+            $this->mCurrentValues[ 'Name' ] = $value;
         }
         public function SetDescription( $value ) {
             if ( strlen( $value ) > 200 ) {
                 $value = utf8_substr( value, 0, 200 );
             }
 
-            $this->mCurrentValues[ 'description' ] = $value;
+            $this->mCurrentValues[ 'Description' ] = $value;
         }
 		public function IsDeleted() {
 			return $this->DelId > 0;
@@ -79,7 +79,12 @@
             }
         }
         public function LoadDefaults() {
+			global $user;
+			
             $this->Created = NowDate();
+			$this->Userid = $user->Id;
+			$this->Submithost = UserIp();
+			$this->Pageviews = 1;
         }
     }
 
