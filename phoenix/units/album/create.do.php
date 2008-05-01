@@ -5,6 +5,7 @@
 		
 		$albumname = $albumname->Get();
 		if ( $albumname !== '' ) {
+			?>alert( '<?php echo $albumname; ?>' );<?php
 			$album = new Album();
 			$album->Name = $albumname;
 			$album->Save();
