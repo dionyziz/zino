@@ -43,7 +43,9 @@
 		        	<span class="albummain">
 		        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="Νέο album" title="Νέο album" />
 		        	</span>
-		            <span class="desc"></span>
+		            <span class="desc">
+						<input type="text" />
+					</span>
 		        </a>
 			</div><?php
 		}
