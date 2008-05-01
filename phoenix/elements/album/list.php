@@ -27,14 +27,13 @@
 				Element( 'album/small' , $album , false );
 				?></li><?php
 			}
-		?></ul>
-		<div class="eof"></div>
+			?><li class="create">
+				<a href="" class="new"><img src="http://static.zino.gr/phoenix/add.png" />Δημιουργία album</a>
+			</li>
+		</ul>
 		<div class="creationmakeup"><?php
 			Element( 'album/small' , false , true );
 		?></div>
-		<div class="create">
-			<a href="" class="new"><img src="http://static.zino.gr/phoenix/add.png" />Δημιουργία album</a>
-		</div>
 		<div class="eof"></div><?php
 	}
 ?>
