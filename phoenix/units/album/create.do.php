@@ -11,7 +11,7 @@
 			?>var albumnode = <?php
 			echo $albumnode;
 			?>;
-			$( albumnode ).find( "div.album a" ).attr( "href" , "?p=album&amp;id=<?php
+			$( albumnode ).find( "div.album a" ).attr( "href" , "?p=album&id=<?php
 			echo $album->Id;
 			?>");<?php
 		}
