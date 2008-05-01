@@ -5,7 +5,11 @@ $( document ).ready( function() {
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'You pressed enter' );
+				var spandesc = document.createElement( 'span' );
+				var albumname = $( 'span.desc input' )[ 0 ].value;
+				$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
+				$( this ).parent().parent().find( "a" ).append( spandesc );
+				$( this ).parent().remove();
 			}
 		} );
 		$( 'span.desc input' )[ 0 ].select();
