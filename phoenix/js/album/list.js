@@ -30,7 +30,7 @@ var AlbumList = {
 	},
 	Cancel : function( albumnode , vanquish ) {
 		if ( vanquish ) {
-			$( albumnode ).animate( { width: "0" } , 300 , function() {
+			$( albumnode ).animate( { width: "0" } , 100 , function() {
 				$( albumnode ).remove();
 			} );
 		}
