@@ -27,13 +27,17 @@
 				Element( 'album/small' , $album , false );
 				?></li><?php
 			}
-			?><li class="create">
-				<a href="" class="new"><img src="http://static.zino.gr/phoenix/add3.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία</a>
-			</li>
-		</ul>
-		<div class="creationmakeup"><?php
-			Element( 'album/small' , false , true );
-		?></div>
-		<div class="eof"></div><?php
+			if ( $theuser->Id == $user->Id ) {
+				?><li class="create">
+					<a href="" class="new"><img src="http://static.zino.gr/phoenix/add3.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία</a>
+				</li><?php
+			}
+		?></ul><?php
+		if ( $theuser->Id == $user->Id ) {
+			?><div class="creationmakeup"><?php
+				Element( 'album/small' , false , true );
+			?></div><?php
+		}
+		?><div class="eof"></div><?php
 	}
 ?>
