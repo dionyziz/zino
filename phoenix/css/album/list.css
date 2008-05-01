@@ -67,3 +67,6 @@ ul.albums li dl dd {
 div.creationmakeup {
 	display: none;
 }
+div.createalbum span.desc {
+	display: block;
+}
