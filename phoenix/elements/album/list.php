@@ -2,6 +2,7 @@
 	
 	function ElementAlbumList( tString $username ) {
 		global $page;
+		global $user;
 		
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
