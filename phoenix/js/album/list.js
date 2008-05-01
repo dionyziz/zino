@@ -11,7 +11,7 @@ $( document ).ready( function() {
 					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
 					$( this ).parent().parent().find( "a" ).append( spandesc );
 					$( this ).parent().remove();
-					//coala call
+					Coala.Warm( 'album/create' , { albumname : albumname } );
 				}
 			}
 		} );
