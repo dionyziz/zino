@@ -33,11 +33,20 @@ span.albummain {
     text-align: center;
     vertical-align: middle;
 }
-span.albummain img {
+span.albummain a img {
     margin: 0 10px 4px 0;
     vertical-align: middle;
     border: 2px solid #7ea3c2;
 }
+ul.albums li.create {
+	padding-top: 85px;
+	
+}
+ul.albums li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+}
+ul.
 ul.albums li a:hover span img {
     border: 2px solid white;
     cursor: pointer;
