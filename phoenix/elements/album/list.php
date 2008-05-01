@@ -8,7 +8,12 @@
 		$finder = New UserFinder();
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
-			$page->SetTitle( $username . " Albums" );
+			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
+				$page->SetTitle( $username . " Albums" );
+			}
+			else {
+				$page->SetTitle( $username . " albums" );
+			}
 		}
 		if ( $theuser === false ) {
 			return Element( '404' );

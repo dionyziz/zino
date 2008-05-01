@@ -5,6 +5,8 @@ $( document ).ready( function() {
 		$( newalbum.getElementsByTagName( 'div' )[ 0 ] ).removeClass( 'createalbum' );
 		$( 'ul.albums' ).append( newalbum );
 		$( newalbum ).css( "width" , "0" ).animate( { width: "180px" } , 700 );		
+		$( 'div.createalbum a span.desc input' ).select().focus();
+		//make creation link disabled
 		return false;
 	} );
 } );
