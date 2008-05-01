@@ -28,7 +28,7 @@
 				?></li><?php
 			}
 			?><li class="create">
-				<a href="" class="new"><img src="http://static.zino.gr/phoenix/add1.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία album</a>
+				<a href="" class="new"><img src="http://static.zino.gr/phoenix/add1.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία</a>
 			</li>
 		</ul>
 		<div class="creationmakeup"><?php

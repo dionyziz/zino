@@ -40,6 +40,7 @@ span.albummain a img {
 }
 ul.albums li.create {
 	padding-top: 85px;
+	text-align: center;
 	
 }
 ul.albums li.create a img {
