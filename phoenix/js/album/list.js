@@ -1,5 +1,5 @@
 $( document ).ready( function() {
-	$( 'div.create a.new' ).click( function() {
+	$( 'li.create a.new' ).click( function() {
 		var newalbum = document.createElement( 'li' );
 		$( newalbum ).append(  $( 'div.createalbum' ).clone() );
 		$( 'ul.albums' ).append( newalbum );
