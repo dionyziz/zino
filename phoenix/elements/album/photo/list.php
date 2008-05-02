@@ -6,7 +6,8 @@
 		
 		$album = new Album( $id );
 		
-		Element( 'user/sections', 'album' );
+		$page->SetTitle( $album->Name );
+		Element( 'user/sections', 'album' , $album->User );
 		?><div id="photolist">
 			<h2><?php
 			echo htmlspecialchars( $album->Name );
