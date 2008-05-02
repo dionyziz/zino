@@ -9,7 +9,7 @@
         private $mMovieTag2;
 
         public function SetUp() {
-            $finder = UserFinder();
+            $finder = New UserFinder();
             $users = $finder->FindByName( 'testtag1' );
             $this->RequireSuccess( $this->Assert( empty( $users ) ) );
             $users = $finder->FindByName( 'testtag2' );
