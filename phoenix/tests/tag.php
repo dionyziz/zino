@@ -191,9 +191,12 @@
             Tag_Clear( $this->mUser2 ); // this should accept user objects or user ids!
         }
         public function TearDown() {
-            $this->mUser1->Delete();
-
-            $this->mUser2->Delete();
+            if ( is_object( $this->mUser1 ) ) {
+                $this->mUser1->Delete();
+            }
+            if ( is_object( $this->mUser2 ) ) {
+                $this->mUser2->Delete();
+            }
         }
     }
 
