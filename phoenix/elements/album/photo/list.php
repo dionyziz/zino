@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumPhotoList( tInteger $albumid ) {
+	function ElementAlbumPhotoList( tInteger $id ) {
 		global $page;
 		global $user;
 		
