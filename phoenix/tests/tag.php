@@ -2,6 +2,11 @@
 
     class TestTag extends Testcase {
         protected $mAppliesTo='libs/tag';
+        private $mUser1;
+        private $mUser2;
+        private $mBookTag;
+        private $mMovieTag1;
+        private $mMovieTag2;
 
         public function SetUp() {
             $finder = UserFinder();
@@ -14,9 +19,13 @@
             $user->Name = 'testtag1';
             $user->Save();
 
+            $this->mUser1 = $user;
+
             $user = New User();
             $user->Name = 'testtag2';
             $user->Save();
+
+            $this->mUser2 = $user;
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Tag' ), 'Tag class does not exist' );
@@ -39,7 +48,7 @@
             $this->Assert( method_exists( $tag, 'FindByTextAndType' ), 'TagFinder::FindByTextAndType method does not exist' );
         }
         public function TestCreate() {
-            $user = New User( 'testtags' );
+            $user = $this->mUser1;
 
             $tag = New Tag();
             $tag->Userid = $user->Id;
@@ -55,23 +64,30 @@
             $tag->Text = 'The journal of a Magus';
             $tag->Save();
 
-            $user = New User( 'testtags2' );
+            $this->mBookTag = $tag;
 
-            $tag = New Tag();
-            $tag->Type = TAG_MOVIE;
-            $tag->Userid = $user->Id;
-            $tag->Text = 'Sin City';
-            $tag->Save();
+            $user = $this->mUser2;
 
-            $tag = New Tag();
-            $tag->Userid = $user->Id;
-            $tag->Type = TAG_MOVIE;
-            $tag->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
-            $tag->Save();
+            $tag1 = New Tag();
+            $tag1->Type = TAG_MOVIE;
+            $tag1->Userid = $user->Id;
+            $tag1->Text = 'Sin City';
+            $tag1->Save();
+
+            $this->mMovieTag1 = $tag1;
+
+            $tag2 = New Tag();
+            $tag2->Userid = $user->Id;
+            $tag2->Type = TAG_MOVIE;
+            $tag2->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
+            $tag2->Next = $tag1->Id;
+            $tag2->Save();
+
+            $this->mMovieTag2 = $tag2;
         }
         public function TestFindByUser() {
             $finder = New TagFinder();
-            $tags = $finder->FindByUser( New User( 'testtag1' ) );
+            $tags = $finder->FindByUser( $this->mUser1 );
             
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
@@ -114,99 +130,72 @@
             // no ability to edit tags
         }
         public function TestDelete() {
-            // TODO
+            $this->Assert( $this->mBookTag->Exists(), 'Tag does not appear to exist before deleting' );
+            $this->mBookTag->Delete();
+            $this->AssertFalse( $this->mBookTag->Exists(), 'Tag appears to exist after deleting' );
+
+            $finder = New TagFinder();
+            $finder->FindByUser( $this->mUser1 );
+
+            $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
+            $this->AssertEquals( 1, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
+            
+            $texts = array( 'Sin City' );
+            $types = array( TYPE_MOVIE );
+            for ( $i = 0; $i < 1; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+            }
         }
         public function TestReorder() {
-            // TODO
+            $finder = New TagFinder();
+
+            $this->mMovieTag2->MoveBefore( $this->mMovieTag1 );
+
+            $tags = $finder->FindByUser( $this->mUser2 );
+
+            $texts = array( 'Straight Story', 'Sin City' );
+            $types = array( TYPE_MOVIE, TYPE_MOVIE );
+            for ( $i = 0; $i < 1; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+            }
+
+            $this->mMovieTag2->MoveAfter( $this->mMovieTag1 );
+
+            $tags = $finder->FindByUser( $this->mUser2 );
+
+            $texts = array( 'Sin City', 'Straight Story' );
+            $types = array( TYPE_MOVIE, TYPE_MOVIE );
+            for ( $i = 0; $i < 1; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+            }
+
         }
         public function TestClear() {
-            $user = New User( 'testtag1' );
-            
-            Tag_Clear( $user );
+            Tag_Clear( $this->mUser1 );
+
             $finder = New TagFinder();
-            $tags = $finder->FindByUser( $user );
+
+            $tags = $finder->FindByUser( $this->mUser1 );
             $this->Assert( is_array( $tags ), 'TagFinder::FindByUser did not return an array' );
             $this->Assert( empty( $tags ), 'Array returned by TagFinder::FindByUser, after calling Tag_Clear, was not empty' );
 
-            $user2 = New User( 'testtag2' );
-            Tag_Clear( $user2->Id ); // this should accept user objects or user ids!
+            Tag_Clear( $this->mUser2 ); // this should accept user objects or user ids!
         }
-        public function TearDown() { // Crying?
-            $user = New User( 'testtag1' );
-            $user->Delete();
+        public function TearDown() {
+            $this->mUser1->Delete();
 
-            $user = New User( 'testtag2' );
-            $user->Delete();
+            $this->mUser2->Delete();
         }
     }
-
-    /*
-        private function Reorder() {
-            $list = $this->mClass . '_List';
-
-            // moving tags
-            $test = New User( 'testtags2' );
-            $tag1 = New $this->mClass( 'Sin City', $test );
-            $tag2 = New $this->mClass( 'Parkour', $test );
-            $tag1->MoveAfter( $tag2 );
-            $tags = $list( $test );
-            $this->Assert( is_array( $tags ), 'InterestTag_List did not return an array after I tried to MoveAfter a tag' );
-            $this->AssertEquals( 2, count( $tags ), 'InterestTag_List returned an incorrect number of items after I tried to MoveAfter a tag' );
-            $i = 0;
-            foreach ( $tags as $tag ) {
-                $this->Assert( $tag instanceof $this->mClass, 'InterestTag_List should return an array of InterestTag instances when retrieving a list of tags for a particular user' );
-                $text = $tag->Text;
-                switch ( $i ) {
-                    case 0:
-                        $this->AssertEquals( 'Parkour', $text, 'Parkour should have been moved to position #1' );
-                        break;
-                    case 1:
-                        $this->AssertEquals( 'Sin City', $text, 'Sin City should have been moved to position #2' );
-                        break;
-                }
-                ++$i;
-            }
-            
-            $tag1->MoveBefore( $tag2 );
-            $tags = $list( $test );
-            $this->Assert( is_array( $tags ), $list . ' did not return an array after I tried to MoveBefore a tag' );
-            $this->AssertEquals( 2, count( $tags ), $list . ' returned an incorrect number of items after I tried to MoveBefore a tag' );
-            $i = 0;
-            foreach ( $tags as $tag ) {
-                $text = $tag->Text;
-                switch ( $i ) {
-                    case 0:
-                        $this->AssertEquals( 'Sin City', $text, 'Sin City should have been moved back to position #1' );
-                        break;
-                    case 1:
-                        $this->AssertEquals( 'Parkour', $text, 'Parkour should have been moved back to position #2' );
-                        break;
-                }
-                ++$i;
-            }
-        }
-        
-        private function Deletion() {
-            $list = $this->mClass . '_List';
-
-            $test = New User( 'testtags2' );
-            // deleting an existing tag
-            $tag = New $this->mClass( 'Sin City', $test );
-            $this->AssertTrue( $tag->Exists(), 'Sin City should exist before I delete it' );
-            $tag->Delete();
-            $this->AssertFalse( $tag->Exists(), 'Sin City should not exist after I delete it' );
-            $tags = $list( $test );
-            $this->Assert( is_array( $tags ), 'InterestTag_List did not return an array after deleting a tag' );
-            $this->AssertEquals( 1, count( $tags ), 'I had two tags, I deleted one, yet I don\'t have one tag now!' );
-            $tag = New $this->mClass( 'Parkour', $test );
-            $this->AssertTrue( $tag->Exists(), 'Parkour should exist before I delete it' );
-            $tag->Delete();
-            $this->AssertFalse( $tag->Exists(), 'Parkour should not exist after I delete it' );
-            $tags = $list( $test );
-            $this->Assert( is_array( $tags ), 'InterestTag_List does not return an array after I delete all my tags' );
-            $this->AssertEquals( 0, count( $tags ), 'InterestTag_List returned a non-empty array even though I don\'t have any tags left' );
-        }
-    */
 
     return New TestTag();
 
