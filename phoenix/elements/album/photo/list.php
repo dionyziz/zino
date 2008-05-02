@@ -1,17 +1,28 @@
 <?php
 	
-	function ElementAlbumPhotoList() {
-		//global $page;
+	function ElementAlbumPhotoList( tInteger $albumid ) {
+		global $page;
+		global $user;
 		
-		//$page->AttachStyleSheet( 'css/album/photo/list.css' );
+		$album = new Album( $albumid );
 		
 		Element( 'user/sections', 'album' );
 		?><div id="photolist">
-			<h2>Ουρανοξύστες</h2>
-			<dl>
-				<dt class="photonum">29 φωτογραφίες</dt>
-				<dt class="commentsnum">328 σχόλια</dt>
-			</dl>
+			<h2><?php
+			echo htmlspecialchars( $album->Name );
+			?></h2>
+			<dl><?php
+				if ( $album->Numphotos > 0 ) {
+					?><dt class="photonum"><?php
+					echo $album->Numphotos;
+					?></dt><?php
+				}
+				if ( $album->Numcomments > 0 ) {
+					?><dt class="commentsnum"><?php
+					echo $album->Numcomments;
+					?></dt><?php
+				}
+			?></dl>
 			<ul><?php
 				for ( $i = 0; $i < 11; ++$i ) {
 					?><li><?php
