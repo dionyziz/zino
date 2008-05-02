@@ -4,7 +4,7 @@
 		global $page;
 		global $user;
 		
-		$album = new Album( $albumid );
+		$album = new Album( $id );
 		
 		Element( 'user/sections', 'album' );
 		?><div id="photolist">
