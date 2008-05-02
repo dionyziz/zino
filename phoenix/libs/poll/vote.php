@@ -5,7 +5,7 @@
 
         public function FindByOption( $option ) {
             $vote = New PollVote();
-            $vote->Optionid = $vote->Id;
+            $vote->Optionid = $option->Id;
             
             return $this->FindByPrototype( $vote );
         }

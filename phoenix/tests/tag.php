@@ -1,114 +1,151 @@
 <?php
+
     class TestTag extends Testcase {
-        private $mClass;
+        protected $mAppliesTo='libs/tag';
 
-        private function ClassesExist() {
-            $this->Assert( class_exists( $this->mClass ), $this->mClass . ' class does not exist' );
-        }
-        
-        private function FunctionsExist() {
-            $this->Assert( function_exists( $this->mClass . '_List' ), $this->mClass . '_List function does not exist' );
-            $this->Assert( function_exists( $this->mClass . '_Clear' ), $this->mClass . '_Clear function does not exist' );
-        }
-        
-        private function MethodsExist() {
-            $tag = New $this->mClass(); // MAGIC!
-            $this->Assert( method_exists( $tag, 'Save' ), $this->mClass . '::Save method does not exist' );
-            $this->Assert( method_exists( $tag, 'Delete' ), $this->mClass . '::Delete method does not exist' );
-            $this->Assert( method_exists( $tag, 'MoveAfter' ), $this->mClass . '::MoveAfter method does not exist' );
-            $this->Assert( method_exists( $tag, 'MoveBefore' ), $this->mClass . '::MoveBefore method does not exist' );
-            $this->Assert( method_exists( $tag, 'Exists' ), $this->mClass . '::Exists method does not exist' );
-        }
-        
-        private function Clear() {
-            $clear = $this->mClass . '_Clear';
-            $list = $this->mClass . '_List';
+        public function SetUp() {
+            $finder = UserFinder();
+            $users = $finder->FindByName( 'testtag1' );
+            $this->RequireSuccess( $this->Assert( empty( $users ) ) );
+            $users = $finder->FindByName( 'testtag2' );
+            $this->RequireSuccess( $this->Assert( empty( $users ) ) );
 
-            $test = New User( 'test' );
-            $clear( $test ); // MAGIC!
-            $list = $list( $test ); // MAGIC!
-            $this->Assert( is_array( $list ), $list . ' did not return an array' );
-            $this->Assert( empty( $list ), $list . ' did not return an empty array after Clear()' );
+            $user = New User();
+            $user->Name = 'testtag1';
+            $user->Save();
+
+            $user = New User();
+            $user->Name = 'testtag2';
+            $user->Save();
         }
-        
-        private function Creation() {
-            $test = New User( 'test' );
-            // creating a new tag
-            $tag = New $this->mClass(); // MAGIC!
-            $this->AssertFalse( $tag->Exists(), 'Empty new ' . $this->mClass . ' appears to Exist' );
-            $tag->User = $test;
+        public function TestClassesExist() {
+            $this->Assert( class_exists( 'Tag' ), 'Tag class does not exist' );
+            $this->Assert( class_exists( 'TagFinder' ), 'TagFinder class does not exist' );
+        }
+        public function TestFunctionsExist() {
+            $this->Assert( function_exists( 'Tag_Clear' ), 'Tag_Clear function does not exist' );
+        }
+        public function TestMethodsExist() {
+            $tag = New Tag();
+
+            $this->Assert( method_exists( $tag, 'Save' ), 'Tag::Save method does not exist' );
+            $this->Assert( method_exists( $tag, 'Delete' ), 'Tag::Delete method does not exist' );
+            $this->Assert( method_exists( $tag, 'Exists' ), 'Tag::Exists method does not exist' );
+            $this->Assert( method_exists( $tag, 'MoveAfter' ), 'Tag::MoveAfter method does not exist' );
+            $this->Assert( method_exists( $tag, 'MoveBefore' ), 'Tag::MoveBefore method does not exist' );
+
+            $finder = New TagFinder();
+            $this->Assert( method_exists( $tag, 'FindByUser' ), 'TagFinder::FindByUser method does not exist' );
+            $this->Assert( method_exists( $tag, 'FindByTextAndType' ), 'TagFinder::FindByTextAndType method does not exist' );
+        }
+        public function TestCreate() {
+            $user = New User( 'testtags' );
+
+            $tag = New Tag();
+            $tag->Userid = $user->Id;
+            $tag->Type = TAG_MOVIE;
+            $tag->Text = 'Sin City';
+            $this->AssertFalse( $tag->Exists(), 'Tag appears to exist before saving' );
+            $tag->Save();
+            $this->Assert( $tag->Exists(), 'Tag does not appear to exist after saving' );
+
+            $tag = New Tag();
+            $tag->Userid = $user->Id;
+            $tag->Type = TAG_BOOK;
+            $tag->Text = 'The journal of a Magus';
+            $tag->Save();
+
+            $user = New User( 'testtags2' );
+
+            $tag = New Tag();
+            $tag->Type = TAG_MOVIE;
+            $tag->Userid = $user->Id;
             $tag->Text = 'Sin City';
             $tag->Save();
-            $this->AssertTrue( $tag->Exists(), 'Freshly saved InterestTag appears not to Exist' );
-            $this->AssertEquals( 'Sin City', $tag->Text, 'Freshly saved InterestTag does not contain the text it was assigned' );
-            $this->AssertEquals( $test, $tag->User, 'Freshly saved InterestTag does not contain the user it was assigned' );
-            $tag = New $this->mClass();
-            $tag->User = $test;
-            $tag->Text = 'Parkour';
+
+            $tag = New Tag();
+            $tag->Userid = $user->Id;
+            $tag->Type = TAG_MOVIE;
+            $tag->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
             $tag->Save();
         }
-        
-        private function QueryNonExisting() {
-            $test = New User( 'test' );
-            $tag = New $this->mClass( 'some non-existing tag', $test );
-            $this->AssertFalse( $tag->Exists(), 'Querying a non-existing tag yields to an existing tag' );
-        }
-        
-        private function QueryExisting() {
-            $test = New User( 'test' );
-            $tag1 = New $this->mClass( 'Sin City', $test );
-            $tag2 = New $this->mClass( 'Parkour', $test );
-            $this->AssertTrue( $tag1->Exists(), 'I just created tag Sin City but it doesn\'t seem to exist' );
-            $this->AssertTrue( $tag2->Exists(), 'I just created tag Parkour but it doesn\'t seem to exist' );
-            $this->AssertEquals( 'Sin City', $tag1->Text, 'Sin City tag doesn\'t have text "Sin City"' );
-            $this->AssertEquals( 'Parkour', $tag2->Text, 'Parkour tag doesn\'t have text "Parkour"' );
-            $this->AssertEquals( $test, $tag1->User, 'I ain\'t the owner of Sin City, while I just created it' );
-            $this->AssertEquals( $test, $tag2->User, 'I ain\'t the owner of Parkour, while I just created it' );
-        }
-        
-        private function Edit() {
-            // no ability to edit tags!
-        }
-        
-        private function ValidText() {
-            $valid = $this->mClass . '_Valid';
-
-        	$this->AssertFalse( $valid( "Dog gy" ), $valid . ' did not recognise an invalid tag' );
-        	$this->AssertFalse( $valid( "Pup,py" ), $valid . ' did not recognise an invalid tag' );
-        	$this->AssertFalse( $valid( "" ), $valid . ' did not recognise an invalid tag' );
-        	$this->AssertFalse( $valid( " lol " ), $valid . ' recognised a valid tag as invalid' );
-        	$this->AssertFalse( $valid( "    " ), $valid . ' did not recognise an invalid tag' );
-        }
-        
-        private function ListUsertags() {
-            $list = $this->mClass . '_List';
-
-            $test = New User( 'test' );
-            // listing the tags of a user
-            $tags = $list( $test );
-            $this->Assert( is_array( $tags ), $list . ' did not return an array after creating a few tags' );
-            $this->AssertEquals( 2, count( $tags ), $list . ' did not return two tags, while I created two' );
-            $i = 0;
-            foreach ( $tags as $tag ) { // they should be returned in order
-                // retrieving information about a particular tag
-                $text = $tag->Text;
-                switch ( $i ) {
-                    case 0:
-                        $this->AssertEquals( 'Sin City', $text, 'The first tag I created was Sin City' );
-                        break;
-                    case 1:
-                        $this->AssertEquals( 'Parkour', $text, 'The second tag I created was Parkour' );
-                        break;
-                }
-                ++$i;
+        public function TestFindByUser() {
+            $finder = New TagFinder();
+            $tags = $finder->FindByUser( New User( 'testtag1' ) );
+            
+            $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
+            $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
+            
+            $texts = array( 'Sin City', 'Journal of a Magus' );
+            $types = array( TYPE_MOVIE, TYPE_BOOK );
+            for ( $i = 0; $i < 2; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
         }
-        
+        public function TestFindByTextAndType() {
+            $finder = New TagFinder();
+            $tags = $finder->FindByTextAndType( 'Sin City', TAG_MOVIES );
+
+            $this->Assert( is_array( $tags ), 'Finder::FindByTextAndType did not return an array' );
+            $this->AssertEquals( 2, count( $tags ), 'Finder::FindByTextAndType did not return the right number of tags' );
+            
+            $users = array( 'testtag1', 'testtag2' );
+            for ( $i = 0; $i < 2; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByTextAndType did not return an array of tags' );
+                $this->AssertEquals( $users[ $i ], $tag->User->Name, 'Tag returned by Finder::FindByTextAndType doesn\'t have the right user, or it is returned in wrong order' );
+            }
+        }
+        public function TestFindSuggestions() {
+            $finder = New TagFinder();
+            $texts = $inder->FindSuggestions( 'S', TAG_MOVIES );
+
+            $this->Assert( is_array( $tags ), 'Finder::FindSuggestions did not return an array' );
+            
+            foreach ( $texts as $text ) {
+                $this->Assert( is_string( $text ), 'Finder::FindSuggestions did not return an array of strings' );
+                $this->AssertEquals( 'S', $text[ 0 ], 'Finder::FindSuggestions returned a wrong text' );
+            }
+        }
+        public function TestEdit() {
+            // no ability to edit tags
+        }
+        public function TestDelete() {
+            // TODO
+        }
+        public function TestReorder() {
+            // TODO
+        }
+        public function TestClear() {
+            $user = New User( 'testtag1' );
+            
+            Tag_Clear( $user );
+            $finder = New TagFinder();
+            $tags = $finder->FindByUser( $user );
+            $this->Assert( is_array( $tags ), 'TagFinder::FindByUser did not return an array' );
+            $this->Assert( empty( $tags ), 'Array returned by TagFinder::FindByUser, after calling Tag_Clear, was not empty' );
+
+            $user2 = New User( 'testtag2' );
+            Tag_Clear( $user2->Id ); // this should accept user objects or user ids!
+        }
+        public function TearDown() { // Crying?
+            $user = New User( 'testtag1' );
+            $user->Delete();
+
+            $user = New User( 'testtag2' );
+            $user->Delete();
+        }
+    }
+
+    /*
         private function Reorder() {
             $list = $this->mClass . '_List';
 
             // moving tags
-            $test = New User( 'test' );
+            $test = New User( 'testtags2' );
             $tag1 = New $this->mClass( 'Sin City', $test );
             $tag2 = New $this->mClass( 'Parkour', $test );
             $tag1->MoveAfter( $tag2 );
@@ -149,26 +186,10 @@
             }
         }
         
-        private function ListTexttags() {
-            $list = $this->mClass . '_List';
-
-            // listing the tags with a particular text
-            $tags = $list( 'Sin City' );
-            $test = New User( 'test' );
-            $found = false;
-            foreach ( $tags as $tag ) { // they should be ordered by order (users who have this tag first show up first), secondarily ordered by reverse creation date (newest users who added it show up first)
-                $this->Assert( $tag instanceof $this->mClass, 'InterestTag_List should return an array of InterestTag instances when retrieving a list of tags with a particular text' );
-                $user = $tag->User;
-                if ( $test->Username() == $user->Username() ) {
-                    $found = true;
-                }
-            }
-            $this->Assert( $found, 'I have a tag for Sin City, yet I\'m not in the list of users who have that tag' );
-        }
         private function Deletion() {
             $list = $this->mClass . '_List';
 
-            $test = New User( 'test' );
+            $test = New User( 'testtags2' );
             // deleting an existing tag
             $tag = New $this->mClass( 'Sin City', $test );
             $this->AssertTrue( $tag->Exists(), 'Sin City should exist before I delete it' );
@@ -185,57 +206,7 @@
             $this->Assert( is_array( $tags ), 'InterestTag_List does not return an array after I delete all my tags' );
             $this->AssertEquals( 0, count( $tags ), 'InterestTag_List returned a non-empty array even though I don\'t have any tags left' );
         }
-        private function ClassTest( $class ) {
-            $this->mClass = $class;
-
-            $this->ClassesExist();
-            $this->FunctionsExist();
-            $this->MethodsExist();
-            $this->Clear();
-            $this->Creation();
-            $this->QueryNonExisting();
-            $this->QueryExisting();
-            $this->Edit();
-            $this->ValidText();
-            $this->ListUsertags();
-            $this->Reorder();
-            $this->ListTexttags();
-            $this->Deletion();
-        }
-        protected function TestInitialize() {
-            global $libs;
-
-            $libs->Load( 'tag' );
-            $libs->Load( 'artisttag' );
-            $libs->Load( 'booktag' );
-            $libs->Load( 'interesttag' );
-            $libs->Load( 'movietag' );
-            $libs->Load( 'songtag' );
-            $libs->Load( 'tvshowtag' );
-            $libs->Load( 'videogametag' );
-        }
-        protected function TestArtistTags() {
-            $this->ClassTest( 'ArtistTag' );
-        }
-        protected function TestBookTags() {
-            $this->ClassTest( 'BookTag' );
-        }
-        protected function TestInterestTags() {
-            $this->ClassTest( 'InterestTag' );
-        }
-        protected function TestMovieTags() {
-            $this->ClassTest( 'MovieTag' );
-        }
-        protected function TestSongTags() {
-            $this->ClassTest( 'SongTag' );
-        }
-        protected function TestTvShowTags() {
-            $this->ClassTest( 'TvShowTag' );
-        }
-        protected function TestVideoGameTags() {
-            $this->ClassTest( 'VideoGameTag' );
-        }
-    }
+    */
 
     return New TestTag();
 
