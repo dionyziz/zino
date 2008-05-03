@@ -35,6 +35,7 @@
         }
         public function UndoDelete() {
             $this->Delid = 0;
+            $poll->Question = "Who is your favourite Beatle?";
             $this->Save();
         }
         protected function LoadDefaults() {

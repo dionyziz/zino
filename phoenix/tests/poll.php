@@ -86,7 +86,10 @@
             $poll->CreateOption( 'I have never heard of the Beatles' );
 
             $options = $poll->Options;
-            $this->Assert( 5, count( $options ), 'Wrong number of options in Options property' );
+            $this->AssertEquals( 5, count( $options ), 'Wrong number of options in Options property' );
+
+            $poll = New Poll( $this->mPoll->Id );
+            $this->AssertEquals( 5, count( $poll->Options ), 'Wrong number of options in Options property of a new instance' );
         }
         public function TestVote() {
             $vote = New PollVote();
@@ -116,26 +119,80 @@
             $finder = New PollVoteFinder();
             $votes = $finder->FindByPoll( $this->mPoll );
 
-            $this->AssertEquals( 4, count( $votes ), 'Number of votes returned by FindVotesByPoll is wrong' );
+            $this->Assert( is_array( $votes ), 'PollVoteFinder::FindByPoll did not return an array' );
+            $this->AssertEquals( 4, count( $votes ), 'Number of votes returned by FindByPoll is wrong' );
         }
         public function TestFindUserVote() {
+            $finder = New PollVoteFinder();
+            $votes = $finder->FindByPollAndUser( $this->mPoll, new User( 3 ) );
+
+            $this->Assert( is_array( $votes ), 'PollVoteFinder::FindByPollAndUser did not return an array' );
+            $this->AssertEquals( 1, count( $votes ), 'PollVoteFinder::FindByPollAndUser returned wrong number of votes' );
+            
+            $vote = $votes[ 0 ];
+            $this->AssertEquals( 3, $vote->Userid, 'Wrong Vote::Userid on vote returned by FindByPollAndUser' );
+            $this->AssertEquals( $this->mOption->Id, $vote->Optionid, 'Wrong Vote::Optionid on vote returned by FindByPollAndUser' );
+            $this->AssertEquals( $this->mPoll->Id, $vote->Pollid, 'Wrong Vote::Pollid on vote returned by FindByPollAndUser' );
         }
         public function TestFindPollOptions() {
+            $finder = New PollOptionFinder();
+            $options = $finder->FindByPoll( $this->mPoll );
+
+            $this->Assert( is_array( $votes ), 'PollOptionFinder::FindByPoll did not return an array' );
+            $this->AssertEquals( 5, count( $options ), 'PollOptionFinder::FindByPoll returned wrong number of options' ); 
+
+
+            $texts = array( 'John Lennon', 'Paul Mc Cartney', 'Ringo Starr', 'George Harrison', 'I have never heard of the Beatles' );
+            for ( $i = 0; $i < count( $options ); ++$i ) {
+                $option = $options[ $i ];
+                $this->Assert( $option instanceof PollOption, 'FindByPoll did not return an array of options' );
+                $this->AssertEquals( $this->mPoll->Id, $option->Pollid, 'FindByPoll did not return the right options' );
+                $this->AssertEquals( $texts[ $i ], $option->Text, 'FindByPoll did not return the right options, or returned them in a wrong order' );
+            }
         }
         public function TestFindUserPolls() {
+            $poll = New Poll();
+            $poll->Userid = 3;
+            $poll->Question = "What's your favourite season?";
+            $poll->Save();
+            $pollid = $poll->Id;
+
+            $option = New Option();
+            $option->Text = "None";
+            $option->Pollid = $poll->Id;
+            $option->Save();
+
+            $finder = New PollFinder();
+            $polls = $finder->FindByUser( New User( 3 ) );
+
+            $this->Assert( is_array( $polls ), 'PollFinder::FindByUser did not return an array' );
+            $this->Assert( 2, count( $polls ), 'PollFinder::FindByUser did not return the right number of polls' );
+
+            $texts = array( "What's your favourite season?", "Who is your favourite Beatle" );
+            $optionscounts = array( 1, 5 );
+    
+            for ( $i = 0; $i < count( $polls ); ++$i ) {
+                $poll = $polls[ $i ];
+                $this->AssertEquals( 3, $poll->Userid, 'FindByUser did not return the right polls' );
+                $this->AssertEquals( $texts[ $i ], $poll->Text, 'FindByUser did not return the right polls, or returned them in wrong order' );
+                $this->AssertEquals( $optioncounts[ $i ], count( $poll->Options ), 'FindByUser did not return the right polls, or returned them in wrong order' );
+            }
+
+            $poll = New Poll( $pollid );
+            $poll->Delete();
         }
         public function TestDeleteOption() {
-        }
-        public function TestUndoDeleteOption() {
         }
         public function TestDeletePoll() {
             $poll = $this->mPoll;
             $poll->Delete();
             
             $this->Assert( $poll->IsDeleted(), 'Poll::IsDeleted() did not return true on a deleted poll' );
-            $this->AssertEquals( 1, $poll->Delid, 'Poll Delid should be 1 on deleted polls' );
-        }
-        public function TestUndoDeletePoll() {
+            $this->AssertEquals( 1, $poll->Delid, 'Poll::Delid should be 1 on deleted polls' );
+
+            $poll = New Poll( $this->mPoll->Id );
+            $this->Assert( $poll->IsDeleted(), 'Poll::IsDeleted did not return true on new instance of deleted poll' );
+            $this->AssertEquals( 1, $poll->Delid, 'Poll::Delid was not 1 on new instance of deleted poll' );
         }
 	}
 
