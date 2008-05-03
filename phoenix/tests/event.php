@@ -4,6 +4,11 @@
         protected $mAppliesTo = 'libs/event';
         private $mEventId;
 
+        public function SetUp() {
+            global $libs;
+
+            $libs->Load( 'event' );
+        }
         public function TestFunctionsExist() {
             $this->Assert( class_exists( 'Event' ), 'Event class does not exist' );
             $this->Assert( class_exists( 'EventFinder' ), 'EventFinder class does not exist' );

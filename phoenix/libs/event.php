@@ -52,43 +52,6 @@
 			}
 
 			w_assert( $order[ 1 ] == 'DESC' || $order[ 1 ] == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
-/*
-			if ( count( $typeids ) == 1 ) {
-				$type = $typeids[ 0 ];
-				$model = Event_ModelByType( $type );
-
-				$obj = New $model();
-				$primarykeys = $obj->PrimaryKeyFields();
-				$primarykey = $primarykeys[ 0 ]; // axiom: there's only one primary key field
-
-				$query = $db->Prepare( "SELECT
-					*
-				FROM
-					:events LEFT JOIN :$typetable
-						ON ( `$primarykey` = `event_itemid` )
-				WHERE
-					`event_type` = :type
-				ORDER BY
-					`" . $order[ 0 ] . "` " . $order[ 1 ] . "
-				LIMIT
-					$limit, $offset
-				;" );
-
-				$query->BindTable( 'events' );
-				$query->BindTable( $typetable );
-				$query->Bind( 'type', $typeids[ 0 ] );
-				
-				$res = $query->Execute();
-				$ret = array();
-				while ( $row = $res->FetchArray() ) {
-					$event = New Event( $row );	
-					$event->Model = New $model( $row );
-					$ret[] = $event;
-				}
-
-				return $ret;
-			}
-*/
 
 			$prototype = New Event();
 			$prototype->Typeid = $typeids; // Dionyziz: array allowed?
@@ -105,21 +68,13 @@
 	class Event extends Satori {
 		protected $mDbTableAlias = 'events';
 
-		/*
-		public function SetModel( $value ) {
-			if ( $value instanceof Relation ) {
-				return parent::__set( 'Model', $value );
-			}
-			$this->Model = $value;
-		}
-		*/
 		public function Relations() {
 			global $water;
 			$model = Event_ModelByType( $this->Typeid );
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
-				$this->Model = $this->HasOne( $model, 'Itemid' );
+				$this->Object = $this->HasOne( $model, 'Itemid' );
 			}
 		}
         public function Save() {
