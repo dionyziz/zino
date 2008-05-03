@@ -22,7 +22,7 @@
 		            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
 		            <li style="display:none;">·</li>
 		            <li style="display:none;">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>
-		            <li style="display:none;"><input type="button" value="Είσοδος" class="button" /></li>
+		            <li style="display:none;"><input type="submit" value="Είσοδος" class="button" /></li>
 				</form><?php
 	        }
 	        else {
