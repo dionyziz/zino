@@ -28,10 +28,10 @@
 			if ( $album->User->Id == $user->Id ) {
 				?><div class="rename"><a href="" onclick="return false;"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>edit.png" alt="Μετονομασία" title="Μετονομασία" />Μετονομασία</a></div>
+				?>pencil.png" alt="Μετονομασία" title="Μετονομασία" />Μετονομασία</a></div>
 				<div class="delete"><a href="" onclick="return false;"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>delete.png" alt="Διαγραφή" title="Διαγραφή" />Διαγραφή</a></div><?php
+				?>cancel.png" alt="Διαγραφή" title="Διαγραφή" />Διαγραφή</a></div><?php
 			}
 			?><ul><?php
 				for ( $i = 0; $i < 11; ++$i ) {
