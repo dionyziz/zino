@@ -1,7 +1,7 @@
 var AlbumList = {
 	Create : function() {
 		var newalbum = document.createElement( 'li' );
-		$( newalbum ).append( $( 'div.createalbum' ).clone() );
+		$( newalbum ).append( $( 'div.createalbum' ).clone() ).css( "display" , "none" );
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
@@ -19,7 +19,7 @@ var AlbumList = {
 		} );
 		setTimeout( function() {
 			$( newalbum ).show( 400 );
-		} , 100 );
+		} , 10000 );
 		//$( 'span.desc input' )[ 0 ].select();
 		//$( 'span.desc input' )[ 0 ].focus();
 		var link = document.createElement( "a" );
