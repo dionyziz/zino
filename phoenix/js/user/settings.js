@@ -14,31 +14,34 @@ var Settings = {
 	invalidemail : false,
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
-		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
-		var found = false;
-		var settingslis = $( 'div.settings div.sidebar ol li' );
-		
-		for ( i = 0; i < validtabs.length; ++i ) {
-			if ( divtoshow == validtabs[ i ] ) {https://beta.zino.gr/phoenix/settings
-				$( '#' + divtoshow + 'info' ).show( 'slow' );
-				Settings.FocusSettingLink( settingslis[ i ], true );
-				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
-				/*if ( divtoshow == 'interests' ) {
-					window.scrollTo( 0 , 0 );
+		if ( Settings.email ) {
+			//hack so that it is executed only when it is loaded
+			var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
+			var found = false;
+			var settingslis = $( 'div.settings div.sidebar ol li' );
+			
+			for ( i = 0; i < validtabs.length; ++i ) {
+				if ( divtoshow == validtabs[ i ] ) {https://beta.zino.gr/phoenix/settings
+					$( '#' + divtoshow + 'info' ).show( 'slow' );
+					Settings.FocusSettingLink( settingslis[ i ], true );
+					window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
+					/*if ( divtoshow == 'interests' ) {
+						window.scrollTo( 0 , 0 );
+					}
+					*/
+					found = true;
 				}
-				*/
-				found = true;
+				else {
+					$( '#' + validtabs[ i ] + 'info' ).hide( 'slow' );
+					Settings.FocusSettingLink( settingslis[ i ], false );
+					
+				}
 			}
-			else {
-				$( '#' + validtabs[ i ] + 'info' ).hide( 'slow' );
-				Settings.FocusSettingLink( settingslis[ i ], false );
-				
+			if ( !found ) {
+				$( '#' + validtabs[ 0 ] + 'info' ).show( 'slow' );
+				window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
+				Settings.FocusSettingLink( settingslis[ 0 ] , true );
 			}
-		}
-		if ( !found ) {
-			$( '#' + validtabs[ 0 ] + 'info' ).show( 'slow' );
-			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
-			Settings.FocusSettingLink( settingslis[ 0 ] , true );
 		}
 	},
 	FocusSettingLink : function( li, focus ) {
