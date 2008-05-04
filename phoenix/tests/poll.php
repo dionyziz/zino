@@ -182,6 +182,13 @@
             $poll->Delete();
         }
         public function TestDeleteOption() {
+            $option = $this->mOption;
+            $this->AssertFalse( $option->IsDeleted(), 'Option seems to be deleted before calling PollOption::Delete' );
+            $option->Delete();
+            $this->Assert( $option->IsDeleted(), 'Option seems not deleted after calling PollOption::Delete' );
+
+            $option = New Option( $this->mOption->Id );
+            $this->Assert( $option->IsDeleted(), 'Deleted option doesn\'t seem to be deleted on new instance' );
         }
         public function TestDeletePoll() {
             $poll = $this->mPoll;
