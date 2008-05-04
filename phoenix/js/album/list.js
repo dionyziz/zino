@@ -1,7 +1,7 @@
 var AlbumList = {
 	Create : function() {
 		var newalbum = document.createElement( 'li' );
-		$( newalbum ).append(  $( 'div.createalbum' ).clone() ).css( "display" , "none" ).show( 400 ).find( "div.createalbum" );
+		$( newalbum ).append(  $( 'div.createalbum' ).clone() ).css( "display" , "none" ).show( 400 );
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
@@ -18,7 +18,7 @@ var AlbumList = {
 			}
 		} );
 		//$( 'span.desc input' )[ 0 ].select();
-		//$( 'span.desc input' )[ 0 ].focus();
+		$( 'span.desc input' )[ 0 ].focus();
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( newalbum ).hide( 400 , function() {
