@@ -25,6 +25,9 @@ dt.commentsnum, span.commentsnum {
 	display: inline;
 	font-size: 90%;
 }
+span.commentsnum {
+	vertical-align: 2px;
+}
 div#photolist ul {
 	padding: 0;
 	margin: 0;
