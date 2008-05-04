@@ -19,7 +19,7 @@ var AlbumList = {
 		} );
 		setTimeout( function() {
 			$( newalbum ).show( 400 );
-		} , 300 );
+		} , 200 );
 		//$( 'span.desc input' )[ 0 ].select();
 		//$( 'span.desc input' )[ 0 ].focus();
 		var link = document.createElement( "a" );
