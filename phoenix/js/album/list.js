@@ -18,7 +18,7 @@ var AlbumList = {
 			}
 		} );
 		//$( 'span.desc input' )[ 0 ].select();
-		$( 'span.desc input' )[ 0 ].focus();
+		//$( 'span.desc input' )[ 0 ].focus();
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( newalbum ).hide( 400 , function() {
