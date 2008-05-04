@@ -10,17 +10,15 @@ var AlbumList = {
 					var spandesc = document.createElement( 'span' );
 					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
 					$( this ).parent().parent().find( "a" ).append( spandesc );
-					/*
 					$( this ).parent().remove();
-					$( 'li.create' ).html( $( 'div.creating' ).html() );
-					*/
+					//$( 'li.create' ).html( $( 'div.creating' ).html() );
 					body.style.cursor = 'wait';
 					Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
 				}
 			}
 		} );
-		$( 'span.desc input' )[ 0 ].focus();
 		$( 'span.desc input' )[ 0 ].select();
+		$( 'span.desc input' )[ 0 ].focus();
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( newalbum ).animate( { width: "0" } , 400 , function() {
