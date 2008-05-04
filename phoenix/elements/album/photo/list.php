@@ -27,7 +27,7 @@
 			<ul><?php
 				for ( $i = 0; $i < 11; ++$i ) {
 					?><li><?php
-						Element( 'album/photo/small', true, true, true );
+						Element( 'album/photo/small', false , true, true );
 					?></li><?php
 				}
 			?></ul>
