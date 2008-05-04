@@ -21,7 +21,7 @@ var AlbumList = {
 			$( newalbum ).show( 400 , function() {
 				$( 'span.desc input' )[ 0 ].focus();
 			} );
-		} , 100 );
+		} , 50 );
 		//$( 'span.desc input' )[ 0 ].select();
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
