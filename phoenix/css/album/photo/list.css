@@ -45,9 +45,13 @@ div#photolist ul li {
 	text-align: center;
 	display: inline;
 }
-div#photolist div.rename {
-
+div#photolist div.rename, div#photolist div.delete{
+	margin: 5px 0;
+	
 }
-div#photolist div.delete {
-
+div#photolist div.rename a, div#photolist div.delete a {
+	font-size: 95%;
+}
+div#photolist div.delete a img {
+	vertical-align: -2px;
 }
