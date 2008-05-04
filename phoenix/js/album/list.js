@@ -7,11 +7,13 @@ var AlbumList = {
 			if ( event.keyCode == 13 ) {
 				var albumname = $( 'span.desc input' )[ 0 ].value;
 				if ( albumname !== '' ) {
+					/*
 					var spandesc = document.createElement( 'span' );
 					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
 					$( this ).parent().parent().find( "a" ).append( spandesc );
 					$( this ).parent().remove();
 					$( 'li.create' ).html( $( 'div.creating' ).html() );
+					*/
 					Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
 				}
 			}
