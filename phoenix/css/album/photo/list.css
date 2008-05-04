@@ -53,5 +53,8 @@ div#photolist div.rename a, div#photolist div.delete a {
 	font-size: 95%;
 }
 div#photolist div.delete a img {
+	padding-right: 5px;
+}
+div#photolist div.delete a img {
 	vertical-align: -2px;
 }
