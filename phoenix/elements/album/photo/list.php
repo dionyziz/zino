@@ -3,6 +3,7 @@
 	function ElementAlbumPhotoList( tInteger $id ) {
 		global $page;
 		global $user;
+		global $rabbit_settings; 
 		
 		$album = new Album( $id );
 		
