@@ -18,8 +18,9 @@ var AlbumList = {
 			}
 		} );
 		setTimeout( function() {
-			$( newalbum ).show( 400 );
-			$( 'span.desc input' )[ 0 ].focus();
+			$( newalbum ).show( 400 , function() {
+				$( 'span.desc input' )[ 0 ].focus();
+			} );
 		} , 100 );
 		//$( 'span.desc input' )[ 0 ].select();
 		var link = document.createElement( "a" );
