@@ -17,7 +17,7 @@ div#photolist dl dt.photonum {
 	display: inline;
 	font-size: 90%;
 }
-dt.commentsnum {
+dt.commentsnum, span.commentsnum {
 	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
