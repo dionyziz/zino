@@ -1,8 +1,7 @@
 var AlbumList = {
 	Create : function() {
 		var newalbum = document.createElement( 'li' );
-		$( newalbum ).append(  $( 'div.createalbum' ).clone() , function() {
-			$( newalbum ).show( 400 );
+		$( newalbum ).append( $( 'div.createalbum' ).clone() ).removeClass( "createalbum" );
 		} );
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
