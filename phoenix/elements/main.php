@@ -60,6 +60,7 @@
 		$page->AttachScript( 'js/trivial/dates.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/album/list.js' );
+		$page->AttachScript( 'js/album/photo/list.js' );
 		$page->AttachScript( 'js/user/join.js' );
 		$page->AttachScript( 'js/user/joined.js' );
 		$page->AttachScript( 'js/user/settings.js' );
