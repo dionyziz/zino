@@ -44,10 +44,7 @@
 									  $commentsnum , $oldcomments );
 		?><br />
 			<div class="tabs">
-			</div>
-			<br /><a href="?p=advertise">&#187;Διαφημιστείτε στο <?php
-			echo $rabbit_settings[ 'applicationname' ];
-			?></a><br /><br /><?php
+			</div><br /><?php
             Element( "ad/adbrite" );
             ?><br />
 			<div class="comments" id="comments"><?php	
