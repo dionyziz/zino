@@ -32,7 +32,7 @@
             $this->mCurrentValues[ 'Description' ] = $value;
         }
 		public function IsDeleted() {
-			return $this->DelId > 0;
+			return $this->Delid > 0;
 		}
 		public function Delete() {
             global $water;
