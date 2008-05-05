@@ -17,7 +17,7 @@ var PhotoList = {
 					PhotoList.renaming = false
 					if ( albumname != name ) {
 						alert( 'saving: ' + name );
-						//Coala.Warm
+						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
 				}
 			} );
