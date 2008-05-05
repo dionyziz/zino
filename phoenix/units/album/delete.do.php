@@ -9,7 +9,9 @@
 		if ( $album->User->Id == $user->Id ) {
 			?>alert( 'Deleting album <?php echo $album->Id; ?>' );<?php
 			//$album->Delete();
-			return Redirect( $rabbit_settings[ 'webaddress' ] . "/?p=albums&username=" . $album->User->Name );
+			?>document.location.href='<?php
+			echo $rabbit_settings[ "webaddress" ] . "/?p=albums&username=" . $album->User->Name;
+			?>';<?php
 		}
 	}
 ?>
