@@ -46,7 +46,7 @@
 			?></ul>
 			<div class="newpic">
 				<iframe src="index.php?p=upload&amp;albumid=<?php
-					echo $album->Id();
+					echo $album->Id;
 					?>" frameborder="no" scrolling="no" id="upload">
 				</iframe>
 			</div>
