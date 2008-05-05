@@ -14,7 +14,7 @@
 		        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="<?php
 						echo htmlspecialchars( $album->Name );
 						?>" title="<?php
-						echo htmlspecialchars( $album-Name );
+						echo htmlspecialchars( $album->Name );
 						?>" />
 		        	</span>
 		            <span class="desc"><?php
