@@ -23,8 +23,8 @@ var PhotoList = {
 			} );
 			$( inputbox )[ 0 ].value = albumname;
 			$( 'div#photolist h2' ).empty().append( inputbox );
-			$( inputbox )[ 0 ].select();
 			PhotoList.renaming = true;
 		}
+		$( 'div#photolist h2 input' )[ 0 ].select();
 	}
 };
