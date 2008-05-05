@@ -45,7 +45,7 @@ var AlbumList = {
 			alt: "Δημιουργία album",
 			title: "Δημιουργία album"
 		} );
-		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία" ) ).click( function() {
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία album" ) ).click( function() {
 			AlbumList.Create();
 			return false;
 		} );
