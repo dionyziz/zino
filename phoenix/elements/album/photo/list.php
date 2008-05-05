@@ -26,10 +26,14 @@
 				}
 			?></dl><?php
 			if ( $album->User->Id == $user->Id ) {
-				?><div class="rename"><a href="" onclick="return false;"><img src="<?php
+				?><div class="rename"><a href="" onclick="PhotoList.Rename( '<?php
+				echo $album->Id;
+				?>' );return false;"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>pencil.png" alt="Μετονομασία" title="Μετονομασία" />Μετονομασία</a></div>
-				<div class="delete"><a href="" onclick="return false;"><img src="<?php
+				<div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
+				echo $album->Id;
+				?>' );return false;"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>cancel.png" alt="Διαγραφή" title="Διαγραφή" />Διαγραφή</a></div><?php
 			}
