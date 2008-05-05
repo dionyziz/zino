@@ -27,6 +27,9 @@ var PhotoList = {
 		}
 		$( 'div#photolist h2 input' )[ 0 ].select();
 	},
+	UploadPhoto : function() {
+		$( '#uploadform' )[ 0 ].submit();
+	},
 	AddPhoto : function( imageinfo ) {
 		photoid = imageinfo.id
 		userid = imageinfo.userid;
