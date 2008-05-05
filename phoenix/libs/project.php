@@ -87,6 +87,7 @@
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",
+			"upload" 			=> "album/photo/upload",
             'tos'               => 'about/tos/view',
             'unittest'          => 'developer/test/view',
             'search'            => 'developer/abresas/search',
