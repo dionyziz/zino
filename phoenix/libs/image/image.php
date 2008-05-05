@@ -87,6 +87,9 @@
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
         
+        public function LoadFromFile( $filename ) {
+            w_assert( false, 'TODO: Image->LoadFromFile' );
+        }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );

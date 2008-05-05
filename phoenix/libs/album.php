@@ -2,11 +2,11 @@
     class AlbumFinder extends Finder {
         protected $mModel = 'Album';
         
-        public function FindByUser( User $theuser ) {
+        public function FindByUser( User $theuser, $offset = 0, $limit = 25 ) {
             $prototype = New Album();
             $album->Userid = $theuser->Id;
             $album->Delid = 0;
-            return $this->FindByPrototype( $prototype );
+            return $this->FindByPrototype( $prototype, $offset, $limit );
         }
     }
     
