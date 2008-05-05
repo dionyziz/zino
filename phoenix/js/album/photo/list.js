@@ -8,7 +8,7 @@ var PhotoList = {
 	Rename : function( albumid ) {
 		var inputbox = document.createElement( 'input' );
 		var albumname = $( 'div#photolist h2' ).html()
-		$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) ){
+		$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				var name = $( this )[ 0 ].value;
 				$( 'div#photolist h2' ).empty().html( name );
