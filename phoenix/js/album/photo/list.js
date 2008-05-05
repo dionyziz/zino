@@ -16,7 +16,6 @@ var PhotoList = {
 					$( 'div#photolist h2' ).empty().html( name );
 					PhotoList.renaming = false
 					if ( albumname != name ) {
-						alert( 'saving: ' + name );
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
 				}
