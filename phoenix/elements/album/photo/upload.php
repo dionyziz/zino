@@ -11,7 +11,7 @@
 			<input type="hidden" name="albumid" value="<?php
 			echo $album->Id;
 			?>" />
-			<input type="file" name="uploadimage" onchange="" />
+			<input type="file" name="uploadimage" onchange="this.parentNode.submit();" />
 			<input type="submit" value="upload" style="display:none" />
 		</form><?php	
 		return array( 'tiny' => true );
