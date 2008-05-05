@@ -48,7 +48,7 @@
 			<br /><a href="?p=advertise">&#187;Διαφημιστείτε στο <?php
 			echo $rabbit_settings[ 'applicationname' ];
 			?></a><br /><br /><?php
-            Element( "ad/leaderboard" );
+            Element( "ad/adbrite" );
             ?><br />
 			<div class="comments" id="comments"><?php	
 				$search = New Search_Comments();
