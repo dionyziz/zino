@@ -17,7 +17,7 @@
 				$page->SetTitle( $username . " albums" );
 			}
 		}
-		if ( $theuser === false ) {
+		if ( !isset( $username ) || $theuser === false ) {
 			return Element( '404' );
 		}
 		$finder = New AlbumFinder();
