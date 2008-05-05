@@ -5,6 +5,6 @@
            .adText {font: normal 10pt Arial; text-decoration: none; color: black;}
         </style>
         <script type="text/javascript" src="http://ads.adbrite.com/mb/text_group.php?sid=669798&amp;br=1"></script>
-        <div><a class="adHeadline" href="http://www.adbrite.com/mb/commerce/purchase_form.php?opid=669798&amp;afsid=1">Διαφήμιση εδώ</a></div><?php
+        <div><a class="adHeadline" href="http://www.adbrite.com/mb/commerce/purchase_form.php?opid=669798&amp;afsid=1">Ξ”ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· ΞµΞ΄Ο</a></div><?php
     }
 ?>
