@@ -7,9 +7,9 @@ var PhotoList = {
 	},
 	Rename : function( albumid ) {
 		var inputbox = document.createElement( 'input' );
-		var name = $( 'div#photolist h2' ).html();
-		alert( name );
-		$( 'div#photolist h2' ).empty().append( $( inputbox ).attr( { 'type' : 'text' } ).html( name ) );
+		$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' );
+		$( inputbox )[ 0 ].value = $( 'div#photolist h2' ).html();
+		$( 'div#photolist h2' ).empty().append( inputbox );
 		$( inputbox )[ 0 ].select();
 	}
 };
