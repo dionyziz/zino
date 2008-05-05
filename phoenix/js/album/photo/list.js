@@ -20,7 +20,7 @@ var PhotoList = {
 					}
 				}
 			} );
-			$( inputbox )[ 0 ].value = albumname;
+			$( inputbox ).append( document.createTextNode( albumname ) );
 			$( 'div#photolist h2' ).empty().append( inputbox );
 			PhotoList.renaming = true;
 		}
