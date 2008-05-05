@@ -26,5 +26,11 @@ var PhotoList = {
 			PhotoList.renaming = true;
 		}
 		$( 'div#photolist h2 input' )[ 0 ].select();
+	},
+	AddPhoto : function( imageinfo ) {
+		photoid = imageinfo.id
+		userid = imageinfo.userid;
+	
+	
 	}
 };

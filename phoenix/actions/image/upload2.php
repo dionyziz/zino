@@ -13,7 +13,8 @@
         }
 
         $albumid = $albumid->Get();
-
+		$album = new Album( $albumid );
+		
     	if ( !isset( $_FILES['uploadimage']['name'] ) ) {
             return Redirect( '?p=album&id=' . $albumid );
     	}
@@ -21,14 +22,15 @@
         header( 'Content-type: text/html' );
 
         $image = new Image();
-
-        $setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
+		$image->Name = '';
+		$image->LoadFromFile( $temporaryFile );
+        //$setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
                     alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
                     window.location.href = <?php
-                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
                     ?>;
                 </script><?php
                 exit();
@@ -36,7 +38,7 @@
                 ?><html><head><title>Upload error</title><script type="text/javascript">
                     alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
                     document.location.href = <?php
-                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
                     ?>;
                 </script></head><body></body></html><?php
                 exit();
@@ -44,13 +46,11 @@
                 break;
         }
 
-        $setAlbumId  = $image->AlbumId = $albumid;
+        $setAlbumId  = $image->Album = $album;
         if ( !$setAlbumId ) {
 			die( "You are not allowed to upload to this album!" );
         }
-        
-        $res = $image->Submit();
-
+        $res = $image->Save();
     	if ( $res < 0 ) {
 			?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
@@ -69,7 +69,7 @@
         <body>
         <script type="text/javascript"><?php
     	if ( $albumid != 0 ) {
-    		$album = New Album( $albumid );
+    		$album = new Album( $albumid );
     		$size = $image->ProportionalSize( 210 , 210 );
     		$jsimage = array(
     			'id' => $image->Id,
@@ -80,10 +80,11 @@
     			'height' => $size[ 1 ],
     			'imagesnum' => $album->PhotosNum()
     		);
-    		?>parent.Photos.AddPhoto( <?php
+    		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
     			?> );<?php
     	} 
+		/*
     	else {
     		?>parent.Photos.AddPhotoArticle( <?php
     			echo w_json_encode( $imageid );
@@ -91,9 +92,10 @@
 				echo w_json_encode( $image->UserId() )
 				?>);<?php
     	}
+		*/
     	?>
     	window.location.href = <?php
-    	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
     	?>;</script></body></html><?php
     }
 
