@@ -14,5 +14,6 @@
 			<input type="file" name="uploadimage" onchange="" />
 			<input type="submit" value="upload" style="display:none" />
 		</form><?php	
+		return array( 'tiny' => true );
 	}
 ?>
