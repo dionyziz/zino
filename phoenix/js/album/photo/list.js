@@ -9,19 +9,18 @@ var PhotoList = {
 	Rename : function( albumid ) {
 		if ( !PhotoList.renaming ) {
 			var inputbox = document.createElement( 'input' );
-			var albumname = $( 'div#photolist h2' ).html()
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
 					$( 'div#photolist h2' ).empty().html( name );
 					PhotoList.renaming = false
-					if ( albumname != name ) {
+					if ( PhotoList.albumname != name ) {
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
+						PhotoList.albumname = name;
 					}
 				}
 			} );
-			alert( document.createTextNode( albumname ) );
-			$( inputbox ).append( document.createTextNode( albumname ) );
+			$( inputbox ).append( document.createTextNode( PhotoList.albumname ) );
 			$( 'div#photolist h2' ).empty().append( inputbox );
 			PhotoList.renaming = true;
 		}

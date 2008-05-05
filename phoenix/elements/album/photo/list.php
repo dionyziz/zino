@@ -45,6 +45,11 @@
 				}
 			?></ul>
 		</div>
-		<div class="eof"></div><?php
+		<div class="eof"></div>
+		<script type="text/javascript">
+			var PhotoList.albumname = <?php
+			echo w_json_encode( $album->Name );
+			?>;
+		</script><?php
 	}
 ?>
