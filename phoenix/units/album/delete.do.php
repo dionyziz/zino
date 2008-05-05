@@ -1,7 +1,7 @@
 <?php
 	
 	function UnitAlbumDelete( tInteger $albumid ) {
-		global  $user;
+		global $user;
 		global $rabbit_settings;
 		
 		$albumid = $albumid->Get();
