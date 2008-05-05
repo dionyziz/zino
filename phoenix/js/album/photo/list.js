@@ -7,6 +7,8 @@ var PhotoList = {
 	},
 	Rename : function( albumid ) {
 		var inputbox = document.createElement( 'input' );
-		$( 'div#photolist h2' ).append( $( inputbox ).attr( { 'type' : 'text' } ).html( $( 'div#photolist h2' ).html() ).select() );
+		var name = $( 'div#photolist h2' ).html();
+		$( 'div#photolist h2' ).append( $( inputbox ).attr( { 'type' : 'text' } ).html( albumname ) );
+		$( inputbox )[ 0 ].select();
 	}
 };
