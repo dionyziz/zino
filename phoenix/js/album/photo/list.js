@@ -5,7 +5,7 @@ var PhotoList = {
 			Coala.Warm( 'album/delete' , { albumid : albumid } );
 		} 
 	},
-	Rename : function() {
+	Rename : function( albumid ) {
 		var albumname = $( 'div#photolist' ).html();
 		var inputbox = document.createElement( 'input' );
 		$( 'div#photolist' ).append( $( inputbox ).attr( { 'type' : 'text' } ).append( document.createTextNode( albumname ) ).select() );
