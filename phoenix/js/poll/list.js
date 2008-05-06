@@ -13,6 +13,7 @@ var PollList = {
 				$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 				$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
 				$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone() );
+				PollList.NewOption();
 			}		
 		} );
 	},
