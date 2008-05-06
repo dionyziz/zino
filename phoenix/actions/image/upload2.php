@@ -76,7 +76,7 @@
     		$jsimage = array(
     			'id' => $image->Id,
 				'userid' => $image->UserId,
-    			'name' => NoExtensionName( $image->Name ),
+    			//'name' => NoExtensionName( $image->Name ),
     			'albumid' => $albumid,
     			'width' => $size[ 0 ],
     			'height' => $size[ 1 ],
