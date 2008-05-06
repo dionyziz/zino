@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumPhotoUpload( tInteger $albumid ) {
+	function ElementAlbumPhotoUpload( $albumid ) {
 		global $water;
 		
 		//$water->Disable();
@@ -15,6 +15,6 @@
 			<input type="file" name="uploadimage" />
 			<input type="submit" value="upload" />
 		</form><?php	
-		//return array( 'tiny' => true );
+		return array( 'tiny' => true );
 	}
 ?>
