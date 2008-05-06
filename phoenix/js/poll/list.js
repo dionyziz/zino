@@ -45,7 +45,7 @@ var PollList = {
 					$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
 					if ( PollList.numoptions == 0 ) {
 						var donelink = document.createElement( 'a' );
-						$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).appendChild( document.createTextNode( 'Δημιουργία' ) );
+						$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).append( document.createTextNode( 'Δημιουργία' ) );
 						$( 'div#polllist ul li div.creationmockup' ).append( donelink );
 					}
 					++PollList.numoptions;
