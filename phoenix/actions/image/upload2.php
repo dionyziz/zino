@@ -6,7 +6,7 @@
     	global $rabbit_settings;
 		global $user;
 		
-		$water->DebugThis();
+		//$water->DebugThis();
     	$libs->Load( 'image/image' );
 
         if ( !$user->Exists() ) {
