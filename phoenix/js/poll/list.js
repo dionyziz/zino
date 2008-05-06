@@ -3,7 +3,9 @@ var PollList = {
 		var newpoll = document.createElement( 'li' );
 		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
 		$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'ul li.create' )[ 0 ] );
-		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 400 );
+		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 400 , function() {
+			$( this ).css( 'height' , '' );
+		} );
 		$( 'div#polllist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polllist ul div.creationmockup input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
@@ -34,7 +36,6 @@ var PollList = {
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' );
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
-		$( 'div#polllist ul div.creationmockup' ).animate( { height: $( this ).css( 'height' ) + 20 + 'px' } , 400 );
 	}
 };
 $( document ).ready( function() {
