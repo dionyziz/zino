@@ -136,10 +136,10 @@
     
     class tFile extends tBaseType {
         private $mName;
-        private $mMimeType;
+        private $mMimetype;
         private $mSize;
-        private $mTempName;
-        private $mErrorCode;
+        private $mTempname;
+        private $mErrorcode;
         private $mExists;
         
         public function Exists() {
@@ -149,12 +149,12 @@
             switch ( $name ) {
                 case 'Name':
                     return $this->mName;
-                case 'MimeType':
-                    return $this->mMimeType;
+                case 'Mimetype':
+                    return $this->mMimetype;
                 case 'Size':
                     return $this->mSize;
-                case 'TempName':
-                    return $this->mTempName;
+                case 'Tempname':
+                    return $this->mTempname;
                 case 'ErrorCode':
                     return $this->mErrorCode;
             }
@@ -183,10 +183,10 @@
 
             $this->mExists    = true;
             $this->mName      = $value[ 'name' ];
-            $this->mMimeType  = $value[ 'type' ]; // mime type, if the browser provided such information
+            $this->mMimetype  = $value[ 'type' ]; // mime type, if the browser provided such information
             $this->mSize      = $value[ 'size' ]; // in bytes
-            $this->mTempName  = $value[ 'tmp_name' ];
-            $this->mErrorCode = $value[ 'error' ];
+            $this->mTempname  = $value[ 'tmp_name' ];
+            $this->mErrorcode = $value[ 'error' ];
         }
         public function __toString() {
             return '[uploaded file: ' . $this->mName . ']';
