@@ -43,13 +43,17 @@
 						Element( 'album/photo/small', false , true, true );
 					?></li><?php
 				}
-			?></ul>
+			?></ul><?php
+			Element( 'album/photo/upload' , $album->Id );
+			/*
 			<div class="newpic">
 				<iframe src="index.php?p=upload&amp;albumid=<?php
 					echo $album->Id;
 					?>" frameborder="no" scrolling="no" id="upload">
 				</iframe>
 			</div>
+			*/
+			?>
 		</div>
 		<div class="eof"></div><?php
 	}
