@@ -17,9 +17,9 @@
 					foreach ( $options as $option ) {
 						?><li>
 							<dl>
-								<dt style="float:right;">
-									Μία
-								</dt>
+								<dt style="float:right;"><?php
+									echo htmlspecialchars( $option->Text );
+								?></dt>
 								<dd><?php //max width will be 220px and minimum 24px?>
 									<div class="percentagebar" style="width:120px;">
 										<div class="leftrounded"></div>
