@@ -43,10 +43,12 @@ ul.albums li.create {
 	text-align: center;
 	
 }
+ul.albums li.create a {
+	font-weight: bold;
+}
 ul.albums li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
-	font-weight: bold;
 }
 ul.albums li a:hover span img {
     border: 2px solid white;

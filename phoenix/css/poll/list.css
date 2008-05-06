@@ -54,8 +54,10 @@ div#polllist div.creationmockup div.tip {
 	padding: 1px 0 0 20px;
 	margin-top: 5px;
 }
+div#polllist ul li.create a {
+	font-weight: bold;
+}
 div#polllist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
-	font-weight: bold;
 }
