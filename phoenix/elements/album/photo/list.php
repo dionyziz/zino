@@ -4,6 +4,7 @@
 		global $page;
 		global $user;
 		global $rabbit_settings; 
+		global $water;
 		
 		$album = new Album( $id->Get() );
 		
@@ -45,7 +46,7 @@
 				}
 			?></ul><?php
 			$water->Trace( $album->Id );
-			Element( 'album/photo/upload' , $album->Id );
+			//Element( 'album/photo/upload' , $album->Id );
 			/*
 			<div class="newpic">
 				<iframe src="index.php?p=upload&amp;albumid=<?php
