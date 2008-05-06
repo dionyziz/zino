@@ -12,7 +12,7 @@ var PollList = {
 				$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
 				$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 				$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
-				$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone() );
+				$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
 				PollList.NewOption();
 			}		
 		} );
