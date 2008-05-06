@@ -4,7 +4,6 @@
 		global $water;
 		
 		//$water->Disable();
-		//$water->Trace( $albumid->Get() );
 		//$albumid = $albumid->Get();
 		$album = new Album( $albumid );
 		

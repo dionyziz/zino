@@ -15,9 +15,10 @@
 
         $albumid = $albumid->Get();
 		$album = new Album( $albumid );
-		
-    	if ( !isset( $_FILES['uploadimage']['name'] ) ) {
-            return Redirect( '?p=album&id=' . $albumid );
+		$water->Trace( 'albumid: ' . $album->Id );
+		$water->Trace( 'userid: ' . $user->Id );
+    	if ( !$uploadimage->Exists() ) {
+            return Redirect( '?p=album&id=' . $album->Id );
     	}
         
         header( 'Content-type: text/html' );
@@ -31,7 +32,7 @@
                 ?><script type="text/javascript">
                     alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
                     window.location.href = <?php
-                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
                     ?>;
                 </script><?php
                 exit();
@@ -39,7 +40,7 @@
                 ?><html><head><title>Upload error</title><script type="text/javascript">
                     alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
                     document.location.href = <?php
-                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
+                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
                     ?>;
                 </script></head><body></body></html><?php
                 exit();
@@ -58,7 +59,7 @@
                 echo $errornum = $res;
                 ?>)' );
     			window.location.href = <?php
-    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $albumid );
+    			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $album->Id );
     			?>;
     		</script></head><body></body></html><?php
 		}
