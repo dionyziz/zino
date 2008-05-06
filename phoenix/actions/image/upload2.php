@@ -22,11 +22,10 @@
     	}
         
         header( 'Content-type: text/html' );
-		?><script type="text/javascript">alert( 'uploading' );</script><?php
         $image = new Image();
 		$image->Name = '';
 		$image->LoadFromFile( $uploadimage );
-        $setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
+        $setTempFile = $image->TemporaryFile = $uploadimage->Name;
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">

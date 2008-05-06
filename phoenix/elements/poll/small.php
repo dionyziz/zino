@@ -1,13 +1,15 @@
 <?php
 	
-	function ElementPollSmall( $showcommnum = false ) {
+	function ElementPollSmall( $poll , $showcommnum = false ) {
 		//global $page;
 		
 		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
 		//$page->AttachStyleSheet( 'css/poll/small.css' );
 		
 		?><div class="pollsmall">
-			<h4><a href="">Πόσες φορές τη μέρα βαράς μαλακία;</a></h4>
+			<h4><a href=""><?php
+			echo htmlspecialchars( $poll->Question );
+			?></a></h4>
 			<div class="results">	
 				<ul>
 					<li>
@@ -72,9 +74,20 @@
 					</li>	
 				</ul><?php
 				if ( $showcommnum ) {
-					?><dl class="pollinfo">
-						<dd><a href="">43 σχόλια</a></dd>
-					</dl><?php
+					if ( $poll->Numcomments > 0 ) {
+						?><dl class="pollinfo">
+							<dd><a href=""><?php
+							echo $poll->Numcomments;
+							?> σχόλι<?php
+							if ( $poll->Numcomments == 1 ) {
+								?>ο<?php
+							}
+							else { 
+								?>α<?php
+							}
+							?></dd>
+						</dl><?php
+					}
 				}
 			?></div>
 		</div><?php
