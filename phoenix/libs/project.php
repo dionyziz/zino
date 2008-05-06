@@ -82,7 +82,7 @@
 			"joined"			=> "user/joined",
 			"journallist"		=> "journal/list",
 			"journal"			=> "journal/view",
-			"polllist"			=> "poll/list",
+			"polls"				=> "poll/list",
 			"poll"				=> "poll/view",
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
