@@ -39,7 +39,7 @@ var PollList = {
 			if ( event.keyCode == 13 ) {
 				if ( $( newoption )[ 0 ].value !== '' ) {
 					var option = document.createElement( 'div' );
-					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) );
+					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
 					$( $( newoption )[ 0 ].parentNode ).remove();
 					$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
 					PollList.NewOption();
