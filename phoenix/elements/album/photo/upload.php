@@ -11,8 +11,8 @@
 			<input type="hidden" name="albumid" value="<?php
 			echo $album->Id;
 			?>" />
-			<input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
-			<input type="submit" value="upload" style="display:none" />
+			<input type="file" name="uploadimage" />
+			<input type="submit" value="upload" />
 		</form><?php	
 		return array( 'tiny' => true );
 	}
