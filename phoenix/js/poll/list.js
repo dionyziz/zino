@@ -1,6 +1,8 @@
 var PollList = {
 	Create : function() {
-		$( 'div#polllist ul' )[ 0 ].insertBefore( $( 'div.creationmockup' ).clone() , $( 'li.create' )[ 0 ] );
+		var newpoll = document.createElement( 'li' );
+		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
+		$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'ul li.create' )[ 0 ] );
 		$( 'div#polllist ul div.creationmockup' ).animate( { height: '40px' } );
 	},
 	Cancel : function() {
