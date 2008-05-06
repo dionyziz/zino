@@ -8,6 +8,7 @@
 	$libs->Load( 'album' );
     $libs->Load( 'image/server' );
 	$libs->Load( 'image/frontpage' );
+    $libs->Load( 'rabbit/helpers/file' );
     
     class ImageFinder extends Finder {
         protected $mModel = 'Image';
@@ -86,10 +87,9 @@
 	
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
+        protected $mExtension;
+        protected $mTemporaryFile;
         
-        public function LoadFromFile( $filename ) {
-            w_assert( false, 'TODO: Image->LoadFromFile' );
-        }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );
@@ -176,7 +176,7 @@
             }
         }
         public function SetName( $value ) {
-            if ( !$this->Extension = Image_GetExtension( $value ) ) {
+            if ( !$this->Extension = File_GetExtension( $value ) ) {
                 return -1;
             }
 
