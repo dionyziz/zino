@@ -5,7 +5,7 @@
 		
 		//$water->Disable();
 		//$water->Trace( $albumid->Get() );
-		$albumid = $albumid->Get();
+		//$albumid = $albumid->Get();
 		$album = new Album( $albumid );
 		
 		?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
