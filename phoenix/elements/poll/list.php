@@ -44,12 +44,17 @@
 			?></ul><?php
 			if ( $theuser->Id == $user->Id ) {
 				?><div class="creationmockup">
-					<input type="text" /><a href=""><img src="<?php
-					echo $rabbit_settings[ 'imagesurl' ];
-					?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+					<div>
+						<input type="text" /><a href=""><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+					</div>
 					<div class="tip">
 						Γράψε μια ερώτηση για τη δημοσκόπησή σου
 					</div>
+				</div>
+				<div class="tip2">
+					Γράψε μια επιλογή για τη δημοσκόπησή σου
 				</div><?php
 			}
 		?></div><?php

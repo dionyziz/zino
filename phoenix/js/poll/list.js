@@ -12,12 +12,27 @@ var PollList = {
 				$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
 				$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 				$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
-				//$( this )[ 0 ].value;
+				$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone() );
 			}		
 		} );
 	},
 	Cancel : function() {
 	
+	},
+	NewOption : function() {
+		var container = document.createElement( 'div' );
+		var newoption = document.createElement( 'input' );
+		var acceptlink = document.createElement( 'a' );
+		var acceptimage = document.createElement( 'img' );
+		$( acceptimage ). attr( { 
+			'src' : 'http://static.zino.gr/phoenix/accept.png',
+			'alt' : 'Δημιουργία',
+			'title' : 'Δημιουργία'
+		} );
+		$( acceptlink ).attr( { 'href' : '' } ).append( $acceptimage );
+		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' : '300px' );
+		$( container ).append( newoption ).append( acceptlink );
+		$( 'div#polllist ul') [ 0 ].insertBefore( container , $( 'div#polllist ul div.tip2' )[ 0 ] );
 	}
 };
 $( document ).ready( function() {
