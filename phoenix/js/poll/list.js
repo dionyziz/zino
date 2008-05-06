@@ -40,7 +40,7 @@ var PollList = {
 				if ( $( newoption )[ 0 ].value !== '' ) {
 					var option = document.createElement( 'div' );
 					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) );
-					$( newoption ).remove();
+					$( $( newoption )[ 0 ].parentNode ).remove();
 					$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
 					PollList.NewOption();
 				}
