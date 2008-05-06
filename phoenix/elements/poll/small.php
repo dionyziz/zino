@@ -11,22 +11,27 @@
 			echo htmlspecialchars( $poll->Question );
 			?></a></h4>
 			<div class="results">	
-				<ul>
-					<li>
-						<dl>
-							<dt style="float:right;">
-								Μία
-							</dt>
-							<dd><?php //max width will be 220px and minimum 24px?>
-								<div class="percentagebar" style="width:120px;">
-									<div class="leftrounded"></div>
-									<div class="rightrounded"></div>
-									<div class="middlerounded"></div>
-								</div>
-								<span>30%</span>
-							</dd>
-						</dl>
-					</li>
+				<ul><?php
+					$finder = New PollOptionFinder();
+					$options = $finder->FindByPoll( $poll );
+					foreach ( $options as $option ) {
+						?><li>
+							<dl>
+								<dt style="float:right;">
+									Μία
+								</dt>
+								<dd><?php //max width will be 220px and minimum 24px?>
+									<div class="percentagebar" style="width:120px;">
+										<div class="leftrounded"></div>
+										<div class="rightrounded"></div>
+										<div class="middlerounded"></div>
+									</div>
+									<span>30%</span>
+								</dd>
+							</dl>
+						</li><?php
+					}
+					/*
 					<li>
 						<dl>
 							<dt style="float:right;">
@@ -72,7 +77,8 @@
 							</dd>
 						</dl>
 					</li>	
-				</ul><?php
+					*/
+				?></ul><?php
 				if ( $showcommnum ) {
 					if ( $poll->Numcomments > 0 ) {
 						?><dl class="pollinfo">
