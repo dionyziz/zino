@@ -32,7 +32,7 @@ a.button_disabled:hover {
 	background-color: white; /* if the class coexists with the button class it overwrites the hover behaviour */
 	color: #105cb6; 
 }
-a.new {
+a.new img{
 	vertical-align: -10px;
 	margin-right: 5px;
 }
