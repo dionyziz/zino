@@ -4,7 +4,9 @@
 		global $page;
 		global $user;
 		global $water;
+		global $libs;
 		
+		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
