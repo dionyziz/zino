@@ -50,11 +50,11 @@
 					<a href=""><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
 					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
-					<span class="tip">
+					<div class="tip">
 						<img src="<?php
-						echo $rabbit_settings[ 'error' ];
+						echo $rabbit_settings[ 'imagesurl' ];
 						?>error.png" alt="Προσοχή" title="Προσοχή" /> Γράψε μια ερώτηση για τη δημοσκόπησή σου
-					</span>
+					</div>
 				</div><?php
 			}
 		?></div><?php
