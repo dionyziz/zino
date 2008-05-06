@@ -1,4 +1,5 @@
 var PollList = {
+	numoptions : 0,
 	Create : function() {
 		var newpoll = document.createElement( 'li' );
 		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
@@ -42,6 +43,12 @@ var PollList = {
 					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
 					$( $( newoption )[ 0 ].parentNode ).remove();
 					$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
+					if ( PollList.numoptions == 0 ) {
+						var donelink = document.createElement( 'a' );
+						$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).appendChild( document.createTextNode( 'Δημιουργία' ) );
+						$( 'div#polllist ul li div.creationmockup' ).append( donelink );
+					}
+					++PollList.numoptions;
 					PollList.NewOption();
 				}
 			}

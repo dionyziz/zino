@@ -72,6 +72,7 @@ div#polllist ul li div.creationmockup div.newoption {
 	background-image: url( 'http://static.zino.gr/phoenix/dot.png' );
 	background-repeat: no-repeat;
 	background-position: 0px 6px;
-	padding-left: 9px;
+	padding-left: 10px;
 	margin: 2px 0;
+	overflow: hidden;
 }
