@@ -30,7 +30,7 @@ var PollList = {
 			'alt' : 'Δημιουργία',
 			'title' : 'Δημιουργία'
 		} );
-		$( acceptlink ).attr( { 'href' : '' } ).append( $acceptimage );
+		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage );
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' );
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul') [ 0 ].insertBefore( container , $( 'div#polllist ul div.tip2' )[ 0 ] );
