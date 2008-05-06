@@ -9,7 +9,7 @@ var PollList = {
 			if ( event.keyCode == 13 ) {
 				var heading = document.createElement( 'h4' );
 				var headinglink = document.createElement( 'a' );
-				$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value );
+				$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
 				$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 				$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
 				//$( this )[ 0 ].value;
