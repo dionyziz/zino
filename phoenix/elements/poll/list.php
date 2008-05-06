@@ -5,6 +5,7 @@
 		global $user;
 		global $water;
 		global $libs;
+		global $rabbit_settings;
 		
 		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
