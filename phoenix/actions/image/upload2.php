@@ -1,6 +1,6 @@
 <?php
 
-    function ActionImageUpload2( tInteger $albumid ) {
+    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage ) {
     	global $libs;
         global $water;
     	global $rabbit_settings;
@@ -20,11 +20,11 @@
     	}
         
         header( 'Content-type: text/html' );
-
+		?><script type="text/javascript">alert( 'uploading' );</script><?php
         $image = new Image();
 		$image->Name = '';
-		$image->LoadFromFile( $temporaryFile );
-        //$setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
+		$image->LoadFromFile( $uploadimage );
+        $setTempFile = $image->TemporaryFile = $_FILES[ 'uploadimage' ][ 'name' ];
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">

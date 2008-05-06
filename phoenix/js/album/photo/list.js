@@ -28,6 +28,7 @@ var PhotoList = {
 		$( 'div#photolist h2 input' )[ 0 ].select();
 	},
 	UploadPhoto : function() {
+		alert( 'want to upload' );
 		$( '#uploadform' )[ 0 ].submit();
 	},
 	AddPhoto : function( imageinfo ) {
