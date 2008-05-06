@@ -43,6 +43,7 @@ div#polllist div.creationmockup {
 	border-style: dotted;
 	padding: 15px;
 	width: 450px;
+	display: none;
 }
 div#polllist div.creationmockup input {
 	width: 300px;

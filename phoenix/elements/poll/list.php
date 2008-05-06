@@ -47,9 +47,6 @@
 					<input type="text" /><a href=""><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
 					?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
-					<a href=""><img src="<?php
-					echo $rabbit_settings[ 'imagesurl' ];
-					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 					<div class="tip">
 						Γράψε μια ερώτηση για τη δημοσκόπησή σου
 					</div>
