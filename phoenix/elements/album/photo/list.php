@@ -45,8 +45,7 @@
 					?></li><?php
 				}
 			?></ul><?php
-			$water->Trace( $album->Id );
-			//Element( 'album/photo/upload' , $album->Id );
+			Element( 'album/photo/upload' , $album->Id );
 			/*
 			<div class="newpic">
 				<iframe src="index.php?p=upload&amp;albumid=<?php

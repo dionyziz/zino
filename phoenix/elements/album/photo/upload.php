@@ -4,7 +4,8 @@
 		global $water;
 		
 		//$water->Disable();
-		$albumid = $albumid->Get();
+		$water->Trace( $albumid->Get() );
+		/*$albumid = $albumid->Get();
 		$album = new Album( $albumid );
 		
 		?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
@@ -15,5 +16,6 @@
 			<input type="submit" value="upload" />
 		</form><?php	
 		return array( 'tiny' => true );
+		*/
 	}
 ?>
