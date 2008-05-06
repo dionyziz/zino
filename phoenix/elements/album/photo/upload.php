@@ -3,7 +3,7 @@
 	function ElementAlbumPhotoUpload( tInteger $albumid ) {
 		global $water;
 		
-		$water->Disable();
+		//$water->Disable();
 		$albumid = $albumid->Get();
 		$album = new Album( $albumid );
 		

@@ -5,7 +5,8 @@
 		global $user;
 		global $rabbit_settings; 
 		
-		$album = new Album( $id );
+		//$id = $id->Get();
+		$album = new Album( $id->Get() );
 		
 		$page->SetTitle( $album->Name );
 		Element( 'user/sections', 'album' , $album->User );
