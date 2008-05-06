@@ -9,13 +9,15 @@ var PollList = {
 		$( 'div#polllist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polllist ul div.creationmockup input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				var heading = document.createElement( 'h4' );
-				var headinglink = document.createElement( 'a' );
-				$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
-				$( heading ).append( headinglink ).css( 'margin-top' , '0' );
-				$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
-				$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
-				PollList.NewOption();
+				if ( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value !== '' ) {
+					var heading = document.createElement( 'h4' );
+					var headinglink = document.createElement( 'a' );
+					$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
+					$( heading ).append( headinglink ).css( 'margin-top' , '0' );
+					$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
+					$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
+					PollList.NewOption();
+				}
 			}		
 		} );
 	},
@@ -33,9 +35,18 @@ var PollList = {
 			'title' : 'Δημιουργία'
 		} );
 		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage );
-		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' );
+		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
+			if ( event.keyCode == 13 ) {
+				if ( $( newoption )[ 0 ].value !== '' ) {
+					var option = document.createElement( 'div' );
+					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) );
+					PollList.NewOption();
+				}
+			}
+		} );
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
+		$( 'div#polllist ul li div.creationmockup div input' )[ 0 ].focus();
 	}
 };
 $( document ).ready( function() {
