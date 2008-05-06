@@ -34,6 +34,7 @@ var PollList = {
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' );
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
+		$( 'div#polllist ul div.creationmockup' ).animate( { height: $( this ).css( 'height' ) + 20 + 'px' } , 400 );
 	}
 };
 $( document ).ready( function() {
