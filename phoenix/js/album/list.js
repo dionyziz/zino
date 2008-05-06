@@ -55,7 +55,7 @@ var AlbumList = {
 
 };
 $( document ).ready( function() {
-	$( 'li.create a.new' ).click( function() {
+	$( 'ul.albums li.create a.new' ).click( function() {
 		AlbumList.Create();
 		return false;
 	} );
