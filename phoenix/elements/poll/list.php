@@ -26,7 +26,7 @@
 		$polls = $finder->FindByUser( $theuser );
 		$water->Trace( 'poll number: ' . count( $polls ) );
 		Element( 'user/sections', 'album' , $theuser );
-		?><div id="journallist">
+		?><div id="pollllist">
 			<ul><?php
 				foreach ( $polls as $poll ) {
 					?><li><?php
