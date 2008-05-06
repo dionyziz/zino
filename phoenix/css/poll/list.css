@@ -46,6 +46,9 @@ div#polllist div.creationmockup input {
 }
 div#polllist div.creationmockup div.tip {
 	font-size: 90%;
+	background-image: url( 'http://static.zino.gr/phoenix/error.png' );
+	background-repeat: no-repeat;
+	padding: 18px;
 }
 div#polllist ul li.create a img {
 	vertical-align: -10px;

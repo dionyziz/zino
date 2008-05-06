@@ -51,9 +51,7 @@
 					echo $rabbit_settings[ 'imagesurl' ];
 					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 					<div class="tip">
-						<img src="<?php
-						echo $rabbit_settings[ 'imagesurl' ];
-						?>error.png" alt="Προσοχή" title="Προσοχή" /> Γράψε μια ερώτηση για τη δημοσκόπησή σου
+						Γράψε μια ερώτηση για τη δημοσκόπησή σου
 					</div>
 				</div><?php
 			}
