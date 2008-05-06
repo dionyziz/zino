@@ -5,7 +5,6 @@
 		global $user;
 		global $rabbit_settings; 
 		
-		//$id = $id->Get();
 		$album = new Album( $id->Get() );
 		
 		$page->SetTitle( $album->Name );
@@ -45,7 +44,7 @@
 					?></li><?php
 				}
 			?></ul><?php
-			Element( 'album/photo/upload' , $album->Id );
+			Element( 'album/photo/upload' , $id );
 			/*
 			<div class="newpic">
 				<iframe src="index.php?p=upload&amp;albumid=<?php
