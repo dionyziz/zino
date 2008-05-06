@@ -44,3 +44,8 @@ div#polllist div.creationmockup {
 div#polllist div.creationmockup input {
 	width: 300px;
 }
+div#polllist ul li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+	font-weight: bold;
+}

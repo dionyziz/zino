@@ -46,6 +46,7 @@ ul.albums li.create {
 ul.albums li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
+	font-weight: bold;
 }
 ul.albums li a:hover span img {
     border: 2px solid white;
