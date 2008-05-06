@@ -33,8 +33,24 @@
 					Element( 'poll/small' , $poll , true );
 					?></li><?php
 				}
-			?></ul>
-			
-		</div><?php
+				if ( $theuser->Id == $user->Id ) {
+					?><li class="create">
+						<a href="" class="new"><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
+					</li><?php
+				}
+			?></ul><?php
+			if ( $theuser->Id == $user->Id ) {
+				?><div class="creationmockup">
+					<input type="text" /><a href=""><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+					<a href=""><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+				</div><?php
+			}
+		?></div><?php
 	}
 ?>

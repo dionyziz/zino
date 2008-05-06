@@ -1,23 +1,46 @@
-div#journallist {
-	margin-bottom: 20px;
+div#polllist {
+	margin-bottom: 50px;
 }
-div#journallist ul {
-	padding: 0;
-	margin: 0 0 0 0;
-	margin-left: 170px;
-	list-style: none;
-	width: 60%;
-}
-div#journallist ul li {
-	padding: 5px 0 2px 0;
+div#polllist ul li h3{
 	margin: 0;
+	padding: 0;
 }
-div#journallist ul li div.pollsmall div.results ul {
-	margin-left: 0;
+div#polllist ul {
+	list-style: none;
+	margin: 0 0 0 170px;
+	padding: 0;
 }
-div#journallist ul li div.pollsmall h4 {
-	margin-bottom: 10px;
+div#polllist ul li {
+	padding: 10px 0;
 }
-div#journallist ul li div.pollsmall {
+div#polllist ul li div.results {
 	width: 450px;
+	padding-top: 10px;
+}
+div#polllist ul li div.results ul {
+	margin: 0;
+	padding: 0;
+}
+div#polllist ul li div.results dl.pollinfo {
+	text-align: right;
+}
+div#polllist ul li div.results dl.pollinfo dd {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	font-size: 80%;
+}
+div#polllist ul li div.results dl.pollinfo dd a {
+	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#polllist ul li div.results ul li {
+	padding: 5px 0 1px 0;
+}
+div#polllist div.creationmockup {
+
+}
+div#polllist div.creationmockup input {
+	width: 300px;
 }
