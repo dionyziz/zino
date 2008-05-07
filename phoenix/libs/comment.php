@@ -23,26 +23,75 @@
 
         return $count;
     }
-   
-    function Comment_Pagify( $comments, $reverse = false ) {
+
+    /*
+    returns all comments on same page with $comment
+    */
+    function Comments_Near( $comments, $comment, $reverse = true ) {
+        /* 
+        get parented structure
+        */
         $comments = Comment_MakeTree( $comments, $reverse );
 
+        $headparent_id = $comment->Headparent->Id;
+        $headparent_page = 0;
         $pages = array();
         $page = 0;
-        $page_count = 0;
-        foreach ( $comments[ 0 ] as $id => $children ) {
-            $page_count += Comment_CountChildren( $comments, $id );
-            $pages[ $id ] = $page;
-            if ( $page_count > COMMENT_PAGE_LIMIT ) {
+
+        foreach ( $comments[ 0 ] as $parent ) { // for every "head parent" (orfan comment)
+            if ( $parent->Id == $headparent_id ) { // if it is the head parent of the specified comment
+                $headparent_page = $page; // mark the page it is in
+            }
+            $pages[ $page ][] = $parent->Id; // add its id to the current page
+            $page_count += Comment_CountChildren( $comments, $parent->Id ); // count its children
+            if ( $page_count > COMMENT_PAGE_LIMIT ) { // if the page has enough children
                 $page_count = 0;
-                ++$page;
+                ++$page; // use the next page from now on
             }
         }
 
-        return array( $pages, $comments );
+        /* 
+        return all headparents on the same page
+        and their children
+        */
+        $ret = array();
+        foreach ( $pages[ $headparent_page ] as $parent ) {
+            $ret[ 0 ][] = $parent;
+            $ret[ $parent ][] = $comments[ $parent ];
+        }
+
+        return $ret;
     }
 
-    function Comment_MakeTree( $comments, $reverse = false ) {
+    /* 
+    return all comments on page $pageno
+    */
+    function Comments_OnPage( $comments, $pageno, $reverse = true ) {
+        $comments = Comment_MakeTree( $comments, $reverse );
+
+        $ret = array();
+        $curpage = 0;
+        foreach ( $comments[ 0 ] as $parent ) { // for every "head parent" (orfan comment)
+            if ( $curpage == $pageno ) { // if we are on the specified page
+                $ret[ 0 ][] = $parent; // add the headparent
+                $ret[ $parent->Id ][] = $comments[ $parent->Id ]; // and its children to the array to be returned
+            }
+            $page_count += Comment_CountChildren( $comments, $parent->Id ); // count its children
+            if ( $page_count > COMMENT_PAGE_LIMIT ) { // if the page has enough children
+                $page_count = 0;
+                ++$curpage; // use the next page from now on
+            }
+        }
+
+        return $ret;
+    }
+    
+    /*
+        return parented structure of $comments
+        $parented[ $pid ] contains an array of Comment instances
+        where all comments in the array have parentid = $pid
+    */
+    function Comment_MakeTree( $comments, $reverse = true ) {
         $parented = array();
         if ( !is_array( $comments ) ) {
             return $parented;
@@ -129,26 +178,24 @@
 
             return false;
         }
-        public function FindLatest( $offset, $limit ) {
+        public function FindLatest( $offset = 0, $limit = 25 ) {
+            $prototype = New Comment();
+            $prototype->Delid = 0;
+            return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
-        public function FindComments( $entity, $comment ) {
+        public function FindNear( $entity, $comment, $reverse = true ) {
             $prototype = New Comment();
             $prototype->Typeid = Comments_TypeFromEntity( $entity );
             $prototype->Pageid = $entity->Id;
 
-            $info = Comments_Pagify( $this->FindByPrototype( $prototype ) );
-            $pages = $info[ 0 ];
-            $comments = $info[ 1 ];
-
-            $the_page = $pages[ $comment->Headparent ];
-
-            foreach ( $pages as $commentid => $pageno ) {
-                if ( $pageno > $the_page ) {
-                    
-                }
-            }
+            return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
         }
-        public function FindByPage( $entity, $page ) {
+        public function FindByPage( $entity, $page, $reverse = true ) {
+            $prototype = New Comment();
+            $prototype->Typeid = Comments_TypeFromEntity( $entity );
+            $prototype->Pageid = $entity->Id;
+
+            return Comments_OnPage( $this->FindByPrototype( $prototype ), $page );
         }
     }
 
