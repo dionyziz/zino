@@ -93,7 +93,7 @@
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
             $texts = array( 'Sin City', 'Journal of a Magus' );
-            $types = array( TYPE_MOVIE, TYPE_BOOK );
+            $types = array( TAG_MOVIE, TAG_BOOK );
             for ( $i = 0; $i < 2; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
@@ -103,7 +103,7 @@
         }
         public function TestFindByTextAndType() {
             $finder = New TagFinder();
-            $tags = $finder->FindByTextAndType( 'Sin City', TAG_MOVIES );
+            $tags = $finder->FindByTextAndType( 'Sin City', TAG_MOVIE );
 
             $this->Assert( is_array( $tags ), 'Finder::FindByTextAndType did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByTextAndType did not return the right number of tags' );
@@ -117,7 +117,7 @@
         }
         public function TestFindSuggestions() {
             $finder = New TagFinder();
-            $texts = $inder->FindSuggestions( 'S', TAG_MOVIES );
+            $texts = $inder->FindSuggestions( 'S', TAG_MOVIE );
 
             $this->Assert( is_array( $tags ), 'Finder::FindSuggestions did not return an array' );
             
@@ -141,7 +141,7 @@
             $this->AssertEquals( 1, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
             $texts = array( 'Sin City' );
-            $types = array( TYPE_MOVIE );
+            $types = array( TAG_MOVIE );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
@@ -157,7 +157,7 @@
             $tags = $finder->FindByUser( $this->mUser2 );
 
             $texts = array( 'Straight Story', 'Sin City' );
-            $types = array( TYPE_MOVIE, TYPE_MOVIE );
+            $types = array( TAG_MOVIE, TAG_MOVIE );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
@@ -170,7 +170,7 @@
             $tags = $finder->FindByUser( $this->mUser2 );
 
             $texts = array( 'Sin City', 'Straight Story' );
-            $types = array( TYPE_MOVIE, TYPE_MOVIE );
+            $types = array( TAG_MOVIE, TAG_MOVIE );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
