@@ -131,6 +131,32 @@
         return $query->Execute();
     }
     
+    define( 'TAG_BOOK', 1 );
+    define( 'TAG_MOVIE', 2 );
+    
+    class TagException extends Exception {
+    }
+    
+    class TagFinder extends Finder {
+    	protected $mModel = 'Tag';
+    	
+    	public function FindByUser( $user ) {
+    		if( !( $user instanceof User ) ) {
+    			throw New TagException( 'Please make sure the argument is an instance of User class' );
+    		}
+            $prototype = New Tag();
+            $prototype->Userid = $user->Id;
+            return $this->FindByPrototype( $prototype );
+        }
+        public function FindByTextAndType( $text, $typeid ) {
+        	$prototype = New Tag();
+        	$prototype->Text = $text;
+        	$prototype->Typeid = $typeid;
+        	return $this->FindByPrototype( $prototype );
+        }
+    }
+ 
+    
     /* // TODO: Convert to new Satori
     class InterestTag extends Satori {
         protected   $mId;
