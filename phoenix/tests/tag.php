@@ -44,8 +44,8 @@
             $this->Assert( method_exists( $tag, 'MoveBefore' ), 'Tag::MoveBefore method does not exist' );
 
             $finder = New TagFinder();
-            $this->Assert( method_exists( $tag, 'FindByUser' ), 'TagFinder::FindByUser method does not exist' );
-            $this->Assert( method_exists( $tag, 'FindByTextAndType' ), 'TagFinder::FindByTextAndType method does not exist' );
+            $this->Assert( method_exists( $finder, 'FindByUser' ), 'TagFinder::FindByUser method does not exist' );
+            $this->Assert( method_exists( $finder, 'FindByTextAndType' ), 'TagFinder::FindByTextAndType method does not exist' );
         }
         public function TestCreate() {
             $user = $this->mUser1;
