@@ -32,7 +32,7 @@
         $page_count = 0;
         foreach ( $comments[ 0 ] as $id => $children ) {
             $page_count += Comment_CountChildren( $comments, $id );
-            $pages[ $page ][] = $id;
+            $pages[ $id ] = $page;
             if ( $page_count > COMMENT_PAGE_LIMIT ) {
                 $page_count = 0;
                 ++$page;
@@ -128,6 +128,27 @@
             }
 
             return false;
+        }
+        public function FindLatest( $offset, $limit ) {
+        }
+        public function FindComments( $entity, $comment ) {
+            $prototype = New Comment();
+            $prototype->Typeid = Comments_TypeFromEntity( $entity );
+            $prototype->Pageid = $entity->Id;
+
+            $info = Comments_Pagify( $this->FindByPrototype( $prototype ) );
+            $pages = $info[ 0 ];
+            $comments = $info[ 1 ];
+
+            $the_page = $pages[ $comment->Headparent ];
+
+            foreach ( $pages as $commentid => $pageno ) {
+                if ( $pageno > $the_page ) {
+                    
+                }
+            }
+        }
+        public function FindByPage( $entity, $page ) {
         }
     }
 

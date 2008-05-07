@@ -29,6 +29,10 @@
             $vote->Pollid = $this->Pollid;
             $vote->Save();
         }
+        public function OnVoteCreate() {
+            ++$this->Numvotes;
+            $this->Save();
+        }
         public function IsDeleted() {
             return $this->Delid > 0;
         }

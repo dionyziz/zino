@@ -33,18 +33,14 @@
 			parent::Save();
 		}
 		protected function OnCreate() {
-			$this->Poll->Numvotes = $this->Poll->Numvotes + 1;
-			$this->Poll->Save();
-
-			$this->Option->Numvotes = $this->Option->Numvotes + 1;
-			$this->Option->Save();
+			$this->Poll->OnVoteCreate();
+			$this->Option->OnVoteCreate();
 		}
 		protected function OnDelete() {
 			$this->Poll->Numvotes = $this->Poll->Numvotes - 1;
 			$this->Poll->Save();
-
-			$this->Option->Numvotes = $this->Option->Numvotes - 1;
-			$this->Option->Save();
+            $this->Poll->OnVoteDelete();
+            $this->Option->OnVoteDelete();
 		}
 		protected function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );

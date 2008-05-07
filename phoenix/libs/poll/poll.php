@@ -6,16 +6,35 @@
 	class PollFinder extends Finder {
 		protected $mModel = 'Poll';
 
-		public function FindByUser( $user ) {
+		public function FindByUser( $user, $offset = 0, $limit = 25 ) {
 			$poll = New Poll();
 			$poll->Userid = $user->Id;
-			return $this->FindByPrototype( $poll );
+			return $this->FindByPrototype( $poll, $offset, $limit );
 		}
 	}
 
 	class Poll extends Satori {
 		protected $mDbTableAlias = 'polls';
 
+        public function OnVoteCreate() {
+            ++$this->Numvotes;
+            $this->Save();
+        }
+        public function OnVoteDelete() {
+            --$this->Numvotes;
+            $this->Save();
+        }
+        public function OnCommentCreate() {
+            ++$this->Numcomments;
+            $this->Save();
+        }
+        public function OnCommentDelete() {
+            --$this->Numcomments;
+            $this->Save();
+        }
+        public function GetPercentage() {
+            return ( $this->Numvotes / $this->Poll->Numvotes ) * 100;
+        }
         public function CreateOption( $text ) {
             $option = New PollOption();
             $option->Text = $text;
@@ -31,7 +50,7 @@
             $this->Delid = 1;
             $this->Save();
 
-            $this->OnUpdate();
+            $this->OnDelete();
         }
         public function UndoDelete() {
             $this->Delid = 0;
