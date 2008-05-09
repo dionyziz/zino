@@ -4,7 +4,7 @@ var PollList = {
 		var newpoll = document.createElement( 'li' );
 		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
 		$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'ul li.create' )[ 0 ] );
-		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 400 , function() {
+		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 300 , function() {
 			$( this ).css( 'height' , '' );
 		} );
 		$( 'div#polllist ul div.creationmockup input' )[ 0 ].focus();
@@ -23,7 +23,7 @@ var PollList = {
 		} );
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
-			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 400 , function() {
+			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 300 , function() {
 				$( newpoll ).remove();
 				$( this ).css( 'display' , 'none')
 			} );
