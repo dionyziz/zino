@@ -49,7 +49,14 @@
 				?></ul><?php
 				if ( $showcommnum ) {
 					if ( $poll->Numcomments > 0 ) {
-						?><dl class="pollinfo">
+						?><dl class="<?php
+						if ( $showresults ) {
+							?>pollinfo<?php
+						}
+						else {
+							?>pollinfo2<?php
+						}
+						?>">
 							<dd><a href=""><?php
 							echo $poll->Numcomments;
 							?> σχόλι<?php
