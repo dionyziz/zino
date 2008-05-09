@@ -1,29 +1,32 @@
 var PollList = {
 	numoptions : 0,
+	CreateOption : function() {
+		if ( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value !== '' ) {
+			var heading = document.createElement( 'h4' );
+			var headinglink = document.createElement( 'a' );
+			$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
+			$( heading ).append( headinglink ).css( 'margin-top' , '0' );
+			$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
+			$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
+			PollList.NewOption();
+		}
+	},
 	Create : function() {
 		var newpoll = document.createElement( 'li' );
 		$( newpoll ).append( $( 'div.creationmockup' ).clone() );
 		$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'ul li.create' )[ 0 ] );
-		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 300 , function() {
+		$( 'div#polllist ul div.creationmockup' ).css( 'height' , '0' ).animate( { height: '40px' } , 400 , function() {
 			$( this ).css( 'height' , '' );
 		} );
 		$( 'div#polllist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polllist ul div.creationmockup input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				if ( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value !== '' ) {
-					var heading = document.createElement( 'h4' );
-					var headinglink = document.createElement( 'a' );
-					$( headinglink ).attr( { 'href' : '' } ).append( document.createTextNode( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value ) );
-					$( heading ).append( headinglink ).css( 'margin-top' , '0' );
-					$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
-					$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
-					PollList.NewOption();
-				}
+				PollList.CreateOption();
 			}		
 		} );
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
-			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 300 , function() {
+			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 400 , function() {
 				$( newpoll ).remove();
 				$( this ).css( 'display' , 'none')
 			} );
