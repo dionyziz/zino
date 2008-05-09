@@ -1,6 +1,6 @@
 var PollList = {
 	numoptions : 0,
-	CreateOption : function() {
+	CreateQuestion : function() {
 		if ( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value !== '' ) {
 			var heading = document.createElement( 'h4' );
 			var headinglink = document.createElement( 'a' );
@@ -8,6 +8,21 @@ var PollList = {
 			$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 			$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
 			$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
+			PollList.NewOption();
+		}
+	},
+	CreateOption : function( newoption ) {
+		if ( $( newoption )[ 0 ].value !== '' ) {
+			var option = document.createElement( 'div' );
+			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
+			$( $( newoption )[ 0 ].parentNode ).remove();
+			$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
+			if ( PollList.numoptions == 0 ) {
+				var donelink = document.createElement( 'a' );
+				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) );
+				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
+			}
+			++PollList.numoptions;
 			PollList.NewOption();
 		}
 	},
@@ -21,11 +36,11 @@ var PollList = {
 		$( 'div#polllist ul div.creationmockup input' )[ 0 ].focus();
 		$( 'div#polllist ul div.creationmockup input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				PollList.CreateOption();
+				PollList.CreateQuestion();
 			}		
 		} );
 		$( 'div#polllist ul div.creationmockup div a.img' ).click( function() {
-			PollList.CreateOption();
+			PollList.CreateQuestion();
 			return false;
 		} );
 		var link = document.createElement( "a" );
@@ -63,22 +78,12 @@ var PollList = {
 			'alt' : 'Δημιουργία',
 			'title' : 'Δημιουργία'
 		} );
-		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage );
+		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
+			PollList.CreateOption( newoption );
+		} );
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				if ( $( newoption )[ 0 ].value !== '' ) {
-					var option = document.createElement( 'div' );
-					$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
-					$( $( newoption )[ 0 ].parentNode ).remove();
-					$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
-					if ( PollList.numoptions == 0 ) {
-						var donelink = document.createElement( 'a' );
-						$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) );
-						$( 'div#polllist ul li div.creationmockup' ).append( donelink );
-					}
-					++PollList.numoptions;
-					PollList.NewOption();
-				}
+				PollList.CreateOption( newoption );
 			}
 		} );
 		$( container ).append( newoption ).append( acceptlink );
