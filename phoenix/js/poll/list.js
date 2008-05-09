@@ -80,10 +80,12 @@ var PollList = {
 		} );
 		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
 			PollList.CreateOption( newoption );
+			return false;
 		} );
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				PollList.CreateOption( newoption );
+				return false;
 			}
 		} );
 		$( container ).append( newoption ).append( acceptlink );
