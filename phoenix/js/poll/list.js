@@ -24,6 +24,10 @@ var PollList = {
 				PollList.CreateOption();
 			}		
 		} );
+		$( 'div#polllist ul div.creationmockup div a.img' ).click( function() {
+			PollList.CreateOption();
+			return false;
+		} );
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 400 , function() {
