@@ -34,14 +34,14 @@
 									</dd><?php
 								}
 								else {
-									?><dt><input type="radio" name="poll_<?php
+									?><dd><input type="radio" name="poll_<?php
 									echo $poll->Id;
 									?>" value="<?php
 									echo $option->Id;
-									?>" /></dt>
-									<dd><?php
+									?>" /></dd>
+									<dt><?php
 									echo htmlspecialchars( $option->Text );
-									?></dd><?php
+									?></dt><?php
 								}
 							?></dl>
 						</li><?php
