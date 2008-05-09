@@ -32,7 +32,9 @@
 										<div class="rightrounded"></div>
 										<div class="middlerounded"></div>
 									</div>
-									<span>30%</span>
+									<span><?php
+									echo $option->Percentage * 100;
+									?>%</span>
 									</dd><?php
 								}
 								else {
