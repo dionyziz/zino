@@ -21,7 +21,7 @@ div.pollsmall div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
-div.pollsmall div.results ul li dl dt {
+div.pollsmall div.results ul li dl dt.resultterm {
 	float: right;
 	padding: 0;
 	margin: 0;

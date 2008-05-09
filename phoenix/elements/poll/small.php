@@ -20,7 +20,7 @@
 						?><li>
 							<dl><?php
 								if ( $showresults ) {
-									?><dt style="float:right;"><?php
+									?><dt class="resultterm"><?php
 										echo htmlspecialchars( $option->Text );
 									?></dt>
 									<dd><?php //max width will be 220px and minimum 24px
@@ -34,14 +34,14 @@
 									</dd><?php
 								}
 								else {
-									?><dd><input type="radio" name="poll_<?php
+									?><dt class="voteterm"><input type="radio" name="poll_<?php
 									echo $poll->Id;
 									?>" value="<?php
 									echo $option->Id;
-									?>" /></dd>
-									<dt><?php
+									?>" /></dt>
+									<dd class="votedefinition><?php
 									echo htmlspecialchars( $option->Text );
-									?></dt><?php
+									?></dd><?php
 								}
 							?></dl>
 						</li><?php
