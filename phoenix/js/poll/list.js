@@ -78,10 +78,6 @@ var PollList = {
 			'alt' : 'Δημιουργία',
 			'title' : 'Δημιουργία'
 		} );
-		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
-			PollList.CreateOption( newoption );
-			return false;
-		} );
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				PollList.CreateOption( newoption );
@@ -90,6 +86,10 @@ var PollList = {
 		} );
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
+		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
+			PollList.CreateOption( newoption );
+			return false;
+		} );
 		$( 'div#polllist ul li div.creationmockup div input' )[ 0 ].focus();
 	}
 };
