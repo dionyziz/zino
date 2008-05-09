@@ -6,6 +6,8 @@
 		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
 		//$page->AttachStyleSheet( 'css/poll/small.css' );
 		
+		
+		$showresults = true; //used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
 			<h4><a href=""><?php
 			echo htmlspecialchars( $poll->Question );
@@ -20,14 +22,21 @@
 								<dt style="float:right;"><?php
 									echo htmlspecialchars( $option->Text );
 								?></dt>
-								<dd><?php //max width will be 220px and minimum 24px?>
-									<div class="percentagebar" style="width:120px;">
-										<div class="leftrounded"></div>
-										<div class="rightrounded"></div>
-										<div class="middlerounded"></div>
-									</div>
-									<span>30%</span>
-								</dd>
+								<dd><?php //max width will be 220px and minimum 24px
+									if ( $showresults ) {
+										?><div class="percentagebar" style="width:120px;">
+											<div class="leftrounded"></div>
+											<div class="rightrounded"></div>
+											<div class="middlerounded"></div>
+										</div>
+										<span>30%</span><?php
+									}
+									else {
+										?><input type="radio"><?php
+										echo htmlspecialchars( $option->Text );
+										?></input><?php
+									}
+								?></dd>
 							</dl>
 						</li><?php
 					}
