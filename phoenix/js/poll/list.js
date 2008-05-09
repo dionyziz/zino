@@ -84,13 +84,13 @@ var PollList = {
 				return false;
 			}
 		} );
+
+		$( container ).append( newoption ).append( acceptlink );
+		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
 		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
 			PollList.CreateOption( newoption );
 			return false;
 		} );
-		$( container ).append( newoption ).append( acceptlink );
-		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
-
 		$( 'div#polllist ul li div.creationmockup div input' )[ 0 ].focus();
 	}
 };
