@@ -7,7 +7,7 @@
 		//$page->AttachStyleSheet( 'css/poll/small.css' );
 		
 		
-		$showresults = false; //used to show results, will be true if the user has voted or is anonymous
+		$showresults = true; //used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
 			<h4><a href=""><?php
 			echo htmlspecialchars( $poll->Question );
@@ -25,7 +25,9 @@
 									?></dt>
 									<dd><?php //max width will be 220px and minimum 24px
 										
-									?><div class="percentagebar" style="width:120px;">
+									?><div class="percentagebar" style="width:<?php
+									echo 24 + $option->Percentage * 196;
+									?>px;">
 										<div class="leftrounded"></div>
 										<div class="rightrounded"></div>
 										<div class="middlerounded"></div>
