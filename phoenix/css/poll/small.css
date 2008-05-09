@@ -71,13 +71,18 @@ div.pollsmall div.results dl.pollinfo {
 	margin: 0;
 	padding: 0;
 }
-div.pollsmall div.results dl.pollinfo dd {
+div.pollsmall div.results dl.pollinfo2 {
+	text-align: left;
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+div.pollsmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2 dd {
 	display: inline;
 	margin: 0;
 	padding: 0;
 	font-size: 80%;
 }
-div.pollsmall div.results dl.pollinfo dd a {
+div.pollsmall div.results dl.pollinfo dd a, div.pollsmall div.results dl.pollinfo2 dd a {
 	background-image: url('http://static.zino.gr/phoenix/comment.png');
 	background-repeat: no-repeat;
 	padding-left: 18px;
