@@ -34,7 +34,7 @@
             $this->Save();
         }
 		public function GetPercentage() {
-            return ( $this->Numvotes / $this->Poll->Numvotes ) * 100;
+            return $this->Numvotes / $this->Poll->Numvotes;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
