@@ -18,24 +18,29 @@
 					$options = $finder->FindByPoll( $poll );
 					foreach ( $options as $option ) {
 						?><li>
-							<dl>
-								<dt style="float:right;"><?php
-									echo htmlspecialchars( $option->Text );
-								?></dt>
-								<dd><?php //max width will be 220px and minimum 24px
-									if ( $showresults ) {
-										?><div class="percentagebar" style="width:120px;">
-											<div class="leftrounded"></div>
-											<div class="rightrounded"></div>
-											<div class="middlerounded"></div>
-										</div>
-										<span>30%</span><?php
-									}
-									else {
-										?><input type="radio"><?php
+							<dl><?php
+								if ( $showresults ) {
+									?><dt style="float:right;"><?php
 										echo htmlspecialchars( $option->Text );
-										?></input><?php
-									}
+									?></dt>
+									<dd><?php //max width will be 220px and minimum 24px
+										
+									?><div class="percentagebar" style="width:120px;">
+										<div class="leftrounded"></div>
+										<div class="rightrounded"></div>
+										<div class="middlerounded"></div>
+									</div>
+									<span>30%</span><?php
+								}
+								else {
+									?><input type="radio" name="<?php
+									echo $poll->Id;
+									?>" value="<?php
+									echo $option->Id;
+									?>"><?php
+									echo htmlspecialchars( $option->Text );
+									?></input><?php
+								}
 								?></dd>
 							</dl>
 						</li><?php
