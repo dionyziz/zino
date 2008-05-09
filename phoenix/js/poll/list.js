@@ -24,7 +24,7 @@ var PollList = {
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( 'div#polllist ul div.creationmockup' ).animate( { width: "0" } , 400 );
-			PhotoList.Cancel();
+			PollList.Cancel();
 			return false;
 		} );
 		$( 'div#polllist ul li.create' ).empty().append( link );
