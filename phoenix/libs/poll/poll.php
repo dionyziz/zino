@@ -32,9 +32,11 @@
             --$this->Numcomments;
             $this->Save();
         }
+		/*
         public function GetPercentage() {
             return ( $this->Numvotes / $this->Poll->Numvotes ) * 100;
         }
+		*/
         public function CreateOption( $text ) {
             $option = New PollOption();
             $option->Text = $text;
