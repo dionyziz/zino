@@ -39,7 +39,7 @@
 									?>" value="<?php
 									echo $option->Id;
 									?>" /></dt>
-									<dd class="votedefinition><?php
+									<dd class="votedefinition"><?php
 									echo htmlspecialchars( $option->Text );
 									?></dd><?php
 								}
