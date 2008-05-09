@@ -26,6 +26,13 @@ div.pollsmall div.results ul li dl dt.resultterm {
 	padding: 0;
 	margin: 0;
 }
+div.pollsmall div.results ul li dl dt.voteterm {
+	display: inline;
+	margin-right: 3px;
+}
+div.pollsmall div.results ul li dl dd.votedefinition {
+	display: inline;
+}
 div.pollsmall div.results ul li dl dd {
 	padding: 0;
 	margin: 0;
