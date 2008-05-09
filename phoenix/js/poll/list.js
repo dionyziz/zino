@@ -12,7 +12,7 @@ var PollList = {
 		}
 	},
 	CreateOption : function( newoption ) {
-		if ( $( newoption )[ 0 ].value !== '' ) {
+		if ( newoption.value !== '' ) {
 			var option = document.createElement( 'div' );
 			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
 			$( $( newoption )[ 0 ].parentNode ).remove();
@@ -87,7 +87,7 @@ var PollList = {
 
 		$( container ).append( newoption ).append( acceptlink );
 		$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( container , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
-		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( newoption ) {
+		$( acceptlink ).attr( { 'href' : '' } ).append( acceptimage ).click( function( node ) {
 			PollList.CreateOption( newoption );
 			return false;
 		} );
