@@ -33,7 +33,7 @@
 										<div class="middlerounded"></div>
 									</div>
 									<span><?php
-									echo $option->Percentage * 100;
+									echo round( $option->Percentage * 100 , 0 );
 									?>%</span>
 									</dd><?php
 								}
