@@ -27,17 +27,12 @@ var AlbumList = {
 			$( newalbum ).hide( 400 , function() {
 				$( newalbum ).remove();
 			} );
-			AlbumList.Cancel( newalbum , true );
+			AlbumList.Cancel( newalbum );
 			return false;
 		} );
 		$( 'li.create' ).empty().append( link );
 	},
-	Cancel : function( albumnode , vanquish ) {
-		if ( vanquish ) {
-			$( albumnode ).animate( { width: "0" } , 100 , function() {
-				$( albumnode ).remove();
-			} );
-		}
+	Cancel : function( albumnode ) {
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {

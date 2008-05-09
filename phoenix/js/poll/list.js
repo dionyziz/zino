@@ -21,9 +21,27 @@ var PollList = {
 				}
 			}		
 		} );
+		var link = document.createElement( "a" );
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
+			$( 'div#polllist ul div.creationmockup' ).animate( { width: "0" } , 400 );
+			PhotoList.Cancel();
+			return false;
+		} );
+		$( 'div#polllist ul li.create' ).empty().append( link );
 	},
 	Cancel : function() {
-	
+		var link = document.createElement( "a" );
+		var createimg = document.createElement( "img" );
+		$( createimg ).attr( {
+			src: "http://static.zino.gr/phoenix/add3.png",
+			alt: "Δημιουργία δημοσκόπησης",
+			title: "Δημιουργία δημοσκόπησης"
+		} );
+		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
+			PhotoList.Create();
+			return false;
+		} );
+		$( 'div#polllist ul li.create' ).empty().append( link );
 	},
 	NewOption : function() {
 		var container = document.createElement( 'div' );
