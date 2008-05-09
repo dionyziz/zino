@@ -39,7 +39,7 @@ var PollList = {
 				PollList.CreateQuestion();
 			}		
 		} );
-		$( 'div#polllist ul div.creationmockup div a.img' ).click( function() {
+		$( 'div#polllist ul div.creationmockup div a img' ).click( function() {
 			PollList.CreateQuestion();
 			return false;
 		} );
