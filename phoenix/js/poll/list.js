@@ -23,7 +23,8 @@ var PollList = {
 		} );
 		var link = document.createElement( "a" );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
-			$( 'div#polllist ul div.creationmockup' ).animate( { width: "0" } , 400 , function() {
+			$( 'div#polllist ul div.creationmockup' ).animate( { width: "0" , opacity: "0" } , 400 , function() {
+				$( newpoll ).remove();
 				$( this ).css( 'display' , 'none')
 			} );
 			PollList.Cancel();
