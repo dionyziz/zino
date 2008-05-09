@@ -40,10 +40,9 @@
 									echo $option->Id;
 									?>"><?php
 									echo htmlspecialchars( $option->Text );
-									?></input><?php
+									?></input></dd><?php
 								}
-								?></dd>
-							</dl>
+							?></dl>
 						</li><?php
 					}
 					/*
