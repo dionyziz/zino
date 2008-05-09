@@ -30,10 +30,11 @@
 										<div class="rightrounded"></div>
 										<div class="middlerounded"></div>
 									</div>
-									<span>30%</span><?php
+									<span>30%</span>
+									</dd><?php
 								}
 								else {
-									?><input type="radio" name="<?php
+									?><dd><input type="radio" name="<?php
 									echo $poll->Id;
 									?>" value="<?php
 									echo $option->Id;
