@@ -40,7 +40,7 @@ var PollList = {
 			title: "Δημιουργία δημοσκόπησης"
 		} );
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( createimg ).append( document.createTextNode( "Δημιουργία δημοσκόπησης" ) ).click( function() {
-			PhotoList.Create();
+			PollList.Create();
 			return false;
 		} );
 		$( 'div#polllist ul li.create' ).empty().append( link );
