@@ -16,8 +16,8 @@
 		foreach( $options as $option ) {
 			$polloption = New PollOption();
 			$polloption->Text = $option;
-			$option->Pollid = $poll->Id;
-			$option->Save();
+			$polloption->Pollid = $poll->Id;
+			$polloption->Save();
 		}	
 	}
 ?>
