@@ -6,11 +6,18 @@
 		
 		$libs->Load( 'poll/poll' );
 		
-		$question = $question->Get();
+		$poll = New Poll();
+		$poll->Userid = $user->Id;
+		$poll->Question = $question->Get();
+		$poll->Save();
+
 		$options = explode( "|" , $options->Get() );
-		?>alert( 'Question is : <?php echo w_json_encode( $question ); ?>' );<?php
+
 		foreach( $options as $option ) {
-			?>alert( <?php echo w_json_encode( $option ); ?> );<?php
+			$polloption = New PollOption();
+			$polloption->Text = $option;
+			$option->Pollid = $poll->Id;
+			$option->Save();
 		}	
 	}
 ?>
