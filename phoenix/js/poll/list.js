@@ -26,7 +26,7 @@ var PollList = {
 					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
 					var newpoll = document.createElement( 'li' );
 					$( newpoll ).html( $( 'div#polllist div.creatingpoll' ).html() );
-					$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polllist ul li.create' )[ 0 ] );
+					$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polllist ul li.create:last' )[ 0 ] );
 					$( 'div#polllist ul li.create' ).remove();
 					PollList.Cancel();
 					//Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
