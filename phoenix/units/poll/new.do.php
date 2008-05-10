@@ -8,9 +8,9 @@
 		
 		$question = $question->Get();
 		$options = explode( "|" , $options->Get() );
-		?>alert( 'Question is : <?php echo w_json_encode( $option ); ?>' );<?php
+		?>alert( 'Question is : <?php echo w_json_encode( $question ); ?>' );<?php
 		foreach( $options as $option ) {
-			?>alert( '<?php echo w_json_encode( $option ); ?>' );<?php
+			?>alert( <?php echo w_json_encode( $option ); ?> );<?php
 		}	
 	}
 ?>

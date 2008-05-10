@@ -24,8 +24,6 @@ var PollList = {
 				var donelink = document.createElement( 'a' );
 				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
 					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
-					alert( 'Question is: ' + PollList.QuestionText );
-					alert( 'Options are: ' + PollList.OptionsText );
 					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
 					return false;
 				} );
