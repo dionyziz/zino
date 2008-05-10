@@ -25,8 +25,9 @@ var PollList = {
 				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
 					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
 					var newpoll = document.createElement( 'li' );
-					$( newpoll ).append( $( 'div#polllist div.creatingpoll' ).clone() );
+					$( newpoll ).html( $( 'div#polllist div.creatingpoll' ).html() );
 					$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polllist ul li.create' )[ 0 ] );
+					$( 'div#polllist ul li.create' ).remove();
 					PollList.Cancel();
 					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
 					return false;
