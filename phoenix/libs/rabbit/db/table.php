@@ -201,9 +201,9 @@
             $this->mIndexes = false;
 		}
         public function Copy( $newtable ) {
-            $query = $this->mDb->Prepare( 'CREATE :' . $newtable . ' LIKE :' . $this->mAlias . ';' );
-            $query->BindTable( $newtable );
+            $query = $this->mDb->Prepare( 'CREATE :newtable LIKE :' . $this->mAlias . ';' );
             $query->BindTable( $this->mAlias );
+            $query->Bind( 'newtable', $newtable ); // no BindTable as newtable doesn't exist
             return $query->Execute();
         }
 		public function Truncate() {
