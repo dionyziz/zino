@@ -7,7 +7,7 @@
         protected $mDbTableAlias = 'testcomments';
     }
 
-    class TestComment extends Testcase {
+    class CommentTest extends Testcase {
         protected $mAppliesTo = 'libs/comment';
 
         public function SetUp() {
@@ -62,5 +62,7 @@
         public function TearDown() {
         }
     }
+
+    return New CommentTest();
 
 ?>
