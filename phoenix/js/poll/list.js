@@ -26,6 +26,7 @@ var PollList = {
 					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
 					alert( 'Question is: ' + PollList.QuestionText );
 					alert( 'Options are: ' + PollList.OptionsText );
+					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
 					return false;
 				} );
 				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
