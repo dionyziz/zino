@@ -1,5 +1,7 @@
 var PollList = {
 	numoptions : 0,
+	QuestionText: '',
+	OptionsText: '',
 	CreateQuestion : function() {
 		if ( $( 'div#polllist ul div.creationmockup input' )[ 0 ].value !== '' ) {
 			var heading = document.createElement( 'h4' );
@@ -8,6 +10,7 @@ var PollList = {
 			$( heading ).append( headinglink ).css( 'margin-top' , '0' );
 			$( 'div#polllist ul div.creationmockup' ).empty().append( heading );
 			$( 'div#polllist ul div.creationmockup' ).append( $( 'div#polllist div.tip2' ).clone().css( 'display' , 'block' ) );
+			PollList.QuestionText = $( 'div#polllist ul div.creationmockup input' )[ 0 ].value;
 			PollList.NewOption();
 		}
 	},
@@ -19,9 +22,13 @@ var PollList = {
 			$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
 			if ( PollList.numoptions == 0 ) {
 				var donelink = document.createElement( 'a' );
-				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) );
+				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
+					alert( 'Question is: ' + PollList.QuestionText );
+					alert( 'Options are: ' + PollList.OptionsText );
+				} );
 				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
 			}
+			PollList.OptionsText += newoption.value + '|';
 			++PollList.numoptions;
 			PollList.NewOption();
 		}
@@ -99,5 +106,4 @@ $( document ).ready( function() {
 		PollList.Create();
 		return false;
 	} );
-
 } );
