@@ -11,6 +11,8 @@
         protected $mAppliesTo = 'libs/comment';
 
         public function SetUp() {
+            global $rabbit_settings;
+
             $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
