@@ -23,8 +23,10 @@ var PollList = {
 			if ( PollList.numoptions == 0 ) {
 				var donelink = document.createElement( 'a' );
 				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
+					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
 					alert( 'Question is: ' + PollList.QuestionText );
 					alert( 'Options are: ' + PollList.OptionsText );
+					return false;
 				} );
 				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
 			}
