@@ -62,6 +62,9 @@ div#polllist div.tip2 {
 	display: none;
 	margin-bottom: 25px;
 }
+div#polllist div.creatingpoll {
+	display: none;
+}
 div#polllist ul li.create a {
 	font-weight: bold;
 }
