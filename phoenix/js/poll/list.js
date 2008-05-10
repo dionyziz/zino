@@ -29,7 +29,7 @@ var PollList = {
 					$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polllist ul li.create' )[ 0 ] );
 					$( 'div#polllist ul li.create' ).remove();
 					PollList.Cancel();
-					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
+					//Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText } );
 					return false;
 				} );
 				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
