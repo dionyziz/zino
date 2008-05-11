@@ -8,6 +8,7 @@
 		$libs->Load( 'poll/poll' );
 		$poll = New Poll( $id->Get() );
 		Element( 'user/sections' , 'poll' , $poll->User );
+		$water->Trace( 'poll delid is : ' . $poll->Delid );
 		if ( $poll->Exists() ) {
 			$page->SetTitle( $poll->Question );
 			?><div id="pollview"><?php
