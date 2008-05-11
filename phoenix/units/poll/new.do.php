@@ -19,9 +19,9 @@
 			$polloption->Pollid = $poll->Id;
 			$polloption->Save();
 		}
-		?>$( '<?php
+		?>$( <?php
 		echo $node;
-		?>' ).html( <?php
+		?> ).html( <?php
 		ob_start();
     	Element( 'poll/small' , $poll , true );
     	echo w_json_encode( ob_get_clean() );
