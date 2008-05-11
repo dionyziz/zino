@@ -9,8 +9,10 @@
 		if ( $album->User->Id == $user->Id ) {
 			$useralbum = $album->User->Name;
 			$album->Delete();
-			?>document.location.href='<?php
-			echo $rabbit_settings[ "webaddress" ] . "/?p=albums&username=" . $useralbum;
+			?>window.location.href = '<?php
+			echo $rabbit_settings[ 'webaddress' ];
+			?>?p=albums&username=<?php
+			echo $album->User->Name;
 			?>';<?php
 		}
 	}

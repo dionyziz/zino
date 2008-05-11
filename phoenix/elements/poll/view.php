@@ -4,6 +4,7 @@
 		global $page;
 		global $libs;
 		global $water;
+		global $rabbit_setings;
 		
 		$libs->Load( 'poll/poll' );
 		$poll = New Poll( $id->Get() );
@@ -13,7 +14,16 @@
 			$page->SetTitle( $poll->Question );
 			?><div id="pollview"><?php
 				Element( 'poll/small' , $poll , false ); //don't show comments number
-				?><div class="comments"><?php
+				?>
+				<div class="delete">
+					<a href="" onclick="PollView.Delete( '<?php
+					echo $poll->Id;
+					?>' );return false;"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>delete.png" alt="Διαγραφή" title="Διαγραφή" />
+					</a>
+				</div>
+				<div class="comments"><?php
 					Element( 'comment/list' );
 				?></div>
 			</div>
