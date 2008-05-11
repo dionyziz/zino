@@ -7,8 +7,8 @@
 		
 		$libs->Load( 'poll/poll' );
 		
-		$water->Trace( 'pollid is: ' . $pollid->Get() );
-		$poll = New Poll( $pollid->Get() );
+		$water->Trace( 'pollid is: ' . $id->Get() );
+		$poll = New Poll( $id->Get() );
 		$water->Trace( 'poll question is: ' . $poll->Question );
 		$page->SetTitle( $poll->Question );
 		Element( 'user/sections' , 'poll' , $poll->User );
