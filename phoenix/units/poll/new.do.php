@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitPollNew( tString $question , tString $options ) {
+	function UnitPollNew( tString $question , tString $options , tCoalaPointer $node ) {
 		global $user;
 		global $libs;
 		
@@ -18,6 +18,13 @@
 			$polloption->Text = $option;
 			$polloption->Pollid = $poll->Id;
 			$polloption->Save();
-		}	
+		}
+		?>$( '<?php
+		echo $node;
+		?>' ).html( <?php
+		ob_start();
+    	Element( 'poll/small' , $poll , true );
+    	echo w_json_encode( ob_get_clean() );
+    	?> );<?php
 	}
 ?>
