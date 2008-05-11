@@ -30,6 +30,7 @@ var PollList = {
 					$( 'div#polllist ul li div.creationmockup:parent' ).remove();
 					PollList.Cancel();
 					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText , node : newpoll } );
+					PollList.numoptions = 0;
 					return false;
 				} );
 				$( 'div#polllist ul li div.creationmockup' ).append( donelink );
