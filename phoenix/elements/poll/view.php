@@ -4,7 +4,7 @@
 		global $page;
 		global $libs;
 		
-		$libs->Load( 'poll' );
+		$libs->Load( 'poll/poll' );
 		
 		//$page->AttachStyleSheet( 'css/poll/view.css' );
 		$poll = New Poll( $pollid->Get() );
