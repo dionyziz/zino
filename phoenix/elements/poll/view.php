@@ -20,7 +20,7 @@
 					echo $poll->Id;
 					?>' );return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
-					?>delete.png" alt="Διαγραφή" title="Διαγραφή" />
+					?>delete.png" alt="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" title="Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®" />
 					</a>
 				</div>
 				<div class="comments"><?php
@@ -30,7 +30,7 @@
 			<div class="eof"></div><?php
 		}
 		else {
-			?>H δημοσκόπηση έχει διαγραφεί<?php
+			?>H Ξ΄Ξ·ΞΌΞΏΟƒΞΊΟΟ€Ξ·ΟƒΞ· Ξ­Ο‡ΞµΞΉ Ξ΄ΞΉΞ±Ξ³ΟΞ±Ο†ΞµΞ―<?php
 		}
 	}
 ?>
