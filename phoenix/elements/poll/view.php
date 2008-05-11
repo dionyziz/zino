@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollView( tInteger $pollid ) {
+	function ElementPollView( tInteger $id ) {
 		global $page;
 		global $libs;
 		global $water;
