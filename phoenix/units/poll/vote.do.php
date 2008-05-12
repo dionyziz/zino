@@ -1,6 +1,6 @@
 <?php
 
-	function UnitPollVote( tInteger $optionid , tInteger $pollid ) {
+	function UnitPollVote( tInteger $optionid , tInteger $pollid , tCoalaPointer $node ) {
 		global $libs;
 		global $user;
 		
@@ -8,14 +8,20 @@
 		
 		$optionid = $optionid->Get();
 		$pollid = $pollid->Get();
-		?>alert( 'option id is: <?php echo $optionid; ?>' );
-		alert( 'poll id is: <?php echo $pollid; ?>' );<?php
+
 		$vote = New PollVote();
 		$vote->Userid = $user->Id;
 		$vote->Optionid = $optionid;
 		$vote->Pollid = $pollid;
 		if ( !$vote->Exists() ){
 			$vote->Save();
+			?>$( <?php
+			echo $node;
+			?> ).html( <?php
+			ob_start();
+	    	Element( 'poll/small' , $poll , true );
+	    	echo w_json_encode( ob_get_clean() );
+	    	?> ).animate( { opacity : "1" } , 500 );<?php
 		}
 	}
 ?>

@@ -7,8 +7,7 @@ var PollView = {
 	},
 	Vote : function( optionid , pollid , node ) {
 		var parent = node.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
-		Coala.Warm( 'poll/vote' , { optionid : optionid , pollid : pollid } , function() {
-			alert( 'voted' );
-		} );
+		$( parent ).animate( { opacity : "0" } , 400 );
+		Coala.Warm( 'poll/vote' , { optionid : optionid , pollid : pollid , node : parent } );
 	}
 };
