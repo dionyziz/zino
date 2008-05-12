@@ -174,7 +174,7 @@
                 $poll = $polls[ $i ];
                 $this->AssertEquals( 3, $poll->Userid, 'FindByUser did not return the right polls' );
                 $this->AssertEquals( $texts[ $i ], $poll->Question, 'FindByUser did not return the right polls, or returned them in wrong order' );
-                $this->AssertEquals( $optioncounts[ $i ], count( $poll->Options ), 'FindByUser did not return the right polls, or returned them in wrong order' );
+                $this->AssertEquals( $optionscounts[ $i ], count( $poll->Options ), 'FindByUser did not return the right polls, or returned them in wrong order' );
             }
 
             $poll = New Poll( $pollid );
