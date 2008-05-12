@@ -15,6 +15,7 @@
 		$vote->Pollid = $pollid;
 		if ( !$vote->Exists() ){
 			$vote->Save();
+			$poll = New Poll( $pollid );
 			?>$( <?php
 			echo $node;
 			?> ).html( <?php
