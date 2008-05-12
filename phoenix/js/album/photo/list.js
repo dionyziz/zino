@@ -13,9 +13,9 @@ var PhotoList = {
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
-					$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
 					PhotoList.renaming = false
 					if ( albumname != name && name !== '' ) {
+						$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
 						window.document.title = name;
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
