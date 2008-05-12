@@ -1,11 +1,10 @@
 <?php
 	
 	function ElementPollList( tString $username ) {
-		global $page;
-		global $user;
-		global $water;
 		global $libs;
+		global $page;
 		global $rabbit_settings;
+		global $user;
 		
 		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
@@ -25,8 +24,8 @@
 		}
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser );
-		$water->Trace( 'poll number: ' . count( $polls ) );
-		Element( 'user/sections', 'album' , $theuser );
+
+		Element( 'user/sections', 'poll' , $theuser );
 		?><div id="polllist">
 			<ul><?php
 				foreach ( $polls as $poll ) {
