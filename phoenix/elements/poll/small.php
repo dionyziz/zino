@@ -52,7 +52,11 @@
 									echo $poll->Id;
 									?>" value="<?php
 									echo $option->Id;
-									?>" /></dt>
+									?>" onclick="PollView.Vote( '<?php
+									echo $option->Id;
+									?>' , '<?php
+									echo $poll->Id;
+									?>' , this );" /></dt>
 									<dd class="votedefinition"><?php
 									echo htmlspecialchars( $option->Text );
 									?></dd><?php
