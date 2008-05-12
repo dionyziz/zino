@@ -13,9 +13,11 @@
 		$water->Trace( 'poll delid is : ' . $poll->Delid );
 		if ( !$poll->IsDeleted() ) {
 			$page->SetTitle( $poll->Question );
-			?><div id="pollview"><?php
+			?><div id="pollview">
+				<div><?php
 				Element( 'poll/small' , $poll , false ); //don't show comments number
 				?>
+				</div>
 				<div class="delete">
 					<a href="" onclick="PollView.Delete( '<?php
 					echo $poll->Id;
@@ -30,6 +32,7 @@
 			</div><?php
 		}
 		else {
+			$page->SetTitle( 'Η δημοσκόπηση έχει διαγραφεί' );
 			?>H δημοσκόπηση έχει διαγραφεί<?php
 		}
 		?><div class="eof"></div><?php
