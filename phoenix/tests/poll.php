@@ -59,7 +59,7 @@
             $poll = $this->mPoll;
 
             $option = New PollOption();
-            $option->Question = "John Lennon";
+            $option->Text = "John Lennon";
             $option->Pollid = $poll->Id;
             $this->AssertFalse( $option->Exists(), 'Option appears to exist before saving' );
             $option->Save();
