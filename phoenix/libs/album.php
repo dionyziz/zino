@@ -41,7 +41,7 @@
                 $water->Notice( 'Album already deleted; skipping' );
                 return;
             }
-            $this->DelId = 1;
+            $this->Delid = 1;
             $this->Save();
 			
             // TODO: Encapsulate image update logic into the images model
