@@ -13,6 +13,7 @@
 
             $this->mUser = New User();
             $this->mUser->Name = 'testpolls';
+            $this->mUSer->Password = 'foobar';
             $this->mUser->Save();
         }
         public function TestClassesExist() {
