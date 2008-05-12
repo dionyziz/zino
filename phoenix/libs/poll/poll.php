@@ -9,6 +9,7 @@
 		public function FindByUser( $user, $offset = 0, $limit = 25 ) {
 			$poll = New Poll();
 			$poll->Userid = $user->Id;
+            $poll->Delid = 0;
 			return $this->FindByPrototype( $poll, $offset, $limit );
 		}
 	}
