@@ -24,7 +24,7 @@
 		$finder = New AlbumFinder();
 		$albums = $finder->FindByUser( $theuser );
 		$water->Trace( 'username: '. $theuser->Name );
-		Element( 'user/sections', 'poll' , $theuser );
+		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
 			foreach ( $albums as $album ) {
 				?><li><?php

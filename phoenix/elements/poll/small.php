@@ -1,13 +1,18 @@
 <?php
 	
 	function ElementPollSmall( $poll , $showcommnum = false , $titlelink = false ) {
-		//global $page;
+		global $user;
+		global $water; 
 		
-		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
-		//$page->AttachStyleSheet( 'css/poll/small.css' );
-		
-		
-		$showresults = true; //used to show results, will be true if the user has voted or is anonymous
+		$finder = New PollVoteFinder();
+		$showresults = $finder->FindByPollAndUser( $poll, $user );
+		if ( $showresults ) {
+			$water->Trace( 'showresults is true' );
+		}
+		else {
+			$water->Trace( 'showresults is false' );
+		}
+		//used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
 			<h4><a href="<?php
 			if ( $titlelink ) {

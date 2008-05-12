@@ -7,6 +7,7 @@
 		global $rabbit_settings;
 		
 		$libs->Load( 'poll/poll' );
+		
 		$poll = New Poll( $id->Get() );
 		Element( 'user/sections' , 'poll' , $poll->User );
 		$water->Trace( 'poll delid is : ' . $poll->Delid );
@@ -26,11 +27,11 @@
 				<div class="comments"><?php
 					Element( 'comment/list' );
 				?></div>
-			</div>
-			<div class="eof"></div><?php
+			</div><?php
 		}
 		else {
 			?>H δημοσκόπηση έχει διαγραφεί<?php
 		}
+		?><div class="eof"></div><?php
 	}
 ?>
