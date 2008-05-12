@@ -157,7 +157,7 @@
             $poll->Save();
             $pollid = $poll->Id;
 
-            $option = New Option();
+            $option = New PollOption();
             $option->Text = "None";
             $option->Pollid = $poll->Id;
             $option->Save();
@@ -187,7 +187,7 @@
             $option->Delete();
             $this->Assert( $option->IsDeleted(), 'Option seems not deleted after calling PollOption::Delete' );
 
-            $option = New Option( $this->mOption->Id );
+            $option = New PollOption( $this->mOption->Id );
             $this->Assert( $option->IsDeleted(), 'Deleted option doesn\'t seem to be deleted on new instance' );
         }
         public function TestDeletePoll() {
