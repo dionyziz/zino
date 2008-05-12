@@ -141,7 +141,6 @@
             $this->Assert( is_array( $options ), 'PollOptionFinder::FindByPoll did not return an array' );
             $this->AssertEquals( 5, count( $options ), 'PollOptionFinder::FindByPoll returned wrong number of options' ); 
 
-
             $texts = array( 'John Lennon', 'Paul Mc Cartney', 'Ringo Starr', 'George Harrison', 'I have never heard of the Beatles' );
             for ( $i = 0; $i < count( $options ); ++$i ) {
                 $option = $options[ $i ];

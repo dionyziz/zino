@@ -354,7 +354,9 @@
             $query->BindTable( $this->mDbTableAlias );
             
             $this->mExists = false;
-            return $query->Execute();
+            $change = $query->Execute();
+            $this->OnDelete();
+            return $change;
         }
         protected function InitializeFields() {
             if ( !( $this->mDb instanceof Database ) ) {
