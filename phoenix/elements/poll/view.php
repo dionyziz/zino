@@ -18,6 +18,7 @@
 				Element( 'poll/small' , $poll , false ); //don't show comments number
 				?>
 				</div>
+				<div class="eof"></div>
 				<div class="delete">
 					<a href="" onclick="PollView.Delete( '<?php
 					echo $poll->Id;
