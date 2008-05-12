@@ -59,7 +59,7 @@
             $poll = $this->mPoll;
 
             $option = New PollOption();
-            $option->Text = "John Lennon";
+            $option->Question = "John Lennon";
             $option->Pollid = $poll->Id;
             $this->AssertFalse( $option->Exists(), 'Option appears to exist before saving' );
             $option->Save();
@@ -138,7 +138,7 @@
             $finder = New PollOptionFinder();
             $options = $finder->FindByPoll( $this->mPoll );
 
-            $this->Assert( is_array( $votes ), 'PollOptionFinder::FindByPoll did not return an array' );
+            $this->Assert( is_array( $options ), 'PollOptionFinder::FindByPoll did not return an array' );
             $this->AssertEquals( 5, count( $options ), 'PollOptionFinder::FindByPoll returned wrong number of options' ); 
 
 
@@ -174,7 +174,7 @@
             for ( $i = 0; $i < count( $polls ); ++$i ) {
                 $poll = $polls[ $i ];
                 $this->AssertEquals( 3, $poll->Userid, 'FindByUser did not return the right polls' );
-                $this->AssertEquals( $texts[ $i ], $poll->Text, 'FindByUser did not return the right polls, or returned them in wrong order' );
+                $this->AssertEquals( $texts[ $i ], $poll->Question, 'FindByUser did not return the right polls, or returned them in wrong order' );
                 $this->AssertEquals( $optioncounts[ $i ], count( $poll->Options ), 'FindByUser did not return the right polls, or returned them in wrong order' );
             }
 
