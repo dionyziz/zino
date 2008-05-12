@@ -4,11 +4,16 @@
 		protected $mAppliesTo = 'libs/poll/poll';
         private $mPoll;
         private $mOption;
+        private $mUser;
 
         public function SetUp() {
             global $libs;
 
             $libs->Load( 'poll/poll' );
+
+            $this->mUser = New User();
+            $this->mUser->Name = 'testpolls';
+            $this->mUser->Save();
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Poll' ), 'Poll class does not exist' );
@@ -34,7 +39,7 @@
         }
         public function TestCreatePolls() {
             $poll = New Poll();
-            $poll->Userid = 2;
+            $poll->Userid = $this->mUser->Id;
             $poll->Question = "Who is your favourite Beatle?";
 
             $this->AssertFalse( $poll->Exists(), 'Poll appears to exist before saving' );
@@ -93,7 +98,7 @@
         }
         public function TestVote() {
             $vote = New PollVote();
-            $vote->Userid = 3;
+            $vote->Userid = $this->mUser->Id;
             $vote->Optionid = $this->mOption->Id;
             $vote->Pollid = $this->mPoll->Id;
             $this->AssertFalse( $vote->Exists(), 'Vote appears to exist before saving' );
@@ -101,7 +106,7 @@
 
             $this->Assert( $vote->Exists(), 'Vote does not appear to exist after saving' );
 
-            $vote2 = New PollVote( $this->mOption->Id, 3 );
+            $vote2 = New PollVote( $this->mOption->Id, $this->mUser->Id );
             $this->Assert( $vote2->Exists(), 'Vote does not appear to exist after creating a new instance' );
             $this->AssertEquals( $vote->Created, $vote2->Created, 'Vote created changed on new instance' );
             $this->AssertEquals( $vote->Userid, $vote2->Userid, 'Vote userid changed on new instance' );
@@ -124,13 +129,13 @@
         }
         public function TestFindUserVote() {
             $finder = New PollVoteFinder();
-            $votes = $finder->FindByPollAndUser( $this->mPoll, new User( 3 ) );
+            $votes = $finder->FindByPollAndUser( $this->mPoll, $this->mUser );
 
             $this->Assert( is_array( $votes ), 'PollVoteFinder::FindByPollAndUser did not return an array' );
             $this->AssertEquals( 1, count( $votes ), 'PollVoteFinder::FindByPollAndUser returned wrong number of votes' );
             
             $vote = $votes[ 0 ];
-            $this->AssertEquals( 3, $vote->Userid, 'Wrong Vote::Userid on vote returned by FindByPollAndUser' );
+            $this->AssertEquals( $this->mUser->Id, $vote->Userid, 'Wrong Vote::Userid on vote returned by FindByPollAndUser' );
             $this->AssertEquals( $this->mOption->Id, $vote->Optionid, 'Wrong Vote::Optionid on vote returned by FindByPollAndUser' );
             $this->AssertEquals( $this->mPoll->Id, $vote->Pollid, 'Wrong Vote::Pollid on vote returned by FindByPollAndUser' );
         }
@@ -151,7 +156,7 @@
         }
         public function TestFindUserPolls() {
             $poll = New Poll();
-            $poll->Userid = 3;
+            $poll->Userid = $this->mUser->Id;
             $poll->Question = "What's your favourite season?";
             $poll->Save();
             $pollid = $poll->Id;
@@ -162,7 +167,7 @@
             $option->Save();
 
             $finder = New PollFinder();
-            $polls = $finder->FindByUser( New User( 3 ) );
+            $polls = $finder->FindByUser( $this->mUser );
 
             $this->Assert( is_array( $polls ), 'PollFinder::FindByUser did not return an array' );
             $this->Assert( 2, count( $polls ), 'PollFinder::FindByUser did not return the right number of polls' );
@@ -172,7 +177,7 @@
     
             for ( $i = 0; $i < count( $polls ); ++$i ) {
                 $poll = $polls[ $i ];
-                $this->AssertEquals( 3, $poll->Userid, 'FindByUser did not return the right polls' );
+                $this->AssertEquals( $this->mUser->Id, $poll->Userid, 'FindByUser did not return the right polls' );
                 $this->AssertEquals( $texts[ $i ], $poll->Question, 'FindByUser did not return the right polls, or returned them in wrong order' );
                 $this->AssertEquals( $optionscounts[ $i ], count( $poll->Options ), 'FindByUser did not return the right polls, or returned them in wrong order' );
             }
@@ -199,6 +204,9 @@
             $poll = New Poll( $this->mPoll->Id );
             $this->Assert( $poll->IsDeleted(), 'Poll::IsDeleted did not return true on new instance of deleted poll' );
             $this->AssertEquals( 1, $poll->Delid, 'Poll::Delid was not 1 on new instance of deleted poll' );
+        }
+        public function TearDown() {
+            $this->mUser->Delete();
         }
 	}
 
