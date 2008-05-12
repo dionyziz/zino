@@ -15,7 +15,7 @@ var PhotoList = {
 					var name = $( this )[ 0 ].value;
 					$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
 					PhotoList.renaming = false
-					if ( albumname != name ) {
+					if ( albumname != name && name !== '' ) {
 						window.document.title = name;
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
