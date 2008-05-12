@@ -2,16 +2,10 @@
 	
 	function ElementPollSmall( $poll , $showcommnum = false ) {
 		global $user;
-		global $water; 
+		global $rabbit_settings; 
 		
 		$finder = New PollVoteFinder();
 		$showresults = $finder->FindByPollAndUser( $poll, $user );
-		if ( $showresults ) {
-			$water->Trace( 'showresults is true' );
-		}
-		else {
-			$water->Trace( 'showresults is false' );
-		}
 		//used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
 			<h4><a href="<?php
