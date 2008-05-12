@@ -87,3 +87,6 @@ div.pollsmall div.results dl.pollinfo dd a, div.pollsmall div.results dl.pollinf
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
+div.pollsmall div.voting {
+	display: none;
+}
