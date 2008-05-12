@@ -22,7 +22,7 @@
 			ob_start();
 	    	Element( 'poll/small' , $poll , true );
 	    	echo w_json_encode( ob_get_clean() );
-	    	?> );<?php
+	    	?> ).animate( { opacity : "1" } , 400 );<?php
 		}
 	}
 ?>
