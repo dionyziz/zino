@@ -13,19 +13,25 @@
 				if ( $section == 'album' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="">Albums</a></li>
+				?>><a href="?p=albums&amp;username=<?php
+				Element( 'user/subdomain' , $theuser );
+				?>">Albums</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'poll' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="">Δημοσκοπήσεις</a></li>
+				?>><a href="?p=polls&amp;username=<?php
+				Element( 'user/subdomain' , $theuser );
+				?>">Δημοσκοπήσεις</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'journal' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="">Ημερολόγιο</a></li>
+				?>><a href="?p=journals&amp;username=<?php
+				Element( 'user/subdomain' , $theuser );
+				?>">Ημερολόγιο</a></li>
 			</ul>
 		</div><?php
 	}

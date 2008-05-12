@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollSmall( $poll , $showcommnum = false ) {
+	function ElementPollSmall( $poll , $showcommnum = false , $titlelink = false ) {
 		//global $page;
 		
 		//$showcommnum is a boolean variable checking whether the number of comments should appear at the bottom
@@ -9,7 +9,12 @@
 		
 		$showresults = true; //used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
-			<h4><a href=""><?php
+			<h4><a href="<?php
+			if ( $titlelink ) {
+				?>?p=poll&amp;id=<?php
+				echo $poll->Id;
+			}
+			?>"><?php
 			echo htmlspecialchars( $poll->Question );
 			?></a></h4>
 			<div class="results">	

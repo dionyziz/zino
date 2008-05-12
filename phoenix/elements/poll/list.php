@@ -31,7 +31,7 @@
 			<ul><?php
 				foreach ( $polls as $poll ) {
 					?><li><?php
-					Element( 'poll/small' , $poll , true );
+					Element( 'poll/small' , $poll , true , true );
 					?></li><?php
 				}
 				if ( $theuser->Id == $user->Id ) {

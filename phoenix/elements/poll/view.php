@@ -13,7 +13,7 @@
 		if ( $poll->IsDeleted() ) {
 			$page->SetTitle( $poll->Question );
 			?><div id="pollview"><?php
-				Element( 'poll/small' , $poll , false ); //don't show comments number
+				Element( 'poll/small' , $poll , false , false ); //don't show comments number
 				?>
 				<div class="delete">
 					<a href="" onclick="PollView.Delete( '<?php
