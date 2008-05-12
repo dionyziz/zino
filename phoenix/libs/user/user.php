@@ -109,7 +109,7 @@
         protected $mDbTableAlias = 'users';
        
         protected function SetPassword( $value ) {
-            $this->mPassword = md5( $value );
+            $this->Password = md5( $value );
         }
         protected function GetPassword() {
             throw New UserException( 'User passwords cannot be retrieved, as they are encrypted' );
