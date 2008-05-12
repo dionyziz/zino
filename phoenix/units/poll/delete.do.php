@@ -4,6 +4,7 @@
 		global $libs;
 		global $user;
 		global $rabbit_settings;
+		
 		$libs->Load( 'poll/poll' );
 		$poll = New Poll( $pollid->Get() );
 		if ( $poll->Userid == $user->Id ) {

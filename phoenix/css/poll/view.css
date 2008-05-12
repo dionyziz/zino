@@ -13,3 +13,6 @@ div#pollview div.pollsmall {
 div#pollview div.pollsmall div.results {
 	margin-bottom: 30px;
 }
+div#pollview div.delete {
+	margin-bottom: 10px;
+}
