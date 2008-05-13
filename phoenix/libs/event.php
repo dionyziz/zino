@@ -14,25 +14,63 @@
 	$event->Userid = $comment->Userid;
 	$event->Save();
 	*/
-	
+
 	function Event_Types() {
-		return array(
-			// TABLE(_FIELD)_ACTION, MODEL
-			array( 'EVENT_COMMENT_CREATED', 'Comment' ),
-			array( 'EVENT_FRIEND_ADDED', 'Relation' ),
-			array( 'EVENT_USER_MOOD_CHANGED', 'User' ),
-			array( 'EVENT_USER_PROFILE_VISITED', 'UserProfile' )
-		);
+        // New events here!
+        // EVENT_MODEL(_ATTRIBUTE)_ACTION
+        return array(
+            'EVENT_ALBUM_CREATED',
+            'EVENT_ALBUM_UPDATED',
+            'EVENT_ALBUM_DELETED',
+            'EVENT_COMMENT_CREATED',
+            'EVENT_COMMENT_UPDATED',
+            'EVENT_COMMENT_DELETED',
+            'EVENT_IMAGE_CREATED',
+            'EVENT_IMAGE_UPDATED',
+            'EVENT_IMAGE_DELETED',
+            'EVENT_JOURNAL_CREATED',
+            'EVENT_JOURNAL_UPDATED',
+            'EVENT_JOURNAL_DELETED',
+            'EVENT_POLL_CREATED',
+            'EVENT_POLL_UPDATED',
+            'EVENT_POLL_DELETED',
+            'EVENT_POLLVOTE_CREATED',
+            'EVENT_POLLOPTION_CREATED',
+            'EVENT_POLLOPTION_DELETED',
+            'EVENT_RELATION_CREATED',
+            'EVENT_RELATION_UPDATED',
+            'EVENT_SPACE_UPDATED',
+            'EVENT_USERPROFILE_UPDATED',
+            'EVENT_USERPROFILE_VISITED',
+            'EVENT_USERPROFILE_EDUCATION_UPDATED',
+            'EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED',
+            'EVENT_USERPROFILE_RELIGION_UPDATED',
+            'EVENT_USERPROFILE_POLITICS_UPDATED',
+            'EVENT_USERPROFILE_SMOKER_UPDATED',
+            'EVENT_USERPROFILE_DRINKER_UPDATED',
+            'EVENT_USERPROFILE_ABOUTME_UPDATED',
+            'EVENT_USERPROFILE_MOOD_UPDATED',
+            'EVENT_USERPROFILE_PLACEID_UPDATED'
+        );
 	}
 
 	function Event_ModelByType( $type ) {
-		$events = Event_Types();
-		return $events[ $type ][ 1 ];
+		static $models = array();
+        if ( empty( $models ) ) {
+            $types = Event_Types();
+            foreach ( $types as $key => $value ) {
+                $after_first_underscore = strpos( $value, '_' ) + 1;
+                $before_second_underscore = strpos( $value, '_', $after_first_underscore ) - 1;
+                $model = substr( $value, $after_first_underscore, $before_second_underscore - $after_first_underscore + 1 );
+                $models[ $key ] = $model;
+            }
+        }
+        return $models[ $type ];
 	}
 
 	$events = Event_Types();
 	for ( $i = 0; $i < count( $events ); ++$i ) {
-		define( $events[ $i ][ 0 ], $i );
+		define( $events[ $i ], $i );
 	}
 
     class EventException extends Exception {
