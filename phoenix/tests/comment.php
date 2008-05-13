@@ -30,7 +30,7 @@
         public function FunctionsExist() {
         }
         public function CreateComment() {
-            $comment = New Comment();
+            $comment = New TestComment();
             $comment->Typeid = 0;
             $comment->Pageid = 1;
             $comment->Save();    
