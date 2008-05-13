@@ -33,10 +33,9 @@
             $comment = New Comment();
             $comment->Typeid = 0;
             $comment->Pageid = 1;
-            $comment->Save();
+            $comment->Save();    
         }
         public function TearDown() {
-            $this->mTable->Delete();
         }
     }
 
