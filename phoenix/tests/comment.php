@@ -23,19 +23,20 @@
 
             $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
         }
-        public function ClassesExist() {
+        public function TestClassesExist() {
         }
-        public function MethodsExist() {
+        public function TestMethodsExist() {
         }
-        public function FunctionsExist() {
+        public function TestFunctionsExist() {
         }
-        public function CreateComment() {
+        public function TestCreateComment() {
             $comment = New TestComment();
             $comment->Typeid = 0;
             $comment->Pageid = 1;
             $comment->Save();    
         }
         public function TearDown() {
+            $this->mTable->Delete();
         }
     }
 
