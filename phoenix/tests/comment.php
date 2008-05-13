@@ -9,6 +9,7 @@
 
     class CommentTest extends Testcase {
         protected $mAppliesTo = 'libs/comment';
+        private $mTable;
 
         public function SetUp() {
             global $rabbit_settings;
@@ -18,40 +19,9 @@
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
             $table = New DbTable( $db, 'comments', 'comments' );
-            $table->Copy( 'testcomments' );
+            $table->Copy( 'testcomments', 'testcomments' );
 
-            /*
-            $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
-            w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
-            $this->mDb = $GLOBALS[ $databasealiases[ 0 ] ];
-
-            $table = New DbTable();
-            $table->Name = 'testcomments';
-            $table->Alias = 'testcomments';
-            $table->Database = $this->mDb;
-
-            $field = New DbField();
-            $field->Name = 'comment_id';
-            $field->Type = DB_TYPE_INT;
-            $field->IsAutoIncrement = true;
-
-            $field2 = New DbField();
-            $field2->Name = 'comment_userid';
-            $field2->Type = DB_TYPE_INT;
-
-            $field3 = New DbField();
-            $field3->Name = 'comment_created';
-            $field3->Type = 
-            
-            $field->Name = 'test_id';
-            $field->Type = DB_TYPE_INT;
-            $field->IsAutoIncrement = true;
-            
-            $field2 = New DBField();
-            $field2->Name = 'test_char';
-            $field2->Type = DB_TYPE_CHAR;
-            $field2->Length = 4;
-            */
+            $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
         }
         public function ClassesExist() {
         }
@@ -60,8 +30,13 @@
         public function FunctionsExist() {
         }
         public function CreateComment() {
+            $comment = New Comment();
+            $comment->Typeid = 0;
+            $comment->Pageid = 1;
+            $comment->Save();
         }
         public function TearDown() {
+            $this->mTable->Delete();
         }
     }
 

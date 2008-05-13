@@ -200,10 +200,14 @@
 			$this->mAlias = $alias;
             $this->mIndexes = false;
 		}
-        public function Copy( $newtable ) {
+        public function Copy( $newalias, $newtable ) {
             $query = $this->mDb->Prepare( 'CREATE TABLE ' . $newtable . ' LIKE :' . $this->mAlias . ';' );
             $query->BindTable( $this->mAlias );
-            return $query->Execute();
+            if ( $query->Execute()->Impact() ) {
+                $this->mDb->AttachTable( $newalias, $newtable );
+                return true;
+            }
+            return false;
         }
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
