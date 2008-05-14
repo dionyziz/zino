@@ -109,8 +109,10 @@
         return $parented;
     }
 
-    function Comment_UserIsSpamBot() {
-        $finder = New CommentFinder();
+    function Comment_UserIsSpamBot( $finder = false ) { // change finder for testcase
+        if ( $finder === false ) {
+            $finder = New CommentFinder();
+        }
         if ( $finder->UserIsSpamBot() ) {
             // email dio
             $subject = "WARNING! Comment spambot detected!";

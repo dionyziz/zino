@@ -14,12 +14,14 @@
 
         public function SetUp() {
             global $rabbit_settings;
+            global $water;
 
             $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
             $existing_tables = $db->Tables();
+            $water->Dump( 'existing tables', $existing_tables );
             if ( isset( $existing_tables[ 'testcomments' ] ) ) {
                 $table = New DbTable( $db, 'testcomments', 'testcomments' );
                 $table->Delete();
