@@ -8,10 +8,10 @@
         private $mModel;
         private $mTestModel;
 
-        protected function SetAppliesTo( $library ) {
-            $this->mAppliesTo = "libs/$library";
-        }
-        protected function SetModel( $model ) {
+        public function SetUp() {
+            global $rabbit_settings;
+            global $water;
+
             $this->mTestModel = $model;
             $this->mModel = get_parent_class( $model );
             
@@ -20,10 +20,6 @@
 
             $object = New $this->mModel();
             $this->mTable = $object->DbTable;
-        }
-        public function SetUp() {
-            global $rabbit_settings;
-            global $water;
 
             $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
@@ -52,11 +48,16 @@
         protected $mDbTableAlias = 'testcomments';
     }
 
-    class CommentTest extends LibraryTestcase {
-        public function SetUp() {
-            $this->AppliesTo = 'comment';
-            $this->Model = 'TestComment';
+    class TestCommentFinder extends CommentFinder {
+        protected $mModel = 'TestComment';
+    }
 
+    class CommentTest extends LibraryTestcase {
+        protected $mAppliesTo = 'libs/comments';
+        protected $mModel = 'TestComment';
+        protected $mFinder = 'TestCommentFinder';
+
+        public function SetUp() {
             parent::SetUp();
         }
         public function TearDown() {
@@ -125,6 +126,9 @@
     }
     */
 
-    return New CommentTest();
+    $test = New CommentTest();
+    $test->Init();
+
+    return New $test;
 
 ?>
