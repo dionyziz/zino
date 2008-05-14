@@ -19,7 +19,8 @@
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
             $table = New DbTable( $db, 'comments', 'comments' );
-            w_assert( $table->Copy( 'testcomments', 'testcomments' ), 'Could not copy comments table' );
+            $change = $table->Copy( 'testcomments', 'testcomments' );
+            w_assert( $change, 'Could not copy comments table' );
 
             $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
         }
