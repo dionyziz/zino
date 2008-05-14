@@ -1,10 +1,12 @@
 <?php
 	
 	function ElementJournalView( tInteger $id ) {
-	
+		global $page;
+		
 		$journal = New Journal( $id->Get() );
 		Element( 'user/sections' , 'journal' , $journal->User );
 		
+		$page->SetTitle( $journal->Title );
 		?><div id="journalview">
 			<h2><?php
 			echo htmlspecialchars( $journal->Title );
@@ -24,7 +26,9 @@
 						?></dd><?php
 					}
 					?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
-					<dd class="lastentries"><a href="">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
+					<dd class="lastentries"><a href="?p=journals&amp;username=<?php
+					echo $journal->User->Subdomain;
+					?>">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
 				</dl>
 				<div class="eof"></div>
 				<p><?php
