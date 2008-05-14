@@ -19,14 +19,25 @@
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
+            $existing_tables = $db->Tables();
+            if ( isset( $existing_tables[ 'testcomments' ] ) ) {
+                $table = New DbTable( $db, 'testcomments', 'testcomments' );
+                $table->Delete();
+            }
             $table = New DbTable( $db, 'comments', 'comments' );
             $table->Copy( 'testcomments', 'testcomments' );
 
             $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
 
+            $ufinder = New UserFinder();
+            $user = $ufinder->FindByName( 'testcomments' );
+            if ( $user !== false ) {
+                $user->Delete();
+            }
+
             $this->mUser = New User();
             $this->mUser->Name = 'testcomments';
-            $this->mUser->Password = 'testcomments';
+            $this->mUser->Subdomain = 'testcomments';
             $this->mUser->Save();
         }
         public function TestClassesExist() {
@@ -45,6 +56,9 @@
         public function TearDown() {
             if ( is_object( $this->mTable ) ) {
                 $this->mTable->Delete();
+            }
+            if ( is_object( $this->mUser ) ) {
+                $this->mUser->Delete();
             }
         }
     }
