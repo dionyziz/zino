@@ -40,8 +40,7 @@
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function IsDeleted() {
-            $finder = New JournalFinder();
-            return $finder->FindById( $this->Id ) === false;
+            return $this->Exists() === false;
         }
     }
 
