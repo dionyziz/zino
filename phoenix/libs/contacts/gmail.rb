@@ -27,7 +27,14 @@ def login
 	a = page.body[/nvp_bu_sc.*$/]
 	a = a[/<table.*$/]
 	a = a[a.index('>')+2..a.index('</table>')-1]
-	puts a #page.body
+	lines = a.split('<tr>')
+	lines.each do |x|
+	    if x=~/<td>/ then
+		fields = x.split('<td>')
+		print fields[2].gsub(/<b>(.*)<\/b>/,'\1'), "\n", fields[3][0..fields[3].index('</td>')-1], "\n"
+	    end
+	end
+#	puts a #page.body
 end
 
 LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fh%2Fposshk2wzcz6%2F%3Fnsr%3D0%26ui%3Dhtml&ltmpl=default&ltmplcache=2'
