@@ -10,10 +10,10 @@
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
 			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-				$page->SetTitle( $username . " Ημερολόγιο" );
+				$page->SetTitle( $username . " Ξ—ΞΌΞµΟΞΏΞ»ΟΞ³ΞΉΞΏ" );
 			}
 			else {
-				$page->SetTitle( $username . " ημερολόγιο" );
+				$page->SetTitle( $username . " Ξ·ΞΌΞµΟΞΏΞ»ΟΞ³ΞΉΞΏ" );
 			}
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
