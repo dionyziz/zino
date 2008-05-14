@@ -31,6 +31,7 @@
 						<a href="" onclick="return false;"><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>pencil.png" alt="Επεξεργασία" title="Επεξεργασία" />Επεξεργασία
+						</a>
 					</dd>
 					<dd class="delete">
 						<a href="" onclick="return false;"><img src="<?php
