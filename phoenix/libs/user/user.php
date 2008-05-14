@@ -128,9 +128,11 @@
             $this->Avatar = $this->HasOne( 'Image', 'Icon' );
         }
         public function Delete() { // for unit testing
+            /* dude, profile's can't be deleted
             if ( $this->Profile->Exists() ) {
                 $this->Profile->Delete();
             }
+            */
             if ( $this->Preferences->Exists() ) {
                 $this->Preferences->Delete();
             }
