@@ -24,43 +24,19 @@
 		
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
-			<ul>
-				<li><?php
+			<ul><?php
+			foreach ( $polls as $poll ) {
+				?><li><?php
 					Element( 'journal/small' );
 					?><div class="barfade">
 						<div class="leftbar"></div>
 						<div class="rightbar"></div>
 					</div>
-				</li>
-				<li><?php
-					Element( 'journal/small' );
-					?><div class="barfade">
-						<div class="leftbar"></div>
-						<div class="rightbar"></div>
-					</div>
-				</li>
-				<li><?php
-					Element( 'journal/small' );
-					?><div class="barfade">
-						<div class="leftbar"></div>
-						<div class="rightbar"></div>
-					</div>
-				</li>
-				<li><?php
-					Element( 'journal/small' );
-					?><div class="barfade">
-						<div class="leftbar"></div>
-						<div class="rightbar"></div>
-					</div>
-				</li>
-				<li><?php
-					Element( 'journal/small' );
-					?><div class="barfade">
-						<div class="leftbar"></div>
-						<div class="rightbar"></div>
-					</div>
-				</li>
-			</ul>
-		</div><img src="http://static.zino.gr/phoenix/heart.png" style="display:none;" /><?php
+				</li><?php
+			}
+			?></ul>
+		</div><img src="<?php
+		echo $rabbit_settings[ 'imagesurl' ];
+		?>heart.png" style="display:none;" /><?php
 	}
 ?>
