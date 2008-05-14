@@ -47,6 +47,8 @@
             $this->mUser->Save();
         }
         public function TestClassesExist() {
+            $this->Assert( class_exists( 'Comment' ), 'Comment class does not exist' );
+            $this->Assert( class_exists( 'CommentFinder' ), 'CommentFinder class does not exist' );
         }
         public function TestMethodsExist() {
         }
