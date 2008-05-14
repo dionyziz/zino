@@ -3,6 +3,7 @@
 	function ElementJournalView( tInteger $id ) {
 		global $page;
 		global $rabbit_settings;
+		global $user;
 		
 		$journal = New Journal( $id->Get() );
 		Element( 'user/sections' , 'journal' , $journal->User );
