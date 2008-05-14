@@ -53,7 +53,7 @@
     }
 
     class CommentTest extends LibraryTestcase {
-        protected $mAppliesTo = 'libs/comments';
+        protected $mAppliesTo = 'libs/comment';
         protected $mModel = 'TestComment';
         protected $mFinder = 'TestCommentFinder';
 
