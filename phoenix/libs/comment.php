@@ -279,18 +279,20 @@
         }
         public function Relations() {
             switch ( $this->Typeid ) {
-                case 'COMMENT_JOURNAL':
+                case COMMENT_JOURNAL:
                     $class = 'Journal';
                     break;
-                case 'COMMENT_PROFILE':
+                case COMMENT_PROFILE:
                     $class = 'UserProfile';
                     break;
-                case 'COMMENT_IMAGE':
+                case COMMENT_IMAGE:
                     $class = 'Image';
                     break;
-                case 'COMMENT_POLL':
+                case COMMENT_POLL:
                     $class = 'Poll';
                     break;
+                default:
+                    throw Exception( 'Invalid comment typeid: ' . $this->Typeid );
             }
 
             $this->Item = $this->HasOne( $class, 'Itemid' );
