@@ -170,7 +170,7 @@
             $query->Bind( 'UserIp', $ip );
             
             // Execute query
-            $row = $query->Execute()->FetchRow();
+            $row = $query->Execute()->FetchArray();
 
             if ( $row[ "comcount" ] > 0 ) {
                 return true;
