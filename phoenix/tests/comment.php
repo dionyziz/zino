@@ -126,9 +126,6 @@
     }
     */
 
-    $test = New CommentTest();
-    $test->Init();
-
-    return New $test;
+    return New CommentTest();
 
 ?>
