@@ -36,7 +36,9 @@
             $comment->Save();    
         }
         public function TearDown() {
-            $this->mTable->Delete();
+            if ( is_object( $this->mTable ) ) {
+                $this->mTable->Delete();
+            }
         }
     }
 
