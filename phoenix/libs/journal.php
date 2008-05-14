@@ -13,8 +13,14 @@
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
         
-        public function GetText() {
-            return $this->Bulk->Text;
+        public function GetText( $length = false ) {
+            if ( $length == false ) {
+                return $this->Bulk->Text;
+            }
+            else {
+                $text = ereg_replace( "<[^>]*>", "", $this->Bulk->Text );
+                return substr( $text, $length );
+            }
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
@@ -32,7 +38,5 @@
             return $this->Delid > 0;
         }
     }
-
-    // this can't be so small..
 
 ?>
