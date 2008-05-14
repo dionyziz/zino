@@ -133,9 +133,11 @@
                 $this->Profile->Delete();
             }
             */
+            /* dude, same here
             if ( $this->Preferences->Exists() ) {
                 $this->Preferences->Delete();
             }
+            */
             foreach ( $this->Albums as $album ) {
                 $album->Delete();
             }
