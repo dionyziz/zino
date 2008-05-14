@@ -19,7 +19,7 @@
             }
             else {
                 $text = ereg_replace( "<[^>]*>", "", $this->Bulk->Text );
-                return substr( $text, $length );
+                return utf8_substr( $text, $length );
             }
         }
         public function OnCommentCreate() {
