@@ -25,7 +25,7 @@
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
 			<ul><?php
-			foreach ( $polls as $poll ) {
+			foreach ( $journals as $journal ) {
 				?><li><?php
 					Element( 'journal/small' );
 					?><div class="barfade">
@@ -35,7 +35,8 @@
 				</li><?php
 			}
 			?></ul>
-		</div><img src="<?php
+		</div>
+		<div class="eof"></div><img src="<?php
 		echo $rabbit_settings[ 'imagesurl' ];
 		?>heart.png" style="display:none;" /><?php
 	}
