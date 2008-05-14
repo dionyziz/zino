@@ -47,27 +47,27 @@
             // TODO: Encapsulate image update logic into the images model
 			$query  = $this->mDb->Prepare("
 				UPDATE 
-                    :" . $this->mImageTable . "
+                    :" . $this->ImageTable . "
 				SET
 					`image_delid` 	= :ImageDelId
 				WHERE
 				  	`image_albumid` = :AlbumId;
 			");
-			$query->BindTable( $this->mImageTable );
+			$query->BindTable( $this->ImageTable );
 			$query->Bind( 'ImageDelId', 1 );
 			$query->Bind( 'AlbumId', $this->Id );
 			$query->Execute();
 		}
-        public function CommentAdded() {
-			++$this->mNumComments;
+        public function OnCommentCreate() {
+			++$this->NumComments;
 		    $this->Save();	
         }
-        public function CommentDeleted() {
-			--$this->mNumComments;
+        public function OnCommentDelete() {
+			--$this->NumComments;
 		    $this->Save();	
         }
         public function ImageDeleted( $image ) {
-            $this->mNumComments -= $image->NumComments();
+            $this->NumComments -= $image->NumComments();
             $this->Save();
         }
         protected function OnUpdate( $attributes ) {
