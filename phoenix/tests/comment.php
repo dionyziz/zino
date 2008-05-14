@@ -12,8 +12,7 @@
             global $rabbit_settings;
             global $water;
 
-            $this->mTestModel = $model;
-            $this->mModel = get_parent_class( $model );
+            $this->mModel = get_parent_class( $this->mTestModel );
             
             $object = New $this->mTestModel();
             $this->mTestTable = $object->DbTable;
@@ -54,7 +53,7 @@
 
     class CommentTest extends LibraryTestcase {
         protected $mAppliesTo = 'libs/comment';
-        protected $mModel = 'TestComment';
+        protected $mTestModel = 'TestComment';
         protected $mFinder = 'TestCommentFinder';
 
         public function SetUp() {
