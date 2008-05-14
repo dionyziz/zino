@@ -10,6 +10,7 @@
     class CommentTest extends Testcase {
         protected $mAppliesTo = 'libs/comment';
         private $mTable;
+        private $mUser;
 
         public function SetUp() {
             global $rabbit_settings;
