@@ -24,7 +24,10 @@ def login
 #	link = page.links.text(/Contacts/)
  	page = @agent.get(ContactsURL)
 
-	puts page.body
+	a = page.body[/nvp_bu_sc.*$/]
+	a = a[/<table.*$/]
+	a = a[a.index('>')+2..a.index('</table>')-1]
+	puts a #page.body
 end
 
 LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fh%2Fposshk2wzcz6%2F%3Fnsr%3D0%26ui%3Dhtml&ltmpl=default&ltmplcache=2'
