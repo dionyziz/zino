@@ -26,6 +26,12 @@
 						?></dd><?php
 					}
 					?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
+					<dd class="delete">
+						<a href="" onclick="return false;"><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>delete.png" alt="Διαγραφή" title="Διαγραφή" /> Διαγραφή
+						</a>
+					</dd>
 					<dd class="lastentries"><a href="?p=journals&amp;username=<?php
 					echo $journal->User->Subdomain;
 					?>">Παλαιότερες καταχωρήσεις&raquo;</a></dd>

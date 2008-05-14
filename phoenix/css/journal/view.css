@@ -19,9 +19,12 @@ div#journalview div.journal dl dd.commentsnum {
 	font-size: 90%;
 }
 div#journalview div.journal dl dd.addfav{
-	margin: 0;
+	margin: 0 0 0 5px;
 	padding: 0 0 0 2px;
 	display: inline;
+}
+div#journalview div.journal dl dd.delete {
+
 }
 div#journalview div.journal dl dd.lastentries {
 	padding-top: 2px;
