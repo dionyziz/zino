@@ -240,6 +240,8 @@
             global $mc;
             global $libs;
 
+            $libs->Load( 'event' );
+
             $mc->delete( 'latestcomments' );
 
             if ( method_exists( $this->Item, 'OnCommentCreate' ) ) {
