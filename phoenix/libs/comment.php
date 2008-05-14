@@ -236,10 +236,14 @@
         }
         public function OnCreate() {
             global $mc;
+            global $libs;
 
             $mc->delete( 'latestcomments' );
 
-            $this->Item->OnCommentCreate();
+            if ( method_exists( $this->Item, 'OnCommentCreate' ) ) {
+                $this->Item->OnCommentCreate();
+            }
+
             $this->User->AddContrib();
 
             /* EVENTS!

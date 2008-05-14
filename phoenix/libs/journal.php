@@ -16,6 +16,10 @@
         public function GetText() {
             return $this->Bulk->Text;
         }
+        public function OnCommentCreate() {
+            ++$this->mNumcomments;
+            $this->Save();
+        }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
