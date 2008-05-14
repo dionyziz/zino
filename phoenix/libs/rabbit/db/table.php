@@ -201,13 +201,11 @@
             $this->mIndexes = false;
 		}
         public function Copy( $newalias, $newtable ) {
-            $query = $this->mDb->Prepare( 'CREATE TABLE ' . $newtable . ' LIKE :' . $this->mAlias . ';' );
+            $this->mDb->AttachTable( $newalias, $newtable );
+
+            $query = $this->mDb->Prepare( 'CREATE TABLE :' . $newalias . ' LIKE :' . $this->mAlias . ';' );
+            $query->BindTable( $newalias );
             $query->BindTable( $this->mAlias );
-            if ( $query->Execute()->Impact() ) {
-                $this->mDb->AttachTable( $newalias, $newtable );
-                return true;
-            }
-            return false;
         }
 		public function Truncate() {
 			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
