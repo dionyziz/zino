@@ -34,9 +34,6 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
-        public function IsDeleted() {
-            return $this->Delid > 0;
-        }
     }
 
 ?>
