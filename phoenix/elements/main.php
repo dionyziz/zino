@@ -63,6 +63,8 @@
 		$page->AttachScript( 'js/album/photo/list.js' );
 		$page->AttachScript( 'js/poll/list.js' );
 		$page->AttachScript( 'js/poll/view.js' );
+		$page->AttachScript( 'js/journal/list.js' );
+		$page->AttachScript( 'js/journal/view.js' );
 		$page->AttachScript( 'js/user/join.js' );
 		$page->AttachScript( 'js/user/joined.js' );
 		$page->AttachScript( 'js/user/settings.js' );
