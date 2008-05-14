@@ -21,7 +21,7 @@
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
             $existing_tables = $db->Tables();
-            $water->Dump( 'existing tables', $existing_tables );
+            $water->Trace( 'existing tables', $existing_tables );
             if ( isset( $existing_tables[ 'testcomments' ] ) ) {
                 $table = New DbTable( $db, 'testcomments', 'testcomments' );
                 $table->Delete();
