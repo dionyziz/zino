@@ -53,11 +53,10 @@
     }
 
     class CommentTest extends LibraryTestcase {
-        public function __construct() {
+        public function SetUp() {
             $this->AppliesTo = 'comment';
             $this->Model = 'TestComment';
-        }
-        public function SetUp() {
+
             parent::SetUp();
         }
         public function TearDown() {
