@@ -270,13 +270,13 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
-        public function Save( $theuser = false ) {
+        public function Save() {
             global $user;
 
-            if ( $theuser === false ) {
-                $theuser = $user;
+            if ( !$this->User->Exists() ) {
+                throw new Exception( 'Non existing user on Comment::User' );
             }
-            if ( $this->Exists() && ( !$this->IsEditableBy( $theuser ) || Comment_UserIsSpamBot() ) ) {
+            if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot() ) {
                 return false;
             }
             return parent::Save();
@@ -296,7 +296,7 @@
                     $class = 'Poll';
                     break;
                 default:
-                    throw Exception( 'Invalid comment typeid: ' . $this->Typeid );
+                    throw new Exception( 'Invalid comment typeid: ' . $this->Typeid );
             }
 
             $this->Item = $this->HasOne( $class, 'Itemid' );

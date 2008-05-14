@@ -22,6 +22,11 @@
             $table->Copy( 'testcomments', 'testcomments' );
 
             $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
+
+            $this->mUser = New User();
+            $this->mUser->Name = 'testcomments';
+            $this->mUser->Password = 'testcomments';
+            $this->mUser->Save();
         }
         public function TestClassesExist() {
         }
@@ -33,6 +38,7 @@
             $comment = New TestComment();
             $comment->Typeid = 0;
             $comment->Itemid = 1;
+            $comment->Userid = $this->mUser->Id; 
             $comment->Save();    
         }
         public function TearDown() {
