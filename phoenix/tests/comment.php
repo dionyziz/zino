@@ -5,8 +5,8 @@
 
     class LibraryTestcase extends Testcase {
         protected $mAppliesTo;
-        private $mModel;
-        private $mTestModel;
+        protected $mModel;
+        protected $mTestModel;
 
         public function SetUp() {
             global $rabbit_settings;
