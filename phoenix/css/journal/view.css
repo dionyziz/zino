@@ -27,7 +27,7 @@ div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delet
 	margin-left: 5px;
 	display: inline;
 }
-div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd.edit a img {
+div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd.delete a img {
 	padding-right: 2px;
 }
 div#journalview div.journal dl dd.edit {
