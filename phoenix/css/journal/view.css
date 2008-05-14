@@ -26,6 +26,9 @@ div#journalview div.journal dl dd.addfav{
 div#journalview div.journal dl dd.delete {
 
 }
+div#journalview div.journal dl dd.edit {
+
+}
 div#journalview div.journal dl dd.lastentries {
 	padding-top: 2px;
 }
