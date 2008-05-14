@@ -25,14 +25,19 @@
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
 			<ul><?php
-			foreach ( $journals as $journal ) {
-				?><li><?php
-					Element( 'journal/small' , $journal );
-					?><div class="barfade">
-						<div class="leftbar"></div>
-						<div class="rightbar"></div>
-					</div>
-				</li><?php
+			if ( !empty( $journals ) ) {
+				foreach ( $journals as $journal ) {
+					?><li><?php
+						Element( 'journal/small' , $journal );
+						?><div class="barfade">
+							<div class="leftbar"></div>
+							<div class="rightbar"></div>
+						</div>
+					</li><?php
+				}
+			}
+			else {
+				?>Δεν υπάρχουν καταχωρήσεις<?php
 			}
 			?></ul>
 		</div>
