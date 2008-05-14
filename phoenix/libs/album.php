@@ -12,6 +12,7 @@
     
     class Album extends Satori {
         protected $mDbTableAlias = 'albums';
+        private $mImageTableAlias = 'images';
 
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
@@ -43,17 +44,21 @@
             }
             $this->Delid = 1;
             $this->Save();
-			
-            // TODO: Encapsulate image update logic into the images model
+		    
+            /*
+            This would be nicer this way:
+            $album->Images->Delete();
+            But we'll need Finders to return a collection rather than an array
+            */
 			$query  = $this->mDb->Prepare("
 				UPDATE 
-                    :" . $this->ImageTable . "
+                    :" . $this->mImageTableAlias . "
 				SET
 					`image_delid` 	= :ImageDelId
 				WHERE
 				  	`image_albumid` = :AlbumId;
 			");
-			$query->BindTable( $this->ImageTable );
+			$query->BindTable( $this->mImageTableAlias );
 			$query->Bind( 'ImageDelId', 1 );
 			$query->Bind( 'AlbumId', $this->Id );
 			$query->Execute();
