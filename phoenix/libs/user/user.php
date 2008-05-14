@@ -210,6 +210,15 @@
             }
 			
 			$this->Authtoken = $authtoken;
+        } 
+        // user added a new comment; for profile comments, UserProfile::OnCommentCreate
+        public function OnCommentCreate() {
+            ++$this->Numcomments;
+            $this->Save();
+        }
+        public function OnCommentDelete() {
+            --$this->Numcomments;
+            $this->Save();
         }
     }
 ?>

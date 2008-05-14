@@ -20,6 +20,10 @@
             ++$this->Numcomments;
             $this->Save();
         }
+        public function OnCommentDelete() {
+            --$this->Numcomments;
+            $this->Save();
+        }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );

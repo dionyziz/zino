@@ -217,7 +217,7 @@
             $this->Delid = 1;
             $this->Save();
 
-            $this->User->RemoveContrib();
+            $this->User->OnCommentDelete();
             $this->Item->OnCommentDelete();
         }
         public function UndoDelete( $user ) {
@@ -244,7 +244,7 @@
                 $this->Item->OnCommentCreate();
             }
 
-            $this->User->AddContrib();
+            $this->User->OnCommentCreate();
 
             /* EVENTS!
             if ( $this->Parent->Exists() ) {
