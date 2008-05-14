@@ -8,6 +8,7 @@
         protected $mModel;
         protected $mFinder;
         protected $mTestModel;
+        protected $mTable;
 
         public function SetUp() {
             global $rabbit_settings;
