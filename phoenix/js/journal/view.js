@@ -3,7 +3,7 @@ var JournalView = {
 		
 	},
 	Delete : function( journalid ) {
-		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την καταχώρηση;" ) ){
+		if ( confirm( "ΞΞ­Ξ»ΞµΞΉΟ‚ ΟƒΞ―Ξ³ΞΏΟ…ΟΞ± Ξ½Ξ± Ξ΄ΞΉΞ±Ξ³ΟΞ¬ΟΞµΞΉΟ‚ Ο„Ξ·Ξ½ ΞΊΞ±Ο„Ξ±Ο‡ΟΟΞ·ΟƒΞ·;" ) ){
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'journal/delete' , { journalid : journalid } );
 		}
