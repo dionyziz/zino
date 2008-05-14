@@ -20,14 +20,15 @@
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
             $db = $GLOBALS[ $databasealiases[ 0 ] ];
 
-            $existing_tables = $db->Tables();
-            $water->Trace( 'existing tables', $existing_tables );
-            if ( isset( $existing_tables[ 'testcomments' ] ) ) {
-                $table = New DbTable( $db, 'testcomments', 'testcomments' );
-                $table->Delete();
-            }
             $table = New DbTable( $db, 'comments', 'comments' );
-            $table->Copy( 'testcomments', 'testcomments' );
+            try {
+                $table->Copy( 'testcomments', 'testcomments' );
+            } catch ( Exception $e ) { // ooops already found testcomments
+                $oldtable = New DbTable( $db, 'testcomments', 'testcomments' );
+                $oldtable->Delete();
+
+                $table->Copy( 'testcomments', 'testcomments' );
+            }
 
             $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
 
