@@ -32,7 +32,7 @@
         public function TestCreateComment() {
             $comment = New TestComment();
             $comment->Typeid = 0;
-            $comment->Pageid = 1;
+            $comment->Itemid = 1;
             $comment->Save();    
         }
         public function TearDown() {
