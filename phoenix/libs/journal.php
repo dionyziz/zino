@@ -17,7 +17,7 @@
             return $this->Bulk->Text;
         }
         public function OnCommentCreate() {
-            ++$this->mNumcomments;
+            ++$this->Numcomments;
             $this->Save();
         }
         protected function Relations() {
