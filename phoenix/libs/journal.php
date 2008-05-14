@@ -3,6 +3,11 @@
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
         
+        public function FindById( $id ) {
+            $prototype = New Journal();
+            $prototype->Id = $id;
+            return $this->FindByPrototype( $prototype );
+        }
         public function FindByUser( $user ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
@@ -33,6 +38,10 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
+        }
+        public function IsDeleted() {
+            $finder = New JournalFinder();
+            return $finder->FindById( $this->Id ) === false;
         }
     }
 
