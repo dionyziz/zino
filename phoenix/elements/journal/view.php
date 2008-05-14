@@ -56,12 +56,16 @@
 					<p><?php
 					echo $journal->Text; //has to get through some editing for tags that are not allowed
 					?></p>
-				</div><?php
+				</div>
+				<div class="comments"><?php
+					Element( 'comment/list' );
+				?></div><?php
 			}
-			?><div class="comments"><?php
-				Element( 'comment/list' );
-			?></div>
-			<div class="eof"></div>		
+			else {
+				$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
+				?>Η καταχώρηση δεν υπάρχει<?php
+			}
+			?><div class="eof"></div>		
 		</div><?php
 	}
 ?>
