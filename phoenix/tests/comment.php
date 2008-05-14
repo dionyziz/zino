@@ -6,19 +6,18 @@
     class LibraryTestcase extends Testcase {
         protected $mAppliesTo;
         protected $mModel;
+        protected $mFinder;
         protected $mTestModel;
 
         public function SetUp() {
             global $rabbit_settings;
             global $water;
 
-            $this->mModel = get_parent_class( $this->mTestModel );
-            
-            $object = New $this->mTestModel();
-            $this->mTestTable = $object->DbTable;
-
             $object = New $this->mModel();
             $this->mTable = $object->DbTable;
+
+            $test_table_name = 'test' . $this->mTable->Name;
+            $test_table_alias = 'test' . $this->mTable->Alias;
 
             $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
@@ -26,15 +25,15 @@
 
             $table = $this->mTable;
             try {
-                $table->Copy( $this->mTestTable->Name, $this->mTestTable->Alias );
+                $table->Copy( $test_table_name, $test_table_alias );
             } catch ( Exception $e ) { // ooops already found testcomments
-                $oldtable = $this->mTestTable;
+                $oldtable = new DbTable( $db, $test_table_name, $test_table_alias );
                 $oldtable->Delete();
 
-                $table->Copy( $this->mTestTable->Name, $this->mTestTable->Alias );
+                $table->Copy( $test_table_name, $test_table_alias );
             }
 
-            $this->mTestTable = New DbTable( $db, $this->mTestTable->Name, $this->mTestTable->Alias );
+            $this->mTestTable = New DbTable( $db, $test_table_name, $test_table_alias );
         }
         public function TearDown() {
             if ( is_object( $this->mTestTable ) ) {
@@ -53,8 +52,8 @@
 
     class CommentTest extends LibraryTestcase {
         protected $mAppliesTo = 'libs/comment';
-        protected $mTestModel = 'TestComment';
-        protected $mFinder = 'TestCommentFinder';
+        protected $mModel = 'Comment';
+        protected $mFinder = 'CommentFinder';
 
         public function SetUp() {
             parent::SetUp();
