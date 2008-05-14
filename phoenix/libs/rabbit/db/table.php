@@ -200,7 +200,7 @@
 			$this->mAlias = $alias;
             $this->mIndexes = false;
 		}
-        public function Copy( $newalias, $newtable ) {
+        public function Copy( $newtable, $newalias ) {
             $this->mDb->AttachTable( $newalias, $newtable );
 
             $query = $this->mDb->Prepare( 'CREATE TABLE :' . $newalias . ' LIKE :' . $this->mAlias . ';' );

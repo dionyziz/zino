@@ -3,10 +3,69 @@
     global $libs;
     $libs->Load( 'comment' );
 
+    class LibraryTestcase extends Testcase {
+        protected $mAppliesTo;
+        private $mModel;
+        private $mTestModel;
+
+        protected function SetAppliesTo( $library ) {
+            $this->mAppliesTo = "libs/$library";
+        }
+        protected function SetModel( $model ) {
+            $this->mTestModel = $model;
+            $this->mModel = get_parent_class( $model );
+            
+            $object = New $this->mTestModel();
+            $this->mTestTable = $object->DbTable;
+
+            $object = New $this->mModel();
+            $this->mTable = $object->DbTable;
+        }
+        public function SetUp() {
+            global $rabbit_settings;
+            global $water;
+
+            $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
+            w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
+            $db = $GLOBALS[ $databasealiases[ 0 ] ];
+
+            $table = $this->mTable;
+            try {
+                $table->Copy( $this->mTestTable->Name, $this->mTestTable->Alias );
+            } catch ( Exception $e ) { // ooops already found testcomments
+                $oldtable = $this->mTestTable;
+                $oldtable->Delete();
+
+                $table->Copy( $this->mTestTable->Name, $this->mTestTable->Alias );
+            }
+
+            $this->mTestTable = New DbTable( $db, $this->mTestTable->Name, $this->mTestTable->Alias );
+        }
+        public function TearDown() {
+            if ( is_object( $this->mTestTable ) ) {
+                $this->mTestTable->Delete();
+            }
+        }
+    }
+    
     class TestComment extends Comment {
         protected $mDbTableAlias = 'testcomments';
     }
 
+    class CommentTest extends LibraryTestcase {
+        public function __construct() {
+            $this->AppliesTo = 'comment';
+            $this->Model = 'TestComment';
+        }
+        public function SetUp() {
+            parent::SetUp();
+        }
+        public function TearDown() {
+            parent::TearDown();
+        }
+    }
+
+    /*
     class CommentTest extends Testcase {
         protected $mAppliesTo = 'libs/comment';
         private $mTable;
@@ -65,6 +124,7 @@
             }
         }
     }
+    */
 
     return New CommentTest();
 
