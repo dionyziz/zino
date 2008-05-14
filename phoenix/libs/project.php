@@ -80,7 +80,7 @@
 			"settings"			=> "user/settings/view",
 			"join" 				=> "user/join",
 			"joined"			=> "user/joined",
-			"journallist"		=> "journal/list",
+			"journals"			=> "journal/list",
 			"journal"			=> "journal/view",
 			"polls"				=> "poll/list",
 			"poll"				=> "poll/view",

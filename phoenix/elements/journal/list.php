@@ -1,11 +1,28 @@
 <?php
 	
-	function ElementJournalList() {
-		//global $page;
+	function ElementJournalList( tString $username ) {
+		global $page;
+		global $rabbit_settings;
 		
-		//$page->AttachStyleSheet( 'css/journal/list.css' );
-		$page->AttachScript( 'js/journal/list.js' );
-		Element( 'user/sections' , 'journal' );
+		$username = $username->Get();
+		$finder = New UserFinder();
+		
+		if ( $username != '' ) {
+			$theuser = $finder->FindByName( $username );
+			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
+				$page->SetTitle( $username . " Ημερολόγιο" );
+			}
+			else {
+				$page->SetTitle( $username . " ημερολόγιο" );
+			}
+		}
+		if ( !isset( $theuser ) || $theuser === false ) {
+			return Element( '404' );
+		}
+		$finder = New JournalFinder();
+		$journals = $finder->FindByUser( $theuser );
+		
+		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
 			<ul>
 				<li><?php
