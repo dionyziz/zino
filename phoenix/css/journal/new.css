@@ -1,13 +1,10 @@
 div#journalnew {
 	margin: 0 0 0 170px;
 }
-div#journalview div.title {
+div#journalnew div.title {
 	margin-bottom: 20px;
 }
 div#journalnew input {
 	margin-left: 30px;
 	width: 300px;
-}
-div#journalnew textarea {
-	display: block;
 }
