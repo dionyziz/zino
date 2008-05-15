@@ -9,6 +9,10 @@
 		
 		if ( $id != 0 ) {
 			$journal = New Journal( $id );
+			$page->SetTitle( $journal->Title );
+		}
+		else {
+			$page->SetTitle( "Δημιουργία καταχώρησης" );
 		}
 		
 		Element( 'user/sections' , 'journal' , $user );
