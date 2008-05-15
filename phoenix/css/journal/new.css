@@ -2,5 +2,9 @@ div#journalnew {
 	margin: 0 0 0 170px;
 }
 div#journalnew input {
+	margin: 0 0 20px 30px;
+	width: 300px;
+}
+div#journalnew textarea {
 	display: block;
 }
