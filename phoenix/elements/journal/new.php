@@ -2,7 +2,7 @@
 	
 	function ElementJournalNew( tInteger $id ) {
 		global $user;
-		global $page;
+		//global $page;
 		global $water;
 		
 		//$water->Trace( "id is: " . $id->Get() );
