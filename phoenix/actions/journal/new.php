@@ -7,7 +7,7 @@
 		$title = $title->Get();
 		$text = $text->Get();
 		
-		if ( $id == 0 ) {
+		if ( $id != 0 ) {
 			$journal = New Journal( $id );
 			if ( $journal->User->Id != $user->Id ) {
 				return;

@@ -68,6 +68,7 @@
 					?>ajax-loader.gif" alt="Δημιουργία" title="Δημιουργία" /> Δημιουργία...
 				</div><?php
 			}
-		?></div><?php
+		?></div>
+		<div class="eof"></div><?php
 	}
 ?>

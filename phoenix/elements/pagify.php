@@ -1,9 +1,13 @@
 <?php	
-	function ElementPagify( $offset , $link , $totalnum , $showing , $offsetcaption = 'offset' ) {
-		global $page;
+	function ElementPagify( $offset , $link , $totalnum , $showing , $offsetcaption = 'page' ) {
 		global $water;
 		
-		$page->AttachStyleSheet( 'css/pagify.css' );
+		/*
+			$offset is the page number
+			$totalnum is the total number of elements that exist... eg the number of all albums of a user
+			$showing is the number of elements shown on each page, eg 20 albums on each page
+			
+		*/
 		$pages = intval( $totalnum / $showing );
 		if ( $totalnum % $showing != 0 ) {
 			++$pages;
@@ -34,8 +38,6 @@
 		if ( $endpos > $pages ) {
 			$endpos = $pages;
 		}
-		$water->Trace( 'endpos: '.$endpos );
-		$water->Trace( 'offset: '.$offset );
 		?><span><?php
 		if ( $offset > 5 ) {
 			?>... <?php

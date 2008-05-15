@@ -33,6 +33,7 @@
 	include "headlines.css";
 	include "links.css";
 	include "modal.css";
+	include "pagify.css";
 	include "people.css";
 	include "search.css";
 ?>
