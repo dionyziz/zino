@@ -28,17 +28,17 @@
 		Element( 'user/sections', 'poll' , $theuser );
 		?><div id="polllist">
 			<ul><?php
-				foreach ( $polls as $poll ) {
-					?><li><?php
-					Element( 'poll/small' , $poll , true );
-					?></li><?php
-				}
 				if ( $theuser->Id == $user->Id ) {
 					?><li class="create">
 						<a href="" class="new"><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
 					</li><?php
+				}
+				foreach ( $polls as $poll ) {
+					?><li><?php
+					Element( 'poll/small' , $poll , true );
+					?></li><?php
 				}
 			?></ul><?php
 			if ( $theuser->Id == $user->Id ) {
