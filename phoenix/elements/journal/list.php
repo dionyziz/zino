@@ -30,7 +30,7 @@
 					?><li class="create">
 						<a href="" class="new"><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
-						?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
+						?>add3.png" alt="Δημιουργία καταχώρησης" title="Δημιουργία καταχώρησης" />Δημιουργία καταχώρησης</a>
 					</li><?php
 				}
 				if ( !empty( $journals ) ) {
