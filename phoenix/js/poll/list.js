@@ -28,6 +28,7 @@ var PollList = {
 					$( newpoll ).html( $( 'div#polllist div.creatingpoll' ).html() );
 					$( 'div#polllist ul' )[ 0 ].insertBefore( newpoll , $( 'div#polllist ul li div.creationmockup' )[ 0 ].parentNode.nextSibling.nextSibling );
 					//$( 'div#polllist ul li div.creationmockup:parent' ).remove();
+					$( $( 'div#polllist ul li div.creationmockup' )[ 0 ].parentNode ).remove();
 					PollList.Cancel();
 					Coala.Warm( 'poll/new' , { question : PollList.QuestionText , options : PollList.OptionsText , node : newpoll } );
 					PollList.numoptions = 0;
