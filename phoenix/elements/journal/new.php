@@ -8,6 +8,7 @@
 		?><div id="journalnew">
 			<input type="text" value="" />
 			<textarea></textarea>
-		</div><?php
+		</div>
+		<div class="eof"></div><?php
 	}
 ?>

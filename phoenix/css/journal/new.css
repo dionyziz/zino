@@ -1,3 +1,6 @@
 div#journalnew {
-
+	margin: 0 0 0 170px;
+}
+div#journalnew input {
+	display: block;
 }
