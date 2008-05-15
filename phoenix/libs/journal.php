@@ -27,6 +27,14 @@
                 return utf8_substr( $text, $length );
             }
         }
+		public function SetText( $text ) {
+			$bulk = New Bulk();
+			$bulk->Text = $text;
+			$bulk->Save();
+
+			$this->Bulkid = $bulk->Id;
+			$this->Save();
+		}
         public function OnCommentCreate() {
             ++$this->Numcomments;
             $this->Save();
