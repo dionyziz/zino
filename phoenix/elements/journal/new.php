@@ -17,8 +17,11 @@
 		
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew"><?php
-			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id === 0 ) {
+			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
 				?><form method="post" action="do/journal/new">
+					<input type="hidden" name="id" value="<?php
+					echo $id;
+					?>" />
 					<div class="title">
 						<span>Τίτλος:</span><input type="text" value="<?php
 						if ( $id != 0 ) {
@@ -32,7 +35,9 @@
 					}
 					?></textarea>
 					<div class="submit">
-						<input type="submit" value="Δημοσίευση" />
+						<input type="submit" value="Δημοσίευση" onclick="JournalView.Create( '<?php
+						echo $id;
+						?>' );return false;" />
 					</div>
 				</form><?php
 			}

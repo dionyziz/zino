@@ -9,3 +9,8 @@ var JournalView = {
 		}
 	}
 };
+$( document ).ready( function() {
+	if ( $( 'div#journalnew' )[ 0 ] ) {
+		$( 'div#journalnew form div.title input' )[ 0 ].select();
+	}
+} );
