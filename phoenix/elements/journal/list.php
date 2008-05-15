@@ -28,7 +28,7 @@
 			<ul><?php
 				if ( $theuser->Id == $user->Id ) {
 					?><li class="create">
-						<a href="" class="new"><img src="<?php
+						<a href="?p=addjournal" class="new"><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>add3.png" alt="Δημιουργία καταχώρησης" title="Δημιουργία καταχώρησης" />Δημιουργία καταχώρησης</a>
 					</li><?php

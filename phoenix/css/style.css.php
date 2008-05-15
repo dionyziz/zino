@@ -13,6 +13,7 @@
 	include "journal/list.css";
 	include "journal/small.css";
 	include "journal/view.css";
+	include "journal/new.css";
 	include "poll/list.css";
 	include "poll/small.css";
 	include "poll/view.css";

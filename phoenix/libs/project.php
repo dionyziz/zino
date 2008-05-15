@@ -82,6 +82,7 @@
 			"joined"			=> "user/joined",
 			"journals"			=> "journal/list",
 			"journal"			=> "journal/view",
+			"addjournal"		=> "journal/new",
 			"polls"				=> "poll/list",
 			"poll"				=> "poll/view",
 			"albums"			=> "album/list",
