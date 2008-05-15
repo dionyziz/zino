@@ -34,3 +34,10 @@ div#journallist ul li div.journalsmall ul {
 	margin-left: 0;
 	width: 100%;
 }
+div#journallist ul li.create a {
+	font-weight: bold;
+}
+div#journallist ul li.create a img {
+	vertical-align: -10px;
+	margin-right: 5px;
+}

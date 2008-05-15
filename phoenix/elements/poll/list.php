@@ -35,10 +35,17 @@
 						?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
 					</li><?php
 				}
-				foreach ( $polls as $poll ) {
-					?><li><?php
-					Element( 'poll/small' , $poll , true );
-					?></li><?php
+				if ( !empty( $polls ) ) {
+					foreach ( $polls as $poll ) {
+						?><li><?php
+						Element( 'poll/small' , $poll , true );
+						?></li><?php
+					}
+				}
+				else {
+					if ( $theuser->Id != $user->Id ) {
+						?>Δεν υπάρχουν δημοσκοπήσεις<?php
+					}
 				}
 			?></ul><?php
 			if ( $theuser->Id == $user->Id ) {

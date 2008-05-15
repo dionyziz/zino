@@ -3,6 +3,7 @@
 	function ElementJournalList( tString $username ) {
 		global $page;
 		global $rabbit_settings;
+		global $user;
 		
 		$username = $username->Get();
 		$finder = New UserFinder();
@@ -25,20 +26,29 @@
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
 			<ul><?php
-			if ( !empty( $journals ) ) {
-				foreach ( $journals as $journal ) {
-					?><li><?php
-						Element( 'journal/small' , $journal );
-						?><div class="barfade">
-							<div class="leftbar"></div>
-							<div class="rightbar"></div>
-						</div>
+				if ( $theuser->Id == $user->Id ) {
+					?><li class="create">
+						<a href="" class="new"><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
 					</li><?php
 				}
-			}
-			else {
-				?>Δεν υπάρχουν καταχωρήσεις<?php
-			}
+				if ( !empty( $journals ) ) {
+					foreach ( $journals as $journal ) {
+						?><li><?php
+							Element( 'journal/small' , $journal );
+							?><div class="barfade">
+								<div class="leftbar"></div>
+								<div class="rightbar"></div>
+							</div>
+						</li><?php
+					}
+				}
+				else {
+					if ( $theuser->Id != $user->Id ) {
+						?>Δεν υπάρχουν καταχωρήσεις<?php
+					}
+				}
 			?></ul>
 		</div>
 		<div class="eof"></div><img src="<?php
