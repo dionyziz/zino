@@ -18,7 +18,7 @@
 					<div class="title">
 						<span>Τίτλος:</span><input type="text" value="<?php
 						if ( $id != 0 ) {
-							echo $journal->Title;
+							echo htmlspecialchars( $journal->Title );
 						}
 						?>" name="title" />
 					</div>
