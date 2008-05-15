@@ -17,6 +17,7 @@
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
+		private $mNewText = '';
         
         public function GetText( $length = false ) {
             if ( $length == false ) {
@@ -28,12 +29,17 @@
             }
         }
 		public function SetText( $text ) {
-			$bulk = New Bulk();
-			$bulk->Text = $text;
-			$bulk->Save();
+			$this->mNewText = $text;
+		}
+		public function Save() {
+			if ( !empty( $this->mNewText ) ) {
+				$bulk = New Bulk();
+				$bulk->Text = $text;
+				$bulk->Save();
 
-			$this->Bulkid = $bulk->Id;
-			$this->Save();
+				$this->Bulkid = $bulk->Id;
+			}
+			parent::Save();
 		}
         public function OnCommentCreate() {
             ++$this->Numcomments;
