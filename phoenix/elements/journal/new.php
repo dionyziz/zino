@@ -7,7 +7,7 @@
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew">
 			<input type="text" value="" />
-			<textarea></textarea>
+			<textarea cols="50" rows="40"></textarea>
 		</div>
 		<div class="eof"></div><?php
 	}
