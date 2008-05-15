@@ -5,7 +5,7 @@
 		global $page;
 		global $water;
 		
-		$water->Trace( "id is: " . $id->Get() );
+		//$water->Trace( "id is: " . $id->Get() );
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew">
 			<form method="post" action="do/journal/new">
