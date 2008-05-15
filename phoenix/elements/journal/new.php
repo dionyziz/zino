@@ -6,7 +6,9 @@
 		
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew">
-			<span>Τίτλος:</span><input type="text" value="" />
+			<div class="title">
+				<span>Ξ¤Ξ―Ο„Ξ»ΞΏΟ‚:</span><input type="text" value="" />
+			</div>
 			<textarea cols="50" rows="40"></textarea>
 		</div>
 		<div class="eof"></div><?php
