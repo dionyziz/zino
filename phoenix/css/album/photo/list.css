@@ -5,6 +5,27 @@ div#photolist h2 {
 	margin: 0;
 	padding: 0;
 }
+div#photolist div.owner {
+	margin: 4px 0;
+}
+div#photolist div.owner div.edit {
+	display: inline;
+}
+div#photolist div.owner div.edit a {
+	background-image: url( 'http://static.zino.gr/phoenix/pencil.png' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
+}
+div#photolist div.owner div.delete {
+	margin: 0 0 0 5px;
+	display: inline;
+}
+div#photolist div.owner div.delete a {
+	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 14px;
+	vertical-align: -1px;
+}
 div#photolist dl {
 	padding: 0;
 	margin: 0;
