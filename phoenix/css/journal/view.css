@@ -12,7 +12,8 @@ div#journalview div.owner div.edit {
 	display: inline;
 }
 div#journalview div.owner div.edit a {
-	background-image: url( 'http://static.zino.gr/phoenix/pencil.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -1873px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
 }
@@ -21,7 +22,8 @@ div#journalview div.owner div.delete {
 	display: inline;
 }
 div#journalview div.owner div.delete a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -736px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 14px;
 	vertical-align: -1px;
@@ -35,7 +37,8 @@ div#journalview div.journal dl dd.commentsnum {
 	margin: 0;
 	padding: 0 0 0 18px;
 	display: inline;
-	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -670px;
 	background-repeat: no-repeat;
 	font-size: 90%;
 }
@@ -58,7 +61,8 @@ div#journalview div.journal dl dd.lastentries {
 	padding-top: 2px;
 }
 div#journalview div.journal dl dd.addfav a {
-	background-image: url('http://static.zino.gr/phoenix/heart_add.png');
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1327px;
 	background-repeat: no-repeat;
 	padding-left: 18px;
 }
