@@ -2,20 +2,22 @@ div#photoview h2 {
 	margin: 0;
 	padding: 0;
 }
-div#photoview div div.edit {
-	margin: 2px 0;
+div#photoview div.owner {
+	margin: 3px 0;
+}
+div#photoview div.owner div.edit {
 	display: inline;
 }
-div#photoview div.edit a {
+div#photoview div.owner div.edit a {
 	background-image: url( 'http://static.zino.gr/phoenix/pencil.png' );
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
 }
-div#photoview div div.delete {
-	margin: 2px 0;
+div#photoview div.owner div.delete {
+	margin: 0 0 0 5px;
 	display: inline;
 }
-div#photoview div.delete a {
+div#photoview div.owner div.delete a {
 	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
 	padding: 0 0 0 16px;

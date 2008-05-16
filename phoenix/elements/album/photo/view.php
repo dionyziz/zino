@@ -19,7 +19,7 @@
 			echo htmlspecialchars( $image->Album->Name );
 			?></a><?php
 			if ( $image->User->Id == $user->Id ) {
-				?><div>
+				?><div class="owner">
 					<div class="edit"><a href="" onclick="retun false;">Επεξεργασία</a></div>
 					<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div>
 				</div><?php
