@@ -3,7 +3,7 @@ div#photoview h2 {
 	padding: 0;
 }
 div#photoview div.owner {
-	margin: 3px 0;
+	margin: 4px 0;
 }
 div#photoview div.owner div.edit {
 	display: inline;
@@ -20,7 +20,8 @@ div#photoview div.owner div.delete {
 div#photoview div.owner div.delete a {
 	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
-	padding: 0 0 0 16px;
+	padding: 0 0 0 14px;
+	vertical-align: -1px;
 }
 div#photoview dl {
 	margin: 5px 0 0 0;
