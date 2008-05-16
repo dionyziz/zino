@@ -2,14 +2,16 @@
 	
 	function ElementAlbumPhotoView( tInteger $id ) {
 		global $user;
+		global $page;
 		
 		$id = $id->Get();
 		$image = New Image( $id );
 		
+		$page->SetTitle( $image->Name );
 		Element( 'user/sections', 'album' , $image->User );
 		?><div id="photoview">
 			<h2><?php
-			echo htmlspecialchars( $image->Title );
+			echo htmlspecialchars( $image->Name );
 			?></h2>
 			<span>στο album</span> <a href=""><?php
 			echo htmlspecialchars( $image->Album->Name );
