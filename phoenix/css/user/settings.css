@@ -16,19 +16,19 @@ div.settings div.sidebar div span  {
 	opacity: 0;
 }
 div.settings div.sidebar div span.saved {
-    background-image: url('http://static.zino.gr/phoenix/button_ok_22.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+    background-position: 0 -532px;
     background-repeat: no-repeat;
     padding-left: 25px;
-    background-position: left;
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
 }
 div.settings div.sidebar a.backtoprofile {
-    background-image: url('http://static.zino.gr/phoenix/forward22.png');
-    background-repeat: no-repeat;
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+    background-position: 0 -1051px;
+	background-repeat: no-repeat;
     margin: 10px;
-    background-position: right;
     display: block;
     height: 30px;
     line-height: 30px;
@@ -66,19 +66,24 @@ div.settings div.sidebar ol li a {
     display: block;
 }
 div.settings div.sidebar ol li.personal a {
-    background-image: url('http://static.zino.gr/phoenix/info.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1597px;
 }
 div.settings div.sidebar ol li.characteristics a {
-    background-image: url('http://static.zino.gr/phoenix/bookmark.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -328px;
 }
 div.settings div.sidebar ol li.interests a {
-    background-image: url('http://static.zino.gr/phoenix/idea.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1393px;
 }
 div.settings div.sidebar ol li.contact a {
-    background-image: url('http://static.zino.gr/phoenix/kontact_mail.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1669px;
 }
 div.settings div.sidebar ol li.settings a {
-    background-image: url('http://static.zino.gr/phoenix/gear.png');
+    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1123px;
 }
 div.settings div.tabs {
     margin-right: 350px;
