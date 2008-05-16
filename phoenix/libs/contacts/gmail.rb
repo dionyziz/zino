@@ -17,25 +17,26 @@ def login
 	form = page.forms.first #name('gaia_loginform').first
 	form.Email = @username
 	form.Passwd = @passwd
+	a = ''
 begin
 	page = @agent.submit(form, form.buttons.first)
 	page = @agent.get page.search("//meta").first.attributes['href'].gsub(/'/,'') #META-Redirect
 	#link = page.links.text(/Contacts/)
  	page = @agent.get(ContactsURL)
+	a = page.body[/nvp_bu_sc.*\Z/m]
+	a = a[/<table.*\Z/m]
+	a = a[a.index('>')+2..a.index('</table>')-1]
 
 rescue StandardError => boom
-	$stderr.print "Login error!\n" + boom
+	$stderr.print "Login error!\n" + boom #+ "\n" + page.body
 	exit 2
 end
-	a = page.body[/nvp_bu_sc.*$/]
-	a = a[/<table.*$/]
-	a = a[a.index('>')+2..a.index('</table>')-1]
 	lines = a.split('<tr>')
 	lines.each do |x|
 	    if x=~/<td>/ then
 		fields = x.split('<td>')
-		name = fields[2].gsub(/\A.*<b>\s*(.*)\s*<\/b>.*\Z/,'\1')
-		email = fields[3].gsub(/\s*(\S*)\s*&nbsp;\s*<\/td>.*\Z/, '\1')
+		name = fields[2].gsub(/\A.*<b>\s*(.*)\s*<\/b>.*\Z/m,'\1')
+		email = fields[3].gsub(/\s*(.*)\s*<\/td>.*\Z/m, '\1').gsub(/(\s+&nbsp;\s+)/, '').gsub(/(\r?\n)+/m, ' ').gsub(/(\t)/m, ' ')
 		print "#{name}\t#{email}\n"
 	    end
 	end
