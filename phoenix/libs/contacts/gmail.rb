@@ -3,10 +3,10 @@ require 'mechanize'
 #require 'rubygems'
 
 def getlogin
-	print "user: "; @username = gets.chomp
-	print "pass: "; @passwd = gets.chomp 
+	$stderr.print "user: "; @username = gets.chomp
+	$stderr.print "pass: "; @passwd = gets.chomp 
 	if @username.length < 1 || @passwd.length < 1
-		print "Incorrect userdata input!\n"
+		$stderr.print "Incorrect userdata input!\n"
 		exit 1
 	end
 end
@@ -24,7 +24,7 @@ begin
  	page = @agent.get(ContactsURL)
 
 rescue StandardError => boom
-	puts "Login error!\n" + boom
+	$stderr.print "Login error!\n" + boom
 	exit 2
 end
 	a = page.body[/nvp_bu_sc.*$/]
@@ -36,7 +36,7 @@ end
 		fields = x.split('<td>')
 		name = fields[2].gsub(/\A.*<b>\s*(.*)\s*<\/b>.*\Z/,'\1')
 		email = fields[3].gsub(/\s*(\S*)\s*&nbsp;\s*<\/td>.*\Z/, '\1')
-		print "'#{name}','#{email}'\n"
+		print "#{name}\t#{email}\n"
 	    end
 	end
 #	puts a #page.body
@@ -47,7 +47,7 @@ LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=tr
 ContactsURL = '?v=cl&pnl=a'
 
 getlogin
-puts "Logging in #{@username}..."
+$stderr.print "Logging in #{@username}...\n"
 login
 exit 0
 
