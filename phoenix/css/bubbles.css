@@ -1,10 +1,9 @@
 div.bubble {
     position: relative;
     background-color: #f6f6f6;
-    background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -596px;
-    /*background-position: top;*/
+    background-image: url( 'http://static.zino.gr/phoenix/q_top.jpg' );
     background-repeat: repeat-x;
+    background-position: top;
     padding: 10px;
 }
 i.tl {
@@ -40,16 +39,13 @@ i.br {
     display: block;
 }
 div.bubble i.tl {
-    background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -536px;
+    background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );
 }
 div.bubble i.tr {
-    background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -656px;
+    background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );
 }
 div.bubble i.bl {
-    background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: -80px -242px;
+    background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );
 }
 div.bubble i.br {
     background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );
