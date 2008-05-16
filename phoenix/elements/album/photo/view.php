@@ -1,17 +1,33 @@
 <?php
 	
-	function ElementAlbumPhotoView() {
-		//global $page;
+	function ElementAlbumPhotoView( tInteger $id ) {
+		global $user;
 		
-		//$page->AttachStyleSheet( 'css/album/photo/view.css' );
+		$id = $id->Get();
+		$image = New Image( $id );
 		
-		Element( 'user/sections', 'album' );
+		Element( 'user/sections', 'album' , $image->User );
 		?><div id="photoview">
-			<h2>Στη Θεσαλλονίκη ξημερώματα</h2>
-			<span>στο album</span> <a href="">Θεσαλλονίκη</a>
-			<dl>
-				<dd class="commentsnum">20 σχόλια</dd>
-				<dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
+			<h2><?php
+			echo htmlspecialchars( $image->Title );
+			?></h2>
+			<span>στο album</span> <a href=""><?php
+			echo htmlspecialchars( $image->Album->Name );
+			?></a>
+			<dl><?php
+				if ( $image->Numcomments > 0 ) {
+					?><dd class="commentsnum"><?php
+					echo $image->Numcomments;
+					?> σχόλι<?php
+					if ( $image->Numcomments == 1 ) {
+						?>ο<?php
+					}
+					else {
+						?>α<?php
+					}
+					?></dd><?php
+				}
+				?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
 			</dl>
 			<div class="eof"></div>
 			<div class="thephoto">
