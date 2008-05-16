@@ -9,11 +9,11 @@ var PhotoView = {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
 					if ( photoname != name && name !== '' ) {
-						PhotoView.renaming = false;
 						window.document.title = name;
 						Coala.Warm( 'photo/rename' , { photoid : photoid , photoname : name } );
 					}
 					$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
+					PhotoView.renaming = false;
 				}
 			} );
 			$( inputbox )[ 0 ].value = photoname;
