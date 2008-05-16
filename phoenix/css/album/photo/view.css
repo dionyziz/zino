@@ -3,7 +3,7 @@ div#photoview h2 {
 	padding: 0;
 }
 div#photoview div.owner {
-	margin: 4px 0;
+	margin: 5px 0 0 0;
 }
 div#photoview div.owner div.edit {
 	display: inline;
