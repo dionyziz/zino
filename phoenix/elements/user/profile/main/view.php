@@ -20,7 +20,7 @@
 			if ( !empty( $poll ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3><?php
-					Element( 'poll/small' , $poll , true );
+					Element( 'poll/small' , $poll[ 0 ] , true );
 					?><a href="?p=polls&amp;username=<?php
 					echo $theuser->Subdomain;
 					?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
@@ -35,7 +35,7 @@
 			if ( !empty( $journal ) ) {
 				?><div class="lastjournal">
 					<h3>Ημερολόγιο</h3><?php
-					Element( 'journal/small' , $journal );
+					Element( 'journal/small' , $journal[ 0 ] );
 					?><a href="?p=journals&amp;username=<?php
 					echo $theuser->Subdomain;
 					?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
