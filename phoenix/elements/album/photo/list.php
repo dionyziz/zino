@@ -26,7 +26,7 @@
 					?></dt><?php
 				}
 			?></dl><?php
-			if ( $album->User->Id == $user->Id ) {
+			if ( $album->User->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE ) ) {
 				?><div class="owner">
 					<div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
 					echo $album->Id;
