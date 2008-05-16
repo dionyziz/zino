@@ -20,5 +20,10 @@ var PhotoView = {
 			$( 'div#photoview h2' ).empty().append( inputbox );
 		}
 		$( 'div#photoview h2 input' )[ 0 ].select();
+	},
+	Delete : function( photoid ) {
+		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την φωτογραφία;" ) ) {
+			Coala.Warm( 'album/photo/delete' , { photoid : photoid } );
+		}
 	}
 };
