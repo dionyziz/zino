@@ -25,10 +25,10 @@ div.settings div.sidebar div span.saved {
     vertical-align: middle;
 }
 div.settings div.sidebar a.backtoprofile {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-    background-position: 0 -1051px;
-	background-repeat: no-repeat;
+    background-image: url('http://static.zino.gr/phoenix/forward22.png');
+    background-repeat: no-repeat;
     margin: 10px;
+    background-position: right;
     display: block;
     height: 30px;
     line-height: 30px;
@@ -66,24 +66,19 @@ div.settings div.sidebar ol li a {
     display: block;
 }
 div.settings div.sidebar ol li.personal a {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1597px;
+    background-image: url('http://static.zino.gr/phoenix/info.png');
 }
 div.settings div.sidebar ol li.characteristics a {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -328px;
+    background-image: url('http://static.zino.gr/phoenix/bookmark.png');
 }
 div.settings div.sidebar ol li.interests a {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1393px;
+    background-image: url('http://static.zino.gr/phoenix/idea.png');
 }
 div.settings div.sidebar ol li.contact a {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1669px;
+    background-image: url('http://static.zino.gr/phoenix/kontact_mail.png');
 }
 div.settings div.sidebar ol li.settings a {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1123px;
+    background-image: url('http://static.zino.gr/phoenix/gear.png');
 }
 div.settings div.tabs {
     margin-right: 350px;
