@@ -5,9 +5,9 @@
 		$libs->Load( 'poll/poll' );
 		
 		$finder = New PollFinder();
-		$poll = $pollfinder->FindByUser( $theuser , 0 , 1 );
+		$poll = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
-		$journal = $journalfinder->FindByUser( $theuser , 0 , 1 );
+		$journal = $finder->FindByUser( $theuser , 0 , 1 );
 		?><div class="main">
 			<div class="photos"><?php
 				Element( 'user/profile/main/photos' , $theuser );
