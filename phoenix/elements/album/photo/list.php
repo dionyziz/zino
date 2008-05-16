@@ -28,7 +28,7 @@
 			?></dl><?php
 			if ( $album->User->Id == $user->Id ) {
 				?><div class="owner">
-					<div class="rename"><a href="" onclick="PhotoList.Rename( '<?php
+					<div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
 					echo $album->Id;
 					?>' );return false;">Μετονομασία</a>
 					</div>
