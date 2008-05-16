@@ -61,8 +61,7 @@ div.pollsmall div.results ul li dl dd div.percentagebar div.rightrounded {
 	width: 9px;
 }
 div.pollsmall div.results ul li dl dd div.percentagebar div.middlerounded {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: 0 -1939px;
+	background-image: url( 'http://static.zino.gr/phoenix/percentagebar-fade.jpg' );
 	background-repeat: repeat-x;
 	background-position: top;
 	height: 13px;
