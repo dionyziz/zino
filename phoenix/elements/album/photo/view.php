@@ -17,8 +17,12 @@
 			echo $image->Album->Id;
 			?>"><?php
 			echo htmlspecialchars( $image->Album->Name );
-			?></a>
-			<dl><?php
+			?></a><?php
+			if ( $image->User->Id == $user->Id ) {
+				?><div class="edit"><a href="" onclick="retun false;">Επεξεργασία</a></div>
+				<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div><?php
+			}
+			?><dl><?php
 				if ( $image->Numcomments > 0 ) {
 					?><dd class="commentsnum"><?php
 					echo $image->Numcomments;

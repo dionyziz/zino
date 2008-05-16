@@ -2,6 +2,22 @@ div#photoview h2 {
 	margin: 0;
 	padding: 0;
 }
+div#photoview div.edit {
+	margin: 2px 0;
+}
+div#photoview div.edit a {
+	background-image: url( 'http://static.zino.gr/phoenix/pencil.png' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
+}
+div#photoview div.delete {
+	margin: 2px 0;
+}
+div#photoview div.delete a {
+	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 18px;
+}
 div#photoview dl {
 	margin: 5px 0 0 0;
 	padding: 0;
