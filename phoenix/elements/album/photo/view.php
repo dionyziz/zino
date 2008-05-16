@@ -17,16 +17,8 @@
 			echo $image->Album->Id;
 			?>"><?php
 			echo htmlspecialchars( $image->Album->Name );
-			?></a><?php
-			if ( $image->User->Id == $user->Id ) {
-				?><div class="owner">
-					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
-					echo $image->Id;
-					?>' );return false;">Επεξεργασία</a></div>
-					<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div>
-				</div><?php
-			}
-			?><dl><?php
+			?></a>
+			<dl><?php
 				if ( $image->Numcomments > 0 ) {
 					?><dd class="commentsnum"><?php
 					echo $image->Numcomments;
@@ -40,8 +32,16 @@
 					?></dd><?php
 				}
 				?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
-			</dl>
-			<div class="eof"></div>
+			</dl><?php
+			if ( $image->User->Id == $user->Id ) {
+				?><div class="owner">
+					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
+					echo $image->Id;
+					?>' );return false;">Επεξεργασία</a></div>
+					<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div>
+				</div><?php
+			}
+			?><div class="eof"></div>
 			<div class="thephoto">
 				<img src="images/photoview.jpg" alt="photoview" title="photoview" />
 			</div>
