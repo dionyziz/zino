@@ -12,7 +12,8 @@ div#photolist div.owner div.edit {
 	display: inline;
 }
 div#photolist div.owner div.edit a {
-	background-image: url( 'http://static.zino.gr/phoenix/pencil.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -1873px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
 }
@@ -21,7 +22,8 @@ div#photolist div.owner div.delete {
 	display: inline;
 }
 div#photolist div.owner div.delete a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -736px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 14px;
 	vertical-align: -1px;
@@ -31,7 +33,8 @@ div#photolist dl {
 	margin: 0;
 }
 div#photolist dl dt.photonum {
-	background-image: url('http://static.zino.gr/phoenix/photo.png');
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: -80px -176px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 19px;
 	margin: 0;
@@ -39,7 +42,8 @@ div#photolist dl dt.photonum {
 	font-size: 90%;
 }
 dt.commentsnum, span.commentsnum {
-	background-image: url('http://static.zino.gr/phoenix/comment.png');
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -670px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 18px;
 	margin: 0 0 0 5px;

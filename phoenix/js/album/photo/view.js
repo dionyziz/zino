@@ -22,7 +22,7 @@ var PhotoView = {
 		$( 'div#photoview h2 input' )[ 0 ].select();
 	},
 	Delete : function( photoid ) {
-		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την φωτογραφία;" ) ) {
+		if ( confirm( "ΞΞ­Ξ»ΞµΞΉΟ‚ ΟƒΞ―Ξ³ΞΏΟ…ΟΞ± Ξ½Ξ± Ξ΄ΞΉΞ±Ξ³ΟΞ¬ΟΞµΞΉΟ‚ Ο„Ξ·Ξ½ Ο†Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―Ξ±;" ) ) {
 			Coala.Warm( 'album/photo/delete' , { photoid : photoid } );
 		}
 	}
