@@ -97,7 +97,8 @@
             'debug'             => 'developer/water',
             'jslint'            => 'developer/js/lint',
             'developer/dionyziz/console' => 'developer/dionyziz/console',
-            'developer/dionyziz/sqlite' => 'developer/dionyziz/sqlite'
+            'developer/dionyziz/sqlite' => 'developer/dionyziz/sqlite',
+            'developer/dionyziz/contacts' => 'developer/dionyziz/contacts'
     	);
     }
 ?>
