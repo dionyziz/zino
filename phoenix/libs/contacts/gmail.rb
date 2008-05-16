@@ -3,11 +3,11 @@ require 'mechanize'
 #require 'rubygems'
 
 def getlogin
-	@username = gets.chomp
-	@passwd = gets.chomp
+	print "user: "; @username = gets.chomp
+	print "pass: "; @passwd = gets.chomp 
 	if @username.length < 1 || @passwd.length < 1
-		print "Please enter username and password, seperated by newline\n"
-		exit -1
+		print "Incorrect userdata input!\n"
+		exit 1
 	end
 end
 
@@ -17,13 +17,16 @@ def login
 	form = page.forms.first #name('gaia_loginform').first
 	form.Email = @username
 	form.Passwd = @passwd
+begin
 	page = @agent.submit(form, form.buttons.first)
-# META-Redirect
-	page = @agent.get page.search("//meta").first.attributes['href'].gsub(/'/,'')
-
-#	link = page.links.text(/Contacts/)
+	page = @agent.get page.search("//meta").first.attributes['href'].gsub(/'/,'') #META-Redirect
+	#link = page.links.text(/Contacts/)
  	page = @agent.get(ContactsURL)
 
+rescue StandardError => boom
+	puts "Login error!\n" + boom
+	exit 2
+end
 	a = page.body[/nvp_bu_sc.*$/]
 	a = a[/<table.*$/]
 	a = a[a.index('>')+2..a.index('</table>')-1]
@@ -31,16 +34,20 @@ def login
 	lines.each do |x|
 	    if x=~/<td>/ then
 		fields = x.split('<td>')
-		print fields[2].gsub(/<b>(.*)<\/b>/,'\1'), "\n", fields[3][0..fields[3].index('</td>')-1], "\n"
+		name = fields[2].gsub(/\A.*<b>\s*(.*)\s*<\/b>.*\Z/,'\1')
+		email = fields[3].gsub(/\s*(\S*)\s*&nbsp;\s*<\/td>.*\Z/, '\1')
+		print "'#{name}','#{email}'\n"
 	    end
 	end
 #	puts a #page.body
+
 end
 
 LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fh%2Fposshk2wzcz6%2F%3Fnsr%3D0%26ui%3Dhtml&ltmpl=default&ltmplcache=2'
 ContactsURL = '?v=cl&pnl=a'
 
 getlogin
-#puts "Hello #{@username}!"
+puts "Logging in #{@username}..."
 login
+exit 0
 
