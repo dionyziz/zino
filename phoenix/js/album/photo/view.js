@@ -10,7 +10,7 @@ var PhotoView = {
 					var name = $( this )[ 0 ].value;
 					if ( photoname != name && name !== '' ) {
 						window.document.title = name;
-						Coala.Warm( 'photo/rename' , { photoid : photoid , photoname : name } );
+						Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 					}
 					$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
 					PhotoView.renaming = false;
