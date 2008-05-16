@@ -61,6 +61,7 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/album/list.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
+		$page->AttachScript( 'js/album/photo/view.js' );
 		$page->AttachScript( 'js/poll/list.js' );
 		$page->AttachScript( 'js/poll/view.js' );
 		$page->AttachScript( 'js/journal/list.js' );

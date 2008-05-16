@@ -20,7 +20,9 @@
 			?></a><?php
 			if ( $image->User->Id == $user->Id ) {
 				?><div class="owner">
-					<div class="edit"><a href="" onclick="retun false;">Επεξεργασία</a></div>
+					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
+					echo $image->Id;
+					?>';return false;">Επεξεργασία</a></div>
 					<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div>
 				</div><?php
 			}
