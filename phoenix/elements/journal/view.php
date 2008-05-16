@@ -32,27 +32,25 @@
 						if ( $journal->User->Id != $user->Id ) {
 							?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd><?php
 						}
-						if ( $journal->User->Id == $user->Id ) {
-							?><dd class="edit">
-								<a href="" onclick="return false;"><img src="<?php
-								echo $rabbit_settings[ 'imagesurl' ];
-								?>pencil.png" alt="Επεξεργασία" title="Επεξεργασία" />Επεξεργασία
-								</a>
-							</dd>
-							<dd class="delete">
-								<a href="" onclick="JournalView.Delete( '<?php
-								echo $journal->Id;
-								?>' );return false;"><img src="<?php
-								echo $rabbit_settings[ 'imagesurl' ];
-								?>delete.png" alt="Διαγραφή" title="Διαγραφή" />Διαγραφή
-								</a>
-							</dd><?php
-						}
+
 						?><dd class="lastentries"><a href="?p=journals&amp;username=<?php
 						echo $journal->User->Subdomain;
 						?>">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
-					</dl>
-					<div class="eof"></div>
+					</dl><?php
+						if ( $journal->User->Id == $user->Id ) {
+							?><div class="owner">
+								<div class="edit">
+									<a href="" onclick="return false;">Επεξεργασία</a>
+								</div>
+								<div class="delete">
+									<a href="" onclick="JournalView.Delete( '<?php
+									echo $journal->Id;
+									?>' );return false;">Διαγραφή
+									</a>
+								</div>						
+							</div><?php
+						}
+					?><div class="eof"></div>
 					<p><?php
 					echo $journal->Text; //has to get through some editing for tags that are not allowed
 					?></p>
