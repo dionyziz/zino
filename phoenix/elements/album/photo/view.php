@@ -13,7 +13,9 @@
 			<h2><?php
 			echo htmlspecialchars( $image->Name );
 			?></h2>
-			<span>στο album</span> <a href=""><?php
+			<span>στο album</span> <a href="?p=album&amp;id=<?php
+			echo $image->Album->Id;
+			?>"><?php
 			echo htmlspecialchars( $image->Album->Name );
 			?></a>
 			<dl><?php
