@@ -5,7 +5,7 @@
         $username = $username->Get();
         $password = $password->Get();
 
-        $libs->Load();
+        $libs->Load( 'contacts/gmail' );
 
         $gmail = New ContactsGmail();
 
