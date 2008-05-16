@@ -1,7 +1,7 @@
 <?php	
 	function ElementPagify( $offset , $link , $totalnum , $showing , $offsetcaption = 'page' ) {
 		global $water;
-		
+		global $rabbit_settings;
 		/*
 			$offset is the page number
 			$totalnum is the total number of elements that exist... eg the number of all albums of a user
@@ -26,7 +26,9 @@
 				echo $offsetcaption;
 				?>=<?php
 					echo $pagebefore;
-					?>" class="nextbacklinks">&#171;Προηγούμενη
+					?>" class="nextbacklinks"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>resultset_next.png" alt="Προηγούμενη" title="Προηγούμενη" />
 				</a>&nbsp;
 			</span><?php
 		}
@@ -73,7 +75,9 @@
 			echo $offsetcaption;
 			?>=<?php
 				echo $pagenext;
-				?>" class="nextbacklinks">Επόμενη&#187;
+				?>" class="nextbacklinks"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>resultset_previous.png" alt="Επόμενη" title="Επόμενη" />
 			</a>
 			</span><?php
 		}
