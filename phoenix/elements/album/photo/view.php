@@ -38,7 +38,9 @@
 					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
 					echo $image->Id;
 					?>' );return false;">Μετονομασία</a></div>
-					<div class="delete"><a href="" onclick="return false;">Διαγραφή</a></div>
+					<div class="delete"><a href="" onclick="PhotoView.Delete( '<?php
+					echo $image->Id;
+					?>' );return false;">Διαγραφή</a></div>
 				</div><?php
 			}
 			?><div class="eof"></div>
