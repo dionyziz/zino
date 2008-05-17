@@ -3,7 +3,7 @@
 		global $user;
 		global $rabbit_settings;
 		
-		?><div>
+		?><div class="option">
 			<label>E-mail:</label>
 			<div class="setting" id="email">
 				<input type="text" name="email" class="small" value="<?php
@@ -16,7 +16,11 @@
 				</span>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>MSN:</label>
 			<div class="setting" id="msn">
 				<input type="text" name="msn" class="small" value="<?php
@@ -29,7 +33,11 @@
 				</span>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Gtalk:</label>
 			<div class="setting" id="gtalk">
 				<input type="text" name="gtalk" class="small" value="<?php
@@ -37,7 +45,11 @@
 				?>" />
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Skype:</label>
 			<div class="setting" id="skype">
 				<input type="text" name="skype" class="small" value="<?php
@@ -45,7 +57,11 @@
 				?>" />
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Yahoo:</label>
 			<div class="setting" id="yahoo">
 				<input type="text" name="yahoo" class="small" value="<?php
@@ -53,13 +69,21 @@
 				?>" />
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Ιστοσελίδα:</label>
 			<div class="setting" id="web">
 				<input type="text" name="yahoo" class="small" value="<?php
 				echo htmlspecialchars( $user->Profile->Homepage );
 				?>" />
 			</div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
 		</div><?php
 	}
 ?>

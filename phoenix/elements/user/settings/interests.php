@@ -1,6 +1,6 @@
 <?php
 	function ElementUserSettingsInterests() {
-		?><div>
+		?><div class="option">
 			<label>Hobbies:</label>
 			<div class="setting">
 				<ol>
@@ -13,7 +13,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένες ταινίες:</label>
 			<div class="setting">
 				<ol>
@@ -26,7 +30,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένα βιβλία:</label>
 			<div class="setting">
 				<ol>
@@ -37,7 +45,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένα τραγούδια:</label>
 			<div class="setting">
 				<ol>
@@ -49,7 +61,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένοι καλλιτέχνες:</label>
 			<div class="setting">
 				<ol>
@@ -61,7 +77,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένα παιχνίδια:</label>
 			<div class="setting">
 				<ol>
@@ -74,7 +94,11 @@
 				</ol>
 			</div>
 		</div>
-		<div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένες φράσεις:</label>
 			<div class="setting">
 				<ol>
@@ -83,7 +107,11 @@
 				</ol>
 			</div>
 		</div>
-		<div style="border-bottom:0;">
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label>Αγαπημένες σειρές:</label>
 			<div class="setting">
 				<ol>
