@@ -15,7 +15,7 @@ var PhotoList = {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
 					if ( albumname != name && name !== '' ) {
-						window.document.title = name;
+						window.document.title = name + ' | ' + Settings.applicationname;
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
 					$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
@@ -34,7 +34,5 @@ var PhotoList = {
 	AddPhoto : function( imageinfo ) {
 		photoid = imageinfo.id
 		userid = imageinfo.userid;
-	
-	
 	}
 };
