@@ -43,7 +43,13 @@
         $data = curl_exec( $curl );
 
         if ( $data === false ) {
-            die( "Image_Upload curl error " . curl_errno() . ": " . curl_error() );
+            echo "Image_Upload curl error:\nerrno: ";
+            var_dump( curl_errno() );
+            echo "\nerror: ";
+            var_dump( curl_error() );
+            echo "\ndata: ";
+            var_dump( $data );
+            echo "\neof.";
         }
 
         curl_close( $curl );
