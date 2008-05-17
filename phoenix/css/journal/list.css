@@ -12,10 +12,10 @@ div#journallist ul li {
 	margin: 0;
 }
 div#journallist ul li div.barfade {
-	border-bottom: 1px solid #c6c6c6;
 	margin-top: 5px;
 	clear: right;
 }
+/*
 div#journallist ul li div.barfade div.leftbar {
 	float: left;
 	background-image: url('http://static.zino.gr/phoenix/barfade-left.jpg');
@@ -30,6 +30,7 @@ div#journallist ul li div.barfade div.rightbar {
 	height: 1px;
 	width: 153px;
 }
+*/
 div#journallist ul li div.journalsmall ul {
 	margin-left: 0;
 	width: 100%;
