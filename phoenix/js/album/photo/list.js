@@ -1,10 +1,12 @@
 var PhotoList = {
 	renaming : false,
 	Delete : function( albumid ) {
+		$( 'div#photolist div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete.gif" )' );
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το album;' ) ) {
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'album/delete' , { albumid : albumid } );
-		} 
+		}
+		$( 'div#photolist div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );		
 	},
 	Rename : function( albumid ) {
 		if ( !PhotoList.renaming ) {

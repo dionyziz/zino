@@ -8,7 +8,6 @@
 		$journal = New Journal( $id->Get() );
 		Element( 'user/sections' , 'journal' , $journal->User );
 		
-		
 		?><div id="journalview"><?php
 			if ( !$journal->IsDeleted() ) {
 				$page->SetTitle( $journal->Title );
