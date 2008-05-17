@@ -49,7 +49,10 @@
                 break;
         }
 
-        $setAlbumId  = $image->Album = $album;
+        $setAlbumId  = $image->Albumid = $albumid;
+		if ( $image->Album->IsDeleted() ){
+			die( "Album is deleted" );
+		}
         if ( !$setAlbumId ) {
 			die( "You are not allowed to upload to this album!" );
         }
