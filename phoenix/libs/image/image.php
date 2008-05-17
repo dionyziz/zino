@@ -220,10 +220,13 @@
             return 0;
         }
         public function LoadDefaults() {
+            global $user;
+
             $this->Created = NowDate();
             $this->Userip  = UserIp();
             $this->Width   = 0;
             $this->Height  = 0;
+            $this->Userid  = $user->Id;
         }
     }
 ?>
