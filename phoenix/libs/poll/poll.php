@@ -55,6 +55,14 @@
 
             $this->OnDelete();
         }
+        protected function OnCreate() {
+            ++$this->User->Count->Polls;
+            $this->User->Count->Save();
+        }
+        protected function OnDelete() {
+            --$this->User->Count->Polls;
+            $this->User->Count->Save();
+        }
         public function UndoDelete() {
             $this->Delid = 0;
             $poll->Question = "Who is your favourite Beatle?";

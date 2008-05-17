@@ -118,7 +118,7 @@
                 $this->Album->CommentAdded();
             }
 		   
-            ++$this->NumComments;
+            ++$this->Numcomments;
 		    return $this->Save();
 		}
         public function AddPageview() {
@@ -130,8 +130,6 @@
             $this->Save();
 
             $this->Album->ImageDeleted( $this );
-            --$theuser->Numimages;
-            $theuser->Save();
 
             $finder = New ImageFinder();
             
@@ -148,13 +146,15 @@
                     $frontpageimage->Save();
                 }
             }
+
+            $this->OnDelete();
 		}
         public function CommentDeleted() {
             if ( !$this->Album->CommentDeleted() ) {
                 return false;
             }
 
-            --$this->NumComments;
+            --$this->Numcomments;
             return $this->Save();
         }
         public function LoadFromFile( $value ) {
@@ -201,7 +201,7 @@
                 return $upload; // error code
             }
 
-            if ( parent::Save() ) { // save again: Upload() has set size, width and height 
+            if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
                 if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
                     $frontpageimage = New FrontpageImage( $this->Userid );
                     if ( !$frontpageimage->Exists() ) {
@@ -212,11 +212,16 @@
                     $frontpageimage->Save();
                 }
             }
-            
-            ++$this->User->Count->Images;
-            $this->User->Save();
 
             return 0;
+        }
+        protected function OnDelete() {
+            --$this->User->Count->Images;
+            $theuser->User->Count->Save();
+        }
+        protected function OnCreate() {
+            ++$this->User->Count->Images;
+            $this->User->Count->Save();
         }
         public function LoadDefaults() {
             global $user;

@@ -219,12 +219,12 @@
         } 
         // user added a new comment; for profile comments, UserProfile::OnCommentCreate
         public function OnCommentCreate() {
-            ++$this->Numcomments;
-            $this->Save();
+            ++$this->Count->Comments;
+            $this->Count->Save();
         }
         public function OnCommentDelete() {
-            --$this->Numcomments;
-            $this->Save();
+            --$this->Count->Comments;
+            $this->Count->Save();
         }
     }
 ?>

@@ -45,10 +45,19 @@
             $this->Delid = 1;
             $this->Save();
 		    
+            --$this->User->Count->Albums;
+            $this->User->Count->Save();
+
             /*
             This would be nicer this way:
             $album->Images->Delete();
             But we'll need Finders to return a collection rather than an array
+                                                                -- abresas
+            
+            For now, use relevant finders to mass delete, similar to how placeids
+            are nullified in `users` records using a User finder called from the Place model
+            TODO
+                                                                -- dionyziz
             */
 			$query  = $this->mDb->Prepare("
 				UPDATE 
@@ -82,6 +91,10 @@
                     $this->User->Save();
                 }
             }
+        }
+        protected function OnCreate() {
+            ++$this->User->Count->Albums;
+            $this->User->Count->Save();
         }
         public function LoadDefaults() {
 			global $user;

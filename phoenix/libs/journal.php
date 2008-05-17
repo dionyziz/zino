@@ -49,6 +49,14 @@
             --$this->Numcomments;
             $this->Save();
         }
+        protected function OnCreate() {
+            ++$this->User->Count->Journals;
+            $this->User->Count->Save();
+        }
+        protected function OnDelete() {
+            --$this->User->Count->Delete;
+            $this->User->Count->Save();
+        }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
