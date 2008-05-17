@@ -10,7 +10,9 @@
         
         $curl = curl_init();
 
-        die( "Tempfile: $tempfile" );
+        if ( !file_exists( $tempfile ) ) {
+            return -2;
+        }
 
         $data = array(
             'path' => $path,
