@@ -163,6 +163,7 @@
             if ( filesize( $value ) > 1024 * 1024 ) {
                 return -1;
             }
+            return 0;
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 96 ) { // TODO: utf8_strlen()
