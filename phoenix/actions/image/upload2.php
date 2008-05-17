@@ -14,8 +14,12 @@
         }
 
         $albumid = $albumid->Get();
-		$album = new Album( $albumid );
-		
+		if ( $albumid > 0 ) {
+			$album = new Album( $albumid );
+			if ( $album->IsDeleted() || $album->User->Id != $user->Id ) {
+				die( "Not allowed" );
+			}
+		}
 		$extension = File_GetExtension( $uploadimage->Name );
 		if ( !( $extension == 'jpg' || $extension == 'jpeg' || $extension == 'png' || $extension == 'gif' ) ) {
 			die( "Not supported filetype" );
@@ -37,25 +41,10 @@
                     ?>;
                 </script><?php
                 exit();
-            case -2: // bad extension
-                ?><html><head><title>Upload error</title><script type="text/javascript">
-                    alert( 'Η φωτογραφία πρέπει να είναι της μορφής .jpg, .gif ή .png' );
-                    document.location.href = <?php
-                    echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
-                    ?>;
-                </script></head><body></body></html><?php
-                exit();
             default:
                 break;
         }
-
-        $setAlbumId  = $image->Albumid = $albumid;
-		if ( $image->Album->IsDeleted() ) {
-			die( "Album is deleted" );
-		}
-        if ( !$setAlbumId ) {
-			die( "You are not allowed to upload to this album!" );
-        }
+        $image->Albumid = $albumid;
         $res = $image->Save();
 		die( "Success" );
     	if ( $res < 0 ) {
