@@ -9,7 +9,7 @@
 		//$water->DebugThis();
     	$libs->Load( 'image/image' );
 		$libs->Load( 'rabbit/helpers/file' );
-        if ( !$user->Exists() ) {
+        if ( !$user->Exists() || !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
             return Redirect();
         }
 
@@ -45,7 +45,6 @@
                 break;
         }
         $image->Albumid = $albumid;
-		die( "breakpoint 1" );
         $res = $image->Save();
 		die( "Success" );
     	if ( $res < 0 ) {
