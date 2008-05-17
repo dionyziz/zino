@@ -36,7 +36,7 @@ var AlbumList = {
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
-			src: Settings.imagesurl + "add3.png",
+			src: ExcaliburSettings.imagesurl + "add3.png",
 			alt: "Δημιουργία album",
 			title: "Δημιουργία album"
 		} );
