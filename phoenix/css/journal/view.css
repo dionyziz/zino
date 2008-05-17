@@ -75,4 +75,6 @@ div#journalview div.comments {
 	width: 90%;
 	overflow: hidden;
 }
-	
+div#journalview img.delete1 , div#journalview img.delete2 {
+	display: none;
+}
