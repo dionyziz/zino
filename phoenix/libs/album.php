@@ -4,8 +4,8 @@
         
         public function FindByUser( User $theuser, $offset = 0, $limit = 25 ) {
             $prototype = New Album();
-            $album->Userid = $theuser->Id;
-            $album->Delid = 0;
+            $prototype->Userid = $theuser->Id;
+            $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
     }
