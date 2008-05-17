@@ -40,8 +40,6 @@
 
         // curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
 
-        die( 'Ready to perform curl_exec()' );
-
         $data = curl_exec( $curl );
 
         curl_close( $curl );
@@ -50,7 +48,7 @@
 
 		if ( strpos( $data, "error" ) !== false ) {
             // err'd
-			die( $data );
+			die( 'Image_Upload error: ' . $data );
 		}
 		else if ( strpos( $data, "error" ) !== false ) {
 			$upload[ 'successful' ] = false;
@@ -70,7 +68,7 @@
 		}
         else {
             // err'd
-            die( $data );
+            die( "Image_Upload unknown state: " . $data );
         }
 
 		return $upload;
