@@ -24,7 +24,7 @@ div#photolist div.owner div.delete {
 div#photolist div.owner div.delete a {
 	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
-	padding: 0 0 0 14px;
+	padding: 0 0 0 16px;
 	vertical-align: -1px;
 }
 div#photolist dl {
