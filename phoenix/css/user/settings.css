@@ -83,9 +83,8 @@ div.settings div.sidebar ol li.settings a {
 div.settings div.tabs {
     margin-right: 350px;
 }
-div.settings div.tabs form div { /* denotes a specific setting */
-    /*border-bottom: 1px solid #ccc;*/
-    /*padding: 3px;*/
+div.settings div.tabs form div.option { /* denotes a specific setting */
+    padding: 5px 0;
 }
 div.settings div.tabs form div.barfade {
 	padding: 0;

@@ -4,7 +4,7 @@
 		global $user;
 		global $rabbit_settings;
 		
-		?><div>
+		?><div class="option">
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth"><?php
 				Element( 'user/settings/personal/dob' );
@@ -18,7 +18,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="gender">Φύλο:</label>
 			<div class="setting" id="gender"><?php
 				Element( 'user/settings/personal/gender' );
@@ -28,7 +28,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="place">Περιοχή:</label>
 			<div class="setting" id="place"><?php
 				Element( 'user/settings/personal/place' );
@@ -38,7 +38,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting" id="education"><?php
 				Element( 'user/settings/personal/education' );
@@ -64,7 +64,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="photo">Φωτογραφία:</label>
 			<div class="setting" id="photo"><?php
 				Element( 'user/settings/personal/avatar' );
@@ -74,7 +74,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
 			<div class="setting" id="sex"><?php
 				Element( 'user/settings/personal/sex' , $user->Profile->Sexualorientation , $user->Gender );
@@ -84,7 +84,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="religion">Θρήσκευμα:</label>
 			<div class="setting" id="religion"><?php
 				Element( 'user/settings/personal/religion' , $user->Profile->Religion , $user->Gender );
@@ -94,7 +94,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="politics">Πολιτικές πεποιθήσεις:</label>
 			<div class="setting" id="politics"><?php
 				Element( 'user/settings/personal/politics' , $user->Profile->Politics , $user->Gender );
@@ -104,7 +104,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="aboutme">Λίγα λόγια για μένα:</label>
 			<div class="setting" id="aboutme"><?php
 				Element( 'user/settings/personal/aboutme' );
@@ -114,7 +114,7 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div>
+		<div class="option">
 			<label for="mood">Διάθεση:</label>
 			<div class="setting" id="mood"><?php
 				Element( 'user/settings/personal/mood' );
