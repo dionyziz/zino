@@ -16,7 +16,9 @@ div.eof {
 	display: none;
 }
 div.barfade {
-	border-bottom: 1px solid #c6c6c6;
+	background-image: url( 'http://static.zino.gr/phoenix/barfade_repeat.jpg' );
+	background-repeat: repeat-x;
+	height: 1px;
 }
 div.barfade div.leftbar {
 	float: left;
