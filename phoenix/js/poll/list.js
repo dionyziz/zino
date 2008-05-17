@@ -74,7 +74,7 @@ var PollList = {
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
-			src: "http://static.zino.gr/phoenix/add3.png",
+			src: Settings.imagesurl + "add3.png",
 			alt: "Δημιουργία δημοσκόπησης",
 			title: "Δημιουργία δημοσκόπησης"
 		} );
@@ -90,9 +90,9 @@ var PollList = {
 		var acceptlink = document.createElement( 'a' );
 		var acceptimage = document.createElement( 'img' );
 		$( acceptimage ). attr( { 
-			'src' : 'http://static.zino.gr/phoenix/accept.png',
-			'alt' : 'Δημιουργία',
-			'title' : 'Δημιουργία'
+			'src' : Settings.imagesurl + "accept.png",
+			'alt' : "Δημιουργία",
+			'title' : "Δημιουργία"
 		} );
 		$( newoption ).attr( { 'type' : 'text' } ).css( 'width' , '300px' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
