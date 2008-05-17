@@ -29,6 +29,7 @@
     	}
         
         header( 'Content-type: text/html' );
+		die( 'breakpoint 1' );
         $image = new Image();
 		$image->Name = '';
 		$setTempFile = $image->LoadFromFile( $uploadimage );
