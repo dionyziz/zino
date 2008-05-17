@@ -215,6 +215,8 @@
             
             ++$theuser->Numimages;
             $theuser->Save();
+
+            return 0;
         }
         public function LoadDefaults() {
             $this->Created = NowDate();
