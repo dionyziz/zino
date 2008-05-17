@@ -87,6 +87,9 @@ div.settings div.tabs form div { /* denotes a specific setting */
     /*border-bottom: 1px solid #ccc;*/
     padding: 3px;
 }
+div.settings div.tabs form div.barfade {
+	padding: 0;
+}
 div.settings div.tabs form div label {
     float: left;
     width: 300px;
