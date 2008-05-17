@@ -4,7 +4,7 @@
         global $rabbit_settings;
 		global $user;              
 
-		if ( !$user->HasPermission( PERMISSION_UPLOAD_IMAGE ) ) {
+		if ( !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
 			return -1;
 		}
         
@@ -39,6 +39,8 @@
         curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
 
         // curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
+
+        die( 'Ready to perform curl_exec()' );
 
         $data = curl_exec( $curl );
 
