@@ -31,7 +31,7 @@
         header( 'Content-type: text/html' );
         $image = new Image();
 		$image->Name = '';
-		$setTempFile = $image->LoadFromFile( $uploadimage );
+		$setTempFile = $image->LoadFromFile( $uploadimage->Tempname );
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
