@@ -5,6 +5,7 @@
 		global $libs;
 		global $water;
 		global $rabbit_settings;
+		global $user;
 		
 		$libs->Load( 'poll/poll' );
 		
@@ -18,14 +19,16 @@
 				Element( 'poll/small' , $poll , false ); //don't show comments number
 				?>
 				</div>
-				<div class="eof"></div>
-				<div class="delete">
-					<a href="" onclick="PollView.Delete( '<?php
-					echo $poll->Id;
-					?>' );return false;">Διαγραφή
-					</a>
-				</div>
-				<div class="comments"><?php
+				<div class="eof"></div><?php
+				if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
+					?><div class="delete">
+						<a href="" onclick="PollView.Delete( '<?php
+						echo $poll->Id;
+						?>' );return false;">Διαγραφή
+						</a>
+					</div><?php
+				}
+				?><div class="comments"><?php
 					Element( 'comment/list' );
 				?></div>
 			</div><?php
