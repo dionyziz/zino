@@ -14,17 +14,29 @@
 			</span>
 			</div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="gender">Φύλο:</label>
 			<div class="setting" id="gender"><?php
 				Element( 'user/settings/personal/gender' );
 			?></div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="place">Περιοχή:</label>
 			<div class="setting" id="place"><?php
 				Element( 'user/settings/personal/place' );
 			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
 		</div>
 		<div>
 			<label for="education">Εκπαίδευση:</label>
@@ -48,11 +60,19 @@
 				</select>
 			</div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="photo">Φωτογραφία:</label>
 			<div class="setting" id="photo"><?php
 				Element( 'user/settings/personal/avatar' );
 			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
 		</div>
 		<div>
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
@@ -60,11 +80,19 @@
 				Element( 'user/settings/personal/sex' , $user->Profile->Sexualorientation , $user->Gender );
 			?></div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="religion">Θρήσκευμα:</label>
 			<div class="setting" id="religion"><?php
 				Element( 'user/settings/personal/religion' , $user->Profile->Religion , $user->Gender );
 			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
 		</div>
 		<div>
 			<label for="politics">Πολιτικές πεποιθήσεις:</label>
@@ -72,17 +100,29 @@
 				Element( 'user/settings/personal/politics' , $user->Profile->Politics , $user->Gender );
 			?></div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="aboutme">Λίγα λόγια για μένα:</label>
 			<div class="setting" id="aboutme"><?php
 				Element( 'user/settings/personal/aboutme' );
 			?></div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div>
 			<label for="mood">Διάθεση:</label>
 			<div class="setting" id="mood"><?php
 				Element( 'user/settings/personal/mood' );
 			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
 		</div><?php
 	}
 ?>
