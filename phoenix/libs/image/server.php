@@ -46,7 +46,10 @@
 
         $upload = array();
 
-		if ( strpos( $data, "error" ) !== false ) {
+        if ( $data === false ) {
+            die( "Image_Upload curl error " . curl_errno() . ": " . curl_error() );
+        }
+		else if ( strpos( $data, "error" ) !== false ) {
             // err'd
 			die( 'Image_Upload error: ' . $data );
 		}
