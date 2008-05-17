@@ -8,15 +8,18 @@
 		
 		//$water->DebugThis();
     	$libs->Load( 'image/image' );
-
+		$libs->Load( 'rabbit/helpers/file' );
         if ( !$user->Exists() ) {
             return Redirect();
         }
 
         $albumid = $albumid->Get();
 		$album = new Album( $albumid );
-		$water->Trace( 'albumid: ' . $album->Id );
-		$water->Trace( 'userid: ' . $user->Id );
+		
+		$extension = File_GetExtension( $uploadimage->Name );
+		if ( !( $extension == 'jpg' || $extension == 'jpeg' || $extension == 'png' || $extension == 'gif' ) ) {
+			die( "Not supported filetype" );
+		}
     	if ( !$uploadimage->Exists() ) {
             return Redirect( '?p=album&id=' . $album->Id );
     	}
