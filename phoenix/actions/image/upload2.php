@@ -50,7 +50,7 @@
         }
 
         $setAlbumId  = $image->Albumid = $albumid;
-		if ( $image->Album->IsDeleted() ){
+		if ( $image->Album->IsDeleted() ) {
 			die( "Album is deleted" );
 		}
         if ( !$setAlbumId ) {
