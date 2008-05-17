@@ -15,4 +15,10 @@ $( document ).ready( function() {
 	if ( $( 'div#journalnew' )[ 0 ] ) {
 		$( 'div#journalnew form div.title input' )[ 0 ].select();
 	}
+	if ( $( 'div#journalview' )[ 0 ] ) {
+		var delete1 = new Image();
+		delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';
+		var delete2 = new Image();
+		delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
+	}
 } );

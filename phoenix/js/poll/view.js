@@ -13,3 +13,12 @@ var PollView = {
 		Coala.Warm( 'poll/vote' , { optionid : optionid , pollid : pollid , node : parent } );
 	}
 };
+$( document ).ready( function() { 
+	if ( $( 'div#pollview' )[ 0 ] ){
+		var delete1 = new Image();
+		delete1.src = ExcaliburSettings.imagesurl + 'delete1.gif';
+		var delete2 = new Image();
+		delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
+	}
+	
+} );
