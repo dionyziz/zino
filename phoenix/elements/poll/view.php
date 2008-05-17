@@ -22,9 +22,7 @@
 				<div class="delete">
 					<a href="" onclick="PollView.Delete( '<?php
 					echo $poll->Id;
-					?>' );return false;"><img src="<?php
-					echo $rabbit_settings[ 'imagesurl' ];
-					?>delete.png" alt="Διαγραφή" title="Διαγραφή" /> Διαγραφή
+					?>' );return false;">Διαγραφή
 					</a>
 				</div>
 				<div class="comments"><?php
