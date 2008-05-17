@@ -42,14 +42,15 @@
 
         $data = curl_exec( $curl );
 
+        if ( $data === false ) {
+            die( "Image_Upload curl error " . curl_errno() . ": " . curl_error() );
+        }
+
         curl_close( $curl );
 
         $upload = array();
 
-        if ( $data === false ) {
-            die( "Image_Upload curl error " . curl_errno() . ": " . curl_error() );
-        }
-		else if ( strpos( $data, "error" ) !== false ) {
+		if ( strpos( $data, "error" ) !== false ) {
             // err'd
 			die( 'Image_Upload error: ' . $data );
 		}
