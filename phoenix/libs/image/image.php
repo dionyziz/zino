@@ -213,8 +213,8 @@
                 }
             }
             
-            ++$theuser->Numimages;
-            $theuser->Save();
+            ++$this->User->Numimages;
+            $this->User->Save();
 
             return 0;
         }
