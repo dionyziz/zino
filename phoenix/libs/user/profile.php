@@ -91,7 +91,7 @@
     		}
             return false;
         }
-        public function Relations() {
+        protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
             $this->University = $this->HasOne( 'Uni', 'Uniid' );

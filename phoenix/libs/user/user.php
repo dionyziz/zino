@@ -13,6 +13,7 @@
     $libs->Load( 'user/profile' );
     $libs->Load( 'user/space' );
     $libs->Load( 'user/lastactive' );
+    $libs->Load( 'user/count' );
     $libs->Load( 'image/image' );
     $libs->Load( 'journal' );
     $libs->Load( 'album' );
@@ -120,6 +121,7 @@
         protected function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
             $this->Profile = $this->HasOne( 'UserProfile', 'Id' );
+            $this->Count = $this->HasOne( 'Count', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );

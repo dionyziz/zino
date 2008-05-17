@@ -213,7 +213,7 @@
                 }
             }
             
-            ++$this->User->Numimages;
+            ++$this->User->Count->Images;
             $this->User->Save();
 
             return 0;

@@ -82,6 +82,17 @@
                 <indexfield>setting_userid</indexfield>
             </index>
         </table>
+        <table name="usercounts">
+            <field name="count_userid" type="int" ref="users.user_id" autoincrement="yes" />
+            <field name="count_images" type="int" />
+            <field name="count_polls" type="int" />
+            <field name="count_journals" type="int" />
+            <field name="count_albums" type="int" />
+            <field name="count_comments" type="int" />
+            <index type="primary">
+                <indexfield>count_userid</indexfield>
+            </index>
+        </table>
         <table name="userprofiles">
             <field name="profile_userid" type="int" ref="users.user_id" />
             <field name="profile_placeid" type="int" ref="places.place_id" />
