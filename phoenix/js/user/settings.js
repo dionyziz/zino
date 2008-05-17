@@ -21,7 +21,7 @@ var Settings = {
 			var settingslis = $( 'div.settings div.sidebar ol li' );
 			
 			for ( i = 0; i < validtabs.length; ++i ) {
-				if ( divtoshow == validtabs[ i ] ) {https://beta.zino.gr/phoenix/settings
+				if ( divtoshow == validtabs[ i ] ) {//https://beta.zino.gr/phoenix/settings
 					$( '#' + divtoshow + 'info' ).show( 'slow' );
 					Settings.FocusSettingLink( settingslis[ i ], true );
 					window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
