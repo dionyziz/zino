@@ -38,3 +38,11 @@ var PhotoList = {
 		userid = imageinfo.userid;
 	}
 };
+$( document ).ready( function() {
+	if ( $( 'div#photolist' )[ 0 ] ) {
+		var delete1 = new Image();
+		delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';
+		var delete2 = new Image();
+		delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
+	}
+} );
