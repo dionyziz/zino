@@ -17,7 +17,7 @@ div#pollview div.delete {
 	margin-bottom: 10px;
 }
 div#pollview div.delete a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete1.png' );
+	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
 	padding: 0 0 0 16px;
 	vertical-align: -1px;
