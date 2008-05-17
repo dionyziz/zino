@@ -46,7 +46,6 @@
         }
         $image->Albumid = $albumid;
         $res = $image->Save();
-		die( "Success" );
     	if ( $res < 0 ) {
 			?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
