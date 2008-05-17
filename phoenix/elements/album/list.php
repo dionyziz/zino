@@ -33,7 +33,9 @@
 			}
 			if ( $theuser->Id == $user->Id ) {
 				?><li class="create">
-					<a href="" class="new">Δημιουργία album</a>
+					<a href="" class="new"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>add3.png" alt="Δημιουργία album" title="Δημιουργία album" />Δημιουργία album</a>
 				</li><?php
 			}
 		?></ul><?php
