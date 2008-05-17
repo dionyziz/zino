@@ -32,9 +32,9 @@
         $image = new Image();
 		$image->Name = '';
 		$setTempFile = $image->LoadFromFile( $uploadimage );
-		die( 'breakpoint 1' );
         switch ( $setTempFile ) {
             case -1: // too big file
+				die( 'huge file' );
                 ?><script type="text/javascript">
                     alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
                     window.location.href = <?php
