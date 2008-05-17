@@ -47,6 +47,7 @@ ul.albums li.create a {
 	font-weight: bold;
 }
 ul.albums li.create a {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
 	background-position: 0 -182px;
 	background-repeat: no-repeat;
 	padding-left: 3px;
