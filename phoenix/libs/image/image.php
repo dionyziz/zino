@@ -96,7 +96,7 @@
 		public function GetServerUrl() {
 			global $rabbit_settings;
 			
-			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->UserId . '/' . $this->Id;
+			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
 		}
 		public function GetProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
@@ -178,7 +178,7 @@
             $this->mCurrentValues[ 'Description' ] = $value;
         }
         public function Upload( $resizeto = false ) {
-            $path = $this->UserId . "/" . $this->Id;
+            $path = $this->Userid . "/" . $this->Id;
 
             return Image_Upload( $path, $this->mTemporaryFile, $resizeto );
         }
