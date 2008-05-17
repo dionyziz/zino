@@ -34,7 +34,6 @@
 		$setTempFile = $image->LoadFromFile( $uploadimage );
         switch ( $setTempFile ) {
             case -1: // too big file
-				die( 'huge file' );
                 ?><script type="text/javascript">
                     alert( 'H φωτογραφία σου δεν πρέπει να ξεπερνάει το 1MB' );
                     window.location.href = <?php
@@ -46,6 +45,7 @@
                 break;
         }
         $image->Albumid = $albumid;
+		die( "breakpoint 1" );
         $res = $image->Save();
 		die( "Success" );
     	if ( $res < 0 ) {
