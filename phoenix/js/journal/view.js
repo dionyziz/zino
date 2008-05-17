@@ -3,7 +3,7 @@ var JournalView = {
 		
 	},
 	Delete : function( journalid ) {
-		$( 'div#journalview div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete.gif" )' );
+		$( 'div#journalview div.owner div.delete a' )[ 0 ].className = 'delete1';
 		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την καταχώρηση;" ) ){
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'journal/delete' , { journalid : journalid } );

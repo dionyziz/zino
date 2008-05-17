@@ -27,6 +27,18 @@ div#journalview div.owner div.delete a {
 	padding: 0 0 0 16px;
 	vertical-align: -1px;
 }
+a.delete1 {
+	background-image: url( 'http://static.zino.gr/phoenix/delete1.gif' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 16px;
+	vertical-align: -1px;
+}
+a.delete2 {
+	background-image: url( 'http://static.zino.gr/phoenix/delete2.gif' );
+	background-repeat: no-repeat;
+	padding: 0 0 0 16px;
+	vertical-align: -1px;
+}
 div#journalview div.journal dl {
 	text-align: left;
 	padding: 0;
