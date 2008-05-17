@@ -99,12 +99,6 @@
 			
 			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->UserId . '/' . $this->Id;
 		}
-        public function GetExtension() {
-            if ( $this->mExtension === false ) {
-                $this->mExtension = getextension( $this->Name() );
-            }
-            return $this->mExtension;
-        }
 		public function GetProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
 			$proph = 1;
@@ -180,14 +174,7 @@
                 $value = utf8_substr( $value , 0 , 96 );
             }
             
-            $this->mName = $value;
-        }
-        public function SetExtension( $value ) {
-            $extensions = array( 'jpg', 'jpeg', 'png', 'gif' );
-            if ( !in_array( $value, $extensions ) ) {
-                return false;
-            }
-            $this->mExtension = $value;
+            $this->mCurrentValues[ 'Name' ] = $value;
         }
         public function SetDescription( $value ) {
             if ( strlen( $value ) > 200 ) {
