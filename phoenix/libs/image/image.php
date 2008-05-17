@@ -188,13 +188,14 @@
                 return parent::Save();
             }
             
-            // else: only when creating
-            
+            // else: only when creating 
             $this->Size = filesize( $this->mTemporaryFile );
             
             if ( !parent::Save() ) {
                 return -1;
             }
+
+            die( 'Ready to upload' );
 
             $upload = $this->Upload( $resizeto );
             if ( $upload < 0 ) {
