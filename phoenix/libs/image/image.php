@@ -195,9 +195,10 @@
                 return -1;
             }
 
-            die( 'Ready to upload' );
-
             $upload = $this->Upload( $resizeto );
+
+            die( 'Uploaded!' );
+            
             if ( $upload < 0 ) {
                 return $upload; // error code
             }
