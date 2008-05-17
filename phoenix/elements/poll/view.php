@@ -25,7 +25,6 @@
 					?>' );return false;">Διαγραφή
 					</a>
 				</div>
-				
 				<div class="comments"><?php
 					Element( 'comment/list' );
 				?></div>
