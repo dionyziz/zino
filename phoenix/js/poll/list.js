@@ -74,7 +74,7 @@ var PollList = {
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
-			src: Settings.imagesurl + "add3.png",
+			src: ExcaliburSettings.imagesurl + "add3.png",
 			alt: "Δημιουργία δημοσκόπησης",
 			title: "Δημιουργία δημοσκόπησης"
 		} );
@@ -90,7 +90,7 @@ var PollList = {
 		var acceptlink = document.createElement( 'a' );
 		var acceptimage = document.createElement( 'img' );
 		$( acceptimage ). attr( { 
-			'src' : Settings.imagesurl + "accept.png",
+			'src' : ExcaliburSettings.imagesurl + "accept.png",
 			'alt' : "Δημιουργία",
 			'title' : "Δημιουργία"
 		} );
