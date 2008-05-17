@@ -176,20 +176,11 @@
             }
         }
         public function SetName( $value ) {
-            if ( !$this->Extension = File_GetExtension( $value ) ) {
-                return -1;
-            }
-
-            $this->mName = $value;
-
-            if ( strlen( $value ) > 96 ) {
-                $this->mName = utf8_substr( $value , 0 , 96 ) . "." . $this->Extension;
+            if ( strlen( $value ) > 96 ) { // TODO: utf8_strlen()
+                $value = utf8_substr( $value , 0 , 96 );
             }
             
-            $noext = Image_NoExtenstionName( $value );
-            if ( empty( $noext ) ) {
-                $this->mName = 'noname' . rand( 1, 20 ) . $this->Extension;
-            }
+            $this->mName = $value;
         }
         public function SetExtension( $value ) {
             $extensions = array( 'jpg', 'jpeg', 'png', 'gif' );
