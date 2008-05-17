@@ -63,13 +63,15 @@
 				$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
 				?>Η καταχώρηση δεν υπάρχει<?php
 			}
-			?><div class="eof"></div>
+			?><div class="eof"></div><?php
+			/*
 			<img class="delete1" src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>delete.gif" />
 			<img class="delete2" src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>delete2.gif" />
-		</div><?php
+			*/
+		?></div><?php
 	}
 ?>
