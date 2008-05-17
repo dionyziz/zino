@@ -28,7 +28,7 @@
 		Element( 'user/sections', 'poll' , $theuser );
 		?><div id="polllist">
 			<ul><?php
-				if ( $theuser->Id == $user->Id ) {
+				if ( $theuser->Id == $user->Id && $theuser->HasPermission( PERMISSION_POLL_CREATE ) ) {
 					?><li class="create">
 						<a href="" class="new"><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
@@ -48,7 +48,7 @@
 					}
 				}
 			?></ul><?php
-			if ( $theuser->Id == $user->Id ) {
+			if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
 				?><div class="creationmockup">
 					<div>
 						<input type="text" /><a href=""><img src="<?php
