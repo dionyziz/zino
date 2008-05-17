@@ -10,6 +10,8 @@
         
         $curl = curl_init();
 
+        die( "Tempfile: $tempfile" );
+
         $data = array(
             'path' => $path,
             'mime' => 'image/jpeg',
