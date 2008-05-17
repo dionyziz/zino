@@ -158,15 +158,11 @@
             --$this->NumComments;
             return $this->Save();
         }
-        public function SetTemporaryFile( $value ) {
+        public function LoadFromFile( $value ) {
             $this->mTemporaryFile = $value;
 
             if ( filesize( $value ) > 1024 * 1024 ) {
                 return -1;
-            }
-            
-            if ( $this->Name = mystrtolower( basename( $value ) ) == -1 ) { // wrong extension
-                return -2;
             }
         }
         public function SetName( $value ) {
