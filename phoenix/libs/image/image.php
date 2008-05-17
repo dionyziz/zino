@@ -87,7 +87,6 @@
 	
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
-        protected $mExtension;
         protected $mTemporaryFile;
         
         public function Relations() {
@@ -191,7 +190,6 @@
             // else: only when creating
             
             $this->Size = filesize( $this->mTemporaryFile );
-            $this->Mime = Image_MimeByExtension( $extension );
             
             if ( !parent::Save() ) {
                 return -1;
