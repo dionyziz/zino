@@ -29,10 +29,10 @@
     	}
         
         header( 'Content-type: text/html' );
-		die( 'breakpoint 1' );
         $image = new Image();
 		$image->Name = '';
 		$setTempFile = $image->LoadFromFile( $uploadimage );
+		die( 'breakpoint 1' );
         switch ( $setTempFile ) {
             case -1: // too big file
                 ?><script type="text/javascript">
