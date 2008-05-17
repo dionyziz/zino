@@ -29,6 +29,7 @@
         $header[] = "Expect:";
     
         $server = $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ];
+        die( "Server URL: $server" );
         curl_setopt( $curl, CURLOPT_URL, $server );
         curl_setopt( $curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.8) Gecko/20071030 Firefox/2.0.0.8" );
         curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
