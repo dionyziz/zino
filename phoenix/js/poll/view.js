@@ -1,10 +1,11 @@
 var PollView = {
 	Delete : function( pollid ) {
-		
+		$( 'div#pollview div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete.gif" )' );
 		if ( confirm( "Θέλεις σίγουρα να διαγράψεις τη δημοσκόπηση;" ) ) {
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'poll/delete' , { pollid : pollid } );
 		}
+		$( 'div#pollview div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );
 	},
 	Vote : function( optionid , pollid , node ) {
 		var parent = node.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
