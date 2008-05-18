@@ -5,13 +5,33 @@
 			<div class="setting">
 				<ul class="interesttags">
 					<li>
-						<div class="aplbubble">
-							Test
-							<div class="left"></div>
-							<div class="right"></div>
-						</div>
+						<span class="aplbubble">
+							<span class="left"><img src="aplbubble_left.png" /></span>
+							<span class="repeat">Skating</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+						</span>
 					</li>
-					<li></li>
+					<li>
+						<span class="aplbubble">
+							<span class="left"><img src="aplbubble_left.png" /></span>
+							<span class="repeat">PRO Evolution</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+						</span>
+					</li>
+					<li>
+						<span class="aplbubble">
+							<span class="left"><img src="aplbubble_left.png" /></span>
+							<span class="repeat">Programming</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+						</span>
+					</li>
+					<li>
+						<span class="aplbubble">
+							<span class="left"><img src="aplbubble_left.png" /></span>
+							<span class="repeat">Sex</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+						</span>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -22,7 +42,6 @@
 		<div class="option">
 			<label>Αγαπημένες ταινίες:</label>
 			<div class="setting">
-
 			</div>
 		</div>
 		<div class="barfade">
