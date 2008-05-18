@@ -22,8 +22,10 @@
 							<span class="left"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" /></span>
-							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							<span class="repeat">Football</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>delete.png" /></a><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_right.png" /></span>
 						</span>
@@ -33,8 +35,10 @@
 							<span class="left"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" /></span>
-							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							<span class="repeat">Programming</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>delete.png" /></a><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_right.png" /></span>
 						</span>
@@ -44,8 +48,10 @@
 							<span class="left"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" /></span>
-							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							<span class="repeat">Sex</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>delete.png" /></a><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_right.png" /></span>
 						</span>
