@@ -1,35 +1,53 @@
 <?php
 	function ElementUserSettingsInterests() {
+		global $rabbit_settings;
+		
 		?><div class="option">
 			<label>Hobbies:</label>
 			<div class="setting">
 				<ul class="interesttags">
 					<li>
 						<span class="aplbubble">
-							<span class="left"><img src="aplbubble_left.png" /></span>
+							<span class="left"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_left.png" /></span>
 							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_right.png" /></span>
 						</span>
 					</li>
 					<li>
 						<span class="aplbubble">
-							<span class="left"><img src="aplbubble_left.png" /></span>
-							<span class="repeat">PRO Evolution</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+							<span class="left"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_left.png" /></span>
+							<span class="repeat">Skating</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_right.png" /></span>
 						</span>
 					</li>
 					<li>
 						<span class="aplbubble">
-							<span class="left"><img src="aplbubble_left.png" /></span>
-							<span class="repeat">Programming</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+							<span class="left"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_left.png" /></span>
+							<span class="repeat">Skating</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_right.png" /></span>
 						</span>
 					</li>
 					<li>
 						<span class="aplbubble">
-							<span class="left"><img src="aplbubble_left.png" /></span>
-							<span class="repeat">Sex</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" style="z-index:2;" /></a><img src="aplbubble_right.png" /></span>
+							<span class="left"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_left.png" /></span>
+							<span class="repeat">Skating</span>
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>aplbubble_right.png" /></span>
 						</span>
 					</li>
 				</ul>
