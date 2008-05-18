@@ -6,8 +6,8 @@
 				<ul class="interesttags">
 					<li>
 						<div class="aplbubble">
-							<div class="left"></div>
 							Test
+							<div class="left"></div>
 							<div class="right"></div>
 						</div>
 					</li>
