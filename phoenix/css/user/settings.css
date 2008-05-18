@@ -127,6 +127,15 @@ div.settings div.tabs form div div.setting {
 div.settings div.tabs form#contactinfo div div.setting input {
 	width: 300px;
 }
+div.settings div.tabs form div div.setting ul.interesttags {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div.settings div.tabs form div div.setting ul.interesttags li {
+	margin: 0;
+	padding: 0;
+}
 div#email span {
 	font-weight: bold;
 	font-size: 80%;

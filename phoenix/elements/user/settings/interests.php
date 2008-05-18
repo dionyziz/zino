@@ -5,7 +5,7 @@
 			<div class="setting">
 				<ul class="interesttags">
 					<li>
-						<div class="applbubble">
+						<div class="aplbubble">
 							<div class="left"></div>
 							<div class="fade">Testing</div>
 							<div class="right"></div>
