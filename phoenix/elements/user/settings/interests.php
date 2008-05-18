@@ -25,7 +25,7 @@
 							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
-							<span>Sex & Drugs</span>
+							<span>Sex</span>
 							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
