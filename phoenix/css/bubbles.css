@@ -137,7 +137,7 @@ div.aplbubble div.right {
 	background-repeat: no-repeat;
 	width: 19px;
 	height: 19px;
-	float: left;
+	float: right;
 }
 div.aplbubble div.fade {
 	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_fade.png' );
