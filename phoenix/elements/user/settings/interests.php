@@ -7,7 +7,7 @@
 					<li>
 						<div class="aplbubble">
 							<div class="left"></div>
-							<div class="fade">Testing</div>
+							<div class="repeat">Testing</div>
 							<div class="right"></div>
 						</div>
 					</li>

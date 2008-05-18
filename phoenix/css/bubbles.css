@@ -123,7 +123,7 @@ div.ybubble form div.search h3 {
 }
 
 div.aplbubble {
-	height: 19px;
+	height: 19px;pl
 }
 div.aplbubble div.left {
 	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_left.png' );
@@ -139,8 +139,8 @@ div.aplbubble div.right {
 	height: 19px;
 	float: right;
 }
-div.aplbubble div.fade {
-	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_fade.png' );
+div.aplbubble div.repeat {
+	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_repeat.png' );
 	background-repeat: repeat-x;
 	height: 19px;
 }
