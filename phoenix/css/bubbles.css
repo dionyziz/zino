@@ -139,7 +139,7 @@ div.aplbubble div.right {
 	height: 19px;
 	float: right;
 }
-div.aplbubble div.repeat {
+div.aplbubble {
 	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_repeat.png' );
 	background-repeat: repeat-x;
 	height: 19px;
