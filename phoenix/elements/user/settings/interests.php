@@ -12,7 +12,9 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" /></span>
 							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="delete.png" /></a><img src="<?php
+							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>delete.png" /></a><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_right.png" /></span>
 						</span>
