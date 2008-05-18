@@ -7,147 +7,158 @@
 			<div class="setting">
 				<ul class="interesttags">
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Skating</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Elephant</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Football</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Sex & Drugs</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Programming</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Maths</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Sex</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Physics</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Cars</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>PHP</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Maths</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Javascript</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Physics</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Cars</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Zino</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Football</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Physics</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Tea</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Fishing</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Fishing</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 					<li>
-						<span class="aplbubble">
-							<span class="left"><img src="<?php
+						<div class="aplbubble">
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_left.png" /></span>
-							<span class="repeat">Tea</span>
-							<span class="right"><a class="delete" href="" onclick="alert( 'test' );return false;"><img src="<?php
+							?>aplbubble_left.png" />
+							<span>Ballet</span>
+							<a href="" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>delete.png" /></a><img src="<?php
+							?>delete.png" /></a>
+							<img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
-							?>aplbubble_right.png" /></span>
-						</span>
+							?>aplbubble_right.png" />
+						</div>
 					</li>
 				</ul>
 			</div>

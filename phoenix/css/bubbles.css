@@ -122,26 +122,20 @@ div.ybubble form div.search h3 {
     font-size: 100%;
 }
 
-span.aplbubble span.repeat {
-	background-image: url( 'http://static.zino.gr/phoenix/aplbubble_repeat.png' );
+div.aplbubble {
+	background-image: url( 'aplbubble_repeat.png' );
 	background-repeat: repeat-x;
-	padding: 2px 3px 2px 0;
+	height: 19px;
+	margin-right: 10px;
 }
-span.aplbubble span.left {
-	margin-right: -4px;
+div.aplbubble span {
+	margin-bottom: 3px;
+	vertical-align: 4px;
 }
-span.aplbubble span.right {
-	margin-left: -4px;
-}
-span.aplbubble span.right a.delete {
-	text-decoration: none;
+div.aplbubble a.delete {
 	position: absolute;
 }
-span.aplbubble span.right a.delete img {
-	border-width: 0;
+div.aplbubble1 a.delete img {
 	margin: 1px 0 0 1px;
-}
-span.repeat {
-	vertical-align: 4px;
 }
 
