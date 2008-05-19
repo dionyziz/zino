@@ -324,16 +324,6 @@ $( document ).ready( function() {
 			return false;
 		} );
 
-		$( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
-			alert( 'ok' );
-			return false;
-		} );
-
 		$( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				alert( 'ok' );
