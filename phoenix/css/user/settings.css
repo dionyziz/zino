@@ -131,6 +131,9 @@ div.settings div.tabs form#contactinfo div div.setting input {
 div.settings div.tabs form#interestsinfo div.barfade {
 	clear: left;
 }
+div.settings div.tabs form#interestsinfo div.option {
+	margin: 10px 0;
+}
 div.settings div.tabs form div div.setting ul.interesttags {
 	margin: 0;
 	padding: 0;
