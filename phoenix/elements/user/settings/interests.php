@@ -161,7 +161,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add hobbies">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -248,7 +248,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add movies">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -265,7 +265,7 @@
 			<div class="setting">
 				<ul class="interesttags books">
 				</ul>
-				<div class="add">
+				<div class="add books">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -352,7 +352,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add songs">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -439,7 +439,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add artists">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -484,7 +484,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add games">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -499,7 +499,7 @@
 		<div class="option">
 			<label>Αγαπημένες φράσεις:</label>
 			<div class="setting">
-				<ul class="interesttags hobbies">
+				<ul class="interesttags quotes">
 					<li>
 						<div class="aplbubble">
 							<img src="<?php
@@ -529,7 +529,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add quotes">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
@@ -560,7 +560,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="add">
+				<div class="add shows">
 					<input type="text"/>
 					<a href="" onclick="return false;"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];

@@ -295,12 +295,12 @@ $( document ).ready( function() {
 		
 		//interesttags
 		
-		$( 'form#interestsinfo div.option div.settings div.add input.hobbies' ).keydown( function( event ) {
+		$( 'form#interestsinfo div.option div.settings div.hobbies input.hobbies' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				alert( 'ok' );
 			}
 		} );
-		$( 'form#interestsinfo div.option div.settings div.add a' ).keydown( function( event ) {
+		$( 'form#interestsinfo div.option div.settings div.hobbies a' ).keydown( function( event ) {
 			alert( 'ok' );
 		} );
 	}
