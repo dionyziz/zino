@@ -12,7 +12,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Elephant</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php

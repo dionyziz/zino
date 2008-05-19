@@ -83,7 +83,14 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
+			//check for letter length
+			//make coala call
 		}
+	},
+	RemoveInterest : function( node ) {
+		//an interest id will be needed
+		
+		$( this ).parent().remove();
 	}
 };
 $( document ).ready( function() {
