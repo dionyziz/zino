@@ -77,7 +77,7 @@ var Settings = {
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( intervalue !== '' ) {
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
-			$( newspan ).append( document.createTextNode( intervalue ) ).removeClass( 'creation' );
+			$( newspan ).find( 'span' ).append( document.createTextNode( intervalue ) ).removeClass( 'creation' );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newspan );
 		}
 	}
