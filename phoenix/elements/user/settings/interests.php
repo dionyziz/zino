@@ -161,6 +161,10 @@
 						</div>
 					</li>
 				</ul>
+				<div class="add">
+					<input type="text"/>
+					<a href="" onclick="return false;"></a>
+				</div>
 			</div>
 		</div>
 		<div class="barfade">

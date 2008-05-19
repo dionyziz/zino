@@ -135,6 +135,17 @@ div.settings div.tabs form#interestsinfo div.barfade {
 div.settings div.tabs form#interestsinfo div.option {
 	margin: 10px 0;
 }
+div.settings div.tabs form#interestsinfo div.option div.setting div.add {
+	margin: 10px 0 10px 0;
+}
+div.settings div.tabs form#interestsinfo div.option div.setting div.add input {
+	width: 200px;
+}
+div.settings div.tabs form#interestsinfo div.option div.setting div.add a {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -116px;
+	background-repeat: no-repeat;
+}
 div.settings div.tabs form div div.setting ul.interesttags {
 	margin: 0;
 	padding: 0;
