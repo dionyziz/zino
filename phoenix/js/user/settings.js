@@ -76,10 +76,11 @@ var Settings = {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( intervalue !== '' ) {
-			alert( intervalue );
+			var newli = document.createElement( 'li' );
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
 			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( intervalue ) );
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newspan );
+			$( newli ).append( newspan );
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
 		}
 	}
 };
