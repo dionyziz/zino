@@ -295,7 +295,7 @@ $( document ).ready( function() {
 		
 		//interesttags
 		
-		$( 'form#interestsinfo div.option div.settings div.hobbies input.hobbies' ).keydown( function( event ) {
+		$( 'form#interestsinfo div.option div.settings div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				alert( 'ok' );
 			}
