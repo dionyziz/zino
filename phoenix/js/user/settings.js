@@ -296,12 +296,12 @@ $( document ).ready( function() {
 		//interesttags
 		var interestlist = [ 'hobbies' , 'movies' , 'books' , 'songs' , 'artists' , 'games' , 'quotes' , 'shows' ];
 		for ( var obj in interestlist ) {
-			$( 'form#interestsinfo div.option div.setting div.' + obj + ' input' ).keydown( function( event ) {
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + obj + ' input' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					alert( 'ok' );
 				}
 			} );
-			$( 'form#interestsinfo div.option div.setting div.' + obj + ' a' ).keydown( function( event ) {
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + obj + ' a' ).keydown( function( event ) {
 				alert( 'ok' );
 			} );
 		}
