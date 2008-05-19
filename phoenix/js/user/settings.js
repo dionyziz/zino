@@ -294,13 +294,23 @@ $( document ).ready( function() {
 		});
 		
 		//interesttags
-		
-		$( 'form#interestsinfo div.option div.settings div.hobbies input' ).keydown( function( event ) {
+		var interestlist = [ 'hobbies' , 'movies' , 'books' , 'songs' , 'artists' , 'games' , 'quotes' , 'shows' ];
+		for ( var obj in interestlist ) {
+			$( 'form#interestsinfo div.option div.setting div.' + obj + ' input' ).keydown( function( event ) {
+				if ( event.keyCode == 13 ) {
+					alert( 'ok' );
+				}
+			} );
+			$( 'form#interestsinfo div.option div.setting div.' + obj + ' a' ).keydown( function( event ) {
+				alert( 'ok' );
+			} );
+		}
+		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				alert( 'ok' );
 			}
 		} );
-		$( 'form#interestsinfo div.option div.settings div.hobbies a' ).keydown( function( event ) {
+		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).keydown( function( event ) {
 			alert( 'ok' );
 		} );
 	}
