@@ -71,6 +71,11 @@ var Settings = {
 			.animate( { opacity : "1" } , 200 );
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
+	},
+	AddInterest : function( type ) {
+		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
+		intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
+		alert( intervalue );
 	}
 };
 $( document ).ready( function() {
@@ -296,81 +301,81 @@ $( document ).ready( function() {
 		//interesttags
 		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'hobbies' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'hobbies' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'movies' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'movies' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.books input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'books' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'books' );
 			return false;
 		} );
 
 		$( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'songs' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'songs' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.artists input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'artists' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'artists' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.games input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'games' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'games' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.quotes input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'quotes' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.quotes a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'quotes' );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				alert( 'ok' );
+				Settings.AddInterest( 'shows' );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
-			alert( 'ok' );
+			Settings.AddInterest( 'shows' );
 			return false;
 		} );
 	}
