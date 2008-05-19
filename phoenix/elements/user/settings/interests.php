@@ -163,7 +163,9 @@
 				</ul>
 				<div class="add">
 					<input type="text"/>
-					<a href="" onclick="return false;"></a>
+					<a href="" onclick="return false;"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
 				</div>
 			</div>
 		</div>
