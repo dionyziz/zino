@@ -567,18 +567,18 @@
 					?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
 				</div>
 			</div>
-			<div class="aplbubble creation">
-				<img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>aplbubble_left.png" />
-				<span></span>
-				<a href="" class="delete"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>delete.png" /></a>
-				<img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>aplbubble_right.png" />
-			</div>
+		</div>
+		<div class="aplbubble creation">
+			<img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>aplbubble_left.png" />
+			<span></span>
+			<a href="" class="delete"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>delete.png" /></a>
+			<img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>aplbubble_right.png" />
 		</div><?php
 	}
 ?>
