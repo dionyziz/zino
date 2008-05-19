@@ -81,6 +81,8 @@ var Settings = {
 			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( intervalue ) );
 			$( newli ).append( newspan );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 	}
 };
