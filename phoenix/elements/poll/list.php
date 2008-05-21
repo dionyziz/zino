@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollList( tString $username ) {
+	function ElementPollList( tString $username , tInteger $offset ) {
 		global $libs;
 		global $page;
 		global $rabbit_settings;
@@ -8,6 +8,11 @@
 		
 		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
+		
+		$offset = $offset->Get();
+		if ( $offset <= 0 ) {
+			$offset = 1;
+		}
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $username != '' ) {
@@ -23,7 +28,7 @@
 			return Element( '404' );
 		}
 		$finder = New PollFinder();
-		$polls = $finder->FindByUser( $theuser );
+		$polls = $finder->FindByUser( $theuser  , ( $offset - 1 )*5 , 5 );
 
 		Element( 'user/sections', 'poll' , $theuser );
 		?><div id="polllist">
@@ -69,6 +74,9 @@
 				</div><?php
 			}
 		?></div>
-		<div class="eof"></div><?php
+		<div class="eof"></div>
+		<div class="pagifypolls"><?php
+		Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Polls , 5 , 'offset' );
+		?></div><?php
 	}
 ?>
