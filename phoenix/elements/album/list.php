@@ -53,8 +53,9 @@
 				?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Δημιουργία album
 			</div><?php
 		}
-		?><div class="pagify"><?php
+		?><div class="eof"></div>
+		<div class="pagify"><?php
 		Element( 'pagify' , $offset , '?albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'offset' );
-		?></div><div class="eof"></div><?php
+		?></div><?php
 	}
 ?>

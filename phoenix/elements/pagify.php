@@ -21,14 +21,14 @@
 		if ( $pagebefore >= 1 ) {
 			?><span class="leftpage">
 				<a href="index.php?p=<?php
-				echo $link;
+				echo htmlspecialchars( $link );
 				?>&amp;<?php
 				echo $offsetcaption;
 				?>=<?php
 					echo $pagebefore;
 					?>" class="nextbacklinks"><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
-					?>resultset_next.png" alt="Προηγούμενη" title="Προηγούμενη" />
+					?>resultset_previous.png" alt="Προηγούμενη" title="Προηγούμενη" />
 				</a>&nbsp;
 			</span><?php
 		}
@@ -77,7 +77,7 @@
 				echo $pagenext;
 				?>" class="nextbacklinks"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>resultset_previous.png" alt="Επόμενη" title="Επόμενη" />
+				?>resultset_next.png" alt="Επόμενη" title="Επόμενη" />
 			</a>
 			</span><?php
 		}
