@@ -41,6 +41,8 @@ span.albummain a img {
 ul.albums li.create {
 	padding-top: 85px;
 	text-align: center;
+	height: 160px;
+	margin-bottom: 0;
 	
 }
 ul.albums li.create a {
@@ -81,4 +83,8 @@ div.creationmakeup , div.creating {
 }
 div.createalbum span.desc {
 	display: block;
+}
+div.pagifyalbums {
+	text-align: center;
+	margin-bottom: 20px;
 }
