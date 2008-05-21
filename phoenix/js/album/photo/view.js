@@ -1,6 +1,6 @@
 var PhotoView = {
 	renaming : false,
-	Rename : function( photoid ) {
+	Rename : function( photoid , albumname ) {
 		if ( !PhotoView.renaming ) {
 			PhotoView.renaming = true;
 			var inputbox = document.createElement( 'input' );
@@ -9,17 +9,18 @@ var PhotoView = {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
 					if ( photoname != name ) {
-						window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
 						Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
+						if ( name === '' ) {
+							window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
+							$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Όρισε όνομα' ) );
+						}
+						else {
+							window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
+							$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Μετονομασία' ) );
+						}
 					}
 					$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
 					PhotoView.renaming = false;
-					if ( name === '' ) {
-						$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Όρισε όνομα' ) );
-					}
-					else {
-						$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Μετονομασία' ) );
-					}
 				}
 			} );
 			$( inputbox )[ 0 ].value = photoname;

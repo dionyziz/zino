@@ -8,10 +8,10 @@
 		$image = New Image( $id );
 		
 		if ( $image->Name != "" ) {
-			$title = $image->Name;
+			$title = htmlspecialchars( $image->Name );
 		}
 		else {
-			$title = $image->Album->Name;
+			$title = htmlspecialchars( $image->Album->Name );
 		}
 		$page->SetTitle( $title );
 		$size = $image->GetProportionalSize( 700  , 600 );
@@ -44,6 +44,8 @@
 				?><div class="owner">
 					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
 					echo $image->Id;
+					?>' , '<?php
+					echo htmlspecialchars( $image->Album->Name );
 					?>' );return false;"><?php
 					if ( $image->Name == '' ) {
 						?>Όρισε όνομα<?php
