@@ -20,7 +20,9 @@ var PhotoList = {
 						window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
 						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
 					}
-					$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
+					if ( name!== '' ) {
+						$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
+					}
 					PhotoList.renaming = false;
 				}
 			} );
