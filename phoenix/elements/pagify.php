@@ -27,7 +27,7 @@
 				echo $offsetcaption;
 				?>=<?php
 					echo $pagebefore;
-					?>" class="previous"></a>&nbsp;
+					?>" class="previous" title="Προηγούμενη"></a>&nbsp;
 			</span><?php
 		}
 		$startpos = $offset - 4;
@@ -73,10 +73,7 @@
 			echo $offsetcaption;
 			?>=<?php
 				echo $pagenext;
-				?>" class="next"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>resultset_next.png" alt="Επόμενη" title="Επόμενη" />
-			</a>
+				?>" class="next" title="Επόμενη"></a>
 			</span><?php
 		}
 		?></div><?php
