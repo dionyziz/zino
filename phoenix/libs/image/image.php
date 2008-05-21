@@ -98,6 +98,9 @@
 			
 			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
 		}
+		public function IsDeleted() {
+            return $this->Delid > 0;
+        }
 		public function GetProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
 			$proph = 1;
