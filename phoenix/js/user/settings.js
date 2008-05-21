@@ -76,9 +76,13 @@ var Settings = {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( intervalue !== '' ) {
+			var showvalue = intervalue;
+			if ( showvalue.length > 50 ) {
+				showvalue = showvalue.substr( 0 , 50 );
+			}
 			var newli = document.createElement( 'li' );
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
-			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( intervalue ) );
+			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( showvalue ) );
 			$( newli ).append( newspan );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
