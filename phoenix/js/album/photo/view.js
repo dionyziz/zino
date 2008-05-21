@@ -11,7 +11,7 @@ var PhotoView = {
 					if ( photoname != name ) {
 						Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 						if ( name === '' ) {
-							window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
+							window.document.title = albumname + ' | ' + ExcaliburSettings.applicationname;
 							$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Όρισε όνομα' ) );
 						}
 						else {
