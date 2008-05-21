@@ -9,6 +9,7 @@
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
+		$water->Trace( 'album num: ' . $user->Count->Albums );
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
 			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
