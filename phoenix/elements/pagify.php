@@ -47,7 +47,7 @@
 		
 		for ( $i = $startpos; $i <= $endpos; ++$i ) {
 		?><a href="index.php?p=<?php
-		echo $link;
+		echo htmlspecialchars( $link );
 		?>&amp;<?php
 		echo $offsetcaption;
 		?>=<?php
@@ -70,7 +70,7 @@
 		if ( $pagenext <= $pages ) {
 			?><span class="rightpage">&nbsp;
 			<a href="index.php?p=<?php
-			echo $link;
+			echo htmlspecialchars( $link );
 			?>&amp;<?php
 			echo $offsetcaption;
 			?>=<?php

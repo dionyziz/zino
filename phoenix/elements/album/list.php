@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumList( tString $username ) {
+	function ElementAlbumList( tString $username , tInteger $page ) {
 		global $page;
 		global $user;
 		global $rabbit_settings;
@@ -9,7 +9,6 @@
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
-		$water->Trace( 'album num: ' . $user->Count->Albums );
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
 			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
@@ -23,7 +22,7 @@
 			return Element( '404' );
 		}
 		$finder = New AlbumFinder();
-		$albums = $finder->FindByUser( $theuser );
+		$albums = $finder->FindByUser( $theuser , ( $page - 1 )*12 , 12 );
 		$water->Trace( 'username: '. $theuser->Name );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
@@ -50,6 +49,8 @@
 				?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" /> Δημιουργία album
 			</div><?php
 		}
-		?><div class="eof"></div><?php
+		?><div class="pagify"><?php
+		Element( $page->Get() , '?p=albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'page' );
+		?></div><div class="eof"></div><?php
 	}
 ?>
