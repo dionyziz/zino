@@ -1,5 +1,5 @@
 <?php	
-	function ElementPagify( $offset , $link , $totalnum , $showing , $offsetcaption = 'page' ) {
+	function ElementPagify( $offset , $link , $totalnum , $showing , $offsetcaption = 'offset' ) {
 		global $water;
 		global $rabbit_settings;
 		/*

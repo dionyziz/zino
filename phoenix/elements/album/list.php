@@ -54,7 +54,7 @@
 			</div><?php
 		}
 		?><div class="pagify"><?php
-		Element( 'pagify' , $offset , '?p=albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'page' );
+		Element( 'pagify' , $offset , '?albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'offset' );
 		?></div><div class="eof"></div><?php
 	}
 ?>
