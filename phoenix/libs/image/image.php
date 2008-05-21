@@ -104,15 +104,15 @@
 		public function GetProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
 			$proph = 1;
-			if ( $this->Width() > $maxw ) {
-				$propw = $this->Width() / $maxw;
+			if ( $this->Width > $maxw ) {
+				$propw = $this->Width / $maxw;
 			}
-			if ( $this->Height() > $maxh ) {
-				$proph = $this->Height() / $maxh;
+			if ( $this->Height > $maxh ) {
+				$proph = $this->Height / $maxh;
 			}
 			$prop = max( $propw , $proph );
-			$size[ 0 ] = round( $this->Width() / $prop , 0 );
-			$size[ 1 ] = round( $this->Height() / $prop , 0 );
+			$size[ 0 ] = round( $this->Width / $prop , 0 );
+			$size[ 1 ] = round( $this->Height / $prop , 0 );
 			
 			return $size;
 		}
