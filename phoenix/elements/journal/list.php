@@ -1,13 +1,13 @@
 <?php
 	
-	function ElementJournalList( tString $username ) {
+	function ElementJournalList( tString $username , tInteger $offset ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
 		
 		$username = $username->Get();
 		$finder = New UserFinder();
-		
+
 		if ( $username != '' ) {
 			$theuser = $finder->FindByName( $username );
 			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
@@ -20,8 +20,14 @@
 		if ( !isset( $theuser ) || $theuser === false ) {
 			return Element( '404' );
 		}
+		
+		$offset = $offset->Get();
+		if ( $offset <= 0 ) {
+			$offset = 1;
+		}
+		
 		$finder = New JournalFinder();
-		$journals = $finder->FindByUser( $theuser );
+		$journals = $finder->FindByUser( $theuser , ( $offset - 1 )*5 , 5 );
 		
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
@@ -50,6 +56,9 @@
 					}
 				}
 			?></ul>
+			<div class="pagifyjournals"><?php
+			Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Journals , 5 , 'offset' );
+			?></div>
 		</div>
 		<div class="eof"></div><img src="<?php
 		echo $rabbit_settings[ 'imagesurl' ];
