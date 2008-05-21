@@ -26,7 +26,7 @@
 			return Element( '404' );
 		}
 		$finder = New AlbumFinder();
-		$albums = $finder->FindByUser( $theuser , ( $page - 1 )*12 , 12 );
+		$albums = $finder->FindByUser( $theuser , ( $offset - 1 )*12 , 12 );
 		$water->Trace( 'username: '. $theuser->Name );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
