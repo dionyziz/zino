@@ -13,7 +13,7 @@
 	        }
 	        else {
 	            $url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/' . $image->Id;
-	            $url .= '?resolution=' . $width . 'x' . $height . '&sandbox=yes';
+	            $url .= '?resolution=' . $width . 'x' . $height . '&amp;sandbox=yes';
 	        }
 			?><img src="<?php
 			echo $url;
