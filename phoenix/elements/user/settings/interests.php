@@ -26,7 +26,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Sex</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -40,7 +40,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Maths</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -54,7 +54,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Physics</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -68,7 +68,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>PHP</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -82,7 +82,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Javascript</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -96,7 +96,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Cars</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -110,7 +110,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Football</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -124,7 +124,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Tea</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -138,7 +138,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Fishing</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -152,7 +152,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Ballet</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -183,7 +183,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Amelie</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -197,7 +197,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Lord of the Rings</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -211,7 +211,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Pi</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -225,7 +225,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Requiem for a dream</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -239,7 +239,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Butterfly Effect</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -287,7 +287,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Hanging by a moment</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -301,7 +301,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Bubbly</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -315,7 +315,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Where'd you go</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -329,7 +329,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Fear of the dark</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -343,7 +343,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Wanna Cry</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -374,7 +374,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Jim Carrey</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -388,7 +388,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Linkin Park</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -402,7 +402,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Nightwish</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -416,7 +416,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Korgialas</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -430,7 +430,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Avril Lavigne</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -461,7 +461,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Need For Speed</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -475,7 +475,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Flight Simulator</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -506,7 +506,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Knowledge is power</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -520,7 +520,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>It is a paradoxical but profoundly true and important principle of life that the most likely way to reach a goal is to be aiming not at that goal itself but at some more ambitious goal beyond it.</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
@@ -551,7 +551,7 @@
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>aplbubble_left.png" />
 							<span>Friends</span>
-							<a href="" class="delete"><img src="<?php
+							<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 							echo $rabbit_settings[ 'imagesurl' ];
 							?>delete.png" /></a>
 							<img src="<?php
