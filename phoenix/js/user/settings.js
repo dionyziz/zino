@@ -78,7 +78,7 @@ var Settings = {
 		if ( intervalue !== '' ) {
 			var showvalue = intervalue;
 			if ( showvalue.length > 50 ) {
-				showvalue = showvalue.substr( 0 , 50 );
+				showvalue = showvalue.substr( 0 , 50 ) + '...';
 			}
 			var newli = document.createElement( 'li' );
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
