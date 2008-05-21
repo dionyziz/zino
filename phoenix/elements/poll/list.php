@@ -73,10 +73,9 @@
 					?>ajax-loader.gif" alt="Δημιουργία" title="Δημιουργία" /> Δημιουργία...
 				</div><?php
 			}
-		?></div>
-		<div class="eof"></div>
-		<div class="pagifypolls"><?php
-		Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Polls , 5 , 'offset' );
-		?></div><?php
+			?><div class="pagifypolls"><?php
+			Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Polls , 5 , 'offset' );
+			?></div>
+		</div><?php
 	}
 ?>
