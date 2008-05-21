@@ -6,7 +6,15 @@
 		
 		$id = $id->Get();
 		$image = New Image( $id );
-		$page->SetTitle( $image->Name );
+		
+		if ( $image->Name != "" ) {
+			$title = $image->Name;
+		}
+		else {
+			$title = $image->Album->Name;
+		}
+		$page->SetTitle( $title );
+		$size = $image->GetProportionalSize( 700  , 600 );
 		Element( 'user/sections', 'album' , $image->User );
 		?><div id="photoview">
 			<h2><?php
@@ -44,7 +52,7 @@
 			}
 			?><div class="eof"></div>
 			<div class="thephoto"><?php
-				Element( 'image' , $image , -5 , -3 , '' , '' , ''  , $image->Name );
+				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , '' , '' , $title , $title );
 			?></div>
 			<div class="photothumbs">
 		        <div class="left arrow">
