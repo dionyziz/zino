@@ -44,7 +44,6 @@
 					</div><?php
 				}
 				?><ul><?php
-					die( count( $images ) );
 					foreach( $images as $image ) {
 						?><li><?php
 						Element( 'album/photo/small' , $image , false , true , true );
