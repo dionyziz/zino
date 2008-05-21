@@ -8,12 +8,18 @@ var PhotoView = {
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
-					if ( photoname != name && name !== '' ) {
+					if ( photoname != name ) {
 						window.document.title = name;
 						Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 					}
 					$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
 					PhotoView.renaming = false;
+					if ( name === '' ) {
+						$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Όρισε όνομα' ) );
+					}
+					else {
+						$( 'div.owner div.edit a' ).empty().append( document.createTextNode( 'Μετονομασία' ) );
+					}
 				}
 			} );
 			$( inputbox )[ 0 ].value = photoname;
