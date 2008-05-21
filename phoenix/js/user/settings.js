@@ -89,6 +89,7 @@ var Settings = {
 	},
 	RemoveInterest : function( node ) {
 		//an interest id will be needed
+		$( node ).css( 'background-image' , 'none' );
 		$( node ).parent().parent().hide( 'slow' );
 	}
 };
