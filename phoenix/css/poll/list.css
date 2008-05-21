@@ -81,3 +81,7 @@ div#polllist ul li div.creationmockup div.newoption {
 	margin: 2px 0;
 	overflow: hidden;
 }
+div#polllist  div.pagifypolls {
+	text-align: center;
+	margin-top: 20px;
+}
