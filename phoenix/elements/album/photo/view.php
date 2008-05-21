@@ -44,9 +44,9 @@
 				?><div class="owner">
 					<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
 					echo $image->Id;
-					?>' , '<?php
-					echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-					?>' );return false;"><?php
+					?>' , <?php
+					echo w_json_encode( htmlspecialchars( $image->Album->Name ) );
+					?> );return false;"><?php
 					if ( $image->Name == '' ) {
 						?>Όρισε όνομα<?php
 					}
