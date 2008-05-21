@@ -6,7 +6,6 @@
 		
 		$id = $id->Get();
 		$image = New Image( $id );
-		
 		$page->SetTitle( $image->Name );
 		Element( 'user/sections', 'album' , $image->User );
 		?><div id="photoview">
@@ -44,9 +43,9 @@
 				</div><?php
 			}
 			?><div class="eof"></div>
-			<div class="thephoto">
-				<img src="images/photoview.jpg" alt="photoview" title="photoview" />
-			</div>
+			<div class="thephoto"><?php
+				Element( 'image' , $image , -5 , -3 , '' , '' , ''  , $image->Name );
+			?></div>
 			<div class="photothumbs">
 		        <div class="left arrow">
 		            <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
