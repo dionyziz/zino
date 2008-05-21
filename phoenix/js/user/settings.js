@@ -85,6 +85,7 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 			//check for letter length
 			//make coala call
+			//add the remove function properly
 		}
 	},
 	RemoveInterest : function( node ) {
