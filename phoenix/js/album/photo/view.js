@@ -9,7 +9,7 @@ var PhotoView = {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
 					if ( photoname != name ) {
-						window.document.title = name;
+						window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
 						Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
 					}
 					$( 'div#photoview h2' ).empty().append( document.createTextNode( name ) );
