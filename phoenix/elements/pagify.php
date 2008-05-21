@@ -18,6 +18,7 @@
 
 		$pagebefore = $offset - 1;
 		$pagenext = $offset + 1;
+		?><div class="pagify"><?php
 		if ( $pagebefore >= 1 ) {
 			?><span class="leftpage">
 				<a href="index.php?p=<?php
@@ -26,10 +27,7 @@
 				echo $offsetcaption;
 				?>=<?php
 					echo $pagebefore;
-					?>" class="nextbacklinks"><img src="<?php
-					echo $rabbit_settings[ 'imagesurl' ];
-					?>resultset_previous.png" alt="Προηγούμενη" title="Προηγούμενη" />
-				</a>&nbsp;
+					?>" class="previous"></a>&nbsp;
 			</span><?php
 		}
 		$startpos = $offset - 4;
@@ -75,11 +73,12 @@
 			echo $offsetcaption;
 			?>=<?php
 				echo $pagenext;
-				?>" class="nextbacklinks"><img src="<?php
+				?>" class="next"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>resultset_next.png" alt="Επόμενη" title="Επόμενη" />
 			</a>
 			</span><?php
 		}
+		?></div><?php
 	}
 ?>

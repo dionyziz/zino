@@ -1,9 +1,12 @@
-a.nextbacklinks:hover {
-	text-decoration: none;
+div.pagify a.next {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: -80px -716px;
+	background-repeat: no-repeat;
+	padding: 2px 0 0 18px;
 }
-div.allshouts span.leftpage {
-	padding-right: 15px;
-}
-div.allshouts span.rightpage {
-	padding-left: 15px;
+div.pagify a.previous {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: -80px -782px;
+	background-repeat: no-repeat;
+	padding: 2px 0 0 18px;
 }
