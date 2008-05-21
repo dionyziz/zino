@@ -568,7 +568,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div class="aplbubble creation">
 			<img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];

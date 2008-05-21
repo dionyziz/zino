@@ -89,8 +89,7 @@ var Settings = {
 	},
 	RemoveInterest : function( node ) {
 		//an interest id will be needed
-		alert( 'remove' );
-		$( node ).parent().remove();
+		$( node ).parent().parent().hide();
 	}
 };
 $( document ).ready( function() {
