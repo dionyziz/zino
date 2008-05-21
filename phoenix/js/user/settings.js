@@ -23,14 +23,12 @@ var Settings = {
 			for ( i = 0; i < validtabs.length; ++i ) {
 				if ( divtoshow == validtabs[ i ] ) {
 					$( '#' + divtoshow + 'info' ).show();
-					//$( '#' + divtoshow + 'info' ).css( 'opacity' , '0' ).animate( { opacity: '1' } , 300 );
 					Settings.FocusSettingLink( settingslis[ i ], true );
 					window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 					found = true;
 				}
 				else {
 					$( '#' + validtabs[ i ] + 'info' ).hide();
-					//$( '#' + validtabs[ i ] + 'info' ).css( 'opacity' , '1' ).animate( { opacity: '0' } , 300 );
 					Settings.FocusSettingLink( settingslis[ i ], false );
 					
 				}
