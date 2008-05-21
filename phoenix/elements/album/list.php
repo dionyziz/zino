@@ -1,11 +1,15 @@
 <?php
 	
-	function ElementAlbumList( tString $username , tInteger $page ) {
+	function ElementAlbumList( tString $username , tInteger $offset ) {
 		global $page;
 		global $user;
 		global $rabbit_settings;
 		global $water;
 		
+		$offset = $offset->Get();
+		if ( $offset <= 0 ) {
+			$offset = 1;
+		}
 		$username = $username->Get();
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
@@ -50,7 +54,7 @@
 			</div><?php
 		}
 		?><div class="pagify"><?php
-		Element( $page->Get() , '?p=albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'page' );
+		Element( $offset , '?p=albums&username=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'page' );
 		?></div><div class="eof"></div><?php
 	}
 ?>
