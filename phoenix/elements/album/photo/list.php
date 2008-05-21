@@ -6,8 +6,7 @@
 		global $rabbit_settings; 
 		global $water;
 		
-		$album = new Album( $id->Get() );
-		
+		$album = New Album( $id->Get() );
 		Element( 'user/sections', 'album' , $album->User );
 		?><div id="photolist"><?php
 			if ( $album->IsDeleted() ) {
@@ -15,6 +14,8 @@
 				?>Το album έχει διαγραφεί<?php
 			}
 			else {
+				$finder = New ImageFinder();
+				$images = $finder->FindByAlbum( $album );
 				$page->SetTitle( $album->Name );
 				?><h2><?php
 				echo htmlspecialchars( $album->Name );
@@ -43,10 +44,9 @@
 					</div><?php
 				}
 				?><ul><?php
-					for ( $i = 0; $i < 11; ++$i ) {
+					foreach( $images as $image ) {
 						?><li><?php
-							Element( 'album/photo/small', false , true, true );
-						?></li><?php
+						Element( 'album/photo/small' , $image , false , true , true );
 					}
 				?></ul><?php
 				Element( 'album/photo/upload' , $album->Id );
