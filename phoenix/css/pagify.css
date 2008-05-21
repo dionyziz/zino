@@ -10,3 +10,6 @@ div.pagify a.previous {
 	background-repeat: no-repeat;
 	padding: 0 0 0 16px;
 }
+div.pagify {
+	font-size: 11pt;
+}
