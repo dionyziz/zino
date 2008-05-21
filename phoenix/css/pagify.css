@@ -2,11 +2,11 @@ div.pagify a.next {
 	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
 	background-position: -80px -716px;
 	background-repeat: no-repeat;
-	padding: 2px 0 0 18px;
+	padding: 0 0 0 16px;
 }
 div.pagify a.previous {
 	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
 	background-position: -80px -782px;
 	background-repeat: no-repeat;
-	padding: 2px 0 0 18px;
+	padding: 0 0 0 16px;
 }
