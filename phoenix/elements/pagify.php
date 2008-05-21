@@ -66,7 +66,7 @@
 		}
 		?></span><?php
 		if ( $pagenext <= $pages ) {
-			?><span class="rightpage">&nbsp;
+			?><span class="rightpage">
 			<a href="index.php?p=<?php
 			echo htmlspecialchars( $link );
 			?>&amp;<?php
