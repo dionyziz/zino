@@ -47,6 +47,7 @@
 					foreach( $images as $image ) {
 						?><li><?php
 						Element( 'album/photo/small' , $image , false , true , true );
+						?></li><?php
 					}
 				?></ul><?php
 				Element( 'album/photo/upload' , $album->Id );
