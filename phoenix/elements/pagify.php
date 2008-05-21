@@ -28,7 +28,7 @@
 					echo $offsetcaption;
 					?>=<?php
 						echo $pagebefore;
-						?>" class="previous" title="Προηγούμενη"></a>&nbsp;
+						?>" class="previous" title="Προηγούμενη"></a>
 				</span><?php
 			}
 			$startpos = $offset - 4;
