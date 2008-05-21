@@ -39,7 +39,7 @@ div#photoview dl dd.commentsnum {
 	font-size: 90%;
 }
 div#photoview dl dd.addfav{
-	margin: 0 0 0 5px;
+	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
 }
