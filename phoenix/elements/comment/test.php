@@ -4,12 +4,13 @@
 		global $libs;
 		
 		$libs->Load( 'comment' );
+		
 		$journal = New Journal( 23 );
 
 		$finder = New CommentFinder();
-		$comments = $finder->FindByPage( $journal, 0 );
+		$comments = $finder->FindByPage( $journal , 1 );
 		?><div style="width:700px;padding-top:70px;"><?php
-		Element( 'comment/list' , $comments , 0 );
+		Element( 'comment/list' , $comments , 0 , 0 );
 		?></div><div class="eof"></div><?php
 	}
 ?>
