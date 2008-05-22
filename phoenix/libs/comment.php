@@ -192,14 +192,14 @@
         public function FindNear( $entity, $comment, $reverse = true ) {
             $prototype = New Comment();
             $prototype->Typeid = Comments_TypeFromEntity( $entity );
-            $prototype->Pageid = $entity->Id;
+            $prototype->Itemid = $entity->Id;
 
             return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true ) {
             $prototype = New Comment();
             $prototype->Typeid = Comments_TypeFromEntity( $entity );
-            $prototype->Pageid = $entity->Id;
+            $prototype->Itemid = $entity->Id;
 
             return Comments_OnPage( $this->FindByPrototype( $prototype ), $page );
         }
