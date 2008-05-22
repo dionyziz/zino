@@ -1,5 +1,8 @@
 <?php
 
+	global $libs;
+	$libs->Load( 'bulk' );
+
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
         

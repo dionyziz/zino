@@ -75,17 +75,13 @@
 
         $comments = Comment_MakeTree( $comments, $reverse );
 
-		/*
 		$water->Trace( "comments parented onpage", $comments );
 
-        $ret = array();
+        $parents = array();
         $curpage = 0;
         foreach ( $comments[ 0 ] as $parent ) { // for every "head parent" (orfan comment)
             if ( $curpage == $pageno ) { // if we are on the specified page
-                $ret[ 0 ][] = $parent; // add the headparent
-				if ( isset( $comments[ $parent->Id ] ) ) {
-					$ret[ $parent->Id ][] = $comments[ $parent->Id ]; // and its children to the array to be returned
-				}
+                $parents[] = $parent; // add the headparent
             }
             $page_count += Comment_CountChildren( $comments, $parent->Id ); // count its children
             if ( $page_count > COMMENT_PAGE_LIMIT ) { // if the page has enough children
@@ -94,10 +90,11 @@
             }
         }
 
-        return $ret;
-		*/
+		foreach ( $parents as $parent ) {
 
-		return $comments;
+		}
+
+        return $ret;
     }
     
     /*
