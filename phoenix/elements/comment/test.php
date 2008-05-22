@@ -10,7 +10,7 @@
 		
 		$finder = New CommentFinder();
 		$comments = $finder->FindByPage( $journal , 0 , false );
-		w_assert( is_array( $commentlist ), 'Each item must be an array, ' . gettype( $commentlist ) . ' given' );
+		w_assert( is_array( $comments ), '$comments must be an array, ' . gettype( $commentlist ) . ' given' );
 		foreach ( $comments as $id => $commentlist ) {
 			w_assert( is_numeric( $id ), 'Each $comments key must be numeric, "' . $id . '" of type ' . gettype( $id ) . ' given' );
 			w_assert( is_array( $commentlist ), 'Each item of $comments must be an array, ' . gettype( $commentlist ) . ' given' );
