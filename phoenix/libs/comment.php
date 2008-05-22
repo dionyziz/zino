@@ -5,11 +5,15 @@
     */
 
     define( 'COMMENT_JOURNAL', 0 );
-    define( 'COMMENT_PROFILE', 1 );
+    define( 'COMMENT_USERPROFILE', 1 );
     define( 'COMMENT_IMAGE',   2 );
     define( 'COMMENT_POLL',    3 );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
+	
+	function Comments_TypeFromEntity( $entity ) {
+		return constant( 'COMMENT_' . strtoupper( get_class( $entity ) ) );
+	}
 
     function Comment_CountChildren( $commments, $id ) {
         if ( empty( $comments[ $id ] ) ) {
