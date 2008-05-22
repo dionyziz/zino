@@ -14,7 +14,7 @@
 			$title = htmlspecialchars( $image->Album->Name );
 		}
 		$page->SetTitle( $title );
-		$size = $image->GetProportionalSize( 700  , 600 );
+		$size = $image->ProportionalSize( 700  , 600 );
 		Element( 'user/sections', 'album' , $image->User );
 		?><div id="photoview">
 			<h2><?php
