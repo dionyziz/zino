@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementCommentView( $commentid , $indent , $numchildren ) {
+	function ElementCommentView( $comment , $indent , $numchildren ) {
 		global $water;
 		global $user;
 		global $libs;
