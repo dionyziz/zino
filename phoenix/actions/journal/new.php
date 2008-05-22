@@ -1,5 +1,4 @@
 <?php
-	
 	function ActionJournalNew( tInteger $id , tString $title , tString $text ) {
 		global $user;
 		
@@ -19,6 +18,7 @@
 		$journal->Title = $title;
 		$journal->Text = $text;
 		$journal->Save();
-		Redirect( '?p=journal&id=' . $journal->Id );
+		
+		return Redirect( '?p=journal&id=' . $journal->Id );
 	}
 ?>
