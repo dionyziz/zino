@@ -203,6 +203,7 @@
 
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
+		private $mSince;
 
         public function GetText() {
             return $this->Bulk->Text;
@@ -312,14 +313,14 @@
             $this->Created = NowDate();
             $this->Userip = UserIp();
         }
-		/*
         public function AfterConstruct() {
             if ( $this->Exists() ) {
-    			$this->Since = dateDiff( $this->Created, NowDate() );
+    			$this->mSince = dateDiff( $this->Created, NowDate() );
             }
-			
         }
-	*/
+		public function GetSince() {
+			return $this->mSince;
+		}
     }
     
 
