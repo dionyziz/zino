@@ -71,7 +71,11 @@
     return all comments on page $pageno
     */
     function Comments_OnPage( $comments, $pageno, $reverse = true ) {
+		global $water;
+
         $comments = Comment_MakeTree( $comments, $reverse );
+
+		$water->Trace( "comments parented onpage", $comments );
 
         $ret = array();
         $curpage = 0;
