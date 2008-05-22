@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementCommentView( tInteger $commentid , tInteger $indent ) {
+	function ElementCommentView( $commentid , $indent , $numchildren ) {
 		global $water;
 		global $user;
 		global $libs;
@@ -12,10 +12,9 @@
 		$water->Trace( 'comment typeid ' . $comment->Typeid );
 		$water->Trace( 'comment itemid ' . $comment->Itemid );
 		$water->Trace( 'comment parentid ' . $comment->Parentid );
-		?><div style="width:700px;padding-top:50px;">
-		<div id="comment_<?php
+		?><div id="comment_<?php
 		echo $comment->Id;
-		?>" class="comment" style="border-color: #dee;<?php
+		?>" class="comment" style="border-color:#dee;<?php
 		if ( $indent > 0 ) {
 			?>margin-left:<?php
 			echo $indent*20;
@@ -44,7 +43,11 @@
 					<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
-		?></div>
-		</div><div class="eof"></div><?php
+			?><div id="<?php
+			echo $comment->Id;
+			?>_children" style="display:none"><?php
+			echo $numchildren;
+			?></div>
+		</div><?php
 	}
 ?>
