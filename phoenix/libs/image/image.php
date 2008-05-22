@@ -101,7 +101,7 @@
 		public function IsDeleted() {
             return $this->Delid > 0;
         }
-		public function GetProportionalSize( $maxw , $maxh ) {
+		public function ProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
 			$proph = 1;
 			if ( $this->Width > $maxw ) {
