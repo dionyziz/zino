@@ -7,9 +7,11 @@
 		
 		$libs->Load( 'comment' );
 
-		$water->Trace( 'comment typeid ' . $comment->Typeid );
-		$water->Trace( 'comment itemid ' . $comment->Itemid );
-		$water->Trace( 'comment parentid ' . $comment->Parentid );
+		$water->Trace( $comment->Id .' comment typeid ' . $comment->Typeid );
+		$water->Trace( $comment->Id .' comment itemid ' . $comment->Itemid );
+		$water->Trace( $comment->Id .' comment parentid ' . $comment->Parentid );
+		$water->Trace( $comment->Id .' comment userid ' . $comment->User->Id );
+		$water->Trace(  'userid ' .$user->Id );
 		?><div id="comment_<?php
 		echo $comment->Id;
 		?>" class="comment" style="border-color:#dee;<?php
