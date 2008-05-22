@@ -82,7 +82,9 @@
         foreach ( $comments[ 0 ] as $parent ) { // for every "head parent" (orfan comment)
             if ( $curpage == $pageno ) { // if we are on the specified page
                 $ret[ 0 ][] = $parent; // add the headparent
-                $ret[ $parent->Id ][] = $comments[ $parent->Id ]; // and its children to the array to be returned
+				if ( isset( $comments[ $parent->Id ] ) ) {
+					$ret[ $parent->Id ][] = $comments[ $parent->Id ]; // and its children to the array to be returned
+				}
             }
             $page_count += Comment_CountChildren( $comments, $parent->Id ); // count its children
             if ( $page_count > COMMENT_PAGE_LIMIT ) { // if the page has enough children
