@@ -1,6 +1,9 @@
 <?php
 
 	function ElementCommentTest( tInteger $journalid ) {
+		global $libs;
+		
+		$libs->Load( 'comment' );
 		$journal = New Journal( 23 );
 
 		$finder = New CommentFinder();
