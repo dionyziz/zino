@@ -21,7 +21,7 @@
 		?>">
 			<div class="toolbox">
 				<span class="time">πριν <?php
-				//echo $comment->Since;
+				echo $comment->Since;
 				?></span><?php
 				if ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
 					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
