@@ -37,6 +37,7 @@
         */
         $comments = Comment_MakeTree( $comments, $reverse );
 
+		/*
         $headparent_id = $comment->Headparent->Id;
         $headparent_page = 0;
         $pages = array();
@@ -53,11 +54,7 @@
                 ++$page; // use the next page from now on
             }
         }
-
-        /* 
-        return all headparents on the same page
-        and their children
-        */
+		
         $ret = array();
         foreach ( $pages[ $headparent_page ] as $parent ) {
             $ret[ 0 ][] = $parent;
@@ -65,6 +62,9 @@
         }
 
         return $ret;
+		*/
+
+		return $comments;
     }
 
     /* 
@@ -75,6 +75,7 @@
 
         $comments = Comment_MakeTree( $comments, $reverse );
 
+		/*
 		$water->Trace( "comments parented onpage", $comments );
 
         $ret = array();
@@ -94,6 +95,9 @@
         }
 
         return $ret;
+		*/
+
+		return $comments;
     }
     
     /*
