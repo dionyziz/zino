@@ -12,7 +12,8 @@
 		$water->Trace( 'comment typeid ' . $comment->Typeid );
 		$water->Trace( 'comment itemid ' . $comment->Itemid );
 		$water->Trace( 'comment parentid ' . $comment->Parentid );
-		?><div id="comment_<?php
+		?><div style="width:700px;">
+		<div id="comment_<?php
 		echo $comment->Id;
 		?>" class="comment" style="border-color: #dee;<?php
 		if ( $indent > 0 ) {
@@ -43,6 +44,7 @@
 					<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
-		?></div><div class="eof"></div><?php
+		?></div>
+		</div><div class="eof"></div><?php
 	}
 ?>
