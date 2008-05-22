@@ -10,6 +10,7 @@
 		
 		$finder = New CommentFinder();
 		$comments = $finder->FindByPage( $journal , 0 , false );
+		print_r( $comments );
 		$water->Trace( count( $comments ) );
 		?><div style="width:700px;padding-top:70px;">
 		<h2><?php
