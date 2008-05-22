@@ -13,7 +13,7 @@
 		$water->Trace( count( $comments ) );
 		?><div style="width:700px;padding-top:70px;">
 		<h2><?php
-		echo htmlspecialchars( $journal->Name );
+		echo htmlspecialchars( $journal->Title );
 		?></h2><?php
 		Element( 'comment/list' , $comments , 0 , 0 );
 		?></div><div class="eof"></div><?php
