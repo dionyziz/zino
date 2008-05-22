@@ -12,7 +12,7 @@
 		$water->Trace( 'comment typeid ' . $comment->Typeid );
 		$water->Trace( 'comment itemid ' . $comment->Itemid );
 		$water->Trace( 'comment parentid ' . $comment->Parentid );
-		?><div style="width:700px;">
+		?><div style="width:700px;padding-top:50px;">
 		<div id="comment_<?php
 		echo $comment->Id;
 		?>" class="comment" style="border-color: #dee;<?php
