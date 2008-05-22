@@ -9,7 +9,7 @@
 		$journal = New Journal( 23 );
 		
 		$finder = New CommentFinder();
-		$comments = $finder->FindByPage( $journal , 0 );
+		$comments = $finder->FindByPage( $journal , 0 , false );
 		$water->Trace( count( $comments ) );
 		?><div style="width:700px;padding-top:70px;">
 		<h2><?php
