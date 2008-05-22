@@ -1,6 +1,6 @@
 <?php
-	
-	function ElementAlbumPhotoSmall( $image , $showdesc = false, $showfav = false, $showcomnum = false ) {
+	function ElementAlbumPhotoSmall( Image $image , $showdesc = false, $showfav = false, $showcomnum = false ) {
+		w_assert( $image instanceof Image, '$image must be an instance of Image' );
 		$size = $image->ProportionalSize( 210 , 210 );
 		if ( $image->Name != '' ) {
 			$title = htmlspecialchars( $image->Name );

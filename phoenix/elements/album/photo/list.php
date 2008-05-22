@@ -1,5 +1,4 @@
 <?php
-	
 	function ElementAlbumPhotoList( tInteger $id ) {
 		global $page;
 		global $user;
@@ -16,6 +15,7 @@
 			else {
 				$finder = New ImageFinder();
 				$images = $finder->FindByAlbum( $album );
+				w_assert( is_array( $images ), 'FindByAlbum must return an array' );
 				$page->SetTitle( $album->Name );
 				?><h2><?php
 				echo htmlspecialchars( $album->Name );
