@@ -94,7 +94,7 @@
 
 		}
 
-        return $ret;
+        return $comments;
     }
     
     /*
