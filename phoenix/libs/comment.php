@@ -96,12 +96,18 @@
         where all comments in the array have parentid = $pid
     */
     function Comment_MakeTree( $comments, $reverse = true ) {
+		global $water;
+		$water->Trace( "comments to be parented", $comments );
+
         $parented = array();
         if ( !is_array( $comments ) ) {
             return $parented;
         }
 
         foreach( $comments as $comment ) {
+			if ( !is_array( $parented[ $comment->Parentid ] ) ) {
+				$parented[ $comment->Parentid ] = array();
+			}
             if ( $reverse ) {
                 array_push( $parented[ $comment->Parentid ], $comment );
             }
