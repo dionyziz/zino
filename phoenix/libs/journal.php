@@ -21,7 +21,12 @@
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
 		private $mNewText = '';
-        
+       
+	   	public function LoadDefaults() {
+			global $user;
+
+			$this->Userid = $user->Id;
+		}
         public function GetText( $length = false ) {
             if ( $length == false ) {
                 return $this->Bulk->Text;
