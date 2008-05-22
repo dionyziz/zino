@@ -42,7 +42,7 @@
 		public function Save() {
 			if ( !empty( $this->mNewText ) ) {
 				$bulk = New Bulk();
-				$bulk->Text = $text;
+				$bulk->Text = $this->mNewText;
 				$bulk->Save();
 
 				$this->Bulkid = $bulk->Id;
