@@ -14,7 +14,13 @@
 		$water->Trace( 'comment parentid ' . $comment->Parentid );
 		?><div id="comment_<?php
 		echo $comment->Id;
-		?>" class="comment" style="border-color: #dee;">
+		?>" class="comment" style="border-color: #dee;<?php
+		if ( $indent > 0 ) {
+			?>margin-left:<?php
+			echo $indent*20;
+			?>px;<?php
+		}
+		?>">
 			<div class="toolbox">
 				<span class="time">πριν <?php
 				//echo $comment->Since;
@@ -37,6 +43,6 @@
 					<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
-		?></div><?php
+		?></div><div class="eof"></div><?php
 	}
 ?>
