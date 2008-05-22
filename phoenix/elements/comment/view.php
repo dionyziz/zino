@@ -3,6 +3,9 @@
 	function ElementCommentView( tInteger $commentid , tInteger $indent ) {
 		global $water;
 		global $user;
+		global $libs;
+		
+		$libs->Load( 'comment' );
 		
 		$comment = New Comment( $commentid->Get() );
 		$indent = $indent->Get();
