@@ -312,11 +312,14 @@
             $this->Created = NowDate();
             $this->Userip = UserIp();
         }
+		/*
         public function AfterConstruct() {
             if ( $this->Exists() ) {
     			$this->Since = dateDiff( $this->Created, NowDate() );
             }
+			
         }
+	*/
     }
     
 
