@@ -6,6 +6,9 @@
 		
 		$comment = New Comment( $commentid->Get() );
 		$indent = $indent->Get();
+		$water->Trace( 'comment typeid ' . $comment->Typeid );
+		$water->Trace( 'comment itemid ' . $comment->Itemid );
+		$water->Trace( 'comment parentid ' . $comment->Parentid );
 		?><div id="comment_<?php
 		echo $comment->Id;
 		?>" class="comment" style="border-color: #dee;">
