@@ -15,7 +15,7 @@
 			?> => <?php
 			$commentids = array();
 			foreach ( $commentlist as $comment ) {
-				w_assert( is_object( $comment ), '$comment must be an object, ' . get_type( $comment ) . ' given' );
+				w_assert( is_object( $comment ), '$comment must be an object, ' . gettype( $comment ) . ' given' );
 				w_assert( $comment instanceof Comment, '$comment must be of class Comment, ' . get_class( $comment ) . ' given' );
 				$commentids[] = $comment->Id;
 			}
