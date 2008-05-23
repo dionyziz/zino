@@ -1,11 +1,12 @@
 <?php
 	
-	function ElementJournalView( tInteger $id ) {
+	function ElementJournalView( tInteger $id , tInteger $commentid ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
 		
 		$journal = New Journal( $id->Get() );
+		$commentid = $commentid->Get();
 		Element( 'user/sections' , 'journal' , $journal->User );
 		
 		?><div id="journalview"><?php
@@ -60,6 +61,13 @@
 				?>Η καταχώρηση δεν υπάρχει<?php
 			}
 			?><div class="eof"></div><?php
+			if ( $journal->Numcomments > 0 ) {
+				$finder = New CommentFinder();
+				$comments = $finder->FindByPage( $journal , 0 , true );
+				?><div class="comments"><?php
+					Element( 'comment/list' , $comments , 0 , 0 );
+				?></div><?php
+			}
 		?></div><?php
 	}
 ?>
