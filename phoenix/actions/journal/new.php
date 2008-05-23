@@ -28,11 +28,18 @@
 
         $sanitizer = New XHTMLSanitizer();
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
+            if ( $tag == '' ) {
+                continue;
+            }
+
             $goodtag = New XHTMLSaneTag( $tag );
             if ( is_array( $attributes ) ) {
                 foreach ( $attributes as $attribute => $true ) {
                     $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
                 }
+            }
+            foreach ( $xhtmlsanitizer_goodtags[ '' ] as $attribute => $true ) {
+                $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
             }
             $sanitizer->AllowTag( $goodtag );
         }
