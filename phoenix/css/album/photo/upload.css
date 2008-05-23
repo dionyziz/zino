@@ -20,13 +20,13 @@ form#uploadform a input.uploadfile2 {
 	position: absolute;
 	top: 4px;
 	left: -70px;
-	opacity: 0;
+	opacity: 0.5;
 	z-index: 2;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
 	top: 4px;
 	left: -20px;
-	opacity: 0;
+	opacity: 0.5;
 	z-index: 2;
 }
