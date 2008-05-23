@@ -16,7 +16,7 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="" onclick="return false;" onmouseup="PhotoList.UploadPhoto();">
+				<a href="" onclick="return false;" onmouseup="alert( 'test' );">
 					<span>
 					Δημιουργία φωτογραφίας
 					</span>
