@@ -58,6 +58,7 @@
 					$finder = New CommentFinder();
 					$comments = $finder->FindByPage( $journal , 0 , true );
 					?><div class="comments"><?php
+						Element( 'comment/reply' );
 						Element( 'comment/list' , $comments , 0 , 0 );
 					?></div><?php
 				}
