@@ -1,6 +1,6 @@
 form#uploadform a{
 	font-weight: bold;
-	display:block;
+	display:inline;
     position:relative;
 }
 form#uploadform a span {
