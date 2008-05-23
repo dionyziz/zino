@@ -3,7 +3,7 @@
         Developer: Dionyziz 
     */
     
-    class RabbitIncludeException {
+    class RabbitIncludeException extends Exception {
     }
     
     function Rabbit_Include( $filename ) {
