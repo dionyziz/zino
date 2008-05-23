@@ -7,6 +7,7 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
+		$page->AttachScript( 'js/album/photo/list.js' );
 		$water->Disable();
 		
 		$album = New Album( $albumid->Get() );
