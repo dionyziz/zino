@@ -20,6 +20,7 @@
 				die( "Not allowed" );
 			}
 		}
+		die( 'uploadimagename is ' . $uploadimage->Name );
 		$extension = File_GetExtension( $uploadimage->Name );
 		if ( strtolower( $extension ) != 'jpg' || strtolower( $extension ) != 'jpeg' || strtolower( $extension ) != 'png' || strtolower( $extension != 'gif'  ) ) {
 			die( "Not supported filetype" );
