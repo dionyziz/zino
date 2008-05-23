@@ -4,6 +4,5 @@ form#uploadform div.colorlink{
 }
 div#uploadingwait {
 	display: none;
-	padding-top: 10px;
 	font-size: 110%;
 }
