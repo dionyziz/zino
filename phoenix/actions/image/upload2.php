@@ -45,8 +45,12 @@
                 break;
         }
         $image->Albumid = $albumid;
-        $res = $image->Save();
-    	if ( $res < 0 ) {
+		
+		try {
+			$image->Save();
+		}
+		catch ( ImageException $e ) {
+			//some error must have occured
 			?><html><head><title>Upload error</title><script type="text/javascript">
     			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας. (<?php
                 echo $errornum = $res;
@@ -55,8 +59,8 @@
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=uploadframe&albumid=' . $album->Id );
     			?>;
     		</script></head><body></body></html><?php
+			return;
 		}
-		
 		?><html>
         <head>
         <title>Upload</title>
@@ -64,7 +68,7 @@
         <body>
         <script type="text/javascript"><?php
     	if ( $albumid != 0 ) {
-    		$album = new Album( $albumid );
+    		$album = New Album( $albumid );
     		$size = $image->ProportionalSize( 210 , 210 );
     		$jsimage = array(
     			'id' => $image->Id,
