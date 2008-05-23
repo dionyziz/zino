@@ -16,7 +16,7 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="" onclick="return false;">
+				<a href="" onclick="alert( 'yo' );">
 					<span>
 					Δημιουργία φωτογραφίας
 					</span>
