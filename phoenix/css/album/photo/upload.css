@@ -1,7 +1,7 @@
 form#uploadform a{
 	font-weight: bold;
-	display:inline;
-    position:relative;
+	display: block;
+    position: relative;
 }
 form#uploadform a span {
 	position: absolute;

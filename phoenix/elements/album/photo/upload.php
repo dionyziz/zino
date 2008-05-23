@@ -15,9 +15,6 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<div><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>add3.png" alt="Δημιουργία" title="Δημιουργία" />
 				<a href="" onclick="return false;">
 					<span>
 					Δημιουργία φωτογραφίας
@@ -26,7 +23,6 @@
 					<input onclick="return false;" class="uploadfile2" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />					
 					<input onclick="return false;" class="uploadfile3" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
 				</a>
-				</div>
 				<input type="submit" value="upload" style="display:none" />
 			</form><?php	
 		}
