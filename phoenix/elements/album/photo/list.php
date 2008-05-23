@@ -51,7 +51,7 @@
 					}
 				?></ul><?php
 				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-					?><object data="?p=upload&amp;albumid=<?php
+					?><object data="index?p=upload&amp;albumid=<?php
 					echo $album->Id;
 					?>" class="uploadframe" id="uploadframe" type="text/html"></object><?php
 				}
