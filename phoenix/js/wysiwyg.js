@@ -70,8 +70,7 @@ var WYSIWYG = {
         where.appendChild( toolbox );
         where.appendChild( which );
         
-        which.tabindex = tabindex;
-        alert( tabindex );
+        which.tabIndex = tabindex;
 
         var doc = WYSIWYG.GetDocument( which );
         
