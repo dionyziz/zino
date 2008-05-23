@@ -1,6 +1,6 @@
 <?php
 
-    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage1 , tFile $uploadimage2 , tFile $uploadimage3 ) {
+    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage ) {
     	global $libs;
         global $water;
     	global $rabbit_settings;
@@ -20,6 +20,7 @@
 				die( "Not allowed" );
 			}
 		}
+		/*
 		if ( $uploadimage1->Exists() ){
 			$uploadimage = $uploadimage1;
 		}
@@ -29,6 +30,7 @@
 		if ( $uploadimage3->Exists() ){
 			$uploadimage = $uploadimage3;
 		}
+		*/
 		$extension = File_GetExtension( $uploadimage->Name );
 		//die( 'extension is ' . strtolower( $extension ) );
 		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
