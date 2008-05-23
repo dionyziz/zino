@@ -38,7 +38,6 @@ var WYSIWYG = {
         var toolbox = document.createElement( 'div' );
         var which = document.createElement( 'iframe' );
 
-        which.tabindex = tabindex;
         toolbox.className = 'toolbox';
         for ( i = 0; i < buttons.length; ++i ) {
             var link = document.createElement( 'a' );
@@ -71,6 +70,9 @@ var WYSIWYG = {
         where.appendChild( toolbox );
         where.appendChild( which );
         
+        which.tabindex = tabindex;
+        alert( tabindex );
+
         var doc = WYSIWYG.GetDocument( which );
         
         if ( doc === false ) {
