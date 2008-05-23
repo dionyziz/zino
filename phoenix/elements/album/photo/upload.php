@@ -7,7 +7,7 @@
 		global $page;
 		
 		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
-		$page->AttachStyleSheet( 'js/jquery.js' );
+		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
 		$water->Disable();
 		
