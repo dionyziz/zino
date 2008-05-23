@@ -19,11 +19,11 @@ form#uploadform a input.uploadfile2 {
 	position: absolute;
 	top: 4px;
 	left: -70px;
-	opacity: 0.5;
+	opacity: 0;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
 	top: 4px;
 	left: -20px;
-	opacity: 0.5;
+	opacity: 0;
 }
