@@ -1,5 +1,6 @@
 $( document ).ready( function() {
     if ( $( '#journalnew' )[ 0 ] ) {
+        window.title = 'Firing "Create"';
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
             {
                 'tooltip': 'Έντονη Γραφή',

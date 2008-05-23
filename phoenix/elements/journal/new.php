@@ -15,8 +15,6 @@
 			$page->SetTitle( "Δημιουργία καταχώρησης" );
 		}
 		
-        $page->AttachScript( 'js/wysiwyg.js', 'javascript', true );
-
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew"><?php
 			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
@@ -36,35 +34,6 @@
                         echo $journal->Text; // purposely no escape here (XSS-safe because of sanitizer)
                     }
                     ?></div>
-                    <script type="text/javascript">
-                        $( document ).ready( function() {
-                            WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
-                                {
-                                    'tooltip': 'Έντονη Γραφή',
-                                    'image': 'http://static.zino.gr/phoenix/text_bold.png',
-                                    'command': 'bold'
-                                },
-                                {
-                                    'tooltip': 'Πλάγια Γραφή',
-                                    'image': 'http://static.zino.gr/phoenix/text_italic.png',
-                                    'command': 'italic'
-                                },
-                                {
-                                    'tooltip': 'Υπογράμμιση',
-                                    'image': 'http://static.zino.gr/phoenix/text_underline.png',
-                                    'command': 'underline'
-                                },
-                                {
-                                    'tooltip': 'Εισαγωγή Εικόνας',
-                                    'image': 'http://static.zino.gr/phoenix/picture.png'
-                                },
-                                {
-                                    'tooltip': 'Εισαγωγή Video',
-                                    'image': 'http://static.zino.gr/phoenix/television.png'
-                                }
-                            ] );
-                        } );
-                    </script>
 					<div class="submit">
 						<input type="submit" value="Δημοσίευση" onclick="JournalView.Create( '<?php
 						echo $id;
