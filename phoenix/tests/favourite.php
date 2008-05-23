@@ -1,6 +1,6 @@
 <?php
     final class TestFavourites extends Testcase {
-        protected $mAppliesTo = 'libs/favourites';
+        protected $mAppliesTo = 'libs/favourite';
         
         public function SetUp() {
             global $libs;
