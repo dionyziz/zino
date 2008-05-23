@@ -74,6 +74,8 @@ div#photolist  div.uploaddiv {
 	border: 1px dotted #ccc;
 	height: 70px;
 	width: 300px;
+	float: right;
+	margin-top: -50px;
 }
 div#photolist div.uploaddiv object.uploadframe {
 	height: 60px;
