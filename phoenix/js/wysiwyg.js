@@ -88,8 +88,6 @@ var WYSIWYG = {
         WYSIWYG.Enable( which, fieldname );
     },
     Enable: function ( which, fieldname ) {
-        var doc = WYSIWYG.GetDocument( which );
-        
         try {
             WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
@@ -105,13 +103,14 @@ var WYSIWYG = {
         }, 100 ); // can't do check inline -- need the timeout for the browser to realize that the designMode has/hasn't taken effect and return us the ~actual~ value, not the one we set it to
     },
     Check: function ( which, fieldname ) {
-        if ( WYSIWYG.GetDocument( which ).designMode != 'on' ) {
+        var doc = WYSIWYG.GetDocument( which );
+
+        if ( doc.designMode != 'on' ) {
             setTimeout( function () {
                 WYSIWYG.Enable( which, fieldname ); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
             }, 100 );
             return;
         }
-        alert( 'Check succeeded' );
 
         var frm = which;
         while ( frm.nodeName.toLowerCase() != 'form' ) {
