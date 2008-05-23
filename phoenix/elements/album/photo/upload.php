@@ -13,7 +13,7 @@
 		
 		$album = New Album( $albumid->Get() );
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-			?><a href="" onclick="$( '#uploadform' ).toggle();return false;">Show</a>
+			?><a href="" onclick="$( 'form#uploadform' ).toggle();return false;">Show</a>
 			<form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
 					<input type="hidden" name="albumid" value="<?php
 					echo $album->Id;
