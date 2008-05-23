@@ -21,7 +21,7 @@
 						Νέα φωτογραφία
 					</div>
 					*/?>
-					<input type="file" onchange="PhotoList.UploadPhoto();" />
+					<input type="file" onclick="alert( 'clicked' );" onchange="PhotoList.UploadPhoto();" />
 					<input type="submit" value="upload" style="display:none" />
 				</form><?php	
 		}
