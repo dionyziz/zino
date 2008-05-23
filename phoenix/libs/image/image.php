@@ -237,10 +237,20 @@
         protected function OnDelete() {
             --$this->User->Count->Images;
             $theuser->User->Count->Save();
+
+            if ( $this->Album->Exists() ) {
+                --$this->Album->Numphotos;
+                $this->Album->Save();
+            }
         }
         protected function OnCreate() {
             ++$this->User->Count->Images;
             $this->User->Count->Save();
+
+            if ( $this->Album->Exists() ) {
+                ++$this->Album->Numphotos;
+                $this->Album->Save();
+            }
         }
         public function LoadDefaults() {
             global $user;
