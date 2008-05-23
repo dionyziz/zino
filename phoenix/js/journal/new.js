@@ -2,26 +2,26 @@ $( document ).ready( function() {
     if ( $( '#journalnew' ) ) {
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
             {
-                'tooltip': 'Έντονη Γραφή',
+                'tooltip': 'ΞΞ½Ο„ΞΏΞ½Ξ· Ξ“ΟΞ±Ο†Ξ®',
                 'image': 'http://static.zino.gr/phoenix/text_bold.png',
                 'command': 'bold'
             },
             {
-                'tooltip': 'Πλάγια Γραφή',
+                'tooltip': 'Ξ Ξ»Ξ¬Ξ³ΞΉΞ± Ξ“ΟΞ±Ο†Ξ®',
                 'image': 'http://static.zino.gr/phoenix/text_italic.png',
                 'command': 'italic'
             },
             {
-                'tooltip': 'Υπογράμμιση',
+                'tooltip': 'Ξ¥Ο€ΞΏΞ³ΟΞ¬ΞΌΞΌΞΉΟƒΞ·',
                 'image': 'http://static.zino.gr/phoenix/text_underline.png',
                 'command': 'underline'
             },
             {
-                'tooltip': 'Εισαγωγή Εικόνας',
+                'tooltip': 'Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® Ξ•ΞΉΞΊΟΞ½Ξ±Ο‚',
                 'image': 'http://static.zino.gr/phoenix/picture.png'
             },
             {
-                'tooltip': 'Εισαγωγή Video',
+                'tooltip': 'Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® Video',
                 'image': 'http://static.zino.gr/phoenix/television.png'
             }
         ] );
