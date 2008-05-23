@@ -29,11 +29,11 @@
 						}
 						?>" name="title" />
 					</div>
-					<textarea cols="80" rows="20" name="text"><?php
-					if ( $id != 0 ) {
-						echo htmlspecialchars( $journal->Text );
-					}
-					?></textarea>
+                    <div class="wysiwyg" id="wysiwyg"><?php
+                    if ( $id > 0 ) {
+                        echo $journal->Text; // purposely no escape here (XSS-safe because of sanitizer)
+                    }
+                    ?></div>
 					<div class="submit">
 						<input type="submit" value="Δημοσίευση" onclick="JournalView.Create( '<?php
 						echo $id;
