@@ -20,20 +20,7 @@
 				die( "Not allowed" );
 			}
 		}
-		/*
-		if ( $uploadimage1->Exists() ){
-			$uploadimage = $uploadimage1;
-		}
-		if ( $uploadimage2->Exists() ){
-			$uploadimage = $uploadimage2;
-		}
-		if ( $uploadimage3->Exists() ){
-			$uploadimage = $uploadimage3;
-		}
-		*/
-		die( 'tempname is ' . $uploadimage->Tempname );
 		$extension = File_GetExtension( $uploadimage->Name );
-		die( 'extension is ' . strtolower( $extension ) );
 		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
 			die( "Not supported filetype" );
 		}
