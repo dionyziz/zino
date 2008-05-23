@@ -1,7 +1,9 @@
 form#uploadform div.colorlink{
 	font-weight: bold;
-	font-size: 120%;
+	font-size: 110%;
 }
 div#uploadingwait {
 	display: none;
+	padding-top: 10px;
+	font-size: 110%;
 }
