@@ -14,14 +14,14 @@ form#uploadform a input.uploadfile1 {
 	top: 4px;
 	left: -145px;
 	opacity: 0.5;
-	z-index: 2;
+	z-index: 4;
 }
 form#uploadform a input.uploadfile2 {
 	position: absolute;
 	top: 4px;
 	left: -70px;
 	opacity: 0.5;
-	z-index: 2;
+	z-index: 3;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
