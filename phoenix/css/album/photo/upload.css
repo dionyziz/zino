@@ -5,4 +5,5 @@ form#uploadform div.colorlink{
 div#uploadingwait {
 	display: none;
 	font-size: 110%;
+	padding-top: 10px;
 }

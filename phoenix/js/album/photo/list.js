@@ -45,7 +45,9 @@ var PhotoList = {
 		if ( imageinfo.imagesnum == 0 ) {
 			var dt = document.createElement( 'dt' );
 			$( dt ).addClass( 'photonum' );
+			alert( 'brkpnt1' );
 			$( 'div#photolist dl' ).prepend( dt );
+			alert( 'done' );
 		}
 		PhotoList.UpdatePhotoNum( imageinfo.imagesnum + 1 );
 	},
