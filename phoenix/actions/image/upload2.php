@@ -65,7 +65,6 @@
         <title>Upload</title>
         </head>
         <body>
-		<?php die( 'brkpnt' );?>
         <script type="text/javascript">alert( 'uploaded' );<?php
     	if ( $albumid != 0 ) {
     		$album = New Album( $albumid );
@@ -79,6 +78,7 @@
     			'height' => $size[ 1 ],
     			'imagesnum' => $album->Numphotos
     		);
+			die( "brkpnt" );
     		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
     			?> );<?php
