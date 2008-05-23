@@ -13,10 +13,10 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="" onclick="return false;">
+				<a href="" onclick="return false;" style="font-weight:bold;">
 					<img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
-					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
+					?>add3.png" alt="Δημιουργία φωτογραφίας" style="vertical-align:-10px;" title="Δημιουργία φωτογραφίας" />
 					Δημιουργία φωτογραφίας
 					<input type="file" name="uploadimage" style="opacity:0.01" onchange="PhotoList.UploadPhoto();" />
 				</a>

@@ -72,12 +72,6 @@ div#photolist ul li {
 div#photolist  iframe.uploadform {
 	padding-top: 50px;
 }
-div#photolist iframe.uploadform form a {
-	font-weight: bold;
-}
-div#photolist iframe.uploadform form a img {
-	vertical-align: -10px;
-}
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	
 }
