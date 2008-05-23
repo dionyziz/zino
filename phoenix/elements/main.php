@@ -13,14 +13,14 @@
 		$page->AttachScript( 'js/jquery.js' );
 		//$page->AttachScript( 'js/script.js.php' );
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
-		
+		/*
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/main.js' );
 		$page->AttachScript( 'js/trivial/dates.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/album/list.js' );
-		$page->AttachScript( 'js/album/photo/list.js' );
-		$page->AttachScript( 'js/album/photo/view.js' );
+		*/$page->AttachScript( 'js/album/photo/list.js' );
+		/*$page->AttachScript( 'js/album/photo/view.js' );
 		$page->AttachScript( 'js/poll/list.js' );
 		$page->AttachScript( 'js/poll/view.js' );
 		$page->AttachScript( 'js/journal/list.js' );
@@ -30,7 +30,7 @@
 		$page->AttachScript( 'js/user/settings.js' );
 		$page->AttachScript( 'js/banner.js' );
 		$page->AttachScript( 'js/settings.js' );
-		
+		*/
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
