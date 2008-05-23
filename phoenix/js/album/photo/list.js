@@ -32,7 +32,7 @@ var PhotoList = {
 		$( 'div#photolist h2 input' )[ 0 ].select();
 	},
 	UploadPhoto : function() {
-		$( 'form#uploadform' )[ 0 ].submit();
+		//$( 'form#uploadform' )[ 0 ].submit();
 	},
 	AddPhoto : function( imageinfo ) {
 		photoid = imageinfo.id
