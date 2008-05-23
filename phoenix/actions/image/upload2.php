@@ -29,8 +29,8 @@
 		if ( $uploadimage3->Exists() ){
 			$uploadimage = $uploadimage3;
 		}
-		die( 'name is ' . $uploadimage->Name );
 		$extension = File_GetExtension( $uploadimage->Name );
+		die( 'extension is ' . $extension );
 		if ( strtolower( $extension ) != 'jpg' || strtolower( $extension ) != 'jpeg' || strtolower( $extension ) != 'png' || strtolower( $extension != 'gif'  ) ) {
 			die( "Not supported filetype" );
 		}
