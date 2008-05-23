@@ -15,10 +15,12 @@
 			?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
 					<input type="hidden" name="albumid" value="<?php
 					echo $album->Id;
-					?>" />
+					?>" /><?php
+					/*
 					<div class="colorlink">
 						Νέα φωτογραφία
 					</div>
+					*/?>
 					<input type="file" onchange="PhotoList.UploadPhoto();" />
 					<input type="submit" value="upload" style="display:none" />
 				</form><?php	
