@@ -21,9 +21,9 @@
 					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
 					Δημιουργία φωτογραφίας
 					</span>
-					<input class="uploadfile1" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
-					<input class="uploadfile2" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />					
-					<input class="uploadfile3" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
+					<input onclick="return false;" class="uploadfile1" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
+					<input onclick="return false;" class="uploadfile2" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />					
+					<input onclick="return false;" class="uploadfile3" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
 				</a>
 				<input type="submit" value="upload" style="display:none" />
 			</form><?php	
