@@ -2,6 +2,9 @@
 	function ActionJournalNew( tInteger $id , tString $title , tString $text ) {
 		global $user;
 		
+        header( 'Content-type: text/plain' );
+        die( $text->Get() );
+
 		$id = $id->Get();
 		$title = $title->Get();
 		$text = $text->Get();
