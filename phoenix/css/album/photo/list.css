@@ -92,3 +92,7 @@ div#photolist div.delete a img, div#photolist div.rename a img {
 div#photolist div.delete a img {
 	vertical-align: -2px;
 }
+div#photolist div.pagifyimages {
+	text-align: center;
+	margin-top: 20px;
+}

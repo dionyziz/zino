@@ -6,6 +6,12 @@
 		global $water;
 		
 		$album = New Album( $id->Get() );
+		
+		$offset = $offset->Get();
+		if ( $offset <= 0 ) {
+			$offset = 1;
+		}
+		
 		Element( 'user/sections', 'album' , $album->User );
 		?><div id="photolist"><?php
 			if ( $album->IsDeleted() ) {
@@ -14,7 +20,7 @@
 			}
 			else {
 				$finder = New ImageFinder();
-				$images = $finder->FindByAlbum( $album );
+				$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
 				w_assert( is_array( $images ), 'FindByAlbum must return an array' );
 				$page->SetTitle( $album->Name );
 				?><h2><?php
@@ -56,7 +62,11 @@
 						Element( 'album/photo/small' , $image , false , true , true );
 						?></li><?php
 					}
-				?></ul><?php
+				?></ul>
+				<div class="eof"></div>
+				<div class="pagifyimages"><?php
+				Element( 'pagify' , $offset , 'album&id=' . $album->Id , $album->Numphotos , 20 , 'offset' );
+				?></div><?php
 			}
 		?></div>
 		<div class="eof"></div><?php
