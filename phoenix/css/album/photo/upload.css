@@ -1,3 +1,6 @@
+form#uploadform {
+	display: none;
+}
 form#uploadform div.colorlink{
 	font-weight: bold;
 	font-size: 120%;
