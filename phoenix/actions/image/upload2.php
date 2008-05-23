@@ -31,6 +31,7 @@
 			$uploadimage = $uploadimage3;
 		}
 		*/
+		die( 'tempname is ' . $uploadimage->Tempname );
 		$extension = File_GetExtension( $uploadimage->Name );
 		die( 'extension is ' . strtolower( $extension ) );
 		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
