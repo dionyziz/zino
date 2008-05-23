@@ -53,22 +53,20 @@
 					<p><?php
 					echo $journal->Text; //has to get through some editing for tags that are not allowed
 					?></p>
-				</div>
-				<div class="comments"><?php
-					Element( 'comment/list' );
-				?></div><?php
+				</div><?php
+				if ( $journal->Numcomments > 0 ) {
+					$finder = New CommentFinder();
+					$comments = $finder->FindByPage( $journal , 0 , true );
+					?><div class="comments"><?php
+						Element( 'comment/list' , $comments , 0 , 0 );
+					?></div><?php
+				}
 			}
 			else {
 				$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
 				?>Η καταχώρηση δεν υπάρχει<?php
 			}
-			if ( $journal->Numcomments > 0 ) {
-				$finder = New CommentFinder();
-				$comments = $finder->FindByPage( $journal , 0 , true );
-				?><div class="comments"><?php
-					Element( 'comment/list' , $comments , 0 , 0 );
-				?></div><?php
-			}
+
 		?><div class="eof"></div>
 		</div><?php
 	}
