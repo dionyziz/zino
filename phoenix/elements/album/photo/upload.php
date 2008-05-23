@@ -16,7 +16,7 @@
 					<input type="hidden" name="albumid" value="<?php
 					echo $album->Id;
 					?>" />
-					<span class="colorlink">
+					<div class="colorlink">
 						<span>
 						Δημιουργία φωτογραφίας
 						</span>
@@ -24,7 +24,7 @@
 						<!--<input class="uploadfile2" type="file" name="uploadimage" onchange="alert( 'done' );" />					
 						<input class="uploadfile3" type="file" name="uploadimage" onchange="alert( 'done' );" />
 						//-->
-					</span>
+					</div>
 					<input type="submit" value="upload" style="display:none" />
 				</form><?php	
 		}

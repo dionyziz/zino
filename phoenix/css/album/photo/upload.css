@@ -1,21 +1,19 @@
-form#uploadform a{
+form#uploadform div{
 	font-weight: bold;
-	display: block;
     position: relative;
 }
 form#uploadform  span {
 	position: absolute;
-	font-weight: bold;
 	/*background-image: url( 'http://static.zino.gr/phoenix/add3.png' );
 	background-repeat: no-repeat;
 	padding-left: 32px;
 	vertical-align: -10px;
 	*/
 }
-form#uploadform span.colorlink span img {
+form#uploadform div.colorlink span img {
 	vertical-align: -10px;
 }
-form#uploadform span.colorlink input.uploadfile1 {
+form#uploadform div.colorlink input.uploadfile1 {
 	position: absolute;
 	top: 0;
 	left: -145px;
@@ -23,7 +21,7 @@ form#uploadform span.colorlink input.uploadfile1 {
 	z-index: 4;
 	cursor: pointer;
 }
-form#uploadform span.colorlink input.uploadfile2 {
+form#uploadform div.colorlink input.uploadfile2 {
 	position: absolute;
 	top: 0;
 	left: -70px;
@@ -31,7 +29,7 @@ form#uploadform span.colorlink input.uploadfile2 {
 	z-index: 3;
 	cursor: pointer;
 }
-form#uploadform span.colorlink input.uploadfile3 {
+form#uploadform div.colorlink input.uploadfile3 {
 	position: absolute;
 	top: 0;
 	left: -20px;
