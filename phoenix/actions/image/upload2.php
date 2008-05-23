@@ -78,7 +78,6 @@
     			'height' => $size[ 1 ],
     			'imagesnum' => $album->Numphotos
     		);
-			die( "brkpnt" );
     		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
     			?> );<?php
