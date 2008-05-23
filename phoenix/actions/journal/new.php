@@ -27,7 +27,13 @@
         $libs->Load( 'sanitizer' );
 
         $sanitizer = New XHTMLSanitizer();
-        foreach ( $xhtmlsanitizer_goodtags as $goodtag ) {
+        foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
+            $goodtag = New XHTMLSaneTag( $tag );
+            if ( is_array( $attributes ) ) {
+                foreach ( $attributes as $attribute ) {
+                    $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
+                }
+            }
             $sanitizer->AllowTag( $goodtag );
         }
         $sanitizer->SetSource( $text );
