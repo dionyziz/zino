@@ -68,12 +68,12 @@
     		$size = $image->ProportionalSize( 210 , 210 );
     		$jsimage = array(
     			'id' => $image->Id,
-				'userid' => $image->UserId,
+				'userid' => $image->Userid,
     			//'name' => NoExtensionName( $image->Name ),
     			'albumid' => $albumid,
     			'width' => $size[ 0 ],
     			'height' => $size[ 1 ],
-    			'imagesnum' => $album->PhotosNum()
+    			'imagesnum' => $album->Numphotos
     		);
     		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
