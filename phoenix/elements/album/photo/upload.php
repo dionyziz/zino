@@ -4,7 +4,9 @@
 		global $water;
 		global $user;
 		global $rabbit_settings;
+		global $page;
 		
+		$page->AttachStyleSheet( 'album/photo/upload.css' );
 		$water->Disable();
 		
 		$album = New Album( $albumid->Get() );
@@ -13,11 +15,12 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="" style="font-weight:bold;">
-					<img src="<?php
+				<a href="" onclick="return false;" style="font-weight:bold;">
+					<span><img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
-					?>add3.png" alt="Δημιουργία φωτογραφίας" style="vertical-align:-10px;" title="Δημιουργία φωτογραφίας" />
+					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
 					Δημιουργία φωτογραφίας
+					</span>
 					<input type="file" name="uploadimage" style="opacity:0.01" onchange="PhotoList.UploadPhoto();" />
 				</a>
 				<input type="submit" value="upload" style="display:none" />

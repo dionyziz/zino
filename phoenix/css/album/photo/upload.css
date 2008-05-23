@@ -1,0 +1,19 @@
+form#uploadform a{
+	font-weight: bold;
+	display:block;
+    position:relative;
+	overflow: hidden;
+}
+form#uploadform a span {
+	position: absolute;
+}
+form#uploadform a span img {
+	vertical-align: -10px;
+}
+form#uploadform a input {
+	position: absolute;
+	top: 0;
+	right: -1px;
+	opacity: 0.01;
+	filter: alpha(opacity=0.01);
+}
