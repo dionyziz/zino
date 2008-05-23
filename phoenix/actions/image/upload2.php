@@ -34,7 +34,6 @@
 		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
 			die( "Not supported filetype" );
 		}
-		die( 'success' );
     	if ( !$uploadimage->Exists() ) {
 			if ( $albumid > 0 ) {
 				return Redirect( 'index?p=upload&albumid=' . $albumid );
@@ -58,7 +57,7 @@
                 break;
         }
         $image->Albumid = $albumid;
-		
+		die( "brkpnt 1" );
 		try {
 			$image->Save();
 		}
