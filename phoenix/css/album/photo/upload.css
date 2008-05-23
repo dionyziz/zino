@@ -18,7 +18,7 @@ form#uploadform a input.uploadfile1 {
 	position: absolute;
 	top: 0;
 	left: -145px;
-	opacity: 0.01;
+	opacity: 0.5;
 	z-index: 4;
 	cursor: pointer;
 }
@@ -26,7 +26,7 @@ form#uploadform a input.uploadfile2 {
 	position: absolute;
 	top: 0;
 	left: -70px;
-	opacity: 0.01;
+	opacity: 0.5;
 	z-index: 3;
 	cursor: pointer;
 }
@@ -34,7 +34,7 @@ form#uploadform a input.uploadfile3 {
 	position: absolute;
 	top: 0;
 	left: -20px;
-	opacity: 0.01;
+	opacity: 0.5;
 	z-index: 2;
 	cursor: pointer;
 }
