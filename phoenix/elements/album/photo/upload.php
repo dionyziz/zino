@@ -12,29 +12,30 @@
 		
 		$album = New Album( $albumid->Get() );
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-			?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
-				<input type="hidden" name="albumid" value="<?php
-				echo $album->Id;
-				?>" />
-				<a href="">
+			?><a href="">
+				<form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
+					<input type="hidden" name="albumid" value="<?php
+					echo $album->Id;
+					?>" />
 					This is a test
 					<input type="file" name="uploadimage" onchange="alert( 'test' );" />
-				</a><?php
-				/*
-				<a href="" onclick="return false;">
-					<span>
-					Δημιουργία φωτογραφίας
-					</span>
-					<input onclick="alert( 'test' );" class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
-					<!--<input class="uploadfile2" type="file" name="uploadimage" onchange="alert( 'done' );" />					
-					<input class="uploadfile3" type="file" name="uploadimage" onchange="alert( 'done' );" />
-					//-->
-					
-				</a>
-				*/
-				?>
-				<input type="submit" value="upload" style="display:none" />
-			</form><?php	
+					<?php
+					/*
+					<a href="" onclick="return false;">
+						<span>
+						Δημιουργία φωτογραφίας
+						</span>
+						<input onclick="alert( 'test' );" class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
+						<!--<input class="uploadfile2" type="file" name="uploadimage" onchange="alert( 'done' );" />					
+						<input class="uploadfile3" type="file" name="uploadimage" onchange="alert( 'done' );" />
+						//-->
+						
+					</a>
+					*/
+					?>
+					<input type="submit" value="upload" style="display:none" />
+				</form>
+			</a><?php	
 		}
 		return array( 'tiny' => true );
 	}
