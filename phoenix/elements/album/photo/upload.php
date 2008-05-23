@@ -16,11 +16,11 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="" onclick="alert( 'yo' );">
+				<a href="" onclick="return false;">
 					<span>
 					Δημιουργία φωτογραφίας
 					</span>
-					<input class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
+					<input onclick="alert( 'test' );" class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
 					<!--<input class="uploadfile2" type="file" name="uploadimage" onchange="alert( 'done' );" />					
 					<input class="uploadfile3" type="file" name="uploadimage" onchange="alert( 'done' );" />
 					//-->
