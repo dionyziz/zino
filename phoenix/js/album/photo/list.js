@@ -33,6 +33,8 @@ var PhotoList = {
 	},
 	UploadPhoto : function() {
 		$( 'form#uploadform' )[ 0 ].submit();
+		$( 'form#uploadform' ).hide();
+		$( 'div#uploadingwait' ).show();
 	},
 	AddPhoto : function( imageinfo ) {
 		imageid = imageinfo.id

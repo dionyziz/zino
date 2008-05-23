@@ -22,7 +22,13 @@
 					</div>
 					<input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
 					<input type="submit" value="upload" style="display:none" />
-				</form><?php	
+				</form>
+				<div id="uploadingwait">
+					<img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
+					Παρακαλώ περιμένετε				
+				</div><?php	
 		}
 		return array( 'tiny' => true );
 	}

@@ -2,3 +2,6 @@ form#uploadform div.colorlink{
 	font-weight: bold;
 	font-size: 120%;
 }
+div#uploadingwait {
+	display: none;
+}
