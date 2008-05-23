@@ -6,7 +6,7 @@
 		global $rabbit_settings;
 		global $page;
 		
-		//$page->AttachStyleSheet( 'css/album/photo/upload.css' );
+		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
 		$water->Disable();
