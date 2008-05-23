@@ -132,7 +132,7 @@
             return $this->Save();
         }
 		public function Delete() {
-            $this->DelId = 1;
+            $this->Delid = 1;
             $this->Save();
 
             $this->Album->ImageDeleted( $this );
