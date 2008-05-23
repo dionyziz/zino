@@ -18,7 +18,7 @@ form#uploadform a input.uploadfile1 {
 	position: absolute;
 	top: 0;
 	left: -145px;
-	opacity: 0.01;
+	opacity: 1;
 	z-index: 4;
 	cursor: pointer;
 }
