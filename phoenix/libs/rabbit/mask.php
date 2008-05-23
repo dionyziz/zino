@@ -3,6 +3,9 @@
         Developer: Dionyziz 
     */
     
+    class RabbitIncludeException {
+    }
+    
     function Rabbit_Include( $filename ) {
         global $water;
         global $rabbit_settings;
@@ -11,9 +14,11 @@
         $filename = $rabbit_settings[ 'rootdir' ] . '/' . $filename;
         
         // apply masking and check for existance
-        $maskres = Mask( $filename , !$rabbit_settings[ 'production' ] );
-        if ( isset( $maskres[ 'error' ] ) ) {
-            $water->Warning( 'Rabbit_Include failed: ' . $maskres[ 'description' ] );
+        try {
+            $maskres = Mask( $filename , !$rabbit_settings[ 'production' ] );
+        }
+        catch ( RabbitIncludeException $e ) {
+            $water->Warning( 'Rabbit_Include failed: ' . $e->getMessage() );
             return false;
         }
         
@@ -39,10 +44,7 @@
         }
         if ( substr( $tail , 0 , 1 ) == '_' ) {
             // unmasking cannot be forced
-            return array(
-                'error' => true,
-                'description' => 'Unmasking cannot be forced'
-            );
+            throw New RabbitIncludeException( 'Unmasking cannot be forced' );
         }
         $fileexists = false;
         if ( $allowmasked ) {
@@ -65,9 +67,6 @@
                 );
             }
         }
-        return array(
-            'error' => true,
-            'description' => 'File not found: ' . $unmaskedpath
-        );
+        throw New RabbitIncludeException( 'File not found: ' . $unmaskedpath );
     }    
 ?>
