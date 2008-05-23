@@ -57,6 +57,7 @@
                 break;
         }
         $image->Albumid = $albumid;
+		die( "trying to save" );
 		try {
 			$image->Save();
 		}
