@@ -34,7 +34,7 @@
 		
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
-        $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
+        $page->AddMeta( 'description', 'Ξ¤ΞΏ ' . $rabbit_settings[ 'applicationname' ] . ' ΞµΞ―Ξ½Ξ±ΞΉ ΞΌΞ―Ξ± ΞµΞ»Ξ»Ξ·Ξ½ΞΉΞΊΞ® ΞΊΞΏΞΉΞ½ΟΟ„Ξ·Ο„Ξ± Ο†Ξ―Ξ»Ο‰Ξ½ - ΞµΞ―ΟƒΞ±ΞΉ ΞΌΞ­ΟƒΞ±;' );
         
 		ob_start();
 		$res = MasterElement();

@@ -57,7 +57,6 @@
                 break;
         }
         $image->Albumid = $albumid;
-		die( "brkpnt 1" );
 		try {
 			$image->Save();
 		}
@@ -73,6 +72,7 @@
     		</script></head><body></body></html><?php
 			return;
 		}
+		die( "brkpnt 1" );
 		?><html>
         <head>
         <title>Upload</title>
