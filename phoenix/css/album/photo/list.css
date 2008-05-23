@@ -86,12 +86,6 @@ div#photolist div.rename, div#photolist div.delete{
 div#photolist div.rename a, div#photolist div.delete a {
 	font-size: 95%;
 }
-div#photolist div.delete a img, div#photolist div.rename a img {
-	padding-right: 5px;
-}
-div#photolist div.delete a img {
-	vertical-align: -2px;
-}
 div#photolist div.pagifyimages {
 	text-align: center;
 }
