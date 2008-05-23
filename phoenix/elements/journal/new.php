@@ -15,7 +15,7 @@
 			$page->SetTitle( "Δημιουργία καταχώρησης" );
 		}
 		
-        $page->AttachScript( 'wysiwyg.js', 'javascript', true );
+        $page->AttachScript( 'js/wysiwyg.js', 'javascript', true );
 
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew"><?php
