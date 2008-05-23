@@ -4,7 +4,9 @@
 		global $page;
 		global $rabbit_settings;
 		global $user;
+		global $libs;
 		
+		$libs->Load( 'comment' );
 		$journal = New Journal( $id->Get() );
 		$commentid = $commentid->Get();
 		Element( 'user/sections' , 'journal' , $journal->User );
