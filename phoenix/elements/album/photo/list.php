@@ -51,9 +51,10 @@
 					}
 				?></ul><?php
 				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-					?><iframe src="index.php?p=upload&amp;albumid=<?php
+					?><a href="" onclick="$( 'form#uploadframe' ).toggle();return false;">Show</a>
+					<iframe src="index.php?p=upload&amp;albumid=<?php
 					echo $album->Id;
-					?>" frameborder="no" class="uploadform" scrolling="no" id="uploadform">
+					?>" frameborder="no" class="uploadform" scrolling="no" id="uploadframe">
 					</iframe><?php
 				}
 			}
