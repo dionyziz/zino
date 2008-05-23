@@ -7,7 +7,8 @@ form#uploadform a span {
 	position: absolute;
 	background-image: url( 'http://static.zino.gr/phoenix/add3.png' );
 	background-repeat: no-repeat;
-	padding-left: 30px;
+	padding-left: 32px;
+	vertical-align: -10px;
 }
 form#uploadform a span img {
 	vertical-align: -10px;
