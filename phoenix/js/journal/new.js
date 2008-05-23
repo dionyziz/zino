@@ -25,6 +25,6 @@ $( document ).ready( function() {
                 'tooltip': 'Εισαγωγή Video',
                 'image': 'http://static.zino.gr/phoenix/television.png'
             }
-        ] );
+        ], 2 );
     }
 } );

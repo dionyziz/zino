@@ -1,7 +1,7 @@
 var WYSIWYG = {
-    Create: function ( where, fieldname, buttons ) {
+    Create: function ( where, fieldname, buttons, tabindex ) {
         setTimeout( function () {
-            WYSIWYG.CreateReal( where, fieldname, buttons );
+            WYSIWYG.CreateReal( where, fieldname, buttons, tabindex );
         } , 300 );
     },
     GetDocument: function ( iframe ) {
@@ -34,10 +34,11 @@ var WYSIWYG = {
     ExecCommand: function ( fieldname, command, parameters ) {
         WYSIWYG.ByName[ fieldname ].execCommand( command, parameters );
     },
-    CreateReal: function ( where, fieldname, buttons ) {
+    CreateReal: function ( where, fieldname, buttons, tabindex ) {
         var toolbox = document.createElement( 'div' );
         var which = document.createElement( 'iframe' );
 
+        which.tabindex = tabindex;
         toolbox.className = 'toolbox';
         for ( i = 0; i < buttons.length; ++i ) {
             var link = document.createElement( 'a' );
@@ -55,7 +56,6 @@ var WYSIWYG = {
             img.src = buttons[ i ][ 'image' ];
             img.alt = buttons[ i ][ 'tooltip' ];
             tooltip.appendChild( document.createTextNode( buttons[ i ][ 'tooltip' ] ) );
-            link.tabIndex = 10000 + i;
             link.appendChild( img );
             link.appendChild( tooltip );
             toolbox.appendChild( link );
