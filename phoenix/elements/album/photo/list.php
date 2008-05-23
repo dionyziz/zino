@@ -43,6 +43,13 @@
 						?>' );return false;">Διαγραφή</a></div>
 					</div><?php
 				}
+				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+					?><div class="uploaddiv">
+						<object data="?p=upload&amp;albumid=<?php
+						echo $album->Id;
+						?>" class="uploadframe" id="uploadframe" type="text/html"></object>
+					</div><?php
+				}
 				?><ul><?php
 					foreach( $images as $image ) {
 						?><li><?php
@@ -50,14 +57,6 @@
 						?></li><?php
 					}
 				?></ul><?php
-				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-					?><div class="eof"></div>
-					<div class="uploaddiv">
-						<object data="?p=upload&amp;albumid=<?php
-						echo $album->Id;
-						?>" class="uploadframe" id="uploadframe" type="text/html"></object>
-					</div><?php
-				}
 			}
 		?></div>
 		<div class="eof"></div><?php
