@@ -2,7 +2,7 @@ var WYSIWYG = {
     Create: function ( where, fieldname, buttons ) {
         setTimeout( function () {
             WYSIWYG.CreateReal( where, fieldname, buttons );
-        } , 100 );
+        } , 300 );
     },
     GetDocument: function ( iframe ) {
         if ( typeof iframe.contentWindow != 'undefined' ) {
@@ -85,9 +85,9 @@ var WYSIWYG = {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
         
-        WYSIWYG.Enable( which, fieldname, oldcontents );
+        WYSIWYG.Enable( which, fieldname );
     },
-    Enable: function ( which, fieldname, oldcontents ) {
+    Enable: function ( which, fieldname ) {
         var doc = WYSIWYG.GetDocument( which );
         
         // alert( 'Enabling' );
