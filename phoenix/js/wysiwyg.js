@@ -5,10 +5,10 @@ var WYSIWYG = {
         } , 100 );
     },
     GetDocument: function ( iframe ) {
-        if ( iframe.contentWindow ) {
+        if ( typeof iframe.contentWindow != 'undefined' ) {
             return iframe.contentWindow.document;
         }
-        if ( iframe.contentDocument ) {
+        if ( typeof iframe.contentDocument != 'undefined' ) {
             return iframe.contentDocument;
         }
         return false;
