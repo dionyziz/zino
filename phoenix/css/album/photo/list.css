@@ -53,7 +53,7 @@ span.commentsnum {
 	vertical-align: 2px;
 }
 div#photolist ul {
-	padding: 0;
+	padding: 10px 0 0 0;
 	margin: 0;
 	width: 100%;
 	list-style: none;
@@ -70,9 +70,9 @@ div#photolist ul li {
 	display: inline;
 }
 div#photolist  div.uploaddiv {
-	padding-top: 30px;
+	padding-top: 15px;
 	border: 1px dotted #ccc;
-	height: 70px;
+	height: 60px;
 	width: 300px;
 	float: right;
 	margin-top: -50px;

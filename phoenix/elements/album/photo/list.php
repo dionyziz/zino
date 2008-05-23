@@ -1,5 +1,5 @@
 <?php
-	function ElementAlbumPhotoList( tInteger $id ) {
+	function ElementAlbumPhotoList( tInteger $id , tInteger $offset ) {
 		global $page;
 		global $user;
 		global $rabbit_settings; 
