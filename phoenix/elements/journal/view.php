@@ -62,7 +62,6 @@
 				$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
 				?>Η καταχώρηση δεν υπάρχει<?php
 			}
-			?><div class="eof"></div><?php
 			if ( $journal->Numcomments > 0 ) {
 				$finder = New CommentFinder();
 				$comments = $finder->FindByPage( $journal , 0 , true );
@@ -70,6 +69,7 @@
 					Element( 'comment/list' , $comments , 0 , 0 );
 				?></div><?php
 			}
-		?></div><?php
+		?><div class="eof"></div>
+		</div><?php
 	}
 ?>
