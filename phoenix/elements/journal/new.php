@@ -27,7 +27,7 @@
 						if ( $id != 0 ) {
 							echo htmlspecialchars( $journal->Title );
 						}
-						?>" name="title" />
+						?>" name="title" tabindex="1" />
 					</div>
                     <div class="wysiwyg" id="wysiwyg"><?php
                     if ( $id > 0 ) {

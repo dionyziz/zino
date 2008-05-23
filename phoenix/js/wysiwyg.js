@@ -55,6 +55,7 @@ var WYSIWYG = {
             img.src = buttons[ i ][ 'image' ];
             img.alt = buttons[ i ][ 'tooltip' ];
             tooltip.appendChild( document.createTextNode( buttons[ i ][ 'tooltip' ] ) );
+            link.tabIndex = 10000 + i;
             link.appendChild( img );
             link.appendChild( tooltip );
             toolbox.appendChild( link );
