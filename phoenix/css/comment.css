@@ -69,6 +69,9 @@ div.newcomment div.who {
 	padding-left: 4px; /* made 4px from 2px */
 	padding-top: 4px;
 }
+div.newcomment div.who a {
+	margin-right: 5px;
+}
 div.newcomment div.toolbox span.time {
 	margin-right: 2px;
 }
