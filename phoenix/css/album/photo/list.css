@@ -69,9 +69,12 @@ div#photolist ul li {
 	text-align: center;
 	display: inline;
 }
+div#photolist  iframe.uploadform {
+	border: 1px dotted #ccc;
+	padding-top: 50px;
+}
 div#photolist div.rename, div#photolist div.delete{
-	margin: 5px 0;
-	
+	margin: 5px 0;	
 }
 div#photolist div.rename a, div#photolist div.delete a {
 	font-size: 95%;

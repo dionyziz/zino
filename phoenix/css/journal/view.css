@@ -56,9 +56,6 @@ div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd
 div#journalview div.journal dl dd.edit {
 
 }
-div#journalview div.journal dl dd.lastentries {
-	padding-top: 2px;
-}
 div#journalview div.journal dl dd.addfav a {
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
 	background-position: 0 -1327px;

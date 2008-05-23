@@ -12,7 +12,7 @@
 			?>...
 			</p>
 			<ul>
-				<li class="readwhole"><a href="?p=poll&amp;id=<?php
+				<li class="readwhole"><a href="?p=journal&amp;id=<?php
 				echo $journal->Id;
 				?>">Προβολή ολόκληρου&raquo;</a></li>
 				<li>

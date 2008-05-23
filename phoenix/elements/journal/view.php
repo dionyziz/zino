@@ -32,10 +32,7 @@
 							?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd><?php
 						}
 
-						?><dd class="lastentries"><a href="?p=journals&amp;username=<?php
-						echo $journal->User->Subdomain;
-						?>">Παλαιότερες καταχωρήσεις&raquo;</a></dd>
-					</dl><?php
+						?></dl><?php
 						if ( $journal->User->Id == $user->Id ) {
 							?><div class="owner">
 								<div class="edit">
