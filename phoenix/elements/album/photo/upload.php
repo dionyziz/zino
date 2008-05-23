@@ -16,7 +16,10 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<input type="file" name="uploadimage" onchange="alert( 'test' );" /><?php
+				<a href="">
+					This is a test
+					<input type="file" name="uploadimage" onchange="alert( 'test' );" />
+				</a><?php
 				/*
 				<a href="" onclick="return false;">
 					<span>
