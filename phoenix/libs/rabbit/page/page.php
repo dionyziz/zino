@@ -298,6 +298,9 @@ class PageHTML extends Page {
 												  'ieversion' => $ieversion,
                                                   'head'      => $head );
 		}
+        else if ( $head && !$this->mScripts[ $filename ][ 'head' ] ) {
+            $this->mScripts[ $filename ][ 'head' ] = true; // somebody needs to load this a priori, do so 
+        }
 	}
     public function AttachInlineScript( $code, $language = 'javascript' ) {
         if ( !isset( $this->mScriptsInline[ $language ] ) ) {
