@@ -42,14 +42,14 @@ var PhotoList = {
 		$( li ).css( 'display' , 'none' );
 		$( 'div#photolist ul' ).prepend( li );
 		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li } );
-		if ( imageinfo.imagesnum == 0 ) {
+		if ( imageinfo.imagesnum == 1 ) {
 			var dt = document.createElement( 'dt' );
 			$( dt ).addClass( 'photonum' );
 			alert( 'brkpnt1' );
 			$( 'div#photolist dl' ).prepend( dt );
 			alert( 'done' );
 		}
-		PhotoList.UpdatePhotoNum( imageinfo.imagesnum + 1 );
+		PhotoList.UpdatePhotoNum( imageinfo.imagesnum );
 	},
 	UpdatePhotoNum : function( photonum ) {
 		if ( photonum == 0 ) {
