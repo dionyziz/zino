@@ -82,6 +82,8 @@ var WYSIWYG = {
     Enable: function ( which, fieldname, oldcontents ) {
         var doc = WYSIWYG.GetDocument( which );
         
+        alert( 'Enabling' );
+
         try {
             WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
