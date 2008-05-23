@@ -10,6 +10,7 @@
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
 		$water->Disable();
+		$page->SetWaterDump( false );
 		
 		$album = New Album( $albumid->Get() );
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
