@@ -65,7 +65,7 @@
         <title>Upload</title>
         </head>
         <body>
-        <script type="text/javascript">alert( 'uploaded' );<?php
+        <script type="text/javascript"><?php
     	if ( $albumid != 0 ) {
     		$album = New Album( $albumid );
     		$size = $image->ProportionalSize( 210 , 210 );
