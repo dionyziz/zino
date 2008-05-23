@@ -101,9 +101,9 @@ var WYSIWYG = {
         }
         
         var frm = which;
-        while (frm.nodeName.toLowerCase() != 'form') {
+        while ( frm.nodeName.toLowerCase() != 'form' ) {
             frm = frm.parentNode;
-            if (frm === null) {
+            if ( frm === null ) {
                 alert( 'WYSIWYG elements should only be called within HTML <form>' );
                 return;
             }

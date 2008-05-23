@@ -1,5 +1,5 @@
 $( document ).ready( function() {
-    if ( $( '#journalnew' ) ) {
+    if ( $( '#journalnew' )[ 0 ] ) {
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
             {
                 'tooltip': 'Έντονη Γραφή',
