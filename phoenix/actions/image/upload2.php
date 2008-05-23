@@ -57,12 +57,12 @@
                 break;
         }
         $image->Albumid = $albumid;
-		die( "trying to save" );
 		try {
 			$image->Save();
 		}
 		catch ( ImageException $e ) {
 			//some error must have occured
+			die( "errono: " . $e->getMessage() );
 			?><html><head><title>Upload error</title><script type="text/javascript">
 				alert( <?php echo $e->getMessage(); ?> );
     			//alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας' );
