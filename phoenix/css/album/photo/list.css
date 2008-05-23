@@ -70,9 +70,13 @@ div#photolist ul li {
 	display: inline;
 }
 div#photolist  div.uploaddiv {
-	padding-top: 40px;
+	padding-top: 30px;
 	border: 1px dotted #ccc;
-	height: 200px;
+	height: 70px;
+	width: 300px;
+}
+div#photolist div.uploaddiv object.uploadframe {
+	height: 60px;
 }
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	
