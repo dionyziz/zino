@@ -17,7 +17,7 @@ form#uploadform div.colorlink input.uploadfile1 {
 	position: absolute;
 	top: 4px;
 	left: -145px;
-	opacity: 0.01;
+	opacity: 0;
 	z-index: 4;
 	cursor: pointer;
 }
@@ -25,7 +25,7 @@ form#uploadform div.colorlink input.uploadfile2 {
 	position: absolute;
 	top: 4px;
 	left: -70px;
-	opacity: 0.01;
+	opacity: 0;
 	z-index: 3;
 	cursor: pointer;
 }
@@ -33,7 +33,7 @@ form#uploadform div.colorlink input.uploadfile3 {
 	position: absolute;
 	top: 4px;
 	left: -20px;
-	opacity: 0.01;
+	opacity: 0;
 	z-index: 2;
 	cursor: pointer;
 }
