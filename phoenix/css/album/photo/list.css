@@ -71,6 +71,7 @@ div#photolist ul li {
 }
 div#photolist  iframe.uploadform {
 	padding-top: 50px;
+	border: 1px dotted #ccc;
 }
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	

@@ -17,15 +17,9 @@
 					echo $album->Id;
 					?>" />
 					<div class="colorlink">
-						<span><img src="<?php
-						echo $rabbit_settings[ 'imagesurl' ];
-						?>add3.png" />
-						Δημιουργία φωτογραφίας
-						</span>
-						<input class="uploadfile1" type="file" name="uploadimage1" onchange="PhotoList.UploadPhoto();" />
-						<input class="uploadfile2" type="file" name="uploadimage2" onchange="PhotoList.UploadPhoto();" />					
-						<input class="uploadfile3" type="file" name="uploadimage3" onchange="PhotoList.UploadPhoto();" />
+						Νέα φωτογραφία
 					</div>
+					<input type="file" onchange="PhotoList.UploadPhoto();" />
 					<input type="submit" value="upload" style="display:none" />
 				</form><?php	
 		}
