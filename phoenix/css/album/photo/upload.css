@@ -1,8 +1,7 @@
 form#uploadform a{
 	font-weight: bold;
 	display:block;
-    position:relative;
-	/*overflow: hidden;*/
+    /*position:relative;*/
 }
 form#uploadform a span {
 	position: absolute;
@@ -14,5 +13,5 @@ form#uploadform a input {
 	position: absolute;
 	top: 0;
 	right: -1px;
-	opacity: 0.01;
+	opacity: 0.5;
 }
