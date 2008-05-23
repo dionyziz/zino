@@ -86,6 +86,48 @@
             w_assert( $value === true );
             $this->mExists = $value;
         }
+        public function Unserialize( $info ) {
+            w_assert( is_array( $info ) );
+            w_assert( count( $info ) );
+            
+            $firstfield = $info[ 0 ];
+            
+            w_assert( isset( $firstfield[ 'Key_name' ] ) );
+            w_assert( isset( $firstfield[ 'Non_unique' ] ) );
+            if ( isset( $firstfield[ 'Cardinality' ] ) ) {
+                $this->mCardinality = $firstfield[ 'Cardinality' ];
+            }
+            $this->mName = $firstfield[ 'Key_name' ];
+            if ( $firstfield[ 'Non_unique' ] == 1 ) {
+                $this->mType = DB_KEY_INDEX;
+            }
+            else if ( $firstfield[ 'Key_name' ] == 'PRIMARY' ) {
+                $this->mType = DB_KEY_PRIMARY;
+            }
+            else {
+                $this->mType = DB_KEY_UNIQUE;
+            }
+            foreach ( $info as $field ) {
+                $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $parenttable->FieldByName( $field[ 'Column_name' ] );
+            }
+        }
+        public function Serialize() {
+            $info = array();
+            
+            $i = 0;
+            foreach ( $this->mFields as $field ) {
+                $info[ $i ][ 'Key_name' ] = $this->mName;
+                $info[ $i ][ 'Cardinality' ] = $this->mCardinality;
+                if ( $this->mType = DB_KEY_INDEX ) {
+                    $info[ $i ][ 'Non_unique' ] = 1;
+                }
+                $info[ $i ][ 'Seq_in_index' ] = $i + 1;
+                $info[ $i ][ 'Column_name' ] = $field;
+                ++$i;
+            }
+            
+            return $info;
+        }
         public function DBIndex( $parenttable = false, $info = false ) {
             $this->mFields = array();
             if ( $info === false && $parenttable === false ) {
@@ -98,29 +140,7 @@
                 w_assert( $parenttable->Exists() );
                 $this->mParentTable = $parenttable;
                 
-                w_assert( is_array( $info ) );
-                w_assert( count( $info ) );
-                
-                $firstfield = $info[ 0 ];
-                
-                w_assert( isset( $firstfield[ 'Key_name' ] ) );
-                w_assert( isset( $firstfield[ 'Non_unique' ] ) );
-                if ( isset( $firstfield[ 'Cardinality' ] ) ) {
-                    $this->mCardinality = $firstfield[ 'Cardinality' ];
-                }
-                $this->mName = $firstfield[ 'Key_name' ];
-                if ( $firstfield[ 'Non_unique' ] == 1 ) {
-                    $this->mType = DB_KEY_INDEX;
-                }
-                else if ( $firstfield[ 'Key_name' ] == 'PRIMARY' ) {
-                    $this->mType = DB_KEY_PRIMARY;
-                }
-                else {
-                    $this->mType = DB_KEY_UNIQUE;
-                }
-                foreach ( $info as $field ) {
-                    $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $parenttable->FieldByName( $field[ 'Column_name' ] );
-                }
+                $this->Unserialize( $info );
             }
         }
     }
