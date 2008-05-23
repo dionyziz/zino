@@ -6,7 +6,7 @@
 		global $rabbit_settings;
 		global $page;
 		
-		//$page->AttachStyleSheet( 'css/album/photo/upload.css' );
+		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
 		$water->Disable();
 		
 		$album = New Album( $albumid->Get() );
