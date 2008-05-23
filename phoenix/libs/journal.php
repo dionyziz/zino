@@ -33,7 +33,7 @@
             }
             else {
                 $text = preg_replace( "#<[^>]*?>#", "", $this->Bulk->Text ); // strip all tags
-                return utf8_substr( $text, $length );
+                return utf8_substr( $text, 0, $length );
             }
         }
 		public function SetText( $text ) {
