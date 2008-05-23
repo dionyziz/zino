@@ -11,7 +11,7 @@ form#uploadform a span img {
 }
 form#uploadform a input.uploadfile1 {
 	position: absolute;
-	top: 4;
+	top: 4px;
 	left: -145px;
 	opacity: 0.5;
 }
