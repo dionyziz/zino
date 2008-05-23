@@ -106,7 +106,9 @@ var WYSIWYG = {
     },
     Check: function ( which, fieldname ) {
         if ( WYSIWYG.GetDocument( which ).designMode != 'on' ) {
-            alert( 'Check failed' );
+            setTimeout( function () {
+                WYSIWYG.Enable(); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
+            }, 100 );
             return;
         }
         alert( 'Check succeeded' );
