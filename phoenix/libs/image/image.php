@@ -195,7 +195,7 @@
             // else success
             w_assert( is_array( $data ) );
 
-            if ( $data[ 'width' ] < 10 || $data[ 'height' ] ) {
+            if ( $data[ 'width' ] < 10 || $data[ 'height' ] < 10 ) {
                 throw New ImageException( 'The resolution of target image is too small: ' . $data[ 'width' ] . 'x' . $data[ 'height' ] );
             }
 
