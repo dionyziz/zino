@@ -3,6 +3,7 @@
 	function ElementAlbumPhotoUpload( tInteger $albumid ) {
 		global $water;
 		global $user;
+		global $rabbit_settings;
 		
 		$water->Disable();
 		
@@ -12,7 +13,7 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<a href="">
+				<a href="" onclick="return false;">
 					<img src="<?php
 					echo $rabbit_settings[ 'imagesurl' ];
 					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
