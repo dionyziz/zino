@@ -3,7 +3,6 @@
 		global $user;
 		
         header( 'Content-type: text/plain' );
-        die( $text->Get() );
 
 		$id = $id->Get();
 		$title = $title->Get();
@@ -19,7 +18,7 @@
 			$journal = New Journal();
 		}
 		$journal->Title = $title;
-		$journal->Text = $text;
+		$journal->Text = $text; // TODO: SECURITY: sanity check
 		$journal->Save();
 		
 		return Redirect( '?p=journal&id=' . $journal->Id );
