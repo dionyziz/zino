@@ -1,18 +1,31 @@
 form#uploadform a{
 	font-weight: bold;
 	display:block;
-    /*position:relative;*/
+    position:relative;
 }
 form#uploadform a span {
-	/*position: absolute;*/
+	position: absolute;
 }
 form#uploadform a span img {
 	vertical-align: -10px;
 }
-form#uploadform a input {
-	/*position: absolute;
+form#uploadform a input.uploadfile1 {
+	position: absolute;
 	top: 0;
-	right: -1px;
-	*/
-	opacity: 1;
+	right: -20px;
+}
+form#uploadform a input.uploadfile2 {
+	position: absolute;
+	top: 0;
+	left: -90px;
+}
+form#uploadform a input.uploadfile3 {
+	position: absolute;
+	top: 0;
+	right: -160px;
+}
+form#uploadform a input.uploadfile4 {
+	position: absolute;
+	top: 0;
+	right: -230px;
 }
