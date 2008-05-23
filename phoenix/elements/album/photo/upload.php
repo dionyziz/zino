@@ -16,6 +16,8 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
+				<input type="file" name="uploadimage" onchange="alert( 'test' );" /><?php
+				/*
 				<a href="" onclick="return false;">
 					<span>
 					Δημιουργία φωτογραφίας
@@ -26,6 +28,8 @@
 					//-->
 					
 				</a>
+				*/
+				?>
 				<input type="submit" value="upload" style="display:none" />
 			</form><?php	
 		}
