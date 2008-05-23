@@ -15,6 +15,9 @@
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
+				<img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>add3.png" alt="Δημιουργία" title="Δημιουργία" />
 				<a href="" onclick="return false;">
 					<span><!--<img src="<?php
 					//echo $rabbit_settings[ 'imagesurl' ];
