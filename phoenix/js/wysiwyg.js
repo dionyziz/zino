@@ -1,8 +1,7 @@
 var WYSIWYG = {
-    Create: function ( which, fieldname ) {
-        which.style.backgroundColor = '#ccc';
+    Create: function ( where, fieldname, buttons ) {
         setTimeout( function () {
-            WYSIWYG.CreateReal( which, fieldname );
+            WYSIWYG.CreateReal( where, fieldname, buttons );
         } , 100 );
     },
     GetDocument: function ( iframe ) {
@@ -20,38 +19,85 @@ var WYSIWYG = {
             which.contentWindow.focus()
         }, 100 );
         /*
-	    var editdoc     = WYSIWYG.GetDocument( which );             // get iframe editor document object
-	    var editorRange = editdoc.body.createTextRange();           // editor range
-	    var curRange    = editdoc.selection.createRange();          // selection range
+        var editdoc     = WYSIWYG.GetDocument( which );             // get iframe editor document object
+        var editorRange = editdoc.body.createTextRange();           // editor range
+        var curRange    = editdoc.selection.createRange();          // selection range
  
-	    if (curRange.length == null && !editorRange.inRange(curRange)) { // make sure it's not a controlRange
+        if (curRange.length == null && !editorRange.inRange(curRange)) { // make sure it's not a controlRange
           // is selection in editor range
-	      editorRange.collapse();                                      // move to start of range
-	      editorRange.select();                                        // select
-	      curRange = editorRange;
-	    }
+          editorRange.collapse();                                      // move to start of range
+          editorRange.select();                                        // select
+          curRange = editorRange;
+        }
         */
     },
-    CreateReal: function ( which, fieldname ) {
+    ExecCommand: function ( fieldname, command, parameters ) {
+        WYSIWYG.ByName[ fieldname ].execCommand( command, parameters );
+    },
+    CreateReal: function ( where, fieldname, buttons ) {
+        var toolbox = document.createElement( 'div' );
+        var which = document.createElement( 'iframe' );
+
+        toolbox.className = 'toolbox';
+        for ( i = 0; i < buttons.length; ++i ) {
+            var link = document.createElement( 'a' );
+            link.href = '';
+            link.onclick = function ( command, parameters ) {
+                return function () {
+                    link.blur();
+                    WYSIWYG.ExecCommand( fieldname, command, parameters );
+                    WYSIWYG.Focus( which );
+                    return false;
+                }
+            }( buttons[ i ][ 'command' ], buttons[ i ][ 'parameters' ] );
+            var tooltip = document.createElement( 'span' );
+            var img = document.createElement( 'img' );
+            img.src = buttons[ i ][ 'image' ];
+            img.alt = buttons[ i ][ 'tooltip' ];
+            tooltip.appendChild( document.createTextNode( buttons[ i ][ 'tooltip' ] ) );
+            link.appendChild( img );
+            link.appendChild( tooltip );
+            toolbox.appendChild( link );
+        }
+        
+        var oldcontents = where.cloneNode( true );
+        while ( where.firstChild ) {
+            where.removeChild( where.firstChild );
+        }
+        
+        which.style.backgroundColor = '#ccc';
+        
+        where.appendChild( toolbox );
+        where.appendChild( which );
+        
         var doc = WYSIWYG.GetDocument( which );
         
         if ( doc === false ) {
             alert( 'WYSIWYG is not supported by your browser' );
             return;
         }
-        var entrytext = '';
-        if ( which.previousSibling.firstChild !== null ) {
-            entrytext = which.previousSibling.firstChild.nodeValue;
-        }
+        
+        WYSIWYG.Enable( which, fieldname, oldcontents );
+    },
+    Enable: function ( which, fieldname, oldcontents ) {
+        var doc = WYSIWYG.GetDocument( which );
+        
         try {
-            WYSIWYG.ByName[ fieldname ] = xbDesignMode( which );
-            doc.body.appendChild( document.createTextNode( entrytext ) );
+            WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
-                WYSIWYG.CreateReal( which, fieldname )
+                WYSIWYG.Enable( which, fieldname, oldcontents )
             }, 100 );
             return;
+        }
+        
+        while ( doc.body.firstChild ) {
+            doc.body.removeChild( doc.body.firstChild );
+        }
+        
+        while ( oldcontents.childNodes.length ) {
+            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
         
         var frm = which;
@@ -157,3 +203,4 @@ xbDesignMode.prototype.setCSSCreation = function (aUseCss){
     throw "no mEditorDocument found";  
     
 }
+

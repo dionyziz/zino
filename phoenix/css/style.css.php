@@ -36,4 +36,5 @@
 	include "pagify.css";
 	include "people.css";
 	include "search.css";
+    include "wysiwyg.css";
 ?>
