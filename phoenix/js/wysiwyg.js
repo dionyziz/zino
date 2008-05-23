@@ -85,6 +85,8 @@ var WYSIWYG = {
         // alert( 'Enabling' );
 
         try {
+            new xbDesignMode( which );
+
             WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
         catch ( e ) { // not ready yet, retry in another 100ms
