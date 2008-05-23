@@ -52,10 +52,8 @@
 		}
 		catch ( ImageException $e ) {
 			//some error must have occured
-			die( "errono: " . $e->getMessage() );
 			?><html><head><title>Upload error</title><script type="text/javascript">
-				alert( <?php echo $e->getMessage(); ?> );
-    			//alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας' );
+    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας' );
     			window.location.href = <?php
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
     			?>;
@@ -84,15 +82,6 @@
     			echo w_json_encode( $jsimage );
     			?> );<?php
     	} 
-		/*
-    	else {
-    		?>parent.Photos.AddPhotoArticle( <?php
-    			echo w_json_encode( $imageid );
-    			?> , <?php
-				echo w_json_encode( $image->UserId() )
-				?>);<?php
-    	}
-		*/
     	?>
     	window.location.href = <?php
     	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
