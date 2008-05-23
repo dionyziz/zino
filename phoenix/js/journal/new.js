@@ -14,11 +14,11 @@ $( document ).ready( function() {
             },
             {
                 'tooltip': 'Εισαγωγή Link',
-                'image': 'http://static.zino.gr/phoenix/text_underline.png',
+                'image': 'http://static.zino.gr/phoenix/world.png',
                 'command': function () {
                     var q = prompt( 'Πληκτρολόγησε την διεύθυνση προς την οποία θέλεις να γινει link:', 'http://www.zino.gr/' );
                     
-                    if ( q != '' ) {
+                    if ( typeof q == "string" && q != '' ) {
                         WYSIWYG.ExecCommand( 'text', 'createLink', q );
                     }
                 }
