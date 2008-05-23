@@ -17,7 +17,9 @@
 					echo $album->Id;
 					?>" />
 					<div class="colorlink">
-						<span>
+						<span><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>add3.png" />
 						Δημιουργία φωτογραφίας
 						</span>
 						<input  class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
