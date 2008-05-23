@@ -62,7 +62,6 @@
     		</script></head><body></body></html><?php
 			return;
 		}
-		die( "brkpnt 1" );
 		?><html>
         <head>
         <title>Upload</title>
