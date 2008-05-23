@@ -30,7 +30,7 @@
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
             $goodtag = New XHTMLSaneTag( $tag );
             if ( is_array( $attributes ) ) {
-                foreach ( $attributes as $attribute ) {
+                foreach ( $attributes as $attribute => $true ) {
                     $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
                 }
             }
