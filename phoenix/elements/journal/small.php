@@ -8,9 +8,8 @@
 			echo htmlspecialchars( $journal->Title );
 			?></a></h4>
 			<p><?php
-			echo htmlspecialchars( $journal->Text );
-			?>...
-			</p>
+			echo $journal->GetText( 300 );
+			?></p>
 			<ul>
 				<li class="readwhole"><a href="?p=journal&amp;id=<?php
 				echo $journal->Id;
