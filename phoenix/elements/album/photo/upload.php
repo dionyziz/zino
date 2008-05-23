@@ -16,9 +16,9 @@
 				echo $album->Id;
 				?>" />
 				<a href="" onclick="return false;">
-					<span><img src="<?php
-					echo $rabbit_settings[ 'imagesurl' ];
-					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
+					<span><!--<img src="<?php
+					//echo $rabbit_settings[ 'imagesurl' ];
+					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />//-->
 					Δημιουργία φωτογραφίας
 					</span>
 					<input onclick="return false;" class="uploadfile1" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
