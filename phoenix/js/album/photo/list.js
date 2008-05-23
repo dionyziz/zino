@@ -36,10 +36,10 @@ var PhotoList = {
 	},
 	AddPhoto : function( imageinfo ) {
 		imageid = imageinfo.id
-		var node = document.createElement( 'li' );
-		$( node ).css( 'display' , 'none' );
-		$( 'div#photolist ul' ).append( node );
-		Coala.Warm( 'album/photo/upload' , imageid , node );
+		var li = document.createElement( 'li' );
+		$( li ).css( 'display' , 'none' );
+		$( 'div#photolist ul' ).append( li );
+		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li } );
 	}
 };
 $( document ).ready( function() {
