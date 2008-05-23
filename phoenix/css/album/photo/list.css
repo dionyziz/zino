@@ -72,7 +72,6 @@ div#photolist ul li {
 div#photolist  object.uploadframe {
 	padding-top: 50px;
 	border: 1px dotted #ccc;
-	display: none;
 }
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	
