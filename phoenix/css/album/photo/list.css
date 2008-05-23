@@ -73,9 +73,10 @@ div#photolist  iframe.uploadform {
 	padding-top: 50px;
 }
 div#photolist iframe.uploadform form a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-repeat: no-repeat;
-	background-position: 0 -182px;
+	font-weight: bold;
+}
+div#photolist iframe.uploadform form a img {
+	vertical-align: -10px;
 }
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	

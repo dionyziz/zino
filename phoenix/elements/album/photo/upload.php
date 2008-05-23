@@ -13,6 +13,9 @@
 				echo $album->Id;
 				?>" />
 				<a href="">
+					<img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>add3.png" alt="Δημιουργία φωτογραφίας" title="Δημιουργία φωτογραφίας" />
 					Δημιουργία φωτογραφίας
 					<input type="file" name="uploadimage" style="opacity:0.01" onchange="PhotoList.UploadPhoto();" />
 				</a>
