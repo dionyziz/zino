@@ -114,6 +114,8 @@ var WYSIWYG = {
             return;
         }
 
+        WYSIWYG.ByName[ fieldname ].setCSSCreation( false );
+
         var frm = which;
         while ( frm.nodeName.toLowerCase() != 'form' ) {
             frm = frm.parentNode;
