@@ -32,7 +32,7 @@
                 return $this->Bulk->Text;
             }
             else {
-                $text = ereg_replace( "<[^>]*>", "", $this->Bulk->Text );
+                $text = preg_replace( "#<[^>]*?>#", "", $this->Bulk->Text ); // strip all tags
                 return utf8_substr( $text, $length );
             }
         }
