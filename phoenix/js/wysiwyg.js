@@ -214,7 +214,7 @@ xbDesignMode.prototype.execCommand = function (aCommandName, aParam){
 
 xbDesignMode.prototype.setCSSCreation = function (aUseCss){
   if (this.mEditorDocument)
-    this.mEditorDocument.execCommand("useCSS", false, aUseCss);
+    this.mEditorDocument.execCommand("styleWithCSS", false, aUseCss);
   else 
     throw "no mEditorDocument found";  
     
