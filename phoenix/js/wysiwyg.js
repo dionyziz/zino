@@ -90,8 +90,6 @@ var WYSIWYG = {
     Enable: function ( which, fieldname ) {
         var doc = WYSIWYG.GetDocument( which );
         
-        // alert( 'Enabling' );
-
         try {
             WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
@@ -102,7 +100,16 @@ var WYSIWYG = {
             return;
         }
 
-        alert( doc.designMode );
+        setTimeout( function () {
+            WYSIWYG.Check( which, fieldname );
+        }, 100 );
+    },
+    Check: function ( which, fieldname ) {
+        if ( WYSIWYG.GetDocument( which ).designMode != 'on' ) {
+            alert( 'Check failed' );
+            return;
+        }
+        alert( 'Check succeeded' );
 
         var frm = which;
         while ( frm.nodeName.toLowerCase() != 'form' ) {
