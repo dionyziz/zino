@@ -108,7 +108,7 @@
                 $this->mType = DB_KEY_UNIQUE;
             }
             foreach ( $info as $field ) {
-                $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $parenttable->FieldByName( $field[ 'Column_name' ] );
+                $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $this->mParentTable->FieldByName( $field[ 'Column_name' ] );
             }
         }
         public function Serialize() {
