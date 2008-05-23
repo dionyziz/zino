@@ -45,5 +45,6 @@ $( document ).ready( function() {
 		delete1.src = ExcaliburSettings.imagesurl + 'delete.gif';
 		var delete2 = new Image();
 		delete2.src = ExcaliburSettings.imagesurl + 'delete2.gif';
+		$( '#uploadframe' ).show();
 	}
 } );
