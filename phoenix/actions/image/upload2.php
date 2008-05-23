@@ -1,6 +1,6 @@
 <?php
 
-    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage ) {
+    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage1 , tFile $uploadimage2 , tFile $uploadimage3 ) {
     	global $libs;
         global $water;
     	global $rabbit_settings;
@@ -15,10 +15,19 @@
 
         $albumid = $albumid->Get();
 		if ( $albumid > 0 ) {
-			$album = new Album( $albumid );
+			$album = New Album( $albumid );
 			if ( $album->IsDeleted() || $album->User->Id != $user->Id ) {
 				die( "Not allowed" );
 			}
+		}
+		if ( $uploadimage1->Exists() ){
+			$uploadimage = $uploadimage1;
+		}
+		if ( $uploadimage2->Exists() ){
+			$uploadimage = $uploadimage2;
+		}
+		if ( $uploadimage3->Exists() ){
+			$uploadimage = $uploadimage3;
 		}
 		die( 'uploadimage tempnname is ' . $uploadimage->Tempname );
 		die( 'uploadimagename is ' . $uploadimage->Name );
@@ -27,7 +36,9 @@
 			die( "Not supported filetype" );
 		}
     	if ( !$uploadimage->Exists() ) {
-            return Redirect( '?p=album&id=' . $album->Id );
+			if ( $albumid > 0 ) {
+				return Redirect( 'index?p=upload&albumid=' . $albumid );
+			}
     	}
         
         header( 'Content-type: text/html' );
