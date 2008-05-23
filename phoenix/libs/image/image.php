@@ -195,9 +195,9 @@
             // else success
             w_assert( is_array( $data ) );
 
-            $this->Width = $upload[ 'width' ];
-            $this->Height = $upload[ 'height' ];
-            $this->Size = $upload[ 'filesize' ];
+            $this->Width = $data[ 'width' ];
+            $this->Height = $data[ 'height' ];
+            $this->Size = $data[ 'filesize' ];
 
             return true;
         }
