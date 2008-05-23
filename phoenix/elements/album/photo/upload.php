@@ -4,17 +4,18 @@
 		global $water;
 		global $user;
 		
-		//$water->Disable();
-		//$albumid = $albumid->Get();
+		$water->Disable();
+		
 		$album = New Album( $albumid->Get() );
-
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
 			?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
-				<div class="colorlink">Νέα φωτογραφία</div>
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
-				<input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
+				<a href="">
+					Δημιουργία φωτογραφίας
+					<input type="file" name="uploadimage" style="opacity:0.01" onchange="PhotoList.UploadPhoto();" />
+				</a>
 				<input type="submit" value="upload" style="display:none" />
 			</form><?php	
 		}

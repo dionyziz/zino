@@ -70,8 +70,12 @@ div#photolist ul li {
 	display: inline;
 }
 div#photolist  iframe.uploadform {
-	border: 1px dotted #ccc;
 	padding-top: 50px;
+}
+div#photolist iframe.uploadform form a {
+	background-image: url( 'http://static.zino.gr/phoenix' );
+	background-repeat: no-repeat;
+	background-position: 0 -182px;
 }
 div#photolist div.rename, div#photolist div.delete{
 	margin: 5px 0;	
