@@ -93,6 +93,8 @@ var WYSIWYG = {
             }, 100 );
             return;
         }
+
+        alert( doc.designMode );
         
         while ( doc.body.firstChild ) {
             doc.body.removeChild( doc.body.firstChild );
