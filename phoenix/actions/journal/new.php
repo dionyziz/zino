@@ -1,7 +1,9 @@
 <?php
 	function ActionJournalNew( tInteger $id , tString $title , tString $text ) {
 		global $user;
-		
+		global $libs;
+        global $xhtmlsanitizer_goodtags;
+
         header( 'Content-type: text/plain' );
 
 		$id = $id->Get();
@@ -21,7 +23,16 @@
 			$journal = New Journal();
 		}
 		$journal->Title = $title;
-		$journal->Text = $text; // TODO: SECURITY: sanity check
+
+        $libs->Load( 'sanitizer' );
+
+        $sanitizer = New XHTMLSanitizer();
+        foreach ( $xhtmlsanitizer_goodtags as $goodtag ) {
+            $sanitizer->AllowTag( $goodtag );
+        }
+        $sanitizer->SetSource( $text );
+		$journal->Text = $sanitizer->GetXHTML();
+
 		$journal->Save();
 		
 		return Redirect( '?p=journal&id=' . $journal->Id );
