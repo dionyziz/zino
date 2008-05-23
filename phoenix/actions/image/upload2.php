@@ -21,7 +21,8 @@
 			}
 		}
 		$extension = File_GetExtension( $uploadimage->Name );
-		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || $extension == 'gif' ) ) {
+		die( $extension );
+		if ( !( strtolower( $extension ) == 'jpg' || strtolower( $extension ) == 'jpeg' || strtolower( $extension ) == 'png' || strtolower( $extension == 'gif' ) ) ) {
 			die( "Not supported filetype" );
 		}
     	if ( !$uploadimage->Exists() ) {
