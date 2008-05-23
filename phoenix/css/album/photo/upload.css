@@ -4,13 +4,13 @@ form#uploadform a{
     /*position:relative;*/
 }
 form#uploadform a span {
-	position: absolute;
+	/*position: absolute;*/
 }
 form#uploadform a span img {
 	vertical-align: -10px;
 }
 form#uploadform a input {
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	right: -1px;
 	opacity: 0.5;
