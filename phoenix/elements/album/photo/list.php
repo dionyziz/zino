@@ -50,7 +50,12 @@
 						?></li><?php
 					}
 				?></ul><?php
-				Element( 'album/photo/upload' , $album->Id );
+				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
+					?><iframe src="index.php?p=upload&amp;albumid=<?php
+					echo $album->Id;
+					?>" frameborder="no" class="uploadform" scrolling="no" id="uploadform">
+					</iframe><?php
+				}
 			}
 		?></div>
 		<div class="eof"></div><?php
