@@ -40,7 +40,7 @@ var PhotoList = {
 		imageid = imageinfo.id
 		var li = document.createElement( 'li' );
 		$( li ).css( 'display' , 'none' );
-		$( 'div#photolist ul' ).append( li );
+		$( 'div#photolist ul' ).prepend( li );
 		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li } );
 	}
 };
