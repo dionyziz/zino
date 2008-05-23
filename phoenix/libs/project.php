@@ -11,12 +11,11 @@
     	$libs->Load( 'magic' );
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
-    	$libs->Load( 'ban' );
+        $libs->Load( 'ban' );
+        $libs->Load( 'rabbit/memcache/mc' );
         
         $xc_settings = $rabbit_settings[ '_excalibur' ];
-
-        $libs->Load( 'memcache/mc' ); // needs xc_settings
-        
+      
         $finder = New UserFinder();
         if ( !empty( $_SESSION[ 's_username' ] ) && !empty( $_SESSION[ 's_password' ] ) ) {
             $user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );

@@ -31,9 +31,17 @@
 	
 	final class MemCacheSQL implements MemCache {
 		private $mRequestCaches;
-		
-		public function MemCacheSQL() {
+		private $mDbTableAlias;
+        private $mDb;
+
+		public function MemCacheSQL( DBTable $table ) {
 			$this->mRequestCaches = array();
+
+            w_assert( $table instanceof DBTable );
+            w_assert( $table->Exists() );
+
+            $this->mDb = $table->Database;
+            $this->mDbTableAlias = $table->Alias;
 		}
 		public function get( $key ) {
 			$multi = array( $key );
@@ -42,9 +50,6 @@
 			return array_shift( $ret );
 		}
 		public function get_multi( $keys ) {
-			global $memcachesql;
-			global $db;
-			
 			$ret = array();
 			foreach ($keys as $i => $key) {
 				if ( isset( $this->mRequestCaches[ $key ] ) ) { 
@@ -58,15 +63,19 @@
 			}
 			
 			if ( count( $keys ) ) {
-				$sql = "SELECT
-							`mc_key`, `mc_value`
-						FROM
-							`$memcachesql`
-						WHERE
-							`mc_key` IN (" . implode( ',', $keys ) . ")
-						AND
-							`mc_expires` >= NOW();";
-				$res = $db->Query( $sql );
+				$query = $this->mDb->Prepare(
+                    "SELECT
+                        `mc_key`, `mc_value`
+                    FROM
+                        :" . $this->mDbTableAlias . "
+                    WHERE
+                        `mc_key` IN :_keys
+                    AND
+                        `mc_expires` >= NOW();"
+                );
+                $query->BindTable( $this->mDbTableAlias );
+                $query->Bind( '_keys', $keys );
+				$res = $query->Execute();
 				while ( $row = $res->FetchArray() ) {
 					$key = $row[ 'mc_key' ];
 					$value = $row[ 'mc_value' ];
@@ -79,42 +88,44 @@
 			return $ret;
 		}
 		public function add( $key , $value , $expires = 0 ) {
-			global $memcachesql;
-			global $db;
-			
 			if ( $expires == 0 ) {
 				$expires = 30 * 60; // by default expire in 30 minutes
 			}
 			
 			$this->mRequestCaches[ $key ] = $value;
 			
-			$key = myescape( $key );
-			$value = myescape( serialize( $value ) );
 			w_assert( is_numeric( $expires ) );
-			$sql = "REPLACE DELAYED INTO
-						`$memcachesql`
+			$query = $this->mDb->Prepare(
+                    "REPLACE DELAYED INTO
+						" . $this->mDbTableAlias . "
 					(`mc_key`, `mc_value`, `mc_expires`) VALUES
-					('$key', '$value', NOW() + INTERVAL $expires SECOND);";
-			$change = $db->Query( $sql );
+					(:_key, :_value, NOW() + INTERVAL $expires SECOND);"
+            );
+            $query->BindTable( $this->mDbTableAlias );
+            $query->Bind( '_key', $key );
+            $query->Bind( '_value', $value );
+
+			$change = $query->Execute( $sql );
 			
 			return true;
 		}
 		public function delete( $key , $aftertimeout = 0 /* N/A yet */ ) {
-			global $memcachesql;
-			global $db;
 			global $water;
 			
 			if ( $aftertimeout > 0 ) {
 				$water->Notice( 'Warning: SQL-based memcache doesn\'t support delayed deletes!', $key );
 			}
 			
-			$key = myescape( $key );
-			$sql = "DELETE FROM
-						`$memcachesql`
-					WHERE
-						`mc_key`='$key'
-					LIMIT 1";
-			$db->Query( $sql );
+			$query = $this->mDb->Prepare(
+                "DELETE FROM
+                    " . $this->mDbTableAlias . "
+                WHERE
+                    `mc_key`=:_key
+                LIMIT 1"
+            );
+            $query->BindTable( $this->mDbTableAlias );
+            $query->Bind( '_key', $key );
+			$query->Execute();
 
 			unset( $this->mRequestCaches[ $key ] );
 			
@@ -129,16 +140,16 @@
 			return true;
 		}
 		protected function cleanup() {
-			global $db;
-			
-			$sql = "DELETE
-						*
-					FROM
-						`$memcachesql`
-					WHERE
-						`mc_expires` < NOW()";
-			
-			$change = $db->Query( $sql );
+			$query = $this->mDb->Prepare(
+                "DELETE
+                    *
+                FROM
+                    " . $this->mDbTableAlias . "
+                WHERE
+                    `mc_expires` < NOW()"
+            );
+            $query->BindTable( $this->mDbTableAlias );
+			$change = $query->Execute();
 			
 			$this->mRequestCaches = array();
 			
@@ -148,25 +159,25 @@
 	
 	global $mc;
 	global $libs;
-    global $xc_settings;
+    global $rabbit_settings;
     
-    $libs->Load('memcache/memcached');
+    $libs->Load( 'memcache/memcached' );
     
-	// until we get a proper memcache daemon
-    switch ( $xc_settings[ 'memcache' ][ 'type' ] ) {
+    switch ( $rabbit_settings[ 'memcache' ][ 'type' ] ) {
         case 'dummy':
             $mc = New MemCacheDummy();
             break;
         case 'sql':
-    	    $mc = New MemCacheSQL();
+    	    $mc = New MemCacheSQL( $rabbit_settings[ 'memcache' ][ 'dbtable' ] );
             break;
         case 'memcached':
-            $server = $xc_settings[ 'memcache' ][ 'hostname' ] . ':' . $xc_settings[ 'memcache' ][ 'port' ];
-            $mc = New memcached(array(
-                    'servers' => array( $server ), 
-                    'debug' => false, 
-                    'compress_threshold' => 10240,
-                    'persistant' => true));
+            $server = $rabbit_settings[ 'memcache' ][ 'hostname' ] . ':' . $rabbit_settings[ 'memcache' ][ 'port' ];
+            $mc = New memcached( array(
+                'servers' => array( $server ), 
+                'debug' => false, 
+                'compress_threshold' => 10240,
+                'persistant' => true
+            ) );
             break;
     }
 ?>
