@@ -105,7 +105,7 @@
             if ( !is_subclass_of( $prototype, 'Satori' ) ) {
                 throw New SatoriException( 'mModel defined for finder `' . get_class( $this ) . '\' must be a class extending Satori' );
             }
-            $this->mDb = $prototype->Db; // TODO: cache this across all finder instances?
+            $this->mDb = $prototype->Db; // TODO: cache this across all finder instances? (late static binding required?)
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
             $this->mAttribute2DbField = array_flip( $prototype->DbFields );
