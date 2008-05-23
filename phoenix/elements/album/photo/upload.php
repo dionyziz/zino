@@ -20,7 +20,7 @@
 					<div class="colorlink">
 						Νέα φωτογραφία
 					</div>
-					<input type="file" onchange="PhotoList.UploadPhoto();" />
+					<input type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
 					<input type="submit" value="upload" style="display:none" />
 				</form><?php	
 		}
