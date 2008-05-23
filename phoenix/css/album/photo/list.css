@@ -69,7 +69,7 @@ div#photolist ul li {
 	text-align: center;
 	display: inline;
 }
-div#photolist  iframe.uploadframe {
+div#photolist  object.uploadframe {
 	padding-top: 50px;
 	border: 1px dotted #ccc;
 	display: none;
