@@ -13,19 +13,23 @@ form#uploadform a input.uploadfile1 {
 	position: absolute;
 	top: 0;
 	right: -20px;
+	opacity: 0.5;
 }
 form#uploadform a input.uploadfile2 {
 	position: absolute;
 	top: 0;
 	left: -90px;
+	opacity: 0.5;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
 	top: 0;
 	right: -160px;
+	opacity: 0.5;
 }
 form#uploadform a input.uploadfile4 {
 	position: absolute;
 	top: 0;
 	right: -230px;
+	opacity: 0.5;
 }
