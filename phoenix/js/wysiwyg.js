@@ -102,12 +102,12 @@ var WYSIWYG = {
 
         setTimeout( function () {
             WYSIWYG.Check( which, fieldname );
-        }, 100 );
+        }, 100 ); // can't do check inline -- need the timeout for the browser to realize that the designMode has/hasn't taken effect and return us the ~actual~ value, not the one we set it to
     },
     Check: function ( which, fieldname ) {
         if ( WYSIWYG.GetDocument( which ).designMode != 'on' ) {
             setTimeout( function () {
-                WYSIWYG.Enable(); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
+                WYSIWYG.Enable( which, fieldname ); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
             }, 100 );
             return;
         }
