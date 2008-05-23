@@ -45,7 +45,12 @@ var WYSIWYG = {
             link.onclick = function ( command, parameters ) {
                 return function () {
                     link.blur();
-                    WYSIWYG.ExecCommand( fieldname, command, parameters );
+                    if ( typeof command == 'function' ) {
+                        command( parameters );
+                    }
+                    else {
+                        WYSIWYG.ExecCommand( fieldname, command, parameters );
+                    }
                     WYSIWYG.Focus( which );
                     return false;
                 }

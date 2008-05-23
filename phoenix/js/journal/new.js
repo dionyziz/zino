@@ -13,9 +13,15 @@ $( document ).ready( function() {
                 'command': 'italic'
             },
             {
-                'tooltip': 'Υπογράμμιση',
+                'tooltip': 'Εισαγωγή Link',
                 'image': 'http://static.zino.gr/phoenix/text_underline.png',
-                'command': 'underline'
+                'command': function () {
+                    var q = prompt( 'Πληκτρολόγησε την διεύθυνση προς την οποία θέλεις να γινει link:', 'http://www.zino.gr/' );
+                    
+                    if ( q != '' ) {
+                        WYSIWYG.ExecCommand( 'text', 'createLink', q );
+                    }
+                }
             },
             {
                 'tooltip': 'Εισαγωγή Εικόνας',
