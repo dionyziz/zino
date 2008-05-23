@@ -29,7 +29,6 @@
 		if ( $uploadimage3->Exists() ){
 			$uploadimage = $uploadimage3;
 		}
-		die( 'uploadimage tempnname is ' . $uploadimage->Tempname );
 		die( 'uploadimagename is ' . $uploadimage->Name );
 		$extension = File_GetExtension( $uploadimage->Name );
 		if ( strtolower( $extension ) != 'jpg' || strtolower( $extension ) != 'jpeg' || strtolower( $extension ) != 'png' || strtolower( $extension != 'gif'  ) ) {
