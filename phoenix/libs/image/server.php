@@ -47,28 +47,15 @@
         $data = curl_exec( $curl );
 
         if ( $data === false ) {
-            echo "Image_Upload curl error:\nerrno: ";
-            var_dump( curl_errno( $curl ) );
-            echo "\nerror: ";
-            var_dump( curl_error( $curl ) );
-            echo "\ndata: ";
-            var_dump( $data );
-            echo "\neof.";
+            throw New ImageException( 'Image_Upload curl error: ' . curl_error( $curl ) . ' (' . curl_errno( $curl ) . ')' );
         }
 
         curl_close( $curl );
 
-        $upload = array();
-
 		if ( strpos( $data, "error" ) !== false ) {
-            // err'd
-			die( 'Image_Upload error: ' . $data );
-		}
-		else if ( strpos( $data, "error" ) !== false ) {
-			$upload[ 'successful' ] = false;
+            throw New ImageException( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
 		}
 		else if ( strpos( $data, "success" ) !== false ) {
-			$upload[ 'successful' ] = true;
 			$start = strpos( $data, "[" ) + 1;
 
 			$resolution = substr( $data, $start, strlen( $data ) - $start - 1 );
@@ -76,16 +63,16 @@
 			$width = $split[ 0 ];
             $height = $split[ 1 ];
 			$filesize = $split[ 2 ];
-			$upload[ 'width' ] = (integer) $width;
-			$upload[ 'height' ] = (integer) $height;
-			$upload[ 'filesize' ] = (integer) $filesize;
-		}
-        else {
-            // err'd
-            die( "Image_Upload unknown state: " . $data );
-        }
 
-		return $upload;
+            $upload = array();
+			$upload[ 'width' ] = ( integer )$width;
+			$upload[ 'height' ] = ( integer )$height;
+			$upload[ 'filesize' ] = ( integer )$filesize;
+
+            return $upload;
+		}
+        // err'd
+        throw New ImageException( 'Image_Upload could not upload the image: Server returned an unknown state: ' . $data );
 	}
 
 ?>

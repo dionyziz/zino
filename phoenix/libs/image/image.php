@@ -9,7 +9,10 @@
     $libs->Load( 'image/server' );
 	$libs->Load( 'image/frontpage' );
     $libs->Load( 'rabbit/helpers/file' );
-    
+   
+    class ImageException extends Exception {
+    }
+
     class ImageFinder extends Finder {
         protected $mModel = 'Image';
         
@@ -99,7 +102,7 @@
 			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
 		}
 		public function IsDeleted() {
-            return $this->Delid > 0;
+            return $this->Delid > 0 || !$this->Exists();
         }
 		public function ProportionalSize( $maxw , $maxh ) {
 			$propw = 1;
@@ -182,9 +185,21 @@
             $this->mCurrentValues[ 'Description' ] = $value;
         }
         public function Upload( $resizeto = false ) {
+            global $water;
+
             $path = $this->Userid . "/" . $this->Id;
 
-            return Image_Upload( $path, $this->mTemporaryFile, $resizeto );
+            // throws ImageException
+            $data = Image_Upload( $path, $this->mTemporaryFile, $resizeto );
+
+            // else success
+            w_assert( is_array( $data ) );
+
+            $this->Width = $upload[ 'width' ];
+            $this->Height = $upload[ 'height' ];
+            $this->Size = $upload[ 'filesize' ];
+
+            return true;
         }
         public function Save( $resizeto = false ) {
             if ( $this->Exists() ) {
@@ -198,11 +213,8 @@
                 return -1;
             }
 
+            // throws ImageException
             $upload = $this->Upload( $resizeto );
-
-            if ( $upload < 0 ) {
-                return $upload; // error code
-            }
 
             if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
                 if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
@@ -216,7 +228,7 @@
                 }
             }
 
-            return 0;
+            return true;
         }
         protected function OnDelete() {
             --$this->User->Count->Images;
