@@ -11,25 +11,19 @@ form#uploadform a span img {
 }
 form#uploadform a input.uploadfile1 {
 	position: absolute;
-	top: 0;
-	right: -20px;
+	top: 4;
+	left: -145px;
 	opacity: 0.5;
 }
 form#uploadform a input.uploadfile2 {
 	position: absolute;
-	top: 0;
-	left: -90px;
+	top: 4px;
+	left: -70px;
 	opacity: 0.5;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
-	top: 0;
-	right: -160px;
-	opacity: 0.5;
-}
-form#uploadform a input.uploadfile4 {
-	position: absolute;
-	top: 0;
-	right: -230px;
+	top: 4px;
+	left: -20px;
 	opacity: 0.5;
 }
