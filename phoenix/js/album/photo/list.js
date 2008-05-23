@@ -37,7 +37,7 @@ var PhotoList = {
 	AddPhoto : function( imageinfo ) {
 		photoid = imageinfo.id
 		userid = imageinfo.userid;
-		alert( 'photoid is ' + photid );
+		alert( 'photoid is ' + photoid );
 		alert( 'userid is ' + userid );
 	}
 };
