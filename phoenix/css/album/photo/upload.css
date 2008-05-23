@@ -21,10 +21,12 @@ form#uploadform a input.uploadfile2 {
 	top: 4px;
 	left: -70px;
 	opacity: 0;
+	z-index: 2;
 }
 form#uploadform a input.uploadfile3 {
 	position: absolute;
 	top: 4px;
 	left: -20px;
 	opacity: 0;
+	z-index: 2;
 }
