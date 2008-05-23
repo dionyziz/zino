@@ -10,7 +10,7 @@
 		?><script type="text/javascript">alert( PhotoList );</script><?php
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
 			?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
-				<div class="colorlink">Νέα φωτογραφία</span>
+				<div class="colorlink">ΞΞ­Ξ± Ο†Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―Ξ±</div>
 				<input type="hidden" name="albumid" value="<?php
 				echo $album->Id;
 				?>" />
