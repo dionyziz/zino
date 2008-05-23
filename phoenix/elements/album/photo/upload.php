@@ -7,7 +7,7 @@
 		//$water->Disable();
 		//$albumid = $albumid->Get();
 		$album = New Album( $albumid->Get() );
-		?><script type="text/javascript">alert( PhotoList );</script><?php
+
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
 			?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
 				<div class="colorlink">Νέα φωτογραφία</div>
