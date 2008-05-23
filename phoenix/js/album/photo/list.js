@@ -35,10 +35,11 @@ var PhotoList = {
 		$( 'form#uploadform' )[ 0 ].submit();
 	},
 	AddPhoto : function( imageinfo ) {
-		photoid = imageinfo.id
-		userid = imageinfo.userid;
-		alert( 'photoid is ' + photoid );
-		alert( 'userid is ' + userid );
+		imageid = imageinfo.id
+		var node = document.createElement( 'li' );
+		$( node ).css( 'display' , 'none' );
+		$( 'div#photolist ul' ).append( li );
+		Coala.Warm( 'album/photo/upload' , imageid , node );
 	}
 };
 $( document ).ready( function() {

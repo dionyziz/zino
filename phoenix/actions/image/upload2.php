@@ -74,9 +74,7 @@
 				'userid' => $image->Userid,
     			//'name' => NoExtensionName( $image->Name ),
     			'albumid' => $albumid,
-    			'width' => $size[ 0 ],
-    			'height' => $size[ 1 ],
-    			'imagesnum' => $album->Numphotos
+    			'imagesnum' => $album->Numphotos,
     		);
     		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
