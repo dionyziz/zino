@@ -17,7 +17,7 @@
 				?>" />
 				<div><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
-				?>add3.png" alt="Δημιουργία" title="Δημιουργία" />//-->
+				?>add3.png" alt="Δημιουργία" title="Δημιουργία" />
 				<a href="" onclick="return false;">
 					<span>
 					Δημιουργία φωτογραφίας
