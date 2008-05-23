@@ -20,9 +20,9 @@
 					<span>
 					Δημιουργία φωτογραφίας
 					</span>
-					<input class="uploadfile1" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
-					<input class="uploadfile2" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />					
-					<input class="uploadfile3" type="file" name="uploadimage" onchange="PhotoList.UploadPhoto();" />
+					<input class="uploadfile1" type="file" name="uploadimage" onchange="alert( 'done' );" />
+					<input class="uploadfile2" type="file" name="uploadimage" onchange="alert( 'done' );" />					
+					<input class="uploadfile3" type="file" name="uploadimage" onchange="alert( 'done' );" />
 				</a>
 				<input type="submit" value="upload" style="display:none" />
 			</form><?php	
