@@ -99,7 +99,7 @@
         }
         public function GetXHTML() {
             global $water;
-            global $settings;
+            global $rabbit_settings;
             
             w_assert( $this->mSource !== false, 'Please SetSource() before calling GetXHTML()' );
             

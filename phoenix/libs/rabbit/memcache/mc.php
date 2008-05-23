@@ -161,7 +161,7 @@
 	global $libs;
     global $rabbit_settings;
     
-    $libs->Load( 'memcache/memcached' );
+    $libs->Load( 'rabbit/memcache/memcached' );
     
     switch ( $rabbit_settings[ 'memcache' ][ 'type' ] ) {
         case 'dummy':

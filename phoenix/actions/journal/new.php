@@ -15,6 +15,9 @@
 			}
 		}
 		else {
+            if ( !$user->Exists() ) {
+                return;
+            }
 			$journal = New Journal();
 		}
 		$journal->Title = $title;
