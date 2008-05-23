@@ -42,6 +42,21 @@ var PhotoList = {
 		$( li ).css( 'display' , 'none' );
 		$( 'div#photolist ul' ).prepend( li );
 		Coala.Warm( 'album/photo/upload' , { imageid : imageid , node : li } );
+		if ( imageinfo.imagesnum == 0 ) {
+			var dt = document.createElement( 'dt' );
+			$( dt ).addClass( 'photonum' );
+			$( 'div#photolist dl' ).prepend( dt );
+		}
+		PhotoList.UpdatePhotoNum( imageinfo.imagesnum + 1 );
+	},
+	UpdatePhotoNum : function( photonum ) {
+		if ( photonum == 0 ) {
+			$( 'div#photolist dl dt.photonum' ).remove();
+		}
+		else {
+			var text = document.createTextNode( photonum );
+			$( 'div#photolist dl dt.photonum' ).empty().append( text );
+		}
 	}
 };
 $( document ).ready( function() {

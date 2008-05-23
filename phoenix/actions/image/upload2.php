@@ -72,13 +72,11 @@
     		$jsimage = array(
     			'id' => $image->Id,
 				'userid' => $image->Userid,
-    			//'name' => NoExtensionName( $image->Name ),
-    			'albumid' => $albumid,
     			'imagesnum' => $album->Numphotos,
     		);
     		?>parent.PhotoList.AddPhoto( <?php
     			echo w_json_encode( $jsimage );
-    			?> );<?php
+    		?> );<?php
     	} 
     	?>
     	window.location.href = <?php
