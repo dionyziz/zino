@@ -29,8 +29,10 @@ var PhotoView = {
 		$( 'div#photoview h2 input' )[ 0 ].select();
 	},
 	Delete : function( photoid ) {
+		$( 'div#photoview div.owner div.delete' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete.gif" )' );
 		if ( confirm( "Θέλεις σίγουρα να διαγράψεις την φωτογραφία;" ) ) {
 			Coala.Warm( 'album/photo/delete' , { photoid : photoid } );
 		}
+		$( 'div#photoview div.owner div.delete' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );
 	}
 };
