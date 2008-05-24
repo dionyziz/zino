@@ -31,7 +31,12 @@
 					<span>στο album</span> <a href="?p=album&amp;id=<?php
 					echo $image->Album->Id;
 					?>"><?php
-					echo htmlspecialchars( $image->Album->Name );
+					if ( $image->Album->Id == $image->User->Egoalbumid ) {
+						?>Οι φωτογραφίες μου<?php
+					}
+					else {
+						echo htmlspecialchars( $image->Album->Name );
+					}
 					?></a>
 					<dl><?php
 						if ( $image->Numcomments > 0 ) {
