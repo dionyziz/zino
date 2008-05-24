@@ -54,18 +54,18 @@
 		return $comments;
     }
 
-    function Comment_CountChildren( $comments, $id ) {
+    function Comments_CountChildren( $comments, $id ) {
 		$count = 0;
 		foreach ( $comments as $comment ) {
 			if ( $comment->Parentid == $id ) {
 				++$count;
-				$count += Comment_CountChildren( $comments, $comment->Id );
+				$count += Comments_CountChildren( $comments, $comment->Id );
 			}
 		}
 		return $count;
 	}
 	
-	function Comment_GetImmediateChildren( $comments, $id ) {
+	function Comments_GetImmediateChildren( $comments, $id ) {
 		$children = array();
 		foreach ( $comments as $comment ) {
 			if ( $comment->Parentid == $id ) {
@@ -76,7 +76,7 @@
 		return $children;
 	}
 
-	function Comment_MakeParented( &$parented, $comments, $id, $reverse = true ) {
+	function Comments_MakeParented( &$parented, $comments, $id, $reverse = true ) {
 		foreach ( $comments as $comment ) {
 			if ( $comment->Parentid == $id ) {
 				if ( !isset( $parented[ $id ] ) || !is_array( $parented[ $id ] ) ) {
@@ -88,13 +88,13 @@
 				else {
 					$parented[ $id ][] = $comment;
 				}
-				Comment_MakeParented( $parented, $comments, $comment->Id );
+				Comments_MakeParented( $parented, $comments, $comment->Id );
 			}
 		}
 	}
 
-	function Comment_OnPage( $comments, $page, $reverse = true ) {
-		$parents = Comment_GetImmediateChildren( $comments, 0 );
+	function Comments_OnPage( $comments, $page, $reverse = true ) {
+		$parents = Comments_GetImmediateChildren( $comments, 0 );
 		$page_total = 0;
 		$page_num = 0;
 		$parented = array();
@@ -107,9 +107,9 @@
 				else {
 					$parented[ 0 ][] = $parent;
 				}
-				Comment_MakeParented( $parented, $comments, $parent->Id, $reverse );
+				Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
 			}
-			$page_total += Comment_CountChildren( $comments, $parent->Id );
+			$page_total += Comments_CountChildren( $comments, $parent->Id );
 			if ( $page_total > COMMENT_PAGE_LIMIT ) {
 				$page_total = 0;
 				$page_num++;
