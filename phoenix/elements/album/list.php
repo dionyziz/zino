@@ -37,11 +37,11 @@
 				?></li><?php
 			}
 			foreach ( $albums as $album ) {
-				?><li><?php
 				if ( $egoalbum->Id != $album->Id ) {
-					Element( 'album/small' , $album , false );
+					?><li><?php
+						Element( 'album/small' , $album , false );
+					?></li><?php
 				}
-				?></li><?php
 			}
 			if ( $theuser->Id == $user->Id ) {
 				?><li class="create">
