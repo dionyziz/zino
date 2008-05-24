@@ -70,6 +70,7 @@
     		$album = New Album( $albumid );
 			if ( $album->Numphotos == 1 ) {
 				$album->Mainimage = $image->Id;
+				$album->Save();
 			}
     		$jsimage = array(
     			'id' => $image->Id,
