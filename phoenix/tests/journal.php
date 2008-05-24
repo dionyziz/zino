@@ -30,4 +30,6 @@
         }
     }
 
+    return New TestJournal();
+
 ?>
