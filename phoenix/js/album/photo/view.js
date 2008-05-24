@@ -39,6 +39,6 @@ var PhotoView = {
 		$( 'div#photoview div.owner div.mainimage' ).animate( { opacity : "0" } , 400 , function() {
 			$( this ).remove();
 		} );
-		Coala.Warm( 'album/photo/mainimage' , { } );
+		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
 	}
 };

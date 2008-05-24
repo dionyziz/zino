@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitAlbumPhotoMainimage( $photoid ) {
+	function UnitAlbumPhotoMainimage( tInteger $photoid ) {
 		global $user;
 		
 		$photo = New Image( $photoid->Get() );
