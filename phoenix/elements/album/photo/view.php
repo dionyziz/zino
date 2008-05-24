@@ -32,7 +32,7 @@
 					echo $image->Album->Id;
 					?>"><?php
 					if ( $image->Album->Id == $image->User->Egoalbumid ) {
-						?>Οι φωτογραφίες μου<?php
+						?>Φωτογραφίες μου<?php
 					}
 					else {
 						echo htmlspecialchars( $image->Album->Name );
