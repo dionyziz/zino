@@ -12,9 +12,9 @@
             foreach ( $places as $i => $place ) {
                 $out[ iconv( $place->Name, 'UTF-8', "ISO-8859-7" ) ] = $place;
             }
-            ksort( $places );
+            ksort( $out );
 
-            return $places;
+            return $out;
         }
     }
 	
