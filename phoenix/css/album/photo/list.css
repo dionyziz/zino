@@ -1,5 +1,6 @@
 div#photolist {
 	margin-bottom: 20px;
+	position: relative;
 }
 div#photolist h2 {
 	margin: 0;
@@ -74,7 +75,9 @@ div#photolist  div.uploaddiv {
 	border: 1px dotted #ccc;
 	height: 60px;
 	width: 300px;
-	float: right;
+	position: absolute;
+	top: 30px;
+	right: 0;
 	margin-top: -40px;
 }
 div#photolist div.uploaddiv object.uploadframe {
