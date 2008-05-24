@@ -10,7 +10,7 @@
 				$albumname = 'Φωτογραφίες μου';
 			}
 			else {
-				$albuname = htmlspecialchars( $album->Name );
+				$albumname = htmlspecialchars( $album->Name );
 			}
 			?><div class="album">
 				<a href="?p=album&amp;id=<?php
