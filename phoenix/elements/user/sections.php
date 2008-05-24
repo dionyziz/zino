@@ -2,9 +2,9 @@
 
 	function ElementUserSections( $section , $theuser ) {
 		?><div class="usersections">
-			<a href="">
-				<img src="http://static.zino.gr/phoenix/mockups/dionyziz.200.jpg" style="width:150px;height:150px;" alt="dionyziz" />
-				<span class="name"><?php
+			<a href=""><?php
+				Element( 'user/avatar' , $theuser , 150 );
+				?><span class="name"><?php
 				echo $theuser->Name;
 				?></span>
 			</a>

@@ -9,7 +9,7 @@
 				$height = $image->Height;
 			}
 	        if ( !is_object( $image ) ) {
-	            $url = $xc_settings[ 'staticimagesurl' ] . 'anonymous.jpg';
+	            $url = $xc_settings[ 'staticimagesurl' ] . 'anonymous150.jpg';
 	        }
 	        else {
 	            $url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/' . $image->Id;
