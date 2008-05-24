@@ -66,9 +66,11 @@
         </head>
         <body>
         <script type="text/javascript"><?php
-    	if ( $albumid != 0 ) {
+    	if ( $albumid > 0 ) {
     		$album = New Album( $albumid );
-    		$size = $image->ProportionalSize( 210 , 210 );
+			if ( $album->Numphotos == 1 ) {
+				$album->Mainimage = $image->Id;
+			}
     		$jsimage = array(
     			'id' => $image->Id,
 				'userid' => $image->Userid,
