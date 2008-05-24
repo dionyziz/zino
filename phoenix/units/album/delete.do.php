@@ -7,13 +7,15 @@
 		$albumid = $albumid->Get();
 		$album = new Album( $albumid );
 		if ( $album->User->Id == $user->Id ) {
-			$useralbum = $album->User->Name;
-			$album->Delete();
-			?>window.location.href = '<?php
-			echo $rabbit_settings[ 'webaddress' ];
-			?>?p=albums&username=<?php
-			echo $album->User->Name;
-			?>';<?php
+			if ( $album->Id != $user->Egoalbumid ) {
+				$useralbum = $album->User->Name;
+				$album->Delete();
+				?>window.location.href = '<?php
+				echo $rabbit_settings[ 'webaddress' ];
+				?>?p=albums&username=<?php
+				echo $album->User->Name;
+				?>';<?php
+			}
 		}
 	}
 ?>

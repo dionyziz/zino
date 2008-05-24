@@ -9,7 +9,7 @@
 			Element( 'image' , $avatar , $size, $size , $class , $theuser->Name , $theuser->Name , $style );
 		}
 		else {
-			Element( 'image' , 'anonymous' . $size . '.jpg' , $size , $height , $class , $theuser->Name , $theuser->Name , $style );
+			Element( 'image' , 'anonymous' . $size . '.jpg' , $size , $size , $class , $theuser->Name , $theuser->Name , $style );
 		}
 	}
 ?>

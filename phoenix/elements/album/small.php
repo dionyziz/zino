@@ -16,13 +16,17 @@
 				<a href="?p=album&amp;id=<?php
 				echo $album->Id;
 				?>">
-		        	<span class="albummain">
-		        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="<?php
-						echo $albumname;
-						?>" title="<?php
-						echo $albumname;
-						?>" />
-		        	</span>
+		        	<span class="albummain"><?php //150 130
+						if ( $album->Mainimage > 0 ) {	
+							$mainimage = New Image( $album->Mainimage );
+							$size = $mainimage->ProportionalSize( 150 , 130 );
+							Element( 'image' , $mainimage , $size[ 0 ] , $size[ 1 ] , '' , $albumname , $albumname , '' );
+						}
+						else {
+							Element( 'image' , 'anonymous130.jpg' , 130 , 130 , '' , $albumname , $albumname , '' );
+						}
+		        	
+		        	?></span>
 		            <span class="desc"><?php
 					echo $albumname;
 					?></span>
