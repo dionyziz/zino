@@ -6,7 +6,15 @@
             $prototype = New Place();
             $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
+            $places = $this->FindByPrototype( $prototype, $offset, $limit );
+
+            $out = array();
+            foreach ( $places as $i => $place ) {
+                $out[ iconv( $place->Name, 'UTF-8', "ISO-8859-7" ) ] = $place;
+            }
+            ksort( $places );
+
+            return $places;
         }
     }
 	

@@ -38,6 +38,9 @@
     if ( !isset( $rabbit_settings[ 'timezone' ] ) ) {
         $rabbit_settings[ 'timezone' ] = 'GMT';
     }
+    if ( isset( $rabbit_settings[ 'locale' ] ) ) {
+        setlocale( LC_ALL, $rabbit_settings[ 'locale' ] );
+    }
 
     // enable the debugging library if we're not on a production environment
 	if ( !$rabbit_settings[ 'production' ] ) {
