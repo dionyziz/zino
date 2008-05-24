@@ -25,8 +25,10 @@
 				}
 			?></div>
 			<div class="who">
-				<a href="user/smilemagic">
-					<img src="http://static.zino.gr/phoenix/mockups/smilemagic.jpg" class="avatar" alt="SmilEMagiC" /><?php
+				<a href="?p=use&amp;name=<?php
+					echo $comment->User->Subdomain;
+					?>"><?php
+					Element( 'user/avatar' , $comment->User , 50 );
 					echo $comment->User->Name;
 				?></a> είπε:
 			</div>
