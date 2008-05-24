@@ -64,8 +64,13 @@
 							?></a></div>
 							<div class="delete"><a href="" onclick="PhotoView.Delete( '<?php
 							echo $image->Id;
-							?>' );return false;">Διαγραφή</a></div>
-						</div><?php
+							?>' );return false;">Διαγραφή</a></div><?php
+							if ( $image->Album->Mainimage != $image->Id ) {
+								?><div class="mainimage"><a href="" onclick="return false;">
+								Ορισμός προεπιλεγμένης</a>
+								</div><?php
+							}
+						?></div><?php
 					}
 					?><div class="eof"></div>
 					<div class="thephoto"><?php

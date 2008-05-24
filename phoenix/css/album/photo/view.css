@@ -24,6 +24,16 @@ div#photoview div.owner div.delete a {
 	padding: 0 0 0 16px;
 	vertical-align: -1px;
 }
+div#photoview div.owner div.mainimage {
+	margin: 0 0 0 5px;
+	display: inline;
+}
+div#photoview div.owner div.mainimage a {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: -80px -176px;
+	background-repeat: no-repeat;
+	padding: 0 0 0 16px;
+}
 div#photoview dl {
 	margin: 5px 0 0 0;
 	padding: 0;

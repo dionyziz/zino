@@ -14,7 +14,7 @@
 			if ( $albumid != 0 ) {
 				?>window.location.href = '<?php
 				echo $rabbit_settings[ 'webaddress' ];
-				?>?p=albums&id=<?php
+				?>?p=album&id=<?php
 				echo $albumid;
 				?>';<?php
 			}
