@@ -6,7 +6,7 @@
 		//size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
 		if ( $theuser->Icon > 0 ) {
 			$avatar = New Image( $theuser->Icon );
-			Element( 'image' , $avatar , $avatarsize[ 0 ] , $avatarsize[ 1 ] , '' , $theuser->Name , $theuser->Name , '' );
+			Element( 'image' , $avatar , $size, $size , '' , $theuser->Name , $theuser->Name , '' );
 		}
 		else {
 			?><img src="<?php
