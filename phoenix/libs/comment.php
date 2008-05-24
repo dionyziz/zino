@@ -243,9 +243,13 @@
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
 		private $mSince;
+        private $mNewText;
 
         public function GetText() {
             return $this->Bulk->Text;
+        }
+        public function SetText( $value ) {
+            $this->mNewText = $value;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
@@ -322,6 +326,13 @@
             }
             if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot() ) {
                 return false;
+            }
+            if ( !empty( $this->mNewText ) ) {
+                $bulk = New Bulk();
+                $bulk->Text = $this->mNewText;
+                $bulk->Save();
+
+                $this->Bulkid = $bulk->Id;
             }
             return parent::Save();
         }
