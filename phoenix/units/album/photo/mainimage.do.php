@@ -8,6 +8,7 @@
 		if ( !$photo->IsDeleted() ) {
 			if ( $photo->User->Id == $user->Id ) {
 				$photo->Album->Mainimage = $photo->Id;
+				$photo->Album->Save();
 			}
 		}	
 	}
