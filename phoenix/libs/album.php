@@ -81,7 +81,7 @@
 		    $this->Save();	
         }
         public function ImageDeleted( $image ) {
-            $this->NumComments -= $image->Numcomments;
+            $this->Numcomments -= $image->Numcomments;
             $this->Save();
         }
         protected function OnUpdate( $attributes ) {
