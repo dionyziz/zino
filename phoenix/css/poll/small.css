@@ -32,6 +32,7 @@ div.pollsmall div.results ul li dl dt.voteterm {
 }
 div.pollsmall div.results ul li dl dd.votedefinition {
 	display: inline;
+	vertical-align: 3px;
 }
 div.pollsmall div.results ul li dl dd {
 	padding: 0;
