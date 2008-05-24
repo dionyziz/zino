@@ -24,7 +24,12 @@
 				w_assert( is_array( $images ), 'FindByAlbum must return an array' );
 				$page->SetTitle( $album->Name );
 				?><h2><?php
-				echo htmlspecialchars( $album->Name );
+				if ( $album->Id == $album->User->Egoalbumid ) {
+					?>Φωτογραφίες μου<?php
+				}
+				else {
+					echo htmlspecialchars( $album->Name );
+				}
 				?></h2>
 				<dl><?php
 					if ( $album->Numphotos > 0 ) {
@@ -39,15 +44,17 @@
 					}
 				?></dl><?php
 				if ( $album->User->Id == $user->Id || $user->HasPermission( PERMISSION_ALBUM_DELETE ) ) {
-					?><div class="owner">
-						<div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
-						echo $album->Id;
-						?>' );return false;">Μετονομασία</a>
-						</div>
-						<div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
-						echo $album->Id;
-						?>' );return false;">Διαγραφή</a></div>
-					</div><?php
+					if ( $album->Id != $user->Egoalbumid ) {
+						?><div class="owner">
+							<div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
+							echo $album->Id;
+							?>' );return false;">Μετονομασία</a>
+							</div>
+							<div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
+							echo $album->Id;
+							?>' );return false;">Διαγραφή</a></div>
+						</div><?php
+					}
 				}
 				if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
 					?><div class="uploaddiv">

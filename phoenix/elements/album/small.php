@@ -6,19 +6,25 @@
 		if ( !$creationmockup ) {
 			$commentsnum = $album->Numcomments;
 			$photonum = $album->Numphotos;
+			if ( $album->Id == $album->User->Egoalbumid ) {
+				$albumname = 'Φωτογραφίες μου';
+			}
+			else {
+				$albuname = htmlspecialchars( $album->Name );
+			}
 			?><div class="album">
 				<a href="?p=album&amp;id=<?php
 				echo $album->Id;
 				?>">
 		        	<span class="albummain">
 		        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="<?php
-						echo htmlspecialchars( $album->Name );
+						echo $albumname;
 						?>" title="<?php
-						echo htmlspecialchars( $album->Name );
+						echo $albumname;
 						?>" />
 		        	</span>
 		            <span class="desc"><?php
-					echo htmlspecialchars( $album->Name );
+					echo $albumname;
 					?></span>
 		        </a>
 		        <dl><?php
