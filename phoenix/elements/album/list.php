@@ -30,9 +30,17 @@
 		$water->Trace( 'username: '. $theuser->Name );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
+			if ( $offset == 1 ) {
+				?><li><?php
+				$egoalbum = New Album( $theuser->Egoalbumid );
+				Element( 'album/small' , $egoalbum , false );
+				?></li><?php
+			}
 			foreach ( $albums as $album ) {
 				?><li><?php
-				Element( 'album/small' , $album , false );
+				if ( $egoalbum->Id != $album->Id ) {
+					Element( 'album/small' , $album , false );
+				}
 				?></li><?php
 			}
 			if ( $theuser->Id == $user->Id ) {
