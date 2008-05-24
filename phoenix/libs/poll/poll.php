@@ -10,7 +10,8 @@
 			$poll = New Poll();
 			$poll->Userid = $user->Id;
             $poll->Delid = 0;
-			return $this->FindByPrototype( $poll, $offset, $limit );
+
+			return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
 		}
 	}
 
