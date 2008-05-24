@@ -66,7 +66,7 @@
 							echo $image->Id;
 							?>' );return false;">Διαγραφή</a></div><?php
 							if ( $image->Album->Mainimage != $image->Id ) {
-								?><div class="mainimage"><a href="" onclick="PhotoList.MainImage( '<?php
+								?><div class="mainimage"><a href="" onclick="PhotoView.MainImage( '<?php
 								echo $image->Id;
 								?>' );return false;">
 								Ορισμός προεπιλεγμένης</a>
