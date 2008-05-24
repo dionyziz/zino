@@ -76,6 +76,7 @@
 			?><div class="pagifypolls"><?php
 			Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Polls , 5 , 'offset' );
 			?></div>
+			<div class="eof"></div>
 		</div><?php
 	}
 ?>
