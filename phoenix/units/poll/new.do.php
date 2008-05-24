@@ -26,7 +26,8 @@
 			ob_start();
 	    	Element( 'poll/small' , $poll , true );
 	    	echo w_json_encode( ob_get_clean() );
-	    	?> );<?php
+	    	?> );
+			PollList.Cancel();<?php
 		}
 	}
 ?>
