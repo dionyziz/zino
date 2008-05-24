@@ -46,6 +46,8 @@
         public function FindByAlbum( Album $album, $offset = 0, $limit = 25 ) {
             $prototype = New Image();
             $prototype->Albumid = $album->Id;
+            $prototype->Delid = 0;
+
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindFrontpage( $offset = 0, $limit = 15 ) {
@@ -236,7 +238,7 @@
         }
         protected function OnDelete() {
             --$this->User->Count->Images;
-            $theuser->User->Count->Save();
+            $this->User->Count->Save();
 
             if ( $this->Album->Exists() ) {
                 --$this->Album->Numphotos;
