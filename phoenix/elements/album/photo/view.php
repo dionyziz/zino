@@ -101,9 +101,9 @@
 					<div class="comments"><?php
 						Element( 'comment/list' );
 					?></div>
-					<div class="eof"></div>
 				</div><?php
 			}
 		}
+		?><div class="eof"></div><?php
 	}
 ?>

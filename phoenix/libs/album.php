@@ -73,11 +73,11 @@
 			$query->Execute();
 		}
         public function OnCommentCreate() {
-			++$this->NumComments;
+			++$this->Numcomments;
 		    $this->Save();	
         }
         public function OnCommentDelete() {
-			--$this->NumComments;
+			--$this->Numcomments;
 		    $this->Save();	
         }
         public function ImageDeleted( $image ) {
