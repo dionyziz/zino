@@ -1,27 +1,15 @@
 <?php
 	
-	function ElementUserAvatar( $theuser , $size ) {
+	function ElementUserAvatar( $theuser , $size , $class = '' , $style = '' ) {
 		global $rabbit_settings;
 		
 		//size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
 		if ( $theuser->Icon > 0 ) {
 			$avatar = New Image( $theuser->Icon );
-			Element( 'image' , $avatar , $size, $size , '' , $theuser->Name , $theuser->Name , '' );
+			Element( 'image' , $avatar , $size, $size , $class , $theuser->Name , $theuser->Name , $style );
 		}
 		else {
-			?><img src="<?php
-			echo $rabbit_settings[ 'imagesurl' ];
-			?>anonymous<?php
-			echo $size;
-			?>.jpg" style="width:<?php
-			echo $size;
-			?>px;height:<?php
-			echo $size;
-			?>px;" alt="<?php
-			echo $theuser->Name;
-			?>" title="<?php
-			echo $theuser->Name;
-			?>" /><?php
+			Element( 'image' , 'anonymous' . $size . '.jpg' , $size , $height , $class , $theuser->Name , $theuser->Name , $style );
 		}
 	}
 ?>

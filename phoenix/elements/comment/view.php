@@ -28,7 +28,7 @@
 				<a href="?p=use&amp;name=<?php
 					echo $comment->User->Subdomain;
 					?>"><?php
-					Element( 'user/avatar' , $comment->User , 50 );
+					Element( 'user/avatar' , $comment->User , 50 , 'avatar' , '' );
 					echo $comment->User->Name;
 				?></a> είπε:
 			</div>

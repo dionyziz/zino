@@ -3,7 +3,7 @@
 	function ElementUserSections( $section , $theuser ) {
 		?><div class="usersections">
 			<a href=""><?php
-				Element( 'user/avatar' , $theuser , 150 );
+				Element( 'user/avatar' , $theuser , 150 , '' , '' );
 				?><span class="name"><?php
 				echo $theuser->Name;
 				?></span>

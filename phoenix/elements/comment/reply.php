@@ -8,8 +8,10 @@
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
 			</div>
 			<div class="who">
-				<a href="user/dionyziz">
-					<img src="images/avatars/dionyziz.jpg" class="avatar" alt="Dionyziz" /><?php
+				<a href="?p=user&amp;name=<?php
+					echo $user->Subdomain;
+					?>"><?php
+					Element( 'user/avatar' , $user , 50 , 'avatar' , '' );
 					echo $user->Name;
 				?></a>πρόσθεσε ένα σχόλιο
 			</div>
