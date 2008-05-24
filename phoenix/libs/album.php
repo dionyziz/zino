@@ -87,7 +87,7 @@
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimage' ] ) ) {
                 if ( $this->User->EgoAlbum->Id == $this->Id ) {
-                    $this->User->Icon = $this->Mainimage->Id;
+                    $this->User->Icon = $this->Mainimage;
                     $this->User->Save();
                 }
             }
