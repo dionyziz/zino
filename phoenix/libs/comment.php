@@ -116,7 +116,7 @@
 				$parented[ $comment->Parentid ] = array();
 			}
             if ( $reverse ) {
-                array_push( $parented[ $comment->Parentid ], $comment );
+                array_unshift( $parented[ $comment->Parentid ], $comment );
             }
             else {
                 $parented[ $comment->Parentid ][] = $comment;
