@@ -10,7 +10,7 @@
 
             $out = array();
             foreach ( $places as $i => $place ) {
-                $out[ iconv( $place->Name, 'UTF-8', "ISO-8859-7" ) ] = $place;
+                $out[ iconv( 'UTF-8', "ISO-8859-7", $place->Name ) ] = $place;
             }
             ksort( $out );
 
