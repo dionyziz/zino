@@ -51,15 +51,22 @@
             $this->Assert( class_exists( 'CommentFinder' ), 'CommentFinder class does not exist' );
         }
         public function TestMethodsExist() {
+            $comment = New Comment();
+            $this->Assert( method_exists( $comment, 'Save' ), 'Comment::Save method does not exist' );
+
+            $finder = New CommentFinder();
+            $this->Assert( method_exists( $finder, 'FindNear' ), 'CommentFinder::FindNear method does not exist' );
+            $this->Assert( method_exists( $finder, 'FindByPage' ), 'CommentFinder::FindByPage method does not exist' );
         }
         public function TestFunctionsExist() {
+            $this->Assert( function_exists( 'Comments_TypeFromEntity' ), 'Comments_TypeFromEntity class does not exist' );
         }
         public function TestCreateComment() {
             $comment = New TestComment();
             $comment->Typeid = 0;
             $comment->Itemid = 1;
             $comment->Userid = $this->mUser->Id; 
-            $comment->Save();    
+            $comment->Save();
         }
         public function TearDown() {
             if ( is_object( $this->mTable ) ) {
