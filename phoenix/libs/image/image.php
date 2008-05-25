@@ -79,6 +79,8 @@
             }
             ksort( $ret );
 
+            $ret = array_values( $ret );
+
             return $ret;
         }
         public function FindFrontpage( $offset = 0, $limit = 15 ) {
