@@ -101,7 +101,7 @@
 								}
 								++$i;
 							}
-							die( 'pivot is ' . $pivot );
+							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {
 								?><li class="left">
 									<bdo dir="rtl"><?php
