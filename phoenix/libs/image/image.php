@@ -110,7 +110,7 @@
     			AS 
     				imagesnum
     			FROM 
-    				`:images`
+    				:images
     			WHERE
     				`image_delid` = 0;");
             $query->BindTable( 'images' );
