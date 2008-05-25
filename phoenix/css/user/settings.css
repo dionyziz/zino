@@ -197,3 +197,6 @@ div.avatarlist ul li img.photosmall {
 	padding: 1px;
 	border: 1px solid #ccc;
 }
+div.avatarlist div.cancel {
+	text-align: center;
+}	
