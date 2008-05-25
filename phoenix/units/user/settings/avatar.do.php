@@ -6,6 +6,7 @@
 		$image = New Image( $imageid->Get() );
 		?>alert( 'brkpnt1' );<?php
 		if ( !$image->IsDeleted() ) {
+			?>alert( 'image is not deleted' );<?php
 			if ( $image->User->Id == $user->Id ) {
 				$egoalbum = New Album( $user->Egoalbumid );
 				$egoalbum->Mainimage = $image->Id;
