@@ -19,8 +19,7 @@
 				$size = $image->ProportionalSize( 100 , 100 );
 				?><li><a href="" onclick="alert( 'test' );return false;"><?php
 				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , 'photosmall' , $image->Name , $image->Name , '' );
-				?></li>
-				</a><?php
+				?></a></li><?php
 			}
 			?></ul>
 			<a href="" onclick="Modals.Destroy();return false;" class="button">
