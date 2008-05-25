@@ -93,6 +93,7 @@
 				        <ol><?php
 							$finder = New ImageFinder();
 							$photos = $finder->FindAround( $image , 7 );
+							$water->Trace( 'numphotos is: ' . count( $photos ) );
 							$pivot = $i = 0;
 							foreach ( $photos as $photo ) {
 								if ( $photo->Id == $image->Id ) {
@@ -101,6 +102,7 @@
 								}
 								++$i;
 							}
+							$water->Trace( 'pivot is: ' . $pivot );
 							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {
 								?><li class="left">
