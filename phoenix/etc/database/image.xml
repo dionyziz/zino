@@ -13,7 +13,6 @@
             <field name="image_size" type="int" />
             <field name="image_delid" type="int" />
             <field name="image_albumid" type="int" ref="albums.album_id" />
-            <field name="image_description" type="varchar" length="511" />
             <field name="image_numcomments" type="int" />
             <field name="image_pageviews" type="int" />
             <index type="primary">

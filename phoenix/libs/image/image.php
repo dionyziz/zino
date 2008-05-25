@@ -40,7 +40,8 @@
         }
         public function FindByUser( User $theuser, $offset = 0, $limit = 15 ) {
             $prototype = New Image();
-            $image->Userid = $theuser->Id;
+            $prototype->Userid = $theuser->Id;
+            
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindByAlbum( Album $album, $offset = 0, $limit = 25 ) {
@@ -49,6 +50,36 @@
             $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
+        public function FindAround( Album $album, Image $image, $limit = 6 ) {
+            w_assert( $album->Exists() );
+            w_assert( $image->Exists() );
+
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :images
+                WHERE
+                    `image_albumid` = :albumid
+                ORDER BY
+                    ABS(`image_id` - :imageid)
+                LIMIT
+                    :limit'
+            );
+            $query->BindTable( 'image' );
+            $query->Bind( 'albumid', $album->Id );
+            $query->Bind( 'imageid', $image->Id );
+            $query->Bind( 'limit', $limit );
+            $res = $query->Execute();
+
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $ret[ $row[ 'image_id' ] ] = New Image( $row );
+            }
+            ksort( $ret );
+
+            return $ret;
         }
         public function FindFrontpage( $offset = 0, $limit = 15 ) {
             $finder = New FrontpageImageFinder();
@@ -94,7 +125,7 @@
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
         
-        public function Relations() {
+        protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );
         }
@@ -179,12 +210,6 @@
             }
             
             $this->mCurrentValues[ 'Name' ] = $value;
-        }
-        public function SetDescription( $value ) {
-            if ( strlen( $value ) > 200 ) {
-                $value = utf8_substr( $value, 0, 200 );
-            }
-            $this->mCurrentValues[ 'Description' ] = $value;
         }
         public function Upload( $resizeto = false ) {
             global $water;
