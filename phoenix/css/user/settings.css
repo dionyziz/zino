@@ -183,7 +183,7 @@ div.avatarlist {
 }
 div.avatarlist div.uploaddiv {
 	position: absolute;
-	top: 0;
+	top: -2px;
 	right: 0;
 }
 div.avatarlist ul {
