@@ -568,6 +568,7 @@
             }
             
             $this->mAllowRelationDefinition = true;
+            $this->mRelations = array();
             $this->Relations();
             $this->mAllowRelationDefinition = false;
             call_user_func_array( array( $this, 'AfterConstruct' ), $args );
