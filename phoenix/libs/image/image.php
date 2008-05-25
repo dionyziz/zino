@@ -107,8 +107,6 @@
     		$query = $this->mDb->Prepare("
     			SELECT 
     				COUNT(*) AS imagesnum
-    			AS 
-    				imagesnum
     			FROM 
     				:images
     			WHERE
