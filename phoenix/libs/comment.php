@@ -301,12 +301,12 @@
             return false;
         }
         public function OnCreate() {
-            global $mc;
+            // global $mc;
             global $libs;
 
             $libs->Load( 'event' );
 
-            $mc->delete( 'latestcomments' );
+            // $mc->delete( 'latestcomments' );
 
             if ( method_exists( $this->Item, 'OnCommentCreate' ) ) {
                 $this->Item->OnCommentCreate();
