@@ -21,6 +21,9 @@
 				?></li><?php
 			}
 			?></ul>
+			<a href="" onclick="Modals.Destroy();return false;" class="button">
+			Ακύρωση
+			</div>
 		</div><?php
 	}
 ?>

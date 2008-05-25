@@ -108,10 +108,6 @@ div.settings div.tabs form#personalinfo div span.invaliddob img {
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
 	display: none;
 }
-div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li img.photosmall {
-	padding: 1px;
-	border: 1px solid #ccc;
-}
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
     width: auto;
@@ -186,7 +182,7 @@ div.avatarlist ul {
 	padding: 0;
 	list-style: none;
 	width: 500px;
-	height: 500px;
+	height: 480px;
 	overflow: auto;
 }
 div.avatarlist ul li {
@@ -196,4 +192,8 @@ div.avatarlist ul li {
 	width: 110px;
 	height: 110px;
 	text-align: center;
+}
+div.avatarlist ul li img.photosmall {
+	padding: 1px;
+	border: 1px solid #ccc;
 }
