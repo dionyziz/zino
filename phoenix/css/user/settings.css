@@ -111,11 +111,16 @@ div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul {
 	margin: 0;
 	padding: 0;
+	list-style: none;
 }
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li {
-	margin: 0;
+	margin: 0 5px 5px 0;
 	padding: 0;
 	float: left;
+}
+div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li img.photosmall {
+	padding: 1px;
+	border: 1px solid #ccc;
 }
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {

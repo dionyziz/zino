@@ -14,7 +14,7 @@
 			foreach ( $images as $image ) {	
 				$size = $image->ProportionalSize( 100 , 100 );
 				?><li><?php
-				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , '' , $image->Name , $image->Name , '' );
+				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , 'photosmall' , $image->Name , $image->Name , '' );
 				?></li><?php
 			}
 			?></ul>
