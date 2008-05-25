@@ -96,13 +96,17 @@
 							}
 							++$i;
 						}
-				        ?><div class="left arrow">
-				            <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
-				        </div>
-				        <div class="right arrow">
-				            <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
-				        </div>
-				        <ul><?php	
+				        if ( $pivot > 0 ) {
+							?><div class="left arrow">
+					            <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+					        </div><?php
+						}
+						if ( $pivot < count( $photos ) ) {
+					        ?><div class="right arrow">
+					            <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
+					        </div><?php
+						}
+				        ?><ul><?php	
 							$water->Trace( 'pivot is: ' . $pivot );
 							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {

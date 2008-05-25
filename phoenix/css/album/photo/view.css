@@ -62,7 +62,7 @@ div#photoview div.photothumbs {
     height: 157px;
     overflow: hidden;
 	margin: 50px 0 20px 0;
-    text-align: justify;
+    text-align: center;
     width: 96%;
 }
 div#photoview div.photothumbs div.arrow {
