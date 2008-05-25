@@ -78,13 +78,11 @@
 							echo $albumid;
 							?>" class="enteralbum" title="<?php
 							echo $name;
-							?>" alt="<?php
-							echo $name;
 							?>"><?php
 							if ( $mainimage == 0 ) {
 								?><img src="<?php
                                 echo $xc_settings[ 'staticimagesurl' ];
-                                ?>anonymousalbum.jpg" /><?php
+                                ?>anonymousalbum.jpg" alt="Album" /><?php
 							}
 							else {
 								$thismainimage = New Image( $mainimage );

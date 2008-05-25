@@ -13,7 +13,7 @@
         $outputs = magik_multi( $sources );
         foreach ( $outputs as $i => $output ) {
     		$outputs[ $i ] = nl2br( $outputs[ $i ] );	
-    		$outputs[ $i ] = "<blockquote>" . $outputs[ $i ] . "</blockquote>";
+    		$outputs[ $i ] = "<blockquote><div>" . $outputs[ $i ] . "</div></blockquote>";
         }
 		return $outputs;
 	}
