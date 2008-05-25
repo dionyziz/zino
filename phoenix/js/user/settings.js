@@ -99,7 +99,7 @@ var Settings = {
 		$( parent ).hide( 'slow' );
 	},
 	ShowAvatarChange : function() {   
-		var avies = $( '#avatarlist' ).clone();
+		var avies = $( '#avatarlist' )[ 0 ].cloneNode( true );
 		$( avies ).hide();
 		Modals.Create( avies, 700, 700 );
 		
