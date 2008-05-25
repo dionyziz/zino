@@ -16,7 +16,7 @@
 						echo $user->Id;
 						?>/<?php
 						echo $photo->Id;
-						?>150x150?sandbox=yes'
+						?>/150x150?sandbox=yes'
 					} );<?php
 				}
 			}
