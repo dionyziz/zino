@@ -113,7 +113,7 @@ West of the Moon, East of the Sun.";
             $this->AssertEquals( 0, $c->Parentid, 'Wrong parentid on new instance' );
             $this->AssertEquals( 1, $c->Id, 'Wrong id on first comment of table' );
         }
-        public function MakeComment( $user, $text, $parentid ) {
+        private function MakeComment( $user, $text, $parentid ) {
             $comment = New Comment();
             $comment->Itemid = $this->Journal->Id;
             $comment->Typeid = COMMENT_JOURNAL;
@@ -121,12 +121,20 @@ West of the Moon, East of the Sun.";
             $comment->Parentid = $parentid;
             $comment->Save();
         }
+        private function MakeUser( $name ) {
+            $user = New User();
+            $user->Name = $name;
+            $user->Subdomain = $subdomain;
+            $user->Save();
+
+            return $user;
+        }
         public function TestFindByPage() {
-            $user1 = $this->MakeUser( 'green_troll' );
-            $user2 = $this->MakeUser( 'pwnage' );
-            $user3 = $this->MakeUser( 'repulis' );
-            $user4 = $this->MakeUser( 'leimer' );
-            $user5 = $this->MakeUser( 'fairytaler' );
+            $user1 = $this->MakeUser( 'test_green_troll' );
+            $user2 = $this->MakeUser( 'test_pwnage' );
+            $user3 = $this->MakeUser( 'test_repulis' );
+            $user4 = $this->MakeUser( 'test_leimer' );
+            $user5 = $this->MakeUser( 'test_fairytaler' );
             
             $this->MakeComment( $user1, "FIRST POST!!!11", 0 ); // 2
             $this->MakeComment( $user2, "LOL PWNED", 2 ); // 3
