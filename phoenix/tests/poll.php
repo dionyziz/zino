@@ -92,9 +92,6 @@
             $poll->CreateOption( 'George Harrison' );
             $poll->CreateOption( 'I have never heard of the Beatles' );
 
-            $options = $poll->Options;
-            $this->AssertEquals( 5, count( $options ), 'Wrong number of options in Options property' );
-
             $poll = New Poll( $this->mPoll->Id );
             $this->AssertEquals( 5, count( $poll->Options ), 'Wrong number of options in Options property of a new instance' );
         }
@@ -174,7 +171,7 @@
             $this->Assert( is_array( $polls ), 'PollFinder::FindByUser did not return an array' );
             $this->Assert( 2, count( $polls ), 'PollFinder::FindByUser did not return the right number of polls' );
 
-            $texts = array( "What's your favourite season?", "Who is your favourite Beatle" );
+            $texts = array( "What's your favourite season?", "Who is your favourite Beatle?" );
             $optionscounts = array( 1, 5 );
     
             for ( $i = 0; $i < count( $polls ); ++$i ) {

@@ -44,6 +44,8 @@
             $option->Text = $text;
             $option->Pollid = $this->Id;
             $option->Save();
+
+            $this->mOptions[] = $option;
             
             return $option;
         }
