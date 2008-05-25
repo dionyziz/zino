@@ -112,6 +112,9 @@ div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	border: 1px solid black;
+	position: absolute;
+	width: 80%;
 }
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li {
 	margin: 0 5px 5px 0;
