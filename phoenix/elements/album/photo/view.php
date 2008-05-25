@@ -104,7 +104,7 @@
 				        </div>
 				        <ul><?php	
 							$water->Trace( 'pivot is: ' . $pivot );
-							die( 'pivot is ' . $pivot );
+							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {
 								for ( $i = 0; $i < $pivot ; ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
