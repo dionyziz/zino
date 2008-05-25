@@ -110,11 +110,10 @@ var Settings = {
 	}, 
 	AddAvatar : function( imageinfo ) {
 		imageid = imageinfo.id;
-		imageuserid = imageinfo.userid;
 		var li = document.createElement( 'li' );
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
-		Coala.Warm( 'user/settings/personal/photosmall' , { 
+		Coala.Warm( 'user/settings/personal/photosmall' , { imageid : imageid } );
 	}
 };
 $( document ).ready( function() {
