@@ -69,8 +69,8 @@ div.header ul li {
 div.header ul li a.messages {
 	background-image: url('http://static.zino.gr/phoenix/mail_generic.png');
 }
-div.header ul li a.profile {
-	background-image: url('http://static.zino.gr/phoenix/identity.png');
+div.header ul li a.settings {
+	background-image: url('http://static.zino.gr/phoenix/orange_wrench.png');
 }
 div.header ul li a.login {
 	background-image: url('http://static.zino.gr/phoenix/up.png');

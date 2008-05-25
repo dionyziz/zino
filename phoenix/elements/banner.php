@@ -5,10 +5,6 @@
 		global $user;
 		global $rabbit_settings;
 		
-		//$page->AttachStylesheet( 'css/banner.css' );
-		//$page->AttachScript( 'js/banner.js' );
-		//$page->AttachScript( 'js/animations.js' );
-		
 		?><div class="header" id="banner">
 		<h1><a href="<?php
 		echo $rabbit_settings[ 'webaddress' ];
@@ -32,7 +28,7 @@
 	    		<li>·</li>
 	    		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
 	    		<li>·</li>
-	    		<li><a href="profile" class="profile icon" onclick="return false">Προφίλ</a></li><?php
+	    		<li><a href="settings" class="settings icon" onclick="return false">Ρυθμίσεις</a></li><?php
 	        }
 	        ?>
 		</ul><?php
