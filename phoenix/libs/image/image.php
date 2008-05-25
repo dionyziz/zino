@@ -77,7 +77,7 @@
             while ( $row = $res->FetchArray() ) {
                 $ret[ $row[ 'image_id' ] ] = New Image( $row );
             }
-            ksort( $ret );
+            $krsort( $ret );
 
             $ret = array_values( $ret );
 
