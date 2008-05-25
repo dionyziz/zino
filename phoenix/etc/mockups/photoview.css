@@ -51,61 +51,61 @@ div#photoview div.photothumbs div.left {
 div#photoview div.photothumbs div.right {
     float: right;
 }
-div#photoview div.photothumbs ol {
+div#photoview div.photothumbs ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: table-row;
 }
-div#photoview div.photothumbs ol li {
+div#photoview div.photothumbs ul li {
     padding: 0;
     margin: 0;
     display: table-cell;
     vertical-align: top;
     line-height: 150px;
 }
-div#photoview div.photothumbs ol li.selected {
+div#photoview div.photothumbs ul li.selected {
     text-align: center;
     width: 150px;
 }
-div#photoview div.photothumbs ol li.selected img {
+div#photoview div.photothumbs ul li.selected img {
 	border: 4px solid #82a4b6;
 }
 
 /*
-div#photoview div.photothumbs ol li.left {
+div#photoview div.photothumbs ul li.left {
     text-align: right;
 }
-div#photoview div.photothumbs ol li.right {
+div#photoview div.photothumbs ul li.right {
     text-align: left;
 }
 /*
-div#photoview div.photothumbs ol li{
+div#photoview div.photothumbs ul li{
 	padding: 0;
 	margin: 20px auto;
 	list-style: none;
     display: inline;
 }
 /*
-div#photoview div.photothumbs ol li {
+div#photoview div.photothumbs ul li {
 	float: right;
 }
 */
 /*
-div#photoview div.photothumbs ol li ul.rightimgs li {
+div#photoview div.photothumbs ul li ul.rightimgs li {
 	float: left;
 }
 */
-div#photoview div.photothumbs ol ul li span {
+div#photoview div.photothumbs ul ul li span {
     padding: 0;
 }
-div#photoview div.photothumbs ol li span a{
+div#photoview div.photothumbs ul li span a{
 	padding: 0 2px 0 2px;
 	margin: 0;
 	display: inline;
 	vertical-align: middle;
 }
-div#photoview div.photothumbs ol li a img {
+div#photoview div.photothumbs ul li a img {
 	border: 1px solid gray;
 }
 div#photoview div.thephoto {
