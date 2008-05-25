@@ -3,6 +3,7 @@
 	function ElementAlbumPhotoView( tInteger $id ) {
 		global $user;
 		global $page;
+		global $water;
 		
 		$id = $id->Get();
 		$image = New Image( $id );
