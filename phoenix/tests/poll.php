@@ -13,6 +13,7 @@
 
             $this->mUser = New User();
             $this->mUser->Name = 'testpolls';
+            $this->mUser->Subdomain = 'testpolls';
             $this->mUser->Password = 'foobar';
             $this->mUser->Save();
         }
