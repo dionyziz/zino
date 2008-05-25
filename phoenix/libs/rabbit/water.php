@@ -360,7 +360,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			// the request is done using XMLHTTP
 			if ( $this->QuickDebugRequested() ) { 
 				ob_clean();
-				die( $json );
+				die( substr( $json, 0, 500 ) );
 			}
 			?>
 			var water_debug_data = <?php
