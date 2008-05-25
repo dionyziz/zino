@@ -77,12 +77,19 @@ div#photoview div.photothumbs ol li.left {
 div#photoview div.photothumbs ol li.right {
     text-align: left;
 }
-div#photoview div.photothumbs ol li bdo {
+div#photoview div.photothumbs ol li ul {
 	padding: 0;
 	margin: 20px auto;
+	list-style: none;
     display: inline;
 }
-div#photoview div.photothumbs ol li span {
+div#photoview div.photothumbs ol li ul.leftimgs li {
+	float: left;
+}
+div#photoview div.photothumbs ol li ul.rightimgs li {
+	float: right;
+}
+div#photoview div.photothumbs ol ul li span {
     padding: 0;
 }
 div#photoview div.photothumbs ol li span a{

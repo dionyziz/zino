@@ -84,39 +84,40 @@
 					<div class="thephoto"><?php
 						Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , '' , '' , $title , $title );
 					?></div>
-					<div class="photothumbs">
-				        <div class="left arrow">
+					<div class="photothumbs"><?php
+						$finder = New ImageFinder();
+						$photos = $finder->FindAround( $image , 7 );
+						$water->Trace( 'numphotos is: ' . count( $photos ) );
+						$pivot = $i = 0;
+						foreach ( $photos as $photo ) {
+							if ( $photo->Id == $image->Id ) {
+								$pivot = $i;
+								break;
+							}
+							++$i;
+						}
+				        ?><div class="left arrow">
 				            <a href="" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
 				        </div>
 				        <div class="right arrow">
 				            <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
 				        </div>
 				        <ol><?php
-							$finder = New ImageFinder();
-							$photos = $finder->FindAround( $image , 7 );
-							$water->Trace( 'numphotos is: ' . count( $photos ) );
-							$pivot = $i = 0;
-							foreach ( $photos as $photo ) {
-								if ( $photo->Id == $image->Id ) {
-									$pivot = $i;
-									break;
-								}
-								++$i;
-							}
+							
 							$water->Trace( 'pivot is: ' . $pivot );
 							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {
 								?><li class="left">
-									<bdo dir="rtl"><?php
+									<ul class="leftimgs"><?php
 										for ( $i = $pivot - 1; $i >= 0 ; --$i ) {
 											$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
-											?><span><a href="?p=photo&amp;id=<?php
+											?><li><span><a href="?p=photo&amp;id=<?php
 											echo $photos[ $i ]->Id;
 											?>"><?php
 											Element( 'image' , $photos[ $i ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
-											?></a></span><?php
+											?></a></span></li><?php
 										}
-									?></bdo>
+									?></ul>
 								</li><?php
 							}
 							/*
@@ -142,19 +143,19 @@
 						Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
 						?></a>
 					</li><?php
-					if ( $pivot < 7 ) {
+					if ( $pivot < 7 && $pivot != 0 ) {
 						?><li class="right">
-							<bdo dir="ltr"><?php
+							<ul class="rightimgs"><?php
 								for ( $i = $pivot + 1; $i < 7; ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
-									?><span><a href="?p=photo&amp;id=<?php
+									?><li><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
 									?>"><?php
 									Element( 'image' , $photos[ $i ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
-									?></a></span><?php
+									?></a></span></li><?php
 								}
 						
-						?></bdo>
+						?></ul>
 						</li><?php
 					}
 					/*
