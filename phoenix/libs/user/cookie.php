@@ -1,7 +1,9 @@
 <?php
     function User_GetCookie() {
         global $xc_settings;
+        global $water;
 
+        $water->Trace( 'Cookie: Reading cookie information...' );
         if ( empty( $_COOKIE[ $xc_settings[ 'cookiename' ] ] ) ) {
             return false;
         }
@@ -12,14 +14,19 @@
         $userauth = $logininfos[ 1 ];
         $userid = ( int )$userid;
         if ( $userid <= 0 ) {
+            $water->Trace( 'Cookie error: userid < 0' );
             return false;
         }
         if ( strlen( $userauth ) != 32 ) {
+            $water->Trace( 'Cookie error: strlen( userauth ) != 32' );
             return false;
         }
         if ( !preg_match( '#^[a-zA-Z0-9]*$#', $userauth ) ) {
+            $water->Trace( 'Cookie error: auth is invalid' );
             return false;
         }
+
+        $water->Trace( 'Cookie: Good to go' );
 
         return array(
             'userid' => $userid,
