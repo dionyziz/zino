@@ -124,7 +124,7 @@ West of the Moon, East of the Sun.";
         private function MakeUser( $name ) {
             $user = New User();
             $user->Name = $name;
-            $user->Subdomain = $subdomain;
+            $user->Subdomain = $name;
             $user->Save();
 
             return $user;
