@@ -16,6 +16,7 @@
         protected $mAppliesTo = 'libs/comment';
         private $mTable;
         private $mUser;
+        private $mJournal;
 
         public function SetUp() {
             global $rabbit_settings;
