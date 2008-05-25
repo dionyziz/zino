@@ -7,7 +7,7 @@
 		//$libs->Load( 'image' );
 		Element( 'user/avatar' , $user , 150 , '' , '' );
 		?><div class="changeavatar">
-		<a href="" onclick="return false;">Αλλαγή εικόνας</a>
+		<a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
 		</div>
 		<div class="avatarlist" id="avatarlist"><?php
 			$egoalbum = New Album( $user->Egoalbumid );
