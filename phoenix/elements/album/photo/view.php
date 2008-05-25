@@ -90,7 +90,32 @@
 				        <div class="right arrow">
 				            <a href="" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
 				        </div>
-				        <ol>
+				        <ol><?php
+							$finder = New ImageFinder();
+							$photos = $finder->FindAround( $image , 7 );
+							$pivot = $i = 0;
+							foreach ( $photos as $photo ) {
+								if ( $photo->Id == $image->Id ) {
+									$pivot = $i;
+									break;
+								}
+								++$i;
+							}
+							if ( $pivot > 0 ) {
+								?><li class="left">
+									<bdo dir="rtl"><?php
+										for ( $i = $pivot - 1; $i >= 0 ; --$i ) {
+											$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
+											?><span><a href="?p=photo&amp;id=<?php
+											echo $photos[ $i ]->Id;
+											?>"><?php
+											Element( 'image' , $photos[ $i ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
+											?></a></span><?php
+										}
+									?></bdo>
+								</li><?php
+							}
+							/*
 				            <li class="left">
 				                <bdo dir="rtl"><!-- thumbs here should be listed in REVERSE order, i.e. the one that is "closest" to the photo that is being viewed goes first, the second closest should be second etc. -->
 				                    <span><a href=""><img src="images/photo6.jpg" alt="photo6" title="photo6" /></a></span>
@@ -98,9 +123,37 @@
 				                    <span><a href=""><img src="images/photo2.jpg" alt="photo2" title="photo2" /></a></span>
 				                </bdo>
 				            </li>
+							
 				            <li class="selected" style="width:150px">
 				                <a href=""><img src="images/photoview_small.jpg" alt="photoview_small" title="photoview_small" /></a>
 				            </li>
+							
+					*/
+					?>
+					<li class="selected" style="width:150px">
+						<a href="?p=photo&amp;id=<?php
+						echo $photos[ $pivot ]->Id;
+						?>"><?php
+						$size = $photos[ $pivot ]->ProportionalSize( 150 , 150 );
+						Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
+						?></a>
+					</li><?php
+					if ( $pivot < 7 ) {
+						?><li class="right">
+							<bdo dir="ltr"><?php
+								for ( $i = $pivot + 1; $i < $pivot; ++$i ) {
+									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
+									?><span><a href="?p=photo&amp;id=<?php
+									echo $photos[ $i ]->Id;
+									?>"><?php
+									Element( 'image' , $photos[ $i ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
+									?></a></span><?php
+								}
+						
+						?></bdo>
+						</li><?php
+					}
+					/*
 				            <li class="right">
 				                <bdo dir="ltr"><!-- right order here, but same idea. the one tha tis "closest" to the photo that is being viewed goes first. -->
 				                    <span><a href=""><img src="images/photo3.jpg" alt="photo3" title="photo3" /></a></span>
@@ -108,6 +161,7 @@
 				                    <span><a href=""><img src="images/photo7.jpg" alt="photo7" title="photo7" /></a></span>
 				                </bdo>
 				            </li>
+					*/?>
 				        </ol>
 					</div>
 					<div class="comments"><?php
