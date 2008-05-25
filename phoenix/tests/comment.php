@@ -178,7 +178,7 @@ West of the Moon, East of the Sun.";
             $water->Enable();
 
             $finder = New TestCommentFinder();
-            $comments = $finder->FindByPage( $this->mJournal, 0 );
+            $comments = $finder->FindByPage( $this->mJournal, 1 );
 
             $water->Disable();
             

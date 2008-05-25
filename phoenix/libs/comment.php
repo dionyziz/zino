@@ -112,6 +112,7 @@
     }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
+        global $water;
         --$page; /* start from 0 */
 
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
