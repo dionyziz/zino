@@ -113,7 +113,7 @@ var Settings = {
 		var li = document.createElement( 'li' );
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
-		Coala.Warm( 'user/settings/personal/photosmall' , { imageid : imageid } );
+		Coala.Warm( 'user/settings/photosmall' , { imageid : imageid } );
 	}
 };
 $( document ).ready( function() {
