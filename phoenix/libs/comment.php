@@ -344,7 +344,9 @@
             if ( !$this->User->Exists() ) {
                 throw new Exception( 'Non existing user on Comment::User' );
             }
-            if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
+            // use this when done with testing
+            // if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
+            if ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) {
                 return false;
             }
             if ( !empty( $this->mNewText ) ) {
