@@ -107,6 +107,14 @@ var Settings = {
 	SelectAvatar : function( imageid ) {
 		Modals.Destroy();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
+	}, 
+	AddAvatar : function( imageinfo ) {
+		imageid = imageinfo.id;
+		imageuserid = imageinfo.userid;
+		var li = document.createElement( 'li' );
+		$( li ).hide();
+		$( 'div.modal div.avatarlist ul' ).prepend( li );
+		Coala.Warm( 'user/settings/personal/photosmall' , { 
 	}
 };
 $( document ).ready( function() {

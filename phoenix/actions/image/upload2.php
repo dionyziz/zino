@@ -1,6 +1,6 @@
 <?php
 
-    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage ) {
+    function ActionImageUpload2( tInteger $albumid , tFile $uploadimage , tInteger $typeid ) {
     	global $libs;
         global $water;
     	global $rabbit_settings;
@@ -9,6 +9,7 @@
 		//$water->DebugThis();
     	$libs->Load( 'image/image' );
 		$libs->Load( 'rabbit/helpers/file' );
+		$typeid = $typeid->Get(); //look beneath for use of typeid
         if ( !$user->Exists() || !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
             return Redirect();
         }
@@ -67,23 +68,26 @@
         <body>
         <script type="text/javascript"><?php
     	if ( $albumid > 0 ) {
-    		$album = New Album( $albumid );
+			//typeid is 0 for album photo upload and 1 for settings avatar upload
+			$album = New Album( $albumid );
 			if ( $album->Numphotos == 1 ) {
 				$album->Mainimage = $image->Id;
 				$album->Save();
 			}
-    		$jsimage = array(
-    			'id' => $image->Id,
-				'userid' => $image->Userid,
-    			'imagesnum' => $album->Numphotos,
-    		);
-    		?>parent.PhotoList.AddPhoto( <?php
-    			echo w_json_encode( $jsimage );
-    		?> );<?php
+			if ( $typeid == 0 ) {
+				?>parent.PhotoList.AddPhoto( <?php
+					echo $image->Id;
+				?> );<?php
+			}
+			else if ( $typeid == 1 ) {
+				?>parent.Settings.AddAvatar( <?php
+				echo $image->Id;
+				?> );<?php
+			}
     	} 
     	?>
     	window.location.href = <?php
-    	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid );
+    	echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $albumid . '&typeid=' . $typeid );
     	?>;</script></body></html><?php
     }
 

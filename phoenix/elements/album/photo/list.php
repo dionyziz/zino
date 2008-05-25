@@ -60,7 +60,7 @@
 					?><div class="uploaddiv">
 						<object data="?p=upload&amp;albumid=<?php
 						echo $album->Id;
-						?>" class="uploadframe" id="uploadframe" type="text/html"></object>
+						?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html"></object>
 					</div><?php
 				}
 				?><ul><?php

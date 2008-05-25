@@ -14,7 +14,7 @@
 			<div class="uploaddiv">
 				<object data="?p=upload&amp;albumid=<?php
 				echo $user->Egoalbumid;
-				?>" class="uploadframe" id="uploadframe" type="text/html">
+				?>amp;typeid=1" class="uploadframe" id="uploadframe" type="text/html">
 				</object>
 			</div><?php
 			$egoalbum = New Album( $user->Egoalbumid );
@@ -22,12 +22,9 @@
 			?><ul><?php	
 			$images = $finder->FindByAlbum( $egoalbum , 0 , $egoalbum->Numphotos );
 			foreach ( $images as $image ) {	
-				$size = $image->ProportionalSize( 100 , 100 );
-				?><li><a href="" onclick="Settings.SelectAvatar( '<?php
-				echo $image->Id;
-				?>' );return false;"><?php
-				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , 'photosmall' , $image->Name , $image->Name , '' );
-				?></a></li><?php
+				?><li><?php
+				Element( 'user/settings/personal/photosmall' , $image );
+				?></li><?php
 			}
 			?></ul>
 			<div class="cancel">
