@@ -115,7 +115,8 @@
             
     		$res = $query->Execute();
     		$row = $res->FetchArray();
-    		return $row[ "imagesnum" ];
+
+    		return ( int )$row[ "imagesnum" ];
     	}
     }
 	
