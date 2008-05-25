@@ -7,7 +7,7 @@
 		
 		$id = $id->Get();
 		
-		if ( $id != 0 ) {
+		if ( $id > 0 ) {
 			$journal = New Journal( $id );
 			$page->SetTitle( $journal->Title );
 		}
@@ -24,7 +24,7 @@
 					?>" />
 					<div class="title">
 						<span>Τίτλος:</span><input type="text" value="<?php
-						if ( $id != 0 ) {
+						if ( $id > 0 ) {
 							echo htmlspecialchars( $journal->Title );
 						}
 						?>" name="title" tabindex="1" />

@@ -53,7 +53,7 @@
 						}
 						?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
 					</dl><?php
-					if ( $image->User->Id == $user->Id ) {
+					if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
 						?><div class="owner">
 							<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
 							echo $image->Id;

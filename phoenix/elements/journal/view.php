@@ -36,10 +36,12 @@
 						}
 
 						?></dl><?php
-						if ( $journal->User->Id == $user->Id ) {
+						if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
 							?><div class="owner">
 								<div class="edit">
-									<a href="" onclick="return false;">Επεξεργασία</a>
+									<a href="?p=addjournal&amp;id=<?php
+									echo $journal->Id;
+									?>">Επεξεργασία</a>
 								</div>
 								<div class="delete">
 									<a href="" onclick="JournalView.Delete( '<?php
@@ -51,7 +53,7 @@
 						}
 					?><div class="eof"></div>
 					<p><?php
-					echo $journal->Text; //has to get through some editing for tags that are not allowed
+					echo $journal->Text; //purposely not formatted
 					?></p>
 				</div><?php
 				if ( $journal->Numcomments > 0 ) {
