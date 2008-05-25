@@ -168,14 +168,14 @@
         return $parented;
     }
 
-    function Comment_UserIsSpamBot( $finder = false ) { // change finder for testcase
+    function Comment_UserIsSpamBot( $text, $finder = false ) { // change finder for testcase
         if ( $finder === false ) {
             $finder = New CommentFinder();
         }
         if ( $finder->UserIsSpamBot() ) {
             // email dio
             $subject = "WARNING! Comment spambot detected!";
-            $message = "Text submitted: " . $this->Text . "\n\n SpamBot Ip: " . UserIp();
+            $message = "Text submitted: " . $text . "\n\n SpamBot Ip: " . UserIp();
 
             mail( 'dionyziz@gmail.com', $subject, $message );
 
@@ -344,7 +344,7 @@
             if ( !$this->User->Exists() ) {
                 throw new Exception( 'Non existing user on Comment::User' );
             }
-            if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot() ) {
+            if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
                 return false;
             }
             if ( !empty( $this->mNewText ) ) {
