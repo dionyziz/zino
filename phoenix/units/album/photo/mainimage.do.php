@@ -14,7 +14,7 @@
 					?>var username = document.createElement( 'span' );
 					$( username ).addClass( 'name' ).append( document.createTextNode( <?php
 					echo $photo->User->Name;
-					?> );
+					?> ) );
 					$( 'div.usersections a:first' ).html( <?php
 					ob_start();
 					Element( 'user/avatar' , $photo->User , 150 , '' , '' );
