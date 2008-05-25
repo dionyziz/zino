@@ -4,6 +4,9 @@
 
     global $libs;
     $libs->Load( 'comment' );
+
+    global $water;
+    $water->Disable();
     
     class TestComment extends Comment {
         protected $mDbTableAlias = 'testcomments';
