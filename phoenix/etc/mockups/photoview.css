@@ -55,12 +55,13 @@ div#photoview div.photothumbs ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: table-row;
+   /* display: table-row;*/
 }
 div#photoview div.photothumbs ul li {
     padding: 0;
     margin: 0;
-    display: table-cell;
+    /*display: table-cell;*/
+	display: inline;
     vertical-align: top;
     line-height: 150px;
 }
@@ -95,7 +96,7 @@ div#photoview div.photothumbs ul li {
 div#photoview div.photothumbs ul li ul.rightimgs li {
 	float: left;
 }
-*/
+
 div#photoview div.photothumbs ul ul li span {
     padding: 0;
 }
@@ -105,13 +106,12 @@ div#photoview div.photothumbs ul li span a{
 	display: inline;
 	vertical-align: middle;
 }
+*/
 div#photoview div.photothumbs ul li a img {
+	padding: 1px;
 	border: 1px solid gray;
 }
 div#photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
-}
-img.hoverclass {
-	opacity: 0.6;
 }
