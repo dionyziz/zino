@@ -105,6 +105,18 @@ div.settings div.tabs form#personalinfo div span.invaliddob {
 div.settings div.tabs form#personalinfo div span.invaliddob img {
 	vertical-align: -3px;
 }
+div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
+
+}
+div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul {
+	margin: 0;
+	padding: 0;
+}
+div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
     width: auto;
