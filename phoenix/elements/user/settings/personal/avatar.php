@@ -9,7 +9,8 @@
 		?><div class="changeavatar">
 		<a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
 		</div>
-		<div class="avatarlist" id="avatarlist"><?php
+		<div class="avatarlist" id="avatarlist">
+			<h3>Επέλεξε μια φωτογραφία</h3><?php
 			$egoalbum = New Album( $user->Egoalbumid );
 			$finder = New ImageFinder();
 			?><ul><?php	

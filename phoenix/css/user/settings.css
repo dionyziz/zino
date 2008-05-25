@@ -177,8 +177,12 @@ div#msn span {
 div#msn span img {
 	vertical-align: -2px;
 }
+div.avatarlist {
+	margin-top: 10px;
+	margin-left: 5px;
+}
 div.avatarlist ul {
-	margin: 0;
+	margin-top: 30px;
 	padding: 0;
 	list-style: none;
 	width: 500px;
@@ -199,4 +203,5 @@ div.avatarlist ul li img.photosmall {
 }
 div.avatarlist div.cancel {
 	text-align: center;
+	margin-bottom: 20px;
 }	
