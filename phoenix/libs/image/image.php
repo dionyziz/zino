@@ -51,9 +51,10 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
-        public function FindAround( Album $album, Image $image, $limit = 6 ) {
-            w_assert( $album->Exists(), 'Image->FindAround() must only be called for an existing album' );
-            w_assert( $image->Exists(), 'Image->FindAround() must only be called for an existing image' );
+        public function FindAround( Image $pivot, $limit = 6 ) {
+            w_assert( $image->Exists(), 'Image->FindAround() must only be called for an existing pivot image' );
+            $album = $image->Album;
+            w_assert( $album->Exists(), 'Image->FindAround() must only be called for a pivot image within an album' );
 
             $query = $this->mDb->Prepare(
                 'SELECT
