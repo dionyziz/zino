@@ -100,7 +100,10 @@
     $libs->Load( 'rabbit/typesafety' );
     $libs->Load( 'rabbit/activerecord/satori' );
 	$libs->Load( 'rabbit/db/db' );
-    
+    if ( isset( $rabbit_settings[ 'memcache' ] ) ) {
+        $libs->Load( 'rabbit/memcache/mc' );
+    }
+
     // set up databases
     if (    isset(    $rabbit_settings[ 'databases' ] ) 
          && is_array( $rabbit_settings[ 'databases' ] ) 

@@ -71,6 +71,9 @@
                     New AssertResult( false, $message, true, false )
                 );
             }
+            return $this->InformTester(
+                New AssertResult( true, $message, $actual, false )
+            );
         }
         protected function RequireSuccess( AssertResult $result ) {
             if ( !$result->Success ) {

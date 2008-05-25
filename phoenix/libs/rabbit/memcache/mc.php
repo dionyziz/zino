@@ -2,7 +2,7 @@
 	/* 
 		Developer: Dionyziz
 	*/
-	
+
     interface MemCache {
         public function get( $key );
         public function get_multi( $keys );
