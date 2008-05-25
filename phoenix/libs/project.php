@@ -34,6 +34,7 @@
                 $user = $finder->FindByIdAndAuthtoken( $userid, $userauth );
                 if ( $user === false ) {
                     // not found
+                    $water->Trace( 'No such user ' . $userid . ':' . $userauth );
                     $user = new User( array() );
                 }
             }
