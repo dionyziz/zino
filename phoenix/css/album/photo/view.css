@@ -61,7 +61,7 @@ div#photoview dl dd.addfav a {
 div#photoview div.photothumbs {
     height: 180px;
     overflow: hidden;
-	margin: 80px 0 20px 0;
+	margin: 50px 0 20px 0;
     text-align: center;
     width: 96%;
 }
