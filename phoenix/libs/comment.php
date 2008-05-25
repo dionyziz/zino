@@ -363,7 +363,7 @@
                 case COMMENT_JOURNAL:
                     $class = 'Journal';
                     break;
-                case COMMENT_PROFILE:
+                case COMMENT_USERPROFILE:
                     $class = 'UserProfile';
                     break;
                 case COMMENT_IMAGE:
