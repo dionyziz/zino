@@ -14,7 +14,7 @@
 					src : ExcaliburSettings.photosurl + '<?php
 					echo $user->Id;
 					?>/<?php
-					echo $mage->Id;
+					echo $image->Id;
 					?>?resolution=150x150&sandbox=yes'
 				} );<?php
 			}
