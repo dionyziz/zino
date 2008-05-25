@@ -149,6 +149,8 @@ West of the Moon, East of the Sun.";
             $this->MakeComment( $user5, "Nice little poem", 0 ); // 12
             $this->MakeComment( $user2, "LOLWOA?", 12 ); // 13
 
+            return;
+
             $finder = New TestCommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 0 );
 
