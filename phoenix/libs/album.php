@@ -6,7 +6,8 @@
             $prototype = New Album();
             $prototype->Userid = $theuser->Id;
             $prototype->Delid = 0;
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
     

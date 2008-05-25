@@ -39,9 +39,9 @@
             </index>
         </table>
         <table name="imagesfrontpage">
-            <index name="frontpage_imageid" type="int" ref="images.image_id" />
-            <index name="frontpage_userid" type="" ref="users.user_id" />
-            <index type="primary">
+            <field name="frontpage_imageid" type="int" ref="images.image_id" />
+            <field name="frontpage_userid" type="int" ref="users.user_id" />
+            <index name="BYUSER" type="index">
                 <indexfield>frontpage_userid</indexfield>
             </index>
             <index type="primary">

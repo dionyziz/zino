@@ -11,10 +11,11 @@
             $prototype->Id = $id;
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByUser( $user ) {
+        public function FindByUser( $user, $offset, $limit = 25 ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
-            return $this->FindByPrototype( $prototype );
+
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
     
@@ -26,6 +27,7 @@
 			global $user;
 
 			$this->Userid = $user->Id;
+            $this->Created = NowDate();
 		}
         public function GetText( $length = false ) {
             if ( $length == false ) {
