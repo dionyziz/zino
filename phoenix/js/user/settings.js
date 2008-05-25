@@ -103,6 +103,10 @@ var Settings = {
 		$( avies ).show();
 		Modals.Create( avies, 500, 500 );
 		
+	},
+	SelectAvatar : function( imageid ) {
+		Modals.Destroy();
+		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	}
 };
 $( document ).ready( function() {
