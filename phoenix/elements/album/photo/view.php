@@ -145,7 +145,7 @@
 					if ( $pivot < 7 ) {
 						?><li class="right">
 							<bdo dir="ltr"><?php
-								for ( $i = $pivot + 1; $i < $pivot; ++$i ) {
+								for ( $i = $pivot + 1; $i < 7; ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
 									?><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
