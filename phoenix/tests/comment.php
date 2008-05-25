@@ -133,10 +133,11 @@ West of the Moon, East of the Sun.";
         }
         private function MakeComment( $user, $text, $parentid ) {
             $comment = New TestComment();
-            $comment->Itemid = $this->Journal->Id;
+            $comment->Itemid = $this->mJournal->Id;
             $comment->Typeid = COMMENT_JOURNAL;
             $comment->Userid = $user->Id;
             $comment->Parentid = $parentid;
+            $comment->Text = $text;
             $comment->Save();
         }
         private function MakeUser( $name ) {
