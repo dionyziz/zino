@@ -75,8 +75,12 @@
 				$album->Save();
 			}
 			if ( $typeid == 0 ) {
+				$jsimage = array(
+					'id' => $image->Id,
+					'imagesnum' => $album->Numphotos,
+				);
 				?>parent.PhotoList.AddPhoto( <?php
-					echo $image->Id;
+					echo w_json_encode( $jsimage );
 				?> );<?php
 			}
 			else if ( $typeid == 1 ) {
