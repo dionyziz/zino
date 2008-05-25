@@ -304,7 +304,7 @@ var Comments = {
 		element.removeChild( g('loading' ) );
 	},
 	hideDeleteButton : function( daddy, dec ) {
-		var numcom = g( daddy + "_children" ).firstChild;
+		var numcom = g( "c_" + daddy + "_children" ).firstChild;
 		var num = parseInt( numcom.nodeValue );
 		if( dec ) {
 			++num;
@@ -324,7 +324,7 @@ var Comments = {
 		}
 	},
 	showDeleteButton : function( daddy, dec ) {
-		var numcom = g( daddy + "_children" ).firstChild;
+		var numcom = g( "c_" + daddy + "_children" ).firstChild;
 		var num = parseInt( numcom.nodeValue );
 		if( dec ) {
 			--num;
