@@ -121,8 +121,10 @@ div#photoview div.photothumbs ol li span {
 div#photoview div.photothumbs ol li span a {
 	padding: 0 2px 0 2px;
 	margin-left: 2px;
+	/*
 	display: inline;
 	vertical-align: bottom;
+	*/
 }
 div#photoview div.photothumbs ol li a img {
 	border: 1px solid #ccc;
