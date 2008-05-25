@@ -113,6 +113,8 @@ var Settings = {
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
 		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
+		var li = document.createElement( 'li' );
+		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li );
 	}
 };
 $( document ).ready( function() {

@@ -67,12 +67,9 @@
         </head>
         <body>
         <script type="text/javascript"><?php
-    	?>alert( '<?php echo $albumid; ?>' );<?php
 		if ( $albumid > 0 ) {
 			//typeid is 0 for album photo upload and 1 for settings avatar upload
 			$album = New Album( $albumid );
-
-			?>alert( '<?php echo $typeid; ?>' );<?php
 			if ( $typeid == 0 ) {
 				if ( $album->Numphotos == 1 ) {
 					$album->Mainimage = $image->Id;
@@ -87,8 +84,7 @@
 				?> );<?php
 			}
 			else if ( $typeid == 1 ) {
-				?>alert( 'calling' );
-				parent.Settings.AddAvatar( <?php
+				?>parent.Settings.AddAvatar( <?php
 				echo $image->Id;
 				?> );<?php
 			}
