@@ -79,6 +79,26 @@
         public function FindLatest() {
             return $this->FindByPrototype( New User(), 0, 25, array('Created', 'DESC') );
         }
+        public function FindOnline( $offset = 0, $limit = 100 ) {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    :users.*
+                FROM
+                    :users CROSS JOIN :lastactive
+                        ON `user_id` = `lastactive_userid`
+                WHERE
+                    `lastactive_updated` > NOW() - INTERVAL 5 MINUTE
+                ORDER BY
+                    `lastactive_updated` DESC
+                LIMIT
+                    :offset, :limit'
+            );
+            $query->BindTable( 'users' );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+            return $this->FindBySQLResult( $query->Execute() );
+        }
 		public function Count() {
 			$query = $this->mDb->Prepare(
 				'SELECT
