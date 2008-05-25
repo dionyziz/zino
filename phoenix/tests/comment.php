@@ -1,5 +1,7 @@
 <?php
 
+    define( 'COMMENT_PAGE_LIMIT', 5 ); // this is used within comment lib
+
     global $libs;
     $libs->Load( 'comment' );
     
@@ -45,6 +47,12 @@
             $this->mUser->Name = 'testcomments';
             $this->mUser->Subdomain = 'testcomments';
             $this->mUser->Save();
+
+            $this->mJournal = New Journal();
+            $this->mJournal->Userid = $this->mUser->Id;
+            $this->mJournal->Title = "test";
+            $this->mJournal->Text = "foo bar";
+            $this->mJournal->Save();
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Comment' ), 'Comment class does not exist' );
@@ -63,10 +71,19 @@
         }
         public function TestCreateComment() {
             $comment = New TestComment();
-            $comment->Typeid = 0;
-            $comment->Itemid = 1;
-            $comment->Userid = $this->mUser->Id; 
+            $comment->Typeid = COMMENT_JOURNAL;
+            $comment->Itemid = $this->mJournal->Id;
+            $comment->Userid = $this->mUser->Id;
+            $comment->Text = "haloooo";
             $comment->Save();
+
+            $c = New TestComment( $comment->Id ); // new instance
+            $this->AssertEquals( COMMENT_JOURNAL, $c->Typeid, 'Wrong typeid on new instance' );
+            $this->AssertEquals( $this->mJournal->Id, $c->Itemid, 'Wrong itemid on new instance' );
+            $this->AssertEquals( $this->mJournal->Text, $c->Item->Text, 'Wrong item on new instance' );
+            $this->AssertEquals( $this->mUser->Id, $c->Userid, 'Wrong userid on new instance' );
+            $this->AssertEquals( $this->mUser->Name, $c->User->Name, 'Wrong user on new instance' );
+            $this->AssertEquals( "haloooo", $c->Text, 'Wrong text on new instance' );
         }
         public function TearDown() {
             if ( is_object( $this->mTable ) ) {
@@ -74,6 +91,9 @@
             }
             if ( is_object( $this->mUser ) ) {
                 $this->mUser->Delete();
+            }
+            if ( is_object( $this->mJournal ) ) {
+                $this->mJournal->Delete();
             }
         }
     }
