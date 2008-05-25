@@ -8,8 +8,8 @@
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false ) {
             w_assert( $prototype instanceof $this->mModel, 'Prototype specified in FindByPrototype call in finder `' . get_class( $this ) . '\' must be an instance of `' . $this->mModel . '\'' );
-            w_assert( is_int( $offset ) );
-            w_assert( is_int( $limit ) );
+            w_assert( is_int( $offset ), 'Finder offset must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\'' );
+            w_assert( is_int( $limit ), 'Finder limit must be an integer in FindByPrototype call in finder `' . get_class( $this ) , '\'' );
             
             $mods = $prototype->FetchPrototypeChanges();
             
