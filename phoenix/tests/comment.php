@@ -186,9 +186,11 @@ West of the Moon, East of the Sun.";
             $user5->Delete();
         }
         public function TearDown() {
+            /*
             if ( is_object( $this->mTable ) ) {
                 $this->mTable->Delete();
             }
+            */
             if ( is_object( $this->mUser ) ) {
                 $this->mUser->Delete();
             }
