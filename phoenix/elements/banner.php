@@ -22,7 +22,7 @@
 				</form><?php
 	        }
 	        else {
-	    		?><li><?php
+	    		?><li title="Προβολή προφίλ"><?php
 				Element( 'user/name' , $user );
 				?></li>
 	    		<li>·</li>
