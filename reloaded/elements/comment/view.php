@@ -100,7 +100,7 @@
                         ?> ); return false;">Ακύρωση</a></li><?php
                     ?></ul>
 				</div>
-				<div id="<?php
+				<div id="c_<?php
 				echo $comment->Id();
 				?>_children" style="display: none"><?php
 				echo $numchildren;
