@@ -16,14 +16,12 @@
 			?><ul><?php	
 			$images = $finder->FindByAlbum( $egoalbum , 0 , $egoalbum->Numphotos );
 			foreach ( $images as $image ) {	
-				if ( $user->Icon != $image->Id ) {
-					$size = $image->ProportionalSize( 100 , 100 );
-					?><li><a href="" onclick="Settings.SelectAvatar( '<?php
-					echo $image->Id;
-					?>' );return false;"><?php
-					Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , 'photosmall' , $image->Name , $image->Name , '' );
-					?></a></li><?php
-				}
+				$size = $image->ProportionalSize( 100 , 100 );
+				?><li><a href="" onclick="Settings.SelectAvatar( '<?php
+				echo $image->Id;
+				?>' );return false;"><?php
+				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , 'photosmall' , $image->Name , $image->Name , '' );
+				?></a></li><?php
 			}
 			?></ul>
 			<a href="" onclick="Modals.Destroy();return false;" class="button">
