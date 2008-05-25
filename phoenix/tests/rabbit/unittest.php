@@ -157,7 +157,7 @@
                         $this->Assert( is_object( $result ), 'Each item of a case\'s results must be an object (0)' );
                         $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (0)' );
                         $this->AssertEquals( true, $result->Success, 'This test was successful; it should be reported as such' );
-                        $this->AssertEquals( 3, $result->NumAssertions, 'The number of assertions for this test seem incorrect (0)' );
+                        $this->AssertEquals( 3, $result->NumAssertions, 'The number of assertions for this test seem incorrect (0) - ' . $result->RunName );
                         $this->AssertEquals( $result->NumAssertions, $result->NumSuccessfulAssertions, 'All assertions of this run were successful' );
                         $this->AssertEquals( 'TestSuccessful', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
                         break;
