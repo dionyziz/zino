@@ -24,6 +24,8 @@
 
             $journal2 = New Journal( $journal->Id );
             $this->AssertEquals( "Lorem ipsum dolor sit amet", $journal2->GetText( 26 ) );
+
+            $journal2->Delete();
         }
         public function TearDown() {
             $this->mUser->Delete();

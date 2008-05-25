@@ -15,45 +15,6 @@
 		return constant( 'COMMENT_' . strtoupper( get_class( $entity ) ) );
 	}
 
-    /*
-    returns all comments on same page with $comment
-    */
-    function Comments_Near( $comments, $comment, $reverse = true ) {
-        /* 
-        get parented structure
-        */
-        $comments = Comment_MakeTree( $comments, $reverse );
-
-		/*
-        $headparent_id = $comment->Headparent->Id;
-        $headparent_page = 0;
-        $pages = array();
-        $page = 0;
-
-        foreach ( $comments[ 0 ] as $parent ) { // for every "head parent" (orfan comment)
-            if ( $parent->Id == $headparent_id ) { // if it is the head parent of the specified comment
-                $headparent_page = $page; // mark the page it is in
-            }
-            $pages[ $page ][] = $parent->Id; // add its id to the current page
-            $page_count += Comment_CountChildren( $comments, $parent->Id ); // count its children
-            if ( $page_count > COMMENT_PAGE_LIMIT ) { // if the page has enough children
-                $page_count = 0;
-                ++$page; // use the next page from now on
-            }
-        }
-		
-        $ret = array();
-        foreach ( $pages[ $headparent_page ] as $parent ) {
-            $ret[ 0 ][] = $parent;
-            $ret[ $parent ][] = $comments[ $parent ];
-        }
-
-        return $ret;
-		*/
-
-		return $comments;
-    }
-
     function Comments_CountChildren( $comments, $id ) {
 		$count = 0;
 		foreach ( $comments as $comment ) {
@@ -92,8 +53,67 @@
 			}
 		}
 	}
+    
+    function Comments_Near( $comments, $comment, $reverse = true ) {
+        $parents = Comments_GetImmediateChildren( $comments, 0 );
+        $page_num = 0;
+        $page_total = 0;
+        $page_parents = array();
+
+        $target_parentid = ( $comment->Headparentid > 0 ) ? $comment->Headparentid : $comment->Id;
+        $found_comment = false;
+
+        foreach ( $parents as $parent ) {
+            $page_parents[] = $parent;
+
+            /* Count children and search for $comment */
+            $proc = array( $parent->Id );
+            $count = 1;
+            while ( !empty( $proc ) ) {
+                $id = array_pop( $proc );
+                if ( $id == $comment->Id ) {
+                    $found_comment = true;
+                }
+                foreach ( $comments as $c ) {
+                    if ( $c->Parentid == $id ) {
+                        ++$count;
+                        array_push( $proc, $c->Id );
+                    }
+                }
+            }
+            /* End of counting */
+
+            $page_total += $count;
+
+            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
+                if ( $found_comment ) {
+                    break;
+                }
+                $page_total = 0;
+                $page_parents = array();
+                ++$page_num;
+            }
+        }
+
+        /* create parented structure */
+        $parented = array();
+        $parented[ 0 ] = array();
+        foreach ( $page_parents as $parent ) {
+            if ( $reverse ) {
+                array_unshift( $parented[ 0 ], $parent );
+            }
+            else {
+                $parented[ 0 ][] = $parent;
+            }
+            Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
+        }
+
+        return array( $page_num + 1, $parented );
+    }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
+        --$page; /* start from 0 */
+
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
 		$page_total = 0;
 		$page_num = 0;
@@ -109,8 +129,8 @@
 				}
 				Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
 			}
-			$page_total += Comments_CountChildren( $comments, $parent->Id );
-			if ( $page_total > COMMENT_PAGE_LIMIT ) {
+			$page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
+			if ( $page_total >= COMMENT_PAGE_LIMIT ) {
 				$page_total = 0;
 				$page_num++;
 			}
