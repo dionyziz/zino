@@ -179,7 +179,6 @@ West of the Moon, East of the Sun.";
             
             $this->Assert( is_array( $comments ), 'CommentFinder::FindByPage did not return an array' );
             $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
-            var_dump( $comments );
 
             $user1->Delete();
             $user2->Delete();
