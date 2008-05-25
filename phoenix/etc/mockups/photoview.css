@@ -84,10 +84,10 @@ div#photoview div.photothumbs ol li ul {
     display: inline;
 }
 div#photoview div.photothumbs ol li ul.leftimgs li {
-	float: left;
+	float: right;
 }
 div#photoview div.photothumbs ol li ul.rightimgs li {
-	float: right;
+	float: left;
 }
 div#photoview div.photothumbs ol ul li span {
     padding: 0;
