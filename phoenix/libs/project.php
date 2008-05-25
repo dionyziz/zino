@@ -12,7 +12,6 @@
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
         $libs->Load( 'ban' );
-        $libs->Load( 'rabbit/memcache/mc' );
         
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
