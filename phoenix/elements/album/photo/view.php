@@ -106,7 +106,7 @@
 							$water->Trace( 'pivot is: ' . $pivot );
 							//die( 'pivot is ' . $pivot );
 							if ( $pivot > 0 ) {
-								for ( $i = $pivot - 1; $i >= 0 ; --$i ) {
+								for ( $i = 0; $i < $pivot ; ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
 									?><li><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
@@ -115,14 +115,10 @@
 									?></a></span></li><?php
 								}
 							}
-							?><li class="selected" style="width:150px">
-								<a href="?p=photo&amp;id=<?php
-								echo $photos[ $pivot ]->Id;
-								?>"><?php
+							?><li class="selected" style="width:150px"><?php
 								$size = $photos[ $pivot ]->ProportionalSize( 150 , 150 );
 								Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
-								?></a>
-							</li><?php
+							?></li><?php
 							if ( $pivot < 7 && $pivot != 0 ) {						
 								for ( $i = $pivot + 1; $i < 7; ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
