@@ -11,7 +11,7 @@
             $prototype->Id = $id;
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByUser( $user, $offset, $limit = 25 ) {
+        public function FindByUser( $user, $offset = 0, $limit = 25 ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
 
