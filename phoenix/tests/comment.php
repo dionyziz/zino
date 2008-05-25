@@ -132,7 +132,7 @@ West of the Moon, East of the Sun.";
             $this->AssertEquals( 1, $c->Id, 'Wrong id on first comment of table' );
         }
         private function MakeComment( $user, $text, $parentid ) {
-            $comment = New Comment();
+            $comment = New TestComment();
             $comment->Itemid = $this->Journal->Id;
             $comment->Typeid = COMMENT_JOURNAL;
             $comment->Userid = $user->Id;
