@@ -14,7 +14,7 @@
 			<div class="uploaddiv">
 				<object data="?p=upload&amp;albumid=<?php
 				echo $user->Egoalbumid;
-				?>amp;typeid=1" class="uploadframe" id="uploadframe" type="text/html">
+				?>&amp;typeid=1" class="uploadframe" id="uploadframe" type="text/html">
 				</object>
 			</div><?php
 			$egoalbum = New Album( $user->Egoalbumid );
