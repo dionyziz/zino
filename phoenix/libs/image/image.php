@@ -17,9 +17,9 @@
         protected $mModel = 'Image';
         
         public function FindByIds( $imageids ) {
-            w_assert( is_array( $imageids ) );
+            w_assert( is_array( $imageids ), 'ImageFinder->FindByIds() expects an array' );
             foreach ( $imagesids as $imageid ) {
-                w_assert( is_int( $imageid ) );
+                w_assert( is_int( $imageid ), 'Each item of the array passed to ImageFinder->FindByIds() must be an integer' );
             }
             if ( !count( $imageids ) ) {
                 return array();
@@ -52,8 +52,8 @@
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function FindAround( Album $album, Image $image, $limit = 6 ) {
-            w_assert( $album->Exists() );
-            w_assert( $image->Exists() );
+            w_assert( $album->Exists(), 'Image->FindAround() must only be called for an existing album' );
+            w_assert( $image->Exists(), 'Image->FindAround() must only be called for an existing image' );
 
             $query = $this->mDb->Prepare(
                 'SELECT
@@ -219,7 +219,7 @@
             $data = Image_Upload( $path, $this->mTemporaryFile, $resizeto );
 
             // else success
-            w_assert( is_array( $data ) );
+            w_assert( is_array( $data ), 'Image_Upload did not return an array' );
 
             if ( $data[ 'width' ] < 10 || $data[ 'height' ] < 10 ) {
                 throw New ImageException( 'The resolution of target image is too small: ' . $data[ 'width' ] . 'x' . $data[ 'height' ] );
