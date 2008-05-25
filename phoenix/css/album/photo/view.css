@@ -118,14 +118,15 @@ div#photoview div.photothumbs ol li bdo {
 div#photoview div.photothumbs ol li span {
     padding: 0;
 }
-div#photoview div.photothumbs ol li span a{
+div#photoview div.photothumbs ol li span a {
 	padding: 0 2px 0 2px;
-	margin: 0;
+	margin-left: 2px;
 	display: inline;
 	vertical-align: middle;
 }
 div#photoview div.photothumbs ol li a img {
-	border: 1px solid gray;
+	border: 1px solid #ccc;
+	padding: 1px;
 }
 div#photoview div.thephoto {
 	text-align:center;
