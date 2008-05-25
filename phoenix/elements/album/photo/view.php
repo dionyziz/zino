@@ -120,7 +120,7 @@
 								Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
 							?></li><?php
 							if ( $pivot < 7 && $pivot != 0 ) {						
-								for ( $i = $pivot + 1; $i < 7; ++$i ) {
+								for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
 									$size = $photos[ $i ]->ProportionalSize( 150 , 150 );
 									?><li><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
