@@ -56,7 +56,7 @@
 				</div><?php
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();
-					$comments = $finder->FindByPage( $journal , 0 , true );
+					$comments = $finder->FindByPage( $journal , 1 , true );
 					?><div class="comments"><?php
 						Element( 'comment/reply' );
 						Element( 'comment/list' , $comments , 0 , 0 );
