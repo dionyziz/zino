@@ -68,7 +68,7 @@
                 LIMIT
                     :limit'
             );
-            $query->BindTable( 'image' );
+            $query->BindTable( 'images' );
             $query->Bind( 'albumid', $pivot->Album->Id );
             $query->Bind( 'imageid', $pivot->Id );
             $query->Bind( 'limit', $limit );
