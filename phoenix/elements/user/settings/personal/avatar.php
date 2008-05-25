@@ -13,7 +13,7 @@
 			<h3>Επέλεξε μια φωτογραφία</h3>
 			<div class="uploaddiv">
 				<object data="?p=upload&amp;albumid=<?php
-				echo $user->Egoalbum;
+				echo $user->Egoalbumid;
 				?>" class="uploadframe" id="uploadframe" type="text/html">
 				</object>
 			</div><?php
