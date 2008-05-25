@@ -71,11 +71,13 @@
 		if ( $albumid > 0 ) {
 			//typeid is 0 for album photo upload and 1 for settings avatar upload
 			$album = New Album( $albumid );
-			if ( $album->Numphotos == 1 ) {
-				$album->Mainimage = $image->Id;
-				$album->Save();
-			}
+
+			?>alert( '<?php echo $typeid; ?>' );<?php
 			if ( $typeid == 0 ) {
+				if ( $album->Numphotos == 1 ) {
+					$album->Mainimage = $image->Id;
+					$album->Save();
+				}
 				$jsimage = array(
 					'id' => $image->Id,
 					'imagesnum' => $album->Numphotos,
