@@ -96,9 +96,11 @@ div#photoview div.photothumbs ul li {
 	float: left;
 	height: 154px;
 }
+/*
 div#photoview div.photothumbs ul li.selected {
     text-align: center;
 }
+*/
 div#photoview div.photothumbs ul li.selected img {
 	border: 4px solid #82a4b6;
 	padding: 1px;
