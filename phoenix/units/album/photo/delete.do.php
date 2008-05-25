@@ -9,11 +9,6 @@
 			if ( $image->Album->Mainimage == $image->Id ) {
 				$image->Album->Mainimage = 0;
 				$image->Album->Save();
-				if ( $image->Album->Id == $user->Egoalbumid ) {
-					?>$( 'div.usersections a img' ).attr( {
-						src : ExcaliburSettings.imagesurl + 'anonymous150.jpg'
-					} );<?php
-				}
 			}
 			$image->Delete();
 			if ( $albumid > 0 ) {
