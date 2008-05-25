@@ -28,7 +28,7 @@
 	    		<li>·</li>
 	    		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
 	    		<li>·</li>
-	    		<li><a href="settings" class="settings icon" onclick="return false">Ρυθμίσεις</a></li><?php
+	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
 	        }
 	        ?>
 		</ul><?php
