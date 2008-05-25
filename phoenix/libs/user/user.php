@@ -60,9 +60,9 @@
             $prototype->Password = $password;
             return $this->FindByPrototype( $prototype );
         }
-        public function FindByIdAndAuthtoken( $username, $authtoken ) {
+        public function FindByIdAndAuthtoken( $userid, $authtoken ) {
             $prototype = New User();
-            $prototype->Name = $username;
+            $prototype->Id = $userid;
             $prototype->Authtoken = $authtoken;
             return $this->FindByPrototype( $prototype );
         }
