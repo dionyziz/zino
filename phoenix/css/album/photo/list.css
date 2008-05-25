@@ -68,7 +68,7 @@ div#photolist ul li {
 	width: 210px;
 	height: 270px;
 	text-align: center;
-	display: inline;
+	/*display: inline;*/
 }
 div#photolist  div.uploaddiv {
 	padding-top: 15px;
