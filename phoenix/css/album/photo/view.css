@@ -87,11 +87,12 @@ div#photoview div.photothumbs div.right {
 div#photoview div.photothumbs ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 20px 0 0 20px;
+	height: 170px;
 }
 div#photoview div.photothumbs ul li {
     padding: 0;
-    margin: 0;
+    margin: 0 1px;
 	display: inline;
     /*vertical-align: top;*/
     /*line-height: 150px;*/
