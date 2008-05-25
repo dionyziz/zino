@@ -14,7 +14,9 @@
 		else {
 			$page->SetTitle( "Δημιουργία καταχώρησης" );
 		}
-		
+		if ( $id > 0 ) {
+			$water->Trace( $journal->Text );
+		}
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew"><?php
 			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
