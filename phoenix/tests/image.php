@@ -47,8 +47,9 @@
             }
             catch ( ImageException $e ) {
                 $error = true;
+                $message = $e->getMessage();
             }
-            $this->AssertFalse( $error, 'Cannot upload photo' );
+            $this->AssertFalse( $error, 'Cannot upload photo due to exception: ' . $message );
 
             $imageid = $image->Id;
             $this->Assert( $imageid > 0, 'A new image must have a positive id' );
