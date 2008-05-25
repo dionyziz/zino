@@ -107,3 +107,7 @@ div#photoview div.photothumbs ul li a img {
 	border: 1px solid #ccc;
 	padding: 1px;	
 }
+div#photoview div.thephoto {
+	text-align:center;
+	padding-top: 0;
+}
