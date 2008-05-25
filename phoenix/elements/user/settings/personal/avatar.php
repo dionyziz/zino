@@ -2,7 +2,9 @@
 
 	function ElementUserSettingsPersonalAvatar() {
 		global $user;
+		global $libs;
 		
+		$libs->Load( 'image' );
 		Element( 'user/avatar' , $user , 150 , '' , '' );
 		?><div class="avatarlist" id="avatarlist"><?php
 			$egoalbum = New Album( $user->Egoalbumid );
