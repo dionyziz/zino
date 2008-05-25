@@ -108,8 +108,7 @@ var Settings = {
 		Modals.Destroy();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	}, 
-	AddAvatar : function( imageinfo ) {
-		imageid = imageinfo.id;
+	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
 		$( li ).hide();
 		$( 'div.modal div.avatarlist ul' ).prepend( li );
