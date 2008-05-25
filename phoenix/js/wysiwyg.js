@@ -187,7 +187,7 @@ function xbDesignMode( aIFrame ) {
     this.mIFrameElement = null;
 
     // argument is a string, therefore an ID
-    if ( typeof aIFrame == "string" && document.getElementById( aIFrame ).tagName.toLowerCase() == "iframe" ) ) {
+    if ( typeof aIFrame == "string" && document.getElementById( aIFrame ).tagName.toLowerCase() == "iframe" ) {
         this.mIFrameElement = document.getElementById( aIFrame );
     }
     else if ( typeof aIFrame =="object" && aIFrame.tagName.toLowerCase() == "iframe" ) {
