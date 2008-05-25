@@ -5,13 +5,13 @@
 		global $user;              
 
 		if ( !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-			return -1;
+            throw New ImageException( 'Image_Upload() failed: No permission to upload image' );
 		}
         
         $curl = curl_init();
 
         if ( !file_exists( $tempfile ) ) {
-            return -2;
+            throw New Exception( 'Image_Upload() failed: Target temporary file does not exist' );
         }
 
         $data = array(
