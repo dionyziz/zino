@@ -9,6 +9,9 @@ var JournalView = {
 			Coala.Warm( 'journal/delete' , { journalid : journalid } );
 		}
 		$( 'div#journalview div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );
+	},
+	Create : function() {
+		alert( 'creating' );
 	}
 };
 $( document ).ready( function() {
