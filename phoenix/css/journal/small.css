@@ -62,6 +62,8 @@ div.journalsmall ul li dl dt.commentsnum {
 	background-position: 0 -670px;
 	background-repeat: no-repeat;
 	padding: 0 0 0 1px;
+	vertical-align: 3px;
+	margin-left: 3px;
 }
 div.journalsmall ul li dl dt.commentsnum a {
 	padding-left: 16px;
