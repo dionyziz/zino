@@ -170,7 +170,7 @@
     }
 
     function Comment_UserIsSpamBot( $text, $finder = false ) { // change finder for testcase
-        if ( $finder === false ) {
+        if ( !is_object( $finder ) ) {
             $finder = New CommentFinder();
         }
         if ( $finder->UserIsSpamBot() ) {

@@ -58,7 +58,7 @@
 
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testcomments' );
-            if ( $user !== false ) {
+            if ( is_object( $user ) ) {
                 $user->Delete();
             }
 
@@ -143,7 +143,7 @@ West of the Moon, East of the Sun.";
         private function MakeUser( $name ) {
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( $name );
-            if ( $user !== false ) {
+            if ( is_object( $user ) ) {
                 $user->Delete();
             }
 
@@ -176,7 +176,6 @@ West of the Moon, East of the Sun.";
 
             $finder = New TestCommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 1 );
-            
             
             $this->Assert( is_array( $comments ), 'CommentFinder::FindByPage did not return an array' );
             $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
