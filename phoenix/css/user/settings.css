@@ -179,6 +179,12 @@ div#msn span img {
 }
 div.avatarlist {
 	margin: 10px 0 0 5px;
+	position: relative;
+}
+div.avatarlist div.uploaddiv {
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 div.avatarlist ul {
 	margin-top: 30px;
