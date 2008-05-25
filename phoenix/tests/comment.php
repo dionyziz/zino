@@ -155,10 +155,10 @@ West of the Moon, East of the Sun.";
             $this->MakeComment( $user5, "Nice little poem", 0 ); // 12
             $this->MakeComment( $user2, "LOLWOA?", 12 ); // 13
 
-            return;
-
             $finder = New TestCommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 0 );
+            
+            return;
 
             $this->Assert( is_array( 'comments' ), 'CommentFinder::FindByPage did not return an array' );
             $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
