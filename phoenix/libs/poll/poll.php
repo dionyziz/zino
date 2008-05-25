@@ -45,7 +45,7 @@
             $option->Pollid = $this->Id;
             $option->Save();
 
-            $this->mOptions[] = $option;
+            $this->Options[] = $option;
             
             return $option;
         }
