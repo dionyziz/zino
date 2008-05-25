@@ -97,6 +97,12 @@ var Settings = {
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
 		$( parent ).hide( 'slow' );
+	},
+	ShowAvatarChange : function() {   
+		var avies = $( '#avatarlist' ).clone();
+		$( avies ).hide();
+		Modals.Create( avies, 700, 700 );
+		
 	}
 };
 $( document ).ready( function() {

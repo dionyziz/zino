@@ -6,7 +6,10 @@
 		
 		//$libs->Load( 'image' );
 		Element( 'user/avatar' , $user , 150 , '' , '' );
-		?><div class="avatarlist" id="avatarlist"><?php
+		?><div class="changeavatar">
+		<a href="" onclick="return false;">Αλλαγή εικόνας</a>
+		</div>
+		<div class="avatarlist" id="avatarlist"><?php
 			$egoalbum = New Album( $user->Egoalbumid );
 			$finder = New ImageFinder();
 			?><ul><?php	
