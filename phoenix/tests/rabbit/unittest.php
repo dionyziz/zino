@@ -158,6 +158,21 @@
                         $this->Assert( $result instanceof RunResult, 'Each item of a case\'s results must be an instance of RunResult (0)' );
                         $this->AssertEquals( true, $result->Success, 'This test was successful; it should be reported as such' );
                         $this->AssertEquals( 3, $result->NumAssertions, 'The number of assertions for this test seem incorrect (0) - ' . $result->RunName );
+                        $j = 0;
+                        foreach ( $result as $assertion ) {
+                            switch ( $j ) {
+                                case 0:
+                                    $this->AssertEquals( 'True is true', $assertion->Message, 'Message of assertion #0 of test method #0 of testcase is inaccurate' );
+                                    break; 
+                                case 1:
+                                    $this->AssertEquals( '1 = 1', $assertion->Message, 'Message of assertion #1 of test method #0 of testcase is inaccurate' );
+                                    break;
+                                case 2:
+                                    $this->AssertEquals( 'False is false', $assertion->Message, 'Message of assertion #2 of test method #0 of testcase is inaccurate' );
+                                    break;
+                            }
+                            ++$j;
+                        }
                         $this->AssertEquals( $result->NumAssertions, $result->NumSuccessfulAssertions, 'All assertions of this run were successful' );
                         $this->AssertEquals( 'TestSuccessful', $result->RunName, 'Runname of an item of Tester\'s results is invalid (0)' );
                         break;
