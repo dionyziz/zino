@@ -2,6 +2,7 @@
 	
 	function UnitAlbumPhotoUpload( tInteger $imageid , tCoalaPointer $node ) {
 		global $libs;
+		global $user;
 		
 		$libs->Load( 'image' );
 		
@@ -13,4 +14,18 @@
 		Element( 'album/photo/small' , $image , false , true , true );
     	echo w_json_encode( ob_get_clean() );
 		?> ).show();<?php
+		if ( $image->Album->Numphotos == 1 ) {
+			$image->Album->Mainimage = $image->Id;
+			$image->Album->Save();
+			if ( $image->Album->Id == $user->Egoalbumid ) {
+				?>$( 'div.usersections a img' ).attr( {
+					src : ExcaliburSettings.photosurl + '<?php
+					echo $user->Id;
+					?>/<?php
+					echo $image->Id;
+					?>?sandbox=yes'
+				} );<?php
+			}
+		}
+		
 	}

@@ -42,3 +42,7 @@ div#journallist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
 }
+div#journallist div.pagifyjournals {
+	text-align: center;
+	margin-top: 10px;
+}
