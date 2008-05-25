@@ -13,7 +13,7 @@
 					//when photo changes the avatar must be changed
 					?>var username = document.createElement( 'span' );
 					$( username ).addClass( 'name' ).append( document.createTextNode( <?php
-					echo $photo->User->Name;
+					echo w_json_encode( $photo->User->Name );
 					?> ) );
 					$( 'div.usersections a:first' ).html( <?php
 					ob_start();
