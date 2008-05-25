@@ -108,19 +108,6 @@ div.settings div.tabs form#personalinfo div span.invaliddob img {
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
 	display: none;
 }
-div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li {
-	margin: 0 5px 5px 0;
-	padding: 0;
-	float: left;
-	width: 110px;
-	height: 110px;
-	text-align: center;
-}
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul li img.photosmall {
 	padding: 1px;
 	border: 1px solid #ccc;
@@ -193,4 +180,17 @@ div#msn span {
 }
 div#msn span img {
 	vertical-align: -2px;
+}
+div.avatarlist ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+div.avatarlist ul li {
+	margin: 0 5px 5px 0;
+	padding: 0;
+	float: left;
+	width: 110px;
+	height: 110px;
+	text-align: center;
 }
