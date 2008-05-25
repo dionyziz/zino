@@ -115,7 +115,7 @@
 									?></a></span></li><?php
 								}
 							}
-							?><li class="selected" style="width:150px"><?php
+							?><li class="selected"><?php
 								$size = $photos[ $pivot ]->ProportionalSize( 150 , 150 );
 								Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
 							?></li><?php
