@@ -100,8 +100,8 @@ var Settings = {
 	},
 	ShowAvatarChange : function() {   
 		var avies = $( '#avatarlist' )[ 0 ].cloneNode( true );
-		$( avies ).hide();
-		Modals.Create( avies, 700, 700 );
+		$( avies ).show();
+		Modals.Create( avies, 500, 500 );
 		
 	}
 };
