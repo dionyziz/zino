@@ -173,9 +173,7 @@ West of the Moon, East of the Sun.";
             $finder = New TestCommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 0 );
             
-            return;
-
-            $this->Assert( is_array( 'comments' ), 'CommentFinder::FindByPage did not return an array' );
+            $this->Assert( is_array( $comments ), 'CommentFinder::FindByPage did not return an array' );
             $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
 
             $user1->Delete();
