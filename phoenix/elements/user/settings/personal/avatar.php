@@ -24,7 +24,6 @@
 				?></a></li><?php
 			}
 			?></ul>
-			<div class="eof"></div>
 			<div class="cancel">
 				<a href="" onclick="Modals.Destroy();return false;" class="button">
 				Ακύρωση
