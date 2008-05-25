@@ -64,6 +64,7 @@
             $prototype = New User();
             $prototype->Id = $userid;
             $prototype->Authtoken = $authtoken;
+
             return $this->FindByPrototype( $prototype );
         }
         public function FindByName( $name ) {
