@@ -185,6 +185,9 @@ div.avatarlist ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	width: 500px;
+	height: 500px;
+	overflow: auto;
 }
 div.avatarlist ul li {
 	margin: 0 5px 5px 0;
