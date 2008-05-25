@@ -10,7 +10,13 @@
 		<a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
 		</div>
 		<div class="avatarlist" id="avatarlist">
-			<h3>Επέλεξε μια φωτογραφία</h3><?php
+			<h3>Επέλεξε μια φωτογραφία</h3>
+			<div class="uploaddiv">
+				<object data="?p=upload&amp;albumid=<?php
+				echo $user->Egoalbum;
+				?>" class="uploadframe" id="uploadframe" type="text/html">
+				</object>
+			</div><?php
 			$egoalbum = New Album( $user->Egoalbumid );
 			$finder = New ImageFinder();
 			?><ul><?php	
