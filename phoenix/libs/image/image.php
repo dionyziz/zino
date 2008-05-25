@@ -53,7 +53,6 @@
         }
         public function FindAround( Image $pivot, $limit = 6 ) {
             w_assert( $pivot->Exists(), 'Image->FindAround() must only be called for an existing pivot image' );
-            $album = $pivot->Album;
             w_assert( $pivot->Album->Exists(), 'Image->FindAround() must only be called for a pivot image within an album' );
 
             $query = $this->mDb->Prepare(
