@@ -4,10 +4,6 @@
         global $rabbit_settings;
 		global $user;              
 
-		if ( !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-            throw New ImageException( 'Image_Upload() failed: No permission to upload image' );
-		}
-        
         $curl = curl_init();
 
         if ( !file_exists( $tempfile ) ) {
