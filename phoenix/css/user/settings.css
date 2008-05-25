@@ -186,6 +186,9 @@ div.avatarlist div.uploaddiv {
 	top: -2px;
 	right: 0;
 }
+div.avatarlist div.uploaddiv object.uploadframe {
+	height: 40px;
+}
 div.avatarlist ul {
 	margin-top: 30px;
 	padding: 0;
