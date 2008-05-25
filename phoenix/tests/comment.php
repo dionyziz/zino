@@ -6,7 +6,7 @@
     $libs->Load( 'comment' );
 
     global $water;
-    $water->Disable();
+    $water->Disable(); // out of memory D:
     
     class TestComment extends Comment {
         protected $mDbTableAlias = 'testcomments';
