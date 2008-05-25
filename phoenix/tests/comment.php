@@ -122,6 +122,12 @@ West of the Moon, East of the Sun.";
             $comment->Save();
         }
         private function MakeUser( $name ) {
+            $ufinder = New UserFinder();
+            $user = $ufinder->FindByName( $name );
+            if ( $user !== false ) {
+                $user->Delete();
+            }
+
             $user = New User();
             $user->Name = $name;
             $user->Subdomain = $name;
