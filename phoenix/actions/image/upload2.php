@@ -84,7 +84,8 @@
 				?> );<?php
 			}
 			else if ( $typeid == 1 ) {
-				?>parent.Settings.AddAvatar( <?php
+				?>alert( 'calling' );
+				parent.Settings.AddAvatar( <?php
 				echo $image->Id;
 				?> );<?php
 			}
