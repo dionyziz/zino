@@ -15,7 +15,7 @@
 					$( username ).addClass( 'name' ).append( document.createTextNode( <?php
 					echo w_json_encode( $photo->User->Name );
 					?> ) );
-					$( 'div.usersections a' ).html( <?php
+					$( $( 'div.usersections a' )[ 0 ] ).html( <?php
 					ob_start();
 					Element( 'user/avatar' , $photo->User , 150 , '' , '' );
 					echo w_json_encode( ob_get_clean() );
