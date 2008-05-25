@@ -4,7 +4,10 @@
 		global $user;
 		
 		$image = New Image( $imageid->Get() );
-		?>alert( 'brkpnt1' );<?php
+		?>alert( 'brkpnt1 <?php echo $image->Id;
+		?> and delid is <?php
+		echo $image->Delid;
+		?>' );<?php
 		if ( !$image->IsDeleted() ) {
 			?>alert( 'image is not deleted' );<?php
 			if ( $image->User->Id == $user->Id ) {
