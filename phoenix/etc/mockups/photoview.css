@@ -71,24 +71,31 @@ div#photoview div.photothumbs ol li.selected {
 div#photoview div.photothumbs ol li.selected img {
 	border: 4px solid #82a4b6;
 }
+
+/*
 div#photoview div.photothumbs ol li.left {
     text-align: right;
 }
 div#photoview div.photothumbs ol li.right {
     text-align: left;
 }
-div#photoview div.photothumbs ol li ul {
+/*
+div#photoview div.photothumbs ol li{
 	padding: 0;
 	margin: 20px auto;
 	list-style: none;
     display: inline;
 }
-div#photoview div.photothumbs ol li ul.leftimgs li {
+/*
+div#photoview div.photothumbs ol li {
 	float: right;
 }
+*/
+/*
 div#photoview div.photothumbs ol li ul.rightimgs li {
 	float: left;
 }
+*/
 div#photoview div.photothumbs ol ul li span {
     padding: 0;
 }
