@@ -67,7 +67,7 @@
         }
 
         if ( $user->Exists() ) {
-            $user->LastActive->Save();
+            $user->LastActivity->Save();
         }
     }
     
