@@ -65,6 +65,10 @@
             $page->Output();
             exit();
         }
+
+        if ( $user->Exists() ) {
+            $user->LastActive->Save();
+        }
     }
     
     function Project_Destruct() {
