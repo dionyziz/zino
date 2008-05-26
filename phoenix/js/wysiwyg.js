@@ -16,7 +16,7 @@ var WYSIWYG = {
     ByName: [],
     Focus: function ( which ) {
         setTimeout( function() {
-            which.contentWindow.focus()
+            which.contentWindow.focus();
         }, 100 );
         /*
         var editdoc     = WYSIWYG.GetDocument( which );             // get iframe editor document object
@@ -53,7 +53,7 @@ var WYSIWYG = {
                     }
                     WYSIWYG.Focus( which );
                     return false;
-                }
+                };
             }( buttons[ i ][ 'command' ], buttons[ i ][ 'parameters' ] );
             var tooltip = document.createElement( 'span' );
             var img = document.createElement( 'img' );
@@ -93,7 +93,7 @@ var WYSIWYG = {
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
-                WYSIWYG.Enable( which, fieldname, oldcontents )
+                WYSIWYG.Enable( which, fieldname, oldcontents );
             }, 100 );
             return;
         }
