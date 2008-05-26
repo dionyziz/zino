@@ -33,6 +33,7 @@
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
 			?>Ο χρήστης δεν υπάρχει<?php
+			return;
 		}
 		
 		$offset = $offset->Get();
