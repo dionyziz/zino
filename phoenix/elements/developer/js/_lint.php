@@ -24,10 +24,10 @@
                         break;
                     default:
                         if ( !is_dir( $path . '/' . $file ) && substr( $file, -3 ) == '.js' ) {
-                            $jslintsources[ substr( $path . '/' . $file, strlen( $jspath ) ) ] = file_get_contents( $path . '/' . $file );
+                            $jslintsources[ substr( $path . '/' . $file, strlen( $jspath . '/' ) ) ] = file_get_contents( $path . '/' . $file );
                         }
                         else if ( is_dir( $path . '/' . $file ) ) {
-                            $queue[] = opendir( $path . '/' . $file );
+                            $queue[] = $path . '/' . $file;
                         }
                 }
             }
