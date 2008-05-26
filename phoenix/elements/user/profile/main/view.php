@@ -17,7 +17,7 @@
 				Element( 'user/list' );
 				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 			</div><?php
-			if ( !empty( $poll ) ) {
+			if ( !empty( $polls ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3><?php
 					Element( 'poll/small' , $polls[ 0 ] , true );
@@ -32,7 +32,7 @@
 				?><a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
 			</div>
 			<div style="clear:right"></div><?php
-			if ( !empty( $journal ) ) {
+			if ( !empty( $journals ) ) {
 				?><div class="lastjournal">
 					<h3>Ημερολόγιο</h3><?php
 					Element( 'journal/small' , $journals[ 0 ] );
