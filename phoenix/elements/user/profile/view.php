@@ -15,7 +15,7 @@
 				$theuser = $finder->FindByName( $name );
 			}
 		}
-		else if ( $sudomain != '' ) {
+		else if ( $subdomain != '' ) {
 			if ( strtolower( $subdomain ) == strtolower( $user->Subdomain ) ) {
 				$theuser = $user;
 			}
