@@ -17,7 +17,9 @@
 		Element( 'user/sections' , 'journal' , $user );
 		?><div id="journalnew"><?php
 			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
-				?><form method="post" action="do/journal/new">
+				?><form method="post" action="do/journal/new" onsubmit="JournalNew.Create( '<?php
+						echo $id;
+						?>' );">
 					<input type="hidden" name="id" value="<?php
 					echo $id;
 					?>" />
@@ -34,9 +36,7 @@
                     }
                     ?></div>
 					<div class="submit">
-						<input type="submit" value="Δημοσίευση" onclick="JournalNew.Create( '<?php
-						echo $id;
-						?>' );return false;" />
+						<input type="submit" value="Δημοσίευση" />
 					</div>
 				</form><?php
 			}

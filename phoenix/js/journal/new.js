@@ -11,7 +11,7 @@ var JournalNew = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενή καταχώρηση" );
 			return;
 		}
-		$( 'div#journalnew form' )[ 0 ].submit();
+		return true;
 	},
 	Edit : function( journalid ) {
 	
