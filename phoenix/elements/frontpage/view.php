@@ -1,18 +1,16 @@
 <?php
    
    function ElementFrontpageView( tBoolean $newuser ) {
-        global $page;
         global $user;
 		global $water;
 		
     	$newuser = $newuser->Get(); // TODO
         
         $page->AttachScript( 'js/frontpage.js' );
-		//$page->AttachStyleSheet( 'css/frontpage/view.css' );
         ?><div class="frontpage"><?php
 		if ( $newuser ) {
 			?><div class="ybubble">
-				<a href="" onclick="Frontpage.Closenewuser();"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+				<a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				<form style="margin:0;padding:0">
 					<p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου:</p>
 					<div>
