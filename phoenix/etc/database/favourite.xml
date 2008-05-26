@@ -15,6 +15,11 @@
                 <indexfield>favourite_userid</indexfield>
                 <indexfield>favourite_typeid</indexfield>
             </index>
+			<index type="unique">
+				<indexfield>favourite_userid</indexfield>
+				<indexfield>favourite_itemid</indexfield>
+				<indexfield>favourite_typeid</indexfield>
+			</index>
         </table>
     </database>
 </project>
