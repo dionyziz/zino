@@ -17,6 +17,11 @@
 				Element( 'user/list' );
 				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 			</div><?php
+			//check if friends empty or not
+			?><div class="barfade">
+				<div class="leftbar"></div>
+				<div class="rightbar"></div>
+			</div><?php
 			if ( !empty( $polls ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3><?php
@@ -30,8 +35,14 @@
 				<h3>Ερωτήσεις</h3><?php
 				Element( 'user/profile/main/questions' , $theuser );
 				?><a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
-			</div>
-			<div style="clear:right"></div><?php
+			</div><?php
+			if ( !empty( $polls ) /*or not empty questions*/ ) {
+				?><div class="barfade">
+					<div class="leftbar"></div>
+					<div class="rightbar"></div>
+				</div><?php
+			}
+			?><div style="clear:right"></div><?php
 			if ( !empty( $journals ) ) {
 				?><div class="lastjournal">
 					<h3>Ημερολόγιο</h3><?php
@@ -39,6 +50,10 @@
 					?><a href="?p=journals&amp;username=<?php
 					echo $theuser->Subdomain;
 					?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
+				</div>
+				<div class="barfade">
+					<div class="leftbar"></div>
+					<div class="rightbar"></div>
 				</div><?php
 			}
 			?><div class="comments">
