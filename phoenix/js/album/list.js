@@ -46,8 +46,6 @@ var AlbumList = {
 		} );
 		$( 'li.create' ).empty().append( link );
 	}
-	,
-
 };
 $( document ).ready( function() {
 	$( 'ul.albums li.create a.new' ).click( function() {

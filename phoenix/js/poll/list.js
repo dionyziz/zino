@@ -20,7 +20,7 @@ var PollList = {
 			$( option ).append( document.createTextNode( $( newoption )[ 0 ].value ) ).addClass( 'newoption' );
 			$( $( newoption )[ 0 ].parentNode ).remove();
 			$( 'div#polllist ul li div.creationmockup')[ 0 ].insertBefore( option , $( 'div#polllist ul li div.creationmockup div.tip2' )[ 0 ] );
-			if ( PollList.numoptions == 0 ) {
+			if ( PollList.numoptions === 0 ) {
 				var donelink = document.createElement( 'a' );
 				$( donelink ).attr( { 'href' : '' } ).addClass( 'button' ).css( 'font-weight' , 'bold' ).append( document.createTextNode( 'Δημιουργία' ) ).click( function() {
 					PollList.OptionsText = PollList.OptionsText.substr( 0 , PollList.OptionsText.length - 1 );
@@ -61,7 +61,7 @@ var PollList = {
 		$( link ).attr( { href: "" } ).addClass( "new" ).append( document.createTextNode( "«Ακύρωση" ) ).click( function() {
 			$( 'div#polllist ul div.creationmockup' ).animate( { height: "0" } , 400 , function() {
 				$( newpoll ).remove();
-				$( this ).css( 'display' , 'none')
+				$( this ).css( 'display' , 'none');
 			} );
 			PollList.Cancel();
 			return false;

@@ -12,7 +12,7 @@ var PhotoList = {
 		if ( !PhotoList.renaming ) {
 			PhotoList.renaming = true;
 			var inputbox = document.createElement( 'input' );
-			var albumname = $( 'div#photolist h2' ).html()
+			var albumname = $( 'div#photolist h2' ).html();
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
@@ -37,7 +37,7 @@ var PhotoList = {
 		$( 'div#uploadingwait' ).show();
 	},
 	AddPhoto : function( imageinfo ) {
-		imageid = imageinfo.id
+		imageid = imageinfo.id;
 		var li = document.createElement( 'li' );
 		$( li ).css( 'display' , 'none' );
 		$( 'div#photolist ul' ).prepend( li );
@@ -50,7 +50,7 @@ var PhotoList = {
 		PhotoList.UpdatePhotoNum( imageinfo.imagesnum );
 	},
 	UpdatePhotoNum : function( photonum ) {
-		if ( photonum == 0 ) {
+		if ( photonum === 0 ) {
 			$( 'div#photolist dl dt.photonum' ).remove();
 		}
 		else {

@@ -37,7 +37,7 @@ $( document ).ready( function() {
                 'command': function () {
                     var q = prompt( 'Πληκτρολόγησε την διεύθυνση προς την οποία θέλεις να γινει link:', 'http://www.zino.gr/' );
                     
-                    if ( typeof q == "string" && q != '' ) {
+                    if ( typeof q == "string" && q !== '' ) {
                         WYSIWYG.ExecCommand( 'text', 'createLink', q );
                     }
                 }

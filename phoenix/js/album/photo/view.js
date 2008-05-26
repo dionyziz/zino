@@ -4,7 +4,7 @@ var PhotoView = {
 		if ( !PhotoView.renaming ) {
 			PhotoView.renaming = true;
 			var inputbox = document.createElement( 'input' );
-			var photoname = $( 'div#photoview h2' ).html()
+			var photoname = $( 'div#photoview h2' ).html();
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
 					var name = $( this )[ 0 ].value;
