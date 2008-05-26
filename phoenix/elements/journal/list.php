@@ -8,12 +8,12 @@
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();	
-		if ( $name != '' ) {
-			if ( strtolower( $name ) == strtolower( $user->Name ) ) {
+		if ( $username != '' ) {
+			if ( strtolower( $username ) == strtolower( $user->Name ) ) {
 				$theuser = $user;
 			}
 			else {
-				$theuser = $finder->FindByName( $name );
+				$theuser = $finder->FindByName( $username );
 			}
 		}
 		else if ( $subdomain != '' ) {
