@@ -3,7 +3,8 @@
    function ElementFrontpageView() {
         global $page;
         global $user;
-
+		global $water;
+		
     	$newuser = isset( $_GET[ 'newuser' ] ) ? true : false; // TODO
         
         $page->AttachScript( 'js/frontpage.js' );
