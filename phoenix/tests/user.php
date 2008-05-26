@@ -73,19 +73,18 @@
             
             $this->mUser->Save();
 
-            $this->AssertEquals( $oldcount + 1, $finder->Count(), 'User_Count did not increase by 1 when a new user was created' );
+            $this->AssertEquals( $oldcount + 1, $finder->Count(), 'UserFinder->Count did not increase by 1 when a new user was created' );
 
             $this->AssertTrue( $this->mUser->Exists(), 'User created but does not seem to exist' );
-            $this->AssertEquals( $this->mUser->Name, 'usertest', 'User name changed after saving user' );
-            $this->AssertEquals( $this->mUser->Registerhost, UserIp(), 'User register host changed after saving user' );
-            $this->AssertEquals( $this->mUser->Profile->Dob, '1989-17-11 00:00:00', 'User dob changed after saving user' );
-            $this->AssertEquals( $this->mUser->Email, 'test@kamibu.com', 'User email changed after saving user' );
-            $this->AssertEquals( $this->mUser->Gender, 'male', 'User gender changed after saving user' );
-            $this->AssertEquals( $this->mUser->Signature, 'Foo bar blah', 'User signature changed after saving user' );
-            $this->AssertEquals( $this->mUser->Rights, 10, 'User rights changed after saving user' );
-            $this->AssertEquals( $this->mUser->Avatar, new Image( 1 ), 'User icon changed after saving user' );
-            $this->AssertEquals( strlen( $this->mUser->Authtoken ), 32, 'User does not have a valid authtoken after creation' );
-            $this->AssertEquals( $this->mUser->Registerhost, UserIp(), 'User register host should be set to the current user\'s IP by default' );
+            $this->AssertEquals( 'usertest', $this->mUser->Name, 'User name changed after saving user' );
+            $this->AssertEquals( UserIp(), $this->mUser->Registerhost, 'User register host changed after saving user' );
+            $this->AssertEquals( '1989-17-11', $this->mUser->Profile->Dob, 'User dob changed after saving user' );
+            $this->AssertEquals( 'test@kamibu.com', $this->mUser->Email, 'test@kamibu.com', 'User email changed after saving user' );
+            $this->AssertEquals( 'male', $this->mUser->Gender, 'User gender changed after saving user' );
+            $this->AssertEquals( 'Foo bar blah', $this->mUser->Signature, 'User signature changed after saving user' );
+            $this->AssertEquals( 10, $this->mUser->Rights, 'User rights changed after saving user' );
+            $this->AssertEquals( 1, $this->mUser->Avatar->Id, 'User icon changed after saving user' );
+            $this->AssertEquals( 32, strlen( $this->mUser->Authtoken ), 'User does not have a valid authtoken after creation' );
         }
         public function TestProfileDefaults() {
             $profile = $this->mUser->Profile;

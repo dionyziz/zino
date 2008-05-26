@@ -110,7 +110,7 @@
 			$query->BindTable( 'users' );
 			$res = $query->Execute();
 			$row = $res->FetchArray();
-			return $row[ 'numusers' ];
+			return ( int )$row[ 'numusers' ];
 		}
         public function ClearPlace( $placeid ) {
             $query = $this->mDb->Prepare(
