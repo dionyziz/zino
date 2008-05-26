@@ -133,7 +133,7 @@
                 <value>nothing</value>
             </field>
             <field name="profile_aboutme" type="text" />
-            <field name="profile_mood" type="int" ref="moods.mood_id" />
+            <field name="profile_moodid" type="int" ref="moods.mood_id" />
             <field name="profile_eyecolor" type="enum">
                 <value>-</value>
                 <value>black</value>

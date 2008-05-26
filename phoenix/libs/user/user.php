@@ -17,6 +17,7 @@
     $libs->Load( 'image/image' );
     $libs->Load( 'journal' );
     $libs->Load( 'album' );
+    $libs->Load( 'mood' );
     
     function User_Valid( $username ) {
         return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$#', $username );
