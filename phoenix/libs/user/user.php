@@ -96,6 +96,7 @@
                     :offset, :limit'
             );
             $query->BindTable( 'users' );
+            $query->BindTable( 'lastactive' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
