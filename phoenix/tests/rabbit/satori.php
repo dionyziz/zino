@@ -113,10 +113,31 @@
     
     class TestRabbitSatoriExtension extends Satori {
         protected $mDbTableAlias = 'rabbit_satori_test';
-        
+        protected $mOnDeleteNumCalls = 0;
+        protected $mOnCreateNumCalls = 0;
+        protected $mOnUpdateNumCalls = 0;
+
+        protected function GetOnDeleteNumCalls() {
+            return $this->mOnDeleteNumCalls;
+        }
+        protected function GetOnCreateNumCalls() {
+            return $this->mOnCreateNumCalls;
+        }
+        protected function GetOnUpdateNumCalls() {
+            return $this->mOnUpdateNumCalls;
+        }
         public function LoadDefaults() {
             $this->Char = 'abcd';
             $this->Name = 'coco';
+        }
+        protected function OnDelete() {
+            ++$this->mOnDeleteNumCalls;
+        }
+        protected function OnCreate() {
+            ++$this->mOnCreateNumCalls;
+        }
+        protected function OnUpdate() {
+            ++$this->mOnUpdateNumCalls;
         }
         protected function GetDb() {
             return $this->mDb;
@@ -246,9 +267,15 @@
             $this->AssertEquals( false, $this->mObj->Name, 'Prior to saving, all domain attributes should be false (3)' );
             $this->mObj->Name = 'haha';
             $this->AssertEquals( 'haha', $this->mObj->Name, 'Prior to saving, modified domain attributes should reflect modifications' );
+            $this->AssertEquals( 0, $this->mObj->OnDeleteNumCalls, 'Prior to saving, no calls must be made to OnDelete by Satori' );
+            $this->AssertEquals( 0, $this->mObj->OnUpdateNumCalls, 'Prior to saving, no calls must be made to OnUpdate by Satori' );
+            $this->AssertEquals( 0, $this->mObj->OnCreateNumCalls, 'Prior to saving, no calls must be made to OnCreate by Satori' );
             $this->mObj->Save();
             $this->AssertTrue( $this->mObj->Exists(), 'New Satori-derived object should exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment fields should be filled-in after entry creation' );
+            $this->AssertEquals( 0, $this->mObj->OnDeleteNumCalls, 'After saving, no calls must be made to OnDelete by Satori' );
+            $this->AssertEquals( 0, $this->mObj->OnUpdateNumCalls, 'After saving, no calls must be made to OnUpdate by Satori' );
+            $this->AssertEquals( 1, $this->mObj->OnCreateNumCalls, 'After saving, one calls must be made to OnCreate by Satori' );
         }
         public function TestDefaults() {
             $this->AssertEquals( 'abcd', $this->mObj->Char, 'Default values did not load using LoadDefaults()' );
@@ -298,7 +325,9 @@
             }
             $this->Assert( $caught, 'Read-only satori attributes should not be changeable' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Read-only satori attributes should remain unchanged after exception is thrown' );
+            $this->AssertEquals( 0, $this->mObj->OnUpdateNumCalls, 'Prior to updating, no calls must be made to OnUpdate by Satori' );
             $this->mObj->Save();
+            $this->AssertEquals( 1, $this->mObj->OnUpdateNumCalls, 'After updating, one call must be made to OnUpdate by Satori' );
             $this->Assert( $this->mObj->Exists(), 'Object should still exist after saving' );
             $this->AssertEquals( 1, $this->mObj->Id, 'Auto-increment value should remain unchanged after updating object' );
             $this->AssertEquals( 'neat', $this->mObj->Char, 'Issuing save to update should not affect char value' );
@@ -334,7 +363,9 @@
         }
         public function TestDeletion() {
             $this->mObj->Delete();
+            $this->AssertEquals( 0, $this->mObj->OnDeleteNumCalls, 'Prior to updating, no calls must be made to OnDelete by Satori' );
             $this->AssertFalse( $this->mObj->Exists(), 'Satori-derived object should not exist after deletion' );
+            $this->AssertEquals( 1, $this->mObj->OnDeleteNumCalls, 'After updating, one call must be made to OnDelete by Satori' );
         }
         public function TearDown() {
             $this->mDbTable->Delete();
