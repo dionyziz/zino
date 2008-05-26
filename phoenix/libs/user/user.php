@@ -139,7 +139,7 @@
             throw New UserException( 'User passwords cannot be retrieved, as they are encrypted' );
         }
         protected function GetLastActive() {
-            return $this->LastActivity->Date;
+            return $this->LastActivity->Updated;
         }
         protected function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
