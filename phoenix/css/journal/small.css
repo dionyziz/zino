@@ -41,12 +41,6 @@ div.journalsmall ul li {
 	margin: 0;
 	display: inline;
 }
-div.journalsmall ul li.readwhole {
-	float: right;
-}
-div.journalsmall ul li.readwhole a {
-	font-size: 90%;
-}
 div.journalsmall ul li dl {
 	padding: 0;
 	margin: 0;
