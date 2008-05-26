@@ -89,14 +89,9 @@ var WYSIWYG = {
             doc.body.removeChild( doc.body.firstChild );
         }
 
-        while ( oldcontents.childNodes.length ) {
-            alert( oldcontents.childNodes[ 0 ].nodeValue );
-            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
-        }
-        
-        WYSIWYG.Enable( which, fieldname );
+        WYSIWYG.Enable( which, fieldname, oldcontents );
     },
-    Enable: function ( which, fieldname ) {
+    Enable: function ( which, fieldname, oldcontents ) {
         try {
             WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
         }
@@ -108,15 +103,15 @@ var WYSIWYG = {
         }
 
         setTimeout( function () {
-            WYSIWYG.Check( which, fieldname );
+            WYSIWYG.Check( which, fieldname, oldcontents );
         }, 100 ); // can't do check inline -- need the timeout for the browser to realize that the designMode has/hasn't taken effect and return us the ~actual~ value, not the one we set it to
     },
-    Check: function ( which, fieldname ) {
+    Check: function ( which, fieldname, oldcontents ) {
         var doc = WYSIWYG.GetDocument( which );
 
         if ( doc.designMode != 'on' ) {
             setTimeout( function () {
-                WYSIWYG.Enable( which, fieldname ); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
+                WYSIWYG.Enable( which, fieldname, oldcontents ); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
             }, 100 );
             return;
         }
@@ -144,6 +139,12 @@ var WYSIWYG = {
             };
         }( scfield, doc );
         which.style.backgroundColor = 'white';
+
+        while ( oldcontents.childNodes.length ) {
+            alert( oldcontents.childNodes[ 0 ].nodeValue );
+            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
+        }
+        
         WYSIWYG.Focus( which );
     }
 };
