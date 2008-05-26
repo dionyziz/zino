@@ -11,14 +11,10 @@
             <index type="primary">
                 <indexfield>favourite_id</indexfield>
             </index>
-            <index type="index" name="USER_FAVOURITES">
-                <indexfield>favourite_userid</indexfield>
-                <indexfield>favourite_typeid</indexfield>
-            </index>
 			<index type="unique">
 				<indexfield>favourite_userid</indexfield>
-				<indexfield>favourite_itemid</indexfield>
 				<indexfield>favourite_typeid</indexfield>
+				<indexfield>favourite_itemid</indexfield>
 			</index>
         </table>
     </database>
