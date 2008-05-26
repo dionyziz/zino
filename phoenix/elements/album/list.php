@@ -6,25 +6,41 @@
 		global $rabbit_settings;
 		global $water;
 		
+		$username = $username->Get();
+		$subdomain = $subdomain->Get();
+		$finder = New UserFinder();
+		if ( $username != '' ) {
+			if ( strtolower( $username ) == strtolower( $user->Name ) ) {
+				$theuser = $user;
+			}
+			else {
+				$theuser = $finder->FindByName( $name );
+			}
+		}
+		else if ( $subdomain != '' ) {
+			if ( strtolower( $subdomain ) == strtolower( $user->Subdomain ) ) {
+				$theuser = $user;
+			}
+			else {
+				$theuser = $finder->FindBySubdomain( $subdomain );
+			}
+		}	
+		if ( !isset( $theuser ) || $theuser === false ) {
+			return Element( '404' );
+		}
+		
+		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
+			$page->SetTitle( $username . " Albums" );
+		}
+		else {
+			$page->SetTitle( $username . " albums" );
+		}
+
 		$offset = $offset->Get();
 		if ( $offset <= 0 ) {
 			$offset = 1;
 		}
-		$username = $username->Get();
-		//$subdomain = $subdomain->Get();
-		$finder = New UserFinder();
-		if ( $username != '' ) {
-			$theuser = $finder->FindByName( $username );
-			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-				$page->SetTitle( $username . " Albums" );
-			}
-			else {
-				$page->SetTitle( $username . " albums" );
-			}
-		}
-		if ( !isset( $theuser ) || $theuser === false ) {
-			return Element( '404' );
-		}
+		
 		$finder = New AlbumFinder();
 		$albums = $finder->FindByUser( $theuser , ( $offset - 1 )*12 , 12 );
 		$water->Trace( 'username: '. $theuser->Name );

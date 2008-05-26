@@ -24,7 +24,6 @@
 				$theuser = $finder->FindBySubdomain( $subdomain );
 			}
 		}
-		
 		if ( !isset( $theuser ) || $theuser === false ) {
 			$page->SetTitle( "Δε βρέθηκε ο χρήστης" );
 			?>Ο χρήστης δεν υπάρχει<?php
@@ -37,7 +36,6 @@
 		else {
 			$page->SetTitle( $theuser->Name . " ημερολόγιο" );
 		}
-
 		
 		$offset = $offset->Get();
 		if ( $offset <= 0 ) {
