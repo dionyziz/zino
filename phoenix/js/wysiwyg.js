@@ -87,6 +87,24 @@ var WYSIWYG = {
         while ( doc.body.firstChild ) {
             doc.body.removeChild( doc.body.firstChild );
         }
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
+
+        alert( oldcontents.length );
         
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
