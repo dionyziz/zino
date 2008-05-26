@@ -4,9 +4,10 @@ var JournalNew = {
 		var text = WYSIWYG.ByName[ 'text' ].getContents();
 		if ( title === '' ) {
 			alert( "Πρέπει να ορίσεις τίτλο" );
+			$( 'div#journalnew form div.title input' )[ 0 ].focus();
 			return;
 		}
-		if ( text === '<br>' ) {
+		if ( text.length < 5 ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενή καταχώρηση" );
 			return;
 		}
