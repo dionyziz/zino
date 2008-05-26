@@ -5,8 +5,6 @@
 		global $water;
 		
     	$newuser = $newuser->Get(); // TODO
-        
-        $page->AttachScript( 'js/frontpage.js' );
         ?><div class="frontpage"><?php
 		if ( $newuser ) {
 			?><div class="ybubble">
