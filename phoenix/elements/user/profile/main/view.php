@@ -25,7 +25,7 @@
 			if ( !empty( $polls ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3>
-					<div><?php
+					<div class="container"><?php
 					Element( 'poll/small' , $polls[ 0 ] , true );
 					?></div>
 					<a href="?p=polls&amp;username=<?php

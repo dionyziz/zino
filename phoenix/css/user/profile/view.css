@@ -239,6 +239,9 @@ div#profile div.main div.lastpoll h4 {
 	padding: 2px 0 0 0;
 	margin: 0;
 }
+div#profile div.main div.lastpoll div.container {
+	margin-bottom: 10px;
+}
 div#profile div.main div.lastpoll a.button {
 	margin-left: 0;
 }
