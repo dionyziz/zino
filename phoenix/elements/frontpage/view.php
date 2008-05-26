@@ -91,6 +91,7 @@
 		<div class="nowonline"><?php
 			$finder = New UserFinder();
 			$users = $finder->FindOnline( 0 , 50 );
+			$water->Trace( 'onlineusers are: ' . count( $users ) );
 			if ( count( $users ) > 0 ) {
 				?><h2>Είναι online τώρα</h2>
 				<div class="list"><?php
