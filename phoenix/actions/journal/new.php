@@ -13,11 +13,13 @@
 		if ( $id != 0 ) {
 			$journal = New Journal( $id );
 			if ( $journal->User->Id != $user->Id ) {
+                die( 'You can\'t edit this journal' );
 				return;
 			}
 		}
 		else {
             if ( !$user->Exists() ) {
+                die( 'You must login first' );
                 return;
             }
 			$journal = New Journal();
@@ -25,8 +27,6 @@
 		$journal->Title = $title;
 
         $libs->Load( 'sanitizer' );
-
-        die( 'fools' );
 
         $sanitizer = New XHTMLSanitizer();
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
