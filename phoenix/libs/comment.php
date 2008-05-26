@@ -4,17 +4,8 @@
         Developer: abresas
     */
 
-    define( 'COMMENT_JOURNAL', 0 );
-    define( 'COMMENT_USERPROFILE', 1 );
-    define( 'COMMENT_IMAGE',   2 );
-    define( 'COMMENT_POLL',    3 );
-
     define( 'COMMENT_PAGE_LIMIT', 50 );
 	
-	function Comments_TypeFromEntity( $entity ) {
-		return constant( 'COMMENT_' . strtoupper( get_class( $entity ) ) );
-	}
-
     function Comments_CountChildren( $comments, $id ) {
 		$count = 0;
 		foreach ( $comments as $comment ) {
@@ -247,14 +238,14 @@
         }
         public function FindNear( $entity, $comment, $reverse = true ) {
             $prototype = New Comment();
-            $prototype->Typeid = Comments_TypeFromEntity( $entity );
+            $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true ) {
             $prototype = New Comment();
-            $prototype->Typeid = Comments_TypeFromEntity( $entity );
+            $prototype->Typeid = Comments_TypeFromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_OnPage( $this->FindByPrototype( $prototype ), $page, $reverse );
@@ -360,24 +351,7 @@
             return parent::Save();
         }
         public function Relations() {
-            switch ( $this->Typeid ) {
-                case COMMENT_JOURNAL:
-                    $class = 'Journal';
-                    break;
-                case COMMENT_USERPROFILE:
-                    $class = 'UserProfile';
-                    break;
-                case COMMENT_IMAGE:
-                    $class = 'Image';
-                    break;
-                case COMMENT_POLL:
-                    $class = 'Poll';
-                    break;
-                default:
-                    throw new Exception( 'Invalid comment typeid: ' . $this->Typeid );
-            }
-
-            $this->Item = $this->HasOne( $class, 'Itemid' );
+            $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
             $this->Parent = $this->HasOne( 'Comment', 'Parentid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
