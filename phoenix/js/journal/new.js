@@ -1,10 +1,16 @@
 var JournalNew = {
 	Create : function( journalid ) {
-		alert( journalid );
-		var text = WYSIWYG.ByName[ 'text' ].getContents();
-		alert( text );
 		var title = $( 'div#journalnew form div.title input' )[ 0 ].value;
-		alert( title );
+		var text = WYSIWYG.ByName[ 'text' ].getContents();
+		if ( title === '' ) {
+			alert( "Πρέπει να ορίσεις τίτλο" );
+			return;
+		}
+		if ( text === '<br>' ) {
+			alert( "Δε μπορείς να δημοσιεύσεις κενή καταχώρηση" );
+			return;
+		}
+		$( 'div#journalnew form' )[ 0 ].submit();
 	},
 	Edit : function( journalid ) {
 	
