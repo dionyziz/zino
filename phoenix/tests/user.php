@@ -159,6 +159,10 @@
             $this->Assert( $user instanceof User, 'User_Login did not return a user object after logging out' ); 
             $this->AssertFalse( $user->Exists(), 'User returned by User_Login after logging out should not exist' );
         }
+        public function TestLastActive() {
+            $this->mUser->LastActivity->Save();
+            $this->Assert( abs( strtotime( $this->mUser->LastActive ) - now() ) < 60, 'User last active did not update correctly' );
+        }
         public function TestEditUser() {
             $this->mUser->Name = 'testuser';
             $this->mUser->Password = 'password';

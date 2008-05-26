@@ -11,6 +11,10 @@
     class UserLastActive extends Satori {
         protected $mDbTableAlias = 'lastactive';
         
+        public function Save() {
+            $this->Updated = NowDate();
+            parent::Save();
+        }
         public function LoadDefaults() {
             $this->Updated = NowDate();
         }
