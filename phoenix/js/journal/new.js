@@ -1,6 +1,10 @@
 var JournalNew = {
 	Create : function( journalid ) {
-	
+		alert( journalid );
+		var text = WYSIWYG.ByName[ 'text' ].getContents();
+		alert( text );
+		var title = $( 'div#journalnew form div.title input' )[ 0 ].value;
+		alert( title );
 	},
 	Edit : function( journalid ) {
 	
