@@ -1,6 +1,6 @@
 var Frontpage = {
 	Closenewuser : function ( node ) {
-		$( 'div.frontpage div.ybubble' ).animate( { height : '0'} , 600 , function() {
+		$( 'div.frontpage div.ybubble' ).animate( { height : '0'} , 800 , function() {
 			$( this ).remove();
 		} );
 	},
