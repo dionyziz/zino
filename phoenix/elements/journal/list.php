@@ -24,17 +24,20 @@
 				$theuser = $finder->FindBySubdomain( $subdomain );
 			}
 		}
-
-		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-			$page->SetTitle( $username . " Ημερολόγιο" );
-		}
-		else {
-			$page->SetTitle( $username . " ημερολόγιο" );
-		}
+		
 		if ( !isset( $theuser ) || $theuser === false ) {
+			$page->SetTitle( "Δε βρέθηκε ο χρήστης" );
 			?>Ο χρήστης δεν υπάρχει<?php
 			return;
 		}
+		
+		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
+			$page->SetTitle( $theuser->Name . " Ημερολόγιο" );
+		}
+		else {
+			$page->SetTitle( $theuser->Name . " ημερολόγιο" );
+		}
+
 		
 		$offset = $offset->Get();
 		if ( $offset <= 0 ) {
