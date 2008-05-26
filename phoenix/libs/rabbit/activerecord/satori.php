@@ -328,6 +328,9 @@
         protected function OnCreate() {
             // override me
         }
+        protected function OnDelete() {
+            // override me
+        }
         public function Delete() {
             if ( !$this->Exists() ) {
                 throw New SatoriException( 'Cannot delete non-existing Satori object' );
@@ -351,7 +354,12 @@
             $query->BindTable( $this->mDbTableAlias );
             
             $this->mExists = false;
-            return $query->Execute();
+
+            $res = $query->Execute();
+
+            $this->OnDelete();
+
+            return $res;
         }
         protected function InitializeFields() {
             if ( !( $this->mDb instanceof Database ) ) {
