@@ -37,13 +37,13 @@
 				?><a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
 			</div><?php
 			if ( !empty( $polls ) /*or not empty questions*/ ) {
-				?><div class="eof"></div>
+				?><div style="clear:right"></div>
 				<div class="barfade">
 					<div class="leftbar"></div>
 					<div class="rightbar"></div>
 				</div><?php
 			}
-			?><div style="clear:right"></div><?php
+			?><?php
 			if ( !empty( $journals ) ) {
 				?><div class="lastjournal">
 					<h3>Ημερολόγιο</h3><?php
