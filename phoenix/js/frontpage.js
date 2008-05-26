@@ -1,14 +1,7 @@
 var Frontpage = {
 	Closenewuser : function ( node ) {
-		var parent = node.parentNode;
-		parent.removeChild( node );
-		Animations.Create( parent, 'height', 5000, 100, 0, function() {
-			node.parentNode.removeChild( parent);
-		} );
-		
-		Animations.Create( parent, 'opacity', 800, 10, 0, function () {
-			parent.style.marginBottom = '0';	
-			parent.style.padding = '0';
+		$( 'div.frontpage div.ybubble' ).animate( { height : '0'} , 600 , function() {
+			$( this ).remove();
 		} );
 	},
 	Showunis : function( node ) {

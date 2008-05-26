@@ -31,6 +31,7 @@
 		$page->AttachScript( 'js/banner.js' );
 		$page->AttachScript( 'js/settings.js' );
         $page->AttachScript( 'js/wysiwyg.js' );
+		$page->AttachScript( 'js/frontpage.js' );
 		
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
