@@ -67,7 +67,7 @@ var WYSIWYG = {
         
         var oldcontents = where.cloneNode( true );
 
-        alert( oldcontents.length );
+        alert( oldcontents.childNodes.length );
         alert( oldcontents );
         alert( typeof oldcontents );
 
@@ -92,6 +92,8 @@ var WYSIWYG = {
         while ( doc.body.firstChild ) {
             doc.body.removeChild( doc.body.firstChild );
         }
+
+        alert( oldcontents.childNodes.length );
 
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
