@@ -54,12 +54,12 @@ var WYSIWYG = {
                     WYSIWYG.Focus( which );
                     return false;
                 };
-            }( buttons[ i ][ 'command' ], buttons[ i ][ 'parameters' ] );
+            }( buttons[ i ].command, buttons[ i ].parameters );
             var tooltip = document.createElement( 'span' );
             var img = document.createElement( 'img' );
-            img.src = buttons[ i ][ 'image' ];
-            img.alt = buttons[ i ][ 'tooltip' ];
-            tooltip.appendChild( document.createTextNode( buttons[ i ][ 'tooltip' ] ) );
+            img.src = buttons[ i ].image;
+            img.alt = buttons[ i ].tooltip;
+            tooltip.appendChild( document.createTextNode( buttons[ i ].tooltip ) );
             link.appendChild( img );
             link.appendChild( tooltip );
             toolbox.appendChild( link );
@@ -130,8 +130,9 @@ var WYSIWYG = {
         var oldonsubmit = frm.onsubmit? frm.onsubmit: function () {};
         frm.onsubmit = function ( sc, ifdoc ) {
             return function () {
-                oldonsubmit();
+                var ret = oldonsubmit();
                 sc.value = ifdoc.body.innerHTML;
+                return ret;
             };
         }( scfield, doc );
         which.style.backgroundColor = 'white';

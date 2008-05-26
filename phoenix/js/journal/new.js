@@ -1,7 +1,7 @@
 var JournalNew = {
 	Create : function( journalid ) {
 		var title = $( 'div#journalnew form div.title input' )[ 0 ].value;
-		var text = WYSIWYG.ByName[ 'text' ].getContents();
+		var text = WYSIWYG.ByName.text.getContents();
 		if ( title === '' ) {
 			alert( "Πρέπει να ορίσεις τίτλο" );
 			$( 'div#journalnew form div.title input' )[ 0 ].focus();
