@@ -29,11 +29,11 @@
 			return Element( '404' );
 		}
 		
-		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-			$page->SetTitle( $username . " Albums" );
+		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
+			$page->SetTitle( $theuser->Name . " Albums" );
 		}
 		else {
-			$page->SetTitle( $username . " albums" );
+			$page->SetTitle( $theuser->Name . " albums" );
 		}
 
 		$offset = $offset->Get();

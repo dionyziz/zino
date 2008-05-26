@@ -35,11 +35,11 @@
 		if ( $offset <= 0 ) {
 			$offset = 1;
 		}
-		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-			$page->SetTitle( $username . " Δημοσκοπήσεις" );
+		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
+			$page->SetTitle( $theuser->Name . " Δημοσκοπήσεις" );
 		}
 		else {
-			$page->SetTitle( $username . " δημοσκοπήσεις" );
+			$page->SetTitle( $theuser->Name . " δημοσκοπήσεις" );
 		}
 
 		$finder = New PollFinder();
