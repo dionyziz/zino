@@ -13,10 +13,10 @@
 					Element( 'image' , $image , 100 , 100 , '' , $image->Name , $image->Name , '' );
 					?></a></li><?php
 				}
-				if ( $egoalbum->Numphotos > 10 ) {
+				if ( $egoalbum->Numphotos > 8 ) {
 					?><li><a href="?p=album&amp;id=<?php
 					echo $egoalbum->Id;
-					?>" class="button">&raquo;</a></li><?php
+					?>" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a></li><?php
 				}
 			?></ul><?php
 		}
