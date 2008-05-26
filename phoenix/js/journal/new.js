@@ -1,7 +1,7 @@
 var JournalNew = {
 	Create : function( journalid ) {
 		alert( journalid );
-		var text = WYSIWYG.ByName[ 'text' ].getContents();
+		var text = WYSIWYG.ByName[ 'wysiwyg' ].getContents();
 		alert( text );
 		var title = $( 'div#journalnew form div.title input' )[ 0 ].value;
 		alert( title );
