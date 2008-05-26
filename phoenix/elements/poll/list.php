@@ -8,12 +8,7 @@
 		
 		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
-		
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
-		}
-		//$subdomain = $subdomain->Get();
+		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $name != '' ) {
 			if ( strtolower( $name ) == strtolower( $subdomain ) ) {
@@ -36,6 +31,10 @@
 			return;
 		}		
 		
+		$offset = $offset->Get();
+		if ( $offset <= 0 ) {
+			$offset = 1;
+		}
 		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
 			$page->SetTitle( $username . " Δημοσκοπήσεις" );
 		}

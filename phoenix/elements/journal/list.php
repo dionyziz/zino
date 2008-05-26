@@ -1,21 +1,35 @@
 <?php
 	
-	function ElementJournalList( tString $username , tInteger $offset ) {
+	function ElementJournalList( tString $username , tString $subdomain , tInteger $offset ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
 		
 		$username = $username->Get();
-		$finder = New UserFinder();
-
-		if ( $username != '' ) {
-			$theuser = $finder->FindByName( $username );
-			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-				$page->SetTitle( $username . " Ημερολόγιο" );
+		$subdomain = $subdomain->Get();
+		$finder = New UserFinder();	
+		if ( $name != '' ) {
+			if ( strtolower( $name ) == strtolower( $user->Name ) ) {
+				$theuser = $user;
 			}
 			else {
-				$page->SetTitle( $username . " ημερολόγιο" );
+				$theuser = $finder->FindByName( $name );
 			}
+		}
+		else if ( $subdomain != '' ) {
+			if ( strtolower( $subdomain ) == strtolower( $user->Subdomain ) ) {
+				$theuser = $user;
+			}
+			else {
+				$theuser = $finder->FindBySubdomain( $subdomain );
+			}
+		}
+
+		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
+			$page->SetTitle( $username . " Ημερολόγιο" );
+		}
+		else {
+			$page->SetTitle( $username . " ημερολόγιο" );
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
 			return Element( '404' );

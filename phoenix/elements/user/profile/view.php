@@ -8,7 +8,7 @@
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
 		if ( $name != '' ) {
-			if ( strtolower( $name ) == strtolower( $subdomain ) ) {
+			if ( strtolower( $name ) == strtolower( $user->Name ) ) {
 				$theuser = $user;
 			}
 			else {
@@ -23,8 +23,8 @@
 				$theuser = $finder->FindBySubdomain( $subdomain );
 			}
 		}
-		if ( $theuser === false ) {
-			return Element( '404' );
+		if ( !isset( $theuser ) || $theuser === false ) {
+			?>Ο χρήστης δεν υπάρχει<?php
 		}
 		$page->SetTitle( $theuser->Name );
 		?><div id="profile"><?php
