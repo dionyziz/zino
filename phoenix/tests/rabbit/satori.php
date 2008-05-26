@@ -362,10 +362,10 @@
             $this->AssertFalse( $none, 'Unique finder functions must return false if they can\'t find target' );
         }
         public function TestDeletion() {
+            $this->AssertEquals( 0, $this->mObj->OnDeleteNumCalls, 'Prior to deleting, no calls must be made to OnDelete by Satori' );
             $this->mObj->Delete();
-            $this->AssertEquals( 0, $this->mObj->OnDeleteNumCalls, 'Prior to updating, no calls must be made to OnDelete by Satori' );
             $this->AssertFalse( $this->mObj->Exists(), 'Satori-derived object should not exist after deletion' );
-            $this->AssertEquals( 1, $this->mObj->OnDeleteNumCalls, 'After updating, one call must be made to OnDelete by Satori' );
+            $this->AssertEquals( 1, $this->mObj->OnDeleteNumCalls, 'After deleting, one call must be made to OnDelete by Satori' );
         }
         public function TearDown() {
             $this->mDbTable->Delete();
