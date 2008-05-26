@@ -8,21 +8,28 @@
         $page->AttachStylesheet( 'css/jslint.css' );
         
         $jspath = $rabbit_settings[ 'rootdir' ] . '/js';
-        $dir = opendir( $jspath );
         if ( $dir === false ) {
             ?>Failed to open dir.<?php
             return;
         }
         $jslintsources = array();
-        while ( false !== ( $file = readdir( $dir ) ) ) {
-            switch ( $file ) {
-                case '.':
-                case '..':
-                    break;
-                default:
-                    if ( !is_dir( $jspath . '/' . $file ) && substr( $file, -3 ) == '.js' ) {
-                        $jslintsources[ $file ] = file_get_contents( $jspath . '/' . $file );
-                    }
+        $queue = array( $jspath );
+        while ( !empty( $queue ) ) {
+            $path = array_pop( $queue );
+            $dir = opendir( $path );
+            while ( false !== ( $file = readdir( $dir ) ) ) {
+                switch ( $file ) {
+                    case '.':
+                    case '..':
+                        break;
+                    default:
+                        if ( !is_dir( $path . '/' . $file ) && substr( $file, -3 ) == '.js' ) {
+                            $jslintsources[ substr( $path . '/' . $file, strlen( $jspath ) ) ] = file_get_contents( $path . '/' . $file );
+                        }
+                        else if ( is_dir( $path . '/' . $file ) ) {
+                            $queue[] = opendir( $path . '/' . $file );
+                        }
+                }
             }
         }
         ?>
