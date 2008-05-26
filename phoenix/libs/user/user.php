@@ -99,7 +99,7 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
-            return $this->FindBySQLResult( $query->Execute() );
+            return $this->FindBySQLResource( $query->Execute() );
         }
 		public function Count() {
 			$query = $this->mDb->Prepare(
