@@ -89,7 +89,7 @@ var WYSIWYG = {
     },
     Enable: function ( which, fieldname, oldcontents ) {
         try {
-            WYSIWYG.ByName[ fieldname ] = new xbDesignMode( which );
+            WYSIWYG.ByName[ fieldname ] = new XbDesignMode( which );
         }
         catch ( e ) { // not ready yet, retry in another 100ms
             setTimeout( function () {
@@ -185,7 +185,7 @@ var WYSIWYG = {
 
 */ 
  
-function xbDesignMode( aIFrame ) {
+function XbDesignMode( aIFrame ) {
     this.mEditorDocument = null;
     this.mIFrameElement = null;
 
@@ -215,7 +215,7 @@ function xbDesignMode( aIFrame ) {
 }
 
 
-xbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
+XbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
     if ( this.mEditorDocument ) {
         this.mEditorDocument.execCommand( aCommandName, false, aParam );
     }
@@ -224,7 +224,7 @@ xbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
     }
 };
 
-xbDesignMode.prototype.setCSSCreation = function ( aUseCss ) {
+XbDesignMode.prototype.setCSSCreation = function ( aUseCss ) {
     if ( this.mEditorDocument ) {
         this.mEditorDocument.execCommand( "styleWithCSS", false, aUseCss );
     }
@@ -233,7 +233,7 @@ xbDesignMode.prototype.setCSSCreation = function ( aUseCss ) {
     }
 };
 
-xbDesignMode.prototype.getContents = function () {
+XbDesignMode.prototype.getContents = function () {
     return this.mEditorDocument.body.innerHTML;
 };
 
