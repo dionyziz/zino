@@ -12,7 +12,7 @@ var Banner = {
 			return;
 		}
 		Banner.isanimating = true;
-		if ( options[ 0 ].style.display == '' ) {
+		if ( options[ 0 ].style.display === '' ) {
 			//Animations.Create( menu, 'opacity', 500, 1, 0, function () {
 			$( menu ).animate( { opacity: "0" } , function() {
 				options[ 0 ].style.display = 'none';
