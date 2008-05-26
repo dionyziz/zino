@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumList( tString $username , tInteger $offset ) {
+	function ElementAlbumList( tString $username , tString $subdomain , tInteger $offset ) {
 		global $page;
 		global $user;
 		global $rabbit_settings;
