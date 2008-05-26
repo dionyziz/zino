@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollList( tString $username , tInteger $offset ) {
+	function ElementPollList( tString $username , tString $subdomain , tInteger $offset ) {
 		global $libs;
 		global $page;
 		global $rabbit_settings;
@@ -15,18 +15,33 @@
 		}
 		//$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
-		if ( $username != '' ) {
-			$theuser = $finder->FindByName( $username );
-			if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
-				$page->SetTitle( $username . " Δημοσκοπήσεις" );
+		if ( $name != '' ) {
+			if ( strtolower( $name ) == strtolower( $subdomain ) ) {
+				$theuser = $user;
 			}
 			else {
-				$page->SetTitle( $username . " δημοσκοπήσεις" );
+				$theuser = $finder->FindByName( $name );
+			}
+		}
+		else if ( $subdomain != '' ) {
+			if ( strtolower( $subdomain ) == strtolower( $user->Subdomain ) ) {
+				$theuser = $user;
+			}
+			else {
+				$theuser = $finder->FindBySubdomain( $subdomain );
 			}
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
 			return Element( '404' );
+		}		
+		
+		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
+			$page->SetTitle( $username . " Δημοσκοπήσεις" );
 		}
+		else {
+			$page->SetTitle( $username . " δημοσκοπήσεις" );
+		}
+
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser  , ( $offset - 1 )*5 , 5 );
 

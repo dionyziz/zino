@@ -2,7 +2,9 @@
 
 	function ElementUserSections( $section , $theuser ) {
 		?><div class="usersections">
-			<a href=""><?php
+			<a href="?p=user&amp;subdomain=<?php
+				echo $theuser->Subdomain;
+				?>"><?php
 				Element( 'user/avatar' , $theuser , 150 , '' , '' );
 				?><span class="name"><?php
 				echo $theuser->Name;
