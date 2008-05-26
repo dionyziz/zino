@@ -37,7 +37,8 @@
 				?><a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
 			</div><?php
 			if ( !empty( $polls ) /*or not empty questions*/ ) {
-				?><div class="barfade">
+				?><div class="eof"></div>
+				<div class="barfade">
 					<div class="leftbar"></div>
 					<div class="rightbar"></div>
 				</div><?php
