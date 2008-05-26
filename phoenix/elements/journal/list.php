@@ -32,7 +32,7 @@
 			$page->SetTitle( $username . " ημερολόγιο" );
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
-			return Element( '404' );
+			?>Ο χρήστης δεν υπάρχει<?php
 		}
 		
 		$offset = $offset->Get();
