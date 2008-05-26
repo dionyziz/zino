@@ -10,8 +10,8 @@
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
-		if ( $name != '' ) {
-			if ( strtolower( $name ) == strtolower( $subdomain ) ) {
+		if ( $username != '' ) {
+			if ( strtolower( $username ) == strtolower( $user->Name ) ) {
 				$theuser = $user;
 			}
 			else {
