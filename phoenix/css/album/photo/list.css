@@ -75,8 +75,8 @@ div#photolist  div.uploaddiv {
 	height: 60px;
 	width: 300px;
 	position: absolute;
-	top: 30px;
-	right: 0;
+	top: 175px;
+	right: 30px;
 	margin-top: -40px;
 }
 div#photolist div.uploaddiv object.uploadframe {
