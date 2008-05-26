@@ -6,7 +6,7 @@
 			$finder = New ImageFinder();
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
 			?><ul><?php
-				foreach( $image as $image ) {
+				foreach( $images as $image ) {
 					?><li><a href="?p=photo&amp;id=<?php
 					echo $image->Id;
 					?>"><?php
