@@ -90,7 +90,7 @@
             $profile = $this->mUser->Profile;
             $this->AssertFalse( $profile->Religion, 'Religion should be false by default' );
             $this->AssertFalse( $profile->Education, 'Education should be false by default' );
-            $this->AssertFalse( $profile->SexualOrientation, 'Sexual orientation should be false by default' );
+            $this->AssertFalse( $profile->Sexualorientation, 'Sexual orientation should be false by default' );
             $this->AssertFalse( $profile->Smoker, 'Smoker should be false by default' );
             $this->AssertFalse( $profile->Drinker, 'Drinker should be false by default' );
             $this->AssertFalse( $profile->Mood->Exists(), 'Mood should be a non-existing mood by default' );
