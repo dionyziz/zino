@@ -1,3 +1,11 @@
+var JournalNew = {
+	Create : function( journalid ) {
+	
+	},
+	Edit : function( journalid ) {
+	
+	}
+};
 $( document ).ready( function() {
     if ( $( '#journalnew' )[ 0 ] ) {
         window.title = 'Firing "Create"';

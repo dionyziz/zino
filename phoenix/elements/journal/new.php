@@ -34,7 +34,7 @@
                     }
                     ?></div>
 					<div class="submit">
-						<input type="submit" value="Δημοσίευση" onclick="JournalView.Create( '<?php
+						<input type="submit" value="Δημοσίευση" onclick="JournalNew.Create( '<?php
 						echo $id;
 						?>' );return false;" />
 					</div>
