@@ -130,7 +130,6 @@ var WYSIWYG = {
         var oldonsubmit = frm.onsubmit? frm.onsubmit: function () {};
         frm.onsubmit = function ( sc, ifdoc ) {
             return function () {
-                alert( 'Submitting' );
                 oldonsubmit();
                 sc.value = ifdoc.body.innerHTML;
             };
