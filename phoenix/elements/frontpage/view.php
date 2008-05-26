@@ -88,43 +88,22 @@
 			?></div><?php
 		}
 		?><div class="eof"></div>
-		<div class="nowonline">
-			<h2>Είναι online τώρα</h2>
-			<div class="list">
-				<a href="http://klio.zino.gr"><img src="images/avatars/klio.jpg" alt="klio" /></a>
-				<a href="http://teddy.zino.gr"><img src="images/avatars/teddy.jpg" alt="teddy" /></a>
-				<a href="http://elenh.zino.gr"><img src="images/avatars/elenh.jpg" alt="_El3nh_" /></a>
-				<a href="http://dionyziz.zino.gr"><img src="images/avatars/dionyziz.jpg" alt="dionyziz" /></a>
-				<a href="http://seraphim.zino.gr"><img src="images/avatars/seraphim.jpg" alt="seraphim" /></a>
-				<a href="http://morvena.zino.gr"><img src="images/avatars/morvena.jpg" alt="morvena" /></a>
-				<a href="http://kostis90gr.zino.gr"><img src="images/avatars/kostis90gr.jpg" alt="kostis90gr" /></a>
-				<a href="http://ctef.zino.gr"><img src="images/avatars/ctef.jpg" alt="ctef" /></a>
-				<a href="http://izual.zino.gr"><img src="images/avatars/izual.jpg" alt="izual" /></a>
-				<a href="http://cafrillio.zino.gr"><img src="images/avatars/cafrillio.jpg" alt="cafrillio" /></a>
-				<a href="http://ulee.zino.gr"><img src="images/avatars/ulee.jpg" alt="uLee" /></a>
-				<a href="http://scorpion.zino.gr"><img src="images/avatars/scorpion.jpg" alt="scorpion" /></a>
-				<a href="http://porcelain-barbie.zino.gr"><img src="images/avatars/porcelain_barbie.jpg" alt="porcelain_barbie" /></a>
-				<a href="http://rhapsody.zino.gr"><img src="images/avatars/rhapsody.jpg" alt="rhapsody" /></a>
-				<a href="http://katrine.zino.gr"><img src="images/avatars/katrine.jpg" alt="katrine" /></a>
-				<a href="http://gatoni.zino.gr"><img src="images/avatars/gatoni.jpg" alt="gatoni" /></a>
-				<a href="http://georgia.zino.gr"><img src="images/avatars/georgia.jpg" alt="georgia" /></a>
-				<a href="http://drag.zino.gr"><img src="images/avatars/drag.jpg" alt="drag" /></a>
-				<a href="http://eva483.zino.gr"><img src="images/avatars/eva483.jpg" alt="eva483" /></a>
-				<a href="http://mpoompoo.zino.gr"><img src="images/avatars/mpoompoo.jpg" alt="mpoompoo" /></a>
-				<a href="http://hara16.zino.gr"><img src="images/avatars/hara16.jpg" alt="hara16" /></a>
-				<a href="http://olia_kaulitz.zino.gr"><img src="images/avatars/olia_kaulitz.jpg" alt="olia_kaulitz" /></a>
-				<a href="http://nenoooz.zino.gr"><img src="images/avatars/nenoooz.jpg" alt="nenoooz" /></a>
-				<a href="http://vivika.zino.gr"><img src="images/avatars/vivika.jpg" alt="vivika" /></a>
-				<a href="http://tnt.zino.gr"><img src="images/avatars/tnt.jpg" alt="tnt" /></a>
-				<a href="http://titi.zino.gr"><img src="images/avatars/titi.jpg" alt="titi" /></a>
-				<a href="http://zoulou.zino.gr"><img src="images/avatars/zoulou.jpg" alt="zoulou" /></a>
-				<a href="http://vacilina.zino.gr"><img src="images/avatars/vacilina.jpg" alt="vacilina" /></a>
-				<a href="http://aserhcp.zino.gr"><img src="images/avatars/aserhcp.jpg" alt="aserhcp" /></a>
-				<a href="http://argiro-18.zino.gr"><img src="images/avatars/argiro-18.jpg" alt="argiro_18" /></a>
-				<a href="http://arloucoz.zino.gr"><img src="images/avatars/arloucoz.jpg" alt="arloucoz" /></a>
-				<a href="http://aztokiohotel09.zino.gr"><img src="images/avatars/aztokiohotel09.jpg" alt="aztokiohotel09" /></a>			
-			</div>
-		</div>
+		<div class="nowonline"><?php
+			$finder = New UserFinder();
+			$users = $finder->FindOnline( 0 , 50 );
+			if ( count( $users ) > 0 ) {
+				?><h2>Είναι online τώρα</h2>
+				<div class="list"><?php
+					foreach( $users as $onuser ) {
+						?><a href="?p=user&amp;subdomain=<?php
+						echo $onuser->Subdomain;
+						?>"><?php
+						Element( 'user/avatar' , $onuser , 150 , '' , '' );
+						?></a><?php
+					}	
+				?></div><?php
+			}
+		?></div>
 		<div class="eof"></div>
 	</div><?php
 	}

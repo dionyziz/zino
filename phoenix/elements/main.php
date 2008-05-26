@@ -14,7 +14,7 @@
 		//$page->AttachScript( 'js/script.js.php' );
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
 		$page->AttachScript( 'js/modal.js' );
-		$page->AttachScript( 'js/main.js' );
+		/*$page->AttachScript( 'js/main.js' );*/
 		$page->AttachScript( 'js/trivial/dates.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/album/list.js' );
