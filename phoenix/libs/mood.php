@@ -3,4 +3,3 @@
         protected $mDbTableAlias = 'moods';    
     }
 ?>
-
