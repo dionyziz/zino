@@ -66,6 +66,11 @@ var WYSIWYG = {
         }
         
         var oldcontents = where.cloneNode( true );
+
+        alert( oldcontents.length );
+        alert( oldcontents );
+        alert( typeof oldcontents );
+
         while ( where.firstChild ) {
             where.removeChild( where.firstChild );
         }
@@ -88,24 +93,6 @@ var WYSIWYG = {
             doc.body.removeChild( doc.body.firstChild );
         }
 
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-
-        alert( oldcontents.length );
-        
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
