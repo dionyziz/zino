@@ -32,7 +32,8 @@
 			}
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
-			return Element( '404' );
+			?>Ο χρήστης δεν υπάρχει<?php
+			return;
 		}		
 		
 		if ( strtoupper( substr( $username, 0, 1 ) ) == substr( $username, 0, 1 ) ) {
