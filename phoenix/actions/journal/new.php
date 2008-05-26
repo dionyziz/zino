@@ -26,6 +26,8 @@
 
         $libs->Load( 'sanitizer' );
 
+        die( 'fools' );
+
         $sanitizer = New XHTMLSanitizer();
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
             if ( $tag == '' ) {
