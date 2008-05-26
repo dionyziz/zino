@@ -24,9 +24,11 @@
 			</div><?php
 			if ( !empty( $polls ) ) {
 				?><div class="lastpoll">
-					<h3>Δημοσκοπήσεις</h3><?php
+					<h3>Δημοσκοπήσεις</h3>
+					<div><?php
 					Element( 'poll/small' , $polls[ 0 ] , true );
-					?><a href="?p=polls&amp;username=<?php
+					?></div>
+					<a href="?p=polls&amp;username=<?php
 					echo $theuser->Subdomain;
 					?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
 				</div><?php
