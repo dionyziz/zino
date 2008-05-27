@@ -32,7 +32,9 @@
 
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+			if ( $this->Exists() ) {
+				$this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+			}
 		}
 		public function LoadDefaults() {
 			global $user;
