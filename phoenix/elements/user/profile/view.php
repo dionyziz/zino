@@ -24,7 +24,8 @@
 			}
 		}
 		if ( !isset( $theuser ) || $theuser === false ) {
-			?>Ο χρήστης δεν υπάρχει<?php
+			?>Ξ Ο‡ΟΞ®ΟƒΟ„Ξ·Ο‚ Ξ΄ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ<?php
+			return;
 		}
 		$page->SetTitle( $theuser->Name );
 		?><div id="profile"><?php
