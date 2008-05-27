@@ -2,7 +2,9 @@
 	
 	function ElementJournalSmall( $journal ) {
 		global $user;
+		global $libs;
 		
+		$libs->Load( 'favourite' );
 		$finder = New FavouriteFinder();
 		$fav = $finder->FindByUserAndEntity( $user, $journal );
 		?><div class="journalsmall">
