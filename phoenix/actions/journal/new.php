@@ -48,6 +48,10 @@
         $sanitizer->SetSource( $text );
 		$journal->Text = $sanitizer->GetXHTML();
 
+        global $water;
+
+        $water->DebugThis();
+
         die( '///' . $text . '///' . $journal->Text . '///' );
 
 		$journal->Save();
