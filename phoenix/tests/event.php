@@ -4,6 +4,7 @@
         protected $mAppliesTo = 'libs/event';
         private $mEventId;
 		private $mUser;
+		private $mUser2;
 
         public function SetUp() {
             global $libs;
@@ -14,6 +15,11 @@
 			$this->mUser->Name = 'testevents';
 			$this->mUser->Subdomain = 'testevents';
 			$this->mUser->Save();
+
+			$this->mUser2 = New User();
+			$this->mUser2->Name = 'testevents2';
+			$this->mUser2->Subdomain = 'testevents2';
+			$this->mUser2->Save();
         }
         public function TestFunctionsExist() {
             $this->Assert( class_exists( 'Event' ), 'Event class does not exist' );
@@ -69,15 +75,59 @@
 			$event = $events[ 0 ];
 			$this->AssertEquals( $this->mEventId, $event->Id );
 			$this->AssertEquals( EVENT_USERPROFILE_MOOD_UPDATED, $event->Typeid );
-			$this->AssertEquals( 1, $event->Itemid );
-			$this->AssertEquals( 3, $event->Userid );
+			$this->AssertEquals( $this->mUser->Id, $event->Itemid );
+			$this->AssertEquals( $this->mUser->Id, $event->Userid );
 			
 			$this->Assert( 'UserProfile', get_class( $event->Object ), 'Event model should be instance of UserProfile' );
 		}
 		public function TestFindByUser() {
 			$event = New Event();
+			$event->Userid = $this->mUser->Id;
+			$event->Typeid = EVENT_USERPROFILE_UPDATED;
+			$event->Itemid = $this->mUser->Id;
+			$event->Save();
+
+			$event = New Event();
+			$event2->Userid = $this->mUser->Id;
+			$event2->Typeid = EVENT_USERPROFILE_VISITED;
+			$event2->Itemid = $this->mUser->Id;
+			$event2->Save();
+
+			$finder = New EventFinder();
+			$events = $finder->FindByUser( $this->mUser );
+			$this->Assert( is_array( $events ), 'FindByUser did not return an array' );
+			$this->AssertEquals( 3, count( $events ), 'FindByUser did not return right number of events' );
+
+			$types = array( EVENT_USERPROFILE_MOOD_UPDATED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_VISITED );
+			foreach ( $events as $event ) {
+				$this->AssertEquals( $this->mUser->Id, $event->Userid, 'Wrong event userid' );
+				$this->AssertEquals( $this->mUser->Id, $event->Itemid, 'Wrong event itemid' );
+				$this->Assert( in_array( $event->Typeid, $events ), 'Wrong event typeid' );
+			}
+
+			$event->Delete();
+			$event2->Delete();
 		}
-		public function TestFindByUserAndType() {
+		public function TestFindLatest() {
+			$event = New Event();
+			$event->Userid = $this->mUser2->Id;
+			$event->Typeid = EVENT_USERPROFILE_UPDATED;
+			$event->Itemid = $this->mUser2->Id;
+			$event->Save();
+
+			$event = New Event();
+			$event2->Userid = $this->mUser2->Id;
+			$event2->Typeid = EVENT_USERPROFILE_VISITED;
+			$event2->Itemid = $this->mUser->Id;
+			$event2->Save();
+
+			$finder = New EventFinder();
+			$events = $finder->FindLatest( 0, 3 );
+
+			$this->AssertEquals( 3, count( $events ), 'Wrong number of events' );
+
+			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
+			$itemids = array( );
 		}
 		public function TestDeleteEvent() {
 			$event = New Event( $this->mEventId );
@@ -91,6 +141,9 @@
 		public function TearDown() {
 			if ( is_object( $this->mUser ) ) {
 				$this->mUser->Delete();
+			}
+			if ( is_object( $this->mUser2 ) ) {
+				$this->mUser2->Delete();
 			}
 		}
     }

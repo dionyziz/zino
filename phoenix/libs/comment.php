@@ -351,7 +351,9 @@
             return parent::Save();
         }
         public function Relations() {
-            $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+			if ( $this->Exists() ) {
+	            $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+			}
             $this->Parent = $this->HasOne( 'Comment', 'Parentid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
