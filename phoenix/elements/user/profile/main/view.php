@@ -16,7 +16,7 @@
 		?><div class="main"><?php
 			if ( count( $images ) > 0 ) {
 				?><div class="photos"><?php
-					Element( 'user/profile/main/photos' , $theuser );
+					Element( 'user/profile/main/photos' , $theuser , $images );
 				?></div><?php
 			}
 			?><div class="friends">
