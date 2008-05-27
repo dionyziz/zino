@@ -32,7 +32,7 @@ div#journalview div.journal dl {
 	margin: 0;
 }
 div#journalview div.journal dl dd.commentsnum {
-	margin: 0;
+	margin: 0 5px 0 0;
 	padding: 0 0 0 18px;
 	display: inline;
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
