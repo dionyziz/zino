@@ -47,14 +47,14 @@ else {
 			fwrite($pipes[0], "$user\n$pass\n");
 			fclose($pipes[0]);		// 0 => stdin
 			
-			$allcontacts = $this->stdout = stream_get_contents($pipes[1]);
+			$allcontacts = stream_get_contents($pipes[1]);
 			fclose($pipes[1]);		// 1 => stdout
 	
-			$errors = $this->stderr = stream_get_contents($pipes[2]);
+			$errors = stream_get_contents($pipes[2]);
 			fclose($pipes[2]);		// 2 => stderr
 			
 			// It is important that you close any pipes before calling proc_close in order to avoid a deadlock
-			$return_value = $this->return_value = proc_close($process);
+			$return_value = proc_close($process);
 			
 			/* Exceptions */
 			if ( $return_value == 2 ) { // either login failure or changes in gmail's website
