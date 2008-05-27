@@ -15,7 +15,7 @@
 		}
 		?><div class="main">
 			<div class="ybubble">	
-				<h3>Ανέβασε μια φωτογραφία</h3>
+				<h3>Ανέβασε μια φωτογραφία σου</h3>
 				<div class="uploaddiv">
 					<object data="?p=upload&amp;albumid=<?php
 					echo $user->Egoalbumid;
