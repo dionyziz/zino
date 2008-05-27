@@ -61,6 +61,7 @@ div#photoview dl dd.addfav a.add {
 }
 div#photoview dl dd.addfav a.isadded {
 	background-position: 0 -1261px;
+	cursor: default;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {

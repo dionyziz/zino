@@ -65,6 +65,7 @@ var PhotoList = {
 					href : '',
 					title : 'Είναι αγαπημένο'
 				} )
+				.empty()
 				.removeClass( 'add' )
 				.addClass( 'isadded' )
 				.animate( { opacity: "1" } , 800 )
