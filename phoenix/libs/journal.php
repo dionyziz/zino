@@ -30,11 +30,18 @@
             $this->Created = NowDate();
 		}
         public function GetText( $length = false ) {
+			if ( !empty( $this->mNewText ) ) {
+				$text = $this->mNewText;
+			}
+			else {
+				$text = $this->Bulk->Text;
+
+			}
             if ( $length == false ) {
-                return $this->Bulk->Text;
+                return $text;
             }
             else {
-                $text = preg_replace( "#<[^>]*?>#", "", $this->Bulk->Text ); // strip all tags
+                $text = preg_replace( "#<[^>]*?>#", "", $text ); // strip all tags
                 return utf8_substr( $text, 0, $length );
             }
         }
