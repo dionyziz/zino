@@ -1,7 +1,8 @@
 <?php
-    class FrontpageImageFinder {
+    class FrontpageImageFinder extends Finder {
         public function FindLatest( $offset = 0, $limit = 15 ) {
             $prototype = New FrontpageImage();
+
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Imageid', 'DESC' ) );
         }
     }
