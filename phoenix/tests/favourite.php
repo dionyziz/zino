@@ -2,6 +2,10 @@
 
    	class TestFavourites extends Testcase {
 		protected $mAppliesTo = 'libs/favourite';
+		private $mUser;
+		private $mUser2;
+		private $mJournal;
+		private $mJournal2;
 
 		public function SetUp() {
 			global $libs;
@@ -114,6 +118,20 @@
             $this->AssertTrue( Favourite_Check( $test, $journal2 ), 'Favourite_Check returned wrong value after deleting another favourite' );
         }
 		*/
+		public function TearDown() {
+			if ( is_object( $this->mUser ) ) {
+				$this->mUser->Delete();
+			}
+			if ( is_object( $this->mUser2 ) ) {
+				$this->mUser2->Delete();
+			}
+			if ( is_object( $this->mJournal ) ) {
+				$this->mJournal->Delete();
+			}
+			if ( is_object( $this->mJournal2 ) ) {
+				$this->mJournal2->Delete();
+			}
+		}
     }
 
     return new TestFavourites();
