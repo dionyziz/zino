@@ -1,6 +1,6 @@
 <?php
 
-    define( 'COMMENT_PAGE_LIMIT', 4 ); // this is used within comment lib
+    define( 'TYPE_PAGE_LIMIT', 4 ); // this is used within comment lib
 
     global $libs;
     $libs->Load( 'comment' );
@@ -25,6 +25,9 @@
         public function SetUp() {
             global $rabbit_settings;
             global $water;
+			global $libs;
+
+			$libs->Load( 'journal' );
 
             $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
             w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
@@ -100,7 +103,7 @@ West of the Moon, East of the Sun.";
         }
         public function TestCreateComment() {
             $comment = New TestComment();
-            $comment->Typeid = COMMENT_JOURNAL;
+            $comment->Typeid = TYPE_JOURNAL;
             $comment->Itemid = $this->mJournal->Id;
             $comment->Userid = $this->mUser->Id;
             $comment->Text = "1ST P0ST!!!";
@@ -108,7 +111,7 @@ West of the Moon, East of the Sun.";
             $comment->Save();
 
             $c = New TestComment( $comment->Id ); // new instance
-            $this->AssertEquals( COMMENT_JOURNAL, $c->Typeid, 'Wrong typeid on new instance' );
+            $this->AssertEquals( TYPE_JOURNAL, $c->Typeid, 'Wrong typeid on new instance' );
             $this->AssertEquals( $this->mJournal->Id, $c->Itemid, 'Wrong itemid on new instance' );
             $this->AssertEquals( $this->mJournal->Text, $c->Item->Text, 'Wrong item on new instance' );
             $this->AssertEquals( $this->mUser->Id, $c->Userid, 'Wrong userid on new instance' );
@@ -120,7 +123,7 @@ West of the Moon, East of the Sun.";
         private function MakeComment( $user, $text, $parentid ) {
             $comment = New TestComment();
             $comment->Itemid = $this->mJournal->Id;
-            $comment->Typeid = COMMENT_JOURNAL;
+            $comment->Typeid = TYPE_JOURNAL;
             $comment->Userid = $user->Id;
             $comment->Parentid = $parentid;
             $comment->Text = $text;
