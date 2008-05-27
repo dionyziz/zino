@@ -81,7 +81,7 @@
 			$this->AssertEquals( $this->mUser->Id, $favourites[ 0 ]->Userid, 'Wrong first userid' );
 			$this->AssertEquals( $this->mUser2->Id, $favourites[ 1 ]->Userid, 'Wrong second userid' );
 		}
-		public function FindByUserAndType() {
+		public function TestFindByUserAndType() {
 			$favourite = New Favourite();
 			$favourite->Userid = $this->mUser->Id;
 			$favourite->Itemid = $this->mJournal2->Id;
