@@ -38,7 +38,7 @@ div#photoview dl {
 	padding: 0;
 }
 div#photoview dl dd.commentsnum {
-	margin: 0;
+	margin: 0 5px 0 0;
 	padding: 0 0 0 18px;
 	display: inline;
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');

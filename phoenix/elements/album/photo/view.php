@@ -71,6 +71,13 @@
 							else {
 								?>Αγαπημένο<?php
 							}
+							?>" title="<?php
+							if ( !$fav ) {
+								?>Προσθήκη στα αγαπημένα<?php
+							}
+							else {
+								?>Αγαπημένο<?php
+							}
 							?>" onclick="PhotoView.AddFav( '<?php
 							echo $image->Id;
 							?>' , this );return false;"><?php
