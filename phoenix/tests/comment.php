@@ -5,9 +5,6 @@
     global $libs;
     $libs->Load( 'comment' );
 
-    global $water;
-    $water->Disable(); // out of memory D:
-    
     class TestComment extends Testcase {
         protected $mAppliesTo = 'libs/comment';
         private $mTable;
