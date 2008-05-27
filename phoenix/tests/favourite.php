@@ -1,5 +1,8 @@
 <?php
 
+	global $libs;
+	$libs->Load( 'favourite' );
+
 	class TestFavourite extends Favourite {
 	}
 
