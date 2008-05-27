@@ -1,7 +1,7 @@
 <?php
 	function ElementUserProfileMainView( $theuser ) {
 		global $libs;
-		
+		global $user;
 		$libs->Load( 'poll/poll' );
 		
 		$finder = New PollFinder();
