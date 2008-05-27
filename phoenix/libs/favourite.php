@@ -18,6 +18,13 @@
 
 			return $this->FindByPrototype( $prototype );
 		}
+		function FindByEntity( $entity ) {
+			$prototype = New Favourite();
+			$prototype->Typeid = Type_FromObject( $entity );
+			$prototype->Itemid = $entity->Id;
+
+			return $this->FindByPrototype( $prototype );
+		}
 	}
 
     class Favourite extends Satori {
