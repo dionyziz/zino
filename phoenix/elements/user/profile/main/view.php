@@ -14,7 +14,11 @@
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
 		}
 		?><div class="main">
-			<?php
+			<div class="ybubble">	
+				Testaki
+				<i class="bl"></i>
+				<i class="br"></i>
+			</div><?php
 			if ( count( $images ) > 0 ) {
 				?><div class="photos"><?php
 					Element( 'user/profile/main/photos' , $theuser , $images );
