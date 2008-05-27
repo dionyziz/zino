@@ -49,9 +49,6 @@
 		$result = $sanitizer->GetXHTML();
 
         $journal->Text = $result;
-
-        die( '~~' . $journal->Text . '~~' );
-
 		$journal->Save();
 		
 		return Redirect( '?p=journal&id=' . $journal->Id );
