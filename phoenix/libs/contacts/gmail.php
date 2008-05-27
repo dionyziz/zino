@@ -12,23 +12,25 @@ else {
 }
 */
 	class ContactsGmail {
-		private $contacts = Array();
+		private $mContacts = Array();
 		public $ambiguous = 0;
-		private $exepath = '/var/www/zino.gr/beta/phoenix/libs/contacts/gmail.rb'; 
+		private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/contacts/gmail.rb'; 
 
 		public function Add( $email, $name = '' ) {
-			if ( strlen( $email ) == 0 || array_key_exists( $email, $this->contacts ) ) {
+			if ( strlen( $email ) == 0 || array_key_exists( $email, $this->mContacts ) ) {
 				return false;
 			}
-			$this->contacts[ $email ] = $name;
+			$this->mContacts[ $email ] = $name;
 			return true;
 		}
 
 		public function Retrieve() {
-			return $this->contacts;
+			return $this->mContacts;
 		}
 
 		public function Login( $user, $pass ) {
+			global $settings;
+			$mPath = $settings[ 'rootdir' ] . '/libs/contacts/gmail.rb';
 			/* Pipe */
 			$descriptorspec = array(
 			   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
@@ -36,10 +38,10 @@ else {
 			   2 => array("pipe", "w") // stderr is a pipe that the child will write to
 			);
 			
-			$process = proc_open('ruby ' . $this->exepath, $descriptorspec, $pipes);
+			$process = proc_open('ruby ' . $this->mPath, $descriptorspec, $pipes);
 			
 			if (!is_resource($process)) {
-				die ("Can't execute " . $this->exepath ."!");
+				die ("Can't execute " . $this->mPath ."!");
 			}
 
 			fwrite($pipes[0], "$user\n$pass\n");
