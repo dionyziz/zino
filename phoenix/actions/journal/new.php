@@ -50,6 +50,8 @@
 
         global $water;
 
+        header( 'Content-type: text/html' );
+        ?><html><head><title></title></head><body><?php
         $water->DebugThis();
 
         die( '///' . $text . '///' . $journal->Text . '///' );
