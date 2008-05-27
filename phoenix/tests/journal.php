@@ -29,7 +29,9 @@
             $journal2->Delete();
         }
         public function TearDown() {
-            $this->mUser->Delete();
+			if ( is_object( $this->mUser ) ) {
+	            $this->mUser->Delete();
+			}
         }
     }
 
