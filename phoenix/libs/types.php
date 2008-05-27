@@ -10,7 +10,7 @@
 	}
 
 	function Type_Prepare() {
-		$types = Types_Get();
+		$types = Type_Get();
 		foreach ( $types as $key => $value ) {
 			define( $value[ 0 ], $key );
 		}
