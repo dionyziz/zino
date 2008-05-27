@@ -1,4 +1,11 @@
 <?php
+
+	class TestFavourite extends Favourite {
+	}
+
+	class TestFavouriteFinder extends FavouriteFinder {
+	}
+
     final class TestFavourites extends Testcase {
         protected $mAppliesTo = 'libs/favourite';
         

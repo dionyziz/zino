@@ -14,22 +14,8 @@
 
     class TestCommentFinder extends CommentFinder {
         protected $mModel = 'TestComment';
-        
-        public function FindNear( $entity, $comment, $reverse = true ) {
-            $prototype = New TestComment();
-            $prototype->Typeid = Comments_TypeFromEntity( $entity );
-            $prototype->Itemid = $entity->Id;
-
-            return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
-        }
-        public function FindByPage( $entity, $page, $reverse = true ) {
-            $prototype = New TestComment();
-            $prototype->Typeid = Comments_TypeFromEntity( $entity );
-            $prototype->Itemid = $entity->Id;
-
-            return Comments_OnPage( $this->FindByPrototype( $prototype ), $page, $reverse );
-        }
     }
+
     class CommentTest extends Testcase {
         protected $mAppliesTo = 'libs/comment';
         private $mTable;

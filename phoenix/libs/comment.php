@@ -232,19 +232,19 @@
             return false;
         }
         public function FindLatest( $offset = 0, $limit = 25 ) {
-            $prototype = New Comment();
+            $prototype = New $this->mModel();
             $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
         public function FindNear( $entity, $comment, $reverse = true ) {
-            $prototype = New Comment();
+            $prototype = New $this->mModel();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true ) {
-            $prototype = New Comment();
+            $prototype = New $this->mModel();
             $prototype->Typeid = Comments_TypeFromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
