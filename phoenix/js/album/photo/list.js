@@ -57,7 +57,21 @@ var PhotoList = {
 			var text = document.createTextNode( photonum );
 			$( 'div#photolist dl dt.photonum' ).empty().append( text );
 		}
-	}
+	},
+	AddFav : function( photoid , linknode ) {
+		if ( $( linknode ).hasClass( 'add' ) ) {
+			$( linknode ).animate( { opacity: "0" } , 800 , function() {
+				$( linknode ).attr( {
+					href : '',
+					title : 'Είναι αγαπημένο'
+				} )
+				.removeClass( 'add' )
+				.addClass( 'isadded' )
+				.animate( { opacity: "1" } , 800 )
+			});
+			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
+		}
+	}	
 };
 $( document ).ready( function() {
 	if ( $( 'div#photolist' )[ 0 ] ) {

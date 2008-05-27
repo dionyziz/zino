@@ -15,7 +15,13 @@ div.photo div span.addfav {
 }
 div.photo div span.addfav a {
 	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: 0 -1327px;
 	background-repeat: no-repeat;
-	padding-left: 18px;
+	padding-left: 16px;
+}
+div.photo div span.addfav a.add {
+	background-position: 0 -1327px;
+}
+div.photo div span.addfav a.isadded {
+	background-repeat: 0 -1261px;
+	cursor: default;
 }

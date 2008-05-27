@@ -14,8 +14,6 @@ var JournalList = {
 				.addClass( 'isadded' )
 				.animate( { opacity: "1" } , 800 )
 			});
-			alert( journalid );
-			alert( Types.Journal );
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
 		}
 	}
