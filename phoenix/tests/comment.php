@@ -98,9 +98,6 @@ West of the Moon, East of the Sun.";
             $this->Assert( method_exists( $finder, 'FindNear' ), 'CommentFinder::FindNear method does not exist' );
             $this->Assert( method_exists( $finder, 'FindByPage' ), 'CommentFinder::FindByPage method does not exist' );
         }
-        public function TestFunctionsExist() {
-            $this->Assert( function_exists( 'Comments_TypeFromEntity' ), 'Comments_TypeFromEntity class does not exist' );
-        }
         public function TestCreateComment() {
             $comment = New TestComment();
             $comment->Typeid = TYPE_JOURNAL;
