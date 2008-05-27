@@ -14,6 +14,7 @@ var JournalList = {
 				return false;
 			} )
 			.css( 'backgound-position' , '0 -1261px' )
+			.css( 'cursor' , 'default' )
 			.animate( { opacity: "1" } , 800 );
 		});
 
