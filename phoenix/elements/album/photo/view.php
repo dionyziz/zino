@@ -54,7 +54,7 @@
 							}
 							?></dd><?php
 						}
-						if( $user->Id != $image->User->Id ) { 
+						//if( $user->Id != $image->User->Id ) { 
 							?><dd class="addfav"><a href="" class="<?php
 							if ( !$fav ) {
 								?>add<?php
@@ -65,7 +65,7 @@
 							?>" onclick="PhotoView( '<?php
 							echo $image->Id;
 							?>' , this );return false;">Προσθήκη στα αγαπημένα</a></dd><?php
-						}
+						//}
 					?></dl><?php
 					if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
 						?><div class="owner">
