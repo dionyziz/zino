@@ -64,7 +64,7 @@
             $this->User->Count->Save();
         }
         protected function OnDelete() {
-            --$this->User->Count->Delete;
+            --$this->User->Count->Journals;
             $this->User->Count->Save();
         }
         protected function Relations() {
