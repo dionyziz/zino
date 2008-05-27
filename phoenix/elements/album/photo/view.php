@@ -3,8 +3,10 @@
 	function ElementAlbumPhotoView( tInteger $id ) {
 		global $user;
 		global $page;
+		global $libs;
 		global $water;
 		
+		$libs->Load( 'favourite' );
 		$id = $id->Get();
 		$image = New Image( $id );
 		
