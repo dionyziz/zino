@@ -8,11 +8,18 @@
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
 		$journals = $finder->FindByUser( $theuser , 0 , 1 );
-		?><div class="main">
-			<div class="photos"><?php
-				Element( 'user/profile/main/photos' , $theuser );
-			?></div>
-			<div class="friends">
+		$egoalbum = New Album( $theuser->Egoalbumid );
+		if ( $egoalbum->Numphotos > 0 ) {
+			$finder = New ImageFinder();
+			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
+		}
+		?><div class="main"><?php
+			if ( count( $images ) > 0 ) {
+				?><div class="photos"><?php
+					Element( 'user/profile/main/photos' , $theuser );
+				?></div><?php
+			}
+			?><div class="friends">
 				<h3>Οι φίλοι μου</h3><?php
 				Element( 'user/list' );
 				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
