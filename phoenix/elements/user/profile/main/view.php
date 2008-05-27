@@ -14,11 +14,7 @@
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
 		}
 		?><div class="main">
-			<div class="ybubble">
-				<h3>Ανέβασε μια φωτογραφία</h3>
-				<i class="bl"></i>
-				<i class="br"></i>
-			</div><?php
+			<?php
 			if ( count( $images ) > 0 ) {
 				?><div class="photos"><?php
 					Element( 'user/profile/main/photos' , $theuser , $images );

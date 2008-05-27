@@ -28,7 +28,12 @@
 			return;
 		}
 		$page->SetTitle( $theuser->Name );
-		?><div id="profile"><?php
+		?><div id="profile">
+			<div class="ybubble">
+				<h3>Ανέβασε μια φωτογραφία</h3>
+				<i class="bl"></i>
+				<i class="br"></i>
+			</div><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
 			Element( 'user/profile/main/view' , $theuser );
 			?><div class="eof"></div>
