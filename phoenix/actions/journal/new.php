@@ -48,11 +48,10 @@
         $sanitizer->SetSource( $text );
 		$result = $sanitizer->GetXHTML();
 
-        global $water;
-
-        die( '///' . $text . '///' . $result . '///' );
-
         $journal->Text = $result;
+
+        die( '~~' . $journal->Text . '~~' );
+
 		$journal->Save();
 		
 		return Redirect( '?p=journal&id=' . $journal->Id );
