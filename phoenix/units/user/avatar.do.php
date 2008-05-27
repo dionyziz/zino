@@ -17,7 +17,16 @@
 						?>/<?php
 						echo $image->Id;
 						?>?resolution=150x150x&sandbox=yes'
-					} );<?php
+					} );
+					$( $( 'div.main div.photos ul li a' )[ 0 ] ).attr( {
+						href : '?p=photo&id=<?php
+						echo $image->Id;
+						?>'
+					} ).html( <?php
+					ob_start();
+					Element( 'image' , $image , 100 , 100 , '' , $user->Name , $user->Name , '' );
+					echo w_json_encode( ob_get_clean() );
+					?> );<?php
 				}
 			}
 		}

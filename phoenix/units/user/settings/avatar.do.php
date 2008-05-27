@@ -18,7 +18,7 @@
 						echo $image->Id;
 						?>?resolution=150x150&sandbox=yes'
 					} );
-					setTimeout( "Frontpage.HideUpload" , 1000 );<?php
+					<?php
 				}
 			}
 		}
