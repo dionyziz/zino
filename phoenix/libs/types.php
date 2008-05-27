@@ -2,10 +2,10 @@
 
 	function Type_Get() {
 		return array(
-			0 => array( 'TYPE_JOURNAL', 'Journal' ),
 			1 => array( 'TYPE_POLL', 'Poll' ),
 			2 => array( 'TYPE_IMAGE', 'Image' ),
-			3 => array( 'TYPE_USERPROFILE', 'UserProfile' )
+			3 => array( 'TYPE_USERPROFILE', 'UserProfile' ),
+			4 => array( 'TYPE_JOURNAL', 'Journal' )
 		);
 	}
 

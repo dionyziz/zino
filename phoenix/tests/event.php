@@ -71,7 +71,6 @@
 			$this->Assert( $event->Object instanceof User, 'Event model should be instance of User' );
 		}
 		public function TestFindByUser() {
-            
 		}
 		public function TestFindByUserAndType() {
 		}
