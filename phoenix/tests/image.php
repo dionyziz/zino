@@ -4,7 +4,14 @@
         private $mImage;
         private $mCount;
         private $mFinder;
+        private $mUser;
 
+        public function SetUp() {
+            $this->mUser = New User();
+            $this->mUser->Username = 'testimage';
+            $this->mUser->Subdomain = 'testimage';
+            $this->mUser->Save();
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'ImageException' ), 'ImageException class does not exist' );
             $this->Assert( class_exists( 'ImageFinder' ), 'ImageFinder class does not exist' );
@@ -38,7 +45,7 @@
             
             $image->LoadFromFile( $temp );
             $image->Name = 'test';
-            $image->Userid = 1;
+            $image->Userid = $this->mUser->Id;
 
             $this->AssertFalse( $image->Exists(), 'Image must not exist prior to saving it!' );
             try {
@@ -60,7 +67,7 @@
                 $this->Assert( $image->Exists(), 'Could not find the newly created image' )
             );
             $this->AssertEquals( 'test', $image->Name, 'Could not retrieve the name of the uploaded image' );
-            $this->AssertEquals( 1, $image->Userid, 'Could not retrieve the userid of the uploaded image' );
+            $this->AssertEquals( $this->mUser->Id, $image->Userid, 'Could not retrieve the userid of the uploaded image' );
 
             $this->mImage = $image;
         }
@@ -88,6 +95,9 @@
         }
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
+        }
+        public function TearDown() {
+            $this->mUser->Delete();
         }
     }
 
