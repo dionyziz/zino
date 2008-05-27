@@ -48,7 +48,7 @@
         $sanitizer->SetSource( $text );
 		$journal->Text = $sanitizer->GetXHTML();
 
-        die( '.' . $journal->Text . '.' );
+        die( '///' . $text . '///' . $journal->Text . '///' );
 
 		$journal->Save();
 		
