@@ -96,7 +96,7 @@ West of the Moon, East of the Sun.";
 			$this->mFirstId = $c->Id;
         }
         private function MakeComment( $user, $text, $parentid ) {
-			if ( $parentId > 0 ) {
+			if ( $parentid > 0 ) {
 				$parentid = $this->mFirstId + $parentid - 1;
 			}
 
