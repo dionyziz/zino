@@ -13,6 +13,7 @@
         private $mTable;
         private $mUser;
         private $mJournal;
+		private $mFirstId;
 
         public function SetUp() {
             global $rabbit_settings;
@@ -91,9 +92,14 @@ West of the Moon, East of the Sun.";
             $this->AssertEquals( $this->mUser->Name, $c->User->Name, 'Wrong user on new instance' );
             $this->AssertEquals( "1ST P0ST!!!", $c->Text, 'Wrong text on new instance' );
             $this->AssertEquals( 0, $c->Parentid, 'Wrong parentid on new instance' );
-            $this->AssertEquals( 1, $c->Id, 'Wrong id on first comment of table' );
+
+			$this->mFirstId = $c->Id;
         }
         private function MakeComment( $user, $text, $parentid ) {
+			if ( $parentId > 0 ) {
+				$parentid = $this->mFirstId + $parentid - 1;
+			}
+
             $comment = New Comment();
             $comment->Itemid = $this->mJournal->Id;
             $comment->Typeid = TYPE_JOURNAL;
@@ -123,7 +129,7 @@ West of the Moon, East of the Sun.";
             $user4 = $this->MakeUser( 'test_leimer' );
             $user5 = $this->MakeUser( 'test_fairytaler' );
             
-            $this->MakeComment( $user1, "FIRST POST!!!11", 0 ); // 2
+            $c1 = $this->MakeComment( $user1, "FIRST POST!!!11", 0 ); // 2
             $this->MakeComment( $user2, "LOL PWNED", 2 ); // 3
             $this->MakeComment( $user1, "FAGGOT", 3 ); // 4
             $this->MakeComment( $user3, "dat is TOLKIEN you BITCH", 0 ); // 5
