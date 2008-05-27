@@ -66,9 +66,7 @@
 			$this->AssertEquals( 1, $event->Itemid );
 			$this->AssertEquals( 3, $event->Userid );
 			
-			$water->Trace( "event model", $event->Object );
-		
-			$this->Assert( $event->Object instanceof User, 'Event model should be instance of User' );
+			$this->Assert( 'UserProfile', get_class( $event->Object ), 'Event model should be instance of UserProfile' );
 		}
 		public function TestFindByUser() {
 		}
