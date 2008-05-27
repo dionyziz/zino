@@ -46,16 +46,13 @@
             $sanitizer->AllowTag( $goodtag );
         }
         $sanitizer->SetSource( $text );
-		$journal->Text = $sanitizer->GetXHTML();
+		$result = $sanitizer->GetXHTML();
 
         global $water;
 
-        header( 'Content-type: text/html' );
-        ?><html><head><title></title></head><body><?php
-        $water->DebugThis();
+        die( '///' . $text . '///' . $result . '///' );
 
-        die( '///' . $text . '///' . $journal->Text . '///' );
-
+        $journal->Text = $result;
 		$journal->Save();
 		
 		return Redirect( '?p=journal&id=' . $journal->Id );
