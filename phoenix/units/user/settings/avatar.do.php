@@ -17,8 +17,7 @@
 						?>/<?php
 						echo $image->Id;
 						?>?resolution=150x150&sandbox=yes'
-					} );
-					<?php
+					} );<?php
 				}
 			}
 		}

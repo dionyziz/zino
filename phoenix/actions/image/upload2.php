@@ -89,9 +89,9 @@
 				?> );<?php
 			}
 			else if ( $typeid == 2 ) {
-				?>parent.Coala.Warm( 'user/avatar' , { imageid : <?php
+				?>parent.Profile.AddaAvatar( <?php
 				echo $image->Id;
-				?>} );<?php
+				?> );<?php
 			}
     	} 
     	?>
