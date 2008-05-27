@@ -54,7 +54,7 @@
 			$f = New Favourite( $favourite->Id );
 			$this->AssertEquals( $this->mUser->Id, $f->Userid, 'Wrong userid' );
 			$this->AssertEquals( $this->mJournal->Id, $f->Itemid, 'Wrong itemid' );
-			$this->AssertEquals( TYPE_JOURNAl, $f->Typeid, 'Wrong typeid' );
+			$this->AssertEquals( TYPE_JOURNAL, $f->Typeid, 'Wrong typeid' );
 			$this->AssertEquals( $this->mJournal->Title, $f->Item->Title, 'Wrong item title' );
         }
         public function TestCheckCreated() {
