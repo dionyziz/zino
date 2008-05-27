@@ -91,7 +91,7 @@
 			else if ( $typeid == 2 ) {
 				?>parent.Coala.Warm( 'user/avatar' , { imageid : <?php
 				echo $image->Id;
-				?> );<?php
+				?>} );<?php
 			}
     	} 
     	?>
