@@ -245,7 +245,7 @@
         }
         public function FindByPage( $entity, $page, $reverse = true ) {
             $prototype = New $this->mModel();
-            $prototype->Typeid = Comments_TypeFromObject( $entity );
+            $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_OnPage( $this->FindByPrototype( $prototype ), $page, $reverse );
