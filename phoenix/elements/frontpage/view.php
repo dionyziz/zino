@@ -5,6 +5,8 @@
 		global $water;
 		
     	$newuser = $newuser->Get(); // TODO
+		$finder = New ImageFinder();
+		$images = $finder->FindFrontpageLatest( 0 , 15 );
         ?><div class="frontpage"><?php
 		if ( $newuser ) {
 			?><div class="ybubble">
@@ -23,22 +25,20 @@
 		        <i class="br"></i>
 			</div><?php
 		}
-		?>	
-		<div class="latestimages">
-			<ul>
-				<li><a href="" onclick=""><img src="images/seraphim2.jpg" alt="seraphim" title="seraphim" /></a></li>
-				<li><a href="" onclick=""><img src="images/elsa2.jpg" alt="elsa" title="elsa" /></a></li>
-				<li><a href="" onclick=""><img src="images/elenh2.jpg" alt="elenh" title="elenh" /></a></li>
-				<li><a href="" onclick=""><img src="images/izual2.jpg" alt="izual" title="izual" /></a></li>
-				<li><a href="" onclick=""><img src="images/morvena2.jpg" alt="morvena" title="morvena" /></a></li>
-				<li><a href="" onclick=""><img src="images/ulee2.jpg" alt="ulee" title="ulee" /></a></li>
-				<li><a href="" onclick=""><img src="images/avatars/teddy.jpg" alt="teddy" title="teddy" /></a></li>
-				<li><a href="" onclick=""><img src="images/avatars/klio.jpg" alt="klio" title="klio" /></a></li>
-				<li><a href="" onclick=""><img src="images/avatars/cafrillio.jpg" alt="cafrillio" title="cafrillio" /></a></li>
-				<li><a href="" onclick=""><img src="images/dionyziz2.jpg" alt="dionyziz" title="dionyziz" /></a></li>
-				<li><a href="" onclick=""><img src="images/avatars/argiro-18.jpg" alt="argiro_18" title="argiro_18" /></a></li>
+		if ( count( $images ) > 0 ) {
+			?><div class="latestimages">
+			<ul><?php
+				foreach ( $images as $image ) {
+					?><li><a href="?p=photo&amp;id=<?php
+					echo $image->Id;
+					?>"><?php
+					Element( 'image' , $image , 100 , 100 , '' , $image->User->Name , $image->User->Name , '' );
+					?></a></li><?php
+				}
+				?>
 			</ul>
-		</div><?php
+			</div><?php
+		}
 		if ( !$user->Exists() ) {
 			?><div class="members">
 				<div class="join">
