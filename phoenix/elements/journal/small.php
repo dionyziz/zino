@@ -1,6 +1,10 @@
 <?php
 	
 	function ElementJournalSmall( $journal ) {
+		global $user;
+		
+		$finder = New FavouriteFinder();
+		$fav = $finder->FindByUserAndEntity( $user, $journal );
 		?><div class="journalsmall">
 			<h4><a href="?p=journal&amp;id=<?php
 			echo $journal->Id;
@@ -13,7 +17,14 @@
 			<ul>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="" class="add" onclick="JournalList.AddFav( '<?php
+						<dt class="addfav"><a href="" class="<?php
+						if ( !$fav ) {
+							?>add<?php
+						}
+						else {
+							?>isadded<?php
+						}
+						?>" onclick="JournalList.AddFav( '<?php
 						echo $journal->Id;
 						?>' , this );return false;" title="Προσθήκη στα αγαπημένα"></a></dt>
 					</dl>
