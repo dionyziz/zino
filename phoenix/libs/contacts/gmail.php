@@ -62,7 +62,7 @@ else {
 			}
 			
 			if ( $return_value != 0 ) { // unknown error
-				die ( $errors );
+				die ( "Error: $errors" );
 				return false;
 			}
 
