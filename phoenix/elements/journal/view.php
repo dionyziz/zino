@@ -11,7 +11,7 @@
 		$journal = New Journal( $id->Get() );
 		$commentid = $commentid->Get();
 		$finder = New FavouriteFinder();
-		$fav = $finder->FindByUserAndEntity( $user, $image );
+		$fav = $finder->FindByUserAndEntity( $user, $journal );
 
 		Element( 'user/sections' , 'journal' , $journal->User );
 		
