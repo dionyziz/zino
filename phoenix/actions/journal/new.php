@@ -26,8 +26,6 @@
 		}
 		$journal->Title = $title;
 
-        die( '.'.$text.'.' );
-        
         $libs->Load( 'sanitizer' );
 
         $sanitizer = New XHTMLSanitizer();
@@ -49,6 +47,8 @@
         }
         $sanitizer->SetSource( $text );
 		$journal->Text = $sanitizer->GetXHTML();
+
+        die( '.' . $journal->Text . '.' );
 
 		$journal->Save();
 		
