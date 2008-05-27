@@ -70,8 +70,13 @@ div.journalsmall ul li dl dt.addfav {
 }
 div.journalsmall ul li dl dt.addfav a {
 	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: 0 -1327px;
 	background-repeat: no-repeat;
 	padding-left: 16px;
 }
+div.journalsmall ul li dl dt.addfav a.add  {
+	background-position: 0 -1327px;
+}
+div.journalsmall ul li dl dt.addfav a.isadded {
+	background-position: 0 -1261px;
+	cursor: default;
 }

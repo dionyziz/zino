@@ -13,7 +13,7 @@
 			<ul>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="" onclick="JournalList.AddFav( this );return false;" title="Προσθήκη στα αγαπημένα"></a></dt>
+						<dt class="addfav"><a href="" class="add" onclick="JournalList.AddFav( this );return false;" title="Προσθήκη στα αγαπημένα"></a></dt>
 					</dl>
 				</li>
 				<li>
