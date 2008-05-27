@@ -89,7 +89,7 @@
 				?> );<?php
 			}
 			else if ( $typeid == 2 ) {
-				?>parent.Profile.AddaAvatar( <?php
+				?>parent.Profile.AddAvatar( <?php
 				echo $image->Id;
 				?> );<?php
 			}

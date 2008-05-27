@@ -28,6 +28,7 @@
 		$page->AttachScript( 'js/user/join.js' );
 		$page->AttachScript( 'js/user/joined.js' );
 		$page->AttachScript( 'js/user/settings.js' );
+		$page->AttachScript( 'js/user/profile.js' );
 		$page->AttachScript( 'js/banner.js' );
 		$page->AttachScript( 'js/settings.js' );
 		$page->AttachScript( 'js/types.js' );
