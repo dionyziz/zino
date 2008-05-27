@@ -12,8 +12,7 @@
 			$offset = 1;
 		}
 		
-		if ( $album->Exists() ) {
-		
+		if ( $album->Exists() ) {	
 			Element( 'user/sections', 'album' , $album->User );
 			?><div id="photolist"><?php
 				if ( $album->IsDeleted() ) {
