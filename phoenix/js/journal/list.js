@@ -18,7 +18,5 @@ var JournalList = {
 			alert( Types.Journal );
 			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
 		}
-		
-		//make Coala call
 	}
 };
