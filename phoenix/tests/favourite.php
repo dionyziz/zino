@@ -93,7 +93,7 @@
 
 			$this->AssertEquals( 2, count( $favourites ), 'Wrong number of favourites' );
 			$this->AssertEquals( $this->mJournal->Title, $favourites[ 0 ]->Item->Title, 'Wrong first item title' );
-			$this->AssertEquals( $this->mJournal2->itle, $favourites[ 1 ]->Item->Title, 'Wrong second item title' );		
+			$this->AssertEquals( $this->mJournal2->Title, $favourites[ 1 ]->Item->Title, 'Wrong second item title' );		
 		}
 		/*
         public function TestDeletion() {
