@@ -55,6 +55,7 @@ div#journalview div.journal dl dd.addfav a.add {
 }
 div#journalview div.journal dl dd.addfav a.isadded {
 	background-position: 0 -1261px;
+	cursor: default;
 }
 div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
 	margin-left: 5px;
