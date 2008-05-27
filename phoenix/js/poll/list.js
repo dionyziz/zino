@@ -69,6 +69,7 @@ var PollList = {
 		$( 'div#polllist ul li.create' ).empty().append( link );
 	},
 	Cancel : function() {
+		PollList.numoptions = 0;
 		var link = document.createElement( "a" );
 		var createimg = document.createElement( "img" );
 		$( createimg ).attr( {
