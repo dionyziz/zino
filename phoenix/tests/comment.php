@@ -96,10 +96,6 @@ West of the Moon, East of the Sun.";
 			$this->mFirstId = $c->Id;
         }
         private function MakeComment( $user, $text, $parentid ) {
-			if ( $parentid > 0 ) {
-				$parentid = $this->mFirstId + $parentid - 1;
-			}
-
             $comment = New Comment();
             $comment->Itemid = $this->mJournal->Id;
             $comment->Typeid = TYPE_JOURNAL;
@@ -124,12 +120,14 @@ West of the Moon, East of the Sun.";
         }
         public function TestFindByPage() {
             $user1 = $this->MakeUser( 'test_green_troll' );
-            $user2 = $this->MakeUser( 'test_pwnage' );
+            /* $user2 = $this->MakeUser( 'test_pwnage' );
             $user3 = $this->MakeUser( 'test_repulis' );
             $user4 = $this->MakeUser( 'test_leimer' );
             $user5 = $this->MakeUser( 'test_fairytaler' );
+			*/
             
             $c1 = $this->MakeComment( $user1, "FIRST POST!!!11", 0 ); // 2
+			/*
             $this->MakeComment( $user2, "LOL PWNED", 2 ); // 3
             $this->MakeComment( $user1, "FAGGOT", 3 ); // 4
             $this->MakeComment( $user3, "dat is TOLKIEN you BITCH", 0 ); // 5
@@ -141,12 +139,13 @@ West of the Moon, East of the Sun.";
             $this->MakeComment( $user3, "I fack his vry whole and i dont care witch!1!!1 x0ax0ax0ax0a", 8 ); // 11
             $this->MakeComment( $user5, "Nice little poem", 0 ); // 12
             $this->MakeComment( $user2, "LOLWOA?", 12 ); // 13
+			*/
 
             $finder = New CommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 1 );
             
             $this->Assert( is_array( $comments ), 'CommentFinder::FindByPage did not return an array' );
-            $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
+            $this->AssertEquals( 2, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
             
             print_r( $comments );
 
