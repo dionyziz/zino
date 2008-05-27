@@ -12,9 +12,10 @@
 			$offset = 1;
 		}
 		
-		Element( 'user/sections', 'album' , $album->User );
-		?><div id="photolist"><?php
-			if ( $album->Exists() ) {
+		if ( $album->Exists() ) {
+		
+			Element( 'user/sections', 'album' , $album->User );
+			?><div id="photolist"><?php
 				if ( $album->IsDeleted() ) {
 					$page->SetTitle( 'Το album έχει διαγραφεί' ); 
 					?>Το album έχει διαγραφεί<?php
@@ -76,11 +77,11 @@
 					Element( 'pagify' , $offset , 'album&id=' . $album->Id , $album->Numphotos , 20 , 'offset' );
 					?></div><?php
 				}
-			}
-			else {
-				?>Το album δεν υπάρχει<?php
-			}
-		?></div>
-		<div class="eof"></div><?php
+			?></div><?php
+		}
+		else {
+			?>To album δεν υπάρχει<?php
+		}
+		?><div class="eof"></div><?php
 	}
 ?>
