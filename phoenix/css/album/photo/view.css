@@ -65,7 +65,7 @@ div#photoview dl dd.addfav a.isadded {
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {
-    height: 180px;
+    height: 185px;
     overflow: hidden;
 	margin: 50px 0 20px 0;
     text-align: center;
@@ -94,11 +94,11 @@ div#photoview div.photothumbs ul {
     list-style: none;
     padding: 0;
     margin: 0;
-	height: 160px;
+	height: 185px;
 }
 div#photoview div.photothumbs ul li {
     padding: 0;
-    margin: 25px 2px 5px 2px;
+    margin: 25px 2px 0 2px;
 	float: left;
 	height: 160px;
 }
