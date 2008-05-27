@@ -9,6 +9,12 @@
             $this->Assert( class_exists( 'JournalFinder' ), 'Class JournalFinder does not exist' );
         }
         public function SetUp() {
+			$ufinder = New UserFinder();
+			$user = $ufinder->FindByName( "testjournals" );
+			if ( is_object( $user ) ) {
+				$user->Delete();
+			}
+
             $user = New User();
             $user->Name = 'testjournals';
             $user->Subdomain = 'testjournals';
