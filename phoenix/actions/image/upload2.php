@@ -89,7 +89,7 @@
 				?> );<?php
 			}
 			else if ( $typeid == 2 ) {
-				?>parent.Frontpage.AddAvatar( <?php
+				?>parent.Coala.Warm( 'user/avatar' , { imageid : <?php
 				echo $image->Id;
 				?> );<?php
 			}

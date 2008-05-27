@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitFrontpageAvatar( tInteger $imageid ) {
+	function UnitUserAvatar( tInteger $imageid ) {
 		global $user;
 		
 		$image = New Image( $imageid->Get() );
