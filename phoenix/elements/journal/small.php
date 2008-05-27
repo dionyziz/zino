@@ -13,7 +13,7 @@
 			<ul>
 				<li>
 					<dl>
-						<dt class="addfav"><a href="" onclick="JournalList.AddFav( this );return false;"><img src="http://static.zino.gr/phoenix/heart_add.png" alt="Προσθήκη στα αγαπημένα" title="Προσθήκη στα αγαπημένα" /></a></dt>
+						<dt class="addfav"><a href="" onclick="JournalList.AddFav( this );return false;" title="Προσθήκη στα αγαπημένα"></a></dt>
 					</dl>
 				</li>
 				<li>

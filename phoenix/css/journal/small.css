@@ -68,3 +68,10 @@ div.journalsmall ul li dl dt.addfav {
 	margin: 0;
 	display: inline;
 }
+div.journalsmall ul li dl dt.addfav a {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-position: 0 -1327px;
+	background-repeat: no-repeat;
+	padding-left: 16px;
+}
+}
