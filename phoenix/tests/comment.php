@@ -8,15 +8,7 @@
     global $water;
     // $water->Disable(); // out of memory D:
     
-    class TestComment extends Comment {
-        protected $mDbTableAlias = 'testcomments';
-    }
-
-    class TestCommentFinder extends CommentFinder {
-        protected $mModel = 'TestComment';
-    }
-
-    class CommentTest extends Testcase {
+    class TestComment extends Testcase {
         protected $mAppliesTo = 'libs/comment';
         private $mTable;
         private $mUser;
@@ -28,22 +20,6 @@
 			global $libs;
 
 			$libs->Load( 'journal' );
-
-            $databasealiases = array_keys( $rabbit_settings[ 'databases' ] );
-            w_assert( isset( $GLOBALS[ $databasealiases[ 0 ] ] ) );
-            $db = $GLOBALS[ $databasealiases[ 0 ] ];
-
-            $table = New DbTable( $db, 'comments', 'comments' );
-            try {
-                $table->Copy( 'testcomments', 'testcomments' );
-            } catch ( Exception $e ) { // ooops already found testcomments
-                $oldtable = New DbTable( $db, 'testcomments', 'testcomments' );
-                $oldtable->Delete();
-
-                $table->Copy( 'testcomments', 'testcomments' );
-            }
-
-            $this->mTable = New DbTable( $db, 'testcomments', 'testcomments' );
 
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testcomments' );
@@ -99,7 +75,7 @@ West of the Moon, East of the Sun.";
             $this->Assert( method_exists( $finder, 'FindByPage' ), 'CommentFinder::FindByPage method does not exist' );
         }
         public function TestCreateComment() {
-            $comment = New TestComment();
+            $comment = New Comment();
             $comment->Typeid = TYPE_JOURNAL;
             $comment->Itemid = $this->mJournal->Id;
             $comment->Userid = $this->mUser->Id;
@@ -107,7 +83,7 @@ West of the Moon, East of the Sun.";
             $comment->Parentid = 0;
             $comment->Save();
 
-            $c = New TestComment( $comment->Id ); // new instance
+            $c = New Comment( $comment->Id ); // new instance
             $this->AssertEquals( TYPE_JOURNAL, $c->Typeid, 'Wrong typeid on new instance' );
             $this->AssertEquals( $this->mJournal->Id, $c->Itemid, 'Wrong itemid on new instance' );
             $this->AssertEquals( $this->mJournal->Text, $c->Item->Text, 'Wrong item on new instance' );
@@ -118,7 +94,7 @@ West of the Moon, East of the Sun.";
             $this->AssertEquals( 1, $c->Id, 'Wrong id on first comment of table' );
         }
         private function MakeComment( $user, $text, $parentid ) {
-            $comment = New TestComment();
+            $comment = New Comment();
             $comment->Itemid = $this->mJournal->Id;
             $comment->Typeid = TYPE_JOURNAL;
             $comment->Userid = $user->Id;
@@ -160,13 +136,17 @@ West of the Moon, East of the Sun.";
             $this->MakeComment( $user5, "Nice little poem", 0 ); // 12
             $this->MakeComment( $user2, "LOLWOA?", 12 ); // 13
 
-            $finder = New TestCommentFinder();
+            $finder = New CommentFinder();
             $comments = $finder->FindByPage( $this->mJournal, 1 );
             
             $this->Assert( is_array( $comments ), 'CommentFinder::FindByPage did not return an array' );
             $this->AssertEquals( 4, count( $comments ), 'CommentFinder::FindByPage did not return the right number of comments' );
             
             print_r( $comments );
+
+			foreach ( $comments as $comment ) {
+				$comment->Delete();
+			}
 
             $user1->Delete();
             $user2->Delete();
@@ -187,6 +167,6 @@ West of the Moon, East of the Sun.";
         }
     }
 
-    return New CommentTest();
+    return New TestComment();
 
 ?>
