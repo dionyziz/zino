@@ -10,12 +10,12 @@ var JournalList = {
 				href : '',
 				title : 'Είναι αγαπημένο'
 			} )
+			.css( 'background-position' , '0 -1261px' )
+			.css( 'cursor' , 'default' )
+			.animate( { opacity: "1" } , 800 )
 			.click( function() {
 				return false;
 			} )
-			.css( 'backgound-position' , '0 -1261px' )
-			.css( 'cursor' , 'default' )
-			.animate( { opacity: "1" } , 800 );
 		});
 
 		
