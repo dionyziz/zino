@@ -64,7 +64,7 @@
 							else {
 								?>isadded<?php
 							}
-							?>" onclick="PhotoView( '<?php
+							?>" onclick="PhotoView.AddFav( '<?php
 							echo $image->Id;
 							?>' , this );return false;">Προσθήκη στα αγαπημένα</a></dd><?php
 						//}
