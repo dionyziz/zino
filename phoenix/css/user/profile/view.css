@@ -168,8 +168,8 @@ div#profile div.main {
 	padding: 14px 0 0 10px;
 	margin-left: 305px;
 }
-div#profile div.ybubble {
-	padding-top: 0;
+div#profile div.main div.ybubble {
+	padding-top: 5px;
 	margin: -14px auto 20px auto;
 }
 div#profile div.main div.photos {
