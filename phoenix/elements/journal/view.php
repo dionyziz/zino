@@ -12,10 +12,9 @@
 		$commentid = $commentid->Get();
 		$finder = New FavouriteFinder();
 		$fav = $finder->FindByUserAndEntity( $user, $journal );
-
-		Element( 'user/sections' , 'journal' , $journal->User );
 		
 		if ( $journal->Exists() ) {
+			Element( 'user/sections' , 'journal' , $journal->User );
 			?><div id="journalview"><?php
 			if ( !$journal->IsDeleted() ) {
 				$page->SetTitle( $journal->Title );
@@ -43,6 +42,13 @@
 							}
 							else {
 								?>isadded<?php
+							}
+							?>" title="<?php
+							if ( !$fav ) {
+								?>Προσθήκη στα αγαπημένα<?php
+							}
+							else {
+								?>Αγαπημένο<?php
 							}
 							?>" onclick="JournalView.AddFav( '<?php
 							echo $journal->Id;

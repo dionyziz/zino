@@ -12,7 +12,7 @@ var JournalView = {
 			$( linknode ).animate( { opacity: "0" } , 800 , function() {
 				$( linknode ).attr( {
 					href : '',
-					title : 'Είναι αγαπημένο'
+					title : 'Αγαπημένο'
 				} )
 				.removeClass( 'add' )
 				.addClass( 'isadded' )
