@@ -83,7 +83,7 @@
 
             return $ret;
         }
-        public function FindFrontpage( $offset = 0, $limit = 15 ) {
+        public function FindFrontpageLatest( $offset = 0, $limit = 15 ) {
             $finder = New FrontpageImageFinder();
             $found = $finder->FindLatest( $offset, $limit );
             $imageids = array();
