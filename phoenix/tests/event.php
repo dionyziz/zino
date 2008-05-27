@@ -28,7 +28,7 @@
         }
         public function TestCreateEvent() {
             $event = New Event();
-            $event->Typeid = EVENT_USER_MOOD_CHANGED;
+            $event->Typeid = EVENT_USERPROFILE_MOOD_UPDATED;
             $event->Itemid = 1;
             $event->Userid = 3;
             $this->AssertFalse( $event->Exists(), 'Event appears to exist before saving' );
@@ -57,12 +57,12 @@
 			global $water; 
 
 			$finder = New EventFinder();
-			$events = $finder->FindByType( EVENT_USER_MOOD_CHANGED, 0, 1 );
+			$events = $finder->FindByType( EVENT_USERPROFILE_MOOD_UPDATED, 0, 1 );
 			$this->AssertEquals( 1, count( $events ), 'Only one event should be returned by finder when called with limit 1' );
 			
 			$event = $events[ 0 ];
 			$this->AssertEquals( $this->mEventId, $event->Id );
-			$this->AssertEquals( EVENT_USER_MOOD_CHANGED, $event->Typeid );
+			$this->AssertEquals( EVENT_USERPROFILE_MOOD_UPDATED, $event->Typeid );
 			$this->AssertEquals( 1, $event->Itemid );
 			$this->AssertEquals( 3, $event->Userid );
 			
