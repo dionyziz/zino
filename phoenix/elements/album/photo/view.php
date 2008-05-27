@@ -28,7 +28,7 @@
 				$page->SetTitle( $title );
 				$size = $image->ProportionalSize( 700  , 600 );
 				$finder = New FavouriteFinder();
-				$fav = $finder->FindByUserAndEntity( $user, $image )
+				$fav = $finder->FindByUserAndEntity( $user, $image );
 				?><div id="photoview">
 					<h2><?php
 					echo htmlspecialchars( $image->Name );

@@ -6,6 +6,21 @@ var JournalView = {
 			Coala.Warm( 'journal/delete' , { journalid : journalid } );
 		}
 		$( 'div#journalview div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );
+	},
+	AddFav : function( journalid , linknode ) {
+		if ( $( linknode ).hasClass( 'add' ) ) {
+			$( linknode ).animate( { opacity: "0" } , 800 , function() {
+				$( linknode ).attr( {
+					href : '',
+					title : 'Είναι αγαπημένο'
+				} )
+				.removeClass( 'add' )
+				.addClass( 'isadded' )
+				.empty()
+				.animate( { opacity: "1" } , 800 );
+			} );
+			Coala.Warm( 'favourites/add' , { itemid : journalid , typeid : Types.Journal } );
+		}
 	}
 };
 $( document ).ready( function() {

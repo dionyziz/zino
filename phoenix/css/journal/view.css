@@ -47,9 +47,14 @@ div#journalview div.journal dl dd.addfav{
 }
 div#journalview div.journal dl dd.addfav a {
 	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1327px;
 	background-repeat: no-repeat;
 	padding-left: 18px;
+}
+div#journalview div.journal dl dd.addfav a.add {
+	background-position: 0 -1327px;
+}
+div#journalview div.journal dl dd.addfav a.isadded {
+	background-position: 0 -1261px;
 }
 div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
 	margin-left: 5px;

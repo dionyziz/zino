@@ -7,11 +7,16 @@
 		global $libs;
 		
 		$libs->Load( 'comment' );
+		$libs->Load( 'favourite' );
 		$journal = New Journal( $id->Get() );
 		$commentid = $commentid->Get();
+		$finder = New FavouriteFinder();
+		$fav = $finder->FindByUserAndEntity( $user, $image );
+
 		Element( 'user/sections' , 'journal' , $journal->User );
 		
-		?><div id="journalview"><?php
+		if ( $journal->Exists() ) {
+			?><div id="journalview"><?php
 			if ( !$journal->IsDeleted() ) {
 				$page->SetTitle( $journal->Title );
 				?><h2><?php
@@ -31,9 +36,22 @@
 							}
 							?></dd><?php
 						}
-						if ( $journal->User->Id != $user->Id ) {
-							?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd><?php
-						}
+						//if ( $journal->User->Id != $user->Id ) {
+							?><dd class="addfav"><a href="" class="<?php
+							if ( !$fav ) {
+								?>add<?php
+							}
+							else {
+								?>isadded<?php
+							}
+							?>" onclick="JournalView.AddFav( '<?php
+							echo $journal->Id;
+							?>' , this );return false;"><?php
+							if ( !$fav ) {
+								?>Προσθήκη στα αγαπημένα<?php
+							}
+							?></a></dd><?php
+						//}
 
 						?></dl><?php
 						if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
@@ -66,10 +84,14 @@
 				}
 			}
 			else {
-				$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
-				?>Η καταχώρηση δεν υπάρχει<?php
+				$page->SetTitle( "Η καταχώρηση έχει διαγραφεί" );
+				?>Η καταχώρηση έχει διαγραφεί<?php
 			}
-
+		}
+		else {
+			$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
+			?>Η καταχώρηση δεν υπάρχει<?php
+		}
 		?><div class="eof"></div>
 		</div><?php
 	}
