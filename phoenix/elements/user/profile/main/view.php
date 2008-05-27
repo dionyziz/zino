@@ -16,6 +16,12 @@
 		?><div class="main">
 			<div class="ybubble">	
 				<h3>Ανέβασε μια φωτογραφία</h3>
+				<div class="uploaddiv">
+					<object data="?p=upload&amp;albumid=<?php
+					echo $user->Egoalbumid;
+					?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
+					</object>
+				</div>
 				<i class="bl"></i>
 				<i class="br"></i>
 			</div><?php

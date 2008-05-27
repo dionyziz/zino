@@ -69,8 +69,8 @@
         <script type="text/javascript"><?php
 		if ( $albumid > 0 ) {
 			//typeid is 0 for album photo upload and 1 for settings avatar upload
-			$album = New Album( $albumid );
 			if ( $typeid == 0 ) {
+				$album = New Album( $albumid );
 				if ( $album->Numphotos == 1 ) {
 					$album->Mainimage = $image->Id;
 					$album->Save();
@@ -85,6 +85,11 @@
 			}
 			else if ( $typeid == 1 ) {
 				?>parent.Settings.AddAvatar( <?php
+				echo $image->Id;
+				?> );<?php
+			}
+			else if ( $typeid == 2 ) {
+				?>parent.Frontpage.AddAvatar( <?php
 				echo $image->Id;
 				?> );<?php
 			}
