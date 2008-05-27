@@ -2,6 +2,7 @@
 require 'mechanize'
 #require 'rubygems'
 
+$KCODE='u'
 def getlogin
 	$stderr.print "user: "; @username = gets.chomp
 	$stderr.print "pass: "; @passwd = gets.chomp 
