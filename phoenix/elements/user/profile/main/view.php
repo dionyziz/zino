@@ -15,7 +15,7 @@
 		}
 		?><div class="main">
 			<div class="ybubble">	
-				Testaki
+				<h3>Ανέβασε μια φωτογραφία</h3>
 				<i class="bl"></i>
 				<i class="br"></i>
 			</div><?php

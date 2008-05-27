@@ -170,6 +170,7 @@ div#profile div.main {
 }
 div#profile div.ybubble {
 	padding-top: 0;
+	margin: -14px auto 20px auto;
 }
 div#profile div.main div.photos {
 	height: 120px;
