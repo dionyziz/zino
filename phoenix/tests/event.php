@@ -3,11 +3,17 @@
     class TestEvent extends TestCase {
         protected $mAppliesTo = 'libs/event';
         private $mEventId;
+		private $mUser;
 
         public function SetUp() {
             global $libs;
 
             $libs->Load( 'event' );
+
+			$this->mUser = New User();
+			$this->mUser->Name = 'testevents';
+			$this->mUser->Subdomain = 'testevents';
+			$this->mUser->Save();
         }
         public function TestFunctionsExist() {
             $this->Assert( class_exists( 'Event' ), 'Event class does not exist' );
@@ -29,8 +35,8 @@
         public function TestCreateEvent() {
             $event = New Event();
             $event->Typeid = EVENT_USERPROFILE_MOOD_UPDATED;
-            $event->Itemid = 1;
-            $event->Userid = 3;
+            $event->Itemid = $this->mUser->Id;
+            $event->Userid = $this->mUser->Id;
             $this->AssertFalse( $event->Exists(), 'Event appears to exist before saving' );
             $event->Save();
             $this->Assert( $event->Exists(), 'Event does not exist after creating' );
@@ -69,6 +75,7 @@
 			$this->Assert( 'UserProfile', get_class( $event->Object ), 'Event model should be instance of UserProfile' );
 		}
 		public function TestFindByUser() {
+			$event = New Event();
 		}
 		public function TestFindByUserAndType() {
 		}
@@ -80,6 +87,11 @@
 
 			$event = New Event( $this->mEventId );
 			$this->AssertFalse( $event->Exists(), "Deleted event appears to exist after creating new instance" );
+		}
+		public function TearDown() {
+			if ( is_object( $this->mUser ) ) {
+				$this->mUser->Delete();
+			}
 		}
     }
 

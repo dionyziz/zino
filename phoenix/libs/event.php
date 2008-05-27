@@ -79,6 +79,10 @@
 	class EventFinder extends Finder {
 		protected $mModel = 'Event';
 
+		public function FindLatest( $offset = 0, $limit = 20 ) {
+			$prototype = New Event();
+			return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+		}
 		public function FindByUser( $user, $offset = 0, $limit = 20, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
 			$prototype->Userid = $user->Id;

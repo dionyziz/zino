@@ -31,6 +31,9 @@
 		global $water;
 		$types = Type_Get();
 		$water->Trace( "GetClass: $typeid " . $types[ $typeid ][ 1 ] );
+		if ( !isset( $types[ $typeid ] ) ) {
+			throw New Exception( "Invalid typeid $typeid no Type_GetClas" );
+		}
 		return $types[ $typeid ][ 1 ];
 	}
 
