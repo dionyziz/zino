@@ -66,7 +66,11 @@
 							}
 							?>" onclick="PhotoView.AddFav( '<?php
 							echo $image->Id;
-							?>' , this );return false;">Προσθήκη στα αγαπημένα</a></dd><?php
+							?>' , this );return false;"><?php
+							if ( !$fav ) {
+								?>Προσθήκη στα αγαπημένα<?php
+							}
+							?></a></dd><?php
 						//}
 					?></dl><?php
 					if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
