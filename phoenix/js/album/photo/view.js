@@ -51,8 +51,8 @@ var PhotoView = {
 				.removeClass( 'add' )
 				.addClass( 'isadded' )
 				.empty()
-				.animate( { opacity: "1" } , 800 )
-			});
+				.animate( { opacity: "1" } , 800 );
+			} );
 			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
 		}	
 	}
