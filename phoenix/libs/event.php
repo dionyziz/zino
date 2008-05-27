@@ -116,9 +116,13 @@
 			}
 		}
         public function Save() {
+			global $water;
+
             if ( $this->Exists() ) {
                 throw New EventException( 'Events cannot be updated' );
             }
+
+			$water->Trace( "creating event" );
         
             parent::Save();
         }
