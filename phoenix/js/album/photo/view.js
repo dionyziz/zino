@@ -40,5 +40,19 @@ var PhotoView = {
 			$( this ).remove();
 		} );
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
+	},
+	AddFav : function( photoid , linknode ) {
+		if ( $( linknode ).hasClass( 'add' ) ) {
+			$( linknode ).animate( { opacity: "0" } , 800 , function() {
+				$( linknode ).attr( {
+					href : '',
+					title : 'Είναι αγαπημένο'
+				} )
+				.removeClass( 'add' )
+				.addClass( 'isadded' )
+				.animate( { opacity: "1" } , 800 )
+			}).empty();
+			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
+		}	
 	}
 };

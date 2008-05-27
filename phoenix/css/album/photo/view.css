@@ -52,10 +52,15 @@ div#photoview dl dd.addfav{
 	display: inline;
 }
 div#photoview dl dd.addfav a {
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1327px;
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
 	background-repeat: no-repeat;
 	padding-left: 18px;
+}
+div#photoview dl dd.addfav a.add {
+	background-position: 0 -1327px;
+}
+div#photoview dl dd.addfav a.isadded {
+	background-position: 0 -1261px;
 }
 /* all this trouble to make it resizable :-) */
 div#photoview div.photothumbs {

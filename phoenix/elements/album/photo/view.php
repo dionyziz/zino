@@ -25,6 +25,8 @@
 				}
 				$page->SetTitle( $title );
 				$size = $image->ProportionalSize( 700  , 600 );
+				$finder = New FavouriteFinder();
+				$fav = $finder->FindByUserAndEntity( $user, $image )
 				?><div id="photoview">
 					<h2><?php
 					echo htmlspecialchars( $image->Name );
@@ -52,8 +54,19 @@
 							}
 							?></dd><?php
 						}
-						?><dd class="addfav"><a href="">Προσθήκη στα αγαπημένα</a></dd>
-					</dl><?php
+						if( $user->Id != $image->User->Id ) { 
+							?><dd class="addfav"><a href="" class="<?php
+							if ( !$fav ) {
+								?>add<?php
+							}
+							else {
+								?>isadded<?php
+							}
+							?>" onclick="PhotoView( '<?php
+							echo $image->Id;
+							?>' , this );return false;">Προσθήκη στα αγαπημένα</a></dd><?php
+						}
+					?></dl><?php
 					if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
 						?><div class="owner">
 							<div class="edit"><a href="" onclick="PhotoView.Rename( '<?php

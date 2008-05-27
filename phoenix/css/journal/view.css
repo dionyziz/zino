@@ -41,9 +41,15 @@ div#journalview div.journal dl dd.commentsnum {
 	font-size: 90%;
 }
 div#journalview div.journal dl dd.addfav{
-	margin: 0 0 0 5px;
+	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
+}
+div#journalview div.journal dl dd.addfav a {
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -1327px;
+	background-repeat: no-repeat;
+	padding-left: 18px;
 }
 div#journalview div.journal dl dd.edit , div#journalview div.journal dl dd.delete {
 	margin-left: 5px;
@@ -54,12 +60,6 @@ div#journalview div.journal dl dd.edit a img , div#journalview div.journal dl dd
 }
 div#journalview div.journal dl dd.edit {
 
-}
-div#journalview div.journal dl dd.addfav a {
-	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-	background-position: 0 -1327px;
-	background-repeat: no-repeat;
-	padding-left: 18px;
 }
 div#journalview div.journal p {
 	text-align: left;

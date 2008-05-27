@@ -1,5 +1,5 @@
 <?php
-	function ElementAlbumPhotoSmall( $image , $showdesc = false, $showfav = false, $showcomnum = false ) {
+	function ElementAlbumPhotoSmall( $image , $showdesc = false ,  $showcomnum = false ) {
 		$size = $image->ProportionalSize( 210 , 210 );
 		if ( $image->Name != '' ) {
 			$title = htmlspecialchars( $image->Name );
@@ -17,17 +17,12 @@
 					echo htmlspecialchars( $image->Name );
 				}
 			?></a><?php
-			if ( $showfav || $showcommnum ) {
+			if (  $showcommnum ) {
 				?><div><?php
-					if ( $showfav ) {
-						?><span class="addfav"><a href="" onclick="return false;" title="Προσθήκη στα αγαπημένα"></a></span><?php
-					}
-					if ( $showcomnum ) {
-						if ( $image->Numcomments > 0 ) {
-							?><span class="commentsnum"><?php
-							echo $image->Numcomments;
-							?></span><?php
-						}
+					if ( $image->Numcomments > 0 ) {
+						?><span class="commentsnum"><?php
+						echo $image->Numcomments;
+						?></span><?php
 					}
 				?></div><?php
 			}

@@ -8,20 +8,3 @@ div.photo div {
 	padding: 3px 0 0 0;
 	margin: 0;
 }
-div.photo div span.addfav {	
-	padding: 0 3px 0 18px;
-	margin: 0;
-	display: inline;
-}
-div.photo div span.addfav a {
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-repeat: no-repeat;
-	padding-left: 16px;
-}
-div.photo div span.addfav a.add {
-	background-position: 0 -1327px;
-}
-div.photo div span.addfav a.isadded {
-	background-repeat: 0 -1261px;
-	cursor: default;
-}

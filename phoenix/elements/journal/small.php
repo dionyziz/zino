@@ -18,20 +18,6 @@
 			?></p>
 			<ul>
 				<li>
-					<dl>
-						<dt class="addfav"><a href="" class="<?php
-						if ( !$fav ) {
-							?>add<?php
-						}
-						else {
-							?>isadded<?php
-						}
-						?>" onclick="JournalList.AddFav( '<?php
-						echo $journal->Id;
-						?>' , this );return false;" title="Προσθήκη στα αγαπημένα"></a></dt>
-					</dl>
-				</li>
-				<li>
 					<dl><?php
 					if ( $journal->Numcomments > 0 ) {
 						?><dt class="commentsnum"><a href="?p=poll&amp;id=<?php

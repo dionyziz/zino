@@ -22,7 +22,6 @@
 				else {
 					$finder = New ImageFinder();
 					$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
-					w_assert( is_array( $images ), 'FindByAlbum must return an array' );
 					$page->SetTitle( $album->Name );
 					?><h2><?php
 					if ( $album->Id == $album->User->Egoalbumid ) {
@@ -67,7 +66,7 @@
 					?><ul><?php
 						foreach( $images as $image ) {
 							?><li><?php
-							Element( 'album/photo/small' , $image , false , true , true );
+							Element( 'album/photo/small' , $image , false , true );
 							?></li><?php
 						}
 					?></ul>
