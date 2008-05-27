@@ -35,7 +35,7 @@
 							}
 							?></dd><?php
 						}
-						//if ( $journal->User->Id != $user->Id ) {
+						if ( $journal->User->Id != $user->Id ) {
 							?><dd class="addfav"><a href="" class="<?php
 							if ( !$fav ) {
 								?>add<?php
@@ -57,7 +57,7 @@
 								?>Προσθήκη στα αγαπημένα<?php
 							}
 							?></a></dd><?php
-						//}
+						}
 
 						?></dl><?php
 						if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
