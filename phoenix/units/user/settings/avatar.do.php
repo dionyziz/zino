@@ -18,11 +18,7 @@
 						echo $image->Id;
 						?>?resolution=150x150&sandbox=yes'
 					} );
-					setTimeout( function() {
-						$( 'div.main div.ybubble' ).animate( { height: "0" } , 800 , function() {
-							$( this ).remove();
-						} ) 
-					} , 1000 );<?php
+					setTimeout( "Frontpage.HideUpload" , 1000 );<?php
 				}
 			}
 		}
