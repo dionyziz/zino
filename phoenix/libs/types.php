@@ -28,7 +28,9 @@
 	}
 
 	function Type_GetClass( $typeid ) {
+		global $water;
 		$types = Type_Get();
+		$water->Trace( "GetClass: $typeid " . $types[ $typeid ][ 1 ] );
 		return $types[ $typeid ][ 1 ];
 	}
 
