@@ -289,7 +289,9 @@
             $this->Save();
 
             $this->User->OnCommentDelete();
-            $this->Item->OnCommentDelete();
+			if ( is_object( $this>Item ) ) {
+	            $this->Item->OnCommentDelete();
+			}
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
