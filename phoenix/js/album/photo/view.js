@@ -38,7 +38,7 @@ var PhotoView = {
 	MainImage : function( photoid ) {
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
 		$( 'div#photoview div.owner div.mainimage' ).hide().empty()
-		.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη φωτογραφία' ) )
+		.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη' ) )
 		.css( "opacity" , "0" )
 		.show()
 		.animate( { opacity : "1" } , 400 );

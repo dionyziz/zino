@@ -34,9 +34,9 @@
 				$_SESSION[ 's_username' ] = $username;
 				$newuser->Save();
 				User_SetCookie( $newuser->Id, $newuser->Authtoken );
-				?>location.href=<?php
+				?>location.href = '<?php
 				echo $rabbit_settings[ 'webaddress' ];
-				?>;<?php
+				?>';<?php
 			}
 		}
 	}
