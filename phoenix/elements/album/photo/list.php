@@ -23,7 +23,12 @@
 					$finder = New ImageFinder();
 					$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
 					if ( $album->Id == $album->User->Egoalbumid ) {
-						$page->SetTitle( 'Φωτογραφίες μου' );
+						if ( strtoupper( substr( $album->User->Name, 0, 1 ) ) == substr( $album->User->Name, 0, 1 ) ) {
+							$page->SetTitle( $album->User->Name . " Φωτογραφίες" );
+						}
+						else {
+							$page->SetTitle( $album->User->Name . " φωτογραφίες" );
+						}
 					}
 					else {
 						$page->SetTitle( $album->Name );
