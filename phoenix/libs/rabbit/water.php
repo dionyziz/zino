@@ -346,6 +346,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			// this is called at the end of processing
 			
 			ksort( $this->mOutputProfiles );
+
+            die( var_dump( $this->mOutputAlerts ) );
 			
 			$json = w_json_encode( array(
 					'alerts' => $this->mOutputAlerts,
