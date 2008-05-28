@@ -6,9 +6,7 @@
             $prototype = New Place();
             $prototype->Delid = 0;
 
-            $places = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Name', 'DESC' ) );
-
-            return $places;
+            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
     }
 	
