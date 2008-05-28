@@ -214,13 +214,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             $i = 0;
 			while ( $call = array_shift( $lastword ) ) {
 				$phpfunction = isset( $functions[ $call[ 'function' ] ] ); // if this is a php built-in function.
-				if ( $call['file'] == '<water>' ) { // skip water functions
+				if ( $call[ 'file' ] == '<water>' ) { // skip water functions
 					continue;
 				}
 				if ( !isset( $call['class'] ) ) {
-					$call['class'] = '';
+					$call[ 'class' ] = '';
 				}
-				if ( isset( $call['args'] ) && is_array( $call['args'] ) ) {
+				if ( isset( $call[ 'args' ] ) && is_array( $call[ 'args' ] ) ) {
 					$args = $call[ 'args' ];
 				}
 				else {

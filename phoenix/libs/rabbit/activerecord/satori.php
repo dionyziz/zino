@@ -295,6 +295,10 @@
                     $query->Bind( $name, $value );
                 }
                 $change = $query->Execute();
+                $this->mAllowRelationDefinition = true;
+                $this->mRelations = array();
+                $this->Relations();
+                $this->mAllowRelationDefinition = false;
                 foreach ( $this->mRelations as $relation ) {
                     $relation->Rebuild();
                 }
@@ -315,6 +319,10 @@
                     }
                 }
                 $this->mExists = true;
+                $this->mAllowRelationDefinition = true;
+                $this->mRelations = array();
+                $this->Relations();
+                $this->mAllowRelationDefinition = false;
                 foreach ( $this->mRelations as $relation ) {
                     $relation->Rebuild();
                 }
