@@ -36,10 +36,10 @@ var PhotoView = {
 		$( 'div#photoview div.owner div.delete a' ).css( 'background-image' , 'url( "' + ExcaliburSettings.imagesurl + 'delete2.gif" )' );
 	},
 	MainImage : function( photoid ) {
-		$( 'div#photoview div.owner div.mainimage' ).animate( { opacity : "0" } , 400 , function() {
-			$( this ).remove();
-		} );
 		Coala.Warm( 'album/photo/mainimage' , { photoid : photoid } );
+		$( 'div#photoview div.owner div.mainimage' ).hide().empty()
+		.append( document.createTextNode( 'Ορίστηκε ως προεπιλεγμένη φωτογραφία' ) )
+		.animate( { opacity : "1" } , 400 );
 	},
 	AddFav : function( photoid , linknode ) {
 		if ( $( linknode ).hasClass( 'add' ) ) {
