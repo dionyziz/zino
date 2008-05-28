@@ -7,13 +7,9 @@
 		
 	$water->Enable(); // on for all
 
-    global $db;
+    global $db, $places;
 
-    $query = $db->Prepare(
-        'SELECT * FROM :places'
-    );
-    $query->BindTable( 'places' );
-    $res = $query->Execute();
+    $res = $db->Query( "SELECT * FROM $places;" );
 
     header( 'Content-type: text/html; charset=utf8' );
 
