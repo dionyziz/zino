@@ -28,7 +28,12 @@
 		        	
 		        	?></span>
 		            <span class="desc"><?php
-					echo $albumname;
+					if ( $album->User->Egoalbumid == $album->Id ) {
+						?>Φωτογραφίες μου<?php
+					}
+					else {
+						echo $albumname;
+					}
 					?></span>
 		        </a>
 		        <dl><?php
