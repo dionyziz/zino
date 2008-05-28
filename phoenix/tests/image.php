@@ -58,6 +58,8 @@
             }
             $this->AssertFalse( $error, 'Cannot upload photo due to exception: ' . $message );
 
+            unlink( $temp );
+
             $imageid = $image->Id;
             $this->Assert( $imageid > 0, 'A new image must have a positive id' );
             $this->Assert( $image->Exists(), 'Image does not exist after upload' );
