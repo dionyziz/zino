@@ -62,6 +62,7 @@
                     :images
                 WHERE
                     `image_albumid` = :albumid
+                    AND `image_delid` = :delid
                 ORDER BY
                     ABS(`image_id` - :imageid)
                 LIMIT
@@ -70,6 +71,7 @@
             $query->BindTable( 'images' );
             $query->Bind( 'albumid', $pivot->Album->Id );
             $query->Bind( 'imageid', $pivot->Id );
+            $query->Bind( 'delid', 0 );
             $query->Bind( 'limit', $limit );
             $res = $query->Execute();
 
