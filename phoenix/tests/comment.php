@@ -65,7 +65,7 @@
 			$comment = New Comment();
 			$comment->Userid = $this->mUser->Id;
 			$comment->Typeid = TYPE_JOURNAL;
-			$comemnt->Itemid = $this->mJournal->Id;
+			$comment->Itemid = $this->mJournal->Id;
 			$comment->Text = 'first';
 			$comment->Parentid = 0;
 			$comment->Save();
