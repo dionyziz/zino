@@ -22,7 +22,12 @@
 				else {
 					$finder = New ImageFinder();
 					$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
-					$page->SetTitle( $album->Name );
+					if ( $album->Id == $album->User->Egoalbumid ) {
+						$page->SetTitle( 'Φωτογραφίες μου' );
+					}
+					else {
+						$page->SetTitle( $album->Name );
+					}
 					?><h2><?php
 					if ( $album->Id == $album->User->Egoalbumid ) {
 						?>Φωτογραφίες μου<?php
