@@ -8,7 +8,7 @@
 		$finder = New ImageFinder();
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
         ?><div class="frontpage"><?php
-		if ( $newuser ) {
+		if ( $newuser && $user->Exists() ) {
 			?><div class="ybubble">
 				<a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				<form style="margin:0;padding:0">
