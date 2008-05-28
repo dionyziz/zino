@@ -85,6 +85,10 @@
             $this->Numcomments -= $image->Numcomments;
             $this->Save();
         }
+        public function ImageUndeleted( $image ) {
+            $this->Numcomments += $image->Numcomments;
+            $this->Save();
+        }
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimage' ] ) ) {
                 if ( $this->User->EgoAlbum->Id == $this->Id ) {

@@ -4,7 +4,7 @@
         private $mAlbums;
         private $mUser;
         private $mUser2;
-        private $mImage;
+        private $mImages;
 
         public function SetUp() {
             $this->mUser = New User();
@@ -19,19 +19,24 @@
 
             $this->mAlbums = array();
 
-            $this->mImage = New Image();
+            for ( $i = 0; $i < 2; ++$i ) {
+                $image = New Image();
+                $temp = tempnam( '/tmp', 'excalibur_' );
 
-            $temp = tempnam( '/tmp', 'excalibur_' );
+                $im = imagecreatetruecolor( 100, 100 );
+                imagefill( $im, 50, 50, imagecolorallocate( $im, 255, 0, 0 ) );
 
-            $im = imagecreatetruecolor( 100, 100 );
-            imagefill( $im, 50, 50, imagecolorallocate( $im, 255, 0, 0 ) );
+                imagejpeg( $im, $temp );
 
-            imagejpeg( $im, $temp );
+                $this->mImage->LoadFromFile( $temp );
+                $this->mImage->Name = 'test';
+                $this->mImage->Userid = $this->mUser->Id;
+                $this->mImage->Save();
 
-            $this->mImage->LoadFromFile( $temp );
-            $this->mImage->Name = 'test';
-            $this->mImage->Userid = $this->mUser->Id;
-            $this->mImage->Save();
+                unlink( $temp );
+
+                $this->mImages[ $i ] = $image;
+            }
         }
         public function TestClassesExist() {
             $this->RequireSuccess(
@@ -115,6 +120,11 @@
                 $this->mImage = New Image( $imageid );
                 $this->Assert( $this->mImage->IsDeleted(), 'Album deletion should result to image deletion as well' );
             }
+        }
+        public function TestEgoAlbum() {
+            $this->Assert( $this->mUser->EgoAlbum->Exists(), 'EgoAlbum must be created by default' );
+            $this->Assert( empty( $this->mUser->EgoAlbum->Images ), 'EgoAlbum must be empty by default' );
+
         }
         public function TearDown() {
             $this->mUser->Delete();
