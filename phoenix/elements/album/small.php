@@ -28,12 +28,7 @@
 		        	
 		        	?></span>
 		            <span class="desc"><?php
-					if ( $album->User->Egoalbumid == $album->Id ) {
-						?>Φωτογραφίες μου<?php
-					}
-					else {
-						echo $albumname;
-					}
+					echo $albumname;
 					?></span>
 		        </a>
 		        <dl><?php
@@ -55,9 +50,9 @@
 		else {
 			?><div class="album createalbum">
 				<a href="">
-		        	<span class="albummain">
-		        		<img src="http://static.zino.gr/phoenix/mockups/apartments.jpg" alt="Νέο album" title="Νέο album" />
-		        	</span>
+		        	<span class="albummain"><?php
+		        	Element( 'image' , 'anonymous130.jpg' , 130 , 130 , '' , 'Νέο album'  , 'Νέο album' , '' );
+					?></span>
 		        </a>
 				<span class="desc">
 					<input type="text" />
