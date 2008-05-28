@@ -21,11 +21,22 @@
 			else {
 				if ( $image->Name != "" ) {
 					$title = htmlspecialchars( $image->Name );
+					$page->SetTitle( $title );
 				}
 				else {
-					$title = htmlspecialchars( $image->Album->Name );
+					if ( $image->Album->User->Egoalbumid == $image->Album->Id ) {
+						if ( strtoupper( substr( $image->album->User->Name, 0, 1 ) ) == substr( $image->album->User->Name, 0, 1 ) ) {
+							$page->SetTitle( $image->album->User->Name . " Φωτογραφίες" );
+						}
+						else {
+							$page->SetTitle( $image->album->User->Name . " φωτογραφίες" );
+						}
+					}	
+					else {
+						$page->SetTitle( $image->Album->Name );
+						$title = htmlspecialchars( $image->Album->Name );
+					}
 				}
-				$page->SetTitle( $title );
 				$size = $image->ProportionalSize( 700  , 600 );
 				$finder = New FavouriteFinder();
 				$fav = $finder->FindByUserAndEntity( $user, $image );
