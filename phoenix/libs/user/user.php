@@ -203,6 +203,7 @@
             
             $this->Profile->Save();
             $this->Preferences->Save();
+            $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
             $this->Save();
