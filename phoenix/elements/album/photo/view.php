@@ -25,11 +25,11 @@
 				}
 				else {
 					if ( $image->Album->User->Egoalbumid == $image->Album->Id ) {
-						if ( strtoupper( substr( $image->album->User->Name, 0, 1 ) ) == substr( $image->album->User->Name, 0, 1 ) ) {
-							$page->SetTitle( $image->album->User->Name . " Φωτογραφίες" );
+						if ( strtoupper( substr( $image->Album->User->Name, 0, 1 ) ) == substr( $image->Album->User->Name, 0, 1 ) ) {
+							$page->SetTitle( $image->Album->User->Name . " Φωτογραφίες" );
 						}
 						else {
-							$page->SetTitle( $image->album->User->Name . " φωτογραφίες" );
+							$page->SetTitle( $image->Album->User->Name . " φωτογραφίες" );
 						}
 					}	
 					else {
