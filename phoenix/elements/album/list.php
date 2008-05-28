@@ -48,6 +48,7 @@
 		?><ul class="albums"><?php
 			if ( $offset == 1 ) {
 				$egoalbum = New Album( $theuser->Egoalbumid );
+				$water->Trace( 'egoalbum numphotos are ' . $egoalbum->Numphotos );
 				if ( $user->Id == $theuser->Id || $egoalbum->Numphotos > 0 ) {
 					?><li><?php
 					Element( 'album/small' , $egoalbum , false );
