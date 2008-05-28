@@ -14,7 +14,7 @@
 				$theuser = $user;
 			}
 			else {
-				$theuser = $finder->FindByName( $name );
+				$theuser = $finder->FindByName( $username );
 			}
 		}
 		else if ( $subdomain != '' ) {
