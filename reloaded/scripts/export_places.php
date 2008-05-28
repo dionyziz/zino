@@ -9,7 +9,11 @@
 
     global $db, $places;
 
-    $res = $db->Query( "SELECT * FROM $places;" );
+    $res = $db->Query(
+        "SELECT 
+            `place_id`, `place_name`, `place_x`, `place_y`, `place_delid`
+        FROM 
+            $places;" );
 
     header( 'Content-type: text/html; charset=utf8' );
 
