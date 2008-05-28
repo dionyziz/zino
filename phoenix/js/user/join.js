@@ -137,7 +137,7 @@ $( document ).ready( function(){
 			}
 			create = false;
 		}
-		$(  this ).removeClass( 'button_disabled' );
+		alert( create );
 		if ( create ) {
 			if ( Join.enabled ) {
 				document.body.style.cursor = 'wait';
