@@ -43,12 +43,10 @@
 		
 		$finder = New AlbumFinder();
 		$albums = $finder->FindByUser( $theuser , ( $offset - 1 )*12 , 12 );
-		$water->Trace( 'username: '. $theuser->Name );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
 			if ( $offset == 1 ) {
 				$egoalbum = New Album( $theuser->Egoalbumid );
-				$water->Trace( 'egoalbum numphotos are ' . $egoalbum->Numphotos );
 				if ( $user->Id == $theuser->Id || $egoalbum->Numphotos > 0 ) {
 					?><li><?php
 					Element( 'album/small' , $egoalbum , false );
@@ -56,7 +54,7 @@
 				}
 			}
 			foreach ( $albums as $album ) {
-				if ( $egoalbum->Id != $album->Id ) {
+				if ( $album->User->Egoalbumid != $album->Id ) {
 					if ( $user->Id == $theuser->Id || $album->Numphotos > 0 ) {
 						?><li><?php
 							Element( 'album/small' , $album , false );
