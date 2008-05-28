@@ -4,6 +4,7 @@
 		protected $mAppliesTo = 'libs/comment';
 		private $mUser;
 		private $mJournal;
+		private $mUser2;
 
 		public function SetUp() {
 			global $libs;
@@ -32,6 +33,16 @@
 			$journal->Save();
 
 			$this->mJournal = $journal;
+
+			$user = $ufinder->FindByName( 'testcomments2' );
+			if ( is_object( $user ) ) {
+				$user->Delete();
+			}
+
+			$this->mUser2 = New User();
+			$this->mUser2->Name = 'testcomments2';
+			$this->mUser2->Subdomain = 'testcomments2';
+			$this->mUser2->Save();
 		}
 		public function TestCreation() {
 			$comment = New Comment();
@@ -90,6 +101,10 @@
 				$this->AssertEquals( $itemid, $comment->Itemid, "Wrong itemid No $i" );
 				$this->AssertEquals( $texts[ $i ], $comment->Text, "Wrong text No $i" );
 			}
+
+			$comment->Delete();
+			$comment2->Delete();
+			$comment3->Delete();
 		}
 	}
 
