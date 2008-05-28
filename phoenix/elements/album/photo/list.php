@@ -20,6 +20,7 @@
 					?>Το album έχει διαγραφεί<?php
 				}
 				else {
+					var_dump( $album->User->Egoalbumid );
 					$water->Trace( "egoalbumid " . $album->User->Egoalbumid );
 					$water->Trace( "albumid " . $album->Id );
 					$finder = New ImageFinder();
