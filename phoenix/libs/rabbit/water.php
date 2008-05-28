@@ -172,6 +172,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             $this->SetSetting( 'calltracelvl' , 1 );
         	$this->SetSetting( 'loglevel'     , 0 ); // traces and up
             $this->SetSetting( 'loglimit'     , 400 );
+            $this->SetSetting( 'jsonstartdepth', 3 );
             $this->SetSetting( 'strict'       , true );
             $this->SetSetting( 'sqlmaxlength' , 1000 );
 			$this->SetSetting( 'maxstring'    , 1200 );
@@ -188,7 +189,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		}
 		private function AppendAlert( $errno, $errstr, $errdump, $backtrace = false ) {
 			$functions = $this->get_php_functions();
-			$dump = w_json_encode( $errdump , $this->mSettings[ 'maxstring' ] );
+			$dump = w_json_encode( $errdump , $this->mSettings[ 'maxstring' ], $this->mSettings[ 'jsonstartdepth' ] );
 			$alert = array(
 				'id' => $errno, 
 				'description' => $errstr, 
@@ -352,7 +353,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 					'profiles' => $this->mOutputProfiles,
 					'sql' => $this->mOutputSQL
 				 )
-				, $this->mSettings[ 'maxstring' ]
+				, $this->mSettings[ 'maxstring' ], $this->Settings[ 'jsonstartdepth' ]
 			);
 			
 			// for allowing stand-alone debugging, we can process the page and only send back the debug JSON
