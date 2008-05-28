@@ -103,7 +103,15 @@
             );
             $query->BindTable( 'images' );
             $query->Bind( 'imageids', $imageids );
-            return $this->FindBySQLResource( $query->Execute() );
+            $images = $this->FindBySQLResource( $query->Execute() );
+
+            $ret = array();
+            foreach ( $images as $image ) {
+                $ret[ $image->Id ] = $image;
+            }
+            krsort( $ret );
+
+            return $ret;
         }
         public function Count() {
     		$query = $this->mDb->Prepare("
