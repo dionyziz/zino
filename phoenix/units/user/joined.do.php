@@ -14,17 +14,15 @@
 			$user->Profile->BirthDay = $dobd;
 			$user->Profile->BirthMonth = $dobm;
 			$user->Profile->BirthYear = $doby;
-			?>alert( 'dob ok' );<?php
 		}
 		if( $gender == 'm' || $gender == 'f' ) {
 			$user->Gender = $gender;
-			?>alert( 'gender ok' );<?php
 		}
 		$place = new Place( $location );
 		if ( $place->Exists() ) {
 			?>alert( 'location ok' );<?php
 		}
-		//$user->Save();
-		//$user->Profile->Save();
+		$user->Save();
+		$user->Profile->Save();
 	}
 ?>

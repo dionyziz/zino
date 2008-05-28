@@ -11,7 +11,6 @@ $( document ).ready( function() {
 		$( 'div a.button' ).click( function() {
 			if ( Joined.enabled ) {
 				$( this ).addClass( 'button_disabled' );
-				alert( 'coala' );
 				Coala.Warm( 'user/joined' , { 
 					doby : Joined.doby.options[ Joined.doby.selectedIndex ].value,
 					dobm : Joined.dobm.options[ Joined.dobm.selectedIndex ].value,
