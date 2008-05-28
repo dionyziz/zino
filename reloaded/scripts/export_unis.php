@@ -11,7 +11,7 @@
 
     $res = $db->Query(
         "SELECT 
-            `uni_id`, `uni_name`, `uni_typeid`, `uni_placeid`, `uni_created`, `uni_delid`
+            `uni_id`, `uni_name`, `uni_typeid`, `uni_placeid`, `uni_createdate`, `uni_delid`
         FROM 
             $universities;" );
 
