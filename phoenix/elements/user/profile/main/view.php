@@ -13,24 +13,28 @@
 			$finder = New ImageFinder();
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
 		}
-		?><div class="main">
-			<div class="ybubble">	
-				<h3>Ανέβασε μια φωτογραφία σου</h3>
-				<div class="uploaddiv">
-					<object data="?p=upload&amp;albumid=<?php
-					echo $user->Egoalbumid;
-					?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
-					</object>
-				</div>
-				<i class="bl"></i>
-				<i class="br"></i>
-			</div><?php
-			if ( count( $images ) > 0 ) {
-				?><div class="photos"><?php
-					Element( 'user/profile/main/photos' , $theuser , $images );
-				?></div><?php
+		?><div class="main"><?php
+			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
+				?><div class="ybubble">	
+					<h3>Ανέβασε μια φωτογραφία σου</h3>
+					<div class="uploaddiv">
+						<object data="?p=upload&amp;albumid=<?php
+						echo $user->Egoalbumid;
+						?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
+						</object>
+					</div>
+					<i class="bl"></i>
+					<i class="br"></i>
+				</div><?php
 			}
-			?><div class="friends">
+			?><div class="photos"<?php
+			if ( $egoalbum->Numphotos == 0 ) {
+				?> style="display:none"<?php
+			}
+			?>><?php
+				Element( 'user/profile/main/photos' , $theuser , $images );
+			?></div>
+			<div class="friends">
 				<h3>Οι φίλοι μου</h3><?php
 				Element( 'user/list' );
 				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>

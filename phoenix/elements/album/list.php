@@ -47,16 +47,20 @@
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
 			if ( $offset == 1 ) {
-				?><li><?php
-				$egoalbum = New Album( $theuser->Egoalbumid );
-				Element( 'album/small' , $egoalbum , false );
-				?></li><?php
+				if ( $user->Id == $theuser->Id || $egoalbum->Numphotos > 0 ) {
+					?><li><?php
+					$egoalbum = New Album( $theuser->Egoalbumid );
+					Element( 'album/small' , $egoalbum , false );
+					?></li><?php
+				}
 			}
 			foreach ( $albums as $album ) {
 				if ( $egoalbum->Id != $album->Id ) {
-					?><li><?php
-						Element( 'album/small' , $album , false );
-					?></li><?php
+					if ( $user->Id == $theuser->Id || $album->Numphotos > 0 ) {
+						?><li><?php
+							Element( 'album/small' , $album , false );
+						?></li><?php
+					}
 				}
 			}
 			if ( $theuser->Id == $user->Id ) {
