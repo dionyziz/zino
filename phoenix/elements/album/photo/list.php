@@ -20,6 +20,8 @@
 					?>Το album έχει διαγραφεί<?php
 				}
 				else {
+					$water->Trace( "egoalbumid " . $album->User->Egoalbumid );
+					$water->Trace( "albumid " . $album->Id );
 					$finder = New ImageFinder();
 					$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
 					if ( $album->Id == $album->User->Egoalbumid ) {
