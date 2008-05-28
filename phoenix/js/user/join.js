@@ -137,7 +137,6 @@ $( document ).ready( function(){
 			}
 			create = false;
 		}
-		alert( create );
 		if ( create ) {
 			if ( Join.enabled ) {
 				document.body.style.cursor = 'wait';
