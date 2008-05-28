@@ -81,8 +81,8 @@
 						<span>Φύλο:</span>
 						<select>
 							<option value="-" selected="selected">-</option>
-							<option value="m">άντρας</option>
-							<option value="f">γυναίκα</option>
+							<option value="m">Άντρας</option>
+							<option value="f">Γυναίκα</option>
 						</select>
 					</div>
 					<div>
