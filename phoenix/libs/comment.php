@@ -232,19 +232,19 @@
             return false;
         }
         public function FindLatest( $offset = 0, $limit = 25 ) {
-            $prototype = New $this->mModel();
+            $prototype = New Comment();
             $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
         public function FindNear( $entity, $comment, $reverse = true ) {
-            $prototype = New $this->mModel();
+            $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true ) {
-            $prototype = New $this->mModel();
+            $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
@@ -257,8 +257,21 @@
 		private $mSince;
         private $mNewText;
 
-        public function GetText() {
-            return $this->Bulk->Text;
+        public function GetText( $length = false ) {
+			if ( !empty( $this->mNewText ) ) {
+				$text = $this->mNewText;
+			}
+			else {
+				$text = $this->Bulk->Text;
+
+			}
+            if ( $length == false ) {
+                return $text;
+            }
+            else {
+                $text = preg_replace( "#<[^>]*?>#", "", $text ); // strip all tags
+                return utf8_substr( $text, 0, $length );
+            }
         }
         public function SetText( $value ) {
             $this->mNewText = $value;
