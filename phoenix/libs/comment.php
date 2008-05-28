@@ -195,7 +195,7 @@
             $query->Bind( 'CommentId', $comment->Id );
             $query->BindTable( 'comments' );
 
-            $row = $query->Execute()->FetchRow();
+            $row = $query->Execute()->FetchArray();
             if ( $row[ "childcount" ] > 0 ) {
                 return true;
             }
