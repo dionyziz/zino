@@ -348,9 +348,6 @@
         public function Save() {
             global $user;
 
-            if ( !$this->User->Exists() ) {
-                throw new Exception( 'Non existing user on Comment::User' );
-            }
             // use this when done with testing
             // if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
             if ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) {
@@ -374,8 +371,11 @@
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function LoadDefaults() {
+			global $user;
+
             $this->Created = NowDate();
             $this->Userip = UserIp();
+			$this->Userid = $user->Id;
         }
         public function AfterConstruct() {
             if ( $this->Exists() ) {
