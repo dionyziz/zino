@@ -26,6 +26,6 @@
 		$user->Profile->Save();
 		?>location.href = '<?php
 		echo $rabbit_settings[ 'webaddress' ];
-		?>?p=newuser=true';<?php
+		?>?newuser=true';<?php
 	}
 ?>
