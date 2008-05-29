@@ -3,6 +3,8 @@
 	function ElementUserSettingsPersonalPlace() {
 		global $user;
 		
+		$finder = New PlaceFinder();
+		$places = $finder->FindAll();
 		?><select name="place">
 			<option value="-1"<?php
 			if ( $user->Profile->Location->Id == 0 ) {
