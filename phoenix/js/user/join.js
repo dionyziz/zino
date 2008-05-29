@@ -58,10 +58,12 @@ $( document ).ready( function(){
 				}
 			}
 			if ( Join.usernameexists ) {
-				Join.usernameexists = false;
-				$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 , function() {
-					$( this ).css( "display" , "none" );
-				});
+				if ( event.keyCode != 13 ) {
+					Join.usernameexists = false;
+					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 , function() {
+						$( this ).css( "display" , "none" );
+					});
+				}
 			}
 			if ( Join.invalidusername ) {
 				Join.invalidusername = false;

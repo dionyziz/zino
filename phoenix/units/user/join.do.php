@@ -17,7 +17,6 @@
 					$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 				}
 				Join.username.focus();
-				Join.username.select();
 				document.body.style.cursor = 'default';
 				$( 'div a.button' ).removeClass( 'button_disabled' );
 				Join.enabled = true;<?php
