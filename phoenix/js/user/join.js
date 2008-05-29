@@ -43,9 +43,9 @@ $( document ).ready( function(){
 				Join.email.focus();
 			}
 		} );
-		$( Join.email ).keydown( function( event ) {
+		$( Join.email ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.emailerror ) {
-				//$( 'div a.button' )[ 0 ].focus();
+				$( 'div a.button' )[ 0 ].focus();
 			}
 		} );
 		$( Join.username ).keyup( function( event ) {
