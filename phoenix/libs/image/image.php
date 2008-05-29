@@ -164,7 +164,7 @@
 			return $size;
 		}
 		public function CommentAdded() {
-            if ( $this->Albumid > 0 ) {
+            if ( $this->Albumid ) {
                 $this->Album->CommentAdded();
             }
 		   
@@ -179,20 +179,22 @@
             $this->Delid = 1;
             $this->Save();
 
-            $this->Album->ImageDeleted( $this );
- 
-			// update latest images
-            if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
-                $finder = New ImageFinder();
-    			$images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                $frontpageimage = New FrontpageImage( $this->Userid );
-                if ( !count( $images ) ) {
-                    // no previous images uploaded
-                    $frontpageimage->Delete();
-                }
-                else {
-                    $frontpageimage->Imageid = $images[ 0 ]->Id;
-                    $frontpageimage->Save();
+            if ( $this->Albumid ) {
+                $this->Album->ImageDeleted( $this );
+     
+                // update latest images
+                if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
+                    $finder = New ImageFinder();
+                    $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
+                    $frontpageimage = New FrontpageImage( $this->Userid );
+                    if ( !count( $images ) ) {
+                        // no previous images uploaded
+                        $frontpageimage->Delete();
+                    }
+                    else {
+                        $frontpageimage->Imageid = $images[ 0 ]->Id;
+                        $frontpageimage->Save();
+                    }
                 }
             }
 
@@ -202,22 +204,26 @@
             $this->Delid = 0;
             $this->Save();
 
-            $this->Album->ImageUndeleted( $this );
+            if ( $this->Albumid ) {
+                $this->Album->ImageUndeleted( $this );
 
-            if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
-                $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                w_assert( count( $images ) == 1, 'We just undeleted an image, there must be some in that album' );
-                $frontpageimage = New FrontpageImage( $this->Userid );
-                $frontpageimage->Imageid = $images[ 0 ]->Id; // may not affect frontpage image if the undeleted picture is not the latest one
-                $frontpageimage->Save();
+                if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
+                    $finder = New ImageFinder();
+                    $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
+                    w_assert( count( $images ) == 1, 'We just undeleted an image, there must be some in that album' );
+                    $frontpageimage = New FrontpageImage( $this->Userid );
+                    $frontpageimage->Imageid = $images[ 0 ]->Id; // may not affect frontpage image if the undeleted picture is not the latest one
+                    $frontpageimage->Save();
+                }
             }
 
             $this->OnUndelete();
         }
         public function CommentDeleted() {
-            if ( !$this->Album->CommentDeleted() ) {
-                return false;
+            if ( $this->Albumid ) {
+                if ( !$this->Album->CommentDeleted() ) {
+                    return false;
+                }
             }
 
             --$this->Numcomments;
@@ -275,7 +281,7 @@
             $upload = $this->Upload( $resizeto );
 
             if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
-                if ( $this->Album->Id ) {
+                if ( $this->Albumid ) {
                     if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
                         $frontpageimage = New FrontpageImage( $this->Userid );
                         if ( !$frontpageimage->Exists() ) {
@@ -298,7 +304,7 @@
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
-            if ( $this->Album->Exists() ) {
+            if ( $this->Albumid ) {
                 --$this->Album->Numphotos;
                 $this->Album->Save();
             }
@@ -310,7 +316,7 @@
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
-            if ( $this->Album->Exists() ) {
+            if ( $this->Albumid ) {
                 ++$this->Album->Numphotos;
                 $this->Album->Save();
             }

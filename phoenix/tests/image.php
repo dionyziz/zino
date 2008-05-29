@@ -51,6 +51,7 @@
             try {
                 $image->Save();
                 $error = false;
+                $message = ''; 
             }
             catch ( ImageException $e ) {
                 $error = true;
@@ -104,7 +105,7 @@
             $image->Undelete();
 
             $image = New Image( $this->mImage->Id );
-            $this->AssertFalse( $this->mImage->IsDeleted(), 'Image must not be deleted after undeleting' );
+            $this->AssertFalse( $image->IsDeleted(), 'Image must not be deleted after undeleting' );
 
             $image->Delete();
         }
