@@ -97,7 +97,7 @@
 			$event->Itemid = $this->mUser->Id;
 			$event->Save();
 
-			$event = New Event();
+			$event2 = New Event();
 			$event2->Userid = $this->mUser->Id;
 			$event2->Typeid = EVENT_USERPROFILE_VISITED;
 			$event2->Itemid = $this->mUser->Id;
