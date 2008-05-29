@@ -11,7 +11,8 @@
 				if ( $egoalbum->Mainimage != $image->Id ) {
 					$egoalbum->Mainimage = $image->Id;
 					$egoalbum->Save();
-					?>$( 'div.sidebar div.basicinfo h2 img' ).attr( {
+					?>alert( 'coala' );
+					$( 'div.sidebar div.basicinfo h2 img' ).attr( {
 						src : ExcaliburSettings.photosurl + '<?php
 						echo $user->Id;
 						?>/<?php
