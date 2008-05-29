@@ -12,7 +12,6 @@
             $this->mUser->Subdomain = 'testimage';
             $this->mUser->Save();
         }
-        /*
         public function TestClassesExist() {
             $this->Assert( class_exists( 'ImageException' ), 'ImageException class does not exist' );
             $this->Assert( class_exists( 'ImageFinder' ), 'ImageFinder class does not exist' );
@@ -34,6 +33,7 @@
             $this->Assert( is_int( $this->mCount ), 'Count images must be an integer' );
             $this->Assert( $this->mCount >= 0, 'Count images must be non-negative' );
         }
+        /*
         public function TestUpload() {
             $image = New Image();
 
@@ -104,10 +104,10 @@
             $image = New Image( $this->mImage->Id );
             $this->AssertFalse( $this->mImage->IsDeleted(), 'Image must not be deleted after undeleting' );
         }
+        */
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
         }
-        */
         public function TearDown() {
             $this->mUser->Delete();
         }
