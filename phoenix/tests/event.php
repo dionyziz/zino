@@ -11,6 +11,16 @@
 
             $libs->Load( 'event' );
 
+            $ufinder = New UserFinder();
+            $user = $ufinder->FindByName( 'testevents' );
+            if ( is_object( $user ) ) {
+                $user->Delete();
+            }
+            $user = $ufinder->FindByName( 'testevents2' );
+            if ( is_object( $user ) ) {
+                $user->Delete();
+            }
+
 			$this->mUser = New User();
 			$this->mUser->Name = 'testevents';
 			$this->mUser->Subdomain = 'testevents';
