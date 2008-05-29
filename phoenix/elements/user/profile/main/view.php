@@ -88,7 +88,8 @@
 					<h3>Ημερολόγιο</h3><?php
 					if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
 						?><div class="nojournals">
-						Δεν έχεις καμία καταχώρηση. Κανε click στο παρακάτω link για να δημιουργήσεις μια.
+						Δεν έχεις καμία καταχώρηση.<br />
+						Κανε click στο παρακάτω link για να δημιουργήσεις μια.
 						<a href="?p=addjournal">Δημιουργία καταχώρησης</a>
 						</div><?php
 					}

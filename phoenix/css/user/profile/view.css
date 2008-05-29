@@ -256,16 +256,28 @@ div#profile div.main div.lastpoll div.container {
 div#profile div.main div.lastpoll a.button {
 	margin-left: 0;
 }
+div#profile div.main div.lastpoll div.nopolls {
+	width: 400px;
+}	
+div#profile div.main div.lastpoll div.nopolls a {
+	display: block;
+	margin-top: 5px;
+	font-weight: bold;
+}
 div#profile div.main div.lastjournal {
 	padding-bottom: 20px;
 }
 div#profile div.main div.lastjournal div.journalsmall {
 	margin-bottom: 10px;
 }
-
 div#profile div.main div.lastjournal h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
+}
+div#profile div.main div.lastjournal div.nojournals a {
+	display: block;
+	font-weight: bold;
+	margin-top: 5px;
 }
 div.comments {
 	float: left;
