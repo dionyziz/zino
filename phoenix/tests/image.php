@@ -10,7 +10,7 @@
             $this->mUser = New User();
             $this->mUser->Name = 'testimage';
             $this->mUser->Subdomain = 'testimage';
-            // $this->mUser->Save();
+            $this->mUser->Save();
         }
         /*
         public function TestClassesExist() {
@@ -107,10 +107,10 @@
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
         }
+        */
         public function TearDown() {
             $this->mUser->Delete();
         }
-        */
     }
 
     return New TestImage();
