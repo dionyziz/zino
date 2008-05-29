@@ -137,7 +137,13 @@
 			$this->AssertEquals( 3, count( $events ), 'Wrong number of events' );
 
 			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
-			$itemids = array( );
+			$itemids = array( $this->mUser->Id, $this->mUser2->Id, $this->mUser->Id );
+            $userids = array( $this->mUser2->Id, $this->mUser2->Id, $this->mUser->Id );
+            foreach ( $events as $key => $event ) {
+                $this->AssertEquals( $typeids[ $key ], $event->Typeid, 'Wrong typeid' );
+                $this->AssertEquals( $itemids[ $key ], $event->Itemid, 'Wrong itemid' );
+                $this->AssertEquals( $userids[ $key ], $event->Userid, 'Wrong userid' );
+            }
 
             $event->Delete();
             $event2->Delete();
@@ -152,10 +158,10 @@
 			$this->AssertFalse( $event->Exists(), "Deleted event appears to exist after creating new instance" );
 		}
 		public function TearDown() {
-			if ( is_object( $this->mUser ) && $this->mUser->Exists() ) {
+			if ( is_object( $this->mUser ) ) {
 				$this->mUser->Delete();
 			}
-			if ( is_object( $this->mUser2 ) && $this->mUser2->Exists() ) {
+			if ( is_object( $this->mUser2 ) ) {
 				$this->mUser2->Delete();
 			}
 		}
