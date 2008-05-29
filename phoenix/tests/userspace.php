@@ -22,4 +22,6 @@
             $this->mUser->Delete();
         }
     }
+    
+    return New TestUserspace();
 ?>
