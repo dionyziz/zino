@@ -18,6 +18,7 @@
             $this->mUser2->Save();
 
             $this->mAlbums = array();
+            $this->mImages = array();
 
             for ( $i = 0; $i < 2; ++$i ) {
                 $image = New Image();
@@ -72,8 +73,10 @@
             $albums = $finder->FindByUser( $this->mUser );
 
             $this->Assert( is_array( $albums ), 'AlbumFinder did not return an array' );
-            $this->AssertEquals( 2, count( $albums ), 'This user has two albums' );
+            $this->AssertEquals( 3, count( $albums ), 'This user has two albums' ); // two created by this testcase, one ego album
+
             $i = 0;
+
             foreach ( $albums as $album ) {
                 $this->Assert( $album instanceof Album, 'AlbumFinder did not return an array of Album instances' );
 
@@ -101,12 +104,12 @@
             $this->Assert( 'Hello', $album->Description, 'Description of album was not saved/restored correctly' );
         }
         public function TestImages() {
-            $this->mImage->Albumid = $this->mAlbums[ 0 ]->Id;
+            $this->mImages[ 0 ]->Albumid = $this->mAlbums[ 0 ]->Id;
 
             $album = New Album( $this->mAlbums[ 0 ]->Id );
 
             $this->AssertEquals( 1, count( $album->Images ), 'Number of images must be 1 in album' );
-            $this->AssertEquals( $this->mImage->Id, $album->Images[ 0 ]->Id, 'Image mismatch in album' );
+            $this->AssertEquals( $this->mImages[ 0 ]->Id, $album->Images[ 0 ]->Id, 'Image mismatch in album' );
         }
         public function TestDelete() {
             $imageid = $this->mAlbums[ 0 ]->Images[ 0 ]->Id;
