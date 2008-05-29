@@ -130,8 +130,10 @@
             $this->mUser->Delete();
             $this->mUser2->Delete();
 
-            if ( !$this->mImage->IsDeleted() ) {
-                $this->mImage->Delete();
+            foreach ( $this->mImages as $image ) {
+                if ( !$image->IsDeleted() ) {
+                    $image->Delete();
+                }
             }
         }
     }
