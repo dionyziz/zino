@@ -120,6 +120,7 @@ var Settings = {
 };
 $( document ).ready( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
+		alert( window.location.hash.substr( 1 ) );
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
 			var sexselected = $( '#sex select' )[ 0 ].value;
