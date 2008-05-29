@@ -27,6 +27,7 @@
                     ?><li><b>Unanticipated fail:</b> <em class="message"><?php
                     echo htmlspecialchars( $assertresult->Message );
                     ?></em><br /></li><?php
+                    break;
                 }
 
                 if ( !$assertresult->Success ) {
