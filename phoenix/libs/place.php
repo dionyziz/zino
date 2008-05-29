@@ -6,7 +6,7 @@
             $prototype = New Place();
             $prototype->Delid = 0;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Name', 'ASC' ) );
         }
     }
 	
@@ -26,7 +26,7 @@
             $this->Y     = 0;
         }
         public function IsDeleted() {
-            return $this->mDelid != 0;
+            return $this->Delid != 0;
         }
 	}
 ?>
