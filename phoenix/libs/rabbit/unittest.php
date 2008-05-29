@@ -345,19 +345,6 @@
         }
     }
     
-    class RunResultFailedByException extends RunResult {
-        protected $mExceptionMessage;
-        
-        protected function GetMessage() {
-            return $this->mExceptionMessage;
-        }
-        public function RunResultFailedByException( $runname, $exceptionmessage ) {
-            $this->mRunName = $runname;
-            $this->mExceptionMessage = $exceptionmessage;
-            $this->mSuccess = false;
-        }
-    }
-
     class AssertResult extends Overloadable { // most basic test, a simple assertion
         protected $mSuccess;
         protected $mMessage;
@@ -381,6 +368,17 @@
             $this->mMessage  = $message;
             $this->mActual   = $actual;
             $this->mExpected = $expected;
+        }
+    }
+
+    class AssertResultFailedByException extends AssertResult {
+        protected $mExceptionMessage;
+
+        protected function GetMessage() {
+            return $this->mExceptionMessage;
+        }
+        public function AssertResultFailedByException() {
+            $this->mSuccess = false;
         }
     }
 ?>

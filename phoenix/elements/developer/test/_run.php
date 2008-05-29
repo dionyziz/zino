@@ -13,46 +13,44 @@
         }
         else {
             ?>: <?php
-            if ( $runresult instanceof RunResultFailedByException ) {
-                ?><span class="fail">UNANTICIPATED FAIL</span><br />
-                <strong>Unhandled Exception: </strong><br /><?php
-                echo htmlspecialchars( $runresult->Message );
-                ?><br /><?php
+            ?><span class="fail">FAIL</span> <span class="subject">(<?php
+            echo $runresult->NumSuccessfulAssertions;
+            ?> out of <?php
+            echo $runresult->NumAssertions;
+            ?> assertion<?php
+            if ( $runresult->NumAssertions != 1 ) {
+                ?>s<?php
             }
-            else {
-                ?><span class="fail">FAIL</span> <span class="subject">(<?php
-                echo $runresult->NumSuccessfulAssertions;
-                ?> out of <?php
-                echo $runresult->NumAssertions;
-                ?> assertion<?php
-                if ( $runresult->NumAssertions != 1 ) {
-                    ?>s<?php
+            ?> pass)</span><br /><ul class="assertresults"><?php
+            foreach ( $runresult as $assertresult ) {
+                if ( $assertresult instanceof AssertResultFailedByException ) {
+                    ?><li><b>Unanticipated fail:</b> <em class="message"><?php
+                    echo htmlspecialchars( $assertresult->GetMessage() );
+                    ?></em><br /><?php
                 }
-                ?> pass)</span><br /><ul class="assertresults"><?php
-                foreach ( $runresult as $assertresult ) {
-                    if ( !$assertresult->Success ) {
-                        ?><li><b>Assertion failed:</b> <em class="message"><?php
-                        echo htmlspecialchars( $assertresult->Message );
-                        ?></em><br />
-                        <dl>
-                            <dt>Expected</dt>
-                            <dd class="expected"><?php
-                            ob_start();
-                            Test_VarDump( $assertresult->Expected );
-                            echo nl2br( htmlspecialchars( ob_get_clean() ) );
-                            ?></dd>
-                            <dt>Actual</dt>
-                            <dd class="actual"><?php
-                            ob_start();
-                            Test_VarDump( $assertresult->Actual );
-                            echo nl2br( htmlspecialchars( ob_get_clean() ) );
-                            ?></dd>
-                        </dl>
-                        </li><?php
-                    }
+
+                if ( !$assertresult->Success ) {
+                    ?><li><b>Assertion failed:</b> <em class="message"><?php
+                    echo htmlspecialchars( $assertresult->Message );
+                    ?></em><br />
+                    <dl>
+                        <dt>Expected</dt>
+                        <dd class="expected"><?php
+                        ob_start();
+                        Test_VarDump( $assertresult->Expected );
+                        echo nl2br( htmlspecialchars( ob_get_clean() ) );
+                        ?></dd>
+                        <dt>Actual</dt>
+                        <dd class="actual"><?php
+                        ob_start();
+                        Test_VarDump( $assertresult->Actual );
+                        echo nl2br( htmlspecialchars( ob_get_clean() ) );
+                        ?></dd>
+                    </dl>
+                    </li><?php
                 }
-                ?></ul><?php
             }
+            ?></ul><?php
         }
         ?></li><?php
     }
