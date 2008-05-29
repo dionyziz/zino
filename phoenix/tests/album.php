@@ -54,7 +54,7 @@
             
             $album = New Album( $album->Id );
             
-            $this->Assert( $album->Exists, 'Could not look up the newly created album' );
+            $this->Assert( $album->Exists(), 'Could not look up the newly created album' );
             $this->AssertEquals( 'Example', $album->Name, 'Could not create an album with the given name' );
 
             $this->mAlbums[] = $album;
