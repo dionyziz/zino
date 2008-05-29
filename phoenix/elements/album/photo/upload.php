@@ -6,6 +6,7 @@
 		global $rabbit_settings;
 		global $page;
 		
+		$page->SetTitle( 'Ανέβασε μια εικόνα' );
 		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
