@@ -26,7 +26,7 @@
                 if ( $assertresult instanceof AssertResultFailedByException ) {
                     ?><li><b>Unanticipated fail:</b> <em class="message"><?php
                     echo htmlspecialchars( $assertresult->Message );
-                    ?></em><br /><?php
+                    ?></em><br /></li><?php
                 }
 
                 if ( !$assertresult->Success ) {
