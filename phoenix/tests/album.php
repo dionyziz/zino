@@ -105,6 +105,7 @@
         }
         public function TestImages() {
             $this->mImages[ 0 ]->Albumid = $this->mAlbums[ 0 ]->Id;
+            $this->mImages[ 0 ]->Save();
 
             $album = New Album( $this->mAlbums[ 0 ]->Id );
 
@@ -120,8 +121,8 @@
             }
 
             if ( $imageid > 0 ) { // case imageid = 0 covered by above test method
-                $this->mImage = New Image( $imageid );
-                $this->Assert( $this->mImage->IsDeleted(), 'Album deletion should result to image deletion as well' );
+                $image= New Image( $imageid );
+                $this->Assert( $image->IsDeleted(), 'Album deletion should result to image deletion as well' );
             }
         }
         public function TestEgoAlbum() {
