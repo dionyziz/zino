@@ -91,7 +91,7 @@
 					<div>
 						<span>Περιοχή:</span>
 						<select>
-							<option value="0"<?php
+							<option value="-1"<?php
 							if ( $user->Profile->Location->Id == 0 ) {
 								?> selected="selected"<?php
 							}

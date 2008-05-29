@@ -21,15 +21,11 @@
 			$user->Gender = $gender;
 		}
 		
-		?>alert( '<?php
-		echo $location;
-		?>' );<?php
-		$place = New Place( $location );
-		?>alert( '<?php
-		echo $place->Name;
-		?>' );<?php
-		if ( $place->Exists() && !$place->IsDeleted() ) {
-			?>alert( 'location ok' );<?php
+		if ( $location != -1 ) {
+			$place = New Place( $location );
+			if ( $place->Exists() && !$place->IsDeleted() ) {
+				$user->Profile->Placeid = $place->Id;
+			}
 		}
 		$user->Save();
 		$user->Profile->Save();
