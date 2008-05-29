@@ -19,7 +19,7 @@ var Settings = {
 			var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 			var found = false;
 			var settingslis = $( 'div.settings div.sidebar ol li' );
-			
+			alert( 'switchsettings called' );
 			for ( i = 0; i < validtabs.length; ++i ) {
 				if ( divtoshow == validtabs[ i ] ) {
 					alert( 'showing' );
