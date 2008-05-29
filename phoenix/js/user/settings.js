@@ -22,6 +22,7 @@ var Settings = {
 			
 			for ( i = 0; i < validtabs.length; ++i ) {
 				if ( divtoshow == validtabs[ i ] ) {
+					alert( 'showing' );
 					$( '#' + divtoshow + 'info' ).show();
 					Settings.FocusSettingLink( settingslis[ i ], true );
 					window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
@@ -108,7 +109,6 @@ var Settings = {
 		Modals.Destroy();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
 	},
-	/*
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
 		$( li ).hide();
@@ -117,7 +117,6 @@ var Settings = {
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
 	}
-	*/
 };
 $( document ).ready( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
