@@ -5,6 +5,7 @@
         private $mCount;
         private $mFinder;
         private $mUser;
+        private $mAlbum;
 
         public function SetUp() {
             $this->mUser = New User();
@@ -13,6 +14,10 @@
             $this->mUser->Save();
 
             $this->mImages = array();
+
+            $this->mAlbum = New Album();
+            $this->mAlbum->Userid = $this->mUser->Id;
+            $this->mAlbum->Save();
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'ImageException' ), 'ImageException class does not exist' );
@@ -60,8 +65,6 @@
             }
             $this->AssertFalse( $error, 'Cannot upload photo due to exception: ' . $message );
 
-            unlink( $temp );
-
             $imageid = $image->Id;
             $this->Assert( $imageid > 0, 'A new image must have a positive id' );
             $this->Assert( $image->Exists(), 'Image does not exist after upload' );
@@ -79,9 +82,12 @@
             $image->LoadFromFile( $temp );
             $image->Name = 'test2';
             $image->Userid = $this->mUser->Id;
+            $image->Albumid = $this->mAlbum->Id;
             $image->Save();
 
             $this->mImages[] = $image;
+
+            unlink( $temp );
         }
         public function TestCountInc() {
             $this->AssertEquals( $this->mCount + 2, $this->mFinder->Count(), 'Count of images must increment when a new images are uploaded' );
@@ -96,6 +102,18 @@
             $this->AssertEquals( 1, count( $results ), 'Finder FindByUser must return the image just uploaded, returned nothing' );
             $this->AssertEquals( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
 
+        }
+        public function TestFindByIds() {
+            $results = $this->mFinder->FindByIds( array( -1, $this->mImages[ 0 ]->Id, -129 ) );
+
+            $this->AssertEquals( 1, count( $results ), 'Finder FindById must return the image referred to, returned nothing' );
+            $this->AssertEquals( $this->mImages[ 0 ]->Id, $results[ 0 ]->Id, 'Finder FindByIds must return the image referred, returned something else' );
+        }
+        public function TestFindByAlbum() {
+            $results = $this->mFinder->FindByAlbum( $this->mAlbum );
+
+            $this->AssertEquals( 1, count( $results ), 'Only one image exists in this album, FindByAlbum says something else' );
+            $this->AssertEquals( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'Incorrect Id returned by FindByAlbum' );
         }
         public function TestDelete() {
             $this->AssertFalse( $this->mImages[ 0 ]->IsDeleted(), 'Image must not be marked as deleted prior to deleting it' );
