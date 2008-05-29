@@ -111,9 +111,11 @@
         return $fetched[ 'fr' ];
     }
 
-    function InterestTag_Clear( $user ) {
+    function Tag_Clear( $user ) {
         global $db;
         global $interesttags;
+		
+		w_assert( $user instanceof User || is_int( $user ), 'Tag_Clear() accepts either a user instance or an integer parameter' );
 		
 		// Prepared query
 		$query = $db->Prepare("
@@ -126,7 +128,12 @@
 		");
 		
 		// Assign query values
-		$query->Bind( 'InterestTagUserId', $user->Id() );
+		if ( $user instanceof User ) {
+			$query->Bind( 'InterestTagUserId', $user->Id() );
+		}
+		else {
+			$query->Bind( 'InterestTagUserId', $user );
+		}
 
         return $query->Execute();
     }
@@ -154,9 +161,20 @@
         	$prototype->Typeid = $typeid;
         	return $this->FindByPrototype( $prototype );
         }
+ 		public function FindSuggestions( $text, $type ) { //finds all movies starting with the letter $text
+ 		}
     }
  
-    
+ 	class Tag extends Satori {
+ 		protected $mDbTableAlias = 'interesttags';
+ 		
+ 		public function MoveAfter() {
+ 		}
+ 		public function MoveBefore() {
+ 		}
+ 	}
+
+ 	   
     /* // TODO: Convert to new Satori
     class InterestTag extends Satori {
         protected   $mId;
