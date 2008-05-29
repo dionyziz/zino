@@ -107,7 +107,8 @@ var Settings = {
 	SelectAvatar : function( imageid ) {
 		Modals.Destroy();
 		Coala.Warm( 'user/settings/avatar' , { imageid : imageid } );
-	}, 
+	},
+	/*
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
 		$( li ).hide();
@@ -116,9 +117,9 @@ var Settings = {
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
 	}
+	*/
 };
 $( document ).ready( function() {
-	alert( 'loaded' );
 	if ( $( 'div.settings' )[ 0 ] ) {
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
