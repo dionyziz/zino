@@ -1,6 +1,9 @@
 <?php
 
     function ActionCommentFill( tInteger $typeid, tInteger $itemid ) {
+        global $libs;
+        $libs->Load( 'comment' );
+
         $typeid = $typeid->Get();
         $itemid = $itemid->Get();
 
@@ -25,6 +28,8 @@
                 --$next_headparent;
             }
             $comment->Save();
+
+            $ids[] = $comment->Id;
         }
 
         return Redirect();
