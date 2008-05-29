@@ -15,7 +15,7 @@ var Settings = {
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
 		alert( 'called' );
-		if ( Settings.email ) {
+		//if ( Settings.email ) {
 			//hack so that it is executed only when it is loaded
 			var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 			var found = false;
@@ -40,7 +40,7 @@ var Settings = {
 				window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
 				Settings.FocusSettingLink( settingslis[ 0 ] , true );
 			}
-		}
+		//}
 	},
 	FocusSettingLink : function( li, focus ) {
 		if ( li ) {
