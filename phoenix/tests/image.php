@@ -8,7 +8,7 @@
 
         public function SetUp() {
             $this->mUser = New User();
-            $this->mUser->Username = 'testimage';
+            $this->mUser->Name = 'testimage';
             $this->mUser->Subdomain = 'testimage';
             // $this->mUser->Save();
         }
