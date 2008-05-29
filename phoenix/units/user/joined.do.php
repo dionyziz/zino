@@ -10,10 +10,12 @@
 		$gender = $gender->Get();
 		$location = $location->Get();
 		
-		if ( ( $doby >= 1940 && $doby <= 2000 ) && ( $dobm >= 1 && $dobm <= 12 ) && ( $dobd >= 1 && $dobd <= 31 ) ) {
-			$user->Profile->BirthDay = $dobd;
-			$user->Profile->BirthMonth = $dobm;
-			$user->Profile->BirthYear = $doby;
+		if ( $dobd >=1 && $dobd <=31  && $dobm >= 1 && $dobm <= 12 && $doby ) {
+			if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
+				$user->Profile->BirthMonth = $dobm;
+				$user->Profile->BirthDay = $dobd;
+				$user->Profile->BirthYear = $doby;
+			}
 		}
 		if( $gender == 'm' || $gender == 'f' ) {
 			$user->Gender = $gender;
