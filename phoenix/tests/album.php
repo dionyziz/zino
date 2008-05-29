@@ -8,12 +8,12 @@
 
         public function SetUp() {
             $this->mUser = New User();
-            $this->mUser->Username = 'testalbum';
+            $this->mUser->Name = 'testalbum';
             $this->mUser->Subdomain = 'testalbum';
             $this->mUser->Save();
 
             $this->mUser2 = New User();
-            $this->mUser2->Username = 'testalbum2';
+            $this->mUser2->Name = 'testalbum2';
             $this->mUser2->Subdomain = 'testalbum2';
             $this->mUser2->Save();
 
