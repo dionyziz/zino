@@ -9,6 +9,15 @@
         public function GetText() {
             return $this->Bulk->Text;
         }
+        public function SetText( $value ) {
+            $this->Bulk->Text = $value;
+        }
+        public function OnCreate() {
+            $this->Bulk->Save();
+        }
+        public function OnUpdate() {
+            $this->Bulk->Save();
+        }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
