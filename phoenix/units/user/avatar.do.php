@@ -27,7 +27,7 @@
 					Element( 'image' , $image , 100 , 100 , '' , $user->Name , $user->Name , '' );
 					echo w_json_encode( ob_get_clean() );
 					?> );
-					$( $( 'div.main div.photos ul li' )[ 0 ] ).show();<?php
+					$( $( 'div.main div.photos ul' )[ 0 ] ).show();<?php
 				}
 			}
 		}

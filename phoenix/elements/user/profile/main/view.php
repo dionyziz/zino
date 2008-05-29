@@ -32,7 +32,12 @@
 				?> style="display:none"<?php
 			}
 			?>><?php
-				Element( 'user/profile/main/photos' , $theuser , $images , $egoalbum );
+				if ( $egoalbum->Numphotos > 0 ) {
+					Element( 'user/profile/main/photos' , $theuser , $images , $egoalbum );
+				}
+				else {
+					?><ul></ul><?php
+				}
 			?></div>
 			<div class="friends">
 				<h3>Οι φίλοι μου</h3><?php

@@ -2,7 +2,7 @@ var Profile = {
 	AddAvatar : function( imageid ) {
 		var li = document.createElement( 'li' );
 		var link = document.createElement( 'a' );
-		$( li ).append( link ).hide();
+		$( li ).append( link );
 		$( 'div.main div.photos ul' ).prepend( li );
 		Coala.Warm( 'user/avatar' , { imageid : imageid } );
 		$( 'div.main div.ybubble' ).animate( { height: "0" } , 400 , function() {
