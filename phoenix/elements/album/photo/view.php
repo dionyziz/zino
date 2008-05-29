@@ -140,7 +140,7 @@
 								?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
 					        </div><?php
 						}
-						if ( $pivot < count( $photos ) && $pivot != 0 ) {
+						if ( $pivot + 1 < count( $photos ) && $pivot != 0 ) {
 					        ?><div class="right arrow">
 					            <a href="?p=photo&amp;id=<?php
 								echo $photos[ $pivot + 1 ]->Id;
