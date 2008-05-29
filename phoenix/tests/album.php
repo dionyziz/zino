@@ -28,10 +28,10 @@
 
                 imagejpeg( $im, $temp );
 
-                $this->mImage->LoadFromFile( $temp );
-                $this->mImage->Name = 'test';
-                $this->mImage->Userid = $this->mUser->Id;
-                $this->mImage->Save();
+                $image->LoadFromFile( $temp );
+                $image->Name = 'test';
+                $image->Userid = $this->mUser->Id;
+                $image->Save();
 
                 unlink( $temp );
 
