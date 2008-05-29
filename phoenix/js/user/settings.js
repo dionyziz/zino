@@ -14,6 +14,7 @@ var Settings = {
 	invalidemail : false,
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
+		alert( 'called' );
 		if ( Settings.email ) {
 			//hack so that it is executed only when it is loaded
 			var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
