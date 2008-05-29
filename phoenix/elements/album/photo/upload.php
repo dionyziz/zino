@@ -9,8 +9,8 @@
 		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
 		$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/album/photo/list.js' );
-		$water->Disable();
-		$page->SetWaterDump( false );
+		//$water->Disable();
+		//$page->SetWaterDump( false );
 		//typeid is 0 for album photo uploads and 1 for avatar uploads at settings
 		$album = New Album( $albumid->Get() );
 		if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
