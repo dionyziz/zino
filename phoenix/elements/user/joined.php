@@ -41,74 +41,17 @@
 				</p>
 				<form>
 					<div>
-						<span>Ημερομηνία γέννησης:</span>
-						<select>
-							<option value="0">Ημέρα</option><?php
-							for ( $i = 1; $i <= 31; ++$i ) {
-								?><option value="<?php
-								echo $i;
-								?>"><?php
-								echo $i;
-								?></option><?php
-							}
-							?>
-						</select>
-						<select>
-							<option value="0">Μήνας</option>
-							<option value="1">Ιανουάριος</option>
-							<option value="2">Φεβρουάριος</option>
-							<option value="3">Μάρτιος</option>
-							<option value="4">Απρίλιος</option>
-							<option value="5">Μάιος</option>
-							<option value="6">Ιούνιος</option>
-							<option value="7">Ιούλιος</option>
-							<option value="8">Αύγουστος</option>
-							<option value="9">Σεπτέμβριος</option>
-							<option value="10">Οκτώβριος</option>
-							<option value="11">Νοέμβριος</option>
-							<option value="12">Δεκέμβριος</option>
-						</select>
-						<select>
-							<option value="0" selected="selected">Έτος</option><?php
-							for ( $i = 1940; $i <= 2000; ++$i ) {
-								?><option value="<?php
-								echo $i;
-								?>"><?php
-								echo $i;
-								?></option><?php
-							}
-							?>
-						</select>
-					</div>
+						<span>Ημερομηνία γέννησης:</span><?php
+						Element( 'user/settings/personal/dob' , $user );
+					?></div>
 					<div>
-						<span>Φύλο:</span>
-						<select>
-							<option value="-" selected="selected">-</option>
-							<option value="m">Άντρας</option>
-							<option value="f">Γυναίκα</option>
-						</select>
-					</div>
+						<span>Φύλο:</span><?php
+						Element( 'user/settings/personal/gender' , $user );
+					?></div>
 					<div>
-						<span>Περιοχή:</span>
-						<select>
-							<option value="-1"<?php
-							if ( $user->Profile->Location->Id == 0 ) {
-								?> selected="selected"<?php
-							}
-							?>>-</option><?php
-							foreach( $places as $place ) {
-								?><option value="<?php
-								echo $place->Id;
-								?>"<?php
-								if ( $user->Profile->Location->Id == $place->Id ) {
-									?> selected="selected"<?php
-								}
-								?>><?php
-								echo $place->Name;
-								?></option><?php
-							}
-		                ?></select>
-					</div>
+						<span>Περιοχή:</span><?php
+						Element( 'user/settings/personal/place' , $user );
+					?></div>
 				</form>
 			</div>
 			<div style="text-align:center;">
