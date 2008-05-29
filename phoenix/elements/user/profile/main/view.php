@@ -56,9 +56,10 @@
 						?><div class="nopolls">
 						Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
 						με τις δημοσκοπήσεις και να δημιουργήσεις μια.
-						<a href="?p=polls&amp;username=<?php
+						<div><a href="?p=polls&amp;username=<?php
 						echo $user->Subdomain;
 						?>">Δημοσκοπήσεις</a>
+						</div>
 						</div><?php
 					} 
 					else {
@@ -90,7 +91,7 @@
 						?><div class="nojournals">
 						Δεν έχεις καμία καταχώρηση.<br />
 						Κανε click στο παρακάτω link για να δημιουργήσεις μια.
-						<a href="?p=addjournal">Δημιουργία καταχώρησης</a>
+						<div><a href="?p=addjournal">Δημιουργία καταχώρησης</a></div>
 						</div><?php
 					}
 					else {
