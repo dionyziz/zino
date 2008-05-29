@@ -33,6 +33,7 @@
 				}
 			}
 		}
+		?>alert( 'saving' );<?php
 		$user->Save();
 		$user->Profile->Save();
 		?>location.href = '<?php
