@@ -81,7 +81,7 @@
             $this->AssertEquals( 'hohoho', $this->mImage->Name, 'Was not able to rename image' );
         }
         public function TestFindByUser() {
-            $results = $this->mFinder->FindByUser( New User( 1 ), 0, 1 );
+            $results = $this->mFinder->FindByUser( $this->mUser, 0, 1 );
 
             $this->AssertEquals( 1, count( $results ), 'Finder FindByUser must return the image just uploaded, returned nothing' );
             $this->AssertEquals( $this->mImage->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
