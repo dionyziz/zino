@@ -31,19 +31,16 @@ $( document ).ready( function(){
 		$( Join.username ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.usernameerror && !Join.usernameexists && !Join.invalidusername ) {
 				Join.password.focus();
-				Join.password.select();
 			}
 		} );
 		$( Join.password ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.pwderror ) {
 				Join.repassword.focus();
-				Join.repassword.select();
 			}
 		} );
 		$( Join.repassword ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.repwderror ) {
 				Join.email.focus();
-				Join.email.select();
 			}
 		} );
 		$( Join.email ).keydown( function( event ) {
@@ -139,18 +136,20 @@ $( document ).ready( function(){
 					Join.pwderror = true;
 					$( $( 'form.joinform div > span' )[ 3 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 				}
-				if ( Join.username.value.length >= 4 && /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) ) {
+				if ( !Join.usernamerror && !Join.invalidusername && !Join.usernameexists ) {
 					//if the username and password are empty then focus the username inputbox
 					Join.password.focus();
 				}
 				create = false;
 			}
-			if ( Join.password.value != Join.repassword.value && Join.password.value.length >= 4 ) {
+			if ( Join.password.value != Join.repassword.value && !Join.pwderror ) {
 				if ( !Join.repwderror ) {
 					Join.repwderror = true;
 					$( $( 'form.joinform div div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 				}
-				Join.repassword.focus();
+				if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists ) {
+					Join.repassword.focus();
+				}
 				create = false;
 			}
 			if ( Join.email.value !== '' && !/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
@@ -158,7 +157,7 @@ $( document ).ready( function(){
 					Join.emailerror = true;
 					$( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 				}
-				if ( !Join.usernameerror && !Join.invalidusername && !Join.pwderror && !Join.repwderror ) {
+				if ( !Join.usernameerror && !Join.invalidusername && !Join.usernameexists && !Join.pwderror && !Join.repwderror ) {
 					Join.email.focus();
 				}
 				create = false;
