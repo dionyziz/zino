@@ -99,9 +99,8 @@ div#photoview div.photothumbs ul {
 }
 div#photoview div.photothumbs ul li {
     padding: 0;
-    margin: 25px 2px 0 2px;
-	/*float: left;*/
-	display: inline;
+    margin: 25px auto 0 auto;
+	float: left;
 	height: 160px;
 }
 div#photoview div.photothumbs ul li.selected img {
