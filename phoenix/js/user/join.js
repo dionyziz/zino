@@ -10,7 +10,7 @@ var Join = {
 	username : $( 'form.joinform div input' )[ 0 ] ? $( 'form.joinform div input' )[ 0 ] : false,
 	password : $( 'form.joinform div input' )[ 1 ] ? $( 'form.joinform div input' )[ 1 ] : false,
 	repassword : $( 'form.joinform div input' )[ 2 ] ? $( 'form.joinform div input' )[ 2 ] : false,
-	email : $( 'form.joinform div input' ) [ 3 ] ? $( 'form.joinform div input' ) [ 3 ] : false,
+	email : $( 'form.joinform div input' )[ 3 ] ? $( 'form.joinform div input' ) [ 3 ] : false,
 	ShowTos : function () {
 		var area = $( 'div#join_tos' )[ 0 ].cloneNode( true );
 		$( area ).css( "display" , "block" );
@@ -20,6 +20,7 @@ var Join = {
 };
 $( document ).ready( function(){
 	if ( $( 'div.join' )[ 0 ] ) {
+		alert( 'exists' );
 		$( 'form.joinform' ).submit( function() {
 			return false;
 		} );
