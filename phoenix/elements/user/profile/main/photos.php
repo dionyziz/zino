@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserProfileMainPhotos( $theuser , $images ) {
+	function ElementUserProfileMainPhotos( $theuser , $images , $egoalbum ) {
 		?><ul><?php
 			foreach( $images as $image ) {
 				?><li><a href="?p=photo&amp;id=<?php

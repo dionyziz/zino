@@ -32,7 +32,7 @@
 				?> style="display:none"<?php
 			}
 			?>><?php
-				Element( 'user/profile/main/photos' , $theuser , $images );
+				Element( 'user/profile/main/photos' , $theuser , $images , $egoalbum );
 			?></div>
 			<div class="friends">
 				<h3>Οι φίλοι μου</h3><?php
