@@ -83,7 +83,12 @@
                 $image->LoadFromFile( $temp );
                 $image->Name = 'test' . $i;
                 $image->Userid = $this->mUser->Id;
-                $image->Albumid = $this->mAlbum->Id;
+                if ( $i == 0 ) {
+                    $image->Albumid = $this->mUser->Egoalbumid;
+                }
+                else {
+                    $image->Albumid = $this->mAlbum->Id;
+                }
                 $image->Save();
 
                 $this->mImages[] = $image;
@@ -114,7 +119,7 @@
         public function TestFindByAlbum() {
             $results = $this->mFinder->FindByAlbum( $this->mAlbum );
 
-            $this->AssertEquals( 5, count( $results ), '5 images exists in this album, FindByAlbum says something else' );
+            $this->AssertEquals( 4, count( $results ), '4 images exists in this album, FindByAlbum says something else' );
             $this->AssertEquals( $this->mImages[ 5 ]->Id, $results[ 0 ]->Id, 'Incorrect Id returned by FindByAlbum' );
         }
         public function TestFindAround() {
@@ -124,6 +129,17 @@
             $this->Assert( $this->mImages[ 2 ]->Id, $results[ 0 ]->Id, 'FindAround did not return the expected images (0)' );
             $this->Assert( $this->mImages[ 3 ]->Id, $results[ 1 ]->Id, 'FindAround did not return the expected images (0)' );
             $this->Assert( $this->mImages[ 4 ]->Id, $results[ 2 ]->Id, 'FindAround did not return the expected images (0)' );
+        }
+        public function TsetFindFrontpage() {
+            $results = $this->mFinder->FindFrontpageLatest( 0, 1 );
+
+            $this->AssertEquals( 1, count( $results ), 'FindFrontpageLatest did not return 1 result as expected' );
+            $this->Assert( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'FindFrontpageLatest did not return the expected image' );
+
+            $this->mImages[ 1 ]->Delete();
+        
+            $results = $this->mFinder->FindFrontpageLatest( 0, 1 );
+            $this->Assert( empty( $results ) || $results[ 0 ]->Id != $this->mImages[ 1 ]->Id, 'FindFrontpageLatest did not remove image when it was deleted' );
         }
         public function TestDelete() {
             $this->AssertFalse( $this->mImages[ 0 ]->IsDeleted(), 'Image must not be marked as deleted prior to deleting it' );
