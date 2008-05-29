@@ -199,6 +199,7 @@
                                 case 1:
                                     $this->Assert( $assertion instanceof AssertResultFailedByException, 'Failed exceptions should log an AssertResultFailedByException class instance' );
                             }
+                            ++$j;
                         }
                         break;
                 }
