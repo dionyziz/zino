@@ -3,6 +3,7 @@
 	function ElementCommentList( $comments , $root , $indent ) {
         global $water;
         $water->Trace( 'comments listed', $comments );
+        $water->Trace( 'comments count', count( $comments ) );
 
 		if ( !isset( $comments[ $root ] ) ) {
 			return;
