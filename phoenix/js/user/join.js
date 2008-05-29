@@ -19,7 +19,7 @@ var Join = {
 	enabled : true
 };
 $( document ).ready( function(){
-	if ( $( 'div.join' )[ 0 ] ) {
+	if ( Join.username ) {
 		alert( 'exists' );
 		$( 'form.joinform' ).submit( function() {
 			return false;
