@@ -113,7 +113,7 @@
 
     function Tag_Clear( $user ) {
         global $db;
-        global $interesttags;
+        global $tags;
 		
 		w_assert( $user instanceof User || is_int( $user ), 'Tag_Clear() accepts either a user instance or an integer parameter' );
 		
@@ -121,18 +121,18 @@
 		$query = $db->Prepare("
 			DELETE 
             FROM 
-                `$interesttags` 
+                `$tags` 
             WHERE 
-                `interesttag_userid` = :InterestTagUserId
+                `tag_userid` = :TagUserId
             ;
 		");
 		
 		// Assign query values
 		if ( $user instanceof User ) {
-			$query->Bind( 'InterestTagUserId', $user->Id() );
+			$query->Bind( 'TagUserId', $user->Id() );
 		}
 		else {
-			$query->Bind( 'InterestTagUserId', $user );
+			$query->Bind( 'TagUserId', $user );
 		}
 
         return $query->Execute();
@@ -162,11 +162,23 @@
         	return $this->FindByPrototype( $prototype );
         }
  		public function FindSuggestions( $text, $type ) { //finds all movies starting with the letter $text
+ 			$text = "%" . $text . "%";
+ 			$query = $this->mDb->Prepare("
+ 				SELECT * 
+ 				FROM :tags
+ 				WHERE 
+ 					`tag_text` LIKE :TagText
+ 				AND `tag_typeid` = :TagType
+ 			");
+ 			$query->BindTable( 'tags' );
+ 			$query->Bind( "TagText", $text );
+ 			$query->Bind( "TagType", $type );
+ 			$query->Execute();
  		}
     }
  
  	class Tag extends Satori {
- 		protected $mDbTableAlias = 'interesttags';
+ 		protected $mDbTableAlias = 'tags';
  		
  		public function MoveAfter() {
  		}
