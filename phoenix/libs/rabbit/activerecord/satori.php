@@ -555,20 +555,32 @@
                             :' . $this->mDbTableAlias . '
                         WHERE ';
                 $conditions = array();
-                foreach ( $this->PrimaryKeyFields as $primary ) {
-                    $conditions[] = '`' . $primary . '` = :' . $primary;
-                }
-                $sql .= implode( ' AND ', $conditions );
-                $sql .= ' LIMIT 1';
-                $query = $this->mDb->Prepare( $sql );
                 $i = 0;
+                $invalid = false;
                 foreach ( $this->PrimaryKeyFields as $primary ) {
-                    $query->Bind( $primary, $args[ $i ] );
+                    if ( $this->mAutoIncrementField == $primary ) {
+                        if ( $args[ $i ] == 0 ) { // autoincrement field is 0, object can't exist
+                            // (this situation can be created by manually inserting a row with autoincrement set to 0, but it's a rare case and a good optimization to care about)
+                            $invalid = true;
+                            break;
+                        }
+                    }
+                    $conditions[] = '`' . $primary . '` = :' . $primary;
                     ++$i;
                 }
-                $query->BindTable( $this->mDbTableAlias );
-                $res = $query->Execute();
-                if ( $res->NumRows() != 1 ) {
+                if ( !$invalid ) {
+                    $sql .= implode( ' AND ', $conditions );
+                    $sql .= ' LIMIT 1';
+                    $query = $this->mDb->Prepare( $sql );
+                    $i = 0;
+                    foreach ( $this->PrimaryKeyFields as $primary ) {
+                        $query->Bind( $primary, $args[ $i ] );
+                        ++$i;
+                    }
+                    $query->BindTable( $this->mDbTableAlias );
+                    $res = $query->Execute();
+                }
+                if ( $invalid || $res->NumRows() != 1 ) {
                     $this->mExists = false;
                     $fetched_array = array();
                 }
