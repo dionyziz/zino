@@ -1,15 +1,15 @@
 <?php
 	function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tString $gender , tInteger $location ) {
 		global $user;
-		//global $libs;
-		
-		//$libs->Load( 'place' );
+
 		$doby = $doby->Get();
 		$dobm = $dobm->Get();
 		$dobd = $dobd->Get();
 		$gender = $gender->Get();
 		$location = $location->Get();
-		
+		?>alert( 'doby <?php echo $doby; ?> dobm <?php echo $dobm; ?> dobd <?php echo $dobd; ?>' );
+		alert( 'gender <?php echo $gender; ?>' );
+		alert( 'location <?php echo $location; ?>' );<?php
 		if ( $dobd >=1 && $dobd <=31  && $dobm >= 1 && $dobm <= 12 && $doby ) {
 			if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
 				$user->Profile->BirthMonth = $dobm;

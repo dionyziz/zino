@@ -1,15 +1,9 @@
 <?php
 
-	function	ElementUserJoined() {
+	function ElementUserJoined() {
 		global $user;
 		global $rabbit_settings;
 		global $page;
-		
-		//$page->AttachStyleSheet( 'css/user/joined.css' );
-		//$page->AttachStyleSheet( 'css/bubbles.css' );
-		//$page->AttachScript( 'js/user/joined.js' );
-		$finder = New PlaceFinder();
-		$places = $finder->FindAll();
 		
 		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
 		if ( !$user->Exists() ) {
