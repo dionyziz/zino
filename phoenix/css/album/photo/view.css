@@ -99,7 +99,7 @@ div#photoview div.photothumbs ul {
 }
 div#photoview div.photothumbs ul li {
     padding: 0;
-    margin: 25px auto 0 auto;
+    margin: 25px 2px 0 2px;
 	float: left;
 	height: 160px;
 }

@@ -49,16 +49,27 @@
 				<div class="leftbar"></div>
 				<div class="rightbar"></div>
 			</div><?php
-			if ( !empty( $polls ) ) {
+			if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
 				?><div class="lastpoll">
-					<h3>Δημοσκοπήσεις</h3>
-					<div class="container"><?php
-					Element( 'poll/small' , $polls[ 0 ] , true );
-					?></div>
-					<a href="?p=polls&amp;username=<?php
-					echo $theuser->Subdomain;
-					?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a>
-				</div><?php
+					<h3>Δημοσκοπήσεις</h3><?php
+					if ( $user->Id == $theuser->Id && $user->Count->Poll == 0 ) {
+						?><div class="nopolls">
+						Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
+						με τις δημοσκοπήσεις και να δημιουργήσεις μια.
+						<a href="?p=polls&amp;username=<?php
+						echo $user->Subdomain;
+						?>">Δημοσκοπήσεις</a>
+						</div><?php
+					} 
+					else {
+						?><div class="container"><?php
+						Element( 'poll/small' , $polls[ 0 ] , true );
+						?></div>
+						<a href="?p=polls&amp;username=<?php
+						echo $theuser->Subdomain;
+						?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
+					}
+				?></div><?php
 			}
 			?><div class="questions">
 				<h3>Ερωτήσεις</h3><?php
@@ -72,14 +83,22 @@
 				</div><?php
 			}
 			?><div style="clear:right"></div><?php
-			if ( !empty( $journals ) ) {
+			if ( !empty( $journals ) || ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) ) {
 				?><div class="lastjournal">
 					<h3>Ημερολόγιο</h3><?php
-					Element( 'journal/small' , $journals[ 0 ] );
-					?><a href="?p=journals&amp;username=<?php
-					echo $theuser->Subdomain;
-					?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a>
-				</div>
+					if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
+						?><div class="nojournals">
+						Δεν έχεις καμία καταχώρηση. Κανε click στο παρακάτω link για να δημιουργήσεις μια.
+						<a href="?p=addjournal">Δημιουργία καταχώρησης</a>
+						</div><?php
+					}
+					else {
+						Element( 'journal/small' , $journals[ 0 ] );
+						?><a href="?p=journals&amp;username=<?php
+						echo $theuser->Subdomain;
+						?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
+					}	
+				?></div>
 				<div class="barfade">
 					<div class="leftbar"></div>
 					<div class="rightbar"></div>
