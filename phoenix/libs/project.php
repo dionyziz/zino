@@ -104,7 +104,8 @@
             'developer/dionyziz/console' => 'developer/dionyziz/console',
             'developer/dionyziz/sqlite' => 'developer/dionyziz/sqlite',
             'developer/dionyziz/contacts' => 'developer/dionyziz/contacts',
-            'developer/dionyziz/utf8' => 'developer/dionyziz/utf8'
+            'developer/dionyziz/utf8' => 'developer/dionyziz/utf8',
+            'masscomments'      => 'developer/abresas/masscomments'
     	);
     }
 ?>
