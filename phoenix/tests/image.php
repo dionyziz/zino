@@ -24,7 +24,7 @@
             $this->Assert( method_exists( 'ImageFinder', 'FindByIds' ), 'Method ImageFinder->FindByIds does not exist' );
             $this->Assert( method_exists( 'ImageFinder', 'FindByAlbum' ), 'Method ImageFinder->FindByAlbum does not exist' );
             $this->Assert( method_exists( 'ImageFinder', 'FindAround' ), 'Method ImageFinder->FindAround does not exist' );
-            $this->Assert( method_exists( 'ImageFinder', 'FindFrontpage' ), 'Method ImageFinder->FindFrontpage does not exist' );
+            $this->Assert( method_exists( 'ImageFinder', 'FindFrontpageLatest' ), 'Method ImageFinder->FindFrontpageLatest does not exist' );
         }
         public function TestCount() {
             $this->mFinder = New ImageFinder();
@@ -33,7 +33,6 @@
             $this->Assert( is_int( $this->mCount ), 'Count images must be an integer' );
             $this->Assert( $this->mCount >= 0, 'Count images must be non-negative' );
         }
-        /*
         public function TestUpload() {
             $image = New Image();
 
@@ -74,6 +73,7 @@
 
             $this->mImage = $image;
         }
+        /*
         public function TestCountInc() {
             $this->AssertEquals( $this->mCount + 1, $this->mFinder->Count(), 'Count of images must increment by one when a new image is uploaded' );
         }
@@ -88,6 +88,7 @@
             $this->AssertEquals( $this->mImage->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
 
         }
+        */
         public function TestDelete() {
             $this->AssertFalse( $this->mImage->IsDeleted(), 'Image must not be marked as deleted prior to deleting it' );
             $this->mImage->Delete();
@@ -96,6 +97,10 @@
 
             $this->Assert( $image->IsDeleted(), 'Was able to lookup deleted image and it is marked as non-deleted' );
         }
+        /*
+        public function TestCountDec() {
+            $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
+        }
         public function TestUndelete() {
             $image = New Image( $this->mImage->Id );
             $this->Assert( $this->mImage->IsDeleted(), 'Image must be deleted prior to undeleting' );
@@ -103,11 +108,10 @@
 
             $image = New Image( $this->mImage->Id );
             $this->AssertFalse( $this->mImage->IsDeleted(), 'Image must not be deleted after undeleting' );
+
+            $image->Delete();
         }
         */
-        public function TestCountDec() {
-            $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
-        }
         public function TearDown() {
             $this->mUser->Delete();
         }
