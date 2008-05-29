@@ -109,10 +109,10 @@
 			$this->AssertEquals( 3, count( $events ), 'FindByUser did not return right number of events' );
 
 			$types = array( EVENT_USERPROFILE_MOOD_UPDATED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_VISITED );
-			foreach ( $events as $event ) {
-				$this->AssertEquals( $this->mUser->Id, $event->Userid, 'Wrong event userid' );
-				$this->AssertEquals( $this->mUser->Id, $event->Itemid, 'Wrong event itemid' );
-				$this->Assert( in_array( $event->Typeid, $types ), 'Wrong event typeid' );
+			foreach ( $events as $e ) {
+				$this->AssertEquals( $this->mUser->Id, $e->Userid, 'Wrong event userid' );
+				$this->AssertEquals( $this->mUser->Id, $e->Itemid, 'Wrong event itemid' );
+				$this->Assert( in_array( $e->Typeid, $types ), 'Wrong event typeid' );
 			}
 
 			$event->Delete();
