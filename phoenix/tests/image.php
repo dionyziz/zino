@@ -73,7 +73,6 @@
 
             $this->mImage = $image;
         }
-        /*
         public function TestCountInc() {
             $this->AssertEquals( $this->mCount + 1, $this->mFinder->Count(), 'Count of images must increment by one when a new image is uploaded' );
         }
@@ -88,7 +87,6 @@
             $this->AssertEquals( $this->mImage->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
 
         }
-        */
         public function TestDelete() {
             $this->AssertFalse( $this->mImage->IsDeleted(), 'Image must not be marked as deleted prior to deleting it' );
             $this->mImage->Delete();
@@ -97,7 +95,6 @@
 
             $this->Assert( $image->IsDeleted(), 'Was able to lookup deleted image and it is marked as non-deleted' );
         }
-        /*
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
         }
@@ -111,7 +108,6 @@
 
             $image->Delete();
         }
-        */
         public function TearDown() {
             $this->mUser->Delete();
         }
