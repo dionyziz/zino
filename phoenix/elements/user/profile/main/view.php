@@ -52,7 +52,7 @@
 			if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3><?php
-					if ( $user->Id == $theuser->Id && $user->Count->Poll == 0 ) {
+					if ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) {
 						?><div class="nopolls">
 						Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
 						με τις δημοσκοπήσεις και να δημιουργήσεις μια.
