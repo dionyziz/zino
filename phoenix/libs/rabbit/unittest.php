@@ -184,7 +184,7 @@
                     $goodtogo = true;
                 }
                 catch ( Exception $e ) {
-                    $runresults[] = New RunResultFailedByException( '[SetUp]', $e->getMessage() );
+                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage() ) ), '[SetUp]' );
                     $goodtogo = false;
                 }
                 if ( $goodtogo ) {
@@ -195,13 +195,14 @@
                             $this->mAssertResults = array();
                             try {
                                 call_user_func( array( $testcase, $methodname ) ); // MAGIC
-                                $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                             }
                             catch ( Exception $e ) {
-                                $runresults[] = New RunResultFailedByException( $methodname, $e->getMessage() );
+                                $this->Inform( New AssertResultFailedByException( $e->getMessage() ), $methodname );
+                                $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                                 $water->ProfileEnd();
                                 break;
                             }
+                            $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                             $water->ProfileEnd();
                         }
                     }
@@ -210,7 +211,7 @@
                     $testcase->TearDown();
                 }
                 catch ( Exception $e ) {
-                    $runresults[] = New RunResultFailedByException( '[TearDown]', $e->getMessage() );
+                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage() ) ), '[TearDown]' );
                 }
                 $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
                 $water->ProfileEnd();
@@ -377,8 +378,9 @@
         protected function GetMessage() {
             return $this->mExceptionMessage;
         }
-        public function AssertResultFailedByException() {
+        public function AssertResultFailedByException( $message ) {
             $this->mSuccess = false;
+            $this->mExceptionMessage = $message;
         }
     }
 ?>

@@ -25,7 +25,7 @@
             foreach ( $runresult as $assertresult ) {
                 if ( $assertresult instanceof AssertResultFailedByException ) {
                     ?><li><b>Unanticipated fail:</b> <em class="message"><?php
-                    echo htmlspecialchars( $assertresult->GetMessage() );
+                    echo htmlspecialchars( $assertresult->Message );
                     ?></em><br /><?php
                 }
 
