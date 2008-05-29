@@ -36,6 +36,7 @@
 		?>alert( 'saving' );<?php
 		$user->Save();
 		$user->Profile->Save();
+		?>alert( 'ok' );<?php
 		?>location.href = '<?php
 		echo $rabbit_settings[ 'webaddress' ];
 		?>?newuser=true';<?php
