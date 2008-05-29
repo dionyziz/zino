@@ -14,33 +14,29 @@ var Settings = {
 	invalidemail : false,
 	invalidmsn : false,
 	SwitchSettings : function( divtoshow ) {
-		alert( 'called' );
-		//if ( Settings.email ) {
-			//hack so that it is executed only when it is loaded
-			var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
-			var found = false;
-			var settingslis = $( 'div.settings div.sidebar ol li' );
-			alert( 'switchsettings called' );
-			for ( i = 0; i < validtabs.length; ++i ) {
-				if ( divtoshow == validtabs[ i ] ) {
-					alert( 'showing' );
-					$( '#' + divtoshow + 'info' ).show();
-					Settings.FocusSettingLink( settingslis[ i ], true );
-					window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
-					found = true;
-				}
-				else {
-					$( '#' + validtabs[ i ] + 'info' ).hide();
-					Settings.FocusSettingLink( settingslis[ i ], false );
-					
-				}
+		//hack so that it is executed only when it is loaded
+		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
+		var found = false;
+		var settingslis = $( 'div.settings div.sidebar ol li' );
+		for ( i = 0; i < validtabs.length; ++i ) {
+			if ( divtoshow == validtabs[ i ] ) {
+				alert( 'showing' );
+				$( '#' + divtoshow + 'info' ).show();
+				Settings.FocusSettingLink( settingslis[ i ], true );
+				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
+				found = true;
 			}
-			if ( !found ) {
-				$( '#' + validtabs[ 0 ] + 'info' ).show();
-				window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
-				Settings.FocusSettingLink( settingslis[ 0 ] , true );
+			else {
+				$( '#' + validtabs[ i ] + 'info' ).hide();
+				Settings.FocusSettingLink( settingslis[ i ], false );
+				
 			}
-		//}
+		}
+		if ( !found ) {
+			$( '#' + validtabs[ 0 ] + 'info' ).show();
+			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
+			Settings.FocusSettingLink( settingslis[ 0 ] , true );
+		}
 	},
 	FocusSettingLink : function( li, focus ) {
 		if ( li ) {
@@ -121,7 +117,6 @@ var Settings = {
 };
 $( document ).ready( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
-		alert( window.location.hash.substr( 1 ) );
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
 			var sexselected = $( '#sex select' )[ 0 ].value;
