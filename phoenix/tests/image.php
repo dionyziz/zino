@@ -138,12 +138,12 @@
             $this->AssertEquals( $this->mCount + 5, $this->mFinder->Count(), 'Count of images must decrease when an image is deleted' );
         }
         public function TestUndelete() {
-            $image = New Image( $this->mImage[ 0 ]->Id );
+            $image = New Image( $this->mImages[ 0 ]->Id );
             $this->Assert( $image->Exists(), 'Image must be marked as existing although deleted, prior to undeleting' );
             $this->Assert( $image->IsDeleted(), 'Image must be deleted prior to undeleting' );
             $image->Undelete();
 
-            $image = New Image( $this->mImage[ 0 ]->Id );
+            $image = New Image( $this->mImages[ 0 ]->Id );
             $this->AssertFalse( $image->IsDeleted(), 'Image must not be deleted after undeleting' );
         }
         public function TearDown() {
