@@ -118,6 +118,33 @@
 			$this->Height = -1;
 			$this->Weight = -1;
 		}
+        protected function OnUpdate( $updatedAttributes ) {
+            $events = array(
+                'Moodid' => EVENT_USERPROFILE_MOOD_UPDATED,
+                'Education' => EVENT_USERPROFILE_EDUCATION_UPDATED,
+                'Sexualorientation' => EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED,
+                'Religion' => EVENT_USERPROFILE_RELIGION_UPDATED,
+                'Politics' => EVENT_USERPROFILE_POLITICS_UPDATED,
+                'Eyecolor' => EVENT_USERPROFILE_EYECOLOR_UPDATED,
+                'Haircolor' => EVENT_USERPROFILE_HAIRCOLOR_UPDATED,
+                'Smoker' => EVENT_USERPROFILE_SMOKER_UPDATED,
+                'Drinker' => EVENT_USERPROFILE_DRINKER_UPDATED,
+                'Placeid' => EVENT_USERPROFILE_LOCATION_UPDATED,
+                'Height' => EVENT_USERPROFILE_HEIGHT_UPDATED,
+                'Weight' => EVENT_USERPROFILE_WEIGHT_UPDATED,
+                'Aboutme' => EVENT_USERPROFILE_ABOUTME_UPDATED
+            );
+
+            foreach ( $events as $attribute => $typeid ) {
+                if ( isset( $updatedAttributes[ $attribute ] ) && $updatedAttributes[ $attribute ] ) {
+                    $event = New Event();
+                    $event->Typeid = $typeid;
+                    $event->Itemid = $this->Userid;
+                    $event->Userid = $this->Userid;
+                    $event->Save();
+                }
+            }
+        }
     }
 
 ?>
