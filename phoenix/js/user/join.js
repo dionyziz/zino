@@ -45,7 +45,7 @@ $( document ).ready( function(){
 		} );
 		$( Join.email ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.emailerror ) {
-				$( 'div a.button' )[ 0 ].focus();
+				//$( 'div a.button' )[ 0 ].focus();
 			}
 		} );
 		$( Join.username ).keyup( function( event ) {
