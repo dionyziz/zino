@@ -103,6 +103,13 @@
             $album = New Album( $this->mAlbums[ 0 ]->Id );
             $this->Assert( 'Hello', $album->Description, 'Description of album was not saved/restored correctly' );
         }
+        public function TestRename() {
+            $this->mAlbums[ 0 ]->Name = 'Hahaho';
+            $this->mAlbums[ 0 ]->Save();
+
+            $album = New Album( $this->mAlbums[ 0 ]->Name );
+            $this->AssertEquals( 'Hahaho', $album->Name, 'Failed to rename album' );
+        }
         public function TestImages() {
             $this->mImages[ 0 ]->Albumid = $this->mAlbums[ 0 ]->Id;
             $this->mImages[ 0 ]->Save();
@@ -128,7 +135,6 @@
         public function TestEgoAlbum() {
             $this->Assert( $this->mUser->EgoAlbum->Exists(), 'EgoAlbum must be created by default' );
             $this->Assert( empty( $this->mUser->EgoAlbum->Images ), 'EgoAlbum must be empty by default' );
-
         }
         public function TearDown() {
             $this->mUser->Delete();
