@@ -132,6 +132,7 @@
             $image = New Image( $this->mImages[ 0 ]->Id );
 
             $this->Assert( $image->IsDeleted(), 'Was able to lookup deleted image and it is marked as non-deleted' );
+            $this->Assert( $image->Exists(), 'Image must be marked as existing but deleted after deletion' );
         }
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount + 5, $this->mFinder->Count(), 'Count of images must decrease when an image is deleted' );
