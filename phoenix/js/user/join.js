@@ -25,8 +25,30 @@ $( document ).ready( function(){
 		}).blur( function() {
 			$( this ).css( "border" , "1px solid #999" );
 		});
-		
-		$( $( 'form.joinform div input' )[ 0 ] ).keyup( function() {
+		$( Join.username ).keydown( function( event ) {
+			if ( event.keyCode == 13 && !Join.usernameerror && !Join.usernameexists && !Join.invalidusername ) {
+				$( Join.password )[ 0 ].focus();
+				$( Join.password )[ 0 ].select();
+			}
+		} );
+		$( Join.password ).keydown( function( event ) {
+			if ( event.keyCode == 13 && !Join.pwderror ) {
+				$( Join.repassword )[ 0 ].focus();
+				$( Join.repassword )[ 0 ].select();
+			}
+		} );
+		$( Join.repassword ).keydown( function( event ) {
+			if ( event.keyCode == 13 && !Join.repwderror ) {
+				$( Join.email )[ 0 ].focus();
+				$( Join.email )[ 0 ].select();
+			}
+		} );
+		$( Join.email ).keydown( function( event ) {
+			if ( event.keyCode == 13 && !Join.emailerror ) {
+				$( 'div a.button' ).focus();
+			}
+		} );
+		$( Join.username ).keyup( function( event ) {
 			if ( Join.usernameerror ) {
 				if ( Join.username.value.length >= 4 ) {
 					Join.usernameerror = false;
@@ -49,7 +71,7 @@ $( document ).ready( function(){
 			}
 		});	
 		
-		$( $( 'form.joinform div input' )[ 1 ] ).keyup( function() {
+		$( Join.password ).keyup( function() {
 			if ( Join.pwderror ) {
 				if ( Join.password.value.length >= 4 ) {
 					Join.pwderror = false;
@@ -60,7 +82,7 @@ $( document ).ready( function(){
 			}
 		});
 		
-		$( $( 'form.joinform div input' )[ 2 ] ).keyup( function() {
+		$( Join.repassword ).keyup( function() {
 			if ( Join.repwderror ) {
 				if ( Join.repassword.value == Join.password.value ) {
 					Join.repwderror = false;
@@ -71,7 +93,7 @@ $( document ).ready( function(){
 			}
 		});
 		
-		$( $( 'form.joinform div input' )[ 3 ] ).keyup( function() {
+		$( Join.email ).keyup( function() {
 			if ( Join.emailerror ) {
 				if ( Join.email.value === '' || /^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$/.test( Join.email.value ) ) {
 					Join.emailerror = false;

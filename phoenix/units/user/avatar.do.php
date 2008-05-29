@@ -7,8 +7,7 @@
 		
 		if ( !$image->IsDeleted() ) {
 			if ( $image->User->Id == $user->Id ) {
-				?>alert( 'coala' );
-				$( 'div.sidebar div.basicinfo h2 img' ).attr( {
+				?>$( 'div.sidebar div.basicinfo h2 img' ).attr( {
 					src : ExcaliburSettings.photosurl + '<?php
 					echo $user->Id;
 					?>/<?php
