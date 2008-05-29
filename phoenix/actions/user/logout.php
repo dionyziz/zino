@@ -3,12 +3,14 @@
         global $user;
         global $rabbit_settings;
         
-    	$_SESSION[ 's_username' ] = '';
-    	$_SESSION[ 's_password' ] = '';
+        if ( $user->Exists() ) {
+            $_SESSION[ 's_username' ] = '';
+            $_SESSION[ 's_password' ] = '';
 
-    	$user->RenewAuthtoken();
-        $user->Save();
-        User_ClearCookie();
+            $user->RenewAuthtoken();
+            $user->Save();
+            User_ClearCookie();
+        }
 
     	return Redirect( $_SERVER[ 'HTTP_REFERER' ] );
     }
