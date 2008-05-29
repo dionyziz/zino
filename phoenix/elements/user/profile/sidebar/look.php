@@ -1,6 +1,7 @@
 <?php 
 
 	function ElementUserProfileSidebarLook( $theuser ) {
+		$showgender = $showweight = $showheight = false;
 		if ( $theuser->Gender != '-' ) {
 			$showgender = true;
 		}
