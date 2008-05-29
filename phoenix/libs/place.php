@@ -25,5 +25,8 @@
             $this->X     = 0;
             $this->Y     = 0;
         }
+        public function IsDeleted() {
+            return $this->mDelid != 0;
+        }
 	}
 ?>

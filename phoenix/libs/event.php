@@ -20,28 +20,28 @@
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
         return array(
             'EVENT_ALBUM_CREATED',
-            'EVENT_ALBUM_UPDATED',
-            'EVENT_ALBUM_DELETED',
+            'EVENT_ALBUM_UPDATED', // not in use
+            'EVENT_ALBUM_DELETED', // not in use
             'EVENT_COMMENT_CREATED',
-            'EVENT_COMMENT_UPDATED',
-            'EVENT_COMMENT_DELETED',
+            'EVENT_COMMENT_UPDATED', // not in use
+            'EVENT_COMMENT_DELETED', // not in use
             'EVENT_IMAGE_CREATED',
-            'EVENT_IMAGE_UPDATED',
-            'EVENT_IMAGE_DELETED',
+            'EVENT_IMAGE_UPDATED', // not in use
+            'EVENT_IMAGE_DELETED', // not in use
             'EVENT_JOURNAL_CREATED',
             'EVENT_JOURNAL_UPDATED',
-            'EVENT_JOURNAL_DELETED',
+            'EVENT_JOURNAL_DELETED', // not in use
             'EVENT_POLL_CREATED',
-            'EVENT_POLL_UPDATED',
-            'EVENT_POLL_DELETED',
-            'EVENT_POLLVOTE_CREATED',
-            'EVENT_POLLOPTION_CREATED',
-            'EVENT_POLLOPTION_DELETED',
+            'EVENT_POLL_UPDATED', // not in use
+            'EVENT_POLL_DELETED', // not in use
+            'EVENT_POLLVOTE_CREATED', // not in use
+            'EVENT_POLLOPTION_CREATED', // not in use
+            'EVENT_POLLOPTION_DELETED', // not in use
             'EVENT_RELATION_CREATED',
             'EVENT_RELATION_UPDATED',
             'EVENT_SPACE_UPDATED',
-            'EVENT_USERPROFILE_UPDATED',
-            'EVENT_USERPROFILE_VISITED',
+            'EVENT_USERPROFILE_UPDATED', // not in use
+            'EVENT_USERPROFILE_VISITED', // not in use
             'EVENT_USERPROFILE_EDUCATION_UPDATED',
             'EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED',
             'EVENT_USERPROFILE_RELIGION_UPDATED',
