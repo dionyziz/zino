@@ -137,14 +137,14 @@
 							?><div class="left arrow">
 					            <a href="?p=photo&amp;id=<?php
 								echo $photos[ $pivot - 1 ]->Id;
-								?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" onmouseover="Hover( this );"  onmouseout="Unhover( this );" /></a>
+								?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
 					        </div><?php
 						}
 						if ( $pivot < count( $photos ) && $pivot != 0 ) {
 					        ?><div class="right arrow">
 					            <a href="?p=photo&amp;id=<?php
 								echo $photos[ $pivot + 1 ]->Id;
-								?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" onmouseover="Hover( this );" onmouseout="Unhover( this );" /></a>
+								?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
 					        </div><?php
 						}
 				        ?><ul><?php	
