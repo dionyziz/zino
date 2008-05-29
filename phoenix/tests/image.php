@@ -138,7 +138,7 @@
         }
         public function TestUndelete() {
             $image = New Image( $this->mImage[ 0 ]->Id );
-            $this->Assert( $this->mImage[ 0 ]->IsDeleted(), 'Image must be deleted prior to undeleting' );
+            $this->Assert( $image->IsDeleted(), 'Image must be deleted prior to undeleting' );
             $image->Undelete();
 
             $image = New Image( $this->mImage[ 0 ]->Id );
