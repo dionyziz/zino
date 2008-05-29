@@ -112,7 +112,7 @@
 			foreach ( $events as $event ) {
 				$this->AssertEquals( $this->mUser->Id, $event->Userid, 'Wrong event userid' );
 				$this->AssertEquals( $this->mUser->Id, $event->Itemid, 'Wrong event itemid' );
-				$this->Assert( in_array( $event->Typeid, $events ), 'Wrong event typeid' );
+				$this->Assert( in_array( $event->Typeid, $types ), 'Wrong event typeid' );
 			}
 
 			$event->Delete();
@@ -152,10 +152,10 @@
 			$this->AssertFalse( $event->Exists(), "Deleted event appears to exist after creating new instance" );
 		}
 		public function TearDown() {
-			if ( is_object( $this->mUser ) ) {
+			if ( is_object( $this->mUser ) && $this->mUser->Exists() ) {
 				$this->mUser->Delete();
 			}
-			if ( is_object( $this->mUser2 ) ) {
+			if ( is_object( $this->mUser2 ) && $this->mUser2->Exists() ) {
 				$this->mUser2->Delete();
 			}
 		}
