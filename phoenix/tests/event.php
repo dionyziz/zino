@@ -125,7 +125,7 @@
 			$event->Itemid = $this->mUser2->Id;
 			$event->Save();
 
-			$event = New Event();
+			$event2 = New Event();
 			$event2->Userid = $this->mUser2->Id;
 			$event2->Typeid = EVENT_USERPROFILE_VISITED;
 			$event2->Itemid = $this->mUser->Id;
@@ -138,6 +138,9 @@
 
 			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
 			$itemids = array( );
+
+            $event->Delete();
+            $event2->Delete();
 		}
 		public function TestDeleteEvent() {
 			$event = New Event( $this->mEventId );
