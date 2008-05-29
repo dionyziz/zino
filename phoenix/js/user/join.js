@@ -20,6 +20,9 @@ var Join = {
 };
 $( document ).ready( function(){
 	if ( $( 'div.join' )[ 0 ] ) {
+		$( 'form.joinform' ).submit() {
+			return false;
+		}
 		$( 'form.joinform div input' ).focus( function() {
 			$( this ).css( "border" , "1px solid #bdbdff" );
 		}).blur( function() {
