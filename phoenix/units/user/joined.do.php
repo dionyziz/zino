@@ -20,12 +20,17 @@
 		if( $gender == 'm' || $gender == 'f' ) {
 			$user->Gender = $gender;
 		}
-		/*
-		$place = new Place( $location );
-		if ( $place->Exists() ) {
+		
+		?>alert( '<?php
+		echo $location;
+		?>' );<?php
+		$place = New Place( $location );
+		?>alert( '<?php
+		echo $place->Name;
+		?>' );<?php
+		if ( $place->Exists() && !$place->IsDeleted() ) {
 			?>alert( 'location ok' );<?php
 		}
-		*/
 		$user->Save();
 		$user->Profile->Save();
 		?>location.href = '<?php
