@@ -20,7 +20,7 @@
         protected abstract function Modified();
         public function Rebuild() {
             if ( ( !is_object( $this->mRetrieved ) && $this->mRetrieved == 0 ) ) {
-                continue;
+                return;
             }
             /* else */
             if ( $this->Modified() ) {
