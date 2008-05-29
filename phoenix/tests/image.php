@@ -33,6 +33,7 @@
             $this->Assert( is_int( $this->mCount ), 'Count images must be an integer' );
             $this->Assert( $this->mCount >= 0, 'Count images must be non-negative' );
         }
+        /*
         public function TestUpload() {
             $image = New Image();
 
@@ -73,6 +74,7 @@
 
             $this->mImage = $image;
         }
+        */
         public function TestCountInc() {
             $this->AssertEquals( $this->mCount + 1, $this->mFinder->Count(), 'Count of images must increment by one when a new image is uploaded' );
         }
