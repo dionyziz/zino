@@ -31,30 +31,22 @@ $( document ).ready( function(){
 		});
 		$( Join.username ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.usernameerror && !Join.usernameexists && !Join.invalidusername ) {
-				if ( Join.password ) {
-					Join.password.focus();
-				}
+				Join.password.focus();
 			}
 		} );
 		$( Join.password ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.pwderror ) {
-				if ( Join.repassword ) {
-					Join.repassword.focus();
-				}
+				Join.repassword.focus();
 			}
 		} );
 		$( Join.repassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.repwderror ) {
-				if ( Join.email ) {
-					Join.email.focus();
-				}
+				Join.email.focus();
 			}
 		} );
 		$( Join.email ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.emailerror ) {
-				if ( Join.email ) { //as long as it exists we are on the settings page
-					$( 'div a.button' )[ 0 ].focus();
-				}
+				$( 'div a.button' )[ 0 ].focus();
 			}
 		} );
 		$( Join.username ).keydown( function( event ) {

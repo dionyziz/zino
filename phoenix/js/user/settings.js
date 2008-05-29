@@ -118,6 +118,7 @@ var Settings = {
 	}
 };
 $( document ).ready( function() {
+	alert( 'loaded' );
 	if ( $( 'div.settings' )[ 0 ] ) {
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
