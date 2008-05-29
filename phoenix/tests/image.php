@@ -78,19 +78,21 @@
 
             $this->mImages[] = $image;
 
-            $image = New Image();
-            $image->LoadFromFile( $temp );
-            $image->Name = 'test2';
-            $image->Userid = $this->mUser->Id;
-            $image->Albumid = $this->mAlbum->Id;
-            $image->Save();
+            for ( $i = 0; $i < 5; ++$i ) {
+                $image = New Image();
+                $image->LoadFromFile( $temp );
+                $image->Name = 'test' . $i;
+                $image->Userid = $this->mUser->Id;
+                $image->Albumid = $this->mAlbum->Id;
+                $image->Save();
 
-            $this->mImages[] = $image;
+                $this->mImages[] = $image;
+            }
 
             unlink( $temp );
         }
         public function TestCountInc() {
-            $this->AssertEquals( $this->mCount + 2, $this->mFinder->Count(), 'Count of images must increment when a new images are uploaded' );
+            $this->AssertEquals( $this->mCount + 6, $this->mFinder->Count(), 'Count of images must increment when a new images are uploaded' );
         }
         public function TestRename() {
             $this->mImages[ 0 ]->Name = 'hohoho';
@@ -100,7 +102,7 @@
             $results = $this->mFinder->FindByUser( $this->mUser, 0, 1 );
 
             $this->AssertEquals( 1, count( $results ), 'Finder FindByUser must return the image just uploaded, returned nothing' );
-            $this->AssertEquals( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
+            $this->AssertEquals( $this->mImages[ 5 ]->Id, $results[ 0 ]->Id, 'Finder FindByUser must return the image just uploaded (in decreasing order by creation time), returned something else' );
 
         }
         public function TestFindByIds() {
@@ -112,8 +114,16 @@
         public function TestFindByAlbum() {
             $results = $this->mFinder->FindByAlbum( $this->mAlbum );
 
-            $this->AssertEquals( 1, count( $results ), 'Only one image exists in this album, FindByAlbum says something else' );
-            $this->AssertEquals( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'Incorrect Id returned by FindByAlbum' );
+            $this->AssertEquals( 5, count( $results ), '5 images exists in this album, FindByAlbum says something else' );
+            $this->AssertEquals( $this->mImages[ 5 ]->Id, $results[ 0 ]->Id, 'Incorrect Id returned by FindByAlbum' );
+        }
+        public function TestFindAround() {
+            $results = $this->mFinder->FindAround( $this->mImages[ 3 ], 3 );
+
+            $this->AssertEquals( 3, count( $results ), 'FindAround did not return 3 results as expected' );
+            $this->Assert( $this->mImages[ 2 ]->Id, $results[ 0 ]->Id, 'FindAround did not return the expected images (0)' );
+            $this->Assert( $this->mImages[ 3 ]->Id, $results[ 1 ]->Id, 'FindAround did not return the expected images (0)' );
+            $this->Assert( $this->mImages[ 4 ]->Id, $results[ 2 ]->Id, 'FindAround did not return the expected images (0)' );
         }
         public function TestDelete() {
             $this->AssertFalse( $this->mImages[ 0 ]->IsDeleted(), 'Image must not be marked as deleted prior to deleting it' );
@@ -121,7 +131,7 @@
             $this->Assert( $this->mImages[ 0 ]->IsDeleted(), 'Image could not be deleted' );
             $image = New Image( $this->mImages[ 0 ]->Id );
 
-            $this->Assert( $images[ 0 ]->IsDeleted(), 'Was able to lookup deleted image and it is marked as non-deleted' );
+            $this->Assert( $image->IsDeleted(), 'Was able to lookup deleted image and it is marked as non-deleted' );
         }
         public function TestCountDec() {
             $this->AssertEquals( $this->mCount, $this->mFinder->Count(), 'Count of images must decrease by one when an image is deleted' );
