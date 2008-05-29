@@ -28,17 +28,17 @@ $( document ).ready( function(){
 		}).blur( function() {
 			$( this ).css( "border" , "1px solid #999" );
 		});
-		$( Join.username ).keydown( function( event ) {
+		$( Join.username ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.usernameerror && !Join.usernameexists && !Join.invalidusername ) {
 				Join.password.focus();
 			}
 		} );
-		$( Join.password ).keydown( function( event ) {
+		$( Join.password ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.pwderror ) {
 				Join.repassword.focus();
 			}
 		} );
-		$( Join.repassword ).keydown( function( event ) {
+		$( Join.repassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Join.repwderror ) {
 				Join.email.focus();
 			}
@@ -48,7 +48,7 @@ $( document ).ready( function(){
 				$( 'div a.button' )[ 0 ].focus();
 			}
 		} );
-		$( Join.username ).keyup( function( event ) {
+		$( Join.username ).keydown( function( event ) {
 			if ( Join.usernameerror ) {
 				if ( Join.username.value.length >= 4 ) {
 					Join.usernameerror = false;
