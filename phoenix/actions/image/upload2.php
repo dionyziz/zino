@@ -17,7 +17,6 @@
         $albumid = $albumid->Get();
 		if ( $albumid > 0 ) {
 			$album = New Album( $albumid );
-			die( 'albumuserid ' . $album->User->Id . ' and user id is ' . $user->Id );
 			if ( $album->IsDeleted() || $album->User->Id != $user->Id ) {
 				die( "Not allowed" );
 			}
