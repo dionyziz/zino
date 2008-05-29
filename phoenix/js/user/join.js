@@ -30,20 +30,20 @@ $( document ).ready( function(){
 		});
 		$( Join.username ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.usernameerror && !Join.usernameexists && !Join.invalidusername ) {
-				$( Join.password )[ 0 ].focus();
-				$( Join.password )[ 0 ].select();
+				Join.password.focus();
+				Join.password.select();
 			}
 		} );
 		$( Join.password ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.pwderror ) {
-				$( Join.repassword )[ 0 ].focus();
-				$( Join.repassword )[ 0 ].select();
+				Join.repassword.focus();
+				Join.repassword.select();
 			}
 		} );
 		$( Join.repassword ).keydown( function( event ) {
 			if ( event.keyCode == 13 && !Join.repwderror ) {
-				$( Join.email )[ 0 ].focus();
-				$( Join.email )[ 0 ].select();
+				Join.email.focus();
+				Join.email.select();
 			}
 		} );
 		$( Join.email ).keydown( function( event ) {
@@ -158,7 +158,7 @@ $( document ).ready( function(){
 					Join.emailerror = true;
 					$( $( 'form.joinform div > span' )[ 5 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity: "1" } , 400 );
 				}
-				if ( Join.username.value.length >= 4 && /^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$/.test( Join.username.value ) && Join.password.value >= 4 ) {
+				if ( !Join.usernameerror && !Join.invalidusername && !Join.pwderror && !Join.repwderror ) {
 					Join.email.focus();
 				}
 				create = false;
