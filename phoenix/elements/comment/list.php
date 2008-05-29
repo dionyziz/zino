@@ -1,6 +1,9 @@
 <?php
 	
 	function ElementCommentList( $comments , $root , $indent ) {
+        global $water;
+        $water->Trace( 'comments listed', $comments );
+
 		if ( !isset( $comments[ $root ] ) ) {
 			return;
 		}
