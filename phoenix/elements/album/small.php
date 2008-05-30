@@ -21,10 +21,10 @@
 						if ( $album->Mainimage > 0 ) {	
 							$mainimage = New Image( $album->Mainimage );
 							$size = $mainimage->ProportionalSize( 150 , 130 );
-							Element( 'image' , $mainimage , IMAGE_PROPORTIONAL_210x210 , '' , $albumname , $albumname , '' );
+							Element( 'image' , $mainimage , IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' );
 						}
 						else {
-                            Element( 'image', 'anonymous130.jpg', '130x130', '', $albumname, $albumname, '' );
+                            Element( 'image', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' );
 						}
 		        	
 		        	?></span>
@@ -53,7 +53,7 @@
 				<a href="">
 		        	<span class="albummain"><img src="<?php
                     echo $xc_settings[ 'imagesurl' ];
-                    ?>/anonymous130.jpg" alt="Νέο album" title="Νέο album" style="width:130px;height:130px" /></span>
+                    ?>/anonymous100.jpg" alt="Νέο album" title="Νέο album" style="width:130px;height:130px" /></span>
 		        </a>
 				<span class="desc">
 					<input type="text" />
