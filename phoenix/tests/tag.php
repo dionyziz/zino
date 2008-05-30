@@ -9,6 +9,9 @@
         private $mMovieTag2;
 
         public function SetUp() {
+        	global $libs;
+        	$libs->Load( 'tag' );
+        	
             $finder = New UserFinder();
             $users = $finder->FindByName( 'testtag1' );
             if ( is_object( $users ) ) {
