@@ -206,6 +206,15 @@
             if ( is_object( $this->mUser2 ) ) {
                 $this->mUser2->Delete();
             }
+            if ( is_object( $this->mBookTag ) ) {
+            	$this->mBookTag->Delete();
+            }
+            if ( is_object( $this->mMovieTag1 ) ) {
+            	$this->mMovieTag1->Delete();
+            }
+            if ( is_object( $this->mMovieTag2 ) ) {
+            	$this->mMovieTag2->Delete();
+            }
         }
     }
 
