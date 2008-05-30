@@ -13,6 +13,8 @@
             $this->Bulk->Text = $value;
         }
         public function OnCreate() {
+            die( 'Superdeath!' );
+
             $this->OnUpdate();
         }
         public function OnUpdate() {
