@@ -324,7 +324,7 @@
             }
 
             $event = New Event();
-            $event->Typeid = EVENT_IMAGE_CREATE;
+            $event->Typeid = EVENT_IMAGE_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();

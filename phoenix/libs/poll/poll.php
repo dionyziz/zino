@@ -66,7 +66,7 @@
             $this->User->Count->Save();
         
             $event = New Event();
-            $event->Typeid = EVENT_POLL_CREATE;
+            $event->Typeid = EVENT_POLL_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();

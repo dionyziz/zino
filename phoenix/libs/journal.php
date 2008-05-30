@@ -74,7 +74,7 @@
             $this->User->Count->Save();
 
             $event = New Event();
-            $event->Typeid = EVENT_JOURNAL_CREATE;
+            $event->Typeid = EVENT_JOURNAL_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();

@@ -105,7 +105,7 @@
             $this->User->Count->Save();
 
             $event = New Event();
-            $event->Typeid = EVENT_ALBUM_CREATE;
+            $event->Typeid = EVENT_ALBUM_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
