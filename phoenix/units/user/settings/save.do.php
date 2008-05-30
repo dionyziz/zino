@@ -178,7 +178,7 @@
 						$( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "0" } , 200 , function() {
 							$( this ).addClass( "invisible" );
 						} );
-						$( '#unibarfade' ).animate( { opacity : "0" , 200 , function() {
+						$( '#unibarfade' ).animate( { opacity : "0" } , 200 , function() {
 							$( this ).addClass( "invisible" );
 						} );
 					}<?php
