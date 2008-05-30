@@ -156,13 +156,13 @@
 									?><li><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
 									?>"><?php
-									Element( 'image' , $photos[ $i ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
+									Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
 									?></a></span></li><?php
 								}
 							}
 							?><li class="selected"><?php
 								$size = $photos[ $pivot ]->ProportionalSize( 150 , 150 );
-								Element( 'image' , $photos[ $pivot ] , $size[ 0 ] , $size[ 1 ] , '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
+								Element( 'image' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
 							?></li><?php
 							if ( $pivot < 7 ) {						
 								for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {

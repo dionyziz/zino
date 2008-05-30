@@ -39,7 +39,7 @@
                     $height = $image->Height;
                     break;
                 default:
-                    throw Exception( 'Invalid image type' );
+                    throw New Exception( 'Invalid image type' );
             }
 		}
 		?><img src="<?php
