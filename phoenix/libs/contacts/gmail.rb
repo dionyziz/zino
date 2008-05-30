@@ -2,8 +2,9 @@
 require 'mechanize'
 #require 'rubygems'
 
-$KCODE='u'
-require 'jcode'
+# Unicode workaround -- not working, currently
+#$KCODE='u'
+#require 'jcode'
 
 def getlogin
 	$stderr.print "user: "; @username = gets.chomp
