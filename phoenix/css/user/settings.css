@@ -108,6 +108,12 @@ div.settings div.tabs form#personalinfo div span.invaliddob img {
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
 	display: none;
 }
+div.settings div.tabs form#personalinfo div.option span.forstudents {
+	font-size: 90%;
+	background-image: url( 'http://static.zino.gr/phoenix/error.png' );
+	background-repeat: no-repeat;
+	padding: 1px 0 0 20px;
+}
 div.settings div.tabs form div div.setting input.small,
 div.settings div.tabs form div div.setting select.small {
     width: auto;

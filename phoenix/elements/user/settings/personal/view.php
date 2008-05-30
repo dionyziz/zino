@@ -42,7 +42,8 @@
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting" id="education"><?php
 				Element( 'user/settings/personal/education' );
-			?></div>
+			?><span class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</span>
+			</div>
 		</div>
 		<div style="display:none">
 			<label>Ποιο πανεπιστήμιο;</label>
