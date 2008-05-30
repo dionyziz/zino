@@ -11,8 +11,8 @@
         }
         public function TestText() {
             $this->mUser->Space->Text = 'Hello, world!';
-
             $this->AssertEquals( 'Hello, world!', $this->mUser->Space->Text, 'Could not retrieve the userspace text we just set' );
+            $this->mUser->Space->Save();
 
             $theuser = New User( $this->mUser->Id );
 

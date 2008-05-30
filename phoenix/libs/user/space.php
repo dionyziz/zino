@@ -13,17 +13,12 @@
             $this->Bulk->Text = $value;
         }
         public function OnCreate() {
-            die( 'Superdeath!' );
-
             $this->OnUpdate();
         }
         public function OnUpdate() {
             global $libs;
-            global $water;
 
-            $water->Trace( 'Saving bulk' );
             $this->Bulk->Save();
-            $water->Trace( 'Saved bulk with id ' . $this->Bulk->Id );
 
             $libs->Load( 'event' );
             $event = New Event();
