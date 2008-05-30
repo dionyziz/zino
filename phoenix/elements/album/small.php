@@ -36,7 +36,7 @@
 					if ( $photonum > 0 ) {
 			            ?><dt><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
-						?>anonymous100.jpg" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
+						?>imagegallery.png" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
 			            <dd><?php
 						echo $photonum;
 						?></dd><?php
