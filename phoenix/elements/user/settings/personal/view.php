@@ -45,6 +45,10 @@
 			?><div class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
 			</div>
 		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
 		<div class="option">
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university">
