@@ -37,7 +37,6 @@
 						$title = htmlspecialchars( $image->Album->Name );
 					}
 				}
-				$size = $image->ProportionalSize( 700  , 600 );
 				$finder = New FavouriteFinder();
 				$fav = $finder->FindByUserAndEntity( $user, $image );
 				?><div id="photoview">
@@ -123,7 +122,7 @@
 					?></div>
 					<div class="photothumbs"><?php
 						$finder = New ImageFinder();
-						$photos = $finder->FindAround( $image , 7 );
+						$photos = $finder->FindAround( $image , 12 );
 						$water->Trace( 'numphotos is: ' . count( $photos ) );
 						$pivot = $i = 0;
 						foreach ( $photos as $photo ) {
@@ -140,7 +139,7 @@
 								?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
 					        </div><?php
 						}
-						if ( $pivot + 1 < count( $photos ) && $pivot != 0 ) {
+						if ( $pivot + 1 < count( $photos ) && count( $photos ) > 1 ) {
 					        ?><div class="right arrow">
 					            <a href="?p=photo&amp;id=<?php
 								echo $photos[ $pivot + 1 ]->Id;
@@ -162,7 +161,7 @@
 							?><li class="selected"><?php
 								Element( 'image' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
 							?></li><?php
-							if ( $pivot < 7 ) {						
+							if ( $pivot < 12 ) {						
 								for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
 									?><li><span><a href="?p=photo&amp;id=<?php
 									echo $photos[ $i ]->Id;
