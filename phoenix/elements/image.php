@@ -2,7 +2,8 @@
 	
 	function ElementImage( $image , $width , $height , $class , $alt , $title , $style ) {
 		global $xc_settings;
-		
+		global $rabbit_settings;
+
 		if ( !is_object( $image ) ) {
 			$url = $xc_settings[ 'staticimagesurl' ] . $image;
 		}
@@ -13,7 +14,11 @@
 					$height = $image->Height;	
 				}
                 // TODO: resoltuion handling
-				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/' . $image->Id . '/' . $image->Id . '_full.jpg';
+				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/';
+                if ( !$rabbit_settings[ 'production' ] ) {
+                    $url .= '_';
+                }
+                $url = $image->Id . '/' . $image->Id . '_full.jpg';
 			}
 		}
 		?><img src="<?php
