@@ -3,7 +3,8 @@
     
     $libs->Load( 'place' );
     $libs->Load( 'university' );
-    
+    $libs->Load( 'event' );
+	
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
         
