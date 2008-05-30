@@ -119,7 +119,7 @@
 					}
 					?><div class="eof"></div>
 					<div class="thephoto"><?php
-						Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , '' , '' , $title , $title );
+						Element( 'image' , $image , IMAGE_PROPORTIONAL_700x600, '' , '' , $title , $title );
 					?></div>
 					<div class="photothumbs"><?php
 						$finder = New ImageFinder();

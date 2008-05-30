@@ -3,39 +3,10 @@
 		global $xc_settings;
 		global $rabbit_settings;
 
-        switch ( $type ) {
-            case IMAGE_PROPORTIONAL_210x210:
-                if ( $image->Width <= $width && $image->Height <= $height ) {
-                    $width = $image->Width;
-                    $height = $image->Height;
-                    break;
-                }
-                list( $width, $height ) = $image->ProportionalSize( 210, 210 );
-                break;
-            case IMAGE_PROPORTIONAL_700x600:
-                if ( $image->Width <= $width && $image->Height <= $height ) {
-                    $width = $image->Width;
-                    $height = $image->Height;
-                    break;
-                }
-                list( $width, $height ) = $image->ProportionalSize( 700, 600 );
-                break;
-            case IMAGE_CROPPED_100x100:
-                $width = $height = 100;
-                break;
-            case IMAGE_CROPPED_150x150:
-                $width = $height = 150;
-                break;
-            case IMAGE_FULLVIEW:
-                $width = $image->Width;
-                $height = $image->Height;
-                break;
-            default:
-                throw Exception( 'Invalid image type' );
-        }
 
 		if ( !is_object( $image ) ) {
 			$url = $xc_settings[ 'staticimagesurl' ] . $image;
+            list( $width, $height ) = explode( 'x', $type );
 		}
 		else {
 			if ( !$image->IsDeleted() ) {
@@ -45,6 +16,39 @@
                 }
                 $url .= $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
 			}
+            else {
+                return;
+            }
+            switch ( $type ) {
+                case IMAGE_PROPORTIONAL_210x210:
+                    if ( $image->Width <= $width && $image->Height <= $height ) {
+                        $width = $image->Width;
+                        $height = $image->Height;
+                        break;
+                    }
+                    list( $width, $height ) = $image->ProportionalSize( 210, 210 );
+                    break;
+                case IMAGE_PROPORTIONAL_700x600:
+                    if ( $image->Width <= $width && $image->Height <= $height ) {
+                        $width = $image->Width;
+                        $height = $image->Height;
+                        break;
+                    }
+                    list( $width, $height ) = $image->ProportionalSize( 700, 600 );
+                    break;
+                case IMAGE_CROPPED_100x100:
+                    $width = $height = 100;
+                    break;
+                case IMAGE_CROPPED_150x150:
+                    $width = $height = 150;
+                    break;
+                case IMAGE_FULLVIEW:
+                    $width = $image->Width;
+                    $height = $image->Height;
+                    break;
+                default:
+                    throw Exception( 'Invalid image type' );
+            }
 		}
 		?><img src="<?php
 		echo $url;
