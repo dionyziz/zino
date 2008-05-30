@@ -18,10 +18,9 @@
 				<a href="?p=album&amp;id=<?php
 				echo $album->Id;
 				?>">
-		        	<span class="albummain"><?php //150 130
+		        	<span class="albummain"><?php
 						if ( $album->Mainimage > 0 ) {	
 							$mainimage = New Image( $album->Mainimage );
-							$size = $mainimage->ProportionalSize( 150 , 130 );
 							Element( 'image' , $mainimage , IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' );
 						}
 						else {
@@ -43,7 +42,9 @@
 						?></dd><?php
 					}
 					if ( $commentsnum > 0 ) {
-						?><dt><img src="http://static.zino.gr/phoenix/comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
+						?><dt><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>comment.png" alt="Σχόλια" title="Σχόλια" /></dt>
 						<dd><?php
 						echo $commentsnum;
 						?></dd><?php

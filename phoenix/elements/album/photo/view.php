@@ -119,60 +119,62 @@
 					?><div class="eof"></div>
 					<div class="thephoto"><?php
 						Element( 'image' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' );
-					?></div>
-					<div class="photothumbs"><?php
-						$finder = New ImageFinder();
-						$photos = $finder->FindAround( $image , 12 );
-						$water->Trace( 'numphotos is: ' . count( $photos ) );
-						$pivot = $i = 0;
-						foreach ( $photos as $photo ) {
-							if ( $photo->Id == $image->Id ) {
-								$pivot = $i;
-								break;
-							}
-							++$i;
-						}
-				        if ( $pivot > 0 ) {
-							?><div class="left arrow">
-					            <a href="?p=photo&amp;id=<?php
-								echo $photos[ $pivot - 1 ]->Id;
-								?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
-					        </div><?php
-						}
-						if ( $pivot + 1 < count( $photos ) && count( $photos ) > 1 ) {
-					        ?><div class="right arrow">
-					            <a href="?p=photo&amp;id=<?php
-								echo $photos[ $pivot + 1 ]->Id;
-								?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
-					        </div><?php
-						}
-				        ?><ul><?php	
-							$water->Trace( 'pivot is: ' . $pivot );
-							//die( 'pivot is ' . $pivot );
-							if ( $pivot > 0 ) {
-								for ( $i = 0; $i < $pivot ; ++$i ) {
-									?><li><span><a href="?p=photo&amp;id=<?php
-									echo $photos[ $i ]->Id;
-									?>"><?php
-									Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
-									?></a></span></li><?php
+					?></div><?php
+					if ( $image->album->Numphotos > 1 ) {
+						?><div class="photothumbs"><?php
+							$finder = New ImageFinder();
+							$photos = $finder->FindAround( $image , 12 );
+							$water->Trace( 'numphotos is: ' . count( $photos ) );
+							$pivot = $i = 0;
+							foreach ( $photos as $photo ) {
+								if ( $photo->Id == $image->Id ) {
+									$pivot = $i;
+									break;
 								}
+								++$i;
 							}
-							?><li class="selected"><?php
-								Element( 'image' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
-							?></li><?php
-							if ( $pivot < 12 ) {						
-								for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
-									?><li><span><a href="?p=photo&amp;id=<?php
-									echo $photos[ $i ]->Id;
-									?>"><?php
-									Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
-									?></a></span></li><?php
+					        if ( $pivot > 0 ) {
+								?><div class="left arrow">
+						            <a href="?p=photo&amp;id=<?php
+									echo $photos[ $pivot - 1 ]->Id;
+									?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
+						        </div><?php
+							}
+							if ( $pivot + 1 < count( $photos ) && count( $photos ) > 1 ) {
+						        ?><div class="right arrow">
+						            <a href="?p=photo&amp;id=<?php
+									echo $photos[ $pivot + 1 ]->Id;
+									?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
+						        </div><?php
+							}
+					        ?><ul><?php	
+								$water->Trace( 'pivot is: ' . $pivot );
+								//die( 'pivot is ' . $pivot );
+								if ( $pivot > 0 ) {
+									for ( $i = 0; $i < $pivot ; ++$i ) {
+										?><li><span><a href="?p=photo&amp;id=<?php
+										echo $photos[ $i ]->Id;
+										?>"><?php
+										Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
+										?></a></span></li><?php
+									}
 								}
-							}
-						?></ul>
-					</div>
-					<div class="comments"><?php
+								?><li class="selected"><?php
+									Element( 'image' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' );
+								?></li><?php
+								if ( $pivot < 12 ) {						
+									for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
+										?><li><span><a href="?p=photo&amp;id=<?php
+										echo $photos[ $i ]->Id;
+										?>"><?php
+										Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' );
+										?></a></span></li><?php
+									}
+								}
+							?></ul>
+						</div><?php
+					}
+					?><div class="comments"><?php
 						Element( 'comment/list' );
 					?></div>
 				</div><?php
