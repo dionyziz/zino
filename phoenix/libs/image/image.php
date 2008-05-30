@@ -11,7 +11,6 @@
     $libs->Load( 'rabbit/helpers/file' );
 
     define( 'IMAGE_PROPORTIONAL_210x210', '210' );
-    define( 'IMAGE_PROPORTIONAL_700x600', '700' );
     define( 'IMAGE_CROPPED_100x100', '100' );
     define( 'IMAGE_CROPPED_150x150', '150' );
     define( 'IMAGE_FULLVIEW', 'full' );
