@@ -10,10 +10,10 @@
         public function Find( $placeid = 0, $typeid = false ) {
             $prototype = New Uni();
             if ( $placeid != 0 ) {
-                $prototype->PlaceId = $placeid;
+                $prototype->Placeid = $placeid;
             }
             if ( $typeid !== false ) {
-                $prototype->TypeId = $typeid;
+                $prototype->Typeid = $typeid;
             }
             return $this->FindByPrototype( $prototype );
         }
