@@ -14,10 +14,20 @@
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testevents' );
             if ( is_object( $user ) ) {
+                $finder = New EventFinder();
+                $events = $finder->FindByUser( $user );
+                foreach ( $events as $event ) {
+                    $event->Delete();
+                }
                 $user->Delete();
             }
             $user = $ufinder->FindByName( 'testevents2' );
             if ( is_object( $user ) ) {
+                $finder = New EventFinder();
+                $events = $finder->FindByUser( $user );
+                foreach ( $events as $event ) {
+                    $event->Delete();
+                }
                 $user->Delete();
             }
 
