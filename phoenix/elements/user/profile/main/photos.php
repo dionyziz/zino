@@ -6,7 +6,7 @@
 				?><li><a href="?p=photo&amp;id=<?php
 				echo $image->Id;
 				?>"><?php
-				Element( 'image' , $image , 100 , 100 , '' , $image->Name , $image->Name , '' );
+				Element( 'image' , $image , IMAGE_CROPPED_100x100 , '' , $image->Name , $image->Name , '' );
 				?></a></li><?php
 			}
 			if ( $egoalbum->Numphotos > 8 ) {

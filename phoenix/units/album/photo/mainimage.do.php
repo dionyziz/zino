@@ -16,7 +16,9 @@
 						echo $user->Id;
 						?>/<?php
 						echo $photo->Id;
-						?>?resolution=150x150&sandbox=yes'
+						?>/<?php
+						echo $photo->Id;
+						?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg';
 					} );<?php
 				}
 			}

@@ -23,7 +23,9 @@
 					echo $user->Id;
 					?>/<?php
 					echo $image->Id;
-					?>?sandbox=yes'
+					?>/<?php
+					echo $image->Id;
+					?>_' + ExcaliburSettings.image_proportional_210x210 + '.jpg';
 				} );<?php
 			}
 		}

@@ -12,7 +12,9 @@
 					echo $user->Id;
 					?>/<?php
 					echo $image->Id;
-					?>?resolution=150x150x&sandbox=yes'
+					?>/<?php
+					echo $image->Id;
+					?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg';
 				} );
 				$( $( 'div.main div.photos ul li a' )[ 0 ] ).attr( {
 					href : '?p=photo&id=<?php
