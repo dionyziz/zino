@@ -38,7 +38,7 @@ else {
 			   2 => array("pipe", "w") // stderr is a pipe that the child will write to
 			);
 			
-			$process = proc_open('ruby -Ku' . $this->mPath, $descriptorspec, $pipes);
+			$process = proc_open('ruby -Ku ' . $this->mPath, $descriptorspec, $pipes);
 			
 			if (!is_resource($process)) {
 				die ("Can't execute " . $this->mPath ."!");
