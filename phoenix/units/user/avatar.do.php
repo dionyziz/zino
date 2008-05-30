@@ -10,7 +10,7 @@
 				?>$( 'div.sidebar div.basicinfo h2 img' ).attr( {
 					src : ExcaliburSettings.photosurl + '<?php
 					echo $user->Id;
-					?>/<?php
+					?>/_<?php
 					echo $image->Id;
 					?>/<?php
 					echo $image->Id;

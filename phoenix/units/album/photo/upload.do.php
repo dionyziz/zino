@@ -21,7 +21,7 @@
 				?>$( 'div.usersections a img' ).attr( {
 					src : ExcaliburSettings.photosurl + '<?php
 					echo $user->Id;
-					?>/<?php
+					?>/_<?php
 					echo $image->Id;
 					?>/<?php
 					echo $image->Id;

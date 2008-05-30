@@ -10,7 +10,7 @@
 				?>$( 'div.settings div.tabs form#personalinfo div.option div.setting img.avie' ).attr( {
 					src : ExcaliburSettings.photosurl + '<?php
 					echo $user->Id;
-					?>/<?php
+					?>/_<?php
 					echo $image->Id;
 					?>/<?php
 					echo $image->Id;
