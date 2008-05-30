@@ -13,19 +13,22 @@
             $this->Bulk->Text = $value;
         }
         public function OnCreate() {
+            $this->OnUpdate();
+        }
+        public function OnUpdate() {
             global $libs;
-            $libs->Load( 'event' );
-            
-            $this->Bulk->Save();
+            global $water;
 
+            $water->Trace( 'Saving bulk' );
+            $this->Bulk->Save();
+            $water->Trace( 'Saved bulk with id ' . $this->Bulk->Id );
+
+            $libs->Load( 'event' );
             $event = New Event();
             $event->Typeid = EVENT_USERSPACE_UPDATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
-        }
-        public function OnUpdate() {
-            $this->Bulk->Save();
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
