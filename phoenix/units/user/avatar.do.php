@@ -14,7 +14,7 @@
 					echo $image->Id;
 					?>/<?php
 					echo $image->Id;
-					?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg';
+					?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
 				} );
 				$( $( 'div.main div.photos ul li a' )[ 0 ] ).attr( {
 					href : '?p=photo&id=<?php
@@ -22,7 +22,7 @@
 					?>'
 				} ).html( <?php
 				ob_start();
-				Element( 'image' , $image , 100 , 100 , '' , $user->Name , $user->Name , '' );
+				Element( 'image' , $image , IMAGE_CROPPED_100x100 , '' , $user->Name , $user->Name , '' );
 				echo w_json_encode( ob_get_clean() );
 				?> );
 				$( $( 'div.main div.photos' )[ 0 ] ).show();<?php
