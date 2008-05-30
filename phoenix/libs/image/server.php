@@ -53,7 +53,7 @@
             throw New ImageException( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
 		}
 		else if ( strpos( $data, "success" ) !== false ) {
-            throw New ImageException( $data );
+            // throw New ImageException( $data );
 
 			$start = strpos( $data, "[" ) + 1;
 
