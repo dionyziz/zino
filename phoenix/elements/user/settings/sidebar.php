@@ -1,6 +1,7 @@
 <?php
 	function ElementUserSettingsSidebar() {
 		global $rabbit_settings;
+		global $user;
 		
 		?><ol id="settingslist">
 			<li class="personal"><a href="" onclick="Settings.SwitchSettings( 'personal' );return false;">Πληροφορίες</a></li>

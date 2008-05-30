@@ -17,7 +17,7 @@
 					?><option value="<?php
 					echo $uni->Id;
 					?>"<?php
-					if ( $user->Profile->Uniid == $unid->Id ) {
+					if ( $user->Profile->Uniid == $uni->Id ) {
 						?> selected="selected"<?php
 					}
 					?>><?php
