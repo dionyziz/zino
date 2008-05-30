@@ -161,7 +161,12 @@
 			}
 			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			if ( $showuni ) {
-				?>alert( 'showuni' );<?php
+				if ( $user->Profile->Uniid == 0 ) {
+					?>alert( 'showuni' );<?php
+				}
+			}
+			else {
+				?>alert( 'vanish uni if it is displayed' );<?php
 			}
 		}
 	}

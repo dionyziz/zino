@@ -58,7 +58,7 @@
 		</div>
 		<div class="option"<?php
 		if ( !$showuni ) {
-			?> style="display:none"<?php
+			?> class="invisible"<?php
 		}
 		?>>
 			<label for="university">Πανεπιστήμιο</label>
@@ -69,7 +69,7 @@
 		</div>
 		<div class="barfade"<?php
 		if ( !$showuni ) {
-			?> style="display:none"<?php
+			?> class="invisible"<?php
 		}
 		?>>
 			<div class="leftbar"></div>
