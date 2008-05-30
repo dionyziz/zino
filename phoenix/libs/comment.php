@@ -345,8 +345,12 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
-        public function Save() {
+        public function Save( $theuser = false ) {
             global $user;
+
+            if ( !is_object( $theuser ) ) {
+                $theuser = $user;
+            }
 
             // use this when done with testing
             // if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {

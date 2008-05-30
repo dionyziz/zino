@@ -25,4 +25,7 @@
     define( 'PERMISSION_POLL_CREATE', 30 );
     define( 'PERMISSION_POLL_DELETE', 30 );
     define( 'PERMISSION_POLL_DELETE_ALL', 50 );
+
+    define( 'PERMISSION_RELATIONTYPE_CREATE', 50 );
+
 ?>
