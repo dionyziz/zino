@@ -167,15 +167,15 @@
 						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						echo w_json_encode( ob_get_clean() );
 					?> );
-					if ( $( '#university' ).parent().hasClass( 'invisible' ) ) {
-						$( '#universitty' ).parent().css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
+					if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
+						$( $( '#universitty' ).[ 0 ] ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
 					}<?php
 				}
 			}
 			else {
 				if ( $place || $education ) {
-					?>if ( !$( '#university' ).parent().hasClass( 'invisible' ) ) {
-						$( '#university' ).parent().animate( { opacity : "1" , 200 , function() {
+					?>if ( !$( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
+						$( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "1" , 200 , function() {
 							$( this ).addClass( "invisible" );
 						} );
 					}<?php
