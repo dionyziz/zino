@@ -153,6 +153,16 @@
 			}
 			$user->Save();
 			$user->Profile->Save();
+			if ( $user->Profile->Education == 'university' ) {
+				$typeid = 0;
+			}
+			else if( $user->Profile->Education == 'TEI' ) {
+				$typeid  = 1;
+			}
+			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
+			if ( $showuni ) {
+				?>alert( 'showuni' );<?php
+			}
 		}
 	}
 ?>
