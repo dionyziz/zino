@@ -12,7 +12,7 @@
 			if ( $egoalbum->Numphotos > 8 ) {
 				?><li><a href="?p=album&amp;id=<?php
 				echo $egoalbum->Id;
-				?>" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a></li><?php
+				?>" class="button" title="Ξ ΞµΟΞΉΟƒΟƒΟΟ„ΞµΟΞµΟ‚ Ο†Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚">&raquo;</a></li><?php
 			}
 		?></ul><?php	
 	}
