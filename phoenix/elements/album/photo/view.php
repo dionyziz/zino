@@ -120,7 +120,7 @@
 					<div class="thephoto"><?php
 						Element( 'image' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' );
 					?></div><?php
-					if ( $image->album->Numphotos > 1 ) {
+					if ( $image->Album->Numphotos > 1 ) {
 						?><div class="photothumbs"><?php
 							$finder = New ImageFinder();
 							$photos = $finder->FindAround( $image , 12 );
