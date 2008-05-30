@@ -59,8 +59,17 @@
             $this->OnDelete();
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+
             ++$this->User->Count->Polls;
             $this->User->Count->Save();
+        
+            $event = New Event();
+            $event->Typeid = EVENT_POLL_CREATE;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         protected function OnDelete() {
             --$this->User->Count->Polls;

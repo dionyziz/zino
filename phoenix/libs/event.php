@@ -37,9 +37,9 @@
             'EVENT_POLLVOTE_CREATED', // not in use
             'EVENT_POLLOPTION_CREATED', // not in use
             'EVENT_POLLOPTION_DELETED', // not in use
-            'EVENT_RELATION_CREATED',
+            'EVENT_RELATION_CREATED', // not satorified, TODO event firing
             'EVENT_RELATION_UPDATED',
-            'EVENT_SPACE_UPDATED',
+            'EVENT_USERSPACE_UPDATED',
             'EVENT_USERPROFILE_UPDATED', // not in use
             'EVENT_USERPROFILE_VISITED', // not in use
             'EVENT_USERPROFILE_EDUCATION_UPDATED',

@@ -13,7 +13,16 @@
             $this->Bulk->Text = $value;
         }
         public function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+            
             $this->Bulk->Save();
+
+            $event = New Event();
+            $event->Typeid = EVENT_USERSPACE_UPDATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         public function OnUpdate() {
             $this->Bulk->Save();

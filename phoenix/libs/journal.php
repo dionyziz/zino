@@ -67,8 +67,17 @@
             $this->Save();
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+
             ++$this->User->Count->Journals;
             $this->User->Count->Save();
+
+            $event = New Event();
+            $event->Typeid = EVENT_JOURNAL_CREATE;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         protected function OnDelete() {
             --$this->User->Count->Journals;

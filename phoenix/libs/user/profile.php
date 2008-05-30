@@ -3,7 +3,6 @@
     
     $libs->Load( 'place' );
     $libs->Load( 'university' );
-    $libs->Load( 'event' );
 	
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
@@ -120,6 +119,9 @@
 			$this->Weight = -1;
 		}
         protected function OnUpdate( $updatedAttributes ) {
+            global $libs;
+            $libs->Load( 'event' );
+
             $events = array(
                 'Moodid' => EVENT_USERPROFILE_MOOD_UPDATED,
                 'Education' => EVENT_USERPROFILE_EDUCATION_UPDATED,

@@ -312,6 +312,9 @@
             $this->OnCreate();
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+
             ++$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -319,6 +322,12 @@
                 ++$this->Album->Numphotos;
                 $this->Album->Save();
             }
+
+            $event = New Event();
+            $event->Typeid = EVENT_IMAGE_CREATE;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         public function LoadDefaults() {
             global $user;

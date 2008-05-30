@@ -98,8 +98,17 @@
             }
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+
             ++$this->User->Count->Albums;
             $this->User->Count->Save();
+
+            $event = New Event();
+            $event->Typeid = EVENT_ALBUM_CREATE;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         public function LoadDefaults() {
 			global $user;
