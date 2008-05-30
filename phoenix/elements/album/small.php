@@ -24,13 +24,7 @@
 							Element( 'image' , $mainimage , IMAGE_PROPORTIONAL_210x210 , '' , $albumname , $albumname , '' );
 						}
 						else {
-                            ?><img src="<?php
-                            echo $xc_settings[ 'imagesurl' ];
-							?>/anonymous130.jpg" alt="<?php
-                            echo $albumname;
-                            ?>" title="<?php
-                            echo $albumname;
-                            ?>" style="width:130px;height:130px" /><?php
+                            Element( 'image', 'anonymous130.jpg', '130x130', '', $albumname, $albumname, '' );
 						}
 		        	
 		        	?></span>
