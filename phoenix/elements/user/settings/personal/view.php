@@ -56,22 +56,22 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div class="option"<?php
+		<div class="option<?php
 		if ( !$showuni ) {
-			?> class="invisible"<?php
+			?> invisible<?php
 		}
-		?>>
+		?>">
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university"><?php
 
 				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 			?></div>
 		</div>
-		<div class="barfade"<?php
+		<div class="barfade<?php
 		if ( !$showuni ) {
-			?> class="invisible"<?php
+			?> invisible<?php
 		}
-		?>>
+		?>">
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
