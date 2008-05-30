@@ -56,6 +56,7 @@
 					else if( $user->Profile->Education == 'TEI' ) {
 						$typeid  = 1;
 					}
+					$water->Trace( "typeid " . $typeid );
 					Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 				?></div>
 			</div>
