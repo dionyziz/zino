@@ -74,7 +74,7 @@
 		if ( !$showuni ) {
 			?> invisible<?php
 		}
-		?>">
+		?>" id="unibarfade">
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
