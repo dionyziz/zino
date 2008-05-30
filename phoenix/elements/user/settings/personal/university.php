@@ -21,7 +21,7 @@
 						?> selected="selected"<?php
 					}
 					?>><?php
-					echo $uni->Name;
+					echo htmlspecialchars( $uni->Name );
 					?></option><?php
 				}
 			?></select><?php
