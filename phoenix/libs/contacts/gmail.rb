@@ -52,9 +52,10 @@ LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=tr
 ContactsURL = '?v=cl&pnl=a'
 
 #getlogin
-@username = gets.chomp;
-@passwd = gets.chomp;
-$stderr.print "Logging in #{@username}...\n" . @passwd . "\n"
+user = gets.chomp;
+pass = gets.chomp;
+$stderr.print user, ':', pass , "\n"
+#$stderr.print "Logging in #{@username}...\n"
 #login
 exit 20
 
