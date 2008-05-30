@@ -49,7 +49,11 @@
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting" id="education"><?php
 				Element( 'user/settings/personal/education' );
-				?><div class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
+				?><div class="forstudents<?php
+				if ( $user->Profile->Education != "-" ) {
+					?> invisible<?php
+				}
+				?>">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
 			</div>
 		</div>
 		<div class="barfade">
@@ -63,7 +67,6 @@
 		?>">
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university"><?php
-
 				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 			?></div>
 		</div>

@@ -49,12 +49,6 @@
 				}				
 				$user->Profile->Placeid = $placeid;
 			}
-			if ( $user->Profile->Education == 'university' ) {
-				$oldeducation = 0;
-			}
-			else if( $user->Profile->Education == 'TEI' ) {
-				$oldeducation  = 1;
-			}
 			if ( $education ) {
 				$user->Profile->Education = $education;
 			}
