@@ -69,6 +69,9 @@
                 $models[ $key ] = $model;
             }
         }
+        if ( !isset( $models[ $type ] ) ) {
+            throw New Exception( "Unkown event type $type" );
+        }
         return $models[ $type ];
 	}
 
