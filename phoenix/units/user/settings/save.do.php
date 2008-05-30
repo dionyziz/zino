@@ -172,7 +172,9 @@
 				}
 			}
 			else {
-				?>alert( 'vanish uni if it is displayed' );<?php
+				if ( $user->Profile->Uniid == 0 && ( $place || $education ) ) {
+					?>alert( 'vanish uni if it is displayed' );<?php
+				}
 			}
 		}
 	}
