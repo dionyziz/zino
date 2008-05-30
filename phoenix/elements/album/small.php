@@ -35,7 +35,9 @@
 		        </a>
 		        <dl><?php
 					if ( $photonum > 0 ) {
-			            ?><dt><img src="http://static.zino.gr/phoenix/imagegallery.png" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
+			            ?><dt><img src="<?php
+						echo $rabbit_settings[ 'imagesurl' ];
+						?>anonymous100.jpg" alt="Φωτογραφίες" title="Φωτογραφίες" /></dt>
 			            <dd><?php
 						echo $photonum;
 						?></dd><?php
