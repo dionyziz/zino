@@ -15,11 +15,11 @@
             $finder = New UserFinder();
             $users = $finder->FindByName( 'testtag1' );
             if ( is_object( $users ) ) {
-            	$user->Delete();
+            	$users->Delete();
             }
             $users = $finder->FindByName( 'testtag2' );
             if ( is_object( $users ) ) {
-            	$user->Delete();
+            	$users->Delete();
             }
 
             $user = New User();
