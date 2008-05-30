@@ -7,24 +7,29 @@
 			$finder = New UniFinder();
 			//typeid is 0 for AEI and 1 for TEI
 			$unis = $finder->Find( $placeid , $typeid );
-			?><select name="university">
-				<option value="-1"<?php
-				if ( $user->Profile->Uniid == 0 ) {
-					?> selected="selected"<?php
-				}
-				?>>-</option><?php
-				foreach( $unis as $uni ) {
-					?><option value="<?php
-					echo $uni->Id;
-					?>"<?php
-					if ( $user->Profile->Uniid == $uni->Id ) {
+			if ( count( $unis ) > 0 ) {	
+				?><select name="university">
+					<option value="-1"<?php
+					if ( $user->Profile->Uniid == 0 ) {
 						?> selected="selected"<?php
 					}
-					?>><?php
-					echo htmlspecialchars( $uni->Name );
-					?></option><?php
-				}
-			?></select><?php
+					?>>-</option><?php
+					foreach( $unis as $uni ) {
+						?><option value="<?php
+						echo $uni->Id;
+						?>"<?php
+						if ( $user->Profile->Uniid == $uni->Id ) {
+							?> selected="selected"<?php
+						}
+						?>><?php
+						echo htmlspecialchars( $uni->Name );
+						?></option><?php
+					}
+				?></select><?php
+			}
+			else {
+				?><span>Δεν υπάρχουν εκπαιδευτικά ιδρύματα στην περιοχή</span><?php
+			}
 		}
 	}
 ?>
