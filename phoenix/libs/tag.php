@@ -169,11 +169,12 @@
     			$res_new[] = $res[ $i ]; // found a head
     			++$res_new_size; // index of the last element
 				for ( $j=0; $j<$size; ++$j ) {
-					if ( $res[ $j ]->Nextid == $res_new[ $res_new_size ]->Id ) { // adding elements to our list
-						$res_new[] = $res[ $j ];
-						++$res_new_size;
-						$j=0; // reset
-    				}
+					if ( $res[ $j ]->Nextid != $res_new[ $res_new_size ]->Id ) { // not adding elements to our list
+						continue;
+					}
+					$res_new[] = $res[ $j ];
+					++$res_new_size;
+					$j=0; // reset
     			}
     		} //after all heads have been found and all lists have been built
     		rsort( $res_new );
