@@ -101,7 +101,7 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
-            $texts = array( 'Sin City', 'Journal of a Magus' );
+            $texts = array( 'Sin City', 'The journal of a Magus' );
             $types = array( TAG_MOVIE, TAG_BOOK );
             for ( $i = 0; $i < 2; ++$i ) {
                 $tag = $tags[ $i ];
