@@ -11,18 +11,24 @@
         public function SetUp() {
             $finder = New UserFinder();
             $users = $finder->FindByName( 'testtag1' );
-            $this->RequireSuccess( $this->Assert( empty( $users ) ) );
+            if ( is_object( $users ) ) {
+            	$user->Delete();
+            }
             $users = $finder->FindByName( 'testtag2' );
-            $this->RequireSuccess( $this->Assert( empty( $users ) ) );
+            if ( is_object( $users ) ) {
+            	$user->Delete();
+            }
 
             $user = New User();
             $user->Name = 'testtag1';
+            $user->Subdomain = 'testtag1';
             $user->Save();
 
             $this->mUser1 = $user;
 
             $user = New User();
             $user->Name = 'testtag2';
+            $user->Subdomain = 'testtag2';
             $user->Save();
 
             $this->mUser2 = $user;
