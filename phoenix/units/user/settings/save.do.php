@@ -49,6 +49,12 @@
 				}				
 				$user->Profile->Placeid = $placeid;
 			}
+			if ( $user->Profile->Education == 'university' ) {
+				$oldeducation = 0;
+			}
+			else if( $user->Profile->Education == 'TEI' ) {
+				$oldeducation  = 1;
+			}
 			if ( $education ) {
 				$user->Profile->Education = $education;
 			}
@@ -161,7 +167,7 @@
 			}
 			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			if ( $showuni ) {
-				if ( $user->Profile->Uniid == 0 ) {
+				if ( $user->Profile->Uniid == 0 && ( $place || $education ) ) {
 					?>alert( 'showuni' );<?php
 				}
 			}
