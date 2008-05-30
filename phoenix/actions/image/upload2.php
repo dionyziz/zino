@@ -54,7 +54,9 @@
 		catch ( ImageException $e ) {
 			//some error must have occured
 			?><html><head><title>Upload error</title><script type="text/javascript">
-    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας' );
+    			alert( 'Παρουσιάστηκε πρόβλημα κατά τη μεταφορά της εικόνας: ' + <?php
+                echo w_json_encode( $e->getMessage() ); 
+                ?> );
     			window.location.href = <?php
     			echo w_json_encode( $rabbit_settings[ 'webaddress' ] . '/?p=upload&albumid=' . $album->Id );
     			?>;
