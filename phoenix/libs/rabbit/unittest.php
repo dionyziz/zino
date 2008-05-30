@@ -364,7 +364,7 @@
         protected function GetExpected() {
             return $this->mExpected;
         }
-        public function AssertResult( $success, $message, $actual, $expected ) {
+        public function __construct( $success, $message, $actual, $expected ) {
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
             $this->mActual   = $actual;
@@ -373,14 +373,8 @@
     }
 
     class AssertResultFailedByException extends AssertResult {
-        protected $mExceptionMessage;
-
-        protected function GetMessage() {
-            return $this->mExceptionMessage;
-        }
         public function AssertResultFailedByException( $message ) {
-            $this->mSuccess = false;
-            $this->mExceptionMessage = $message;
+            parent::__construct( false, $message, '(exceptional failure)', '' );
         }
     }
 ?>
