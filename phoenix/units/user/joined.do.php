@@ -29,6 +29,7 @@
 				}
 			}
 		}
+		?>alert( 'dob: <?php echo $user->Profile->Dob; ?>' );<?php
 		$user->Save();
 		$user->Profile->Save();
 		?>location.href = '<?php
