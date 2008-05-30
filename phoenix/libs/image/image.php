@@ -247,10 +247,8 @@
         public function Upload( $resizeto = false ) {
             global $water;
 
-            $path = $this->Userid . "/" . $this->Id;
-
             // throws ImageException
-            $data = Image_Upload( $path, $this->mTemporaryFile, $resizeto );
+            $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile, $resizeto );
 
             // else success
             w_assert( is_array( $data ), 'Image_Upload did not return an array' );
@@ -262,6 +260,7 @@
             $this->Width = $data[ 'width' ];
             $this->Height = $data[ 'height' ];
             $this->Size = $data[ 'filesize' ];
+            $this->Mime = $data[ 'mime' ];
 
             return true;
         }

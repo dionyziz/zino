@@ -1,5 +1,5 @@
 <?php
-    function Image_Upload( $path, $tempfile, $resizeto = false ) {
+    function Image_Upload( $userid, $imageid, $tempfile, $resizeto = false ) {
         global $xc_settings;
         global $rabbit_settings;
 		global $user;              
@@ -11,7 +11,8 @@
         }
 
         $data = array(
-            'path' => $path,
+            'userid' => $userid,
+            'imageid' => $imageid,
             'mime' => 'image/jpeg',
             'uploadimage' => "@$tempfile"
         );
@@ -54,16 +55,18 @@
 		else if ( strpos( $data, "success" ) !== false ) {
 			$start = strpos( $data, "[" ) + 1;
 
-			$resolution = substr( $data, $start, strlen( $data ) - $start - 1 );
-			$split = explode( "," , $resolution );
+			$data = substr( $data, $start, strlen( $data ) - $start - 1 );
+			$split = explode( "," , $data );
 			$width = $split[ 0 ];
             $height = $split[ 1 ];
 			$filesize = $split[ 2 ];
+            $mime = $split[ 3 ];
 
             $upload = array();
 			$upload[ 'width' ] = ( integer )$width;
 			$upload[ 'height' ] = ( integer )$height;
 			$upload[ 'filesize' ] = ( integer )$filesize;
+            $upload[ 'mime' ] = $mime;
 
             return $upload;
 		}
