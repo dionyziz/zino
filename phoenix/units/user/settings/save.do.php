@@ -162,12 +162,23 @@
 			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			if ( $showuni ) {
 				if ( $user->Profile->Uniid == 0 && ( $place || $education ) ) {
-					?>alert( 'showuni' );<?php
+					?>$( '#university' ).html( <?php
+						ob_start();
+						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+						echo w_json_encode( ob_get_clean() );
+					?> );
+					if ( $( '#university' ).parent().hasClass( 'invisible' ) ) {
+						$( '#universitty' ).parent().css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
+					}<?php
 				}
 			}
 			else {
 				if ( $place || $education ) {
-					?>alert( 'vanish uni if it is displayed' );<?php
+					?>if ( !$( '#university' ).parent().hasClass( 'invisible' ) ) {
+						$( '#university' ).parent().animate( { opacity : "1" , 200 , function() {
+							$( this ).addClass( "invisible" );
+						} );
+					}<?php
 				}
 			}
 		}
