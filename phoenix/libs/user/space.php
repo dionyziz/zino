@@ -12,13 +12,11 @@
         public function SetText( $value ) {
             $this->Bulk->Text = $value;
         }
+        public function OnBeforeCreate() {
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
+        }
         public function OnCreate() {
-            $text = $this->Bulk->Text;
-
-            // create a brand new bulk object
-            $this->Bulk = New Bulk();
-            $this->Bulk->Text = $text;
-
             $this->OnUpdate();
         }
         public function OnUpdate() {
@@ -42,5 +40,4 @@
             throw New UserException( 'Userspaces cannot be deleted' );
         }
     }
-
 ?>

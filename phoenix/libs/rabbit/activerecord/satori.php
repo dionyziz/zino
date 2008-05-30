@@ -262,6 +262,9 @@
                 throw New SatoriException( 'This object has modified read-only attributes; it cannot be made persistent' );
             }
             if ( $this->Exists() ) {
+                if ( $this->OnBeforeUpdate() === false ) {
+                    return false;
+                }
                 $sql = 'UPDATE
                             :' . $this->mDbTableAlias . '
                         SET
@@ -312,6 +315,9 @@
             }
             else {
                 $this->ResolveDefaultValues();
+                if ( $this->OnBeforeCreate() === false ) {
+                    return;
+                }
                 $inserts = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
@@ -344,11 +350,24 @@
         protected function OnDelete() {
             // override me
         }
+        protected function OnBeforeCreate() {
+            // override me
+        }
+        protected function OnBeforeUpdate() {
+            // override me
+        }
+        protected function OnBeforeDelete() {
+            // override me
+        }
         public function Delete() {
             if ( !$this->Exists() ) {
                 throw New SatoriException( 'Cannot delete non-existing Satori object' );
             }
             
+            if ( $this->OnBeforeDelete() === false ) {
+                return;
+            }
+
             $sql = 'DELETE FROM
                         :' . $this->mDbTableAlias . '
                     WHERE ';
