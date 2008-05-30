@@ -42,8 +42,8 @@
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting" id="education"><?php
 				Element( 'user/settings/personal/education' );
-			?></div>
-			<div class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
+				?><div class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
+			</div>
 		</div>
 		<div class="barfade">
 			<div class="leftbar"></div>
@@ -51,19 +51,17 @@
 		</div>
 		<div class="option">
 			<label for="university">Πανεπιστήμιο</label>
-			<div class="setting">
-				<div class="setting" id="university"><?php
-					$water->Trace( "education " . $user->Profile->Education );
-					if ( $user->Profile->Education == 'university' ) {
-						$typeid = 0;
-					}
-					else if( $user->Profile->Education == 'TEI' ) {
-						$typeid  = 1;
-					}
-					$water->Trace( "typeid " . $typeid );
-					Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
-				?></div>
-			</div>
+			<div class="setting" id="university"><?php
+				$water->Trace( "education " . $user->Profile->Education );
+				if ( $user->Profile->Education == 'university' ) {
+					$typeid = 0;
+				}
+				else if( $user->Profile->Education == 'TEI' ) {
+					$typeid  = 1;
+				}
+				$water->Trace( "typeid " . $typeid );
+				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+			?></div>
 		</div>
 		<div class="barfade">
 			<div class="leftbar"></div>
