@@ -146,8 +146,7 @@
 				<?php
 			}
 			else {
-				?>$( Settings.showsaving )
-				.animate( { opacity : "0" } , 200 , function() {
+				?>$( Settings.showsaving ).animate( { opacity : "0" } , 200 , function() {
 						$( Settings.showsaving ).css( "display" , "none" );
 					});<?php		
 			}
@@ -175,8 +174,8 @@
 			else {
 				if ( $place || $education ) {
 					?>if ( !$( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-						$( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "1" , 200 , function() {
-							$( this ).addClass( "invisible" );
+						$( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "1" } , 200 , function() {
+							$( ).addClass( "invisible" );
 						} );
 					}<?php
 				}
