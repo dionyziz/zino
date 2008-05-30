@@ -172,7 +172,7 @@
 				}
 			}
 			else {
-				if ( $user->Profile->Uniid == 0 && ( $place || $education ) ) {
+				if ( $place || $education ) {
 					?>alert( 'vanish uni if it is displayed' );<?php
 				}
 			}
