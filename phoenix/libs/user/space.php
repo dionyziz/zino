@@ -13,12 +13,19 @@
             $this->Bulk->Text = $value;
         }
         public function OnCreate() {
+            $text = $this->Bulk->Text;
+
+            // create a brand new bulk object
+            $this->Bulk = New Bulk();
+            $this->Bulk->Text = $text;
+
             $this->OnUpdate();
         }
         public function OnUpdate() {
             global $libs;
 
             $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
 
             $libs->Load( 'event' );
             $event = New Event();
