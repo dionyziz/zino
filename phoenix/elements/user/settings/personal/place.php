@@ -7,7 +7,7 @@
 		$places = $finder->FindAll();
 		?><select name="place">
 			<option value="-1"<?php
-			if ( $user->Profile->Location->Id == 0 ) {
+			if ( $user->Profile->Placeid == 0 ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
@@ -15,11 +15,11 @@
 				?><option value="<?php
 				echo $place->Id;
 				?>"<?php
-				if ( $user->Profile->Location->Id == $place->Id ) {
+				if ( $user->Profile->Placeid == $place->Id ) {
 					?> selected="selected"<?php
 				}
 				?>><?php
-				echo $place->Name;
+				echo htmlspecialchars( $place->Name );
 				?></option><?php
 			}
 		?></select><?php
