@@ -44,9 +44,12 @@
 				Element( 'user/settings/personal/education' );
 			?><div class="forstudents">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
 			</div>
-			<label>Ποιο πανεπιστήμιο;</label>
+		</div>
+		<div class="option">
+			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university">
 				<div class="setting"><?php
+					$water->Trace( "education " . $user->Profile->Education );
 					if ( $user->Profile->Education == 'university' ) {
 						$typeid = 0;
 					}
