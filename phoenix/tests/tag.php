@@ -89,7 +89,7 @@
             $tag2->Userid = $user->Id;
             $tag2->Typeid = TAG_MOVIE;
             $tag2->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
-            $tag2->Next = $tag1->Id;
+            $tag2->Nextid = $tag1->Id;
             $tag2->Save();
 
             $this->mMovieTag2 = $tag2;
