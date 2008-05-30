@@ -21,20 +21,12 @@
             }
             switch ( $type ) {
                 case IMAGE_PROPORTIONAL_210x210:
-                    if ( $image->Width <= $width && $image->Height <= $height ) {
+                    if ( $image->Width <= 210 && $image->Height <= 210 ) {
                         $width = $image->Width;
                         $height = $image->Height;
                         break;
                     }
                     list( $width, $height ) = $image->ProportionalSize( 210, 210 );
-                    break;
-                case IMAGE_PROPORTIONAL_700x600:
-                    if ( $image->Width <= $width && $image->Height <= $height ) {
-                        $width = $image->Width;
-                        $height = $image->Height;
-                        break;
-                    }
-                    list( $width, $height ) = $image->ProportionalSize( 700, 600 );
                     break;
                 case IMAGE_CROPPED_100x100:
                     $width = $height = 100;
