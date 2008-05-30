@@ -151,9 +151,34 @@
     		if( !( $user instanceof User ) ) {
     			throw New TagException( 'Please make sure the argument is an instance of User class' );
     		}
+    		
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
-            return $this->FindByPrototype( $prototype );
+            $res = $this->FindByPrototype( $prototype );
+            $size = count( $res );
+            if ( count( $res ) < 2 ) { // No need for sorting
+            	return $res;
+            }
+            
+            $res_new = array();
+            $res_new_size = -1;
+        	for( $i=0; $i<$size; ++$i ) {
+        		if ( $res[ $i ]->Nextid != 0 ) {
+        			continue;
+        		}
+    			$res_new[] = $res[ $i ]; // found a head
+    			++$res_new_size; // index of the last element
+				for ( $j=0; $j<$size; ++$j ) {
+					if ( $res[ $j ]->Nextid == $res_new[ $res_new_size ]->Id ) { // adding elements to our list
+						$res_new[] = $res[ $j ];
+						++$res_new_size;
+						$j=0; // reset
+    				}
+    			}
+    		} //after all heads have been found and all lists have been built
+    		rsort( $res_new );
+    		
+    		return $res_new;	
         }
         public function FindByTextAndType( $text, $typeid ) {
         	$prototype = New Tag();

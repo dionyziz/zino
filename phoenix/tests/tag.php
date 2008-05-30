@@ -7,6 +7,9 @@
         private $mBookTag;
         private $mMovieTag1;
         private $mMovieTag2;
+        private $mMovieTag3;
+        private $mBookTag2;
+        private $mBookTag3;
 
         public function SetUp() {
         	global $libs;
@@ -88,26 +91,48 @@
             $tag2 = New Tag();
             $tag2->Userid = $user->Id;
             $tag2->Typeid = TAG_MOVIE;
-            $tag2->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
+            $tag2->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy. <--Does this comment make the code more readable? :P
             $tag2->Nextid = $tag1->Id;
             $tag2->Save();
-
+            
             $this->mMovieTag2 = $tag2;
+
+            $this->mMovieTag3 = New Tag();
+            $this->mMovieTag3->Userid = $user->Id;
+            $this->mMovieTag3->Typeid = TAG_MOVIE;
+            $this->mMovieTag3->Text = 'Fooland';
+            $this->mMovieTag3->Nextid = $tag2->Id;
+            $this->mMovieTag3->Save();
+            
+            $this->mBookTag2 = New Tag();
+            $this->mBookTag2->Userid = $user->Id;
+            $this->mBookTag2->Typeid = TAG_BOOK;
+            $this->mBookTag2->Text = "Kama Sutra";
+            $this->mBookTag2->Save();
+            
+            $this->mBookTag3 = New Tag();
+            $this->mBookTag3->Userid = $user->Id;
+            $this->mBookTag3->Typeid = TAG_BOOK;
+            $this->mBookTag3->Text = "Sutra Kama";
+            $this->mBookTag3->Nextid = $this->mBookTag2->Id;
+            $this->mBookTag3->Save();
+
+            
         }
         public function TestFindByUser() {
             $finder = New TagFinder();
-            $tags = $finder->FindByUser( $this->mUser1 );
+            $tags = $finder->FindByUser( $this->mUser2 );
             
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
-            $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
+            $this->AssertEquals( 5, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
-            $texts = array( 'Sin City', 'The journal of a Magus' );
-            $types = array( TAG_MOVIE, TAG_BOOK );
-            for ( $i = 0; $i < 2; ++$i ) {
+            $texts = array( 'Sutra Kama', 'Kama Sutra', 'Fooland', 'Straight Story', 'Sin City' );
+            $types = array( TAG_BOOK, TAG_BOOK, TAG_MOVIE, TAG_MOVIE, TAG_MOVIE );
+            for ( $i = 0; $i < 5; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
-                $this->Assert( in_array( $tag->Text, $texts ), 'Tag returned by Finder::FindByUser doesn\'t have the right text' );
-                $this->Assert( in_array( $tag->Typeid, $types ), 'Tag returned by Finder::FindByUser doesn\'t have the right type' );
+                $this->AssertEquals( $texts[$i], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text or is not in the right order' );
+                $this->AssertEquals( $types[$i], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type or is not in the right order' );
             }
         }
         public function TestFindByTextAndType() {
