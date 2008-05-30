@@ -106,8 +106,8 @@
             for ( $i = 0; $i < 2; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
-                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+                $this->Assert( in_array( $tag->Text, $texts ), 'Tag returned by Finder::FindByUser doesn\'t have the right text' );
+                $this->Assert( in_array( $tag->Typeid, $types ), 'Tag returned by Finder::FindByUser doesn\'t have the right type' );
             }
         }
         public function TestFindByTextAndType() {
