@@ -1,6 +1,5 @@
 <?php
 	function ElementAlbumPhotoSmall( $image , $showdesc = false ,  $showcomnum = false ) {
-		$size = $image->ProportionalSize( 210 , 210 );
 		if ( $image->Name != '' ) {
 			$title = htmlspecialchars( $image->Name );
 		}	
@@ -11,7 +10,7 @@
 			<a href="?p=photo&amp;id=<?php
 			echo $image->Id;
 			?>"><?php
-				Element( 'image' , $image , $size[ 0 ] , $size[ 1 ] , '' , $title , $title ); 
+				Element( 'image', $image, IMAGE_PROPORTIONAL_210x210, '' , $title , $title ); 
 				if ( $showdesc && $image->Name != '') {
 					?><br /><?php
 					echo htmlspecialchars( $image->Name );

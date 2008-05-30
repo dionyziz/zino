@@ -1,24 +1,49 @@
 <?php
-	
-	function ElementImage( $image , $width , $height , $class , $alt , $title , $style ) {
+	function ElementImage( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' ) {
 		global $xc_settings;
 		global $rabbit_settings;
+
+        switch ( $type ) {
+            case IMAGE_PROPORTIONAL_210x210:
+                if ( $image->Width <= $width && $image->Height <= $height ) {
+                    $width = $image->Width;
+                    $height = $image->Height;
+                    break;
+                }
+                list( $width, $height ) = $image->ProportionalSize( 210, 210 );
+                break;
+            case IMAGE_PROPORTIONAL_700x600:
+                if ( $image->Width <= $width && $image->Height <= $height ) {
+                    $width = $image->Width;
+                    $height = $image->Height;
+                    break;
+                }
+                list( $width, $height ) = $image->ProportionalSize( 700, 600 );
+                break;
+            case IMAGE_CROPPED_100x100:
+                $width = $height = 100;
+                break;
+            case IMAGE_CROPPED_150x150:
+                $width = $height = 150;
+                break;
+            case IMAGE_FULLVIEW:
+                $width = $image->Width;
+                $height = $image->Height;
+                break;
+            default:
+                throw Exception( 'Invalid image type' );
+        }
 
 		if ( !is_object( $image ) ) {
 			$url = $xc_settings[ 'staticimagesurl' ] . $image;
 		}
 		else {
 			if ( !$image->IsDeleted() ) {
-				if ( !ValidId( $width ) || !ValidId( $height ) ) {
-		            $width = $image->Width;
-					$height = $image->Height;	
-				}
-                // TODO: resoltuion handling
 				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/';
                 if ( !$rabbit_settings[ 'production' ] ) {
                     $url .= '_';
                 }
-                $url .= $image->Id . '/' . $image->Id . '_full.jpg';
+                $url .= $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
 			}
 		}
 		?><img src="<?php

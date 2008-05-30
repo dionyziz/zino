@@ -2,7 +2,8 @@
 	
 	function ElementAlbumSmall( $album , $creationmockup = false ) {
 		global $water;
-		
+		global $xc_settings;
+
 		if ( !$creationmockup ) {
 			$commentsnum = $album->Numcomments;
 			$photonum = $album->Numphotos;
@@ -20,10 +21,16 @@
 						if ( $album->Mainimage > 0 ) {	
 							$mainimage = New Image( $album->Mainimage );
 							$size = $mainimage->ProportionalSize( 150 , 130 );
-							Element( 'image' , $mainimage , $size[ 0 ] , $size[ 1 ] , '' , $albumname , $albumname , '' );
+							Element( 'image' , $mainimage , IMAGE_PROPORTIONAL_210x210 , '' , $albumname , $albumname , '' );
 						}
 						else {
-							Element( 'image' , 'anonymous130.jpg' , 130 , 130 , '' , $albumname , $albumname , '' );
+                            ?><img src="<?php
+                            echo $xc_settings[ 'imagesurl' ];
+							?>/anonymous130.jpg" alt="<?php
+                            echo $albumname;
+                            ?>" title="<?php
+                            echo $albumname;
+                            ?>" style="width:130px;height:130px" /><?php
 						}
 		        	
 		        	?></span>
@@ -50,9 +57,9 @@
 		else {
 			?><div class="album createalbum">
 				<a href="">
-		        	<span class="albummain"><?php
-		        	Element( 'image' , 'anonymous130.jpg' , 130 , 130 , '' , 'Νέο album'  , 'Νέο album' , '' );
-					?></span>
+		        	<span class="albummain"><img src="<?php
+                    echo $xc_settings[ 'imagesurl' ];
+                    ?>/anonymous130.jpg" alt="Νέο album" title="Νέο album" style="width:130px;height:130px" /></span>
 		        </a>
 				<span class="desc">
 					<input type="text" />
