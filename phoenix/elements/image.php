@@ -12,8 +12,8 @@
 		            $width = $image->Width;
 					$height = $image->Height;	
 				}
-				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/' . $image->Id;
-				$url .= '?resolution=' . $width . 'x' . $height . '&amp;sandbox=yes';
+                // TODO: resoltuion handling
+				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/' . $image->Id . '/' . $image->Id . '_full.jpg';
 			}
 		}
 		?><img src="<?php
