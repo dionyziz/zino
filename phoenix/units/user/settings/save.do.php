@@ -167,7 +167,7 @@
 						echo w_json_encode( ob_get_clean() );
 					?> );
 					if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-						$( $( '#universitty' ).[ 0 ] ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
+						$( $( '#universitty' )[ 0 ] ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
 					}<?php
 				}
 			}
