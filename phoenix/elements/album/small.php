@@ -3,7 +3,8 @@
 	function ElementAlbumSmall( $album , $creationmockup = false ) {
 		global $water;
 		global $xc_settings;
-
+		global $rabbit_settings;
+		
 		if ( !$creationmockup ) {
 			$commentsnum = $album->Numcomments;
 			$photonum = $album->Numphotos;
@@ -52,7 +53,7 @@
 			?><div class="album createalbum">
 				<a href="">
 		        	<span class="albummain"><img src="<?php
-                    echo $xc_settings[ 'imagesurl' ];
+                    echo $rabbit_settings[ 'imagesurl' ];
                     ?>/anonymous100.jpg" alt="Νέο album" title="Νέο album" style="width:130px;height:130px" /></span>
 		        </a>
 				<span class="desc">
