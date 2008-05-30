@@ -54,7 +54,7 @@
 				<a href="">
 		        	<span class="albummain"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
-                    ?>/anonymous100.jpg" alt="Νέο album" title="Νέο album" style="width:130px;height:130px" /></span>
+                    ?>anonymous100.jpg" alt="Νέο album" title="Νέο album" /></span>
 		        </a>
 				<span class="desc">
 					<input type="text" />
