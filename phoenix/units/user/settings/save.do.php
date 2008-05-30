@@ -38,10 +38,16 @@
 				$user->Gender = $gender;
 			}
 			if ( $place ) {
-				$newplace = new Place( $place );
-				if ( $newplace->Exists() ) {
-					$user->Profile->Placeid = $newplace->Id;
+				if ( $place == -1 ) {
+					$placeid = 0;
 				}
+				else {
+					$newplace = New Place( $place );
+					if ( $newplace->Exists() ) {
+						$placeid = $newplace->Id;
+					}
+				}				
+				$user->Profile->Placeid = $placeid;
 			}
 			if ( $education ) {
 				$user->Profile->Education = $education;
