@@ -4,6 +4,13 @@
 		global $user;
 		global $rabbit_settings;
 		
+		if ( $user->Profile->Education == 'university' ) {
+			$typeid = 0;
+		}
+		else if( $user->Profile->Education == 'TEI' ) {
+			$typeid  = 1;
+		}
+		$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 		?><div class="option">
 			<label for="dateofbirth">Ημερομηνία Γέννησης:</label>
 			<div class="setting" id="dateofbirth"><?php
@@ -49,21 +56,22 @@
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
-		<div class="option">
+		<div class="option"<?php
+		if ( !$showuni ) {
+			?> style="display:none"<?php
+		}
+		?>>
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university"><?php
-				$water->Trace( "education " . $user->Profile->Education );
-				if ( $user->Profile->Education == 'university' ) {
-					$typeid = 0;
-				}
-				else if( $user->Profile->Education == 'TEI' ) {
-					$typeid  = 1;
-				}
-				$water->Trace( "typeid " . $typeid );
+
 				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 			?></div>
 		</div>
-		<div class="barfade">
+		<div class="barfade"<?php
+		if ( !$showuni ) {
+			?> style="display:none"<?php
+		}
+		?>>
 			<div class="leftbar"></div>
 			<div class="rightbar"></div>
 		</div>
