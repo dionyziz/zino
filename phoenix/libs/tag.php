@@ -159,7 +159,7 @@
             if ( count( $res ) < 2 ) { // No need for sorting
             	return $res;
             }
-            
+            //------think of something better------
             $res_new = array();
             $res_new_size = -1;
         	for( $i=0; $i<$size; ++$i ) {
@@ -178,7 +178,7 @@
     			}
     		} //after all heads have been found and all lists have been built
     		rsort( $res_new );
-    		
+    		//--------------------------------------
     		return $res_new;	
         }
         public function FindByTextAndType( $text, $typeid ) {
