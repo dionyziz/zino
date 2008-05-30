@@ -61,7 +61,7 @@
 
             $tag = New Tag();
             $tag->Userid = $user->Id;
-            $tag->Type = TAG_MOVIE;
+            $tag->Typeid = TAG_MOVIE;
             $tag->Text = 'Sin City';
             $this->AssertFalse( $tag->Exists(), 'Tag appears to exist before saving' );
             $tag->Save();
@@ -69,7 +69,7 @@
 
             $tag = New Tag();
             $tag->Userid = $user->Id;
-            $tag->Type = TAG_BOOK;
+            $tag->Typeid = TAG_BOOK;
             $tag->Text = 'The journal of a Magus';
             $tag->Save();
 
@@ -78,7 +78,7 @@
             $user = $this->mUser2;
 
             $tag1 = New Tag();
-            $tag1->Type = TAG_MOVIE;
+            $tag1->Typeid = TAG_MOVIE;
             $tag1->Userid = $user->Id;
             $tag1->Text = 'Sin City';
             $tag1->Save();
@@ -87,7 +87,7 @@
 
             $tag2 = New Tag();
             $tag2->Userid = $user->Id;
-            $tag2->Type = TAG_MOVIE;
+            $tag2->Typeid = TAG_MOVIE;
             $tag2->Text = 'Straight Story'; // NOTICE: Straight Story by David Lynch; not to be confused with the greek comedy.
             $tag2->Next = $tag1->Id;
             $tag2->Save();
@@ -107,7 +107,7 @@
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
                 $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
         }
         public function TestFindByTextAndType() {
@@ -155,7 +155,7 @@
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
                 $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
         }
         public function TestReorder() {
@@ -171,7 +171,7 @@
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
                 $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
 
             $this->mMovieTag2->MoveAfter( $this->mMovieTag1 );
@@ -184,7 +184,7 @@
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
                 $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Type, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
 
         }
