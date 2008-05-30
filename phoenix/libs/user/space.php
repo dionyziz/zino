@@ -23,7 +23,7 @@
             $libs->Load( 'event' );
             $event = New Event();
             $event->Typeid = EVENT_USERSPACE_UPDATED;
-            $event->Itemid = $this->Id;
+            $event->Itemid = $this->Userid;
             $event->Userid = $this->Userid;
             $event->Save();
         }
