@@ -40,7 +40,7 @@
 			if ( $place ) {
 				$newplace = new Place( $place );
 				if ( $newplace->Exists() ) {
-					$user->Profile->Location = $place;
+					$user->Profile->Placeid = $newplace->Id;
 				}
 			}
 			if ( $education ) {
