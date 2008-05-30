@@ -152,6 +152,14 @@
             $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
             $this->Avatar = $this->HasOne( 'Image', 'Icon' );
         }
+        protected function OnBeforeDelete() {
+            foreach ( $this->Albums as $album ) {
+                $album->Delete();
+            }
+            foreach ( $this->Journals as $journal ) {
+                $journal->Delete();
+            }
+        }
         public function Delete() { // for unit testing
             /* dude, profile's can't be deleted
             if ( $this->Profile->Exists() ) {
@@ -163,13 +171,6 @@
                 $this->Preferences->Delete();
             }
             */
-            foreach ( $this->Albums as $album ) {
-                $album->Delete();
-            }
-            foreach ( $this->Journals as $journal ) {
-                $journal->Delete();
-            }
-            return parent::Delete();
         }
         public function HasPermission( $permission ) {
             return $this->Rights >= $permission;
