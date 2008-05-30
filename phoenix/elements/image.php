@@ -18,7 +18,7 @@
                 if ( !$rabbit_settings[ 'production' ] ) {
                     $url .= '_';
                 }
-                $url = $image->Id . '/' . $image->Id . '_full.jpg';
+                $url .= $image->Id . '/' . $image->Id . '_full.jpg';
 			}
 		}
 		?><img src="<?php
