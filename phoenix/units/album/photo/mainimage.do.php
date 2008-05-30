@@ -18,7 +18,7 @@
 						echo $photo->Id;
 						?>/<?php
 						echo $photo->Id;
-						?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg';
+						?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
 					} );<?php
 				}
 			}
