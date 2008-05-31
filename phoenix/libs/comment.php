@@ -236,19 +236,19 @@
             $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
-        public function FindNear( $entity, $comment, $reverse = true ) {
+        public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 10000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
-            return Comments_Near( $this->FindByPrototype( $prototype ), $comment );
+            return Comments_Near( $this->FindByPrototype( $prototype. $offset, $limit ), $comment );
         }
-        public function FindByPage( $entity, $page, $reverse = true ) {
+        public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 10000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
-            return Comments_OnPage( $this->FindByPrototype( $prototype ), $page, $reverse );
+            return Comments_OnPage( $this->FindByPrototype( $prototype, $offset, $limit ), $page, $reverse );
         }
     }
 
