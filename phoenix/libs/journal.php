@@ -21,7 +21,6 @@
     
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
-		private $mNewText = '';
        
 	   	public function LoadDefaults() {
 			global $user;
@@ -30,13 +29,8 @@
             $this->Created = NowDate();
 		}
         public function GetText( $length = false ) {
-			if ( !empty( $this->mNewText ) ) {
-				$text = $this->mNewText;
-			}
-			else {
-				$text = $this->Bulk->Text;
+            $text = $this->Bulk->Text;
 
-			}
             if ( $length == false ) {
                 return $text;
             }
@@ -46,17 +40,14 @@
             }
         }
 		public function SetText( $text ) {
-			$this->mNewText = $text;
+			$this->Bulk->Text = $text;
 		}
-		public function Save() {
-			if ( !empty( $this->mNewText ) ) {
-				$bulk = New Bulk();
-				$bulk->Text = $this->mNewText;
-				$bulk->Save();
-
-				$this->Bulkid = $bulk->Id;
-			}
-			parent::Save();
+        public function OnBeforeCreate() {
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
+        }
+		public function OnUpdate() {
+            $this->Bulk->Save();
 		}
         public function OnCommentCreate() {
             ++$this->Numcomments;
@@ -68,6 +59,9 @@
         }
         protected function OnCreate() {
             global $libs;
+
+            $this->OnUpdate();
+
             $libs->Load( 'event' );
 
             ++$this->User->Count->Journals;
