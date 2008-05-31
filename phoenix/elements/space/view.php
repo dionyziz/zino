@@ -29,6 +29,11 @@
 		Element( 'user/sections' , 'space' , $theuser );
 		?><div id="space">
 			<h2>Χώρος</h2>
+			<div class="owner">
+				<div class="edit">
+					<a href="" onclick="return false;">Επεξεργασία</a>
+				</div>
+			</div>
 			<div class="text"><?php
 			echo $theuser->Space->Text;
 			?></div>
