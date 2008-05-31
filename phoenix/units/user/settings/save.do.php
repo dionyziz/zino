@@ -173,9 +173,8 @@
 			}
 			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			if ( $showuni ) {
-				if ( $user->Profile->Uniid == 0 && ( $place || $education ) ) {
-					?>$( '#university select' ).remove();
-					$( '#university' ).html( <?php
+				if ( $place || $education ) {
+					?>$( '#university' ).html( <?php
 						ob_start();
 						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						echo w_json_encode( ob_get_clean() );
