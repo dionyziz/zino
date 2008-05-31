@@ -18,6 +18,9 @@
 			<div class="social"><?php
 				Element( 'user/profile/sidebar/social/view' , $theuser );
 			?></div>
+			<div class="aboutme"><?php
+				Element( 'user/profile/sidebar/aboutme' , $theuser );
+			?></div>
 			<div class="interests"><?php
 				Element( 'user/profile/sidebar/interests' , $theuser );
 			?></div>
