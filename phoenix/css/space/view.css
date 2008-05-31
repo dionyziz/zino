@@ -1,5 +1,6 @@
 div#space {
-	margin-bottom: 20px;
+	margin: -7px 0 0 0;
+	padding: 0;
 }
 div#space div.owner {
 	margin: 4px 0;
