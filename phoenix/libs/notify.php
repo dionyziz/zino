@@ -26,11 +26,11 @@
     class NotifyFinder extends Finder {
         protected $mModel = 'Notify';
 
-        public function FindByUser( $user ) {
+        public function FindByUser( $user, $offset = 0, $limit = 20 ) {
             $notify = New Notify();
             $notify->Touserid = $user->Id;
 
-            return $this->FindByPrototype( $notify );
+            return $this->FindByPrototype( $notify, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
 
@@ -49,10 +49,8 @@
         public function Relations() {
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
         }
-        public function Save() {
-            if ( $this->Exists() ) {
-                throw New Exception( 'Notifications cannot be edited!' );
-            }
+        public function OnBeforeUpdate() {
+            throw New Exception( 'Notifications cannot be edited!' );
         }
     }
 

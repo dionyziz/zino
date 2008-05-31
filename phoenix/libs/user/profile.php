@@ -94,7 +94,7 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
-            $this->University = $this->HasOne( 'Uni', 'Uniid' );
+            $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
         public function Delete() {
