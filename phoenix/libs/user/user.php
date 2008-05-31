@@ -171,6 +171,9 @@
                 $this->Preferences->Delete();
             }
             */
+
+            /* hey! who removed this? we need it in unit testing */
+            return parent::Delete();
         }
         public function HasPermission( $permission ) {
             return $this->Rights >= $permission;

@@ -6,6 +6,13 @@
         protected $mAppliesTo = 'libs/user/user';
         private $mUser;
         
+        public function SetUp() {
+            $finder = New UserFinder();
+            $user = $finder->FindByName( 'usertest' );
+            if ( is_object( $user ) ) {
+                $user->Delete();
+            }
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
 			$this->Assert( class_exists( 'UserFinder' ), 'UserFinder class does not exist' );
