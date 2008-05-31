@@ -28,9 +28,11 @@
 		}	
 		Element( 'user/sections' , 'space' , $theuser );
 		?><div id="space">
-			<h2>Χώρος</h2><?php
+			<h2>Χώρος</h2>
+			<div class="text"><?php
 			echo $theuser->Space->Text;
-			?><div class="eof"></div>
+			?></div>
+			<div class="eof"></div>
 		</div><?php
 	}
 ?>
