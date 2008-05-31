@@ -231,9 +231,6 @@ $( document ).ready( function() {
 					Settings.favquote = this.value;
 				}
 			}
-			if ( event.keyCode == 13 ) {
-				return false;
-			}
 		} );
 			
 		
