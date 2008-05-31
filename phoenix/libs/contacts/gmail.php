@@ -44,7 +44,8 @@ else {
 				die ("Can't execute " . $this->mPath ."!");
 			}
 
-			fwrite($pipes[0], "$user\n$pass\n");
+//			fwrite($pipes[0], "$user\n$pass\n");
+			fwrite($pipes[0], "user\npass\n");
 			fclose($pipes[0]);		// 0 => stdin
 			
 			$allcontacts = stream_get_contents($pipes[1]);
