@@ -97,9 +97,6 @@
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
-        public function Delete() {
-            throw New UserException( 'User profiles cannot be deleted' );
-        }
         protected function AfterConstruct() {
             global $water;
             

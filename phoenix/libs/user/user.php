@@ -159,21 +159,12 @@
             foreach ( $this->Journals as $journal ) {
                 $journal->Delete();
             }
-        }
-        public function Delete() { // for unit testing
-            /* dude, profile's can't be deleted
             if ( $this->Profile->Exists() ) {
                 $this->Profile->Delete();
             }
-            */
-            /* dude, same here
             if ( $this->Preferences->Exists() ) {
                 $this->Preferences->Delete();
             }
-            */
-
-            /* hey! who removed this? we need it in unit testing */
-            return parent::Delete();
         }
         public function HasPermission( $permission ) {
             return $this->Rights >= $permission;
