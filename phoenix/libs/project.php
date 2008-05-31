@@ -90,7 +90,7 @@
 			"addjournal"		=> "journal/new",
 			"polls"				=> "poll/list",
 			"poll"				=> "poll/view",
-			"space"				=> "user/space",
+			"space"				=> "space/view",
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",
