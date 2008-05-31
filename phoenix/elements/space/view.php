@@ -2,6 +2,7 @@
 	
 	function ElementSpaceView( tString $username , tString $subdomain ) {
 		global $user;
+		global $page;
 		
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
