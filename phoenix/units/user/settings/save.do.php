@@ -58,7 +58,7 @@
 					$uniid = 0;
 				}
 				else {
-					$newuni = New University( $university );
+					$newuni = New Uni( $university );
 					if ( $university->Exists() ) {
 						$uniid = $newuni->Id;
 					}
