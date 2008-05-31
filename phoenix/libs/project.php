@@ -91,6 +91,7 @@
 			"polls"				=> "poll/list",
 			"poll"				=> "poll/view",
 			"space"				=> "space/view",
+			"editspace"			=> "space/edit",
 			"albums"			=> "album/list",
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",

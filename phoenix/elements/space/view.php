@@ -39,7 +39,7 @@
 			if ( $user->Id == $theuser->Id || $user->HasPermission( PERMISSION_SPACE_EDIT_ALL ) ) {
 				?><div class="owner">
 					<div class="edit">
-						<a href="" onclick="return false;">Επεξεργασία</a>
+						<a href="?p=editspace">Επεξεργασία</a>
 					</div>
 				</div><?php
 			}
