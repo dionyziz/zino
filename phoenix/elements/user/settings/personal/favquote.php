@@ -3,7 +3,7 @@
 	function ElementUserSettingsPersonalFavquote() {
 		global $user;
 
-		?><input type="text" value="<?php
+		?><input type="text" name="favquote" value="<?php
 		echo htmlspecialchars( $user->Profile->Favquote );
 		?>" /><?php
 	}
