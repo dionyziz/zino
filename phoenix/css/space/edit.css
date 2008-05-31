@@ -1,0 +1,10 @@
+div#editspace {
+	margin-bottom: 20px;
+}
+div#editspace h2 {
+	margin: -7px 0 0 0;
+	padding: 0;
+}
+div#editspace div.edit {
+	clear: both;
+}
