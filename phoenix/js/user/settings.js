@@ -220,7 +220,7 @@ $( document ).ready( function() {
 				text = '-1';
 			}
 			Settings.Enqueue( 'favquote' , text , 3000 );
-		}).keyup( function() {
+		}).keyup( function( event ) {
 			if ( Settings.favquote != this.value ) {
 				var text = this.value;
 				if ( this.value === '' ) {
@@ -230,6 +230,9 @@ $( document ).ready( function() {
 				if ( Settings.favquote ) {
 					Settings.favquote = this.value;
 				}
+			}
+			if ( event.keyCode == 13 ) {
+				return false;
 			}
 		} );
 			
