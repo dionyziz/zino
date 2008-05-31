@@ -3,7 +3,7 @@ var Space = {
 	
 };
 $( document ).ready( function() {
-	if ( $( '#space' )[ 0 ] ) {
+	if ( $( '#editspace' )[ 0 ] ) {
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
             {
                 'tooltip': 'Έντονη Γραφή',
