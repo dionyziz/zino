@@ -26,6 +26,12 @@
 			?>Ο χρήστης δεν υπάρχει<?php
 			return;
 		}	
+		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
+			$page->SetTitle( $theuser->Name . " Χώρος" );
+		}
+		else {
+			$page->SetTitle( $theuser->Name . " χώρος" );
+		}
 		Element( 'user/sections' , 'space' , $theuser );
 		?><div id="space">
 			<h2>Χώρος</h2><?php
