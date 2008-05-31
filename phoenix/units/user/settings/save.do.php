@@ -179,6 +179,9 @@
 						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						echo w_json_encode( ob_get_clean() );
 					?> );
+					$( '#university select' ).change( function() {
+						Settings.Enqueue( 'university' , this.value , 1000 );
+					});
 					if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
 						$( $( '#university' )[ 0 ].parentNode ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
 						$( '#unibarfade' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
