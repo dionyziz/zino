@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
 
 		if ( $user->Exists() ) {
@@ -14,6 +14,7 @@
 			$sex = $sex->Get();
 			$religion = $religion->Get();
 			$politics = $politics->Get();
+			$slogan = $slogan->Get();
 			$aboutme = $aboutme->Get();
 			$favquote = $favquote->Get();
 			$haircolor = $haircolor->Get();
@@ -74,6 +75,12 @@
 			}
 			if ( $politics ) {
 				$user->Profile->Politics = $politics;
+			}
+			if ( $slogan ) {
+				if ( $slogan == '-1' ) {
+					$slogan = '';
+				}
+				$user->Profile->Slogan = $slogan;
 			}
 			if ( $aboutme ) {
 				if ( $aboutme == '-1' ) {

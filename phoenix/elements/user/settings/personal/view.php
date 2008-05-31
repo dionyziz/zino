@@ -119,6 +119,16 @@
 			<div class="rightbar"></div>
 		</div>
 		<div class="option">
+			<label for="slogan">Slogan:</label>
+			<div class="setting" id="slogan"><?php
+				Element( 'user/settings/personal/slogan' );
+			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label for="aboutme">Λίγα λόγια για μένα:</label>
 			<div class="setting" id="aboutme"><?php
 				Element( 'user/settings/personal/aboutme' );

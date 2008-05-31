@@ -4,6 +4,7 @@ var Settings = {
 	showsaved : $( 'div.settings div.sidebar div span.saved' ),
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
+	slogan : $( '#slogan input' )[ 0 ] ? $( '#slogan input' )[ 0 ].value : false,
 	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
 	aboutmetext : $( '#aboutme textarea' )[ 0 ] ? $( '#aboutme textarea' )[ 0 ].value : false,
 	email : $( '#email input' )[ 0 ] ? $( '#email input' )[ 0 ].value : false,
@@ -195,6 +196,23 @@ $( document ).ready( function() {
 			Settings.Enqueue( 'drinker' , this.value , 3000 );
 		});
 		
+		$( '#slogan input' ).change( function() {
+			var text = this.value;
+			if ( this.value === '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'slogan' , text , 500 );
+		}).keyup( function() {
+			var text = this.value;
+			if ( this.value === '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'slogan' , text , 3000 );
+			if ( Settings.slogan ) {
+				Settings.slogan = this.value;
+			}
+		});
+		
 		$( '#aboutme textarea' ).change( function() {
 			var text = this.value;
 			if ( this.value === '' ) {
@@ -219,20 +237,17 @@ $( document ).ready( function() {
 			if ( this.value === '' ) {
 				text = '-1';
 			}
-			Settings.Enqueue( 'favquote' , text , 3000 );
-		}).keyup( function( event ) {
-			if ( Settings.favquote != this.value ) {
-				var text = this.value;
-				if ( this.value === '' ) {
-					text = '-1';
-				}
-				Settings.Enqueue( 'favquote' , text , 3000 );
-				if ( Settings.favquote ) {
-					Settings.favquote = this.value;
-				}
+			Settings.Enqueue( 'favquote' , text , 500 );
+		}).keyup( function() {
+			var text = this.value;
+			if ( this.value === '' ) {
+				text = '-1';
 			}
-		} );
-			
+			Settings.Enqueue( 'favquote' , text , 3000 );
+			if ( Settings.favquote ) {
+				Settings.favquote = this.value;
+			}
+		});
 		
 		$( '#email input' ).change( function() {
 			var text = this.value;
