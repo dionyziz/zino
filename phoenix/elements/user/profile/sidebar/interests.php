@@ -56,10 +56,11 @@
 				<a href="">Baldrus gate</a>, 
 				<a href="">Empire earth</a>, 
 				<a href="">Age of empires</a>
-			</dd>
-			
-			<dt><strong>Αγαπημένα ρητά</strong></dt>
-			<dd>Τον αράπη και αν τον πλένεις το σαπούνι σου χαλάς</dd>
-		</dl><?php
+			</dd><?php
+			if ( $theuser->Profile->Favquote != '' ) {
+				?><dt><strong>Αγαπημένα ρητό</strong></dt>
+				<dd>Τον αράπη και αν τον πλένεις το σαπούνι σου χαλάς</dd><?php
+			}
+		?></dl><?php
 	}
 ?>
