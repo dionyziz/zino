@@ -116,13 +116,14 @@
 			$finder = New EventFinder();
 			$events = $finder->FindByUser( $this->mUser );
 			$this->Assert( is_array( $events ), 'FindByUser did not return an array' );
-			$this->AssertEquals( 3, count( $events ), 'FindByUser did not return right number of events' );
+			$this->AssertEquals( 4, count( $events ), 'FindByUser did not return right number of events' ); // 3 here + 1 egoalbum
 
-			$types = array( EVENT_USERPROFILE_MOOD_UPDATED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_VISITED );
-			foreach ( $events as $e ) {
+			$typeids = array( EVENT_USERPROFILE_MOOD_UPDATED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_VISITED, EVENT_ALBUM_CREATED );
+            $itemids = array( $this->mUser->Id, $this->mUser->Id, $this->mUser->Id, $this->mUser->Egoalbum->Id );
+			foreach ( $events as $key => $e ) {
 				$this->AssertEquals( $this->mUser->Id, $e->Userid, 'Wrong event userid' );
-				$this->AssertEquals( $this->mUser->Id, $e->Itemid, 'Wrong event itemid' );
-				$this->Assert( in_array( $e->Typeid, $types ), 'Wrong event typeid' );
+                $this->AssertEquals( $itemids[ $key ], $e->Itemid, 'Wrong event itemid' );
+                $this->AssertEquals( $typeids[ $key ], $e->Typeid, 'Wrong event typeid' );
 			}
 
 			$event->Delete();
