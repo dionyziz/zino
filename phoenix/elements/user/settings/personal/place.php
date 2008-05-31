@@ -19,7 +19,7 @@
 					?> selected="selected"<?php
 				}
 				?>><?php
-				echo htmlspecialchars( $place->Name );
+				Element( 'user/trivial/place' , $place );
 				?></option><?php
 			}
 		?></select><?php
