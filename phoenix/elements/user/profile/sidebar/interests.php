@@ -59,7 +59,9 @@
 			</dd><?php
 			if ( $theuser->Profile->Favquote != '' ) {
 				?><dt><strong>Αγαπημένα ρητό</strong></dt>
-				<dd>Τον αράπη και αν τον πλένεις το σαπούνι σου χαλάς</dd><?php
+				<dd><?php
+				echo htmlspecialchars( $theuser->Profile->Favquote );
+				?></dd><?php
 			}
 		?></dl><?php
 	}
