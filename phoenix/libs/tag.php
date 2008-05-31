@@ -154,11 +154,12 @@
     		
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
-            $res = $this->FindByPrototype( $prototype );
-            $size = count( $res );
-            if ( count( $res ) < 2 ) { // No need for sorting
-            	return $res;
+            $old = $this->FindByPrototype( $prototype );
+            $size = count( $old );
+            if ( $size < 2 ) { // No need for sorting
+            	return $old;
             }
+            /*
             //------think of something better------
             $res_new = array();
             $res_new_size = -1;
@@ -179,6 +180,23 @@
     		} //after all heads have been found and all lists have been built
     		rsort( $res_new );
     		//--------------------------------------
+    		*/
+    		$res = array();
+    		foreach ( $old as $temp ) {
+    			$res[ $temp->Id ] = $temp;
+    		}
+    		$res_new = array();
+    		foreach ( $res as $temp ) {
+    			if ( $temp->Nextid != 0 ) {
+    				continue;
+    			}
+    			$res_new[] = $temp; // found a head
+    			$tag = $temp;
+    			while ( $tag->Nextid != 0 ) {
+    				$res_new[] = $tag = $res[ $tag->Nextid ];
+    			}
+    		}
+    		rsort( $res_new );
     		return $res_new;	
         }
         public function FindByTextAndType( $text, $typeid ) {
