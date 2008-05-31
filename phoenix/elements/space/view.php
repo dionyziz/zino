@@ -28,9 +28,9 @@
 		}	
 		Element( 'user/sections' , 'space' , $theuser );
 		?><div id="space">
-			<h2>Χώρος</h2>
-			αδφιοασοδιφξασιοδξφοιασδξφοι
-			<div class="eof"></div>
+			<h2>Χώρος</h2><?php
+			echo $theuser->Space->Text;
+			?><div class="eof"></div>
 		</div><?php
 	}
 ?>
