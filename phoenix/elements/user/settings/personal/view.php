@@ -129,7 +129,7 @@
 			<div class="rightbar"></div>
 		</div>
 		<div class="option">
-			<label for="aboutme">Αγαπημένο ρητό:</label>
+			<label for="favquote">Αγαπημένο ρητό:</label>
 			<div class="setting" id="favquote"><?php
 				Element( 'user/settings/personal/favquote' );
 			?></div>
