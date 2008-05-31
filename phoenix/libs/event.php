@@ -90,12 +90,12 @@
 			$prototype = New Event();
 			return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
 		}
-		public function FindByUser( $user, $offset = 0, $limit = 20, $order = array( 'Id', 'DESC' ) ) {
+		public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
 			$prototype->Userid = $user->Id;
 			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
 		}
-		public function FindByType( $typeids, $offset = 0, $limit = 20, $order = array( 'Id', 'DESC' ) ) {
+		public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			if ( !is_array( $typeids ) ) {
 				$typeids = array( $typeids );
 			}
@@ -106,7 +106,7 @@
 			$prototype->Typeid = $typeids; // Dionyziz: array allowed?
 			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
 		}
-		public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 20, $order = array( 'Id', 'DESC' ) ) {
+		public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
 			$prototype->Userid = $user->Id;
 			$prototype->Typeid = $typeids;
