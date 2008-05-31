@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserSettingsPersonalFavquote( $theuser ) {
+	function ElementUserSettingsPersonalFavquote() {
 		global $user;
 		
 		?><input type="text"><?php
