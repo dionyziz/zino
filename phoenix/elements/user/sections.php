@@ -34,6 +34,14 @@
 				?>><a href="?p=journals&amp;username=<?php
 				Element( 'user/subdomain' , $theuser );
 				?>">Ημερολόγιο</a></li>
+				<li>·</li>
+				<li<?php
+				if ( $section == 'space' ) {
+					?> class="selected"<?php
+				}
+				?>><a href="?p=space&amp;username=<?php
+				Element( 'user/subdomain' , $theuser );
+				?>">Χώρος</a></li>
 			</ul>
 		</div><?php
 	}
