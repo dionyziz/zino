@@ -103,13 +103,6 @@ div#profile div.sidebar div.social dl dd {
 	padding: 3px 0;
 	width: 100px;
 }
-/*
-div#profile div.sidebar div.social dl dt {
-	float: left;
-	width: 170px;
-	padding: 3px 0;
-}
-*/
 div#profile div.sidebar div.aboutme {
 	padding: 4px;
 	clear: both;
@@ -122,6 +115,11 @@ div#profile div.sidebar div.aboutme dl dt {
 	display: block;
 	padding: 3px 0 1px 0;
 	margin: 0;
+}
+div#profile div.sidebar div.aboutme dl dd {
+	display: block;
+	margin: 0;
+	padding: 1px  0 5px 0;
 }
 div#profile div.sidebar div.interests dl dd {
 	display: block;
@@ -145,12 +143,6 @@ div#profile div.sidebar div.interests dl dd {
 	padding: 1px 0 5px 0;
 	margin: 0;
 }
-/*
-div#profile div.sidebar div.interests dl {
-	padding: 7px 0 0 0;
-	margin: 0;
-}
-*/
 div#profile div.sidebar div.contacts {
 	padding: 4px;
 }
