@@ -22,7 +22,7 @@
 							?> selected="selected"<?php
 						}
 						?>><?php
-						echo htmlspecialchars( $uni->Name );
+						Element( 'user/trivial/university' , $uni );
 						?></option><?php
 					}
 				?></select><?php

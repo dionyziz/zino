@@ -9,14 +9,19 @@
 					echo $theuser->Profile->Age;
 					?></dd><?php
 				}
-				if ( $theuser->Profile->Location->Name != '' ) {
+				if ( $theuser->Profile->Placeid > 0 ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
 					echo $theuser->Profile->Location->Name;
 					?></dd><?php
 				}
-				?><dt><strong>Πανεπιστήμιο</strong></dt>
-				<dd>Ηλεκτρολόγων Μηχ/κων και Μηχ/κων Υπολογιστών - Αθήνα</dd><?php
+				if ( $theuser->Profile->Uniid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {
+					$uni = New Uni( $theuser->Profile->Uniid );
+					?><dt><strong>Πανεπιστήμιο</strong></dt>
+					<dd><?php
+					Element( 'user/trivial/university' , $uni );
+					?></dd><?php
+				}
 				if ( $theuser->Profile->Haircolor != '-' ) {
 					?><dt><strong>Χρώμα μαλλιών</strong></dt>
 					<dd><?php
