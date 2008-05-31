@@ -15,6 +15,7 @@
 					<input type="submit" value="Δημοσίευση" />
 				</div>
 			</form>
+			<div class="eof"></div>
 		</div><?php
 	
 	}
