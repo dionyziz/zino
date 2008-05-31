@@ -4,8 +4,6 @@
 		global $user;
 		global $page;
 		
-		$id = $id->Get();
-		
 		$page->SetTitle( 'Επεξεργασία χώρου' );
 		Element( 'user/sections' , 'space' , $user );
 		?><div id="editspace">
