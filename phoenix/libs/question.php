@@ -9,7 +9,7 @@
         return $db->Query( $sql )->ToObjectArray( 'Question' );
     }
 
-    class Question extends Satori {
+    class Question extends Satori { // TODO: convert to new satori
         protected $mId;
         protected $mText;
         protected $mUserId;

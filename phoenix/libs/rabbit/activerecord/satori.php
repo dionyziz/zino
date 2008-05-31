@@ -359,7 +359,7 @@
         protected function OnBeforeDelete() {
             // override me
         }
-        public function Delete() {
+        public final function Delete() {
             if ( !$this->Exists() ) {
                 throw New SatoriException( 'Cannot delete non-existing Satori object' );
             }

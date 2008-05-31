@@ -180,7 +180,7 @@
             ++$this->Pageviews;
             return $this->Save();
         }
-		public function Delete() {
+		public function OnBeforeDelete() {
             $this->Delid = 1;
             $this->Save();
 
@@ -204,6 +204,8 @@
             }
 
             $this->OnDelete();
+            
+            return false;
 		}
         public function Undelete() {
             $this->Delid = 0;

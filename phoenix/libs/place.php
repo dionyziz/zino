@@ -14,11 +14,13 @@
         protected $mDbTableAlias = 'places';
 		
         // no privcheck after this point
-		public function Delete() {
+		public function OnBeforeDelete() {
             $this->Delid = 1;
 			$this->Save();
             $finder = New UserFinder();
             $finder->ClearPlace( $this->Id );
+
+            return false;
 		}
         public function LoadDefaults() {
             $this->Delid = 0;

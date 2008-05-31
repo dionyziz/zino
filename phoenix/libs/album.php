@@ -36,7 +36,7 @@
 		public function IsDeleted() {
 			return $this->Delid > 0;
 		}
-		public function Delete() {
+		public function OnBeforeDelete() {
             global $water;
             
             if ( $this->IsDeleted() ) {
@@ -72,6 +72,8 @@
 			$query->Bind( 'ImageDelId', 1 );
 			$query->Bind( 'AlbumId', $this->Id );
 			$query->Execute();
+
+            return false;
 		}
         public function OnCommentCreate() {
 			++$this->Numcomments;

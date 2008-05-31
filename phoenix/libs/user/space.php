@@ -6,8 +6,16 @@
     class UserSpace extends Satori {
         protected $mDbTableAlias = 'userspaces';
         
-        public function GetText() {
-            return $this->Bulk->Text;
+        public function GetText( $length = false ) {
+            $text = $this->Bulk->Text;
+
+            if ( $length == false ) {
+                return $text;
+            }
+            else {
+                $text = preg_replace( "#<[^>]*?>#", "", $text ); // strip all tags
+                return utf8_substr( $text, 0, $length );
+            }
         }
         public function SetText( $value ) {
             $this->Bulk->Text = $value;
@@ -35,9 +43,6 @@
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
-        }
-        public function Delete() {
-            throw New UserException( 'Userspaces cannot be deleted' );
         }
     }
 ?>

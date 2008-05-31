@@ -38,43 +38,43 @@
         </table>
         <table name="usersettings">
             <field name="setting_userid" type="int" ref="users.user_id" />
-            <field name="setting_email_profile" type="enum">
+            <field name="setting_emailprofile" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_email_photos" type="enum">
+            <field name="setting_emailphotos" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_email_journals" type="enum">
+            <field name="setting_emailjournals" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_email_replies" type="enum">
+            <field name="setting_emailreplies" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_email_friends" type="enum">
+            <field name="setting_emailfriends" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_notify_profile" type="enum">
+            <field name="setting_notifyprofile" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_notify_photos" type="enum">
+            <field name="setting_notifyphotos" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_notify_journals" type="enum">
+            <field name="setting_notifyjournals" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_notify_replies" type="enum">
+            <field name="setting_notifyreplies" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>
-            <field name="setting_notify_friends" type="enum">
+            <field name="setting_notifyfriends" type="enum">
                 <value>yes</value>
                 <value>no</value>
             </field>

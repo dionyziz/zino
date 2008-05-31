@@ -26,9 +26,11 @@
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
-		public function Delete() {
+		public function OnBeforeDelete() {
 			$this->DelId = 1;
 			$this->Save();
+
+            return false;
 		}
 		protected function LoadDefaults() {
 			$this->Created = NowDate();

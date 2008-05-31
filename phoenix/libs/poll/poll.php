@@ -52,11 +52,13 @@
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-        public function Delete() {
+        public function OnBeforeDelete() {
             $this->Delid = 1;
             $this->Save();
 
             $this->OnDelete();
+
+            return false;
         }
         protected function OnCreate() {
             global $libs;

@@ -39,6 +39,7 @@
 
         public function Email() {
             // send an email
+
         }
         public function OnCreate() {
             $attribute = 'Email' . Notify_FieldByType( $this->Typeid );

@@ -82,7 +82,7 @@
 		return $change->Impact();
 	}
     
-    class Shout extends Satori {
+    class Shout extends Satori { // TODO: Migrate to new Satori
         protected $mId;
         protected $mText;
         protected $mDate;

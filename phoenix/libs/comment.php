@@ -255,16 +255,10 @@
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
 		private $mSince;
-        private $mNewText;
 
         public function GetText( $length = false ) {
-			if ( !empty( $this->mNewText ) ) {
-				$text = $this->mNewText;
-			}
-			else {
-				$text = $this->Bulk->Text;
+            $text = $this->Bulk->Text;
 
-			}
             if ( $length == false ) {
                 return $text;
             }
@@ -274,12 +268,12 @@
             }
         }
         public function SetText( $value ) {
-            $this->mNewText = $value;
+            $this->Bulk->Text = $value;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-        public function Delete( $theuser ) {
+        public function OnBeforeDelete( $theuser ) {
             $finder = New CommentFinder();
             if ( $finder->CommentHasChildren() || !$this->IsEditableBy( $theuser ) || $this->IsDeleted() ) {
                 return false;
@@ -292,6 +286,8 @@
 			if ( is_object( $this>Item ) ) {
 	            $this->Item->OnCommentDelete();
 			}
+
+            return false;
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
@@ -345,6 +341,10 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
+        public function OnBeforeCreate() {
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
+        }
         public function Save( $theuser = false ) {
             global $user;
 
@@ -356,13 +356,6 @@
             // if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
             if ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) {
                 return false;
-            }
-            if ( !empty( $this->mNewText ) ) {
-                $bulk = New Bulk();
-                $bulk->Text = $this->mNewText;
-                $bulk->Save();
-
-                $this->Bulkid = $bulk->Id;
             }
             return parent::Save();
         }

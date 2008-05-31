@@ -39,11 +39,11 @@
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-        public function Delete() {
+        public function OnBeforeDelete() {
             $this->Delid = 1;
             $this->Save();
 
-            $this->OnUpdate();
+            return false;
         }
         public function UndoDelete() {
             $this->DelId = 0;
