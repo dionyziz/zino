@@ -8,7 +8,7 @@
 			//typeid is 0 for AEI and 1 for TEI
 			$unis = $finder->Find( $placeid , $typeid );
 			if ( count( $unis ) > 0 ) {	
-				?><select name="university">
+				?><select>
 					<option value="-1"<?php
 					if ( $user->Profile->Uniid == 0 ) {
 						?> selected="selected"<?php

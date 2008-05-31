@@ -5,7 +5,7 @@
 		
 		$finder = New PlaceFinder();
 		$places = $finder->FindAll();
-		?><select name="place">
+		?><select>
 			<option value="-1"<?php
 			if ( $user->Profile->Placeid == 0 ) {
 				?> selected="selected"<?php
