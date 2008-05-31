@@ -23,6 +23,7 @@
 	include "user/sections.css";
 	include "user/settings.css";
 	include "user/profile/view.css";
+	include "space/view.css";
 	include "banner.css";
 	include "bubbles.css";
 	include "comment.css";
