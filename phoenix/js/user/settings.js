@@ -4,6 +4,7 @@ var Settings = {
 	showsaved : $( 'div.settings div.sidebar div span.saved' ),
 	showsaving : $( 'div.settings div.sidebar div span.saving' ),
 	invaliddob : false,
+	favquote : $( '#favquote input' )[ 0 ] ? $( '#favquote input' )[ 0 ].value : false,
 	aboutmetext : $( '#aboutme textarea' )[ 0 ] ? $( '#aboutme textarea' )[ 0 ].value : false,
 	email : $( '#email input' )[ 0 ] ? $( '#email input' )[ 0 ].value : false,
 	msn : $( '#msn input' )[ 0 ] ? $( '#msn input' )[ 0 ].value : false,
@@ -211,7 +212,27 @@ $( document ).ready( function() {
 					Settings.aboutmetext = this.value;
 				}
 			}
-		});
+		} );
+		
+		$( '#favquote input' ).change( function() {
+			var text = this.value;
+			if ( this.value === '' ) {
+				text = '-1';
+			}
+			Settings.Enqueue( 'favquote' , text , 3000 );
+		}).keyup( function() {
+			if ( Settings.favquote != this.value ) {
+				var text = this.value;
+				if ( this.value === '' ) {
+					text = '-1';
+				}
+				Settings.Enqueue( 'favquote' , text , 3000 );
+				if ( Settings.favquote ) {
+					Settings.favquote = this.value;
+				}
+			}
+		} );
+			
 		
 		$( '#email input' ).change( function() {
 			var text = this.value;

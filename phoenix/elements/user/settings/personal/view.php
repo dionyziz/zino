@@ -129,6 +129,16 @@
 			<div class="rightbar"></div>
 		</div>
 		<div class="option">
+			<label for="aboutme">Αγαπημένο ρητό:</label>
+			<div class="setting" id="favquote"><?php
+				Element( 'user/settings/personal/favquote' );
+			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label for="mood">Διάθεση:</label>
 			<div class="setting" id="mood"><?php
 				Element( 'user/settings/personal/mood' );

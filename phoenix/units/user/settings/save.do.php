@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
 
 		if ( $user->Exists() ) {
@@ -15,6 +15,7 @@
 			$religion = $religion->Get();
 			$politics = $politics->Get();
 			$aboutme = $aboutme->Get();
+			$favquote = $favquote->Get();
 			$haircolor = $haircolor->Get();
 			$eyecolor = $eyecolor->Get();
 			$height = $height->Get();
@@ -79,6 +80,12 @@
 					$aboutme = '';
 				}
 				$user->Profile->Aboutme = $aboutme;
+			}
+			if ( $favquote ) {
+				if ( $favquote == '-1' ) {
+					$favquote = '';
+				}
+				$user->Profile->Favquote = $favquote;
 			}
 			if ( $haircolor ) {
 				$user->Profile->Haircolor = $haircolor;
