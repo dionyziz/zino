@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $aboutme , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
 
 		if ( $user->Exists() ) {
@@ -10,6 +10,7 @@
 			$gender = $gender->Get();
 			$place = $place->Get();
 			$education = $education->Get();
+			$university = $university->Get();
 			$sex = $sex->Get();
 			$religion = $religion->Get();
 			$politics = $politics->Get();
@@ -51,6 +52,18 @@
 			}
 			if ( $education ) {
 				$user->Profile->Education = $education;
+			}
+			if ( $university ) {
+				if ( $university == -1 ) {
+					$uniid = 0;
+				}
+				else {
+					$newuni = New University( $university );
+					if ( $university->Exists() ) {
+						$uniid = $newuni->Id;
+					}
+				}
+				$user->Profile->Uniid = $uniid;
 			}
 			if ( $sex ) {	
 				$user->Profile->Sexualorientation = $sex;
