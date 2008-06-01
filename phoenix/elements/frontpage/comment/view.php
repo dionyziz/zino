@@ -20,7 +20,7 @@
 				$text = $comment->GetText( 35 );
 					?><span class="text">"<?php
 					echo utf8_substr( $text , 0 , 30 );
-					if ( strlet( $text ) > 30 ) {
+					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
 					echo $comment->GetText( 30 );
