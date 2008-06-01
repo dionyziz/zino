@@ -4,7 +4,7 @@
     $libs->Load( 'relation/type' );
 
     class FriendRelationFinder extends Finder {
-        protected $mModel = 'Relation';
+        protected $mModel = 'FriendRelation';
 
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
