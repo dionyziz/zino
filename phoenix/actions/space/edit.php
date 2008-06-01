@@ -29,11 +29,11 @@
         }
         $sanitizer->SetSource( $text );
 		$result = $sanitizer->GetXHTML();
-		
+
+		die('.'.$user->Space->Id.'.');
+
         $user->Space->Text = $result;
 		$user->Space->Save();
-		
-        die( '.'.$user->Space->Text.'.' );
 
 		return Redirect( '?p=space&subdomain=' . $user->Subdomain );
 	}
