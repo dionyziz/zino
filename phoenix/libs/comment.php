@@ -340,6 +340,26 @@
             $event->Created = $this->Created;
             $event->Userid = $this->Userid;
             $event->Save();
+    
+            $libs->Load( 'notify' );
+            if ( $this->Parentid == 0 ) {
+                $notif = New Notification();
+                $notif->Itemid = $this->Itemid;
+                $notif->Typeid = Notification_TypeFromComment( $this );
+                $notif->Commentid = $this->Id;
+                $notif->Fromuserid = $this->Userid;
+                $notif->Touserid = $this->Item->Userid;
+                $notif->Save();
+            }
+            else {
+                $notif = New Notification();
+                $notif->Itemid = $this->Parentid;
+                $notif->Typeid = NOTIFY_COMMENT_REPLY;
+                $notif->Commentid = $this->Id;
+                $notif->Fromuserid = $this->Userid;
+                $notif->Touserid = $this->Parent->Userid;
+                $notif->Save();
+            }
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();

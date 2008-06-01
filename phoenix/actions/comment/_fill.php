@@ -3,6 +3,9 @@
     function ActionCommentFill( tInteger $typeid, tInteger $itemid ) {
         global $libs;
         $libs->Load( 'comment' );
+        $libs->Load( 'poll' );
+        $libs->Load( 'journal' );
+        $libs->Load( 'image/image' );
 
         $typeid = $typeid->Get();
         $itemid = $itemid->Get();
