@@ -30,7 +30,7 @@
         $sanitizer->SetSource( $text );
 		$result = $sanitizer->GetXHTML();
 
-		die('.'.$user->Space->Id.'.');
+		die('.'.$user->Space->Bulkid.'.');
 
         $user->Space->Text = $result;
 		$user->Space->Save();
