@@ -12,6 +12,9 @@
 			else if ( $size == 100 ) {
 				Element( 'image' , $avatar , IMAGE_CROPPED_100x100, $class , $theuser->Name , $theuser->Name , $style );
 			}
+			else if ( $size == 'image_cropped_100x100_resized' ) {
+				Element( 'image' , $avatar , $size , $class , $theuser->Name , $theuser->Name , $style );
+			}
 		}
 		else {
 			Element( 'image' , 'anonymous' . $size . '.jpg' , $size . 'x' . $size , $class , $theuser->Name , $theuser->Name , $style );
