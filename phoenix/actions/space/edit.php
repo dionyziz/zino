@@ -30,11 +30,10 @@
 		$result = $sanitizer->GetXHTML();
 		
         $user->Space->Text = $result;
-
-        die( '.'.$user->Space->Text.'.' );
-
 		$user->Space->Save();
 		
+        die( '.'.$user->Space->Text.'.' );
+
 		return Redirect( '?p=space&subdomain=' . $user->Subdomain );
 	}
 ?>
