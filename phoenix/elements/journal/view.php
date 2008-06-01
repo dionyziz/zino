@@ -82,7 +82,7 @@
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();
 					if ( $commentid != 0 ) {
-						$comments = $finder->FindByPage( $journal , 1 , 50 );
+						$comments = $finder->FindByPage( $journal , 2 , 50 );
 					}
 					else {
 					
