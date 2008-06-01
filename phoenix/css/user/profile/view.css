@@ -183,7 +183,13 @@ div#profile div.main div.notifications {
 	margin-top: 0;
 	width: 700px;
 	border: 1px solid #ccc;
+	border-top: 0;
 	background-color: #fdfdfd;
+}
+div#profile div.main div.notifications  div.list div.event {
+	float: none;
+	width: 95%;
+	margin: 2px auto;
 }
 div#profile div.main div.ybubble {
 	padding-top: 2px;

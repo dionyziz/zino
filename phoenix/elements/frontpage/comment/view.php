@@ -36,7 +36,7 @@
 							?></a><?php
 							break;
 						case TYPE_IMAGE:
-							?>στην εικόνα <a href="<?php
+							?>στη φωτογραφία <a href="<?php
 							ob_start();
 							Element( 'url' , $comment );
 							echo htmlspecialchars( ob_get_clean() );
