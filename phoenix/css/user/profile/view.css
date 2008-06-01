@@ -177,6 +177,11 @@ div#profile div.main {
 	padding: 14px 0 0 10px;
 	margin-left: 305px;
 }
+div#profile div.main div.notifications {
+	padding-top: 2px;
+	margin: -14px 0 20px 50px;
+	width: 500px;
+}
 div#profile div.main div.ybubble {
 	padding-top: 2px;
 	margin: -14px 0 20px 50px;
