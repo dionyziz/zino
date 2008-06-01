@@ -504,6 +504,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 E_NOTICE => array( '#Undefined variable\:#' => 'ExceptionUndefinedVariable' )
             );
 
+            if ( !isset( $exceptionalerrors[ $errno ] ) ) {
+                return;
+            }
+
             foreach ( $exceptionalerrors[ $errno ] as $regexp => $exception ) {
                 if ( preg_match( $regexp, $errstr ) ) {
                     throw New $exception( $errstr );
