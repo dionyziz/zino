@@ -81,7 +81,7 @@
             
             $tag = New Tag();
             $tag->Userid = $user->Id;
-            $tag->Typeip = TAG_BOOK;
+            $tag->Typeid = TAG_BOOK;
             $tag->Text = 'The Trial';
             $tag->Nextid = $this->mBookTag->Id;
             $tag->Save();
