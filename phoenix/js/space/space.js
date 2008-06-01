@@ -1,4 +1,4 @@
-var Space = {
+var SpaceEdit = {
 	Εdit : function() {
 		alert( 'testing' );
 		var text = WYSIWYG.ByName.text.getContents();
