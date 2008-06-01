@@ -129,7 +129,7 @@
 		
 		// Assign query values
 		if ( $user instanceof User ) {
-			$query->Bind( 'TagUserId', $user->Id() );
+			$query->Bind( 'TagUserId', $user->Id );
 		}
 		else {
 			$query->Bind( 'TagUserId', $user );
