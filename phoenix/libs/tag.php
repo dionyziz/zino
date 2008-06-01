@@ -198,7 +198,7 @@
     			}
     			$res_new[] = $temp; // found a head
     			$tag = $temp;
-    			while ( array_key_exists( $tag->Id ) ) {
+    			while ( array_key_exists( $tag->Id, $res ) ) {
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
