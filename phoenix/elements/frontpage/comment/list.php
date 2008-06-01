@@ -12,7 +12,7 @@
 			<div class="list"><?php
 				foreach ( $comments as $comment ) {
 					$water->Trace( 'comment id is ' . $comment->Id );
-					Element( 'frontpage/comment/view' );
+					Element( 'frontpage/comment/view' , $comment );
 				}
 			?></div><?php
 		?></div><?php
