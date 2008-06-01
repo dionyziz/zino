@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollView( tInteger $id ) {
+	function ElementPollView( tInteger $id , tInteger $commentid , tInteger $offset ) {
 		global $page;
 		global $libs;
 		global $water;
@@ -10,8 +10,13 @@
 		$libs->Load( 'poll/poll' );
 		
 		$poll = New Poll( $id->Get() );
+		$commentid = $commentid->Get();
+		$offset = $offset->Get();
 		
 		if ( $poll->Exists() ) {
+			if ( $offset <= 0 ) {
+				$offset = 1;
+			}
 			Element( 'user/sections' , 'poll' , $poll->User );
 			if ( !$poll->IsDeleted() ) {
 				$page->SetTitle( $poll->Question );
@@ -30,7 +35,23 @@
 						</div><?php
 					}
 					?><div class="comments"><?php
-						//Element( 'comment/list' );
+						Element( 'comment/reply' );
+						if ( $poll->Numcomments > 0 ) {
+							$finder = New CommentFinder();
+							if ( $commentid == 0 ) {
+								$comments = $finder->FindByPage( $poll , $offset , true );
+							}
+							else {
+								$speccomment = New Comment( $commentid );
+								$comments = $finder->FindNear( $poll , $speccomment );
+								$offset = $comments[ 0 ];
+								$comments = $comments[ 1 ];
+							}
+							Element( 'comment/list' , $comments , 0 , 0 );
+							?><div class="pagifycomments"><?php
+								Element( 'pagify' , $offset , 'poll&id=' . $poll->Id , $poll->Numcomments , 50 , 'offset' );
+							?></div><?php
+						}
 					?></div>
 				</div><?php
 			}
