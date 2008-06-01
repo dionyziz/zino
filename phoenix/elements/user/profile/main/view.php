@@ -31,6 +31,44 @@
 							<a href="https://beta.zino.gr/phoenix/?p=photo&amp;id=16&amp;commentid=2" class="viewcom">Προβολή σχολίου&raquo;</a>
 						</div>
 					</div>
+					<div class="event">
+						<div class="toolbox">
+							<span class="time">πριν λίγο</span>
+						</div>
+						<div class="who">
+							<a href="http://teddy.zino.gr">
+								<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
+								Teddy
+							</a> έγραψε:
+						</div>
+						<div class="subject">
+							<p>
+								<span class="text">"etsi american muscle, respe..."</span>
+								, στη φωτογραφία
+								<a href="#" class="itempic"><img src="images/dodge.jpg" alt="dodge" /></a>
+							</p>
+							<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
+						</div>
+					</div>
+					<div class="event">
+						<div class="toolbox">
+							<span class="time">πριν λίγο</span>
+						</div>
+						<div class="who">
+							<a href="http://morvena.zino.gr">
+								<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
+								Morvena
+							</a> έγραψε:
+						</div>
+						<div class="subject">
+							<p>
+								<span class="text">"eleos mori skatoulitsa"</span>
+								, στο ημερολόγιο
+								<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
+							</p>
+							<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
+						</div>
+					</div>
 				</div>
 			</div><?php
 			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
