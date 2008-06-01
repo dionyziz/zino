@@ -44,7 +44,7 @@
             $this->Assert( class_exists( 'FriendRelationFinder' ), 'RelationFinder class does not exist' );
         }
         public function TestMethodsExist() {
-            $finder = New RelationFinder();
+            $finder = New FriendRelationFinder();
             $this->Assert( method_exists( $finder, 'FindByUser' ), 'RelationFinder::FindByUser method does not exist' );
             $this->Assert( method_exists( $finder, 'FindByFriend' ), 'RelationFinder::FindByFriend method does not exist' );
         }
