@@ -6,6 +6,7 @@
 		global $libs;
 		global $water;
 		
+		$libs->Load( 'comment' );
 		$libs->Load( 'favourite' );
 		$id = $id->Get();
 		$image = New Image( $id );
