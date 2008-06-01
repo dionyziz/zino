@@ -230,6 +230,7 @@
  			return $this->mUser;
  		}
  		public function MoveAfter( $tag ) {
+ 			global $water;
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'Tag::MoveAfter argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
@@ -253,6 +254,7 @@
  			$tag->Save();
  		}
  		public function MoveBefore( $tag ) {
+ 			global $water;
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'Tag::MoveBefore argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
@@ -265,15 +267,18 @@
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
  			if ( is_tag( $a ) ) {
+ 				$water->Trace( "Tag::MoveBefore -- a: " . $a->Userid );
 	 			$a->Nextid = $this->Nextid;
 	 			$a->Save();
 	 		}
 	 		
  			$b = $finder->FindByNextId( $tag->Nextid );
  			if ( is_tag( $b ) ) {
+ 				$water->Trace( "Tag::MoveBefore -- b: " . $b->Userid );
 	 			$b->Nextid = $this->Id;
 	 			$b->Save();
 	 		}
+	 		$water->Trace( "Tag::MoveBefore -- this: " . $this->Userid );
  			$this->Nextid = $tag->Nextid;
  			$this->Save();
  		}
