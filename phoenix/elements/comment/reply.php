@@ -11,7 +11,7 @@
 				<a href="?p=user&amp;name=<?php
 					echo $user->Subdomain;
 					?>"><?php
-					Element( 'user/avatar' , $user , 50 , 'avatar' , '' );
+					Element( 'user/avatar' , $user , 100 , 'avatar' , '' , true , 50 , 50 );
 					echo $user->Name;
 				?></a>πρόσθεσε ένα σχόλιο
 			</div>
