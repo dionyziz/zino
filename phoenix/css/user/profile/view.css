@@ -178,7 +178,7 @@ div#profile div.main {
 	margin-left: 305px;
 }
 div#profile div.main div.notifications {
-	padding: 5px 0;
+	padding: 5px 0 20px 0;
 	margin: -14px auto 20px auto;
 	width: 85%;
 	border: 1px solid #ccc;
@@ -187,12 +187,12 @@ div#profile div.main div.notifications {
 }
 div#profile div.main div.notifications h2 {
 	margin: 0 0 10px 0;
-	padding: 5px 0 0 5px;
+	padding: 5px 0 0 15px;
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
 	width: 95%;
-	margin: 2px auto;
+	margin: 5px auto;
 }
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
