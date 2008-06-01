@@ -195,6 +195,9 @@
 							$comments = $comments[ 1 ];
 						}
 						Element( 'comment/list' , $comments , 0 , 0 );
+						?><div class="pagify"><?php
+							Element( 'pagify' , $offset , 'photo&id=' . $image->Id , $image->Numcomments , 50 , 'offset' );
+						?></div><?php
 					}
 					?></div>
 				</div><?php
