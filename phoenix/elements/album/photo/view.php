@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumPhotoView( tInteger $id , tInteger $commentid ) {
+	function ElementAlbumPhotoView( tInteger $id , tInteger $commentid , tInteger $offset ) {
 		global $user;
 		global $page;
 		global $libs;
@@ -10,6 +10,7 @@
 		$libs->Load( 'favourite' );
 		$id = $id->Get();
 		$commentid = $commentid->Get();
+		$offset = $offset->Get();
 		$image = New Image( $id );
 		
 		if( !$image->Exists() ) {
@@ -39,6 +40,9 @@
 						$page->SetTitle( $image->Album->Name );
 						$title = htmlspecialchars( $image->Album->Name );
 					}
+				}
+				if ( $offset <= 0 ) {
+					$offset = 1;
 				}
 				$finder = New FavouriteFinder();
 				$fav = $finder->FindByUserAndEntity( $user, $image );
@@ -182,12 +186,12 @@
 					if ( $image->Numcomments > 0 ) {
 						$finder = New CommentFinder();
 						if ( $commentid == 0 ) {
-							$comments = $finder->FindByPage( $image , 2 , true );
+							$comments = $finder->FindByPage( $image , $offset , true );
 						}
 						else {
 							$speccomment = New Comment( $commentid );
 							$comments = $finder->FindNear( $image , $speccomment );
-							$pagenum = $comments[ 0 ];
+							$offset = $comments[ 0 ];
 							$comments = $comments[ 1 ];
 						}
 						Element( 'comment/list' , $comments , 0 , 0 );

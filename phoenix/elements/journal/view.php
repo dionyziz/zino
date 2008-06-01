@@ -83,7 +83,7 @@
 					Element( 'comment/reply' );
 					if ( $journal->Numcomments > 0 ) {
 						$finder = New CommentFinder();
-						if ( $commentid == 0 ) {
+						if ( $commentid != 0 ) {
 							$comments = $finder->FindByPage( $journal , 1 , true );
 						}
 						else {
