@@ -8,13 +8,13 @@ div#journalnew h2 {
 div#journalnew div.edit {
 	clear: both;
 }
-div#journalnew div.title {
+div#journalnew div.edit div.title {
 	margin-bottom: 20px;
 }
-div#journalnew div.title input {
+div#journalnew div.edit div.title input {
 	margin-left: 30px;
 	width: 300px;
 }
-div#journalnew div.submit {
+div#journalnew div.edit div.submit {
 	margin-top: 20px;
 }

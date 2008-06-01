@@ -8,3 +8,6 @@ div#editspace h2 {
 div#editspace div.edit {
 	clear: both;
 }
+div#editspace div.edit div.submit {
+	margin-top: 20px;
+}
