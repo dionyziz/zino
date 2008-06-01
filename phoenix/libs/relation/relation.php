@@ -22,10 +22,14 @@
 
     class Relation extends Satori {
         protected $mDbTableAlias = 'relations';
-
+        
+        public function GetType() {
+            return $this->RelationType->Name;
+        }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Friend = $this->HasOne( 'User', 'Friendid' );
+            $this->RelationType = $this->HasOne( 'RelationType', 'Typeid' );
         }
         public function LoadDefaults() {
             global $user;

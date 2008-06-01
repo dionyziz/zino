@@ -6,7 +6,13 @@
         public function FindAll( $offset = 0, $limit = 10000 ) {
             $prototype = New RelationType();
             
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Text', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Text', 'ASC' ) );
+        }
+        public function FindByText( $text ) {
+            $prototype = New RelationType();
+            $prototype->Text = $text;
+
+            return $this->FindByPrototype( $prototype );
         }
     }
 
