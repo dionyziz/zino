@@ -176,7 +176,12 @@
 						}
 						?></div><?php
 					?><div class="comments"><?php
-						Element( 'comment/list' , 0 , 0 );
+						Element( 'comment/reply' );
+						if ( $journal->Numcomments > 0 ) {
+							$finder = New CommentFinder();
+							$comments = $finder->FindByPage( $journal , 1 , true );
+							Element( 'comment/list' , $journal , 0 , 0 );
+						}
 					?></div>
 				</div><?php
 			}
