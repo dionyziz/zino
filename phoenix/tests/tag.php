@@ -198,6 +198,7 @@
             $this->mBookTag->MoveBefore( $this->mBookTag4 );
 
             $tags = $finder->FindByUser( $this->mUser1 );
+            array_shift( $tags );
 
             $texts = array( 'The journal of a Magus', 'The Trial' );
             $types = array( TAG_BOOK, TAG_BOOK );
