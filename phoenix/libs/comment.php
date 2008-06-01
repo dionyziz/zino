@@ -236,14 +236,14 @@
             $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
-        public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 10000 ) {
+        public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return Comments_Near( $this->FindByPrototype( $prototype. $offset, $limit ), $comment );
         }
-        public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 10000 ) {
+        public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
@@ -342,6 +342,7 @@
             $event->Save();
     
             $libs->Load( 'notify' );
+
             if ( $this->Parentid == 0 ) {
                 $notif = New Notification();
                 $notif->Itemid = $this->Itemid;

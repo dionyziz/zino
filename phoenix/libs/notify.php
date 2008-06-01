@@ -5,7 +5,7 @@
         // field: settings_notify_profile -> profile
         return array(
             1 => array( 'NOTIFY_COMMENT_PROFILE', 'profile' ),
-            2 => array( 'NOTIFY_COMMENT_PHOTO', 'photos' ),
+            2 => array( 'NOTIFY_COMMENT_IMAGE', 'photos' ),
             3 => array( 'NOTIFY_COMMENT_JOURNAL', 'journals' ),
             4 => array( 'NOTIFY_COMMENT_REPLY', 'replies' ),
             5 => array( 'NOTIFY_FRIEND_ADDED', 'friends' )
@@ -21,6 +21,19 @@
         $types = Notification_Types();
 
         return $types[ $type ][ 1 ];
+    }
+
+    function Notification_TypeFromComment( $comment ) {
+        switch ( $comment->Typeid ) {
+            case TYPE_JOURNAL:
+                return NOTIFY_COMMENT_JOURNAL;
+            case TYPE_USERPROFILE:
+                return NOTIFY_COMMENT_PROFILE;
+            case TYPE_IMAGE:
+                return NOTIFY_COMMENT_IMAGE;
+            default:
+                throw new Exception( 'Unkown type on Notification_TypeFromComment' );
+        }
     }
 
     class NotificationFinder extends Finder {
