@@ -113,7 +113,6 @@
 
     function Tag_Clear( $user ) {
         global $db;
-        global $tags;
 		
 		w_assert( $user instanceof User || is_int( $user ), 'Tag_Clear() accepts either a user instance or an integer parameter' );
 		
@@ -121,13 +120,14 @@
 		$query = $db->Prepare("
 			DELETE 
             FROM 
-                `$tags` 
+                :tags
             WHERE 
                 `tag_userid` = :TagUserId
             ;
 		");
 		
 		// Assign query values
+		$query->BindTable( "tags" );
 		if ( $user instanceof User ) {
 			$query->Bind( 'TagUserId', $user->Id );
 		}
