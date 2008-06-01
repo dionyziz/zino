@@ -51,7 +51,7 @@
         $page_total = 0;
         $page_parents = array();
 
-        $target_parentid = ( $comment->Headparentid > 0 ) ? $comment->Headparentid : $comment->Id;
+        $target_parentid = ( $comment->Parentid > 0 ) ? $comment->Parentid : $comment->Id;
         $found_comment = false;
 
         foreach ( $parents as $parent ) {
