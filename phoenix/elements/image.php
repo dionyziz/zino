@@ -14,7 +14,11 @@
                 if ( !$rabbit_settings[ 'production' ] ) {
                     $url .= '_';
                 }
-                $url .= $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
+				$imagetype = $type;
+				if ( $type == 'image_cropped_100x100_resized' ) {
+					$imagetype = IMAGE_CROPPED_100x100;
+				}
+                $url .= $image->Id . '/' . $image->Id . '_' . $imagetype . '.jpg';
 			}
             else {
                 return;
@@ -38,6 +42,8 @@
                     $width = $image->Width;
                     $height = $image->Height;
                     break;
+				case 'image_cropped_100x100_resized':
+					$width = $height = 50;
                 default:
                     throw New Exception( 'Invalid image type' );
             }
