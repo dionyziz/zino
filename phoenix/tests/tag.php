@@ -151,7 +151,7 @@
         }
         public function TestFindSuggestions() {
             $finder = New TagFinder();
-            $texts = $inder->FindSuggestions( 'S', TAG_MOVIE );
+            $texts = $finder->FindSuggestions( 'S', TAG_MOVIE );
 
             $this->Assert( is_array( $tags ), 'Finder::FindSuggestions did not return an array' );
             
