@@ -173,10 +173,12 @@
             // no ability to edit tags
         }
         public function TestReorder() {
+        	global $water;
             $finder = New TagFinder();
 
             $this->mBookTag->MoveBefore( $this->mBookTag4 );
 
+			$water->Trace( "TagBefore:: mUser1: " . $this->mUser1->Id );
             $tags = $finder->FindByUser( $this->mUser1 );
             //array_pop( $tags );
 

@@ -279,6 +279,7 @@
 	 			$b->Save();
 	 		}
 	 		$water->Trace( "Tag::MoveBefore -- this: " . $this->Userid );
+	 		$water->Trace( "Tag::MoveBefore -- tag: " . $tag->Userid );
  			$this->Nextid = $tag->Nextid;
  			$this->Save();
  		}
