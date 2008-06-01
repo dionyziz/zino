@@ -2,7 +2,8 @@
 	function ActionSpaceEdit( tString $text ) {
 		global $user;
 		global $libs;
-		
+	    global $xhtmlsanitizer_goodtags;
+
 		if ( !$user->Exists() ) {
 			die( "You must login first" );
 			
