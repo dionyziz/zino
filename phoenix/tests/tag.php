@@ -151,7 +151,7 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByTextAndType did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByTextAndType did not return the right number of tags' );
             
-            $users = array( 'testtag1', 'testtag2' );
+            $users = array( 'testtag2', 'testtag1' );
             for ( $i = 0; $i < 2; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByTextAndType did not return an array of tags' );

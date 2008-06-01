@@ -236,6 +236,9 @@
  			if ( $tag->Typeid != $this->Typeid ) {
  				throw New TagException( "Tag::MoveAfter does not allow you to order tags of different types" );
  			}
+ 			if ( $tag->Userid != $this->Userid ) {
+ 				throw New TagException( "Tag::MoveAfter does not allow you to order tags belonging to different users" );
+ 			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
  			if ( is_tag( $a ) ) {
@@ -255,6 +258,9 @@
  			}
  			if ( $tag->Typeid != $this->Typeid ) {
  				throw New TagException( "Tag::MoveBefore does not allow you to order tags of different types" );
+ 			}
+ 			if ( $tag->Userid != $this->Userid ) {
+ 				throw New TagException( "Tag::MoveAfter does not allow you to order tags belonging to different users" );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
