@@ -58,7 +58,6 @@
 							}
 							?></a></dd><?php
 						}
-
 						?></dl><?php
 						if ( $journal->User->Id == $user->Id || $user->HasPermission( PERMISSION_JOURNAL_DELETE_ALL ) ) {
 							?><div class="owner">
@@ -93,12 +92,12 @@
 				$page->SetTitle( "Η καταχώρηση έχει διαγραφεί" );
 				?>Η καταχώρηση έχει διαγραφεί<?php
 			}
+			?></div><?php
 		}
 		else {
 			$page->SetTitle( "Η καταχώρηση δεν υπάρχει" );
 			?>Η καταχώρηση δεν υπάρχει<?php
 		}
-		?><div class="eof"></div>
-		</div><?php
+		?><div class="eof"></div><?php
 	}
 ?>
