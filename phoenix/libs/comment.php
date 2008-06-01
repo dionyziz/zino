@@ -241,7 +241,7 @@
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
-            return Comments_Near( $this->FindByPrototype( $prototype. $offset, $limit ), $comment );
+            return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
