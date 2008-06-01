@@ -11,7 +11,7 @@
 				<a href="<?php
 				Element( 'user/url' , $comment->User );
 				?>"><?php
-					Element( 'user/avatar' , $comment->User , 100 , 'avatar' );
+					Element( 'user/avatar' , $comment->User , 100 , 'avatar' , '' );
 					echo $comment->User->Name;
 				?></a> έγραψε:
 			</div>
