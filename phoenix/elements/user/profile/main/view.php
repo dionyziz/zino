@@ -16,60 +16,9 @@
 		?><div class="main">
 			<div class="notifications">
 				<h3>Ενημερώσεις</h3>
-				<div class="list">
-					<div class="event">
-						<div class="toolbox">
-							<span class="time">πριν ένα μήνα και 2 μέρες</span>
-						</div>
-						<div class="who">
-							<a href="http://dionyziz.beta.zino.gr/phoenix/"><img src="http://images.zino.gr/media/1/_2/2_100.jpg" class="avatar" style="width:50px;height:50px;" title="dionyziz" alt="dionyziz" />dionyziz</a> έγραψε:
-						</div>
-						<div class="subject">
-							<p><span class="text">"ante trava kai pidi3ou"</span>
-								, στην εικόνα <a href="https://beta.zino.gr/phoenix/?p=photo&amp;id=16&amp;commentid=2" class="itempic"><img src="http://images.zino.gr/media/2/_16/16_100.jpg" /></a>				
-							</p>
-							<a href="https://beta.zino.gr/phoenix/?p=photo&amp;id=16&amp;commentid=2" class="viewcom">Προβολή σχολίου&raquo;</a>
-						</div>
-					</div>
-					<div class="event">
-						<div class="toolbox">
-							<span class="time">πριν λίγο</span>
-						</div>
-						<div class="who">
-							<a href="http://teddy.zino.gr">
-								<img src="images/avatars/teddy.jpg" class="avatar" alt="morvena" />
-								Teddy
-							</a> έγραψε:
-						</div>
-						<div class="subject">
-							<p>
-								<span class="text">"etsi american muscle, respe..."</span>
-								, στη φωτογραφία
-								<a href="#" class="itempic"><img src="images/dodge.jpg" alt="dodge" /></a>
-							</p>
-							<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
-						</div>
-					</div>
-					<div class="event">
-						<div class="toolbox">
-							<span class="time">πριν λίγο</span>
-						</div>
-						<div class="who">
-							<a href="http://morvena.zino.gr">
-								<img src="images/avatars/morvena.jpg" class="avatar" alt="morvena" />
-								Morvena
-							</a> έγραψε:
-						</div>
-						<div class="subject">
-							<p>
-								<span class="text">"eleos mori skatoulitsa"</span>
-								, στο ημερολόγιο
-								<a href="#">Βάζω τα φτερά μου και το παίζω πεταλούδος</a>
-							</p>
-							<a href="#" class="viewcom">Προβολή σχολίου&raquo;</a>
-						</div>
-					</div>
-				</div>
+				<div class="list"><?php
+					Element( 'notification/list' );
+				?></div>
 			</div><?php
 			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
 				?><div class="ybubble">	
