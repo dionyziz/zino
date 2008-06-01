@@ -178,13 +178,17 @@ div#profile div.main {
 	margin-left: 305px;
 }
 div#profile div.main div.notifications {
-	padding-top: 2px;
+	padding: 5px 0;
 	margin: -14px auto 20px auto;
 	margin-top: 0;
 	width: 700px;
 	border: 1px solid #ccc;
 	border-top: 0;
 	background-color: #fdfdfd;
+}
+div#profile div.main div.notifications h2 {
+	margin: 0;
+	padding: 0;
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
