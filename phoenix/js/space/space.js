@@ -1,6 +1,6 @@
-alert( 'loaded' );
+/*
 var Space = {
-	Εdit : function() {
+	Εdit:function() {
 		alert( 'testing' );
 		var text = WYSIWYG.ByName.text.getContents();
 		if ( text.length < 5 ) {
@@ -10,6 +10,7 @@ var Space = {
 		return true;
 	}
 };
+*/
 $( document ).ready( function() {
 	if ( $( '#editspace' )[ 0 ] ) {
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
