@@ -2,7 +2,7 @@
 	
 	function ElementFrontpageCommentList() {
 		global $libs;
-		
+		global $water;
 		$libs->Load( 'comment' );
 		
 		$finder = New CommentFinder();
@@ -11,6 +11,7 @@
 			<h2>Πρόσφατα σχόλια</h2>
 			<div class="list"><?php
 				foreach ( $comments as $comment ) {
+					$water->Trace( 'comment id is ' . $comment->Id );
 					Element( 'frontpage/comment/view' );
 				}
 			?></div><?php
