@@ -10,7 +10,7 @@
 			<a href="?p=photo&amp;id=<?php
 			echo $image->Id;
 			?>"><?php
-				Element( 'image', $image, IMAGE_PROPORTIONAL_210x210, '' , $title , $title ); 
+				Element( 'image', $image, IMAGE_PROPORTIONAL_210x210, '' , $title , $title , '' , false , 0 , 0 ); 
 				if ( $showdesc && $image->Name != '') {
 					?><br /><?php
 					echo htmlspecialchars( $image->Name );

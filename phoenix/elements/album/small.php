@@ -21,10 +21,10 @@
 		        	<span class="albummain"><?php
 						if ( $album->Mainimage > 0 ) {	
 							$mainimage = New Image( $album->Mainimage );
-							Element( 'image' , $mainimage , IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' );
+							Element( 'image' , $mainimage , IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' , false , 0 , 0 );
 						}
 						else {
-                            Element( 'image', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' );
+                            Element( 'image', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' , false , 0 , 0);
 						}
 		        	
 		        	?></span>

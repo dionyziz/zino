@@ -1,5 +1,5 @@
 <?php
-	function ElementImage( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' ) {
+	function ElementImage( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
 		global $xc_settings;
 		global $rabbit_settings;
 
@@ -14,11 +14,7 @@
                 if ( !$rabbit_settings[ 'production' ] ) {
                     $url .= '_';
                 }
-				$imagetype = $type;
-				if ( $type == 'image_cropped_100x100_resized' ) {
-					$imagetype = IMAGE_CROPPED_100x100;
-				}
-                $url .= $image->Id . '/' . $image->Id . '_' . $imagetype . '.jpg';
+                $url .= $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
 			}
             else {
                 return;
@@ -42,8 +38,6 @@
                     $width = $image->Width;
                     $height = $image->Height;
                     break;
-				case 'image_cropped_100x100_resized':
-					$width = $height = 50;
                 default:
                     throw New Exception( 'Invalid image type' );
             }
@@ -56,11 +50,21 @@
 			echo htmlspecialchars( $class );
 			?>"<?php
 		}
-		?> style="width:<?php
-		echo $width;
-		?>px;height:<?php
-		echo $height;
-		?>px;<?php
+		?> style="<?php
+		if ( $cssresizable ) {
+			?>width:<?php
+			echo $csswidth;
+			?>px;height:<?php
+			echo $cssheight;
+			?>px;<?php
+		}
+		else {
+			?>width:<?php
+			echo $width;
+			?>px;height:<?php
+			echo $height;
+			?>px;<?php
+		}
 		if ( $style != "" ) {
 			echo htmlspecialchars( $style );
 		}
