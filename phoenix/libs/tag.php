@@ -111,6 +111,13 @@
         return $fetched[ 'fr' ];
     }
 
+	function is_tag( $tag ) {
+		if ( ( $tag instanceof Tag ) && $tag->Exists() ) {
+			return true;
+		}
+		return false;
+	}
+
     function Tag_Clear( $user ) {
         global $db;
 		
@@ -222,24 +229,36 @@
  			}
  			return $this->mUser;
  		}
- 		public function MoveAfter() {
- 		}
- 		public function MoveBefore( $tag ) {
- 			if ( ! ( $tag instanceof Tag ) ) {
- 				throw New TagException( '$tag should be of type Tag' );
- 			}
- 			if ( !$tag->Exists() ) {
- 				throw New TagException( "There is no such tag in the database. Please make sure you use an existing tag");
+ 		public function MoveAfter( $tag ) {
+ 			if ( !is_tag( $tag ) ) {
+ 				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			if ( is_object( $a ) && $a->Exists() ) { //Maybe Adding Before the First Tag
+ 			if ( is_tag( $a ) ) {
+ 				$a->Nextid = $this->Nextid;
+ 				$a->Save();
+ 			}
+ 			
+ 			$this->Nextid = $tag->Nextid;
+ 			$this->Save();
+ 			
+ 			$tag->Nextid = $this->Id;
+ 			$tag->Save();
+ 		}
+ 		public function MoveBefore( $tag ) {
+ 			if ( !is_tag( $tag ) ) {
+ 				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
+ 			}
+ 			$finder = New TagFinder();
+ 			$a = $finder->FindByNextId( $this->Id );
+ 			if ( is_tag( $a ) ) {
 	 			$a->Nextid = $this->Nextid;
 	 			$a->Save();
 	 		}
 	 		
  			$b = $finder->FindByNextId( $tag->Nextid );
- 			if ( is_object( $b ) && $b->Exists() ) { //Maybe Adding Before the Last Tag
+ 			if ( is_tag( $b ) ) {
 	 			$b->Nextid = $this->Id;
 	 			$b->Save();
 	 		}
