@@ -6,7 +6,7 @@ div.comment {
 	background-repeat: repeat-x;
 	background-position: top;
 	background-color: white;
-	width: 100%;
+	width: auto;
 }
 div.comment div.who {
 	border-top: 1px solid #ccc !important;
