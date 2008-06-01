@@ -204,7 +204,7 @@
             $types = array( TAG_BOOK, TAG_BOOK );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
-                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags bt an array of' . get_class( $tag ) );
                 $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
                 $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
