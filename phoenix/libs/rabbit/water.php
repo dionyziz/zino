@@ -36,6 +36,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	
     class ExceptionFailedAssertion extends Exception {
     }
+    class ExceptionUndefinedVariable extends Exception {
+    }
     
 	final class Water {
 		private $mOutputAlerts;
@@ -465,6 +467,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			if ( !$this->mDebugEnabled ) {
 				return;
 			}
+            $this->HandleSpecialError( $errno, $errstr );
 			switch ( $errno ) {
 				case E_ERROR:
 				case E_USER_ERROR:
@@ -496,6 +499,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			}
 			$this->AppendAlert( $errno, $errstr, $errdump, $backtrace );
 		}
+        public function HandleSpecialError( $errno, $errstr ) {
+            static $exceptionalerrors = array(
+                E_NOTICE => array( '#Undefined variable\:#' => 'ExceptionUndefinedVariable' )
+            );
+
+            foreach ( $exceptionalerrors[ $errno ] as $regexp => $exception ) {
+                if ( preg_match( $regexp, $errstr ) ) {
+                    throw New $exception( $errstr );
+                }
+            }
+        }
 		public function HandleException( $exception, $data = false ) {
 			// since there has been no try/catch pair, this is a fatal exception
 			$this->FatalError( $exception->getMessage(), $data, $exception->getTrace() );
