@@ -1,5 +1,4 @@
 var Space = {
-	test : true,
 	Edit : function() {
 		alert( 'test' );
 		var text = WYSIWYG.ByName.text.getContents();
