@@ -183,7 +183,7 @@
     		*/
     		$res = array();
     		foreach ( $old as $temp ) {
-    			$res[ $temp->Id ] = $temp;
+    			$res[ $temp->Nextid ] = $temp;
     		}
     		$res_new = array();
     		foreach ( $res as $temp ) {
@@ -192,8 +192,8 @@
     			}
     			$res_new[] = $temp; // found a head
     			$tag = $temp;
-    			while ( $tag->Nextid != 0 ) {
-    				$res_new[] = $tag = $res[ $tag->Nextid ];
+    			while ( array_key_exists( $tag->Id ) ) {
+    				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
     		rsort( $res_new );
