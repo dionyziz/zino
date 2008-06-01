@@ -233,7 +233,7 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			if ( $a->Exists() ) { //Maybe Adding Before the First Tag
+ 			if ( is_object( $a ) && $a->Exists() ) { //Maybe Adding Before the First Tag
 	 			$a->Nextid = $this->Nextid;
 	 			$a->Save();
 	 		}
