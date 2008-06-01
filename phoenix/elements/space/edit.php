@@ -9,7 +9,7 @@
 		?><div id="editspace">
 			<h2>Επεξεργασία χώρου</h2>
 			<div class="edit">
-				<form method="post" action="do/space/edit" onsubmit="return SpaceEdit.Edit();">
+				<form method="post" action="do/space/edit" onsubmit="return Space.Edit();">
 					<div class="wysiwyg" id="wysiwyg"><?php
 						echo $user->Space->Text;
 					?></div>

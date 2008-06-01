@@ -1,4 +1,5 @@
-var SpaceEdit = {
+alert( 'loaded' );
+var Space = {
 	Εdit : function() {
 		alert( 'testing' );
 		var text = WYSIWYG.ByName.text.getContents();
