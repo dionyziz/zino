@@ -192,7 +192,8 @@ div#profile div.main div.notifications h2 {
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
 	width: 95%;
-	margin: 5px auto;
+	margin: 0 auto;
+	padding: 10px 0;
 }
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
