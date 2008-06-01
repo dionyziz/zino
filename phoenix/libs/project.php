@@ -12,7 +12,7 @@
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
         $libs->Load( 'ban' );
-		$libs->Load( 'types' );
+        $libs->Load( 'types' );
         
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
