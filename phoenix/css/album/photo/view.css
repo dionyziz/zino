@@ -116,6 +116,9 @@ div#photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
 }
+div#photoview div.comments {
+	margin-top: 50px;
+}
 div#photoview div.comments div.pagifycomments {
 	text-align: center;
 }
