@@ -8,18 +8,6 @@ var Space = {
 		}
 		return true;
 	}
-	/*
-	Εdit:function() {
-	
-		alert( 'testing' );
-		var text = WYSIWYG.ByName.text.getContents();
-		if ( text.length < 5 ) {
-			alert( "Δε μπορείς να έχεις κενό χώρο" );
-			return false;
-		}
-		return true;
-	}
-	*/
 };
 $( document ).ready( function() {
 	if ( $( '#editspace' )[ 0 ] ) {
