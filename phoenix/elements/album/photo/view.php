@@ -176,7 +176,7 @@
 						}
 						?></div><?php
 					?><div class="comments"><?php
-						Element( 'comment/list' );
+						//Element( 'comment/list' );
 					?></div>
 				</div><?php
 			}
