@@ -6,7 +6,7 @@
 
 		if ( !is_object( $image ) ) {
 			$url = $xc_settings[ 'staticimagesurl' ] . $image;
-            //list( $width, $height ) = explode( 'x', $type );
+            list( $width, $height ) = explode( 'x', $type );
 		}
 		else {
 			if ( !$image->IsDeleted() ) {
