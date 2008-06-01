@@ -29,9 +29,10 @@
         $sanitizer->SetSource( $text );
 		$result = $sanitizer->GetXHTML();
 		
-        die( '.'.$result.'.' );
-
         $user->Space->Text = $result;
+
+        die( '.'.$user->Space->Text.'.' );
+
 		$user->Space->Save();
 		
 		return Redirect( '?p=space&subdomain=' . $user->Subdomain );
