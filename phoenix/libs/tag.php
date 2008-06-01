@@ -155,37 +155,18 @@
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
             $old = $this->FindByPrototype( $prototype );
+            
             if ( count( $old ) < 2 ) { // No need for sorting
             	return $old;
             }
-            /*
-            //------think of something better------
-            $res_new = array();
-            $res_new_size = -1;
-        	for( $i=0; $i<$size; ++$i ) {
-        		if ( $res[ $i ]->Nextid != 0 ) {
-        			continue;
-        		}
-    			$res_new[] = $res[ $i ]; // found a head
-    			++$res_new_size; // index of the last element
-				for ( $j=0; $j<$size; ++$j ) {
-					if ( $res[ $j ]->Nextid != $res_new[ $res_new_size ]->Id ) { // not adding elements to our list
-						continue;
-					}
-					$res_new[] = $res[ $j ];
-					++$res_new_size;
-					$j=0; // reset
-    			}
-    		} //after all heads have been found and all lists have been built
-    		rsort( $res_new );
-    		//--------------------------------------
-    		*/
+    		
+    		// I use the Nextid's of the Tags as keys on a new array
     		$res = array();
-    		$i = -1;
+    		$i = -1; // However, there may be more than one tags with Nextid=0 (heads). Therefore we will represent those with a negative index
     		foreach ( $old as $temp ) {
     			if ( $temp->Nextid == 0 ) {
     				$res[ $i ] = $temp;
-    				--$i;
+    				--$i; // Decrease $i, so that each head is assigned a unique index
     			}
     			else {
     				$res[ $temp->Nextid ] = $temp;
@@ -198,7 +179,7 @@
     			}
     			$res_new[] = $temp; // found a head
     			$tag = $temp;
-    			while ( array_key_exists( $tag->Id, $res ) ) {
+    			while ( array_key_exists( $tag->Id, $res ) ) { //create the list
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
