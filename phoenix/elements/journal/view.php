@@ -82,10 +82,13 @@
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();
 					if ( $commentid != 0 ) {
-						$comments = $finder->FindByPage( $journal , 2 , 50 );
+						$comments = $finder->FindByPage( $journal , 1 , true );
 					}
 					else {
-					
+						$speccomment = New Comment( $commentid );
+						$comments = $finder->FindNear( $journal , $speccoment );
+						$pagenum = $comments[ 0 ];
+						$comments = $comments[ 1 ];
 					}
 					?><div class="comments"><?php
 						Element( 'comment/reply' );
