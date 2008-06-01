@@ -18,7 +18,9 @@
     Rabbit_Construct( 'HTML' );
 
     $req = $_GET;
-    
+    $subdomains = explode( '.', $_SERVER[ 'HTTP_HOST' ], 2 );
+    $req[ 'subdomain' ] = $subdomains[ 0 ];
+
     Rabbit_ClearPostGet();
     
     $page->AttachMainElement( 'main' , $req );
