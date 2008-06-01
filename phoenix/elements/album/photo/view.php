@@ -182,7 +182,7 @@
 					if ( $image->Numcomments > 0 ) {
 						$finder = New CommentFinder();
 						if ( $commentid == 0 ) {
-							$comments = $finder->FindByPage( $image , 1 , true );
+							$comments = $finder->FindByPage( $image , 2 , true );
 						}
 						else {
 							$speccomment = New Comment( $commentid );
