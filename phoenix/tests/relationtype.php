@@ -77,6 +77,7 @@
             $finder = New RelationTypeFinder();
             $types = $finder->FindAll();
 
+            $texts = array( 'foo', 'bar', 'blah' );
             $textsfound = 0;
             $user_timesfound = 0;
             foreach ( $types as $key => $t ) {

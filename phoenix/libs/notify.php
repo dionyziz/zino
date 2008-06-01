@@ -48,6 +48,7 @@
             }
         }
         public function Relations() {
+            $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
         }
         public function OnBeforeUpdate() {
