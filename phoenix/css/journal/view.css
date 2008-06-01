@@ -80,6 +80,7 @@ div#journalview div.comments {
 div#journalview img.delete1 , div#journalview img.delete2 {
 	display: none;
 }
-div#journalview div.comments {
+div#journalview div.pagifycomments {
 	margin-top: 50px;
+	text-align: center;
 }

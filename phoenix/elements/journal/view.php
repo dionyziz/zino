@@ -80,20 +80,23 @@
 					?></p>
 				</div><?php
 				?><div class="comments"><?php
-					Element( 'comment/reply' );
-					if ( $journal->Numcomments > 0 ) {
-						$finder = New CommentFinder();
-						if ( $commentid != 0 ) {
-							$comments = $finder->FindByPage( $journal , 1 , true );
-						}
-						else {
-							$speccomment = New Comment( $commentid );
-							$comments = $finder->FindNear( $journal , $speccomment );
-							$pagenum = $comments[ 0 ];
-							$comments = $comments[ 1 ];
-						}
-						Element( 'comment/list' , $comments , 0 , 0 );
+				Element( 'comment/reply' );
+				if ( $journal->Numcomments > 0 ) {
+					$finder = New CommentFinder();
+					if ( $commentid == 0 ) {
+						$comments = $finder->FindByPage( $journal , $offset , true );
 					}
+					else {
+						$speccomment = New Comment( $commentid );
+						$comments = $finder->FindNear( $journal , $speccomment );
+						$offset = $comments[ 0 ];
+						$comments = $comments[ 1 ];
+					}
+					Element( 'comment/list' , $comments , 0 , 0 );
+					?><div class="pagifycomments"><?php
+						Element( 'pagify' , $offset , 'journal&id=' . $journal->Id , $journal->Numcomments , 50 , 'offset' );
+					?></div><?php
+				}
 				?></div><?php
 			}
 			else {
