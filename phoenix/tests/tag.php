@@ -200,7 +200,7 @@
             $tags = $finder->FindByUser( $this->mUser1 );
 
             $texts = array( 'The journal of a Magus', 'The Trial' );
-            $types = array( TAG_MOVIE, TAG_MOVIE );
+            $types = array( TAG_BOOK, TAG_BOOK );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
@@ -213,7 +213,7 @@
             $tags = $finder->FindByUser( $this->mUser1 );
 
             $texts = array( 'The Trial', 'The journal of a Magus' );
-            $types = array( TAG_MOVIE, TAG_MOVIE );
+            $types = array( TAG_BOOK, TAG_BOOK );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );

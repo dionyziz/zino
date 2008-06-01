@@ -156,7 +156,7 @@
     	
     	public function FindByUser( $user ) {
     		if( !( $user instanceof User ) ) {
-    			throw New TagException( 'Please make sure the argument is an instance of User class' );
+    			throw New TagException( 'TagFinder::FindByUser pleads you to make sure that the argument you provided is an instance of User class' );
     		}
     		
             $prototype = New Tag();
@@ -231,10 +231,10 @@
  		}
  		public function MoveAfter( $tag ) {
  			if ( !is_tag( $tag ) ) {
- 				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
+ 				throw New TagException( 'Tag::MoveAfter argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
- 			if ( $tag->Typeid != $this->Id ) {
- 				throw New TagException( "You can't order tags of different types" );
+ 			if ( $tag->Typeid != $this->Typeid ) {
+ 				throw New TagException( "Tag::MoveAfter does not allow you to order tags of different types" );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
@@ -251,10 +251,10 @@
  		}
  		public function MoveBefore( $tag ) {
  			if ( !is_tag( $tag ) ) {
- 				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
+ 				throw New TagException( 'Tag::MoveBefore argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
- 			if ( $tag->Typeid != $this->Id ) {
- 				throw New TagException( "You can't order tags of different types" );
+ 			if ( $tag->Typeid != $this->Typeid ) {
+ 				throw New TagException( "Tag::MoveBefore does not allow you to order tags of different types" );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
