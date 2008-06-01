@@ -240,6 +240,15 @@
             if ( is_object( $this->mMovieTag2 ) ) {
             	$this->mMovieTag2->Delete();
             }
+            if ( is_object( $this->mMovieTag3 ) ) {
+            	$this->mMovieTag3->Delete();
+            }
+            if ( is_object( $this->mBookTag2 ) ) {
+            	$this->mBookTag2->Delete();
+            }
+            if ( is_object( $this->mBookTag3 ) ) {
+            	$this->mBookTag3->Delete();
+            }
         }
     }
 
