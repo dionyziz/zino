@@ -196,7 +196,7 @@
         	$prototype->Nextid = $next_id;
         	return $this->FindByPrototype ( $prototype );
         }
-        public function FindSuggestions( $text, $type ) { //finds all movies starting with the letter $text
+        public function FindSuggestions( $text, $type ) { //finds all movies containing $text
  			$text = "%" . $text . "%";
  			$query = $this->mDb->Prepare("
  				SELECT * 
@@ -229,7 +229,7 @@
  				throw New TagException( '$tag should be of type Tag' );
  			}
  			if ( !$tag->Exists() ) {
- 				throw New TagException( "There is no such tag as $tag in the database. Please make sure you use an existing tag");
+ 				throw New TagException( "There is no such tag in the database. Please make sure you use an existing tag");
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
@@ -239,9 +239,10 @@
 	 		}
 	 		
  			$b = $finder->FindByNextId( $tag->Nextid );
- 			$b->Nextid = $this->Id;
- 			$b->Save();
- 			
+ 			if ( is_object( $b ) && $b->Exists() ) { //Maybe Adding Before the Last Tag
+	 			$b->Nextid = $this->Id;
+	 			$b->Save();
+	 		}
  			$this->Nextid = $tag->Nextid;
  			$this->Save();
  		}
