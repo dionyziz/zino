@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumPhotoView( tInteger $id ) {
+	function ElementAlbumPhotoView( tInteger $id , tInteger $commentid ) {
 		global $user;
 		global $page;
 		global $libs;
@@ -9,6 +9,7 @@
 		$libs->Load( 'comment' );
 		$libs->Load( 'favourite' );
 		$id = $id->Get();
+		$commentid = $commentid->Get();
 		$image = New Image( $id );
 		
 		if( !$image->Exists() ) {
@@ -177,12 +178,20 @@
 						?></div><?php
 					}
 					?><div class="comments"><?php
-						Element( 'comment/reply' );
-						if ( $image->Numcomments > 0 ) {
-							$finder = New CommentFinder();
+					Element( 'comment/reply' );
+					if ( $image->Numcomments > 0 ) {
+						$finder = New CommentFinder();
+						if ( $commentid == 0 ) {
 							$comments = $finder->FindByPage( $image , 1 , true );
-							Element( 'comment/list' , $comments , 0 , 0 );
 						}
+						else {
+							$speccomment = New Comment( $commentid );
+							$comments = $finder->FindNear( $image , $speccomment );
+							$pagenum = $comments[ 0 ];
+							$comments = $comments[ 1 ];
+						}
+						Element( 'comment/list' , $comments , 0 , 0 );
+					}
 					?></div>
 				</div><?php
 			}
