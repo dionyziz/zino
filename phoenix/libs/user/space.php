@@ -30,8 +30,6 @@
         public function OnUpdate() {
             global $libs;
 
-            die( 'OnUpdate in Userspace' );
-
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
 

@@ -33,8 +33,6 @@
         $user->Space->Text = $result;
 		$user->Space->Save();
 
-        die( '.saved.' );
-
 		return Redirect( '?p=space&subdomain=' . $user->Subdomain );
 	}
 ?>
