@@ -181,7 +181,7 @@
 						if ( $image->Numcomments > 0 ) {
 							$finder = New CommentFinder();
 							$comments = $finder->FindByPage( $image , 1 , true );
-							Element( 'comment/list' , $image , 0 , 0 );
+							Element( 'comment/list' , $comments , 0 , 0 );
 						}
 					?></div>
 				</div><?php
