@@ -77,7 +77,7 @@
     		$pagesmap = Project_PagesMap(); // Gets an array with the actual filenames on the server
             
             if ( !isset( $pagesmap[ $this->mMasterElementAlias ] ) ) {
-                $this->mWater->Notice( 'Requested master element alias is not defined in pagesmap: ' . $p );
+                $this->mWater->Notice( 'Requested master element alias is not defined in pagesmap: ' . $this->mMasterElementAlias );
                 return false; // not a master element
             }
             
