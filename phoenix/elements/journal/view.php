@@ -79,22 +79,22 @@
 					echo $journal->Text; //purposely not formatted
 					?></p>
 				</div><?php
-				if ( $journal->Numcomments > 0 ) {
-					$finder = New CommentFinder();
-					if ( $commentid != 0 ) {
-						$comments = $finder->FindByPage( $journal , 1 , true );
-					}
-					else {
-						$speccomment = New Comment( $commentid );
-						$comments = $finder->FindNear( $journal , $speccoment );
-						$pagenum = $comments[ 0 ];
-						$comments = $comments[ 1 ];
-					}
-					?><div class="comments"><?php
-						Element( 'comment/reply' );
+				?><div class="comments"><?php
+					Element( 'comment/reply' );
+					if ( $journal->Numcomments > 0 ) {
+						$finder = New CommentFinder();
+						if ( $commentid != 0 ) {
+							$comments = $finder->FindByPage( $journal , 1 , true );
+						}
+						else {
+							$speccomment = New Comment( $commentid );
+							$comments = $finder->FindNear( $journal , $speccoment );
+							$pagenum = $comments[ 0 ];
+							$comments = $comments[ 1 ];
+						}
 						Element( 'comment/list' , $comments , 0 , 0 );
-					?></div><?php
-				}
+					}
+				?></div><?php
 			}
 			else {
 				$page->SetTitle( "Η καταχώρηση έχει διαγραφεί" );

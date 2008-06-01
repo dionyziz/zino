@@ -121,9 +121,9 @@
 					?><div class="eof"></div>
 					<div class="thephoto"><?php
 						Element( 'image' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
-					?></div>
-					<div class="photothumbs"><?php
-						if ( $image->Album->Numphotos > 1 ) {
+					?></div><?php
+					if ( $image->Album->Numphotos > 1 ) {
+						?><div class="photothumbs"><?php
 							$finder = New ImageFinder();
 							$photos = $finder->FindAround( $image , 12 );
 							$water->Trace( 'numphotos is: ' . count( $photos ) );
@@ -174,8 +174,8 @@
 									}
 								}
 							?></ul><?php
-						}
 						?></div><?php
+					}
 					?><div class="comments"><?php
 						Element( 'comment/reply' );
 						if ( $image->Numcomments > 0 ) {
