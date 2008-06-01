@@ -77,11 +77,19 @@
             $finder = New RelationTypeFinder();
             $types = $finder->FindAll();
 
-            $texts = array( 'bar', 'blah', 'foo' );
+            $textsfound = 0;
+            $user_timesfound = 0;
             foreach ( $types as $key => $t ) {
-                $this->AssertEquals( $texts[ $key ], $t->Text, 'Wrong text' );
-                $this->AssertEquals( $this->mUser->Id, $t->Userid, 'Wrong userid' );
+                if ( in_array( $t->Text, $texts ) ) {
+                    ++$found;
+                }
+                if ( $this->mUser->Id == $t->Userid ) {
+                    ++$user_timesfound;
+                }
             }
+
+            $this->AssertEquals( 3, $textsfound, 'Did not find all created relations' );
+            $this->AssertEquals( 3, $user_timesfound, 'Did not find the user as many times as needed' );
 
             $type->Delete();
             $type1->Delete();

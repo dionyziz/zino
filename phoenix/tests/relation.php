@@ -24,6 +24,11 @@
                 $user->Delete();
             }
 
+            $user = $ufinder->FindByName( 'testrelations2' );
+            if ( is_object( $user ) ) {
+                $user->Delete();
+            }
+
             $this->mUser = New User();
             $this->mUser->Name = 'testrelations';
             $this->mUser->Subdomain = 'testrelations';
