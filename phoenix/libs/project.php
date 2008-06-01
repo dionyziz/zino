@@ -107,6 +107,7 @@
             'developer/dionyziz/sqlite' => 'developer/dionyziz/sqlite',
             'developer/dionyziz/contacts' => 'developer/dionyziz/contacts',
             'developer/dionyziz/utf8' => 'developer/dionyziz/utf8',
+            'developer/dionyziz/water' => 'developer/dionyziz/water',
             'masscomments'      => 'developer/abresas/masscomments'
     	);
     }
