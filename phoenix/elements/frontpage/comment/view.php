@@ -17,7 +17,9 @@
 			</div>
 			<div class="subject">
 				<p>
-					<span class="text">"eleos mori skatoulitsa"</span>
+					<span class="text">"<?php
+					echo $comment->GetText( 30 );
+					?>"</span>
 					, <?php
 					switch ( $comment->Typeid ) {
 						case TYPE_POLL:
