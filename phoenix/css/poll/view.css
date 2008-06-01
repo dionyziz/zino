@@ -22,3 +22,9 @@ div#pollview div.delete a {
 	padding: 0 0 0 16px;
 	vertical-align: -1px;
 }
+div#pollview div.comments {
+	margin-top: 50px;
+}	
+div#pollview div.comments div.pagifycomments {
+	text-align: center;
+}
