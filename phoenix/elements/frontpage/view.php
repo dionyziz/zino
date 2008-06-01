@@ -77,7 +77,7 @@
 			?><div class="inshoutbox"><?php
 				Element( 'frontpage/shoutbox' );
 				?><div class="inlatestcomments"><?php
-				Element( 'frontpage/comments' );
+				Element( 'frontpage/comment/list' );
 				?></div>
 			</div>
 			<div class="inevents"><?php
