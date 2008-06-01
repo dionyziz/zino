@@ -52,7 +52,7 @@
 							?>στο ημερολόγιο <a href="<?php
 							Element( 'url' , $comment );
 							?>"><?php
-							echo htmlspecialchars( $comment->Item->Name );
+							echo htmlspecialchars( $comment->Item->Title );
 							?></a><?php
 							break;
 					}?>
