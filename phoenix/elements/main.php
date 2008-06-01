@@ -11,7 +11,7 @@
 		
 		//start javascript attaching
 		//$page->AttachScript( 'js/jquery.js' );
-		$page->AttachScript( 'js/min-test.js' );
+		$page->AttachScript( 'js/script.js.php' );
 		/*
 		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
 		$page->AttachScript( 'js/modal.js' );
