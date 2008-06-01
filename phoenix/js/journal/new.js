@@ -12,9 +12,6 @@ var JournalNew = {
 			return false;
 		}
 		return true;
-	},
-	Edit : function( journalid ) {
-	
 	}
 };
 $( document ).ready( function() {

@@ -1,5 +1,8 @@
 var Space = {
-	test : true
+	test : true,
+	Edit : function() {
+	
+	}
 	/*
 	Εdit:function() {
 	
