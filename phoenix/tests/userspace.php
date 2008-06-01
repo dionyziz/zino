@@ -18,6 +18,14 @@
 
             $this->AssertEquals( 'Hello, world!', $theuser->Space->Text, 'Could not retrieve the userspace text we set when re-querying for user' );
         }
+        public function TestEdit() {
+            $this->mUser->Space->Text = 'hoho';
+            $this->mUser->Space->Save();
+
+            $theuser = New User( $this->mUser->Id );
+
+            $this->AssertEquals( 'hoho', $theuser->Space->Text, 'Could not edit the userspace text' );
+        }
         public function TearDown() {
             $this->mUser->Delete();
         }
