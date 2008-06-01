@@ -182,12 +182,19 @@
     		//--------------------------------------
     		*/
     		$res = array();
+    		$c = -1;
     		foreach ( $old as $temp ) {
-    			$res[ $temp->Nextid ] = $temp;
+    			if ( $temp->Nextid == 0 ) {
+    				$res[ $i ] = $temp;
+    				--$i;
+    			}
+    			else {
+    				$res[ $temp->Nextid ] = $temp;
+    			}
     		}
     		$res_new = array();
     		foreach ( $res as $temp ) {
-    			if ( $temp->Nextid != 0 ) {
+    			if ( $temp->Nextid > 0 ) {
     				continue;
     			}
     			$res_new[] = $temp; // found a head
