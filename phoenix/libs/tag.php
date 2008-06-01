@@ -155,6 +155,7 @@
     	protected $mModel = 'Tag';
     	
     	public function FindByUser( $user ) {
+    		global $water;
     		if( !( $user instanceof User ) ) {
     			throw New TagException( 'TagFinder::FindByUser pleads you to make sure that the argument you provided is an instance of User class' );
     		}
@@ -163,6 +164,7 @@
             $prototype->Userid = $user->Id;
             $old = $this->FindByPrototype( $prototype );
             
+            $water->Trace( "Tag::FindByUser old=" . count( $old ) );
             if ( count( $old ) < 2 ) { // No need for sorting
             	return $old;
             }
@@ -190,6 +192,7 @@
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
+    		$water->Trace( "Tag::FindByUser res_new=" . count( $res_new ) );
     		return array_reverse( $res_new );
         }
         public function FindByTextAndType( $text, $typeid ) {
