@@ -29,6 +29,8 @@
         $sanitizer->SetSource( $text );
 		$result = $sanitizer->GetXHTML();
 		
+        die( '.'.$result.'.' );
+
         $user->Space->Text = $result;
 		$user->Space->Save();
 		
