@@ -1,6 +1,8 @@
 <?php
     /// Content-type: text/plain ///
-	function ElementNotificationEmailFriend( User $from ) {
+	function ElementNotificationEmailFriend( Notification $notification ) {
+        $from = $notification->FromUser;
+
         w_assert( $from instanceof User );
         w_assert( $from->Exists() );
 
@@ -47,5 +49,7 @@
         Element( 'user/url', $from );
 
         Element( 'notification/email/footer' );
+
+        return ''; // TODO: subject
 	}
 ?>

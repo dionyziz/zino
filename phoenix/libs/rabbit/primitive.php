@@ -78,7 +78,7 @@
         $httphost = $_SERVER[ 'HTTP_HOST' ];
         $httphost = explode( ':', $httphost );
         $httphost = strtolower( $httphost[ 0 ] );
-        if ( $rabbit_settings[ 'hostname' ] !== false ) {
+        if ( $rabbit_settings[ 'hostname' ] !== false && !isset( $rabbit_settings[ 'hostnameforce' ] ) || $rabbit_settings[ 'hostnameforce' ] === true ) {
             w_assert( is_string( $rabbit_settings[ 'hostname' ] ) );
         	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
         		header( 'HTTP/1.1 301 Moved Permanently' );

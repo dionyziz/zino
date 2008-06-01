@@ -1,8 +1,12 @@
 <?php
     /// Content-type: text/plain ///
-	function ElementNotificationEmailComment( User $from, Comment $comment ) {
+	function ElementNotificationEmailComment( Notification $notification ) {
+        $from = $notification->FromUser;
+        $comment = $notification->Item;
+
         w_assert( $from instanceof User );
         w_assert( $from->Exists() );
+        w_assert( $comment instanceof Comment );
 
         if ( $from->Gender == 'f' ) {
             ?>Η<?php
@@ -62,5 +66,7 @@
         Element( 'url', $comment );
 
         Element( 'notification/email/footer' );
+
+        return ''; // TODO: return subject
 	}
 ?>

@@ -51,8 +51,25 @@
         protected $mDbTableAlias = 'notify';
 
         public function Email() {
-            // send an email
+            global $rabbit_settings;
 
+            switch ( $this->Typeid ) {
+                case NOTIFY_COMMENT_PROFILE:
+                case NOTIFY_COMMENT_IMAGE:
+                case NOTIFY_COMMENT_JOURNAL:
+                case NOTIFY_COMMENT_REPLY:
+                    $target = 'notification/email/comment';
+                    break;
+                case NOTIFY_FRIEND_ADDED:
+                    $target = 'notification/email/friend';
+            }
+
+            ob_start();
+            $subject = Element( $target, $this );
+            $message = ob_get_clean();
+
+            // send an email
+            mail( $this->ToUser->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnCreate() {
             $attribute = 'Email' . Notification_FieldByType( $this->Typeid );
