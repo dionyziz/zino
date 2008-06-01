@@ -135,8 +135,8 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 5, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
-            $texts = array( 'Sutra Kama', 'Kama Sutra', 'Fooland', 'Straight Story', 'Sin City' );
-            $types = array( TAG_BOOK, TAG_BOOK, TAG_MOVIE, TAG_MOVIE, TAG_MOVIE );
+            $texts = array( 'Fooland', 'Straight Story', 'Sin City', 'Sutra Kama', 'Kama Sutra' );
+            $types = array( TAG_MOVIE, TAG_MOVIE, TAG_MOVIE, TAG_BOOK, TAG_BOOK );
             for ( $i = 0; $i < 5; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
