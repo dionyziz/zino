@@ -202,6 +202,8 @@
 
             $texts = array( 'The journal of a Magus', 'The Trial' );
             $types = array( TAG_BOOK, TAG_BOOK );
+            
+            $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags bt an array of' . get_class( $tag ) );
