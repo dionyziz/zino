@@ -208,7 +208,7 @@
  			$query->BindTable( 'tags' );
  			$query->Bind( "TagText", $text );
  			$query->Bind( "TagType", $type );
- 			return $query->Execute()->FetchArray();
+ 			return $query->Execute();
  		}
     }
  
