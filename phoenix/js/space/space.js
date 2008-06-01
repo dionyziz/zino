@@ -5,6 +5,7 @@ var Space = {
 			alert( "Δε μπορείς να έχεις κενό χώρο" );
 			return false;
 		}
+		return true;
 	}
 };
 $( document ).ready( function() {
