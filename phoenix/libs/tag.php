@@ -214,7 +214,14 @@
  
  	class Tag extends Satori {
  		protected $mDbTableAlias = 'tags';
+ 		private $mUser;
  		
+ 		public function GetUser() {
+ 			if ( !is_object( $this->mUser ) ) {
+ 				$this->mUser = New User( $this->Userid );
+ 			}
+ 			return $this->mUser;
+ 		}
  		public function MoveAfter() {
  		}
  		public function MoveBefore( $tag ) {
