@@ -17,6 +17,7 @@
             $this->mUser = New User();
             $this->mUser->Name = 'testrelationtypes';
             $this->mUser->Subdomain = 'testrelationtypes';
+            $this->mUser->Rights = PERMISSION_RELATIONTYPE_CREATE;
             $this->mUser->Save();
 
             $finder = New RelationTypeFinder();
