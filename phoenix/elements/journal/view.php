@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementJournalView( tInteger $id , tInteger $commentid ) {
+	function ElementJournalView( tInteger $id , tInteger $commentid , tInteger $offset ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
@@ -10,10 +10,14 @@
 		$libs->Load( 'favourite' );
 		$journal = New Journal( $id->Get() );
 		$commentid = $commentid->Get();
+		$offset = $offset->Get();
 		$finder = New FavouriteFinder();
 		$fav = $finder->FindByUserAndEntity( $user, $journal );
 		
 		if ( $journal->Exists() ) {
+			if ( $offset <= 0 ) {
+				$offset = 1;
+			}
 			Element( 'user/sections' , 'journal' , $journal->User );
 			?><div id="journalview"><?php
 			if ( !$journal->IsDeleted() ) {
