@@ -116,7 +116,7 @@
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
-				Element( 'comment/list' );
+				//Element( 'comment/list' );
 			?></div>
 		</div><?php	
 	}
