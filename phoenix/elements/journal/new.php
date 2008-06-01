@@ -15,30 +15,40 @@
 			$page->SetTitle( "Δημιουργία καταχώρησης" );
 		}
 		Element( 'user/sections' , 'journal' , $user );
-		?><div id="journalnew"><?php
+		?><div id="journalnew">
+			<h2><?php
+			if ( $id > 0 ) {
+				?>Επεξεργασία <?php
+			}
+			else {
+				?>Δημιουργία <?php
+			}
+			?> καταχώρησης</h2><?php
 			if ( ( isset( $journal ) && $journal->User->Id == $user->Id ) || $id == 0 ) {
-				?><form method="post" action="do/journal/new" onsubmit="return JournalNew.Create( '<?php
+				?><div class="edit">
+					<form method="post" action="do/journal/new" onsubmit="return JournalNew.Create( '<?php
+							echo $id;
+							?>' );">
+						<input type="hidden" name="id" value="<?php
 						echo $id;
-						?>' );">
-					<input type="hidden" name="id" value="<?php
-					echo $id;
-					?>" />
-					<div class="title">
-						<span>Τίτλος:</span><input type="text" value="<?php
-						if ( $id > 0 ) {
-							echo htmlspecialchars( $journal->Title );
-						}
-						?>" name="title" tabindex="1" />
-					</div>
-                    <div class="wysiwyg" id="wysiwyg"><?php
-                    if ( $id > 0 ) {
-                        echo $journal->Text; // purposely no escape here (XSS-safe because of sanitizer)
-                    }
-                    ?></div>
-					<div class="submit">
-						<input type="submit" value="Δημοσίευση" />
-					</div>
-				</form><?php
+						?>" />
+						<div class="title">
+							<span>Τίτλος:</span><input type="text" value="<?php
+							if ( $id > 0 ) {
+								echo htmlspecialchars( $journal->Title );
+							}
+							?>" name="title" tabindex="1" />
+						</div>
+	                    <div class="wysiwyg" id="wysiwyg"><?php
+	                    if ( $id > 0 ) {
+	                        echo $journal->Text; // purposely no escape here (XSS-safe because of sanitizer)
+	                    }
+	                    ?></div>
+						<div class="submit">
+							<input type="submit" value="Δημοσίευση" />
+						</div>
+					</form>
+				</div><?php
 			}
 			else {
 				?>Δεν έχεις δικαίωμα να επεξεργαστείς την καταχώρηση<?php

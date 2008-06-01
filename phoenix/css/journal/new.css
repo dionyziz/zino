@@ -1,5 +1,12 @@
 div#journalnew {
-	margin: 0 0 0 170px;
+	margin-bottom: 20px;
+}
+div#journalnew h2 {
+	margin: -7px 0 0 0;
+	padding: 0;
+}
+div#journalnew div.edit {
+	clear: both;
 }
 div#journalnew div.title {
 	margin-bottom: 20px;
