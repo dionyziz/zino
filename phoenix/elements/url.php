@@ -41,6 +41,8 @@
                 }
                 ?>commentid=<?php
                 echo $target->Id;
+                ?>#comment_<?php
+                echo $target->Id;
                 return;
         }
     }
