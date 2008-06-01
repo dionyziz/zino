@@ -3,24 +3,24 @@
     global $libs;
     $libs->Load( 'relation/type' );
 
-    class RelationFinder extends Finder {
+    class FriendRelationFinder extends Finder {
         protected $mModel = 'Relation';
 
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
-            $prototype = New Relation();
+            $prototype = New FriendRelation();
             $prototype->Userid = $user->Id;
             
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
-            $prototype = New Relation();
+            $prototype = New FriendRelation();
             $prototype->Friendid = $user->Id;
 
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
     }
 
-    class Relation extends Satori {
+    class FriendRelation extends Satori {
         protected $mDbTableAlias = 'relations';
         
         public function GetType() {

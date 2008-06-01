@@ -40,8 +40,8 @@
             $this->CreateType( 'unknown' );
         }
         public function TestClassesExist() {
-            $this->Assert( class_exists( 'Relation' ), 'Relation class does not exist' );
-            $this->Assert( class_exists( 'RelationFinder' ), 'RelationFinder class does not exist' );
+            $this->Assert( class_exists( 'FriendRelation' ), 'Relation class does not exist' );
+            $this->Assert( class_exists( 'FriendRelationFinder' ), 'RelationFinder class does not exist' );
         }
         public function TestMethodsExist() {
             $finder = New RelationFinder();
@@ -55,13 +55,13 @@
             $ufinder = New UserFinder();
             $abresas = $ufinder->FindByName( 'abresas' );
             
-            $relation = New Relation();
+            $relation = New FriendRelation();
             $relation->Userid = $this->mUser->Id;
             $relation->Friendid = $abresas->Id;
             $relation->Typeid = $lover_type->Id;
             $relation->Save();
 
-            $r = New Relation( $relation->Id );
+            $r = New FriendRelation( $relation->Id );
             $this->AssertEquals( $this->mUser->Id, $r->Userid, 'Wrong userid' );
             $this->AssertEquals( $abresas->Id, $r->Friendid, 'Wrong friendid' );
             $this->AssertEquals( $lover_type->Id, $r->Typeid, 'Wrong typeid' );
@@ -75,24 +75,24 @@
             $friend_type = $typefinder->FindByText( 'friend' );
             $unknown_type = $typefinder->FindByText( 'unknown' );
 
-            $relation1 = New Relation();
+            $relation1 = New FriendRelation();
             $relation1->Userid = $this->mUser->Id;
             $relation1->Friendid = $this->mUser2->Id;
             $relation1->Typeid = $friend_type->Id;
             $relation1->Save();
             
-            $relation2 = New Relation();
+            $relation2 = New FriendRelation();
             $relation2->Userid = $this->mUser2->Id;
             $relation2->Friendid = $abresas->Id;
             $relation2->Typeid = $unknown_type->Id;
 
-            $relation3 = New Relation();
+            $relation3 = New FriendRelation();
             $relation3->Userid = $this->mUser->Id;
             $relation3->Friendid = $abresas->Id;
             $relation3->Typeid = $lover_type->Id;
             $relation3->Save();
 
-            $finder = New RelationFinder();
+            $finder = New FriendRelationFinder();
             $relations = $finder->FindByUser( $this->mUser );
             $this->AssertEquals( 2, count( $relations ), 'Wrong number of relations' );
            
@@ -114,24 +114,24 @@
             $friend_type = $typefinder->FindByText( 'friend' );
             $unknown_type = $typefinder->FindByText( 'unknown' );
 
-            $relation1 = New Relation();
+            $relation1 = New FriendRelation();
             $relation1->Userid = $this->mUser->Id;
             $relation1->Friendid = $this->mUser2->Id;
             $relation1->Typeid = $friend_type->Id;
             $relation1->Save();
             
-            $relation2 = New Relation();
+            $relation2 = New FriendRelation();
             $relation2->Userid = $this->mUser2->Id;
             $relation2->Friendid = $abresas->Id;
             $relation2->Typeid = $unknown_type->Id;
 
-            $relation3 = New Relation();
+            $relation3 = New FriendRelation();
             $relation3->Userid = $this->mUser->Id;
             $relation3->Friendid = $abresas->Id;
             $relation3->Typeid = $lover_type->Id;
             $relation3->Save();
 
-            $finder = New RelationFinder();
+            $finder = New FriendRelationFinder();
             $relations = $finder->FindByFriend( $abresas );
             $this->AssertEquals( 2, count( $relations ), 'Wrong number of relations' );
 
