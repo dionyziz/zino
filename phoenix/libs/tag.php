@@ -233,6 +233,9 @@
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
  			}
+ 			if ( $tag->Typeid != $this->Id ) {
+ 				throw New TagException( "You can't order tags of different types" );
+ 			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
  			if ( is_tag( $a ) ) {
@@ -249,6 +252,9 @@
  		public function MoveBefore( $tag ) {
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'The argument is not of type tag, or does not exist in the database' );
+ 			}
+ 			if ( $tag->Typeid != $this->Id ) {
+ 				throw New TagException( "You can't order tags of different types" );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );

@@ -10,6 +10,7 @@
         private $mMovieTag3;
         private $mBookTag2;
         private $mBookTag3;
+        private $mBookTag4;
 
         public function SetUp() {
         	global $libs;
@@ -77,6 +78,14 @@
             $tag->Save();
 
             $this->mBookTag = $tag;
+            
+            $tag = New Tag();
+            $tag->Userid = $user->Id;
+            $tag->Typeip = TAG_BOOK;
+            $tag->Text = 'The Trial';
+            $tag->Nextid = $this->mBookTag->Id;
+            $tag->Save();
+            $this->mBookTag4 = $tag;
 
             $user = $this->mUser2;
 
@@ -186,11 +195,11 @@
         public function TestReorder() {
             $finder = New TagFinder();
 
-            $this->mMovieTag2->MoveBefore( $this->mMovieTag1 );
+            $this->mBookTag->MoveBefore( $this->mBookTag4 );
 
-            $tags = $finder->FindByUser( $this->mUser2 );
+            $tags = $finder->FindByUser( $this->mUser1 );
 
-            $texts = array( 'Straight Story', 'Sin City' );
+            $texts = array( 'The journal of a Magus', 'The Trial' );
             $types = array( TAG_MOVIE, TAG_MOVIE );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
@@ -199,11 +208,11 @@
                 $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
 
-            $this->mMovieTag2->MoveAfter( $this->mMovieTag1 );
+            $this->mBookTag->MoveAfter( $this->mBookTag4 );
 
-            $tags = $finder->FindByUser( $this->mUser2 );
+            $tags = $finder->FindByUser( $this->mUser1 );
 
-            $texts = array( 'Sin City', 'Straight Story' );
+            $texts = array( 'The Trial', 'The journal of a Magus' );
             $types = array( TAG_MOVIE, TAG_MOVIE );
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
