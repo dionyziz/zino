@@ -169,7 +169,7 @@
             $this->AssertFalse( $this->mBookTag->Exists(), 'Tag appears to exist after deleting' );
 
             $finder = New TagFinder();
-            $finder->FindByUser( $this->mUser1 );
+            $tags = $finder->FindByUser( $this->mUser1 );
 
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 1, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
@@ -225,28 +225,28 @@
             Tag_Clear( $this->mUser2 ); // this should accept user objects or user ids!
         }
         public function TearDown() {
-            if ( is_object( $this->mUser1 ) ) {
+            if ( is_object( $this->mUser1 ) && $this->mUser1->Exists() ) {
                 $this->mUser1->Delete();
             }
-            if ( is_object( $this->mUser2 ) ) {
+            if ( is_object( $this->mUser2 ) && $this->mUser2->Exists() ) {
                 $this->mUser2->Delete();
             }
-            if ( is_object( $this->mBookTag ) ) {
+            if ( is_object( $this->mBookTag ) && $this->mBookTag->Exists() ) {
             	$this->mBookTag->Delete();
             }
-            if ( is_object( $this->mMovieTag1 ) ) {
+            if ( is_object( $this->mMovieTag1 ) && $this->mMovieTag1->Exists() ) {
             	$this->mMovieTag1->Delete();
             }
-            if ( is_object( $this->mMovieTag2 ) ) {
+            if ( is_object( $this->mMovieTag2 ) && $this->mMovieTag2->Exists() ) {
             	$this->mMovieTag2->Delete();
             }
-            if ( is_object( $this->mMovieTag3 ) ) {
+            if ( is_object( $this->mMovieTag3 ) && $this->mMovieTag3->Exists() ) {
             	$this->mMovieTag3->Delete();
             }
-            if ( is_object( $this->mBookTag2 ) ) {
+            if ( is_object( $this->mBookTag2 ) && $this->mMBookTag2->Exists() ) {
             	$this->mBookTag2->Delete();
             }
-            if ( is_object( $this->mBookTag3 ) ) {
+            if ( is_object( $this->mBookTag3 ) && $this->mBookTag3->Exists() ) {
             	$this->mBookTag3->Delete();
             }
         }

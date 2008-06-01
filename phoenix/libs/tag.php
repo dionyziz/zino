@@ -199,7 +199,7 @@
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
  			$text .= "%";
  			$query = $this->mDb->Prepare("
- 				SELECT * 
+ 				SELECT tag_text 
  				FROM :tags
  				WHERE 
  					`tag_text` LIKE :TagText
@@ -208,7 +208,7 @@
  			$query->BindTable( 'tags' );
  			$query->Bind( "TagText", $text );
  			$query->Bind( "TagType", $type );
- 			return $query->Execute();
+ 			return $query->Execute()->FetchArray();
  		}
     }
  
