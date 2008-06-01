@@ -177,10 +177,10 @@
 						?></div><?php
 					?><div class="comments"><?php
 						Element( 'comment/reply' );
-						if ( $journal->Numcomments > 0 ) {
+						if ( $image->Numcomments > 0 ) {
 							$finder = New CommentFinder();
-							$comments = $finder->FindByPage( $journal , 1 , true );
-							Element( 'comment/list' , $journal , 0 , 0 );
+							$comments = $finder->FindByPage( $image , 1 , true );
+							Element( 'comment/list' , $image , 0 , 0 );
 						}
 					?></div>
 				</div><?php
