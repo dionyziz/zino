@@ -196,8 +196,8 @@
         	$prototype->Nextid = $next_id;
         	return $this->FindByPrototype ( $prototype );
         }
-        public function FindSuggestions( $text, $type ) { //finds all movies containing $text
- 			$text = "%" . $text . "%";
+        public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
+ 			$text .= "%";
  			$query = $this->mDb->Prepare("
  				SELECT * 
  				FROM :tags
@@ -208,7 +208,7 @@
  			$query->BindTable( 'tags' );
  			$query->Bind( "TagText", $text );
  			$query->Bind( "TagType", $type );
- 			$query->Execute();
+ 			return $query->Execute()->FetchArray();
  		}
     }
  

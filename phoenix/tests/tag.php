@@ -153,7 +153,7 @@
             $finder = New TagFinder();
             $texts = $finder->FindSuggestions( 'S', TAG_MOVIE );
 
-            $this->Assert( is_array( $tags ), 'Finder::FindSuggestions did not return an array' );
+            $this->Assert( is_array( $texts ), 'Finder::FindSuggestions did not return an array' );
             
             foreach ( $texts as $text ) {
                 $this->Assert( is_string( $text ), 'Finder::FindSuggestions did not return an array of strings' );
