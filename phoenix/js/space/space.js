@@ -1,5 +1,5 @@
 var Space = {
-	Create : function() {
+	Εdit : function() {
 		var text = WYSIWYG.ByName.text.getContents();
 		if ( text.length < 5 ) {
 			alert( "Δε μπορείς να έχεις κενό χώρο" );
