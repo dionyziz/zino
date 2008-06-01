@@ -155,8 +155,7 @@
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
             $old = $this->FindByPrototype( $prototype );
-            $size = count( $old );
-            if ( $size < 2 ) { // No need for sorting
+            if ( count( $old ) < 2 ) { // No need for sorting
             	return $old;
             }
             /*
@@ -182,7 +181,7 @@
     		//--------------------------------------
     		*/
     		$res = array();
-    		$c = -1;
+    		$i = -1;
     		foreach ( $old as $temp ) {
     			if ( $temp->Nextid == 0 ) {
     				$res[ $i ] = $temp;
@@ -203,8 +202,7 @@
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
-    		rsort( $res_new );
-    		return $res_new;	
+    		return array_reverse( $res_new );
         }
         public function FindByTextAndType( $text, $typeid ) {
         	$prototype = New Tag();
