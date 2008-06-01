@@ -23,7 +23,6 @@
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
-					echo $comment->GetText( 30 );
 					?>"</span>
 					, <?php
 					switch ( $comment->Typeid ) {
