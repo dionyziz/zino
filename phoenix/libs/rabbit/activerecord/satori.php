@@ -282,6 +282,8 @@
                     }
                 }
                 if ( !count( $updates ) ) {
+                    $this->OnUpdate( array() );
+
                     // nothing to update
                     return true;
                 }
