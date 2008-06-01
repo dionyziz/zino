@@ -16,7 +16,7 @@
 					echo htmlspecialchars( $image->Name );
 				}
 			?></a><?php
-			if (  $showcommnum ) {
+			if ( $showcomnum ) {
 				?><div><?php
 					if ( $image->Numcomments > 0 ) {
 						?><span class="commentsnum"><?php
