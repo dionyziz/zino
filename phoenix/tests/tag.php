@@ -172,26 +172,6 @@
         public function TestEdit() {
             // no ability to edit tags
         }
-        public function TestDelete() {
-            $this->Assert( $this->mBookTag->Exists(), 'Tag does not appear to exist before deleting' );
-            $this->mBookTag->Delete();
-            $this->AssertFalse( $this->mBookTag->Exists(), 'Tag appears to exist after deleting' );
-
-            $finder = New TagFinder();
-            $tags = $finder->FindByUser( $this->mUser1 );
-
-            $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
-            $this->AssertEquals( 1, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
-            
-            $texts = array( 'Sin City' );
-            $types = array( TAG_MOVIE );
-            for ( $i = 0; $i < 1; ++$i ) {
-                $tag = $tags[ $i ];
-                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
-                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
-                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
-            }
-        }
         public function TestReorder() {
             $finder = New TagFinder();
 
@@ -224,6 +204,26 @@
                 $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
             }
 
+        }
+        public function TestDelete() {
+            $this->Assert( $this->mBookTag->Exists(), 'Tag does not appear to exist before deleting' );
+            $this->mBookTag->Delete();
+            $this->AssertFalse( $this->mBookTag->Exists(), 'Tag appears to exist after deleting' );
+
+            $finder = New TagFinder();
+            $tags = $finder->FindByUser( $this->mUser1 );
+
+            $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
+            $this->AssertEquals( 1, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
+            
+            $texts = array( 'Sin City' );
+            $types = array( TAG_MOVIE );
+            for ( $i = 0; $i < 1; ++$i ) {
+                $tag = $tags[ $i ];
+                $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
+                $this->AssertEquals( $texts[ $i ], $tag->Text, 'Tag returned by Finder::FindByUser doesn\'t have the right text, or it is returned in wrong order' );
+                $this->AssertEquals( $types[ $i ], $tag->Typeid, 'Tag returned by Finder::FindByUser doesn\'t have the right type, or it is returned in wrong order' );
+            }
         }
         public function TestClear() {
             Tag_Clear( $this->mUser1 );
