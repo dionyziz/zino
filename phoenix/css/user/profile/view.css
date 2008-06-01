@@ -185,9 +185,9 @@ div#profile div.main div.notifications {
 	border-top: 0;
 	background-color: #fdfdfd;
 }
-div#profile div.main div.notifications h2 {
+div#profile div.main div.notifications h3 {
 	margin: 0 0 10px 0;
-	padding: 5px 0 0 15px;
+	padding: 5px 0 0 20px;
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
