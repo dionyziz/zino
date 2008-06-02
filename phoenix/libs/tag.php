@@ -269,7 +269,7 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			$water->Trace( "a=" . get_class( $a ) );
+ 			$water->Trace( "a[0]=" . get_class( $a[0] ) );
  			if ( is_tag( $a ) ) {
  				$water->Trace( "Tag::MoveBefore -- a: " . $a->Userid );
 	 			$a->Nextid = $this->Nextid;
