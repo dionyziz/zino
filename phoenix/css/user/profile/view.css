@@ -199,6 +199,10 @@ div#profile div.main div.notifications  div.list div.event {
 	padding: 5px;
 	cursor: pointer;
 }
+div#profile div.main div.notifications  div.list div.event div.subject p img {
+	float: right;
+	margin-top: -17px;
+}
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
 	height: 75px;
