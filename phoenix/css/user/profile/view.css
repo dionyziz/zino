@@ -194,6 +194,7 @@ div#profile div.main div.notifications h3 {
 }
 div#profile div.main div.notifications div.list div.event {
 	padding: 5px;
+	cursor: pointer;
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
