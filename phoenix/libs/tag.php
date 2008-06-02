@@ -265,7 +265,7 @@
  				throw New TagException( "Tag::MoveBefore does not allow you to order tags of different types" );
  			}
  			if ( $tag->Userid != $this->Userid ) {
- 				throw New TagException( "Tag::MoveAfter does not allow you to order tags belonging to different users" );
+ 				throw New TagException( "Tag::MoveBefore does not allow you to order tags belonging to different users" );
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
@@ -275,7 +275,7 @@
 	 			$a->Save();
 	 		}
 	 		
- 			$b = $finder->FindByNextId( $tag->Nextid );
+ 			$b = $finder->FindByNextId( $tag->Id );
  			if ( is_tag( $b ) ) {
  				$water->Trace( "Tag::MoveBefore -- b: " . $b->Userid );
 	 			$b->Nextid = $this->Id;
@@ -283,7 +283,7 @@
 	 		}
 	 		$water->Trace( "Tag::MoveBefore -- this: " . $this->Userid );
 	 		$water->Trace( "Tag::MoveBefore -- tag: " . $tag->Userid );
- 			$this->Nextid = $tag->Nextid;
+ 			$this->Nextid = $tag->Id;
  			$this->Save();
  		}
  	}
