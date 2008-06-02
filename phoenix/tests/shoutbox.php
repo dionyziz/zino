@@ -48,4 +48,6 @@
         }
     }
 
+    return New TestShoutbox();
+
 ?>
