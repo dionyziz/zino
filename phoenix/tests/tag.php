@@ -158,7 +158,10 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByTextAndType did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByTextAndType did not return the right number of tags' );
             
-            $users = array( 'testtag1', 'testtag2' );
+            $users1 = array( 'testtag1', 'testtag2' );
+            $users2 = array( 'testtag2', 'testtag1' );
+            
+            $users = ( $users1[0] == $tags[0]->User->Name )?$users1:$users2;
             for ( $i = 0; $i < 2; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByTextAndType did not return an array of tags' );
@@ -235,8 +238,14 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 2, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
-            $texts = array( 'Sin City', 'The Trial' );
-            $types = array( TAG_MOVIE, TAG_BOOK );
+            $texts1 = array( 'Sin City', 'The Trial' );
+            $types1 = array( TAG_MOVIE, TAG_BOOK );
+            
+            $texts2 = array( 'The Trial', 'Sin City' );
+            $types2 = array( TAG_BOOK, TAG_MOVIE );
+            
+            $texts = ( $texts1[0] == $tags[0]->Text )?$texts1:$texts2;
+            $types = ( $types1[0] == $tags[0]->Typeid )?$types1:$types2;
             for ( $i = 0; $i < 1; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
