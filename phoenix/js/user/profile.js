@@ -31,6 +31,7 @@ $( document ).ready( function() {
 					$( notiflist ).addClass( 'invisible' );
 				} );
 			}
+			return false;
 		} );
 	}
 } );
