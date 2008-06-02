@@ -179,7 +179,7 @@ div#profile div.main {
 	position: relative;
 }
 div#profile div.main div.notifications {
-	padding: 5px 0 20px 0;
+	padding: 5px 0 0 0;
 	top: 0;
 	margin: 0 0 20px 50px;
 	width: 70%;
@@ -191,7 +191,7 @@ div#profile div.main div.notifications {
 div#profile div.notifications div.expand a {
 	background-image: url( 'http://static.zino.gr/phoenix/arrow_up.png' );
 	background-repeat: no-repeat;
-	background-color: #dfdbfc;
+	background-color: #cfc9fd;
 	background-position: 4px 5px;
 	padding-left: 18px;
 }
