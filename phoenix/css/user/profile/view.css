@@ -176,18 +176,24 @@ div#profile div.sidebar div.eof {
 div#profile div.main {
 	padding: 14px 0 0 10px;
 	margin-left: 305px;
+	position: relative;
 }
 div#profile div.main div.notifications {
 	padding: 5px 0 20px 0;
-	margin: -14px auto 20px auto;
-	width: 85%;
+	top: 0;
+	margin: 0 0 20px 50px;
+	width: 70%;
 	border: 1px solid #ccc;
 	border-top: 0;
+	position: absolute;
 	background-color: #fdfdfd;
 }
 div#profile div.main div.notifications h3 {
 	margin: 0 0 10px 0;
 	padding: 5px 0 0 20px;
+}
+div#profile div.main div.notifications div.list div.event {
+	padding: 5px;
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
