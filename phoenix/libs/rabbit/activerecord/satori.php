@@ -70,6 +70,9 @@
             return $args;
         }
         protected function Modified() {
+            global $water;
+
+            $water->Trace( 'Checking for modifications on relation ' . get_class( $this->mQueryModel ) . ' <-> ' . get_class( $this->mRetrieved ) );
             // check if $args (current arguments) and $this->mCurrentArgs (stored old arguments) are one and the same
             $args = $this->RetrieveCurrentArgs();
             w_assert( count( $args ) == count( $this->mCurrentArgs ) );
