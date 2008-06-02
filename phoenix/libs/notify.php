@@ -73,7 +73,7 @@
         }
         public function OnCreate() {
             $attribute = 'Email' . Notification_FieldByType( $this->Typeid );
-            if ( $this->ToUser->Settings->$attribute == 'yes' && !empty( $this->ToUser->Email ) && $this->ToUser->Emailverified ) {
+            if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Email ) && $this->ToUser->Emailverified ) {
                 $this->Email();
             }
         }
