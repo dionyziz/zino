@@ -19,6 +19,7 @@
 				<div class="list"><?php
 					Element( 'notification/list' );
 				?></div>
+				<div class="expand"></div>
 			</div><?php
 			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
 				?><div class="ybubble">	
