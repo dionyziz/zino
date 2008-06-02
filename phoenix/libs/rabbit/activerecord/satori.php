@@ -91,6 +91,9 @@
 
             if ( $change ) { // if something changed, update current args
                 $this->mCurrentArgs = $args;
+                if ( !$modified ) { // no significant change, but we still need to update our primary key value changes
+                    $this->mRetrieved->DefinePrimaryKeyAttributes( $args );
+                }
             }
 
             return $modified;
