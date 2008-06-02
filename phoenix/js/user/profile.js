@@ -11,6 +11,7 @@ var Profile = {
 	}
 };
 $( document ).ready( function() {
+	/*
 	if ( $( 'div#profile' )[ 0 ] ) {
 		$( 'div#profile div.main div.notifications div.list div.event' ).mouseover( function() {
 			$( this ).css( "border" , "1px dotted #666" );
@@ -19,4 +20,5 @@ $( document ).ready( function() {
 			$( this ).css( "border" , "0" );
 		} );
 	}
+	*/
 } );
