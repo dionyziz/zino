@@ -66,16 +66,25 @@
             return "$year-$month-$day";
         }
         protected function SetBirthDay( $value ) {
+            global $water;
+            
             w_assert( is_int( $value ) );
             $this->Dob = $this->MakeBirthdate( $value, $this->BirthMonth, $this->BirthYear );
+            $water->Trace( 'Updated DOB to ' . $this->Dob );
         }
         protected function SetBirthMonth( $value ) {
+            global $water;
+
             w_assert( is_int( $value ) );
             $this->Dob = $this->MakeBirthdate( $this->BirthDay, $value, $this->BirthYear );
+            $water->Trace( 'Updated DOB to ' . $this->Dob );
         }
         protected function SetBirthYear( $value ) {
+            global $water;
+
             w_assert( is_int( $value ) );
             $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
+            $water->Trace( 'Updated DOB to ' . $this->Dob );
         }
         protected function GetHasBirthday() {
     		if ( $this->Dob != "0000-00-00" ) {
