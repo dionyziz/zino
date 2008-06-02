@@ -22,7 +22,7 @@ $( document ).ready( function() {
 			var notiflist = $( 'div#profile div.main div.notifications div.list' )[ 0 ] ? $( 'div#profile div.main div.notifications div.list' )[ 0 ] : false;
 			if ( $( notiflist ).hasClass( 'invisible' ) ) {
 				$( 'div#profile div.main div.notifications div.expand a' ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' );
-				$( notiflist ).removeClass( 'invisible' ).animate( { height : auto } , 400 );
+				$( notiflist ).removeClass( 'invisible' ).animate( { height : 'auto' } , 400 );
 			}
 			else {
 				alert( "collapsing" );
