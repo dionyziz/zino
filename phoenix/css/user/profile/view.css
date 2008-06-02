@@ -205,6 +205,13 @@ div#profile div.main div.notifications  div.list div.event {
 	padding: 5px;
 	cursor: pointer;
 }
+div#profile div.main div.notifications div.list div.event div.who img.avatar {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #666;
+	float: left;
+	margin: 0 4px 0 0;
+}
 div#profile div.main div.notifications  div.list div.event div.subject p img {
 	float: right;
 	margin-top: -17px;
