@@ -17,6 +17,7 @@
             $user = New User();
             $user->Name = 'testshoutbox';
             $user->Subdomain = 'testshoutbox';
+            $user->Rights = PERMISSION_SHOUTBOX_CREATE;
             $user->Save();
 
             $this->mUsers[] = $user;
