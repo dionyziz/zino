@@ -10,8 +10,20 @@
         $typeid = $typeid->Get();
         $itemid = $itemid->Get();
 
-        $texts = array( "hey", "yo", "hahaha", "LOL", ":P", "sup", "amm", "rofl", "PWNED", "lorem ipsum", "foo bar blah" );
+        $texts = array( "hey", "yo", "hahaha", "LOL", ":P", "sup", "amm", "rofl", "PWNED", "lorem ipsum", "foo bar blah", "amm", ":sheep:",
+                        ":cake:", ";)", "red", "green", "blue", "white", "orange", "cyan", "yellow", "nice boobs", "faggot", "love your mom",
+                        "yo mama is fat", "pervert", "bot" );
         $userids = array( 1, 2, 37, 42 );
+
+        if ( $typeid == TYPE_JOURNAL ) {
+            $texts[] = "You call this a journal?";
+        }
+        else if ( $typeid == TYPE_POLL ) {
+            $texts[] = "I voted your mommy";
+        }
+        else if ( $typeid == TYPE_IMAGE ) {
+            $texts[] = "You are ugly";
+        }
 
         $next_headparent = 0;
         $ids = array();
