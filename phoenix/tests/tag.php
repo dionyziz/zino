@@ -135,8 +135,15 @@
             $this->Assert( is_array( $tags ), 'Finder::FindByUser did not return an array' );
             $this->AssertEquals( 5, count( $tags ), 'Finder::FindByUser did not return the right number of tags' );
             
-            $texts = array( 'Fooland', 'Straight Story', 'Sin City', 'Sutra Kama', 'Kama Sutra' );
-            $types = array( TAG_MOVIE, TAG_MOVIE, TAG_MOVIE, TAG_BOOK, TAG_BOOK );
+            // Two feasible solutions
+            $texts1 = array( 'Fooland', 'Straight Story', 'Sin City', 'Sutra Kama', 'Kama Sutra' );
+            $types1 = array( TAG_MOVIE, TAG_MOVIE, TAG_MOVIE, TAG_BOOK, TAG_BOOK );
+            
+            $texts2 = array( 'Sutra Kama', 'Kama Sutra', 'Fooland', 'Straight Story', 'Sin City' );
+            $types2 = array( TAG_MOVIE, TAG_BOOK, TAG_BOOK, TAG_MOVIE, TAG_MOVIE );
+            
+            $texts = ( $texts1[0] == $tags[0]->Text )?$texts1:$texts2;
+            $types = ( $types1[0] == $tags[0]->Typeid )?$types1:$types2;
             for ( $i = 0; $i < 5; ++$i ) {
                 $tag = $tags[ $i ];
                 $this->Assert( $tag instanceof Tag, 'Finder::FindByUser did not return an array of tags' );
@@ -178,7 +185,12 @@
             $this->mBookTag->MoveBefore( $this->mBookTag4 );
 
             $tags = $finder->FindByUser( $this->mUser1 );
-            array_pop( $tags );
+            if ( $tags[0]->Text == "Sin City" ) {
+            	array_shift( $tags );
+            }
+            else {
+            	array_pop( $tags );
+            }
 
             $texts = array( 'The journal of a Magus', 'The Trial' );
             $types = array( TAG_BOOK, TAG_BOOK );
