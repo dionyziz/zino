@@ -27,10 +27,14 @@
     define( 'PERMISSION_POLL_DELETE', 30 );
     define( 'PERMISSION_POLL_DELETE_ALL', 50 );
 
-	//space permissions
+	// space permissions
 	define( 'PERMISSION_SPACE_EDIT' , 30 );
 	define( 'PERMISSION_SPACE_EDIT_ALL' , 50 );
 	
     define( 'PERMISSION_RELATIONTYPE_CREATE', 50 );
+
+	// shoutbox permissions
+	define( 'PERMISSION_SHOUTBOX_CREATE', 30 );
+	define( 'PERMISSION_SHOUTBOX_EDIT_ALL', 50 );
 
 ?>
