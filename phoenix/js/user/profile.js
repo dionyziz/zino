@@ -11,14 +11,12 @@ var Profile = {
 	}
 };
 $( document ).ready( function() {
-	/*
 	if ( $( 'div#profile' )[ 0 ] ) {
 		$( 'div#profile div.main div.notifications div.list div.event' ).mouseover( function() {
-			$( this ).css( "border" , "1px dotted #666" );
+			$( this ).css( "border" , "1px dotted #666" ).css( "padding" , "4px" );
 		} )
 		.mouseout( function() {
-			$( this ).css( "border" , "0" );
+			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 		} );
 	}
-	*/
 } );

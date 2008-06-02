@@ -199,9 +199,6 @@ div#profile div.main div.notifications  div.list div.event {
 	padding: 5px;
 	cursor: pointer;
 }
-div#profile div.main div.notifications  div.list div.event:hover {
-	border: 1px dotted #666;
-}
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
 	height: 75px;
