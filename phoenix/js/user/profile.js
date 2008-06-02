@@ -20,12 +20,13 @@ $( document ).ready( function() {
 		} );
 		$( 'div#profile div.main div.notifications div.expand a' ).click( function() {
 			var notiflist = $( 'div#profile div.main div.notifications div.list' )[ 0 ] ? $( 'div#profile div.main div.notifications div.list' )[ 0 ] : false;
-			if ( $( 'div#profile div.main div.notifications div.list' ).hasClass( 'invisible' ) ) {
-				$( this ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' );
+			if ( notiflist ).hasClass( 'invisible' ) ) {
+				$( 'div#profile div.main div.notifications div.expand a' ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' );
 				$( notiflist ).removeClass( 'invisible' ).animate( { height : auto } , 400 );
 			}
 			else {
-				$( this ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )'
+				alert( "collapsing" );
+				$( 'div#profile div.main div.notifications div.expand a' ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' );
 				$( notiflist ).animate( { height : "0" } , 400 , function() {
 					$( notiflist ).addClass( 'invisible' );
 				} );
