@@ -256,6 +256,9 @@
         protected $mDbTableAlias = 'comments';
 		private $mSince;
 
+        public function IsEditableBy( $user ) {
+            return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
+        }
         public function GetText( $length = false ) {
             $text = $this->Bulk->Text;
 
