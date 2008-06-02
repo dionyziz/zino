@@ -188,6 +188,12 @@ div#profile div.main div.notifications {
 	position: absolute;
 	background-color: #fdfdfd;
 }
+div#profile div.notifications div.expand a {
+	background-image: url( 'http://static.zino.gr/phoenix/arrow_up.png' );
+	background-repeat: no-repeat;
+	background-color: #dbdbdb;
+	padding-left: 18px;
+}
 div#profile div.main div.notifications h3 {
 	margin: 0 0 10px 0;
 	padding: 5px 0 0 20px;
