@@ -13,7 +13,9 @@
 					, στην εικόνα <a href="https://beta.zino.gr/phoenix/?p=photo&amp;id=16&amp;commentid=2" class="itempic"><img src="http://images.zino.gr/media/2/_16/16_100.jpg" style="width:75px;height:75px;" /></a>				
 				</p>
 				<a href="https://beta.zino.gr/phoenix/?p=photo&amp;id=16&amp;commentid=2" class="viewcom">Προβολή σχολίου&raquo;</a>
+				<div></div>
 			</div>
+			<div></div>
 		</div><?php
 	}
 ?>
