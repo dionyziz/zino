@@ -187,6 +187,7 @@ div#profile div.main div.notifications {
 	border-top: 0;
 	position: absolute;
 	background-color: #fdfdfd;
+	opacity: 0.9;
 }
 div#profile div.main div.notifications h3 {
 	margin: 0 0 10px 0;
@@ -198,6 +199,7 @@ div#profile div.main div.notifications  div.list div.event {
 	margin: 2px auto;
 	padding: 5px;
 	cursor: pointer;
+	opacity: 1;
 }
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
