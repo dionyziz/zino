@@ -273,9 +273,11 @@
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-        public function OnBeforeDelete( $theuser ) {
+        public function OnBeforeDelete() {
+            global $user;
+
             $finder = New CommentFinder();
-            if ( $finder->CommentHasChildren() || !$this->IsEditableBy( $theuser ) || $this->IsDeleted() ) {
+            if ( $finder->CommentHasChildren( $this ) || !$this->IsEditableBy( $user ) || $this->IsDeleted() ) {
                 return false;
             }
 
