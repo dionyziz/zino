@@ -21,7 +21,7 @@ $( document ).ready( function() {
 		$( 'div#profile div.main div.notifications div.expand a' ).click( function() {
 			var notiflist = $( 'div#profile div.main div.notifications div.list' )[ 0 ] ? $( 'div#profile div.main div.notifications div.list' )[ 0 ] : false;
 			if ( $( 'div#profile div.main div.notifications div.list' ).hasClass( 'invisible' ) ) {
-				$( this ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )'
+				$( this ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' );
 				$( notiflist ).removeClass( 'invisible' ).animate( { height : auto } , 400 );
 			}
 			else {
