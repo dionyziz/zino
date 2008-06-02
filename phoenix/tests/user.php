@@ -76,6 +76,8 @@
             $this->mUser->Rights = 10;
             $this->mUser->Icon = 1;
             
+            $this->AssertEquals( '1989-17-11', $this->mUser->Profile->Dob, 'User dob changed prior to saving user' );
+
             $this->AssertFalse( $this->mUser->Exists(), 'User exists before creation' );
             
             $this->mUser->Save();
@@ -100,7 +102,7 @@
             $this->AssertEquals( '-', $profile->Sexualorientation, 'Sexual orientation should be false by default' );
             $this->AssertEquals( '-', $profile->Smoker, 'Smoker should be false by default' );
             $this->AssertEquals( '-', $profile->Drinker, 'Drinker should be false by default' );
-            $this->AssertEquals( '-', $profile->Mood->Exists(), 'Mood should be a non-existing mood by default' );
+            $this->AssertEquals( false, $profile->Mood->Exists(), 'Mood should be a non-existing mood by default' );
         }
         public function TestSettingsDefaults() {
             $settings = $this->mUser->Preferences;
