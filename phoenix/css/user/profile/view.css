@@ -193,14 +193,14 @@ div#profile div.main div.notifications h3 {
 	padding: 5px 0 0 20px;
 }
 div#profile div.main div.notifications div.list div.event {
-	padding: 5px;
-	cursor: pointer;
+
 }
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
 	width: 95%;
 	margin: 0 auto;
-	padding: 10px 0;
+	padding: 5px;
+	cursor: pointer;
 }
 div#profile div.main div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
