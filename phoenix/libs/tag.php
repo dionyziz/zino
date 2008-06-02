@@ -241,7 +241,8 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			if ( is_tag( $a[0] ) ) {
+ 			$a = $a[0];
+ 			if ( is_tag( $a ) ) {
  				$a->Nextid = $this->Nextid;
  				$a->Save();
  			}
@@ -264,13 +265,15 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			if ( is_tag( $a[0] ) ) {
+ 			$a = $a[0];
+ 			if ( is_tag( $a ) ) {
 	 			$a->Nextid = $this->Nextid;
 	 			$a->Save();
 	 		}
 	 		
  			$b = $finder->FindByNextId( $tag->Id );
- 			if ( is_tag( $b[0] ) ) {
+ 			$b = $b[0];
+ 			if ( is_tag( $b ) ) {
 	 			$b->Nextid = $this->Id;
 	 			$b->Save();
 	 		}
