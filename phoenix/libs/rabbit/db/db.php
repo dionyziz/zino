@@ -30,7 +30,7 @@
         
 		public function __construct( $dbname = false, $driver = false ) {
             if ( $driver === false ) {
-                $this->mDriver = New DatabaseDriver_MySQL();
+                $this->mDriver = New DBDriver_MySQL();
             }
             else {
                 $this->mDriver = $driver;
