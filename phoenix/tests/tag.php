@@ -206,6 +206,13 @@
             $this->mBookTag->MoveAfter( $this->mBookTag4 );
 
             $tags = $finder->FindByUser( $this->mUser1 );
+            
+            if ( $tags[0]->Text == "Sin City" ) {
+            	array_shift( $tags );
+            }
+            else {
+            	array_pop( $tags );
+            }
 
             $texts = array( 'The Trial', 'The journal of a Magus' );
             $types = array( TAG_BOOK, TAG_BOOK );
