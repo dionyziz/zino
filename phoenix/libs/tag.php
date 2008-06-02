@@ -155,7 +155,6 @@
     	protected $mModel = 'Tag';
     	
     	public function FindByUser( $user ) {
-    		global $water;
     		if( !( $user instanceof User ) ) {
     			throw New TagException( 'TagFinder::FindByUser pleads you to make sure that the argument you provided is an instance of User class' );
     		}
@@ -164,7 +163,6 @@
             $prototype->Userid = $user->Id;
             $old = $this->FindByPrototype( $prototype );
             
-            $water->Trace( "Tag::FindByUser old=" . count( $old ) );
             if ( count( $old ) < 2 ) { // No need for sorting
             	return $old;
             }
@@ -192,7 +190,6 @@
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
-    		$water->Trace( "Tag::FindByUser res_new=" . count( $res_new ) );
     		return array_reverse( $res_new );
         }
         public function FindByTextAndType( $text, $typeid ) {
@@ -233,7 +230,6 @@
  			return $this->mUser;
  		}
  		public function MoveAfter( $tag ) {
- 			global $water;
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'Tag::MoveAfter argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
@@ -245,7 +241,7 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			if ( is_tag( $a ) ) {
+ 			if ( is_tag( $a[0] ) ) {
  				$a->Nextid = $this->Nextid;
  				$a->Save();
  			}
@@ -257,7 +253,6 @@
  			$tag->Save();
  		}
  		public function MoveBefore( $tag ) {
- 			global $water;
  			if ( !is_tag( $tag ) ) {
  				throw New TagException( 'Tag::MoveBefore argues that the argument you provided is not of type tag, or it does not exist in the database. What do you have to say about this?' );
  			}
@@ -269,21 +264,16 @@
  			}
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
- 			$water->Trace( "a[0]=" . get_class( $a[0] ) );
- 			if ( is_tag( $a ) ) {
- 				$water->Trace( "Tag::MoveBefore -- a: " . $a->Userid );
+ 			if ( is_tag( $a[0] ) ) {
 	 			$a->Nextid = $this->Nextid;
 	 			$a->Save();
 	 		}
 	 		
  			$b = $finder->FindByNextId( $tag->Id );
- 			if ( is_tag( $b ) ) {
- 				$water->Trace( "Tag::MoveBefore -- b: " . $b->Userid );
+ 			if ( is_tag( $b[0] ) ) {
 	 			$b->Nextid = $this->Id;
 	 			$b->Save();
 	 		}
-	 		$water->Trace( "Tag::MoveBefore -- this: " . $this->Userid );
-	 		$water->Trace( "Tag::MoveBefore -- tag: " . $tag->Userid );
  			$this->Nextid = $tag->Id;
  			$this->Save();
  		}
