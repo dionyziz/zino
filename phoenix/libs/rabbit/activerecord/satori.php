@@ -70,11 +70,30 @@
             return $args;
         }
         protected function Modified() {
-            if ( ( $args = $this->RetrieveCurrentArgs() ) != $this->mCurrentArgs ) {
-                $this->mCurrentArgs = $args;
-                return true;
+            // check if $args (current arguments) and $this->mCurrentArgs (stored old arguments) are one and the same
+            $args = $this->RetrieveCurrentArgs();
+            w_assert( count( $args ) == count( $this->mCurrentArgs ) );
+            $i = 0;
+            $change = false; // assume nothing changed, we might disprove this later
+            $modified = false; // assume no serious modification took place
+            foreach ( $args as $arg ) {
+                if ( $arg != $this->mCurrentArgs[ $i ] ) {
+                    // something changed...
+                    $change = true;
+                    // check if change is significant
+                    if ( $this->mQueryModel->IsSignificantAttribute( $this->mForeignKey[ $i ] ) ) {
+                        // some modification took place that we need to take into account
+                        $modified = true;
+                    }
+                }
+                ++$i;
             }
-            return false;
+
+            if ( $change ) { // if something changed, update current args
+                $this->mCurrentArgs = $args;
+            }
+
+            return $modified;
         }
         protected function MakeObj() {
 			global $water; 
@@ -159,6 +178,16 @@
         
         protected function Relations() {
             // override me
+        }
+        public function IsSignificantAttribute( $attribute ) {
+            // does a change in the field named $fieldname that a relation relies upon require a relation rebuild?
+            // not if the value is generated within this very instance in a way that the related classes cannot access directly,
+            // such as an autoincrement value
+
+            if ( $this->mAutoIncrementField == $this->mAttribute2DbField[ $attribute ] ) {
+                return false;
+            }
+            return true;
         }
         public function GetAttribute2DbField() {
             return $this->mAttribute2DbField;
