@@ -52,7 +52,12 @@
 		}
 		
 		public function IsEditableBy( $user ) {
-			return $user->HasPermission( PERMISSION_SHOUTBOX_EDIT_ALL ) || ( $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) && $this->Userid == $user->Id ); 
+			if(  $user->HasPermission( PERMISSION_SHOUTBOX_EDIT_ALL ) || ( $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) && $this->Userid == $user->Id ) ) {
+				return true;
+			}
+			else {
+				throw new Exception( "No permissions to edit shout" );
+			}
 		}
 		
 		public function OnBeforeCreate() {
