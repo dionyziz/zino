@@ -68,15 +68,15 @@
             $this->mUser->Name = 'usertest';
             $this->mUser->Password = 'secret';
             $this->mUser->Profile->BirthYear = 1989;
-            $this->mUser->Profile->BirthMonth = 17;
-            $this->mUser->Profile->BirthDay = 11;
+            $this->mUser->Profile->BirthMonth = 11;
+            $this->mUser->Profile->BirthDay = 17;
             $this->mUser->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
             $this->mUser->Signature = 'Foo bar blah';
             $this->mUser->Rights = 10;
             $this->mUser->Icon = 1;
             
-            $this->AssertEquals( '1989-17-11', $this->mUser->Profile->Dob, 'User dob changed prior to saving user' );
+            $this->AssertEquals( '1989-11-17', $this->mUser->Profile->Dob, 'User dob changed prior to saving user' );
 
             $this->AssertFalse( $this->mUser->Exists(), 'User exists before creation' );
             
@@ -87,7 +87,7 @@
             $this->AssertTrue( $this->mUser->Exists(), 'User created but does not seem to exist' );
             $this->AssertEquals( 'usertest', $this->mUser->Name, 'User name changed after saving user' );
             $this->AssertEquals( UserIp(), $this->mUser->Registerhost, 'User register host changed after saving user' );
-            $this->AssertEquals( '1989-17-11', $this->mUser->Profile->Dob, 'User dob changed after saving user' );
+            $this->AssertEquals( '1989-11-17', $this->mUser->Profile->Dob, 'User dob changed after saving user' );
             $this->AssertEquals( 'test@kamibu.com', $this->mUser->Email, 'test@kamibu.com', 'User email changed after saving user' );
             $this->AssertEquals( 'male', $this->mUser->Gender, 'User gender changed after saving user' );
             $this->AssertEquals( 'Foo bar blah', $this->mUser->Signature, 'User signature changed after saving user' );
