@@ -21,14 +21,20 @@ $( document ).ready( function() {
 			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 		} );
 		$( 'div#profile div.main div.notifications div.expand a' ).click( function() {
-			
-			
 			if ( $( notiflist ).hasClass( 'invisible' ) ) {
-				$( 'div#profile div.main div.notifications div.expand a' ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' );
+				$( 'div#profile div.main div.notifications div.expand a' )
+				.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' )
+				.attr( {
+					title : 'Απόκρυψη'
+				} );
 				$( notiflist ).removeClass( 'invisible' ).animate( { height : notiflistheight } , 400 );
 			}
 			else {
-				$( 'div#profile div.main div.notifications div.expand a' ).css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' );
+				$( 'div#profile div.main div.notifications div.expand a' )
+				.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' )
+				.attr( {
+					title : 'Εμφάνιση'
+				} );
 				$( notiflist ).animate( { height : "0" } , 400 , function() {
 					$( notiflist ).addClass( 'invisible' );
 				} );

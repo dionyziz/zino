@@ -20,7 +20,7 @@
 					Element( 'notification/list' );
 				?></div>
 				<div class="expand">
-					<a href="" onclick="return false;"></a>
+					<a href="" title="Απόκρυψη"></a>
 				</div>
 			</div><?php
 			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
