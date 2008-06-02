@@ -192,13 +192,10 @@ div#profile div.main div.notifications h3 {
 	margin: 0 0 10px 0;
 	padding: 5px 0 0 20px;
 }
-div#profile div.main div.notifications div.list div.event {
-
-}
 div#profile div.main div.notifications  div.list div.event {
 	float: none;
 	width: 95%;
-	margin: 0 auto;
+	margin: 2px auto;
 	padding: 5px;
 	cursor: pointer;
 }
