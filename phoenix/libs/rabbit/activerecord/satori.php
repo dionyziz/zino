@@ -566,7 +566,7 @@
         protected function LoadDefaults() {
             // overload me
         }
-        protected function AfterConstruct( /* [ $arg1 [, $arg2, [, ... ] ] ] */ ) {
+        protected function OnConstruct( /* [ $arg1 [, $arg2, [, ... ] ] ] */ ) {
             // overload me
         }
         final public function DefinePrimaryKeyAttributes( $values ) {
@@ -682,7 +682,7 @@
             }
             
             $this->DefineRelations();
-            call_user_func_array( array( $this, 'AfterConstruct' ), $args );
+            call_user_func_array( array( $this, 'OnConstruct' ), $args );
         }
         public function __toString() {
             if ( $this->Exists() ) {
