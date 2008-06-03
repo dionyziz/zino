@@ -132,6 +132,9 @@
     class User extends Satori {
         protected $mDbTableAlias = 'users';
        
+        public function TEMP__ProfileRetrieved() {
+            return is_int( $this->mRelations[ 'Profile' ]->mRetrieved ) ? 'unretrieved' : 'retrieved';
+        }
         protected function SetPassword( $value ) {
             $this->Password = md5( $value );
         }
@@ -194,7 +197,7 @@
         protected function OnCreate() {
             global $water;
             
-            $water->Trace( 'User OnCreate' );
+            $water->Trace( 'User OnCreate: ' );
             
             $this->Profile;
 
@@ -213,7 +216,7 @@
             // unless they repeatedly generate random numbers, so we'll have to go this way)
             $bytes = array(); // the array of all our 16 bytes
             for ( $i = 0; $i < 8 ; ++$i ) {
-                $bytesequence = rand(0, 65535); // generate a 2-bytes sequence
+                $bytesequence = rand( 0, 65535 ); // generate a 2-bytes sequence
                 // split the two bytes
                 // lower-order byte
                 $a = $bytesequence & 255; // a will be 0...255

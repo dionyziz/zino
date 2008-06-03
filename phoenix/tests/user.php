@@ -60,6 +60,8 @@
             $this->AssertTrue( User_Valid( 'aBr3S4sfin-laNd_oS' ), 'User_Valid did not accept an alphanumeric string with - and _ characters' );
         }
         public function TestCreation() {
+            global $water;
+
             $this->mUser = New User();
 			$finder = New UserFinder();
 			
@@ -67,9 +69,14 @@
 			
             $this->mUser->Name = 'usertest';
             $this->mUser->Password = 'secret';
+            $water->Trace( 'BEFORE testcase use: ' . $this->mUser->TEMP__ProfileRetrieved );
+
             $this->mUser->Profile->BirthYear = 1989;
             $this->mUser->Profile->BirthMonth = 11;
             $this->mUser->Profile->BirthDay = 17;
+
+            $water->Trace( 'AFTER testcase use: ' . $this->mUser->TEMP__ProfileRetrieved );
+            
             $this->mUser->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
             $this->mUser->Signature = 'Foo bar blah';
