@@ -20,6 +20,7 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
+			alert( 'calling' );
 			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( text == '' ) {

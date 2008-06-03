@@ -15,7 +15,7 @@
 				?></div>
 				<div class="who"><?php
 					Element( 'user/display' , $shout->User );
-					?>είπε:
+					?> είπε:
 				</div>
 				<div class="text"><?php
 					echo htmlspecialchars( $shout->Text );
