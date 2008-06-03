@@ -70,12 +70,12 @@
 			</div>
 			<div class="eof"></div>
 			<div class="outshoutbox"><?php
-			Element( 'frontpage/shoutbox' );
+			Element( 'frontpage/shoutbox/list' );
 			?></div><?php
 		} 
 		else {
 			?><div class="inshoutbox"><?php
-				Element( 'frontpage/shoutbox' );
+				Element( 'frontpage/shoutbox/list' );
 				?><div class="inlatestcomments"><?php
 				Element( 'frontpage/comment/list' );
 				?></div>
