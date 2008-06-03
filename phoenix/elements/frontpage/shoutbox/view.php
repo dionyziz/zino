@@ -23,7 +23,7 @@
 			</div><?php
 		}
 		else {
-			?><div class="comment" style="border-color: #dee;" style="display:none">
+			?><div class="comment" style="border-color:#dee;display:none">
 				<div class="toolbox">
 					<span class="time">πριν λίγο</span><?php
 					if ( $user->HasPermission( PERMISSION_SHOUTBOX_DELETE )  ) {
