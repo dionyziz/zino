@@ -5,7 +5,7 @@
 		global $libs;
 		$libs->Load( 'shoutbox' );
 		
-		$finder = New ShoutFinder();
+		$finder = New ShoutboxFinder();
 		$shouts = $finder->FindLatest( 0, 5 )
 		?><div class="shoutbox">
 			<h2>Συζήτηση</h2>
