@@ -12,13 +12,9 @@
 					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
 				}
 			?></div>
-			<div class="who">
-				<a href="<?php
-				Element( 'user/url' , $shout->User );
-				?>"><?php
-					Element( 'user/avatar' , $shout->User , 100 , 'avatar' , '' , true , 50 , 50 );
-					echo $shout->User->Name;
-				?></a> είπε:
+			<div class="who"><?php
+				Element( 'user/display' , $user );
+				?>είπε:
 			</div>
 			<div class="text"><?php
 				echo htmlspecialchars( $shout->Text );

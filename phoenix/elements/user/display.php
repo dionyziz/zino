@@ -2,7 +2,8 @@
 	function ElementUserDisplay( User $theuser ) {
 		?><a href="<?php
 		Element( 'user/url' , $theuser );
-		?>"><img src="http://static.zino.gr/phoenix/mockups/titi.jpg" class="avatar" alt="Titi" /><?php
+		?>"><?php
+		Element( 'user/avatar' , $theuser , 100 , 'avatar' , '' , true , 50 , 50 );
 		Element( 'user/name' , $theuser , false );
 		?></a><?php
 		

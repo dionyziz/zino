@@ -7,13 +7,9 @@
 			<div class="toolbox">
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
 			</div>
-			<div class="who">
-				<a href="?p=user&amp;name=<?php
-					echo $user->Subdomain;
-					?>"><?php
-					Element( 'user/avatar' , $user , 100 , 'avatar' , '' , true , 50 , 50 );
-					echo $user->Name;
-				?></a>πρόσθεσε ένα σχόλιο
+			<div class="who"><?php
+				Element( 'user/display' , $user );
+				?> πρόσθεσε ένα σχόλιο
 			</div>
 			<div class="text">
 				<textarea></textarea>

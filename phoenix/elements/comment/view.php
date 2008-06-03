@@ -24,13 +24,9 @@
 					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
 				}
 			?></div>
-			<div class="who">
-				<a href="?p=user&amp;name=<?php
-					echo $comment->User->Subdomain;
-					?>"><?php
-					Element( 'user/avatar' , $comment->User , 100 , 'avatar' , '' , true , 50 , 50 );
-					echo $comment->User->Name;
-				?></a> είπε:
+			<div class="who"><?php
+				Element( 'user/display' , $comment->User );
+				?>είπε:
 			</div>
 			<div class="text"><?php
 				echo $comment->Text;
