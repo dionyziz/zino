@@ -111,7 +111,7 @@
  		protected $mDbTableAlias = 'tags';
  		private $mUser;
  		
- 		public function GetUser() {
+ 		protected function GetUser() {
  			if ( !is_object( $this->mUser ) || $this->mUser->Id != $this->Userid ) {
  				$this->mUser = New User( $this->Userid );
  			}

@@ -154,6 +154,14 @@
                 }
             }
         }
+        public function OnCommentCreate() {
+            ++$this->Numcomments;
+            $this->Save();
+        }
+        public function OnCommentDelete() {
+            --$this->Numcomments;
+            $this->Save();
+        }
     }
 
 ?>
