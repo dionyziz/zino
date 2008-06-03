@@ -32,7 +32,7 @@
 				?></div>
 				<div class="who"><?php
 					Element( 'user/display' , $user );
-					?>είπε:
+					?> είπε:
 				</div>
 				<div class="text"></div>
 			</div><?php
