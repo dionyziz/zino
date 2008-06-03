@@ -119,7 +119,7 @@
 		$parented[ 0 ] = array();
 		foreach ( $parents as $parent ) {
 			if ( $page_num == $page ) {
-                $page_children[ $parent_id ] = Comments_CountChildren( $comments, $parent->Id );
+                $page_children[ $parent->Id ] = Comments_CountChildren( $comments, $parent->Id );
 				if ( $reverse ) {
 					array_unshift( $parented[ 0 ], $parent );
 				}
