@@ -39,7 +39,7 @@
                 $next_headparent = rand( 0, 20 );
             }
             else {
-                $comment->Parentid = rand( 0, count( $ids ) - 1 );
+                $comment->Parentid = $ids[ rand( 0, count( $ids ) - 1 ) ];
                 --$next_headparent;
             }
             $comment->Save();
