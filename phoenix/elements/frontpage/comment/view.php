@@ -46,7 +46,7 @@
 							break;
 						case TYPE_USERPROFILE:
 							?>στο προφίλ <?php
-							if ( $comment->Item->Gender == 'f' ) {
+							if ( $comment->User->Gender == 'f' ) {
 								?>της <?php
 							}
 							else {
