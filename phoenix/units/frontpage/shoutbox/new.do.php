@@ -1,6 +1,6 @@
 <?php
 
-	function UnitFrontpageShoutbox( tString $text ) {
+	function UnitFrontpageShoutboxNew( tString $text ) {
 		global $user;
 		global $libs;
 		
