@@ -44,10 +44,6 @@
 
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
-			
-			if ( !$this->IsEditableBy( $user ) ) {
-                return false;
-            }
         }
 
         public function SetText( $text ) {
@@ -81,14 +77,6 @@
 			}
 		}
 		
-		public function OnBeforeUpdate() {
-			global $user;
-			
-			if ( !$this->IsEditableBy( $user ) ) {
-                return false;
-            }
-			
-		}
         public function OnConstruct() {
             if ( $this->Exists() ) {
     			$this->mSince = dateDiff( $this->Created, NowDate() );
