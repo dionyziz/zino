@@ -114,11 +114,12 @@
 		$page_total = 0;
 		$page_num = 0;
         $page_nums = array();
+        $page_children = array();
 		$parented = array();
 		$parented[ 0 ] = array();
 		foreach ( $parents as $parent ) {
 			if ( $page_num == $page ) {
-                $water->Trace( "new parent " . $parent->Id );
+                $page_children[ $parent_id ] = Comments_CountChildren( $comments, $parent->Id );
 				if ( $reverse ) {
 					array_unshift( $parented[ 0 ], $parent );
 				}
@@ -137,8 +138,7 @@
         $page_nums[] = $page_total;
 
         $water->Trace( "page nums Comments_OnPage", $page_nums );
-
-        $water->Trace( "parented Comments_OnPage", $parented );
+        $water->Trace( "page children Comments_OnPage", $page_children );
 
 		return $parented;
 	}
