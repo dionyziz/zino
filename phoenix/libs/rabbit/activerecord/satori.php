@@ -13,7 +13,7 @@
     
     abstract class Relation {
         protected $mQueryModel;
-        private $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
+        public $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
         
         public abstract function __construct();
         protected abstract function MakeObj();
