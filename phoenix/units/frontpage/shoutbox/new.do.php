@@ -14,7 +14,7 @@
 				$shout->Save();
 				?>$( <?php
 				echo $node;
-				?> ).find( 'div.toolbox a' ).click( function() {
+				?> ).find( 'div.toolbox a' ).click( function( shoutid ) {
 					Frontpage.DeleteShout( '<?php
 					echo $shout->Id;
 					?>' );
