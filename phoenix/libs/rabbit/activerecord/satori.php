@@ -248,14 +248,18 @@
             return $this->mDbFields;
         }
         public function __set( $name, $value ) {
+            global $water;
+
             if ( parent::__set( $name, $value ) === true ) {
                 return;
             }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mRelations[ $name ] ) ) {
                     if ( $this->mRelations[ $name ]->Equals( $value ) ) {
+                        $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, skipping'  );
                         return; // no need to update it
                     }
+                    $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Unequal, restoring'  );
                 }
                 $this->mRelations[ $name ] = $value;
                 return;
