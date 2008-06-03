@@ -4,6 +4,7 @@
 		global $user;
 		global $xc_settings;
 		$libs->Load( 'poll/poll' );
+		$libs->Load( 'comment' );
 		
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
