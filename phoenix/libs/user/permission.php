@@ -35,6 +35,9 @@
 
 	// shoutbox permissions
 	define( 'PERMISSION_SHOUTBOX_CREATE', 30 );
+	define( 'PERMISSION_SHOUTBOX_EDIT', 30 );
+	define( 'PERMISSION_SHOUTBOX_DELETE', 30 );
 	define( 'PERMISSION_SHOUTBOX_EDIT_ALL', 50 );
+	define( 'PERMISSION_SHOUTBOX_DELETE_ALL', 50 );
 
 ?>

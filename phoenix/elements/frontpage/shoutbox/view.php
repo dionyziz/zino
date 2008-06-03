@@ -5,8 +5,11 @@
 			<div class="toolbox">
 				<span class="time">πριν <?php
 				echo $shout->Since;
-				?></span>
-			</div>
+				?></span><?php
+				if ( ( $user->Id == $shout->User->Id && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
+					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
+				}
+			?></div>
 			<div class="who">
 				<a href="<?php
 				Element( 'user/url' , $shout->User );

@@ -10,7 +10,7 @@
 		?><div class="shoutbox">
 			<h2>Συζήτηση</h2>
 			<div class="comments"><?php
-				if ( $user->Exists() ) {
+				if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
 					Element( 'frontpage/shoutbox/reply' );
 				}
 				foreach ( $shouts as $shout ) {
