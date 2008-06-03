@@ -142,7 +142,6 @@
 					}
 					Element( 'comment/list' , $comments , 0 , 0 );
 					?><div class="pagifycomments"><?php
-						// specify Numcomments
 						Element( 'pagify' , $offset , 'user&name=' . $theuser->Name , $theuser->Profile->Numcomments , 50 , 'offset' );
 					?></div><?php
 				}
