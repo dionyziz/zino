@@ -374,7 +374,7 @@
                 $this->Relations();
                 $this->mAllowRelationDefinition = false;
                 foreach ( $this->mRelations as $attribute => $relation ) {
-                    $water->Trace( 'Calling Relation::Rebuild on attribute `' . $relation . '\' of ' . get_class( $this ) . ' object after Create' );
+                    $water->Trace( 'Calling Relation::Rebuild on attribute `' . $attribute . '\' of ' . get_class( $this ) . ' object after Create' );
                     $relation->Rebuild();
                 }
                 $this->OnCreate();
