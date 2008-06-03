@@ -109,7 +109,17 @@
         $water->Trace( "comments count " . count( $comments ) );
         $water->Trace( "page number " . $page );
 
+        $comments_dump = array();
+        foreach ( $comments as $comment ) {
+            $comments_dump[ $comment->Id ] = $comment->Parentid;
+        }
+        $water->Trace( "comments dump", $comments_dump );
+
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
+        $parents_dump = array();
+        foreach ( $parents as $comment ) {
+            $parents_dump[] = $comment->Id;
+        }
 
 		$page_total = 0;
 		$page_num = 0;
