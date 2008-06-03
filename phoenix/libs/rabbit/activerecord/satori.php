@@ -13,7 +13,7 @@
     
     abstract class Relation {
         protected $mQueryModel;
-        protected $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
+        /* TODO */ public $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
         
         public abstract function __construct();
         protected abstract function MakeObj();
@@ -374,7 +374,7 @@
                 $this->Relations();
                 $this->mAllowRelationDefinition = false;
                 foreach ( $this->mRelations as $attribute => $relation ) {
-                    $water->Trace( 'Calling Relation::Rebuild on attribute `' . $attribute . '\' of ' . get_class( $this ) . ' object after Create' );
+                    $water->Trace( 'Calling Relation::Rebuild on attribute `' . $attribute . '\' of ' . get_class( $this ) . ' object after Create (' . ( is_int( $relation->mRetrieved )? 'unretrieved': 'retrieved' ) . ')' );
                     $relation->Rebuild();
                 }
                 $this->OnCreate();
