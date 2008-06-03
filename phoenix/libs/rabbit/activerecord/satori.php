@@ -293,6 +293,8 @@
             return $this->mPrimaryKeyFields;
         }
         public function Save() {
+            global $water;
+
             if ( $this->mReadOnlyModified ) {
                 throw New SatoriException( 'This object has modified read-only attributes; it cannot be made persistent' );
             }
