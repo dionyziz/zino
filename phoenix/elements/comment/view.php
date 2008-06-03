@@ -36,9 +36,9 @@
 					<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
-			?><div id="<?php
+			?><div id="children_<?php
 			echo $comment->Id;
-			?>_children" style="display:none"><?php
+			?>" style="display:none"><?php
 			echo $numchildren;
 			?></div>
 		</div><?php
