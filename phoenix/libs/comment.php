@@ -246,7 +246,7 @@
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = ( $prototype->Typeid == "UserProfile" )?$entity->Userid:$entity->Id;
+            $prototype->Itemid = ( $prototype->Typeid == 3 )?$entity->Userid:$entity->Id; //3 stands for Userprofile
 
             return Comments_OnPage( $this->FindByPrototype( $prototype, $offset, $limit ), $page, $reverse );
         }
