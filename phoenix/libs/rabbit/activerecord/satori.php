@@ -13,10 +13,11 @@
     
     abstract class Relation {
         protected $mQueryModel;
-        /* TODO */ public $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
+        private $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
         
         public abstract function __construct();
         protected abstract function MakeObj();
+        protected abstract function Equals( Relation $target );
         protected abstract function Modified();
         public function Rebuild() {
             if ( ( !is_object( $this->mRetrieved ) && $this->mRetrieved == 0 ) ) {
@@ -42,6 +43,14 @@
         protected $mTargetModelClass;
         protected $mCurrentArgs;
         
+        public function IsSameAs( $targetModelClass, $foreignKey) {
+            return 
+                   $this->mTargetModelClass == $targetModelClass 
+                && $this->mForeignKey == $foreignKey;
+        }
+        public function Equals( Relation $target ) {
+            return $target->IsSameAs( $this->mTargetModelClass, $this->mForeignKey ); 
+        }
         public function __construct( $queryModel, $targetModelClass, $foreignKey ) {
             if ( !is_array( $foreignKey ) ) {
                 $foreignKey = array( $foreignKey );
@@ -127,6 +136,25 @@
         protected $mFinderMethod;
         protected $mForeignKey;
 
+        public function IsSameAs( $finderClass, $finderMethod, $foreignKey ) {
+            $equals = $finderClass == $this->mFinderClass && $finderMethod == $this->mFinderMethod;
+            if ( !$equals ) {
+                return false;
+            }
+            if ( is_string( $foreignKey ) ) {
+                if ( is_string( $this->mForeignKey ) ) {
+                    return $foreignKey == $this->mForeignKey; // both are strings
+                }
+                return false; // remote is string, local is object
+            }
+            if ( is_string( $this->mForeignKey ) ) {
+                return false; // local is string, remote is object
+            }
+            return true; // both are objects, assume equality and don't bother checking (too slow)
+        }
+        public function Equals( Relation $target ) {
+            return $target->IsSameAs( $this->mFinderClass, $this->mFinderMethod, $this->mForeignKey );
+        }
         public function __construct( $queryModel, $finderClass, $finderMethod, $foreignKey ) {
             if ( !class_exists( $finderClass ) ) {
                 throw New SatoriException( 'Finder class `' . $finderClass . '\' used in HasMany relation of `' . $this->mQueryModel . '\' specified for HasMany relation does not exist' );
@@ -224,6 +252,11 @@
                 return;
             }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
+                if ( isset( $this->mRelations[ $name ] ) ) {
+                    if ( $this->mRelations[ $name ]->Equals( $value ) ) {
+                        return; // no need to update it
+                    }
+                }
                 $this->mRelations[ $name ] = $value;
                 return;
             }
