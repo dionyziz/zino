@@ -5,6 +5,7 @@
 		global $libs;
 		global $water;
 		global $rabbit_settings;
+		global $xc_settings;
 		global $user;
 		
 		$libs->Load( 'poll/poll' );
@@ -35,7 +36,9 @@
 						</div><?php
 					}
 					?><div class="comments"><?php
-						Element( 'comment/reply' );
+						if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
+							Element( 'comment/reply' );
+						}
 						if ( $poll->Numcomments > 0 ) {
 							$finder = New CommentFinder();
 							if ( $commentid == 0 ) {

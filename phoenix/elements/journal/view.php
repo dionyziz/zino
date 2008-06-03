@@ -5,6 +5,7 @@
 		global $rabbit_settings;
 		global $user;
 		global $libs;
+		global $xc_settings;
 		
 		$libs->Load( 'comment' );
 		$libs->Load( 'favourite' );
@@ -84,7 +85,9 @@
 					?></p>
 				</div><?php
 				?><div class="comments"><?php
-				Element( 'comment/reply' );
+				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
+					Element( 'comment/reply' );
+				}
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();
 					if ( $commentid == 0 ) {

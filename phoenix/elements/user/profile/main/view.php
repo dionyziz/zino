@@ -1,7 +1,8 @@
 <?php
-	function ElementUserProfileMainView( $theuser ) {
+	function ElementUserProfileMainView( $theuser, $commentid, $offset ) {
 		global $libs;
 		global $user;
+		global $xc_settings;
 		$libs->Load( 'poll/poll' );
 		
 		$finder = New PollFinder();
@@ -125,7 +126,26 @@
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
-				//Element( 'comment/list' );
+				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
+					Element( 'comment/reply' );
+				}
+				if ( $theuser->Profile->Numcomments > 0 ) {
+					$finder = New CommentFinder();
+					if ( $commentid == 0 ) {
+						$comments = $finder->FindByPage( $theuser->Profile , $offset , true );
+					}
+					else {
+						$speccomment = New Comment( $commentid );
+						$comments = $finder->FindNear( $theuser->Profile , $speccomment );
+						$offset = $comments[ 0 ];
+						$comments = $comments[ 1 ];
+					}
+					Element( 'comment/list' , $comments , 0 , 0 );
+					?><div class="pagifycomments"><?php
+						// specify Numcomments
+						Element( 'pagify' , $offset , 'user&name=' . $theuser->Name , $theuser->Profile->Numcomments , 50 , 'offset' );
+					?></div><?php
+				}
 			?></div>
 		</div><?php	
 	}
