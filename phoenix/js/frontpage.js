@@ -31,6 +31,7 @@ $( document ).ready( function() {
 				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
 				$( newshout ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 );
 				Coala.Warm( 'frontpage/shoutbox/new' , { text : text } );
+				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 			}
 		} );
 	}
