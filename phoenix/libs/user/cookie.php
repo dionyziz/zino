@@ -44,7 +44,7 @@
         setcookie( $xc_settings[ 'cookiename' ], "$userid:$authtoken" , $eofw, '/', $xc_settings[ 'cookiedomain' ] );
     }
     function User_ClearCookie() {
-        global $xc_settins;
+        global $xc_settings;
 
         setcookie( $xc_settings[ 'cookiename' ], '', time() - 86400, '/', $xc_settings[ 'cookiedomain' ] );
     }
