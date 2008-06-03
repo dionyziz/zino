@@ -4,13 +4,15 @@ var Frontpage = {
 			$( this ).remove();
 		} );
 	},
+	/*
 	Showunis : function( node ) {
 		var divlist = node.getElementsByTagName( 'div' );
-		var contenthtml = "<span style=\"padding-left:5px;\">Πανεπιστήμιο:</span><select><option value=\"0\" selected=\"selected\">-</option><option value=\"2\">Φιλολογία</option><option value=\"6\">Ηλεκτρολόγων Μηχανικών &amp; Μηχανικών Υπολογιστών</option><option value=\"9\">Ιατρική</option><option value=\"23\">Ηλεκτρονική</option><option value=\"25\">Φιλοσοφία</option><option value=\"43\">Θεολογία</option><option value=\"35\">Πληροφορική</option><option value=\"67\">Μηχανικός Υπολογιστών</option><option value=\"98\">Οδοντοϊατρική</option></select>";
+		var contenthtml = "<span style=\"padding-left:5px;\">ΓΓ΅Γ­Γ¥Γ°Γ©Γ³Γ΄ΓΓ¬Γ©Γ―:</span><select><option value=\"0\" selected=\"selected\">-</option><option value=\"2\">Γ–Γ©Γ«Γ―Γ«Γ―Γ£ΓΓ΅</option><option value=\"6\">Γ‡Γ«Γ¥ΓªΓ΄Γ±Γ―Γ«ΓΌΓ£ΓΉΓ­ ΓΓ§Γ·Γ΅Γ­Γ©ΓªΓΎΓ­ &amp; ΓΓ§Γ·Γ΅Γ­Γ©ΓªΓΎΓ­ Γ•Γ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄ΓΎΓ­</option><option value=\"9\">Γ‰Γ΅Γ΄Γ±Γ©ΓªΓ</option><option value=\"23\">Γ‡Γ«Γ¥ΓªΓ΄Γ±Γ―Γ­Γ©ΓªΓ</option><option value=\"25\">Γ–Γ©Γ«Γ―Γ³Γ―Γ¶ΓΓ΅</option><option value=\"43\">ΓΓ¥Γ―Γ«Γ―Γ£ΓΓ΅</option><option value=\"35\">ΓΓ«Γ§Γ±Γ―Γ¶Γ―Γ±Γ©ΓªΓ</option><option value=\"67\">ΓΓ§Γ·Γ΅Γ­Γ©ΓªΓΌΓ² Γ•Γ°Γ―Γ«Γ―Γ£Γ©Γ³Γ΄ΓΎΓ­</option><option value=\"98\">ΓΓ¤Γ―Γ­Γ΄Γ―ΓΊΓ΅Γ΄Γ±Γ©ΓªΓ</option></select>";
 		var newdiv = document.createElement( 'div' );
 		newdiv.innerHTML = contenthtml;
 		node.insertBefore( newdiv, divlist[ 0 ].nextSibling );
 	},
+	*/
 	DeleteShout : function() {
 	
 	}
@@ -18,7 +20,15 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-			alert( $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.text textarea' )[ 0 ].innerHTML );
+			var text = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.text textarea' )[ 0 ].value );
+			if ( text == '' ) {
+				alert( 'Ξ”Ξµ ΞΌΟ€ΞΏΟΞµΞ―Ο‚ Ξ½Ξ± Ξ΄Ξ·ΞΌΞΏΟƒΞΉΞµΟΟƒΞµΞΉΟ‚ ΞΊΞµΞ½Ο ΞΌΞ®Ξ½Ο…ΞΌΞ±' );
+			}
+			else {
+				var newshout = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.empty' )[ 0 ].cloneNode( true );
+				$( newshout ).show().find( 'div.text' ).append( document.createTextNode( text ) );
+				$( newshout ).insertAfter( $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment' )[ 0 ] );
+			}
 		} );
 	}
 } );

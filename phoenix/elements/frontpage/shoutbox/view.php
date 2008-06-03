@@ -23,8 +23,8 @@
 			</div><?php
 		}
 		else {
-			?><div class="comment" style="border-color:#dee;display:none">
-				<div class="toolbox">
+			?><div class="comment empty" style="border-color:#dee;display:none">
+	 '			<div class="toolbox">
 					<span class="time">πριν λίγο</span><?php
 					if ( $user->HasPermission( PERMISSION_SHOUTBOX_DELETE )  ) {
 						?><a href="" onclick="return false" title="Διαγραφή"></a><?php
