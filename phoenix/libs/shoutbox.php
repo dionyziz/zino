@@ -29,6 +29,7 @@
 		
 		public function Relations() {
 		    $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
 		}
 		
 		public function LoadDefaults() {
@@ -38,9 +39,28 @@
 			$this->Created = NowDate();
 		}
 		
+        public function OnBeforeCreate() {
+			global $user;
+
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
+			
+			if ( !$this->IsEditableBy( $user ) ) {
+                return false;
+            }
+        }
+
+        public function SetText( $text ) {
+            $this->Bulk->Text = $text;
+        }
+
+        public function GetText() {
+            return $this->Bulk->Text;
+        }
+
 		public function OnCreate() {
 			global $user;
-						
+			
 			++$user->Count->Shouts;
 			$user->Count->Save();
 		}
@@ -59,14 +79,6 @@
 			else {
 				throw new Exception( "No permissions to edit shout" );
 			}
-		}
-		
-		public function OnBeforeCreate() {
-			global $user;
-			
-			if ( !$this->IsEditableBy( $user ) ) {
-                return false;
-            }
 		}
 		
 		public function OnBeforeUpdate() {
