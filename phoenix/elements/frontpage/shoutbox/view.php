@@ -1,6 +1,8 @@
 <?php
 
 	function ElementFrontpageShoutboxView( $shout ) {
+		global $user;
+		
 		?><div class="comment" style="border-color: #dee;">
 			<div class="toolbox">
 				<span class="time">πριν <?php
