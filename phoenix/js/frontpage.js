@@ -13,8 +13,10 @@ var Frontpage = {
 		node.insertBefore( newdiv, divlist[ 0 ].nextSibling );
 	},
 	*/
-	DeleteShout : function() {
-	
+	DeleteShout : function( shoutid ) {
+		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
+			$( 'div#' + shoutid ).remove();
+		}
 	}
 };
 $( document ).ready( function() {
