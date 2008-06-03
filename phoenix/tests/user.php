@@ -69,13 +69,13 @@
 			
             $this->mUser->Name = 'usertest';
             $this->mUser->Password = 'secret';
-            $water->Trace( 'BEFORE testcase use: ' . $this->mUser->TEMP__ProfileRetrieved );
+            $water->Trace( 'BEFORE testcase use: ' . $this->mUser->TEMP__ProfileRetrieved() );
 
             $this->mUser->Profile->BirthYear = 1989;
             $this->mUser->Profile->BirthMonth = 11;
             $this->mUser->Profile->BirthDay = 17;
 
-            $water->Trace( 'AFTER testcase use: ' . $this->mUser->TEMP__ProfileRetrieved );
+            $water->Trace( 'AFTER testcase use: ' . $this->mUser->TEMP__ProfileRetrieved() );
             
             $this->mUser->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
