@@ -100,7 +100,7 @@
                 $this->Item = $this->HasOne( $class, 'Itemid' );
             }
 
-            $this->User = $this->HasOne( 'User', 'Fromuserid' );
+            $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
             $this->ToUser = $this->HasOne( 'User', 'Touserid' );
         }
         public function OnBeforeUpdate() {

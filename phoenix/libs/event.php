@@ -14,7 +14,7 @@
 	$event->Userid = $comment->Userid;
 	$event->Save();
 	*/
-
+    
 	function Event_Types() {
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
@@ -37,7 +37,7 @@
             16 => 'EVENT_POLLVOTE_CREATED', // not in use
             17 => 'EVENT_POLLOPTION_CREATED', // not in use
             18 => 'EVENT_POLLOPTION_DELETED', // not in use
-            19 => 'EVENT_RELATION_CREATED', // not satorified, TODO event firing
+            19 => 'EVENT_RELATION_CREATED',
             20 => 'EVENT_RELATION_UPDATED',
             21 => 'EVENT_USERSPACE_UPDATED',
             22 => 'EVENT_USERPROFILE_UPDATED', // not in use
@@ -126,16 +126,19 @@
 				$this->Object = $this->HasOne( $model, 'Itemid' );
 			}
 		}
-        public function Save() {
-			global $water;
+        protected function OnCreate() {
+            /*switch ( $this->Typeid ) {
+                case EVENT_COMMENT_CREATED:
+                    $notif = New Notification();
+                    $notif->Eventid = $this->Id;
+                    $notif->Itemid = $this->Itemid;
+                    $notif->From = 
+            }*/
+        }
+        protected function OnBeforeUpdate() {
+            throw New EventException( 'Events cannot be updated' );
 
-            if ( $this->Exists() ) {
-                throw New EventException( 'Events cannot be updated' );
-            }
-
-			$water->Trace( "creating event" );
-        
-            parent::Save();
+            return false;
         }
 		public function LoadDefaults() {
 			$this->Created = NowDate();

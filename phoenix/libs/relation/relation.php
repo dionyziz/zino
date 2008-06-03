@@ -22,7 +22,27 @@
 
     class FriendRelation extends Satori {
         protected $mDbTableAlias = 'relations';
-        
+       
+        protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'event' );
+
+            $event = New Event();
+            $event->Typeid = EVENT_RELATION_CREATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
+        }
+        protected function OnUpdate() {
+            global $libs;
+            $libs->Load( 'event' );
+
+            $event = New Event();
+            $event->Typeid = EVENT_RELATION_UPDATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
+        }
         public function GetType() {
             return $this->RelationType->Name;
         }

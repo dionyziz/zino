@@ -40,7 +40,7 @@
 				else {
 					$parented[ $id ][] = $comment;
 				}
-				Comments_MakeParented( $parented, $comments, $comment->Id );
+				Comments_MakeParented( $parented, $comments, $comment->Id, $reverse );
 			}
 		}
 	}
@@ -244,9 +244,14 @@
             return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
+            global $water;
+
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = ( $prototype->Typeid == 3 )?$entity->Userid:$entity->Id; //3 stands for Userprofile
+
+            $water->Trace( "prototype typeid " . $prototype->Typeid );
+            $water->Trace( "prototype itemid " . $prototype->Itemid );
 
             return Comments_OnPage( $this->FindByPrototype( $prototype, $offset, $limit ), $page, $reverse );
         }
