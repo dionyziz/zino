@@ -109,6 +109,7 @@
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
 		$page_total = 0;
 		$page_num = 0;
+        $page_nums = array();
 		$parented = array();
 		$parented[ 0 ] = array();
 		foreach ( $parents as $parent ) {
@@ -123,10 +124,14 @@
 			}
 			$page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
 			if ( $page_total >= COMMENT_PAGE_LIMIT ) {
+                $page_nums[] = $page_total;
 				$page_total = 0;
 				$page_num++;
 			}
 		}
+        $page_nums[] = $page_total;
+
+        $water->Trace( "page nums Comments_OnPage", $page_nums );
 
 		return $parented;
 	}
