@@ -6,7 +6,7 @@
 		$libs->Load( 'shoutbox' );
 		
 		$finder = New ShoutboxFinder();
-		$shouts = $finder->FindLatest( 0, 5 )
+		$shouts = $finder->FindLatest( 0, 8 )
 		?><div class="shoutbox">
 			<h2>Συζήτηση</h2>
 			<div class="comments"><?php
