@@ -33,6 +33,7 @@ $( document ).ready( function() {
 				$( $( list )[ list.length - 2 ] ).remove();
 				
 			}
+			return false;
 		} );
 	}
 } );
