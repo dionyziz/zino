@@ -30,10 +30,9 @@ $( document ).ready( function() {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).show().find( 'div.text' ).append( document.createTextNode( text ) );
 				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
-				$( $( list )[ list.length - 2 ] ).remove();
+				//$( $( list )[ list.length - 2 ] ).remove();
 				
 			}
-			return false;
 		} );
 	}
 } );
