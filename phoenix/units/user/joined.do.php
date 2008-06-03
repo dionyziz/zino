@@ -1,6 +1,7 @@
 <?php
 	function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tString $gender , tInteger $location ) {
 		global $user;
+        global $rabbit_settings;
 
 		$doby = $doby->Get();
 		$dobm = $dobm->Get();
