@@ -15,7 +15,9 @@ var Frontpage = {
 	*/
 	DeleteShout : function( shoutid ) {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
-			$( 'div#' + shoutid ).remove();
+			$( 'div#' + shoutid ).animate( { height : "0" , opacity : "0" } , 400 , function() {
+				$( this ).remove();
+			} );
 		}
 	}
 };
