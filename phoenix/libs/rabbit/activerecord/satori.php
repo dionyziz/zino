@@ -13,7 +13,7 @@
     
     abstract class Relation {
         protected $mQueryModel;
-        public $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
+        protected $mRetrieved = 0; // 0 designates not retrieved yet; false may be used to represent other things (such as not found)
         
         public abstract function __construct();
         protected abstract function MakeObj();
@@ -79,9 +79,6 @@
             return $args;
         }
         protected function Modified() {
-            global $water;
-
-            $water->Trace( 'Checking for modifications on relation ' . get_class( $this->mQueryModel ) . ' <-> ' . get_class( $this->mRetrieved ) );
             // check if $args (current arguments) and $this->mCurrentArgs (stored old arguments) are one and the same
             $args = $this->RetrieveCurrentArgs();
             w_assert( count( $args ) == count( $this->mCurrentArgs ) );
@@ -111,13 +108,9 @@
             return $modified;
         }
         protected function MakeObj() {
-			global $water; 
-
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
 			$args = $this->Args();
-            
-            $water->Trace( 'Building HasOne relation object of class `' .$this->mTargetModelClass . '\' for query model `' . get_class( $this->mQueryModel ) . '\'', $args );
             
             // create object instance to referenced object
 			$target = $class->newInstanceArgs( $args );
@@ -249,21 +242,15 @@
             return $this->mDbFields;
         }
         public function __set( $name, $value ) {
-            global $water;
-
             if ( parent::__set( $name, $value ) === true ) {
                 return;
             }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
-                $water->Trace( 'Relation definion: `' . $name . '\' relation of `' . get_class( $this ) . '\'' );
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
-                    $water->Trace( 'Equality check!' );
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
-                        $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, copying over'  );
                         $this->mRelations[ $name ] = $this->mOldRelations[ $name ];
                         return; // no need to update it
                     }
-                    $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Unequal, restoring'  );
                 }
                 $this->mRelations[ $name ] = $value;
                 return;
@@ -343,8 +330,6 @@
             $this->mAllowRelationDefinition = false;
         }
         public function Save() {
-            global $water;
-
             if ( $this->mReadOnlyModified ) {
                 throw New SatoriException( 'This object has modified read-only attributes; it cannot be made persistent' );
             }
@@ -418,7 +403,6 @@
                 $this->mExists = true;
                 $this->DefineRelations();
                 foreach ( $this->mRelations as $attribute => $relation ) {
-                    $water->Trace( 'Calling Relation::Rebuild on attribute `' . $attribute . '\' of ' . get_class( $this ) . ' object after Create (' . ( is_int( $relation->mRetrieved )? 'unretrieved': 'retrieved' ) . ')' );
                     $relation->Rebuild();
                 }
                 $this->OnCreate();
@@ -586,10 +570,6 @@
             // overload me
         }
         final public function DefinePrimaryKeyAttributes( $values ) {
-            global $water;
-            
-            $water->Trace('Copying primary key attributes to empty object of class `' . get_class( $this ) . '\'', $values);
-            
             if ( count( $values ) != count( $this->mPrimaryKeyFields ) ) {
                 throw New SatoriException( 'DefinePrimaryKeyAttributes called with an incorrect number of arguments' );
             }
@@ -602,8 +582,6 @@
                 $this->mCurrentValues[ $this->mDbFields[ $primary ] ] = current( $values );
                 next( $values );
             }
-
-            $water->Trace( 'Primary key attributes values copied to empty object of class `' . get_class( $this ) . '\'', $this->mCurrentValues );
         }
         final public function __construct( /* [ $arg1 [, $arg2 [, ... ] ] ] */ ) {
             // do not overload me!
