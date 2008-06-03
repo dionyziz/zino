@@ -12,14 +12,12 @@
 				$shout = New Shout();
 				$shout->Text = $text;
 				$shout->Save();
-				?>var node = <?php
+				?>$( <?php
 				echo $node;
-				?>;
-				alert( '<?php echo $shout->Id; ?>' );
-				$( node ).find( 'div.toolbox a' ).click( function( shoutid ) {
+				?> ).find( 'div.toolbox a' ).click( function( shoutid ) {
 					Frontpage.DeleteShout( '<?php
 					echo $shout->Id;
-					?>' , node );
+					?>' );
 					return false;
 				} );<?php
 			}
