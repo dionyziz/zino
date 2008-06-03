@@ -13,7 +13,7 @@
 				}
 			?></div>
 			<div class="who"><?php
-				Element( 'user/display' , $user );
+				Element( 'user/display' , $shout->User );
 				?>είπε:
 			</div>
 			<div class="text"><?php
