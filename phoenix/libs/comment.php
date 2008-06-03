@@ -106,7 +106,11 @@
         global $water;
         --$page; /* start from 0 */
 
+        $water->Trace( "comments count " . count( $comments ) );
+        $water->Trace( "page number " . $page );
+
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
+
 		$page_total = 0;
 		$page_num = 0;
         $page_nums = array();
@@ -114,6 +118,7 @@
 		$parented[ 0 ] = array();
 		foreach ( $parents as $parent ) {
 			if ( $page_num == $page ) {
+                $water->Trace( "new parent " . $parent->Id );
 				if ( $reverse ) {
 					array_unshift( $parented[ 0 ], $parent );
 				}
