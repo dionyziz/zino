@@ -20,7 +20,7 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-			var text = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.text textarea' )[ 0 ].value );
+			var text = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.text textarea' )[ 0 ].value;
 			if ( text == '' ) {
 				alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
 			}
