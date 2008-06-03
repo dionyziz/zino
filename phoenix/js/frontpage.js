@@ -10,5 +10,15 @@ var Frontpage = {
 		var newdiv = document.createElement( 'div' );
 		newdiv.innerHTML = contenthtml;
 		node.insertBefore( newdiv, divlist[ 0 ].nextSibling );
+	},
+	DeleteShout : function() {
+	
 	}
 };
+$( document ).ready( function() {
+	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
+		$( 'div.frontpage div.inshoutbox div.shoutbox div.comment div.newcomment div.bottom input' ).click( function() {
+			alert( $( 'div.frontpage div.inshoutbox div.shoutbox div.comment div.newcomment div.text textarea' )[ 0 ].innerHTML );
+		} );
+	}
+} );

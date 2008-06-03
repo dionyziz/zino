@@ -14,8 +14,9 @@
 					Element( 'frontpage/shoutbox/reply' );
 				}
 				foreach ( $shouts as $shout ) {
-					Element( 'frontpage/shoutbox/view' , $shout );
+					Element( 'frontpage/shoutbox/view' , $shout , false );
 				}
+				Element( 'frontpage/shoutbox/view'  , false , true );
 			?></div>
 		</div><?php
 	}
