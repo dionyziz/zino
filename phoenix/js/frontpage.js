@@ -20,7 +20,6 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-			alert( 'calling' );
 			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( text == '' ) {
@@ -28,10 +27,10 @@ $( document ).ready( function() {
 			}
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
-				$( newshout ).show().find( 'div.text' ).append( document.createTextNode( text ) );
+				$( newshout ).find( 'div.text' ).append( document.createTextNode( text ) );
 				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
-				//$( $( list )[ list.length - 2 ] ).remove();
-				
+				$( newshout ).animate( { opacity : "1" } , 400 );
+				Coala.Warm( 'frontpage/shoutbox/new' , { text : text } );
 			}
 		} );
 	}
