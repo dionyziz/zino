@@ -14,7 +14,7 @@
 			$query->BindTable( 'shoutbox' );
 			$res = $query->Execute();
 			$row = $res->FetchArray();
-			return ( int )$row[ 'newcount' ];
+			return ( int )$row[ 'newscount' ];
 		}
 
 		public function FindLatest( $offset = 0, $limit = 20 ) {
