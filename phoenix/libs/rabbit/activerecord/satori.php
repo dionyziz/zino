@@ -409,7 +409,6 @@
                 }
                 $this->mExists = true;
                 $this->mAllowRelationDefinition = true;
-                $this->mRelations = array();
                 $water->Trace( 'Redefining relations after Save()!', array_keys( $this->mRelations ) );
                 $this->Relations();
                 $this->mAllowRelationDefinition = false;
