@@ -20,14 +20,17 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-			var text = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.text textarea' )[ 0 ].value;
+			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
+			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( text == '' ) {
 				alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
 			}
 			else {
-				var newshout = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.empty' )[ 0 ].cloneNode( true );
+				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).show().find( 'div.text' ).append( document.createTextNode( text ) );
-				$( newshout ).insertAfter( $( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment' )[ 0 ] );
+				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
+				$( $( list )[ list.length - 2 ] ).remove();
+				
 			}
 		} );
 	}
