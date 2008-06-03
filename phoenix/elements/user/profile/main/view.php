@@ -127,6 +127,9 @@
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
+				if ( $offset <= 0 ) {
+					$offset = 1;
+				}
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
 					Element( 'comment/reply' );
 				}
