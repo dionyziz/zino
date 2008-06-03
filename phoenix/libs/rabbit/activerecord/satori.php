@@ -207,6 +207,7 @@
         protected $mAutoIncrementField; // string name of the database field that is autoincrement, or false if there is no autoincrement field
         protected $mDefaultValues; // dictionary with attribute name (string) => default value, to be used if value of empty object remains at 'false'
         protected $mRelations;
+        private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         private $mAllowRelationDefinition;
         
@@ -255,10 +256,11 @@
             }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 $water->Trace( 'Relation definion: `' . $name . '\' relation of `' . get_class( $this ) . '\'' );
-                if ( isset( $this->mRelations[ $name ] ) ) {
+                if ( isset( $this->mOldRelations[ $name ] ) ) {
                     $water->Trace( 'Equality check!' );
-                    if ( $this->mRelations[ $name ]->Equals( $value ) ) {
-                        $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, skipping'  );
+                    if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
+                        $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, copying over'  );
+                        $this->mRelations[ $name ] = $this->mOldRelations[ $name ];
                         return; // no need to update it
                     }
                     $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Unequal, restoring'  );
@@ -331,6 +333,15 @@
         protected function GetPrimaryKeyFields() {
             return $this->mPrimaryKeyFields;
         }
+        protected function DefineRelations() {
+            $this->mOldRelations = $this->mRelations;
+            $this->mRelations = array();
+
+            $this->mAllowRelationDefinition = true;
+            $this->mRelations = array();
+            $this->Relations();
+            $this->mAllowRelationDefinition = false;
+        }
         public function Save() {
             global $water;
 
@@ -381,10 +392,7 @@
                     $query->Bind( $name, $value );
                 }
                 $change = $query->Execute();
-                $this->mAllowRelationDefinition = true;
-                $this->mRelations = array();
-                $this->Relations();
-                $this->mAllowRelationDefinition = false;
+                $this->DefineRelations();
                 foreach ( $this->mRelations as $relation ) {
                     $relation->Rebuild();
                 }
@@ -408,10 +416,7 @@
                     }
                 }
                 $this->mExists = true;
-                $this->mAllowRelationDefinition = true;
-                $water->Trace( 'Redefining relations after Save()!', array_keys( $this->mRelations ) );
-                $this->Relations();
-                $this->mAllowRelationDefinition = false;
+                $this->DefineRelations();
                 foreach ( $this->mRelations as $attribute => $relation ) {
                     $water->Trace( 'Calling Relation::Rebuild on attribute `' . $attribute . '\' of ' . get_class( $this ) . ' object after Create (' . ( is_int( $relation->mRetrieved )? 'unretrieved': 'retrieved' ) . ')' );
                     $relation->Rebuild();
@@ -698,10 +703,7 @@
                 }
             }
             
-            $this->mAllowRelationDefinition = true;
-            $this->mRelations = array();
-            $this->Relations();
-            $this->mAllowRelationDefinition = false;
+            $this->DefineRelations();
             call_user_func_array( array( $this, 'AfterConstruct' ), $args );
         }
         public function __toString() {
