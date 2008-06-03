@@ -256,6 +256,7 @@
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 $water->Trace( 'Relation definion: `' . $name . '\' relation of `' . get_class( $this ) . '\'' );
                 if ( isset( $this->mRelations[ $name ] ) ) {
+                    $water->Trace( 'Equality check!' );
                     if ( $this->mRelations[ $name ]->Equals( $value ) ) {
                         $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, skipping'  );
                         return; // no need to update it
@@ -409,6 +410,7 @@
                 $this->mExists = true;
                 $this->mAllowRelationDefinition = true;
                 $this->mRelations = array();
+                $water->Trace( 'Redefining relations after Save()!', array_keys( $this->mRelations ) );
                 $this->Relations();
                 $this->mAllowRelationDefinition = false;
                 foreach ( $this->mRelations as $attribute => $relation ) {
