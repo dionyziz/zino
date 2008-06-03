@@ -12,7 +12,7 @@
 				?> πρόσθεσε ένα σχόλιο
 			</div>
 			<div class="text">
-				<textarea></textarea>
+				<textarea rows="" cols=""></textarea>
 			</div>
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" />
