@@ -1,47 +1,14 @@
 <?php
 
-    function Notification_Types() {
-        // array( name, field )
-        // field: settings_notify_profile -> profile
-        return array(
-            1 => array( 'NOTIFY_COMMENT_PROFILE', 'profile' ),
-            2 => array( 'NOTIFY_COMMENT_IMAGE', 'photos' ),
-            3 => array( 'NOTIFY_COMMENT_JOURNAL', 'journals' ),
-            4 => array( 'NOTIFY_COMMENT_REPLY', 'replies' ),
-            5 => array( 'NOTIFY_FRIEND_ADDED', 'friends' )
-        );
-    }
-
-    $types = Notification_Types();
-    foreach ( $types as $key => $type ) {
-        define( $type[ 0 ], $key );
-    }
-
-    function Notification_FieldByType( $type ) {
-        $types = Notification_Types();
-
-        return $types[ $type ][ 1 ];
-    }
-
-    function Notification_TypeFromComment( $comment ) {
-        switch ( $comment->Typeid ) {
-            case TYPE_JOURNAL:
-                return NOTIFY_COMMENT_JOURNAL;
-            case TYPE_USERPROFILE:
-                return NOTIFY_COMMENT_PROFILE;
-            case TYPE_IMAGE:
-                return NOTIFY_COMMENT_IMAGE;
-            default:
-                throw new Exception( 'Unkown type on Notification_TypeFromComment' );
-        }
-    }
+    global $libs;
+    $libs->Load( 'event' );
 
     class NotificationFinder extends Finder {
         protected $mModel = 'Notification';
 
         public function FindByUser( $user, $offset = 0, $limit = 20 ) {
             $notif = New Notification();
-            $notif->Touserid = $user->Id;
+            $notif->Userid = $user->Id;
 
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Id', 'DESC' ) );
         }
@@ -50,17 +17,20 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
+        public function GetItem() {
+            return $this->Event->Item;
+        }
+        public function GetFromUser() {
+            return $this->Event->User;
+        }
         public function Email() {
             global $rabbit_settings;
 
-            switch ( $this->Typeid ) {
-                case NOTIFY_COMMENT_PROFILE:
-                case NOTIFY_COMMENT_IMAGE:
-                case NOTIFY_COMMENT_JOURNAL:
-                case NOTIFY_COMMENT_REPLY:
+            switch ( $this->Event->Typeid ) {
+                case EVENT_COMMENT_CREATED:
                     $target = 'notification/email/comment';
                     break;
-                case NOTIFY_FRIEND_ADDED:
+                case EVENT_FRIENDRELATION_CREATED:
                     $target = 'notification/email/friend';
             }
 
@@ -78,30 +48,8 @@
             }
         }
         public function Relations() {
-            if ( $this->Exists() ) {
-                switch ( $this->Typeid ) {
-                    case NOTIFY_COMMENT_PROFILE:
-                        $class = 'User';
-                        break;
-                    case NOTIFY_COMMENT_IMAGE:
-                        $class = 'Image';
-                        break;
-                    case NOTIFY_COMMENT_JOURNAL:
-                        $class = 'Journal';
-                        break;
-                    case NOTIFY_COMMENT_REPLY:
-                        $class = 'Comment';
-                        break;
-                    case NOTIFY_FRIEND_ADDED:
-                        break;
-                    default:
-                        throw New Exception( 'Unkown typeid on notification' );
-                }
-                $this->Item = $this->HasOne( $class, 'Itemid' );
-            }
-
-            $this->FromUser = $this->HasOne( 'User', 'Fromuserid' );
-            $this->ToUser = $this->HasOne( 'User', 'Touserid' );
+            $this->ToUser = $this->HasOne( 'User', 'Userid' );
+            $this->Event = $this->HasOne( 'Event', 'Eventid' );
         }
         public function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );

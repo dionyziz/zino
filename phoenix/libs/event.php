@@ -37,8 +37,8 @@
             16 => 'EVENT_POLLVOTE_CREATED', // not in use
             17 => 'EVENT_POLLOPTION_CREATED', // not in use
             18 => 'EVENT_POLLOPTION_DELETED', // not in use
-            19 => 'EVENT_RELATION_CREATED',
-            20 => 'EVENT_RELATION_UPDATED',
+            19 => 'EVENT_USERRELATION_CREATED',
+            20 => 'EVENT_USERRELATION_UPDATED',
             21 => 'EVENT_USERSPACE_UPDATED',
             22 => 'EVENT_USERPROFILE_UPDATED', // not in use
             23 => 'EVENT_USERPROFILE_VISITED', // not in use
@@ -127,13 +127,29 @@
 			}
 		}
         protected function OnCreate() {
-            /*switch ( $this->Typeid ) {
+            global $libs;
+            $libs->Load( 'notify' );
+
+            /* notification firing */
+            switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
-                    $notif->Itemid = $this->Itemid;
-                    $notif->From = 
-            }*/
+                    if ( $this->Item->Parentid == 0 ) {
+                        $notif->Userid = $this->Item->Parent->Userid;
+                    }
+                    else {
+                        $notif->Userid = $this->Item->Item->Userid;
+                    }
+                    $notif->Save();
+                    break;
+                case EVENT_FRIENDRELATION_CREATED:
+                    $notif = New Notification();
+                    $notif->Eventid = $this->Id;
+                    $notif->Userid = $this->Item->Userid;
+                    $notif->Save();
+                    break;
+            }
         }
         protected function OnBeforeUpdate() {
             throw New EventException( 'Events cannot be updated' );

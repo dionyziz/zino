@@ -28,7 +28,7 @@
             $libs->Load( 'event' );
 
             $event = New Event();
-            $event->Typeid = EVENT_RELATION_CREATED;
+            $event->Typeid = EVENT_FRIENDRELATION_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
@@ -38,7 +38,7 @@
             $libs->Load( 'event' );
 
             $event = New Event();
-            $event->Typeid = EVENT_RELATION_UPDATED;
+            $event->Typeid = EVENT_FRIENDRELATION_UPDATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
