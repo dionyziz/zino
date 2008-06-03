@@ -29,7 +29,7 @@ $( document ).ready( function() {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).find( 'div.text' ).append( document.createTextNode( text ) );
 				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
-				$( newshout ).animate( { opacity : "1" } , 400 );
+				$( newshout ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 );
 				Coala.Warm( 'frontpage/shoutbox/new' , { text : text } );
 			}
 		} );
