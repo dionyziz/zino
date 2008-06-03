@@ -254,6 +254,7 @@
                 return;
             }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
+                $water->Trace( 'Relation definion: `' . $name . '\' relation of `' . get_class( $this ) . '\'' );
                 if ( isset( $this->mRelations[ $name ] ) ) {
                     if ( $this->mRelations[ $name ]->Equals( $value ) ) {
                         $water->Trace( 'Relations equality check on `' . $name . '\' relation of `' . get_class( $this ) . '\': Equal, skipping'  );
