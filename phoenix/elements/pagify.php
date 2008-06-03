@@ -9,6 +9,11 @@
 			
 		*/
 		$pages = intval( $totalnum / $showing );
+		
+		$water->Trace ( "Pagify:: Totalnum = " . $totalnum );
+		$water->Trace( "tPagify:: Showing = " . $showing );
+		$water->Trace ( "Pagify:: Pages = " . $pages );
+		
 		if ( $totalnum % $showing != 0 ) {
 			++$pages;
 		}
