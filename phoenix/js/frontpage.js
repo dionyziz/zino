@@ -27,9 +27,7 @@ $( document ).ready( function() {
 			}
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
-				$( newshout ).find( 'div.text' ).append( document.createTextNode( text ) );
-				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] );
-				$( newshout ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 );
+				$( newshout ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' ).append( document.createTextNode( text ) );
 				Coala.Warm( 'frontpage/shoutbox/new' , { text : text } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 			}
