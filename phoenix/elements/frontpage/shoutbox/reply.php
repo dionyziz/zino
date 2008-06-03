@@ -1,8 +1,6 @@
 <?php
 	
 	function ElementFrontpageShoutboxReply() {
-		global $user;
-		
 		?><div class="comment newcomment">
 			<div class="who"><?php
 				Element( 'user/display' , $user );
