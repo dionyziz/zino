@@ -25,6 +25,7 @@
 
 	class Shout extends Satori {
 		protected $mDbTableAlias = 'shoutbox';
+		private $mSince;
 		
 		public function Relations() {
 		    $this->User = $this->HasOne( 'User', 'Userid' );
@@ -75,6 +76,14 @@
                 return false;
             }
 			
+		}
+        public function OnConstruct() {
+            if ( $this->Exists() ) {
+    			$this->mSince = dateDiff( $this->Created, NowDate() );
+            }
+        }
+		public function GetSince() {
+			return $this->mSince;
 		}
 	}
 	
