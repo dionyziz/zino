@@ -177,7 +177,7 @@
             $this->Registerhost = UserIp();
             $this->RenewAuthtoken(); // create a basic authtoken
         }
-        protected function AfterConstruct( /* ... */ ) {
+        protected function OnConstruct( /* ... */ ) {
             $args = func_get_args();
             if ( count( $args ) == 1 ) {
                 if ( is_array( $args[ 0 ] ) ) {
@@ -195,10 +195,6 @@
             $this->Lastlogin = time();
         }
         protected function OnCreate() {
-            global $water;
-            
-            $water->Trace( 'User OnCreate: ' );
-            
             $this->Profile;
 
             $this->Profile->Save();

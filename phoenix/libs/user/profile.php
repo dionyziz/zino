@@ -106,11 +106,6 @@
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
-        protected function AfterConstruct() {
-            global $water;
-            
-            $water->Trace('UserProfile::AfterConstruct parameters:' . serialize(func_get_args()) . ', Userid = ' . $this->Userid);
-        }
 		protected function LoadDefaults() {
 			$this->Education = '-';
 			$this->Sexualorientation = '-';

@@ -400,7 +400,7 @@
             $this->Userip = UserIp();
 			$this->Userid = $user->Id;
         }
-        public function AfterConstruct() {
+        public function OnConstruct() {
             if ( $this->Exists() ) {
     			$this->mSince = dateDiff( $this->Created, NowDate() );
             }
