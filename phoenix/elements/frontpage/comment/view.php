@@ -57,7 +57,7 @@
 							Element( 'url' , $comment );
 							echo htmlspecialchars( ob_get_clean() );
 							?>" class="itempic"><?php
-							Element( 'user/avatar' , $comment->Item , IMAGE_CROPPED_100x100 );
+							Element( 'user/avatar' , $comment->User , IMAGE_CROPPED_100x100 );
 							?></a><?php
 							break;
 						case TYPE_JOURNAL:
