@@ -138,6 +138,8 @@
 
         $water->Trace( "page nums Comments_OnPage", $page_nums );
 
+        $water->Trace( "parented Comments_OnPage", $parented );
+
 		return $parented;
 	}
 
