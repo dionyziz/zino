@@ -15,9 +15,10 @@ var Frontpage = {
 	*/
 	DeleteShout : function( shoutid ) {
 		if ( confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' ) ) {
-			$( 'div#' + shoutid ).animate( { height : "0" , opacity : "0" } , 400 , function() {
+			$( 'div#' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
 				$( this ).remove();
 			} );
+			Coala.Warm( 'frontpage/shoutbox/delete' , { shoutid : shoutid } );
 		}
 	}
 };
@@ -32,7 +33,7 @@ $( document ).ready( function() {
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' ).append( document.createTextNode( text ) );
-				Coala.Warm( 'frontpage/shoutbox/new' , { text : text } );
+				Coala.Warm( 'frontpage/shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 			}
 		} );

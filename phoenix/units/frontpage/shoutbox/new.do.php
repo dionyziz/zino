@@ -1,6 +1,6 @@
 <?php
 
-	function UnitFrontpageShoutboxNew( tString $text ) {
+	function UnitFrontpageShoutboxNew( tString $text , tCoalaPointer $node ) {
 		global $user;
 		global $libs;
 		
@@ -12,6 +12,14 @@
 				$shout = New Shout();
 				$shout->Text = $text;
 				$shout->Save();
+				?>$( <?php
+				echo $node;
+				?> ).find( 'div.toolbox div.a' ).click( function() {
+					Frontpage.DeleteShout( '<?php
+					echo $shout->Id;
+					?>' );
+					return false;
+				} );<?php
 			}
 		}
 	}
