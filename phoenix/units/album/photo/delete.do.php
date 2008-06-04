@@ -1,7 +1,7 @@
 <?php
-
 	function UnitAlbumPhotoDelete( tInteger $photoid ) {
 		global $user;
+        global $rabbit_settings;
 		
 		$image = New Image( $photoid->Get() );
 		if ( $image->User->Id == $user->Id ) {
