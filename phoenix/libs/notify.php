@@ -8,7 +8,7 @@
 
         public function FindByUser( $user, $offset = 0, $limit = 20 ) {
             $notif = New Notification();
-            $notif->Fromuserid = $user->Id;
+            $notif->FromUser->Id = $user->Id;
 
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Id', 'DESC' ) );
         }
