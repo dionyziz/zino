@@ -15,9 +15,9 @@
 			<div class="subject"><?php
 				if ( $notif->Event->Typeid != EVENT_USERRELATION_CREATED ) {
 					?><p><span class="text"><?php
+					$comment = $notif->Item;
 					$text = $comment->GetText( 35 );
 					echo utf8_substr( $text , 0 , 30 );
-					$comment = $notif->Item;
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
