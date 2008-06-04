@@ -1,13 +1,13 @@
 <?php
-
 	function ElementUserJoined() {
 		global $user;
 		global $rabbit_settings;
 		global $page;
 		
 		$page->SetTitle( 'Καλωσήρθες' );
+
 		if ( !$user->Exists() ) {
-			Redirect( $rabbit_settings[ 'webaddress' ] );
+			return Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
 		?><div id="joined">
 			<div class="ybubble">
