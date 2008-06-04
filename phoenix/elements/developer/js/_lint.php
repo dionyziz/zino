@@ -8,10 +8,6 @@
         $page->AttachStylesheet( 'css/jslint.css' );
         
         $jspath = $rabbit_settings[ 'rootdir' ] . '/js';
-        if ( $dir === false ) {
-            ?>Failed to open dir.<?php
-            return;
-        }
         $jslintsources = array();
         $queue = array( $jspath );
         while ( !empty( $queue ) ) {
