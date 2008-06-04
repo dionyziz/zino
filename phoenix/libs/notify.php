@@ -75,6 +75,7 @@
             }
             
             $attribute = 'Notify' . $field;
+            $water->Trace( "Notify attribute", $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
                 $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
                 return false;
