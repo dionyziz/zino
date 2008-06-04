@@ -88,6 +88,12 @@
         public function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );
         }
+        public function LoadDefaults() {
+            $this->Created = NowDate();
+        }
+		public function GetSince() {
+			return dateDiff( $this->Created, NowDate() );
+		}
     }
 
 ?>
