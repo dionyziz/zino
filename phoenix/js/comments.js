@@ -1,6 +1,6 @@
 var Comments = {
 	Create : function() {
-		var texter = $("div.newcomment div.text textarea").eq[0].value;
+		var texter = $("div.newcomment div.text textarea").value;
 		if ( texter == "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
