@@ -74,6 +74,7 @@
             }
             
             $attribute = 'Notify' . $field;
+            die( $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
                 return false;
             }
