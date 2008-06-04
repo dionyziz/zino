@@ -2,7 +2,7 @@
 	
 	function ElementNotificationList( $notifs ) {
 		foreach( $notifs as $notif ) {
-			Element( 'notification/view' );
+			Element( 'notification/view' , $notif );
 		}
 	}
 ?>

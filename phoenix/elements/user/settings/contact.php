@@ -7,7 +7,7 @@
 			<label>E-mail:</label>
 			<div class="setting" id="email">
 				<input type="text" name="email" class="small" value="<?php
-				echo htmlspecialchars( $user->Email );
+				echo htmlspecialchars( $user->Profile->Email );
 				?>" />
 				<span>
 					<img src="<?php

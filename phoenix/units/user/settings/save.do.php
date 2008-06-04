@@ -118,7 +118,7 @@
 				}
 				else {
 					if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email ) ) {
-						$user->Email = $email;
+						$user->Profile->Email = $email;
 					}
 					else {
 						$emailerror = true;

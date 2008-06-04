@@ -16,9 +16,8 @@
 				?></a> έγραψε:
 			</div>
 			<div class="subject">
-				<p><?php
-				$text = $comment->GetText( 35 );
-					?><span class="text">"<?php
+				<p><span class="text">"<?php
+					$text = $comment->GetText( 35 );
 					echo utf8_substr( $text , 0 , 30 );
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
