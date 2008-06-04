@@ -27,7 +27,7 @@
                 $newuser->Subdomain = User_DeriveSubdomain( $username );
 				$newuser->Password = $password;
 				if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
-					$newuser->Email = $email;
+					$newuser->Profile->Email = $email;
 				}
 				$_SESSION[ 's_password' ] = $password;
 				$_SESSION[ 's_username' ] = $username;

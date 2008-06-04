@@ -204,13 +204,13 @@
             $this->Egoalbumid = $this->EgoAlbum->Id;
             $this->Save();
 
-            if ( !empty( $this->Email ) ) {
+            if ( !empty( $this->Profile->Email ) ) {
                  // send registration e-mail
                 ob_start();
                 $subject = Element( 'user/email', $this );
                 $text = ob_get_clean();
 
-                mail( $this->Email, $subject, $text, "From: Zino <noreply@zino.gr>" );
+                mail( $this->Profile->Email, $subject, $text, "From: Zino <noreply@zino.gr>" );
             }
         }
         public function RenewAuthtoken() {

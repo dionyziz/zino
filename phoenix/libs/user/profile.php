@@ -115,7 +115,6 @@
 			$this->Haircolor = '-';
 			$this->Smoker = '-';
 			$this->Drinker = '-';
-			$this->Placeid = -1;
 			$this->Height = -1;
 			$this->Weight = -1;
 		}

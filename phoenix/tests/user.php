@@ -72,7 +72,7 @@
             $this->mUser->Profile->BirthMonth = 11;
             $this->mUser->Profile->BirthDay = 17;
             
-            $this->mUser->Email = 'test@kamibu.com';
+            $this->mUser->Profile->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
             $this->mUser->Signature = 'Foo bar blah';
             $this->mUser->Rights = 10;
@@ -90,7 +90,7 @@
             $this->AssertEquals( 'usertest', $this->mUser->Name, 'User name changed after saving user' );
             $this->AssertEquals( UserIp(), $this->mUser->Registerhost, 'User register host changed after saving user' );
             $this->AssertEquals( '1989-11-17', $this->mUser->Profile->Dob, 'User dob changed after saving user' );
-            $this->AssertEquals( 'test@kamibu.com', $this->mUser->Email, 'test@kamibu.com', 'User email changed after saving user' );
+            $this->AssertEquals( 'test@kamibu.com', $this->mUser->Profile->Email, 'test@kamibu.com', 'User email changed after saving user' );
             $this->AssertEquals( 'male', $this->mUser->Gender, 'User gender changed after saving user' );
             $this->AssertEquals( 'Foo bar blah', $this->mUser->Signature, 'User signature changed after saving user' );
             $this->AssertEquals( 10, $this->mUser->Rights, 'User rights changed after saving user' );
@@ -178,7 +178,7 @@
             $this->mUser->Name = 'testuser';
             $this->mUser->Password = 'password';
             $this->mUser->Profile->Dob = '1997-04-03 00:00:00';
-            $this->mUser->Email = 'usertest@kamibu.com';
+            $this->mUser->Profile->Email = 'usertest@kamibu.com';
             $this->mUser->Gender = 'female';
             $this->mUser->Signature = 'Foo bar';
             $this->mUser->Rights = 20;
@@ -189,7 +189,7 @@
             $this->AssertNotEquals( $this->mUser->Password, 'password', 'Password was not encrypted with md5' );
             $this->AssertEquals( $this->mUser->Password, md5( 'password' ), 'Password changed after saving changes' );
             $this->AssertEquals( $this->mUser->Profile->Dob, '1997-04-03 00:00:00', 'Date of birthday changed after saving changes' );
-            $this->AssertEquals( $this->mUser->Email, 'usertest@kamibu.com', 'Email changed after saving changes' );
+            $this->AssertEquals( $this->mUser->Profile->Email, 'usertest@kamibu.com', 'Email changed after saving changes' );
             $this->AssertEquals( $this->mUser->Gender, 'female', 'Gender changed after saving changes' );
             $this->AssertEquals( $this->mUser->Signature, 'Foo bar', 'Signature changed after saving changes' );
             $this->AssertEquals( $this->mUser->Rights, 20, 'Rights changed after saving changes' );
@@ -210,13 +210,13 @@
             $this->AssertEquals( $this->mUser->Profile->Dob, '2001-02-01 00:00:00', 'UserProfile::Dob should ignore any invalid values' );
         }
         public function TestInvalidEmail() {
-            $this->mUser->Email = 'lorem';
-            $this->mUser->Email = 'foobar@foo';
-            $this->mUser->Email = 'foo.org';
-            $this->mUser->Email = 'foobar@foo.domainnn';
-            $this->mUser->Email = '1#412fas@dsfo21.fr';
-            $this->mUser->Email = 'qwe@ew@yahoo.com';
-            $this->AssertEquals( $this->mUser->Email, 'usertest@kamibu.com', 'Email should not change when an invalid value is set' );
+            $this->mUser->Profile->Email = 'lorem';
+            $this->mUser->Profile->Email = 'foobar@foo';
+            $this->mUser->Profile->Email = 'foo.org';
+            $this->mUser->Profile->Email = 'foobar@foo.domainnn';
+            $this->mUser->Profile->Email = '1#412fas@dsfo21.fr';
+            $this->mUser->Profile->Email = 'qwe@ew@yahoo.com';
+            $this->AssertEquals( 'usertest@kamibu.com', $this->mUser->Profile->Email, 'Email should not change when an invalid value is set' );
         }
         public function TestInvalidGender() {
             $this->mUser->Gender = 'MALE';
