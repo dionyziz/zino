@@ -5,7 +5,7 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
-		var showcomment = $("div.newcomment").get().cloneNode( true );
+		var showcomment = $("div.newcomment").clone( true );
 		var a = document.createElement( 'a' );
 		a.onclick = false;
 		//TODO: who
