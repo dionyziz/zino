@@ -39,12 +39,21 @@
             return false;
         }
         protected function GetBirthDay() {
+            if ( $this->Dob == '0000-00-00' ) {
+                return 0;
+            }
             return ( int )date( 'j', strtotime( $this->Dob ) );
         }
         protected function GetBirthMonth() {
+            if ( $this->Dob == '0000-00-00' ) {
+                return 0;
+            }
             return ( int )date( 'n', strtotime( $this->Dob ) );
         }
         protected function GetBirthYear() {
+            if ( $this->Dob == '0000-00-00' ) {
+                return 0;
+            }
             return ( int )date( 'Y', strtotime( $this->Dob ) );
         }
         protected function MakeBirthdate( $day, $month, $year ) {
