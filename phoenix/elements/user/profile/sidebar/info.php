@@ -12,7 +12,7 @@
 				if ( $theuser->Profile->Placeid > 0 ) {
 					?><dt><strong>Περιοχή</strong></dt>
 					<dd><?php
-					echo $theuser->Profile->Location->Name;
+					echo htmlspecialchars( $theuser->Profile->Location->Name );
 					?></dd><?php
 				}
 				if ( $theuser->Profile->Uniid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {

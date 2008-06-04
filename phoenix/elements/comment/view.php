@@ -26,7 +26,7 @@
 			?></div>
 			<div class="who"><?php
 				Element( 'user/display' , $comment->User );
-				?>είπε:
+				?> είπε:
 			</div>
 			<div class="text"><?php
 				echo $comment->Text;
