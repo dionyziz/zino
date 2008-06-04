@@ -8,7 +8,7 @@
 				?></span>
 			</div>
 			<div class="who"><?php
-				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 75 , 75 );
+				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
 				Element( 'user/name' , $notif->FromUser , false );
 				?> έγραψε:
 			</div>
@@ -39,7 +39,7 @@
 							Element( 'url' , $comment );
 							echo htmlspecialchars( ob_get_clean() );
 							?>" class="itempic"><?php
-							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' );
+							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
 							?></a><?php
 							break;
 						case TYPE_JOURNAL:
