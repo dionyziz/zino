@@ -1,6 +1,6 @@
 <?php
     /// Content-type: text/plain ///
-	function ElementNotificationEmailFooter( $existinguser = true ) {
+	function ElementEmailFooter( $existinguser = true ) {
 		global $rabbit_settings;
 
         ?>
