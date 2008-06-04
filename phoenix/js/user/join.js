@@ -20,7 +20,6 @@ var Join = {
 };
 $( document ).ready( function(){
 	if ( Join.username ) {
-		alert( 'exists' );
 		$( 'form.joinform' ).submit( function() {
 			return false;
 		} );
