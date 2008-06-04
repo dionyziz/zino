@@ -10,6 +10,6 @@ var Comments = {
 		a.onclick = false;
 		//TODO: who
 		$( showcomment ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().text( texter );
-		$( showcomment ).find( "div.bottom" )[0].remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().insertAfter( "div.newcomment" );
+		$( showcomment ).find( "div.bottom" ).remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().insertAfter( "div.newcomment" );
 	}
 };
