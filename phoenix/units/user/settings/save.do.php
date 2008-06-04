@@ -112,6 +112,7 @@
 			if ( $drinker ) {
 				$user->Profile->Drinker = $drinker;
 			}
+			$emailerror = false;
 			if ( $email ) {
 				if ( $email == '-1' ) {
 					$user->Email = '';
@@ -130,6 +131,7 @@
 				}
 				//if email == -1 save empty
 			}
+			$msnerror = false;
 			if ( $msn ) {
 				if ( $msn == '-1' ) {
 					$user->Profile->Msn = '';
