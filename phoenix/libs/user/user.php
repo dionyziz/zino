@@ -195,19 +195,17 @@
             $this->Lastlogin = time();
         }
         protected function OnCreate() {
-            $this->Profile;
-
             $this->Profile->Save();
             $this->Preferences->Save();
             $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
-            $this->Save();
+            $this->Save(); // save again
 
             if ( !empty( $this->Profile->Email ) ) {
                  // send registration e-mail
                 ob_start();
-                $subject = Element( 'user/email', $this );
+                $subject = Element( 'user/email/welcome', $this );
                 $text = ob_get_clean();
 
                 mail( $this->Profile->Email, $subject, $text, "From: Zino <noreply@zino.gr>" );
