@@ -12,6 +12,33 @@
 
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindByCommentAndUser( $comment, $user ) {
+            $query = $this->mDb->Prepare( "SELECT 
+                        *
+                    FROM
+                        :notify RIGHT JOIN :events
+                            ON notification_eventid = event_id
+                    WHERE
+                        `notification_touserid` = :userid AND
+                        `event_typeid` = :typeid
+                        `event_itemid` = :commentid
+                    LIMIT 
+                        1;" );
+            
+            $query->BindTable( 'notify' );
+            $query->BindTable( 'notify' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
+            $query->Bind( 'commentid', $comment->Id );
+            
+            $res = $query->Execute();
+            if ( $res->Results() ) {
+                return New Notification( $res->FetchArray() );
+            }
+            else {
+                return false;
+            }
+        }
     }
 
     function Notification_FieldByEvent( $event ) {
@@ -100,11 +127,8 @@
         public function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );
         }
-        public function LoadDefaults() {
-            $this->Created = NowDate();
-        }
 		public function GetSince() {
-			return dateDiff( $this->Created, NowDate() );
+			return dateDiff( $this->Event->Created, NowDate() );
 		}
     }
 
