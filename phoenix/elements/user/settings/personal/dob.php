@@ -2,9 +2,10 @@
 
 	function ElementUserSettingsPersonalDob() {
 		global $user;
-
+		global $water;
 		?><select class="small">
 			<option value="-1"<?php
+			$water->Trace( 'dd-mm-yyyy :' . $user->Profile->BirthDay . ' ' . $user->Profile->BirthMonth . ' ' . $user->Profile->BirthYear );
 			if ( !$user->Profile->BirthDay ) {
 				?> selected="selected"<?php
 			}
