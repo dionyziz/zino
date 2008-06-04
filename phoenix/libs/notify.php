@@ -84,6 +84,8 @@
                 if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
+                print_r( $this->ToUser->Preferences );
+                die();
                 return false;
             }
             $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
