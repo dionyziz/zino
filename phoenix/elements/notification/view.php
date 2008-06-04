@@ -52,7 +52,8 @@
 							?></a><?php
 							break;
 					}
-					?></p><?php
+					?></p>
+					<div class="eof"></div><?php
 				}
 				else {
 				
