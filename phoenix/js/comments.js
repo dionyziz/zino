@@ -5,10 +5,10 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
-		var showcomment = $("div.newcomment").cloneNode( true );
+		var showcomment = $("div.newcomment").get().cloneNode( true );
 		var a = document.createElement( 'a' );
 		a.onclick = false;
 		//TODO: who
-		showcomment.removeClass( "newcomment" ).find( "span.time" )[0].text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().text( texter ).end().find( "div.bottom" )[0].remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().insertAfter( "div.newcomment" );
+		$( showcomment ).removeClass( "newcomment" ).find( "span.time" )[0].text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().text( texter ).end().find( "div.bottom" )[0].remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().insertAfter( "div.newcomment" );
 	}
 };
