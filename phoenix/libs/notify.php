@@ -74,8 +74,8 @@
             }
             
             $attribute = 'Notify' . $field;
-            die( $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
+                die( "not saving notification" );
                 return false;
             }
 
