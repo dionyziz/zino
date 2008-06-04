@@ -5,9 +5,8 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
-		var showcomment = $("div.newcomment").clone( true );
 		var a = document.createElement( 'a' );
 		a.onclick = false;
-		$( showcomment ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().end().find( "div.text" ).append( document.createTextNode( texter ) ).end().find( "div.bottom" ).remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().find( "div.who:last-child" ).replaceWith( document.createTextNode( " είπε:" ) ).end().insertAfter( "div.newcomment" );
+		$("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().end().find( "div.text" ).append( document.createTextNode( texter ) ).end().find( "div.bottom" ).remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().find( "div.who:last-child" ).replaceWith( document.createTextNode( " είπε:" ) ).end().insertAfter( "div.newcomment" );
 	}
 };
