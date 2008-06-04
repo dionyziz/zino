@@ -2,7 +2,9 @@
 	
 	function ElementCommentReply() {
 		global $user;
+		global $page;
 		
+		$page->AttachScript( 'js/comments.js' );
 		?><div class="comment newcomment">
 			<div class="toolbox">
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
