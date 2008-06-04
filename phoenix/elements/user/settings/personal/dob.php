@@ -5,7 +5,7 @@
 
 		?><select class="small">
 			<option value="-1"<?php
-			if ( !$user->Profile->Age ) {
+			if ( !$user->Profile->BirthDay ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
@@ -29,7 +29,7 @@
 		?></select>
 		<select class="small">
 			<option value="-1"<?php
-			if ( !$user->Profile->Age ) {
+			if ( !$user->Profile->BirthMonth ) {
 				?> selected="selected"<?php
 			}
 			?>><?php
@@ -52,7 +52,7 @@
 		?></select>
 		<select class="small">
 			<option value="-"<?php
-			if ( !$user->Profile->Age ) {
+			if ( !$user->Profile->BirthYear ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
