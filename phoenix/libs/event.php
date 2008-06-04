@@ -54,7 +54,8 @@
             33 => 'EVENT_USERPROFILE_HEIGHT_UPDATED',
             34 => 'EVENT_USERPROFILE_WEIGHT_UPDATED',
             35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
-            36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED'
+            36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
+            37 => 'EVENT_USER_CREATED'
         );
 	}
 
@@ -136,17 +137,19 @@
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
                     if ( $this->Item->Parentid == 0 ) {
-                        $notif->Userid = $this->Item->Parent->Userid;
+                        $notif->Touserid = $this->Item->Parent->Userid;
                     }
                     else {
-                        $notif->Userid = $this->Item->Item->Userid;
+                        $notif->Touserid = $this->Item->Item->Userid;
                     }
+                    $notif->Fromuserid = $this->Userid;
                     $notif->Save();
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
-                    $notif->Userid = $this->Item->Userid;
+                    $notif->Touserid = $this->Item->Userid;
+                    $notif->Fromuserid = $this->Userid;
                     $notif->Save();
                     break;
             }
