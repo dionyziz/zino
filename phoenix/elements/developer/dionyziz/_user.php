@@ -4,10 +4,10 @@
 
         echo $user->Profile->Dob;
         ?><br /><?php
-        echo $user->BirthDay;
+        echo $user->Profile->BirthDay;
         ?><br /><?php
-        echo $user->BirthMonth;
+        echo $user->Profile->BirthMonth;
         ?><br /><?php
-        echo $user->BirthYear;
+        echo $user->Profile->BirthYear;
     }
 ?>
