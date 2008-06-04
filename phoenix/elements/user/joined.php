@@ -5,7 +5,7 @@
 		global $rabbit_settings;
 		global $page;
 		
-		$page->SetTitle( 'Καλωσήρθες στο ' . $rabbit_settings[ 'applicationname' ] );
+		$page->SetTitle( 'Καλωσήρθες' );
 		if ( !$user->Exists() ) {
 			Redirect( $rabbit_settings[ 'webaddress' ] );
 		}
@@ -22,12 +22,6 @@
 		        <i class="bl"></i>
 		        <i class="br"></i>
 		    </div>
-			<div class="profinfo">
-				<div class="logininfo">
-					<img src="images/login-screenshot.jpg" style="width:300px;height:182px;" />
-					<span>Μπορείς να κάνεις είσοδο από την κεντρική σελίδα.</span>
-				</div>
-			</div>
 			<div class="profinfo">
 				<p>
 				Συμπλήρωσε μερικές λεπτομέρειες για τον εαυτό σου.<br />Αν δεν θες να το κάνεις τώρα,
