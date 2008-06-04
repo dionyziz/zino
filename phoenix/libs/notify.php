@@ -66,7 +66,7 @@
             mail( $this->ToUser->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnBeforeCreate() {
-            $field = Notification_FieldByType( $this->Event );
+            $field = Notification_FieldByEvent( $this->Event );
 
             $attribute = 'Email' . $field;
             if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Email ) && $this->ToUser->Emailverified ) {
