@@ -1,10 +1,8 @@
 <?php
 	
-	function ElementNotificationList() {
-		Element( 'notification/view' );
-		Element( 'notification/view' );
-		Element( 'notification/view' );
-		Element( 'notification/view' );
-		Element( 'notification/view' );
+	function ElementNotificationList( $notifs ) {
+		foreach( $notifs as $notif ) {
+			Element( 'notification/view' );
+		}
 	}
 ?>

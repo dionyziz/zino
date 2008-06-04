@@ -6,6 +6,7 @@
 		global $water;
 		$libs->Load( 'poll/poll' );
 		$libs->Load( 'comment' );
+		$libs->Load( 'notify' );
 		
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
@@ -16,16 +17,23 @@
 			$finder = New ImageFinder();
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
 		}
-		?><div class="main">
-			<div class="notifications">
-				<h3>Ενημερώσεις</h3>
-				<div class="list"><?php
-					Element( 'notification/list' );
-				?></div>
-				<div class="expand">
-					<a href="" title="Απόκρυψη"></a>
-				</div>
-			</div><?php
+		if ( $user->Id == $theuser->Id ) {
+			$finder = New NotificationFinder();
+			$notifs = $finder->FindByUser( $user , 0 , 5 );
+			$water->Trace( 'notification number: ' . count( $notifs ) );
+		}
+		?><div class="main"><?php
+			if ( $user->Id == $theuser->Id && count( $notifs ) > 0 ) {
+				?><div class="notifications">
+					<h3>Ενημερώσεις</h3>
+					<div class="list"><?php
+						Element( 'notification/list' , $notifs );
+					?></div>
+					<div class="expand">
+						<a href="" title="Απόκρυψη"></a>
+					</div>
+				</div><?php
+			}
 			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
 				?><div class="ybubble">	
 					<h3>Ανέβασε μια φωτογραφία σου</h3>
