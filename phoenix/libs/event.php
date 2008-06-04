@@ -124,7 +124,7 @@
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
-				$this->Object = $this->HasOne( $model, 'Itemid' );
+				$this->Item = $this->HasOne( $model, 'Itemid' );
 			}
 		}
         protected function OnCreate() {

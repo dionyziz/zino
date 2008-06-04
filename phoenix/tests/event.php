@@ -88,7 +88,7 @@
 			$this->AssertEquals( $this->mUser->Id, $event->Itemid );
 			$this->AssertEquals( $this->mUser->Id, $event->Userid );
 			
-			$this->Assert( 'UserProfile', get_class( $event->Object ), 'Event model should be instance of UserProfile' );
+			$this->Assert( 'UserProfile', get_class( $event->Item ), 'Event model should be instance of UserProfile' );
 		}
 		public function TestFindByUser() {
 			$event = New Event();
