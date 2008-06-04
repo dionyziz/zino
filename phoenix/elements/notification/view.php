@@ -14,7 +14,7 @@
 			</div>
 			<div class="subject"><?php
 				if ( $notif->Event->Typeid != EVENT_USERRELATION_CREATED ) {
-					?><p><span class="text"><?php
+					?><p><span class="text">"<?php
 					$comment = $notif->Item;
 					$text = $comment->GetText( 35 );
 					echo utf8_substr( $text , 0 , 30 );
@@ -34,13 +34,8 @@
 							?></a><?php
 							break;
 						case TYPE_IMAGE:
-							?>στη φωτογραφία <a href="<?php
-							ob_start();
-							Element( 'url' , $comment );
-							echo htmlspecialchars( ob_get_clean() );
-							?>" class="itempic"><?php
+							?>στη φωτογραφία <?php
 							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
-							?></a><?php
 							break;
 						case TYPE_JOURNAL:
 							?>στο ημερολόγιο <a href="<?php
