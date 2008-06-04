@@ -280,6 +280,7 @@
                 return $this->mRelations[ $name ]->Retrieve();
             }
             
+            $name = ucfirst( $name );
             if ( !in_array( $name, $this->mDbFields ) ) {
                 throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
