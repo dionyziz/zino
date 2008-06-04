@@ -78,6 +78,12 @@
             $water->Trace( "Notify attribute", $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
                 $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
+                if ( !is_object( $this->ToUser ) ) {
+                    die( "touser not an object" );
+                }
+                if ( !is_object( $this->ToUser->Preferences ) ) {
+                    die( "prefernces not an object" );
+                }
                 return false;
             }
             $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
