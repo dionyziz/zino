@@ -33,7 +33,7 @@
                     }
                 }
     		}
-            if ( $ageyear > 5 ) {
+            if ( isset( $ageyear ) && $ageyear > 5 ) {
                 return $ageyear;
             }
             return false;
