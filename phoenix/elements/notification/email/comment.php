@@ -65,7 +65,7 @@
         <?php
         Element( 'url', $comment );
 
-        Element( 'notification/email/footer' );
+        Element( 'email/footer' );
 
         return ''; // TODO: return subject
 	}

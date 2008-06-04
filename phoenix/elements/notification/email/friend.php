@@ -48,7 +48,7 @@
         <?php
         Element( 'user/url', $from );
 
-        Element( 'notification/email/footer' );
+        Element( 'email/footer' );
 
         return ''; // TODO: subject
 	}
