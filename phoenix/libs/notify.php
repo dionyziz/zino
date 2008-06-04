@@ -66,6 +66,7 @@
             mail( $this->ToUser->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnBeforeCreate() {
+            global $water;
             $field = Notification_FieldByEvent( $this->Event );
 
             $attribute = 'Email' . $field;
@@ -75,9 +76,10 @@
             
             $attribute = 'Notify' . $field;
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
-                die( "not saving notification" );
+                $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
                 return false;
             }
+            $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
 
             return true;
         }
