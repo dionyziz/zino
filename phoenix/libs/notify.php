@@ -42,6 +42,8 @@
     }
 
     function Notification_FieldByEvent( $event ) {
+        w_assert( $event->Typeid != 0 );
+
         if ( $event->Typeid == EVENT_COMMENT_CREATED ) {
             $comment = $event->Item;
             if ( $comment->Parentid == 0 ) {
