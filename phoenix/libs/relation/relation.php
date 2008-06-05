@@ -7,10 +7,14 @@
         protected $mModel = 'FriendRelation';
 
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
+			// Remove this
+			global $water;
+
             $prototype = New FriendRelation();
             $prototype->Userid = $user->Id;
             
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+            return $trace = $this->FindByPrototype( $prototype, $offset, $limit );
+			$water->Trace( 'FriendRelationFinder::FindByUser returns: ' , $trace );
         }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
