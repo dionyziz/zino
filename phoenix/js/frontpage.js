@@ -40,17 +40,17 @@ $( document ).ready( function() {
 		if ( $( 'div.frontpage div.ybubble' )[ 0 ] ) {
 			$( '#selectplace select' ).change( function() {
 				var place = $( '#selectplace select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
+				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { placeid : place } );
 			} );
 			$( '#selecteducation select' ).change( function() {
 				var edu = $( '#selecteducation select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
+				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
 			} );
 			$( '#selectuni select' ).change( function() {
 				var uni = $( '#selectuni select' )[ 0 ].value;
-				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
+				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
 				Coala.Warm( 'frontpage/welcomeoptions' , { uniid : uni } );
 			} );
 		}

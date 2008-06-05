@@ -2,35 +2,37 @@ div.frontpage {
 	text-align: left;
 }
 div.frontpage div.ybubble {
-	padding: 3px;
 	margin: 0 auto 10px auto;
 	text-align: center;
 	width: 700px;
 	height: 160px;
 }
-div.frontpage div.ybubble a {
+div.frontpage div.ybubble div.body {
+	padding: 3px;
+}
+div.frontpage div.ybubble div.body a {
 	width: 16px;
 	height: 16px;
 	float: right;
 	padding: 3px 1px 0 0;
 }
-div.frontpage div.ybubble form {
+div.frontpage div.ybubble div.body form {
 	text-align: left;
 }
-div.frontpage div.ybubble form p {
+div.frontpage div.ybubble div.body form p {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
-div.frontpage div.ybubble div div#selectplace { 
+div.frontpage div.ybubble div.body div div#selectplace { 
 	padding: 3px;
 }
-div.frontpage div.ybubble div div#selecteducation {
+div.frontpage div.ybubble div.body div div#selecteducation {
 	padding: 3px;
 }
-div.frontpage div.ybubble div div#selectuni {
+div.frontpage div.ybubble div.body div div#selectuni {
 	padding: 3px;
 }
-div.frontpage div.ybubble form div span {
+div.frontpage div.ybubble div.body form div span {
 	padding-right: 3px;
 }
 div.latestimages {
