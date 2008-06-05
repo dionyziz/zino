@@ -19,10 +19,10 @@
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" onclick="Comments.Create();" />
 			</div>
-			<div id="item"><?php
+			<div style="display:none" id="item"><?php
 			echo $itemid;
 			?></div>
-			<div id="type"><?php
+			<div style="display:none" id="type"><?php
 			echo $typeid;
 			?></div>
 		</div><?php
