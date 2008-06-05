@@ -7,7 +7,7 @@
 		$libs->Load( 'poll/poll' );
 		$libs->Load( 'comment' );
 		$libs->Load( 'notify' );
-		$libs->Load( 'relation' );
+		$libs->Load( 'relation/relation' );
 		
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
