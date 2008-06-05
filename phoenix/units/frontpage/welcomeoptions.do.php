@@ -61,7 +61,9 @@
 						echo w_json_encode( ob_get_clean() );
 					?> );
 					$( '#selectuni select' ).change( function() {
-						Settings.Enqueue( 'university' , this.value , 1000 );
+						var uni = $( '#selectuni select' )[ 0 ].value;
+						$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
+						Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
 					});
 					if ( $( '#selectuni' ).hasClass( 'invisible' ) ) {
 						$( '#selectuni' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
