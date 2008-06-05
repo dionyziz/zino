@@ -1,6 +1,6 @@
 <?php
 
-	function ElementUserList() {
+	function ElementUserList( $theusers ) {
 		?><div class="people">
 			<ul><?php
 				foreach ( $theusers as $theuser ) {
