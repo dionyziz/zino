@@ -7,9 +7,6 @@ div.frontpage div.ybubble {
 	width: 700px;
 	height: 160px;
 }
-div.frontpage div.ybubble div.body {
-	padding: 3px;
-}
 div.frontpage div.ybubble div.body a {
 	width: 16px;
 	height: 16px;
@@ -18,6 +15,7 @@ div.frontpage div.ybubble div.body a {
 }
 div.frontpage div.ybubble div.body form {
 	text-align: left;
+	padding: 5px;
 }
 div.frontpage div.ybubble div.body form p {
 	padding-bottom: 0;
