@@ -35,12 +35,7 @@
 	    if ( $user->Exists() ) {
 	        ?><a href="do/user/logout" class="logout">Έξοδος</a><?php
 		}
-	    ?><div class="search">
-			<form action="" method="get">
-				<input type="text" class="text" value="αναζήτησε φίλους" />
-				<input type="submit" class="submit" value="ψάξε" />
-			</form>
-		</div>
+	    ?>
 	    <div class="eof"></div>
 		</div><?php
 	}

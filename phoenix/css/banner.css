@@ -94,37 +94,6 @@ div.header ul li input {
 div.header ul li input.button {
     background-color: #f0f0f0;
 }
-div.header div.search {
-	position: absolute;
-	right: 0;
-    _right: -1px;
-	top: 25px;
-	color: white;
-	margin: 0;
-	padding: 0 0 0 10px;
-	background-image: url('http://static.zino.gr/phoenix/searchbg.png');
-	_background-image: url('http://static.zino.gr/phoenix/_searchbg.png');
-	background-repeat: no-repeat;
-	background-position: top left;
-	width: 176px;
-	height: 47px;
-	z-index: 1;
-}
-div.header div.search input {
-	border: 1px solid #999;
-}
-div.header div.search input.text {
-	color: #ccc;
-	margin: 11px 16px 10px 23px;
-	width: 137px;
-	padding: 2px 2px 2px 4px;
-    background-image: url('http://static.zino.gr/phoenix/shadowytxt.jpg');
-    background-position: top left;
-    background-repeat: no-repeat;
-}
-div.header div.search input.submit {
-	display: none;
-}
 div.header a.logout {
     z-index: 100;
 	position: absolute;
