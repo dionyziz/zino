@@ -6,7 +6,7 @@
 
     global $libs;
 
-    $libs->Load( 'poll' );
+    $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
 	
