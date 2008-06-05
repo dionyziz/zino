@@ -71,7 +71,12 @@
         protected $mDbTableAlias = 'notify';
 
         public function GetItem() {
-            return $this->Event->Item;
+            if ( $this->Event->Exists() ) {
+                return $this->Event->Item;
+            }
+            else {
+                return false;
+            }
         }
         public function GetFromUser() {
             return $this->Event->User;
