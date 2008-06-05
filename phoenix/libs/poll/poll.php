@@ -18,6 +18,9 @@
 	class Poll extends Satori {
 		protected $mDbTableAlias = 'polls';
 
+        protected function GetTitle() {
+            return $this->Question;
+        }
         public function OnVoteCreate() {
             ++$this->Numvotes;
             $this->Save();
