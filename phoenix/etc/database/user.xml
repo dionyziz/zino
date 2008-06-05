@@ -22,9 +22,7 @@
                  <value>m</value>
                  <value>f</value>
             </field>
-            <field name="user_signature" type="text" size="256" />
             <field name="user_lastlogin" type="datetime" />
-            <field name="user_lastprofedit" type="datetime" />
             <field name="user_egoalbumid" type="int" ref="albums.album_id" />
             <index type="primary">
                 <indexfield>user_id</indexfield>
@@ -175,6 +173,7 @@
             <field name="profile_homepage" type="varchar" size="256" />
             <field name="profile_firstname" type="varchar" size="256" />
             <field name="profile_lastname" type="varchar" size="256" />
+            <field name="profile_updated" type="datetime" />
             <index type="primary">
                 <indexfield>profile_userid</indexfield>
             </index>
