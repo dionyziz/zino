@@ -12,7 +12,7 @@
 			?><div class="ybubble">
 				<a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				<form style="margin:0;padding:0">
-					<p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου:</p>
+					<p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
 					<div>
 						<span>Πόλη:</span><?php
 						if ( $user->Profile->Placeid != 0 ) {
@@ -21,7 +21,21 @@
 						else { 
 							Element( 'user/settings/personal/place' , $user );
 						}
-					?></div>
+						?><div class="selecteducation"><?php
+							Element( 'user/settings/personal/education' , $user );
+						?></div>
+						<div class="selectuni"><?php
+							if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
+								if ( $user->Profile->Education == 'university' ) {
+									$typeid = 0;
+								}
+								else if( $user->Profile->Education == 'TEI' ) {
+									$typeid  = 1;
+								}
+								Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+							}
+						?></div>
+					</div>
 					<p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
 				</form>
 				<i class="bl"></i>

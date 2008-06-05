@@ -2,7 +2,7 @@ div.frontpage {
 	text-align: left;
 }
 div.frontpage div.ybubble {
-	padding-top: 0;
+	padding: 0;
 	margin: 0 auto 10px auto;
 	text-align: center;
 	width: 700px;
@@ -16,6 +16,10 @@ div.frontpage div.ybubble a {
 }
 div.frontpage div.ybubble form {
 	text-align: left;
+}
+div.frontpage div.ybubble form p {
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 div.frontpage div.ybubble form div {
 	display: inline;
