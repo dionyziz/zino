@@ -5,6 +5,8 @@
 		global $libs;
 		global $xc_settings;
         
+        $stickyarticle = 4032;
+
 		$libs->Load( 'search' );
 		$libs->Load( 'article' );
 		$libs->Load( 'category' );
@@ -19,6 +21,16 @@
 		$search->SetRequirement( 'editors' );
         $search->SetLimit( 4 );
 		$latest = $search->Get();
+
+        if ( $stickyarticle > 0 ) {
+            foreach ( $latest as $i => $article ) {
+                if ( $article->Id == $stickyarticle ) {
+                    unset( $latest[ $i ] );
+                    break;
+                }
+            }
+            array_unshift( $latest, New Article( $stickyarticle ) );
+        }
 
 		$latestids = array();
 		?><div class="articles newestarticles"><?php

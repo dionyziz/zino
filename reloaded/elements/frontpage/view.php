@@ -14,7 +14,6 @@
         
         ?><div style="clear:both"></div><?php
         
-        //Element( "frontpage/rightbar" );
         Element( "article/popular", $latestids );
         
         ?><br /><?php
