@@ -2,8 +2,7 @@ div.frontpage {
 	text-align: left;
 }
 div.frontpage div.ybubble {
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 3px;
 	margin: 0 auto 10px auto;
 	text-align: center;
 	width: 700px;
