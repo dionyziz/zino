@@ -7,6 +7,7 @@
 		$libs->Load( 'poll/poll' );
 		$libs->Load( 'comment' );
 		$libs->Load( 'notify' );
+		$libs->Load( 'relation' );
 		
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
@@ -63,7 +64,11 @@
 			?></div>
 			<div class="friends">
 				<h3>Οι φίλοι μου</h3><?php
-				Element( 'user/list' );
+				
+				$finder = New FriendRelationFinder();
+				$friends = $finder->FindByUser( $theuser , 0 , 10 ); 
+
+				Element( 'user/list' , $friends);
 				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
 			</div><?php
 			//check if friends empty or not
