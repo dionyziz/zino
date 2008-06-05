@@ -29,6 +29,8 @@
 		$comment->Itemid = $compage;
 		$comment->Save();
 		
+		echo $callback;
+		?>();<?php
 		/*
 		if ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) {
             ?>alert('Ðáñáêáëþ îáíáêÜíå åßóïäï óôï ' + <?php
