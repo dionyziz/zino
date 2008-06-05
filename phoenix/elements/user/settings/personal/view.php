@@ -67,7 +67,9 @@
 		?>">
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university"><?php
-				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+				if ( $showuni ) {
+					Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+				}
 			?></div>
 		</div>
 		<div id="unibarfade" class="barfade<?php
