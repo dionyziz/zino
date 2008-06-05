@@ -1,15 +1,15 @@
 <?php
 
-	function ElementUserList( $theusers ) {
+	function ElementUserList( $relations ) {
 		?><div class="people">
 			<ul><?php
-				foreach ( $theusers as $theuser ) {
+				foreach ( $relations as $relation ) {
 					?><li><a href="<?php
-					Element( 'user/url' , $theuser );
+					Element( 'user/url' , $relation->User );
 					?>"><?php
-					Element( 'user/avatar' , $theuser , 100 , '' , '' , false , 0 , 0 );
+					Element( 'user/avatar' , $relation->User , 100 , '' , '' , false , 0 , 0 );
 					?><strong><?php
-					echo Element( 'user/name' , $theuser , false );
+					echo Element( 'user/name' , $relation->User , false );
 					?></strong><span>προβολή προφίλ &raquo;</span></a></li><?php
 				}			
 			?></ul>
