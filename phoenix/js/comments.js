@@ -24,7 +24,13 @@ var Comments = {
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
 		temp.insertAfter( "div.newcomment" ).fadeTo( 400, 1 );
-		Coala.Warm( 'comments/new', texter, 0, temp.find( "#item:first" ).text(), temp.find( "#type:first" ).text(), 0, Comments.CreateCallback );
+		Coala.Warm( 'comments/new', { 	'text' : texter, 
+										'parent' : 0,
+										'compage' : temp.find( "#item:first" ).text(),
+										'type' : temp.find( "#type:first" ).text(),
+										'indent' : 0,
+										'callback' : Comments.CreateCallback
+									} );
 	},
 	CreateCallback : function() {
 		alert( "" );
