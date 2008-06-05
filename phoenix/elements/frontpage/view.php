@@ -22,7 +22,7 @@
 			?><div class="ybubble">
 				<div class="body">
 					<a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
-					<form style="margin:0;padding:0">
+					<form>
 						<p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
 						<div>
 							<span>Πόλη:</span><?php
