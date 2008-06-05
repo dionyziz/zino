@@ -24,7 +24,7 @@
 
         if ( $stickyarticle > 0 ) {
             foreach ( $latest as $i => $article ) {
-                if ( $article->Id == $stickyarticle ) {
+                if ( $article->Id() == $stickyarticle ) {
                     unset( $latest[ $i ] );
                     break;
                 }
