@@ -44,7 +44,6 @@
 					.removeClass( "invisible" )
 					.animate( { opacity : "1" } , 200 , function() {
 						$( 'div.frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
-					} );
 				} );
 			} );<?php
 			if ( $user->Profile->Education == 'university' ) {
