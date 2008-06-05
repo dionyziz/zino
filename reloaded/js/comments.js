@@ -18,12 +18,12 @@ var Comments = {
 					Comments.Wait( false, nodeid );
 					Coala.Warm( 
                         'comments/new', { 
-                            text : comment.getElementsByTagName( 'textarea' )[0].value, 
-                            parent : nodeid, 
-                            compage : g( 'compage' ).value, 
-                            type : g( 'type' ).value, 
-                            indent : indent+1, 
-                            callback : Comments.NewCommentCallback
+                            'text' : comment.getElementsByTagName( 'textarea' )[0].value, 
+                            'parent' : nodeid, 
+                            'compage' : g( 'compage' ).value, 
+                            'type' : g( 'type' ).value, 
+                            'indent' : indent+1, 
+                            'callback' : Comments.NewCommentCallback
                         }, function () {
                             alert( 'Δεν ήταν δυνατή η καταχώρηση του σχόλιού σου αυτή τη στιγμή. Δοκίμασε ξανά σε λίγο.' );
                         }
