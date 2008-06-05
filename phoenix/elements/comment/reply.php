@@ -5,6 +5,7 @@
 		global $page;
 		
 		$page->AttachScript( 'js/comments.js' );
+		$page->AttachScript( 'js/coala.js' );
 		?><div class="comment newcomment">
 			<div class="toolbox">
 				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
