@@ -44,7 +44,7 @@
             $event->Save();
         }
         public function GetType() {
-            return $this->RelationType->Name;
+            return $this->RelationType->Text;
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

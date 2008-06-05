@@ -22,18 +22,6 @@
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
-        public function Save( $theuser = false ) {
-            global $user;
-
-            if ( !is_object( $theuser ) ) {
-                $theuser = $user;
-            }
-            if ( !$theuser->HasPermission( PERMISSION_RELATIONTYPE_CREATE ) ) {
-                throw New Exception( "Not enough permissions to create relaitontype!" );
-            }
-
-            parent::Save();
-        }
         public function LoadDefaults() {
             global $user;
 
