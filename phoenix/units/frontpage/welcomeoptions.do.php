@@ -1,12 +1,12 @@
 <?php
 
-	function UnitFrontpageWelcomeoptions( tInteger $placeid , tString $education , tInteger $uniid ) {
+	function UnitFrontpageWelcomeoptions( tInteger $place , tString $education , tInteger $university ) {
 		global $user;
 		
 		if ( $user->Exists() ) {
-			$placeid = $placeid->Get();
+			$place = $place->Get();
 			$education = $education->Get();
-			$uniid = $uniid->Get();
+			$university = $university->Get();
 			
 			if ( $place ) {
 				if ( $place == -1 ) {

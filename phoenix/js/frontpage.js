@@ -41,7 +41,7 @@ $( document ).ready( function() {
 			$( '#selectplace select' ).change( function() {
 				var place = $( '#selectplace select' )[ 0 ].value;
 				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'frontpage/welcomeoptions' , { placeid : place } );
+				Coala.Warm( 'frontpage/welcomeoptions' , { place : place } );
 			} );
 			$( '#selecteducation select' ).change( function() {
 				var edu = $( '#selecteducation select' )[ 0 ].value;
@@ -51,7 +51,7 @@ $( document ).ready( function() {
 			$( '#selectuni select' ).change( function() {
 				var uni = $( '#selectuni select' )[ 0 ].value;
 				$( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'frontpage/welcomeoptions' , { uniid : uni } );
+				Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
 			} );
 		}
 	}
