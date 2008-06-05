@@ -57,7 +57,7 @@
 				if ( $place || $education ) {
 					?>$( '#selectuni' ).html( <?php
 						ob_start();
-						?><span>Πανεπιστήμιο</span><?php
+						?><span>Ξ Ξ±Ξ½ΞµΟ€ΞΉΟƒΟ„Ξ®ΞΌΞΉΞΏ</span><?php
 						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						echo w_json_encode( ob_get_clean() );
 					?> );
