@@ -222,8 +222,12 @@ div#profile div.main div.notificatios div.list div.event div.subject p a.itempic
 	height: 75px;
 }
 div#profile div.main div.ybubble {
-	margin: 0 0 20px 50px;
+	margin: -28px 0 20px 50px;
 	width: 500px;
+	height: 85px;
+}
+div#profile div.main div.ybubble div.body {
+	padding-left: 5px;
 }
 div#profile div.main div.ybubble div.body h3 {
 	padding-top: 3px;
