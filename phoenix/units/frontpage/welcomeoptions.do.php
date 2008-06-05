@@ -55,7 +55,7 @@
 			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			if ( $showuni ) {
 				if ( $place || $education ) {
-					?>$( '#selectuni' ).html( <?php
+					?>$( '#selectuni' ).html( '<span>Πανεπιστήμιο</span>'<?php
 						ob_start();
 						Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						echo w_json_encode( ob_get_clean() );
