@@ -4,6 +4,10 @@
         Developer: abresas
     */
 
+    global $libs;
+
+    $libs->Load( 'poll' );
+
     define( 'COMMENT_PAGE_LIMIT', 50 );
 	
     function Comments_CountChildren( $comments, $id ) {
