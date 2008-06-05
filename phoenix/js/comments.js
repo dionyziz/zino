@@ -19,10 +19,11 @@ var Comments = {
 		del.title = "Διαγραφή";
 		del.style.opacity=0;
 		
-		var temp = $("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text" ).empty().append( document.createTextNode( texter ) ).end().find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end().find( "div.toolbox" ).append( del ).end().find( "div.toolbox a" ).fadeTo( 750, 1 ).end();
+		// Dimiourgisa ena teras :-S
+		var temp = $("div.newcomment").clone( true ).css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text" ).empty().append( document.createTextNode( texter ) ).end().find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end().find( "div.toolbox" ).append( del ).end().find( "div.toolbox a" ).fadeTo( 750, 1 ).end();
 		var useros = temp.find( "div.who" ).get(0);
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
-		temp.insertAfter( "div.newcomment" );
+		temp.insertAfter( "div.newcomment" ).fadeTo( 400, 1 );
 	}
 };
