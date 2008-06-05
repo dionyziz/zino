@@ -42,7 +42,7 @@
 				$( 'div.frontpage div.ybubble div.body div.saved' )
 					.css( "opacity" , "0" )
 					.removeClass( "invisible" )
-					.animate( { opacity : "1" } , 200 , function() {
+					.animate( { opacity : "1" } , 2000 , function() {
 						$( 'div.frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
 				} );
 			} );<?php
