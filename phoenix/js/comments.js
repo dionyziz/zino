@@ -7,6 +7,6 @@ var Comments = {
 		}
 		var a = document.createElement( 'a' );
 		a.onclick = false;
-		$("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().end().find( "div.text" ).append( document.createTextNode( texter ) ).end().find( "div.bottom:first-child" ).remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().find( "div.who:last-child" ).replaceWith( document.createTextNode( " είπε:" ) ).end().insertAfter( "div.newcomment" );
+		$("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text textarea" ).remove().end().find( "div.text" ).append( document.createTextNode( texter ) ).end().find( "div.bottom:first" ).remove().append( a ).append( document.createTextNode( "Απάντα" ) ).end().find( "div.who:last" ).replaceWith( document.createTextNode( " είπε:" ) ).end().insertAfter( "div.newcomment" );
 	}
 };
