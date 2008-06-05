@@ -9,12 +9,14 @@
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
 			// Remove this
 			global $water;
+			$water->Trace( 'FriendRelationFinder Trace Starts');
 
             $prototype = New FriendRelation();
             $prototype->Userid = $user->Id;
             
             return $trace = $this->FindByPrototype( $prototype, $offset, $limit );
 			$water->Trace( 'FriendRelationFinder::FindByUser returns: ' , $trace );
+			$water->Trace( 'FriendRelationFinder Trace Ends');
         }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
