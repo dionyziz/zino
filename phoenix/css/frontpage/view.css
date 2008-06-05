@@ -17,6 +17,9 @@ div.frontpage div.ybubble div.body form {
 	text-align: left;
 	padding: 5px;
 }
+div.frontpage div.ybubble div.body form div span {
+	margin-right: 5px;
+}
 div.frontpage div.ybubble div.body form p {
 	padding-bottom: 0;
 	margin-bottom: 0;

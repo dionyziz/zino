@@ -34,14 +34,16 @@
 								Element( 'user/settings/personal/place' , $user );
 								?></div><?php
 							}
-							?><div id="selecteducation"><?php
+							?><div id="selecteducation">
+								<span>Εκπαίδευση</span><?php
 								Element( 'user/settings/personal/education' , $user );
 							?></div>
 							<div id="selectuni"<?php
 							if ( !$showuni ) {
 								?> class="invisible"<?php
 							}
-							?>><?php
+							?>>
+							<span>Πανεπιστήμιο:</span><?php
 								if ( $showuni ) {
 									Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 								}
