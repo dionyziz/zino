@@ -7,7 +7,7 @@
 		$offset = $offset->Get();
 		
 		$theuser = New User( $id->Get() );
-		$finder = New RelationFinder();
+		$finder = New FriendRelationFinder();
 		$friends = $finder->FindByUser( $theuser , 0 , 20 ); 
 		?><div id="relations">
 			<h3>Σχέσεις</h3><?php
