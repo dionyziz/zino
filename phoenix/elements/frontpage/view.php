@@ -3,6 +3,7 @@
    function ElementFrontpageView( tBoolean $newuser ) {
         global $user;
 		global $water;
+		global $rabbit_settings;
 		
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
