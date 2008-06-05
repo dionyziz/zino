@@ -22,9 +22,9 @@
             `user_id`, `user_name`, `user_password`, `user_created`, `user_registerhost`, `user_lastlogin`,
             `user_rights`, `user_email`, `user_subdomain`, `user_signature`, `user_icon`, `user_gender`,
             `user_msn`, `user_yim`, `user_aim`, `user_icq`, `user_gtalk`, `user_skype`, `user_dob`,
-            `user_hobbies`, `user_subtitle`, `user_blogid`, `user_place`, `user_uniid`, `user_inchat`,
-            `user_lastprofedit`, `user_starpoints`, `user_starpointsexpire`, `user_locked`, `user_lastactive`,
-            `user_templateid`, `user_shoutboxactivated`, `user_contribs`, `user_respect`, `user_numcomments`,
+            `user_hobbies`, `user_subtitle`, `user_blogid`, `user_place`, `user_uniid`,
+            `user_lastprofedit`, `user_lastactive`,
+            `user_contribs`, `user_respect`, `user_numcomments`,
             `user_authtoken`, `user_height`, `user_weight`, `user_eyecolor`, `user_haircolor`, `user_profilecolor`,
             `user_profviews`, `user_numsmallnews`, `user_numimages`
         FROM
@@ -86,8 +86,17 @@
             ?>', `profile_homepage`='', `profile_firstname`='', `profile_lastname`='', `profile_numcomments`='<?php
             echo $row[ 'user_numcomments' ];
             ?>';<?php
-            // TODO: counts
-            // TODO: settings
+        ?>INSERT INTO `usercounts` SET 
+            `count_userid`=LAST_INSERT_ID(), `count_images`='<?php
+            echo $row[ 'user_numimages' ];
+            ?>', `count_polls`=0, `count_journals`=0, `count_albums`=0, `count_comments`=<?php
+            echo $row[ 'user_contribs' ];
+            ?>, `count_shouts`=<?php
+            echo $row[ 'user_numsmallnews' ];
+            // TODO: count polls, journals, albums
+            ?>;<?php
+        ?>INSERT INTO `usersettings` SET
+            `setting_userid`=LAST_INSERT_ID(), `setting_emailprofile`='yes', `setting_emailphotos`='yes', `setting_emailjournals`='yes', `setting_emailpolls`='yes', `setting_emailreplies`='yes', `setting_emailfriends`='yes', `setting_notifyprofile`='yes', `setting_notifyphotos`='yes', `setting_notifyjournals`='yes', `setting_notifypolls`='yes', `setting_notifyreplies`='yes', `setting_notifyfriends`='yes';<?php
     }
 
     // migrate shouts
