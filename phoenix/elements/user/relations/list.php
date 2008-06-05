@@ -2,7 +2,7 @@
 	
 	function ElementUserRelationsList( tInteger $id , tInteger $offset ) {
 		global $libs;
-		$libs->Load( 'relation' );
+		$libs->Load( 'relation/relation' );
 		
 		$offset = $offset->Get();
 		
