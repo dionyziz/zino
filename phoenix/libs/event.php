@@ -19,9 +19,9 @@
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
         return array(
-            0 => 'EVENT_ALBUM_CREATED',
-            1 => 'EVENT_ALBUM_UPDATED', // not in use
-            2 => 'EVENT_ALBUM_DELETED', // not in use
+            1 => 'EVENT_ALBUM_CREATED',
+            2 => 'EVENT_ALBUM_UPDATED', // not in use
+            3 => 'EVENT_ALBUM_DELETED', // not in use
             4 => 'EVENT_COMMENT_CREATED',
             5 => 'EVENT_COMMENT_UPDATED', // not in use
             6 => 'EVENT_COMMENT_DELETED', // not in use
