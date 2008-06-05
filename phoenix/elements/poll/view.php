@@ -9,6 +9,7 @@
 		global $user;
 		
 		$libs->Load( 'poll/poll' );
+		$libs->Load( 'comment' );
 		
 		$poll = New Poll( $id->Get() );
 		$commentid = $commentid->Get();
