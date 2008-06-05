@@ -35,7 +35,7 @@
 								?></div><?php
 							}
 							?><div id="selecteducation">
-								<span>Εκπαίδευση</span><?php
+								<span>Εκπαίδευση:</span><?php
 								Element( 'user/settings/personal/education' , $user );
 							?></div>
 							<div id="selectuni"<?php
