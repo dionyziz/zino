@@ -8,7 +8,11 @@ var Comments = {
 		var a = document.createElement( 'a' );
 		a.onclick = false;
 		a.appendChild( document.createTextNode( "Απάντα" ) );
-		$("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text" ).empty().append( document.createTextNode( texter ) ).end().find( "div.bottom" ).empty().end().find( "div.bottom" ).append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end().find( "div.who" ).text( " είπε:" ).end().insertAfter( "div.newcomment" );
+		var temp = $("div.newcomment").clone( true ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end().find( "div.text" ).empty().append( document.createTextNode( texter ) ).end().find( "div.bottom" ).empty().end().find( "div.bottom" ).append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
+		var useros = temp.find( "div.who" ).get();
+		useros.removeChild( useros.lastChild );
+		useros.appendChild( d.createTextNode( " είπε:" );
+		temp.insertAfter( "div.newcomment" );
 		/*end().find( "div.text" ).append( document.createTextNode( texter ) ).end().find( "div.bottom" ).empty().end().find( "div.bottom" ).append( a ).append( document.createTextNode( "Απάντα" ) ).end().find( "div.who" ).text( " είπε:" ).end().insertAfter( "div.newcomment" );*/
 	}
 };
