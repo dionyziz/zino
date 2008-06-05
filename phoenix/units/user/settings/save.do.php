@@ -200,7 +200,7 @@
 					});
 					if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
 						$( $( '#university' )[ 0 ].parentNode ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
-						$( 'div.barfade' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
+						$( '#unibarfade' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
 					}<?php
 				}
 			}
@@ -210,7 +210,7 @@
 						$( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "0" } , 200 , function() {
 							$( this ).addClass( "invisible" );
 						} );
-						$( 'div.barfade' ).animate( { opacity : "0" } , 200 , function() {
+						$( '#unibarfade' ).animate( { opacity : "0" } , 200 , function() {
 							$( this ).addClass( "invisible" );
 						} );
 					}<?php

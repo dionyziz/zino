@@ -70,7 +70,7 @@
 				Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 			?></div>
 		</div>
-		<div class="barfade<?php
+		<div id="unibarfade" class="barfade<?php
 		if ( !$showuni ) {
 			?> invisible<?php
 		}
