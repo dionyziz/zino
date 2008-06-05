@@ -42,7 +42,9 @@
 								?> class="invisible"<?php
 							}
 							?>><?php
-								Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+								if ( $showuni ) {
+									Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+								}
 							?></div>
 							<div class="saving invisible">
 								<img src="<?php
