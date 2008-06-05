@@ -120,7 +120,10 @@
 
 		public function Relations() {
 			global $water;
-			$model = Event_ModelByType( $this->Typeid );
+
+            if ( $this->Exists() ) {
+    			$model = Event_ModelByType( $this->Typeid );
+            }
 			
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			if ( $this->Exists() ) {
