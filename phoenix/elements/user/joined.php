@@ -12,16 +12,18 @@
 		?><div id="joined">
 			<div class="ybubble">
 				<div class="body">
-			        <div>Συγχαρητήρια! Mόλις δημιουργήσες λογαριασμό στο <?php
-					echo $rabbit_settings[ 'applicationname' ];
-					?>.<br />
-					To προφίλ σου είναι <a href="<?php
-					Element( 'user/url' , $user );
-					?>"><?php
-					Element( 'user/url' , $user );
-					?></a>.</div>
-			        <i class="bl"></i>
-			        <i class="br"></i>
+					<div class="welcome">
+				        <div>Συγχαρητήρια! Mόλις δημιουργήσες λογαριασμό στο <?php
+						echo $rabbit_settings[ 'applicationname' ];
+						?>.<br />
+						To προφίλ σου είναι <a href="<?php
+						Element( 'user/url' , $user );
+						?>"><?php
+						Element( 'user/url' , $user );
+						?></a>.</div>
+				        <i class="bl"></i>
+				        <i class="br"></i>
+					</div>
 				</div>
 		    </div>
 			<div class="profinfo">

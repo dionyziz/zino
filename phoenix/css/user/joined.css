@@ -8,6 +8,9 @@ div#joined div.ybubble {
 	height: 30px;
 	margin: auto;
 }
+div#joined div.ybubble div.body div.welcome {
+	padding: 5px;
+}
 div#joined div.profinfo{
 	text-align: left;
 	padding-top: 20px;
