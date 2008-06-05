@@ -64,6 +64,33 @@
 		public function ConstantByDataType( $datatype ) {
 			if ( $this->mFlippedDataTypes === false ) {
 				$this->mFlippedDataTypes = array_flip( $this->mDataTypes );
+                // FLOAT synonyms or similars
+                $this->mFlippedDataTypes[ 'DECIMAL' ] = DB_TYPE_FLOAT;
+                $this->mFlippedDataTypes[ 'DEC' ] = DB_TYPE_FLOAT;
+                $this->mFlippedDataTypes[ 'DOUBLE' ] = DB_TYPE_FLOAT;
+                // INT synonyms or similars
+                $this->mFlippedDataTypes[ 'TINYINT' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'BOOL' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'BOOLEAN' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'SMALLINT' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'MEDIUMINT' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'INTEGER' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'BIGINT' ] = DB_TYPE_INT;
+                $this->mFlippedDataTypes[ 'LONGINT' ] = DB_TYPE_INT;
+                // ENUM synonyms or similars
+                $this->mFlippedDataTypes[ 'SET' ] = DB_TYPE_ENUM;
+                // CHAR synonyms or similars
+                $this->mFlippedDataTypes[ 'BINARY' ] = DB_TYPE_CHAR;
+                // VARCHAR synonyms or similars
+                $this->mFlippedDataTypes[ 'VARBINARY' ] = DB_TYPE_VARCHAR;
+                // TEXT
+                $this->mFlippedDataTypes[ 'TINYBLOB' ] = DB_TYPE_TEXT;
+                $this->mFlippedDataTypes[ 'TINYTEXT' ] = DB_TYPE_TEXT;
+                $this->mFlippedDataTypes[ 'BLOB' ] = DB_TYPE_TEXT;
+                $this->mFlippedDataTypes[ 'MEDIUMBLOB' ] = DB_TYPE_TEXT;
+                $this->mFlippedDataTypes[ 'MEDIUMTEXT' ] = DB_TYPE_TEXT;
+                // LONGTEXT
+                $this->mFlippedDataTypes[ 'LONGBLOB' ] = DB_TYPE_LONGTEXT;
 			}
             if ( isset( $this->mFlippedDataTypes[ $datatype ] ) ) {
     			return $this->mFlippedDataTypes[ $datatype ];
