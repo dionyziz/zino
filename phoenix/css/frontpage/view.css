@@ -2,7 +2,8 @@ div.frontpage {
 	text-align: left;
 }
 div.frontpage div.ybubble {
-	padding: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 	margin: 0 auto 10px auto;
 	text-align: center;
 	width: 700px;
@@ -21,8 +22,14 @@ div.frontpage div.ybubble form p {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
-div.frontpage div.ybubble form div {
-	display: inline;
+div.frontpage div.ybubble div div#selectplace { 
+	padding: 3px;
+}
+div.frontpage div.ybubble div div#selecteducation {
+	padding: 3px;
+}
+div.frontpage div.ybubble div div#selectuni {
+	padding: 3px;
 }
 div.frontpage div.ybubble form div span {
 	padding-right: 3px;

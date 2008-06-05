@@ -9,6 +9,15 @@
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
         ?><div class="frontpage"><?php
 		if ( $newuser && $user->Exists() ) {
+			if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
+				if ( $user->Profile->Education == 'university' ) {
+					$typeid = 0;
+				}
+				else if( $user->Profile->Education == 'TEI' ) {
+					$typeid  = 1;
+				}
+			}
+			$showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
 			?><div class="ybubble">
 				<a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				<form style="margin:0;padding:0">
@@ -19,22 +28,28 @@
 							echo htmlspecialchars( $user->Profile->Location->Name );
 						}
 						else { 
+							?><div id="selectplace"><?php
 							Element( 'user/settings/personal/place' , $user );
+							?></div><?php
 						}
-						?><div class="selecteducation"><?php
+						?><div id="selecteducation"><?php
 							Element( 'user/settings/personal/education' , $user );
 						?></div>
-						<div class="selectuni"><?php
-							if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
-								if ( $user->Profile->Education == 'university' ) {
-									$typeid = 0;
-								}
-								else if( $user->Profile->Education == 'TEI' ) {
-									$typeid  = 1;
-								}
-								Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
-							}
+						<div id="selectuni"<?php
+						if ( !$showuni ) {
+							?> class="invisible"<?php
+						}
+						?>><?php
+							Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 						?></div>
+						<div class="saving invisible">
+							<img src="<?php
+							echo $rabbit_settings[ 'imagesurl' ];
+							?>ajax-loader.gif" alt="Γίνεται αποθήκευση" title="Γίνεται αποθήκευση" /> Γίνεται αποθήκευση
+						</div>
+						<div class="saved invisible">
+							Έγινε αποθήκευση
+						</div>
 					</div>
 					<p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
 				</form>
