@@ -41,17 +41,17 @@ $( document ).ready( function() {
 			$( '#selectplace select' ).change( function() {
 				var place = $( '#selectplace select' )[ 0 ].value;
 				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'user/frontpage/welcomeoptions' , { placeid : place } );
+				Coala.Warm( 'frontpage/welcomeoptions' , { placeid : place } );
 			} );
 			$( '#selecteducation select' ).change( function() {
 				var edu = $( '#selecteducation select' )[ 0 ].value;
 				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'user/frontpage/welcomeoptions' , { education : edu } );
+				Coala.Warm( 'frontpage/welcomeoptions' , { education : edu } );
 			} );
 			$( '#selectuni select' ).change( function() {
 				var uni = $( '#selectuni select' )[ 0 ].value;
 				$( 'div.frontpage div.ybubble div.saving' ).removeClass( 'invisible' );
-				Coala.Warm( 'user/frontpage/welcomeoptions' , { uniid : uni } );
+				Coala.Warm( 'frontpage/welcomeoptions' , { uniid : uni } );
 			} );
 		}
 	}
