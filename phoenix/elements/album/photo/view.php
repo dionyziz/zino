@@ -184,7 +184,7 @@
 			}
 			?><div class="comments"><?php
 			if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
-				Element( 'comment/reply' );
+				Element( 'comment/reply', $image->Id, TYPE_IMAGE );
 			}
 			if ( $image->Numcomments > 0 ) {
 				$finder = New CommentFinder();

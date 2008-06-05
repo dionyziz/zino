@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementCommentReply() {
+	function ElementCommentReply( $itemid, $typeid ) {
 		global $user;
 		global $page;
 		
@@ -19,6 +19,12 @@
 			<div class="bottom">
 				<input type="submit" value="Σχολίασε!" onclick="Comments.Create();" />
 			</div>
+			<div id="item"><?php
+			echo $itemid;
+			?></div>
+			<div id="type"><?php
+			echo $typeid;
+			?></div>
 		</div><?php
 	}
 ?>

@@ -140,7 +140,7 @@
 					$offset = 1;
 				}
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
-					Element( 'comment/reply' );
+					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
 				if ( $theuser->Profile->Numcomments > 0 ) {
 					$water->Trace( "theuser->Profile->Numcomments = " . $theuser->Profile->Numcomments );

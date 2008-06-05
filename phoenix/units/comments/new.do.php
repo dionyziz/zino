@@ -8,10 +8,32 @@
 		
 		$text = $text->Get();
 		
+		if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) && $xc_settings[ 'anonymouscomments' ] ) {
+			?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
+			return;
+		}
+		
+		if ( $text == '' ) {
+			?>alert( "Δεν μπορείς να δημιουργήσεις κενό σχόλιο" );<?php
+			return;
+		}
+		
+		$parent = $parent->Get();
+		$compage = $compage->Get();
+		$type = $type->Get();
+		
+		$comment = New Comment();
+		$comment->Text = $text;
+		$comment->Userid = $user->Id;
+		$comment->Typeid = $type;
+		$comment->Itemid = $compage;
+		$comment->Save();
+		
+		/*
 		if ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) {
-            ?>alert('�������� �������� ������ ��� ' + <?php
+            ?>alert('Ðáñáêáëþ îáíáêÜíå åßóïäï óôï ' + <?php
             echo json_encode( $rabbit_settings[ 'applicationname' ] );
-            ?> + ' ��� �� ���������������� �� ������ ���');window.location.reload();<?php
+            ?> + ' ãéá íá ðñáãìáôïðïéÞóåéò ôï ó÷üëéü óïõ');window.location.reload();<?php
             return;
 		}
 		
@@ -44,5 +66,7 @@
 		?>,<?php
 		echo $type;
 		?>);<?php
+	*/
+		
 	}
 ?>

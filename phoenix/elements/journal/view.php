@@ -86,7 +86,7 @@
 				</div><?php
 				?><div class="comments"><?php
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
-					Element( 'comment/reply' );
+					Element( 'comment/reply', $journal->Id, TYPE_JOURNAL );
 				}
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();

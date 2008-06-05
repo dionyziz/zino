@@ -37,7 +37,7 @@
 					}
 					?><div class="comments"><?php
 						if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
-							Element( 'comment/reply' );
+							Element( 'comment/reply', $poll->Id, TYPE_POLL );
 						}
 						if ( $poll->Numcomments > 0 ) {
 							$finder = New CommentFinder();
