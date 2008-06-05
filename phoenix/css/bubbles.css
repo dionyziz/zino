@@ -85,14 +85,14 @@ div.bubble i.qbottom {
 }
 
 div.ybubble {
-    background-image: url( 'http://static.zino.gr/phoenix/s_mid.png' );
-	background-position: bottom;
-    background-repeat: repeat-x;
-    height: 91px;
+	padding: 0;
     position: relative;
-    padding: 10px;
     width: 80%;
     margin: 10px auto 40px auto;
+}
+div.ybubble div.body {
+	background-color: #ffdf80; 
+	height: 100%;
 }
 div.ybubble i.tl {
     background-image: url( 'http://static.zino.gr/phoenix/s_tl.png' );
