@@ -118,7 +118,6 @@
             $this->Created = NowDate();
 			$this->Userid = $user->Id;
 			$this->Userip = UserIp();
-			$this->Pageviews = 1;
         }
     }
 
