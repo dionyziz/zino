@@ -16,7 +16,7 @@
 		);
 		if ( !empty( $tags ) ) {
 			foreach ( $tags as $tag ) {
-				$bytype[ $tag->Typeid ][] = $tag;
+				$bytype[ $tag->Typeid ][] = $tag->Text;
 			}
 			?><dl><?php
 				$hobbies = $bytype[ TAG_HOBBIE ];
