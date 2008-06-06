@@ -16,7 +16,7 @@
 
 	$water->Enable(); // on for all
 
-    global $db, $shoutbox, $user, $users, $images, $albums, $polls, $polloptions, $votes, $universities;
+    global $user;
 
     if ( !$user->IsSysOp() ) {
         die( 'Permission denied' );
@@ -172,6 +172,12 @@
             ?>INSERT INTO `usersettings` SET
                 `setting_userid`=LAST_INSERT_ID(), `setting_emailprofile`='yes', `setting_emailphotos`='yes', `setting_emailjournals`='yes', `setting_emailpolls`='yes', `setting_emailreplies`='yes', `setting_emailfriends`='yes', `setting_notifyprofile`='yes', `setting_notifyphotos`='yes', `setting_notifyjournals`='yes', `setting_notifypolls`='yes', `setting_notifyreplies`='yes', `setting_notifyfriends`='yes';<?php
         }
+    }
+
+    function MigrateBulk() {
+        global $bulk;
+        
+        MigrateAsIs( $bulk, 'bulk' );
     }
 
     function MigrateAlbums() {
@@ -335,6 +341,118 @@
         <?php
     }
 
+    function MigrateComments() {
+        global $db, $comments;
+
+        $commenttypes = array(
+            0 => 4,
+            1 => 3,
+            2 => 2,
+            3 => 1
+        );
+        
+        $res = $db->Query(
+            "SELECT
+                `comment_id`, `comment_userid`, `comment_created`, `comment_userip`,
+                `comment_text`, `comment_typeid`, `comment_storyid`, `comment_parentid`
+            FROM
+                `$comments`
+            WHERE
+                `comment_delid`!=0;"
+        );
+        ?>TRUNCATE TABLE `comments`;<?php
+
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `bulk` SET `bulk_text`='<?php
+            echo addslashes( $row[ 'comment_text' ] );
+            ?>';INSERT INTO `comments` SET `comment_id`=<?php
+            echo $row[ 'comment_id' ];
+            ?>, `comment_userid`=<?php
+            echo $row[ 'comment_userid' ];
+            ?>, `comment_created`=<?php
+            echo $row[ 'comment_created' ];
+            ?>, `comment_userip`=<?php
+            echo ip2long( $row[ 'comment_userip' ] );
+            ?>, `comment_bulkid`=LAST_INSERT_ID(), `comment_itemid`=<?php
+            echo $row[ 'comment_storyid' ];
+            ?>, `comment_parentid`=<?php
+            echo $row[ 'comment_parentid' ];
+            ?>, `comment_delid`=0, `comment_typeid`=<?php
+            echo $commenttypes[ $row[ 'comment_typeid' ] ];
+            ?>;<?php
+        }
+    }
+
+    function MigrateJournals() {
+        global $db, $articles, $revisions;
+
+        $res = $db->Query(
+            "SELECT
+                latest.`revision_title`, latest.`revision_textid`, first.`revision_creatorid`,
+                `article_created`, `article_numcomments`, `article_id`
+            FROM
+                $articles CROSS JOIN $revisions AS latest
+                    ON `article_id` = latest.`revision_articleid` 
+                    AND `article_headrevision` = latest.`revision_id`
+                CROSS JOIN $revisions AS first
+                    ON `article_id` = first.`revision_articleid`
+                LEFT JOIN $revisions AS comparison
+                    ON `article_id` = comparison.`revision_articleid`
+                    AND comparison.revision_id < first.revision_id
+            WHERE
+                comparison.revision_id IS NULL
+                AND `article_typeid`=0
+            GROUP BY
+                `article_id`;"
+        );
+
+        ?>TRUNCATE TABLE `journals`;<?php
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `journals` SET
+                `journal_created`=<?php
+                echo $row[ 'article_created' ];
+                ?>, `journal_numcomments`=<?php
+                echo $row[ 'article_numcomments' ];
+                ?>, `journal_title`='<?php
+                echo addslashes( $row[ 'revision_title' ] );
+                ?>', `journal_bulkid`=<?php
+                echo $row[ 'revision_textid' ];
+                ?>, `journal_userid`=<?php
+                echo $row[ 'revision_creatorid' ];
+                ?>;<?php
+        }
+    }
+
+    function MigrateSpaces() {
+        global $db, $articles, $revisions, $users;
+
+        $res = $db->Query(
+            "SELECT
+                `user_id`, `revision_textid`, `revision_updated`
+            FROM
+                $users CROSS JOIN $articles
+                    ON `user_blogid`=`article_id`
+                CROSS JOIN $revisions
+                    ON `article_id`=`revision_articleid`
+                    AND `revision_id`=`article_headrevision`
+            WHERE
+                `article_typeid`=2
+                AND `article_delid`=0;"
+        );
+
+        ?>TRUNCATE TABLE `userspaces`;<?php
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `userspaces` SET
+                `space_userid`=<?php
+                echo $row[ 'user_id' ];
+                ?>, `space_bulkid`=<?php
+                echo $row[ 'revision_textid' ];
+                ?>, `revision_updated`=<?php
+                echo $row[ 'revision_updated' ];
+            ?>;<?php
+        }
+    }
+
     header( 'Content-type: text/html; charset=utf8' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql.gz' );
 
@@ -359,13 +477,22 @@
             MigratePolls();
             break;
         case 4:
-            MigrateShouts();
+            MigrateBulk();
             break;
         case 5:
-            MigrateCounts();
+            MigrateShouts();
             break;
         case 6:
+            MigrateCounts();
+            break;
+        case 7:
             MigrateComments();
+            break;
+        case 8:
+            MigrateJournals();
+            break;
+        case 9:
+            MigrateSpaces();
             break;
     }
 
