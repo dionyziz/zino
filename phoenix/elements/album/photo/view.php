@@ -5,7 +5,6 @@
 		global $page;
 		global $libs;
 		global $water;
-		global $xc_settings;
 		
 		$libs->Load( 'comment' );
 		$libs->Load( 'favourite' );
@@ -183,7 +182,7 @@
 				?></div><?php
 			}
 			?><div class="comments"><?php
-			if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) || $xc_settings[ 'anonymouscomments' ] ) {
+			if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				Element( 'comment/reply', $image->Id, TYPE_IMAGE );
 			}
 			if ( $image->Numcomments > 0 ) {
