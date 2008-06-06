@@ -168,7 +168,7 @@
 			
 			return $size;
 		}
-		public function CommentAdded() {
+		public function OnCommentCreate() {
             if ( $this->Albumid ) {
                 $this->Album->CommentAdded();
             }
