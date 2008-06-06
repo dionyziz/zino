@@ -336,7 +336,7 @@
     }
 
     header( 'Content-type: text/html; charset=utf8' );
-    // header( 'Content-encoding: gzip' );
+    header( 'Content-encoding: gzip' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql' );
 
     ob_start();
@@ -365,9 +365,12 @@
         case 5:
             MigrateCounts();
             break;
+        case 6:
+            MigrateComments();
+            break;
     }
 
-    $data = ob_get_clean();
+    $data = gzencode( ob_get_clean() );
     // header( 'Content-length: ' . strlen( $data ) );
 
     echo $data;
