@@ -5,7 +5,7 @@
 		global $libs;
 		global $xc_settings;
         
-        $stickyarticle = 4032;
+        $stickyarticle = 0;
 
 		$libs->Load( 'search' );
 		$libs->Load( 'article' );
