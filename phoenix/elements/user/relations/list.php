@@ -2,6 +2,8 @@
 	
 	function ElementUserRelationsList( tString $username , tString $subdomain , tInteger $offset ) {
 		global $libs;
+		global $user;
+		
 		$libs->Load( 'relation/relation' );
 		
 		$offset = $offset->Get();
