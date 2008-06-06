@@ -358,7 +358,7 @@
             FROM
                 `$comments`
             WHERE
-                `comment_delid`!=0;"
+                `comment_delid`=0;"
         );
         ?>TRUNCATE TABLE `comments`;<?php
 
