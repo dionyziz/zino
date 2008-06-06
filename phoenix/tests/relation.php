@@ -156,8 +156,8 @@
             $userids = array( $this->mUser->Id, $this->mUser2->Id );
             $typeids = array( $unknown_type->Id, $lover_type->Id );
             foreach ( $relations as $relation ) {
-                $this->AssertEquals( $this->mUser->Id, $relation->Friendid, 'Wrong userid' );
-                $this->Assert( in_array( $relation->Userid, $userids ), 'Wrong friendid' );
+                $this->AssertEquals( $abresas->Id, $relation->Friendid, 'Wrong friendid' );
+                $this->Assert( in_array( $relation->Userid, $userids ), 'Wrong userid' );
                 $this->Assert( in_array( $relation->Typeid, $typeids ), 'Wrong typeid' );
             }
             
