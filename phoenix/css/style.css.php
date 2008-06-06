@@ -20,6 +20,7 @@
 	include "user/join.css";
 	include "user/joined.css";
 	include "user/list.css";
+	include "user/relations.css";
 	include "user/sections.css";
 	include "user/settings.css";
 	include "user/profile/view.css";

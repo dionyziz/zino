@@ -15,31 +15,39 @@
 				if ( $section == 'album' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=albums&amp;username=<?php
-				Element( 'user/subdomain' , $theuser );
-				?>">Albums</a></li>
+				?>><a href="<?php
+				Element( 'user/url' , $theuser );
+				?>/albums">Albums</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'poll' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=polls&amp;username=<?php
-				Element( 'user/subdomain' , $theuser );
-				?>">Δημοσκοπήσεις</a></li>
+				?>><a href="<?php
+				Element( 'user/url' , $theuser );
+				?>/polls">Δημοσκοπήσεις</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'journal' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=journals&amp;username=<?php
-				Element( 'user/subdomain' , $theuser );
-				?>">Ημερολόγιο</a></li>
+				?>><a href="<?php
+				Element( 'user/url' , $theuser );
+				?>/journals">Ημερολόγιο</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'space' ) {
 					?> class="selected"<?php
 				}
 				?>><a href="?p=space&amp;username=<?php
+				Element( 'user/subdomain' , $theuser );
+				?>">Χώρος</a></li>
+				<li>·</li>
+				<li<?php
+				if ( $section == 'relations' ) {
+					?> class="selected"<?php
+				}
+				?>><a href="?p=relations&amp;username=<?php
 				Element( 'user/subdomain' , $theuser );
 				?>">Χώρος</a></li>
 			</ul>

@@ -77,7 +77,7 @@
 			"album" 			=> "album/photo/list",
 			"photo"				=> "album/photo/view",
 			"upload" 			=> "album/photo/upload",
-			"relations"			=> "user/relations/list",
+			"friends"			=> "user/relations/list",
             'tos'               => 'about/tos/view',
             'unittest'          => 'developer/test/view',
             'search'            => 'developer/abresas/search',

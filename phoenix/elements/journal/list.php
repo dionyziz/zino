@@ -73,7 +73,7 @@
 				}
 			?></ul>
 			<div class="pagifyjournals"><?php
-			Element( 'pagify' , $offset , 'polls&username=' . $theuser->Subdomain , $theuser->Count->Journals , 5 , 'offset' );
+			Element( 'pagify' , $offset , 'polls&subdomain=' . $theuser->Subdomain , $theuser->Count->Journals , 5 , 'offset' );
 			?></div>
 		</div>
 		<div class="eof"></div><img src="<?php
