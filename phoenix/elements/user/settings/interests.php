@@ -37,7 +37,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $hobbie->Name );
+								echo htmlspecialchars( $hobbie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -72,7 +72,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $song->Name );
+								echo htmlspecialchars( $song->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -107,7 +107,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $movie->Name );
+								echo htmlspecialchars( $movie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -142,7 +142,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $show->Name );
+								echo htmlspecialchars( $show->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -177,7 +177,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $book->Name );
+								echo htmlspecialchars( $book->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -212,7 +212,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $artist->Name );
+								echo htmlspecialchars( $artist->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
@@ -247,7 +247,7 @@
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
 								<span><?php
-								echo htmlspecialchars( $game->Name );
+								echo htmlspecialchars( $game->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
