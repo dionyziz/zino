@@ -6,11 +6,9 @@
 		
 		$libs->Load( 'relation/relation' );
 		
-		$offset = $offset->Get();
-		
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
-
+		
 		if ( $username != '' ) {
 			if ( strtolower( $username ) == strtolower( $user->Name ) ) {
 				$theuser = $user;
