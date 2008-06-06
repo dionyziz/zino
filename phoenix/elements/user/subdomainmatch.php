@@ -1,6 +1,7 @@
 <?php
     function ElementUserSubdomainmatch() {
         global $page;
+        global $rabbit_settings;
         global $xc_settings;
 
         $subdomains = explode( '*', $xc_settings[ 'usersubdomains' ], 2 );
@@ -20,7 +21,7 @@
             $coalabase = $matches[ 0 ];
         }
         else {
-            $coalabase = $xc_settings[ 'webaddress' ];
+            $coalabase = $rabbit_settings[ 'webaddress' ];
         }
 
         ob_start();
