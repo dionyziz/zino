@@ -78,7 +78,7 @@
     // migrate users
     $res = $db->Query(
         "SELECT
-            `user_id`, `user_name`, `user_password`, `user_created`, `user_registerhost`, `user_lastlogin`,
+            `user_id`, `user_name`, `user_password`, `user_created`, `user_registerhost`, `user_lastlogon`,
             `user_rights`, `user_email`, `user_subdomain`, `user_signature`, `user_icon`, `user_gender`,
             `user_msn`, `user_yim`, `user_aim`, `user_icq`, `user_gtalk`, `user_skype`, `user_dob`,
             `user_hobbies`, `user_subtitle`, `user_blogid`, `user_place`, `user_uniid`,
@@ -108,7 +108,7 @@
             ?>', `user_gender` = '<?php
             echo $row[ 'user_gender' ];
             ?>', `user_lastlogin` = '<?php
-            echo $row[ 'user_lastlogin' ];
+            echo $row[ 'user_lastlogon' ];
             ?>', `user_egoalbumid` = 0;<?php
         // TODO: ego album heuristic
         ?>INSERT INTO `userprofiles` SET
