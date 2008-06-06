@@ -13,7 +13,7 @@ var Profile = {
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
 			$( this )
 			.empty()
-			.append( document.createTextNode( 'Έγινε προσθήκη στους φίλους' ) );
+			.append( document.createTextNode( 'Έγινε προσθήκη στους φίλους' ) )
 			.fadeIn( 400 );
 		} );
 	}

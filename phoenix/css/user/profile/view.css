@@ -15,17 +15,21 @@ div#profile div.sidebar div.basicinfo {
 	padding: 4px;
 	margin-bottom: 20px;
 }
+div#profile div.sidebar div.basicinfo h2 img {
+	margin-bottom: 5px;
+}
 div#profile div.sidebar div.basicinfo div.mood {
 	padding-top: 5px;
 }
 
 div#profile div.sidebar div.basicinfo div.addfriend {
 	clear: left;
+	margin-bottom: 15px;
 }
 div#profile div.sidebar div.basicinfo div.addfriend a {
 	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
 	background-repeat: no-repeat;
-	padding-left: 16px;
+	padding-left: 18px;
 }
 /*
 div#profile div.sidebar div.basicinfo div.info {
