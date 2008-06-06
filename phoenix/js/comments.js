@@ -50,7 +50,7 @@ var Comments = {
 										compage : temp.find( "#item:first" ).text(),
 										type : type,
 										indent : 0,
-										callback : Comments.CreateCallback
+										node : temp
 									} );
 	},
 	CreateCallback : function() {

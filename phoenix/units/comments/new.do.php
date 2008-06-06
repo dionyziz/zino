@@ -1,5 +1,5 @@
 <?php
-	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tInteger $indent, tCoalaPointer $callback ) {
+	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tInteger $indent, tCoalaPointer $node ) {
 		global $libs;
 		global $user;
 		
@@ -28,46 +28,9 @@
 		$comment->Itemid = $compage;
 		$comment->Save();
 		
-		echo $callback;
-		?>();<?php
-		/*
-		if ( $user->IsAnonymous() && !$xc_settings[ 'anonymouscomments' ] ) {
-            ?>alert('Ðáñáêáëþ îáíáêÜíå åßóïäï óôï ' + <?php
-            echo json_encode( $rabbit_settings[ 'applicationname' ] );
-            ?> + ' ãéá íá ðñáãìáôïðïéÞóåéò ôï ó÷üëéü óïõ');window.location.reload();<?php
-            return;
-		}
-		
-		if ( $text == '' ) {
-			return;
-		}
-		
-		$parent = $parent->Get();
-		$compage = $compage->Get();
-		$type = $type->Get();
-		
-		$id = MakeComment( $text, $parent, $compage, $type );
-		$comment = New Comment( $id );
-		
-		ob_start();
-		Element( 'comment/view', $comment, $indent->Get() );
-		$newcomm = preg_replace('/&nbsp;+/', ' ', ob_get_clean()); // Prevent the &nbsp; cause an undefined entity error
-		
-		if( $indent->Get() != 0 ) {
-			?>Comments.hideDeleteButton( <?php
-			echo $parent;
-			?>, true );<?php
-		}
-		
-		echo $callback;
-		?>( <?php
-		echo w_json_encode( $newcomm );
-		?>,<?php
-		echo $parent;
-		?>,<?php
-		echo $type;
-		?>);<?php
-	*/
-		
+		echo $node;
+		?>.setAttribute( 'id', 'comment_<?php
+		echo $comment->Id;
+		?>' );<?php
 	}
 ?>
