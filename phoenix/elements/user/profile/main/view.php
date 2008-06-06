@@ -60,21 +60,28 @@
 				else {
 					?><ul></ul><?php
 				}
-			?></div>
-			<div class="friends">
-				<h3>Οι φίλοι μου</h3><?php
-				
-				$finder = New FriendRelationFinder();
-				$friends = $finder->FindByUser( $theuser , 0 , 10 ); 
-
-				Element( 'user/list' , $friends);
-				?><a href="" class="button">Περισσότεροι φίλοι&raquo;</a>
-			</div><?php
-			//check if friends empty or not
-			?><div class="barfade">
-				<div class="leftbar"></div>
-				<div class="rightbar"></div>
-			</div><?php
+			?></div><?php
+			$finder = New FriendRelationFinder();
+			$friends = $finder->FindByUser( $theuser , 0 , 10 ); 
+			
+			if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
+				?><div class="friends">
+					<h3>Οι φίλοι μου</h3><?php
+					if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
+						?>Δεν έχεις προσθέσει κανέναν φίλο. Μπορείς να προσθέσεις φίλους από το προφίλ τους.<?php
+					}
+					else {
+						Element( 'user/list' , $friends );
+					}
+				?><a href="?p=friends&amp;subdomain=<?php
+				echo $theuser->Subdomain;
+				?>" class="button">Περισσότεροι φίλοι&raquo;</a>
+				</div>
+				<div class="barfade">
+					<div class="leftbar"></div>
+					<div class="rightbar"></div>
+				</div><?php
+			}
 			if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
 				?><div class="lastpoll">
 					<h3>Δημοσκοπήσεις</h3><?php
