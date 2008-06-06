@@ -170,7 +170,7 @@
 		}
 		public function OnCommentCreate() {
             if ( $this->Albumid ) {
-                $this->Album->CommentAdded();
+                $this->Album->OnCommentCreate();
             }
 		   
             ++$this->Numcomments;
