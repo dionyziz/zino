@@ -6,7 +6,7 @@
     Rabbit_Construct();
 		
     if ( isset( $_GET[ 'step' ] ) ) {
-        $step = $_GET[ 'step' ];
+        $step = ( int )$_GET[ 'step' ];
     }
     else {
         $step = 0;
@@ -337,7 +337,7 @@
 
     header( 'Content-type: text/html; charset=utf8' );
     // header( 'Content-encoding: gzip' );
-    header( 'Content-disposition: attachment; filename=reloaded2phoenix.sql' );
+    header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql' );
 
     ob_start();
 
