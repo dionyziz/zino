@@ -5,6 +5,8 @@
 	
     Rabbit_Construct();
 		
+    set_time_limit( 60 );
+
 	$water->Enable(); // on for all
 
     global $db, $shoutbox, $user, $users, $images, $albums, $polls, $polloptions, $votes, $universities;
@@ -248,12 +250,10 @@
             FROM
                 `images`
             GROUP BY
-                `image_albumid`
-        ) AS tmp
+                albumid
+        ) AS tmp ON `albums`.`album_id`=tmp.albumid
     SET
-        `albums`.`album_numphotos`=tmp.numimages
-    WHERE
-        tmp.albumid=`albums`.`album_id`;<?php
+        `albums`.`album_numphotos`=tmp.numimages<?php
 
     // migrate polls
     MigrateAsIs( $polls, 'polls' );
