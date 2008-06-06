@@ -47,7 +47,7 @@
 				if ( $section == 'relations' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=relations&amp;username=<?php
+				?>><a href="?p=friends&amp;username=<?php
 				Element( 'user/subdomain' , $theuser );
 				?>">Φίλοι</a></li>
 			</ul>
