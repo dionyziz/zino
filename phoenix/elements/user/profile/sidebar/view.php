@@ -7,6 +7,9 @@
 				Element( 'user/profile/sidebar/who' , $theuser );
 				Element( 'user/profile/sidebar/slogan' , $theuser );
 				Element( 'user/profile/sidebar/mood' , $theuser );
+				?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
+				echo $theuser->Id;
+				?>' );return false;">Προσθήκη στους φίλους</a></div><?php
 				Element( 'user/profile/sidebar/info' , $theuser );
 			?></div>
 			<div class="look">
@@ -29,8 +32,5 @@
 			?></div>
 		</div>
 		<?php
-	
-	
-	
 	}
 ?>

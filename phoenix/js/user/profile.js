@@ -8,6 +8,14 @@ var Profile = {
 		$( 'div.main div.ybubble' ).animate( { height: "0" } , 400 , function() {
 			$( this ).remove();
 		} );
+	},
+	AddFriend : function( userid ) {
+		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
+			$( this )
+			.empty()
+			.append( document.createTextNode( 'Έγινε προσθήκη στους φίλους' ) );
+			.fadeIn( 400 );
+		} );
 	}
 };
 $( document ).ready( function() {
