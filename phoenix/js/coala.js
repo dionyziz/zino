@@ -6,6 +6,7 @@ var Coala = {
 	StoredObjects: [],
 	ThreadedRequests: [],
 	LazyCommit: null,
+    BaseURL: '',
     Frozen: function ( unitid, parameters, failurecallback ) { // get, cacheable client-side (doesn't have to be public -- not necessarily squidable)
         if ( Coala.ThreadedRequests.length ) {
             // force commit of any queued requests
@@ -124,7 +125,7 @@ var Coala = {
 		for ( parameter in request ) {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
-		Socket.connect( "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
+		Socket.connect( this.BaseURL + "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
             Coala._Callback( xh, failurecallbacks );
         } );
 		return true; // successfully pushed request

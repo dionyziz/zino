@@ -9,6 +9,11 @@
 		$name = $name->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
+
+        ob_start();
+        ?>alert( "testing --dionyziz" );<?php
+        $page->AttachInlineScript( ob_get_clean() );
+
 		if ( $name != '' ) {
 			if ( strtolower( $name ) == strtolower( $user->Name ) ) {
 				$theuser = $user;
