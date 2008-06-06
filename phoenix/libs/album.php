@@ -117,7 +117,7 @@
 			
             $this->Created = NowDate();
 			$this->Userid = $user->Id;
-			$this->Submithost = UserIp();
+			$this->Userip = UserIp();
 			$this->Pageviews = 1;
         }
     }

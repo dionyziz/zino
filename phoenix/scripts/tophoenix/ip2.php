@@ -19,12 +19,8 @@
         "comments"  => array( 'comment_id', "comment_userip" ),
         "friendrel" => array( 'frel_id', "frel_creatorip" ),
         "images"    => array( 'image_id', "image_userip" ),
-        "ipban"     => array( 'ipban_id', "ipban_ip" ),
-        "logs"      => array( 'log_id', "log_host" ),
-        "places"    => array( 'place_id', "place_updateip" ),
         "pms"       => array( 'pm_id', "pm_userip" ),
         "profileq"  => array( 'profileq_id', "profileq_userip" ),
-        "searches"  => array( 'search_id', "search_userip" ),
         "shoutbox"  => array( 'shout_id', "shout_userip" ),
         "users"     => array( 'user_id', "user_registerhost" )
     );

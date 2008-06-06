@@ -14,7 +14,6 @@
             <field name="image_delid" type="int" />
             <field name="image_albumid" type="int" ref="albums.album_id" />
             <field name="image_numcomments" type="int" />
-            <field name="image_pageviews" type="int" />
             <index type="primary">
                 <indexfield>image_id</indexfield>
             </index>
@@ -28,7 +27,6 @@
             <field name="album_mainimage" type="int" ref="images.image_id" />
             <field name="album_description" type="varchar" length="511" />
             <field name="album_delid" type="int" />
-            <field name="album_pageviews" type="int" />
             <field name="album_numcomments" type="int" />
             <field name="album_numphotos" type="int" />
             <index type="primary">

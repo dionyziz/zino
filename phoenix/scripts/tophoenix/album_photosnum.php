@@ -14,14 +14,6 @@
         global $db;
         global $images;
         
-        if ( !is_array( $keys ) ) {
-            $keys = array( $keys );
-        }
-        
-        foreach( $keys as $i => $key ) {
-            $keys[ $i ] = myescape( $key );
-        }
-        
         $sql = "SELECT
                     `image_albumid`, COUNT( * ) AS numphotos
                 FROM 
