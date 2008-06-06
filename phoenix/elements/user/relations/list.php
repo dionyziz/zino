@@ -3,6 +3,7 @@
 	function ElementUserRelationsList( tString $username , tString $subdomain , tInteger $offset ) {
 		global $libs;
 		global $user;
+		global $page;
 		
 		$libs->Load( 'relation/relation' );
 		
