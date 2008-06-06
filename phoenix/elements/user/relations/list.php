@@ -46,7 +46,12 @@
 		$friends = $finder->FindByUser( $theuser , ( $offset - 1 )*20 , 20 );
 		Element( 'user/sections', 'relations' , $theuser );
 		?><div id="relations"><?php
-			Element( 'user/list' , $friends );
+			if ( !empty( $friends ) ) {
+				Element( 'user/list' , $friends );
+			}
+			else {
+				?>Δεν έχουν προστεθεί φίλοι<?php
+			}
 			?><div class="pagifyrelations"><?php
 			Element( 'pagify' , $offset , 'friends&subdomain=' . $theuser->Subdomain , $theuser->Count->Relations , 20 , 'offset' );
 			?></div>
