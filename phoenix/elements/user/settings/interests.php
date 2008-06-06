@@ -25,7 +25,7 @@
 		$songs = $bytype[ TAG_SONG ];
 		$artists = $bytype[ TAG_ARTIST ];
 		$game = $bytype[ TAG_SONG ];
-		$show = $bytype[ TAG_SHOW ];
+		$shows = $bytype[ TAG_SHOW ];
 		?><div class="option">
 			<label>Hobbies:</label>
 			<div class="setting">
