@@ -2,6 +2,7 @@
 	function ElementUserSettingsInterests() {
 		global $rabbit_settings;
 		global $user;
+		global $libs;
 		
 		$libs->Load( 'tag' );
 		$finder = New TagFinder();
