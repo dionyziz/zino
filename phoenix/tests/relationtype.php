@@ -81,7 +81,8 @@
             $textsfound = 0;
             $user_timesfound = 0;
             foreach ( $types as $key => $t ) {
-                if ( in_array( $t->Text, $texts ) ) {
+                if ( ( $i = array_search( $t->Text, $texts ) ) !== false ) {
+                    unset( $texts[ $i ] );
                     ++$textsfound;
                 }
                 if ( $this->mUser->Id == $t->Userid ) {
