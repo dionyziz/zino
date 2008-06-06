@@ -137,7 +137,7 @@
             $relation3->Save();
 
             $finder = New FriendRelationFinder();
-            $relations = $finder->FindByFriend( $abresas );
+            $relations = $finder->FindByFriend( $abresas, 0, 2 );
             $this->AssertEquals( 2, count( $relations ), 'Wrong number of relations' );
 
             $userids = array( $this->mUser->Id, $this->mUser2->Id );

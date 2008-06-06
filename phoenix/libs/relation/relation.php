@@ -10,13 +10,13 @@
             $prototype = New FriendRelation();
             $prototype->Userid = $user->Id;
             
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
        }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
             $prototype->Friendid = $friend->Id;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
 
