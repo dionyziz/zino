@@ -63,6 +63,9 @@
     }
 
     header( 'Content-type: text/html; charset=utf8' );
+    header( 'Content-disposition: attachment; filename=reloaded2phoenix.sql' );
+
+    ob_start( 'ob_gzhandler' );
 
     $res = $db->Query(
         "SELECT
@@ -91,25 +94,25 @@
     ?>TRUNCATE TABLE `users`; TRUNCATE TABLE `userprofiles`; TRUNCATE TABLE `usersettings`; TRUNCATE TABLE `usercounts`;<?php
     while ( $row = $res->FetchArray() ) {
         ?>INSERT INTO `users` SET
-            `user_id` = <?php
+            `user_id`=<?php
             echo $row[ 'user_id' ];
-            ?>, `user_name` = '<?php
+            ?>, `user_name`='<?php
             echo addslashes( $row[ 'user_name' ] );
-            ?>', `user_password` = '<?php
+            ?>', `user_password`='<?php
             echo $row[ 'user_password' ];
-            ?>', `user_authtoken` = '', `user_registerhost` = '<?php
+            ?>', `user_authtoken`='', `user_registerhost`='<?php
             echo ip2long( $row[ 'user_registerhost' ] );
-            ?>', `user_created` = '<?php
+            ?>', `user_created`='<?php
             echo $row[ 'user_created' ];
-            ?>, `user_rights` = '<?php
+            ?>, `user_rights`='<?php
             echo $row[ 'user_rights' ];
-            ?>', `user_icon` = '0', `user_emailverified` = 'no', `user_subdomain` = '<?php
+            ?>', `user_icon`=0, `user_emailverified`='no', `user_subdomain`='<?php
             echo addslashes( $row[ 'user_subdomain' ] );
-            ?>', `user_gender` = '<?php
+            ?>', `user_gender`='<?php
             echo $row[ 'user_gender' ];
-            ?>', `user_lastlogin` = '<?php
+            ?>', `user_lastlogin`='<?php
             echo $row[ 'user_lastlogon' ];
-            ?>', `user_egoalbumid` = 0;<?php
+            ?>', `user_egoalbumid`=0;<?php
         // TODO: ego album heuristic
         ?>INSERT INTO `userprofiles` SET
             `profile_userid` = LAST_INSERT_ID(), `profile_email` = '<?php
@@ -216,9 +219,9 @@
             echo $row[ 'image_created' ];
             ?>, `image_userip`=<?php
             echo ip2long( $row[ 'image_userip' ] );
-            ?>, `image_name`=<?php
+            ?>, `image_name`='<?php
             echo addslashes( $row[ 'image_name' ] );
-            ?>, `image_mime`='<?php
+            ?>', `image_mime`='<?php
             echo addslashes( $row[ 'image_mime' ] );
             ?>', `image_width`=<?php
             echo $row[ 'image_width' ];
@@ -307,4 +310,9 @@
         $inserts[] = '(' . implode( ',', $fields ) . ')';
     }
     echo implode( ',', $inserts );
+
+    $data = ob_get_clean();
+    header( 'Content-length: ' . strlen( $data ) );
+
+    echo $data;
 ?>
