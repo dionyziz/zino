@@ -1,8 +1,8 @@
 div#relations {
 	margin-bottom: 50px;
 }
-div#relations h3 {
-
+div#relations div.people {
+	margin: 0 0 0 170px;
 }
 div#relations div.pagifyrelations {
 	text-align: center;
