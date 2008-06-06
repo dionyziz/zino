@@ -25,6 +25,7 @@ div#profile div.sidebar div.basicinfo div.mood {
 div#profile div.sidebar div.basicinfo div.addfriend {
 	clear: left;
 	margin-bottom: 15px;
+	height: 20px;
 }
 div#profile div.sidebar div.basicinfo div.addfriend a {
 	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
