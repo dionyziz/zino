@@ -51,7 +51,11 @@ var Comments = {
 										type : type,
 										indent : 0,
 										node : temp
-									} );
+									}, function() {
+											alert( "Υπήρχε ένα πρόβλημα με την δημιουργία σχολίου, παρακαλώ προσπάθησε ξανά" );
+											window.location.reload();
+										}
+											 );
 	},
 	CreateCallback : function() {
 		alert( "" );
