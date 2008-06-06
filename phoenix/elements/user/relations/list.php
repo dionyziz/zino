@@ -42,7 +42,7 @@
 			$page->SetTitle( $theuser->Name . " φίλοι" );
 		}
 		
-		$finder = New UserFinder();
+		$finder = New FriendRelationFinder();
 		$friends = $finder->FindByUser( $theuser , ( $offset - 1 )*20 , 20 );
 		Element( 'user/sections', 'relations' , $theuser );
 		?><div id="relations">
