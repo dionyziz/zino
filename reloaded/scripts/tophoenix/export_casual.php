@@ -65,7 +65,7 @@
     header( 'Content-type: text/html; charset=utf8' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix.sql' );
 
-    ob_start( 'ob_gzhandler' );
+    ob_start();
 
     $res = $db->Query(
         "SELECT
