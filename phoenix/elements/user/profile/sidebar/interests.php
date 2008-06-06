@@ -63,7 +63,7 @@
 				}
 				$games = $bytype[ TAG_GAME ];
 				if ( !empty( $games ) ) {
-					?><dt><strong>Αγαπημένα videogames</strong></dt>
+					?><dt><strong>Αγαπημένα παιχνίδια</strong></dt>
 					<dd><?php
 						echo htmlspecialchars( implode( ", " , $games ) );
 					?></dd><?php
