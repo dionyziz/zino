@@ -87,6 +87,7 @@
             <field name="count_journals" type="int" />
             <field name="count_albums" type="int" />
             <field name="count_comments" type="int" />
+            <field name="count_relations" type="int" />
             <index type="primary">
                 <indexfield>count_userid</indexfield>
             </index>
