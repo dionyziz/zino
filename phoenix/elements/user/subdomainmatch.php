@@ -25,9 +25,9 @@
         }
 
         ob_start();
-        ?>alert( <?php
+        ?>Coala.BaseURL = <?php
         echo w_json_encode( $coalabase );
-        ?> );<?php
+        ?>;<?php
         $page->AttachInlineScript( ob_get_clean() );
     }
 ?>
