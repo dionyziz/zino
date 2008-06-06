@@ -81,6 +81,9 @@
             $relation->Delete();
         }
         public function TestFindByUser() {
+            $ufinder = New UserFinder();
+            $abresas = $ufinder->FindByName( 'abresas' );
+
             $typefinder = New RelationTypeFinder();
             $lover_type = $typefinder->FindByText( 'lover' );
             $friend_type = $typefinder->FindByText( 'friend' );
@@ -120,6 +123,9 @@
             $relation3->Delete();
         }
         public function TestFindByFriend() {
+            $ufinder = New UserFinder();
+            $abresas = $ufinder->FindByName( 'abresas' );
+
             $typefinder = New RelationTypeFinder();
             $lover_type = $typefinder->FindByText( 'lover' );
             $friend_type = $typefinder->FindByText( 'friend' );
