@@ -369,7 +369,7 @@
             break;
     }
 
-    $data = gzcompress( ob_get_clean() );
+    $data = gzencode( ob_get_clean(), 9 );
     header( 'Content-length: ' . strlen( $data ) );
     echo $data;
 ?>
