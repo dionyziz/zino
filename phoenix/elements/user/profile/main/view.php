@@ -22,8 +22,11 @@
 			$notifs = $finder->FindByUser( $user , 0 , 5 );
 			$water->Trace( 'notification number: ' . count( $notifs ) );
 		}
+		$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
+		$showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
+		//show avatar upload only if there are no notifications
 		?><div class="main"><?php
-			if ( $user->Id == $theuser->Id && count( $notifs ) > 0 ) {
+			if ( $shownotifications ) {
 				?><div class="notifications">
 					<h3>Ενημερώσεις</h3>
 					<div class="list"><?php
@@ -34,7 +37,7 @@
 					</div>
 				</div><?php
 			}
-			if ( $theuser->Id == $user->Id && $egoalbum->Numphotos == 0 ) {
+			if ( $showuploadavatar && !$shownotifications ) {
 				?><div class="ybubble">	
 					<div class="body">
 						<h3>Ανέβασε μια φωτογραφία σου</h3>
