@@ -2,13 +2,12 @@
 	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tInteger $indent, tCoalaPointer $callback ) {
 		global $libs;
 		global $user;
-		global $xc_settings;
 		
 		$libs->Load( 'comment' );
 		
 		$text = $text->Get();
 		
-		if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) && $xc_settings[ 'anonymouscomments' ] ) {
+		if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 			?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
 			return;
 		}

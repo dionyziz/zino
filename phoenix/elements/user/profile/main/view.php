@@ -149,7 +149,6 @@
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
 				if ( $theuser->Profile->Numcomments > 0 ) {
-					$water->Trace( "theuser->Profile->Numcomments = " . $theuser->Profile->Numcomments );
 					$finder = New CommentFinder();
 					if ( $commentid == 0 ) {
 						$comments = $finder->FindByPage( $theuser->Profile , $offset , true );
@@ -160,7 +159,6 @@
 						$offset = $comments[ 0 ];
 						$comments = $comments[ 1 ];
 					}
-					$water->Trace( "comments found by CommentFinder =  " . count( $comments ) );
 					Element( 'comment/list' , $comments , 0 , 0 );
 					?><div class="pagifycomments"><?php
 						Element( 'pagify' , $offset , 'user&name=' . $theuser->Name , $theuser->Profile->Numcomments , 50 , 'offset' );
