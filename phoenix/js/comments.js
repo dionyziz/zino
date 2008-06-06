@@ -33,7 +33,7 @@ var Comments = {
 		if ( type == 2 || type == 4 ) { // If Image or Journal
 			var commentsnum = parseInt( $( "dl dd.commentsnum" ).text(), 10 );
 			++commentsnum;
-			$( "dl dd.commentsnum" ).text( commentsnum );
+			$( "dl dd.commentsnum" ).text( commentsnum + " σχόλια" );
 		}
 		
 		Coala.Warm( 'comments/new', { 	text : texter, 
