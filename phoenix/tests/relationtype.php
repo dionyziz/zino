@@ -82,7 +82,7 @@
             $user_timesfound = 0;
             foreach ( $types as $key => $t ) {
                 if ( in_array( $t->Text, $texts ) ) {
-                    ++$found;
+                    ++$textsfound;
                 }
                 if ( $this->mUser->Id == $t->Userid ) {
                     ++$user_timesfound;
