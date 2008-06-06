@@ -17,7 +17,7 @@
 				}
 				?>><a href="<?php
 				Element( 'user/url' , $theuser );
-				?>/albums">Albums</a></li>
+				?>albums">Albums</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'poll' ) {
@@ -25,7 +25,7 @@
 				}
 				?>><a href="<?php
 				Element( 'user/url' , $theuser );
-				?>/polls">Δημοσκοπήσεις</a></li>
+				?>polls">Δημοσκοπήσεις</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'journal' ) {
@@ -33,7 +33,7 @@
 				}
 				?>><a href="<?php
 				Element( 'user/url' , $theuser );
-				?>/journals">Ημερολόγιο</a></li>
+				?>journals">Ημερολόγιο</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'space' ) {
@@ -49,7 +49,7 @@
 				}
 				?>><a href="?p=relations&amp;username=<?php
 				Element( 'user/subdomain' , $theuser );
-				?>">Χώρος</a></li>
+				?>">Φίλοι</a></li>
 			</ul>
 		</div><?php
 	}
