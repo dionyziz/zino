@@ -68,7 +68,7 @@
         "SELECT
             `uni_id`, `uni_typeid`
         FROM
-            `universities`;"
+            `$universities`;"
     );
     $unitypes = array();
     while ( $row = $res->FetchArray() ) {
