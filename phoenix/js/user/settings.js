@@ -91,8 +91,9 @@ var Settings = {
 			//add the remove function properly
 		}
 	},
-	RemoveInterest : function( node ) {
+	RemoveInterest : function( interestid , node ) {
 		//an interest id will be needed
+		alert( interestid );
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
 		$( parent ).hide( 'slow' );

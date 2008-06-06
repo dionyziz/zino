@@ -39,7 +39,9 @@
 								<span><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $hobbie->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -74,7 +76,9 @@
 								<span><?php
 								echo htmlspecialchars( $song->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $song->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -109,7 +113,9 @@
 								<span><?php
 								echo htmlspecialchars( $movie->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $movie->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -144,7 +150,9 @@
 								<span><?php
 								echo htmlspecialchars( $show->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $show->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -179,7 +187,9 @@
 								<span><?php
 								echo htmlspecialchars( $book->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $book->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -214,7 +224,9 @@
 								<span><?php
 								echo htmlspecialchars( $artist->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $artist->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -249,7 +261,9 @@
 								<span><?php
 								echo htmlspecialchars( $game->Text );
 								?></span>
-								<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+								<a href="" onclick="Settings.RemoveInterest( '<?php
+								echo $game->Id;
+								?>' , this );return false;" class="delete"><img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>delete.png" /></a>
 								<img src="<?php
@@ -272,7 +286,7 @@
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>aplbubble_left.png" />
 			<span></span>
-			<a href="" onclick="Settings.RemoveInterest( this );return false;" class="delete"><img src="<?php
+			<a href="" onclick="return false;" class="delete" style="display:hidden"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>delete.png" /></a>
 			<img src="<?php
