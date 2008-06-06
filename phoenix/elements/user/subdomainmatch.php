@@ -21,7 +21,7 @@
             $coalabase = $matches[ 0 ];
         }
         else {
-            $coalabase = $rabbit_settings[ 'webaddress' ];
+            $coalabase = $rabbit_settings[ 'webaddress' ] . '/';
         }
 
         ob_start();
