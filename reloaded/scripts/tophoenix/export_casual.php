@@ -63,6 +63,7 @@
     }
 
     header( 'Content-type: text/html; charset=utf8' );
+    header( 'Content-encoding: gzip' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix.sql' );
 
     ob_start();
@@ -311,8 +312,8 @@
     }
     echo implode( ',', $inserts );
 
-    $data = ob_get_clean();
-    header( 'Content-length: ' . strlen( $data ) );
+    $data = gzencode( ob_get_clean() );
+    // header( 'Content-length: ' . strlen( $data ) );
 
     echo $data;
 ?>
