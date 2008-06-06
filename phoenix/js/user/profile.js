@@ -10,11 +10,17 @@ var Profile = {
 		} );
 	},
 	AddFriend : function( userid ) {
+		var done = document.createElement( 'span' );
+		$( done )
+		.append( document.createTextNode( 'Προστέθηκε στους φίλους σου' ) )
+		.hide();
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
 			$( this )
+			.parent()
 			.empty()
-			.append( document.createTextNode( 'Έγινε προσθήκη στους φίλους' ) )
-			.fadeIn( 400 );
+			.append( done )
+			.find( 'span' )
+			.fadeIn( 400 )
 		} );
 	}
 };
