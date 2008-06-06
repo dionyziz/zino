@@ -57,6 +57,8 @@
             $typefinder = New RelationTypeFinder();
             $lover_type = $typefinder->FindByText( 'lover' );
 
+            w_assert( $lover_type->Id > 0 );
+
             $ufinder = New UserFinder();
             $abresas = $ufinder->FindByName( 'abresas' );
             
