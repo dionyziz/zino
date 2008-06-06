@@ -7,7 +7,7 @@
 		
 	$water->Enable(); // on for all
 
-    global $db, $shoutbox, $user, $images, $albums, $polls, $polloptions, $votes, $universities;
+    global $db, $shoutbox, $user, $users, $images, $albums, $polls, $polloptions, $votes, $universities;
 
     if ( !$user->IsSysOp() ) {
         die( 'Permission denied' );
@@ -87,7 +87,7 @@
             `user_authtoken`, `user_height`, `user_weight`, `user_eyecolor`, `user_haircolor`, `user_profilecolor`,
             `user_profviews`, `user_numsmallnews`, `user_numimages`
         FROM
-            `users`;" );
+            `$users`;" );
     ?>TRUNCATE TABLE `users`; TRUNCATE TABLE `userprofiles`; TRUNCATE TABLE `usersettings`; TRUNCATE TABLE `usercounts`;<?php
     while ( $row = $res->FetchArray() ) {
         ?>INSERT INTO `users` SET
