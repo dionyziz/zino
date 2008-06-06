@@ -38,7 +38,10 @@ var Comments = {
 				node.text( commentsnum + " σχόλια" );
 			}
 			else {
-				node.text( "1 σχόλιο" );
+				var dd = document.createElement( 'dd' );
+				dd.className = "commentsnum";
+				dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
+				$( "div dl" ).prepend( dd );
 			}
 		}
 		
