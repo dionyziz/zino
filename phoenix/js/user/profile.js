@@ -22,6 +22,7 @@ var Profile = {
 			.find( 'span' )
 			.fadeIn( 300 )
 		} );
+		Coala.Warm( 'user/relations/new' , { userid : userid } );
 	}
 };
 $( document ).ready( function() {
