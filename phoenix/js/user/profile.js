@@ -20,7 +20,7 @@ var Profile = {
 			.empty()
 			.append( done )
 			.find( 'span' )
-			.fadeIn( 400 )
+			.fadeIn( 300 )
 		} );
 	}
 };

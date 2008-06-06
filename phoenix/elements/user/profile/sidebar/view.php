@@ -1,15 +1,25 @@
 <?php
 	function ElementUserProfileSidebarView( $theuser ) {
 		global $rabbit_settings;
+		global $libs;
+		global $user;
+		
+		$libs->Load( 'relation/relation' );
 		
 		?><div class="sidebar">
 			<div class="basicinfo"><?php
 				Element( 'user/profile/sidebar/who' , $theuser );
 				Element( 'user/profile/sidebar/slogan' , $theuser );
 				Element( 'user/profile/sidebar/mood' , $theuser );
-				?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
-				echo $theuser->Id;
-				?>' );return false;">Προσθήκη στους φίλους</a></div><?php
+				
+				if ( $user->Id != $theuser->Id ) {
+					$finder = New FriendRelationFinder();
+					if ( !( $finder->IsFriend( $user, $theuser ) & FRIENDS_A_HAS_B == FRIENDS_A_HAS_B ) ) {
+						?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
+						echo $theuser->Id;
+						?>' );return false;">Προσθήκη στους φίλους</a></div><?php
+					}
+				}
 				Element( 'user/profile/sidebar/info' , $theuser );
 			?></div>
 			<div class="look">
