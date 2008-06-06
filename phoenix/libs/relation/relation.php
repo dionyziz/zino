@@ -1,6 +1,11 @@
 <?php
-
     global $libs;
+
+    define( 'FRIENDS_NONE', 0 );
+    define( 'FRIENDS_A_HAS_B', 1 );
+    define( 'FRIENDS_B_HAS_A', 2 );
+    define( 'FRIENDS_BOTH', FRIENDS_A_HAS_B | FRIENDS_B_HAS_A );
+
     $libs->Load( 'relation/type' );
 
     class FriendRelationFinder extends Finder {
@@ -17,6 +22,25 @@
             $prototype->Friendid = $friend->Id;
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+        }
+        public function IsFriend( User $a, User $b ) {
+            $status = FRIENDS_NONE;
+
+            $prototype = New FriendRelation();
+            $prototype->Userid = $a->Id;
+            $prototype->Friendid = $b->Id;
+            if ( $this->FindByPrototype( $prototype ) !== false ) {
+                $status |= FRIENDS_A_HAS_B;
+            }
+            
+            $prototype = New FriendRelation();
+            $prototype->Userid = $b->Id;
+            $prototype->Friendid = $a->Id;
+            if ( $this->FindByPrototype( $prototype ) !== false ) {
+                $status |= FRIENDS_B_HAS_A;
+            }
+
+            return $status;
         }
     }
 
