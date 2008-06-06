@@ -62,7 +62,7 @@
 				}
 			?></div><?php
 			$finder = New FriendRelationFinder();
-			$friends = $finder->FindByUser( $theuser , 0 , 10 ); 
+			$friends = $finder->FindByUser( $theuser , 0 , 5 ); 
 			
 			if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
 				?><div class="friends">

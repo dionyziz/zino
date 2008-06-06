@@ -262,7 +262,7 @@ div#profile div.main div.friends h3 {
 }
 div#profile div.main div.people {
 	overflow: hidden;
-	height: 230px;
+	height: 150px;
 }
 div#profile div.main div.friends a.button {
 	margin-left: 0;
