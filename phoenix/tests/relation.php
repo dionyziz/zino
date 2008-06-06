@@ -99,6 +99,7 @@
             $relation2->Userid = $this->mUser2->Id;
             $relation2->Friendid = $abresas->Id;
             $relation2->Typeid = $unknown_type->Id;
+            $relation2->Save();
 
             $relation3 = New FriendRelation();
             $relation3->Userid = $this->mUser->Id;
