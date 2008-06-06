@@ -91,12 +91,11 @@ var Settings = {
 			//add the remove function properly
 		}
 	},
-	RemoveInterest : function( interestid , node ) {
-		//an interest id will be needed
-		alert( interestid );
+	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
 		$( parent ).hide( 'slow' );
+		Coala.Warm( 'user/settings/tags/delete' , { tagid : tagid } );
 	},
 	ShowAvatarChange : function() {   
 		var avies = $( '#avatarlist' )[ 0 ].cloneNode( true );
