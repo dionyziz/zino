@@ -31,9 +31,15 @@ var Comments = {
 		
 		var type = temp.find( "#type:first" ).text();
 		if ( type == 2 || type == 4 ) { // If Image or Journal
-			var commentsnum = parseInt( $( "dl dd.commentsnum" ).text(), 10 );
-			++commentsnum;
-			$( "dl dd.commentsnum" ).text( commentsnum + " σχόλια" );
+			var node = $( "dl dd.commentsnum" );
+			if ( node.length != 0 ) {
+				var commentsnum = parseInt( node.text(), 10 );
+				++commentsnum;
+				node.text( commentsnum + " σχόλια" );
+			}
+			else {
+				node.text( "1 σχόλιο" );
+			}
 		}
 		
 		Coala.Warm( 'comments/new', { 	text : texter, 
