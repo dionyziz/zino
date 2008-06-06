@@ -11,6 +11,12 @@
     else {
         $step = 0;
     }
+    if ( isset( $_GET[ 'offset' ] ) ) {
+        $offset = ( int )$_GET[ 'offset' ];
+    }
+    else {
+        $offset = 0;
+    }
 
     set_time_limit( 60 );
 
@@ -341,7 +347,7 @@
         <?php
     }
 
-    function MigrateComments() {
+    function MigrateComments( $offset = 0 ) {
         global $db, $comments;
 
         $commenttypes = array(
@@ -358,9 +364,13 @@
             FROM
                 `$comments`
             WHERE
-                `comment_delid`=0;"
+                `comment_delid`=0
+            LIMIT
+                " . $offset . ",10000;"
         );
-        ?>TRUNCATE TABLE `comments`;<?php
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `comments`;<?php
+        }
 
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` SET `bulk_text`='<?php
@@ -486,7 +496,7 @@
             MigrateCounts();
             break;
         case 7:
-            MigrateComments();
+            MigrateComments( $offset );
             break;
         case 8:
             MigrateJournals();
