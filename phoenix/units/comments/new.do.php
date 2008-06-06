@@ -29,7 +29,7 @@
 		$comment->Save();
 		
 		echo $node;
-		?>.setAttribute( 'id', 'comment_<?php
+		?>.attr( 'id', 'comment_<?php
 		echo $comment->Id;
 		?>' );<?php
 	}
