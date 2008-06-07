@@ -15,6 +15,7 @@
                 </a>
                 <img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
+                ?>moods/<?php
                 echo $user->Profile->Mood->Url;
                 ?>" alt="<?php
                 if ( $user->Gender == 'f' ) {
@@ -38,6 +39,7 @@
                     foreach ( $moods as $mood ) {
                         ?><li><a><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
+                        ?>moods/<?php
                         echo $mood->Url;
                         ?>" alt="<?php
                         if ( $user->Gender == 'f' ) {
