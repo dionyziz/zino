@@ -79,9 +79,11 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).unbind( 'click' ).click( function() {
+		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid );
+		temp.find( "div.bottom input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
-				} ).end().insertAfter( '#comment_' + nodeid );
+				} ;
+		temp.insertAfter( '#comment_' + nodeid );
 	}
 };
