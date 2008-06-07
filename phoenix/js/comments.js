@@ -8,6 +8,7 @@ var Comments = {
 		else {
 			texter = $( "#comment_reply_" + parentid ).find( "div.text textarea" ).get( 0 ).value;
 		}
+		alert( texter );
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
