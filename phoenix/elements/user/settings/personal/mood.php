@@ -18,17 +18,17 @@
                 echo $user->Profile->Mood->Url;
                 ?>" alt="<?php
                 if ( $user->Gender == 'f' ) {
-                    echo htmlspecialchars( $user->Profile->Mood->LabelFemale );
+                    echo htmlspecialchars( $user->Profile->Mood->Labelfemale );
                 }
                 else {
-                    echo htmlspecialchars( $user->Profile->Mood->LabelMale );
+                    echo htmlspecialchars( $user->Profile->Mood->Labelmale );
                 }
                 ?>" title="<?php
                 if ( $user->Gender == 'f' ) {
-                    echo htmlspecialchars( $user->Profile->Mood->LabelFemale );
+                    echo htmlspecialchars( $user->Profile->Mood->Labeldemale );
                 }
                 else {
-                    echo htmlspecialchars( $user->Profile->Mood->LabelMale );
+                    echo htmlspecialchars( $user->Profile->Mood->Labelmale );
                 }
                 ?>" class="selected" />
             </div>
@@ -44,14 +44,14 @@
                             echo htmlspecialchars( $mood->LabelFemale );
                         }
                         else {
-                            echo htmlspecialchars( $mood->LabelMale );
+                            echo htmlspecialchars( $mood->Labelmale );
                         }
                         ?>" title="<?php
                         if ( $user->Gender == 'f' ) {
-                            echo htmlspecialchars( $mood->LabelFemale );
+                            echo htmlspecialchars( $mood->Labelfemale );
                         }
                         else {
-                            echo htmlspecialchars( $mood->LabelMale );
+                            echo htmlspecialchars( $mood->Labelmale );
                         }
                         ?>" /></a></li><?php
                     }
