@@ -261,21 +261,28 @@
             $albumsbyuser[ $row[ 'user_id' ] ][] = $row;
         }
 
+        $j = 0;
         foreach ( $albumsbyuser as $userid => $albums ) {
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
-                if ( preg_match( "#\\w(me+|my|mou|$nickname|$subdomain|egw+|ego+|εγώ|εγω)\\w#", $album[ 'album_name' ] ) ) {
+                if ( preg_match( "#(^|\\w)(me+|my|mou|$nickname|$subdomain|egw+|ego+|εγώ|εγω)(\\w|$)#i", $album[ 'album_name' ] ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
                     ?> WHERE `user_id`=<?php
                     echo $album[ 'user_id' ];
                     ?> LIMIT 1;<?php
+                    ++$j;
                     break; // don't look further
                 }
             }
         }
+        ?> -- <?php
+        echo $j;
+        ?> ego albums detected; the rest will default to 0 --
+
+        <?php
 
         $localhost = ip2long( '127.0.0.1' );
 
