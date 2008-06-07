@@ -1,13 +1,13 @@
 var Comments = {
 	Create : function( parentid ) {
 		var texter;
+		alert( parentid );
 		if ( parentid === 0 ) { // Clear new comment message
-			alert( "Edo imaste" );
-			texter = $("div.newcomment div.text textarea").get( 0 ).value;
-			$("div.newcomment div.text textarea").get( 0 ).value = '';
+			texter = $( "div.newcomment div.text textarea" ).get( 0 ).value;
+			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
 		}
 		else {
-			texter = $("#comment_reply_" + parentid).find("div.text textarea" ).get( 0 ).value;
+			texter = $( "#comment_reply_" + parentid ).find( "div.text textarea" ).get( 0 ).value;
 		}
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
@@ -26,7 +26,7 @@ var Comments = {
 		del.title = "Διαγραφή";
 		
 		// Dimiourgisa ena teras :-S
-		var daddy = (parentid===0)?$("div.newcomment").clone( true ):$("#comment_reply_" + parentid );
+		var daddy = (parentid===0)?$( "div.newcomment" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
@@ -79,7 +79,8 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $("div.newcomment").clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom a" ).click( function() {
+		alert( nodeid );
+		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom a" ).click( function() {
 					Comments.Create( nodeid );
 					return false;
 				} ).end().insertAfter( '#comment_' + nodeid );
