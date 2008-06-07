@@ -37,7 +37,7 @@
 					echo $comment->Id;
 					?>, <?php
 					echo $indent;
-					?>);">Απάντα</a> σε αυτό το σχόλιο
+					?>);return false;">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
 			?><div id="children_<?php
