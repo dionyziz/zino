@@ -8,7 +8,6 @@ var Comments = {
 		else {
 			texter = $( "#comment_reply_" + parentid ).find( "div.text textarea" ).get( 0 ).value;
 		}
-		alert( texter );
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
@@ -79,11 +78,11 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid );
+		var temp = $( "div.newcomment" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.bottom input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
 				} ;
-		temp.insertAfter( '#comment_' + nodeid );
+		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 400, 1 );
 	}
 };
