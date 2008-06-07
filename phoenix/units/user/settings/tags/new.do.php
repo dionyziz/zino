@@ -22,6 +22,7 @@
 				echo $tag->Id;
 				?>' , link );
 				alert( link );
+				return false;
 			} )
 			.fadeIn( 200 );<?php
 		}
