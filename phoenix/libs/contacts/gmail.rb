@@ -32,7 +32,7 @@ begin
 	a = a[a.index('>')+2..a.index('</table>')-1]
 
 rescue StandardError => boom
-	$stderr.print "Login error!\n" + boom #+ "\n" + page.body
+	$stderr.print "Login error!\n" + boom + "\n" + page.body
 	exit 2
 end
 	lines = a.split('<tr>')
