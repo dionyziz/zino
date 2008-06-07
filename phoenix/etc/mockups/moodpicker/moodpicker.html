@@ -38,7 +38,7 @@
                 padding: 2px 1px 0 3px;
                 display: block;
                 color: #333;
-                background-image: url('dropbutton.png');
+                background-image: url( 'http://static.zino.gr/phoenix/dropbutton.png' );
                 background-repeat: no-repeat;
                 background-position: 3px 0;
             }
@@ -85,7 +85,7 @@
                 CurrentOpen: 0,
                 Unpush: function ( who ) {
                     this.CurrentOpen = 0;
-                    $( who ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'dropbutton.png\')';
+                    $( who ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbutton.png\')';
                     $( who ).find( 'div.pick' ).fadeOut( 400 );
                     $( who ).find( 'div.view' ).css( 'opacity', 1 );
                 },
@@ -97,7 +97,7 @@
                         }
                     }
                     this.CurrentOpen = who;
-                    $( who ).css( 'overflow', '' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'dropbuttonpushed.png\')';
+                    $( who ).css( 'overflow', '' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbuttonpushed.png\')';
                     $( who ).find( 'div.view' ).css( 'opacity', 0.5 );
                     $( who ).find( 'div.pick' ).hide();
                     $( who ).find( 'div.pick' ).fadeIn( 400 );
@@ -117,7 +117,7 @@
         <div class="moodpicker" style="overflow:hidden">
             <div class="view" onclick="MoodDropdown.Push( this.parentNode );">
                 <a href="" onclick="return false;">
-                    <img src="dropdown.png" alt="v" />
+                    <img src="http://static.zino.gr/phoenix/dropdown.png" alt="v" />
                 </a>
                 <img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" class="selected" />
             </div>
