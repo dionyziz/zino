@@ -286,7 +286,7 @@
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>aplbubble_left.png" />
 			<span></span>
-			<a href="" onclick="return false;" class="delete" style="display:hidden"><img src="<?php
+			<a href="" onclick="return false;" class="delete" style="display:none"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>delete.png" /></a>
 			<img src="<?php

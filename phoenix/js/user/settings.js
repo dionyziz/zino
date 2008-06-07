@@ -86,6 +86,7 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
+			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : type , node : newspan } );
 			//check for letter length
 			//make coala call
 			//add the remove function properly
@@ -376,81 +377,70 @@ $( document ).ready( function() {
 		//interesttags
 		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'hobbies' );
+				Settings.AddInterest( 'hobbies' , 1 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
-			Settings.AddInterest( 'hobbies' );
+			Settings.AddInterest( 'hobbies' , 1 );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.movies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'movies' );
+				Settings.AddInterest( 'movies' , 2 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.movies a' ).click( function() {
-			Settings.AddInterest( 'movies' );
+			Settings.AddInterest( 'movies' , 2 );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.books input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'books' );
+				Settings.AddInterest( 'books' , 3 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.books a' ).click( function() {
-			Settings.AddInterest( 'books' );
+			Settings.AddInterest( 'books' , 3 );
 			return false;
 		} );
 
 		$( 'form#interestsinfo div.option div.setting div.songs input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'songs' );
+				Settings.AddInterest( 'songs' , 4 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.songs a' ).click( function() {
-			Settings.AddInterest( 'songs' );
+			Settings.AddInterest( 'songs' , 4 );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.artists input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'artists' );
+				Settings.AddInterest( 'artists' , 5 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.artists a' ).click( function() {
-			Settings.AddInterest( 'artists' );
+			Settings.AddInterest( 'artists' , 5 );
 			return false;
 		} );
 		
 		$( 'form#interestsinfo div.option div.setting div.games input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'games' );
+				Settings.AddInterest( 'games' , 6 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.games a' ).click( function() {
-			Settings.AddInterest( 'games' );
+			Settings.AddInterest( 'games' , 6 );
 			return false;
 		} );
-		
-		$( 'form#interestsinfo div.option div.setting div.quotes input' ).keydown( function( event ) {
-			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'quotes' );
-			}
-		} );
-		$( 'form#interestsinfo div.option div.setting div.quotes a' ).click( function() {
-			Settings.AddInterest( 'quotes' );
-			return false;
-		} );
-		
 		$( 'form#interestsinfo div.option div.setting div.shows input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				Settings.AddInterest( 'shows' );
+				Settings.AddInterest( 'shows' , 7 );
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
-			Settings.AddInterest( 'shows' );
+			Settings.AddInterest( 'shows' , 7);
 			return false;
 		} );
 	}
