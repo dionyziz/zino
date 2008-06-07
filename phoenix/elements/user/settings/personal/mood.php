@@ -1,34 +1,65 @@
 <?php
-
 	function ElementUserSettingsPersonalMood() {
-		global $user;
+		global $user, $libs, $xc_settings;
 		
-		?><select>
-			<option>-</option>
-			<option>Είμαι χαρούμενος</option> <!-- /η -->
-			<option>Είμαι λυπημένος</option>
-			<option>Τρέχω και δεν φτάνω</option>
-			<option>Είμαι ερωτευμένος</option>
-			<option>Φοβάμαι</option>
-			<option>Βαριέμαι</option>
-			<option>Τα έχω πάρει στο κρανίο</option>
-			<option>Δε με νοιάζει τίποτα</option>
-			<option>Δεν καταλαβαίνω τι μου συμβαίνει</option>
-			<option>Δεν ξέρω τι να κάνω</option>
-			<option>Ζηλεύω</option>
-			<option>Ντρέπομαι</option>
-			<option>Έχω ενθουσιαστεί</option>
-			<option>Το φταίξιμο είναι δικό μου</option>
-			<option>Ελπίζω</option>
-			<option>Είμαι μόνος</option>
-			<option>Τους μισώ όλους</option>
-			<option>Θέλω να γυρίσω σπίτι</option>
-			<option>Με έχει πιάσει υστερία</option>
-			<option>Είμαι παρανοϊκός</option>
-			<option>Είμαι περίφανος για τον εαυτό μου</option>
-			<option>Μετανιώνω γι' αυτό που έκανα</option>
-			<option>Ξαφνιάστηκα</option>
-			<option>Υποφέρω</option>
-		</select><?php
+        $libs->Load( 'mood' );
+        $moodfinder = New MoodFinder();
+
+		?>
+        <div class="moodpicker" style="overflow:hidden">
+            <div class="view" onclick="MoodDropdown.Push( this.parentNode );">
+                <a href="" onclick="return false;">
+                    <img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>dropdown.png" alt="v" />
+                </a>
+                <img src="<?php
+                echo $xc_settings[ 'staticimagesurl' ];
+                echo $user->Profile->Mood->URL;
+                ?>" alt="<?php
+                if ( $user->Gender == 'f' ) {
+                    echo htmlspecialchars( $user->Profile->Mood->LabelFemale );
+                }
+                else {
+                    echo htmlspecialchars( $user->Profile->Mood->LabelMale );
+                }
+                ?>" title="<?php
+                if ( $user->Gender == 'f' ) {
+                    echo htmlspecialchars( $user->Profile->Mood->LabelFemale );
+                }
+                else {
+                    echo htmlspecialchars( $user->Profile->Mood->LabelMale );
+                }
+                ?>" class="selected" />
+            </div>
+            <div class="pick">
+                <ul><?php
+                    $moods = $moodfinder->FindAll();
+                    foreach ( $moods as $mood ) {
+                        ?><li><a><img src="<?php
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        echo $mood->URL;
+                        ?>" alt="<?php
+                        if ( $user->Gender == 'f' ) {
+                            echo htmlspecialchars( $mood->LabelFemale );
+                        }
+                        else {
+                            echo htmlspecialchars( $mood->LabelMale );
+                        }
+                        ?>" title="<?php
+                        if ( $user->Gender == 'f' ) {
+                            echo htmlspecialchars( $mood->LabelFemale );
+                        }
+                        else {
+                            echo htmlspecialchars( $mood->LabelMale );
+                        }
+                        ?>" /></a></li><?php
+                    }
+                ?>
+                </ul>
+                <div class="eof"></div>
+            </div>
+        </div>
+		<?php
 	}
 ?>

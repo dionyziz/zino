@@ -2,6 +2,12 @@
     class MoodException extends Exception {
     }
 
+    class MoodFinder extends Finder {
+        public function FindAll() {
+            return $this->FindByPrototype( New Mood(), 0, 1000, array( 'LabelMale' ) );
+        }
+    }
+
     class Mood extends Satori {
         protected $mDbTableAlias = 'moods';    
 

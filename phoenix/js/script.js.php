@@ -18,8 +18,9 @@
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
+	include "frontpage.js";
+    include "moodpicker.js";
 	include "settings.js";
 	include "types.js";
 	include "wysiwyg.js";
-	include "frontpage.js";
 ?>
