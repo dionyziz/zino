@@ -16,7 +16,9 @@
 			?> ).click( function( id , link ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
-				?>' , link );
+				?>' , <?php
+				echo $node;
+				?> );
 				return false;
 			} )
 			.fadeIn( 200 );<?php
