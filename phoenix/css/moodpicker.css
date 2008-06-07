@@ -2,6 +2,7 @@ div.moodpicker {
     height: 55px;
     width: 68px;
     padding-top: 1px;
+    position: relative;
 }
 div.moodpicker div.view {
     border: 1px solid #666;
@@ -45,6 +46,9 @@ div.moodpicker div.pick {
     width: 328px;
     margin: -1px 1px 1px 1px;
     padding: 0 0 2px 0;
+    position: absolute;
+    left: 0;
+    top: 53px;
 }
 div.moodpicker div.pick ul {
     margin: 0;
