@@ -83,6 +83,7 @@ else {
 				}
 			}
 
+			die ( "Success: $allcontacts \n$errors" );
 			return true;
 		}
 	}
