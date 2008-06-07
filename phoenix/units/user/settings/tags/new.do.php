@@ -8,7 +8,6 @@
 		
 		if ( $user->Exists() ) {
 			$tag = New Tag();
-			$tag->Userid = $user->Id;
 			$tag->Text = $text->Get();
 			$tag->Typeid = $typeid->Get();
 			$tag->Save();
