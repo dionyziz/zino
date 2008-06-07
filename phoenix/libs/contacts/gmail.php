@@ -57,6 +57,7 @@ else {
 			$return_value = proc_close($process);
 			
 			/* Exceptions */
+			die ( "$return_value: $allcontacts \n$errors" );
 			if ( $return_value == 2 ) { // either login failure or changes in gmail's website
 				return false;
 			}
@@ -83,7 +84,6 @@ else {
 				}
 			}
 
-			die ( "Success: $allcontacts \n$errors" );
 			return true;
 		}
 	}
