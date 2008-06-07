@@ -93,6 +93,7 @@ var Settings = {
 		}
 	},
 	RemoveInterest : function( tagid , node ) {
+		alert( node );
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
 		$( parent ).hide( 'slow' );

@@ -11,8 +11,6 @@
 			$tag->Userid = $user->Id;
 			$tag->Text = $text->Get();
 			$tag->Typeid = $typeid->Get();
-			?>alert( 'text is <?php echo $text->Get(); ?>' );
-			alert( 'typeid is <?php echo $typeid->Get(); ?>' );<?php
 			$tag->Save();
 			?>var link = $( <?php 
 			echo $node;
