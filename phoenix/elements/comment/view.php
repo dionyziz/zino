@@ -20,7 +20,7 @@
 				<span class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
-				if ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
+				if ( ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && numchildren == 0 ) {
 					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
 				}
 			?></div>
