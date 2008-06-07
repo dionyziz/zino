@@ -3,6 +3,8 @@
     }
 
     class MoodFinder extends Finder {
+        protected $mModel = 'Mood';
+
         public function FindAll() {
             return $this->FindByPrototype( New Mood(), 0, 1000, array( 'LabelMale' ) );
         }
