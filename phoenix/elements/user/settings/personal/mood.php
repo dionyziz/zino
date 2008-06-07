@@ -34,9 +34,6 @@
                 ?>" class="selected" />
             </div>
             <div class="pick">
-                <input type="hidden" name="moodid" id="moodid" value="<?php
-                echo $user->Profile->Mood->Id;
-                ?>" />
                 <ul><?php
                     $moods = $moodfinder->FindAll();
                     foreach ( $moods as $mood ) {

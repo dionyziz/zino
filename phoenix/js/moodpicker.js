@@ -11,7 +11,7 @@ var MoodDropdown = {
         this.CurrentOpen = 0;
     },
     Select: function ( id, moodid, who ) {
-        $( '#' + id )[ 0 ].value = moodid;
+        Settings.Enqueue( 'mood', moodid, 3000 );
         var imgnode = $( who.parentNode.parentNode.parentNode.parentNode ).find( 'div.view img.selected' )[ 0 ];
         imgnode.src = $( who ).find( 'img' )[ 0 ].src;
         imgnode.alt = $( who ).find( 'img' )[ 0 ].alt;
