@@ -71,7 +71,7 @@ var Settings = {
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
-	AddInterest : function( type ) {
+	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( intervalue !== '' ) {
@@ -86,7 +86,7 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).append( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
-			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : type , node : newspan } );
+			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : newspan } );
 			//check for letter length
 			//make coala call
 			//add the remove function properly
