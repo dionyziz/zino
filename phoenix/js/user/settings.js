@@ -82,11 +82,13 @@ var Settings = {
 			var newli = document.createElement( 'li' );
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
 			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( showvalue ) );
+			var link = $( newspan ).find( 'a' )[ 0 ];
+			alert( link );
 			$( newli ).append( newspan );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
-			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : newspan } );
+			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			//check for letter length
 			//make coala call
 			//add the remove function properly

@@ -11,12 +11,9 @@
 			$tag->Text = $text->Get();
 			$tag->Typeid = $typeid->Get();
 			$tag->Save();
-			?>var link = $( <?php 
+			?>$( <?php
 			echo $node;
-			?> ).find( 'a' )[ 0 ];
-			alert( link );
-			alert( link.parentNode.className );
-			$( link ).click( function( id , link ) { 
+			?> ).click( function( id , link ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
 				?>' , link );
