@@ -10,13 +10,16 @@
 			$tag = New Tag();
 			$tag->Text = $text->Get();
 			$tag->Typeid = $typeid->Get();
+			?>alert( 'text is <?php echo $text->Get(); ?>' );
+			alert( 'typeid is <?php echo $typeid->Get(); ?>' );<?php
 			$tag->Save();
-			?>$( <?php
+			?>var link = $( <?php 
 			echo $node;
-			?> ).find( 'a' ).click( function( id , node ) { 
+			?> ).find( 'a' );
+			$( link ).click( function( id , node ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
-				?>' , $( this ) );
+				?>' , link );
 			} )
 			.fadeIn( 200 );<?php
 		}
