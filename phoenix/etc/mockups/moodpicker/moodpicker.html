@@ -105,7 +105,8 @@
                     $( who ).find( 'ul li a' ).click( function ( event, a ) {
                         MoodDropdown.Unpush( who );
                         $( who ).find( 'div.view img.selected' )[ 0 ].src = $( this ).find( 'img' )[ 0 ].src;
-                        $( who ).find( 'div.view img.selected' )[ 0 ].alt =  $( this ).find( 'img' )[ 0 ].alt;
+                        $( who ).find( 'div.view img.selected' )[ 0 ].alt = $( this ).find( 'img' )[ 0 ].alt;
+                        $( who ).find( 'div.view img.selected' )[ 0 ].title = $( this ).find( 'img' )[ 0 ].title;
                         return false;
                     } );
                 }
@@ -122,15 +123,14 @@
             </div>
             <div class="pick">
                 <ul>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/angry.jpg" alt="Θυμωμένος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/sick.jpg" alt="Άρρωστος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/sick.jpg" alt="Άρρωστος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/cool.jpg" alt="Cool" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/cute.jpg" alt="Γλυκούλης" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/famous.jpg" alt="Διάσημος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/horny.jpg" alt="Καυλωμένος" /></a></li>
-                    <li><a><img src="http://static.zino.gr/phoenix/moods/happy.jpg" alt="Χαρούμενος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/inlove.jpg" alt="Ερωτευμένος" title="Ερωτευμένος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/angry.jpg" alt="Θυμωμένος" title="Θυμωμένος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/sick.jpg" alt="Άρρωστος" title="Άρρωστος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/cool.jpg" alt="Cool" title="Cool" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/cute.jpg" alt="Γλυκούλης" title="Γλυκούλης" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/famous.jpg" alt="Διάσημος" title="Διάσημος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/horny.jpg" alt="Καυλωμένος" title="Καυλωμένος" /></a></li>
+                    <li><a><img src="http://static.zino.gr/phoenix/moods/happy.jpg" alt="Χαρούμενος" title="Χαρούμενος" /></a></li>
                 </ul>
                 <div class="eof"></div>
             </div>
