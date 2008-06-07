@@ -8,6 +8,7 @@
 		
 		if ( $user->Exists() ) {
 			$tag = New Tag();
+			$tag->Userid = $user->Id;
 			$tag->Text = $text->Get();
 			$tag->Typeid = $typeid->Get();
 			?>alert( 'text is <?php echo $text->Get(); ?>' );
