@@ -284,7 +284,7 @@
             if ( !in_array( $name, $this->mDbFields ) ) {
                 throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
-            return $this->mCurrentValues[ ucfirst( $name ) ];
+            return $this->mCurrentValues[ $name ];
         }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields );
