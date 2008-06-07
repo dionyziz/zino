@@ -79,7 +79,8 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		alert( nodeid + "," + indent );
-		var temp = $("div.newcomment").clone( true ).css( "marginLeft", (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).insertAfter( 'comment_' + nodeid );
+		var temp = $("div.newcomment").clone( true ).css( {marginLeft : (indent+1)*10 + 'px', opacity : 1 ).attr( 'id', 'comment_reply_' + nodeid )
+		temp.insertAfter( 'comment_' + nodeid );
 		alert( "Etreksa ipotithete" );
 	}
 };
