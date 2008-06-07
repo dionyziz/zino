@@ -73,7 +73,7 @@ var Comments = {
 		var indent = ( parentid===0 )?0:parseInt( $( "comment_" + parentid ).css( "marginLeft" ), 10 )/10;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).click( function() {
-					Comment.Reply( id, indent );
+					Comments.Reply( id, indent );
 					return false;
 				} );
 	},
