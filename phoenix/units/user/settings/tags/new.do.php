@@ -20,6 +20,7 @@
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
 				?>' , link );
+				alert( link );
 			} )
 			.fadeIn( 200 );<?php
 		}
