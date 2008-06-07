@@ -27,12 +27,15 @@ begin
 	page = @agent.get page.search("//meta").first.attributes['href'].gsub(/'/,'') #META-Redirect
 	#link = page.links.text(/Contacts/)
  	page = @agent.get(ContactsURL)
+	$stderr.print "Redirected. "
 	a = page.body[/nvp_bu_sc.*\Z/m]
+	$stderr.print "Looking for table... "
 	a = a[/<table.*\Z/m]
+	$stderr.print "found."
 	a = a[a.index('>')+2..a.index('</table>')-1]
 
 rescue StandardError => boom
-	$stderr.print "Login error!\n" + boom + "\n" + page.body
+	$stderr.print "Login error!\n" + boom #+ "\n" + page.body
 	exit 2
 end
 	lines = a.split('<tr>')
