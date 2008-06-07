@@ -27,9 +27,13 @@
 		EVENT_USERPROFILE_EYECOLOR_UPDATED,
 		EVENT_USER_CREATED
 		) , 0 , 20 );
-		
-		foreach ( $events as $event ) {
-			Element( 'frontpage/events/view' , $event );
-		}
+		?><div class="latestevents">
+			<h2>Συνέβησαν πρόσφατα</h2>
+			<div class="list"><?php
+				foreach ( $events as $event ) {
+					Element( 'frontpage/events/view' , $event );
+				}
+			?></div>
+		</div><?php
 	}
 ?>
