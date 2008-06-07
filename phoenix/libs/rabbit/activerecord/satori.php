@@ -256,6 +256,7 @@
                 return;
             }
 
+            $name = ucfirst( $name );
             if ( !in_array( $name, $this->mDbFields ) ) {
                 throw New SatoriException( 'Attempting to write non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
@@ -269,7 +270,7 @@
                 }
             }
             
-            $this->mCurrentValues[ ucfirst( $name ) ] = $value;
+            $this->mCurrentValues[ $name ] = $value;
         }
         public function __get( $name ) {
             if ( !is_null( $got = parent::__get( $name ) ) ) {
