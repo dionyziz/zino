@@ -96,16 +96,31 @@
 			$prototype->Userid = $user->Id;
 			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
 		}
-		public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
+		public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = 'DESC' ) {
 			if ( !is_array( $typeids ) ) {
 				$typeids = array( $typeids );
 			}
 
-			w_assert( $order[ 1 ] == 'DESC' || $order[ 1 ] == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
+			w_assert( $order == 'DESC' || $order == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
 
-			$prototype = New Event();
-			$prototype->Typeid = $typeids; // Dionyziz: array allowed?
-			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :events
+                WHERE
+                    `event_typeid` IN :types
+                LIMIT 
+                    :offset, :limit
+                ORDER BY
+                    `event_id` ' . $order
+            );
+            $query->BindTable( 'events' );
+            $query->Bind( 'types', $typeids );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+			return $this->FindBySQLResource( $query->Execute() );
 		}
 		public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
