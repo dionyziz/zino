@@ -1,7 +1,6 @@
 <?php
 
 	function ElementNotificationView( $notif ) {
-		/*
 		?><div class="event">
 			<div class="toolbox">
 				<span class="time">πριν <?php
@@ -58,6 +57,5 @@
 				?><div class="eof"></div>
 			</div>
 		</div><?php
-		*/
 	}
 ?>
