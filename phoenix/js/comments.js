@@ -6,7 +6,7 @@ var Comments = {
 			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
 		}
 		else {
-			texter = $( "#comment_reply_" + parentid ).find( "div.text textarea" ).get( 0 ).value;
+			texter = $( "#comment_reply_" + parentid + " div.text textarea" ).get( 0 ).value;
 		}
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
@@ -38,7 +38,7 @@ var Comments = {
 			temp.insertAfter( "div.newcomment" ).fadeTo( 400, 1 );
 		}
 		else {
-			temp.insertAfter( "comment_" + parentid ).fadeTo( 400, 1 );
+			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 		}
 		
 		var type = temp.find( "#type:first" ).text();
@@ -70,7 +70,7 @@ var Comments = {
 											 );
 	},
 	NewCommentCallback : function( node, id, parentid ) {
-		var indent = ( parentid===0 )?0:parseInt( $( "comment_" + parentid ).css( "marginLeft" ), 10 )/20;
+		var indent = ( parentid===0 )?0:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).click( function() {
 					Comments.Reply( id, indent );
@@ -83,6 +83,6 @@ var Comments = {
 					Comments.Create( nodeid );
 					return false;
 				} ;
-		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 400, 1 );
+		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 	}
 };
