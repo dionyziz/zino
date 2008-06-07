@@ -28,7 +28,7 @@
 		EVENT_USER_CREATED
 		) , 0 , 20 );
 		?><div class="latestevents">
-			<h2>Συνέβησαν πρόσφατα</h2>
+			<h2>Ξ£Ο…Ξ½Ξ­Ξ²Ξ·ΟƒΞ±Ξ½ Ο€ΟΟΟƒΟ†Ξ±Ο„Ξ±</h2>
 			<div class="list"><?php
 				foreach ( $events as $event ) {
 					Element( 'frontpage/events/view' , $event );
