@@ -6,7 +6,7 @@
             <field name="tag_id" type="int" autoincrement="yes" />
             <field name="tag_userid" type="int" />
             <field name="tag_typeid" type="int" default="0" />
-            <field name="tag_text" type="varchar" size="256" />
+            <field name="tag_text" type="varchar" length="256" />
             <field name="tag_nextid" type="int" default="0" />
             <index type="primary">
                 <indexfield>tag_id</indexfield>

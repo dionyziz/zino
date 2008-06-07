@@ -18,7 +18,7 @@
 				<textarea rows="" cols=""></textarea>
 			</div>
 			<div class="bottom">
-				<input type="submit" value="Σχολίασε!" onclick="Comments.Create();" />
+				<input type="submit" value="Σχολίασε!" onclick="Comments.Create(0);" />
 			</div>
 			<div style="display:none" id="item"><?php
 			echo $itemid;

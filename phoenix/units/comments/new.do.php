@@ -1,5 +1,5 @@
 <?php
-	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tInteger $indent, tCoalaPointer $node ) {
+	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tCoalaPointer $node, tCoalaPointer $callback ) {
 		global $libs;
 		global $user;
 		
@@ -24,13 +24,19 @@
 		$comment = New Comment();
 		$comment->Text = $text;
 		$comment->Userid = $user->Id;
+		$comment->Parentid = $parent;
 		$comment->Typeid = $type;
 		$comment->Itemid = $compage;
 		$comment->Save();
 		
+		echo $callback;
+		?>( <?php
 		echo $node;
-		?>.attr( 'id', 'comment_<?php
+		?>, <?php
 		echo $comment->Id;
-		?>' );<?php
+		?>, <?php
+		echo $parent;
+		?> );<?php
+		
 	}
 ?>
