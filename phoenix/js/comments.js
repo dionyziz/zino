@@ -71,7 +71,7 @@ var Comments = {
 											 );
 	},
 	NewCommentCallback : function( node, id, parentid ) {
-		var indent = ( parentid===0 )?0:parseInt( $( "comment_" + parentid ).css( "marginLeft" ), 10 )/10;
+		var indent = ( parentid===0 )?0:parseInt( $( "comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).click( function() {
 					Comments.Reply( id, indent );
@@ -79,7 +79,7 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).click( function() {
+		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).click( function() {
 					Comments.Create( nodeid );
 					return false;
 				} ).end().insertAfter( '#comment_' + nodeid );
