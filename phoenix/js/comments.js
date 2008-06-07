@@ -78,6 +78,8 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
+		alert( nodeid, indent );
 		var temp = $("div.newcomment").clone( true ).css( "marginLeft", (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).insertAfter( 'comment_' + nodeid );
+		alert( "Etreksa ipotithete" );
 	}
 };
