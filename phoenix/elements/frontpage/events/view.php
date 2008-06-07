@@ -4,7 +4,7 @@
 		?><div class="event">
 			<div class="toolbox">
 				<span class="time"><?php
-				echo $event->Since;
+				//echo $event->Since;
 				?></span>
 			</div>
 			<div class="who">
