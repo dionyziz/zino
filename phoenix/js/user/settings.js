@@ -83,7 +83,6 @@ var Settings = {
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
 			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( showvalue ) );
 			var link = newspan.getElementsByTagName( 'a' )[ 0 ];
-			alert( link );
 			$( newli ).append( newspan );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
@@ -95,7 +94,6 @@ var Settings = {
 		}
 	},
 	RemoveInterest : function( tagid , node ) {
-		alert( node );
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
 		$( parent ).hide( 'slow' );
