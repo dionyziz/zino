@@ -81,7 +81,7 @@
             </index>
         </table>
         <table name="usercounts">
-            <field name="count_userid" type="int" ref="users.user_id" autoincrement="yes" />
+            <field name="count_userid" type="int" ref="users.user_id" />
             <field name="count_images" type="int" />
             <field name="count_polls" type="int" />
             <field name="count_journals" type="int" />

@@ -28,7 +28,7 @@
         die( 'Permission denied' );
     }
 
-    function MigrateAsIs( $from, $to, $fields = false ) {
+    function MigrateAsIs( $from, $to, $fields = false, $offset = 0, $limit = 0 ) {
         global $db;
 
         if ( $fields === false ) {
@@ -48,15 +48,22 @@
             $fields = $out;
         }
 
-        $res = $db->Query(
-            "SELECT
-                $selectfields
-            FROM
-                $from;"
-        );
-        ?>TRUNCATE TABLE `<?php
-        echo $to;
-        ?>`;<?php
+        $query = "SELECT
+                    $selectfields
+                FROM
+                    $from";
+        if ( $limit > 0 ) {
+            $query .= " LIMIT $offset, $limit";
+        }
+        $query .= ';';
+
+        $res = $db->Query( $query );
+
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `<?php
+            echo $to;
+            ?>`;<?php
+        }
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `<?php
             echo $to;
@@ -126,7 +133,6 @@
                 ?>', `user_lastlogin`='<?php
                 echo $row[ 'user_lastlogon' ];
                 ?>', `user_egoalbumid`=0;<?php
-            // TODO: ego album heuristic
             ?>INSERT INTO `userprofiles` SET
                 `profile_userid` = LAST_INSERT_ID(), `profile_email` = '<?php
                 echo addslashes( $row[ 'user_email' ] );
@@ -173,17 +179,22 @@
                 echo $row[ 'user_contribs' ];
                 ?>, `count_shouts`=<?php
                 echo $row[ 'user_numsmallnews' ];
-                // TODO: count journals
                 ?>;<?php
             ?>INSERT INTO `usersettings` SET
-                `setting_userid`=LAST_INSERT_ID(), `setting_emailprofile`='yes', `setting_emailphotos`='yes', `setting_emailjournals`='yes', `setting_emailpolls`='yes', `setting_emailreplies`='yes', `setting_emailfriends`='yes', `setting_notifyprofile`='yes', `setting_notifyphotos`='yes', `setting_notifyjournals`='yes', `setting_notifypolls`='yes', `setting_notifyreplies`='yes', `setting_notifyfriends`='yes';<?php
+                `setting_userid`=LAST_INSERT_ID(), `setting_emailprofile`='yes', `setting_emailphotos`='yes', `setting_emailjournals`='yes', `setting_emailpolls`='yes', `setting_emailreplies`='yes', `setting_emailfriends`='yes', `setting_notifyprofile`='yes', `setting_notifyphotos`='yes', `setting_notifyjournals`='yes', `setting_notifypolls`='yes', `setting_notifyreplies`='yes', `setting_notifyfriends`='yes';
+            INSERT INTO `lastactive` SET
+                `lastactive_userid`=<?php
+                echo $row[ 'user_id' ];
+                ?>, `lastactive_updated`=<?php
+                echo $row[ 'user_lastactive' ];
+                ?>;<?php
         }
     }
 
-    function MigrateBulk() {
+    function MigrateBulk( $offset = 0 ) {
         global $bulk;
         
-        MigrateAsIs( $bulk, 'bulk' );
+        MigrateAsIs( $bulk, 'bulk', false, $offset, 10000 );
     }
 
     function MigrateAlbums() {
@@ -198,6 +209,7 @@
                 `$albums`;"
         );
 
+        $albumsbyuser = array();
         ?>TRUNCATE TABLE `albums`;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `albums` SET
@@ -220,13 +232,95 @@
                 ?>, `album_numcomments`=<?php
                 echo $row[ 'album_numcomments' ];
                 ?>, `album_numphotos`=0;<?php
+            if ( !isset( $albumsbyuser[ $row[ 'album_userid' ] ] ) ) {
+                $albumsbyuser[ $row[ 'album_userid' ] ] = array();
+            }
+            $albumsbyuser[ $row[ 'album_userid' ] ][] = $row;
         }
+    }
+
+    function MigrateEgoalbums() {
+        global $db, $albums, $users;
+
+        $res = $db->Query(
+            "SELECT
+                `album_id`, `album_name`, `user_id`, `user_name`, `user_subdomain`
+            FROM
+                `$albums` CROSS JOIN `$users`
+                    ON `album_userid`=`user_id`;"
+        );
+        $albumsbyuser = array();
+        while ( $row = $res->FetchArray() ) {
+            if ( !isset( $albumsbyuser[ $row[ 'user_id' ] ] ) ) {
+                $albumsbyuser[ $row[ 'user_id' ] ] = array();
+            }
+            $albumsbyuser[ $row[ 'user_id' ] ][] = $row;
+        }
+
+        // egoalbums
+        foreach ( $albumsbyuser as $userid => $albums ) {
+            foreach ( $albums as $album ) {
+                $nickname = preg_quote( $album[ 'user_name' ], '#' );
+                $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
+                if ( preg_match( "#\\w(me+|my|mou|$nickname|$subdomain|egw+|ego+|εγώ|εγω)\\w#", $album[ 'album_name' ] ) ) {
+                    // looks like an ego album
+                    ?>UPDATE `users` SET `user_egoalbumid`=<?php
+                    echo $album[ 'album_id' ];
+                    ?> WHERE `user_id`=<?php
+                    echo $album[ 'user_id' ];
+                    ?> LIMIT 1;<?php
+                    break; // don't look further
+                }
+            }
+        }
+
+        $localhost = ip2long( '127.0.0.1' );
+
+        // create ego albums for users who don't have one
+        ?>INSERT INTO `albums` 
+            SELECT 
+                `user_id` AS album_userid, NOW() AS album_created, <?php
+                echo $localhost;
+                ?> AS album_userip, '' AS album_name, 0 AS album_mainimage, '' AS album_description,
+                0 AS album_delid, 0 AS album_numcomments, 0 AS album_numphotos
+            FROM 
+                `users`
+            WHERE `user_egoalbumid`=0;
+        UPDATE
+            `users` CROSS JOIN (
+                SELECT
+                    `album_userid` AS userid, MAX( `album_id` ) AS albumid
+                FROM
+                    `albums`
+                GROUP BY
+                    `album_userid`
+            ) ON `user_id`=tmp.userid
+        SET
+            `user_egoalbumid`=albumid
+        WHERE
+            `user_egoalbumid`=0;<?php
+
+        // set avatars to the mainimages of the egoalbums (cross join ensures only users WITH egoalbums are updated)
+        ?>UPDATE
+            `users` CROSS JOIN `albums`
+                ON `users`.`user_egoalbumid`=`albums`.`album_id`
+        SET
+            `users`.`user_icon`=`album_mainimage`;
+            
+        TRUNCATE TABLE `imagesfrontpage`;
+        
+        INSERT INTO `imagesfrontpage` SELECT
+                MAX( `image_id` ) AS frontpage_imageid, `image_userid` AS frontpage_userid
+            FROM
+                `images` CROSS JOIN `users` 
+                    ON `images`.`image_albumid` = `albums`.`user_egoalbumid`
+            GROUP BY
+                frontpage_userid;<?php
     }
 
     function MigrateImages() {
         global $db, $images;
 
-        // migrate images
         $res = $db->Query(
             "SELECT
                 `image_id`, `image_userid`, `image_created`, `image_userip`, `image_name`, `image_mime`,
@@ -266,9 +360,9 @@
                 // TODO: migrate images to serverv2 and recalculate width/height/size
         }
 
-        // fill in numphotos in albums
+        // fill in numphotos in albums (CROSS JOIN ensures albums with no photos stay at the default = 0)
         ?>UPDATE
-            `albums` LEFT JOIN (
+            `albums` CROSS JOIN (
                 SELECT
                     COUNT(*) AS numimages, image_albumid AS albumid
                 FROM
@@ -277,7 +371,7 @@
                     albumid
             ) AS tmp ON `albums`.`album_id`=tmp.albumid
         SET
-            `albums`.`album_numphotos`=tmp.numimages<?php
+            `albums`.`album_numphotos`=tmp.numimages;<?php
     }
 
     function MigratePolls() {
@@ -341,9 +435,18 @@
                 GROUP BY
                     `album_userid`
             ) AS tmp1 ON `count_userid` = tmp1.userid
+            LEFT JOIN (
+                SELECT
+                    `journal_userid` AS userid, COUNT(*) AS countjournals
+                FROM
+                    `journals`
+                GROUP BY
+                    `journal_userid`
+            ) AS tmp2 ON `count_userid` = tmp2.userid
         SET
             `usercounts`.`count_polls`=tmp.countpolls,
-            `usercounts`.`count_albums`=tmp1.countalbums;
+            `usercounts`.`count_albums`=tmp1.countalbums,
+            `usercounts`.`count_journals`='tmp2.countjournals;
         <?php
     }
 
@@ -463,6 +566,34 @@
         }
     }
 
+    function MigrateTags() {
+        global $db, $interesttags;
+
+        $res = $db->Query(
+            "SELECT
+                `interesttag_id`, `interesttag_userid`, `interesttag_text`, `interesttag_next`
+            FROM
+                `$interesttags`;"
+        );
+
+        ?>TRUNCATE TABLE `tags`;<?php
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `tags` SET `tag_id`=<?php
+            echo $row[ 'interesttag_id' ];
+            ?>, `tag_userid`=<?php
+            echo $row[ 'interesttag_userid' ];
+            ?>, `tag_text`='<?php
+            echo addslashes( $row[ 'interesttag_text' ] );
+            ?>', `tag_typeid`=1, `tag_nextid`=<?php
+            echo $row[ 'interesttag_next' ];
+            ?>;<?php
+        }
+    }
+
+    function MigrateRelations() {
+        global $db; // TODO
+    }
+
     header( 'Content-type: text/html; charset=utf8' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql.gz' );
 
@@ -487,7 +618,7 @@
             MigratePolls();
             break;
         case 4:
-            MigrateBulk();
+            MigrateBulk( $offset );
             break;
         case 5:
             MigrateShouts();
@@ -503,6 +634,24 @@
             break;
         case 9:
             MigrateSpaces();
+            break;
+        case 10:
+            MigrateTags();
+            break;
+        case 11:
+            MigrateRelations();
+            break;
+        case 12:
+            MigrateQuestions();
+            break;
+        case 13:
+            MigratePMs();
+            break;
+        case 14:
+            MigrateNotifications();
+            break;
+        case 15:
+            MigrateEgoAlbums();
             break;
     }
 
