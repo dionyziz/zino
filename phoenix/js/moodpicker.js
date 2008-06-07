@@ -1,15 +1,27 @@
 var MoodDropdown = {
     CurrentOpen: 0,
-    Unpush: function ( who ) {
+    Unpush: function () {
+        if ( this.CurrentOpen === 0 ) {
+            return;
+        }
+
+        $( this.CurrentOpen ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbutton.png\')';
+        $( this.CurrentOpen ).find( 'div.pick' ).fadeOut( 400 );
+        $( this.CurrentOpen ).find( 'div.view' ).css( 'opacity', 1 );
         this.CurrentOpen = 0;
-        $( who ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbutton.png\')';
-        $( who ).find( 'div.pick' ).fadeOut( 400 );
-        $( who ).find( 'div.view' ).css( 'opacity', 1 );
+    },
+    Select: function ( id, moodid, who ) {
+        $( '#' + id )[ 0 ].value = moodid;
+        var imgnode = $( who.parentNode.parentNode.parentNode ).find( 'div.view img.selected' )[ 0 ];
+        imgnode.src = $( who ).find( 'img' )[ 0 ].src;
+        imgnode.alt = $( who ).find( 'img' )[ 0 ].alt;
+        imgnode.title = $( who ).find( 'img' )[ 0 ].title;
+        this.Unpush();
     },
     Push: function ( who ) {
         if ( this.CurrentOpen !== 0 ) {
             if ( this.CurrentOpen == who ) {
-                this.Unpush( who );
+                this.Unpush();
                 return;
             }
         }
@@ -21,9 +33,6 @@ var MoodDropdown = {
         
         $( who ).find( 'ul li a' ).click( function ( event, a ) {
             MoodDropdown.Unpush( who );
-            $( who ).find( 'div.view img.selected' )[ 0 ].src = $( this ).find( 'img' )[ 0 ].src;
-            $( who ).find( 'div.view img.selected' )[ 0 ].alt = $( this ).find( 'img' )[ 0 ].alt;
-            $( who ).find( 'div.view img.selected' )[ 0 ].title = $( this ).find( 'img' )[ 0 ].title;
             return false;
         } );
     }

@@ -40,7 +40,9 @@
                 <ul><?php
                     $moods = $moodfinder->FindAll();
                     foreach ( $moods as $mood ) {
-                        ?><li><a><img src="<?php
+                        ?><li><a href="" onclick="MoodDropdown.Select( 'moodid', <?php
+                        echo $mood->Id;
+                        ?>, this );return false;"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
                         ?>moods/<?php
                         echo $mood->Url;
