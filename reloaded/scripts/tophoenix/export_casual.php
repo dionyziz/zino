@@ -111,7 +111,11 @@
                 `user_profviews`, `user_numsmallnews`, `user_numimages`
             FROM
                 `$users`;" );
-        ?>TRUNCATE TABLE `users`; TRUNCATE TABLE `userprofiles`; TRUNCATE TABLE `usersettings`; TRUNCATE TABLE `usercounts`;<?php
+        ?>TRUNCATE TABLE `users`;
+        TRUNCATE TABLE `userprofiles`;
+        TRUNCATE TABLE `usersettings`;
+        TRUNCATE TABLE `usercounts`;
+        TRUNCATE TABLE `lastactive`;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `users` SET
                 `user_id`=<?php
@@ -257,7 +261,6 @@
             $albumsbyuser[ $row[ 'user_id' ] ][] = $row;
         }
 
-        // egoalbums
         foreach ( $albumsbyuser as $userid => $albums ) {
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
@@ -417,7 +420,7 @@
     }
 
     function MigrateCounts() {
-        // count polls and albums
+        // count polls, albums, and journals
         ?>UPDATE
             `usercounts` LEFT JOIN (
                 SELECT
@@ -591,7 +594,47 @@
     }
 
     function MigrateRelations() {
-        global $db; // TODO
+        global $db, $friendrel, $relations;
+
+        $res = $db->Query(
+            "SELECT
+                `relation_id`, `relation_userid`, `relation_friendid`, `relation_type`
+            FROM
+                `$relations`;"
+        );
+        ?>TRUNCATE TABLE `relations`;<?php
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `relations` SET
+                `relation_userid`='<?php
+                echo $row[ 'relation_userid' ];
+                ?>', `relation_friendid`=<?php
+                echo $row[ 'relation_friendid' ];
+                ?>, `relation_typeid`=<?php
+                echo $row[ 'relation_type' ];
+                ?>, `relation_created`=NOW();<?php
+        }
+
+        $res = $db->Query(
+            "SELECT
+                `frel_id`, `frel_type`, `frel_created`, `frel_creatorid`, `frel_creatorip`
+            FROM
+                `$friendrel`;"
+        );
+        ?>TRUNCATE TABLE `relationtypes`;<?php
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `relationtypes` SET
+                `relationtype_id`=<?php
+                echo $row[ 'frel_id' ];
+                ?>, `relation_text`='<?php
+                echo addslashes( $row[ 'frel_type' ] );
+                ?>', `relationtype_created`='<?php
+                echo $row[ 'frel_created' ];
+                ?>', `relationtype_userid`=<?php
+                echo $row[ 'frel_creatorid' ];
+                ?>, `relationtype_userip`=<?php
+                echo ip2long( $row[ 'frel_creatorip' ] );
+                ?>;<?php
+        }
     }
 
     header( 'Content-type: text/html; charset=utf8' );
