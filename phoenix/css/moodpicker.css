@@ -25,7 +25,7 @@ div.moodpicker img.selected {
     top: 0;
     cursor: pointer;
 }
-div.moodpicker a {
+div.moodpicker div.view a {
     float: right;
     line-height: 50px;
     text-decoration: none;
