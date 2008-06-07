@@ -33,7 +33,11 @@
 			?></div><?php
 			if ( $indent <= 50 && $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				?><div class="bottom">
-					<a href="" onclick="return false;">Απάντα</a> σε αυτό το σχόλιο
+					<a href="" onclick="Comments.Reply( <?php
+					echo $comment->Id;
+					?>, <?php
+					echo $indent;
+					?>);">Απάντα</a> σε αυτό το σχόλιο
 				</div><?php
 			}
 			?><div id="children_<?php
