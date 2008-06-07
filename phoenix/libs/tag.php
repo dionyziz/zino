@@ -173,5 +173,10 @@
  			$this->Nextid = $tag->Id;
  			$this->Save();
  		}
+        protected function LoadDefaults() {
+            global $user;
+
+            $this->Userid = $user->Id;
+        }
  	}
 ?>
