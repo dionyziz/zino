@@ -13,7 +13,7 @@
 			$tag->Save();
 			?>var link = $( <?php 
 			echo $node;
-			?> ).find( 'a' );
+			?> ).find( 'a' )[ 0 ];
 			alert( link );
 			$( link ).click( function( id , link ) { 
 				Settings.RemoveInterest( '<?php
