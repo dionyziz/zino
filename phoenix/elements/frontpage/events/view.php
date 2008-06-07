@@ -3,39 +3,36 @@
 	function ElementFrontpageEventsView( $event ) {
 		?><div class="event">
 			<div class="toolbox">
-				<span class="time"><?php
-				//echo $event->Since;
-				?></span>
 			</div>
 			<div class="who"><?php
 				Element( 'user/display' , $event->User );
 				switch ( $event->Typeid ) {
 					case EVENT_IMAGE_CREATED:
-						?>ανέβασε την εικόνα<?php
+						?> ανέβασε την εικόνα<?php
 						break;
 					case EVENT_JOURNAL_CREATED:
-						?>καταχώρησε στο ημερολόγιο<?php
+						?> καταχώρησε στο ημερολόγιο<?php
 						break;
 					case EVENT_POLL_CREATED:
-						?>δημιούργησε τη δημοσκόπηση<?php
+						?> δημιούργησε τη δημοσκόπηση<?php
 						break;
 					case EVENT_USERSPACE_UPDATED:
-						?>ανανέωσε τον χώρο<?php
+						?> ανανέωσε τον χώρο<?php
 						break;
 					case EVENT_FRIENDRELATION_CREATED:
-						?>πρόσθεσε στους φίλους<?php
+						?> πρόσθεσε στους φίλους<?php
 						break;
 					case EVENT_USERPROFILE_EDUCATION_UPDATED:
-						?>όρισε εκπαίδευση<?php
+						?> όρισε εκπαίδευση<?php
 						break;
 					case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-						?>όρισε σεξουαλικές προτιμήσεις<?php
+						?> όρισε σεξουαλικές προτιμήσεις<?php
 						break;
 					case EVENT_USERPROFILE_RELIGION_UPDATED:
-						?>όρισε τις θρησκευτικές πεποιθήσεις<?php
+						?> όρισε τις θρησκευτικές πεποιθήσεις<?php
 						break;
 					case EVENT_USERPROFILE_POLITICS_UPDATED:
-						?>όρισε τις πολιτικές πεποιθήσεις<?php
+						?> όρισε τις πολιτικές πεποιθήσεις<?php
 						break;
 					case EVENT_USERPROFILE_SMOKER_UPDATED:
 					case EVENT_USERPROFILE_DRINKER_UPDATED:
@@ -46,10 +43,10 @@
 					case EVENT_USERPROFILE_WEIGHT_UPDATED:
 					case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
 					case EVENT_USERPROFILE_EYECOLOR_UPDATED:
-						?>ανανέωσε το προφίλ<?php
+						?> ανανέωσε το προφίλ<?php
 						break;
 					case EVENT_USER_CREATED:
-						?>δημιούργησε λογαριασμό<?php
+						?> δημιούργησε λογαριασμό<?php
 						break;			
 				}
 			?></div>
