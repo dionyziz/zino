@@ -26,7 +26,7 @@
                 }
                 ?>" title="<?php
                 if ( $user->Gender == 'f' ) {
-                    echo htmlspecialchars( $user->Profile->Mood->Labeldemale );
+                    echo htmlspecialchars( $user->Profile->Mood->Labelfemale );
                 }
                 else {
                     echo htmlspecialchars( $user->Profile->Mood->Labelmale );
@@ -45,7 +45,7 @@
                         echo $mood->Url;
                         ?>" alt="<?php
                         if ( $user->Gender == 'f' ) {
-                            echo htmlspecialchars( $mood->LabelFemale );
+                            echo htmlspecialchars( $mood->Labelfemale );
                         }
                         else {
                             echo htmlspecialchars( $mood->Labelmale );
