@@ -5,23 +5,26 @@
 		global $user;
 		
 		$libs->Load( 'tag' );
+		$text = $text->Get();
 		
 		if ( $user->Exists() ) {
-			$tag = New Tag();
-			$tag->Text = $text->Get();
-			$tag->Typeid = $typeid->Get();
-			$tag->Save();
-			?>$( <?php
-			echo $node;
-			?> ).click( function( id , link ) { 
-				Settings.RemoveInterest( '<?php
-				echo $tag->Id;
-				?>' , <?php
+			if ( strlen( $text ) <= 32 ) {
+				$tag = New Tag();
+				$tag->Text = $text;
+				$tag->Typeid = $typeid->Get();
+				$tag->Save();
+				?>$( <?php
 				echo $node;
-				?> );
-				return false;
-			} )
-			.fadeIn( 200 );<?php
+				?> ).click( function( id , link ) { 
+					Settings.RemoveInterest( '<?php
+					echo $tag->Id;
+					?>' , <?php
+					echo $node;
+					?> );
+					return false;
+				} )
+				.fadeIn( 200 );<?php
+			}
 		}
 	}
 ?>
