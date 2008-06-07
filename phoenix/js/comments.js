@@ -78,6 +78,9 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $("div.newcomment").clone( true ).css( {marginLeft : (indent+1)*10 + 'px', opacity : 1 } ).attr( 'id', 'comment_reply_' + nodeid ).insertAfter( '#comment_' + nodeid );
+		var temp = $("div.newcomment").clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom a" ).click( function() {
+					Comments.Create( nodeid );
+					return false;
+				} ).end().insertAfter( '#comment_' + nodeid );
 	}
 };
