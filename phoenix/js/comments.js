@@ -44,7 +44,7 @@ var Comments = {
 		var type = temp.find( "#type:first" ).text();
 		if ( type == 2 || type == 4 ) { // If Image or Journal
 			var node = $( "dl dd.commentsnum" );
-			if ( node.length != 0 ) {
+			if ( node.length !== 0 ) {
 				var commentsnum = parseInt( node.text(), 10 );
 				++commentsnum;
 				node.text( commentsnum + " σχόλια" );
@@ -78,7 +78,7 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		alert( nodeid, indent );
+		alert( nodeid + "," + indent );
 		var temp = $("div.newcomment").clone( true ).css( "marginLeft", (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).insertAfter( 'comment_' + nodeid );
 		alert( "Etreksa ipotithete" );
 	}
