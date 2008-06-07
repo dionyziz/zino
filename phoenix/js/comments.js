@@ -57,7 +57,6 @@ var Comments = {
 										}
 											 );
 	},
-	CreateCallback : function() {
-		alert( "" );
-	}
+	Reply : function( nodeid, indent ) {
+		
 };

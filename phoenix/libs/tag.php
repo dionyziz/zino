@@ -173,7 +173,7 @@
  			$this->Nextid = $tag->Id;
  			$this->Save();
  		}
- 		protected function OnBeforeDelete() {
+ 		protected function OnDelete() {
  			$finder = New TagFinder();
  			$a = $finder->FindByNextId( $this->Id );
  			$a = $a[0];
