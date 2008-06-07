@@ -15,7 +15,7 @@
 			echo $node;
 			?> ).find( 'a' )[ 0 ];
 			alert( link );
-			alert( link.parentNode );
+			alert( link.parentNode.className );
 			$( link ).click( function( id , link ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
