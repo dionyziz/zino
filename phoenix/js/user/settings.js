@@ -87,6 +87,7 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
+			alert( intervalue );
 			Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			//check for letter length
 			//make coala call
