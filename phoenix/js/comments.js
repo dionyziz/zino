@@ -6,7 +6,7 @@ var Comments = {
 			$("div.newcomment div.text textarea").get( 0 ).value = '';
 		}
 		else {
-			texter = $("#comment_reply_" + parentid + " div.text textarea" ).get( 0 ).value;
+			texter = $("#comment_reply_" + parentid).find("div.text textarea" ).get( 0 ).value;
 		}
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
