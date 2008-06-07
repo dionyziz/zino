@@ -1,7 +1,6 @@
 var Comments = {
 	Create : function( parentid ) {
 		var texter;
-		alert( parentid );
 		if ( parentid === 0 ) { // Clear new comment message
 			texter = $( "div.newcomment div.text textarea" ).get( 0 ).value;
 			$( "div.newcomment div.text textarea" ).get( 0 ).value = '';
@@ -79,8 +78,7 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		alert( nodeid );
-		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom a" ).click( function() {
+		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*10 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).click( function() {
 					Comments.Create( nodeid );
 					return false;
 				} ).end().insertAfter( '#comment_' + nodeid );
