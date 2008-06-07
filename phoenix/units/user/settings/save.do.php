@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tInteger $mood , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
 		global $user;
 
 		if ( $user->Exists() ) {
@@ -11,6 +11,7 @@
 			$place = $place->Get();
 			$education = $education->Get();
 			$university = $university->Get();
+			$mood = $mood->Get();
 			$sex = $sex->Get();
 			$religion = $religion->Get();
 			$politics = $politics->Get();
@@ -66,6 +67,9 @@
 					}
 				}
 				$user->Profile->Uniid = $uniid;
+			}
+			if ( $mood ) {
+				$user->Profile->Moodid = $mood;
 			}
 			if ( $sex ) {	
 				$user->Profile->Sexualorientation = $sex;
