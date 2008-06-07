@@ -30,7 +30,7 @@ else {
 
 		public function Login( $user, $pass ) {
 			global $settings;
-			$mPath = $settings[ 'rootdir' ] . '/libs/contacts/gmail.rb';
+			$this->mPath = $settings[ 'rootdir' ] . '/libs/contacts/gmail.rb';
 			/* Pipe */
 			$descriptorspec = array(
 			   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from

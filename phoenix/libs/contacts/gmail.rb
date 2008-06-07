@@ -51,11 +51,11 @@ end
 LoginURL = 'https://www.google.com/accounts/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fh%2Fposshk2wzcz6%2F%3Fnsr%3D0%26ui%3Dhtml&ltmpl=default&ltmplcache=2'
 ContactsURL = '?v=cl&pnl=a'
 
-#getlogin
-user = gets.chomp;
-pass = gets.chomp;
-$stderr.print user, ':', pass , "\n"
-#$stderr.print "Logging in #{@username}...\n"
-#login
-exit 20
+getlogin
+#user = gets.chomp;
+#pass = gets.chomp;
+#$stderr.print user, ':', pass , "\n"
+$stderr.print "Logging in #{@username}...\n"
+login
+#exit 20
 
