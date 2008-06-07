@@ -20,8 +20,12 @@ div#profile div.sidebar div.basicinfo h2 img {
 }
 div#profile div.sidebar div.basicinfo div.mood {
 	padding-top: 5px;
+	margin-top: 5px;
 }
-
+div#profile div.sidebar div.basicinfo div.mood img {
+	display: block; 
+	margin-top: 3px;
+}
 div#profile div.sidebar div.basicinfo div.addfriend {
 	clear: left;
 	margin-bottom: 15px;
