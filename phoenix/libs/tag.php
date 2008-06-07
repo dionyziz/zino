@@ -173,6 +173,15 @@
  			$this->Nextid = $tag->Id;
  			$this->Save();
  		}
+ 		protected function OnBeforeDelete() {
+ 			$finder = New TagFinder();
+ 			$a = $finder->FindByNextId( $this->Id );
+ 			$a = $a[0];
+ 			if ( is_tag( $a ) ) {
+ 				$a->Nextid = $this->Nextid;
+ 				$a->Save();
+ 			}
+ 		}
         protected function LoadDefaults() {
             global $user;
 
