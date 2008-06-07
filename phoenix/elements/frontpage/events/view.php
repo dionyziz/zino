@@ -7,10 +7,8 @@
 				//echo $event->Since;
 				?></span>
 			</div>
-			<div class="who">
-				<a href="http://morvena.zino.gr"><?php
+			<div class="who"><?php
 				Element( 'user/display' , $event->User );
-				?></a> <?php
 				switch ( $event->Typeid ) {
 					case EVENT_IMAGE_CREATED:
 						?>ανέβασε την εικόνα<?php
