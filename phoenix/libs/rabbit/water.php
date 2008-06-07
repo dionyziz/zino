@@ -38,6 +38,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     }
     class ExceptionUndefinedVariable extends Exception {
     }
+    class ExceptionUndefinedConstant extends Exception {
+    }
     
 	final class Water {
 		private $mOutputAlerts;
@@ -501,7 +503,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		}
         public function HandleSpecialError( $errno, $errstr ) {
             static $exceptionalerrors = array(
-                E_NOTICE => array( '#Undefined variable\:#' => 'ExceptionUndefinedVariable' )
+                E_NOTICE => array( 
+                    '#Undefined variable\:#' => 'ExceptionUndefinedVariable',
+                    '#Use of undefined constant#' => 'ExceptionUndefinedConstant'
+                )
             );
 
             if ( !isset( $exceptionalerrors[ $errno ] ) ) {
