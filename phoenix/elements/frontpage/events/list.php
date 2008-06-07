@@ -2,6 +2,7 @@
 	
 	function ElementFrontpageEventsList() {
 		global $libs;
+		global $water;
 		
 		$libs->Load( 'event' );
 		
@@ -30,6 +31,7 @@
 		?><div class="latestevents">
 			<h2>Συνέβησαν πρόσφατα</h2>
 			<div class="list"><?php
+				$water->Trace( 'event number: ' . count( $events ) );
 				foreach ( $events as $event ) {
 					Element( 'frontpage/events/view' , $event );
 				}
