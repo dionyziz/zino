@@ -82,7 +82,7 @@ var Settings = {
 			var newli = document.createElement( 'li' );
 			var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
 			$( newspan ).removeClass( 'creation' ).find( 'span' ).append( document.createTextNode( showvalue ) );
-			var link = $( newspan ).find( 'a' )[ 0 ];
+			var link = newspan.getElementsByTagName( 'a' )[ 0 ];
 			alert( link );
 			$( newli ).append( newspan );
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting ul.' + type ).prepend( newli );
