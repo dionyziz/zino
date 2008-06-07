@@ -16,7 +16,9 @@
 			?> ).find( 'a' ).click( function( id , node ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
-				?>' , node );
+				?>' , <?php
+				echo $node;
+				?> );
 			} )
 			.fadeIn( 200 );<?php
 		}
