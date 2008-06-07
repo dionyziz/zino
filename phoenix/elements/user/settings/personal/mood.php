@@ -15,7 +15,7 @@
                 </a>
                 <img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
-                echo $user->Profile->Mood->URL;
+                echo $user->Profile->Mood->Url;
                 ?>" alt="<?php
                 if ( $user->Gender == 'f' ) {
                     echo htmlspecialchars( $user->Profile->Mood->LabelFemale );
@@ -38,7 +38,7 @@
                     foreach ( $moods as $mood ) {
                         ?><li><a><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        echo $mood->URL;
+                        echo $mood->Url;
                         ?>" alt="<?php
                         if ( $user->Gender == 'f' ) {
                             echo htmlspecialchars( $mood->LabelFemale );
