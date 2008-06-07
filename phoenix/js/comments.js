@@ -79,7 +79,7 @@ var Comments = {
 				} );
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).click( function() {
+		var temp = $( "div.newcomment" ).clone( true ).css( 'marginLeft' , (indent+1)*20 + 'px' ).attr( 'id', 'comment_reply_' + nodeid ).find( "div.bottom input" ).unbind( 'click' ).click( function() {
 					Comments.Create( nodeid );
 					return false;
 				} ).end().insertAfter( '#comment_' + nodeid );
