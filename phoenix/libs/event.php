@@ -110,10 +110,10 @@
                     :events
                 WHERE
                     `event_typeid` IN :types
-                LIMIT 
-                    :offset, :limit
                 ORDER BY
-                    `event_id` ' . $order
+                    `event_id` ' . $order . '
+                LIMIT 
+                    :offset, :limit;'
             );
             $query->BindTable( 'events' );
             $query->Bind( 'types', $typeids );
