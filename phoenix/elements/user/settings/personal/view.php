@@ -91,6 +91,16 @@
 			<div class="rightbar"></div>
 		</div>
 		<div class="option">
+			<label for="mood">Διάθεση:</label>
+			<div class="setting" id="mood"><?php
+				Element( 'user/settings/personal/mood' );
+			?></div>
+		</div>
+		<div class="barfade">
+			<div class="leftbar"></div>
+			<div class="rightbar"></div>
+		</div>
+		<div class="option">
 			<label for="sexualorientation">Σεξουαλικές προτιμήσεις:</label>
 			<div class="setting" id="sex"><?php
 				Element( 'user/settings/personal/sex' , $user->Profile->Sexualorientation , $user->Gender );
@@ -144,16 +154,6 @@
 			<label for="favquote">Αγαπημένο ρητό:</label>
 			<div class="setting" id="favquote"><?php
 				Element( 'user/settings/personal/favquote' );
-			?></div>
-		</div>
-		<div class="barfade">
-			<div class="leftbar"></div>
-			<div class="rightbar"></div>
-		</div>
-		<div class="option">
-			<label for="mood">Διάθεση:</label>
-			<div class="setting" id="mood"><?php
-				Element( 'user/settings/personal/mood' );
 			?></div>
 		</div>
 		<div class="barfade">
