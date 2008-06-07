@@ -71,12 +71,9 @@
         protected $mDbTableAlias = 'notify';
 
         public function GetItem() {
-            if ( $this->Event->Exists() ) {
-                return $this->Event->Item;
-            }
-            else {
-                return false;
-            }
+            w_assert( $this->Event->Exists(), 'Event does not exist' );
+
+            return $this->Event->Item;
         }
         public function GetFromUser() {
             return $this->Event->User;
