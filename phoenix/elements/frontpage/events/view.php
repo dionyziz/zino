@@ -3,7 +3,7 @@
 	function ElementFrontpageEventsView( $event ) {
 		?><div class="event">
 			<div class="toolbox">
-				<span class="time">πριν <?php
+				<span class="time"><?php
 				echo $event->Since;
 				?></span>
 			</div>

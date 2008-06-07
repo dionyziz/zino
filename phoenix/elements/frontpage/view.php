@@ -120,7 +120,7 @@
 				?></div>
 			</div>
 			<div class="inevents"><?php
-			Element( 'frontpage/events' );
+			Element( 'frontpage/events/list' );
 			?></div><?php
 		}
 		?><div class="eof"></div>
