@@ -57,7 +57,7 @@
                 case TYPE_POLL:
                     return 'polls';
                 case TYPE_USERPROFILE:
-                    return 'profiles';
+                    return 'profile';
             }
         }
         else if ( $event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
