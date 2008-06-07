@@ -2,6 +2,7 @@ var Comments = {
 	Create : function( parentid ) {
 		var texter;
 		if ( parentid === 0 ) { // Clear new comment message
+			alert( "Edo imaste" );
 			texter = $("div.newcomment div.text textarea").get( 0 ).value;
 			$("div.newcomment div.text textarea").get( 0 ).value = '';
 		}
