@@ -26,7 +26,7 @@
                         1;" );
             
             $query->BindTable( 'notify' );
-            $query->BindTable( 'notify' );
+            $query->BindTable( 'events' );
             $query->Bind( 'userid', $user->Id );
             $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
             $query->Bind( 'commentid', $comment->Id );

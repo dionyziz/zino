@@ -13,7 +13,7 @@
 				?> έγραψε:
 			</div>
 			<div class="subject"><?php
-				if ( $notif->Event->Typeid != EVENT_USERRELATION_CREATED ) {
+				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
 					//die( 'class: '.get_class( $comment ) );
