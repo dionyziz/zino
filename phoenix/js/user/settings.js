@@ -85,7 +85,7 @@ var Settings = {
 				Coala.Warm( 'user/settings/tags/new' , { text : intervalue , typeid : typeid , node : link } );
 			}
 			else {
-				alert( 'Το κείμενό σου μπορεί να έχει 32 χαρακτήρες το πολύ' );
+				alert( 'Ξ¤ΞΏ ΞΊΞµΞ―ΞΌΞµΞ½Ο ΟƒΞΏΟ… ΞΌΟ€ΞΏΟΞµΞ― Ξ½Ξ± Ξ­Ο‡ΞµΞΉ 32 Ο‡Ξ±ΟΞ±ΞΊΟ„Ξ®ΟΞµΟ‚ Ο„ΞΏ Ο€ΞΏΞ»Ο' );
 			}
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
