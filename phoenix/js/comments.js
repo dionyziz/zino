@@ -39,6 +39,10 @@ var Comments = {
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
+			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
+			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
+				deletes.fadeOut( 400 );
+			}
 		}
 		
 		var type = temp.find( "#type:first" ).text();
