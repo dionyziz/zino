@@ -14,11 +14,11 @@
 			?>var link = $( <?php 
 			echo $node;
 			?> ).find( 'a' );
-			$( link ).click( function( id , node ) { 
+			alert( link );
+			$( link ).click( function( id , link ) { 
 				Settings.RemoveInterest( '<?php
 				echo $tag->Id;
 				?>' , link );
-				alert( link );
 				return false;
 			} )
 			.fadeIn( 200 );<?php
