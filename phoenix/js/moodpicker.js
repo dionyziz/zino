@@ -12,7 +12,7 @@ var MoodDropdown = {
     },
     Select: function ( id, moodid, who ) {
         $( '#' + id )[ 0 ].value = moodid;
-        var imgnode = $( who.parentNode.parentNode.parentNode ).find( 'div.view img.selected' )[ 0 ];
+        var imgnode = $( who.parentNode.parentNode.parentNode.parentNode ).find( 'div.view img.selected' )[ 0 ];
         imgnode.src = $( who ).find( 'img' )[ 0 ].src;
         imgnode.alt = $( who ).find( 'img' )[ 0 ].alt;
         imgnode.title = $( who ).find( 'img' )[ 0 ].title;
