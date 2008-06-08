@@ -271,9 +271,9 @@
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
                 
-                die( preg_match( '#(me+|egw+|ego+|[εΕ][Γγ][Ωώω]|)#', $album[ 'album_name' ] )? '1': '0' );
+                die( preg_match( "#(\\b|^)(me+|egw+|ego+|[εΕ][Γγ][Ωώω]|)(\\b|\$)#", $album[ 'album_name' ] )? '1': '0' );
 
-                if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώω])(\\b|$)#i", $album[ 'album_name' ] ) ) {
+                if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώω])(\\b|\$)#i", $album[ 'album_name' ] ) ) {
                     die( $album[ 'album_name' ] . " match" );
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
