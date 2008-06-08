@@ -270,6 +270,9 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
+                
+                die( $album[ 'album_name' ] == 'Εγώ'? '1': '0' );
+
                 if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\b|$)#i", $album[ 'album_name' ] ) ) {
                     die( $album[ 'album_name' ] . " match" );
                     // looks like an ego album
