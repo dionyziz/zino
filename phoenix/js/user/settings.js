@@ -529,6 +529,12 @@ $( document ).ready( function() {
 			}
 		} )
 		.keyup( function( event ) {
+			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
+				Settings.newpassworderror = false;
+				$( '#newpassword div span' ).fadeOut( 400 );
+			}
+		} )
+		.keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
 					$( '#newpassword div span' ).fadeIn( 400 );
@@ -544,10 +550,6 @@ $( document ).ready( function() {
 						Settings.renewpassword.focus();
 					}
 				}
-			}
-			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
-				Settings.newpassworderror = false;
-				$( '#newpassword div span' ).fadeOut( 400 );
 			}
 		} );
 		$( Settings.renewpassword ).change( function() {
