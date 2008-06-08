@@ -134,6 +134,7 @@
 										break;
 									case 'profile_update':
 										foreach ( $eventlist as $one ){ 
+											?><div><?php
 											switch ( $one->Typeid ) {
 												case EVENT_USERPROFILE_EDUCATION_UPDATED:
 													if ( $one->User->Gender =='f' ) {
@@ -301,6 +302,7 @@
 													Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
 													?> χρώμα ματιών<?php
 											}
+											?></div><?php
 										}
 										break;		
 									case EVENT_USER_CREATED:
