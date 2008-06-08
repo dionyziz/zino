@@ -1,6 +1,5 @@
 <?php
-	
-	function ElementFrontpageEventsList() {
+	function ElementEventList() {
 		global $libs;
 		global $water;
 		
@@ -33,7 +32,7 @@
 			<div class="list"><?php
 				$water->Trace( 'event number: ' . count( $events ) );
 				foreach ( $events as $event ) {
-					Element( 'frontpage/events/view' , $event );
+					Element( 'event/view' , $event );
 				}
 			?></div>
 		</div><?php

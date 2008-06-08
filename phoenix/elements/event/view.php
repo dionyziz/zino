@@ -1,6 +1,5 @@
 <?php
-	
-	function ElementFrontpageEventsView( $event ) {
+	function ElementEventView( $event ) {
 		?><div class="event">
 			<div class="toolbox">
 			</div>
