@@ -484,7 +484,7 @@ $( document ).ready( function() {
 				}
 			}
 			else {
-				if ( Settings.newpassword.value.length < 4 ) {
+				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
 					$( '#newpassword div span' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
