@@ -135,7 +135,7 @@
         protected function SetPassword( $value ) {
             $this->mCurrentValues[ 'Password' ] = md5( $value );
         }
-        protected function IsCorrectPassword( $value ) {
+        public function IsCorrectPassword( $value ) {
             return md5( $value ) == $this->mCurrentValues[ 'Password' ];
         }
         protected function GetPassword() {
