@@ -107,6 +107,7 @@
 								$water->Trace( 'type is ' . $type );
 								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
+										?>eikona<?php
 										foreach ( $eventlist as $one ) {
 											?><a href="?p=photo&amp;id=<?php
 											echo $one->Item->Id;
