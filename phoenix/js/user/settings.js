@@ -545,7 +545,7 @@ $( document ).ready( function() {
 				}
 			}
 		} )
-		.keydown( function( event ) {
+		.keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
 					$( '#renewpassword div span' ).fadeIn( 400 );
