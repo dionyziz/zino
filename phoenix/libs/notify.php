@@ -103,8 +103,6 @@
             $field = Notification_FieldByEvent( $this->Event );
 
             $touser = New User( $this->Touserid );
-            w_assert( $touser->Exists() );
-            w_assert( $touser->Preferences->Exists() );
 
             $attribute = 'Email' . $field;
             if ( $touser->Preferences->$attribute == 'yes' && !empty( $touser->Profile->Email ) && $touser->Emailverified ) {
@@ -112,7 +110,6 @@
             }
             
             $attribute = 'Notify' . $field;
-            die( 'attr: ' . $touser->Preferences->$attribute );
             $water->Trace( "Notify attribute", $attribute );
             if ( $touser->Preferences->$attribute != 'yes' ) {
                 $water->Trace( "No notification for user " . $touser->Name, $touser->Preferences->$attribute );
