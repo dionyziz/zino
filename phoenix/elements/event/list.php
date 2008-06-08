@@ -49,7 +49,6 @@
 					}
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
 						$eventlist = $info[ $event->User->Id ][ $type ];
-						var_dump( $eventlist );
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
