@@ -251,7 +251,9 @@
                 `album_id`, `album_name`, `user_id`, `user_name`, `user_subdomain`
             FROM
                 `$albums` CROSS JOIN `$users`
-                    ON `album_userid`=`user_id`;"
+                    ON `album_userid`=`user_id`
+            WHERE
+                `album_delid`=0;"
         );
         $albumsbyuser = array();
         while ( $row = $res->FetchArray() ) {
