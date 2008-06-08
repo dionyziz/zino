@@ -281,7 +281,7 @@
                     ++$j;
                     break; // don't look further
                 }
-                die( $album[ 'album_name' ] . " no match" );
+                die( 'preg_match( "#(\\\\b|^)(me+|' . $nickname . '|' . $subdomain . '|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\\\b|$)#i", "' . $album[ 'album_name' ] . '" )' );
             }
         }
         ?> -- <?php
