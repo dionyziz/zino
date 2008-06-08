@@ -78,7 +78,7 @@
 						Element( 'user/avatar' , $event->Item , 100 , '' , '' , false , 0 , 0 );
 						break;
 					case EVENT_USERPROFILE_EDUCATION_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender =='f' ) {
 							?>Η <?php
 						}
 						else {
@@ -89,7 +89,7 @@
 						Element( 'user/trivial/education' , $event->User->Profile->Education );
 						break;
 					case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -100,7 +100,7 @@
 						Element( 'user/trivial/sex' , $event->User->Profile->Sexualorientation , $event->User->Gender );
 						break;
 					case EVENT_USERPROFILE_RELIGION_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -111,7 +111,7 @@
 						Element( 'user/trivial/religion' , $event->User->Profile->Religion );
 						break;
 					case EVENT_USERPROFILE_POLITICS_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -122,7 +122,7 @@
 						Element( 'user/trivial/politics' , $event->User->Profile->Politics );
 						break;
 					case EVENT_USERPROFILE_SMOKER_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -142,7 +142,7 @@
 						}
 						break;
 					case EVENT_USERPROFILE_DRINKER_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -162,7 +162,7 @@
 						}
 						break;
 					case EVENT_USERPROFILE_ABOUTME_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 							$self = 'της';
 						}
@@ -179,7 +179,7 @@
 						break;
 					case EVENT_USERPROFILE_MOOD_UPDATED:
 					case EVENT_USERPROFILE_LOCATION_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -190,7 +190,7 @@
 						echo htmlspecialchars( $event->User->Profile->Location->Name );
 						break;
 					case EVENT_USERPROFILE_HEIGHT_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -201,7 +201,7 @@
 						strtolower( Element( 'user/trivial/height' , $event->User->Profile->Height ) );
 						break;
 					case EVENT_USERPROFILE_WEIGHT_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -212,7 +212,7 @@
 						strtolower( Element( 'user/trivial/weight' , $event->User->Profile->Weight ) );
 						break;
 					case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
@@ -232,7 +232,7 @@
 						}
 						break;
 					case EVENT_USERPROFILE_EYECOLOR_UPDATED:
-						if ( $event->User->Gender = 'f' ) {
+						if ( $event->User->Gender == 'f' ) {
 							?>Η <?php
 						}
 						else {
