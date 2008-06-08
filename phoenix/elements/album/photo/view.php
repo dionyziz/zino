@@ -189,7 +189,6 @@
 				$finder = New CommentFinder();
 				if ( $commentid == 0 ) {
 					$comments = $finder->FindByPage( $image , $offset , true );
-                    $water->Trace( 'comments found', $comments );
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
 				}
