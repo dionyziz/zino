@@ -120,6 +120,24 @@ var Settings = {
 		Coala.Warm( 'user/settings/upload' , { imageid : imageid } );
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
+	},
+	ChangePassword( oldpassword , newpassword , renewpassword ) {
+		if ( oldpassword.length < 4 ) {
+			Settings.oldpassworderror = true;
+			$( '#oldpassword div span' ).fadeIn( 300 );
+			Settings.oldpassword.focus();
+		}
+		if ( newpassword.length < 4 && !Settings.oldpassworderror ) {
+			Settings.newpassworderror = true;
+			$( '#newpassword div span' ).fadeIn( 300 );
+		}
+		if ( newpassword != renewpassword && !Settings.oldpassworderror !Settings.newpassworderror ) {
+			Settings.renewpassworderror = true;
+			$( '#renewpassword div span' ).fadeIn( 300 );
+		}
+		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+			//alert( 'enqueue' );
+		}
 	}
 };
 $( document ).ready( function() {
@@ -455,7 +473,7 @@ $( document ).ready( function() {
 			alert( Settings.oldpassword.value );
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					alert( 'enqueue' );
+					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 			}
 			//enqueue
@@ -465,10 +483,8 @@ $( document ).ready( function() {
 				$( '#oldpassword div span' ).fadeOut( 400 );
 			}
 			if ( event.keyCode == 13 ) {
-				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
-					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-						alert( 'enqueue' );
-					}
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 				else {
 					Settings.newpassword.focus();
@@ -478,10 +494,8 @@ $( document ).ready( function() {
 		
 		$( Settings.newpassword ).change( function() {
 			alert( Settings.newpassword.value );
-			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
-				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					alert( 'enqueue' );
-				}
+			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+				ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			}
 			else {
 				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
@@ -501,7 +515,7 @@ $( document ).ready( function() {
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-						alert( 'enqueue' );
+						ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 					}
 				}
 				else {
@@ -516,10 +530,8 @@ $( document ).ready( function() {
 			}
 		} );
 		$( Settings.renewpassword ).change( function() {
-			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
-				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					alert( 'enqueue' );
-				}
+			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+				ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			}
 			else {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
@@ -535,10 +547,8 @@ $( document ).ready( function() {
 					$( '#renewpassword div span' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
-				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
-					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-						alert( 'enqueue' );
-					}
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 				if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 					Settings.renewpassworderror = false;
