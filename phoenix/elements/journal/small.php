@@ -20,7 +20,7 @@
 				<li>
 					<dl><?php
 					if ( $journal->Numcomments > 0 ) {
-						?><dt class="commentsnum"><a href="?p=poll&amp;id=<?php
+						?><dt class="commentsnum"><a href="?p=journal&amp;id=<?php
 						echo $journal->Id;
 						?>"><?php
 						echo $journal->Numcomments;
