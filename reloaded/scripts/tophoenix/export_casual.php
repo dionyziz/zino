@@ -270,7 +270,7 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
-                if ( preg_match( "#(\\b|^)(me+|my|mou|$nickname|$subdomain|egw+|ego+|εγώ|εγω)(\\b|$)#i", $album[ 'album_name' ] ) ) {
+                if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\b|$)#i", $album[ 'album_name' ] ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
