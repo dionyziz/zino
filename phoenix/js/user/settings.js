@@ -487,9 +487,6 @@ $( document ).ready( function() {
 			//enqueue
 		} )	
 		.keyup( function( event ) {
-			if ( Settings.oldpassworderror ) {
-				$( '#oldpassword div span' ).fadeOut( 400 );
-			}
 			if ( event.keyCode == 13 ) {
 				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
 					$( '#oldpassword div span' ).fadeIn( 400 );
