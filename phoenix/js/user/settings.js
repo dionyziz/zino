@@ -494,15 +494,17 @@ $( document ).ready( function() {
 			}
 		} ).
 		keyup( function( event ) {
-			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
-				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					alert( 'enqueue' );
+			if ( event.keyCode == 13 ) {
+				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+						alert( 'enqueue' );
+					}
+				}
+				else {
+					Settings.renewpassword.focus();
 				}
 			}
-			else {
-				Settings.newpassword.focus();
-			}
-			if ( Settings.newpassworderror && Settigns.newpassword.length >= 4 ) {
+			if ( Settings.newpassworderror && Settings.newpassword.length >= 4 ) {
 				Settings.newpassworderror = false;
 				$( '#newpassword div span' ).fadeOut( 400 );
 			}
