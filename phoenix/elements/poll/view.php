@@ -43,16 +43,20 @@
 							$finder = New CommentFinder();
 							if ( $commentid == 0 ) {
 								$comments = $finder->FindByPage( $poll , $offset , true );
+                                $total_pages = $comments[ 0 ];
+                                $comments = $comments[ 1 ];
 							}
 							else {
 								$speccomment = New Comment( $commentid );
 								$comments = $finder->FindNear( $poll , $speccomment );
-								$offset = $comments[ 0 ];
-								$comments = $comments[ 1 ];
+                                $total_pages = $comments[ 0 ];
+								$offset = $comments[ 1 ];
+								$comments = $comments[ 2 ];
 							}
 							Element( 'comment/list' , $comments , 0 , 0 );
 							?><div class="pagifycomments"><?php
-								Element( 'pagify' , $offset , 'poll&id=' . $poll->Id , $poll->Numcomments , 50 , 'offset' );
+                                $link = '?p=poll&id=' . $poll->Id . '&offset=';
+								Element( 'pagify', $offset, $link, $total_pages );
 							?></div><?php
 						}
 					?></div>

@@ -82,7 +82,11 @@
 		}
 		?><div class="eof"></div>
 		<div class="pagifyalbums"><?php
-		Element( 'pagify' , $offset , 'albums&subdomain=' . $theuser->Subdomain , $theuser->Count->Albums , 12 , 'offset' );
+
+        $link = '?p=albums&subdomain=' . $theuser->Subdomain . '&offset=';
+        $total_pages = ceil( $theuser->Count->Albums / 12 );
+		Element( 'pagify', $offset, $link, $total_pages );
+
 		?></div><?php
 	}
 ?>

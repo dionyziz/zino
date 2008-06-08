@@ -88,7 +88,11 @@
 			?></ul>
 			<div class="eof"></div>
 			<div class="pagifyimages"><?php
-			Element( 'pagify' , $offset , 'album&id=' . $album->Id , $album->Numphotos , 20 , 'offset' );
+
+            $link = '?p=album&id=' . $album->Id . '&offset=';
+            $total_pages = ceil( $album->Numphotos / 20 );
+			Element( 'pagify', $offset, $link, $total_pages );
+
 			?></div>
 			</div><div class="eof"></div><?php
 	}

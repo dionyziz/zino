@@ -189,16 +189,22 @@
 				$finder = New CommentFinder();
 				if ( $commentid == 0 ) {
 					$comments = $finder->FindByPage( $image , $offset , true );
+                    $total_pages = $comments[ 0 ];
+                    $comments = $comments[ 1 ];
 				}
 				else {
 					$speccomment = New Comment( $commentid );
 					$comments = $finder->FindNear( $image , $speccomment );
-					$offset = $comments[ 0 ];
-					$comments = $comments[ 1 ];
+                    $total_pages = $comments[ 0 ];
+					$offset = $comments[ 1 ];
+					$comments = $comments[ 2 ];
 				}
 				Element( 'comment/list' , $comments , 0 , 0 );
 				?><div class="pagifycomments"><?php
-					Element( 'pagify' , $offset , 'photo&id=' . $image->Id , $image->Numcomments , 50 , 'offset' );
+
+                    $link = '?p=photo&id=' . $image->Id . '&offset=';
+					Element( 'pagify', $offset, $link, $total_pages );
+
 				?></div><?php
 			}
 			?></div>

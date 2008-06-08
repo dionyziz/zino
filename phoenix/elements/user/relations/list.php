@@ -54,7 +54,11 @@
 				?>Δεν έχουν προστεθεί φίλοι<?php
 			}
 			?><div class="pagifyrelations"><?php
-			Element( 'pagify' , $offset , 'friends&subdomain=' . $theuser->Subdomain , $theuser->Count->Relations , 20 , 'offset' );
+            
+            $link = '?p=friends&subdomain=' . $theuser->Subdomain . '&offset=';
+            $total_pages = ceil( $theuser->Count->Relations / 20 );
+			Element( 'pagify', $offset, $link, $total_pages );
+
 			?></div>
 			<div class="eof"></div>
 		</div><?php

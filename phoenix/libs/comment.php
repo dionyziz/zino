@@ -32,6 +32,20 @@
 		return $children;
 	}
 
+    function Comments_CountPages( $comments, $parents ) {
+        $total_pages = 0;
+        $page_total = 0; 
+        foreach ( $parents as $parent ) {
+            $page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
+            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
+                $page_total = 0;
+                $total_pages++;
+            }
+        }
+
+        return $total_pages;
+    }
+
 	function Comments_MakeParented( &$parented, $comments, $id, $reverse = true ) {
 		foreach ( $comments as $comment ) {
 			if ( $comment->Parentid == $id ) {
@@ -79,7 +93,6 @@
             /* End of counting */
 
             $page_total += $count;
-
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
                 if ( $found_comment ) {
                     break;
@@ -103,7 +116,7 @@
             Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
         }
 
-        return array( $page_num + 1, $parented );
+        return array( Comment_CountPages( $comments, $parents ), $page_num + 1, $parented );
     }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
@@ -145,20 +158,18 @@
                 $page_nums[] = $page_total;
                 $page_total = 0;
                 $page_num++;
+                if ( $page_num > $page ) {
+                    return;
+                }
             }
         }
 
-        if ( $page_total == 0 ) {
-            --$page_num;
-        }
-        else {
-            $page_nums[] = $page_total;
-        }
+        $page_nums[] = $page_total;
 
         $water->Trace( "page nums Comments_OnPage", $page_nums );
         $water->Trace( "page children Comments_OnPage", $page_children );
 
-		return $parented;
+		return array( Comments_CountPages( $comments, $parents ), $parented );
 	}
 
     /*

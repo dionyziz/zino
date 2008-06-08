@@ -73,7 +73,9 @@
 				}
 			?></ul>
 			<div class="pagifyjournals"><?php
-			Element( 'pagify' , $offset , 'polls&subdomain=' . $theuser->Subdomain , $theuser->Count->Journals , 5 , 'offset' );
+            $link = '?p=journals&subdomain=' . $theuser->Subdomain . '&offset=';
+            $total_pages = ceil( $theuser->Count->Journals / 5 );
+			Element( 'pagify', $offset, $link, $total_pages );
 			?></div>
 		</div>
 		<div class="eof"></div><img src="<?php
