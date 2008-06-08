@@ -106,7 +106,7 @@
 											?><a href="?p=photo&amp;id=<?php
 											echo $one->Item->Id;
 											?>"><?php
-											Element( 'image' , $one->Item , IMAGE_CROPPED_100x100 , '' , $one->User->Name , $one->User->Name , '' , false , 0 , 0 );
+											Element( 'image' , $one->Item , IMAGE_CROPPED_100x100 , '' , $one->User->Name , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 );
 											?></a><?php
 										}
 										break;
@@ -138,7 +138,7 @@
 											?><a href="<?php
 											Element( 'user/url' , $one->Item->Friend );
 											?>"><?php
-											Element( 'user/avatar' , $one->Item->Friend, 100 , '' , '' , false , 0 , 0 );
+											Element( 'user/avatar' , $one->Item->Friend, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
 											?></a><?php
 										}
 										break;
