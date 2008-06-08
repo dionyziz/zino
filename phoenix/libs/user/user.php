@@ -175,6 +175,7 @@
         protected function LoadDefaults() {
             $this->Rights = 30; // default permissions of user right after registering
             $this->Registerhost = UserIp();
+            $this->Created = NowDate();
             $this->RenewAuthtoken(); // create a basic authtoken
         }
         protected function OnConstruct( /* ... */ ) {
