@@ -104,7 +104,7 @@
 								}
 							?></div>
 							<div class="subject"><?php
-								switch ( $type) {
+								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
 										foreach ( $eventlist as $one ) {
 											?><a href="?p=photo&amp;id=<?php
