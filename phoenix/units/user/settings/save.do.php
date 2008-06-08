@@ -186,7 +186,7 @@
 					});<?php		
 			}
 			if ( $oldpassword && $newpassword ) {
-				if ( $user->Password == md5( $oldpassword ) ){
+				if ( $user->IsCorrectPassword( $oldpassword ) ) {
 					if ( strlen( $newpassword ) >= 4 ) {
 						$user->Password = $newpassword;
 					}
