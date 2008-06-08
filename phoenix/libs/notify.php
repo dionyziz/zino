@@ -80,6 +80,8 @@
         }
         public function Email() {
             global $rabbit_settings;
+            
+            $touser = New User( $this->Touserid );
 
             switch ( $this->Event->Typeid ) {
                 case EVENT_COMMENT_CREATED:
@@ -94,30 +96,32 @@
             $message = ob_get_clean();
 
             // send an email
-            mail( $this->ToUser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
+            mail( $touser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnBeforeCreate() {
             global $water;
             $field = Notification_FieldByEvent( $this->Event );
 
+            $touser = New User( $this->Touserid );
+
             $attribute = 'Email' . $field;
-            if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Profile->Email ) && $this->ToUser->Emailverified ) {
+            if ( $touser->Preferences->$attribute == 'yes' && !empty( $touser->Profile->Email ) && $touser->Emailverified ) {
                 $this->Email();
             }
             
             $attribute = 'Notify' . $field;
             $water->Trace( "Notify attribute", $attribute );
-            if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
-                $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
-                if ( !is_object( $this->ToUser ) ) {
+            if ( $touser->Preferences->$attribute != 'yes' ) {
+                $water->Trace( "No notification for user " . $touser->Name, $touser->Preferences->$attribute );
+                if ( !is_object( $touser ) ) {
                     die( "touser not an object" );
                 }
-                if ( !is_object( $this->ToUser->Preferences ) ) {
+                if ( !is_object( $touser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
                 return false;
             }
-            $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
+            $water->Trace( "New notification for user " . $touser->Name, $touser->Preferences->$attribute );
 
             return true;
         }
