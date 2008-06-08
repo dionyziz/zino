@@ -80,9 +80,7 @@ var Comments = {
 					Comments.Reply( id, indent+1 );
 					return false;
 				}, function() {
-					$( '#comment_reply_' + id ).hide( 300, function() {
-									$(this).remove();
-								} );
+					$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
 					return false;
 				}
 			);
@@ -96,3 +94,18 @@ var Comments = {
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 	}
 };
+$( document ).ready( function() {
+		$( "div.comments div" ).each( function( i ) {
+			var id = parseInt( $( this ).attr( 'id' ), 10 );
+			var indent = parseInt( $( this ).css( 'marginLeft' ), 10 )/20;
+			$( this ).find( "div.bottom a" ).toggle( function() {
+					Comments.Reply( id, indent );
+					return false;
+				}, function() {
+					$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
+					return false;
+				}
+			);
+		} );
+	} );	
+			
