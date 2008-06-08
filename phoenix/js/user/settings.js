@@ -136,7 +136,7 @@ var Settings = {
 			$( '#renewpassword div span' ).fadeIn( 300 );
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-			//alert( 'enqueue' );
+			alert( 'enqueue' );
 		}
 	}
 };
