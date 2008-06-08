@@ -539,6 +539,7 @@ $( document ).ready( function() {
 			}
 			else {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
+					alert( 'error' );
 					$( '#renewpassword div span' ).fadeIn( 400 );
 					Settings.renewpassworderror = true;
 				}
