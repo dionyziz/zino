@@ -265,7 +265,9 @@
 													}
 													echo $one->User->Name;
 													?> είναι <?php
-													strtolower( Element( 'user/trivial/height' , $one->User->Profile->Height ) );
+													ob_start();
+													Element( 'user/trivial/height' , $one->User->Profile->Height );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_WEIGHT_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -276,7 +278,9 @@
 													}
 													echo $one->User->Name;
 													?> είναι <?php
-													strtolower( Element( 'user/trivial/weight' , $one->User->Profile->Weight ) );
+													ob_start();
+													Element( 'user/trivial/weight' , $one->User->Profile->Weight );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -294,7 +298,9 @@
 													}
 													else {
 														?> έχει <?php 
-														strtolower( Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor ) );
+														ob_start();
+														Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
+														echo strtolower( ob_get_clean() );
 														?> μαλλί<?php
 													}
 													break;
@@ -307,7 +313,9 @@
 													}
 													echo $one->User->Name;
 													?> έχει <?php
+													ob_start();
 													Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
+													echo strtolower( ob_get_clean() );
 													?> χρώμα ματιών<?php
 											}
 											?></div><?php
