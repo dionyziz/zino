@@ -492,9 +492,13 @@ $( document ).ready( function() {
 					Settings.renewpassword.focus();
 				}
 			}
-		} ).
-		keyup( function( event ) {
+		} )
+		.keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
+				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
+					$( '#newpassword div span' ).fadeIn( 400 );
+					Settings.newpassworderror = true;
+				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 						alert( 'enqueue' );
@@ -510,6 +514,12 @@ $( document ).ready( function() {
 				Settings.newpassworderror = false;
 				$( '#newpassword div span' ).fadeOut( 400 );
 			}
+		} );
+		$( Settings.renewpassword ).change( function() {
+		
+		} )
+		.keyup( function( event ) {
+		
 		} );
 	}
 });
