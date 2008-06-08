@@ -501,8 +501,8 @@ $( document ).ready( function() {
 					}
 				}
 				else {
-					if ( !Settings.renewpassworderror ) {
-						Settings.renewpassword.focus();
+					if ( !Settings.newpassworderror ) {
+						Settings.newpassword.focus();
 					}
 				}
 			}
