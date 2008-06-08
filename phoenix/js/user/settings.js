@@ -516,10 +516,35 @@ $( document ).ready( function() {
 			}
 		} );
 		$( Settings.renewpassword ).change( function() {
-		
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					alert( 'enqueue' );
+				}
+			}
+			else {
+				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
+					$( '#renewpassword div span' ).fadeIn( 400 );
+					Settings.renewpassworderror = true;
+				}
+			}
+
 		} )
 		.keyup( function( event ) {
-		
+			if ( event.keyCode == 13 ) {
+				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
+					$( '#renewpassword div span' ).fadeIn( 400 );
+					Settings.newpassworderror = true;
+				}
+				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+						alert( 'enqueue' );
+					}
+				}
+				if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
+					Settings.renewpassworderror = false;
+					$( '#renewpassword div span' ).fadeOut( 400 );
+				}
+			}
 		} );
 	}
 });
