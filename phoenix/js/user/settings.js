@@ -526,14 +526,10 @@ $( document ).ready( function() {
 					}
 				}
 			}
-			return false;
-		} )
-		.keydown( function( event ) {
 			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
 				Settings.newpassworderror = false;
 				$( '#newpassword div span' ).fadeOut( 400 );
 			}
-			return false;
 		} );
 		$( Settings.renewpassword ).change( function() {
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
@@ -561,6 +557,8 @@ $( document ).ready( function() {
 					}
 				}
 			}
+		} )
+		.keydown( function( event ) {
 			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 				Settings.renewpassworderror = false;
 				$( '#renewpassword div span' ).fadeOut( 400 );
