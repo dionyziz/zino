@@ -1,29 +1,26 @@
 <?php
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
-		?>
-		<div class="option">
-			<span>Αλλαγή κωδικού πρόσβασης</span>
-			<div id="oldpassword">
-				<span>Κωδικός πρόσβασης:</span><input type="password" />
-				<span class="wrongpwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
-			</div>
-			<div id="newpassword">
-				<span>Νέος κωδικός πρόσβασης:</span><input type="password" />
-				<span class="shortpwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
-			</div>
-			<div id="renewpassword">
-				<span>Επιβεβαίωση νέου κωδικού:</span><input type="password" />
-				<span class="wrongrepwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
-			</div>
+		?><label>Αλλαγή κωδικού πρόσβασης</label>
+		<div id="oldpassword">
+			<span>Κωδικός πρόσβασης:</span><input type="password" />
+			<span class="wrongpwd"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
 		</div>
-		<label>Να λαμβάνω ειδοποιήσεις:</label>
+		<div id="newpassword">
+			<span>Νέος κωδικός πρόσβασης:</span><input type="password" />
+			<span class="shortpwd"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+		</div>
+		<div id="renewpassword">
+			<span>Επιβεβαίωση νέου κωδικού:</span><input type="password" />
+			<span class="wrongrepwd"><img src="<?php
+			echo $rabbit_settings[ 'imagesurl' ];
+			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+		</div>
+		<label>Να λαμβάνω ειδοποιήσεις</label>
 		<div class="setting">
 			<table>
 				<thead>
