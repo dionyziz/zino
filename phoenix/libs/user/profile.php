@@ -163,8 +163,6 @@
                 }
             }
 
-            die( print_r( $previousValues ) );
-
             foreach ( $previousValues as $attribute => $value ) {
                 $this->OldProfile->$attribute = $value;
             }
