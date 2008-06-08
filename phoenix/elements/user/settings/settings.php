@@ -1,19 +1,26 @@
 <?php
 	function ElementUserSettingsSettings() {
+		global $rabbit_settings;
 		?>
 		<div class="option">
 			<span>Αλλαγή κωδικού πρόσβασης</span>
 			<div id="oldpassword">
 				<span>Κωδικός πρόσβασης:</span><input type="password" />
-				<span class="wrongpwd">Ο κωδικός πρόσβασης δεν είναι σωστός</span>
+				<span class="wrongpwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
 			</div>
 			<div id="newpassword">
 				<span>Νέος κωδικός πρόσβασης:</span><input type="password" />
-				<span class="shortpwd">Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+				<span class="shortpwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
 			</div>
 			<div id="renewpassword">
 				<span>Επιβεβαίωση νέου κωδικού:</span><input type="password" />
-				<span class="wrongrepwd">Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+				<span class="wrongrepwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
 			</div>
 		</div>
 		<label>Να λαμβάνω ειδοποιήσεις:</label>
