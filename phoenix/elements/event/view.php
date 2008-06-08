@@ -75,7 +75,7 @@
 						break;
 					case EVENT_FRIENDRELATION_CREATED:
 						?><a href="<?php
-						Element( 'user/url' , $event->Item );
+						Element( 'user/url' , $event->Item->Friend );
 						?>"><?php
 						Element( 'user/avatar' , $event->Item->Friend, 100 , '' , '' , false , 0 , 0 );
 						?></a><?php
