@@ -30,6 +30,8 @@
 			$skype = $skype->Get();
 			$yahoo = $yahoo->Get();
 			$web = $web->Get();
+			$oldpassword = $oldpassword->Get();
+			$newpassword = $newpassword->Get();
 			
 			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
 				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
@@ -182,6 +184,18 @@
 				?>$( Settings.showsaving ).animate( { opacity : "0" } , 200 , function() {
 						$( Settings.showsaving ).css( "display" , "none" );
 					});<?php		
+			}
+			if ( $oldpassword && $newpassword ) {
+				if ( $user->Password == md5( $oldpassword ) ){
+					if ( strlen( $newpassword ) >= 4 ) {
+						$user->Password = $newpassword;
+					}
+				}
+				else {
+					?>Settings.oldpassworderror = true;
+					$( '#oldpassword div span' ).fadeIn( 400 );
+					Settings.oldpassword.focus();<?php
+				}
 			}
 			$user->Save();
 			$user->Profile->Save();
