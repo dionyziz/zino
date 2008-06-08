@@ -78,11 +78,9 @@
         public function GetFromUser() {
             return $this->Event->User;
         }
-        public function Email() {
+        public function Email( $touser ) {
             global $rabbit_settings;
             
-            $touser = New User( $this->Touserid );
-
             switch ( $this->Event->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $target = 'notification/email/comment';
@@ -111,7 +109,7 @@
 
             $attribute = 'Email' . $field;
             if ( $touser->Preferences->$attribute == 'yes' && !empty( $touser->Profile->Email ) && $touser->Emailverified ) {
-                $this->Email();
+                $this->Email( $touser );
             }
             
             $attribute = 'Notify' . $field;
