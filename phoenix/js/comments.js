@@ -25,7 +25,7 @@ var Comments = {
 		del.title = "Διαγραφή";
 		
 		// Dimiourgisa ena teras :-S
-		var daddy = (parentid===0)?$( "div.newcomment" ).eq(0).clone( true ):$( "#comment_reply_" + parentid );
+		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
@@ -35,7 +35,7 @@ var Comments = {
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid=== 0 ){
-			temp.insertAfter( "div.newcomment" ).eq(0).fadeTo( 400, 1 );
+			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
@@ -86,7 +86,7 @@ var Comments = {
 			);
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" ).eq(0).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
+		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.bottom input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
