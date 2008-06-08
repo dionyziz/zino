@@ -95,7 +95,7 @@ var Comments = {
 	}
 };
 $( document ).ready( function() {
-		$( "div.comments div" ).not( ".pagifycomments, .newcomment" ).each( function( i ) {
+		$( "div.comments div.comment" ).not( ".newcomment" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'marginLeft' ), 10 )/20;
 			$( this ).find( "div.bottom a" ).toggle( function() {
