@@ -549,6 +549,7 @@ $( document ).ready( function() {
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
+					alert( 'error2' );
 					$( '#renewpassword div span' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
