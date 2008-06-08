@@ -31,13 +31,28 @@
 			<h2>Συνέβησαν πρόσφατα</h2>
 			<div class="list"><?php
 				foreach ( $events as $event ) {
-					$info[ $event->User->Id ][ $event->Typeid ][] = $event;
-					$visited[ $event->User->Id ][ $event->Typeid ] = false;
+					if ( $event->Typeid == EVENT_USERPROFILE_EDUCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_RELIGION_UPDATED || $event->Typeid == EVENT_USERPROFILE_POLITICS_UPDATED || $event->Typeid == EVENT_USERPROFILE_SMOKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_DRINKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_ABOUTME_UPDATED || $event->Typeid == EVENT_USERPROFILE_MOOD_UPDATED || $event->Typeid == EVENT_USERPROFILE_LOCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_HEIGHT_UPDATED || $event->Typeid = EVENT_USERPROFILE_WEIGHT_UPDATED || $event->Typeid ==	EVENT_USERPROFILE_HAIRCOLOR_UPDATED || $event->Typeid == EVENT_USERPROFILE_EYECOLOR_UPDATED ) {
+						$info[ $event->User->Id ][ 'profile_update' ] = $event;
+						$visited[ $event->User->Id ][ 'profile_update' ] = false;
+					}	
+					else {
+						$info[ $event->User->Id ][ $event->Typeid ][] = $event;
+						$visited[ $event->User->Id ][ $event->Typeid ] = false;
+					}
+					
 				}
 				foreach ( $events as $event ) {
-					if ( !$visited[ $event->User->Id ][ $event->Typeid ] ) {
-						$eventlist = $info[ $event->User->Id ][ $event->Typeid ];
-						$visited[ $event->User->Id ][ $event->Typeid ] = true;
+					if ( $event->Typeid == EVENT_USERPROFILE_EDUCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_RELIGION_UPDATED || $event->Typeid == EVENT_USERPROFILE_POLITICS_UPDATED || $event->Typeid == EVENT_USERPROFILE_SMOKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_DRINKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_ABOUTME_UPDATED || $event->Typeid == EVENT_USERPROFILE_MOOD_UPDATED || $event->Typeid == EVENT_USERPROFILE_LOCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_HEIGHT_UPDATED || $event->Typeid = EVENT_USERPROFILE_WEIGHT_UPDATED || $event->Typeid ==	EVENT_USERPROFILE_HAIRCOLOR_UPDATED || $event->Typeid == EVENT_USERPROFILE_EYECOLOR_UPDATED ) {
+							$eventlist = $info[ $event->User->Id ][ 'profile_update' ];
+							$visited[ $event->User->Id ][ 'profile_update' ] = true;
+							$type = 'profile_update';
+						}
+						else {
+							$eventlist = $info[ $event->User->Id ][ $event->Typeid ];
+							$visited[ $event->User->Id ][ $event->Typeid ] = true;
+							$type = $event->Typeid;
+						}
+					if ( !$visited[ $event->User->Id ][ $type ] ) {
 						?><div class="event">
 							<div class="toolbox">
 							</div>
@@ -142,172 +157,177 @@
 											?></a><?php
 										}
 										break;
-									case EVENT_USERPROFILE_EDUCATION_UPDATED:
-										if ( $event->User->Gender =='f' ) {
-											?>Η <?php
+									case 'profile_update':
+										foreach ( $eventlist as $one ){ 
+											switch ( $one->Typeid ) {
+												case EVENT_USERPROFILE_EDUCATION_UPDATED:
+													if ( $one->User->Gender =='f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> πάει <?php
+													Element( 'user/trivial/education' , $one->User->Profile->Education );
+													break;
+												case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι <?php
+													Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
+													break;
+												case EVENT_USERPROFILE_RELIGION_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι <?php
+													Element( 'user/trivial/religion' , $one->User->Profile->Religion );
+													break;
+												case EVENT_USERPROFILE_POLITICS_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι <?php
+													Element( 'user/trivial/politics' , $one->User->Profile->Politics );
+													break;
+												case EVENT_USERPROFILE_SMOKER_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													switch ( $one->User->Profile->Smoker ) {
+														case 'yes':
+															?> καπνίζει<?php
+															break;
+														case 'no':
+															?> δεν καπνίζει<?php
+															break;
+														case 'socially':
+															?> καπνίζει με παρέα<?php
+															break;
+													}
+													break;
+												case EVENT_USERPROFILE_DRINKER_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													switch ( $one->User->Profile->Drinker ) {
+														case 'yes':
+															?> πίνει<?php
+															break;
+														case 'no':
+															?> δεν πίνει<?php
+															break;
+														case 'socially':
+															?> πίνει με παρέα<?php
+															break;
+													}
+													break;
+												case EVENT_USERPROFILE_ABOUTME_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+														$self = 'της';
+													}
+													else {
+														?>O <?php
+														$self = 'του';
+													}
+													echo $one->User->Name;
+													?> έγραψε για τον εαυτό <?php
+													echo $self;
+													?> "<?php
+													echo htmlspecialchars( utf8_substr( $one->User->Profile->Aboutme , 0 , 20 ) );
+													?>"<?php
+													break;
+												case EVENT_USERPROFILE_MOOD_UPDATED:
+												case EVENT_USERPROFILE_LOCATION_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι από <?php
+													echo htmlspecialchars( $one->User->Profile->Location->Name );
+													break;
+												case EVENT_USERPROFILE_HEIGHT_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι <?php
+													strtolower( Element( 'user/trivial/height' , $one->User->Profile->Height ) );
+													break;
+												case EVENT_USERPROFILE_WEIGHT_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													?> είναι <?php
+													strtolower( Element( 'user/trivial/weight' , $one->User->Profile->Weight ) );
+													break;
+												case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													echo $one->User->Name;
+													if ( $one->User->Profile->Haircolor == 'highlights' ) {
+														?> έχει ανταύγειες<?php
+													}
+													else if ( $one->User->Profile->Haircolor == 'skinhead' ) {
+														?> είναι skinhead<?php
+													}
+													else {
+														?> έχει <?php 
+														strtolower( Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor ) );
+														?> μαλλί<?php
+													}
+													break;
+												case EVENT_USERPROFILE_EYECOLOR_UPDATED:
+													if ( $one->User->Gender == 'f' ) {
+														?>Η <?php
+													}
+													else {
+														?>O <?php
+													}
+													?> έχει <?php
+													echo $one->User->Name;
+													Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
+													?> χρώμα ματιών<?php
+											}
 										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> πάει <?php
-										Element( 'user/trivial/education' , $event->User->Profile->Education );
-										break;
-									case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι <?php
-										Element( 'user/trivial/sex' , $event->User->Profile->Sexualorientation , $event->User->Gender );
-										break;
-									case EVENT_USERPROFILE_RELIGION_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι <?php
-										Element( 'user/trivial/religion' , $event->User->Profile->Religion );
-										break;
-									case EVENT_USERPROFILE_POLITICS_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι <?php
-										Element( 'user/trivial/politics' , $event->User->Profile->Politics );
-										break;
-									case EVENT_USERPROFILE_SMOKER_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										switch ( $event->User->Profile->Smoker ) {
-											case 'yes':
-												?> καπνίζει<?php
-												break;
-											case 'no':
-												?> δεν καπνίζει<?php
-												break;
-											case 'socially':
-												?> καπνίζει με παρέα<?php
-												break;
-										}
-										break;
-									case EVENT_USERPROFILE_DRINKER_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										switch ( $event->User->Profile->Drinker ) {
-											case 'yes':
-												?> πίνει<?php
-												break;
-											case 'no':
-												?> δεν πίνει<?php
-												break;
-											case 'socially':
-												?> πίνει με παρέα<?php
-												break;
-										}
-										break;
-									case EVENT_USERPROFILE_ABOUTME_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-											$self = 'της';
-										}
-										else {
-											?>O <?php
-											$self = 'του';
-										}
-										echo $event->User->Name;
-										?> έγραψε για τον εαυτό <?php
-										echo $self;
-										?> "<?php
-										echo htmlspecialchars( utf8_substr( $event->User->Profile->Aboutme , 0 , 20 ) );
-										?>"<?php
-										break;
-									case EVENT_USERPROFILE_MOOD_UPDATED:
-									case EVENT_USERPROFILE_LOCATION_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι από <?php
-										echo htmlspecialchars( $event->User->Profile->Location->Name );
-										break;
-									case EVENT_USERPROFILE_HEIGHT_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι <?php
-										strtolower( Element( 'user/trivial/height' , $event->User->Profile->Height ) );
-										break;
-									case EVENT_USERPROFILE_WEIGHT_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										?> είναι <?php
-										strtolower( Element( 'user/trivial/weight' , $event->User->Profile->Weight ) );
-										break;
-									case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										echo $event->User->Name;
-										if ( $event->User->Profile->Haircolor == 'highlights' ) {
-											?> έχει ανταύγειες<?php
-										}
-										else if ( $event->User->Profile->Haircolor == 'skinhead' ) {
-											?> είναι skinhead<?php
-										}
-										else {
-											?> έχει <?php 
-											strtolower( Element( 'user/trivial/haircolor' , $event->User->Profile->Haircolor ) );
-											?> μαλλί<?php
-										}
-										break;
-									case EVENT_USERPROFILE_EYECOLOR_UPDATED:
-										if ( $event->User->Gender == 'f' ) {
-											?>Η <?php
-										}
-										else {
-											?>O <?php
-										}
-										?> έχει <?php
-										echo $event->User->Name;
-										Element( 'user/trivial/eyecolor' , $event->User->Profile->Eyecolor );
-										?> χρώμα ματιών<?php
-										break;
+										break;		
 									case EVENT_USER_CREATED:
 										?> δημιούργησε λογαριασμό<?php
 										break;			
