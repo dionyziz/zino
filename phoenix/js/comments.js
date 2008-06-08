@@ -98,6 +98,7 @@ $( document ).ready( function() {
 		$( "div.comments div" ).not( ".pagifycomments" ).each( function( i ) {
 			var id = parseInt( $( this ).attr( 'id' ), 10 );
 			var indent = parseInt( $( this ).css( 'marginLeft' ), 10 )/20;
+			alert( id + " , " + indent );
 			$( this ).find( "div.bottom a" ).toggle( function() {
 					Comments.Reply( id, indent );
 					return false;
