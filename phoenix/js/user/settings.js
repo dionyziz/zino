@@ -502,7 +502,7 @@ $( document ).ready( function() {
 				}
 				else {
 					if ( !Settings.newpassworderror ) {
-						Settings.newpassword.focus();
+						Settings.renewpassword.focus();
 					}
 				}
 			}
