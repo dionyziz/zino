@@ -136,8 +136,8 @@ var Settings = {
 			$( '#renewpassword div span' ).fadeIn( 300 );
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-			Settings.Enqueue( 'oldpassword' , oldpassword , 20 );
-			Settings.Enqueue( 'newpassword' , newpassword , 500 );
+			Settings.Enqueue( 'oldpassword' , oldpassword , 2000 );
+			Settings.Enqueue( 'newpassword' , newpassword , 2000 );
 		}
 	}
 };
