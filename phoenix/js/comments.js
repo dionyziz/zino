@@ -92,6 +92,15 @@ var Comments = {
 					return false;
 				} ;
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
+	},
+	Edit : function( nodeid ) {
+		var node = $( "#comment_" + nodeid );
+		var text = node.find( "div.text" ).text();
+		
+		var textarea = document.createElement( 'textarea' );
+		textarea.value = text;
+		
+		node.find( "div.text" ).empty().append( textarea );
 	}
 };
 $( document ).ready( function() {
