@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tInteger $mood , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tInteger $mood , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web , tString $oldpassword , tString $newpassword ) {
 		global $user;
 
 		if ( $user->Exists() ) {

@@ -453,6 +453,9 @@ $( document ).ready( function() {
 		$( Settings.oldpassword )
 		.change( function() {
 			alert( Settings.oldpassword.value );
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				alert( 'enqueue' );
+			}
 			//enqueue
 		} )	
 		.keyup( function( event ) {
@@ -460,9 +463,13 @@ $( document ).ready( function() {
 				$( '#oldpassword div span' ).fadeOut( 400 );
 			}
 			if ( event.keyCode == 13 ) {
-				alert( Settings.oldpassword.value );
-				Settings.newpassword.focus();
-				//enqueue
+				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+					alert( 'enqueue' );
+				}
+				else {
+					alert( Settings.oldpassword.value );
+					Settings.newpassword.focus();
+				}
 			}
 		
 		} );
