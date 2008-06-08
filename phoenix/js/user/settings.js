@@ -494,7 +494,6 @@ $( document ).ready( function() {
 		} );
 		
 		$( Settings.newpassword ).change( function() {
-			alert( Settings.newpassword.value );
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
