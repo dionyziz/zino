@@ -501,7 +501,9 @@ $( document ).ready( function() {
 					}
 				}
 				else {
-					Settings.newpassword.focus();
+					if ( !Settings.oldpassworderror ) {
+						Settings.newpassword.focus();
+					}
 				}
 			}
 			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
