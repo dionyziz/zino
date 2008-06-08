@@ -37,7 +37,7 @@
 					else {
 						$type = $event->Typeid;
 					}
-					$info[ $event->User->Id ][ $type ] = $event;
+					$info[ $event->User->Id ][ $type ][] = $event;
 					$visited[ $event->User->Id ][ $type ] = false;	
 				}
 				foreach ( $events as $event ) {
