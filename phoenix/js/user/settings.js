@@ -544,12 +544,10 @@ $( document ).ready( function() {
 					Settings.renewpassworderror = true;
 				}
 			}
-
 		} )
 		.keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
-					alert( 'error2' );
 					$( '#renewpassword div span' ).fadeIn( 400 );
 					Settings.renewpassworderror = true;
 				}
@@ -558,10 +556,10 @@ $( document ).ready( function() {
 						Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 					}
 				}
-				if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
-					Settings.renewpassworderror = false;
-					$( '#renewpassword div span' ).fadeOut( 400 );
-				}
+			}
+			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
+				Settings.renewpassworderror = false;
+				$( '#renewpassword div span' ).fadeOut( 400 );
 			}
 		} );
 	}
