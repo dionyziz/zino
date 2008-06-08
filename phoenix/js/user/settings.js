@@ -475,6 +475,15 @@ $( document ).ready( function() {
 					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 			}
+			else {
+				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
+					$( '#oldpassword div span' ).fadeIn( 400 );
+					Settings.oldpassworderror = true;
+				}
+				if ( !Settings.oldpassworderror ) {
+					Settings.newpassword.focus();
+				}
+			}
 			//enqueue
 		} )	
 		.keyup( function( event ) {
@@ -482,6 +491,10 @@ $( document ).ready( function() {
 				$( '#oldpassword div span' ).fadeOut( 400 );
 			}
 			if ( event.keyCode == 13 ) {
+				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
+					$( '#oldpassword div span' ).fadeIn( 400 );
+					Settings.oldpassworderror = true;
+				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 						ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
@@ -490,6 +503,10 @@ $( document ).ready( function() {
 				else {
 					Settings.newpassword.focus();
 				}
+			}
+			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
+				Settings.oldpassworderror = false;
+				$( '#oldpassword div span' ).fadeOut( 400 );
 			}
 		} );
 		
