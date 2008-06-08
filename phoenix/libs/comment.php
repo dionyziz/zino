@@ -159,7 +159,7 @@
                 $page_total = 0;
                 $page_num++;
                 if ( $page_num > $page ) {
-                    return;
+                    break;
                 }
             }
         }
