@@ -186,7 +186,7 @@
 							?>O <?php
 						}
 						echo $event->User->Name;
-						?>είναι από <?php
+						?> είναι από <?php
 						echo htmlspecialchars( $event->User->Profile->Location->Name );
 						break;
 					case EVENT_USERPROFILE_HEIGHT_UPDATED:
