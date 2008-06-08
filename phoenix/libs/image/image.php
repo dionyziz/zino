@@ -312,6 +312,17 @@
 
             if ( $this->Albumid ) {
                 --$this->Album->Numphotos;
+                if ( $this->Album->Mainimage == $this->Id ) {
+                    $imagefinder = New ImageFinder();
+                    $images = $imagefinder->FindByAlbum( $this->Album, 0, 1 );
+                    if ( !empty( $images ) ) {
+                        $this->Album->Mainimage = $images[ 0 ]->Id;
+                    }
+                    else {
+                        $this->Album->Mainimage = 0;
+                    }
+                }
+
                 $this->Album->Save();
             }
         }
