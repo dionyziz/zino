@@ -131,7 +131,7 @@ var Settings = {
 			Settings.newpassworderror = true;
 			$( '#newpassword div span' ).fadeIn( 300 );
 		}
-		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
+		if ( newpassword != renewpassword && !Settings.oldpassworderror !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
 			$( '#renewpassword div span' ).fadeIn( 300 );
 		}
@@ -470,7 +470,6 @@ $( document ).ready( function() {
 		//settingsinfo
 		$( Settings.oldpassword )
 		.change( function() {
-			alert( Settings.oldpassword.value );
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
@@ -483,8 +482,10 @@ $( document ).ready( function() {
 				$( '#oldpassword div span' ).fadeOut( 400 );
 			}
 			if ( event.keyCode == 13 ) {
-				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+						ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+					}
 				}
 				else {
 					Settings.newpassword.focus();
@@ -494,8 +495,10 @@ $( document ).ready( function() {
 		
 		$( Settings.newpassword ).change( function() {
 			alert( Settings.newpassword.value );
-			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				}
 			}
 			else {
 				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
@@ -530,8 +533,10 @@ $( document ).ready( function() {
 			}
 		} );
 		$( Settings.renewpassword ).change( function() {
-			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				}
 			}
 			else {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
@@ -547,8 +552,10 @@ $( document ).ready( function() {
 					$( '#renewpassword div span' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
-				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+						Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+					}
 				}
 				if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 					Settings.renewpassworderror = false;
