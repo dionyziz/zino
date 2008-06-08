@@ -146,8 +146,8 @@
 													echo $one->User->Name;
 													?> πάει <?php
 													ob_start();
-													Element( 'user/trivial/education' , $one->User->Profile->Education );
-													echo strtolower( ob_end_flush() );
+													strtolower( Element( 'user/trivial/education' , $one->User->Profile->Education ) );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
