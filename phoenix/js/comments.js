@@ -119,14 +119,17 @@ var Comments = {
 						return;
 					}
 					daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
-					.find( "div.bottom" ).remove();
+					.find( "div.bottom:last" ).remove().end()
+					.find( "div.bottom" ).css( 'display', 'block' );
 					//Coala.Warm
 				};
 		
 		form.appendChild( input );
 		div.appendChild( form );
 		
-		node.find( "div.text" ).empty().append( textarea ).end().append( div );
+		node.find( "div.text" ).empty().append( textarea ).end()
+		.find( "div.bottom" ).css( 'display', 'none' ).end()
+		.append( div );
 	}
 };
 $( document ).ready( function() {
