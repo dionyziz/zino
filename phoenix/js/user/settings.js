@@ -131,7 +131,7 @@ var Settings = {
 			Settings.newpassworderror = true;
 			$( '#newpassword div span' ).fadeIn( 300 );
 		}
-		if ( newpassword != renewpassword && !Settings.oldpassworderror !Settings.newpassworderror ) {
+		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
 			$( '#renewpassword div span' ).fadeIn( 300 );
 		}
