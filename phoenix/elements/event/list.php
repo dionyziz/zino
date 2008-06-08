@@ -145,7 +145,9 @@
 													}
 													echo $one->User->Name;
 													?> πάει <?php
+													ob_start();
 													Element( 'user/trivial/education' , $one->User->Profile->Education );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -156,7 +158,9 @@
 													}
 													echo $one->User->Name;
 													?> είναι <?php
+													ob_start();
 													Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_RELIGION_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -167,7 +171,9 @@
 													}
 													echo $one->User->Name;
 													?> είναι <?php
-													Element( 'user/trivial/religion' , $one->User->Profile->Religion );
+													ob_start();
+													Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_POLITICS_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -178,7 +184,9 @@
 													}
 													echo $one->User->Name;
 													?> είναι <?php
-													Element( 'user/trivial/politics' , $one->User->Profile->Politics );
+													ob_start();
+													Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
+													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_SMOKER_UPDATED:
 													if ( $one->User->Gender == 'f' ) {
@@ -297,8 +305,8 @@
 													else {
 														?>O <?php
 													}
-													?> έχει <?php
 													echo $one->User->Name;
+													?> έχει <?php
 													Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
 													?> χρώμα ματιών<?php
 											}
