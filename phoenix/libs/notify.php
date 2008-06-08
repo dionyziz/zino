@@ -100,6 +100,11 @@
         }
         public function OnBeforeCreate() {
             global $water;
+
+            if ( $this->Touserid == $this->Fromuserid ) {
+                return false;
+            }
+
             $field = Notification_FieldByEvent( $this->Event );
 
             $touser = New User( $this->Touserid );
