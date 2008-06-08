@@ -110,6 +110,7 @@
             }
             
             $attribute = 'Notify' . $field;
+            die( 'attr: ' . $touser->Preferences->$attribute );
             $water->Trace( "Notify attribute", $attribute );
             if ( $touser->Preferences->$attribute != 'yes' ) {
                 $water->Trace( "No notification for user " . $touser->Name, $touser->Preferences->$attribute );
