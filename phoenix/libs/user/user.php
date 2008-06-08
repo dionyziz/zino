@@ -132,11 +132,8 @@
     class User extends Satori {
         protected $mDbTableAlias = 'users';
        
-        public function TEMP__ProfileRetrieved() {
-            return is_int( $this->mRelations[ 'Profile' ]->mRetrieved ) ? 'unretrieved' : 'retrieved';
-        }
         protected function SetPassword( $value ) {
-            $this->Password = md5( $value );
+            $this->mCurrentValues[ 'Password' ] = md5( $value );
         }
         protected function GetPassword() {
             throw New UserException( 'User passwords cannot be retrieved, as they are encrypted' );
