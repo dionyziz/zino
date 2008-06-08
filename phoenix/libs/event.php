@@ -14,6 +14,10 @@
 	$event->Userid = $comment->Userid;
 	$event->Save();
 	*/
+
+    global $libs;
+
+    $libs->Load( 'relation/relation' );
     
 	function Event_Types() {
         // New events here!
@@ -71,7 +75,7 @@
             }
         }
         if ( !isset( $models[ $type ] ) ) {
-            throw New Exception( "Unkown event type $type" );
+            throw New Exception( "Unknown event type $type" );
         }
         return $models[ $type ];
 	}
