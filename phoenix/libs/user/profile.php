@@ -133,6 +133,10 @@
             global $libs;
             $libs->Load( 'event' );
 
+            if ( empty( $updatedAttributes ) ) {
+                return;
+            }
+
             $events = array(
                 'Moodid' => EVENT_USERPROFILE_MOOD_UPDATED,
                 'Education' => EVENT_USERPROFILE_EDUCATION_UPDATED,
