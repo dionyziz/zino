@@ -135,8 +135,11 @@
         protected function SetPassword( $value ) {
             $this->mCurrentValues[ 'Password' ] = md5( $value );
         }
+        protected function IsCorrectPassword( $value ) {
+            return md5( $value ) == $this->mCurrentValues[ 'Password' ];
+        }
         protected function GetPassword() {
-            throw New UserException( 'User passwords cannot be retrieved, as they are encrypted' );
+            throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );
         }
         protected function GetLastActive() {
             return $this->LastActivity->Updated;
