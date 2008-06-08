@@ -87,7 +87,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.bottom input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+		temp.find( "div.bottom form input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
 				} ;
@@ -100,7 +100,33 @@ var Comments = {
 		var textarea = document.createElement( 'textarea' );
 		textarea.value = text;
 		
-		node.find( "div.text" ).empty().append( textarea );
+		var div = document.createElement( 'div' );
+		div.className = "bottom";
+		
+		var form = document.createElement( 'form' );
+		form.onsubmit = function() {
+					return false;
+				};
+				
+		var input = document.createElement( 'input' );
+		input.type = "submit";
+		input.value = "Επεξεργασία";
+		input.onclick = function() {
+					var daddy = $( this ).parent().eq(2); // get big div
+					var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
+					if ( texter === '' ) {
+						alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
+						return;
+					}
+					daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
+					.find( "div.bottom" ).remove();
+					//Coala.Warm
+				};
+		
+		form.appendChild( input );
+		div.appendChild( form );
+		
+		node.find( "div.text" ).empty().append( textarea ).end().append( div );
 	}
 };
 $( document ).ready( function() {
