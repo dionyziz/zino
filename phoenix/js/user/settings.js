@@ -557,8 +557,6 @@ $( document ).ready( function() {
 					}
 				}
 			}
-			alert( 'Settings.renewpassworderror ' + Settings.renewpassworderror );
-			alert( Settings.renewpassword.value == Settings.newpassword.value );
 			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 				Settings.renewpassworderror = false;
 				$( '#renewpassword div span' ).fadeOut( 400 );
