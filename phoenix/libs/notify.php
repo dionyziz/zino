@@ -19,7 +19,7 @@
                         :notify RIGHT JOIN :events
                             ON notification_eventid = event_id
                     WHERE
-                        `notification_touserid` = :userid AND
+                        `notification_this->ToUserid` = :userid AND
                         `event_typeid` = :typeid
                         `event_itemid` = :commentid
                     LIMIT 
@@ -78,7 +78,7 @@
         public function GetFromUser() {
             return $this->Event->User;
         }
-        public function Email( $touser ) {
+        public function Email() {
             global $rabbit_settings;
             
             switch ( $this->Event->Typeid ) {
@@ -94,7 +94,7 @@
             $message = ob_get_clean();
 
             // send an email
-            mail( $touser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
+            mail( $this->ToUser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnBeforeCreate() {
             global $water;
@@ -103,28 +103,27 @@
                 return false;
             }
 
+            $this->mRelations[ 'ToUser' ]->Rebuild();
             $field = Notification_FieldByEvent( $this->Event );
 
-            $touser = New User( $this->Touserid );
-
             $attribute = 'Email' . $field;
-            if ( $touser->Preferences->$attribute == 'yes' && !empty( $touser->Profile->Email ) && $touser->Emailverified ) {
-                $this->Email( $touser );
+            if ( $this->ToUser->Preferences->$attribute == 'yes' && !empty( $this->ToUser->Profile->Email ) && $this->ToUser->Emailverified ) {
+                $this->Email();
             }
             
             $attribute = 'Notify' . $field;
             $water->Trace( "Notify attribute", $attribute );
-            if ( $touser->Preferences->$attribute != 'yes' ) {
-                $water->Trace( "No notification for user " . $touser->Name, $touser->Preferences->$attribute );
-                if ( !is_object( $touser ) ) {
-                    die( "touser not an object" );
+            if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
+                $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
+                if ( !is_object( $this->ToUser ) ) {
+                    die( "this->ToUser not an object" );
                 }
-                if ( !is_object( $touser->Preferences ) ) {
+                if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
                 return false;
             }
-            $water->Trace( "New notification for user " . $touser->Name, $touser->Preferences->$attribute );
+            $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
 
             return true;
         }
