@@ -506,7 +506,7 @@ $( document ).ready( function() {
 					}
 				}
 			}
-			if ( Settings.newpassworderror && Settings.newpassword.length >= 4 ) {
+			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
 				Settings.newpassworderror = false;
 				$( '#newpassword div span' ).fadeOut( 400 );
 			}
