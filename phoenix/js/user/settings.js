@@ -467,7 +467,6 @@ $( document ).ready( function() {
 					alert( 'enqueue' );
 				}
 				else {
-					alert( Settings.oldpassword.value );
 					Settings.newpassword.focus();
 				}
 			}
