@@ -272,7 +272,6 @@
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
                 
                 if ( preg_match( '#([εΕ][Γγ][Ωώω]+|(\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#', $album[ 'album_name' ] ) ) {
-                    die( $album[ 'album_name' ] . " match" );
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
@@ -282,7 +281,6 @@
                     ++$j;
                     break; // don't look further
                 }
-                die( 'preg_match( "#(\\\\b|^)(me+|' . $nickname . '|' . $subdomain . '|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\\\b|$)#i", "' . $album[ 'album_name' ] . '" )' );
             }
         }
         ?> -- <?php
