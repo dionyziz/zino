@@ -253,7 +253,9 @@
                 `$albums` CROSS JOIN `$users`
                     ON `album_userid`=`user_id`
             WHERE
-                `album_delid`=0;"
+                `album_delid`=0
+            ORDER BY
+                `user_id`;"
         );
         $albumsbyuser = array();
         while ( $row = $res->FetchArray() ) {
