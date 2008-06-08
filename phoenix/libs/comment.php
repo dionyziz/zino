@@ -132,7 +132,7 @@
 		$parented = array();
 		$parented[ 0 ] = array();
         if ( $reverse ) {
-            array_reverse( $parents );
+            $parents = array_reverse( $parents );
         }
         foreach ( $parents as $parent ) {
             if ( $page_num == $page ) {
