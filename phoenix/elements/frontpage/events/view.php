@@ -97,7 +97,7 @@
 						}
 						echo $event->User->Name;
 						?> είναι <?php
-						Element( 'user/trivial/sex' , $event->User->Profile->Sexualorientation );
+						Element( 'user/trivial/sex' , $event->User->Profile->Sexualorientation , $event->User->Gender );
 						break;
 					case EVENT_USERPROFILE_RELIGION_UPDATED:
 						if ( $event->User->Gender = 'f' ) {
