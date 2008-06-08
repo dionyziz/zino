@@ -86,7 +86,7 @@ var Comments = {
 			);
 	},
 	Reply : function( nodeid, indent ) {
-		var temp = $( "div.newcomment" )[0].clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
+		var temp = $( "div.newcomment" ).eq(0).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.bottom input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
