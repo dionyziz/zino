@@ -121,7 +121,7 @@ var Settings = {
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
 	},
-	ChangePassword( oldpassword , newpassword , renewpassword ) {
+	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
 		if ( oldpassword.length < 4 ) {
 			Settings.oldpassworderror = true;
 			$( '#oldpassword div span' ).fadeIn( 300 );
@@ -473,7 +473,7 @@ $( document ).ready( function() {
 			alert( Settings.oldpassword.value );
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 			}
 			//enqueue
@@ -495,7 +495,7 @@ $( document ).ready( function() {
 		$( Settings.newpassword ).change( function() {
 			alert( Settings.newpassword.value );
 			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-				ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			}
 			else {
 				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
@@ -515,7 +515,7 @@ $( document ).ready( function() {
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-						ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+						Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 					}
 				}
 				else {
@@ -531,7 +531,7 @@ $( document ).ready( function() {
 		} );
 		$( Settings.renewpassword ).change( function() {
 			if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-				ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			}
 			else {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
@@ -548,7 +548,7 @@ $( document ).ready( function() {
 					Settings.newpassworderror = true;
 				}
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-					ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 				}
 				if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 					Settings.renewpassworderror = false;
