@@ -115,7 +115,7 @@
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
-            $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
+            // $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
 		protected function LoadDefaults() {
 			$this->Education = '-';
