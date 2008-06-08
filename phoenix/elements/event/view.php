@@ -74,7 +74,7 @@
 						?>">Προβολή χώρου</a><?php
 						break;
 					case EVENT_FRIENDRELATION_CREATED:
-						Element( 'user/avatar' , $event->Item , 100 , '' , '' , false , 0 , 0 );
+						Element( 'user/avatar' , $event->Item->Friend, 100 , '' , '' , false , 0 , 0 );
 						break;
 					case EVENT_USERPROFILE_EDUCATION_UPDATED:
 						if ( $event->User->Gender =='f' ) {
