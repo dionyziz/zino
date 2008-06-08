@@ -76,10 +76,16 @@ var Comments = {
 	NewCommentCallback : function( node, id, parentid ) {
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
-		node.find( 'div.bottom a' ).click( function() {
+		node.find( 'div.bottom a' ).toggle( function() {
 					Comments.Reply( id, indent+1 );
 					return false;
-				} );
+				}, function() {
+					$( '#comment_reply_' + id ).hide( 300, function() {
+									$(this).remove();
+								} );
+					return false;
+				}
+			);
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
