@@ -3,6 +3,7 @@
     
     $libs->Load( 'place' );
     $libs->Load( 'university' );
+    $libs->Load( 'user/oldprofile' );
 	
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
@@ -114,6 +115,7 @@
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
+            $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
 		protected function LoadDefaults() {
 			$this->Education = '-';
@@ -127,7 +129,7 @@
 			$this->Height = -1;
 			$this->Weight = -1;
 		}
-        protected function OnUpdate( $updatedAttributes ) {
+        protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $libs;
             $libs->Load( 'event' );
 
@@ -148,7 +150,7 @@
             );
 
             foreach ( $events as $attribute => $typeid ) {
-                if ( isset( $updatedAttributes[ $attribute ] ) && $updatedAttributes[ $attribute ] ) {
+                if ( isset( $updatedAttributes[ $attribute ] ) && $updatedAttributes[ $attribute ] && !empty( $this->$attribute ) && $this->$attribute != '-' ) {
                     $event = New Event();
                     $event->Typeid = $typeid;
                     $event->Itemid = $this->Userid;
@@ -156,6 +158,12 @@
                     $event->Save();
                 }
             }
+
+            foreach ( $previousValues as $attribute => $value ) {
+                $this->OldProfile->$attribute = $value;
+            }
+
+            $this->OldProfile->Save();
         }
         public function OnCommentCreate() {
             ++$this->Numcomments;
