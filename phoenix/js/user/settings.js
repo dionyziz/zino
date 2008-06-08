@@ -495,7 +495,7 @@ $( document ).ready( function() {
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-						ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+						Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 					}
 				}
 				else {
