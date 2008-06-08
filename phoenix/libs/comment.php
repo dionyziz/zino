@@ -147,7 +147,13 @@
                 $page_num++;
             }
         }
-        $page_nums[] = $page_total;
+
+        if ( $page_total == 0 ) {
+            --$page_num;
+        }
+        else {
+            $page_nums[] = $page_total;
+        }
 
         $water->Trace( "page nums Comments_OnPage", $page_nums );
         $water->Trace( "page children Comments_OnPage", $page_children );
