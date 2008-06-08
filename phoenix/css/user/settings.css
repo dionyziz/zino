@@ -220,28 +220,34 @@ div.avatarlist div.cancel {
 	text-align: center;
 }
 div.settings div.tabs form#settingsinfo div#oldpassword {
-	margin: 3px 0;
+	margin: 10px 0;
 }
 div.settings div.tabs form#settingsinfo div#newpassword {
-	margin: 3px 0;
+	margin: 10px 0;
 }
 div.settings div.tabs form#settingsinfo div#renewpassword {
-	margin: 3px 0;
+	margin: 10px 0;
 }
 div.settings div.tabs form#settingsinfo div#oldpassword span.wrongpwd {
 	background-image: url( 'http://static.zino.gr/phoenix/exclamation.png' );
 	background-repeat: no-repeat;
 	padding-left: 18px;
+	font-size: 80%;
+	font-weight: bold;
 }
 div.settings div.tabs form#settingsinfo div#newpassword span.shortpwd {
 	background-image: url( 'http://static.zino.gr/phoenix/exclamation.png' );
 	background-repeat: no-repeat;
 	padding-left: 18px;
+	font-size: 80%;
+	font-weight: bold;
 }
 div.settings div.tabs form#settingsinfo div#renewpassword span.wrongrepwd {
 	background-image: url( 'http://static.zino.gr/phoenix/exclamation.png' );
 	background-repeat: no-repeat;
 	padding-left: 18px;
+	font-size: 80%;
+	font-weight: bold;
 }
 	
 }
