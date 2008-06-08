@@ -16,46 +16,44 @@
 				<span class="wrongrepwd">Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
 			</div>
 		</div>
-		<div class="option">
-			<label>Να λαμβάνω ειδοποιήσεις:</label>
-			<div class="setting">
-				<table>
-					<thead>
-						<tr>
-							<th></th>
-							<th>Μέσω e-mail</th>
-							<th>Μέσα στο site</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>Σχόλια στο προφίλ μου:</th>
-							<td><input type="checkbox" /></td>
-							<td><input type="checkbox" /></td>
-						</tr>
-						<tr>
-							<th>Σχόλια στις εικόνες μου:</th>
-							<td><input type="checkbox" /></td>
-							<td><input type="checkbox" /></td>
-						</tr>
-						<tr>
-							<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
-							<td><input type="checkbox" /></td>
-							<td><input type="checkbox" /></td>
-						</tr>
-						<tr>
-							<th>Απαντήσεις στα σχόλιά μου:</th>
-							<td><input type="checkbox" /></td>
-							<td><input type="checkbox" /></td>
-						</tr>
-						<tr>
-							<th>Νέοι φίλοι:</th>
-							<td><input type="checkbox" /></td>
-							<td><input type="checkbox" /></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+		<label>Να λαμβάνω ειδοποιήσεις:</label>
+		<div class="setting">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Μέσω e-mail</th>
+						<th>Μέσα στο site</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Σχόλια στο προφίλ μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Σχόλια στις εικόνες μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Απαντήσεις στα σχόλιά μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Νέοι φίλοι:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+				</tbody>
+			</table>
 		</div><?php
 	}
 ?>

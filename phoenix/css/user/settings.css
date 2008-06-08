@@ -218,4 +218,33 @@ div.avatarlist ul li img.photosmall {
 }
 div.avatarlist div.cancel {
 	text-align: center;
-}	
+}
+div.settings div.tabs form#settings div#oldpassword {
+	margin: 3px 0;
+}
+div.settings div.tabs form#settings div#newpassword {
+	margin: 3px 0;
+}
+div.settings div.tabs form#settings div#renewpassword {
+	margin: 3px 0;
+}
+div.settings div.tabs form#settings div#oldpassword span.wrongpwd {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-repeat: no-repeat;
+	background-position: 0 -919px;
+	padding-left: 18px;
+}
+div.settings div.tabs form#settings div#newpassword span.shortpwd {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-repeat: no-repeat;
+	background-position: 0 -919px;
+	padding-left: 18px;
+}
+div.settings div.tabs form#settings div#renewpassword span.wrongrepwd {
+	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
+	background-repeat: no-repeat;
+	background-position: 0 -919px;
+	padding-left: 18px;
+}
+	
+}
