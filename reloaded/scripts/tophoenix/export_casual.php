@@ -271,7 +271,7 @@
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
                 
-                die( preg_match( '#[εΕ][Γγ][Ωώ]#', $album[ 'album_name' ] )? '1': '0' );
+                die( preg_match( '#(me|[εΕ][Γγ][Ωώ])#', $album[ 'album_name' ] )? '1': '0' );
 
                 if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\b|$)#i", $album[ 'album_name' ] ) ) {
                     die( $album[ 'album_name' ] . " match" );
