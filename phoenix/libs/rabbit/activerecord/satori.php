@@ -346,12 +346,14 @@
                 $updates = array();
                 $bindings = array();
                 $updatedAttributes = array();
+                $previousValues = array();
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {
                     $attributevalue = $this->mCurrentValues[ $attributename ];
                     if ( $this->mPreviousValues[ $attributename ] != $attributevalue ) {
                         $updates[] = "`$fieldname` = :$fieldname";
                         $bindings[ $fieldname ] = $attributevalue;
                         $updatedAttributes[ $attributename ] = true;
+                        $previousValues[ $attributename ] = $this->mPreviousValues[ $attributename ];
                         $this->mPreviousValues[ $attributename ] = $attributevalue;
                     }
                 }
@@ -383,7 +385,7 @@
                 foreach ( $this->mRelations as $relation ) {
                     $relation->Rebuild();
                 }
-                $this->OnUpdate( $updatedAttributes );
+                $this->OnUpdate( $updatedAttributes, $previousValues );
                 return $change;
             }
             else {
