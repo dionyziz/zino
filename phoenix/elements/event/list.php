@@ -49,6 +49,7 @@
 					}
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
 						$eventlist = $info[ $event->User->Id ][ $type ];
+						var_dump( $eventlist );
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
@@ -107,7 +108,6 @@
 								$water->Trace( 'type is ' . $type );
 								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
-										?>eikona<?php
 										foreach ( $eventlist as $one ) {
 											?><a href="?p=photo&amp;id=<?php
 											echo $one->Item->Id;
