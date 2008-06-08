@@ -17,10 +17,10 @@
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
         $finder = New UserFinder();
-        if ( !empty( $_SESSION[ 's_username' ] ) && !empty( $_SESSION[ 's_password' ] ) ) {
-            $user = $finder->FindByNameAndPassword( $_SESSION[ 's_username' ] , $_SESSION[ 's_password' ] );
+        if ( !empty( $_SESSION[ 's_userid' ] ) && !empty( $_SESSION[ 's_authtoken' ] ) ) {
+            $user = $finder->FindByIdAndAuthtoken( $_SESSION[ 's_userid' ] , $_SESSION[ 's_authtoken' ] );
             if ( $user === false ) {
-                // username/password combination in session is invalid
+                // userid/authtoken combination in session is invalid
                 $user = new User( array() );
             }
         }
