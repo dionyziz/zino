@@ -488,7 +488,7 @@ $( document ).ready( function() {
 					$( '#newpassword div span' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
-				else {
+				if ( !Settings.newpassworderror ) {
 					Settings.renewpassword.focus();
 				}
 			}
