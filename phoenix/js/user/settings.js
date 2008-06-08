@@ -15,6 +15,12 @@ var Settings = {
 	web : $( '#web input' )[ 0 ] ? $( '#web input' )[ 0 ].value : false,
 	invalidemail : false,
 	invalidmsn : false,
+	oldpassword : $( '#oldpassword div input' )[ 0 ] ? $( '#oldpassword div input' )[ 0 ] : false,
+	newpassword : $( '#newpassword div input' )[ 0 ] ? $( '#newpassword div input' )[ 0 ] : false,
+	renewpassword : $( '#renewpassword div input' )[ 0 ] ? $( '#renewpassword div input' )[ 0 ] : false,
+	oldpassworderror : false,
+	newpassworderror : false,
+	renewpassworderror : false,
 	SwitchSettings : function( divtoshow ) {
 		//hack so that it is executed only when it is loaded
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
@@ -441,6 +447,24 @@ $( document ).ready( function() {
 		$( 'form#interestsinfo div.option div.setting div.shows a' ).click( function() {
 			Settings.AddInterest( 'shows' , 7);
 			return false;
+		} );
+		
+		//settingsinfo
+		$( Settings.oldpassword )
+		.change( function() {
+			alert( Settings.oldpassword.value );
+			//enqueue
+		} )	
+		.keyup( function( event ) {
+			if ( Settings.oldpassworderror ) {
+				$( '#oldpassword div span' ).fadeOut( 400 );
+			}
+			if ( event.keyCode == 13 ) {
+				alert( Settings.oldpassword.value );
+				Settings.newpassword.focus();
+				//enqueue
+			}
+		
 		} );
 	}
 });
