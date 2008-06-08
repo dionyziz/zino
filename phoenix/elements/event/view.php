@@ -52,7 +52,11 @@
 			<div class="subject"><?php
 				switch ( $event->Typeid ) {
 					case EVENT_IMAGE_CREATED:
+						?><a href="?p=photo&amp;id=<?php
+						echo $event->Item->Id;
+						?>"><?php
 						Element( 'image' , $event->Item , IMAGE_CROPPED_100x100 , '' , $event->User->Name , $event->User->Name , '' , false , 0 , 0 );
+						?></a><?php
 						break;
 					case EVENT_JOURNAL_CREATED:
 						?><a href="?p=journal&amp;id=<?php
