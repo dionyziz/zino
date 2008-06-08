@@ -80,21 +80,6 @@
 									case EVENT_USERSPACE_UPDATED:
 										?> ανανέωσε τον χώρο<?php
 										break;
-									case EVENT_FRIENDRELATION_CREATED:
-										?> πρόσθεσε στους φίλους<?php
-										break;
-									case EVENT_USERPROFILE_EDUCATION_UPDATED:
-										?> όρισε εκπαίδευση<?php
-										break;
-									case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-										?> όρισε σεξουαλικές προτιμήσεις<?php
-										break;
-									case EVENT_USERPROFILE_RELIGION_UPDATED:
-										?> όρισε τις θρησκευτικές πεποιθήσεις<?php
-										break;
-									case EVENT_USERPROFILE_POLITICS_UPDATED:
-										?> όρισε τις πολιτικές πεποιθήσεις<?php
-										break;
 									case 'profile_update':
 										?> ανανέωσε το προφίλ<?php
 										break;
@@ -104,7 +89,7 @@
 								}
 							?></div>
 							<div class="subject"><?php
-								$water->Trace( 'type is ' . $type );
+								$water->Trace( 'eventlist has ' . count( $eventlist ) );
 								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
 										foreach ( $eventlist as $one ) {
