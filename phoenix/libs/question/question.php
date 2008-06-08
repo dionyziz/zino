@@ -9,9 +9,10 @@
 				COUNT(*) AS questionscount
 			FROM
 				:questions
-			WHERE questions_delid;
+			WHERE questions_delid = :delid;
 			');
 			$query->BindTable( 'questions' );
+			$query->Bind( 'delid', 0 );
 			$res = $query->Execute();
 			$row = $res->FetchArray();
 			return ( int )$row[ 'questionscount' ];
