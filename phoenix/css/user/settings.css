@@ -231,7 +231,6 @@ div.settings div.tabs form#settingsinfo div#renewpassword {
 div.settings div.tabs form#settingsinfo div#oldpassword span.wrongpwd {
 	font-size: 80%;
 	font-weight: bold;
-	vertical-align: 3px;
 }
 div.settings div.tabs form#settingsinfo div#oldpassword span.wrongpwd img {
 	vertical-align: -3px; 
@@ -240,7 +239,6 @@ div.settings div.tabs form#settingsinfo div#oldpassword span.wrongpwd img {
 div.settings div.tabs form#settingsinfo div#newpassword span.shortpwd {
 	font-size: 80%;
 	font-weight: bold;
-	vertical-align: 3px;
 }
 div.settings div.tabs form#settingsinfo div#newpassword span.shortpwd img {
 	vertical-align: -3px; 
@@ -249,7 +247,6 @@ div.settings div.tabs form#settingsinfo div#newpassword span.shortpwd img {
 div.settings div.tabs form#settingsinfo div#renewpassword span.wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
-	vertical-align: 3px;
 }
 div.settings div.tabs form#settingsinfo div#renewpassword span.wrongrepwd img {
 	vertical-align: -3px; 

@@ -12,8 +12,9 @@
 			</div>
 		</div>
 		<div id="newpassword">
-			<span>Νέος κωδικός πρόσβασης:</span><input type="password" />
+			<span>Νέος κωδικός πρόσβασης:</span>
 			<div>
+			<input type="password" />
 			<span class="shortpwd"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
