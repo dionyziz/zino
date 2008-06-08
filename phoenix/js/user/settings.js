@@ -551,7 +551,7 @@ $( document ).ready( function() {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
 					alert( 'error2' );
 					$( '#renewpassword div span' ).fadeIn( 400 );
-					Settings.newpassworderror = true;
+					Settings.renewpassworderror = true;
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 					if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
