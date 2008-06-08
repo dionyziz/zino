@@ -474,7 +474,38 @@ $( document ).ready( function() {
 					Settings.newpassword.focus();
 				}
 			}
+		} );
 		
+		$( Settings.newpassword ).change( function() {
+			alert( Settings.newpassword.value );
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					alert( 'enqueue' );
+				}
+			}
+			else {
+				if ( Settings.newpassword.value.length < 4 ) {
+					$( '#newpassword div span' ).fadeIn( 400 );
+					Settings.newpassworderror = true;
+				}
+				else {
+					Settings.renewpassword.focus();
+				}
+			}
+		} ).
+		keyup( function( event ) {
+			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
+				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
+					alert( 'enqueue' );
+				}
+			}
+			else {
+				Settings.newpassword.focus();
+			}
+			if ( Settings.newpassworderror && Settigns.newpassword.length >= 4 ) {
+				Settings.newpassworderror = false;
+				$( '#newpassword div span' ).fadeOut( 400 );
+			}
 		} );
 	}
 });
