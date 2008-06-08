@@ -112,7 +112,7 @@ var Comments = {
 		input.type = "submit";
 		input.value = "Επεξεργασία";
 		input.onclick = function() {
-					var daddy = $( this ).parent().eq(2); // get big div
+					var daddy = $( this ).parents().eq(2); // get big div
 					var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
 					if ( texter === '' ) {
 						alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
