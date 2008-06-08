@@ -32,14 +32,13 @@
 			<div class="list"><?php
 				foreach ( $events as $event ) {
 					if ( $event->Typeid == EVENT_USERPROFILE_EDUCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_RELIGION_UPDATED || $event->Typeid == EVENT_USERPROFILE_POLITICS_UPDATED || $event->Typeid == EVENT_USERPROFILE_SMOKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_DRINKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_ABOUTME_UPDATED || $event->Typeid == EVENT_USERPROFILE_MOOD_UPDATED || $event->Typeid == EVENT_USERPROFILE_LOCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_HEIGHT_UPDATED || $event->Typeid = EVENT_USERPROFILE_WEIGHT_UPDATED || $event->Typeid ==	EVENT_USERPROFILE_HAIRCOLOR_UPDATED || $event->Typeid == EVENT_USERPROFILE_EYECOLOR_UPDATED ) {
-						$info[ $event->User->Id ][ 'profile_update' ] = $event;
-						$visited[ $event->User->Id ][ 'profile_update' ] = false;
+						$type = 'profile_update';
 					}	
 					else {
-						$info[ $event->User->Id ][ $event->Typeid ][] = $event;
-						$visited[ $event->User->Id ][ $event->Typeid ] = false;
+						$type = $event->Typeid;
 					}
-					
+					$info[ $event->User->Id ][ $type ] = $event;
+					$visited[ $event->User->Id ][ $type ] = false;	
 				}
 				foreach ( $events as $event ) {
 					if ( $event->Typeid == EVENT_USERPROFILE_EDUCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_RELIGION_UPDATED || $event->Typeid == EVENT_USERPROFILE_POLITICS_UPDATED || $event->Typeid == EVENT_USERPROFILE_SMOKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_DRINKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_ABOUTME_UPDATED || $event->Typeid == EVENT_USERPROFILE_MOOD_UPDATED || $event->Typeid == EVENT_USERPROFILE_LOCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_HEIGHT_UPDATED || $event->Typeid = EVENT_USERPROFILE_WEIGHT_UPDATED || $event->Typeid ==	EVENT_USERPROFILE_HAIRCOLOR_UPDATED || $event->Typeid == EVENT_USERPROFILE_EYECOLOR_UPDATED ) {
@@ -48,15 +47,15 @@
 					else {
 						$type = $event->Typeid;
 					}
-					$eventlist = $info[ $event->User->Id ][ $type ];
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
+						$eventlist = $info[ $event->User->Id ][ $type ];
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
 							</div>
 							<div class="who"><?php
 								Element( 'user/display' , $event->User );
-								switch ( $event->Typeid ) {
+								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
 										?> ανέβασε <?php
 										if ( count( $eventlist ) > 1 ) {
@@ -96,15 +95,7 @@
 									case EVENT_USERPROFILE_POLITICS_UPDATED:
 										?> όρισε τις πολιτικές πεποιθήσεις<?php
 										break;
-									case EVENT_USERPROFILE_SMOKER_UPDATED:
-									case EVENT_USERPROFILE_DRINKER_UPDATED:
-									case EVENT_USERPROFILE_ABOUTME_UPDATED:
-									case EVENT_USERPROFILE_MOOD_UPDATED:
-									case EVENT_USERPROFILE_LOCATION_UPDATED:
-									case EVENT_USERPROFILE_HEIGHT_UPDATED:
-									case EVENT_USERPROFILE_WEIGHT_UPDATED:
-									case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
-									case EVENT_USERPROFILE_EYECOLOR_UPDATED:
+									case 'profile_update':
 										?> ανανέωσε το προφίλ<?php
 										break;
 									case EVENT_USER_CREATED:
@@ -113,7 +104,7 @@
 								}
 							?></div>
 							<div class="subject"><?php
-								switch ( $event->Typeid ) {
+								switch ( $type) {
 									case EVENT_IMAGE_CREATED:
 										foreach ( $eventlist as $one ) {
 											?><a href="?p=photo&amp;id=<?php
