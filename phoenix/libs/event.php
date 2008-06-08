@@ -158,7 +158,7 @@
                 case EVENT_COMMENT_CREATED:
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
-                    if ( $this->Item->Parentid == 0 ) {
+                    if ( $this->Item->Parentid > 0 ) {
                         $notif->Touserid = $this->Item->Parent->Userid;
                     }
                     else {
