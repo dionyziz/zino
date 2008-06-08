@@ -43,16 +43,14 @@
 				}
 				foreach ( $events as $event ) {
 					if ( $event->Typeid == EVENT_USERPROFILE_EDUCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_RELIGION_UPDATED || $event->Typeid == EVENT_USERPROFILE_POLITICS_UPDATED || $event->Typeid == EVENT_USERPROFILE_SMOKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_DRINKER_UPDATED || $event->Typeid == EVENT_USERPROFILE_ABOUTME_UPDATED || $event->Typeid == EVENT_USERPROFILE_MOOD_UPDATED || $event->Typeid == EVENT_USERPROFILE_LOCATION_UPDATED || $event->Typeid == EVENT_USERPROFILE_HEIGHT_UPDATED || $event->Typeid = EVENT_USERPROFILE_WEIGHT_UPDATED || $event->Typeid ==	EVENT_USERPROFILE_HAIRCOLOR_UPDATED || $event->Typeid == EVENT_USERPROFILE_EYECOLOR_UPDATED ) {
-							$eventlist = $info[ $event->User->Id ][ 'profile_update' ];
-							$visited[ $event->User->Id ][ 'profile_update' ] = true;
-							$type = 'profile_update';
-						}
-						else {
-							$eventlist = $info[ $event->User->Id ][ $event->Typeid ];
-							$visited[ $event->User->Id ][ $event->Typeid ] = true;
-							$type = $event->Typeid;
-						}
+						$type = 'profile_update';
+					}
+					else {
+						$type = $event->Typeid;
+					}
+					$eventlist = $info[ $event->User->Id ][ $type ];
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
+						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
 							</div>
