@@ -255,7 +255,7 @@
             WHERE
                 `album_delid`=0
             ORDER BY
-                `user_id`;"
+                `user_id`, `album_id`;"
         );
         $albumsbyuser = array();
         while ( $row = $res->FetchArray() ) {
@@ -270,6 +270,7 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
+                die( $album[ 'album_name' ] );
                 if ( preg_match( "#(\\b|^)(me+|$nickname|$subdomain|egw+|ego+|[Εε][Γγ][Ωώ]|[Εε][Γγ][Ωω])(\\b|$)#i", $album[ 'album_name' ] ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
