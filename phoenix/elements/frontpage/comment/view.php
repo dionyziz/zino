@@ -40,7 +40,7 @@
 							Element( 'url' , $comment );
 							echo htmlspecialchars( ob_get_clean() );
 							?>" class="itempic"><?php
-							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' );
+							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , false , 0 , 0 );
 							?></a><?php
 							break;
 						case TYPE_USERPROFILE:
