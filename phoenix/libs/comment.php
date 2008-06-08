@@ -116,7 +116,7 @@
             Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
         }
 
-        return array( Comment_CountPages( $comments, $parents ), $page_num + 1, $parented );
+        return array( Comments_CountPages( $comments, $parents ), $page_num + 1, $parented );
     }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
