@@ -50,6 +50,7 @@
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
 						$eventlist = $info[ $event->User->Id ][ $type ];
 						$visited[ $event->User->Id ][ $type ] = true;
+						$water->Trace( 'type is ' . $type );
 						?><div class="event">
 							<div class="toolbox">
 							</div>
