@@ -82,7 +82,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> πάει <?php
@@ -93,7 +93,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> είναι <?php
@@ -104,7 +104,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> είναι <?php
@@ -115,7 +115,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> είναι <?php
@@ -126,7 +126,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						switch ( $event->User->Profile->Smoker ) {
@@ -146,7 +146,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						switch ( $event->User->Profile->Drinker ) {
@@ -167,7 +167,7 @@
 							$self = 'της';
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 							$self = 'του';
 						}
 						echo $event->User->Name;
@@ -183,7 +183,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?>είναι από <?php
@@ -194,7 +194,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> είναι <?php
@@ -205,7 +205,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						?> είναι <?php
@@ -216,7 +216,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						echo $event->User->Name;
 						if ( $event->User->Profile->Haircolor == 'highlights' ) {
@@ -236,7 +236,7 @@
 							?>Η <?php
 						}
 						else {
-							?>0 <?php
+							?>O <?php
 						}
 						?> έχει <?php
 						echo $event->User->Name;
