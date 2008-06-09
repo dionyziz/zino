@@ -142,12 +142,11 @@ var Settings = {
 				$( Settings.oldpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
+		
 		$( Settings.newpassword )
 		.keyup( function( event ) {
-			if ( event.keyCode == 13 ) {
-				if ( event.keyCode == 13 && !Settings.newpassworderror ) {
-					Settings.renewpassword.focus();
-				}
+			if ( event.keyCode == 13 && !Settings.newpassworderror ) {
+				Settings.renewpassword.focus();
 			}
 		} )
 		.keydown( function( event ) {
@@ -155,6 +154,7 @@ var Settings = {
 				$( Settings.newpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
+		
 		$( Settings.renewpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
 				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
