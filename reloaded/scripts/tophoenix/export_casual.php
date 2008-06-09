@@ -214,7 +214,9 @@
         $res = ob_get_clean();
 
         if ( empty( $res ) ) {
-            die( 'Done' );
+            ?>
+            -- LAST OFFSET --
+            <?php
         }
         echo $res;
     }
@@ -351,7 +353,7 @@
                 frontpage_userid;<?php
     }
 
-    function MigrateImages() {
+    function MigrateImages( $offset ) {
         global $db, $images;
 
         $res = $db->Query(
@@ -360,9 +362,15 @@
                 `image_width`, `image_height`, `image_size`, `image_delid`, `image_albumid`, `image_description`,
                 `image_numcomments`
             FROM
-                `$images`"
+                `$images`
+            LIMIT
+                $offset, 10000"
         );
-        ?>TRUNCATE TABLE `images`;<?php
+        
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `images`;<?php
+        }
+
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `images` SET
                 `image_id`=<?php
@@ -393,18 +401,22 @@
                 // TODO: migrate images to serverv2 and recalculate width/height/size
         }
 
-        // fill in numphotos in albums (CROSS JOIN ensures albums with no photos stay at the default = 0)
-        ?>UPDATE
-            `albums` CROSS JOIN (
-                SELECT
-                    COUNT(*) AS numimages, image_albumid AS albumid
-                FROM
-                    `images`
-                GROUP BY
-                    albumid
-            ) AS tmp ON `albums`.`album_id`=tmp.albumid
-        SET
-            `albums`.`album_numphotos`=tmp.numimages;<?php
+        if ( !$res->Results() ) {
+            // fill in numphotos in albums (CROSS JOIN ensures albums with no photos stay at the default = 0)
+            ?>
+            -- LAST OFFSET --
+            UPDATE
+                `albums` CROSS JOIN (
+                    SELECT
+                        COUNT(*) AS numimages, image_albumid AS albumid
+                    FROM
+                        `images`
+                    GROUP BY
+                        albumid
+                ) AS tmp ON `albums`.`album_id`=tmp.albumid
+            SET
+                `albums`.`album_numphotos`=tmp.numimages;<?php
+        }
     }
 
     function MigratePolls() {
@@ -509,7 +521,8 @@
         }
 
         if ( !$res->Results() ) {
-            die( 'Done' );
+            ?> -- LAST OFFSET -- 
+            <?php;
         }
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` SET `bulk_text`='<?php
@@ -686,7 +699,7 @@
             MigrateAlbums();
             break;
         case 2:
-            MigrateImages();
+            MigrateImages( $offset );
             break;
         case 3:
             MigratePolls();
