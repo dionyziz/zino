@@ -777,7 +777,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			
 			return $memo;
 		}
-		private function callstack_lastword( $backtrace = false ) {
+		public function callstack_lastword( $backtrace = false ) {
             if ( $backtrace === false ) {
                 $backtrace = debug_backtrace();
 			}
@@ -963,7 +963,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			}
             echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
         }
-		private function callstack_html( $callstack ) {
+		public function callstack_html( $callstack ) {
 			$functions = $this->get_php_functions();
 	
 			?><div class="watertrace"><table class="callstack"><tr class="title">
@@ -1092,7 +1092,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		private function callstack_dump_lastword( $backtrace = false ) {
 			$this->callstack( $this->callstack_lastword( $backtrace ) );
 		}
-        private function callstack( $callstack ) {
+        public function callstack( $callstack ) {
             global $page;
             
             if ( $page instanceof PageHTML ) {

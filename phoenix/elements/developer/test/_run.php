@@ -1,5 +1,7 @@
 <?php
     function ElementDeveloperTestRun( RunResult $runresult ) {
+        global $water;
+
         ?><li><?php
         echo $runresult->RunName;
         if ( $runresult->Success ) {
@@ -26,7 +28,9 @@
                 if ( $assertresult instanceof AssertResultFailedByException ) {
                     ?><li><b>Unanticipated fail:</b> <em class="message"><?php
                     echo htmlspecialchars( $assertresult->Message );
-                    ?></em><br /></li><?php
+                    ?></em><br /><?php
+                    $water->callstack( $water->callstack_lastword( $assertresult->Callstack ) );
+                    ?></li><?php
                     break;
                 }
 

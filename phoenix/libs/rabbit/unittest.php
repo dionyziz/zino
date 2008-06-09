@@ -184,7 +184,7 @@
                     $goodtogo = true;
                 }
                 catch ( Exception $e ) {
-                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage() ) ), '[SetUp]' );
+                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[SetUp]' );
                     $goodtogo = false;
                 }
                 if ( $goodtogo ) {
@@ -197,7 +197,7 @@
                                 call_user_func( array( $testcase, $methodname ) ); // MAGIC
                             }
                             catch ( Exception $e ) {
-                                $this->Inform( New AssertResultFailedByException( $e->getMessage() ), $methodname );
+                                $this->Inform( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ), $methodname );
                                 $runresults[] = New RunResult( $this->mAssertResults, $methodname );
                                 $water->ProfileEnd();
                                 break;
@@ -211,7 +211,7 @@
                     $testcase->TearDown();
                 }
                 catch ( Exception $e ) {
-                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage() ) ), '[TearDown]' );
+                    $runresults[] = New RunResult( array( New AssertResultFailedByException( $e->getMessage(), $e->getTrace() ) ), '[TearDown]' );
                 }
                 $this->mTestResults[ $i ] = New TestcaseResult( $testcase, $runresults );
                 $water->ProfileEnd();
@@ -373,7 +373,12 @@
     }
 
     class AssertResultFailedByException extends AssertResult {
-        public function AssertResultFailedByException( $message ) {
+        protected $mCallstack;
+
+        public function GetCallstack() {
+            return $this->mCallstack;
+        }
+        public function AssertResultFailedByException( $message, $callstack ) {
             parent::__construct( false, $message, '(exceptional failure)', '' );
         }
     }
