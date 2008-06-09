@@ -193,7 +193,7 @@
 				}
 				else {
 					?>Settings.oldpassworderror = true;
-					$( '#oldpassword div span' ).fadeIn( 400 );
+					$( Settings.oldpassworddiv ).find( 'div div span' ).fadeIn( 400 );
 					Settings.oldpassword.focus();<?php
 				}
 			}
