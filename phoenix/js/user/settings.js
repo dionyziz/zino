@@ -139,6 +139,7 @@ var Settings = {
 		} )
 		.keydown( function( event ) {
 			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
+				Settings.oldpassworderror = false;
 				$( Settings.oldpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
@@ -151,6 +152,7 @@ var Settings = {
 		} )
 		.keydown( function( event ) {
 			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
+				Settings.newpassworderror = false;
 				$( Settings.newpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
@@ -162,9 +164,11 @@ var Settings = {
 		} )
 		.keydown( function( event ) {
 			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
+				Settings.renewpassworderror = false;
 				$( Settings.renewpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			} 
 		} );
+		
 		$( 'div#pwdmodal div.save a.save' ).click( function() {
 			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			return false;
