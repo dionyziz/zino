@@ -71,6 +71,7 @@
             $comment->Save();
 
             $c = New Comment( $comment->Id );
+            $this->Assert( $c->Exists(), 'Saved comment does not exist' );
             $c->Text = "foo bar";
             $c->Parentid = 2;
             $c->Save();
