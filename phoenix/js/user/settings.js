@@ -466,25 +466,7 @@ $( document ).ready( function() {
 		} );
 		
 		//settingsinfo
-		$( Settings.oldpassword ).keyup( function( event ) {
-			alert( Settings.newpassword );
-			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
-				Settings.newpassword.focus();
-			}
-		} );
-		
-		$( Settings.newpassword ).keyup( function( event ) {
-			if ( event.keyCode == 13 ) {
-				if ( event.keyCode == 13 && !Settings.newpassworderror ) {
-					Settings.renewpassword.focus();
-				}
-			}
-		} );
-		$( Settings.renewpassword ).keyup( function( event ) {
-			if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
-				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
-			}
-		} );
+
 		
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
@@ -497,6 +479,27 @@ $( document ).ready( function() {
 			Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
 			Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
 			Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
+			
+			$( Settings.oldpassword ).keyup( function( event ) {
+				alert( Settings.newpassword );
+				if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
+					Settings.newpassword.focus();
+				}	
+			} );
+			$( Settings.newpassword ).keyup( function( event ) {
+				if ( event.keyCode == 13 ) {
+					if ( event.keyCode == 13 && !Settings.newpassworderror ) {
+						Settings.renewpassword.focus();
+					}
+				}
+			} );
+			$( Settings.renewpassword ).keyup( function( event ) {
+				if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
+					$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
+				}
+			} );
+			
+			
 			$( 'div#pwdmodal div.save a.save' ).click( function() {
 				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			} );
