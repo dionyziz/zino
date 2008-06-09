@@ -76,7 +76,7 @@
             $c->Save();
 
             $comment = New Comment( $c->Id );
-            $this->Assert( $ccomment->Exists(), 'Edited comment does not exist' );
+            $this->Assert( $comment->Exists(), 'Edited comment does not exist' );
             $this->AssertEquals( 'foo bar', $comment->Text, 'Wrong text' );
             $this->AssertEquals( 2, $comment->Parentid, 'Wrong parentid' );
 
