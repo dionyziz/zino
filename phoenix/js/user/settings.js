@@ -121,16 +121,16 @@ var Settings = {
 	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
 		if ( oldpassword.length < 4 ) {
 			Settings.oldpassworderror = true;
-			$( '#oldpassword div span' ).fadeIn( 300 );
+			$( Settings.oldpassworddiv ).find( 'div div' ).fadeIn( 300 );
 			Settings.oldpassword.focus();
 		}
 		if ( newpassword.length < 4 && !Settings.oldpassworderror ) {
 			Settings.newpassworderror = true;
-			$( '#newpassword div span' ).fadeIn( 300 );
+			$( Settings.newpassworddiv ).find( s'div div' ).fadeIn( 300 );
 		}
 		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
-			$( '#renewpassword div span' ).fadeIn( 300 );
+			$( Settings.renewpassworderror ).find( 'div div' ).fadeIn( 300 );
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 			Settings.Enqueue( 'oldpassword' , oldpassword , 2000 );
