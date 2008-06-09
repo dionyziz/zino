@@ -233,36 +233,42 @@ div.newpassword {
 div.renewpassword {
 	margin: 10px 0 50px 0;
 }
-div.oldpassword div.wrongpwd {
+div.oldpassword div div.wrongpwd {
 	font-size: 80%;
 	font-weight: bold;
-	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
-div.oldpassword div.wrongpwd img {
+div.oldpassword div div.wrongpwd span {
+	display: none;
+}
+div.oldpassword div div.wrongpwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.newpassword div.shortpwd {
+div.newpassword div div.shortpwd {
 	font-size: 80%;
 	font-weight: bold;
-	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
-div.newpassword div.shortpwd img {
+div.newpassword div div.shortpwd span {
+	display: none;
+}
+div.newpassword div div.shortpwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.renewpassword div.wrongrepwd {
+div.renewpassword div div.wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
-	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
-div.renewpassword div.wrongrepwd img {
+div.renewpassword div div.wrongrepwd span {
+	display: none;
+}
+div.renewpassword div div.wrongrepwd span img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
