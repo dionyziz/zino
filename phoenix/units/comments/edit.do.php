@@ -17,7 +17,7 @@
 			?>alert( "Προσπαθείς να επεξεργαστείς το κείμενο ενός ανύπαρκτου σχολίου" );<?php
 			return;
 		}
-		?>alert( <?php echo $text ?> );<?php
+		?>alert( "<?php echo $text ?>" );<?php
 		$comment->Text = $text;
 		$comment->Save();
 	}	
