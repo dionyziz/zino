@@ -125,7 +125,12 @@ var Comments = {
 					daddy.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 					.find( "div.bottom:last" ).remove().end()
 					.find( "div.bottom" ).css( 'display', 'block' );
-					//Coala.Warm
+					Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
+													text : texter
+												}, function() {
+													alert( "Υπήρχε ένα πρόβλημα με την επεξεργασία σχολίου, παρακαλώ προσπάθησε ξανά" );
+													window.location.reload();
+											} );
 				};
 			
 		var input2 = document.createElement( 'input' );
