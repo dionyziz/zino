@@ -1,5 +1,5 @@
 <?php
-    function Image_Upload( $userid, $imageid, $tempfile, $resizeto = false ) {
+    function Image_Upload( $userid, $imageid, $tempfile ) {
         global $xc_settings;
         global $rabbit_settings;
 		global $user;              

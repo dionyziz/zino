@@ -251,11 +251,11 @@
             
             $this->mCurrentValues[ 'Name' ] = $value;
         }
-        public function Upload( $resizeto = false ) {
+        public function Upload() {
             global $water;
 
             // throws ImageException
-            $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile, $resizeto );
+            $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile );
 
             // else success
             w_assert( is_array( $data ), 'Image_Upload did not return an array' );
@@ -286,7 +286,7 @@
             $this->User->Count->Save();
 
             // throws ImageException
-            $upload = $this->Upload( $resizeto );
+            $upload = $this->Upload();
 
             if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
                 if ( $this->Albumid ) {
