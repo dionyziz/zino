@@ -61,6 +61,27 @@
 			$this->AssertEquals( 'Lorem', $comment2->GetText( 5 ), 'Wrong comment text substring on new instance' );
 			$comment2->Delete();
 		}
+        public function TestEdit() {
+            $comment = New Comment();
+            $comment->Userid = $this->mUser->Id;
+            $comment->Typeid = TYPE_JOURNAL;
+            $comment->Itemid = $this->mJournal->Id;
+            $comment->Text = "foo bar blah";
+            $comment->Parentid = 0;
+            $comment->Save();
+
+            $c = New Comment( $comment->Id );
+            $c->Text = "foo bar";
+            $c->Parentid = 2;
+            $c->Save();
+
+            $comment = New Comment( $c->Id );
+            $this->Assert( $ccomment->Exists(), 'Edited comment does not exist' );
+            $this->AssertEquals( 'foo bar', $comment->Text, 'Wrong text' );
+            $this->AssertEquals( 2, $comment->Parentid, 'Wrong parentid' );
+
+            $comment->Delete();
+        }
 		public function TestFindLatest() {
 			$comment = New Comment();
 			$comment->Userid = $this->mUser->Id;
