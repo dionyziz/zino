@@ -198,9 +198,8 @@
     function MigrateBulk( $offset = 0 ) {
         global $bulk;
         
-        die( 'Bulk migration @' . $offset );
         ob_start();
-        MigrateAsIs( $bulk, 'bulk', false, $offset, 5000 );
+        MigrateAsIs( $bulk, 'bulk', false, $offset, 1000 );
         $res = ob_get_clean();
 
         if ( empty( $res ) ) {
