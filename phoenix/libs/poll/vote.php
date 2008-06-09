@@ -1,5 +1,4 @@
 <?php
-
 	class PollVoteFinder extends Finder {
 		protected $mModel = 'PollVote';
 
@@ -24,13 +23,14 @@
 		}	
 	}
 
+    class PollException extends Exception {
+    }
+
 	class PollVote extends Satori {
 		protected $mDbTableAlias = 'votes';
 
-		public function Save() {
-			w_assert( !$this->Exists(), "Poll votes cannot be edited!" );
-			
-			parent::Save();
+		public function OnBeforeUpdate() {
+			throw New PollException( "Poll votes cannot be edited!" );
 		}
 		protected function OnCreate() {
 			$this->Poll->OnVoteCreate();
