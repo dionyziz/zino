@@ -74,7 +74,6 @@
             
             $this->mUser->Profile->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
-            $this->mUser->Signature = 'Foo bar blah';
             $this->mUser->Rights = 10;
             $this->mUser->Icon = 1;
             
@@ -92,7 +91,6 @@
             $this->AssertEquals( '1989-11-17', $this->mUser->Profile->Dob, 'User dob changed after saving user' );
             $this->AssertEquals( 'test@kamibu.com', $this->mUser->Profile->Email, 'test@kamibu.com', 'User email changed after saving user' );
             $this->AssertEquals( 'male', $this->mUser->Gender, 'User gender changed after saving user' );
-            $this->AssertEquals( 'Foo bar blah', $this->mUser->Signature, 'User signature changed after saving user' );
             $this->AssertEquals( 10, $this->mUser->Rights, 'User rights changed after saving user' );
             $this->AssertEquals( 1, $this->mUser->Avatar->Id, 'User icon changed after saving user' );
             $this->AssertEquals( 32, strlen( $this->mUser->Authtoken ), 'User does not have a valid authtoken after creation' );
@@ -180,7 +178,6 @@
             $this->mUser->Profile->Dob = '1997-04-03 00:00:00';
             $this->mUser->Profile->Email = 'usertest@kamibu.com';
             $this->mUser->Gender = 'female';
-            $this->mUser->Signature = 'Foo bar';
             $this->mUser->Rights = 20;
             $this->mUser->Avatar = new Image( 2 );
             $this->mUser->Save();
@@ -191,7 +188,6 @@
             $this->AssertEquals( $this->mUser->Profile->Dob, '1997-04-03 00:00:00', 'Date of birthday changed after saving changes' );
             $this->AssertEquals( $this->mUser->Profile->Email, 'usertest@kamibu.com', 'Email changed after saving changes' );
             $this->AssertEquals( $this->mUser->Gender, 'female', 'Gender changed after saving changes' );
-            $this->AssertEquals( $this->mUser->Signature, 'Foo bar', 'Signature changed after saving changes' );
             $this->AssertEquals( $this->mUser->Rights, 20, 'Rights changed after saving changes' );
             $this->AssertEquals( $this->mUser->Avatar, new Image( 2 ) );
         }
@@ -395,7 +391,6 @@
         public function TestSqlInjections() {
             $profile = $this->mUser->Profile;
 
-            $this->mUser->Signature = "foo'; -- Foo bar";
             $profile->AboutMe = "Sexy'; DROP `table`; -- script kiddie";
             $profile->Skype = "user'; -- test";
             $profile->MSN = "usertest'; -- @hotmail.com";
@@ -405,7 +400,6 @@
 
             $profile = $this->mUser->Profile;
 
-            $this->AssertEquals( $this->mUser->Signature, "foo'; -- Foo bar", 'User signature should not change even if it has special sql characters' );
             $this->AssertEquals( $profile->AboutMe, "Sexy'; DROP `table`; -- script kiddie", 'About me should not change even if it has special sql characters' );
             $this->AssertEquals( $profile->Skype, "user'; -- test" );
             $this->AssertEquals( $profile->MSN, "usertest'; -- @hotmail.com" );
