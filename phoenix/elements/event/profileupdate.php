@@ -2,9 +2,11 @@
     function ElementEventProfileUpdate( $eventlist ) {
         if ( $eventlist[ 0 ]->User->Gender =='f' ) {
             ?>Η <?php
+            $self = 'της';
         }
         else {
             ?>O <?php
+            $self = 'του';
         }
         echo $eventlist[ 0 ]->User->Name;
         $profileinfo = array();
