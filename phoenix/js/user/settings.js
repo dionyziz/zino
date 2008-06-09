@@ -572,13 +572,20 @@ $( document ).ready( function() {
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
-			Modals.Create(  area , 600 , 270 );
+			Modals.Create(  area , 440 , 300 );
 			Settings.oldpassworddiv = $( 'div.modal div.changepwd div.oldpassword' );
 			Settings.newpassworddiv = $( 'div.modal div.changepwd div.newpassword' );
 			Settings.renewpassworddiv = $( 'div.modal div.changepwd div.renewpassword' );
 			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ];
 			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ];
 			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ];
+			$( 'div.modal div.changepwd div.save a.save' ).click( function() {
+				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+			} );
+			$( 'div.modal div.changepwd div.save a.cancel' ).click( function() {
+				Modals.Destroy();
+				return false;
+			} );
 			return false;
 		} );
 	}

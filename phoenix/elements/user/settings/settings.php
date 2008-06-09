@@ -34,6 +34,10 @@
 					</div>
 				</div>
 			</div>
+			<div class="save">
+				<a class="button save">Αποθήκευση</a>
+				<a class="button cancel">Ακύρωση</a>
+			</div>
 		</div>
 		<label>Να λαμβάνω ειδοποιήσεις</label>
 		<div class="setting">
