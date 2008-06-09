@@ -278,6 +278,10 @@ div.changepwd div.save {
 div.settings div.tabs form#settingsinfo label { 
 	font-weight: bold;
 }
+div.settings div.tabs form#settingsinfo span.notifyme {
+	font-weight: bold;
+	clear: left;
+}
 div.settings div.tabs form#settingsinfo div.setting table thead tr th {
 	font-weight: 400;
 }

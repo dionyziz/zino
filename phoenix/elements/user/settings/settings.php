@@ -2,7 +2,7 @@
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
 		?><div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
-		<label>Να λαμβάνω ειδοποιήσεις</label>
+		<span class="notifyme">Να λαμβάνω ειδοποιήσεις</span>
 		<div class="setting">
 			<table>
 				<thead>
