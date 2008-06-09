@@ -573,9 +573,9 @@ $( document ).ready( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
 			Modals.Create(  area , 700 , 400 );
-			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd #oldpassword div input' )[ 0 ] : false;
-			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd #newpassword div input' )[ 0 ] : false;
-			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd #renewpassword div input' )[ 0 ] : false;
+			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ] : false;
+			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ] : false;
+			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ] : false;
 			return false;
 		} );
 	}
