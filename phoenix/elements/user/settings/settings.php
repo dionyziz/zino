@@ -7,28 +7,31 @@
 			<div class="oldpassword">
 				<span>Κωδικός πρόσβασης:</span>
 				<div>
-				<input type="password" />
-				<div class="wrongpwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
+					<input type="password" />
+					<div class="wrongpwd"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός
+					</div>
 				</div>
 			</div>
 			<div class="newpassword">
 				<span>Νέος κωδικός πρόσβασης:</span>
 				<div>
-				<input type="password" />
-				<div class="shortpwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+					<input type="password" />
+					<div class="shortpwd"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!
+					</div>
 				</div>
 			</div>
 			<div class="renewpassword">
 				<span>Επιβεβαίωση νέου κωδικού:</span>
 				<div>
-				<input type="password" />
-				<div class="wrongrepwd"><img src="<?php
-				echo $rabbit_settings[ 'imagesurl' ];
-				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+					<input type="password" />
+					<div class="wrongrepwd"><img src="<?php
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!
+					</div>
 				</div>
 			</div>
 		</div>
