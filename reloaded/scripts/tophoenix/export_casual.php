@@ -81,8 +81,8 @@
             }
             echo implode( ',', $values );
             ?>;<?php
-            die();
         }
+        die();
     }
 
     function MigrateUsers() {
