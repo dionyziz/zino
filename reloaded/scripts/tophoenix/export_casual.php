@@ -64,7 +64,6 @@
             echo $to;
             ?>`;<?php
         }
-        die( $query );
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `<?php
             echo $to;
@@ -82,6 +81,7 @@
             }
             echo implode( ',', $values );
             ?>;<?php
+            die();
         }
     }
 
