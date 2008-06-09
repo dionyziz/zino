@@ -1,10 +1,10 @@
 <?php
-   
    function ElementFrontpageView( tBoolean $newuser ) {
         global $user;
 		global $water;
 		global $rabbit_settings;
 		
+        $water->Disable();
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
