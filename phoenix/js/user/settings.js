@@ -572,7 +572,7 @@ $( document ).ready( function() {
 		} );
 		
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
-			var area = $( 'div.tabs form#settingsinfo div.changepwd' ).clone();
+			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
 			Modals.Create(  area , 700 , 400 );
 			return false;
