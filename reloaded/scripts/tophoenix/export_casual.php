@@ -719,7 +719,7 @@
 
     $data = gzencode( ob_get_clean(), 9 );
     header( 'Content-type: text/html; charset=utf8' );
-    header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql.gz' );
+    header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '-' .$offset . '.sql.gz' );
     header( 'Content-length: ' . strlen( $data ) );
     echo $data;
 ?>
