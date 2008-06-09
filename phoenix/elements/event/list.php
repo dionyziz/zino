@@ -114,13 +114,13 @@
 										break;
 									case 'profile_update':
                                         ?><div><?php
-                                        if ( $one->User->Gender =='f' ) {
+                                        if ( $eventlist[ 0 ]->User->Gender =='f' ) {
                                             ?>Η <?php
                                         }
                                         else {
                                             ?>O <?php
                                         }
-                                        echo $one->User->Name;
+                                        echo $eventlist[ 0 ]->User->Name;
                                         $info = array();
 										foreach ( $eventlist as $one ) {
                                             ob_start();
@@ -226,6 +226,7 @@
                                             $info[ count( $info ) - 2 ] = $info[ count( $info ) - 2 ] . " και " . $info[ count( $info ) - 1 ];
                                             unset( $info[ count( $info ) - 1 ] );
                                         }
+                                        ?> <?php
                                         echo implode( ', ', $info );
                                         ?></div><?php
 										break;		
