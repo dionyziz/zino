@@ -572,17 +572,18 @@ $( document ).ready( function() {
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
+			area.id = 'pwdmodal';
 			Modals.Create(  area , 440 , 330 );
-			Settings.oldpassworddiv = $( 'div.modal div.changepwd div.oldpassword' );
-			Settings.newpassworddiv = $( 'div.modal div.changepwd div.newpassword' );
-			Settings.renewpassworddiv = $( 'div.modal div.changepwd div.renewpassword' );
-			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ];
-			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ];
-			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ];
-			$( 'div.modal div.changepwd div.save a.save' ).click( function() {
+			Settings.oldpassworddiv = $( 'div#pwdmodal div.oldpassword' );
+			Settings.newpassworddiv = $( 'div#pwdmodal div.newpassword' );
+			Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' );
+			Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
+			Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
+			Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
+			$( 'div#pwdmodal div.save a.save' ).click( function() {
 				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			} );
-			$( 'div.modal div.changepwd div.save a.cancel' ).click( function() {
+			$( 'div#pwdmodal div.save a.cancel' ).click( function() {
 				Modals.Destroy();
 				return false;
 			} );
