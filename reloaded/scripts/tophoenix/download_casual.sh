@@ -13,14 +13,15 @@ for i in "${offsetsteps[@]}"
 do
     offset=0
     while true; do
-        wget http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&testoffset=$i -O ~/migrate/$i-$offset-test
-        diff ~/migrate/continue ~/migrate/$i-$offset-test
+        wget http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&testoffset=$offset -O ~/migrate/$i-$offset-test
+
+        diff ~/migrate/continue ~/migrate/$i-$offset-test > /dev/null
 
         if [[ $? -eq 0 ]]; then
             break;
         fi
 
-        wget http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$i -O ~/migrate/$i-$offset.sql.gz
+        wget http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset -O ~/migrate/$i-$offset.sql.gz
 
         offset=$(expr $offset + 1)
     done
