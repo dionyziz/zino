@@ -121,7 +121,7 @@
                                             ?>O <?php
                                         }
                                         echo $eventlist[ 0 ]->User->Name;
-                                        $info = array();
+                                        $profileinfo = array();
 										foreach ( $eventlist as $one ) {
                                             ob_start();
 											switch ( $one->Typeid ) {
@@ -194,6 +194,7 @@
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_WEIGHT_UPDATED:
+                                                    ?>είναι <?php
 													ob_start();
 													Element( 'user/trivial/weight' , $one->User->Profile->Weight );
 													echo strtolower( ob_get_clean() );
@@ -220,14 +221,14 @@
 													echo strtolower( ob_get_clean() );
 													?> μάτια<?php
 											}
-                                            $info[] = ob_get_clean();
+                                            $profileinfo[] = ob_get_clean();
 										}
-                                        if ( count( $info ) > 1 ) {
-                                            $info[ count( $info ) - 2 ] = $info[ count( $info ) - 2 ] . " και " . $info[ count( $info ) - 1 ];
-                                            unset( $info[ count( $info ) - 1 ] );
+                                        if ( count( $profileinfo ) > 1 ) {
+                                            $profileinfo[ count( $profileinfo ) - 2 ] = $profileinfo[ count( $profileinfo ) - 2 ] . " και " . $profileinfo[ count( $profileinfo ) - 1 ];
+                                            unset( $profileinfo[ count( $profileinfo ) - 1 ] );
                                         }
                                         ?> <?php
-                                        echo implode( ', ', $info );
+                                        echo implode( ', ', $profileinfo );
                                         ?></div><?php
 										break;		
 									case EVENT_USER_CREATED:
