@@ -378,9 +378,8 @@
             */
         }
         public function OnBeforeUpdate() {
+            die( 'before saving bulk!' );
             $this->Bulk->Save();
-
-            die( 'before updating!' );
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();
