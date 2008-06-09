@@ -475,7 +475,7 @@ $( document ).ready( function() {
 		$( Settings.newpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( event.keyCode == 13 && !Settings.newpassworderror ) {
-					Settings.renewpassworderror.focus();
+					Settings.renewpassword.focus();
 				}
 			}
 		} );
