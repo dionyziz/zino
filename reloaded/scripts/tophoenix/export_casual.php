@@ -210,7 +210,7 @@
         global $bulk;
         
         ob_start();
-        MigrateAsIs( $bulk, 'bulk', false, $offset, 250 );
+        MigrateAsIs( $bulk, 'bulk', false, $offset * 250, 250 );
         $res = ob_get_clean();
 
         if ( empty( $res ) ) {
@@ -364,7 +364,7 @@
             FROM
                 `$images`
             LIMIT
-                $offset, 10000"
+                " . $offset * 10000 . ", 10000"
         );
         
         if ( $offset == 0 ) {
@@ -514,7 +514,7 @@
             WHERE
                 `comment_delid`=0
             LIMIT
-                " . $offset . ",5000;"
+                " . $offset * 5000 . ",5000;"
         );
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `comments`;<?php
