@@ -29,7 +29,7 @@
 				?> είπε:
 			</div>
 			<div class="text"<?php
-			if ( ( $user->Id == $comment->User->Id && ( strtotime( $comment->Created )-time() < 900 && $numchildren == 0 ) ) || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL )  ) {
+			if ( ( $user->Id == $comment->User->Id && ( strtotime( $comment->Created )-time() < 900 ) ) || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL )  ) {
 				?> ondblclick="Comments.Edit( <?php
 				echo $comment->Id;
 				?> );return false;"<?php
