@@ -126,7 +126,7 @@ var Settings = {
 		}
 		if ( newpassword.length < 4 && !Settings.oldpassworderror ) {
 			Settings.newpassworderror = true;
-			$( Settings.newpassworddiv ).find( s'div div' ).fadeIn( 300 );
+			$( Settings.newpassworddiv ).find( 'div div' ).fadeIn( 300 );
 		}
 		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
