@@ -572,7 +572,7 @@ $( document ).ready( function() {
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
-			Modals.Create(  area , 440 , 300 );
+			Modals.Create(  area , 440 , 330 );
 			Settings.oldpassworddiv = $( 'div.modal div.changepwd div.oldpassword' );
 			Settings.newpassworddiv = $( 'div.modal div.changepwd div.newpassword' );
 			Settings.renewpassworddiv = $( 'div.modal div.changepwd div.renewpassword' );
