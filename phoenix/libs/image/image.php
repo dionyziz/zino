@@ -271,23 +271,27 @@
 
             return true;
         }
-        public function Save( $resizeto = false ) {
-            if ( $this->Exists() ) {
-                return parent::Save();
-            }
-            
-            // else: only when creating 
+        public function OnCreate() {
+            global $libs;
+
             $this->Size = filesize( $this->mTemporaryFile );
             
             if ( !parent::Save() ) {
-                return -1;
+                return;
             }
+
+            $libs->Load( 'event' );
+
+            ++$this->User->Count->Images;
+            $this->User->Count->Save();
 
             // throws ImageException
             $upload = $this->Upload( $resizeto );
 
             if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
                 if ( $this->Albumid ) {
+                    ++$this->Album->Numphotos;
+                    $this->Album->Save();
                     if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
                         $frontpageimage = New FrontpageImage( $this->Userid );
                         if ( !$frontpageimage->Exists() ) {
@@ -304,7 +308,11 @@
                 }
             }
 
-            return true;
+            $event = New Event();
+            $event->Typeid = EVENT_IMAGE_CREATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
         protected function OnDelete() {
             --$this->User->Count->Images;
@@ -328,24 +336,6 @@
         }
         protected function OnUndelete() {
             $this->OnCreate();
-        }
-        protected function OnCreate() {
-            global $libs;
-            $libs->Load( 'event' );
-
-            ++$this->User->Count->Images;
-            $this->User->Count->Save();
-
-            if ( $this->Albumid ) {
-                ++$this->Album->Numphotos;
-                $this->Album->Save();
-            }
-
-            $event = New Event();
-            $event->Typeid = EVENT_IMAGE_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
         }
         public function LoadDefaults() {
             global $user;
