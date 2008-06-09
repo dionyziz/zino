@@ -419,16 +419,24 @@
         }
     }
 
-    function MigratePolls() {
+    function MigratePolls( $offset ) {
         global $polls, $votes, $polloptions;
 
         // migrate polls
-        MigrateAsIs( $polls, 'polls' );
-        MigrateAsIs( $votes, 'votes', array( 'vote_userid', 'vote_date' => 'vote_created', 'vote_optionid', 'vote_pollid' ) );
-        MigrateAsIs( $polloptions, 'polloptions' );
+        switch ( $offset ) {
+            case 0:
+                MigrateAsIs( $polls, 'polls' );
+                break;
+            case 1:
+                MigrateAsIs( $votes, 'votes', array( 'vote_userid', 'vote_date' => 'vote_created', 'vote_optionid', 'vote_pollid' ) );
+                break;
+            case 2:
+                MigrateAsIs( $polloptions, 'polloptions' );
+                break;
+        }
     }
 
-    function MigrateShouts() {
+    function MigrateShouts( $offset ) {
         global $db, $shoutbox;
 
         // migrate shouts
@@ -436,7 +444,9 @@
             "SELECT 
                 `shout_id`, `shout_userid`, `shout_created`, `shout_delid`, `shout_textformatted`
             FROM 
-                $shoutbox;"
+                $shoutbox
+            LIMIT
+                " . $offset * 1000 . ",1000;"
         );
 
         ?>TRUNCATE TABLE `shouts`;<?php
@@ -683,6 +693,18 @@
         }
     }
 
+    function MigrateQuestions() {
+        // TODO
+    }
+
+    function MigratePMs() {
+        // TODO
+    }
+
+    function MigrateNotifications() {
+        // TODO
+    }
+
     header( 'Content-type: text/html; charset=utf8' );
     ob_start();
 
@@ -702,13 +724,13 @@
             MigrateImages( $offset );
             break;
         case 3:
-            MigratePolls();
+            MigratePolls( $offset );
             break;
         case 4:
             MigrateBulk( $offset );
             break;
         case 5:
-            MigrateShouts();
+            MigrateShouts( $offset );
             break;
         case 6:
             MigrateCounts();
