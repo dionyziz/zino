@@ -6,7 +6,7 @@
 		//$page->AttachStylesheet( 'css/footer.css' );
 		?><div class="footer">
 			<ul>
-				<li><a href="http://www.kamibu.com/" onclick="return false">Η ομάδα μας</a></li>
+				<li><a href="http://www.kamibu.com/">Η ομάδα μας</a></li>
 				<li><a href="contact" onclick="return false">Επικοινώνησε</a></li>
 				<li><a href="tos" onclick="return false">Όροι χρήσης</a></li>
 				<li><a href="advertise" onclick="return false">Διαφημίσου εδώ</a></li>
