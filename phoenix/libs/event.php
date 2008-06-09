@@ -92,8 +92,28 @@
 		protected $mModel = 'Event';
 
 		public function FindLatest( $offset = 0, $limit = 20 ) {
-			$prototype = New Event();
-			return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    *
+                FROM
+                    :events
+                GROUP BY
+                    ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
+                    `event_userid`,
+                    `event_typeid`
+                ORDER BY
+                    `event_id` DESC
+                LIMIT
+                    :offset, :limit;'
+            );
+
+            $query->BindTable( 'events' );
+            $query->Bind( 'mintypeid', EVENT_USERPROFILE_EDUCATION_UPDATED );
+            $query->Bind( 'maxtypeid', EVENT_USERPROFILE_EYECOLOR_UPDATED );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+			return $this->FindBySQLResource( $query->Execute() );
 		}
 		public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
