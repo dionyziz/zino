@@ -82,7 +82,6 @@
             echo implode( ',', $values );
             ?>;<?php
         }
-        die();
     }
 
     function MigrateUsers() {
@@ -200,7 +199,7 @@
         global $bulk;
         
         ob_start();
-        MigrateAsIs( $bulk, 'bulk', false, $offset, 100 );
+        MigrateAsIs( $bulk, 'bulk', false, $offset, 250 );
         $res = ob_get_clean();
 
         if ( empty( $res ) ) {
