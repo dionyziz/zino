@@ -165,14 +165,16 @@ var Settings = {
 		if ( newpassword.length < 4 && !Settings.oldpassworderror ) {
 			Settings.newpassworderror = true;
 			$( Settings.newpassworddiv ).find( 'div div span' ).fadeIn( 300 );
+			Settings.newpassword.focus();
 		}
 		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
 			$( Settings.renewpassworderror ).find( 'div div span' ).fadeIn( 300 );
+			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
-			Settings.Enqueue( 'oldpassword' , oldpassword , 2000 );
-			Settings.Enqueue( 'newpassword' , newpassword , 2000 );
+			Settings.Enqueue( 'oldpassword' , oldpassword , 100 );
+			Settings.Enqueue( 'newpassword' , newpassword , 100 );
 		}
 	}
 };
