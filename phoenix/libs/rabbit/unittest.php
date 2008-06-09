@@ -379,6 +379,8 @@
             return $this->mCallstack;
         }
         public function AssertResultFailedByException( $message, $callstack ) {
+            w_assert( is_array( $callstack ) );
+
             parent::__construct( false, $message, '(exceptional failure)', '' );
         }
     }
