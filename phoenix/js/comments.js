@@ -158,7 +158,7 @@ var Comments = {
 	}, 
 	Delete : function( nodeid, parentid ) {
 		$( "#comment_" + nodeid ).fadeOut( 450, function() { $( this ).remove(); } );
-		if ( parentid != 0 ) {
+		//if ( parentid != 0 ) {
 		//	$( "#comment_" + parentid ).find( "
 		//Coala.Warm
 	}
