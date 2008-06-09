@@ -130,8 +130,7 @@ var Settings = {
 		Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
 		Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
 
-		$( Settings.oldpassword )
-		.keyup( function( event ) {
+		$( Settings.oldpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
 				Settings.newpassword.focus();
 			}
@@ -142,8 +141,7 @@ var Settings = {
 
 		} );
 		
-		$( Settings.newpassword )
-		.keyup( function( event ) {
+		$( Settings.newpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.newpassworderror ) {
 				Settings.renewpassword.focus();
 			}
