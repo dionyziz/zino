@@ -1,5 +1,7 @@
 <?php
     function ElementEventProfileUpdate( $eventlist ) {
+        global $water;
+
         if ( $eventlist[ 0 ]->User->Gender =='f' ) {
             ?>Η <?php
             $self = 'της';
@@ -105,9 +107,11 @@
                 case EVENT_USERPROFILE_EYECOLOR_UPDATED:
                     ?>έχει <?php
                     ob_start();
+                    $water->Trace( 'Eyecolor for : ' . $one->User->Name . ' is ' . $one->User->Profile->Eyecolor );
                     Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
                     echo strtolower( ob_get_clean() );
                     ?> χρώμα ματιών<?php
+                    break;
             }
             $profileinfo[] = ob_get_clean();
         }
