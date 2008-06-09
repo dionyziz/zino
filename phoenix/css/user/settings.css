@@ -236,7 +236,7 @@ div.renewpassword {
 div.oldpassword div.wrongpwd {
 	font-size: 80%;
 	font-weight: bold;
-	display: none;
+	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
@@ -247,7 +247,7 @@ div.oldpassword div.wrongpwd img {
 div.newpassword div.shortpwd {
 	font-size: 80%;
 	font-weight: bold;
-	display: none;
+	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
@@ -258,7 +258,7 @@ div.newpassword div.shortpwd img {
 div.renewpassword div.wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
-	display: none;
+	opacity: 0;
 	height: 20px;
 	margin-top: 3px;
 }
