@@ -468,6 +468,7 @@ $( document ).ready( function() {
 		//settingsinfo
 		$( Settings.oldpassword )
 		.change( function() {
+			alert( Settings.oldpassword );
 			if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
 				if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
 					Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
