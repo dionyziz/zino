@@ -7,7 +7,6 @@
 		$id = $id->Get();
 		$text = $text->Get();
 		
-		?>alert( <?php echo $id ?> );<?php
 		if ( $text == '' ) {
 			?>alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );<?php
 			return;
@@ -18,7 +17,7 @@
 			?>alert( "Προσπαθείς να επεξεργαστείς το κείμενο ενός ανύπαρκτου σχολίου" );<?php
 			return;
 		}
-		
+		?>alert( <?php echo $comment->Id ?> );<?php
 		$comment->Text = $text;
 		$comment->Save();
 	}	
