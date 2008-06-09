@@ -37,7 +37,7 @@
 				?> );return false;"<?php
 			}
 			?>><?php
-				echo $comment->Text;
+				echo htmlspecialchars( $comment->Text );
 			?></div><?php
 			if ( $indent <= 50 && $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				?><div class="bottom">

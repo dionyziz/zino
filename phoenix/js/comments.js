@@ -88,6 +88,10 @@ var Comments = {
 					Comments.Edit( id );
 					return false;
 				};
+		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
+					Comments.Delete( id, parentid );
+					return false;
+				};
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
@@ -152,8 +156,8 @@ var Comments = {
 		.find( "div.bottom" ).css( 'display', 'none' ).end()
 		.append( div );
 	}, 
-	Delete : function( nodeid ) {
-		$( "#comment_" + nodeid ).fadeOut( 400, function() { $( this ).remove(); } );
+	Delete : function( nodeid, parentid ) {
+		$( "#comment_" + nodeid ).fadeOut( 450, function() { $( this ).remove(); } );
 		//Coala.Warm
 	}
 };
