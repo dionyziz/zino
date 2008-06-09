@@ -152,6 +152,7 @@ var Settings = {
 		
 		$( 'div#pwdmodal div.save a.save' ).click( function() {
 			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+			return false;
 		} );
 		$( 'div#pwdmodal div.save a.cancel' ).click( function() {
 			Modals.Destroy();
