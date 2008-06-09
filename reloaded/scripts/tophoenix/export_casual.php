@@ -364,7 +364,7 @@
             FROM
                 `$images`
             LIMIT
-                " . $offset * 10000 . ", 10000"
+                " . $offset * 5000 . ", 5000"
         );
         
         if ( $offset == 0 ) {
