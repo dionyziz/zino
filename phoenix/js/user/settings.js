@@ -476,7 +476,7 @@ $( document ).ready( function() {
 			}
 			else {
 				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
-					$( Settings.oldpassword ).find( 'div div' ).fadeIn( 400 );
+					$( Settings.oldpassworddiv ).find( 'div div' ).fadeIn( 400 );
 					Settings.oldpassworderror = true;
 				}
 				if ( !Settings.oldpassworderror ) {
@@ -488,7 +488,7 @@ $( document ).ready( function() {
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
-					$( Settings.oldpassword ).find( 'div span' ).fadeIn( 400 );
+					$( Settings.oldpassworddiv ).find( 'div span' ).fadeIn( 400 );
 					Settings.oldpassworderror = true;
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
@@ -504,13 +504,13 @@ $( document ).ready( function() {
 			}
 			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
 				Settings.oldpassworderror = false;
-				$( Settings.oldpassword ).find( 'div div' ).fadeOut( 400 );
+				$( Settings.oldpassworddiv ).find( 'div div' ).fadeOut( 400 );
 			}
 		} );
 		
 		$( Settings.newpassword ).change( function() {
 			if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
-				$( Settings.newpassworderror ).find( 'div div' ).fadeIn( 400 );
+				$( Settings.newpassworderrordiv ).find( 'div div' ).fadeIn( 400 );
 				Settings.newpassworderror = true;
 			}
 			if ( !Settings.newpassworderror ) {
@@ -520,13 +520,13 @@ $( document ).ready( function() {
 		.keyup( function( event ) {
 			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
 				Settings.newpassworderror = false;
-				$( Settings.newpassworderror ).find( 'div div' ).fadeOut( 400 );
+				$( Settings.newpassworderrordiv ).find( 'div div' ).fadeOut( 400 );
 			}
 		} )
 		.keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.newpassword.value.length < 4 && !Settings.newpassworderror ) {
-					$( Settings.newpassword ).find( 'div div' ).fadeIn( 400 );
+					$( Settings.newpassworddiv ).find( 'div div' ).fadeIn( 400 );
 					Settings.newpassworderror = true;
 				}
 				if ( !Settings.newpassworderror ) {
@@ -543,7 +543,7 @@ $( document ).ready( function() {
 			else {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
 					alert( 'error' );
-					$( Settings.renewpassword ).find( 'div div' ).fadeIn( 400 );
+					$( Settings.renewpassworddiv ).find( 'div div' ).fadeIn( 400 );
 					Settings.renewpassworderror = true;
 				}
 			}
@@ -551,14 +551,14 @@ $( document ).ready( function() {
 		.keyup( function( event ) {
 			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 				Settings.renewpassworderror = false;
-				$( Settings.renewpassword ).find( 'div div' ).fadeOut( 400 );
+				$( Settings.renewpassworddiv ).find( 'div div' ).fadeOut( 400 );
 			}
 
 		} )
 		.keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.renewpassword.value != Settings.newpassword.value && !Settings.renewpassworderror ) {
-					$( Settings.renewpassword ).find( 'div span' ).fadeIn( 400 );
+					$( Settings.renewpassworddiv ).find( 'div div' ).fadeIn( 400 );
 					Settings.renewpassworderror = true;
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
@@ -572,10 +572,13 @@ $( document ).ready( function() {
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
 			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
 			$( area ).show();
-			Modals.Create(  area , 600 , 250 );
-			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ] : false;
-			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ] : false;
-			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ] ? $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ] : false;
+			Modals.Create(  area , 600 , 270 );
+			Settings.oldpassworddiv = $( 'div.modal div.changepwd div.oldpassword' );
+			Settings.newpassworddiv = $( 'div.modal div.changepwd div.newpassword' );
+			Settings.renewpassworddiv = $( 'div.modal div.changepwd div.renewpassword' );
+			Settings.oldpassword = $( 'div.modal div.changepwd div.oldpassword div input' )[ 0 ];
+			Settings.newpassword = $( 'div.modal div.changepwd div.newpassword div input' )[ 0 ];
+			Settings.renewpassword = $( 'div.modal div.changepwd div.renewpassword div input' )[ 0 ];
 			return false;
 		} );
 	}
