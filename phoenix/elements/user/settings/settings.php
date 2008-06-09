@@ -2,6 +2,46 @@
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
 		?><div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
+		<label>Να λαμβάνω ειδοποιήσεις</label>
+		<div class="setting">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Μέσω e-mail</th>
+						<th>Μέσα στο site</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Σχόλια στο προφίλ μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Σχόλια στις εικόνες μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Απαντήσεις στα σχόλιά μου:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+					<tr>
+						<th>Νέοι φίλοι:</th>
+						<td><input type="checkbox" /></td>
+						<td><input type="checkbox" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
 		<div class="changepwd" style="display:none">
 			<h3>Αλλαγή κωδικού πρόσβασης</h3>
 			<div class="oldpassword">
@@ -46,45 +86,6 @@
 				<a href="" class="button save">Αποθήκευση</a>
 				<a href="" class="button cancel">Ακύρωση</a>
 			</div>
-		</div>
-		<label>Να λαμβάνω ειδοποιήσεις</label>
-		<div class="setting">
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>Μέσω e-mail</th>
-						<th>Μέσα στο site</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>Σχόλια στο προφίλ μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
-					</tr>
-					<tr>
-						<th>Σχόλια στις εικόνες μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
-					</tr>
-					<tr>
-						<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
-					</tr>
-					<tr>
-						<th>Απαντήσεις στα σχόλιά μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
-					</tr>
-					<tr>
-						<th>Νέοι φίλοι:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
-					</tr>
-				</tbody>
-			</table>
 		</div><?php
 	}
 ?>
