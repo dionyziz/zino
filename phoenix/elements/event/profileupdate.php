@@ -1,5 +1,5 @@
 <?php
-    function ElementProfileUpdate( $eventlist ) {
+    function ElementEventProfileUpdate( $eventlist ) {
         if ( $eventlist[ 0 ]->User->Gender =='f' ) {
             ?>Ç <?php
         }
