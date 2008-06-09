@@ -28,19 +28,18 @@
 				Element( 'user/display' , $comment->User );
 				?> είπε:
 			</div>
-			<div class="text"><?php
+			<div class="text"<?php
+			if ( ( $user->Id == $comment->User->Id && ( strtotime( $comment->Created )-time() < 900 && $numchildren == 0 ) ) || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL )  ) {
+				?> ondblclick="Comments.Edit( <?php
+				echo $comment->Id;
+				?> );return false;"<?php
+			}
+			?>><?php
 				echo $comment->Text;
 			?></div><?php
 			if ( $indent <= 50 && $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				?><div class="bottom">
 					<a href="">Απάντα</a> σε αυτό το σχόλιο
-					<?php /*
-					onclick="Comments.Reply( <?php
-					echo $comment->Id;
-					?>, <?php
-					echo $indent;
-					?>);return false;" <?php
-					*/ ?>
 				</div><?php
 			}
 			?><div id="children_<?php
