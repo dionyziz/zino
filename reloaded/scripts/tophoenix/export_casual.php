@@ -200,7 +200,7 @@
         global $bulk;
         
         ob_start();
-        MigrateAsIs( $bulk, 'bulk', false, $offset, 1000 );
+        MigrateAsIs( $bulk, 'bulk', false, $offset, 100 );
         $res = ob_get_clean();
 
         if ( empty( $res ) ) {
