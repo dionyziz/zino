@@ -1,7 +1,7 @@
 <?php
     function ElementEventProfileUpdate( $eventlist ) {
         if ( $eventlist[ 0 ]->User->Gender =='f' ) {
-            ?>Η <?php
+            ?>Ξ— <?php
         }
         else {
             ?>O <?php
@@ -12,25 +12,25 @@
             ob_start();
             switch ( $one->Typeid ) {
                 case EVENT_USERPROFILE_EDUCATION_UPDATED:
-                    ?>πάει <?php
+                    ?>Ο€Ξ¬ΞµΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/education' , $one->User->Profile->Education );
                     echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-                    ?>είναι <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
                     echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_RELIGION_UPDATED:
-                    ?>είναι <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
                     echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_POLITICS_UPDATED:
-                    ?>είναι <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
                     echo strtolower( ob_get_clean() );
@@ -38,31 +38,31 @@
                 case EVENT_USERPROFILE_SMOKER_UPDATED:
                     switch ( $one->User->Profile->Smoker ) {
                         case 'yes':
-                            ?>καπνίζει<?php
+                            ?>ΞΊΞ±Ο€Ξ½Ξ―Ξ¶ΞµΞΉ<?php
                             break;
                         case 'no':
-                            ?>δεν καπνίζει<?php
+                            ?>Ξ΄ΞµΞ½ ΞΊΞ±Ο€Ξ½Ξ―Ξ¶ΞµΞΉ<?php
                             break;
                         case 'socially':
-                            ?>καπνίζει με παρέα<?php
+                            ?>ΞΊΞ±Ο€Ξ½Ξ―Ξ¶ΞµΞΉ ΞΌΞµ Ο€Ξ±ΟΞ­Ξ±<?php
                             break;
                     }
                     break;
                 case EVENT_USERPROFILE_DRINKER_UPDATED:
                     switch ( $one->User->Profile->Drinker ) {
                         case 'yes':
-                            ?>πίνει<?php
+                            ?>Ο€Ξ―Ξ½ΞµΞΉ<?php
                             break;
                         case 'no':
-                            ?>δεν πίνει<?php
+                            ?>Ξ΄ΞµΞ½ Ο€Ξ―Ξ½ΞµΞΉ<?php
                             break;
                         case 'socially':
-                            ?>πίνει με παρέα<?php
+                            ?>Ο€Ξ―Ξ½ΞµΞΉ ΞΌΞµ Ο€Ξ±ΟΞ­Ξ±<?php
                             break;
                     }
                     break;
                 case EVENT_USERPROFILE_ABOUTME_UPDATED:
-                    ?>έγραψε για τον εαυτό <?php
+                    ?>Ξ­Ξ³ΟΞ±ΟΞµ Ξ³ΞΉΞ± Ο„ΞΏΞ½ ΞµΞ±Ο…Ο„Ο <?php
                     echo $self;
                     ?> "<?php
                     echo htmlspecialchars( utf8_substr( $one->User->Profile->Aboutme , 0 , 20 ) );
@@ -70,47 +70,47 @@
                     break;
                 case EVENT_USERPROFILE_MOOD_UPDATED:
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
-                    ?>είναι από <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ Ξ±Ο€Ο <?php
                     echo htmlspecialchars( $one->User->Profile->Location->Name );
                     break;
                 case EVENT_USERPROFILE_HEIGHT_UPDATED:
-                    ?>είναι <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/height' , $one->User->Profile->Height );
                     echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_WEIGHT_UPDATED:
-                    ?>είναι <?php
+                    ?>ΞµΞ―Ξ½Ξ±ΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/weight' , $one->User->Profile->Weight );
                     echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
                     if ( $one->User->Profile->Haircolor == 'highlights' ) {
-                        ?>έχει ανταύγειες<?php
+                        ?>Ξ­Ο‡ΞµΞΉ Ξ±Ξ½Ο„Ξ±ΟΞ³ΞµΞΉΞµΟ‚<?php
                     }
                     else if ( $one->User->Profile->Haircolor == 'skinhead' ) {
-                        ?>είναι skinhead<?php
+                        ?>ΞµΞ―Ξ½Ξ±ΞΉ skinhead<?php
                     }
                     else {
-                        ?>έχει <?php 
+                        ?>Ξ­Ο‡ΞµΞΉ <?php 
                         ob_start();
                         Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
                         echo strtolower( ob_get_clean() );
-                        ?> μαλλιά<?php
+                        ?> ΞΌΞ±Ξ»Ξ»ΞΉΞ¬<?php
                     }
                     break;
                 case EVENT_USERPROFILE_EYECOLOR_UPDATED:
-                    ?>έχει <?php
+                    ?>Ξ­Ο‡ΞµΞΉ <?php
                     ob_start();
                     Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
                     echo strtolower( ob_get_clean() );
-                    ?> μάτια<?php
+                    ?> ΞΌΞ¬Ο„ΞΉΞ±<?php
             }
             $profileinfo[] = ob_get_clean();
         }
         if ( count( $profileinfo ) > 1 ) {
-            $profileinfo[ count( $profileinfo ) - 2 ] = $profileinfo[ count( $profileinfo ) - 2 ] . " και " . $profileinfo[ count( $profileinfo ) - 1 ];
+            $profileinfo[ count( $profileinfo ) - 2 ] = $profileinfo[ count( $profileinfo ) - 2 ] . " ΞΊΞ±ΞΉ " . $profileinfo[ count( $profileinfo ) - 1 ];
             unset( $profileinfo[ count( $profileinfo ) - 1 ] );
         }
         ?> <?php
