@@ -129,7 +129,7 @@ var Settings = {
 		Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
 		Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
 		Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
-		Settings.oldpassword.focus();
+
 		$( Settings.oldpassword )
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
@@ -171,6 +171,7 @@ var Settings = {
 			Modals.Destroy();
 			return false;
 		} );
+		Settings.oldpassword.focus();
 	},
 	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
 		if ( oldpassword.length < 4 ) {
