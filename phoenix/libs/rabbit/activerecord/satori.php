@@ -331,7 +331,7 @@
             $this->Relations();
             $this->mAllowRelationDefinition = false;
         }
-        public function Save() {
+        final public function Save() {
             if ( $this->mReadOnlyModified ) {
                 throw New SatoriException( 'This object has modified read-only attributes; it cannot be made persistent' );
             }
@@ -431,7 +431,7 @@
         protected function OnBeforeDelete() {
             // override me
         }
-        public final function Delete() {
+        final public function Delete() {
             if ( !$this->Exists() ) {
                 throw New SatoriException( 'Cannot delete non-existing Satori object' );
             }
