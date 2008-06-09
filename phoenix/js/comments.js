@@ -140,6 +140,7 @@ var Comments = {
 				};
 		
 		form.appendChild( input );
+		form.appendChild( document.createTextNode( ' ' ) );
 		form.appendChild( input2 );
 		div.appendChild( form );
 		
