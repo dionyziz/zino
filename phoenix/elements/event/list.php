@@ -12,7 +12,7 @@
                                EVENT_USERPROFILE_EYECOLOR_UPDATED );
 
 		$finder = New EventFinder();
-        $events = $finder->FindLatest( 0, 20 );
+        $events = $finder->FindLatest( 0, 100 );
 		?><div class="latestevents">
 			<h2>Συνέβησαν πρόσφατα</h2>
 			<div class="list"><?php
@@ -26,6 +26,7 @@
 					$info[ $event->User->Id ][ $type ][] = $event;
 					$visited[ $event->User->Id ][ $type ] = false;	
 				}
+                $j = 0;
 				foreach ( $events as $event ) {
 					if ( in_array( $event->Typeid, $profiletypes ) ) {
 						$type = 'profile_update';
@@ -34,6 +35,10 @@
 						$type = $event->Typeid;
 					}
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
+                        ++$j;
+                        if ( $j > 20 ) {
+                            break;
+                        }
 						$eventlist = $info[ $event->User->Id ][ $type ];
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
