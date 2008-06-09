@@ -148,8 +148,6 @@ var Settings = {
 				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
 			}
 		} );
-		
-		
 		$( 'div#pwdmodal div.save a.save' ).click( function() {
 			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			return false;
