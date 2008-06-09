@@ -4,7 +4,7 @@
 		?><div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
 		<div class="changepwd">
 			<h3>Αλλαγή κωδικού πρόσβασης</h3>
-			<div id="oldpassword">
+			<div class="oldpassword">
 				<span>Κωδικός πρόσβασης:</span>
 				<div>
 				<input type="password" />
@@ -13,7 +13,7 @@
 				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
 				</div>
 			</div>
-			<div id="newpassword">
+			<div class="newpassword">
 				<span>Νέος κωδικός πρόσβασης:</span>
 				<div>
 				<input type="password" />
@@ -22,7 +22,7 @@
 				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
 				</div>
 			</div>
-			<div id="renewpassword">
+			<div class="renewpassword">
 				<span>Επιβεβαίωση νέου κωδικού:</span>
 				<div>
 				<input type="password" />
