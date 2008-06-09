@@ -113,112 +113,70 @@
 										}
 										break;
 									case 'profile_update':
-										foreach ( $eventlist as $one ){ 
-											?><div><?php
+                                        ?><div><?php
+                                        if ( $one->User->Gender =='f' ) {
+                                            ?>Η <?php
+                                        }
+                                        else {
+                                            ?>O <?php
+                                        }
+                                        echo $one->User->Name;
+                                        $info = array();
+										foreach ( $eventlist as $one ) {
+                                            ob_start();
 											switch ( $one->Typeid ) {
 												case EVENT_USERPROFILE_EDUCATION_UPDATED:
-													if ( $one->User->Gender =='f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> πάει <?php
+													?>πάει <?php
 													ob_start();
 													Element( 'user/trivial/education' , $one->User->Profile->Education );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι <?php
+													?>είναι <?php
 													ob_start();
 													Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_RELIGION_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι <?php
+													?>είναι <?php
 													ob_start();
 													Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_POLITICS_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι <?php
+													?>είναι <?php
 													ob_start();
 													Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_SMOKER_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
 													switch ( $one->User->Profile->Smoker ) {
 														case 'yes':
-															?> καπνίζει<?php
+															?>καπνίζει<?php
 															break;
 														case 'no':
-															?> δεν καπνίζει<?php
+															?>δεν καπνίζει<?php
 															break;
 														case 'socially':
-															?> καπνίζει με παρέα<?php
+															?>καπνίζει με παρέα<?php
 															break;
 													}
 													break;
 												case EVENT_USERPROFILE_DRINKER_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
 													switch ( $one->User->Profile->Drinker ) {
 														case 'yes':
-															?> πίνει<?php
+															?>πίνει<?php
 															break;
 														case 'no':
-															?> δεν πίνει<?php
+															?>δεν πίνει<?php
 															break;
 														case 'socially':
-															?> πίνει με παρέα<?php
+															?>πίνει με παρέα<?php
 															break;
 													}
 													break;
 												case EVENT_USERPROFILE_ABOUTME_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-														$self = 'της';
-													}
-													else {
-														?>O <?php
-														$self = 'του';
-													}
-													echo $one->User->Name;
-													?> έγραψε για τον εαυτό <?php
+													?>έγραψε για τον εαυτό <?php
 													echo $self;
 													?> "<?php
 													echo htmlspecialchars( utf8_substr( $one->User->Profile->Aboutme , 0 , 20 ) );
@@ -226,80 +184,50 @@
 													break;
 												case EVENT_USERPROFILE_MOOD_UPDATED:
 												case EVENT_USERPROFILE_LOCATION_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι από <?php
+													?>είναι από <?php
 													echo htmlspecialchars( $one->User->Profile->Location->Name );
 													break;
 												case EVENT_USERPROFILE_HEIGHT_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι <?php
+													?>είναι <?php
 													ob_start();
 													Element( 'user/trivial/height' , $one->User->Profile->Height );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_WEIGHT_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> είναι <?php
 													ob_start();
 													Element( 'user/trivial/weight' , $one->User->Profile->Weight );
 													echo strtolower( ob_get_clean() );
 													break;
 												case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
 													if ( $one->User->Profile->Haircolor == 'highlights' ) {
-														?> έχει ανταύγειες<?php
+														?>έχει ανταύγειες<?php
 													}
 													else if ( $one->User->Profile->Haircolor == 'skinhead' ) {
-														?> είναι skinhead<?php
+														?>είναι skinhead<?php
 													}
 													else {
-														?> έχει <?php 
+														?>έχει <?php 
 														ob_start();
 														Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
 														echo strtolower( ob_get_clean() );
-														?> μαλλί<?php
+														?> μαλλιά<?php
 													}
 													break;
 												case EVENT_USERPROFILE_EYECOLOR_UPDATED:
-													if ( $one->User->Gender == 'f' ) {
-														?>Η <?php
-													}
-													else {
-														?>O <?php
-													}
-													echo $one->User->Name;
-													?> έχει <?php
+													?>έχει <?php
 													ob_start();
 													Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
 													echo strtolower( ob_get_clean() );
-													?> χρώμα ματιών<?php
+													?> μάτια<?php
 											}
-											?></div><?php
+                                            $info[] = ob_get_clean();
 										}
+                                        if ( count( $info ) > 1 ) {
+                                            $info[ count( $info ) - 2 ] = $info[ count( $info ) - 2 ] . " και " . $info[ count( $info ) - 1 ];
+                                            unset( $info[ count( $info ) - 1 ] );
+                                        }
+                                        echo implode( ', ', $info );
+                                        ?></div><?php
 										break;		
 									case EVENT_USER_CREATED:
 										?> δημιούργησε λογαριασμό<?php
