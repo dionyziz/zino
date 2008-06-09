@@ -219,6 +219,10 @@ div.avatarlist ul li img.photosmall {
 div.avatarlist div.cancel {
 	text-align: center;
 }
+div.changepwd {
+	text-align: left;
+	display: none;
+}
 div#oldpassword {
 	margin: 10px 0;
 }

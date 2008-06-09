@@ -572,7 +572,9 @@ $( document ).ready( function() {
 		} );
 		
 		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
-			Modals.Create( $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true ) , 700 , 400 );
+			var area = $( 'div.tabs form#settingsinfo div.changepwd' ).cloneNode();
+			$( area ).show();
+			Modals.Create(  area , 700 , 400 );
 			return false;
 		} );
 	}
