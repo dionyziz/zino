@@ -120,17 +120,12 @@
     }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
-        global $water;
         --$page; /* start from 0 */
-
-        $water->Trace( "comments count " . count( $comments ) );
-        $water->Trace( "page number " . $page );
 
         $comments_dump = array();
         foreach ( $comments as $comment ) {
             $comments_dump[ $comment->Id ] = $comment->Parentid;
         }
-        $water->Trace( "comments dump", $comments_dump );
 
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
         $parents_dump = array();
@@ -166,9 +161,6 @@
 
         $page_nums[] = $page_total;
 
-        $water->Trace( "page nums Comments_OnPage", $page_nums );
-        $water->Trace( "page children Comments_OnPage", $page_children );
-
 		return array( Comments_CountPages( $comments, $parents ), $parented );
 	}
 
@@ -178,9 +170,6 @@
         where all comments in the array have parentid = $pid
     */
     function Comment_MakeTree( $comments, $reverse = true ) {
-		global $water;
-		$water->Trace( "comments to be parented", $comments );
-
         $parented = array();
         if ( !is_array( $comments ) ) {
             return $parented;
@@ -285,14 +274,9 @@
             return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
-            global $water;
-
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = ( $prototype->Typeid == 3 )?$entity->Userid:$entity->Id; //3 stands for Userprofile
-
-            $water->Trace( "prototype typeid " . $prototype->Typeid );
-            $water->Trace( "prototype itemid " . $prototype->Itemid );
 
             return Comments_OnPage( $this->FindByPrototype( $prototype, $offset, $limit ), $page, $reverse );
         }

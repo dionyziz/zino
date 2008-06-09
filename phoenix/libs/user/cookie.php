@@ -3,7 +3,6 @@
         global $xc_settings;
         global $water;
 
-        $water->Trace( 'Cookie: Reading cookie information...' );
         if ( empty( $_COOKIE[ $xc_settings[ 'cookiename' ] ] ) ) {
             return false;
         }
@@ -25,8 +24,6 @@
             $water->Trace( 'Cookie error: auth is invalid' );
             return false;
         }
-
-        $water->Trace( 'Cookie: Good to go' );
 
         return array(
             'userid' => $userid,

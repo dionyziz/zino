@@ -1,7 +1,6 @@
 <?php
 	function ElementEventList() {
 		global $libs;
-		global $water;
 		
 		$libs->Load( 'event' );
 		
@@ -83,7 +82,6 @@
 								}
 							?></div>
 							<div class="subject"><?php
-								$water->Trace( 'eventlist has ' . count( $eventlist ) );
 								switch ( $type ) {
 									case EVENT_IMAGE_CREATED:
 										foreach ( $eventlist as $one ) {

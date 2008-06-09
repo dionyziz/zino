@@ -1,10 +1,8 @@
 <?php
    function ElementFrontpageView( tBoolean $newuser ) {
         global $user;
-		global $water;
 		global $rabbit_settings;
 		
-        $water->Disable();
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
@@ -127,7 +125,6 @@
 		<div class="nowonline"><?php
 			$finder = New UserFinder();
 			$users = $finder->FindOnline( 0 , 50 );
-			$water->Trace( 'onlineusers are: ' . count( $users ) );
 			if ( count( $users ) > 0 ) {
 				?><h2>Είναι online τώρα</h2>
 				<div class="list"><?php
