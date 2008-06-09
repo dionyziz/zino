@@ -347,7 +347,7 @@
 
             $this->Delid = 0;
             if ( $this->Save() ) {
-				$this->Item()->OnCommentCreate();
+				$this->Item->OnCommentCreate();
                 $this->User->AddContrib();
                 return true;
             }
@@ -362,11 +362,11 @@
 
             // $mc->delete( 'latestcomments' );
 
-            if ( method_exists( $this->Item, 'OnCommentCreate' ) ) {
-                $this->Item->OnCommentCreate();
-            }
-
+            w_assert( is_object( $this->User ), 'Comment->User not an object' );
             $this->User->OnCommentCreate();
+
+            w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
+            $this->Item->OnCommentCreate();
 
             /*
             $event = New Event();
