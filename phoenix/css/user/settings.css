@@ -223,39 +223,39 @@ div.changepwd {
 	text-align: left;
 	display: none;
 }
-div#oldpassword {
+div.oldpassword {
 	margin: 10px 0;
 }
-div#newpassword {
+div.newpassword {
 	margin: 10px 0;
 }
-div#renewpassword {
+div.renewpassword {
 	margin: 10px 0 50px 0;
 }
-div#oldpassword span.wrongpwd {
+div.oldpassword span.wrongpwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div#oldpassword span.wrongpwd img {
+div.oldpassword span.wrongpwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div#newpassword span.shortpwd {
+div.newpassword span.shortpwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div#newpassword span.shortpwd img {
+div.newpassword span.shortpwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div#renewpassword span.wrongrepwd {
+div.renewpassword span.wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div#renewpassword span.wrongrepwd img {
+div.renewpassword span.wrongrepwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	
