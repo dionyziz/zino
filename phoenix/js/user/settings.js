@@ -187,7 +187,7 @@ var Settings = {
 		}
 		if ( newpassword != renewpassword && !Settings.oldpassworderror && !Settings.newpassworderror ) {
 			Settings.renewpassworderror = true;
-			$( Settings.renewpassworderror ).find( 'div div span' ).fadeIn( 300 );
+			$( Settings.renewpassworddiv ).find( 'div div span' ).fadeIn( 300 );
 			Settings.renewpassword.focus();
 		}
 		if ( !Settings.oldpassworderror && !Settings.newpassworderror && !Settings.renewpassworderror ) {
