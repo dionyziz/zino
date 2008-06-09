@@ -467,6 +467,7 @@ $( document ).ready( function() {
 		
 		//settingsinfo
 		$( Settings.oldpassword ).keyup( function( event ) {
+			alert( Settings.newpassword );
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
 				Settings.newpassword.focus();
 			}
