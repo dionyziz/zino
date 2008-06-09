@@ -368,12 +368,14 @@
 
             $this->User->OnCommentCreate();
 
+            /*
             $event = New Event();
             $event->Typeid = EVENT_COMMENT_CREATED;
             $event->Itemid = $this->Id;
             $event->Created = $this->Created;
             $event->Userid = $this->Userid;
             $event->Save();
+            */
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();
