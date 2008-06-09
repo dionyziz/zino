@@ -153,7 +153,7 @@ var Comments = {
 		.append( div );
 	}, 
 	Delete : function( nodeid ) {
-		$( "#comment_" + nodeid ).remove();
+		$( "#comment_" + nodeid ).fadeOut( 400, function() { $( this ).remove(); } );
 		//Coala.Warm
 	}
 };
