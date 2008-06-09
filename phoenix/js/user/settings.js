@@ -488,7 +488,7 @@ $( document ).ready( function() {
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 ) {
 				if ( Settings.oldpassword.value.length < 4 && !Settings.oldpassworderror ) {
-					$( Settings.oldpassworddiv ).find( 'div span' ).fadeIn( 400 );
+					$( Settings.oldpassworddiv ).find( 'div div' ).fadeIn( 400 );
 					Settings.oldpassworderror = true;
 				}
 				if ( Settings.oldpassword.value && Settings.newpassword.value && Settings.renewpassword.value ) {
