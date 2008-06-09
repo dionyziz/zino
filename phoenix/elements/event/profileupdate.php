@@ -97,7 +97,7 @@
                         ob_start();
                         Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
                         echo strtolower( ob_get_clean() );
-                        ?> μαλλιά<?php
+                        ?> μαλλί<?php
                     }
                     break;
                 case EVENT_USERPROFILE_EYECOLOR_UPDATED:
@@ -105,7 +105,7 @@
                     ob_start();
                     Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
                     echo strtolower( ob_get_clean() );
-                    ?> μάτια<?php
+                    ?> χρώμα ματιών<?php
             }
             $profileinfo[] = ob_get_clean();
         }
