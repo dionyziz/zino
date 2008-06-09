@@ -129,7 +129,7 @@ var Settings = {
 		Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
 		Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
 		Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
-		
+		Settings.oldpassword.focus();
 		$( Settings.oldpassword )
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
@@ -141,11 +141,7 @@ var Settings = {
 			}
 
 		} );
-		/*
-		.keydown( function( event ) {
-
-		} );
-		*/
+		
 		$( Settings.newpassword )
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.newpassworderror ) {
@@ -156,11 +152,7 @@ var Settings = {
 				$( Settings.newpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
-		/*
-		.keydown( function( event ) {
 
-		} );
-		*/
 		$( Settings.renewpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
 				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
@@ -170,11 +162,7 @@ var Settings = {
 				$( Settings.renewpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
-		/*
-		.keydown( function( event ) {
- 
-		} );
-		*/
+
 		$( 'div#pwdmodal div.save a.save' ).click( function() {
 			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			return false;
