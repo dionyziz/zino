@@ -1,32 +1,35 @@
 <?php
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
-		?><label>Αλλαγή κωδικού πρόσβασης</label>
-		<div id="oldpassword">
-			<span>Κωδικός πρόσβασης:</span>
-			<div>
-			<input type="password" />
-			<span class="wrongpwd"><img src="<?php
-			echo $rabbit_settings[ 'imagesurl' ];
-			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
+		?><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label>
+		<div class="changepwd">
+			<h3>Αλλαγή κωδικού πρόσβασης</h3>
+			<div id="oldpassword">
+				<span>Κωδικός πρόσβασης:</span>
+				<div>
+				<input type="password" />
+				<span class="wrongpwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
+				</div>
 			</div>
-		</div>
-		<div id="newpassword">
-			<span>Νέος κωδικός πρόσβασης:</span>
-			<div>
-			<input type="password" />
-			<span class="shortpwd"><img src="<?php
-			echo $rabbit_settings[ 'imagesurl' ];
-			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+			<div id="newpassword">
+				<span>Νέος κωδικός πρόσβασης:</span>
+				<div>
+				<input type="password" />
+				<span class="shortpwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
+				</div>
 			</div>
-		</div>
-		<div id="renewpassword">
-			<span>Επιβεβαίωση νέου κωδικού:</span>
-			<div>
-			<input type="password" />
-			<span class="wrongrepwd"><img src="<?php
-			echo $rabbit_settings[ 'imagesurl' ];
-			?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+			<div id="renewpassword">
+				<span>Επιβεβαίωση νέου κωδικού:</span>
+				<div>
+				<input type="password" />
+				<span class="wrongrepwd"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
+				</div>
 			</div>
 		</div>
 		<label>Να λαμβάνω ειδοποιήσεις</label>

@@ -570,5 +570,9 @@ $( document ).ready( function() {
 				}
 			}
 		} );
+		
+		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
+			Modals.Create( $( 'div.tabs form#settingsinfo div.changepwd' ).clone() , 700 , 400 );
+		} );
 	}
 });
