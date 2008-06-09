@@ -136,7 +136,6 @@ var Comments = {
 					daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
 					.find( "div.bottom:last" ).remove().end()
 					.find( "div.bottom" ).css( 'display', 'block' );
-					//Coala.Warm
 				};
 		
 		form.appendChild( input );
@@ -162,5 +161,4 @@ $( document ).ready( function() {
 				}
 			);
 		} );
-	} );	
-			
+	} );
