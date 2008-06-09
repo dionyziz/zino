@@ -118,6 +118,46 @@ var Settings = {
 		var li2 = document.createElement( 'li' );
 		$( 'div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist ul' ).prepend( li2 );
 	},
+	CreateModal : function() {
+		var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
+		$( area ).show();
+		area.id = 'pwdmodal';
+		Modals.Create(  area , 440 , 330 );
+		Settings.oldpassworddiv = $( 'div#pwdmodal div.oldpassword' );
+		Settings.newpassworddiv = $( 'div#pwdmodal div.newpassword' );
+		Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' );
+		Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
+		Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
+		Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
+		
+		$( Settings.oldpassword ).keyup( function( event ) {
+			alert( Settings.newpassword );
+			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
+				Settings.newpassword.focus();
+			}	
+		} );
+		$( Settings.newpassword ).keyup( function( event ) {
+			if ( event.keyCode == 13 ) {
+				if ( event.keyCode == 13 && !Settings.newpassworderror ) {
+					Settings.renewpassword.focus();
+				}
+			}
+		} );
+		$( Settings.renewpassword ).keyup( function( event ) {
+			if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
+				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
+			}
+		} );
+		
+		
+		$( 'div#pwdmodal div.save a.save' ).click( function() {
+			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
+		} );
+		$( 'div#pwdmodal div.save a.cancel' ).click( function() {
+			Modals.Destroy();
+			return false;
+		} );
+	},
 	ChangePassword : function( oldpassword , newpassword , renewpassword ) {
 		if ( oldpassword.length < 4 ) {
 			Settings.oldpassworderror = true;
@@ -464,50 +504,13 @@ $( document ).ready( function() {
 			Settings.AddInterest( 'shows' , 7);
 			return false;
 		} );
-		
+		$( 'div.tabs form#settingsinfo div a.changepwdlink' ).click( function() {
+			Settings.CreateModal();
+			return false;
+		} );	
 		//settingsinfo
 
 		
-		$( 'div.tabs form#settingsinfo label a.changepwdlink' ).click( function() {
-			var area = $( 'div.tabs form#settingsinfo div.changepwd' )[ 0 ].cloneNode( true );
-			$( area ).show();
-			area.id = 'pwdmodal';
-			Modals.Create(  area , 440 , 330 );
-			Settings.oldpassworddiv = $( 'div#pwdmodal div.oldpassword' );
-			Settings.newpassworddiv = $( 'div#pwdmodal div.newpassword' );
-			Settings.renewpassworddiv = $( 'div#pwdmodal div.renewpassword' );
-			Settings.oldpassword = $( 'div#pwdmodal div.oldpassword div input' )[ 0 ];
-			Settings.newpassword = $( 'div#pwdmodal div.newpassword div input' )[ 0 ];
-			Settings.renewpassword = $( 'div#pwdmodal div.renewpassword div input' )[ 0 ];
-			
-			$( Settings.oldpassword ).keyup( function( event ) {
-				alert( Settings.newpassword );
-				if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
-					Settings.newpassword.focus();
-				}	
-			} );
-			$( Settings.newpassword ).keyup( function( event ) {
-				if ( event.keyCode == 13 ) {
-					if ( event.keyCode == 13 && !Settings.newpassworderror ) {
-						Settings.renewpassword.focus();
-					}
-				}
-			} );
-			$( Settings.renewpassword ).keyup( function( event ) {
-				if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
-					$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
-				}
-			} );
-			
-			
-			$( 'div#pwdmodal div.save a.save' ).click( function() {
-				Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
-			} );
-			$( 'div#pwdmodal div.save a.cancel' ).click( function() {
-				Modals.Destroy();
-				return false;
-			} );
-			return false;
-		} );
+		
 	}
 });
