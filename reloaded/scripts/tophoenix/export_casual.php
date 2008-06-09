@@ -24,7 +24,18 @@
 
     global $user;
 
-    if ( !$user->IsSysOp() ) {
+    function IsTrusted( $ip ) {
+        // Check if upload comes from a legitimate source (validate by IP address)
+        switch ( $ip ) {
+            case "87.230.77.29": // Zeus
+            case "87.230.10.105": // Orion
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    if ( !$user->IsSysOp() && !IsTrusted( $_SERVER[ 'REMOTE_ADDR' ] ) ) {
         die( 'Permission denied' );
     }
 
