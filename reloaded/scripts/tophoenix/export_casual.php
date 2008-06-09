@@ -18,6 +18,14 @@
         $offset = 0;
     }
 
+    if ( isset( $_GET[ 'testoffset' ] ) ) {
+        $test = true;
+        $offset = ( int )$_GET[ 'offset' ];
+    }
+    else {
+        $test = false;
+    }
+
     set_time_limit( 60 );
 
 	$water->Enable(); // on for all
@@ -39,9 +47,17 @@
         die( 'Permission denied' );
     }
 
-    function MigrateAsIs( $from, $to, $fields = false, $offset = 0, $limit = 0 ) {
+    function MigrateAsIs( $from, $to, $fields = false, $offset = 0, $limit = 0, $test = false ) {
         global $db;
 
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM $from;" );
+            $row = $db->FetchArray();
+            if ( $offset < $row[ 'numrows' ] ) {
+                return true;
+            }
+            return false;
+        }
         if ( $fields === false ) {
             $selectfields = '*';
         }
@@ -206,17 +222,21 @@
         }
     }
 
-    function MigrateBulk( $offset = 0 ) {
+    function MigrateBulk( $offset = 0, $test = false ) {
         global $bulk;
         
         ob_start();
-        MigrateAsIs( $bulk, 'bulk', false, $offset * 250, 250 );
+        $ret = MigrateAsIs( $bulk, 'bulk', false, $offset * 250, 250, $test );
         $res = ob_get_clean();
 
-        if ( empty( $res ) ) {
-            ?>
-            -- LAST OFFSET --
-            <?php
+        if ( $test ) {
+            if ( $ret ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
         }
         echo $res;
     }
@@ -353,9 +373,21 @@
                 frontpage_userid;<?php
     }
 
-    function MigrateImages( $offset ) {
+    function MigrateImages( $offset, $test = false ) {
         global $db, $images;
 
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
+            $row = $res->FetchArray();
+            if ( $offset <= $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
+        $limit = 5000;
         $res = $db->Query(
             "SELECT
                 `image_id`, `image_userid`, `image_created`, `image_userip`, `image_name`, `image_mime`,
@@ -364,7 +396,7 @@
             FROM
                 `$images`
             LIMIT
-                " . $offset * 5000 . ", 5000"
+                " . $offset * $limit . ", " . $limit . ";"
         );
         
         if ( $offset == 0 ) {
@@ -401,10 +433,9 @@
                 // TODO: migrate images to serverv2 and recalculate width/height/size
         }
 
-        if ( !$res->Results() ) {
+        if ( $res->NumRows() < $limit ) {
             // fill in numphotos in albums (CROSS JOIN ensures albums with no photos stay at the default = 0)
             ?>
-            -- LAST OFFSET --
             UPDATE
                 `albums` CROSS JOIN (
                     SELECT
@@ -419,8 +450,18 @@
         }
     }
 
-    function MigratePolls( $offset ) {
+    function MigratePolls( $offset, $test = false ) {
         global $polls, $votes, $polloptions;
+
+        if ( $test ) {
+            if ( $offset <= 2 ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
 
         // migrate polls
         switch ( $offset ) {
@@ -436,8 +477,20 @@
         }
     }
 
-    function MigrateShouts( $offset ) {
+    function MigrateShouts( $offset, $test = false ) {
         global $db, $shoutbox;
+
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$shoutbox`;" );
+            $row = $res->FetchArray();
+            if ( $offset < $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
 
         // migrate shouts
         $res = $db->Query(
@@ -505,7 +558,7 @@
         <?php
     }
 
-    function MigrateComments( $offset = 0 ) {
+    function MigrateComments( $offset = 0, $test = false ) {
         global $db, $comments;
 
         $commenttypes = array(
@@ -515,6 +568,18 @@
             3 => 1
         );
         
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
+            $row = $res->FetchArray();
+            if ( $offset < $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
+
         $res = $db->Query(
             "SELECT
                 `comment_id`, `comment_userid`, `comment_created`, `comment_userip`,
@@ -530,10 +595,6 @@
             ?>TRUNCATE TABLE `comments`;<?php
         }
 
-        if ( !$res->Results() ) {
-            ?> -- LAST OFFSET -- 
-            <?php;
-        }
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` SET `bulk_text`='<?php
             echo addslashes( $row[ 'comment_text' ] );
@@ -708,11 +769,6 @@
     header( 'Content-type: text/html; charset=utf8' );
     ob_start();
 
-    ?> -- Step <?php
-    echo $step;
-    ?> migration of Excalibur Reloaded to Phoenix --
-    <?php
-
     switch ( $step ) {
         case 0:
             MigrateUsers();
@@ -721,22 +777,22 @@
             MigrateAlbums();
             break;
         case 2:
-            MigrateImages( $offset );
+            MigrateImages( $offset, $test );
             break;
         case 3:
-            MigratePolls( $offset );
+            MigratePolls( $offset, $test );
             break;
         case 4:
-            MigrateBulk( $offset );
+            MigrateBulk( $offset, $test );
             break;
         case 5:
-            MigrateShouts( $offset );
+            MigrateShouts( $offset, $test );
             break;
         case 6:
             MigrateCounts();
             break;
         case 7:
-            MigrateComments( $offset );
+            MigrateComments( $offset, $test );
             break;
         case 8:
             MigrateJournals();
@@ -764,7 +820,16 @@
             break;
     }
 
+    $sql = ob_get_clean();
+
+    ob_start();
+    ?> -- Step <?php
+    echo $step;
+    ?> migration of Excalibur Reloaded to Phoenix --
+    <?php
+    echo $sql;
     $data = gzencode( ob_get_clean(), 9 );
+
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '-' .$offset . '.sql.gz' );
     header( 'Content-length: ' . strlen( $data ) );
     echo $data;
