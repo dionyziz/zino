@@ -61,6 +61,7 @@
             ++$this->User->Count->Relations;
             $this->User->Count->Save();
         }
+        /*
         protected function OnUpdate() {
             global $libs;
             
@@ -72,6 +73,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
+        */
         protected function OnDelete() {
             --$this->User->Count->Friends;
             $this->User->Count->Save();

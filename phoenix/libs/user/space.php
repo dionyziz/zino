@@ -33,12 +33,14 @@
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
 
+            /*
             $libs->Load( 'event' );
             $event = New Event();
             $event->Typeid = EVENT_USERSPACE_UPDATED;
             $event->Itemid = $this->Userid;
             $event->Userid = $this->Userid;
             $event->Save();
+            */
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
