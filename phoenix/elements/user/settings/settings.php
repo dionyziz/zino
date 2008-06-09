@@ -42,7 +42,7 @@
 			</table>
 		</div>
 		
-		<div class="changepwd" style="display:none">
+		<div class="changepwd">
 			<h3>Αλλαγή κωδικού πρόσβασης</h3>
 			<div class="oldpassword">
 				<span>Κωδικός πρόσβασης:</span>
