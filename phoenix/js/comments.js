@@ -31,7 +31,7 @@ var Comments = {
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
 		
-		var useros = temp.find( "div.who" ).get(0);
+		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
 		if ( parentid=== 0 ){
@@ -84,6 +84,10 @@ var Comments = {
 					return false;
 				}
 			);
+		node.find( 'div.text' ).get( 0 ).ondblclick = function() {
+					Comments.Edit( id );
+					return false;
+				};
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
