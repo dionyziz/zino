@@ -198,7 +198,14 @@
     function MigrateBulk( $offset = 0 ) {
         global $bulk;
         
+        ob_start();
         MigrateAsIs( $bulk, 'bulk', false, $offset, 10000 );
+        $res = ob_get_clean();
+
+        if ( empty( $res ) ) {
+            die( 'Done' );
+        }
+        echo $res;
     }
 
     function MigrateAlbums() {
@@ -490,6 +497,9 @@
             ?>TRUNCATE TABLE `comments`;<?php
         }
 
+        if ( !$res->Results() ) {
+            die( 'Done' );
+        }
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` SET `bulk_text`='<?php
             echo addslashes( $row[ 'comment_text' ] );
@@ -649,9 +659,6 @@
         }
     }
 
-    header( 'Content-type: text/html; charset=utf8' );
-    header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql.gz' );
-
     ob_start();
 
     ?> -- Step <?php
@@ -711,6 +718,8 @@
     }
 
     $data = gzencode( ob_get_clean(), 9 );
+    header( 'Content-type: text/html; charset=utf8' );
+    header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '.sql.gz' );
     header( 'Content-length: ' . strlen( $data ) );
     echo $data;
 ?>
