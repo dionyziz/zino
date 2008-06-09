@@ -377,6 +377,9 @@
             $event->Save();
             */
         }
+        public function OnBeforeUpdate() {
+            $this->Bulk->Save();
+        }
         public function OnBeforeCreate() {
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
