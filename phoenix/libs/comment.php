@@ -334,9 +334,9 @@
             $this->Save();
 
             $this->User->OnCommentDelete();
-			if ( is_object( $this>Item ) ) {
-	            $this->Item->OnCommentDelete();
-			}
+
+			w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
+            $this->Item->OnCommentDelete();
 
             return false;
         }
