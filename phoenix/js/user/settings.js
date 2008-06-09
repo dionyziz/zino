@@ -135,7 +135,7 @@ var Settings = {
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
 				Settings.newpassword.focus();
 			}
-			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
+			if ( event.keyCode != 13 && Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
 				Settings.oldpassworderror = false;
 				$( Settings.oldpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
