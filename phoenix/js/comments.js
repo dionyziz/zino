@@ -91,7 +91,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.bottom form input" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
 				} ;
@@ -127,8 +127,20 @@ var Comments = {
 					.find( "div.bottom" ).css( 'display', 'block' );
 					//Coala.Warm
 				};
+			
+		var input2 = document.createElement( 'input' );
+		input2.type = "reset";
+		input2.value = "Ακύρωση";
+		input2.onclick = function() {
+					var daddy = $( this ).parents().eq(2); // get big div
+					daddy.find( "div.text" ).empty().append( document.createTextNode( text ) ).end()
+					.find( "div.bottom:last" ).remove().end()
+					.find( "div.bottom" ).css( 'display', 'block' );
+					//Coala.Warm
+				};
 		
 		form.appendChild( input );
+		form.appendChild( input2 );
 		div.appendChild( form );
 		
 		node.find( "div.text" ).empty().append( textarea ).end()
