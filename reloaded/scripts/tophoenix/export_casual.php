@@ -59,13 +59,12 @@
 
         $res = $db->Query( $query );
 
-        die( 'SQL: ' . $query );
-
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `<?php
             echo $to;
             ?>`;<?php
         }
+        die( $query );
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `<?php
             echo $to;
