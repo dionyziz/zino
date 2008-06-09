@@ -222,6 +222,7 @@ div.avatarlist div.cancel {
 div.changepwd {
 	text-align: left;
 	display: none;
+	margin-left: 10px;
 }
 div.oldpassword {
 	margin: 10px 0;
@@ -232,30 +233,30 @@ div.newpassword {
 div.renewpassword {
 	margin: 10px 0 50px 0;
 }
-div.oldpassword span.wrongpwd {
+div.oldpassword div.wrongpwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div.oldpassword span.wrongpwd img {
+div.oldpassword div.wrongpwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.newpassword span.shortpwd {
+div.newpassword div.shortpwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div.newpassword span.shortpwd img {
+div.newpassword div.shortpwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }
-div.renewpassword span.wrongrepwd {
+div.renewpassword div.wrongrepwd {
 	font-size: 80%;
 	font-weight: bold;
 	display: none;
 }
-div.renewpassword span.wrongrepwd img {
+div.renewpassword div.wrongrepwd img {
 	vertical-align: -3px; 
 	padding-right: 3px;
 }	

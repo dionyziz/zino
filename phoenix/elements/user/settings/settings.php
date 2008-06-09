@@ -8,7 +8,7 @@
 				<span>Κωδικός πρόσβασης:</span>
 				<div>
 				<input type="password" />
-				<span class="wrongpwd"><img src="<?php
+				<div class="wrongpwd"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Ο κωδικός πρόσβασης δεν είναι σωστός</span>
 				</div>
@@ -17,7 +17,7 @@
 				<span>Νέος κωδικός πρόσβασης:</span>
 				<div>
 				<input type="password" />
-				<span class="shortpwd"><img src="<?php
+				<div class="shortpwd"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
 				</div>
@@ -26,7 +26,7 @@
 				<span>Επιβεβαίωση νέου κωδικού:</span>
 				<div>
 				<input type="password" />
-				<span class="wrongrepwd"><img src="<?php
+				<div class="wrongrepwd"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>exclamation.png" alt="Προσοχή" title="Προσοχή" />Δεν έχεις πληκτρολογήσει σωστά τον κωδικό πρόσβασης!</span>
 				</div>
