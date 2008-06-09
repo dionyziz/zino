@@ -1,7 +1,7 @@
 <?php
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
-		?><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label>
+		?><div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
 		<div class="changepwd">
 			<h3>Αλλαγή κωδικού πρόσβασης</h3>
 			<div id="oldpassword">
