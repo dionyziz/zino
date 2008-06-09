@@ -660,6 +660,7 @@
         }
     }
 
+    header( 'Content-type: text/html; charset=utf8' );
     ob_start();
 
     ?> -- Step <?php
@@ -719,7 +720,6 @@
     }
 
     $data = gzencode( ob_get_clean(), 9 );
-    header( 'Content-type: text/html; charset=utf8' );
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '-' .$offset . '.sql.gz' );
     header( 'Content-length: ' . strlen( $data ) );
     echo $data;
