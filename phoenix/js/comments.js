@@ -151,6 +151,10 @@ var Comments = {
 		node.find( "div.text" ).empty().append( textarea ).end()
 		.find( "div.bottom" ).css( 'display', 'none' ).end()
 		.append( div );
+	}, 
+	Delete : function( nodeid ) {
+		$( "#comment_" + nodeid ).remove();
+		//Coala.Warm
 	}
 };
 $( document ).ready( function() {

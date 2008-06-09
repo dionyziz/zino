@@ -21,7 +21,9 @@
 				echo $comment->Since;
 				?></span><?php
 				if ( ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0 ) {
-					?><a href="" onclick="return false" title="Διαγραφή"></a><?php
+					?><a href="" onclick="Comments.Delete( <?php
+					echo $comment->Id;
+					?> );return false;" title="Διαγραφή"></a><?php
 				}
 			?></div>
 			<div class="who"><?php
