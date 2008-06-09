@@ -385,20 +385,6 @@
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }
-        public function Save( $theuser = false ) {
-            global $user;
-
-            if ( !is_object( $theuser ) ) {
-                $theuser = $user;
-            }
-
-            // use this when done with testing
-            // if ( ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) || Comment_UserIsSpamBot( $this->Text ) ) {
-            if ( $this->Exists() && !$this->IsEditableBy( $theuser ) ) {
-                return false;
-            }
-            return parent::Save();
-        }
         public function Relations() {
 			if ( $this->Exists() ) {
 	            $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
