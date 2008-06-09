@@ -491,7 +491,7 @@
             WHERE
                 `comment_delid`=0
             LIMIT
-                " . $offset . ",25000;"
+                " . $offset . ",5000;"
         );
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `comments`;<?php
