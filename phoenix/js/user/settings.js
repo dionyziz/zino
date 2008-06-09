@@ -135,40 +135,46 @@ var Settings = {
 			if ( event.keyCode == 13 && !Settings.oldpassworderror ) {
 				Settings.newpassword.focus();
 			}
-
-		} )
-		.keydown( function( event ) {
 			if ( Settings.oldpassworderror && Settings.oldpassword.value.length >= 4 ) {
 				Settings.oldpassworderror = false;
 				$( Settings.oldpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
+
 		} );
-		
+		/*
+		.keydown( function( event ) {
+
+		} );
+		*/
 		$( Settings.newpassword )
 		.keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.newpassworderror ) {
 				Settings.renewpassword.focus();
 			}
-		} )
-		.keydown( function( event ) {
 			if ( Settings.newpassworderror && Settings.newpassword.value.length >= 4 ) {
 				Settings.newpassworderror = false;
 				$( Settings.newpassworddiv ).find( 'div div span' ).fadeOut( 300 );
 			}
 		} );
-		
+		/*
+		.keydown( function( event ) {
+
+		} );
+		*/
 		$( Settings.renewpassword ).keyup( function( event ) {
 			if ( event.keyCode == 13 && !Settings.renewpassworderror ) {
 				$( 'div#pwdmodal div.save a.save' )[ 0 ].focus();
 			}
-		} )
-		.keydown( function( event ) {
 			if ( Settings.renewpassworderror && Settings.renewpassword.value == Settings.newpassword.value ) {
 				Settings.renewpassworderror = false;
 				$( Settings.renewpassworddiv ).find( 'div div span' ).fadeOut( 300 );
-			} 
+			}
 		} );
-		
+		/*
+		.keydown( function( event ) {
+ 
+		} );
+		*/
 		$( 'div#pwdmodal div.save a.save' ).click( function() {
 			Settings.ChangePassword( Settings.oldpassword.value , Settings.newpassword.value , Settings.renewpassword.value );
 			return false;
