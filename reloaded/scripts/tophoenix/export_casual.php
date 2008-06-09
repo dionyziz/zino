@@ -59,6 +59,8 @@
 
         $res = $db->Query( $query );
 
+        die( 'SQL: ' . $query );
+
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `<?php
             echo $to;
