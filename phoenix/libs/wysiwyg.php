@@ -8,10 +8,10 @@
 
         // YouTube support
         $html = preg_replace( 
-            '#\<img\s*src\=["\']?' 
-            . $rabbit_settings[ 'imagesurl' ] 
-            . 'video-placeholder\.png?v\=([a-zA-Z0-9_-]+)["\']?[^>]*/?\>#i', 
-            '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/\1"></param><embed src="http://www.youtube.com/v/\1" type="application/x-shockwave-flash" width="425" height="344"></embed></object>', 
+            '#\<img\s*src\=(["\']?)' 
+            . preg_quote( $rabbit_settings[ 'imagesurl' ], "#" )
+            . 'video-placeholder\.png\?v\=([a-zA-Z0-9_-]+)\1[^>]*/?\>#i', 
+            '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/\2"></param><embed src="http://www.youtube.com/v/\1" type="application/x-shockwave-flash" width="425" height="344"></embed></object>', 
             $html
         );
 
