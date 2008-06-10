@@ -3,6 +3,22 @@
     define( 'PMFOLDER_INBOX', 'inbox' );
     define( 'PMFOLDER_OUTBOX', 'outbox' );
 
+    function PMFolder_PrepareUser( $user ) {
+        $inbox = New PMFolder();
+        $inbox->Userid = $user->Id;
+        $inbox->Typeid = PMFOLDER_INBOX;
+        $inbox->Name = 'inbox';
+        $inbox->Delid = 0;
+        $inbox->Save();
+
+        $oubox = New PMFolder();
+        $outbox->Userid = $user->Id;
+        $outbox->Typeid = PMFOLDER_OUTBOX;
+        $outbox->Name = 'outbox';
+        $outbox->Delid = 0;
+        $outbox->Save();
+    }
+
     class PMFolderFinder extends Finder {
         protected $mModel = 'PMFolder';
 
@@ -68,6 +84,7 @@
             global $user;
 
             $this->Userid = $user->Id;
+            $this->Delid = 0;
         }
     }
 

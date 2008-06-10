@@ -196,11 +196,16 @@
             $this->Lastlogin = time();
         }
         protected function OnCreate() {
+            global $libs;
+            $libs->Load( 'pm/pm' );
+
             $this->Profile->Save();
             $this->Preferences->Save();
             $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
+            PMFolder_PrepareUser( $this );
+
             $this->Save(); // save again
 
             if ( !empty( $this->Profile->Email ) ) {
