@@ -41,11 +41,21 @@ $( document ).ready( function() {
             },
             {
                 'tooltip': 'Εισαγωγή Εικόνας',
-                'image': 'http://static.zino.gr/phoenix/picture.png'
+                'image': 'http://static.zino.gr/phoenix/picture.png',
+                'command': function () {
+                    
+                }
             },
             {
                 'tooltip': 'Εισαγωγή Video',
-                'image': 'http://static.zino.gr/phoenix/television.png'
+                'image': 'http://static.zino.gr/phoenix/television.png',
+                'command': function () {
+                    var q = prompt( 'Πληκτρολόγησε την διεύθυνση του video:', 'http://www.youtube.com/watch?v=aaaaaa' );
+
+                    if ( typeof q == 'string' && q != '' ) {
+                        WYSIWYG.ExecCommand( 'text', 'inserthtml', '<object width="425" height="344"><param name="movie" value="' + q + '"></param><embed src="' + q + '" type="application/x-shockwave-flash" width="425" height="344"></embed></object>' );
+                    }
+                }
             }
         ], 2 );
     }
