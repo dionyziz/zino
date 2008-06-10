@@ -41,7 +41,7 @@
                         ON `user_id` = `pmfolder_userid`
                 WHERE
                     `user_id` IN :pmusers AND
-                    `pmfolder_type` = :inboxtype
+                    `pmfolder_typeid` = :inboxtype
                 ;' );
     
             $query->BindTable( 'users' );
