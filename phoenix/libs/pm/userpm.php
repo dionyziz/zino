@@ -66,7 +66,7 @@
         protected function Relations() {
             $this->PM = $this->HasOne( 'PM', 'PMid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Folder = $this->HasOne( 'Folder', 'Folderid' );
+            $this->Folder = $this->HasOne( 'PMFolder', 'Folderid' );
         }
     }
 
