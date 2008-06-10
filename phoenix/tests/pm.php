@@ -45,8 +45,8 @@
         public function TestCreatePM() {
             $pm = New PM();
             $pm->Senderid = $this->mUser->Id;
-            $pm->AddReceiver( $this->mUser->Id );
-            $pm->AddReceiver( $this->mUser2->Id );
+            $pm->AddReceiver( $this->mUser );
+            $pm->AddReceiver( $this->mUser2 );
             $pm->Text = 'foo bar blah';
             $pm->Save();
 
