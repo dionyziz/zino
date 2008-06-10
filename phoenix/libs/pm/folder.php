@@ -52,6 +52,8 @@
     }
 
     class PMFolder extends Satori {
+        protected $mDbTableAlias = 'pmfolders';
+
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->UserPMs = $this->HasMany( 'UserPMFinder', 'FindByFolder', $this );
