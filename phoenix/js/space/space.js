@@ -25,21 +25,17 @@ $( document ).ready( function() {
             {
                 'tooltip': 'Εισαγωγή Link',
                 'image': 'http://static.zino.gr/phoenix/world.png',
-                'command': function () {
-                    var q = prompt( 'Πληκτρολόγησε την διεύθυνση προς την οποία θέλεις να γινει link:', 'http://www.zino.gr/' );
-                    
-                    if ( typeof q == "string" && q !== '' ) {
-                        WYSIWYG.ExecCommand( 'text', 'createLink', q );
-                    }
-                }
+                'command': WYSIWYG.CommandLink( 'text' )
             },
             {
                 'tooltip': 'Εισαγωγή Εικόνας',
-                'image': 'http://static.zino.gr/phoenix/picture.png'
+                'image': 'http://static.zino.gr/phoenix/picture.png',
+                'command': WYSIWYG.CommandImage( 'text' )
             },
             {
                 'tooltip': 'Εισαγωγή Video',
-                'image': 'http://static.zino.gr/phoenix/television.png'
+                'image': 'http://static.zino.gr/phoenix/television.png',
+                'command': WYSIWYG.CommandVideo( 'text' )
             }
         ], 2 );
 	}
