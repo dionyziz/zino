@@ -28,15 +28,27 @@
                     echo utf8_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_RELIGION_UPDATED:
-                    ?>είναι <?php
                     ob_start();
-                    Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
+                    switch ( $one->User->Profile->Religion ) {
+                        case 'Τίποτα':
+                            ?>δεν έχει θρησκευτικές πεποιθήσεις<?php
+                            break;
+                        default:
+                            ?>είναι <?php
+                            Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
+                    }
                     echo utf8_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_POLITICS_UPDATED:
-                    ?>είναι <?php
                     ob_start();
-                    Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
+                    switch ( $one->User->Profile->Politics ) {
+                        case 'Τίποτα':
+                            ?>δεν έχει πολιτικές πεποιθήσεις<?php
+                            break;
+                        default:
+                            ?>είναι <?php
+                            Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
+                    }
                     echo utf8_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_SMOKER_UPDATED:
@@ -73,6 +85,13 @@
                     ?>"<?php
                     break;
                 case EVENT_USERPROFILE_MOOD_UPDATED:
+                    ?>είναι <?php
+                    if ( $one->User->Gender == 'm' ) {
+                        echo htmlspecialchars( $one->User->Mood->Labelmale );
+                    }
+                    else {
+                        echo htmlspecialchars( $one->User->Mood->Labelfemale );
+                    }
                     break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
                     ?>είναι από <?php
@@ -108,7 +127,6 @@
                 case EVENT_USERPROFILE_EYECOLOR_UPDATED:
                     ?>έχει <?php
                     ob_start();
-                    $water->Trace( 'Eyecolor for : ' . $one->User->Name . ' is ' . $one->User->Profile->Eyecolor );
                     Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
                     echo utf8_strtolower( ob_get_clean() );
                     ?> χρώμα ματιών<?php
