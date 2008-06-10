@@ -11,7 +11,7 @@ div.shoutbox div.comments div.comment {
 }
 div.shoutbox div.comments div.comment div.text {
     max-height: 300px;
-    overflow: hidden;
+    overflow: auto;
 }
 div.shoutbox h2 {	
 	margin-bottom: 10px;
