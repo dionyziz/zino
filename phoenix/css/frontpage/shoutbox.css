@@ -9,6 +9,10 @@ div.shoutbox div.comments {
 div.shoutbox div.comments div.comment {
 	width: 100%;
 }
+div.shoutbox div.comments div.comment div.text {
+    max-height: 300px;
+    overflow: hidden;
+}
 div.shoutbox h2 {	
 	margin-bottom: 10px;
 }
