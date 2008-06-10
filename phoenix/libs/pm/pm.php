@@ -51,7 +51,7 @@
             $upm = New UserPM();
             $upm->Pmid = $this->Id;
             $upm->Folderid = $senderoutbox->Id;
-            $upm->Delid = PM_READ;
+            $upm->Delid = USERPM_READ;
             $upm->Save();
         }
         protected function OnBeforeUpdate() {
