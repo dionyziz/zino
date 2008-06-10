@@ -7,7 +7,7 @@
 			'brown' => 'Καφέ',
 			'green' => 'Πράσινο',
 			'blue'	=> 'Μπλε',
-			'gray'	=> 'Γκρι'
+			'grey'	=> 'Γκρι'
 		);
 		echo htmlspecialchars( $eyes[ $color ] );	
 	}
