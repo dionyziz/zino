@@ -33,8 +33,12 @@
             $this->Bulkid = $id;
         }
         protected function OnCreate() {
+            global $water;
+
             $ffinder = New PMFolderFinder();
             $receiversinbox = $ffinder->FindUsersInbox( $this->Receivers );
+            $water->Trace( "pm receivers", $this->Receivers );
+            $water->Trace( "pm inbox", $receiversinbox );
             foreach ( $this->Receivers as $receiver ) {
                 $upm = New UserPM();
                 $upm->Pmid = $this->Id;
