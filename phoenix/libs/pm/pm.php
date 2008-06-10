@@ -8,13 +8,13 @@
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
 
-        protected function SetReceivers( $receivers ) {
+        public function SetReceivers( $receivers ) {
             $this->mReceivers = $receivers;
         }
-        protected function AddReceiver( $receiver ) {
+        public function AddReceiver( $receiver ) {
             $this->mReceivers[] = $receiver;
         }
-        protected function GetReceivers() {
+        public function GetReceivers() {
             if ( $this->Exists() && empty( $this->mReceivers ) ) {
                 foreach ( $this->UserPMs as $upm ) {
                     $this->mReceivers[] = $upm->User;
@@ -22,10 +22,10 @@
             }
             return $this->mReceivers;
         }
-        protected function SetText( $text ) {
+        public function SetText( $text ) {
             $this->Bulk->Text = $text;
         }
-        protected function GetText( $text ) {
+        public function GetText( $text ) {
             return $this->Bulk->Text;
         }
         protected function OnBeforeCreate() {
