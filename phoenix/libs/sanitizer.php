@@ -209,9 +209,11 @@
                             }
                         }
                         if ( $root->nodeName == 'embed' ) {
-                            $value = $this->SanitizeTrustedURL( $value );
-                            if ( empty( $value ) ) {
-                                continue;
+                            if ( $attribute == 'src' ) {
+                                $value = $this->SanitizeTrustedURL( $value );
+                                if ( empty( $value ) ) {
+                                    continue;
+                                }
                             }
                         }
                         $attributes[] = $attribute . '="' . htmlspecialchars( $value, ENT_COMPAT, 'UTF-8' ) . '"';
