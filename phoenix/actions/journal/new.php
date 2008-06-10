@@ -28,9 +28,6 @@
         $libs->Load( 'wysiwyg' );
         $result = WYSIWYG_PostProcess( $text );
 
-        echo '.' . $result . '.';
-        exit();
-
         $journal->Text = $result;
 		$journal->Save();
 		
