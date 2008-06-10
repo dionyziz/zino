@@ -19,13 +19,13 @@
                     ?>πάει <?php
                     ob_start();
                     Element( 'user/trivial/education' , $one->User->Profile->Education );
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
                     ?>είναι <?php
                     ob_start();
                     Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_RELIGION_UPDATED:
                     ob_start();
@@ -37,7 +37,7 @@
                             ?>είναι <?php
                             Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
                     }
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_POLITICS_UPDATED:
                     ob_start();
@@ -49,7 +49,7 @@
                             ?>είναι <?php
                             Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
                     }
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_SMOKER_UPDATED:
                     switch ( $one->User->Profile->Smoker ) {
@@ -101,13 +101,13 @@
                     ?>είναι <?php
                     ob_start();
                     Element( 'user/trivial/height' , $one->User->Profile->Height );
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_WEIGHT_UPDATED:
                     ?>είναι <?php
                     ob_start();
                     Element( 'user/trivial/weight' , $one->User->Profile->Weight );
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
                     if ( $one->User->Profile->Haircolor == 'highlights' ) {
@@ -120,7 +120,7 @@
                         ?>έχει <?php 
                         ob_start();
                         Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
-                        echo utf8_strtolower( ob_get_clean() );
+                        echo strtolower( ob_get_clean() );
                         ?> μαλλί<?php
                     }
                     break;
@@ -128,7 +128,7 @@
                     ?>έχει <?php
                     ob_start();
                     Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
-                    echo utf8_strtolower( ob_get_clean() );
+                    echo strtolower( ob_get_clean() );
                     ?> χρώμα ματιών<?php
                     break;
             }
