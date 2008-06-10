@@ -150,7 +150,7 @@
             $this->Count = $this->HasOne( 'UserCount', 'Id' );
             $this->Journals = $this->HasMany( 'JournalFinder', 'FindByUser', $this );
             $this->Albums = $this->HasMany( 'AlbumFinder', 'FindByUser', $this );
-            $this->Answers = $this->HasMany( 'AnswersFinder', 'FindByUser', $this );
+            $this->Answers = $this->HasMany( 'AnswerFinder', 'FindByUser', $this );
             $this->Space = $this->HasOne( 'UserSpace', 'Id' );
             $this->LastActivity = $this->HasOne( 'UserLastActive', 'Id' );
             $this->EgoAlbum = $this->HasOne( 'Album', 'Egoalbumid' );
