@@ -10,7 +10,7 @@
         $html = preg_replace( 
             '#\<img\s*src\=["\']?' 
             . $rabbit_settings[ 'imagesurl' ] 
-            . 'video-placeholder\.png?v\=([a-zA-Z0-9_-]+)["\']?\s*/?\>#i', 
+            . 'video-placeholder\.png?v\=([a-zA-Z0-9_-]+)["\']?[^>]*/?\>#i', 
             '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/\1"></param><embed src="http://www.youtube.com/v/\1" type="application/x-shockwave-flash" width="425" height="344"></embed></object>', 
             $html
         );
