@@ -24,7 +24,24 @@
         }
 		
 		public function FindRandomByUser( $user ) {
-			// TODO: Get a random question that $user hasn't answered
+			// This query is awesome, by dionyziz
+			$query = $this->mDb->Prepare('
+			SELECT 
+				* 
+			FROM 
+				:questions
+			LEFT JOIN :answers 
+				ON ( questions.question_id = answers.answer_questionid AND answers.answer_userid = :userid )
+			WHERE
+				answers.answer_id = NULL
+			ORDER BY RAND()
+			LIMIT :limit;
+			');
+			$query->BindTable( 'questions' );
+			$query->BindTable( 'answers' );
+			$query->Bind( ':userid', $user->Id );
+			$query->Bind( ':limit', 1 );
+			return $this->FindBySqlResource( $query->Execute() );
 		}
 	}
 
