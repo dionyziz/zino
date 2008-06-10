@@ -50,10 +50,15 @@ $( document ).ready( function() {
                 'tooltip': 'Εισαγωγή Video',
                 'image': 'http://static.zino.gr/phoenix/television.png',
                 'command': function () {
-                    var q = prompt( 'Πληκτρολόγησε την διεύθυνση του video:', 'http://www.youtube.com/watch?v=aaaaaa' );
+                    var q = prompt( 'Πληκτρολόγησε την διεύθυνση του video στο YouTube:', 'http://www.youtube.com/watch?v=aaaaaa' );
 
                     if ( typeof q == 'string' && q != '' ) {
-                        WYSIWYG.ExecCommand( 'text', 'inserthtml', '<object width="425" height="344"><param name="movie" value="' + q + '"></param><embed src="' + q + '" type="application/x-shockwave-flash" width="425" height="344"></embed></object>' );
+                        match = /v\=([a-zA-Z0-9_-]+)/.exec( q );
+                        if ( match.length != 1 ) {
+                            alert( 'Το video δεν ήταν έγκυρη διεύθυνση του YouTube' );
+                            return;
+                        }
+                        WYSIWYG.ExecCommand( 'text', 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="1px dotted blue;" /><br />' );
                     }
                 }
             }
