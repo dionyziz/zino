@@ -54,8 +54,8 @@
             $this->Bulk->Save();
         }
         protected function Relations() {
-            $this->Sender = $this->HasOne( 'User', 'SenderId' );
-            $this->Bulk = $this->HasOne( 'Bulk', 'BulkId' );
+            $this->Sender = $this->HasOne( 'User', 'Senderid' );
+            $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         protected function OnConstruct() {
             $this->mReceivers = array();
