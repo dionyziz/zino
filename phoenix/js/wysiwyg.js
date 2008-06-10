@@ -43,7 +43,7 @@ var WYSIWYG = {
                     alert( 'Το video δεν ήταν έγκυρη διεύθυνση του YouTube' );
                     return;
                 }
-                WYSIWYG.ExecCommand( 'text', 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="1px dotted blue;" /><br />' );
+                WYSIWYG.ExecCommand( 'text', 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
             }
         };
     },
