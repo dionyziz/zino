@@ -106,11 +106,13 @@
             ++$this->User->Count->Albums;
             $this->User->Count->Save();
 
+            /*
             $event = New Event();
             $event->Typeid = EVENT_ALBUM_CREATED;
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
+            */
         }
         public function LoadDefaults() {
 			global $user;

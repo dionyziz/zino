@@ -73,6 +73,7 @@
                     ?>"<?php
                     break;
                 case EVENT_USERPROFILE_MOOD_UPDATED:
+                    break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
                     ?>είναι από <?php
                     echo htmlspecialchars( $one->User->Profile->Location->Name );
