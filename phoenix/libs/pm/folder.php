@@ -57,10 +57,10 @@
 
             return $ret;
         }
-        public function FindByUserAndType( $user, $type, $offset = 0, $limit = 100 ) {
+        public function FindByUserAndType( $user, $typeid, $offset = 0, $limit = 100 ) {
             $prototype = New PMFolder();
             $prototype->Userid = $user->Id;
-            $prototype->Typeid = $type;
+            $prototype->Typeid = $typeid;
             $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit );

@@ -42,12 +42,12 @@
             foreach ( $this->Receivers as $receiver ) {
                 $upm = New UserPM();
                 $upm->Pmid = $this->Id;
-                $upm->Folderid = $receiversinbox[ $receiver->Id ];
+                $upm->Folderid = $receiversinbox[ $receiver->Id ]->Id;
                 $upm->Delid = USERPM_UNREAD;
                 $upm->Save();
             }
             
-            $senderoutbox = $ffinder->FindUserOutbox( $this->Sender );
+            $senderoutbox = $ffinder->FindByUserAndType( $this->Sender, PMFOLDER_OUTBOX );
             $upm = New UserPM();
             $upm->Pmid = $this->Id;
             $upm->Folderid = $senderoutbox->Id;
