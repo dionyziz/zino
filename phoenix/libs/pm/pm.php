@@ -39,7 +39,7 @@
                 $upm = New UserPM();
                 $upm->Pmid = $this->Id;
                 $upm->Folderid = $receiversinbox[ $receiver->Id ];
-                $upm->Delid = PM_UNREAD;
+                $upm->Delid = USERPM_UNREAD;
                 $upm->Save();
             }
             
