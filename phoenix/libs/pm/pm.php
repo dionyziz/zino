@@ -29,8 +29,8 @@
             return $this->Bulk->Text;
         }
         protected function OnBeforeCreate() {
-            $id = $this->Bulk->Save();
-            $this->Bulkid = $id;
+            $this->Bulk->Save();
+            $this->Bulkid = $this->Bulk->Id;
         }
         protected function OnCreate() {
             global $water;
