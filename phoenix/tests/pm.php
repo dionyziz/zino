@@ -48,6 +48,7 @@
             $pm->AddReceiver( $this->mUser );
             $pm->AddReceiver( $this->mUser2 );
             $pm->Text = 'foo bar blah';
+            $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong pm text before creating' );
             $pm->Save();
 
             $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong pm text after creating' );

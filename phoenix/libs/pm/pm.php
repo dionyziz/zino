@@ -25,7 +25,7 @@
         public function SetText( $text ) {
             $this->Bulk->Text = $text;
         }
-        public function GetText( $text ) {
+        public function GetText() {
             return $this->Bulk->Text;
         }
         protected function OnBeforeCreate() {
