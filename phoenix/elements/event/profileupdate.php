@@ -87,10 +87,10 @@
                 case EVENT_USERPROFILE_MOOD_UPDATED:
                     ?>είναι <?php
                     if ( $one->User->Gender == 'm' ) {
-                        echo htmlspecialchars( $one->User->Mood->Labelmale );
+                        echo htmlspecialchars( $one->User->Profile->Mood->Labelmale );
                     }
                     else {
-                        echo htmlspecialchars( $one->User->Mood->Labelfemale );
+                        echo htmlspecialchars( $one->User->Profile->Mood->Labelfemale );
                     }
                     break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
