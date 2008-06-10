@@ -11,7 +11,7 @@
         $inbox->Delid = 0;
         $inbox->Save();
 
-        $oubox = New PMFolder();
+        $outbox = New PMFolder();
         $outbox->Userid = $user->Id;
         $outbox->Typeid = PMFOLDER_OUTBOX;
         $outbox->Name = 'outbox';
