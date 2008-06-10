@@ -43,6 +43,22 @@
             $f->Delete();
         }
         public function TestCreatePM() {
+            $pm = New PM();
+            $pm->Senderid = $this->mUser->Id;
+            $pm->AddReceiver( $this->mUser->Id );
+            $pm->AddReceiver( $this->mUser2->Id );
+            $pm->Text = 'foo bar blah';
+            $pm->Save();
+
+            $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong pm text after creating' );
+
+            $p = New PM( $pm->Id );
+            $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong pm text' );
+            $this->AssertEquals( $this->mUser->Id, $pm->Senderid, 'Wrong pm senderid' );
+            $this->AssertEquals( 2, count( $pm->Receivers ), 'Wrong receivers count' );
+            $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ], 'Wrong second receiver' );
+
+            $p->Delete();
         }
         public function TearDown() {
             if ( is_object( $this->mUser ) ) {
