@@ -31,9 +31,9 @@
 			FROM 
 				:questions
 			LEFT JOIN :answers 
-				ON ( questions.question_id = answers.answer_questionid AND answers.answer_userid = :userid )
+				ON ( question_id = answer_questionid AND answer_userid = :userid )
 			WHERE
-				answers.answer_id = NULL
+				answer_id = NULL
 			ORDER BY RAND()
 			LIMIT :limit;
 			');
