@@ -31,6 +31,16 @@
             $this->mUser2->Save();
         }
         public function TestCreateFolder() {
+            $folder = New PMFolder();
+            $folder->Userid = $this->mUser->Id;
+            $folder->Name = 'feedback';
+            $folder->Save();
+
+            $f = New PMFolder( $folder->Id );
+            $this->AssertEquals( 'feedback', $f->Name, 'Wrong folder name' );
+            $this->AssertEquals( $this->mUser->Id, $f->Userid, 'Wrong folder userid' );
+
+            $f->Delete();
         }
         public function TestCreatePM() {
         }
