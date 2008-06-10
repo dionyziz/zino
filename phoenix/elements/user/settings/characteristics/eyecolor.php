@@ -4,7 +4,7 @@
 		global $user;
 		
 		?><select><?php
-			$eyes = array( '-' , 'black' , 'brown' , 'green' , 'blue' , 'gray' );
+			$eyes = array( '-' , 'black' , 'brown' , 'green' , 'blue' , 'grey' );
 			foreach ( $eyes as $eye ) {
 				?><option value="<?php
 				echo $eye;
