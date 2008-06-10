@@ -54,7 +54,7 @@ $( document ).ready( function() {
 
                     if ( typeof q == 'string' && q != '' ) {
                         match = /v\=([a-zA-Z0-9_-]+)/.exec( q );
-                        if ( match.length != 1 ) {
+                        if ( match === null || match.length != 2 ) {
                             alert( 'Το video δεν ήταν έγκυρη διεύθυνση του YouTube' );
                             return;
                         }
