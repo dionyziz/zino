@@ -37,6 +37,10 @@
         'th' => array( 'scope', 'colspan', 'colspan' ),
         'thead', 'tr', 'tt', 
         'ul' => array( 'compact', 'type' ),
+        // and only for safe sources...
+        'object' => array( 'width', 'height' ),
+        'param' => array( 'name', 'value' ),
+        'embed' => array( 'src', 'type', 'width', 'height' ),
         '' => array( 'title', 'lang', 'dir', 'accesskey', 'tabindex', 'class' ) // everywhere
     ) );
     
@@ -172,6 +176,17 @@
             
             return $url;
         }
+        public function SanitizeTrustedURL( $url ) {
+            $url = $this->SanitizeURL( $url );
+
+            if ( $url === false ) {
+                return false;
+            }
+            if ( !preg_match( '#^http\://www\.youtube\.com/#', $url ) ) {
+                return false;
+            }
+            return $url;
+        }
         private function XMLOuterHTML( XMLNode $root ) {
             global $xhtmlsanitizer_noautoclose;
             
@@ -189,6 +204,12 @@
                     if ( !empty( $value ) || ( $root->nodeName == 'img' && $attribute == 'alt' ) ) {
                         if ( $attribute == 'href' || $attribute == 'src' || $attribute == 'longdesc' ) {
                             $value = $this->SanitizeURL( $value );
+                            if ( empty( $value ) ) {
+                                continue;
+                            }
+                        }
+                        if ( $root->nodeName == 'embed' ) {
+                            $value = $this->SanitizeTrustedURL( $value );
                             if ( empty( $value ) ) {
                                 continue;
                             }

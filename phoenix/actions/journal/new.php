@@ -2,7 +2,6 @@
 	function ActionJournalNew( tInteger $id , tString $title , tString $text ) {
 		global $user;
 		global $libs;
-        global $xhtmlsanitizer_goodtags;
 
         header( 'Content-type: text/plain' );
 
@@ -26,27 +25,11 @@
 		}
 		$journal->Title = $title;
 
-        $libs->Load( 'sanitizer' );
+        $libs->Load( 'wysiwyg' );
+        $result = WYSIWYG_PostProcess( $text );
 
-        $sanitizer = New XHTMLSanitizer();
-        foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
-            if ( $tag == '' ) {
-                continue;
-            }
-
-            $goodtag = New XHTMLSaneTag( $tag );
-            if ( is_array( $attributes ) ) {
-                foreach ( $attributes as $attribute => $true ) {
-                    $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
-                }
-            }
-            foreach ( $xhtmlsanitizer_goodtags[ '' ] as $attribute => $true ) {
-                $goodtag->AllowAttribute( New XHTMLSaneAttribute( $attribute ) );
-            }
-            $sanitizer->AllowTag( $goodtag );
-        }
-        $sanitizer->SetSource( $text );
-		$result = $sanitizer->GetXHTML();
+        echo '.' . $result . '.';
+        exit();
 
         $journal->Text = $result;
 		$journal->Save();
