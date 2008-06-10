@@ -37,7 +37,7 @@
             $receiversinbox = $ffinder->FindUsersInbox( $this->Receivers );
             foreach ( $this->Receivers as $receiver ) {
                 $upm = New UserPM();
-                $upm->PMid = $this->Id;
+                $upm->Pmid = $this->Id;
                 $upm->Folderid = $receiversinbox[ $receiver->Id ];
                 $upm->Delid = PM_UNREAD;
                 $upm->Save();
@@ -45,7 +45,7 @@
             
             $senderoutbox = $ffinder->FindUserOutbox( $this->Sender );
             $upm = New UserPM();
-            $upm->PMid = $this->Id;
+            $upm->Pmid = $this->Id;
             $upm->Folderid = $senderoutbox->Id;
             $upm->Delid = PM_READ;
             $upm->Save();
