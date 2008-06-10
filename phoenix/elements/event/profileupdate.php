@@ -30,7 +30,7 @@
                 case EVENT_USERPROFILE_RELIGION_UPDATED:
                     ob_start();
                     switch ( $one->User->Profile->Religion ) {
-                        case 'Τίποτα':
+                        case 'nothing':
                             ?>δεν έχει θρησκευτικές πεποιθήσεις<?php
                             break;
                         default:
@@ -42,7 +42,7 @@
                 case EVENT_USERPROFILE_POLITICS_UPDATED:
                     ob_start();
                     switch ( $one->User->Profile->Politics ) {
-                        case 'Τίποτα':
+                        case 'nothing':
                             ?>δεν έχει πολιτικές πεποιθήσεις<?php
                             break;
                         default:
@@ -87,10 +87,10 @@
                 case EVENT_USERPROFILE_MOOD_UPDATED:
                     ?>είναι <?php
                     if ( $one->User->Gender == 'm' ) {
-                        echo htmlspecialchars( $one->User->Profile->Mood->Labelmale );
+                        echo htmlspecialchars( utf8_strtolower( $one->User->Profile->Mood->Labelmale ) );
                     }
                     else {
-                        echo htmlspecialchars( $one->User->Profile->Mood->Labelfemale );
+                        echo htmlspecialchars( utf8_strtolower( $one->User->Profile->Mood->Labelfemale ) );
                     }
                     break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
