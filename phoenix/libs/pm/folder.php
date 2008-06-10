@@ -24,13 +24,13 @@
                     :users LEFT JOIN :pmfolders
                         ON `user_id` = `pmfolder_userid`
                 WHERE
-                    `user_id` IN :users AND
+                    `user_id` IN :pmusers AND
                     `pmfolder_type` = :inboxtype
                 ;' );
     
             $query->BindTable( 'users' );
             $query->BindTable( 'pmfolders' );
-            $query->Bind( 'users', $users );
+            $query->Bind( 'pmusers', $users );
             $query->Bind( 'inboxtype', PMFOLDER_INBOX );
 
             $res = $query->Execute();
