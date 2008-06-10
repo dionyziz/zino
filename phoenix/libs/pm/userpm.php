@@ -1,5 +1,6 @@
 <?php
-    
+   
+    define( 'USERPM_UNREAD', 0 );
     define( 'USERPM_READ', 1 );
     define( 'USERPM_DELETED', 2 );
 
