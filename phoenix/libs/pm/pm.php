@@ -52,6 +52,7 @@
             w_assert( is_object( $this->Sender ), 'sender is not an object' );
             $senderoutbox = $ffinder->FindByUserAndType( $this->Sender, PMFOLDER_OUTBOX, 0, 1 );
             w_assert( is_object( $senderoutbox ), 'sender outbox is not an object' );
+            w_assert( $senderoutbox->Typeid == PMFOLDER_OUTBOX, 'sender outbox is not an outbox! D:' );
             $upm = New UserPM();
             $upm->Pmid = $this->Id;
             $upm->Folderid = $senderoutbox->Id;
