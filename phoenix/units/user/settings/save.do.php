@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tInteger $mood , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web , tString $oldpassword , tString $newpassword ) {
+	function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tString $gender , tInteger $place , tString $education , tInteger $university , tInteger $mood , tString $sex , tString $religion , tString $politics , tString $slogan , tString $aboutme , tString $favquote , tString $haircolor , tString $eyecolor , tInteger $height , tInteger $weight , tString $smoker , tString $drinker , tString $email , tString $msn , tString $gtalk , tString $skype , tString $yahoo , tString $web , tString $oldpassword , tString $newpassword , tString $emailprofilecomment , tString $notifyprofilecomment , tString $emailphotocomment , tString $notifyphotocomment , tString $emailpollcomment , tString $notifypollcomment , tString $emailjournalcomment , tString $notifyjournalcomment , tString $emailreply , tString $notifyreply , tString $emailfriendaddition , tString $notifyfriendaddition ) {
 		global $user;
 
 		if ( $user->Exists() ) {
@@ -32,6 +32,18 @@
 			$web = $web->Get();
 			$oldpassword = $oldpassword->Get();
 			$newpassword = $newpassword->Get();
+			$emailprofilecomment = $emailprofilecomment->Get();
+			$notifyprofilecomment = $notifyprofilecomment->Get();
+			$emailphotocomment = $emailphotocomment->Get();
+			$notifyphotocomment = $notifyphotocomment->Get();
+			$emailpollcomment = $emailpollcomment->Get();
+			$notifypollcomment = $notifypollcomment->Get();
+			$emailjournalcomment = $emailjournalcomment->Get();
+			$notifyjournalcomment = $notifyjournalcomment->Get();
+			$emailreply = $emailreply->Get();
+			$notifyreply = $notifyreply->Get();
+			$emailfriendaddition = $emailfriendaddition->Get();
+			$notifyfriendaddition = $notifyfriendaddition->Get();
 			
 			if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
 				if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
@@ -198,8 +210,47 @@
 					Settings.oldpassword.focus();<?php
 				}
 			}
+			
+			if ( $emailprofilecomment ) {
+				$user->Preferences->Emailprofilecomment = $emaiprofilecomment;
+			}
+			if ( $notifyprofilecomment ) {
+				$user->Preferences->Notifyprofilecomment = $notifyprofilecomment;
+			}
+			if ( $emailphotocomment ) {
+				$user->Preferences->Emailphotocomment = $emailphotocomment;
+			}
+			if ( $notifyphotocomment ) {
+				$user->Preferences->Notifyphotocomment = $notifyphotocomment;
+			}
+			if ( $emailpollcomment ) {
+				$user->Preferences->Emailpollcomment = $emailpollcomment;
+			}
+			if ( $notifypollcomment ) {
+				$user->Preferences->Notifypollcomment = $notifypollcomment;
+			}
+			if ( $emailjournalcomment ) {
+				$user->Preferences->Emailjournalcomment = $emailjournalcomment;
+			}
+			if ( $notifyjournalcomment ) {
+				$user->Preferences->Notifyjournalcomment = $notifyjournalcomment;
+			}
+			if ( $emailreply ) {
+				$user->Preferences->Emailreply = $emailreply;
+			}
+			if ( $notifyreply ) {
+				$user->Preferences->Notifyreply = $notifyreply;
+			}
+			if ( $emailfriendaddition ) {
+				$user->Preferences->Emailfriendaddition = $emailfriendaddition;
+			}
+			if ( $notifyfriendaddition ) {
+				$user->Preferences->Notifyfriendaddition = $notifyfriendaddition;
+			}
+			
 			$user->Save();
-			$user->Profile->Save();
+			
+			//$user->Profile->Save();
 			if ( $user->Profile->Education == 'university' ) {
 				$typeid = 0;
 			}

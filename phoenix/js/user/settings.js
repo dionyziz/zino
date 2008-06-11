@@ -525,11 +525,14 @@ $( document ).ready( function() {
 		} );	
 		//settingsinfo
 		$( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
-			alert( $( this )[ 0 ].checked  );
-			alert( $( this )[ 0 ].id );
-		} );
-		
-		
-		
+			var value = $( this )[ 0 ].checked;
+			if ( value ) {
+				value = 'yes';
+			}
+			else {
+				value = 'no';
+			}
+			Settings.Enqueue( $( this )[ 0 ].id , value , 500 );
+		} );		
 	}
 });
