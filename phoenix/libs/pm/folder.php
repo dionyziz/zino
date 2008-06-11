@@ -58,12 +58,38 @@
             return $ret;
         }
         public function FindByUserAndType( $user, $typeid, $offset = 0, $limit = 100 ) {
+            /*
             $prototype = New PMFolder();
             $prototype->Userid = $user->Id;
             $prototype->Typeid = $typeid;
             $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit );
+            */
+
+            $query = $this->mDb->Prepare( '
+                SELECT
+                    *
+                FROM
+                    :pmfolders
+                WHERE
+                    `pmfolder_userid` = :userid AND
+                    `pmfolder_delid` = 0 AND
+                    `pmfolder_typeid` = :typeid
+                LIMIT
+                    :offset, :limit
+                ;' );
+
+            $query->BindTable( 'pmfolders' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'typeid', $typeid );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            $res = $query->Execute();
+            w_assert( $res->Results(), 'No results for FindByUSerAndType' );
+
+            return $this->FindBySqlResource( $res );
         }
     }
 
