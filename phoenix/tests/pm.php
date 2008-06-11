@@ -96,8 +96,9 @@
             $this->Assert( $pm->IsRead(), 'Sent pm does not seem to be read' );
             $this->AssertFalse( $pm->IsDeleted(), 'Sent pm seems to be deleted' );
             $this->AssertEquals( $this->mUser->Name, $pm->Sender->Name, 'Wrong userpm sender name' );
-            $this->AssertEquals( 1, count( $pm->Receivers ), 'Wrong number of userpm receivers' );
-            $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 0 ]->Id, 'Wrong userid on first userpm receiver' );
+            $this->AssertEquals( 2, count( $pm->Receivers ), 'Wrong number of userpm receivers' );
+            $this->AssertEquals( $this->mUser->Id, $pm->Receivers[ 0 ]->Id, 'Wrong userid on first userpm receiver' );
+            $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ]->Id, 'Wrong userid on second userpm receiver' );
 
             $p->Delete();
         }

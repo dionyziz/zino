@@ -8,6 +8,11 @@
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
 
+        public function OnDelete() {
+            foreach ( $this->UserPMs as $upm ) {
+                $upm->Delete();
+            }
+        }
         public function SetReceivers( $receivers ) {
             $this->mReceivers = $receivers;
         }
