@@ -210,7 +210,11 @@
 					Settings.oldpassword.focus();<?php
 				}
 			}
-			
+			?>alert( '<?php
+			echo $emailprofilecomment;
+			?> , <?php 
+			echo $notifyprofilecomment;
+			?>' );<?php
 			if ( $emailprofilecomment ) {
 				$user->Preferences->Emailprofilecomment = $emailprofilecomment;
 			}
