@@ -102,6 +102,18 @@
             $this->AssertEquals( $this->mUser->Id, $pm->Receivers[ 0 ]->Id, 'Wrong userid on first userpm receiver' );
             $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ]->Id, 'Wrong userid on second userpm receiver' );
 
+            $receiverinbox = $folderfinder->FindByUserAndType( $this->mUser2, PMFOLDER_INBOX );
+            $receiverpms = $receiverinbox->UserPMs;
+            $this->AssertEquals( 1, count( $receiverpms ), 'Wrong number of pms in receiver inbox' );
+
+            $pm = $receiverpms[ 0 ];
+            $this->AssertEquals( $receiverinbox->Id, $pm->Folderid, 'Wrong userpm folderid' );
+            $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong userpm text' );
+            $this->AssertFalse( $pm->IsRead(), 'Received pms seems to be already read' );
+            $this->AssertFalse( $pm->IsDeleted(), 'Received pm seems to be deleted' );
+            $this->AssertEquals( $this->mUser->Name, $pm->Sender->Name, 'Wrong userpm sender name' );
+            $this->AssertEquals( $this->mUser2->Name, $pm->User->Name, 'Wrong userpm user name' );
+
             $p->Delete();
         }
         public function TearDown() {
