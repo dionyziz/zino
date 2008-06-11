@@ -70,12 +70,12 @@
 					<tr>
 						<th>Απαντήσεις στα σχόλιά μου:</th>
 						<td><input id="repcomemail" type="checkbox" <?php
-						if ( $user->Preferences->Emailreplies == 'yes' ) {
+						if ( $user->Preferences->Emailreply == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
 						<td><input id="repcomsite" type="checkbox" <?php
-						if ( $user->Preferences->Notifyreplies == 'yes' ) {
+						if ( $user->Preferences->Notifyreply == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
