@@ -29,10 +29,10 @@ div.wysiwyg div.toolbox a:hover span {
 div.wysiwyg-control {
     display: none;
 }
-div.wysiwyg-control form#wysiwyg-control-image-start ul {
+#wysiwyg-control-image-start ul {
     list-style: none;
 }
-div.wysiwyg-control form#wysiwyg-control-image-start li {
+#wysiwyg-control-image-start li {
     margin: 20px;
     font-weight: bold;
 }
