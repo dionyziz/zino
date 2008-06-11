@@ -94,6 +94,7 @@
 										}
 										break;
 									case EVENT_JOURNAL_CREATED:
+										$helper = array();
 										foreach ( $eventlist as $i => $one ) {
 											echo "i is " . $i . "<br />";
 											$helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
