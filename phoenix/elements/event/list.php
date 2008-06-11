@@ -39,8 +39,8 @@
                         if ( $j > 20 ) {
                             break;
                         }
-						$eventlist = array();
 						$eventlist = $info[ $event->User->Id ][ $type ];
+						var_dump( $eventlist );
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
