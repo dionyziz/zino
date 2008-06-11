@@ -57,7 +57,7 @@
             $this->AssertEquals( 'foo bar blah', $pm->Text, 'Wrong pm text' );
             $this->AssertEquals( $this->mUser->Id, $pm->Senderid, 'Wrong pm senderid' );
             $this->AssertEquals( 2, count( $pm->Receivers ), 'Wrong receivers count' );
-            $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ], 'Wrong second receiver' );
+            $this->AssertEquals( $this->mUser2->Id, $pm->Receivers[ 1 ]->Id, 'Wrong second receiver' );
 
             $p->Delete();
         }
