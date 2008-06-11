@@ -1,6 +1,8 @@
 <?php
 	function ElementUserSettingsSettings() {
 		global $rabbit_settings;
+		global $user;
+		
 		?><div><label><a class="changepwdlink" href="">Αλλαγή κωδικού πρόσβασης</a></label></div>
 		<span class="notifyme">Να λαμβάνω ειδοποιήσεις</span>
 		<div class="setting">
@@ -15,28 +17,81 @@
 				<tbody>
 					<tr>
 						<th>Σχόλια στο προφίλ μου:</th>
-						<td><input id="profcomemail" type="checkbox" /></td>
-						<td><input id="profcomsite" type="checkbox" /></td>
+						<td><input id="profcomemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailprofilecomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+						<td><input id="profcomsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifyprofilecomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
 					</tr>
 					<tr>
 						<th>Σχόλια στις εικόνες μου:</th>
-						<td><input id="imgcomemail" type="checkbox" /></td>
-						<td><input id="imgcomsite" type="checkbox" /></td>
+						<td><input id="imgcomemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailphotocomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+						<td><input id="imgcomsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifyphotocomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
 					</tr>
 					<tr>
-						<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
-						<td><input id="polcomemail" type="checkbox" /></td>
-						<td><input id="polcomsite" type="checkbox" /></td>
+						<th>Σχόλια στις δημοσκοπήσεις μου:</th>
+						<td><input id="polcomemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailpollcomment == 'yes' ) {
+							?>checked="true"<?php
+						} 
+						?>/></td>
+						<td><input id="polcomsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifypollcomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+					</tr>
+					<tr>
+						<th>Σχόλια στα ημερολόγιά μου:</th>
+						<td><input id="polcomemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailjournalcomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+						<td><input id="polcomsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifyjournalcomment == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>						
 					</tr>
 					<tr>
 						<th>Απαντήσεις στα σχόλιά μου:</th>
-						<td><input id="repcomemail" type="checkbox" /></td>
-						<td><input id="repcomsite" type="checkbox" /></td>
+						<td><input id="repcomemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailreplies == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+						<td><input id="repcomsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifyreplies == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
 					</tr>
 					<tr>
 						<th>Νέοι φίλοι:</th>
-						<td><input id="relemail" type="checkbox" /></td>
-						<td><input id="relsite" type="checkbox" /></td>
+						<td><input id="relemail" type="checkbox" <?php
+						if ( $user->Preferences->Emailfriendaddition == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
+						<td><input id="relsite" type="checkbox" <?php
+						if ( $user->Preferences->Notifyfriendaddition == 'yes' ) {
+							?>checked="true"<?php
+						}
+						?>/></td>
 					</tr>
 				</tbody>
 			</table>
