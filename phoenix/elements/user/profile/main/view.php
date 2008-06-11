@@ -76,14 +76,16 @@
 					else {
 						Element( 'user/list' , $friends );
 					}
-				?><a href="?p=friends&amp;subdomain=<?php
-				echo $theuser->Subdomain;
-				?>" class="button">Περισσότεροι φίλοι&raquo;</a>
-				</div>
-				<div class="barfade">
-					<div class="leftbar"></div>
-					<div class="rightbar"></div>
-				</div><?php
+				if ( $theuser->Count->Relations > 5 ) {
+					?><a href="?p=friends&amp;subdomain=<?php
+					echo $theuser->Subdomain;
+					?>" class="button">Περισσότεροι φίλοι&raquo;</a>
+					</div>
+					<div class="barfade">
+						<div class="leftbar"></div>
+						<div class="rightbar"></div>
+					</div><?php
+				}
 			}
 			if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
 				?><div class="lastpoll">
