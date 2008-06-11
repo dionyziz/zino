@@ -24,6 +24,7 @@
 						$type = $event->Typeid;
 					}
 					$info[ $event->User->Id ][ $type ][] = $event;
+					echo "<br />event itemid is " . $event->Id;
 					$visited[ $event->User->Id ][ $type ] = false;	
 				}
                 $j = 0;
