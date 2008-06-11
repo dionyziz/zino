@@ -40,7 +40,7 @@
                             break;
                         }
 						$eventlist = $info[ $event->User->Id ][ $type ];
-						var_dump( $eventlist );
+						echo( 'eventlist count is ' . count( $eventlist ) );
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
