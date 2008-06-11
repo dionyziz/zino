@@ -17,7 +17,9 @@
         public function GetReceivers() {
             if ( $this->Exists() && empty( $this->mReceivers ) ) {
                 foreach ( $this->UserPMs as $upm ) {
-                    $this->mReceivers[] = $upm->User;
+                    if ( $upm->Folder->Typeid == PMFOLDER_INBOX ) {
+                        $this->mReceivers[] = $upm->User;
+                    }
                 }
             }
             return $this->mReceivers;
@@ -62,6 +64,7 @@
         protected function Relations() {
             $this->Sender = $this->HasOne( 'User', 'Senderid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
+            $this->UserPMs = $this->HasMany( 'UserPMFinder', 'FindByPM', $this );
         }
         protected function OnConstruct() {
             $this->mReceivers = array();

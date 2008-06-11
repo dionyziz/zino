@@ -7,11 +7,13 @@
     class UserPMFinder extends Finder {
         protected $mModel = 'UserPM';
 
-        public function FindByFolder( $folder, $offset = 0, $limit = 1000 ) {
+        public function FindByPM( $pm, $offset = 0, $limit = 1000 ) {
             $prototype = New UserPM();
-            $prototype->Folderid = $folder->Id;
-            $prototype->Delid = 
+            $prototype->Pmid = $pm->Id;
 
+            return $this->FindByPrototype( $prototype, $offset, $limit );
+        }
+        public function FindByFolder( $folder, $offset = 0, $limit = 1000 ) {
             $query = $this->mDb->Prepare( '
                 SELECT
                     *
