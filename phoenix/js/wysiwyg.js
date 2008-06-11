@@ -44,7 +44,7 @@ var WYSIWYG = {
     InsertImage: function ( target, userstring  ) {
         if ( typeof userstring == 'string' && userstring !== '' ) {
             match = /^https?\:\/\/[a-z.0-9-]{5,128}\/[a-zA-Z0-9_.,?&=\/-]{1,256}$/.exec( userstring );
-            if ( match === null || match.length != 2 ) {
+            if ( match === null || match.length != 1 ) {
                 alert( 'Η εικόνα δεν είχε έγκυρη διεύθυνση' );
                 return;
             }
