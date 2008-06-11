@@ -31,8 +31,6 @@ var WYSIWYG = {
         }
         */
     },
-    CommandImage: function ( target ) {
-    },
     InsertVideo: function ( target, userstring ) {
         if ( typeof userstring == 'string' && userstring != '' ) {
             match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
@@ -43,18 +41,24 @@ var WYSIWYG = {
             WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
         }
     },
+    InsertImage: function ( target, userstring  ) {
+        if ( typeof userstring == 'string' && userstring != '' ) {
+            match = /^https?\://[a-z.0-9-]{5,128}\/[a-zA-Z0-9_.,?&=\/-]{1,256}$/.exec( userstring );
+            if ( match === null || match.length != 2 ) {
+                alert( 'Η εικόνα δεν είχε έγκυρη διεύθυνση' );
+                return;
+            }
+            WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + match[ 0 ].replace(/&/, "&amp;") + '" alt="" style="border:1px dotted blue;" /><br />' );
+        }
+    },
     CommandVideo: function ( target ) {
         return function () {
-            var div = document.createElement( 'div' );
-            
-            div.innerHTML = '<br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:'
-                          + '<br /><br />'
-                          + '<input type="text" value="" style="width:400px" />'
-                          + '<br /><br />'
-                          + '<input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo(\'' + target + '\', $( this.parentNode ).find( \'input\' )[ 0 ].value);Modals.Destroy();" />'
-                          + '<input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />';
-
-            Modals.Create( div, 500, 100 );
+            Modals.Create( $( 'wysiwyg-control-video' ).cloneNode(), 500, 100 );
+        };
+    },
+    CommandImage: function ( target ) {
+        return function () {
+            Modals.Create( $( 'wysiwyg-control-image-start' ).cloneNode(), 500, 300 );
         };
     },
     CommandLink: function ( target ) {

@@ -39,11 +39,9 @@
 							}
 							?>" name="title" tabindex="1" />
 						</div>
-	                    <div class="wysiwyg" id="wysiwyg"><?php
-	                    if ( $id > 0 ) {
-	                        echo $journal->Text; // purposely no escape here (XSS-safe because of sanitizer)
-	                    }
-	                    ?></div>
+                        <?php
+                        Element( 'wysiwyg', 'wysiwyg', 'text', $journal->Text );
+                        ?>
 						<div class="submit">
 							<input type="submit" value="Δημοσίευση" />
 						</div>
