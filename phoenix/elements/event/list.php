@@ -8,7 +8,8 @@
                                EVENT_USERPROFILE_POLITICS_UPDATED, EVENT_USERPROFILE_SMOKER_UPDATED, EVENT_USERPROFILE_DRINKER_UPDATED,
                                EVENT_USERPROFILE_ABOUTME_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED, EVENT_USERPROFILE_LOCATION_UPDATED,
                                EVENT_USERPROFILE_HEIGHT_UPDATED, EVENT_USERPROFILE_WEIGHT_UPDATED, EVENT_USERPROFILE_HAIRCOLOR_UPDATED,
-                               EVENT_USERPROFILE_EYECOLOR_UPDATED );
+                               EVENT_USERPROFILE_EYECOLOR_UPDATED 
+		);
 
 		$finder = New EventFinder();
         $events = $finder->FindLatest( 0, 100 );
@@ -93,13 +94,10 @@
 										}
 										break;
 									case EVENT_JOURNAL_CREATED:
-										foreach ( $eventlist as $one ) {
-											?><a href="?p=journal&amp;id=<?php
-											echo $one->Item->Id;
-											?>"><?php
-											echo htmlspecialchars( $one->Item->Title );
-											?></a><?php
+										foreach ( $eventlist as $i => $one ) {
+											$helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
 										}
+										echo implode( ', ' , $helper );
 										break;
 									case EVENT_POLL_CREATED:
 										foreach ( $eventlist as $one ) {
