@@ -199,10 +199,10 @@
         }
         protected function OnCreate() {
             global $libs;
+
             $libs->Load( 'pm/pm' );
 
-            $this->Profile->Save();
-            $this->Preferences->Save();
+            $this->OnUpdate();
             $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
@@ -218,6 +218,10 @@
 
                 mail( $this->Profile->Email, $subject, $text, "From: Zino <noreply@zino.gr>" );
             }
+        }
+        protected function OnUpdate() {
+            $this->Profile->Save();
+            $this->Preferences->Save();
         }
         public function RenewAuthtoken() {
             // generate authtoken
