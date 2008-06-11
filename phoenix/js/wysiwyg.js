@@ -32,7 +32,7 @@ var WYSIWYG = {
         */
     },
     InsertVideo: function ( target, userstring ) {
-        if ( typeof userstring == 'string' && userstring != '' ) {
+        if ( typeof userstring == 'string' && userstring !== '' ) {
             match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
             if ( match === null || match.length != 2 ) {
                 alert( 'Το video δεν είναι έγκυρη διεύθυνση του YouTube' );
@@ -42,7 +42,7 @@ var WYSIWYG = {
         }
     },
     InsertImage: function ( target, userstring  ) {
-        if ( typeof userstring == 'string' && userstring != '' ) {
+        if ( typeof userstring == 'string' && userstring !== '' ) {
             match = /^https?\:\/\/[a-z.0-9-]{5,128}\/[a-zA-Z0-9_.,?&=\/-]{1,256}$/.exec( userstring );
             if ( match === null || match.length != 2 ) {
                 alert( 'Η εικόνα δεν είχε έγκυρη διεύθυνση' );
