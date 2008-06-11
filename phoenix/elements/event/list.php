@@ -18,10 +18,10 @@
 			<div class="list"><?php
 				foreach ( $events as $event ) {
 					if ( in_array( $event->Typeid, $profiletypes ) ) { 
-						$type = 'profile_update';
+						$type = $event->Typeid;
 					}	
 					else {
-						$type = $event->Typeid;
+						$type = 'profile_update';
 					}
 					$info[ $event->User->Id ][ $type ][] = $event;
 					echo "<br />event itemid is " . $event->Id;
