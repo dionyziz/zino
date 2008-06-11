@@ -70,6 +70,12 @@
             }
             return $ret;
         }
+        public function FindByUser( $user, $offset, $limit = 100 ) {
+            $prototype = New PMFolder();
+            $prototype->Userid = $user->Id;
+            $prototype->Delid = 0;
+            return $this->FindByPrototype( $prototype, $offset, $limit );
+        }
     }
 
     class PMFolder extends Satori {
@@ -77,7 +83,7 @@
 
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->UserPMs = $this->HasMany( 'UserPMFinder', 'FindByFolder', $this );
+            $this->PMs = $this->HasMany( 'UserPMFinder', 'FindByFolder', $this );
         }
         protected function OnBeforeDelete() {
             $this->Delid = 1;
