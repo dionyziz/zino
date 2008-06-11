@@ -17,12 +17,12 @@
 				<tbody>
 					<tr>
 						<th>Σχόλια στο προφίλ μου:</th>
-						<td><input id="profcomemail" type="checkbox" <?php
+						<td><input id="emailprofilecomment" type="checkbox" <?php
 						if ( $user->Preferences->Emailprofilecomment == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
-						<td><input id="profcomsite" type="checkbox" <?php
+						<td><input id="notifyprofilecomment" type="checkbox" <?php
 						if ( $user->Preferences->Notifyprofilecomment == 'yes' ) {
 							?>checked="true"<?php
 						}
@@ -30,12 +30,12 @@
 					</tr>
 					<tr>
 						<th>Σχόλια στις εικόνες μου:</th>
-						<td><input id="imgcomemail" type="checkbox" <?php
+						<td><input id="emailphotocomment" type="checkbox" <?php
 						if ( $user->Preferences->Emailphotocomment == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
-						<td><input id="imgcomsite" type="checkbox" <?php
+						<td><input id="notifyphotocomment" type="checkbox" <?php
 						if ( $user->Preferences->Notifyphotocomment == 'yes' ) {
 							?>checked="true"<?php
 						}
@@ -43,12 +43,12 @@
 					</tr>
 					<tr>
 						<th>Σχόλια στις δημοσκοπήσεις μου:</th>
-						<td><input id="polcomemail" type="checkbox" <?php
+						<td><input id="emailpollcomment" type="checkbox" <?php
 						if ( $user->Preferences->Emailpollcomment == 'yes' ) {
 							?>checked="true"<?php
 						} 
 						?>/></td>
-						<td><input id="polcomsite" type="checkbox" <?php
+						<td><input id="notifypollcomment" type="checkbox" <?php
 						if ( $user->Preferences->Notifypollcomment == 'yes' ) {
 							?>checked="true"<?php
 						}
@@ -56,12 +56,12 @@
 					</tr>
 					<tr>
 						<th>Σχόλια στα ημερολόγιά μου:</th>
-						<td><input id="polcomemail" type="checkbox" <?php
+						<td><input id="emailjournalcomment" type="checkbox" <?php
 						if ( $user->Preferences->Emailjournalcomment == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
-						<td><input id="polcomsite" type="checkbox" <?php
+						<td><input id="notifyjournalcomment" type="checkbox" <?php
 						if ( $user->Preferences->Notifyjournalcomment == 'yes' ) {
 							?>checked="true"<?php
 						}
@@ -69,12 +69,12 @@
 					</tr>
 					<tr>
 						<th>Απαντήσεις στα σχόλιά μου:</th>
-						<td><input id="repcomemail" type="checkbox" <?php
+						<td><input id="emailreply" type="checkbox" <?php
 						if ( $user->Preferences->Emailreply == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
-						<td><input id="repcomsite" type="checkbox" <?php
+						<td><input id="notifyreply" type="checkbox" <?php
 						if ( $user->Preferences->Notifyreply == 'yes' ) {
 							?>checked="true"<?php
 						}
@@ -82,12 +82,12 @@
 					</tr>
 					<tr>
 						<th>Νέοι φίλοι:</th>
-						<td><input id="relemail" type="checkbox" <?php
+						<td><input id="emailfriendaddition" type="checkbox" <?php
 						if ( $user->Preferences->Emailfriendaddition == 'yes' ) {
 							?>checked="true"<?php
 						}
 						?>/></td>
-						<td><input id="relsite" type="checkbox" <?php
+						<td><input id="notifyfriendaddition" type="checkbox" <?php
 						if ( $user->Preferences->Notifyfriendaddition == 'yes' ) {
 							?>checked="true"<?php
 						}
