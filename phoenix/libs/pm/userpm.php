@@ -25,6 +25,7 @@
                 ;' );
 
             $query->BindTable( 'pmmessageinfolder' );
+            $query->Bind( 'folderid', $folder->Id );
             $query->Bind( 'deleteid', USERPM_DELETED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
