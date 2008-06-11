@@ -89,7 +89,11 @@
             $res = $query->Execute();
             w_assert( $res->Results(), 'No results for FindByUSerAndType' );
 
-            return $this->FindBySqlResource( $res );
+            $row = $res->FetchArray();
+            w_assert( is_array( $row ) );
+
+            $folder = New PMFolder( $row );
+            return $folder;
         }
     }
 
