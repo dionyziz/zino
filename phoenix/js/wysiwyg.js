@@ -47,14 +47,14 @@ var WYSIWYG = {
         return function () {
             var div = document.createElement( 'div' );
             
-            div.innerHTML = 'Πληκτρολόγησε την διεύθυνση του video στο YouTube:'
+            div.innerHTML = '<br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:'
                           + '<br /><br />'
-                          + '<input type="text" value="" />'
+                          + '<input type="text" value="" style="width:400px" />'
                           + '<br /><br />'
-                          + '<input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo(\'' + target + '\', $( this.parentNode ).find( \'input\' )[ 0 ].value);" />'
+                          + '<input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo(\'' + target + '\', $( this.parentNode ).find( \'input\' )[ 0 ].value);Modals.Destroy();" />'
                           + '<input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />';
 
-            Modals.Create( div );
+            Modals.Create( div, 500, 100 );
         };
     },
     CommandLink: function ( target ) {
