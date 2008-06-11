@@ -40,7 +40,13 @@
 							?>" name="title" tabindex="1" />
 						</div>
                         <?php
-                        Element( 'wysiwyg', 'wysiwyg', 'text', $journal->Text );
+                        if ( $id > 0 ) {
+                            $text = $journal->Text;
+                        }
+                        else {
+                            $text = '';
+                        }
+                        Element( 'wysiwyg', 'wysiwyg', 'text', $text );
                         ?>
 						<div class="submit">
 							<input type="submit" value="Δημοσίευση" />
