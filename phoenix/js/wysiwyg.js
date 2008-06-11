@@ -53,7 +53,7 @@ var WYSIWYG = {
     },
     CommandVideo: function ( target ) {
         return function () {
-            Modals.Create( $( '#wysiwyg-control-video' )[ 0 ].cloneNode( true ), 500, 100 );
+            Modals.Create( $( '#wysiwyg-control-video' )[ 0 ].cloneNode( true ), 500, 150 );
         };
     },
     CommandImage: function ( target ) {
