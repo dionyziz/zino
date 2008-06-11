@@ -21,7 +21,7 @@
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
 		
-		public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
+		public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
 			$answer = New Answer();
 			$answer->Userid = $user->Id;
 			return $this->FindByPrototype( $answer, $offset, $limit, array( 'Id', 'DESC' ) );

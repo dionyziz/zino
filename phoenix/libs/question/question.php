@@ -23,7 +23,7 @@
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
 		
-		public function FindRandomByUser( $user ) {
+		public function FindRandomByUser( User $user ) {
 			// This query is awesome, by dionyziz
 			$query = $this->mDb->Prepare('
 			SELECT 
