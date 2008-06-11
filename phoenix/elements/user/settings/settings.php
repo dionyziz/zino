@@ -15,28 +15,28 @@
 				<tbody>
 					<tr>
 						<th>Σχόλια στο προφίλ μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
+						<td><input id="profcomemail" type="checkbox" /></td>
+						<td><input id="profcomsite" type="checkbox" /></td>
 					</tr>
 					<tr>
 						<th>Σχόλια στις εικόνες μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
+						<td><input id="imgcomemail" type="checkbox" /></td>
+						<td><input id="imgcomsite" type="checkbox" /></td>
 					</tr>
 					<tr>
 						<th>Σχόλια στις δημοσκοπίσεις και στα ημερολόγιά μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
+						<td><input id="polcomemail" type="checkbox" /></td>
+						<td><input id="polcomsite" type="checkbox" /></td>
 					</tr>
 					<tr>
 						<th>Απαντήσεις στα σχόλιά μου:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
+						<td><input id="repcomemail" type="checkbox" /></td>
+						<td><input id="repcomsite" type="checkbox" /></td>
 					</tr>
 					<tr>
 						<th>Νέοι φίλοι:</th>
-						<td><input type="checkbox" /></td>
-						<td><input type="checkbox" /></td>
+						<td><input id="relemail" type="checkbox" /></td>
+						<td><input id="relsite" type="checkbox" /></td>
 					</tr>
 				</tbody>
 			</table>

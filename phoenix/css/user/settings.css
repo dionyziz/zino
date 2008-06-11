@@ -282,6 +282,7 @@ div.settings div.tabs form#settingsinfo span.notifyme {
 	font-weight: bold;
 	clear: left;
 	padding-top: 30px;
+	display: block;
 }
 div.settings div.tabs form#settingsinfo div.setting table thead tr th {
 	font-weight: 400;
