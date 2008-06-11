@@ -51,6 +51,7 @@
             $folder2 = New PMFolder();
             $folder2->Userid = $this->mUser->Id;
             $folder2->Name = 'phoenix';
+            $folder2->Typeid = PMFOLDER_USER; // not needed
             $folder2->Save();
 
             $finder = New PMFolderFinder();
@@ -62,6 +63,7 @@
                 $this->AssertEquals( $this->mUser->Id, $folder->Userid, 'Wrong folder userid' );
                 $this->AssertEquals( $names[ $i ], $folder->Name, 'Wrong folder name' );
                 $this->AssertFalse( $folder->IsDeleted(), 'Folder seems to be deleted' );
+                $this->AssertEquals( PMFOLDER_USER, $folder->Typeid, 'Wrong folder typeid' );
             }
 
             $folder1->Delete();

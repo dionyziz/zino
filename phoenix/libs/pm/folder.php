@@ -85,6 +85,9 @@
 
             return false;
         }
+        public function IsDeleted() {
+            return $this->Delid == 1;
+        }
         protected function LoadDefaults() {
             global $user;
 
