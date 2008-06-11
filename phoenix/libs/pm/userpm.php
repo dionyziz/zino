@@ -3,8 +3,8 @@
     define( 'USERPM_UNREAD', 0 );
     define( 'USERPM_READ', 1 );
     define( 'USERPM_DELETED', 2 );
-
-    class UserPMFinder extends Finder {
+    
+    class PMFinder extends Finder { /* aka UserPMFinder */
         protected $mModel = 'UserPM';
 
         public function FindByPM( PM $pm, $offset = 0, $limit = 1000 ) {

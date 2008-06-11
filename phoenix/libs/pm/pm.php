@@ -70,7 +70,7 @@
         protected function Relations() {
             $this->Sender = $this->HasOne( 'User', 'Senderid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
-            $this->UserPMs = $this->HasMany( 'UserPMFinder', 'FindByPM', $this );
+            $this->UserPMs = $this->HasMany( 'PMFinder', 'FindByPM', $this );
         }
         protected function OnConstruct() {
             $this->mReceivers = array();

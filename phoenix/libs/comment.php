@@ -352,14 +352,12 @@
             w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
             $this->Item->OnCommentCreate();
 
-            /*
             $event = New Event();
             $event->Typeid = EVENT_COMMENT_CREATED;
             $event->Itemid = $this->Id;
             $event->Created = $this->Created;
             $event->Userid = $this->Userid;
             $event->Save();
-            */
         }
         public function OnBeforeUpdate() {
             $this->Bulk->Save();

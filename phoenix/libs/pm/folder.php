@@ -83,7 +83,7 @@
 
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->PMs = $this->HasMany( 'UserPMFinder', 'FindByFolder', $this );
+            $this->PMs = $this->HasMany( 'PMFinder', 'FindByFolder', $this );
         }
         protected function OnBeforeDelete() {
             $this->Delid = 1;

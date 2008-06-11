@@ -101,6 +101,8 @@
                     ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
                     `event_userid`,
                     `event_typeid`
+                WHERE
+                    `event_typeid` != :commentevent
                 ORDER BY
                     `event_id` DESC
                 LIMIT
@@ -110,6 +112,7 @@
             $query->BindTable( 'events' );
             $query->Bind( 'mintypeid', EVENT_USERPROFILE_EDUCATION_UPDATED );
             $query->Bind( 'maxtypeid', EVENT_USERPROFILE_EYECOLOR_UPDATED );
+            $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
