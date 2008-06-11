@@ -43,6 +43,13 @@
 			$query->Bind( ':limit', 1 );
 			return $this->FindBySqlResource( $query->Execute() );
 		}
+		
+		public function FindNewQuestion( User $user, $exp = 1.2 ) {
+			if( pow( $exp, $user->Count->Comments ) > $user->Count->AnsweredQuestions ) {
+				return $this->FindRandomByUser( $user );
+			}
+		}
+		
 	}
 
 	class Question extends Satori {
