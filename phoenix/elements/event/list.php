@@ -42,8 +42,7 @@
 						$eventlist = $info[ $event->User->Id ][ $type ];
 						echo( 'eventlist count is ' . count( $eventlist ) );
 						foreach( $eventlist as $test ) {
-							echo "event user id " . $test->User->Id;
-							echo "<br /> type is " . $test->Typeid;
+							echo "<br />event id " . $test->Id;
 						}
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
