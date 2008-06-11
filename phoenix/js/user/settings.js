@@ -532,7 +532,7 @@ $( document ).ready( function() {
 			else {
 				value = 'no';
 			}
-			Settings.Enqueue( $( this )[ 0 ].id , value , 500 );
+			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
 	}
 });
