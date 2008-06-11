@@ -31,9 +31,9 @@
                 <br /><br />
                 <input type="text" value="" style="width:400px" />
                 <br /><br />
-                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertImage(<?php
-                echo w_json_encode( $target );
-                ?>, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
+                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertImage('<?php
+                echo $target;
+                ?>', $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
             </form>
         </div>
