@@ -8,33 +8,33 @@
 
         <div class="wysiwyg-control">
             <form id="wysiwyg-control-video">
-                <br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:
+                <br /><br />Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο„ΞΏΟ… video ΟƒΟ„ΞΏ YouTube:
                 <br /><br />
                 <input type="text" value="" style="width:400px" />
                 <br /><br />
-                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo('<?php
+                <input type="submit" value="Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ®" onclick="WYSIWYG.InsertVideo('<?php
                 echo $target;
                 ?>', $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
             <form id="wysiwyg-control-image-start">
                 <br /><br />
                 <ul>
-                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('wysiwyg-control-image-url')[0])return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
-                    <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
-                    <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τον υπολογιστή μου</a></li>
+                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('wysiwyg-control-image-url')[0])return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ ΞΌΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ® Ο„Ξ·Ο‚</a></li>
+                    <li><a href="" onclick="Modals.Destroy();return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ Ξ±Ο€Ο Ο„Ξ± albums ΞΌΞΏΟ…</a></li>
+                    <li><a href="" onclick="Modals.Destroy();return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ Ξ±Ο€Ο Ο„ΞΏΞ½ Ο…Ο€ΞΏΞ»ΞΏΞ³ΞΉΟƒΟ„Ξ® ΞΌΞΏΟ…</a></li>
                 </ul>
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
             <form id="wysiwyg-control-image-url">
-                <br /><br />Πληκτρολόγησε την διεύθυνση της εικόνας:
+                <br /><br />Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο„Ξ·Ο‚ ΞµΞΉΞΊΟΞ½Ξ±Ο‚:
                 <br /><br />
                 <input type="text" value="" style="width:400px" />
                 <br /><br />
-                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertImage('<?php
+                <input type="submit" value="Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ®" onclick="WYSIWYG.InsertImage('<?php
                 echo $target;
                 ?>', $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
         </div>
         <?php
