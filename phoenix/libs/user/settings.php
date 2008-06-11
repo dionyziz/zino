@@ -4,16 +4,24 @@
         protected $mDbTableAlias = 'usersettings';
        
         public function LoadDefaults() {
-            $this->Emailprofile = 'yes';
-            $this->Emailjournals = 'yes';
-            $this->Emailpolls = 'yes';
-            $this->Emailreplies = 'yes';
-            $this->Emailfriends = 'yes';
-            $this->Notifyprofile = 'yes';
-            $this->Notifyjournals = 'yes';
-            $this->Notifypolls = 'yes';
-            $this->Notifyreplies = 'yes';
-            $this->Notifyfriends = 'yes';
+            $this->Emailprofilecomment = 'yes';
+            $this->Emailjournalcomment = 'yes';
+            $this->Emailpollcomment = 'yes';
+            $this->Emailphotocomment = 'yes';
+            $this->Emailreply = 'yes';
+            $this->Emailfriendaddition = 'yes';
+            $this->Emailfriendjournal = 'no';
+            $this->Emailfriendphoto = 'no';
+            $this->Emailfriendpoll = 'no';
+            $this->Notifyprofilecomment = 'yes';
+            $this->Notifyjournalcomment = 'yes';
+            $this->Notifypollcomment = 'yes';
+            $this->Notifyphotocomment = 'yes';
+            $this->Notifyreply = 'yes';
+            $this->Notifyfriendaddition = 'yes';
+            $this->Notifyfriendjournal = 'no';
+            $this->Notifyfriendphoto = 'no';
+            $this->Notifyfriendpoll = 'no';
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

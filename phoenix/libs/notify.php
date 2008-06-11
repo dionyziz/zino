@@ -47,21 +47,21 @@
         if ( $event->Typeid == EVENT_COMMENT_CREATED ) {
             $comment = $event->Item;
             if ( $comment->Parentid == 0 ) {
-                return 'replies';
+                return 'reply';
             }
             switch ( Type_FromObject( $comment->Item ) ) {
                 case TYPE_JOURNAL:
-                    return 'journals';
+                    return 'journalcomment';
                 case TYPE_IMAGE:
-                    return 'photos';
+                    return 'photocomment';
                 case TYPE_POLL:
-                    return 'polls';
+                    return 'pollcomment';
                 case TYPE_USERPROFILE:
-                    return 'profile';
+                    return 'profilecomment';
             }
         }
         else if ( $event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
-            return 'friends';
+            return 'friendaddition';
         }
 
         throw New Exception( 'Invalid event on Notification_FieldByEvent' );
