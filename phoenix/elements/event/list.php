@@ -97,7 +97,7 @@
 										foreach ( $eventlist as $i => $one ) {
 											$helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
 										}
-										die( count( $helper ) );
+										die( 'num ' . count( $helper ) );
 										echo implode( ', ' , $helper );
 										break;
 									case EVENT_POLL_CREATED:
