@@ -58,7 +58,7 @@ var WYSIWYG = {
     },
     CommandImage: function ( target ) {
         return function () {
-            Modals.Create( $( '#wysiwyg-control-image-start' )[ 0 ].cloneNode( true ), 500, 300 );
+            Modals.Create( $( '#wysiwyg-control-image-start' )[ 0 ].cloneNode( true ), 500, 250 );
         };
     },
     CommandLink: function ( target ) {
