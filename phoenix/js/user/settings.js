@@ -525,7 +525,7 @@ $( document ).ready( function() {
 		} );	
 		//settingsinfo
 		$( 'form#settingsinfo div.setting table tbody tr td input' ).click( function() {
-			alert( $( this ).value );
+			alert( $( this )[ 0 ].checked  );
 		} );
 		
 		
