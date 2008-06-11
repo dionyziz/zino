@@ -49,8 +49,8 @@
             $folder->Save();
 
             $finder = New PMFolderFinder();
-            $folders = $finder->FindByUser( $this->mUser );
-            $this->AssertEquals( 3, count( $folders ), 'Wrong number of folders' );
+            $folders = $finder->FindByUser( $this->mUser, PMFOLDER_USER );
+            $this->AssertEquals( 1, count( $folders ), 'Wrong number of folders' );
         }
         public function TestCreatePM() {
             $pm = New PM();

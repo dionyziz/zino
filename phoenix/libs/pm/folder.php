@@ -2,6 +2,7 @@
 
     define( 'PMFOLDER_INBOX', 'inbox' );
     define( 'PMFOLDER_OUTBOX', 'outbox' );
+    define( 'PMFOLDER_USER', 'user' );
 
     function PMFolder_PrepareUser( $user ) {
         $inbox = New PMFolder();
