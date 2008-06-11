@@ -64,6 +64,9 @@
         public function GetReceivers() {
             return $this->PM->Receivers;
         }
+        public function GetUser() {
+            return $this->Folder->User;
+        }
         public function GetDate() {
             return $this->PM->Date;
         }
