@@ -18,22 +18,21 @@
 			<div class="list"><?php
 				foreach ( $events as $event ) {
 					if ( in_array( $event->Typeid, $profiletypes ) ) { 
-						$type = $event->Typeid;
+						$type = 'profile_update';
 					}	
 					else {
-						$type = 'profile_update';
+						$type = $event->Typeid;
 					}
 					$info[ $event->User->Id ][ $type ][] = $event;
-					//echo "<br />event itemid is " . $event->Id;
 					$visited[ $event->User->Id ][ $type ] = false;	
 				}
                 $j = 0;
 				foreach ( $events as $event ) {
 					if ( in_array( $event->Typeid, $profiletypes ) ) {
-						$type = $event->Typeid;
+						$type = 'profile_update';
 					}
 					else {
-						$type = 'profile_update';
+						$type = $event->Typeid;
 					}
 					if ( !$visited[ $event->User->Id ][ $type ] ) {
                         ++$j;
@@ -41,11 +40,11 @@
                             break;
                         }
 						$eventlist = $info[ $event->User->Id ][ $type ];
-						/*echo( 'eventlist count is ' . count( $eventlist ) );
+						echo( 'eventlist count is ' . count( $eventlist ) );
 						foreach( $eventlist as $test ) {
-							echo "<br />event id " . $test->Item->Id;
+							//echo "event user id " . $test->User->Id;
+							echo "<br /> type is " . $test->Typeid;
 						}
-						*/
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
