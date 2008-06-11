@@ -90,6 +90,7 @@
 
             $this->Userid = $user->Id;
             $this->Delid = 0;
+            $this->Typeid = PMFOLDER_USER;
         }
     }
 
