@@ -33,18 +33,28 @@ var WYSIWYG = {
     },
     CommandImage: function ( target ) {
     },
+    InsertVideo: function ( target, userstring ) {
+        if ( typeof userstring == 'string' && userstring != '' ) {
+            match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
+            if ( match === null || match.length != 2 ) {
+                alert( 'Το video δεν είναι έγκυρη διεύθυνση του YouTube' );
+                return;
+            }
+            WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
+        }
+    },
     CommandVideo: function ( target ) {
         return function () {
-            var q = prompt( 'Πληκτρολόγησε την διεύθυνση του video στο YouTube:', 'http://www.youtube.com/watch?v=aaaaaa' );
+            var div = document.createElement( 'div' );
+            
+            div.innerHTML = 'Πληκτρολόγησε την διεύθυνση του video στο YouTube:'
+                          + '<br /><br />'
+                          + '<input type="text" value="" />'
+                          + '<br /><br />'
+                          + '<input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo(\'' + target + '\', $( this.parentNode ).find( \'input\' )[ 0 ].value);" />'
+                          + '<input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />';
 
-            if ( typeof q == 'string' && q != '' ) {
-                match = /v\=([a-zA-Z0-9_-]+)/.exec( q );
-                if ( match === null || match.length != 2 ) {
-                    alert( 'Το video δεν ήταν έγκυρη διεύθυνση του YouTube' );
-                    return;
-                }
-                WYSIWYG.ExecCommand( 'text', 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
-            }
+            Modals.Create( div );
         };
     },
     CommandLink: function ( target ) {
