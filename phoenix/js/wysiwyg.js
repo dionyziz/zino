@@ -53,12 +53,12 @@ var WYSIWYG = {
     },
     CommandVideo: function ( target ) {
         return function () {
-            Modals.Create( $( 'wysiwyg-control-video' ).[ 0 ].cloneNode(), 500, 100 );
+            Modals.Create( $( 'wysiwyg-control-video' )[ 0 ].cloneNode(), 500, 100 );
         };
     },
     CommandImage: function ( target ) {
         return function () {
-            Modals.Create( $( 'wysiwyg-control-image-start' ).[ 0 ].cloneNode(), 500, 300 );
+            Modals.Create( $( 'wysiwyg-control-image-start' )[ 0 ].cloneNode(), 500, 300 );
         };
     },
     CommandLink: function ( target ) {
