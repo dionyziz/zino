@@ -29,8 +29,8 @@
 				if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
 					$newuser->Profile->Email = $email;
 				}
-				$_SESSION[ 's_password' ] = $password;
-				$_SESSION[ 's_username' ] = $username;
+                $_SESSION[ 's_userid' ] = $newuser->Id;
+                $_SESSION[ 's_authtoken' ] = $newuser->Authtoken;
 				$newuser->Save();
 				User_SetCookie( $newuser->Id, $newuser->Authtoken );
 				?>location.href = '<?php
