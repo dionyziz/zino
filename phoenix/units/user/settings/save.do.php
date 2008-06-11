@@ -212,7 +212,7 @@
 			}
 			
 			if ( $emailprofilecomment ) {
-				$user->Preferences->Emailprofilecomment = $emaiprofilecomment;
+				$user->Preferences->Emailprofilecomment = $emailprofilecomment;
 			}
 			if ( $notifyprofilecomment ) {
 				$user->Preferences->Notifyprofilecomment = $notifyprofilecomment;
