@@ -68,7 +68,7 @@ var WYSIWYG = {
             if ( typeof q == "string" && q !== '' ) {
                 WYSIWYG.ExecCommand( target, 'createLink', q );
             }
-        }
+        };
     },
     ExecCommand: function ( fieldname, command, parameters ) {
         WYSIWYG.ByName[ fieldname ].execCommand( command, parameters );
