@@ -42,6 +42,16 @@
 
             $f->Delete();
         }
+        public function TestFindFoldersByUser() {
+            $folder = New PMFolder();
+            $folder->Userid = $this->mUser->Id;
+            $folder->Name = 'funny';
+            $folder->Save();
+
+            $finder = New PMFolderFinder();
+            $folders = $finder->FindByUser( $this->mUser );
+            $this->AssertEquals( 3, count( $folders ), 'Wrong number of folders' );
+        }
         public function TestCreatePM() {
             $pm = New PM();
             $pm->Senderid = $this->mUser->Id;
