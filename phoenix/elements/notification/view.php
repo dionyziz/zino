@@ -1,7 +1,9 @@
 <?php
 
 	function ElementNotificationView( $notif ) {
-		?><div class="event" onclick="Notification.Visit( '<?php
+		?><div class="event" id="<?php
+		echo $notif->Id;
+		?>" onclick="Notification.Visit( '<?php
 			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 				ob_start();
 				Element( 'url' , $notif->Item );
@@ -17,6 +19,9 @@
 				<span class="time">πριν <?php
 				echo $notif->Since;
 				?></span>
+				<a href="" onclick="Notification.Delete( <?php
+				echo $notif->Id;
+				?> );return false;" title="Διαγραφή"></a>
 			</div>
 			<div class="who"><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
