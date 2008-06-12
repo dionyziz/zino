@@ -6,13 +6,13 @@
     class NotificationFinder extends Finder {
         protected $mModel = 'Notification';
 
-        public function FindByUser( $user, $offset = 0, $limit = 20 ) {
+        public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
             $notif = New Notification();
             $notif->Touserid = $user->Id;
 
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Eventid', 'DESC' ) );
         }
-        public function FindByComment( $comment ) {
+        public function FindByComment( Comment $comment ) {
             $query = $this->mDb->Prepare( "SELECT 
                         *
                     FROM
@@ -33,9 +33,32 @@
             if ( $res->Results() ) {
                 return New Notification( $res->FetchArray() );
             }
-            else {
-                return false;
+
+            return false;
+        }
+        public function FindByRelation( FriendRelation $relation ) {
+            $query = $this->mDb->Prepare( "SELECT
+                        *
+                    FROM
+                        :notify RIGHT JOIN :events
+                            ON notify_eventid = event_id
+                    WHERE
+                        `event_typeid` = :typeid AND
+                        `event_itemid` = :relationid
+                    LIMIT
+                        1;" );
+
+            $query->BindTable( 'notify' );
+            $query->BindTable( 'events' );
+            $query->Bind( 'typeid', EVENT_RELATION_CREATED );
+            $query->Bind( 'relationid', $relation->Id );
+
+            $res = $query->Execute();
+            if ( $res->Results() ) {
+                return New Notification( $res->FetchArray() );
             }
+                
+            return false;
         }
     }
 

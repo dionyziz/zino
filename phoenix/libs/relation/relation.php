@@ -75,8 +75,20 @@
         }
         */
         protected function OnDelete() {
-            --$this->User->Count->Friends;
+            global $libs;
+            $libs->Load( 'notify' );
+            
+            --$this->User->Count->Relations;
             $this->User->Count->Save();
+
+            $finder = New NotificationFinder();
+            $notif = $finder->FindByRelation( $this );
+
+            if ( !is_object( $notif ) ) {
+                return;
+            }
+            
+            $notif->Delete();
         }
         public function GetType() {
             return $this->RelationType->Text;

@@ -14,6 +14,13 @@
                 $type->Save();
             }
         }
+        private function DeleteType( $text ) {
+            $typefinder = New RelationTypeFinder();
+            $type = $typefinder->FindByText( $text );
+            if ( is_object( $type ) ) {
+                $type->Delete();
+            }
+        }
         public function SetUp() {
             global $libs;
             $libs->Load( 'relation/relation' );
@@ -173,6 +180,9 @@
             if ( is_object( $this->mUser2 ) ) {
                 $this->mUser2->Delete();
             }
+            $this->DeleteType( 'lover' );
+            $this->DeleteType( 'friend' );
+            $this->DeleteType( 'unknown' );
         }
     }
 
