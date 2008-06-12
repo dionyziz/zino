@@ -4,7 +4,7 @@
 		foreach( $comments[0] as $parent ) {
 			array_push( $stack, array( $parent, 0 ) );
 		}
-		array_reverse( $stack );
+		$stack = array_reverse( $stack );
 		while ( !empty( $stack ) ) {
 			$item = array_pop( $stack );
 			$comment = $item[ 0 ];
