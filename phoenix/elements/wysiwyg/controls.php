@@ -2,29 +2,29 @@
     function ElementWYSIWYGControls() {
         ?><div class="wysiwyg-control" id="wysiwyg-controls">
             <form class="wysiwyg-control-video">
-                <br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:
+                <br /><br />Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο„ΞΏΟ… video ΟƒΟ„ΞΏ YouTube:
                 <br /><br />
                 <input type="text" value="" style="width:400px" />
                 <br /><br />
-                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertVideo(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="submit" value="Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ®" onclick="WYSIWYG.InsertVideo(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
             <form class="wysiwyg-control-image-start">
                 <br /><br />
                 <ul>
-                    <li><a href="" onclick="Modals.Destroy();Modals.Create($(this).parents('div.wysiwyg-control').find('.wysiwyg-control-image-url')[0].cloneNode(true));return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
-                    <li><a href="" onclick="Modals.Destroy();Modals.Create($(this).parents('div.wysiwyg-control').find('.wysiwyg-control-image-album')[0].cloneNode(true));return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
-                    <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τον υπολογιστή μου</a></li>
+                    <li><a href="" onclick="Modals.Destroy();Modals.Create($(this).parents('div.wysiwyg-control').find('.wysiwyg-control-image-url')[0].cloneNode(true));return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ ΞΌΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ® Ο„Ξ·Ο‚</a></li>
+                    <li><a href="" onclick="Modals.Destroy();Modals.Create($(this).parents('div.wysiwyg-control').find('.wysiwyg-control-image-album')[0].cloneNode(true));return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ Ξ±Ο€Ο Ο„Ξ± albums ΞΌΞΏΟ…</a></li>
+                    <li><a href="" onclick="Modals.Destroy();return false;">Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ® ΞµΞΉΞΊΟΞ½Ξ±Ο‚ Ξ±Ο€Ο Ο„ΞΏΞ½ Ο…Ο€ΞΏΞ»ΞΏΞ³ΞΉΟƒΟ„Ξ® ΞΌΞΏΟ…</a></li>
                 </ul>
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
             <form class="wysiwyg-control-image-url">
-                <br /><br />Πληκτρολόγησε την διεύθυνση της εικόνας:
+                <br /><br />Ξ Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ· Ο„Ξ·Ο‚ ΞµΞΉΞΊΟΞ½Ξ±Ο‚:
                 <br /><br />
                 <input type="text" value="" style="width:400px" />
                 <br /><br />
-                <input type="submit" value="Εισαγωγή" onclick="WYSIWYG.InsertImage(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="submit" value="Ξ•ΞΉΟƒΞ±Ξ³Ο‰Ξ³Ξ®" onclick="WYSIWYG.InsertImage(WYSIWYG.CurrentTarget, $( this.parentNode ).find( 'input' )[ 0 ].value );Modals.Destroy();" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
             <form class="wysiwyg-control-image-album">
                 <div class="photolist">
@@ -32,7 +32,7 @@
                 <div class="albumlist"><?php
                 foreach ( $user->Albums as $album ) {
                     if ( $album->Id == $user->EgoAlbum->Id ) {
-                        $title = 'Φωτογραφίες μου';
+                        $title = 'Ξ¦Ο‰Ο„ΞΏΞ³ΟΞ±Ο†Ξ―ΞµΟ‚ ΞΌΞΏΟ…';
                     }
                     else {
                         $title = $album->Name;
@@ -49,7 +49,7 @@
                     ?></a><?php
                 }
                 ?></div>
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="Ξ‘ΞΊΟΟΟ‰ΟƒΞ·" onclick="Modals.Destroy()" />
             </form>
         </div><?php
     }
