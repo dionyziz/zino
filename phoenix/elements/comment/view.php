@@ -1,7 +1,6 @@
 <?php
 	
 	function ElementCommentView( $comment , $indent , $numchildren ) {
-		global $water;
 		global $user;
 		global $libs;
 		
