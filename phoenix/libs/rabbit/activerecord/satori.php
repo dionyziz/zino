@@ -358,7 +358,7 @@
                     }
                 }
                 if ( !count( $updates ) ) {
-                    $this->OnUpdate( array() );
+                    $this->OnUpdate( array(), array() );
 
                     // nothing to update
                     return true;
