@@ -309,13 +309,6 @@
             return $this->Delid > 0;
         }
         protected function OnBeforeDelete() {
-            global $user;
-
-            $finder = New CommentFinder();
-            if ( $finder->CommentHasChildren( $this ) || !$this->IsEditableBy( $user ) || $this->IsDeleted() ) {
-                return false;
-            }
-
             $this->Delid = 1;
             $this->Save();
 
