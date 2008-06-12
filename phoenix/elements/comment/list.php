@@ -1,10 +1,9 @@
 <?php
 	function ElementCommentList( $comments ) {
 		$stack = array();
-		foreach( $comments[0] as $parent ) {
-			array_push( $stack, array( $parent, 0 ) );
+		for( $i = count( $comments[0] ); $i>=0; --$i ) {
+			array_push( $stack, array( $comments[0][$i], 0 ) );
 		}
-		$stack = array_reverse( $stack );
 		while ( !empty( $stack ) ) {
 			$item = array_pop( $stack );
 			$comment = $item[ 0 ];
@@ -13,8 +12,8 @@
 
 			Element( 'comment/view', $comment, $indent, isset( $comments[ $comment->Id ] ) ? count( $comments[ $comment->Id ] ) : 0 );
 			
-			foreach ( $comments[ $root ] as $child ) {
-				array_push( $stack, array($child, $indent+1 ) );
+			for ( $i = count( $comments[ $root ] ); $i>=0; --$i ) {
+				array_push( $stack, array($comments[ $root ][ $i ], $indent+1 ) );
 			}
 		}
 	}
