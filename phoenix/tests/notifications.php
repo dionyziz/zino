@@ -60,4 +60,6 @@
         }
     }
 
+    return New TestNotifications();
+
 ?>
