@@ -66,10 +66,13 @@
                 $this->AssertEquals( $texts[ $key ], $notif->Item->Text, 'Wrong notif item text' );
                 $this->AssertEquals( $this->mUser2->Id, $notif->Item->Itemid, 'Wrong notif item itemid' );
             }
-        }
-        public function TestFindByUser() {
-        }
-        public function TestFindByUserAndComment() {
+
+            $comment->Delete();
+            $comment1->Delete();
+            $comment2->Delete();
+
+            $notifs = $finder->FindByUser( $this->mUser2 );
+            $this->AssertEquals( 0, count( $notifs ), 'Wrong number of notifications after deleting comments' );
         }
         public function TearDown() {
             if ( is_object( $this->mUser ) ) {

@@ -12,14 +12,13 @@
 
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Eventid', 'DESC' ) );
         }
-        public function FindByCommentAndUser( $comment, $user ) {
+        public function FindByComment( $comment ) {
             $query = $this->mDb->Prepare( "SELECT 
                         *
                     FROM
                         :notify RIGHT JOIN :events
                             ON notify_eventid = event_id
                     WHERE
-                        `notify_userid` = :userid AND
                         `event_typeid` = :typeid
                         `event_itemid` = :commentid
                     LIMIT 
@@ -27,7 +26,6 @@
             
             $query->BindTable( 'notify' );
             $query->BindTable( 'events' );
-            $query->Bind( 'userid', $user->Id );
             $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
             $query->Bind( 'commentid', $comment->Id );
             
