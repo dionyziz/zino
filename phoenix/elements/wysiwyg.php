@@ -58,7 +58,7 @@
                 }
                 ?></div>
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
-            </form?
+            </form>
         </div>
         <?php
     }
