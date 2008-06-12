@@ -97,12 +97,12 @@
                     *
                 FROM
                     :events
+                WHERE
+                    `event_typeid` != :commentevent
                 GROUP BY
                     ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
                     `event_userid`,
                     `event_typeid`
-                WHERE
-                    `event_typeid` != :commentevent
                 ORDER BY
                     `event_id` DESC
                 LIMIT
