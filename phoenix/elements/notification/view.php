@@ -1,6 +1,8 @@
 <?php
 
 	function ElementNotificationView( $notif ) {
+		global $rabbit_settings;
+		
 		?><div class="event" id="<?php
 		echo $notif->Event->Id;
 		?>" onclick="Notification.Visit( '<?php
@@ -21,7 +23,9 @@
 				?></span>
 				<a href="" onclick="Notification.Delete( <?php
 				echo $notif->Event->Id;
-				?> );return false;" title="Διαγραφή"></a>
+				?> );return false;" title="Διαγραφή"><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>delete.png" /></a>
 			</div>
 			<div class="who"><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
