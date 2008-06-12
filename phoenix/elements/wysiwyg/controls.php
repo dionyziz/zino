@@ -29,9 +29,6 @@
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
             </form>
             <form class="wysiwyg-control-image-album">
-                <div class="photolist">
-                    Επίλεξε το album από το οποίο θέλεις να εισάγεις την φωτογραφία.
-                </div>
                 <div class="albumlist"><?php
                 foreach ( $user->Albums as $album ) {
                     if ( $album->Id == $user->EgoAlbum->Id ) {
@@ -48,11 +45,14 @@
                         <?php
                         Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
                         ?><br /><?php
-                        echo htmlspecialchars( $album->Name );
+                        echo htmlspecialchars( $title );
                         ?></a>
                     </div><?php
                 }
                 ?></div>
+                <div class="photolist">
+                    <br /><br />Επίλεξε το album από το οποίο θέλεις να εισάγεις την φωτογραφία.
+                </div>
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
             </form>
         </div><?php

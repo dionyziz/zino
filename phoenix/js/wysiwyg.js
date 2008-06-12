@@ -53,6 +53,12 @@ var WYSIWYG = {
         }
     },
     InsertFromAlbum: function ( target, albumid ) {
+        Coala.Cold( 'album/photo/list', { 
+            'albumid': albumid,
+            'callback': function () {
+                alert( 'Got pics' );
+            }
+        } );
     },
     CommandVideo: function ( target ) {
         return function () {

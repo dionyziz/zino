@@ -53,6 +53,6 @@ form.wysiwyg-control-image-album div.photolist {
 }
 form.wysiwyg-control-image-album input {
     position: absolute;
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
