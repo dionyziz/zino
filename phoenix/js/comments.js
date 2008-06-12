@@ -45,7 +45,7 @@ var Comments = {
 			}
 		}
 		
-		Comments.FixCommentsNumber( true );
+		Comments.FixCommentsNumber( temp.find( "#type:first" ).text(), true );
 		
 		Coala.Warm( 'comments/new', { 	text : texter, 
 										parent : parentid,
@@ -143,17 +143,18 @@ var Comments = {
 		.append( div );
 	}, 
 	Delete : function( nodeid, parentid ) {
-		$( "#comment_" + nodeid ).fadeOut( 450, function() { $( this ).remove(); } );
+		var node = $( "#comment_" + nodeid );
+		node.fadeOut( 450, function() { $( this ).remove(); } );
 		//if ( parentid != 0 ) {
 		//	$( "#comment_" + parentid ).find( "
-		Comments.FixCommentsNumber( false );
+		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
 		Coala.Warm( 'comments/delete', { commentid : nodeid }, function() {
 									alert( 'Υπήρχε κάποιο πρόβλημα με την διαγραφή σχολίου, παρακαλώ προσπαθήστε ξανά' );
 									window.location.reload();
 							} );
 	},
-	FixCommentsNumber( inc ) {
-		var type = temp.find( "#type:first" ).text();
+	FixCommentsNumber( type, inc ) {
+		
 		if ( type != 2 && type != 4 ) { // If Image or Journal
 			return;
 		}
