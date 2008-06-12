@@ -1,7 +1,18 @@
 <?php
 
 	function ElementNotificationView( $notif ) {
-		?><div class="event">
+		?><div class="event" onclick="Notification.Visit( '<?php
+			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				ob_start();
+				Element( 'url' , $notif->Item );
+				echo htmlspecialchars( ob_get_clean() );
+			}
+			else {
+				Element( 'user/url' , $notif->FromUser );
+			}
+			?>' , '<?php
+			echo $notif->Typeid;
+			?>' );">
 			<div class="toolbox">
 				<span class="time">πριν <?php
 				echo $notif->Since;
@@ -12,16 +23,7 @@
 				Element( 'user/name' , $notif->FromUser , false );
 				?> έγραψε:
 			</div>
-			<div class="subject" onclick="Notification.Visit( '<?php
-				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
-					ob_start();
-					Element( 'url' , $notif->Item );
-					echo htmlspecialchars( ob_get_clean() );
-				}
-				else {
-					Element( 'user/url' , $notif->FromUser );
-				}
-				?>' );"><?php
+			<div class="subject"><?php
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
