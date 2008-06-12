@@ -45,21 +45,7 @@ var Comments = {
 			}
 		}
 		
-		var type = temp.find( "#type:first" ).text();
-		if ( type == 2 || type == 4 ) { // If Image or Journal
-			var node = $( "dl dd.commentsnum" );
-			if ( node.length !== 0 ) {
-				var commentsnum = parseInt( node.text(), 10 );
-				++commentsnum;
-				node.text( commentsnum + " σχόλια" );
-			}
-			else {
-				var dd = document.createElement( 'dd' );
-				dd.className = "commentsnum";
-				dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
-				$( "div dl" ).prepend( dd );
-			}
-		}
+		Comments.FixCommentsNumber( true );
 		
 		Coala.Warm( 'comments/new', { 	text : texter, 
 										parent : parentid,
@@ -160,10 +146,29 @@ var Comments = {
 		$( "#comment_" + nodeid ).fadeOut( 450, function() { $( this ).remove(); } );
 		//if ( parentid != 0 ) {
 		//	$( "#comment_" + parentid ).find( "
+		Comments.FixCommentsNumber( false );
 		Coala.Warm( 'comments/delete', { commentid : nodeid }, function() {
 									alert( 'Υπήρχε κάποιο πρόβλημα με την διαγραφή σχολίου, παρακαλώ προσπαθήστε ξανά' );
 									window.location.reload();
 							} );
+	},
+	FixCommentsNumber( inc ) {
+		var type = temp.find( "#type:first" ).text();
+		if ( type != 2 && type != 4 ) { // If Image or Journal
+			return;
+		}
+		var node = $( "dl dd.commentsnum" );
+		if ( node.length !== 0 ) {
+			var commentsnum = parseInt( node.text(), 10 );
+			commentsnum = (inc)?commentsnum+1:commentsnum-1;
+			node.text( commentsnum + " σχόλια" );
+		}
+		else {
+			var dd = document.createElement( 'dd' );
+			dd.className = "commentsnum";
+			dd.appendChild( document.createTextNode( "1 σχόλιο" ) );
+			$( "div dl" ).prepend( dd );
+		}
 	}
 };
 $( document ).ready( function() {
