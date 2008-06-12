@@ -124,7 +124,7 @@
             $relation->Save();
 
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $this->mUser2 );
+            $notifs = $finder->FindByFriend( $this->mUser2 );
             $this->AssertEquals( 1, count( $notifs ), 'Wrong number of notifications' );
 
             $notif = $notifs[ 0 ];
@@ -134,7 +134,7 @@
 
             $relation->Delete();
 
-            $notifs = $finder->FindByUser( $this->mUser2 );
+            $notifs = $finder->FindByFriend( $this->mUser2 );
             $this->AssertEquals( 0, count( $notifs ), 'Wrong number of notifications after deleting relation' );
 
             $this->DeleteRelationType( 'lover' );
