@@ -153,9 +153,8 @@ var Comments = {
 									window.location.reload();
 							} );
 	},
-	FixCommentsNumber( type, inc ) {
-		
-		if ( type != 2 && type != 4 ) { // If Image or Journal
+	FixCommentsNumber : function( type, inc ) {
+		if ( type != 2 && type != 4 ) { // If !Image or Journal
 			return;
 		}
 		var node = $( "dl dd.commentsnum" );
