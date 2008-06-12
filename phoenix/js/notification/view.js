@@ -3,5 +3,10 @@ var Notification = {
 		//type can be either comment or relation
 		alert( typeid );
 		document.location.href = url;
+	},
+	Delete : function( eventid ) {
+		$( 'div#' + eventid ).fadeOut( 400 , function() {
+			$( this ).remove();
+		} );
 	}
 };
