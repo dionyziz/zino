@@ -61,8 +61,8 @@
             $this->AssertEquals( 2, count( $notifs ), 'Wrong number of notifications' );
             $texts = array( "notification", "foo bar blah" );
             foreach ( $notifs as $key => $notif ) {
-                $this->AssertEquals( $this->mUser->Id, $notif->FromUserid, 'Wrong notif fromuserid' );
-                $this->AssertEquals( $this->mUser2->Id, $notif->ToUserid, 'Wrong notif touserid' );
+                $this->AssertEquals( $this->mUser->Id, $notif->Fromuserid, 'Wrong notif fromuserid' );
+                $this->AssertEquals( $this->mUser2->Id, $notif->Touserid, 'Wrong notif touserid' );
                 $this->AssertEquals( $texts[ $key ], $notif->Item->Text, 'Wrong notif item text' );
                 $this->AssertEquals( $this->mUser2->Id, $notif->Item->Itemid, 'Wrong notif item itemid' );
             }
