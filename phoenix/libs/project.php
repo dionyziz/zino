@@ -91,7 +91,8 @@
             'developer/dionyziz/utf8' => 'developer/dionyziz/utf8',
             'developer/dionyziz/water' => 'developer/dionyziz/water',
             'developer/dionyziz/user' => 'developer/dionyziz/user',
-            'masscomments'      => 'developer/abresas/masscomments'
+            'masscomments'      => 'developer/abresas/masscomments',
+            'a'                 => 'user/invalid',
     	);
     }
 ?>
