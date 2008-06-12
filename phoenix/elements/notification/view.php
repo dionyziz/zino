@@ -12,11 +12,19 @@
 				Element( 'user/name' , $notif->FromUser , false );
 				?> έγραψε:
 			</div>
-			<div class="subject"><?php
+			<div class="subject" onclick="Notification.Visit( '<?php
+				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+					ob_start();
+					Element( 'url' , $notif->Item );
+					echo htmlspecialchars( ob_get_clean() );
+				}
+				else {
+					Element( 'user/url' , $notif->FromUser );
+				}
+				?>' );"><?php
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
-					//die( 'class: '.get_class( $comment ) );
 					$text = $comment->GetText( 35 );
 					echo utf8_substr( $text , 0 , 30 );
 					if ( strlen( $text ) > 30 ) {
@@ -26,26 +34,16 @@
 					, <?php
 					switch ( $comment->Typeid ) {
 						case TYPE_POLL:
-							?>στη δημοσκόπηση <a href="<?php
-							ob_start();
-							Element( 'url' , $comment );
-							echo htmlspecialchars( ob_get_clean() );
-							?>"><?php
+							?>στη δημοσκόπηση <?php
 							echo htmlspecialchars( $comment->Item->Title );
-							?></a><?php
 							break;
 						case TYPE_IMAGE:
 							?>στη φωτογραφία <?php
 							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
 							break;
 						case TYPE_JOURNAL:
-							?>στο ημερολόγιο <a href="<?php
-							ob_start();
-							Element( 'url' , $comment );
-							echo htmlspecialchars( ob_get_clean() );
-							?>"><?php
+							?>στο ημερολόγιο <?php
 							echo htmlspecialchars( $comment->Item->Title );
-							?></a><?php
 							break;
 					}
 					?></p>
