@@ -306,7 +306,7 @@
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-        public function OnBeforeDelete() {
+        protected function OnBeforeDelete() {
             global $user;
 
             $finder = New CommentFinder();
@@ -322,9 +322,11 @@
 			w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
             $this->Item->OnCommentDelete();
 
+            $this->OnDelete();
+
             return false;
         }
-        public function OnDelete() {
+        protected function OnDelete() {
             global $libs;
             $libs->Load( 'notify' );
 
