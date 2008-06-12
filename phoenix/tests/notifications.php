@@ -8,6 +8,7 @@
         public function SetUp() {
             global $libs;
             $libs->Load( 'notify' );
+            $libs->Load( 'comment' );
 
             /* standar stuff */
             $ufinder = New UserFinder();
