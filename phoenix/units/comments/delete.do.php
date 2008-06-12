@@ -13,6 +13,11 @@
 			window.location.reload();<?php
 			return;
 		}
+		if ( $comments->IsDeleted() ) {
+			?>alert( 'To σχόλιο που προσπαθήτε να διαγράψετε έχει ήδη διαγραφεί' );
+			window.location.reload();<?php
+			return;
+		}
 		if ( $user->Id != $comment->Userid && !$user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
 			?>alert( 'Δεν έχετε δικαίωμα να διαγράψετε το συγκεκριμένο σχόλιο' );
 			window.location.reload();<?php
