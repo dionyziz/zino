@@ -740,23 +740,50 @@
         ?>TRUNCATE TABLE `relationtypes`;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `relationtypes` SET
-                `relationtype_id`=<?php
-                echo $row[ 'frel_id' ];
-                ?>, `relation_text`='<?php
-                echo addslashes( $row[ 'frel_type' ] );
-                ?>', `relationtype_created`='<?php
-                echo $row[ 'frel_created' ];
-                ?>', `relationtype_userid`=<?php
-                echo $row[ 'frel_creatorid' ];
-                ?>, `relationtype_userip`=<?php
-                echo ip2long( $row[ 'frel_creatorip' ] );
-                ?>;<?php
+			`relationtype_id`=<?php
+			echo $row[ 'frel_id' ];
+			?>, `relation_text`='<?php
+			echo addslashes( $row[ 'frel_type' ] );
+			?>', `relationtype_created`='<?php
+			echo $row[ 'frel_created' ];
+			?>', `relationtype_userid`=<?php
+			echo $row[ 'frel_creatorid' ];
+			?>, `relationtype_userip`=<?php
+			echo ip2long( $row[ 'frel_creatorip' ] );
+			?>;<?php
         }
     }
 
     function MigrateQuestions() {
-        // TODO
-    }
+        // $questions here is the old question table merlin_profileq :P
+		global $db, $questions;
+
+		$res = $db->Query(
+            "SELECT
+                `profileq_id`, `profileq_userid`, `profileq_created`, `profileq_question`, `profileq_userip`, `profileq_delid`
+            FROM
+                `$questions`;"
+        );
+
+		?>TRUNCATE TABLE `merlin_profileq`;<?php
+		while ( $row = $res->FetchArray() ) {
+			?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
+		   	echo addslashes( $row[ 'profileq_question' ] );
+			?>' );INSERT INTO `questions` (`question_id`, `question_userid`, `question_created`, `question_bulkid`, `question_delid`) VALUES ('<?php
+			echo $row[ 'profileq_id' ];
+			?>', '<?php
+			echo $row[ 'profileq_userid' ];
+			?>', '<?php
+			echo $row[ 'profileq_created' ];
+			?>', LAST_INSERT_ID(),'<?php
+			echo $row[ 'profileq_delid' ];
+			?>'); '<?php
+		}
+	}
+
+	function MigrateAnswers() {
+		
+	}
 
     function MigratePMs() {
         // TODO
@@ -810,12 +837,14 @@
             MigrateQuestions();
             break;
         case 13:
+			MigrateAnswers();
+		case 14:
             MigratePMs();
             break;
-        case 14:
+        case 15:
             MigrateNotifications();
             break;
-        case 15:
+        case 16:
             MigrateEgoAlbums();
             break;
     }
