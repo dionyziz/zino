@@ -11,7 +11,7 @@
 				Element( 'user/url' , $notif->FromUser );
 			}
 			?>' , '<?php
-			echo $notif->Typeid;
+			echo $notif->Event->Typeid;
 			?>' );">
 			<div class="toolbox">
 				<span class="time">πριν <?php
