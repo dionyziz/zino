@@ -1,15 +1,15 @@
 <?php
-	function UnitNotifyMarkAsRead( tInteger $notifyid , tBoolean $navigate , tCoalaPointer $hidewhat ) {
+	function UnitNotifyMarkAsRead( tInteger $eventid , tBoolean $navigate , tCoalaPointer $hidewhat ) {
 		global $libs;
 		global $user;
 		
-        $notifyid = $notifyid->Get();
+        $eventid = $eventid->Get();
         $navigate = $navigate->Get();
         
 		$libs->Load( 'notify' );
 		$libs->Load( 'comment' );
 		
-		$notif = New Notify( $notifyid );
+		$notif = New Notify( $eventid );
 		
 		if ( $notif->ToUserid() == $user->Id() ) {
 			$typeid = $notif->Typeid();

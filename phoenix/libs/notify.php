@@ -10,16 +10,16 @@
             $notif = New Notification();
             $notif->Touserid = $user->Id;
 
-            return $this->FindByPrototype( $notif, $offset, $limit, array( 'Id', 'DESC' ) );
+            return $this->FindByPrototype( $notif, $offset, $limit, array( 'Eventid', 'DESC' ) );
         }
         public function FindByCommentAndUser( $comment, $user ) {
             $query = $this->mDb->Prepare( "SELECT 
                         *
                     FROM
                         :notify RIGHT JOIN :events
-                            ON notification_eventid = event_id
+                            ON notify_eventid = event_id
                     WHERE
-                        `notification_this->ToUserid` = :userid AND
+                        `notify_userid` = :userid AND
                         `event_typeid` = :typeid
                         `event_itemid` = :commentid
                     LIMIT 
