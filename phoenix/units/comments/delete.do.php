@@ -13,7 +13,7 @@
 			window.location.reload();<?php
 			return;
 		}
-		if ( $comments->IsDeleted() ) {
+		if ( $comment->IsDeleted() ) {
 			?>alert( 'To σχόλιο που προσπαθήτε να διαγράψετε έχει ήδη διαγραφεί' );
 			window.location.reload();<?php
 			return;
