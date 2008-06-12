@@ -46,7 +46,7 @@
                         else {
                             $text = '';
                         }
-                        Element( 'wysiwyg', 'wysiwyg', 'text', $text );
+                        Element( 'wysiwyg/view', 'wysiwyg', $text );
                         ?>
 						<div class="submit">
 							<input type="submit" value="Δημοσίευση" />

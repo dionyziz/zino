@@ -1,4 +1,5 @@
 var WYSIWYG = {
+    CurrentTarget: 0,
     Create: function ( where, fieldname, buttons, tabindex ) {
         setTimeout( function () {
             WYSIWYG.CreateReal( where, fieldname, buttons, tabindex );
@@ -51,6 +52,8 @@ var WYSIWYG = {
             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + match[ 0 ].replace(/&/, "&amp;") + '" alt="" style="border:1px dotted blue;" /><br />' );
         }
     },
+    InsertFromAlbum: function ( target, albumid ) {
+    },
     CommandVideo: function ( target ) {
         return function () {
             Modals.Create( $( '#wysiwyg-control-video' )[ 0 ].cloneNode( true ), 500, 150 );
@@ -84,6 +87,7 @@ var WYSIWYG = {
             link.onclick = function ( command, parameters ) {
                 return function () {
                     link.blur();
+                    WYSIWYG.CurrentTarget = fieldname;
                     if ( typeof command == 'function' ) {
                         command( parameters );
                     }
