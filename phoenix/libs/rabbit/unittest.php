@@ -176,6 +176,7 @@
             foreach ( $this->mTestcases as $i => $testcase ) {
                 $water->Profile( 'Running testcase ' . $testcase->Name );
                 $testcase->SetTester( $this ); // allows testcase to report results back to this tester
+                Rabbit_Include( $testcase->AppliesTo() );
                 $obj = New ReflectionObject( $testcase );
                 $methods = $obj->getMethods();
                 $runresults = array();
