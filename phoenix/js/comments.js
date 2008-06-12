@@ -45,7 +45,8 @@ var Comments = {
 			}
 		}
 		
-		Comments.FixCommentsNumber( temp.find( "#type:first" ).text(), true );
+		var type = temp.find( "#type:first" ).text();
+		Comments.FixCommentsNumber( type, true );
 		
 		Coala.Warm( 'comments/new', { 	text : texter, 
 										parent : parentid,
