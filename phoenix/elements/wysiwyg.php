@@ -1,5 +1,7 @@
 <?php
     function ElementWYSIWYG( $id = 'wysiwyg', $target = 'text', $contents = '' ) {
+        global $user;
+
         ?><div id="<?php
         echo $id;
         ?>" class="wysiwyg"><?php
