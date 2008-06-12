@@ -1,5 +1,5 @@
 <?php
-    function UnitAlbumPhotoList( tInteger $albumid, tCoalaPointer $callback ) {
+    function UnitAlbumPhotoList( tInteger $albumid, tCoalaPointer $callback, tCoalaPointer $location ) {
         $albumid = $albumid->Get();
 
         $album = New Album( $albumid );
@@ -15,6 +15,8 @@
         echo $callback;
         ?>(<?php
         echo w_json_encode( $images );
+        ?>, <?php
+        echo $location;
         ?>)<?php
     }
 ?>

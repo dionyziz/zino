@@ -55,8 +55,9 @@ var WYSIWYG = {
     InsertFromAlbum: function ( target, albumid ) {
         Coala.Cold( 'album/photo/list', { 
             'albumid': albumid,
-            'callback': function () {
-                alert( 'Got pics' );
+            'callback': function ( photolist, where ) {
+                $( where ).parents( 'div.albumlist' ).parents()[ 0 ].find( 'div.photolist' ).append( 'Hello' );
+                alert( photolist );
             }
         } );
     },

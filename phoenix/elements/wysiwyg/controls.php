@@ -41,7 +41,7 @@
                     <div class="album">
                         <a href="" onclick="WYSIWYG.InsertFromAlbum(WYSIWYG.CurrentTarget,<?php
                         echo $album->Id;
-                        ?>);return false;">
+                        ?>, this);return false;">
                         <?php
                         Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
                         ?><br /><?php
