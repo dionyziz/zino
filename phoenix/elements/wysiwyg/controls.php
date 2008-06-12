@@ -44,9 +44,7 @@
                     ?>);return false;">
                     <?php
                     Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
-                    ?>" alt="<?php
-                    echo htmlspecialchars( $album->Name );
-                    ?>" /><?php
+                    ?><br /><?php
                     echo htmlspecialchars( $album->Name );
                     ?></a><?php
                 }
