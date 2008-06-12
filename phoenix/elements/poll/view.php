@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 	function ElementPollView( tInteger $id , tInteger $commentid , tInteger $offset ) {
 		global $page;
