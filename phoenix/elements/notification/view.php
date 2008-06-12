@@ -2,7 +2,7 @@
 
 	function ElementNotificationView( $notif ) {
 		?><div class="event" id="<?php
-		echo $notif->Id;
+		echo $notif->Event->Id;
 		?>" onclick="Notification.Visit( '<?php
 			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 				ob_start();
@@ -20,7 +20,7 @@
 				echo $notif->Since;
 				?></span>
 				<a href="" onclick="Notification.Delete( <?php
-				echo $notif->Id;
+				echo $notif->Event->Id;
 				?> );return false;" title="Διαγραφή"></a>
 			</div>
 			<div class="who"><?php
