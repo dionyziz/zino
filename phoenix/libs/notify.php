@@ -13,6 +13,8 @@
             return $this->FindByPrototype( $notif, $offset, $limit, array( 'Eventid', 'DESC' ) );
         }
         public function FindByComment( Comment $comment ) {
+            global $water; 
+
             $query = $this->mDb->Prepare( "SELECT 
                         *
                     FROM
@@ -33,10 +35,15 @@
             if ( $res->Results() ) {
                 return New Notification( $res->FetchArray() );
             }
+            else {
+                $water->Warning( "No results for comment " . $comment->Id );
+            }
 
             return false;
         }
         public function FindByRelation( FriendRelation $relation ) {
+            global $water; 
+
             $query = $this->mDb->Prepare( "SELECT
                         *
                     FROM
@@ -56,6 +63,9 @@
             $res = $query->Execute();
             if ( $res->Results() ) {
                 return New Notification( $res->FetchArray() );
+            }
+            else {
+                $water->Warning( "No results for relation " . $relation->Id );
             }
                 
             return false;
