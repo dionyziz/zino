@@ -1,8 +1,13 @@
 <?php
     abstract class tBaseType {
         protected $mValue;
+        protected $mExists;
         
         public function tBaseType( $value ) {
+            $this->mExists = $value !== false;
+        }
+        public function Exists() {
+            return $this->mExists;
         }
         public function Get() {
             return $this->mValue;
@@ -116,15 +121,10 @@
     }
 
     class tCoalaPointer extends tString {
-        private $mExists;
-        
         public function tCoalaPointer( $value ) {
             $this->tString( $value );
             $this->mExists = $value != '0';
             w_assert( preg_match( '#^([a-zA-Z0-9\.\[\] ])+$#', $this->mValue ) );
-        }
-        public function Exists() {
-            return $this->mExists;
         }
         public function Get() {
             throw New Exception( 'Type Get() cannot be used on tCoalaPointer; use "echo" directly with your pointer instead' );
@@ -140,11 +140,7 @@
         private $mSize;
         private $mTempname;
         private $mErrorcode;
-        private $mExists;
-        
-        public function Exists() {
-            return $this->mExists;
-        }
+
         public function __get( $name ) {
             switch ( $name ) {
                 case 'Name':
