@@ -30,6 +30,7 @@
             </form>
             <form class="wysiwyg-control-image-album">
                 <div class="photolist">
+                    Επίλεξε το album από το οποίο θέλεις να εισάγεις την φωτογραφία.
                 </div>
                 <div class="albumlist"><?php
                 foreach ( $user->Albums as $album ) {
