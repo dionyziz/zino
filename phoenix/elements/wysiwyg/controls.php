@@ -12,7 +12,7 @@
             <form class="wysiwyg-control-image-start">
                 <br /><br />
                 <ul>
-                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-url').cloneNode());return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
+                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-url')[0].cloneNode());return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
                     <li><a href="" onclick="Modals.Destroy();Modals.Create($(this).parents('div.wysiwyg-control').find('.wysiwyg-control-image-album')[0].cloneNode(true));return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
                     <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τον υπολογιστή μου</a></li>
                 </ul>
