@@ -102,6 +102,7 @@
             $notif = $notifs[ 0 ];
             $this->AssertEquals( $this->mUser2->Id, $notif->Fromuserid, 'Wrong notif fromuserid' );
             $this->AssertEquals( $this->mUser->Id, $notif->Touserid, 'Wrong notif touserid' );
+            $this->AssertEquals( $comment3->Id, $notif->Item->Id, 'Wrong notif item id' );
             $this->AssertEquals( 'lol', $notif->Item->Text, 'Wrong notif item text' );
             $this->AssertEquals( $this->mUser2->Id, $notif->Item->Itemid, 'Wrong notif item itemid' );
 
