@@ -36,4 +36,13 @@ form.wysiwyg-control-image-start li {
     margin: 20px;
     font-weight: bold;
 }
+form.wysiwyg-control-image-album div.albumlist {
+    float: left;
+    border-right: 1px solid black;
+    width: 120px;
+}
+form.wysiwyg-control-image-album div.albumlist div.album {
+    float: left;
+    clear: both;
+}
 

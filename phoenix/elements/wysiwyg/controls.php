@@ -15,7 +15,7 @@
                 <br /><br />
                 <ul>
                     <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-url')[0].cloneNode(true));return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
-                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-album')[0].cloneNode(true));return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
+                    <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-album')[0].cloneNode(true),700,500);return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
                     <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τον υπολογιστή μου</a></li>
                 </ul>
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
@@ -39,14 +39,17 @@
                     else {
                         $title = $album->Name;
                     }
-                    ?><a href="" onclick="WYSIWYG.InsertFromAlbum(WYSIWYG.CurrentTarget,<?php
-                    echo $album->Id;
-                    ?>);return false;">
-                    <?php
-                    Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
-                    ?><br /><?php
-                    echo htmlspecialchars( $album->Name );
-                    ?></a><?php
+                    ?>
+                    <div class="album">
+                        <a href="" onclick="WYSIWYG.InsertFromAlbum(WYSIWYG.CurrentTarget,<?php
+                        echo $album->Id;
+                        ?>);return false;">
+                        <?php
+                        Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
+                        ?><br /><?php
+                        echo htmlspecialchars( $album->Name );
+                        ?></a>
+                    </div><?php
                 }
                 ?></div>
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
