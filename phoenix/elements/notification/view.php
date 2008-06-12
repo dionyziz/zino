@@ -5,18 +5,7 @@
 		
 		?><div class="event" id="<?php
 		echo $notif->Event->Id;
-		?>" onclick="Notification.Visit( '<?php
-			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
-				ob_start();
-				Element( 'url' , $notif->Item );
-				echo htmlspecialchars( ob_get_clean() );
-			}
-			else {
-				Element( 'user/url' , $notif->FromUser );
-			}
-			?>' , '<?php
-			echo $notif->Event->Typeid;
-			?>' );">
+		?>">
 			<div class="toolbox">
 				<span class="time">πριν <?php
 				echo $notif->Since;
@@ -27,12 +16,34 @@
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>delete.png" /></a>
 			</div>
-			<div class="who"><?php
+			<div class="who" onclick="Notification.Visit( '<?php
+			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				ob_start();
+				Element( 'url' , $notif->Item );
+				echo htmlspecialchars( ob_get_clean() );
+			}
+			else {
+				Element( 'user/url' , $notif->FromUser );
+			}
+			?>' , '<?php
+			echo $notif->Event->Typeid;
+			?>' );"><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
 				Element( 'user/name' , $notif->FromUser , false );
 				?> έγραψε:
 			</div>
-			<div class="subject"><?php
+			<div class="subject" onclick="Notification.Visit( '<?php
+			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				ob_start();
+				Element( 'url' , $notif->Item );
+				echo htmlspecialchars( ob_get_clean() );
+			}
+			else {
+				Element( 'user/url' , $notif->FromUser );
+			}
+			?>' , '<?php
+			echo $notif->Event->Typeid;
+			?>' );"><?php
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
