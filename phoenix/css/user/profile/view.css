@@ -226,14 +226,9 @@ div#profile div.main div.notifications  div.list div.event {
 	padding: 5px;
 	cursor: pointer;
 }
-/*
 div#profile div.main div.notifications div.list div.event div.toolbox a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
-	background-repeat: no-repeat;
-	padding-left: 16px;	
-	margin-left: 5px;
+	z-index: 100;
 }
-*/
 div#profile div.main div.notifications div.list div.event div.who img.avatar {
 	width: 50px;
 	height: 50px;
