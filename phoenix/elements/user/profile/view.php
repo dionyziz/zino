@@ -3,7 +3,9 @@
 	function ElementUserProfileView( tString $name , tString $subdomain, tInteger $commentid , tInteger $offset ) {
 		global $page;
 		global $user;
+		global $water;
 		
+		$water->Disable();
 		$commentid = $commentid->Get();
 		$offset = $offset->Get();
 		$name = $name->Get();
