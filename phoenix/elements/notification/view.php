@@ -35,17 +35,22 @@
 					?>"</span>
 					, <?php
 					switch ( $comment->Typeid ) {
+						case TYPE_USERPROFILE:
+							?>στο προφίλ σου<?php
+							break;
 						case TYPE_POLL:
-							?>στη δημοσκόπηση <?php
+							?>στη δημοσκόπηση "<?php
 							echo htmlspecialchars( $comment->Item->Title );
+							?>"<?php
 							break;
 						case TYPE_IMAGE:
 							?>στη φωτογραφία <?php
 							Element( 'image' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
 							break;
 						case TYPE_JOURNAL:
-							?>στο ημερολόγιο <?php
+							?>στο ημερολόγιο "<?php
 							echo htmlspecialchars( $comment->Item->Title );
+							?>"<?php
 							break;
 					}
 					?></p>
