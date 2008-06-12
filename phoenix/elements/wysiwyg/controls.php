@@ -1,5 +1,7 @@
 <?php
     function ElementWYSIWYGControls() {
+        global $user;
+
         ?><div class="wysiwyg-control" id="wysiwyg-controls">
             <form class="wysiwyg-control-video">
                 <br /><br />Πληκτρολόγησε την διεύθυνση του video στο YouTube:
