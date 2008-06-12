@@ -19,7 +19,7 @@
                         :notify RIGHT JOIN :events
                             ON notify_eventid = event_id
                     WHERE
-                        `event_typeid` = :typeid
+                        `event_typeid` = :typeid AND
                         `event_itemid` = :commentid
                     LIMIT 
                         1;" );
