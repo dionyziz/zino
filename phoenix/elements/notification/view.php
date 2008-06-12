@@ -21,9 +21,9 @@
 				<span class="time">πριν <?php
 				echo $notif->Since;
 				?></span>
-				<a href="" onclick="Notification.Delete( <?php
+				<a href="" onclick="Notification.Delete( '<?php
 				echo $notif->Event->Id;
-				?> );return false;" title="Διαγραφή"><img src="<?php
+				?>' );return false;" title="Διαγραφή"><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>delete.png" /></a>
 			</div>
