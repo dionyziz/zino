@@ -195,7 +195,7 @@
                 case EVENT_FRIENDRELATION_CREATED:
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
-                    $notif->Touserid = $this->Item->Userid;
+                    $notif->Touserid = $this->Item->Friendid;
                     $notif->Fromuserid = $this->Userid;
                     $notif->Save();
                     break;
