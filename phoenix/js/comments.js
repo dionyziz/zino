@@ -160,7 +160,10 @@ var Comments = {
 		$( "#comment_" + nodeid ).fadeOut( 450, function() { $( this ).remove(); } );
 		//if ( parentid != 0 ) {
 		//	$( "#comment_" + parentid ).find( "
-		//Coala.Warm
+		Coala.Warm( 'comments/delete', { commentid : nodeid }, function() {
+									alert( 'Υπήρχε κάποιο πρόβλημα με την διαγραφή σχολίου, παρακαλώ προσπαθήστε ξανά' );
+									window.location.reload();
+							} );
 	}
 };
 $( document ).ready( function() {
