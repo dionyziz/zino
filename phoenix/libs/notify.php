@@ -50,7 +50,7 @@
 
             $query->BindTable( 'notify' );
             $query->BindTable( 'events' );
-            $query->Bind( 'typeid', EVENT_RELATION_CREATED );
+            $query->Bind( 'typeid', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'relationid', $relation->Id );
 
             $res = $query->Execute();

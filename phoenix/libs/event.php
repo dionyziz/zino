@@ -114,7 +114,7 @@
             $query->Bind( 'mintypeid', EVENT_USERPROFILE_EDUCATION_UPDATED );
             $query->Bind( 'maxtypeid', EVENT_USERPROFILE_EYECOLOR_UPDATED );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
-            $query->Bind( 'relationevent', EVENT_RELATION_CREATED );
+            $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
