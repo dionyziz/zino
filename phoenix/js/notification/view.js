@@ -9,5 +9,8 @@ var Notification = {
 		$( 'div#' + eventid ).fadeOut( 400 , function() {
 			$( this ).remove();
 		} );
+		$( this ).parents( 'div#' + eventid ).click( function() {
+			return false;
+		} );
 	}
 };
