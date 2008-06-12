@@ -7,6 +7,7 @@
 	include "album/list.js";
 	include "album/photo/list.js";
 	include "album/photo/view.js";
+	include "notification/view.js";
 	include "poll/list.js";
 	include "poll/view.js";
 	include "journal/list.js";
