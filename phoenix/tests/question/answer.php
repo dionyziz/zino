@@ -16,7 +16,7 @@
         }
 
         public function TestCreate() {
-			// TODO
+			$answer = New Answer();   
 		}
 
         
