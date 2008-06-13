@@ -14,13 +14,13 @@ var Notification = {
 		}
 	},
 	Delete : function( eventid ) {
-		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {
+		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , 400 , function() {
 			$( this ).remove();
+			alert( $( 'div.notifications div.list div.event' ).length );
+			if ( $( 'div.notifications div.list div.event' ).length == 0 ) {
+				$( 'div.notifications' ).remove();
+			}
 		} );
-		alert( $( 'div.notifications div.list div.event' ).length );
-		if ( $( 'div.notifications div.list div.event' ).length == 0 ) {
-			$( 'div.notifications' ).remove();
-		}
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 	}
 };
