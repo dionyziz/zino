@@ -93,7 +93,7 @@
 
             $num_texts = 0;
             foreach( $questions as $key => $q ) {
-                if ( array_search( $q->Text, array( 'When?', 'How?' ) ) == true ) {
+                if ( in_array( $q->Text, array( 'When?', 'How?' ) ) ) {
                     ++$num_texts;
                 }
             }
