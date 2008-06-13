@@ -1,12 +1,9 @@
 var Notification = {
 	Visit : function( url , typeid ) {
-		//type can be either comment or relation
-		alert( typeid );
 		document.location.href = url;
 	},
 	Delete : function( eventid ) {
-		alert( 'delete' );
-		$( 'div#' + eventid ).fadeOut( 400 , function() {
+		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {
 			$( this ).remove();
 		} );
 		$( 'div#' + eventid ).click( function() {
