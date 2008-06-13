@@ -22,9 +22,12 @@
 				</form><?php
 	        }
 	        else {
-	    		?><li title="Προβολή προφίλ"><?php
-				Element( 'user/name' , $user );
-				?></li>
+	    		?><li title="Προβολή προφίλ"><a href="<?php
+                Element( 'user/url', $user );
+                ?>" class="user"><?php
+                Element( 'image/view', $user->Avatar );
+				Element( 'user/name', $user, false );
+				?></a></li>
 	    		<li>·</li>
 	    		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
 	    		<li>·</li>
