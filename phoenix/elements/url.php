@@ -8,6 +8,8 @@
         switch ( get_class( $target ) ) {
             case 'UserProfile':
                 return Element( 'user/url', $target->User );
+            case 'User':
+                return Element( 'user/url', $target );
             case 'Image':
                 echo $rabbit_settings[ 'webaddress' ];
                 ?>/?p=photo&id=<?php // do not escape this & -- we're in plaintext mode; use output buffering in your caller if you want to htmlspecialchars()
