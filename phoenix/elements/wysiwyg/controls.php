@@ -18,7 +18,7 @@
                     <?php
                     $hasalbums = false;
                     foreach ( $user->Albums as $album ) {
-                        if ( $albums->Numimages ) {
+                        if ( $album->Numimages ) {
                             $hasalbums = true;
                         }
                     }
