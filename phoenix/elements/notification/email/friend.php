@@ -8,6 +8,7 @@
         w_assert( $from instanceof User );
         w_assert( $from->Exists() );
 
+        ob_start();
         if ( $from->Gender == 'f' ) {
             ?>Η<?php
         }
@@ -34,6 +35,8 @@
         else {
             ?>του<?php
         }
+        $subject = ob_get_clean();
+        echo $subject;
         ?>.
 
         Για να δεις το προφίλ <?php
@@ -52,6 +55,6 @@
 
         Element( 'email/footer' );
 
-        return ''; // TODO: subject
+        return $subject;
 	}
 ?>

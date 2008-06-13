@@ -8,6 +8,7 @@
         w_assert( $from->Exists() );
         w_assert( $comment instanceof Comment );
 
+        ob_start();
         if ( $from->Gender == 'f' ) {
             ?>Η<?php
         }
@@ -17,7 +18,7 @@
         ?> <?php
         echo $from->Name;
         if ( $comment->Parentid ) {
-            ?> απάντησε στο σχόλιό σου <?php
+            ?> απάντησε στο σχόλιό σου<?php
         }
         else {
             ?> σχολίασε <?php
@@ -46,6 +47,9 @@
                     break;
             }
         }
+        $subject = ob_get_clean();
+        echo $subject;
+
         ?> και έγραψε:
         
         "<?php
@@ -67,6 +71,6 @@
 
         Element( 'email/footer' );
 
-        return ''; // TODO: return subject
+        return $subject;
 	}
 ?>
