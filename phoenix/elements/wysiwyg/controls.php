@@ -16,7 +16,6 @@
                 <ul>
                     <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-url')[0].cloneNode(true));return false;">Εισαγωγή εικόνας με την διεύθυνσή της</a></li>
                     <li><a href="" onclick="Modals.Destroy();Modals.Create($('#wysiwyg-controls form.wysiwyg-control-image-album')[0].cloneNode(true),700,500);return false;">Εισαγωγή εικόνας από τα albums μου</a></li>
-                    <li><a href="" onclick="Modals.Destroy();return false;">Εισαγωγή εικόνας από τον υπολογιστή μου</a></li>
                 </ul>
                 <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
             </form>

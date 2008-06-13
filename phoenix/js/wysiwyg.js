@@ -66,7 +66,7 @@ var WYSIWYG = {
                     var url = photolist[ i ];
 
                     a.appendChild( img );
-                    photolist.appendChild( a );
+                    photolist[ 0 ].appendChild( a );
                 }
 
                 alert( photolist );
