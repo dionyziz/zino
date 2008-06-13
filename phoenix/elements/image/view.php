@@ -1,5 +1,5 @@
 <?php
-	function ElementImage( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
+	function ElementImageView( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
 		global $xc_settings;
 		global $rabbit_settings;
 
