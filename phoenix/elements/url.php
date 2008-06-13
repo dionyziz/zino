@@ -45,7 +45,7 @@
                 echo $target->Id;
                 return;
             default:
-                throw New Exception( 'Unknown comment type' );
+                throw New Exception( 'Unknown comment target item "' . get_class( $target ) . '"' );
         }
     }
 ?>
