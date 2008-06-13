@@ -1,5 +1,9 @@
 <?php
 	function ElementCommentList( $comments ) {
+        global $water;
+
+        $water->Trace( 'In comments list' );
+
 		$stack = array();
 		for ( $i = count( $comments[ 0 ] ) - 1; $i >= 0; --$i ) {
 			array_push( $stack, array( $comments[ 0 ][ $i ], 0 ) );
