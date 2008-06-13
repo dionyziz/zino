@@ -52,7 +52,7 @@
                 <div class="photolist">
                     <br /><br />Επίλεξε το album από το οποίο θέλεις να εισάγεις την φωτογραφία.
                 </div>
-                <input type="button" value="Ακύρωση" onclick="Modals.Destroy()" />
+                <input type="button" value="X" onclick="Modals.Destroy()" />
             </form>
         </div><?php
     }

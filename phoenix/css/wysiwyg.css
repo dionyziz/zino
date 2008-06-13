@@ -58,6 +58,7 @@ form.wysiwyg-control-image-album div.photolist a {
 form.wysiwyg-control-image-album input {
     margin-top: 20px;
     position: absolute;
-    bottom: 5px;
+    top: 5px;
+    right: 5px;
 }
 
