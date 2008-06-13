@@ -76,9 +76,7 @@ div.header ul li a.login {
 	background-image: url('http://static.zino.gr/phoenix/up.png');
 	_background-image: url('http://static.zino.gr/phoenix/_up.png');
 }
-div.header ul li a.user img {
-    width: 16px;
-    height: 16px;
+div.header ul li a.profile img {
     vertical-align: bottom;
     margin-right: 6px;
     border: 1px solid #eee;
