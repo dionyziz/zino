@@ -53,7 +53,7 @@
             $question1->Save();
             
             // New database object
-            $question = New Comment( $question1->Id );
+            $question = New Question( $question1->Id );
             
             $this->Assert( $question1->Exists(), 'Question saved does not exist' );
             $this->AssertEquals( $this->mUser2->Id, $question->Userid, 'Wrong userid on edited question' );
