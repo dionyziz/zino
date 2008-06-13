@@ -20,6 +20,7 @@
 		
 		public function FindAll( $offset = 0, $limit = 10000 ) {
             $prototype = New Question();
+            $$prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
 		
