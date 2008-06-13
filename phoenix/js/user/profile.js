@@ -11,7 +11,7 @@ var Profile = {
 	},
 	AddFriend : function( userid ) {
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
-			$( this ).empty().append( document.createTextnode( 'Διαγραφή από τους φίλους' ) ).click( function() {
+			$( this ).empty().append( document.createTextNode( 'Διαγραφή από τους φίλους' ) ).click( function() {
 				Profile.DeleteFriend( 0 );
 			} );
 			$( this )
