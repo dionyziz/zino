@@ -7,11 +7,10 @@
 		$libs->Load( 'notify' );
 		$notif = New Notification( $eventid->Get() );
 		
-		if ( $notif->ToUser->Id == $user->Id ) {
-			if ( $notif->Exists() ) {
+		if ( $notif->Exists() ) {
+			if ( $notif->ToUser->Id == $user->Id ) {
 				$notif->Delete();
 			}
 		}
-	
 	}
 ?>

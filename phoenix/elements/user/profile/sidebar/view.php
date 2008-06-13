@@ -14,10 +14,16 @@
 				
 				if ( $user->Id != $theuser->Id ) {
 					$finder = New FriendRelationFinder();
-					if ( !( $finder->IsFriend( $user, $theuser ) & FRIENDS_A_HAS_B == FRIENDS_A_HAS_B ) ) {
+					$res = $finder->IsFriend( $user , $theuser );
+					if ( !$res ) {
 						?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
 						echo $theuser->Id;
 						?>' );return false;">Προσθήκη στους φίλους</a></div><?php
+					}
+					else {
+						?><div class="deletefriend"><a href="" onclick="Profile.DeleteFriend( '<?php
+						echo $res->Id;
+						?>' );return false;">Διαγραφή από τους φίλους</a></div><?php
 					}
 				}
 				Element( 'user/profile/sidebar/info' , $theuser );
