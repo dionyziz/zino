@@ -7,6 +7,6 @@ var Notification = {
 		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {
 			$( this ).remove();
 		} );
-		//coala
+		Coala.Warm( 'notification/delete' , { eventid : eventid } );
 	}
 };
