@@ -199,7 +199,7 @@
 					$offset = $comments[ 1 ];
 					$comments = $comments[ 2 ];
 				}
-				Element( 'comment/list' , $comments , 0 , 0 );
+				Element( 'comment/list' , $comments );
 				?><div class="pagifycomments"><?php
 
                     $link = '?p=photo&id=' . $image->Id . '&offset=';

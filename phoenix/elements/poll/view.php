@@ -53,7 +53,7 @@
 								$offset = $comments[ 1 ];
 								$comments = $comments[ 2 ];
 							}
-							Element( 'comment/list' , $comments , 0 , 0 );
+							Element( 'comment/list' , $comments );
 							?><div class="pagifycomments"><?php
                                 $link = '?p=poll&id=' . $poll->Id . '&offset=';
 								Element( 'pagify', $offset, $link, $total_pages );
