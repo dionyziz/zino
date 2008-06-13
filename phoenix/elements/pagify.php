@@ -14,7 +14,7 @@
 		
 		if ( $offset > 1 ) { /* left arrow */
 			?><span class="leftpage"><a href="<?php
-			echo htmlspecialchars( $link . $offset - 1 );
+			echo htmlspecialchars( $link . ( $offset - 1 ) );
 			?>" class="previous" title="Προηγούμενη"></a></span><?php
 		}
 		
@@ -49,7 +49,7 @@
 		
 		if ( $offset + 1 <= $total_pages ) { /* right arrow */
 			?><span class="rightpage"><a href="<?php
-			echo htmlspecialchars( $link . $offset + 1 );
+			echo htmlspecialchars( $link . ( $offset + 1 ) );
 			?>" class="next" title="Επόμενη"></a></span><?php
 		}
 		
