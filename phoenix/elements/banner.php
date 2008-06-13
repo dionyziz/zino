@@ -25,7 +25,7 @@
 	    		?><li title="Προβολή προφίλ"><a href="<?php
                 Element( 'user/url', $user );
                 ?>" class="user"><?php
-                Element( 'image/view', $user->Avatar );
+                Element( 'image/view', $user->Avatar, IMAGE_CROPPED_100x100 );
 				Element( 'user/name', $user, false );
 				?></a></li>
 	    		<li>·</li>

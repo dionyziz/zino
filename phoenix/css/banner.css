@@ -78,6 +78,7 @@ div.header ul li a.login {
 }
 div.header ul li a.user img {
     width: 16px;
+    height: 16px;
     vertical-align: bottom;
     margin-right: 6px;
     border: 1px solid #eee;
