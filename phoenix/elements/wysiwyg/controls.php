@@ -18,7 +18,7 @@
                     <?php
                     $hasalbums = false;
                     foreach ( $user->Albums as $album ) {
-                        if ( $album->Numimages ) {
+                        if ( $album->Numphotos ) {
                             $hasalbums = true;
                         }
                     }
@@ -40,7 +40,7 @@
             <form class="wysiwyg-control-image-album">
                 <div class="albumlist"><?php
                 foreach ( $user->Albums as $album ) {
-                    if ( !$album->Numimages ) {
+                    if ( !$album->Numphotos ) {
                         continue;
                     }
                     if ( $album->Id == $user->EgoAlbum->Id ) {
