@@ -38,7 +38,15 @@
 				for ( $i = 0 ; $i < count( $what ) ; ++$i ) {
 					$what[ $i ] = w_json_encode( $what, $chopstrings, $depth + 1, $ascii );
 				}
-				return '[' . implode(',', $what) . ']';
+                $ret = '[';
+                for ( $i = 0; $i < count( $what ); ++$i ) {
+                    $ret .= w_json_encode( $what[ $i ], $chopstrings, $depth + 1, $ascii );
+                    if ( $i + 1 < count( $what ) ) {
+                        $ret .= ',';
+                    }
+                }
+                $ret .= ']';
+                return $ret;
 			}
 			$ret = '{';
 			reset( $what );
