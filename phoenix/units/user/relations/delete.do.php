@@ -15,7 +15,8 @@
 					echo $theuserid->Get();
 					?>' );
 					return false;
-				} );<?php
+				} )
+				.fadeIn( 400 );<?php
 			}
 		}
 	}

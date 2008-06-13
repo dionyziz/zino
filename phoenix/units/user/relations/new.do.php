@@ -19,7 +19,8 @@
 					echo $relation->Id;
 					?>' );
 					return false;
-				} );<?php
+				} )
+				.fadeIn( 400 );<?php
 			}
 		}
 	}

@@ -17,9 +17,7 @@ var Profile = {
 			$( this )
 			.parent()
 			.removeClass( 'addfriend' )
-			.addClass( 'deletefriend' )
-			.end()
-			.fadeIn( 400 )		
+			.addClass( 'deletefriend' );	
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 	},
@@ -31,9 +29,7 @@ var Profile = {
 			$( this )
 			.parent()
 			.removeClass( 'deletefriend' )
-			.addClass( 'addfriend' )
-			.end()
-			.fadeIn( 400 );
+			.addClass( 'addfriend' );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );
 		
