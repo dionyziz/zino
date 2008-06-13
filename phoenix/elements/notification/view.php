@@ -30,8 +30,18 @@
 			?>' );"><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
 				Element( 'user/name' , $notif->FromUser , false );
-				?> έγραψε:
-			</div>
+				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+					if ( $notif->Item->Parentid == 0 ) {
+						?> έγραψε:<?php
+					}
+					else {
+						?> απάντησε στο σχόλιό σου:<?php
+					}
+				}
+				else {
+					?>σε πρόσθεσε στους φίλους:<?php
+				}
+			?></div>
 			<div class="subject" onclick="Notification.Visit( '<?php
 			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 				ob_start();
