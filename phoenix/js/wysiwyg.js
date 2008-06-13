@@ -53,6 +53,12 @@ var WYSIWYG = {
         }
     },
     InsertFromAlbum: function ( target, albumid, where ) {
+        var img = document.createElement( 'img' );
+        
+        img.src = 'http://static.zino.gr/phoenix/ajax-loader.gif';
+
+        $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' )[ 0 ].empty().append( img );
+
         Coala.Cold( 'album/photo/list', {
             'albumid': albumid,
             'callback': function ( items, where ) {
@@ -67,6 +73,7 @@ var WYSIWYG = {
 
                     img.src = url;
                     a.appendChild( img );
+                    a.href = '';
                     $( a ).click( function ( url, title ) {
                         return function () {
                             title = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
