@@ -10,19 +10,32 @@ var Profile = {
 		} );
 	},
 	AddFriend : function( userid ) {
-		var done = document.createElement( 'span' );
-		$( done )
-		.append( document.createTextNode( 'Προστέθηκε στους φίλους σου' ) )
-		.hide();
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
+			$( this ).empty().append( document.createTextnode( 'Διαγραφή από τους φίλους' ) ).click( function() {
+				return false;
+			} );
 			$( this )
 			.parent()
-			.empty()
-			.append( done )
-			.find( 'span' )
-			.fadeIn( 300 )
+			.removeClass( 'addfriend' )
+			.addClass( 'deletefriend' )
+			.end()
+			.fadeIn( 400 )		
 		} );
-		Coala.Warm( 'user/relations/new' , { userid : userid } );
+		//Coala.Warm( 'user/relations/new' , { userid : userid } );
+	},
+	DeleteFriend : function( relationid , theuserid ) {
+		$( 'div.sidebar div.basicinfo div.deletefriend a' ).fadeOut( 400 , function() {
+			$( this ).empty().append( document.createTextNode( 'Προσθήκη στους φίλους' ) ).click( function() {
+				return false;
+			} );
+			$( this )
+			.parent()
+			.removeClass( 'deletefriend' )
+			.addClass( 'addfriend' )
+			.end()
+			.fadeIn( 400 );
+		} );
+		
 	}
 };
 $( document ).ready( function() {

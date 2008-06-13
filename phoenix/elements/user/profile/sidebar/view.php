@@ -23,6 +23,8 @@
 					else {
 						?><div class="deletefriend"><a href="" onclick="Profile.DeleteFriend( '<?php
 						echo $res->Id;
+						?>' , '<?php
+						echo $theuser->Id;
 						?>' );return false;">Διαγραφή από τους φίλους</a></div><?php
 					}
 				}
