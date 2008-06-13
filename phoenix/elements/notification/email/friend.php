@@ -1,6 +1,8 @@
 <?php
     /// Content-type: text/plain ///
 	function ElementNotificationEmailFriend( Notification $notification ) {
+        $relationfinder = New FriendRelationFinder();
+
         $from = $notification->FromUser;
 
         w_assert( $from instanceof User );
@@ -15,7 +17,7 @@
         ?> <?php
         echo $from->Name;
         ?> σε πρόσθεσε <?php
-        if ( $infriends ) { // TODO
+        if ( $relationfinder->IsFriend( $from, $notification->ToUser ) | FRIENDS_BOTH == FRIENDS_BOTH ) {
             ?>και <?php
             if ( $from->Gender == 'f' ) {
                 ?>αυτή<?php
