@@ -44,6 +44,8 @@
                 ?>#comment_<?php
                 echo $target->Id;
                 return;
+            default:
+                throw New Exception( 'Unknown comment type' );
         }
     }
 ?>
