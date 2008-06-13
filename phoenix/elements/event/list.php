@@ -16,7 +16,14 @@
 		?><div class="latestevents">
 			<h2>Συνέβησαν πρόσφατα</h2>
 			<div class="list"><?php
-				foreach ( $events as $event ) {
+				foreach ( $events as $i => $event ) {
+                    switch ( $type->Type ) {
+                        case EVENT_JOURNAL_CREATED:
+                            if ( !$event->Item->Exists() ) { // TODO: Not sure why these occur, but they do; filter them out for now --dionyziz
+                                continue;
+                            }
+                            break;
+                    }
 					if ( in_array( $event->Typeid, $profiletypes ) ) { 
 						$type = 'profile_update';
 					}	
@@ -24,7 +31,7 @@
 						$type = $event->Typeid;
 					}
 					$info[ $event->User->Id ][ $type ][] = $event;
-					$visited[ $event->User->Id ][ $type ] = false;	
+					$visited[ $event->User->Id ][ $type ] = false;
 				}
                 $j = 0;
 				foreach ( $events as $event ) {
