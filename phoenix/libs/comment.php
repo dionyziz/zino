@@ -33,7 +33,7 @@
 	}
 
     function Comments_CountPages( $comments, $parents ) {
-        $total_pages = 0;
+        $total_pages = 1;
         $page_total = 0; 
         foreach ( $parents as $parent ) {
             $page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
