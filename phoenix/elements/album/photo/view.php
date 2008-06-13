@@ -132,7 +132,6 @@
 				?><div class="photothumbs"><?php
 					$finder = New ImageFinder();
 					$photos = $finder->FindAround( $image , 12 );
-					$water->Trace( 'numphotos is: ' . count( $photos ) );
 					$pivot = $i = 0;
 					foreach ( $photos as $photo ) {
 						if ( $photo->Id == $image->Id ) {
@@ -156,8 +155,6 @@
 				        </div><?php
 					}
 			        ?><ul><?php	
-						$water->Trace( 'pivot is: ' . $pivot );
-						//die( 'pivot is ' . $pivot );
 						if ( $pivot > 0 ) {
 							for ( $i = 0; $i < $pivot ; ++$i ) {
 								?><li><span><a href="?p=photo&amp;id=<?php
@@ -201,9 +198,7 @@
 					$comments = $comments[ 2 ];
 					$finder = New NotificationFinder();
 					$notification = $finder->FindByComment( $speccomment );
-					$water->Trace( 'notification id ' . $notification->Event->Id );
 					if ( $notification ) {
-						$water->Trace( 'deleting notification' );
 						$notification->Delete();
 					}
 				}

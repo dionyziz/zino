@@ -173,6 +173,11 @@
                         $total_pages = $comments[ 0 ];
 						$offset = $comments[ 1 ];
 						$comments = $comments[ 2 ];
+						$finder = New NotificationFinder();
+						$notification = $finder->FindByComment( $speccomment );
+						if ( $notification ) {
+							$notification->Delete();
+						}
 					}
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php

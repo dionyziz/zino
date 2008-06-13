@@ -11,7 +11,6 @@
 				Element( 'user/profile/sidebar/who' , $theuser );
 				Element( 'user/profile/sidebar/slogan' , $theuser );
 				Element( 'user/profile/sidebar/mood' , $theuser );
-				
 				if ( $user->Id != $theuser->Id ) {
 					$finder = New FriendRelationFinder();
 					$res = $finder->IsFriend( $user , $theuser );
