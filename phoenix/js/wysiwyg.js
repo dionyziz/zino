@@ -55,21 +55,20 @@ var WYSIWYG = {
     InsertFromAlbum: function ( target, albumid, where ) {
         Coala.Cold( 'album/photo/list', { 
             'albumid': albumid,
-            'callback': function ( photolist, where ) {
+            'callback': function ( items, where ) {
                 var photolist = $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' );
 
                 $( photolist ).empty();
 
-                for ( i = 0; i < photolist.length; ++i ) {
+                for ( i = 0; i < items.length; ++i ) {
                     var a = document.createElement( 'a' );
                     var img = document.createElement( 'img' );
-                    var url = photolist[ i ];
+                    var url = items[ i ];
 
+                    img.src = url;
                     a.appendChild( img );
                     photolist[ 0 ].appendChild( a );
                 }
-
-                alert( photolist );
             },
             'location': where
         } );
