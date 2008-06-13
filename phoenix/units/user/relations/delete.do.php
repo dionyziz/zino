@@ -10,13 +10,14 @@
 		if ( $relation->Exists() ) {
 			if ( $relation->Userid == $user->Id ) {
 				$relation->Delete();
-				?>$( 'div.sidebar div.basicinfo div.addfriend a' ).click( function() {
+				?>$( 'div.sidebar div.basicinfo div.addfriend a' )
+				.fadeIn( 400 )
+				.click( function() {
 					Profile.AddFriend( '<?php
 					echo $theuserid->Get();
 					?>' );
 					return false;
-				} )
-				.fadeIn( 400 );<?php
+				} );<?php
 			}
 		}
 	}
