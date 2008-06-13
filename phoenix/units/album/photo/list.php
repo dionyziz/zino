@@ -11,7 +11,11 @@
         foreach ( $album->Images as $image ) {
             ob_start();
             Element( 'image/url', $image, IMAGE_CROPPED_100x100 );
-            $images[] = ob_get_clean();
+            $url100 = ob_get_clean();
+            ob_start();
+            Element( 'image/url', $image, IMAGE_FULLVIEW );
+            $urlfull = ob_get_clean();
+            $images[] = array( $url100, $urlfull, $image->Name );
         }
 
         echo $callback;

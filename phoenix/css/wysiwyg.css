@@ -48,8 +48,9 @@ form.wysiwyg-control-image-album div.albumlist div.album {
     clear: both;
     padding: 10px;
 }
-form.wysiwyg-control-image-album div.photolist {
-    
+form.wysiwyg-control-image-album div.photolist a {
+    float: left;
+    margin: 5px;
 }
 form.wysiwyg-control-image-album input {
     margin-top: 20px;

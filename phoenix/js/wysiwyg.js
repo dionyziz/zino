@@ -53,22 +53,27 @@ var WYSIWYG = {
         }
     },
     InsertFromAlbum: function ( target, albumid, where ) {
-        Coala.Cold( 'album/photo/list', { 
+        Coala.Cold( 'album/photo/list', {
             'albumid': albumid,
             'callback': function ( items, where ) {
                 var photolist = $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' )[ 0 ];
 
                 $( photolist ).empty();
 
-                alert( items.length + ' items in album' );
-
                 for ( i = 0; i < items.length; ++i ) {
                     var a = document.createElement( 'a' );
                     var img = document.createElement( 'img' );
-                    var url = items[ i ];
+                    var url = items[ i ][ 0 ];
 
                     img.src = url;
                     a.appendChild( img );
+                    $( a ).click( function ( url, title ) {
+                        return function () {
+                            title = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+                            WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + url + '" alt="' + title + '" />' );
+                            Modal.Destroy();
+                        }
+                    }( items[ i ][ 1 ], items[ i ][ 2 ] ) );
                     photolist.appendChild( a );
                 }
             },
