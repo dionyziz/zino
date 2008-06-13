@@ -201,7 +201,7 @@
 					$comments = $comments[ 2 ];
 					$finder = New NotificationFinder();
 					$notification = $finder->FindByComment( $speccomment );
-					$water->Trace( 'notification id ' . $notification->Id );
+					$water->Trace( 'notification id ' . $notification->Event->Id );
 					if ( $notification ) {
 						$water->Trace( 'deleting notification' );
 						$notification->Delete();
