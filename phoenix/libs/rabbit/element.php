@@ -54,7 +54,9 @@
 			if ( function_exists( $functionname ) ) {
                 return $functionname;
             }
-            $this->mWater->Warning( 'Element is not functional: ' . $elementpath );
+            $functions = get_defined_functions();
+            $functions = $functions[ 'user' ];
+            $this->mWater->Warning( 'Element is not functional: ' . $elementpath . '; expected function "' . $functionname . '" (last defined: "' . $functions[ count( $functions ) - 1 ] . '")' );
             return false;
         }
         public function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
