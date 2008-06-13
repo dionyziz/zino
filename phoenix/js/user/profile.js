@@ -35,7 +35,7 @@ var Profile = {
 			.end()
 			.fadeIn( 400 );
 		} );
-		Coala.Warm( 'user/relation/delete' , { relationid : relationid , theuserid : theuserid } );
+		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );
 		
 	}
 };
