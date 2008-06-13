@@ -54,7 +54,7 @@
 							}
 							?><a href="<?php
 							ob_start();
-							Element( 'url' , $comment );
+							Element( 'url', $comment );
 							echo htmlspecialchars( ob_get_clean() );
 							?>" class="itempic"><?php
 							Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 );

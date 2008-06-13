@@ -1017,7 +1017,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 						foreach ( $info[ 'args' ] as $arg ) {
 							?> <?php
 							if ( is_object( $arg ) ) {
-								?>[object]<?php
+								?>[<?php
+                                echo get_class( $arg );
+                                ?> object]<?php
 							}
 							else if ( is_null( $arg ) ) {
 								?>[null]<?php
