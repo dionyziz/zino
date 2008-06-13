@@ -78,7 +78,7 @@ var WYSIWYG = {
                         return function () {
                             title = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
                             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + url + '" alt="' + title + '" />' );
-                            Modal.Destroy();
+                            Modals.Destroy();
                         }
                     }( items[ i ][ 1 ], items[ i ][ 2 ] ) );
                     photolist.appendChild( a );
