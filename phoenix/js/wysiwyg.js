@@ -52,13 +52,14 @@ var WYSIWYG = {
             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + match[ 0 ].replace(/&/, "&amp;") + '" alt="" style="border:1px dotted blue;" /><br />' );
         }
     },
-    InsertFromAlbum: function ( target, albumid ) {
+    InsertFromAlbum: function ( target, albumid, where ) {
         Coala.Cold( 'album/photo/list', { 
             'albumid': albumid,
             'callback': function ( photolist, where ) {
                 $( where ).parents( 'div.albumlist' ).parents()[ 0 ].find( 'div.photolist' ).append( 'Hello' );
                 alert( photolist );
-            }
+            },
+            'location': where
         } );
     },
     CommandVideo: function ( target ) {
