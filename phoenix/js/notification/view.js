@@ -1,7 +1,11 @@
 var Notification = {
-	Visit : function( url , typeid , eventid ) {
-		document.location.href = url;
-		alert( 'typeid is ' + typeid + ' eventid is ' + eventid  );
+	Visit : function( url , typeid , eventid , commentid ) {
+		if ( typeid == 3 ) {
+		
+		} 
+		else {
+			document.location.href = url;
+		}
 	},
 	Delete : function( eventid ) {
 		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {

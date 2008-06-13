@@ -34,6 +34,13 @@
 			}
 			?>' , '<?php
 			echo $notif->Event->Id;
+			?>' , '<?php
+			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				echo $notif->Event->Item->Id;
+			}
+			else {
+				?>0<?php
+			}
 			?>' );"><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
 				Element( 'user/name' , $notif->FromUser , false );
@@ -67,6 +74,13 @@
 			}
 			?>' , '<?php
 			echo $notif->Event->Id;
+			?>' , '<?php
+			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				echo $notif->Event->Item->Id;
+			}
+			else {
+				?>0<?php
+			}
 			?>' );"><?php
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
