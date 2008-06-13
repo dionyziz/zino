@@ -2,13 +2,13 @@
 
 echo "CONTINUE" > ~/migrate/continue
 
-standalonesteps=( 0 1 6 8 9 10 11 12 13 14 15 )
+standalonesteps=( 0 1 6 8 9 10 11 12 13 14 17 )
 for i in "${standalonesteps[@]}"
 do
     wget "http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i" -O ~/migrate/$i.sql.gz
 done
 
-offsetsteps=( 2 3 4 5 7 )
+offsetsteps=( 2 3 4 5 7 15 16 )
 for i in "${offsetsteps[@]}"
 do
     offset=0

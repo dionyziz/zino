@@ -785,12 +785,127 @@
 		
 	}
 
-    function MigratePMs() {
-        // TODO
+    function MigratePMFolders() {
+        global $db, $pmfolders;
+        
+        $res = $db->Query(
+            "SELECT
+                `pmfolder_id`, `pmfolder_userid`, `pmfolder_name`, `pmfolder_delid`
+            FROM
+                `$pmfolders`;"
+        );
+
+        ?>TRUNCATE TABLE `pmfolders`; 
+        
+        INSERT 
+            INTO `pmfolders` ( `pmfolder_id`, `pmfolder_userid`, `pmfolder_name`, `pmfolder_delid`, `pmfolder_typeid` )
+        SELECT 
+            '', `user_id`, 'inbox', '0', 'inbox' 
+        FROM 
+            `users`; 
+        
+        INSERT
+            INTO `pmfolders` ( `pmfolder_id`, `pmfolder_userid`, `pmfolder_name`, `pmfolder_delid`, `pmfolder_typeid` )
+        SELECT
+            '', `user_id`, 'outbox', '0', 'outbox'
+        FROM
+            `users`;<?php
+
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `pmfolders` SET `pmfolder_id`=<?php
+            echo $row[ 'pmfolder_id' ];
+            ?>, `pmfolder_userid`=<?php
+            echo $row[ 'pmfolder_userid' ];
+            ?>, `pmfolder_name`=<?php
+            echo $row[ 'pmfolder_name' ];
+            ?>, `pmfolder_delid`=<?php
+            echo $row[ 'pmfolder_delid' ];
+            ?>, `pmfolder_typeid`='user';<?php
+        }
     }
 
+    function MigratePMMessages( $offset = 0, $test = false ) {
+        global $db, $pmmessages;
+
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
+            $row = $res->FetchArray();
+            if ( $offset * 5000 < $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
+
+        $res = $db->Query(
+            "SELECT
+                `pm_id`, `pm_senderid`, `pm_text`, `pm_textformatted`, `pm_date`
+            FROM
+                `$pmmessages`
+            LIMIT
+                " . $offset * 5000 . ", 5000;"
+        );
+        
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `pmmessages`;<?php
+        }
+
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `bulk` SET `bulk_text`='<?php
+            echo addslashes( $row[ 'pm_textformatted' ] );
+            ?>';INSERT INTO `pmmessages` SET `pm_id`=<?php
+            echo $row[ 'pm_id' ];
+            ?>, `pm_senderid`=<?php
+            echo $row[ 'pm_senderid' ];
+            ?>, `pm_bulkid`=LAST_INSERT_ID(), `pm_date`=<?php
+            echo $row[ 'pm_date' ];
+            ?>;<?php
+        }
+    }
+
+    function MigratePMMessageInFolder( $offset, $test = 'false' ) {
+        global $db, $pmmessageinfolder;
+
+        if ( $test ) {
+            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
+            $row = $res->FetchArray();
+            if ( $offset * 5000 < $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
+            }
+            else {
+                ?>TERMINATE<?php
+            }
+            exit();
+        }
+
+        $res = $db->Query( "
+            SELECT
+                `pmif_id`, `pmif_userid`, `pmif_folderid`, `pmif_delid`
+            FROM
+                `$pmmessageinfolder`
+            LIMIT
+                " . $offset * 5000 . ", 5000;"
+        );
+
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `pmmessageinfolder`;<?php
+        }
+
+        while ( $row = $res->FetchArray() ) {
+            ?>INSERT INTO `pmmessageinfolder` SET `pmif_pmid`=<?php
+            echo $row[ 'pmif_id' ];
+            ?>, `pmif_folderid`=<?php
+            echo $row[ 'pmif_folderid' ];
+            ?>, `pmif_delid`=<?php
+            echo $row[ 'pmif_delid' ];
+            ?>;<?php
+        }
+    }
+    
     function MigrateNotifications() {
-        // TODO
+        // No notifications migration
     }
 
     header( 'Content-type: text/html; charset=utf8' );
@@ -838,13 +953,17 @@
             break;
         case 13:
 			MigrateAnswers();
-		case 14:
-            MigratePMs();
             break;
-        case 15:
-            MigrateNotifications();
+        case 14:
+            MigratePMFolders();
+            break;
+		case 15:
+            MigratePMMessages( $offset, $test );
             break;
         case 16:
+            MigratePMMessageInFolder( $offset, $test );
+            break;
+        case 17:
             MigrateEgoAlbums();
             break;
     }
