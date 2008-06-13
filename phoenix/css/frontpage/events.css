@@ -17,7 +17,7 @@ div.list div.event div.toolbox span.time {
 	font-size: 80%;
 }
 div.list div.event div.who {
-	border-top: 1px solid #ccc !important;
+	/* border-top: 1px solid #ccc !important; */
 	display: block;
 	padding: 2px 0 2px 4px;
 	background-color: #f4f4f4;

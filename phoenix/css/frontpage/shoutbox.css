@@ -1,7 +1,7 @@
 div.shoutbox {
 	float: left;
 	padding: 10px;
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc; */
 }
 div.shoutbox div.comments {
 	width: 100%;
