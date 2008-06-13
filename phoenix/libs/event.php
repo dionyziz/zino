@@ -98,7 +98,8 @@
                 FROM
                     :events
                 WHERE
-                    `event_typeid` != :commentevent
+                    `event_typeid` != :commentevent AND
+                    `event_typeid` != :relationevent
                 GROUP BY
                     ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
                     `event_userid`,
@@ -113,6 +114,7 @@
             $query->Bind( 'mintypeid', EVENT_USERPROFILE_EDUCATION_UPDATED );
             $query->Bind( 'maxtypeid', EVENT_USERPROFILE_EYECOLOR_UPDATED );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
+            $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
@@ -185,7 +187,7 @@
                         $notif->Touserid = $this->Item->Parent->Userid;
                     }
                     else {
-                        $notif->Touserid = $this->Item->Item->Id;
+                        $notif->Touserid = $this->Item->Item->Userid;
                     }
                     $notif->Fromuserid = $this->Userid;
                     $notif->Save();
