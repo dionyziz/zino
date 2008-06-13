@@ -39,9 +39,9 @@
 				if ( $section == 'space' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=space&amp;username=<?php
+				?>><a href="<?php
 				Element( 'user/subdomain' , $theuser );
-				?>">Χώρος</a></li>
+				?>space">Χώρος</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'relations' ) {
