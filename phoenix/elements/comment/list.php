@@ -2,7 +2,7 @@
 	function ElementCommentList( $comments ) {
         global $water;
 
-        $water->Trace( 'In comments list' );
+        $water->Trace( 'In comments list: Got ' . count( $comments ) . ' comment parents' );
 
 		$stack = array();
 		for ( $i = count( $comments[ 0 ] ) - 1; $i >= 0; --$i ) {
