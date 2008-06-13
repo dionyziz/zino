@@ -139,5 +139,5 @@ div.inevents {
 }
 div.latestevents {
 	padding: 10px;
-	/* border: 1px solid #ccc; */
+	border-left: 1px solid #ccc;
 }
