@@ -56,6 +56,7 @@ var WYSIWYG = {
         var img = document.createElement( 'img' );
         
         img.src = 'http://static.zino.gr/phoenix/ajax-loader.gif';
+        img.alt = 'Φόρτωση...';
 
         $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' ).empty().append( img );
 
@@ -83,6 +84,9 @@ var WYSIWYG = {
                     }( items[ i ][ 1 ], items[ i ][ 2 ] ) );
                     photolist.appendChild( a );
                 }
+                var div = document.createElement( 'div' );
+                div.style.clear = 'both';
+                photolist.appendChild( div );
             },
             'location': where
         } );
