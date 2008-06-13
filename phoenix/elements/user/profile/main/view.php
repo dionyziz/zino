@@ -8,6 +8,26 @@
 		$libs->Load( 'notify' );
 		$libs->Load( 'relation/relation' );
 		
+		if ( $theuser->Profile->Numcomments > 0 ) {
+			$finder = New CommentFinder();
+			if ( $commentid == 0 ) {
+				$comments = $finder->FindByPage( $theuser, $offset , true );
+				$total_pages = $comments[ 0 ];
+				$comments = $comments[ 1 ];
+			}
+			else {
+				$speccomment = New Comment( $commentid );
+				$comments = $finder->FindNear( $theuser, $speccomment );
+				$total_pages = $comments[ 0 ];
+				$offset = $comments[ 1 ];
+				$comments = $comments[ 2 ];
+				$finder = New NotificationFinder();
+				$notification = $finder->FindByComment( $speccomment );
+				if ( $notification ) {
+					$notification->Delete();
+				}
+			}
+		}
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
@@ -20,7 +40,6 @@
 		if ( $user->Id == $theuser->Id ) {
 			$finder = New NotificationFinder();
 			$notifs = $finder->FindByUser( $user , 0 , 5 );
-			$water->Trace( 'notification number: ' . count( $notifs ) );
 		}
 		$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
 		$showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
@@ -161,27 +180,8 @@
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
 				if ( $theuser->Profile->Numcomments > 0 ) {
-					$finder = New CommentFinder();
-					if ( $commentid == 0 ) {
-						$comments = $finder->FindByPage( $theuser, $offset , true );
-                        $total_pages = $comments[ 0 ];
-                        $comments = $comments[ 1 ];
-					}
-					else {
-						$speccomment = New Comment( $commentid );
-						$comments = $finder->FindNear( $theuser, $speccomment );
-                        $total_pages = $comments[ 0 ];
-						$offset = $comments[ 1 ];
-						$comments = $comments[ 2 ];
-						$finder = New NotificationFinder();
-						$notification = $finder->FindByComment( $speccomment );
-						if ( $notification ) {
-							$notification->Delete();
-						}
-					}
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php
-
                         $link = '?p=user&name=' . $theuser->Name . '&offset=';
 						Element( 'pagify' , $offset , $link, $total_pages );
 
