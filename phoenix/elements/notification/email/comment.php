@@ -52,11 +52,11 @@
 
         ?> και έγραψε:
         
-        "<?php
+"<?php
         echo $comment->Text;
         ?>"
 
-        Για να απαντήσεις στο σχόλιό <?php
+Για να απαντήσεις στο σχόλιό <?php
         if ( $from->Gender == 'f' ) {
             ?>της<?php
         }
@@ -66,7 +66,7 @@
         ?> <?php
         echo $from->Name;
         ?> κάνε κλικ στον παρακάτω σύνδεσμο:
-        <?php
+<?php
         Element( 'url', $comment );
 
         Element( 'email/footer' );
