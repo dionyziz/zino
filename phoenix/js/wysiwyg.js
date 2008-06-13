@@ -56,9 +56,11 @@ var WYSIWYG = {
         Coala.Cold( 'album/photo/list', { 
             'albumid': albumid,
             'callback': function ( items, where ) {
-                var photolist = $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' );
+                var photolist = $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' )[ 0 ];
 
                 $( photolist ).empty();
+
+                alert( items.length + ' items in album' );
 
                 for ( i = 0; i < items.length; ++i ) {
                     var a = document.createElement( 'a' );
@@ -67,7 +69,7 @@ var WYSIWYG = {
 
                     img.src = url;
                     a.appendChild( img );
-                    photolist[ 0 ].appendChild( a );
+                    photolist.appendChild( a );
                 }
             },
             'location': where
