@@ -6,8 +6,8 @@
         w_assert( is_object( $target ) );
 
         switch ( get_class( $target ) ) {
-            case 'User':
-                return Element( 'user/url', $target );
+            case 'UserProfile':
+                return Element( 'user/url', $target->User );
             case 'Image':
                 echo $rabbit_settings[ 'webaddress' ];
                 ?>/?p=photo&id=<?php // do not escape this & -- we're in plaintext mode; use output buffering in your caller if you want to htmlspecialchars()
