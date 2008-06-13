@@ -69,7 +69,7 @@
 		
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Bulk = $this->HasOne( 'Bulk', 'Bulkdid' );
+			$this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
 		}
 		
 		public function OnBeforeDelete() {
