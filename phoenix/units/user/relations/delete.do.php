@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitUserRelationsDelete( tInteger $relationid , tInteger $theuserid ) {
+	function UnitUserRelationDelete( tInteger $relationid , tInteger $theuserid ) {
 		global $user;
 		
 		$relation = New FriendRelation( $relationid->Get() );
