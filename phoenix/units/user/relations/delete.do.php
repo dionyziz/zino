@@ -2,7 +2,9 @@
 	
 	function UnitUserRelationsDelete( tInteger $relationid , tInteger $theuserid ) {
 		global $user;
+		global $libs;
 		
+		$libs->Load( 'relation/relation' );
 		$relation = New FriendRelation( $relationid->Get() );
 		
 		if ( $relation->Exists() ) {
