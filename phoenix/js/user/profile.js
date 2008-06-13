@@ -21,7 +21,7 @@ var Profile = {
 			.end()
 			.fadeIn( 400 )		
 		} );
-		//Coala.Warm( 'user/relations/new' , { userid : userid } );
+		Coala.Warm( 'user/relations/new' , { userid : userid } );
 	},
 	DeleteFriend : function( relationid , theuserid ) {
 		$( 'div.sidebar div.basicinfo div.deletefriend a' ).fadeOut( 400 , function() {
@@ -35,6 +35,7 @@ var Profile = {
 			.end()
 			.fadeIn( 400 );
 		} );
+		Coala.Warm( 'user/relation/delete' , { relationid : relationid , theuserid : theuserid } );
 		
 	}
 };

@@ -14,6 +14,12 @@
 				$relation->Friendid = $theuser->Id;
 				$relation->Typeid = 3;
 				$relation->Save();
+				?>$( 'div.sidebar div.basicinfo div.deletefriend a' ).click( function( relationid ) {
+					Profile.DeleteFriend( '<?php
+					echo $relation->Id;
+					?>' );
+					return false;
+				} );<?php
 			}
 		}
 	}
