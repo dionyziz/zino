@@ -1,6 +1,6 @@
 <?php
     // Content-type: text/plain
-    function ElementsImageURL( Image $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
+    function ElementImageURL( Image $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
         global $xc_settings;
 
 		if ( !is_object( $image ) ) {
