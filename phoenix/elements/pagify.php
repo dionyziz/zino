@@ -8,8 +8,8 @@
     function ElementPagify( $offset, $link, $total_pages ) {
         global $water;
 
+        $water->Trace( "Pagify: $offset, $link, $total_pages" );
     	if ( $offset > $total_pages || $offset < 0 || $total_pages < 2 ) {
-            $water->Trace( "Pagify: $offset, $link, $total_pages" );
             $water->Trace( "No need for pagify. Stopping." );
     		return;	
 		}
