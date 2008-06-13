@@ -6,18 +6,17 @@ var Notification = {
 				Notification.Delete( eventid );
 			}
 			else {
-				//alert( url );
 				document.location.href = url;
 			}
 		} 
 		else {
-			document.location.href = url;
+			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : true } );
 		}
 	},
 	Delete : function( eventid ) {
 		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {
 			$( this ).remove();
 		} );
-		Coala.Warm( 'notification/delete' , { eventid : eventid } );
+		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 	}
 };

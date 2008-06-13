@@ -115,9 +115,7 @@
 					<div class="eof"></div><?php
 				}
 				else {
-					?><a href="<?php
-					Element( 'user/url' , $notif->FromUser );
-					?>">Προβολή προφίλ&raquo;</a><?php
+					?>Προβολή προφίλ&raquo;<?php
 				}
 				?><div class="eof"></div>
 			</div>
