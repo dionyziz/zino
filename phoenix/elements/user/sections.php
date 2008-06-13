@@ -40,16 +40,16 @@
 					?> class="selected"<?php
 				}
 				?>><a href="<?php
-				Element( 'user/subdomain' , $theuser );
+				Element( 'user/url' , $theuser );
 				?>space">Χώρος</a></li>
 				<li>·</li>
 				<li<?php
 				if ( $section == 'relations' ) {
 					?> class="selected"<?php
 				}
-				?>><a href="?p=friends&amp;username=<?php
-				Element( 'user/subdomain' , $theuser );
-				?>">Φίλοι</a></li>
+				?>><a href="<?php
+				Element( 'user/url' , $theuser );
+				?>friends">Φίλοι</a></li>
 			</ul>
 		</div><?php
 	}
