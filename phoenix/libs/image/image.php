@@ -176,6 +176,14 @@
             ++$this->Numcomments;
 		    return $this->Save();
 		}
+        public function OnCommentDelee() {
+            if ( $this->Albumid ) {
+                $this->Album->OnCommentDelete();
+            }
+
+            --$this->Numcomments;
+            return $this->Save();
+        }
         public function AddPageview() {
             ++$this->Pageviews;
             return $this->Save();
