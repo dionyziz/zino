@@ -4,7 +4,7 @@
 		global $user;
 		global $libs;
 		
-		$libs->Load( 'notification' );
+		$libs->Load( 'notify' );
 		$eventid = $eventid->Get();
 		$notif = New Notification( $eventid->Get() );
 		
