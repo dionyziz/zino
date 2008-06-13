@@ -17,6 +17,9 @@ var Notification = {
 		$( 'div#' + eventid ).animate( { opacity : "0" , height : "0" } , function() {
 			$( this ).remove();
 		} );
+		if ( $( 'div.notifications div.list div.event' ).length == 0 ) {
+			$( 'div.notifications' ).remove();
+		}
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 	}
 };
