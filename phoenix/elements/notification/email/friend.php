@@ -50,7 +50,7 @@
         echo $from->Name;
         ?> κάνε κλικ στον παρακάτω σύνδεσμο:
         
-        <?php
+<?php
         Element( 'user/url', $from );
 
         Element( 'email/footer' );
