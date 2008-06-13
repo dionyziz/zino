@@ -15,11 +15,6 @@
 	$event->Save();
 	*/
 
-    global $libs;
-
-    $libs->Load( 'comment' );
-    $libs->Load( 'relation/relation' );
-    
 	function Event_Types() {
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
@@ -165,6 +160,10 @@
 
 		public function Relations() {
 			global $water;
+            global $libs;
+
+            $libs->Load( 'comment' );
+            $libs->Load( 'relation/relation' );
 
             if ( $this->Exists() ) {
     			$model = Event_ModelByType( $this->Typeid );
