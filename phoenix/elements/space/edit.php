@@ -10,9 +10,9 @@
 			<h2>Επεξεργασία χώρου</h2>
 			<div class="edit">
 				<form method="post" action="do/space/edit" onsubmit="return Space.Edit();">
-					<div class="wysiwyg" id="wysiwyg"><?php
-						echo $user->Space->Text;
-					?></div>
+					<?php
+                        Element( 'wysiwyg/view', 'wysiwyg', $user->Space->Text );
+					?>
 					<div class="submit">
 						<input type="submit" value="Δημοσίευση" />
 					</div>
