@@ -17,6 +17,7 @@
 
     global $libs;
 
+    $libs->Load( 'comment' );
     $libs->Load( 'relation/relation' );
     
 	function Event_Types() {
