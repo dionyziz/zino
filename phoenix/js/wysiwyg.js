@@ -57,7 +57,7 @@ var WYSIWYG = {
         
         img.src = 'http://static.zino.gr/phoenix/ajax-loader.gif';
 
-        $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' )[ 0 ].empty().append( img );
+        $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' ).empty().append( img );
 
         Coala.Cold( 'album/photo/list', {
             'albumid': albumid,
