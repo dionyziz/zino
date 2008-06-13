@@ -6,11 +6,7 @@
 	total_pages: the total pages of the entity
 	*/
     function ElementPagify( $offset, $link, $total_pages ) {
-        global $water;
-
-        $water->Trace( "Pagify: $offset, $link, $total_pages" );
-    	if ( $offset > $total_pages || $offset < 0 || $total_pages < 2 ) {
-            $water->Trace( "No need for pagify. Stopping." );
+    	if ( $offset > $total_pages || $offset < 0 ) {
     		return;	
 		}
 		
