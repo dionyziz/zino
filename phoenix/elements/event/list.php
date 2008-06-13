@@ -40,11 +40,6 @@
                             break;
                         }
 						$eventlist = $info[ $event->User->Id ][ $type ];
-						echo( 'eventlist count is ' . count( $eventlist ) );
-						foreach( $eventlist as $test ) {
-							//echo "event user id " . $test->User->Id;
-							echo "<br /> type is " . $test->Typeid;
-						}
 						$visited[ $event->User->Id ][ $type ] = true;
 						?><div class="event">
 							<div class="toolbox">
@@ -101,8 +96,9 @@
 									case EVENT_JOURNAL_CREATED:
 										$helper = array();
 										foreach ( $eventlist as $i => $one ) {
-											echo "i is " . $i . "<br />";
-											$helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
+                                            if ( $one->Item->Exists() ) {
+    											$helper[ $i ] =  '<a href="?p=journal&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Title ) . '</a>';
+                                            }
 										}
 										echo( 'num ' . count( $helper ) );
 										echo implode( ', ' , $helper );
