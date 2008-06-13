@@ -53,7 +53,7 @@
 					}
 				}
 				else {
-					?>σε πρόσθεσε στους φίλους:<?php
+					?> σε πρόσθεσε στους φίλους:<?php
 				}
 			?></div>
 			<div class="subject" onclick="Notification.Visit( '<?php
@@ -115,7 +115,9 @@
 					<div class="eof"></div><?php
 				}
 				else {
-				
+					?><a href="<?php
+					Element( 'user/url' , $notif->FromUser );
+					?>">Προβολή προφίλ&raquo;</a><?php
 				}
 				?><div class="eof"></div>
 			</div>

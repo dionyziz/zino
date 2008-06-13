@@ -6,7 +6,8 @@ var Notification = {
 				window.location.hash = 'comment_' + commentid;
 			}
 			else {
-				document.location.href = '?commentid=' + commentid + '#comment_' + commentid;
+				alert( url );
+				document.location.href = url;
 			}
 		} 
 		else {
