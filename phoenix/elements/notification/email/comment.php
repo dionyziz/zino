@@ -36,7 +36,7 @@
                         ?>"<?php
                     }
                     break;
-                case TYPE_USER:
+                case TYPE_USERPROFILE:
                     ?>στο προφίλ σου<?php
                     break;
                 case TYPE_POLL:

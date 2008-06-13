@@ -163,13 +163,13 @@
 				if ( $theuser->Profile->Numcomments > 0 ) {
 					$finder = New CommentFinder();
 					if ( $commentid == 0 ) {
-						$comments = $finder->FindByPage( $theuser->Profile , $offset , true );
+						$comments = $finder->FindByPage( $theuser, $offset , true );
                         $total_pages = $comments[ 0 ];
                         $comments = $comments[ 1 ];
 					}
 					else {
 						$speccomment = New Comment( $commentid );
-						$comments = $finder->FindNear( $theuser->Profile , $speccomment );
+						$comments = $finder->FindNear( $theuser, $speccomment );
                         $total_pages = $comments[ 0 ];
 						$offset = $comments[ 1 ];
 						$comments = $comments[ 2 ];

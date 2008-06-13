@@ -44,9 +44,9 @@
 							?></a><?php
 							break;
 						case TYPE_USERPROFILE:
-							$temp = New User( $comment->Item->Userid );
+							$user = $comment->Item;
 							?>στο προφίλ <?php
-							if ( $temp->Gender == 'f' ) {
+							if ( $user->Gender == 'f' ) {
 								?>της <?php
 							}
 							else {
@@ -57,7 +57,7 @@
 							Element( 'url' , $comment );
 							echo htmlspecialchars( ob_get_clean() );
 							?>" class="itempic"><?php
-							Element( 'user/avatar' , $temp , IMAGE_CROPPED_100x100 );
+							Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 );
 							?></a><?php
 							break;
 						case TYPE_JOURNAL:
