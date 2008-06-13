@@ -15,6 +15,9 @@
         $user->Space->Text = $result;
 		$user->Space->Save();
 
-		return Redirect( '?p=space&subdomain=' . $user->Subdomain );
+        ob_start();
+        Element( 'user/url', $user, true );
+
+		return Redirect( ob_get_clean() . 'space' );
 	}
 ?>
