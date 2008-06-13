@@ -8,6 +8,7 @@
 		
 		$libs->Load( 'comment' );
 		$libs->Load( 'favourite' );
+		$libs->Load( 'notify' );
 		$id = $id->Get();
 		$commentid = $commentid->Get();
 		$offset = $offset->Get();
@@ -198,13 +199,18 @@
                     $total_pages = $comments[ 0 ];
 					$offset = $comments[ 1 ];
 					$comments = $comments[ 2 ];
+					$finder = New NotificationFinder();
+					$notification = $finder->FindByComment( $speccomment );
+					$water->Trace( 'notification id ' . $notification->Id );
+					if ( $notification ) {
+						$water->Trace( 'deleting notification' );
+						$notification->Delete();
+					}
 				}
 				Element( 'comment/list' , $comments );
 				?><div class="pagifycomments"><?php
-
                     $link = '?p=photo&id=' . $image->Id . '&offset=';
 					Element( 'pagify', $offset, $link, $total_pages );
-
 				?></div><?php
 			}
 			?></div>
