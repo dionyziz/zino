@@ -2,7 +2,7 @@ var Notification = {
 	Visit : function( url , typeid , eventid , commentid ) {
 		alert( 'typeid is ' + typeid + ' eventid is ' + eventid + ' commentid is ' + commentid );
 		if ( typeid == 3 ) {
-			if ( $( 'comment_' + commentid )[ 0 ] ) {
+			if ( $( '#comment_' + commentid )[ 0 ] ) {
 				window.location.hash = 'comment_' + commentid;
 			}
 			else {
