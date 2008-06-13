@@ -77,7 +77,30 @@
         }
         
         public function TestFindAll() {
-            
+            $q1 = New Question();
+            $q1->Userid = $this->mUser->Id;
+            $q1->Text = 'When?';
+            $q1->Save();
+
+            $q2 = New Question();
+            $q2->Userid = $this->mUser2->Id;
+            $q2->Text = 'How?';
+            $q2->Save();
+
+            $finder = New QuestionFinder();
+            $questions = $finder->FindAll();
+            $this->AssertEquals( 2, count( $questions ), 'Returned questions from QuestionFinder::FindAll not match' );
+
+            $num_texts = 0;
+            foreach( $questions as $key => $q ) {
+                if ( array_search( $q->Text, array( 'When?', 'How?' ) ) == true ) {
+                    ++$num_texts;
+                }
+            }
+            $this->AssertEquals( 2, $num_texts, 'Questions returned texts from finder not match' );
+
+            $q1->Delete();
+            $q2->Delete();
         }
         
         public function TestFindNewQuestion() {
