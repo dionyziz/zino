@@ -80,6 +80,7 @@ var WYSIWYG = {
                             title = title.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
                             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + url + '" alt="' + title + '" />' );
                             Modals.Destroy();
+                            return false;
                         }
                     }( items[ i ][ 1 ], items[ i ][ 2 ] ) );
                     photolist.appendChild( a );
