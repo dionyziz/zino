@@ -30,5 +30,11 @@
         public function IsDeleted() {
             return $this->Delid != 0;
         }
+        public function GetNameaccusative() {
+            if ( empty( $this->mCurrentValues[ 'Nameaccusative' ] ) ) {
+                return $this->Name;
+            }
+            return $this->mCurrentValues[ 'Nameaccusative' ];
+        }
 	}
 ?>

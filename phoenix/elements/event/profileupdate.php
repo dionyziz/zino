@@ -100,7 +100,7 @@
                     break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
                     ?>είναι από <?php
-                    echo htmlspecialchars( $one->User->Profile->Location->Name );
+                    echo htmlspecialchars( $one->User->Profile->Location->Nameaccusative );
                     break;
                 case EVENT_USERPROFILE_HEIGHT_UPDATED:
                     ?>είναι <?php
