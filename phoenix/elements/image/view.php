@@ -3,20 +3,11 @@
 		global $xc_settings;
 		global $rabbit_settings;
 
-
 		if ( !is_object( $image ) ) {
-			$url = $xc_settings[ 'staticimagesurl' ] . $image;
             list( $width, $height ) = explode( 'x', $type );
 		}
 		else {
-			if ( !$image->IsDeleted() ) {
-				$url = $xc_settings[ 'imagesurl' ] . $image->Userid . '/';
-                if ( !$rabbit_settings[ 'production' ] ) {
-                    $url .= '_';
-                }
-                $url .= $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
-			}
-            else {
+			if ( $image->IsDeleted() ) {
                 return;
             }
             switch ( $type ) {
@@ -43,7 +34,7 @@
             }
 		}
 		?><img src="<?php
-		echo $url;
+        Element( 'image/url', $image, $type );
 		?>"<?php
 		if ( $class != "" ) {
 			?> class="<?php

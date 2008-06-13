@@ -9,7 +9,9 @@
 
         $images = array();
         foreach ( $album->Images as $image ) {
-            $images[] = array( $image->Id, $image->Userid );
+            ob_start();
+            Element( 'image/url', $image, IMAGE_CROPPED_100x100 );
+            $images[] = ob_get_clean();
         }
 
         echo $callback;

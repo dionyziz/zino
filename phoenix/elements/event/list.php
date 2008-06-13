@@ -94,7 +94,7 @@
 											?><a href="?p=photo&amp;id=<?php
 											echo $one->Item->Id;
 											?>"><?php
-											Element( 'image' , $one->Item , IMAGE_CROPPED_100x100 , '' , $one->User->Name , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 );
+											Element( 'image/view' , $one->Item , IMAGE_CROPPED_100x100 , '' , $one->User->Name , $one->User->Name , 'margin-right:3px;' , false , 0 , 0 );
 											?></a><?php
 										}
 										break;

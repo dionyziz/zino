@@ -125,7 +125,7 @@
 			}
 			?><div class="eof"></div>
 			<div class="thephoto"><?php
-				Element( 'image' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
+				Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
 			?></div><?php
 			if ( $image->Album->Numphotos > 1 ) {
 				?><div class="photothumbs"><?php
@@ -162,19 +162,19 @@
 								?><li><span><a href="?p=photo&amp;id=<?php
 								echo $photos[ $i ]->Id;
 								?>"><?php
-								Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
+								Element( 'image/view' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
 								?></a></span></li><?php
 							}
 						}
 						?><li class="selected"><?php
-							Element( 'image' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
+							Element( 'image/view' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
 						?></li><?php
 						if ( $pivot < 12 ) {						
 							for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
 								?><li><span><a href="?p=photo&amp;id=<?php
 								echo $photos[ $i ]->Id;
 								?>"><?php
-								Element( 'image' , $photos[ $i ] , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
+								Element( 'image/view' , $photos[ $i ] , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
 								?></a></span></li><?php
 							}
 						}

@@ -43,7 +43,7 @@
                         echo $album->Id;
                         ?>, this);return false;">
                         <?php
-                        Element( 'image', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
+                        Element( 'image/view', New Image( $album->Mainimage ), IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
                         ?><br /><?php
                         echo htmlspecialchars( $title );
                         ?></a>

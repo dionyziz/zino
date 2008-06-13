@@ -1,0 +1,19 @@
+<?php
+    // Content-type: text/plain
+    function ElementsImageURL( Image $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
+        global $xc_settings;
+
+		if ( !is_object( $image ) ) {
+			echo $xc_settings[ 'staticimagesurl' ] . $image;
+            return;
+		}
+        if ( $image->IsDeleted() ) {
+            return;
+        }
+        echo $xc_settings[ 'imagesurl' ] . $image->Userid . '/';
+        if ( !$rabbit_settings[ 'production' ] ) {
+            echo '_';
+        }
+        echo $image->Id . '/' . $image->Id . '_' . $type . '.jpg';
+    }
+?>
