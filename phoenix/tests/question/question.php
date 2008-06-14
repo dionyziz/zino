@@ -134,7 +134,7 @@
             
             // Answer should not exist for $question
             $answer = New Answer( $this->mUser->Id, $question->Id );
-            $this->AssertFalse( $answer, 'Question must not have an answer' );
+            $this->AssertFalse( $answer->Exists(), 'Question must not have an answer' );
         }
 
 
