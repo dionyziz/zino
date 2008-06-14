@@ -18,7 +18,7 @@
 			<div class="subject">
 				<p><span class="text">"<?php
 					$text = $comment->GetText( 35 );
-					echo trim( utf8_substr( $text , 0 , 30 ) );
+					echo htmlspecialchars( trim( utf8_substr( $text , 0 , 30 ) ) );
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
