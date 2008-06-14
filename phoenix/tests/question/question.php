@@ -97,7 +97,7 @@
                 }
             }
             // This is due to delid of tables questions
-            $this->Assert( $num_texts >= count( $questions ), 'Questions returned texts from finder not match' );
+            $this->Assert( count( $questions ) >= $num_texts, 'Questions returned texts from finder not match' );
 
             $q1->Delete();
             $q2->Delete();
