@@ -79,21 +79,20 @@
         public function TestFindAll() {
             $q1 = New Question();
             $q1->Userid = $this->mUser->Id;
-            $q1->Text = 'When?';
+            $q1->Text = 'TestQuestionWhen?';
             $q1->Save();
 
             $q2 = New Question();
             $q2->Userid = $this->mUser2->Id;
-            $q2->Text = 'How?';
+            $q2->Text = 'TestQuestionHow?';
             $q2->Save();
 
             $finder = New QuestionFinder();
             $questions = $finder->FindAll();
-            $this->AssertEquals( 2, count( $questions ), 'Returned questions from QuestionFinder::FindAll not match' );
 
             $num_texts = 0;
             foreach( $questions as $key => $q ) {
-                if ( in_array( $q->Text, array( 'When?', 'How?' ) ) ) {
+                if ( in_array( $q->Text, array( 'TestQuestionWhen?', 'TestQuestionHow?' ) ) ) {
                     ++$num_texts;
                 }
             }
