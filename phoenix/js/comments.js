@@ -162,7 +162,9 @@ var Comments = {
 	},
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
 		Comments.numchildren[ nodeid ] = -1;
-		--Comments.numchildren[ parentid ];
+		if ( parentid !== 0 ) {
+			--Comments.numchildren[ parentid ];
+		}
 		if ( Comments.numchildren[ parentid] != 0 || !show ) {
 			return;
 		}
