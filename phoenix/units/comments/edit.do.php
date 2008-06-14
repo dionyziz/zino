@@ -1,6 +1,7 @@
 <?php
 	function UnitCommentsEdit( tInteger $id, tString $text ) {
 		global $libs;
+		global $user;
 		
 		$libs->Load( 'comment' );
 		
