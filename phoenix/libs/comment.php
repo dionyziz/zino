@@ -120,6 +120,8 @@
     }
 
 	function Comments_OnPage( $comments, $page, $reverse = true ) {
+        global $water;
+
         --$page; /* start from 0 */
 
         $comments_dump = array();
@@ -127,11 +129,15 @@
             $comments_dump[ $comment->Id ] = $comment->Parentid;
         }
 
+        $water->Trace( 'comments on page', $comments_dump );
+
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
         $parents_dump = array();
         foreach ( $parents as $comment ) {
             $parents_dump[] = $comment->Id;
         }
+
+        $water->Trace( 'comment parents on page', $parents_dump );
 
 		$page_total = 0;
 		$page_num = 0;
@@ -160,6 +166,8 @@
         }
 
         $page_nums[] = $page_total;
+
+        $water->Trace( "comment page nums", $page_nums );
 
 		return array( Comments_CountPages( $comments, $parents ), $parented );
 	}
