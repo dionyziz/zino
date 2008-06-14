@@ -96,7 +96,7 @@
                     ++$num_texts;
                 }
             }
-            // This is due to delid of tables questions
+            // This is due to delid of tables questions and prior database entries
             $this->Assert( count( $questions ) >= $num_texts, 'Questions returned texts from finder not match' );
 
             $q1->Delete();

@@ -74,6 +74,12 @@
         
         
         public function TestFindAll() {
+            
+            // Find all answers in datatabase
+            $finder = New AnswerFinder();
+            $database_answers = $finder->FindAll();
+            
+            
             $a1 = New Answer();
             $a1->Userid = $this->mUser->Id;
             $a1->Questionid = $this->mQuestion->Id;
@@ -96,8 +102,8 @@
                 }
             }
             
-            $this->AssertEquals( 2, count( $answers ), 'Total Answers returned by AnswerFinder::FindAll not match' );
-            $this->AssertEquals( 2, $num_texts, 'Answers texts returned by AnswerFinder::FindAll not match' );
+            $this->AssertEquals( $database_answers + 2, count( $answers ), 'Total Answers returned by AnswerFinder::FindAll not match' );
+            $this->Assert( count( $answers ) >= $num_texts, 'Answers texts returned by AnswerFinder::FindAll not match' );
 
             $a1->Delete();
             $a2->Delete();
