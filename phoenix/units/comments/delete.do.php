@@ -39,7 +39,7 @@
 		echo $parent->Id;
 		?>, <?php
 		if ( $parent->Id == $user->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
-			echo "ok";
+			echo "'ok'";
 		}
 		else {
 			echo "'no'";
