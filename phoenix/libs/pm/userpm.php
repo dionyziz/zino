@@ -48,6 +48,9 @@
         public function Read() {
             $this->Delid = USERPM_READ;
             $this->Save();
+
+            --$this->User->Count->Unreadpms;
+            $this->User->Count->Save();
         }
         protected function BeforeDelete() {
             $this->Delid = USERPM_DELETED;

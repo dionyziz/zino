@@ -64,7 +64,7 @@
             $prototype->Typeid = $typeid;
             $prototype->Delid = 0;
 
-            $ret = $this->FindByPrototype( $prototype, $offset, $limit );
+            $ret = $this->FindByPrototype( $prototype, $offset, $limit, $order = array( 'Typeid', 'DESC' ) );
             if ( $typeid != PMFOLDER_USER ) { // unique
                 return $ret[ 0 ];
             }

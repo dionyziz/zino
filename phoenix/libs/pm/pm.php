@@ -52,6 +52,9 @@
                 $upm->Folderid = $receiversinbox[ $receiver->Id ]->Id;
                 $upm->Delid = USERPM_UNREAD;
                 $upm->Save();
+
+                ++$receiver->Count->Unreadpms;
+                $receiver->Count->Save();
             }
             
             w_assert( is_object( $this->Sender ), 'sender is not an object' );
