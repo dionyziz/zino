@@ -34,14 +34,14 @@
 			LEFT JOIN :answers 
 				ON question_id = answer_questionid AND answer_userid = :userid 
 			WHERE
-				answer_id = NULL
+				answer_userid = NULL
 			ORDER BY RAND()
 			LIMIT :limit;
 			');
 			$query->BindTable( 'questions' );
 			$query->BindTable( 'answers' );
-			$query->Bind( ':userid', $user->Id );
-			$query->Bind( ':limit', 1 );
+			$query->Bind( 'userid', $user->Id );
+			$query->Bind( 'limit', 1 );
 			return $this->FindBySqlResource( $query->Execute() );
 		}
 		
