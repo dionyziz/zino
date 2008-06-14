@@ -42,7 +42,9 @@
 			$query->BindTable( 'answers' );
 			$query->Bind( 'userid', $user->Id );
 			$query->Bind( 'limit', 1 );
-			return $this->FindBySqlResource( $query->Execute() );
+			
+			$q = $this->FindBySqlResource( $query->Execute() );
+			return $q[0];
 		}
 		
 		public function FindNewQuestion( User $user, $exp = 1.2 ) {
