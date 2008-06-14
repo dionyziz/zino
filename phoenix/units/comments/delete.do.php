@@ -38,7 +38,7 @@
 		?>, <?php
 		echo $parent->Id;
 		?>, <?php
-		echo ( $parent->Id == $userid );
+		echo ( $parent->Id == $user->Id );
 		?> );<?php
 	}	
 /*
