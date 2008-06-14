@@ -158,7 +158,7 @@ var Comments = {
 							} );
 	},
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
-		Comments.numchildren.splice( nodeid, 1 );
+		Comments.numchildren.[ nodeid ] = -1;
 		--Comments.numchildren[ parentid ];
 		if ( Comments.numchildren[ parentid ] != 0 || !show ) {
 			return;
