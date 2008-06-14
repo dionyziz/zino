@@ -36,7 +36,7 @@
 		?>( <?php
 		echo $commentid;
 		?>, <?php
-		echo ( empty( $parent->Id )?$parent->Id:0 );
+		echo ( empty( $parent->Id )?0:$parent->Id );
 		?>, <?php
 		if ( $parent->Userid == $user->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
 			echo "true";
