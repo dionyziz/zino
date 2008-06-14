@@ -121,8 +121,8 @@
             
             // Answer q1
             $a = New Answer();
-            $a->Userid = $this->mUser;
-            $a->Questionid = $q1;
+            $a->Userid = $this->mUser->Id;
+            $a->Questionid = $q1->Id;
             $a->Text = 'TestAnswerNow';
             $a->Save();
             
