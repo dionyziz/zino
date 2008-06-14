@@ -102,7 +102,7 @@
                 }
             }
             
-            $this->AssertEquals( $database_answers + 2, count( $answers ), 'Total Answers returned by AnswerFinder::FindAll not match' );
+            $this->AssertEquals( count( $database_answers ) + 2, count( $answers ), 'Total Answers returned by AnswerFinder::FindAll not match' );
             $this->Assert( count( $answers ) >= $num_texts, 'Answers texts returned by AnswerFinder::FindAll not match' );
 
             $a1->Delete();
