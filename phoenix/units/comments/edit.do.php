@@ -6,6 +6,7 @@
 		
 		$id = $id->Get();
 		$text = $text->Get();
+		$text = trim( $text );
 		
 		if ( $text == '' ) {
 			?>alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );

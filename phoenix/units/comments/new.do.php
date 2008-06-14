@@ -6,6 +6,7 @@
 		$libs->Load( 'comment' );
 		
 		$text = $text->Get();
+		$text = trim( $text );
 		
 		if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 			?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php

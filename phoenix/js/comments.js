@@ -8,6 +8,7 @@ var Comments = {
 		else {
 			texter = $( "#comment_reply_" + parentid + " div.text textarea" ).get( 0 ).value;
 		}
+		texter = jQuery.trim( texter );
 		if ( texter === "" ) {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
@@ -113,6 +114,7 @@ var Comments = {
 		input.onclick = function() {
 					var daddy = $( this ).parents().eq(2); // get big div
 					var texter = daddy.find( "div.text textarea" ).get( 0 ).value;
+					texter = jQuery.trim( texter );
 					if ( texter === '' ) {
 						alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 						return;
