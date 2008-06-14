@@ -38,7 +38,12 @@
 		?>, <?php
 		echo $parent->Id;
 		?>, <?php
-		echo ( $parent->Id == $user->Id ?"true":"false" );
+		if ( $parent->Id == $user->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) {
+			echo "true";
+		}
+		else {
+			echo "false";
+		}
 		?> );<?php
 	}	
 /*
