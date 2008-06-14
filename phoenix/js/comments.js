@@ -1,4 +1,5 @@
 var Comments = {
+	numchildren : new Object(),
 	Create : function( parentid ) {
 		var texter;
 		if ( parentid === 0 ) { // Clear new comment message
