@@ -88,6 +88,7 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
+		temp.find( "div.text textarea" ).get( 0 ).focus();
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
@@ -149,6 +150,7 @@ var Comments = {
 		node.find( "div.text" ).empty().append( textarea ).end()
 		.find( "div.bottom" ).css( 'display', 'none' ).end()
 		.append( div );
+		node.find( "div.text textarea" ).get( 0 ).focus();
 	}, 
 	Delete : function( nodeid, parentid ) {
 		var node = $( "#comment_" + nodeid );
