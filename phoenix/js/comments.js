@@ -172,7 +172,7 @@ var Comments = {
 			};
 		a.title = "Διαγραφή";
 		
-		$( '#comment_' + parentid + " div.toolbox" ).appendChild( a );
+		$( '#comment_' + parentid + " div.toolbox" ).append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
