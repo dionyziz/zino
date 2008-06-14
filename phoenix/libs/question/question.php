@@ -46,7 +46,7 @@
 		}
 		
 		public function FindNewQuestion( User $user, $exp = 1.2 ) {
-			if( pow( $exp, $user->Count->Comments ) > $user->Count->AnsweredQuestions ) {
+			if( pow( $exp, $user->Count->Comments ) > $user->Count->Answers ) {
 				return $this->FindRandomByUser( $user );
 			}
 		}
