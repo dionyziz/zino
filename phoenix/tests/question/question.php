@@ -109,7 +109,7 @@
 
         public function SetUp() {
             global $libs;
-            $libs->Load( 'user' );
+            $libs->Load( 'user/user' );
             
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testquestions' );
