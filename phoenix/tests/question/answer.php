@@ -69,7 +69,7 @@
             $answer->Save();
             $answer->Delete();
             
-            $this->Assert( $answer->IsDeleted(), 'Answer must be deleted on Delete method called' );    
+            $this->Assert( $answer->Exists(), 'Answer must be deleted on Delete method called' );    
         }
         
         
