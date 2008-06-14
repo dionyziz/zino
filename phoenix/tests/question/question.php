@@ -103,13 +103,45 @@
         }
         
         public function TestFindNewQuestion() {
+            $q = New Question();
+            $q->Userid = $this->mUser->Id;
+            $q->Text = 'TestQuestionWhat?';
+            $q->Save();
             
+            $q1 = New Question();
+            $q1->Userid = $this->mUser->Id;
+            $q1->Text = 'TestQuestionWhen?';
+            $q1->Save();
+
+            $q2 = New Question();
+            $q2->Userid = $this->mUser2->Id;
+            $q2->Text = 'TestQuestionHow?';
+            $q2->Save();
+            
+            // Answer q1
+            $a = New Answer();
+            $a->User = $this->mUser;
+            $a->Question = $q1;
+            $a->Text = 'TestAnswerNow';
+            $a->Save();
+            
+            $finder = New QuestionFinder();
+            $question = $finder->FindNewQuestion( $this->mUser );
+            
+            $this->Assert( $question->Exists(), 'Question is not an existing question' );
+            $this->AssertFalse( $question->IsDeleted(), 'Question must not be deleted' );    
+            $this->AssertEquals( $this->mUser->Id, $question->Userid, 'Question returned by QuestionFinder::FindNewQuestion must be for this user' );
+            
+            // Answer should not exist for $question
+            $answer = New Answer( $this->mUser->Id, $question->Id );
+            $this->AssertFalse( $answer, 'Question must not have an answer' );
         }
 
 
         public function SetUp() {
             global $libs;
             $libs->Load( 'user/user' );
+            $libs->Load( 'question/answer' );
             
             $ufinder = New UserFinder();
             $user = $ufinder->FindByName( 'testquestions' );
@@ -137,9 +169,15 @@
         }
         
         public function TearDown() {
+            
             if ( is_object( $this->mUser ) ) {
                 $this->mUser->Delete();
             }
+            
+            if ( is_object( $this->mUser2 ) ) {
+                $this->mUser2->Delete();
+            }
+            
         }
     }
 
