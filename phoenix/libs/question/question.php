@@ -32,7 +32,7 @@
 			FROM 
 				:questions
 			LEFT JOIN :answers 
-				ON ( question_id = answer_questionid AND answer_userid = :userid )
+				ON question_id = answer_questionid AND answer_userid = :userid 
 			WHERE
 				answer_id = NULL
 			ORDER BY RAND()
