@@ -176,7 +176,7 @@
             ++$this->Numcomments;
 		    return $this->Save();
 		}
-        public function OnCommentDelee() {
+        public function OnCommentDelete() {
             if ( $this->Albumid ) {
                 $this->Album->OnCommentDelete();
             }
