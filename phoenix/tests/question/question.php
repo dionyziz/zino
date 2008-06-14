@@ -120,7 +120,7 @@
             
             // Answer q1
             $a = New Answer();
-            $a->User = $this->mUser;
+            $a->Userid = $this->mUser;
             $a->Questionid = $q1;
             $a->Text = 'TestAnswerNow';
             $a->Save();
