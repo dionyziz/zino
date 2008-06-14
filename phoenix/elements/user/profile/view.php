@@ -5,7 +5,7 @@
 		global $user;
 		global $water;
 		
-		$water->Disable();
+		// $water->Disable();
 		$commentid = $commentid->Get();
 		$offset = $offset->Get();
 		$name = $name->Get();
