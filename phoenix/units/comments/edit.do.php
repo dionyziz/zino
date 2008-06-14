@@ -26,7 +26,7 @@
 			window.location.reload();<?php
 			return;
 		}
-		if ( time()-strtotime( $comment->Created ) < 900 && !$user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ) ) {
+		if ( time()-strtotime( $comment->Created ) > 900 && !$user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ) ) {
 			?>alert( "Έχει περάσει ένα τέταρτο από τη στιγμή που δημιουργήθηκε το σχόλιο αυτό" );
 			window.location.reload();<?php
 			return;
