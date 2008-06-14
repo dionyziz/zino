@@ -42,7 +42,7 @@
 			echo "ok";
 		}
 		else {
-			echo "no";
+			echo "'no'";
 		}
 		?> );<?php
 	}	
