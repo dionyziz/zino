@@ -2,6 +2,7 @@
 	function ElementCommentList( $comments ) {
         global $water;
         global $page;
+        global $user;
 
         $water->Trace( 'In comments list: Got ' . count( $comments ) . ' comment parents and ' . count( $comments[ 0 ] ) . ' root comments' );
 		$jsarr = "Comments.numchildren = { ";
@@ -26,7 +27,9 @@
 		}
 		$jsarr = substr( $jsarr, 0, -2);
 		$jsarr .= " };";
-		$page->AttachInlineScript( $jsarr );
+		if ( $user->Id > 0 ) {
+			$page->AttachInlineScript( $jsarr );
+		}
 	}
 /*
 	function ElementCommentList( $comments , $root , $indent ) {
