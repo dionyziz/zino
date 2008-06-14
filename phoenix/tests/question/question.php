@@ -129,7 +129,7 @@
             $finder = New QuestionFinder();
             $question = $finder->FindNewQuestion( $this->mUser );
             
-            $this->Assert( $question->Exists(), 'Question is not an existing question' );
+            $this->Assert( !is_object( $question ), 'Question return by QuestionFinder::FindNewQuestion is not an object' );
             $this->AssertFalse( $question->IsDeleted(), 'Question must not be deleted' );    
             $this->AssertEquals( $this->mUser->Id, $question->Userid, 'Question returned by QuestionFinder::FindNewQuestion must be for this user' );
             
