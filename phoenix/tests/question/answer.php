@@ -27,8 +27,8 @@
             $answer1 = New Answer( $answer->Userid, $answer->Questionid );
             
             $this->Assert( $answer1->Exists(), 'Answer must exist after save' );
-            $this->AssertEquals( $this->mUser->Id, $answer->Userid, 'Answer userid did not retain its attribute values after saving' );
-            $this->AssertEquals( $this->mQuestion->Id, $answer->Questionid, 'Answer questionid did not retain its attribute values after saving' );
+            $this->AssertEquals( $this->mUser->Id, $answer1->Userid, 'Answer userid did not retain its attribute values after saving' );
+            $this->AssertEquals( $this->mQuestion->Id, $answer1->Questionid, 'Answer questionid did not retain its attribute values after saving' );
             $this->AssertEquals( 'TestAnswer', $answer1->Text, 'Answer text did not retain its attribute values after saving' );
             
             $answer->Delete();
@@ -69,7 +69,7 @@
             $answer->Save();
             $answer->Delete();
             
-            $this->Assert( $answer->Exists(), 'Answer must be deleted on Delete method called' );    
+            $this->AssertFalse( $answer->Exists(), 'Answer must be deleted on Delete method called' );    
         }
         
         
@@ -142,6 +142,9 @@
             $this->mUser->Save();
             
             $this->mQuestion = New Question();
+            $this->mQuestion->Userid = $this->mUser->Id;
+            $this->mQuestion->Delid = 0;
+            $this->mQuestion->Save();
                         
         }
 
