@@ -47,7 +47,6 @@ var Comments = {
 		
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
-		
 		Coala.Warm( 'comments/new', { 	text : texter, 
 										parent : parentid,
 										compage : temp.find( "#item:first" ).text(),
@@ -61,6 +60,11 @@ var Comments = {
 											 );
 	},
 	NewCommentCallback : function( node, id, parentid ) {
+		if ( parentid !== 0 ) {
+			++Comments.numchildren[ parentid ];
+		}
+		Comments.numchildren[ id ] = 0;
+	
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).toggle( function() {
@@ -146,13 +150,28 @@ var Comments = {
 	Delete : function( nodeid, parentid ) {
 		var node = $( "#comment_" + nodeid );
 		node.fadeOut( 450, function() { $( this ).remove(); } );
-		//if ( parentid != 0 ) {
-		//	$( "#comment_" + parentid ).find( "
 		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
-		Coala.Warm( 'comments/delete', { commentid : nodeid }, function() {
+		Coala.Warm( 'comments/delete', { commentid : nodeid, 
+										callback : Comments.DeleteCommentCallback }, function() {
 									alert( 'Υπήρχε κάποιο πρόβλημα με την διαγραφή σχολίου, παρακαλώ προσπαθήστε ξανά' );
 									window.location.reload();
 							} );
+	},
+	DeleteCommentCallback : function( nodeid, parentid, show ) {
+		Comments.numchildren.splice( nodeid, 1 );
+		--Comments.numchildren[ parentid ];
+		if ( Comments.numchildren[ parentid ] != 0 || !show ) {
+			return;
+		}
+		
+		var a = document.createElement( 'a' );
+		a.onclick = function() { 
+				Comments.Delete( parentid );
+				return false;
+			};
+		a.title = "Διαγραφή";
+		
+		$( '#comment_' + parentid + " div.toolbox" ).appendChild( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal

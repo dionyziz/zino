@@ -1,5 +1,5 @@
 <?php
-	function UnitCommentsDelete( tInteger $commentid ) {
+	function UnitCommentsDelete( tInteger $commentid, tCoalaPointer $callback ) {
 		global $user;
 		global $libs;
 		
@@ -29,7 +29,17 @@
 			window.location.reload();<?php
 			return;
 		}
+		$parent = $comment->Parent;
 		$comment->Delete();
+		
+		echo $callback;
+		?>( <?php
+		echo $commentid;
+		?>, <?php
+		echo $parent->Id;
+		?>, <?php
+		echo ( $parent->Id == $userid );
+		?> );<?php
 	}	
 /*
 	function UnitCommentsDelete( tInteger $commentid ) {
