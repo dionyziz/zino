@@ -25,23 +25,12 @@
                 array_push( $stack, array( $comments[ $root ][ $i ], $indent + 1 ) );
             }
 		}
-		$jsarr = substr( $jsarr, 0, -2);
+		if ( strlen( $jsarr ) != 25 ) { // page without comments
+			$jsarr = substr( $jsarr, 0, -2);
+		}
 		$jsarr .= " };";
 		if ( $user->Id > 0 ) {
 			$page->AttachInlineScript( $jsarr );
 		}
 	}
-/*
-	function ElementCommentList( $comments , $root , $indent ) {
-        global $water;
-
-		if ( !isset( $comments[ $root ] ) ) {
-			return;
-		}
-		foreach( $comments[ $root ] as $comment ) {
-			Element( 'comment/view' , $comment , $indent , isset( $comments[ $comment->Id ] ) ? count( $comments[ $comment->Id ] ) : 0 );
-			Element( 'comment/list' , $comments , $comment->Id , $indent + 1 ); //Recursion
-		}
-	}
-	*/
 ?>
