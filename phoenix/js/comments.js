@@ -160,7 +160,8 @@ var Comments = {
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
 		Comments.numchildren[ nodeid ] = -1;
 		--Comments.numchildren[ parentid ];
-		if ( Comments.numchildren[ parentid ] != 0 || !show ) {
+		if ( Comments.numchildren[ parentid] != 0 || !show ) {
+			alert( Comments.numchildren[ parentid] + " " + show );
 			return;
 		}
 		
