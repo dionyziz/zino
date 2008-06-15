@@ -82,8 +82,10 @@ div.header ul li a.profile img {
     border: 1px solid #eee;
 }
 div.header ul li a.register {
-	background-image: url('http://static.zino.gr/phoenix/bookmark_toolbar.png');
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -400px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
+	_background-position: 0 0;
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
