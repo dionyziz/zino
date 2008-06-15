@@ -130,7 +130,6 @@
         public function OnBeforeCreate() {
             global $water;
 
-            die( $this->Touserid . " != " . $this->Fromuserid );
             if ( $this->Touserid == $this->Fromuserid ) {
                 return false;
             }
@@ -155,7 +154,7 @@
                 }
                 return false;
             }
-            $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
+            // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
 
             return true;
         }
