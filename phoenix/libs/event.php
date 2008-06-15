@@ -187,7 +187,7 @@
                         $notif->Touserid = $this->Item->Parent->Userid;
                     }
                     else {
-                        $notif->Touserid = $this->Item->Item->Id;
+                        $notif->Touserid = $this->Item->Item->Userid;
                     }
                     $notif->Fromuserid = $this->Userid;
                     $notif->Save();
