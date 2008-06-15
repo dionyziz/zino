@@ -13,7 +13,6 @@
 				?></a></li><?php
 			}
 			if ( $egoalbum->Numphotos > 8 ) {
-				die( 'over 8' );
 				?><li><a href="?p=album&amp;id=<?php
 				echo $egoalbum->Id;
 				?>" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a></li><?php

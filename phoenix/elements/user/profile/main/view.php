@@ -78,7 +78,6 @@
 			}
 			?>><?php
 				if ( $egoalbum->Numphotos > 0 ) {
-					echo "egoalbum numphotos are " . $egoalbum->Numphotos . "<br />";
 					Element( 'user/profile/main/photos' , $images , $egoalbum );
 				}
 				else {
