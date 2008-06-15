@@ -21,7 +21,7 @@
 	$libs->Load( 'question/answer' );
     
     function User_Valid( $username ) {
-        return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,49}$#', $username );
+        return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username );
     }
 	function User_DeriveSubdomain( $username ) {
 		/* RFC 1034 - They must start with a letter, 
