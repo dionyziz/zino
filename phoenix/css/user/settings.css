@@ -25,16 +25,19 @@ div.settings div.sidebar div span.saved {
     vertical-align: middle;
 }
 div.settings div.sidebar a.backtoprofile {
-    background-image: url('http://static.zino.gr/phoenix/forward22.png');
-    background-repeat: no-repeat;
     margin: 10px;
-    background-position: right;
     display: block;
     height: 30px;
     line-height: 30px;
     border: 1px solid #ccf;
     font-weight: bold;
     text-align: center;
+}
+div.settings div.sidebar a.backtoprofile span {
+	background-image: url('http://static.zino.gr/phoenix/forward22.png');
+    background-repeat: no-repeat;
+	float: right;
+	padding-left: 22px;
 }
 div.settings div.sidebar ol {
     list-style: none;

@@ -19,6 +19,6 @@
 		</div>
 		<a class="backtoprofile button" style="padding-top:0;padding-bottom:0;" href="<?php
 		Element( 'user/url' , $user );
-		?>">Επιστροφή στο προφίλ</a><?php
+		?>">Επιστροφή στο προφίλ<span></span></a><?php
 	}
 ?>
