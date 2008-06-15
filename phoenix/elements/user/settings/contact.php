@@ -14,6 +14,7 @@
 					echo $rabbit_settings[ "imagesurl" ];
 					?>exclamation.png" /> Το email δεν είναι έγκυρο
 				</span>
+                <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
 			</div>
 		</div>
 		<div class="barfade">
