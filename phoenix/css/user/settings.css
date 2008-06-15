@@ -69,20 +69,25 @@ div.settings div.sidebar ol li a {
     border-bottom: 1px solid #eef;
     display: block;
 }
-div.settings div.sidebar ol li.personal a {
+div.settings div.sidebar ol li.personal a span{
     background-image: url('http://static.zino.gr/phoenix/info.png');
+	background-repeat: no-repeat;
 }
-div.settings div.sidebar ol li.characteristics a {
+div.settings div.sidebar ol li.characteristics a span {
     background-image: url('http://static.zino.gr/phoenix/bookmark.png');
+	background-repeat: no-repeat;
 }
-div.settings div.sidebar ol li.interests a {
+div.settings div.sidebar ol li.interests a span {
     background-image: url('http://static.zino.gr/phoenix/idea.png');
+	background-repeat: no-repeat;
 }
-div.settings div.sidebar ol li.contact a {
+div.settings div.sidebar ol li.contact a span {
     background-image: url('http://static.zino.gr/phoenix/kontact_mail.png');
+	background-repeat: no-repeat;
 }
-div.settings div.sidebar ol li.settings a {
+div.settings div.sidebar ol li.settings a span {
     background-image: url('http://static.zino.gr/phoenix/gear.png');
+	background-repeat: no-repeat;
 }
 div.settings div.tabs {
     margin-right: 350px;

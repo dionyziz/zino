@@ -4,11 +4,11 @@
 		global $user;
 		
 		?><ol id="settingslist">
-			<li class="personal"><a href="" onclick="Settings.SwitchSettings( 'personal' );return false;">Πληροφορίες</a></li>
-			<li class="characteristics"><a href="" onclick="Settings.SwitchSettings( 'characteristics' );return false;">Χαρακτηριστικά</a></li>
-			<li class="interests"><a href="" onclick="Settings.SwitchSettings( 'interests' );return false;">Ενδιαφέροντα</a></li>
-			<li class="contact"><a href="" onclick="Settings.SwitchSettings( 'contact' );return false;">Επικοινωνία</a></li>
-			<li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false;">Ρυθμίσεις</a></li>
+			<li class="personal"><a href="" onclick="Settings.SwitchSettings( 'personal' );return false;"><span></span>Πληροφορίες</a></li>
+			<li class="characteristics"><a href="" onclick="Settings.SwitchSettings( 'characteristics' );return false;"><span></span>Χαρακτηριστικά</a></li>
+			<li class="interests"><a href="" onclick="Settings.SwitchSettings( 'interests' );return false;"><span></span>Ενδιαφέροντα</a></li>
+			<li class="contact"><a href="" onclick="Settings.SwitchSettings( 'contact' );return false;"><span></span>Επικοινωνία</a></li>
+			<li class="settings"><a href="" onclick="Settings.SwitchSettings( 'settings' );return false;"><span></span>Ρυθμίσεις</a></li>
 		</ol>
 		<div>
 			<span class="saving"><img src="<?php
