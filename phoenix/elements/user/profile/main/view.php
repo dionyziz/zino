@@ -41,6 +41,7 @@
 			$finder = New NotificationFinder();
 			$notifs = $finder->FindByUser( $user , 0 , 5 );
 		}
+		$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 5 ) ) > 5;
 		$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
 		$showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
 		//show avatar upload only if there are no notifications
@@ -159,6 +160,19 @@
 					}	
 				?></div>
 				<div class="barfade">
+					<div class="leftbar"></div>
+					<div class="rightbar"></div>
+				</div><?php
+			}
+			if ( $showspace ) {
+				if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
+					echo $theuser->Space->GetText( 100 );
+				}
+				else {
+					?>Δεν έχεις επεξεργαστεί τον χώρο σου ακόμα. Κάνε click στο παρακάτω link για να τον επεξεργαστείς.
+					<a href="?p=editspace">Επεξεργασία χώρου</a><?php
+				}
+				?><div class="barfade">
 					<div class="leftbar"></div>
 					<div class="rightbar"></div>
 				</div><?php
