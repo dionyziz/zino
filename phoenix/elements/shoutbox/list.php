@@ -5,10 +5,14 @@ function ElementShoutboxList( tInteger $offset ) {
 
     $offset = $offset->Get();
 
+    if ( $offset <= 0 ) {
+        $offset = 1;
+    }
+
     $libs->Load( 'shoutbox' );
 
     $finder = New ShoutboxFinder();
-    $shouts = $finder->FindLatest( $offset , 20 )
+    $shouts = $finder->FindLatest( 20 * ( $offset - 1 ), 20 )
     ?><div class="shoutbox">
         <h2>Συζήτηση</h2>
         <div class="comments"><?php
