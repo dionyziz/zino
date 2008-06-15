@@ -94,6 +94,8 @@
 				}
 				else {
 					?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
+					echo $notif->Event->Id;
+					?>' , '<?php
 					echo $notif->FromUser->Id;
 					?>' );return false;">Πρόσθεσέ τ<?php
 					if ( $notif->FromUser->Gender == 'f' ) {

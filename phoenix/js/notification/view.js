@@ -22,5 +22,16 @@ var Notification = {
 			}
 		} );
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+	},
+	AddFriend : function( eventid , theuserid ) {
+		$( 'div.notifications div.list div.event div.subject div.addfriend a' )
+		.fadeOut( 400 , function() {
+			$( this )
+			.parent()
+			.empty()
+			.append( document.createTextNode( 'Έγινε προσθήκη' ) );
+		} );
+		Coala.Warm( 'notification/addfriend' , { userid : theuserid } );
+		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 	}
 };
