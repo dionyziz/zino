@@ -802,8 +802,7 @@
 			?>', '<?php
 			echo $row[ 'profile_date' ];
 			?>'); '<?php
-		}
-		
+		}		
 	}
 
     function MigratePMFolders() {

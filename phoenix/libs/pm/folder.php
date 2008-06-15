@@ -70,7 +70,7 @@
             }
             return $ret;
         }
-        public function FindByUser( $user, $offset, $limit = 100 ) {
+        public function FindByUser( $user, $offset = 0, $limit = 100 ) {
             $prototype = New PMFolder();
             $prototype->Userid = $user->Id;
             $prototype->Delid = 0;
