@@ -5,6 +5,9 @@
         $water->Notice( 'The multibyte extension is not available; you might not be able to utf8_substr() properly! ' );
     }
     
+    function utf8_strlen( $string ) {
+        return mb_strlen( $string, 'UTF-8' );
+    }
 	function utf8_substr( $string, $start, $len ) {
 		return mb_substr( $string, $start, $len, 'UTF-8' );
 	}
