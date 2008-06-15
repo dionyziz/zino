@@ -3,7 +3,6 @@
 	function ElementUserProfileMainPhotos( $images , $egoalbum ) {
 		global $water;
 		
-		//$die( 'egoalbum numphotos are ' . $egoalbum->Numphotos );
 		?><ul><?php
 			foreach( $images as $image ) {
 				?><li><a href="?p=photo&amp;id=<?php
