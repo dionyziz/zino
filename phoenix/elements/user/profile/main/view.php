@@ -124,9 +124,9 @@
 						?><div class="nopolls">
 						Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
 						με τις δημοσκοπήσεις και να δημιουργήσεις μια.
-						<div><a href="?p=polls&amp;username=<?php
-						echo $user->Subdomain;
-						?>">Δημοσκοπήσεις</a>
+						<div><a href="<?php
+						Element( 'user/url' , $theuser );
+						?>polls">Δημοσκοπήσεις</a>
 						</div>
 						</div><?php
 					} 
@@ -136,7 +136,7 @@
 						?></div>
 						<a href="<?php
 						Element( 'user/url' , $theuser );
-						?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
+						?>polls" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
 					}
 				?></div><?php
 			}
