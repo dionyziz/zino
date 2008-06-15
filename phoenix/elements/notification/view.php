@@ -16,32 +16,21 @@
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>delete.png" /></a>
 			</div>
-			<div class="who" onclick="Notification.Visit( '<?php
+			<div class="who"<?php
 			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?> onclick="Notification.Visit( '<?php
 				ob_start();
 				Element( 'url' , $notif->Item );
 				echo htmlspecialchars( ob_get_clean() );
-			}
-			else {
-				Element( 'user/url' , $notif->FromUser );
-			}
-			?>' , '<?php
-			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?>' , '<?php
 				echo $notif->Event->Item->Typeid;
-			}
-			else {
-				?>0<?php
-			}
-			?>' , '<?php
-			echo $notif->Event->Id;
-			?>' , '<?php
-			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?>' , '<?php
+				echo $notif->Event->Id;
+				?>' , '<?php
 				echo $notif->Event->Item->Id;
+				?>' );"<?php
 			}
-			else {
-				?>0<?php
-			}
-			?>' );"><?php
+			?>><?php
 				Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
 				Element( 'user/name' , $notif->FromUser , false );
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
@@ -56,32 +45,21 @@
 					?> σε πρόσθεσε στους φίλους:<?php
 				}
 			?></div>
-			<div class="subject" onclick="Notification.Visit( '<?php
+			<div class="subject"<?php
 			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?> onclick="Notification.Visit( '<?php
 				ob_start();
 				Element( 'url' , $notif->Item );
 				echo htmlspecialchars( ob_get_clean() );
-			}
-			else {
-				Element( 'user/url' , $notif->FromUser );
-			}
-			?>' , '<?php
-			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?>' , '<?php
 				echo $notif->Event->Item->Typeid;
-			}
-			else {
-				?>0<?php
-			}
-			?>' , '<?php
-			echo $notif->Event->Id;
-			?>' , '<?php
-			if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+				?>' , '<?php
+				echo $notif->Event->Id;
+				?>' , '<?php
 				echo $notif->Event->Item->Id;
+				?>' );"<?php
 			}
-			else {
-				?>0<?php
-			}
-			?>' );"><?php
+			?>><?php
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
