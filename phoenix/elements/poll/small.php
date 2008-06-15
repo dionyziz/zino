@@ -67,7 +67,9 @@
 							?>pollinfo2<?php
 						}
 						?>">
-							<dd><a href=""><?php
+							<dd><a href="?p=poll&amp;id=<?php
+							echo $poll->Id;
+							?>"><?php
 							echo $poll->Numcomments;
 							?> σχόλι<?php
 							if ( $poll->Numcomments == 1 ) {
