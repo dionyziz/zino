@@ -78,6 +78,11 @@
 			}
 			?>><?php
 				if ( $egoalbum->Numphotos > 0 ) {
+					if ( $egoalbum->Numphotos > 8 ) {
+						?><div><a href="?p=album&amp;id=<?php
+						echo $egoalbum->Id;
+						?>" class="button" title="Περισσότερες φωτογραφίες">&raquo;</a></div><?php
+					}
 					Element( 'user/profile/main/photos' , $images , $egoalbum );
 				}
 				else {
