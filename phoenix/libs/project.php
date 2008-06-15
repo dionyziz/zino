@@ -92,7 +92,8 @@
             'developer/dionyziz/user' => 'developer/dionyziz/user',
             'masscomments'      => 'developer/abresas/masscomments',
             'a'                 => 'user/invalid',
-            'pms'               => 'pm/list'
+            'pms'               => 'pm/list',
+            'shoutbox'          => 'shoutbox/list',
     	);
     }
 ?>
