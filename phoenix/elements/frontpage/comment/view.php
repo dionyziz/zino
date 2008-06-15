@@ -71,11 +71,6 @@
 							break;
 					}?>
 				</p>
-				<a href="<?php
-				ob_start();
-				Element( 'url' , $comment );
-				echo htmlspecialchars( ob_get_clean() );
-				?>" class="viewcom">Προβολή σχολίου&raquo;</a>
 			</div>
 		</div><?php
 	}
