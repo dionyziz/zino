@@ -11,8 +11,13 @@ var Profile = {
 	},
 	AddFriend : function( userid ) {
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
-			$( this ).empty().append( document.createTextNode( 'Διαγραφή από τους φίλους' ) ).click( function() {
-				Profile.DeleteFriend( 0 );
+			$( this )
+			.css( 'opacity' , '0' )
+			.css( 'display' , 'block' )
+			.empty()
+			.append( document.createTextNode( 'Διαγραφή από τους φίλους' ) )
+			.click( function() {
+				return false;
 			} );
 			$( this )
 			.parent()
@@ -23,7 +28,12 @@ var Profile = {
 	},
 	DeleteFriend : function( relationid , theuserid ) {
 		$( 'div.sidebar div.basicinfo div.deletefriend a' ).fadeOut( 400 , function() {
-			$( this ).empty().append( document.createTextNode( 'Προσθήκη στους φίλους' ) ).click( function() {
+			$( this )
+			.css( 'opacity' , '0' )
+			.css( 'display' , 'block' )
+			.empty()
+			.append( document.createTextNode( 'Προσθήκη στους φίλους' ) )
+			.click( function() {
 				return false;
 			} );
 			$( this )
