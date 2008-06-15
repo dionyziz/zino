@@ -101,7 +101,7 @@ div.settings div.sidebar ol li.settings a span {
     background-image: url('http://static.zino.gr/phoenix/gear.png');
 	background-repeat: no-repeat;
 	margin-left: -30px; 
-	padding-left: 0 0 22px 22px; 
+	padding: 0 0 22px 22px; 
 	float: left;
 }
 div.settings div.tabs {
