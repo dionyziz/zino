@@ -2,7 +2,7 @@
 
 	function ElementUserSettingsPersonalPolitics( $selected , $gender ) {
 		?><select><?php
-			$politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'nothing' );
+			$politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'center left', 'center right', 'nothing' );
 			foreach ( $politics as $politic ) {
 				?><option value="<?php
 				echo $politic;

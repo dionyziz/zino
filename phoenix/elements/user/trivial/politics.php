@@ -9,6 +9,8 @@
 					'center' => 'Κεντρώος',
 					'radical left' => 'Ακροαριστερός',
 					'radical right' => 'Ακροδεξιός',
+					'center left' => 'Κεντροαριστερός',
+					'center right' => 'Κεντροδεξιός',
 					'nothing' => 'Τίποτα'
 			);
 		}
@@ -20,6 +22,8 @@
 					'center' => 'Κεντρώα',
 					'radical left' => 'Ακροαριστερή',
 					'radical right' => 'Ακροδεξιά',
+					'center left' => 'Κεντροαριστερή',
+					'center right' => 'Κεντροδεξιά',
 					'nothing' => 'Τίποτα'
 			);
 		}
