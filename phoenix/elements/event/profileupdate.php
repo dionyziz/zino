@@ -86,7 +86,9 @@
                     ?>έγραψε για τον εαυτό <?php
                     echo $self;
                     ?> "<?php
-                    echo htmlspecialchars( utf8_substr( $one->User->Profile->Aboutme , 0 , 20 ) );
+					$aboutme = $one->User->Profile->Aboutme;
+					//if $aboutme is over 20 chars show 3 dots TODO
+                    echo htmlspecialchars( utf8_substr( $aboutme , 0 , 20 ) );
                     ?>"<?php
                     break;
                 case EVENT_USERPROFILE_MOOD_UPDATED:

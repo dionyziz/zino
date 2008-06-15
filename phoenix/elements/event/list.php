@@ -103,13 +103,13 @@
 										echo implode( ', ' , $helper );
 										break;
 									case EVENT_POLL_CREATED:
+										$helper = array();
 										foreach ( $eventlist as $one ) {
-											?><a href="?p=poll&amp;id=<?php
-											echo $one->Item->Id;
-											?>"><?php
-											echo htmlspecialchars( $one->Item->Question );
-											?></a><?php
+											if ( $one->Item->Exists() ) {
+												$helper[ $i ] = '<a href="?p=poll&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Question ) . '</a>';
+											}
 										}
+										echo implode( ', ' , $helper );
 										break;
 									case EVENT_USERSPACE_UPDATED:
 										?><a href="?p=space&amp;subdomain=<?php

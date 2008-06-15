@@ -4,7 +4,7 @@
 		?><div class="usersections">
 			<a href="<?php
 				Element( 'user/url' , $theuser );
-				?>s"><?php
+				?>"><?php
 				Element( 'user/avatar' , $theuser , 150 , '' , '' );
 				?><span class="name"><?php
 				echo $theuser->Name;
