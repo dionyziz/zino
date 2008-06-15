@@ -18,8 +18,7 @@ var Profile = {
 			.click( function() {
 				return false;
 			} );
-			$( this )
-			.parent()
+			$( $( this )[ 0 ].parentNode )
 			.removeClass( 'addfriend' )
 			.addClass( 'deletefriend' );	
 		} );
@@ -34,8 +33,7 @@ var Profile = {
 			.click( function() {
 				return false;
 			} );
-			$( this )
-			.parent()
+			$( $( this )[ 0 ].parentNode )
 			.removeClass( 'deletefriend' )
 			.addClass( 'addfriend' );
 		} );
