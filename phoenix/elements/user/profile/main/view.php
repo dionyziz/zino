@@ -154,7 +154,7 @@
 					}
 					else {
 						Element( 'journal/small' , $journals[ 0 ] );
-						?><a href="?p=journals&amp;username=<?php
+						?><a href="?p=journals&amp;subdomain=<?php
 						echo $theuser->Subdomain;
 						?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
 					}	
@@ -167,8 +167,15 @@
 			if ( $showspace ) {
 				?><div class="space">
 					<h3>Χώρος</h3><?php
+					$showtext = $theuser->Space->GetText( 100 );
 					if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
-						echo $theuser->Space->GetText( 100 );
+						echo $showtext;
+						if ( strlen( $theuser->Space->GetText( 101 ) ) > strlen( $showtext ) ) {
+							?>...<?php
+						}
+						?><br /><a href="?p=space&amp;subdomain=<?php
+						echo $theuser->Subdomain;
+						?>" class="button">Προβολή χώρου&raquo;</a><?php
 					}
 					else {
 						?><div class="nospace">
