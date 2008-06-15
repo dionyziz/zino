@@ -316,4 +316,6 @@ div.settings div.tabs form#settingsinfo div.setting table tbody tr th {
 }
 div.settings div.explanation {
     color: #aaa;
+    font-size: 90%;
+    margin-top: 10px;
 }
