@@ -38,6 +38,5 @@
 		?>, <?php
 		echo $parent;
 		?> );<?php
-		
 	}
 ?>
