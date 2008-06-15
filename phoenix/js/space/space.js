@@ -1,13 +1,3 @@
-var Space = {
-	Edit : function() {
-		var text = WYSIWYG.ByName.text.getContents();
-		if ( text.length < 5 ) {
-			alert( "Δε μπορείς να έχεις κενό χώρο" );
-			return false;
-		}
-		return true;
-	}
-};
 $( document ).ready( function() {
 	if ( $( '#editspace' )[ 0 ] ) {
         WYSIWYG.Create( document.getElementById( 'wysiwyg' ), 'text', [
