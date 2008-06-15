@@ -95,7 +95,14 @@
 				else {
 					?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
 					echo $notif->FromUser->Id;
-					?>' );return false;">Προσθήκη στους φίλους</a></div>
+					?>' );return false;">Πρόσθεσέ τ<?php
+					if ( $notif->FromUser->Gender == 'f' ) {
+						?>η<?php
+					}
+					else {
+						?>o<?php
+					}
+					?>ν στους φίλους</a></div>
 					<div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
 					Element( 'user/url' , $notif->FromUser );
 					?>' , '0' , '<?php
