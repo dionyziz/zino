@@ -41,7 +41,7 @@
 			$finder = New NotificationFinder();
 			$notifs = $finder->FindByUser( $user , 0 , 5 );
 		}
-		$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 4;
+		$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
 		$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
 		$showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
 		//show avatar upload only if there are no notifications
@@ -168,7 +168,7 @@
 				?><div class="space">
 					<h3>Χώρος</h3><?php
 					$showtext = $theuser->Space->GetText( 100 );
-					if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
+					if ( strlen( $theuser->Space->GetText( 5 ) ) > 0 ) {
 						?><div><?php
 						echo $showtext;
 						if ( strlen( $theuser->Space->GetText( 101 ) ) > strlen( $showtext ) ) {
@@ -181,7 +181,7 @@
 					else {
 						?><div class="nospace">
 							Δεν έχεις επεξεργαστεί τον χώρο σου ακόμα. Κάνε click στο παρακάτω link για να τον επεξεργαστείς.
-							<a href="?p=editspace">Επεξεργασία χώρου</a>
+							<br /><a href="?p=editspace">Επεξεργασία χώρου</a>
 						</div><?php
 					}
 				?></div>
