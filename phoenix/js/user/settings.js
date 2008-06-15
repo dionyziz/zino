@@ -93,6 +93,9 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
+		else {
+			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
+		}
 	},
 	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
