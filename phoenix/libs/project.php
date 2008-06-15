@@ -60,7 +60,6 @@
         // For example $p = register matches with the user/new file.
     	return array(
     		""                 	=> "frontpage/view",
-			"comment"			=> "comment/test",
             "bennu"             => "bennu",
 			"user"			    => "user/profile/view",
 			"settings"			=> "user/settings/view",
