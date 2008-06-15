@@ -287,6 +287,10 @@ div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 div#profile div.main div.photos {
 	height: 120px;
 }
+div#profile div.main div.photos div.more {
+	float: right;
+	margin-top: 5px;
+}
 div#profile div.main div.photos ul {
 	padding: 0;
 	margin: 0;
