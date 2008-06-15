@@ -382,6 +382,13 @@ div#profile div.main div.lastjournal div.nojournals div {
 	font-weight: bold;
 	margin-top: 5px;
 }
+div#profile div.main div.space {
+	margin-bottom: 10px;
+}
+div#profile div.main div.space h3 {
+	padding: 20px 0 5px 0;
+	margin: 0;
+}
 div.comments {
 	float: left;
 	width: 90%;

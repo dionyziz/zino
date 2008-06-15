@@ -165,16 +165,21 @@
 				</div><?php
 			}
 			if ( $showspace ) {
-				if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
-					echo $theuser->Space->GetText( 100 );
-				}
-				else {
-					?>Δεν έχεις επεξεργαστεί τον χώρο σου ακόμα. Κάνε click στο παρακάτω link για να τον επεξεργαστείς.
-					<a href="?p=editspace">Επεξεργασία χώρου</a><?php
-				}
-				?><div class="barfade">
-					<div class="leftbar"></div>
-					<div class="rightbar"></div>
+				?><div class="space">
+					<h3>Χώρος</h3><?php
+					if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
+						echo $theuser->Space->GetText( 100 );
+					}
+					else {
+						?><div class="nospace">
+							Δεν έχεις επεξεργαστεί τον χώρο σου ακόμα. Κάνε click στο παρακάτω link για να τον επεξεργαστείς.
+							<a href="?p=editspace">Επεξεργασία χώρου</a>
+						</div><?php
+					}
+				?></div>
+				<div class="barfade">
+						<div class="leftbar"></div>
+						<div class="rightbar"></div>
 				</div><?php
 			}
 			?><div class="comments">
