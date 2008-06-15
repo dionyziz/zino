@@ -15,6 +15,7 @@
 				$relation->Typeid = 3;
 				$relation->Save();
 				?>$( 'div.sidebar div.basicinfo div.deletefriend a' )
+				.css( 'display' , 'block' )
 				.fadeIn( 400 )
 				.click( function( relationid ) {
 					Profile.DeleteFriend( '<?php

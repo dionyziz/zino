@@ -10,9 +10,9 @@ var Profile = {
 		} );
 	},
 	AddFriend : function( userid ) {
-		$( 'div.sidebar div.basicinfo div.addfriend a' ).fadeOut( 400 , function() {
+		$( 'div.sidebar div.basicinfo div.addfriend a' ).animate( { opacity : "0" } , 400 , function() {
 			$( this )
-			.css( 'display' , 'block' )
+			.css( 'display' , 'none' );
 			.empty()
 			.append( document.createTextNode( 'Διαγραφή από τους φίλους' ) )
 			.click( function() {
@@ -26,9 +26,9 @@ var Profile = {
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 	},
 	DeleteFriend : function( relationid , theuserid ) {
-		$( 'div.sidebar div.basicinfo div.deletefriend a' ).fadeOut( 400 , function() {
+		$( 'div.sidebar div.basicinfo div.deletefriend a' ).animate( { opacity : "0" } , 400 , function() {
 			$( this )
-			.css( 'display' , 'block' )
+			.css( 'display' , 'none' )
 			.empty()
 			.append( document.createTextNode( 'Προσθήκη στους φίλους' ) )
 			.click( function() {
