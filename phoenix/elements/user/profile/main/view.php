@@ -134,8 +134,8 @@
 						?><div class="container"><?php
 						Element( 'poll/small' , $polls[ 0 ] , true );
 						?></div>
-						<a href="?p=polls&amp;username=<?php
-						echo $theuser->Subdomain;
+						<a href="<?php
+						Element( 'user/url' , $theuser );
 						?>" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
 					}
 				?></div><?php
@@ -164,9 +164,9 @@
 					}
 					else {
 						Element( 'journal/small' , $journals[ 0 ] );
-						?><a href="?p=journals&amp;subdomain=<?php
-						echo $theuser->Subdomain;
-						?>" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
+						?><a href="<?php
+						Element( 'user/url' , $theuser );
+						?>journals" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
 					}	
 				?></div>
 				<div class="barfade">
