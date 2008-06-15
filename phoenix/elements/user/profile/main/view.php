@@ -78,7 +78,8 @@
 			}
 			?>><?php
 				if ( $egoalbum->Numphotos > 0 ) {
-					Element( 'user/profile/main/photos' , $theuser , $images , $egoalbum );
+					echo "egoalbum numphotos are " . $egoalbum->Numphotos . "<br />";
+					Element( 'user/profile/main/photos' , $images , $egoalbum );
 				}
 				else {
 					?><ul></ul><?php
@@ -167,11 +168,11 @@
 			if ( $showspace ) {
 				?><div class="space">
 					<h3>Χώρος</h3><?php
-					$showtext = $theuser->Space->GetText( 100 );
+					$showtext = $theuser->Space->GetText( 300 );
 					if ( strlen( $theuser->Space->GetText( 5 ) ) > 0 ) {
 						?><div><?php
 						echo $showtext;
-						if ( strlen( $theuser->Space->GetText( 101 ) ) > strlen( $showtext ) ) {
+						if ( strlen( $theuser->Space->GetText( 301 ) ) > strlen( $showtext ) ) {
 							?>...<?php
 						}
 						?></div><a href="?p=space&amp;subdomain=<?php

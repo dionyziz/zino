@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserProfileMainPhotos( $theuser , $images , $egoalbum ) {
+	function ElementUserProfileMainPhotos( $images , $egoalbum ) {
 		global $water;
 		
 		//$die( 'egoalbum numphotos are ' . $egoalbum->Numphotos );
