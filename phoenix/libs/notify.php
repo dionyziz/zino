@@ -129,9 +129,8 @@
         }
         public function OnBeforeCreate() {
             global $water;
-            $water->Enable(); // Izual: pwned
 
-            $water->Trace( $this->Touserid . " != " . $this->Fromuserid );
+            die( $this->Touserid . " != " . $this->Fromuserid );
             if ( $this->Touserid == $this->Fromuserid ) {
                 return false;
             }
@@ -145,7 +144,7 @@
             }
             
             $attribute = 'Notify' . $field;
-            $water->Trace( "Notify attribute", $attribute );
+            // $trace .= "Notify attribute", $attribute );
             if ( $this->ToUser->Preferences->$attribute != 'yes' ) {
                 $water->Trace( "No notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
                 if ( !is_object( $this->ToUser ) ) {
@@ -157,7 +156,6 @@
                 return false;
             }
             $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
-            $water->DebugThis();
 
             return true;
         }
