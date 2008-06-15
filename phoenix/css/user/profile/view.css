@@ -165,13 +165,16 @@ div#profile div.sidebar div.interests dl dt {
 div#profile div.sidebar div.interests dl dd {
 	display: block;
 	padding: 1px 0 5px 0;
-	margin: 0;
+	margin: 0; 
+	padding-left: 3px; 
+	float: left;
 }
 div#profile div.sidebar div.contacts {
 	padding: 4px;
 }
 div#profile div.sidebar div.contacts dl dt {
 	float: left;
+	clear: left;
 	height: 18px;
 }
 div#profile div.sidebar div.contacts dl dt.skype {
@@ -184,7 +187,6 @@ div#profile div.sidebar div.contacts dl dt.msn {
 	background-image: url( 'http://static.zino.gr/phoenix/msn.jpg' );
 	background-repeat: no-repeat;
 }
-
 div#profile div.sidebar div.contacts dl dt.gtalk {
 	padding: 0  0 16px 16px;
 	background-image: url( 'http://static.zino.gr/phoenix/gtalk.png' );
@@ -195,7 +197,6 @@ div#profile div.sidebar div.contacts dl dt.yahoo {
 	background-image: url( 'http://static.zino.gr/phoenix/yahoo.jpg' );
 	background-repeat: no-repeat;
 }
-
 div#profile div.sidebar div.contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
