@@ -30,9 +30,12 @@
 				Element( 'user/profile/sidebar/info' , $theuser );
 			?></div>
 			<div class="look">
+				<?php
+				/*
 				<img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>body-male-slim-short.jpg" alt="" /><?php
+				*/
 				Element( 'user/profile/sidebar/look' , $theuser );
 			?></div>
 			<div class="social"><?php
