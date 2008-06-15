@@ -16,7 +16,7 @@
 				$relation->Save();
 				?>$( 'div.sidebar div.basicinfo div.deletefriend a' )
 				.css( 'display' , 'block' )
-				.animate( { opacity : "0" } , 400 )
+				.animate( { opacity : "1" } , 400 )
 				.click( function( relationid ) {
 					Profile.DeleteFriend( '<?php
 					echo $relation->Id;
