@@ -85,7 +85,9 @@
 					}
 					Element( 'user/profile/main/photos' , $images , $egoalbum );
 					if ( $theuser->Count->Albums > 1 ) {
-						?><div class="viewalbums"><a href="" class="button">Προβολή albums&raquo;</a></div><?php
+						?><div class="viewalbums"><a href="<?php
+						Element( 'user/url' , $theuser );
+						?>albums" class="button">Προβολή albums&raquo;</a></div><?php
 					}
 				}
 				else {
