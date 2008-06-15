@@ -383,7 +383,8 @@ div#profile div.main div.lastjournal div.nojournals div {
 	margin-top: 5px;
 }
 div#profile div.main div.space {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 div#profile div.main div.space h3 {
 	padding: 20px 0 5px 0;
