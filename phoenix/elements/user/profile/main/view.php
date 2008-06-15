@@ -221,7 +221,6 @@
 					?><div class="pagifycomments"><?php
                         $link = '?p=user&name=' . $theuser->Name . '&offset=';
 						Element( 'pagify' , $offset , $link, $total_pages );
-
 					?></div><?php
 				}
 			?></div>
