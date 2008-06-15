@@ -8,7 +8,7 @@
 		
 		$text = $text->Get();
 		if ( $user->Exists() ) {
-			if ( $text != '' ) {
+			if ( trim ( $text ) != '' ) {
 				$shout = New Shout();
 				$shout->Text = $text;
 				$shout->Save();
