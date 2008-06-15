@@ -95,6 +95,9 @@ var Settings = {
 		}
 		else {
 			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 	},
 	RemoveInterest : function( tagid , node ) {
