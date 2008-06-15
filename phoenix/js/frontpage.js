@@ -28,7 +28,10 @@ $( document ).ready( function() {
 			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( $.trim( text ) == '' ) {
+				
 				alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
+				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
+				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].focus();
 			}
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
