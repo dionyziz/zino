@@ -3,6 +3,7 @@
 	function ElementNotificationView( $notif ) {
 		global $rabbit_settings;
 		global $libs;
+		global $user;
 		
 		$libs->Load( 'relation/relation' );
 		?><div class="event" id="<?php
