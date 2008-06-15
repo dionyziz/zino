@@ -12,7 +12,7 @@ var Profile = {
 	AddFriend : function( userid ) {
 		$( 'div.sidebar div.basicinfo div.addfriend a' ).animate( { opacity : "0" } , 400 , function() {
 			$( this )
-			.css( 'display' , 'none' );
+			.css( 'display' , 'none' )
 			.empty()
 			.append( document.createTextNode( 'Διαγραφή από τους φίλους' ) )
 			.click( function() {
