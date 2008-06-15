@@ -263,6 +263,7 @@ div#profile div.main div.notifications div.list div.event div.subject div.viewpr
 div#profile div.main div.notifications div.list div.event div.subject div.addfriend a {
 	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
 	background-repeat: no-repeat;
+	background-position: 0 -1px;
 	padding-left: 18px;
 }
 
