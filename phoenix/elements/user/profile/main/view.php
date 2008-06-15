@@ -169,12 +169,12 @@
 					<h3>Χώρος</h3><?php
 					$showtext = $theuser->Space->GetText( 100 );
 					if ( strlen( $theuser->Space->GetText( 5 ) ) > 5 ) {
-						?><span><?php
+						?><div><?php
 						echo $showtext;
 						if ( strlen( $theuser->Space->GetText( 101 ) ) > strlen( $showtext ) ) {
 							?>...<?php
 						}
-						?></span><a href="?p=space&amp;subdomain=<?php
+						?></div><a href="?p=space&amp;subdomain=<?php
 						echo $theuser->Subdomain;
 						?>" class="button">Προβολή χώρου&raquo;</a><?php
 					}
