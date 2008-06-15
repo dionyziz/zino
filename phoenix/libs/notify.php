@@ -129,7 +129,9 @@
         }
         public function OnBeforeCreate() {
             global $water;
+            $water->Enable(); // Izual: pwned
 
+            $water->Trace( $this->Touserid . " != " . $this->Fromuserid );
             if ( $this->Touserid == $this->Fromuserid ) {
                 return false;
             }
@@ -155,6 +157,7 @@
                 return false;
             }
             $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
+            $water->DebugThis();
 
             return true;
         }
