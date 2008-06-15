@@ -93,7 +93,14 @@
 					<div class="eof"></div><?php
 				}
 				else {
-					?>Προβολή προφίλ&raquo;<?php
+					?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
+					echo $notif->FromUser->Id;
+					?>' );return false;">Προσθήκη στους φίλους</a></div>
+					<div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+					Element( 'user/url' , $notif->FromUser );
+					?>' , '0' , '<?php
+					echo $notif->Event->Id;
+					?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
 				}
 				?><div class="eof"></div>
 			</div>
