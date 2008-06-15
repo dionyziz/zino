@@ -182,6 +182,7 @@
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
                     $notif = New Notification();
+                    die( 'I am notifying your mom that you wrote a comment. Bitch.' );
                     $notif->Eventid = $this->Id;
                     if ( $this->Item->Parentid > 0 ) {
                         $notif->Touserid = $this->Item->Parent->Userid;
