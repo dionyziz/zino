@@ -129,6 +129,8 @@
                 <value>center</value>
                 <value>radical left</value>
                 <value>radical right</value>
+                <value>center left</value>
+                <value>center right</value>
                 <value>nothing</value>
             </field>
             <field name="profile_aboutme" type="text" />
