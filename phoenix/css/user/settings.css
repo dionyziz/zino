@@ -37,7 +37,8 @@ div.settings div.sidebar a.backtoprofile span {
 	background-image: url('http://static.zino.gr/phoenix/forward22.png');
     background-repeat: no-repeat;
 	float: right;
-	padding-left: 22px;
+	padding: 0 0 22px 22px;
+	margin-top: -22px;
 }
 div.settings div.sidebar ol {
     list-style: none;
