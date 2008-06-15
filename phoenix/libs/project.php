@@ -8,12 +8,12 @@
         global $user;
         global $libs;
         
+        $water->Disable();
     	$libs->Load( 'magic' );
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
         $libs->Load( 'ban' );
         $libs->Load( 'types' );
-        
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
         $finder = New UserFinder();
