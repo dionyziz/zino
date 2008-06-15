@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementFrontpageShoutboxReply() {
+	function ElementShoutboxReply() {
 		global $user;
 		
 		?><div class="comment newcomment">

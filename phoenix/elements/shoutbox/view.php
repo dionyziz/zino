@@ -1,6 +1,6 @@
 <?php
 
-	function ElementFrontpageShoutboxView( $shout , $empty ) {
+	function ElementShoutboxView( $shout , $empty ) {
 		global $user;
 		
 		if ( !$empty ) {

@@ -11,12 +11,12 @@
 			<h2>Συζήτηση</h2>
 			<div class="comments"><?php
 				if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
-					Element( 'frontpage/shoutbox/reply' );
+					Element( 'shoutbox/reply' );
 				}
 				foreach ( $shouts as $shout ) {
-					Element( 'frontpage/shoutbox/view' , $shout , false );
+					Element( 'shoutbox/view' , $shout , false );
 				}
-				Element( 'frontpage/shoutbox/view'  , false , true );
+				Element( 'shoutbox/view'  , false , true );
 			?></div>
 		</div><?php
 	}
