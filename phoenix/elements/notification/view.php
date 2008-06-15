@@ -2,7 +2,9 @@
 
 	function ElementNotificationView( $notif ) {
 		global $rabbit_settings;
+		global $libs;
 		
+		$libs->Load( 'relation/relation' );
 		?><div class="event" id="<?php
 		echo $notif->Event->Id;
 		?>">
@@ -93,19 +95,23 @@
 					<div class="eof"></div><?php
 				}
 				else {
-					?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
-					echo $notif->Event->Id;
-					?>' , '<?php
-					echo $notif->FromUser->Id;
-					?>' );return false;">Πρόσθεσέ τ<?php
-					if ( $notif->FromUser->Gender == 'f' ) {
-						?>η<?php
+					$finder = New FriendRelationFinder();
+					$res = $finder->IsFriend( $user , $notif->FromUser );
+					if ( !$res ) {
+						?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
+						echo $notif->Event->Id;
+						?>' , '<?php
+						echo $notif->FromUser->Id;
+						?>' );return false;">Πρόσθεσέ τ<?php
+						if ( $notif->FromUser->Gender == 'f' ) {
+							?>η<?php
+						}
+						else {
+							?>o<?php
+						}
+						?>ν στους φίλους</a></div><?php
 					}
-					else {
-						?>o<?php
-					}
-					?>ν στους φίλους</a></div>
-					<div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+					?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
 					Element( 'user/url' , $notif->FromUser );
 					?>' , '0' , '<?php
 					echo $notif->Event->Id;
