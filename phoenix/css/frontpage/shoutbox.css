@@ -1,6 +1,8 @@
 div.shoutbox {
 	float: left;
 	padding: 10px;
+}
+div.frontpage div.shoutbox {
 	border: 1px solid #ccc;
 }
 div.shoutbox div.comments {
