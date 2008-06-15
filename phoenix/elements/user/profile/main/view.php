@@ -84,6 +84,9 @@
 						?>" class="button" title="Περισσότερες φωτογραφίες μου">&raquo;</a></div><?php
 					}
 					Element( 'user/profile/main/photos' , $images , $egoalbum );
+					if ( $theuser->Count->Albums > 2 ) {
+						?><div><a href="">Προβολή albums&raquo;</a></div><?php
+					}
 				}
 				else {
 					?><ul></ul><?php
