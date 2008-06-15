@@ -104,7 +104,7 @@
 										break;
 									case EVENT_POLL_CREATED:
 										$helper = array();
-										foreach ( $eventlist as $one ) {
+										foreach ( $eventlist as $i => $one ) {
 											if ( $one->Item->Exists() ) {
 												$helper[ $i ] = '<a href="?p=poll&amp;id=' . $one->Item->Id .'">' . htmlspecialchars( $one->Item->Question ) . '</a>';
 											}
