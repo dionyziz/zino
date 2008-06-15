@@ -170,27 +170,27 @@ div#profile div.sidebar div.interests dl dd {
 div#profile div.sidebar div.contacts {
 	padding: 4px;
 }
-div#profile div.sidebar div.contacts dt {
+div#profile div.sidebar div.contacts dl dt {
 	float: left;
 	height: 18px;
 }
-div#profile div.sidebar div.contact dt.skype {
+div#profile div.sidebar div.contact dl dt.skype {
 	padding: 0  0 16 16px;
 	background-image: url( 'http://static.zino.gr/phoenix/skype.jpg' );
 	background-repeat: no-repeat;
 }
-div#profile div.sidebar div.contact dt.msn {
+div#profile div.sidebar div.contact dl dt.msn {
 	padding: 0  0 16 16px;
 	background-image: url( 'http://static.zino.gr/phoenix/msn.jpg' );
 	background-repeat: no-repeat;
 }
 
-div#profile div.sidebar div.contact dt.gtalk {
+div#profile div.sidebar div.contact dl dt.gtalk {
 	padding: 0  0 16 16px;
 	background-image: url( 'http://static.zino.gr/phoenix/gtalk.png' );
 	background-repeat: no-repeat;
 }
-div#profile div.sidebar div.contact dt.yahoo {
+div#profile div.sidebar div.contact dl dt.yahoo {
 	padding: 0  0 16 16px;
 	background-image: url( 'http://static.zino.gr/phoenix/yahoo.jpg' );
 	background-repeat: no-repeat;
