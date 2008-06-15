@@ -32,8 +32,7 @@
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
 		$journals = $finder->FindByUser( $theuser , 0 , 1 );
-		//$egoalbum = New Album( $theuser->Egoalbumid );
-		$egoalbum = $theuser->Egoablum;
+		$egoalbum = New Album( $theuser->Egoalbumid );
 		if ( $egoalbum->Numphotos > 0 ) {
 			$finder = New ImageFinder();
 			$images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
