@@ -386,6 +386,9 @@ div#profile div.main div.space {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
+div#profile div.main div.space div {
+	margin-bottom: 20px;
+}
 div#profile div.main div.space h3 {
 	padding: 20px 0 5px 0;
 	margin: 0;
