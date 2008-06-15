@@ -50,7 +50,7 @@ $( document ).ready( function(){
 		} );
 		$( Join.username ).keydown( function( event ) {
 			if ( Join.usernameerror ) {
-				if ( Join.username.value.length >= 4 ) {
+				if ( Join.username.value.length >= 4 && Join.username.value.length <= 20 ) {
 					Join.usernameerror = false;
 					$( $( 'form.joinform div > span' )[ 0 ] ).animate( { opacity: "0" } , 700 , function() {
 						$( this ).css ( "display" , "none");
@@ -117,7 +117,7 @@ $( document ).ready( function(){
 		
 		$( 'div a.button' ).click( function() {
 			var create = true;
-			if ( Join.username.value.length < 4 ) {
+			if ( Join.username.value.length < 4 || Join.username.value.length > 20 ) {
 				if ( !Join.usernameerror ) {
 					Join.usernameerror = true;
 					$( $( 'form.joinform div > span' )[ 0 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 400 );

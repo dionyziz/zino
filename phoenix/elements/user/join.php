@@ -23,7 +23,7 @@
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
 						?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
-						<span>Πρέπει να δώσεις ένα όνομα χρήστη με τουλάχιστον 4 χαρακτήρες!</span>
+						<span>Πρέπει να δώσεις ένα όνομα χρήστη μεταξύ 4 και 20 χαρακτήρων!</span>
 						</span>
 						<span><img src="<?php
 						echo $rabbit_settings[ 'imagesurl' ];
