@@ -255,6 +255,10 @@ div#profile div.main div.notificatios div.list div.event div.subject p a.itempic
 }
 div#profile div.main div.notifications div.list div.event div.subject div.addfriend {
 	margin-bottom: 2px;
+	font-size: 90%;
+}
+div#profile div.main div.notifications div.list div.event div.subject div.addfriend {
+	font-size: 90%;
 }
 div#profile div.main div.notifications div.list div.event div.subject div.addfriend a {
 	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
