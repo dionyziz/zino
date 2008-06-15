@@ -41,7 +41,7 @@
 			$finder = New NotificationFinder();
 			$notifs = $finder->FindByUser( $user , 0 , 5 );
 		}
-		$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 5 ) ) > 5;
+		$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 4;
 		$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
 		$showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
 		//show avatar upload only if there are no notifications
