@@ -88,8 +88,6 @@ div#profile div.sidebar div.basicinfo h2 span.name {
 	font-weight: bold;
 }
 div#profile div.sidebar div.look {
-	background-image: url( 'http://static.zino.gr/phoenix/body-male-slim-short.jpg' );
-	background-repeat: no-repeat;
 	clear: both;
 	padding: 10px;
 	border-top: 1px solid #ccc;
@@ -176,6 +174,28 @@ div#profile div.sidebar div.contacts dt {
 	float: left;
 	height: 18px;
 }
+div#profile div.sidebar div.contact dt.skype {
+	padding: 0  0 16 16px;
+	background-image: url( 'http://static.zino.gr/phoenix/skype.jpg' );
+	background-repeat: no-repeat;
+}
+div#profile div.sidebar div.contact dt.msn {
+	padding: 0  0 16 16px;
+	background-image: url( 'http://static.zino.gr/phoenix/msn.jpg' );
+	background-repeat: no-repeat;
+}
+
+div#profile div.sidebar div.contact dt.gtalk {
+	padding: 0  0 16 16px;
+	background-image: url( 'http://static.zino.gr/phoenix/gtalk.png' );
+	background-repeat: no-repeat;
+}
+div#profile div.sidebar div.contact dt.yahoo {
+	padding: 0  0 16 16px;
+	background-image: url( 'http://static.zino.gr/phoenix/yahoo.jpg' );
+	background-repeat: no-repeat;
+}
+
 div#profile div.sidebar div.contacts dd {
 	height: 18px;
 	margin: 4px 4px 4px 20px;
