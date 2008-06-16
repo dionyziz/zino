@@ -40,7 +40,7 @@
 			?></div><?php
 			if ( $indent <= 50 && $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				?><div class="bottom">
-					<a href="">Απάντα</a> σε αυτό το σχόλιο
+					<a href="">Απάντησε</a> σε αυτό το σχόλιο
 				</div><?php
 			}
 			/*?><div id="children_<?php
