@@ -1,34 +1,37 @@
 <?php
-    function UnitPmSendpm( tString $usernames , tString $pmtext ) {
+    function UnitPmSendpm( tString $usernames, tString $pmtext ) {
     	global $user;
     	global $libs;
 
-    	$libs->Load( 'pm' );
+    	$libs->Load( 'pm/pm' );
+
     	$usernames = $usernames->Get();
     	$pmtext = $pmtext->Get();
     	
-    	$test = explode( ' ' , $usernames );
-    	$userreceivers = User_ByUsername( $test );
+    	$split = preg_split( '#[ ,]+#', $usernames );
+    
+        $finder = New UserFinder();
+    	$userreceivers = $finder->FindByNames( $usernames );
 
-        foreach ( $userreceivers as $i => $receiver ) {
-            if ( $receiver->Id() == $user->Id() ) {
-                unset( $userreceivers[ $i ] );
-            }
-        }
-        
         if ( empty( $userreceivers ) ) {
             ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
         }
         else {
         	$pm = new PM();
-        	$pm->SenderId = $user->Id();
+        	$pm->Senderid = $user->Id();
         	$pm->Text = $pmtext;
         	foreach ( $userreceivers as $receiver ) {	
         		$pm->AddReceiver( $receiver );
         	}
         	$pm->Save();
         }
-    	?>pms.ShowFolderPm( document.getElementById( 'sentfolder' ) , -2 );<?php
+
+        $finder = New PMFolderFinder();
+        $outbox = $finder->FindByUserAndType( $user, PMFOLDER_OUTBOX );
+        
+    	?>pms.ShowFolderPm( document.getElementById( 'sentfolder' ), <?php
+        echo $outbox->Id;
+        ?> );<?php
     }
     
 ?>

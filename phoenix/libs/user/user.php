@@ -74,6 +74,27 @@
             $prototype->Name = $name;
             return $this->FindByPrototype( $prototype );
         }
+        public function FindByNames( $names ) {
+            if ( !is_array( $names ) ) {
+                $names = array( $names );
+            }
+            
+            $query = $this->mDb->Prepare( '
+                SELECT
+                    *
+                FROM
+                    :users
+                WHERE
+                    `user_name` IN :names
+                LIMIT
+                    :limit;' );
+
+            $query->BindTable( 'users' );
+            $query->Bind( 'names', $names );
+            $query->Bind( 'limit', count( $names ) );
+            
+            return $this->FindBySqlResource( $query->Execute() );
+        }
         public function FindBySubdomain( $subdomain ) {
             $prototype = New User();
             $prototype->Subdomain = $subdomain;
