@@ -132,6 +132,8 @@
         protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $libs;
             $libs->Load( 'event' );
+            
+            die( print_r( $updatedAttributes ) );
 
             if ( empty( $updatedAttributes ) ) {
                 return;
