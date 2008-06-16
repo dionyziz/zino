@@ -18,6 +18,7 @@
 				}
 				Element( 'shoutbox/view'  , false , true );
 			?></div>
+		<div class="eof"></div>
 		<div class="more"><a href="?p=shoutbox" class="button">Όλες οι συζητήσεις&raquo;</a></div>
 		</div><?php
 	}

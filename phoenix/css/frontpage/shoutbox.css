@@ -16,6 +16,9 @@ div.shoutbox div.comments div.comment {
 div.shoutbox h2 {	
 	margin-bottom: 10px;
 }
+div.shoutbox div.more {
+	margin: 10px;
+}
 div.outshoutbox {
 	float: left;
 	width: 95%;
