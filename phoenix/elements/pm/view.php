@@ -51,7 +51,7 @@
                 ?>, <?php
                 echo $pm->Pmid;
                 ?> );return false;"><?php
-                if ( $folder != -2 ) {
+                if ( $folder->Typeid != PMFOLDER_OUBOX ) {
                     ?> από τ<?php
                     $pmuser = $pm->Sender;
                 }
@@ -65,7 +65,7 @@
                 else if ( is_array( $pmuser ) ) {
                     $pmuser = $pmuser[ 0 ];
                 }
-                if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender() == 'female' ) {
+                if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender == 'female' ) {
                     ?>ην<?php
                 }
                 else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
