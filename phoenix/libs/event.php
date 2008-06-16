@@ -137,9 +137,8 @@
             );
 
             $types = Event_TypesByModel( 'USERPROFILE' );
-            die( print_r( $types ) );
-            $mintypeid = constant( $types[ 0 ] );
-            $maxtypeid = constant( $types[ count( $types ) -1 ] );
+            $mintypeid = $types[ 0 ];
+            $maxtypeid = $types[ count( $types ) - 1 ];
 
             $query->BindTable( 'events' );
             $query->Bind( 'mintypeid', $mintypeid );
