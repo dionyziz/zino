@@ -8,14 +8,14 @@
     	$folderid = $folderid->Get();
         $folder = New PMFolder( $folderid );
 
-    	?>var deletelink = document.getElementById( 'deletefolderlink' );
-    	var renamelink = document.getElementById( 'renamefolderlink' );<?php
-
         if ( $folder->Userid != $user->Id ) {
             return;
         }
 
-        ?>deletelink.style.display = 'block';
+    	?>var deletelink = document.getElementById( 'deletefolderlink' );
+    	var renamelink = document.getElementById( 'renamefolderlink' );
+
+        deletelink.style.display = 'block';
         deletelink.onclick = ( function( folderid ) {
             return function() {
                 pms.DeleteFolder( folderid );
