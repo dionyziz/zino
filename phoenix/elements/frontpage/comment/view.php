@@ -18,7 +18,7 @@
 			<div class="subject">
 				<p><span class="text">"<?php
 					$text = $comment->GetText( 35 );
-					echo trim( $text );
+					echo htmlspecialchars( trim( $text ) ); //Do not remove htmlspecialchars
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
