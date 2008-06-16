@@ -65,7 +65,7 @@
         if ( empty( $typesbymodel ) ) {
             $types = Event_Types();
             foreach ( $types as $typeid => $type ) {
-                $split = explode( '_', $type, 2 );
+                $split = explode( '_', $type );
                 if ( !isset( $typesbymodel[ $split[ 1 ] ] ) ) {
                     $typesbymodel[ $split[ 1 ] ] = array();
                 }
@@ -83,7 +83,7 @@
         if ( empty( $models ) ) {
             $types = Event_Types();
             foreach ( $types as $key => $value ) {
-                $split = explode( '_', $value, 2 );
+                $split = explode( '_', $value );
                 $models[ $key ] = $split[ 1 ];
             }
         }
