@@ -6,10 +6,8 @@
                 return 'Εισερχόμενα';
             case PMFOLDER_OUTBOX:
                 return 'Απεσταλμένα';
-            case PMFOLDER_USER:
-                return $folder->Name;
             default:
-                throw New Exception( 'Unkown folder typeid ' . $folder->Typeid );
+                return $folder->Name;
         }
     }
 
