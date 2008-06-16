@@ -58,7 +58,7 @@
 				}
 				else {
 					$ret[ $key ] = false;
-					$keys[ $i ] = '\'' . myescape( $key ) . '\'';
+					$keys[ $i ] = '\'' . addslashes( $key ) . '\'';
 				}
 			}
 			

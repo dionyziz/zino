@@ -14,7 +14,7 @@
             }
             else {
                 $text = preg_replace( "#<[^>]*?>#", "", $text ); // strip all tags
-                return utf8_substr( $text, 0, $length );
+                return mb_substr( $text, 0, $length );
             }
         }
         public function SetText( $value ) {

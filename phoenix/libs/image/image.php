@@ -253,8 +253,8 @@
             return 0;
         }
         public function SetName( $value ) {
-            if ( strlen( $value ) > 96 ) { // TODO: utf8_strlen()
-                $value = utf8_substr( $value , 0 , 96 );
+            if ( strlen( $value ) > 96 ) { // TODO: mb_strlen()
+                $value = mb_substr( $value , 0 , 96 );
             }
             
             $this->mCurrentValues[ 'Name' ] = $value;

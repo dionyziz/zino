@@ -21,14 +21,14 @@
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {
-                $value = utf8_substr( $value, 0, 100 );
+                $value = mb_substr( $value, 0, 100 );
             }
 
             $this->mCurrentValues[ 'Name' ] = $value;
         }
         public function SetDescription( $value ) {
             if ( strlen( $value ) > 200 ) {
-                $value = utf8_substr( value, 0, 200 );
+                $value = mb_substr( value, 0, 200 );
             }
 
             $this->mCurrentValues[ 'Description' ] = $value;

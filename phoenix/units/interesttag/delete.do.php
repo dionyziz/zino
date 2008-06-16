@@ -5,7 +5,6 @@
 		
 		$libs->Load( 'interesttag' );
 		
-//		$text = myescape( $text->Get() ); // JS Injection to Modal could cause SQL Injection in Database
 		$text = $text->Get();
 		
 		$tag = new InterestTag( $text, $user );

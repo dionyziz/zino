@@ -38,6 +38,7 @@
     if ( !isset( $rabbit_settings[ 'timezone' ] ) ) {
         $rabbit_settings[ 'timezone' ] = 'GMT';
     }
+    mb_internal_encoding( 'UTF-8' );
     if ( isset( $rabbit_settings[ 'locale' ] ) ) {
         setlocale( LC_ALL, $rabbit_settings[ 'locale' ] );
     }

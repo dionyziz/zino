@@ -67,7 +67,7 @@
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
 					$text = $comment->GetText( 35 );
-					echo utf8_substr( $text , 0 , 30 );
+					echo mb_substr( $text , 0 , 30 );
 					if ( strlen( $text ) > 30 ) {
 						?>...<?php
 					}
