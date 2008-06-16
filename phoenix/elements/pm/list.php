@@ -45,39 +45,12 @@
 			</div>
 			<div class="leftbar">
 				<div class="folders" id="folders"><?php
-                    /*
-					<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα<?php
-					if ( $unreadCount ) {
-						?> (<?php
-						echo $unreadCount;
-						?>)<?php
-					}
-					?></a></div>
-					<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><?php
-                    */
-
                     $inbox = false;
 					foreach ( $folders as $folder ) {
-                        $name = $folder->Name;
                         if ( $folder->Typeid == PMFOLDER_INBOX ) {
                             $inbox = $folder;
-                            $name = 'Εισερχόμενα';
                         }
-                        else if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
-                            $name = 'Απεσταλμένα';
-                        }
-
-						?><div class="createdfolder folder top" id="folder_<?php
-						echo $folder->Id;
-						?>" alt="<?php
-						echo htmlspecialchars( $name );
-						?>" title="<?php
-						echo htmlspecialchars( $name );
-						?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
-						echo $folder->Id;
-						?>' );return false;"><?php
-						echo htmlspecialchars( $name );
-						?></a></div><?php
+                        Element( 'pm/folder/link', $folder );
 					}
 
 					?><div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
