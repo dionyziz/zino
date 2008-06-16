@@ -11,7 +11,7 @@
             return;
         }
         
-		$libs->Load( 'pm' );
+		$libs->Load( 'pm/pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
         
 		$page->AttachStyleSheet( 'css/pm.css' );

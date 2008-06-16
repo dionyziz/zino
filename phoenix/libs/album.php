@@ -38,6 +38,9 @@
 		}
 		public function OnBeforeDelete() {
             global $water;
+            global $libs;
+
+            $libs->Load( 'event' );
             
             if ( $this->IsDeleted() ) {
                 $water->Notice( 'Album already deleted; skipping' );
@@ -72,6 +75,9 @@
 			$query->Bind( 'ImageDelId', 1 );
 			$query->Bind( 'AlbumId', $this->Id );
 			$query->Execute();
+
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
 
             return false;
 		}

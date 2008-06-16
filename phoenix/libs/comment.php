@@ -331,16 +331,10 @@
         }
         protected function OnDelete() {
             global $libs;
-            $libs->Load( 'notify' );
-
-            $finder = New NotificationFinder();
-            $notif = $finder->FindByComment( $this );
-
-            if ( !is_object( $notif ) ) {
-                return;
-            }
+            $libs->Load( 'event' );
             
-            $notif->Delete();
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {

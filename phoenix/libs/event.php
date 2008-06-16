@@ -59,15 +59,32 @@
         );
 	}
 
+    function Event_TypesByModel( $model ) {
+        static $typesbymodel = array();
+
+        if ( empty( $typesbymodel ) ) {
+            $types = Event_Types();
+            foreach ( $types as $typeid => $type ) {
+                $split = explode( '_', $type, 2 );
+                if ( !isset( $typesbymodel[ $split[ 1 ] ] ) ) {
+                    $typesbymodel[ $split[ 1 ] ] = array();
+                }
+                $typesbymodel[ $split[ 1 ] ][] = $typeid;
+            }
+        }
+        if ( !isset( $typesbymodel[ $model ] ) ) {
+            throw New Exception( "Unknown event model $model" );
+        }
+        return $typesbymodel[ $model ];
+    }
+
 	function Event_ModelByType( $type ) {
 		static $models = array();
         if ( empty( $models ) ) {
             $types = Event_Types();
             foreach ( $types as $key => $value ) {
-                $after_first_underscore = strpos( $value, '_' ) + 1;
-                $before_second_underscore = strpos( $value, '_', $after_first_underscore ) - 1;
-                $model = substr( $value, $after_first_underscore, $before_second_underscore - $after_first_underscore + 1 );
-                $models[ $key ] = $model;
+                $split = explode( '_', $value, 2 );
+                $models[ $key ] = $split[ 1 ];
             }
         }
         if ( !isset( $models[ $type ] ) ) {
@@ -81,12 +98,25 @@
         define( $event, $key );
     }
 
-    class EventException extends Exception {
-    }
-
 	class EventFinder extends Finder {
 		protected $mModel = 'Event';
 
+        public function DeleteByEntity( $entity ) {
+            $query = $this->mDb->Prepare( '
+                DELETE 
+                FROM 
+                    :events 
+                WHERE 
+                    `event_itemid` = :itemid AND 
+                    `event_typeid` IN :typeids;'
+            );
+
+            $query->BindTable( 'events' );
+            $query->Bind( 'itemid', $entity->Id );
+            $query->Bind( 'typeids', Event_TypesByModel( get_class( $entity ) ) );
+
+            return $query->Execute()->Impact();
+        }
 		public function FindLatest( $offset = 0, $limit = 20 ) {
             $query = $this->mDb->Prepare(
                 'SELECT
@@ -106,9 +136,13 @@
                     :offset, :limit;'
             );
 
+            $types = Event_Types();
+            $mintypeid = constant( $types[ 0 ] );
+            $maxtypeid = constant( $types[ count( $types ) -1 ] );
+
             $query->BindTable( 'events' );
-            $query->Bind( 'mintypeid', EVENT_USERPROFILE_EDUCATION_UPDATED );
-            $query->Bind( 'maxtypeid', EVENT_USERPROFILE_EYECOLOR_UPDATED );
+            $query->Bind( 'mintypeid', $mintypeid );
+            $query->Bind( 'maxtypeid', $maxtypeid );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
             $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );

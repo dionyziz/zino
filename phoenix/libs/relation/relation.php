@@ -84,11 +84,12 @@
         */
         protected function OnDelete() {
             global $libs;
-            $libs->Load( 'notify' );
+            $libs->Load( 'event' );
             
             --$this->User->Count->Relations;
             $this->User->Count->Save();
 
+            /*
             $finder = New NotificationFinder();
             $notif = $finder->FindByRelation( $this );
 
@@ -97,6 +98,10 @@
             }
             
             $notif->Delete();
+            */
+
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
         }
         public function GetType() {
             return $this->RelationType->Text;

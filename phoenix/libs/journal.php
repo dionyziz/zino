@@ -74,8 +74,14 @@
             $event->Save();
         }
         protected function OnDelete() {
+            global $libs;
+            $libs->Load( 'event' );
+
             --$this->User->Count->Journals;
             $this->User->Count->Save();
+
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
