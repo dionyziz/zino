@@ -70,8 +70,8 @@
         public function GetUser() {
             return $this->Folder->User;
         }
-        public function GetDate() {
-            return $this->PM->Date;
+        public function GetCreated() {
+            return $this->PM->Created;
         }
         protected function Relations() {
             $this->PM = $this->HasOne( 'PM', 'Pmid' );

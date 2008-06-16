@@ -78,10 +78,13 @@
         protected function OnConstruct() {
             $this->mReceivers = array();
         }
+        protected function GetSince() {
+            return dateDistance( $this->Created );
+        }
         protected function LoadDefaults() {
             global $user;
 
-            $this->Date = NowDate();
+            $this->Created = NowDate();
             $this->Senderid = $user->Id;
         }
     }

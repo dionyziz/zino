@@ -1,5 +1,5 @@
 <?php
-	function ElementUserName( $theuser , $link = true ) {
+	function ElementUserName( User $theuser, $link = true ) {
 		if ( !$link ) {
 			echo htmlspecialchars( $theuser->Name );
 		}
