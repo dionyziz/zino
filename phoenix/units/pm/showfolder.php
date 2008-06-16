@@ -40,9 +40,7 @@
             echo w_json_encode( ob_get_clean() );
             ?>;
             pms.ShowFolderNameTop( <?php
-            ob_start();
-            Element( 'pm/folder/name', $folder );
-            echo w_json_encode( ob_get_clean() );
+            echo w_json_encode( $folder->Name );
             ?> );<?php
         }
         else {
