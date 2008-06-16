@@ -18,7 +18,7 @@ var Comments = {
 		a.onclick = function() {
 				return false;
 			};
-		a.appendChild( document.createTextNode( "Απάντα" ) );
+		a.appendChild( document.createTextNode( "Απάντησε" ) );
 		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
