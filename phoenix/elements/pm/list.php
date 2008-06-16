@@ -1,4 +1,5 @@
 <?php
+
 	function ElementPmList() {
 		global $page;
 		global $water;
@@ -6,7 +7,7 @@
 		global $user;
 		global $xc_settings;
 		
-        if (!$user->Exists()) {
+        if ( !$user->Exists() ) {
             return;
         }
         
@@ -20,26 +21,20 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
-        //$page->AttachScript( 'js/jquery.js' );
+        $page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
 		$page->AttachScript( 'js/jquery.dimensions.js' );
 		
-		$userfolders = PM_UserFolders();
-		$unreadmsgs = PM_UserCountUnreadPms( $user );
-		?>
-		<script type="text/javascript">
+        $finder = New PMFolderFinder();
+        $folders = $finder->FindByUser( $user );
+        $unreadCount = $user->Count->Unreadpms;
+
+		?><script type="text/javascript">
 	    var unreadpms = <?php
-		echo $unreadmsgs;
+		echo $unreadCount;
 		?></script>
-		<script src="http://code.jquery.com/jquery-latest.js"></script> <?php
-		/*
-        <script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
-        <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
-		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js"></script>
-		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.ext.js"></script>
-		*/?>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
@@ -47,16 +42,23 @@
 				<div class="subheading">Εισερχόμενα</div>
 			</div>
 			<div class="leftbar">
-				<div class="folders" id="folders">
+				<div class="folders" id="folders"><?php
+                    /*
 					<div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode , -1 );return false;">Εισερχόμενα<?php
-					if ( $unreadmsgs != 0 ) {
+					if ( $unreadCount ) {
 						?> (<?php
-						echo $unreadmsgs;
+						echo $unreadCount;
 						?>)<?php
 					}
 					?></a></div>
 					<div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="sentfolder"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , -2 );return false;">Απεσταλμένα</a></div><?php
-					foreach ( $userfolders as $folder ) {
+                    */
+
+                    $inbox = false;
+					foreach ( $folders as $folder ) {
+                        if ( $folder->Typeid == PMFOLDER_INBOX ) {
+                            $inbox = $folder;
+                        }
 						?><div class="createdfolder folder top" id="folder_<?php
 						echo $folder->Id;
 						?>" alt="<?php
@@ -68,7 +70,8 @@
 						?>' );return false;"><?php
 						echo htmlspecialchars( $folder->Name );
 						?></a></div><?php
-					} 
+					}
+
 					?><div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
 				</div><br />
 				<a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="<?php
@@ -83,9 +86,8 @@
 			</div>
 			<div class="rightbar" style="float:left;">
 				<div class="messages" id="messages"><?php
-					Element( 'pm/showfolder' , -1 );
-				?>
-				</div>
+					Element( 'pm/folder/view', $inbox );
+				?></div>
 			</div>
 			<div style="clear:left;"></div>
 			<div class="newfoldermodal" id="newfoldermodal" style="display:none;">
