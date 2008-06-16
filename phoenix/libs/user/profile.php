@@ -133,8 +133,6 @@
             global $libs;
             $libs->Load( 'event' );
 
-            die( 'Politics:' . $this->Politics );
-
             $events = array(
                 'Moodid' => EVENT_USERPROFILE_MOOD_UPDATED,
                 'Education' => EVENT_USERPROFILE_EDUCATION_UPDATED,
