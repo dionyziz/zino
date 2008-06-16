@@ -94,6 +94,8 @@
             'a'                 => 'user/invalid',
             'pms'               => 'pm/list',
             'shoutbox'          => 'shoutbox/list',
+            'questions'			=> 'question/list'
+
     	);
     }
 ?>
