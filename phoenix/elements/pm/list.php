@@ -10,6 +10,8 @@
         if ( !$user->Exists() ) {
             return;
         }
+
+        $water->Enable();
         
 		$libs->Load( 'pm/pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
