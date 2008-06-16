@@ -137,6 +137,7 @@
             );
 
             $types = Event_TypesByModel( 'USERPROFILE' );
+            die( print_r( $types ) );
             $mintypeid = constant( $types[ 0 ] );
             $maxtypeid = constant( $types[ count( $types ) -1 ] );
 
