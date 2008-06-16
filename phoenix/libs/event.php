@@ -113,7 +113,7 @@
 
             $query->BindTable( 'events' );
             $query->Bind( 'itemid', $entity->Id );
-            $query->Bind( 'typeids', Event_TypesByModel( get_class( $entity ) ) );
+            $query->Bind( 'typeids', Event_TypesByModel( strtoupper( get_class( $entity ) ) ) );
 
             return $query->Execute()->Impact();
         }
@@ -136,7 +136,7 @@
                     :offset, :limit;'
             );
 
-            $types = Event_Types();
+            $types = Event_TypesByModel( 'USERPROFILE' );
             $mintypeid = constant( $types[ 0 ] );
             $maxtypeid = constant( $types[ count( $types ) -1 ] );
 
