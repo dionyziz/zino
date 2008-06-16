@@ -11,7 +11,7 @@
     	$split = preg_split( '#[ ,]+#', $usernames );
     
         $finder = New UserFinder();
-    	$userreceivers = $finder->FindByNames( $usernames );
+    	$userreceivers = $finder->FindByNames( $split );
 
         if ( empty( $userreceivers ) ) {
             ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
