@@ -6,7 +6,7 @@
         global $xc_settings;
 
         ?><div class="message" style="width:620px;" id="pm_<?php
-            echo $pm->Id;
+            echo $pm->Pmid;
             ?>">
             <div class="infobar<?php
             
@@ -19,7 +19,7 @@
             ?>><?php
                 if ( $folder != PMFOLDER_OUTBOX ) {
                     ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, <?php
-                    echo $pm->Id;
+                    echo $pm->Pmid;
                     ?>, <?php
                     if ( $pm->IsRead() ) {
                         ?>true<?php
@@ -49,7 +49,7 @@
                     ?> false<?php
                 }
                 ?>, <?php
-                echo $pm->Id;
+                echo $pm->Pmid;
                 ?> );return false;"><?php
                 if ( $folder != -2 ) {
                     ?> από τ<?php
@@ -92,7 +92,7 @@
                     ?> false<?php
                 }
                 ?>, <?php
-                echo $pm->Id;
+                echo $pm->Pmid;
                 ?> );return false;" style="display:inline;" class="infobar_info">, πριν <?php
                 echo $pm->Since;
                 ?></div>
