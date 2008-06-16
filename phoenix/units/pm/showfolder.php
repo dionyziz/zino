@@ -13,37 +13,66 @@
         }
 
     	?>var deletelink = document.getElementById( 'deletefolderlink' );
-    	var renamelink = document.getElementById( 'renamefolderlink' );
+    	var renamelink = document.getElementById( 'renamefolderlink' );<?php
 
-        deletelink.style.display = 'block';
-        deletelink.onclick = ( function( folderid ) {
-            return function() {
-                pms.DeleteFolder( folderid );
+        if ( $folder->Typeid == PMFOLDER_USER ) {
+            ?>deletelink.style.display = 'block';
+            deletelink.onclick = ( function( folderid ) {
+                return function() {
+                    pms.DeleteFolder( folderid );
+                    return false;
+                }
+            })( <?php 
+            echo $folderid;
+            ?> );
+            renamelink.style.display = 'block';
+            renamelink.onclick = ( function( folderid ) {
+                return function () {
+                    pms.RenameFolder( folderid );
+                    return false;
+                }
+            } )( <?php
+            echo $folderid;
+            ?> );
+            pms.messagescontainer.innerHTML = <?php
+            ob_start();
+            Element( 'pm/folder/view', $folder );
+            echo w_json_encode( ob_get_clean() );
+            ?>;
+            pms.ShowFolderNameTop( <?php
+            ob_start();
+            Element( 'pm/folder/name', $folder );
+            echo w_json_encode( ob_get_clean() );
+            ?> );<?php
+        }
+        else {
+            ?>pms.messagescontainer.innerHTML = <?php
+            ob_start();
+            Element( 'pm/showfolder', $folder );
+            echo w_json_encode( ob_get_clean() );
+            ?>;
+            deletelink.style.display = 'none';
+            deletelink.onclick = function() {
                 return false;
-            }
-        })( <?php 
-        echo $folderid;
-        ?> );
-        renamelink.style.display = 'block';
-        renamelink.onclick = ( function( folderid ) {
-            return function () {
-                pms.RenameFolder( folderid );
+            };
+            renamelink.style.display = 'none';
+            renamelink.onclick = function () {
                 return false;
+            };
+            pms.ShowFolderNameTop( '<?php 
+            if ( $folder->Typeid == PMFOLDER_INBOX ) {
+                ?>Εισερχόμενα' );<?php
+                $unreadmsgs = $user->Count->Unreadpms;
+                if ( $unreadmsgs > 0 ) {
+                    ?>pms.UpdateUnreadPms( <?php
+                    echo $unreadmsgs;
+                    ?> );<?php
+                }
             }
-        } )( <?php
-        echo $folderid;
-        ?> );
-        pms.messagescontainer.innerHTML = <?php
-        ob_start();
-        Element( 'pm/folder/view', $folder );
-        echo w_json_encode( ob_get_clean() );
-        ?>;
-        pms.ShowFolderNameTop( <?php
-        ob_start();
-        Element( 'pm/folder/name', $folder );
-        echo w_json_encode( ob_get_clean() );
-        ?> );<?php
-
+            else {
+                ?>Απεσταλμένα' );<?php
+            }
+        }
         ?>pms.DragPm2();<?php
     }
 ?>
