@@ -1,6 +1,10 @@
 <?php
     
     function ElementPmFolderLink( PMFolder $folder ) {
+        global $user;
+
+        $unreadCount = $user->Count->Unreadpms;
+
         if ( $folder->Typeid == PMFOLDER_INBOX ) {
             ?><div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode, <?php
                 echo $folder->Id;
