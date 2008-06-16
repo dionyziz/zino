@@ -58,19 +58,25 @@
 
                     $inbox = false;
 					foreach ( $folders as $folder ) {
+                        $name = $folder->Name;
                         if ( $folder->Typeid == PMFOLDER_INBOX ) {
                             $inbox = $folder;
+                            $name = 'Εισερχόμενα';
                         }
+                        else if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
+                            $name = 'Απεσταλμένα';
+                        }
+
 						?><div class="createdfolder folder top" id="folder_<?php
 						echo $folder->Id;
 						?>" alt="<?php
-						echo htmlspecialchars( $folder->Name );
+						echo htmlspecialchars( $name );
 						?>" title="<?php
-						echo htmlspecialchars( $folder->Name );
+						echo htmlspecialchars( $name );
 						?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
 						echo $folder->Id;
 						?>' );return false;"><?php
-						echo htmlspecialchars( $folder->Name );
+						echo htmlspecialchars( $name );
 						?></a></div><?php
 					}
 

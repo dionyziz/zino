@@ -3,12 +3,14 @@
         global $user;
         global $libs;
 
-        $libs->Load( 'pm' );
+        $libs->Load( 'pm/pm' );
+
         $folderid = $folderid->Get();
         $folder = new PMFolder( $folderid );
-        if ( $folder->UserId != $user->Id() ) {
+        if ( $folder->Userid != $user->Id ) {
             return;
         }
+
         ?>var foldertodelete = document.getElementById( 'folder_<?php
         echo $folderid;
         ?>' );
