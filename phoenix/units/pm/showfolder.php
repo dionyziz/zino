@@ -3,7 +3,7 @@
     	global $libs;
     	global $user;
     	
-    	$libs->Load( "pm" );	
+    	$libs->Load( 'pm/pm' );	
     	
     	$folderid = $folderid->Get();
         $folder = New PMFolder( $folderid );
