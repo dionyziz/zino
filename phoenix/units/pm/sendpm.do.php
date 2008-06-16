@@ -18,7 +18,7 @@
         }
         else {
         	$pm = new PM();
-        	$pm->Senderid = $user->Id();
+        	$pm->Senderid = $user->Id;
         	$pm->Text = $pmtext;
         	foreach ( $userreceivers as $receiver ) {	
         		$pm->AddReceiver( $receiver );
