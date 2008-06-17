@@ -26,6 +26,9 @@
         $test = false;
     }
 
+    define( 'ST_CONTINUE', "CONTINUE\n" );
+    define( 'ST_TERMINATE', "TERMINATE\n" );
+
     set_time_limit( 60 );
 
 	$water->Enable(); // on for all
@@ -181,7 +184,7 @@
                 }
                 else {
                     if ( isset( $unitypes[ $row[ 'user_uniid' ] ] ) && $unitypes[ $row[ 'user_uniid' ] ] != 0 ) {
-                        ?>TEI<?php
+                        echo ST_TERMINATE;
                     }
                     else {
                         ?>university<?php
@@ -231,10 +234,10 @@
 
         if ( $test ) {
             if ( $ret ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -381,10 +384,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
             if ( $offset * $limit < $row[ 'numrows' ] ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -459,10 +462,10 @@
 
         if ( $test ) {
             if ( $offset <= 2 ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -488,10 +491,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$shoutbox`;" );
             $row = $res->FetchArray();
             if ( $offset < $row[ 'numrows' ] ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -576,10 +579,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
             $row = $res->FetchArray();
             if ( $offset < $row[ 'numrows' ] ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -849,10 +852,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
             $row = $res->FetchArray();
             if ( $offset * 5000 < $row[ 'numrows' ] ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
@@ -890,10 +893,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
             $row = $res->FetchArray();
             if ( $offset * 5000 < $row[ 'numrows' ] ) {
-                ?>CONTINUE\n<?php
+                echo ST_CONTINUE;
             }
             else {
-                ?>TERMINATE\n<?php
+                echo ST_TERMINATE;
             }
             exit();
         }
