@@ -3,11 +3,6 @@
 	function UnitUserSettingsAvatar( tInteger $imageid ) {
 		global $user;
 		
-        ?>alert('Saving avatar (<?php
-        echo $imageid->Get();
-        ?>)');<?php
-        return;
-
 		$image = New Image( $imageid->Get() );
 		
 		if ( !$image->IsDeleted() ) {
@@ -22,6 +17,12 @@
 					?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
 				} );<?php
 			}
+            else {
+                ?>alert( 'You can\'t use somebody elses images as your avatar' );<?php
+            }
 		}
+        else {
+            ?>alert( 'Sorry, this image is deleted' );<?php
+        }
 	}
 ?>
