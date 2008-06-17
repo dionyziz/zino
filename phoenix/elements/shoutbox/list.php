@@ -22,6 +22,6 @@ function ElementShoutboxList( tInteger $offset ) {
         ?></div>
     </div>
     <div class="eof"></div><?php
-    Element( 'pagify', $offset, '?p=shoutbox&offset=', $finder->Count() );
+    Element( 'pagify', $offset, '?p=shoutbox&offset=', ceil( $finder->Count() / 20 ) );
 }
 ?>
