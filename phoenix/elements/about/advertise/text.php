@@ -60,12 +60,13 @@
                 εντός 48 ωρών. Αν έχετε οποιαδήποτε ερώτηση, σημειώστε την στην περιοχή "Σχόλια" και
                 θα προσπαθήσουμε να σας εξυπηρετήσουμε.
                 <br/><br/>
-    			<span style="font-family:serif;">Email</span><br />
-    			<input type="text" style="width:250px;" id="mailadress" /><br /><br />
-    		    <span style="font-family:serif;">Σχόλια (προαιρετικό)</span><br />
-    			<textarea style="width:400px;height:200px;"></textarea><br /><br />
-				<!-- Need to fix this -->
-    			<a href="" onclick="">&#187;Αποστολή</a>
+				<form action="do/about/advertise/sendmail" method="post">
+					<span style="font-family:serif;">Email</span><br />
+					<input type="text" style="width:250px;" id="mailadress" /><br /><br />
+					<span style="font-family:serif;">Σχόλια (προαιρετικό)</span><br />
+					<textarea style="width:400px;height:200px;"></textarea><br /><br />
+					<a href="" onclick="">&#187;Αποστολή</a>
+				</form>
 			</p>
 		<?php
 	}
