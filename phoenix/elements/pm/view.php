@@ -51,7 +51,7 @@
                 ?>, <?php
                 echo $pm->Pmid;
                 ?> );return false;"><?php
-                if ( $folder->Typeid != PMFOLDER_OUBOX ) {
+                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
                     ?> από τ<?php
                     $pmuser = $pm->Sender;
                 }
