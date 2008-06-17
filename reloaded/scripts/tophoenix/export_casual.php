@@ -20,7 +20,7 @@
 
     if ( isset( $_GET[ 'testoffset' ] ) ) {
         $test = true;
-        $offset = ( int )$_GET[ 'offset' ];
+        $offset = ( int )$_GET[ 'testoffset' ];
     }
     else {
         $test = false;
@@ -53,7 +53,7 @@
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM $from;" );
             $row = $db->FetchArray();
-            if ( $offset < $row[ 'numrows' ] ) {
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
                 return true;
             }
             return false;
@@ -79,8 +79,8 @@
                     $selectfields
                 FROM
                     $from";
-        if ( $limit > 0 ) {
-            $query .= " LIMIT $offset, $limit";
+        if ( $limit > 0 ) { // in this case, $offset is the page number
+            $query .= " LIMIT " . $offset * $limit . ", $limit";
         }
         $query .= ';';
 
@@ -226,7 +226,7 @@
         global $bulk;
         
         ob_start();
-        $ret = MigrateAsIs( $bulk, 'bulk', false, $offset * 250, 250, $test );
+        $ret = MigrateAsIs( $bulk, 'bulk', false, $offset, 250, $test );
         $res = ob_get_clean();
 
         if ( $test ) {
@@ -376,10 +376,11 @@
     function MigrateImages( $offset, $test = false ) {
         global $db, $images;
 
+        $limit = 5000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
-            if ( $offset <= $row[ 'numrows' ] ) {
+            if ( $offset * $limit <= $row[ 'numrows' ] ) {
                 ?>CONTINUE<?php
             }
             else {
@@ -387,7 +388,6 @@
             }
             exit();
         }
-        $limit = 5000;
         $res = $db->Query(
             "SELECT
                 `image_id`, `image_userid`, `image_created`, `image_userip`, `image_name`, `image_mime`,
