@@ -381,7 +381,8 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
             if ( $offset * $limit <= $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE <?php
+                echo $offset;
             }
             else {
                 ?>TERMINATE<?php
