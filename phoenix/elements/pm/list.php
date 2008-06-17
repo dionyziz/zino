@@ -23,7 +23,7 @@
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
-        $page->AttachScript( 'js/jquery.js' );
+        // $page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
@@ -37,6 +37,7 @@
 	    var unreadpms = <?php
 		echo $unreadCount;
 		?></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
