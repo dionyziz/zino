@@ -490,7 +490,7 @@
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$shoutbox`;" );
             $row = $res->FetchArray();
-            if ( $offset < $row[ 'numrows' ] ) {
+            if ( $offset * 5000 < $row[ 'numrows' ] ) {
                 echo ST_CONTINUE;
             }
             else {
@@ -506,7 +506,7 @@
             FROM 
                 $shoutbox
             LIMIT
-                " . $offset * 1000 . ",1000;"
+                " . $offset * 5000 . ",5000;"
         );
 
         ?>TRUNCATE TABLE `shouts`;<?php
