@@ -76,6 +76,7 @@
                 }
             }
         }
+        die( var_dump( $out ) );
         $query = "SELECT
                     $selectfields
                 FROM
