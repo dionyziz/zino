@@ -1,55 +1,59 @@
 <?php
 
 	/*  
-	offset: current page number
+	page: current page number
 	link: link to the page. it should end with offset= e.g. '/journal/Hello?offset='
 	total_pages: the total pages of the entity
 	*/
-    function ElementPagify( $offset, $link, $total_pages ) {
-    	if ( $offset > $total_pages || $offset < 0 ) {
+    function ElementPagify( $page, $link, $total_pages ) {
+    	if ( $page > $total_pages || $page < 0 ) {
     		return;	
 		}
 		
 		?><div class="pagify"><?php
 		
-		if ( $offset > 1 ) { /* left arrow */
+		if ( $page > 1 ) { /* left arrow */
 			?><span class="leftpage"><a href="<?php
-			echo htmlspecialchars( $link . ( $offset - 1 ) );
+			echo htmlspecialchars( $link . ( $page - 1 ) );
 			?>" class="previous" title="Προηγούμενη"></a></span><?php
 		}
 		
 		?><span><?php
 		
-		if ( $offset > 5 ) {
+		if ( $page > 5 ) {
 			?>...<?php
 		}
         
-        $startpage = ( $offset - 4 >= 1 ) ? $offset - 4 : 1;
-        $endpage = ( $offset + 4 <= $total_pages ) ? $offset + 4 : $total_pages;
-        for ( $page = $startpage; $page <= $endpage; ++$page ) {
-        	?><a href="<?php
-        	echo htmlspecialchars( $link . $page );
-        	?>" class="nextbacklinks"<?php
-        	if ( $page == $offset ) {
-        		?> style="font-weight: bold;"<?php
-			}
-			?>><?php
-			echo $page;
-			?></a><?php
-			if ( $page != $endpage ) {
-				?>, <?php
+        $startpage = ( $page - 4 >= 1 ) ? $page - 4 : 1;
+        $endpage = ( $page + 4 <= $total_pages ) ? $page + 4 : $total_pages;
+        for ( $p = $startpage; $p <= $endpage; ++$p ) {
+            if ( $p == $page ) {
+                ?><strong><?php
+                echo $p;
+                ?></strong><?php
+            }
+            else {
+                ?><a href="<?php
+                echo htmlspecialchars( $link . $p );
+                ?>" class="nextbacklinks"><?php
+                echo $p;
+                ?></a><?php
+            }
+
+			if ( $p != $endpage ) {
+				?> <?php
 			}
 		}
 		
-		if ( $offset + 4 < $total_pages ) {
+		if ( $page + 4 < $total_pages ) {
 			?> ...<?php
 		}
 		
 		?></span><?php
 		
-		if ( $offset + 1 <= $total_pages ) { /* right arrow */
+		if ( $page + 1 <= $total_pages ) { /* right arrow */
 			?><span class="rightpage"><a href="<?php
-			echo htmlspecialchars( $link . ( $offset + 1 ) );
+			echo htmlspecialchars( $link . ( $page + 1 ) );
 			?>" class="next" title="Επόμενη"></a></span><?php
 		}
 		
