@@ -4,16 +4,16 @@ workpath="/home/dionyziz/migrate"
 echo -n "Starting up... "
 rm $workpath/test $workpath/continue $workpath/*.gz $workpath/*.sql 2>/dev/null
 echo "CONTINUE" > ~/migrate/continue
-echo "Okay"
+echo "Done"
 
 standalonesteps=( 0 1 6 8 9 10 11 12 13 14 17 )
 for i in "${standalonesteps[@]}"
 do
     URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i"
-    echo -n "Downloading simple step" $i "... "
+    echo -n "Downloading simple step $i ... "
     wget $URL -O $workpath/$i.sql.gz 2>/dev/null
     if [[ $? -ne 0 ]]; then
-        echo "Error downloading" $URL
+        echo "Error downloading from $URL"
         exit 1
     fi
     echo "Done"
@@ -27,7 +27,7 @@ do
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&testoffset=$offset" 
         wget $URL -O $workpath/test 2>/dev/null
         if [[ $? -ne 0 ]]; then
-            echo "Error downloading" $URL
+            echo "Error downloading from $URL"
             exit 1
         fi
 
@@ -38,11 +38,11 @@ do
             break;
         fi
 
-        echo -n "Downloading step" $i "(part" $offset ")... "
+        echo -n "Downloading step $i (part $offset)... "
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
         wget $URL -O $workpath/$i-$offset.sql.gz 2>/dev/null
         if [[ $? -ne 0 ]]; then
-            echo "Error downloading" $URL
+            echo "Error downloading from $URL"
             break;
         fi
 
@@ -60,7 +60,7 @@ echo "Done"
 
 echo "Downloaded" `du -sh .|awk '{print $1}'`
 
-echo -n "Decompressing..."
+echo -n "Decompressing... "
 gzip --decrompess $workpath/*.gz
 echo "Done"
 
