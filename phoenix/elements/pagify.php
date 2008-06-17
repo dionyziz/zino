@@ -26,7 +26,7 @@
         
         $startpage = ( $page - 4 >= 1 ) ? $page - 4 : 1;
         $endpage = ( $page + 4 <= $total_pages ) ? $page + 4 : $total_pages;
-        for ( $p = $startpage; $p <= $endpage; ++$p ) {
+        for ( $p = $startpage; $p < $endpage; ++$p ) {
             if ( $p == $page ) {
                 ?><strong><?php
                 echo $p;
@@ -40,7 +40,7 @@
                 ?></a><?php
             }
 
-			if ( $p != $endpage ) {
+			if ( $p + 1 < $endpage ) {
 				?> <?php
 			}
 		}
