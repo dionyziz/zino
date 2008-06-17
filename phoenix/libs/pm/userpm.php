@@ -73,6 +73,9 @@
         public function GetCreated() {
             return $this->PM->Created;
         }
+        public function GetSince() {
+            return $this->PM->Since;
+        }
         protected function Relations() {
             $this->PM = $this->HasOne( 'PM', 'Pmid' );
             $this->Folder = $this->HasOne( 'PMFolder', 'Folderid' );
