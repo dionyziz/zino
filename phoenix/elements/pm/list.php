@@ -5,7 +5,7 @@
 		global $water;
 		global $libs;
 		global $user;
-		global $xc_settings;
+		global $rabbit_settings;
 		
         if ( !$user->Exists() ) {
             return;
@@ -43,14 +43,14 @@
 					?><div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew">Νέος Φάκελος</a></div>
 				</div><br />
 				<a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
+				echo $rabbit_settings[ 'imagesurl' ];
 				?>email_open.png" alt="Νέο μήνυμα" title="Νέο μήνυμα" /> Νέο μήνυμα</a><br />
 				<a href="" id="deletefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>icons/folder_delete.png" alt="Διαγραφή φακέλου" title="Διαγραφή φακέλου" /> Διαγραφή φακέλου</a>
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>folder_delete.png" alt="Διαγραφή φακέλου" title="Διαγραφή φακέλου" /> Διαγραφή φακέλου</a>
 				<a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>icons/folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
 			</div>
 			<div class="rightbar" style="float:left;">
 				<div class="messages" id="messages"><?php
@@ -63,11 +63,11 @@
 				<form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
 					<input type="textbox" style="width:130px;" /> 
 					<a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="<?php
-					echo $xc_settings[ 'staticimagesurl' ];
-					?>icons/accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
 					<a href="" onclick="pms.CancelNewFolder();return false;"><img src="<?php
-					echo $xc_settings[ 'staticimagesurl' ];
-					?>icons/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+					echo $rabbit_settings[ 'imagesurl' ];
+					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				</form>
 			</div>
 		</div>
