@@ -1,6 +1,6 @@
 #!/bin/bash
 
-workpath="~/migrate"
+workpath="/home/dionyziz/migrate"
 echo -n "Starting up... "
 rm $workpath/test $workpath/continue $workpath/*.gz $workpath/*.sql
 echo "CONTINUE" > ~/migrate/continue
