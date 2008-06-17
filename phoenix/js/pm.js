@@ -212,7 +212,7 @@ var pms = {
 		Coala.Warm( 'pm/sendpm' , { usernames : receiverslist.value , pmtext : pmtext.value } );
 	}
 	,
-	DeletePm : function( msgnode , pmid , read ) {
+	DeletePm : function( msgnode, pmid, folderid, read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
 			pms.activepms = 0;
 			var delimg2 = $( '#pm_' + pmid + ' img' )[ 1 ];
@@ -231,7 +231,7 @@ var pms = {
 			}
 			pms.pmsinfolder--;
 			pms.WriteNoPms();
-			Coala.Warm( 'pm/deletepm' , { pmid : pmid } );
+			Coala.Warm( 'pm/deletepm' , { pmid : pmid, folderid : folderid } );
 		} );
 		
 	},

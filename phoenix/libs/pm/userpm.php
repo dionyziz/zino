@@ -22,6 +22,8 @@
                 WHERE
                     `pmif_folderid` = :folderid AND
                     `pmif_delid` < :deleteid
+                ORDER BY
+                    `pmif_pmid` DESC
                 LIMIT
                     :offset, :limit
                 ;' );

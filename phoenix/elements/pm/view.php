@@ -20,7 +20,9 @@
                 if ( $folder != PMFOLDER_OUTBOX ) {
                     ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
                     echo $pm->Pmid;
-                    ?>', '<?php
+                    ?>', <?php
+                    echo $folder->Id;
+                    ?>, '<?php
                     if ( $pm->IsRead() ) {
                         ?>true<?php
                     }
