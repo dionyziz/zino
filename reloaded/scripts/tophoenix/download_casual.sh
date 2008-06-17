@@ -31,7 +31,7 @@ do
         fi
 
         echo -n "Downloading step " $i " (part " $offset ")... "
-        URL= "http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
+        URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
         wget $URL -O ~/migrate/$i-$offset.sql.gz 2>/dev/null
         if [[ $? -ne 0 ]]; then
             echo "Error downloading" $URL
