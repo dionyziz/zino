@@ -3,14 +3,18 @@ function UnitPmMakefolder( tString $foldername ) {
 	global $user;
 	global $libs;
 	
-	$libs->Load( 'pm' );
+	$libs->Load( 'pm/pm' );
+
 	$foldername = $foldername->Get();
+
 	$folder = new PMFolder();
 	$folder->Name = $foldername;
-	$folder->UserId = $user->Id();
+	$folder->Userid = $user->Id();
 	$folder->Save();
+
 	$folderid = $folder->Id;
 	$foldername = w_json_encode( $foldername );
+
 	?>var newfolderlink = document.getElementById( 'newfolderlink' );
 	var newfolder = document.createElement( 'div' );
 	newfolder.id = 'folder_<?php
