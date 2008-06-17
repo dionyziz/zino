@@ -1,6 +1,10 @@
 <?php
 	header( 'Content-type: text/javascript' );
 	include "jquery.js";
+	include "ui.base.js";
+	include "ui.draggable.js";
+	include "ui.droppable.js";
+	include "jquery.dimensions.js";
 	include "modal.js";
 	include "trivial/dates.js";
 	include "coala.js";
@@ -19,6 +23,7 @@
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
+	include "pm.js";
 	include "frontpage.js";
     include "moodpicker.js";
 	include "settings.js";

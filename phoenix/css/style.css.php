@@ -39,6 +39,7 @@
     include "moodpicker.css";
 	include "pagify.css";
 	include "people.css";
+	include "pm.css";
 	include "search.css";
     include "wysiwyg.css";
 ?>

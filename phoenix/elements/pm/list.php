@@ -15,20 +15,7 @@
         
 		$libs->Load( 'pm/pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
-        
-		$page->AttachStyleSheet( 'css/pm.css' );
-		$page->AttachStyleSheet( 'css/modal.css' );
-        
-		$page->AttachScript( 'js/pm.js' );
-		$page->AttachScript( 'js/coala.js' );
-		$page->AttachScript( 'js/modal.js' );
-		$page->AttachScript( 'js/animations.js' );
-        // $page->AttachScript( 'js/jquery.js' );
-		$page->AttachScript( 'js/ui.base.js' );
-		$page->AttachScript( 'js/ui.draggable.js' );
-		$page->AttachScript( 'js/ui.droppable.js' );
-		$page->AttachScript( 'js/jquery.dimensions.js' );
-		
+       	
         $finder = New PMFolderFinder();
         $folders = $finder->FindByUser( $user );
         $unreadCount = $user->Count->Unreadpms;
@@ -37,7 +24,6 @@
 	    var unreadpms = <?php
 		echo $unreadCount;
 		?></script>
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
 		<br /><br /><br /><br />
 		<div class="body">
 			<div class="upper">
