@@ -26,24 +26,26 @@
         
         $startpage = ( $page - 4 >= 1 ) ? $page - 4 : 1;
         $endpage = ( $page + 4 <= $total_pages ) ? $page + 4 : $total_pages;
-        for ( $p = $startpage; $p < $endpage; ++$p ) {
-            if ( $p == $page ) {
-                ?><strong><?php
-                echo $p;
-                ?></strong><?php
-            }
-            else {
-                ?><a href="<?php
-                echo htmlspecialchars( $link . $p );
-                ?>" class="nextbacklinks"><?php
-                echo $p;
-                ?></a><?php
-            }
+        if ( $endpage - $startpage > 0 ) {
+            for ( $p = $startpage; $p <= $endpage; ++$p ) {
+                if ( $p == $page ) {
+                    ?><strong><?php
+                    echo $p;
+                    ?></strong><?php
+                }
+                else {
+                    ?><a href="<?php
+                    echo htmlspecialchars( $link . $p );
+                    ?>" class="nextbacklinks"><?php
+                    echo $p;
+                    ?></a><?php
+                }
 
-			if ( $p + 1 < $endpage ) {
-				?> <?php
-			}
-		}
+                if ( $p != $endpage ) {
+                    ?> <?php
+                }
+            }
+        }
 		
 		if ( $page + 4 < $total_pages ) {
 			?> ...<?php
