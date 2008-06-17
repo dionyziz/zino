@@ -8,7 +8,6 @@
         global $user;
         global $libs;
         
-        $water->Disable();
     	$libs->Load( 'magic' );
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
