@@ -458,7 +458,7 @@
     }
 
     function MigratePolls( $offset, $test = false ) {
-        global $polls, $votes, $polloptions;
+        global $polls, $votes, $polloptions, $db;
 
         if ( $test ) {
             if ( $offset <= 2 ) {
@@ -473,7 +473,30 @@
         // migrate polls
         switch ( $offset ) {
             case 0:
-                MigrateAsIs( $polls, 'polls' );
+                $res = $db->Query( 
+                    "SELECT
+                        *
+                    FROM
+                        `$polls`;"
+                );
+                while ( $row = $res->FetchArray() ) {
+                    ?>INSERT INTO `polls` SET
+                        `poll_id`=<?php
+                        echo $row[ 'poll_id' ];
+                        ?>, `poll_question`='<?php
+                        echo addslashes( $row[ 'poll_question' ] );
+                        ?>', `poll_userid`='<?php
+                        echo $row[ 'poll_userid' ];
+                        ?>, `poll_created`='<?
+                        echo $row[ 'poll_created' ];
+                        ?>', `poll_delid`=<?php
+                        echo $row[ 'poll_delid' ];
+                        ?>, `poll_numvotes`=<?php
+                        echo $row[ 'poll_numvotes' ];
+                        ?>, `poll_numcomments`=<?php
+                        echo $row[ 'poll_numcomments' ];
+                        ?>;<?php
+                }
                 break;
             case 1:
                 MigrateAsIs( $votes, 'votes', array( 'vote_userid', 'vote_date' => 'vote_created', 'vote_optionid', 'vote_pollid' ) );
