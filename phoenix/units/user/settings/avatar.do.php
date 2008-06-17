@@ -16,6 +16,8 @@
 					echo $image->Id;
 					?>_' + ExcaliburSettings.image_cropped_150x150 + '.jpg'
 				} );<?php
+                $user->Egoalbum->Mainimage = $image->Id;
+                $user->Egoalbum->Save();
 			}
             else {
                 ?>alert( 'You can\'t use somebody elses images as your avatar' );<?php
