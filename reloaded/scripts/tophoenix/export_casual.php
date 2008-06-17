@@ -76,8 +76,6 @@
                 }
             }
         }
-        die( var_dump( $out ) );
-
         $query = "SELECT
                     $selectfields
                 FROM
@@ -107,10 +105,11 @@
                 else {
                     $targetfield = $out[ $field ];
                 }
-                $values[] = "$targetfield='$value'";
+                $values[] = "`$targetfield`='$value'";
             }
             echo implode( ',', $values );
             ?>;<?php
+            die();
         }
     }
 
