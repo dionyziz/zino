@@ -3,7 +3,7 @@
     function ElementPmView( $pm, $folder ) {
         global $user;
         global $water;
-        global $xc_settings;
+        global $rabbit_settings;
 
         ?><div class="message" style="width:620px;" id="pm_<?php
             echo $pm->Pmid;
@@ -33,7 +33,7 @@
                 }
                 if ( !$pm->IsRead() && $folder != PMFOLDER_OUTBOX ) {
                     ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
+                    echo $rabbit_settings[ 'imagesurl' ];
                     ?>email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
                 }
                 ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
