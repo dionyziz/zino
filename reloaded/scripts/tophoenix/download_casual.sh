@@ -6,7 +6,7 @@ standalonesteps=( 0 1 6 8 9 10 11 12 13 14 17 )
 for i in "${standalonesteps[@]}"
 do
     URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i"
-    echo -n "Downloading step " $i "... "
+    echo -n "Downloading step" $i "... "
     wget $URL -O ~/migrate/$i.sql.gz 2>/dev/null
     echo "Done"
 done
@@ -18,14 +18,14 @@ do
     while true; do
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&testoffset=$offset" 
         wget $URL -O ~/migrate/$i-$offset-test 2>/dev/null
-        if [[ $? -neq 0 ]]; then
-            echo "Error downloading "
+        if [[ $? -ne 0 ]]; then
+            echo "Error downloading" $URL
             exit 1
         fi
 
         diff ~/migrate/continue ~/migrate/$i-$offset-test > /dev/null
 
-        if [[ $? -eq 1 ]]; then
+        if [[ $? -ne 0 ]]; then
             sleep 2
             break;
         fi
@@ -33,6 +33,11 @@ do
         echo -n "Downloading step " $i " (part " $offset ")... "
         URL= "http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
         wget $URL -O ~/migrate/$i-$offset.sql.gz 2>/dev/null
+        if [[ $? -ne 0 ]]; then
+            echo "Error downloading" $URL
+            break;
+        fi
+
         echo "Done"
 
         offset=$(expr $offset + 1)
