@@ -75,7 +75,6 @@
                     $out[ $fromfield ] = $tofield;
                 }
             }
-            $fields = $out;
         }
 
         $query = "SELECT
@@ -105,7 +104,7 @@
                     $targetfield = $field;
                 }
                 else {
-                    $targetfield = $fields[ $field ];
+                    $targetfield = $out[ $field ];
                 }
                 $values[] = "$targetfield = '$value'";
             }
@@ -536,7 +535,7 @@
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
             echo addslashes( $row[ 'shout_textformatted' ] );
-            ?>' );INSERT INTO `shouts` (`shout_id`, `shout_userid`, `shout_created`, `shout_delid`, `shout_bulkid`) VALUES ('<?php
+            ?>' );INSERT INTO `shoutbox` (`shout_id`, `shout_userid`, `shout_created`, `shout_delid`, `shout_bulkid`) VALUES ('<?php
             echo $row[ 'shout_id' ];
             ?>', '<?php
             echo $row[ 'shout_userid' ];
@@ -584,7 +583,7 @@
         SET
             `usercounts`.`count_polls`=tmp.countpolls,
             `usercounts`.`count_albums`=tmp1.countalbums,
-            `usercounts`.`count_journals`='tmp2.countjournals;
+            `usercounts`.`count_journals`=tmp2.countjournals;
         <?php
     }
 
