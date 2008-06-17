@@ -64,7 +64,8 @@
     			<input type="text" style="width:250px;" id="mailadress" /><br /><br />
     		    <span style="font-family:serif;">Σχόλια (προαιρετικό)</span><br />
     			<textarea style="width:400px;height:200px;"></textarea><br /><br />
-    			<a href="" onclick="advertise.SendEmail();return false;">&#187;Αποστολή</a>
+				<!-- Need to fix this -->
+    			<a href="" onclick="">&#187;Αποστολή</a>
 			</p>
 		<?php
 	}
