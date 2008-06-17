@@ -28,7 +28,6 @@
 				<li>Προφίλ χρηστών</li>
 					<strong>1 μήνας</strong> 220&euro;<br />
 					<strong>3 μήνες</strong> 200&euro;/μήνα
-				</div>
 				<li>Προβολή φωτογραφιών</li>
 					<strong>1 μήνας</strong> 200&euro;<br />
 					<strong>3 μήνες</strong> 180&euro;/μήνα
