@@ -45,3 +45,10 @@ do
         sleep 2
     done
 done
+
+echo "Cleaning up..."
+rm ~/migrate/*test ~/migrate/continue
+
+echo "Decompressing..."
+gzip --decrompess ~/migrate/*.gz
+
