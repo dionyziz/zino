@@ -231,10 +231,10 @@
 
         if ( $test ) {
             if ( $ret ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -381,10 +381,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
             if ( $offset * $limit < $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -459,10 +459,10 @@
 
         if ( $test ) {
             if ( $offset <= 2 ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -488,10 +488,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$shoutbox`;" );
             $row = $res->FetchArray();
             if ( $offset < $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -576,10 +576,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
             $row = $res->FetchArray();
             if ( $offset < $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -849,10 +849,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
             $row = $res->FetchArray();
             if ( $offset * 5000 < $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }
@@ -890,10 +890,10 @@
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
             $row = $res->FetchArray();
             if ( $offset * 5000 < $row[ 'numrows' ] ) {
-                ?>CONTINUE<?php
+                ?>CONTINUE\n<?php
             }
             else {
-                ?>TERMINATE<?php
+                ?>TERMINATE\n<?php
             }
             exit();
         }

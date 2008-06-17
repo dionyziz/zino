@@ -17,7 +17,7 @@ do
 
         diff ~/migrate/continue ~/migrate/$i-$offset-test > /dev/null
 
-        if [[ $? -eq 0 ]]; then
+        if [[ $? -eq 1 ]]; then
             break;
         fi
 
