@@ -25,7 +25,7 @@
             $this->AssertFalse( ValidEmail( '@kamibu.com' ), 'ValidEmail succeeded with an empty username' );
             $this->AssertFalse( ValidEmail( 'bob@' ), 'ValidEmail succeeded with an empty username' );
             $this->AssertFalse( ValidEmail( 'bob@alice@kamibu.com' ), 'ValidEmail succeeded with a double @' );
-            $this->AssertFalse( ValidEmail( 'bob..brown@kamibu.com' ), 'ValidEmail succeeded with a double .' );
+            $this->AssertFalse( ValidEmail( 'bob.brown@fools..kamibu.com' ), 'ValidEmail succeeded with a double .' );
         }
     }
 
