@@ -220,13 +220,19 @@
             /* notification firing */
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
+                    $comment = $this->Item;
+                    $entity = $comment->Item;
+
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
-                    if ( $this->Item->Parentid > 0 ) {
-                        $notif->Touserid = $this->Item->Parent->Userid;
+                    if ( $comment->Parentid > 0 ) {
+                        $notif->Touserid = $comment->Parent->Userid;
+                    }
+                    else if ( $entity instanceof User ) {
+                        $notif->Touserid = $entity->Id;
                     }
                     else {
-                        $notif->Touserid = $this->Item->Item->Userid;
+                        $notif->Touserid = $entity->Userid;
                     }
                     $notif->Fromuserid = $this->Userid;
                     $notif->Save();
