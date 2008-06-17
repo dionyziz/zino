@@ -67,6 +67,6 @@
     			<textarea style="width:400px;height:200px;"></textarea><br /><br />
     			<a href="" onclick="advertise.SendEmail();return false;">&#187;Αποστολή</a>
 			</p>
-		</div><?php
+		<?php
 	}
 ?>
