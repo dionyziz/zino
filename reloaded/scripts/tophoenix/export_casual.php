@@ -158,7 +158,7 @@
                 echo ip2long( $row[ 'user_registerhost' ] );
                 ?>', `user_created`='<?php
                 echo $row[ 'user_created' ];
-                ?>, `user_rights`='<?php
+                ?>', `user_rights`='<?php
                 echo $row[ 'user_rights' ];
                 ?>', `user_icon`=0, `user_emailverified`='no', `user_subdomain`='<?php
                 echo addslashes( $row[ 'user_subdomain' ] );
@@ -264,9 +264,9 @@
                 echo $row[ 'album_id' ];
                 ?>, `album_userid`=<?php
                 echo $row[ 'album_userid' ];
-                ?>, `album_created`=<?php
+                ?>, `album_created`='<?php
                 echo $row[ 'album_created' ];
-                ?>, `album_submithost`=<?php
+                ?>', `album_submithost`=<?php
                 echo ip2long( $row[ 'album_submithost' ] );
                 ?>, `album_name`='<?php
                 echo addslashes( $row[ 'album_name' ] );
@@ -413,9 +413,9 @@
                 echo $row[ 'image_id' ];
                 ?>, `image_userid`=<?php
                 echo $row[ 'image_userid' ];
-                ?>, `image_created`=<?php
+                ?>, `image_created`='<?php
                 echo $row[ 'image_created' ];
-                ?>, `image_userip`=<?php
+                ?>', `image_userip`=<?php
                 echo ip2long( $row[ 'image_userip' ] );
                 ?>, `image_name`='<?php
                 echo addslashes( $row[ 'image_name' ] );
@@ -610,9 +610,9 @@
             echo $row[ 'comment_id' ];
             ?>, `comment_userid`=<?php
             echo $row[ 'comment_userid' ];
-            ?>, `comment_created`=<?php
+            ?>, `comment_created`='<?php
             echo $row[ 'comment_created' ];
-            ?>, `comment_userip`=<?php
+            ?>', `comment_userip`=<?php
             echo ip2long( $row[ 'comment_userip' ] );
             ?>, `comment_bulkid`=LAST_INSERT_ID(), `comment_itemid`=<?php
             echo $row[ 'comment_storyid' ];
@@ -650,9 +650,9 @@
         ?>TRUNCATE TABLE `journals`;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `journals` SET
-                `journal_created`=<?php
+                `journal_created`='<?php
                 echo $row[ 'article_created' ];
-                ?>, `journal_numcomments`=<?php
+                ?>', `journal_numcomments`=<?php
                 echo $row[ 'article_numcomments' ];
                 ?>, `journal_title`='<?php
                 echo addslashes( $row[ 'revision_title' ] );
@@ -803,7 +803,13 @@
 		while ( $row = $res->FetchArray() ) {
 			?>INSERT INTO `bulk` (`bulk_text`) VALUES ( '<?php echo addslashes( $row[ 'profile_answer' ] ); ?>' );
 			INSERT INTO `answers` (`answer_userid`, `answer_bulkid`, `answer_questionid`, `answer_created`) 
-			VALUES ( '<?php echo $row[ 'profile_userid' ]; ?>', LAST_INSERT_ID(),'<?php echo $row[ 'profile_questionid' ]; ?>', '<?php echo $row[ 'profile_date' ]; ?>'); <?php
+			VALUES ( '<?php
+            echo $row[ 'profile_userid' ];
+            ?>', LAST_INSERT_ID(),'<?php
+            echo $row[ 'profile_questionid' ];
+            ?>', '<?php
+            echo $row[ 'profile_date' ];
+            ?>' ); <?php
 		}		
 	}
 
@@ -882,9 +888,9 @@
             echo $row[ 'pm_id' ];
             ?>, `pm_senderid`=<?php
             echo $row[ 'pm_senderid' ];
-            ?>, `pm_bulkid`=LAST_INSERT_ID(), `pm_created`=<?php
+            ?>, `pm_bulkid`=LAST_INSERT_ID(), `pm_created`='<?php
             echo $row[ 'pm_date' ];
-            ?>;<?php
+            ?>';<?php
         }
     }
 
