@@ -76,7 +76,6 @@
                 }
             }
         }
-        die( var_dump( $out ) );
         $query = "SELECT
                     $selectfields
                 FROM
@@ -104,6 +103,9 @@
                     $targetfield = $field;
                 }
                 else {
+                    echo 'Looking for ' . $field . '...';
+                    print_r( $out );
+                    die();
                     $targetfield = $out[ $field ];
                 }
                 $values[] = "`$targetfield`='$value'";
