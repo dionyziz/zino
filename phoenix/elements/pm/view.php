@@ -18,18 +18,18 @@
             }
             ?>><?php
                 if ( $folder != PMFOLDER_OUTBOX ) {
-                    ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, <?php
+                    ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
                     echo $pm->Pmid;
-                    ?>, <?php
+                    ?>', '<?php
                     if ( $pm->IsRead() ) {
                         ?>true<?php
                     }
                     else {
                         ?>false<?php
                     }
-                    ?> );return false;"><img src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
-                    ?>cross.png" /></a><?php
+                    ?>' );return false;"><img src="<?php
+                    echo $rabbit_settings[ 'imagesurl' ];
+                    ?>delete.png" /></a><?php
                 }
                 if ( !$pm->IsRead() && $folder != PMFOLDER_OUTBOX ) {
                     ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
