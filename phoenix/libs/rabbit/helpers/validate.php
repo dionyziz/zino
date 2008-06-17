@@ -14,8 +14,7 @@
 
     function ValidEmail( $email ) {
         // Partially incorrect:
-        // * Will allow some invalid domain names such as domains starting with a -, or
-        //   domains containing same-label siblings.
+        // * Will allow some invalid domain names such as domains containing same-label siblings.
         // * Won't allow the ' character in usernames, which can be valid
         //
         // If you need absolutely correct validation, use your own manual string manipulation

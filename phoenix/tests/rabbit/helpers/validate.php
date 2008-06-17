@@ -26,6 +26,9 @@
             $this->AssertFalse( ValidEmail( 'bob@' ), 'ValidEmail succeeded with an empty username' );
             $this->AssertFalse( ValidEmail( 'bob@alice@kamibu.com' ), 'ValidEmail succeeded with a double @' );
             $this->AssertFalse( ValidEmail( 'bob.brown@fools..kamibu.com' ), 'ValidEmail succeeded with a double .' );
+            $this->AssertFalse( ValidEmail( 'bob@-kamibu.com' ), 'ValidEmail matched a domain starting with -' );
+            $this->AssertFalse( ValidEmail( 'bob@kamibu-.com' ), 'ValidEmail matched a domain ending in a -' );
+            $this->AssertFalse( ValidEmail( 'bob@rabbit.-kamibu-.com' ), 'ValidEmail matched a domain wrapped in -' );
         }
     }
 
