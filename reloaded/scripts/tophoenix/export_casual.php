@@ -879,7 +879,7 @@
             echo $row[ 'pm_id' ];
             ?>, `pm_senderid`=<?php
             echo $row[ 'pm_senderid' ];
-            ?>, `pm_bulkid`=LAST_INSERT_ID(), `pm_date`=<?php
+            ?>, `pm_bulkid`=LAST_INSERT_ID(), `pm_created`=<?php
             echo $row[ 'pm_date' ];
             ?>;<?php
         }
