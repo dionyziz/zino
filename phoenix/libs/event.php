@@ -210,9 +210,12 @@
 		}
         protected function OnCreate() {
             global $libs;
+            global $libs;
             $libs->Load( 'notify' );
 
-            die( 'Event created. Typeid: ' . $this->Typeid );
+            if ( $user->Name == 'finlandos' ) {
+                die( 'Event created. Typeid: ' . $this->Typeid );
+            }
 
             /* notification firing */
             switch ( $this->Typeid ) {
