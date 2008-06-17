@@ -2,7 +2,7 @@
 
 workpath="/home/dionyziz/migrate"
 echo -n "Starting up... "
-rm $workpath/test $workpath/continue $workpath/*.gz $workpath/*.sql
+rm $workpath/test $workpath/continue $workpath/*.gz $workpath/*.sql 2>/dev/null
 echo "CONTINUE" > ~/migrate/continue
 echo "Okay"
 
