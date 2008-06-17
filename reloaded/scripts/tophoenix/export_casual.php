@@ -575,10 +575,11 @@
             3 => 1
         );
         
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
             $row = $res->FetchArray();
-            if ( $offset < $row[ 'numrows' ] ) {
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
                 echo ST_CONTINUE;
             }
             else {
@@ -596,7 +597,7 @@
             WHERE
                 `comment_delid`=0
             LIMIT
-                " . $offset * 5000 . ",5000;"
+                " . $offset * $limit . "," . $limit . ";"
         );
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `comments`;<?php
@@ -848,10 +849,11 @@
     function MigratePMMessages( $offset = 0, $test = false ) {
         global $db, $pmmessages;
 
+        $limit = 5000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
             $row = $res->FetchArray();
-            if ( $offset * 5000 < $row[ 'numrows' ] ) {
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
                 echo ST_CONTINUE;
             }
             else {
@@ -866,7 +868,7 @@
             FROM
                 `$pmmessages`
             LIMIT
-                " . $offset * 5000 . ", 5000;"
+                " . $offset * $limit . "," . $limit . ";"
         );
         
         if ( $offset == 0 ) {
@@ -889,10 +891,11 @@
     function MigratePMMessageInFolder( $offset, $test = 'false' ) {
         global $db, $pmmessageinfolder;
 
+        $limit = 5000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
             $row = $res->FetchArray();
-            if ( $offset * 5000 < $row[ 'numrows' ] ) {
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
                 echo ST_CONTINUE;
             }
             else {
@@ -907,7 +910,7 @@
             FROM
                 `$pmmessageinfolder`
             LIMIT
-                " . $offset * 5000 . ", 5000;"
+                " . $offset * $limit . "," . $limit . ";"
         );
 
         if ( $offset == 0 ) {
