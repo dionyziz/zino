@@ -2,11 +2,10 @@
 
 	function ElementUserSettingsPersonalDob() {
 		global $user;
-		global $water;
+
 		?><select class="small">
 			<option value="-1"<?php
-			$water->Trace( 'dd-mm-yyyy :' . $user->Profile->BirthDay . ' ' . $user->Profile->BirthMonth . ' ' . $user->Profile->BirthYear );
-			if ( !$user->Profile->BirthDay ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php
@@ -30,7 +29,7 @@
 		?></select>
 		<select class="small">
 			<option value="-1"<?php
-			if ( !$user->Profile->BirthMonth ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>><?php
@@ -53,7 +52,7 @@
 		?></select>
 		<select class="small">
 			<option value="-"<?php
-			if ( !$user->Profile->BirthYear ) {
+			if ( !$user->Profile->Age ) {
 				?> selected="selected"<?php
 			}
 			?>>-</option><?php

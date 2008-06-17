@@ -3,6 +3,7 @@
 	function UnitAlbumPhotoUpload( tInteger $imageid , tCoalaPointer $node ) {
 		global $libs;
 		global $user;
+		global $rabbit_settings;
 		
 		$libs->Load( 'image' );
 		
@@ -18,15 +19,28 @@
 			$image->Album->Mainimage = $image->Id;
 			$image->Album->Save();
 			if ( $image->Album->Id == $user->Egoalbumid ) {
-				?>$( 'div.usersections a img' ).attr( {
-					src : ExcaliburSettings.photosurl + '<?php
-					echo $user->Id;
-					?>/_<?php
-					echo $image->Id;
-					?>/<?php
-					echo $image->Id;
-					?>_' + ExcaliburSettings.image_proportional_210x210 + '.jpg'
-				} );<?php
+				if ( $rabbit_settings[ 'production' ] ) {
+					?>$( 'div.usersections a img' ).attr( {
+						src : ExcaliburSettings.photosurl + '<?php
+						echo $user->Id;
+						?>/<?php
+						echo $image->Id;
+						?>/<?php
+						echo $image->Id;
+						?>' + ExcaliburSettings.image_proportional_210x210 + '.jpg'
+					} );<?php
+				}
+				else {
+					?>$( 'div.usersections a img' ).attr( {
+						src : ExcaliburSettings.photosurl + '<?php
+						echo $user->Id;
+						?>/_<?php
+						echo $image->Id;
+						?>/<?php
+						echo $image->Id;
+						?>_' + ExcaliburSettings.image_proportional_210x210 + '.jpg'
+					} );<?php
+				}
 			}
 		}
 		
