@@ -1,6 +1,6 @@
 <?php
     class TestValidation extends Testcase {
-        protected $mAppliesTo = 'libs/rabbit/helpers/validation';
+        protected $mAppliesTo = 'libs/rabbit/helpers/validate';
 
         public function TestFunctionsExist() {
             $this->RequireSuccess(
