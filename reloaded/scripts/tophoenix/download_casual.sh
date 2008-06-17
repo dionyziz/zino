@@ -61,7 +61,7 @@ echo "Done"
 echo "Downloaded" `du -sh .|awk '{print $1}'`
 
 echo -n "Decompressing... "
-gzip --decrompess $workpath/*.gz
+gzip --decompress $workpath/*.gz
 echo "Done"
 
 echo -n "Decompressed" `du -sh .|awk '{print $1}'`
