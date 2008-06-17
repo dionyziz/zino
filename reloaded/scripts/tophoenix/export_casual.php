@@ -396,7 +396,7 @@
             FROM
                 `$images`
             LIMIT
-                " . $offset * $limit . ", " . $limit + 1 . ";"
+                " . $offset * $limit . ", " . ( $limit + 1 ) . ";"
         );
         
         if ( $offset == 0 ) {
