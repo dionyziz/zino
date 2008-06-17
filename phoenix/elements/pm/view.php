@@ -50,6 +50,8 @@
                 }
                 ?>, <?php
                 echo $pm->Pmid;
+                ?>, <?php
+                echo $folder->Id;
                 ?> );return false;"><?php
                 if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
                     ?> από τ<?php

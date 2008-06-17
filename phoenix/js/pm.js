@@ -37,7 +37,7 @@ var pms = {
 		pms.ShowFolder( folder , folderid );
 	}
 	,
-	ExpandPm : function( pmdiv , notread , pmid ) {
+	ExpandPm : function( pmdiv , notread , pmid, folderid ) {
 		//the function is responsible for expanding and minimizing pms, allowing only one expanded pm
 		//notread is true when the pm hasn't been read else it is true
 		var messagesdivdivs = $( '#pm_' + pmid + ' div')[ 0 ];
@@ -50,7 +50,7 @@ var pms = {
 		if ( notread ) {
 			//remove the unread icon
 			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
-			Coala.Warm( 'pm/expandpm' , { pmid : pmid } );
+			Coala.Warm( 'pm/expandpm' , { pmid : pmid, folderid: folderid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
 				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
