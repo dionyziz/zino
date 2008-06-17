@@ -218,6 +218,28 @@
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
+        public function DeleteByEntity( $entity ) {
+            $prototype = New Comment();
+            $prototype->Typeid = Type_FromObject( $entity );
+            $prototype->Itemid = $entity->Id; //3 stands for Userprofile
+
+            $query = $this->mDb->Query( '
+                UPDATE
+                    :comments
+                SET
+                    `comment_delid` = :delid
+                WHERE
+                    `comment_typeid` = :typeid AND
+                    `comment_itemid` = :itemid
+                ;' );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'delid', 1 );
+            $query->Bind( 'typeid', Type_FromObject( $entity ) );
+            $query->Bind( 'itemid', $entity->Id );
+
+            return $query->Execute()->Impact();
+        }
         public function CommentHasChildren( $comment ) {
             $query = $this->mDb->Prepare( "
                 SELECT 

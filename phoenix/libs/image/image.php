@@ -323,6 +323,9 @@
             $event->Save();
         }
         protected function OnDelete() {
+            global $libs;
+            $libs->Load( 'comment' );
+
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
@@ -341,6 +344,9 @@
 
                 $this->Album->Save();
             }
+
+            $finder = New CommentFinder();
+            $finder->DeleteByEntity( $this );
         }
         protected function OnUndelete() {
             $this->OnCreate();

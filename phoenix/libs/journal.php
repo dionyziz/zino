@@ -76,11 +76,15 @@
         protected function OnDelete() {
             global $libs;
             $libs->Load( 'event' );
+            $libs->Load( 'comment' );
 
             --$this->User->Count->Journals;
             $this->User->Count->Save();
 
             $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
+
+            $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
         }
         protected function Relations() {
