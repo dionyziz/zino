@@ -76,6 +76,7 @@
                 }
             }
         }
+        die( var_dump( $out ) );
 
         $query = "SELECT
                     $selectfields
@@ -106,7 +107,7 @@
                 else {
                     $targetfield = $out[ $field ];
                 }
-                $values[] = "$targetfield = '$value'";
+                $values[] = "$targetfield='$value'";
             }
             echo implode( ',', $values );
             ?>;<?php
@@ -167,17 +168,19 @@
                 echo $row[ 'user_lastlogon' ];
                 ?>', `user_egoalbumid`=0;<?php
             ?>INSERT INTO `userprofiles` SET
-                `profile_userid` = LAST_INSERT_ID(), `profile_email` = '<?php
+                `profile_userid`=<?php
+                echo $row[ 'user_id' ];
+                ?>, `profile_email`='<?php
                 echo addslashes( $row[ 'user_email' ] );
-                ?>', `profile_placeid` = '<?php
+                ?>', `profile_placeid`='<?php
                 echo $row[ 'user_place' ];
-                ?>', `profile_dob` = '<?php
+                ?>', `profile_dob`='<?php
                 echo $row[ 'user_dob' ];
-                ?>', `profile_slogan` = '<?php
+                ?>', `profile_slogan`='<?php
                 echo $row[ 'user_subtitle' ];
-                ?>', `profile_uniid` = '<?php
+                ?>', `profile_uniid`='<?php
                 echo $row[ 'user_uniid' ];
-                ?>', `profile_education` = '<?php
+                ?>', `profile_education`='<?php
                 if ( empty( $row[ 'user_uniid' ] ) ) { // no uni set
                     ?>-<?php
                 }
@@ -206,7 +209,9 @@
                 echo $row[ 'user_numcomments' ];
                 ?>';<?php
             ?>INSERT INTO `usercounts` SET 
-                `count_userid`=LAST_INSERT_ID(), `count_images`='<?php
+                `count_userid`=<?php
+                echo $row[ 'user_id' ];
+                ?>, `count_images`='<?php
                 echo $row[ 'user_numimages' ];
                 ?>', `count_polls`=0, `count_journals`=0, `count_albums`=0, `count_comments`=<?php
                 echo $row[ 'user_contribs' ];
@@ -214,7 +219,9 @@
                 echo $row[ 'user_numsmallnews' ];
                 ?>;<?php
             ?>INSERT INTO `usersettings` SET
-                `setting_userid`=LAST_INSERT_ID(), `setting_emailprofile`='yes', `setting_emailphotos`='yes', `setting_emailjournals`='yes', `setting_emailpolls`='yes', `setting_emailreplies`='yes', `setting_emailfriends`='yes', `setting_notifyprofile`='yes', `setting_notifyphotos`='yes', `setting_notifyjournals`='yes', `setting_notifypolls`='yes', `setting_notifyreplies`='yes', `setting_notifyfriends`='yes';
+                `setting_userid`=<?php
+                echo $row[ 'user_id' ];
+                ?>;
             INSERT INTO `lastactive` SET
                 `lastactive_userid`=<?php
                 echo $row[ 'user_id' ];
@@ -265,7 +272,7 @@
                 echo $row[ 'album_userid' ];
                 ?>, `album_created`='<?php
                 echo $row[ 'album_created' ];
-                ?>', `album_submithost`=<?php
+                ?>', `album_userip`=<?php
                 echo ip2long( $row[ 'album_submithost' ] );
                 ?>, `album_name`='<?php
                 echo addslashes( $row[ 'album_name' ] );
@@ -434,7 +441,7 @@
                 echo $row[ 'image_numcomments' ];
                 ?>;<?php
             ++$i;
-            if ( $i > $limit ) {
+            if ( $i >= $limit ) {
                 break;
             }
         }
@@ -486,7 +493,7 @@
                         echo addslashes( $row[ 'poll_question' ] );
                         ?>', `poll_userid`='<?php
                         echo $row[ 'poll_userid' ];
-                        ?>, `poll_created`='<?
+                        ?>, `poll_created`='<?php
                         echo $row[ 'poll_created' ];
                         ?>', `poll_delid`=<?php
                         echo $row[ 'poll_delid' ];
@@ -532,7 +539,7 @@
                 " . $offset * $limit . ",$limit;"
         );
 
-        ?>TRUNCATE TABLE `shouts`;<?php
+        ?>TRUNCATE TABLE `shoutbox`;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
             echo addslashes( $row[ 'shout_textformatted' ] );

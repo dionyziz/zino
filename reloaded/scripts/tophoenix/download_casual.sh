@@ -64,5 +64,5 @@ echo -n "Decompressing... "
 gzip --decompress $workpath/*.gz
 echo "Done"
 
-echo -n "Decompressed" `du -sh .|awk '{print $1}'`
+echo "Decompressed" `du -sh .|awk '{print $1}'`
 
