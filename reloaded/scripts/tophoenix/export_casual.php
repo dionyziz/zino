@@ -380,9 +380,8 @@
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
-            if ( $offset * $limit <= $row[ 'numrows' ] ) {
-                ?>CONTINUE <?php
-                echo $offset;
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
+                ?>CONTINUE<?php
             }
             else {
                 ?>TERMINATE<?php
@@ -397,13 +396,14 @@
             FROM
                 `$images`
             LIMIT
-                " . $offset * $limit . ", " . $limit . ";"
+                " . $offset * $limit . ", " . $limit + 1 . ";"
         );
         
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `images`;<?php
         }
 
+        $i = 0;
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `images` SET
                 `image_id`=<?php
@@ -431,10 +431,13 @@
                 ?>, `image_numcomments`=<?php
                 echo $row[ 'image_numcomments' ];
                 ?>;<?php
-                // TODO: migrate images to serverv2 and recalculate width/height/size
+            ++$i;
+            if ( $i > $limit ) {
+                break;
+            }
         }
 
-        if ( $res->NumRows() < $limit ) {
+        if ( $res->NumRows() < $limit + 1 ) {
             // fill in numphotos in albums (CROSS JOIN ensures albums with no photos stay at the default = 0)
             ?>
             UPDATE
