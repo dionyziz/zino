@@ -3,6 +3,11 @@
 	function UnitUserSettingsAvatar( tInteger $imageid ) {
 		global $user;
 		
+        ?>alert('Saving avatar (<?php
+        echo $imageid->Get();
+        ?>)');<?php
+        return;
+
 		$image = New Image( $imageid->Get() );
 		
 		if ( !$image->IsDeleted() ) {
