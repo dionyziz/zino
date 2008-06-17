@@ -786,22 +786,16 @@
 
 		$res = $db->Query(
             "SELECT
-                `profile_userid`, `profile_answer`, `profile_questionid`, `profile_date`, 
+                `profile_userid`, `profile_answer`, `profile_questionid`, `profile_date`
             FROM
                 `$profileanswers`;"
         );
 
 		?>TRUNCATE TABLE `merlin_profilea`;<?php
 		while ( $row = $res->FetchArray() ) {
-			?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
-		   	echo addslashes( $row[ 'profile_answer' ] );
-			?>' );INSERT INTO `answers` (`answer_userid`, `answer_bulkid`, `answer_questionid`, `answer_created`) VALUES ('<?php
-			echo $row[ 'profile_userid' ];
-			?>', LAST_INSERT_ID(),'<?php
-			echo $row[ 'profile_questionid' ];
-			?>', '<?php
-			echo $row[ 'profile_date' ];
-			?>'); '<?php
+			?>INSERT INTO `bulk` (`bulk_text`) VALUES ( '<?php echo addslashes( $row[ 'profile_answer' ] ); ?>' );
+			INSERT INTO `answers` (`answer_userid`, `answer_bulkid`, `answer_questionid`, `answer_created`) 
+			VALUES ( '<?php echo $row[ 'profile_userid' ]; ?>', LAST_INSERT_ID(),'<?php echo $row[ 'profile_questionid' ]; ?>', '<?php echo $row[ 'profile_date' ]; ?>'); <?php
 		}		
 	}
 
