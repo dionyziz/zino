@@ -8,7 +8,7 @@
 			<ul>
 				<li><a href="http://www.kamibu.com/">Η ομάδα μας</a></li>
 				<li><a href="contact" onclick="return false">Επικοινώνησε</a></li>
-				<li><a href="about/tos/view" onclick="return false">Όροι χρήσης</a></li>
+				<li><a href="?p=tos" onclick="return false">Όροι χρήσης</a></li>
 				<li><a href="advertise" onclick="return false">Διαφημίσου εδώ</a></li>
 				<li><a href="help" onclick="return false">Βοήθεια</a></li>
 			</ul>
