@@ -78,6 +78,7 @@
 			"upload" 			=> "album/photo/upload",
 			"friends"			=> "user/relations/list",
             'tos'               => 'about/tos/view',
+			'advertise'			=> 'about/advertise/view',
             'unittest'          => 'developer/test/view',
             'search'            => 'developer/abresas/search',
             'commentsearch'     => 'developer/abresas/search/comments',
