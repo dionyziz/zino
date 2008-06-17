@@ -6,6 +6,8 @@
 		global $libs;
 		global $user;
 		global $rabbit_settings;
+
+        $water->Enable();
 		
         if ( !$user->Exists() ) {
             return;
