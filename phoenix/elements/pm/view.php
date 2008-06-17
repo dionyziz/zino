@@ -34,7 +34,7 @@
                 if ( !$pm->IsRead() && $folder != PMFOLDER_OUTBOX ) {
                     ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
-                    ?>email_open_image.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
+                    ?>email_open.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
                 }
                 ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
                 if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
