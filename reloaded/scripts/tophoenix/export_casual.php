@@ -378,7 +378,7 @@
     function MigrateImages( $offset, $test = false ) {
         global $db, $images;
 
-        $limit = 5000;
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$images`" );
             $row = $res->FetchArray();
@@ -509,10 +509,11 @@
     function MigrateShouts( $offset, $test = false ) {
         global $db, $shoutbox;
 
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$shoutbox`;" );
             $row = $res->FetchArray();
-            if ( $offset * 5000 < $row[ 'numrows' ] ) {
+            if ( $offset * $limit < $row[ 'numrows' ] ) {
                 echo ST_CONTINUE;
             }
             else {
@@ -528,7 +529,7 @@
             FROM 
                 $shoutbox
             LIMIT
-                " . $offset * 5000 . ",5000;"
+                " . $offset * $limit . ",$limit;"
         );
 
         ?>TRUNCATE TABLE `shouts`;<?php
@@ -597,7 +598,7 @@
             3 => 1
         );
         
-        $limit = 20000;
+        $limit = 30000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
             $row = $res->FetchArray();
@@ -919,7 +920,7 @@
     function MigratePMMessageInFolder( $offset, $test = 'false' ) {
         global $db, $pmmessageinfolder;
 
-        $limit = 5000;
+        $limit = 10000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
             $row = $res->FetchArray();
