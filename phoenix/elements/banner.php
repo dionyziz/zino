@@ -29,7 +29,7 @@
 				Element( 'user/name', $user, false );
 				?></a></li>
 	    		<li>·</li>
-	    		<li><a href="?p=pms" class="messages icon" onclick="return false"> 
+	    		<li><a href="?p=pms" class="messages icon"> 
 	    		<?php
 	    		    $unreadCount = $user->Count->Unreadpms;
 	    		    if( $unreadCount != 0 ) {
