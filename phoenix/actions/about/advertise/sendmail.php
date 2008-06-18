@@ -30,7 +30,7 @@
 			$mailsent = "no";
 		}
 		
-		die( "Redirecting to: ?p=advertise&mailsent=" . $mailsent );
-		return Redirect( "?p=advertise&mailsent=" . $mailsent );
+		//die( "Redirecting to: ?p=advertise&mailsent=" . $mailsent );
+		return Redirect( "https://beta.zino.gr/phoenix/?p=advertise&mailsent=" . $mailsent );
 	}
 ?>
