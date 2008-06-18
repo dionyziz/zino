@@ -1,6 +1,5 @@
 <?php
 function ElementShoutboxList( tInteger $pageno ) {
-    global $user;
     global $libs;
 
     $pageno = $pageno->Get();
