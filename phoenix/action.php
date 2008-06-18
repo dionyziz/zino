@@ -18,7 +18,6 @@
 
     $page->AttachMainElement( $p, $req );
     $page->Output();
-    die( var_dump( headers_sent() ) );
 
     Rabbit_Destruct();
 ?>
