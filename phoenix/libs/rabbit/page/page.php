@@ -484,7 +484,6 @@ final class PageAction extends Page {
         
         w_assert( count( $this->mMainElements ) == 1 );
         $redirect = $actions->Request( $this->mMainElements[ 0 ][ 'name' ], $this->mMainElements[ 0 ][ 'req' ] );
-        die( var_dump( headers_sent() ) );
         
         $water->ProfileEnd();
         

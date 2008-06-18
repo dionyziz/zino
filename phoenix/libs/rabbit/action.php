@@ -12,9 +12,14 @@
             $action = $p;
             $actionfunction = 'Action' . str_replace( '/' , '' , $action );
             
+            ob_start();
             // no parentfolder check necessary because of regex
             Rabbit_Include( 'actions/' . $action );
-            
+            $output = ob_get_clean();
+
+            if ( !empty( $output ) ) {
+                throw New Exception( 'Non-functional action output: ' . $action );
+            }
             if ( !function_exists( $actionfunction ) ) {
                 throw New Exception( 'Action is not functional: ' . $actionfunction );
             }
