@@ -12,8 +12,10 @@
 				foreach ( $comments as $comment ) {
 					Element( 'frontpage/comment/view' , $comment );
 				}
-			?></div><?php
-		?></div><?php
+			?></div>
+        <div class="eof"></div>
+		<div class="more"><a href="?p=comments/recent" class="button">Όλα τα σχόλια&raquo;</a></div>
+		</div><?php
 	
 	}
 ?>
