@@ -221,9 +221,9 @@
                 echo $row[ 'user_id' ];
                 ?>;
             INSERT INTO `lastactive` SET
-                `lastactive_userid`=<?php
+                `lastactive_userid`='<?php
                 echo $row[ 'user_id' ];
-                ?>, `lastactive_updated`=<?php
+                ?>', `lastactive_updated`=<?php
                 echo $row[ 'user_lastactive' ];
                 ?>;<?php
         }
@@ -277,7 +277,7 @@
                 ?>', `album_mainimage`=<?php
                 echo $row[ 'album_mainimage' ];
                 ?>, `album_description`='<?php
-                echo $row[ 'album_description' ];
+                echo addslashes( $row[ 'album_description' ] );
                 ?>', `album_delid`=<?php
                 echo $row[ 'album_delid' ];
                 ?>, `album_numcomments`=<?php
@@ -340,6 +340,8 @@
 
         // create ego albums for users who don't have one
         ?>INSERT INTO `albums` 
+        (`album_userid`, `album_created`, `album_userip`, `album_name`, `album_mainimage`, `album_description`,
+         `album_delid`, `album_numcomments`, `album_numphotos`)
             SELECT 
                 `user_id` AS album_userid, NOW() AS album_created, <?php
                 echo $localhost;
@@ -489,7 +491,7 @@
                         echo $row[ 'poll_id' ];
                         ?>, `poll_question`='<?php
                         echo addslashes( $row[ 'poll_question' ] );
-                        ?>', `poll_userid`='<?php
+                        ?>', `poll_userid`=<?php
                         echo $row[ 'poll_userid' ];
                         ?>, `poll_created`='<?php
                         echo $row[ 'poll_created' ];
@@ -541,7 +543,7 @@
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
             echo addslashes( $row[ 'shout_textformatted' ] );
-            ?>' );INSERT INTO `shoutbox` (`shout_id`, `shout_userid`, `shout_created`, `shout_delid`, `shout_bulkid`) VALUES ('<?php
+            ?>');INSERT INTO `shoutbox` (`shout_id`, `shout_userid`, `shout_created`, `shout_delid`, `shout_bulkid`) VALUES ('<?php
             echo $row[ 'shout_id' ];
             ?>', '<?php
             echo $row[ 'shout_userid' ];
@@ -550,13 +552,7 @@
             ?>', '<?php
             echo $delid;
             ?>', LAST_INSERT_ID());<?php
-            $fields = array();
-            foreach ( $row as $field ) {
-                $fields[] = "'" . addslashes( $field ) . "'";
-            }
-            $inserts[] = '(' . implode( ',', $fields ) . ')';
         }
-        echo implode( ',', $inserts );
     }
 
     function MigrateCounts() {
@@ -718,9 +714,9 @@
                 echo $row[ 'user_id' ];
                 ?>, `space_bulkid`=<?php
                 echo $row[ 'revision_textid' ];
-                ?>, `revision_updated`=<?php
+                ?>, `revision_updated`='<?php
                 echo $row[ 'revision_updated' ];
-            ?>;<?php
+            ?>';<?php
         }
     }
 
@@ -780,7 +776,7 @@
             ?>INSERT INTO `relationtypes` SET
 			`relationtype_id`=<?php
 			echo $row[ 'frel_id' ];
-			?>, `relation_text`='<?php
+			?>, `relationtype_text`='<?php
 			echo addslashes( $row[ 'frel_type' ] );
 			?>', `relationtype_created`='<?php
 			echo $row[ 'frel_created' ];
@@ -803,7 +799,7 @@
                 `$questions`;"
         );
 
-		?>TRUNCATE TABLE `merlin_profileq`;<?php
+		?>TRUNCATE TABLE `questions`;<?php
 		while ( $row = $res->FetchArray() ) {
 			?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
 		   	echo addslashes( $row[ 'profileq_question' ] );
@@ -829,7 +825,7 @@
                 `$profileanswers`;"
         );
 
-		?>TRUNCATE TABLE `merlin_profilea`;<?php
+		?>TRUNCATE TABLE `answers`;<?php
 		while ( $row = $res->FetchArray() ) {
 			?>INSERT INTO `bulk` (`bulk_text`) VALUES ( '<?php echo addslashes( $row[ 'profile_answer' ] ); ?>' );
 			INSERT INTO `answers` (`answer_userid`, `answer_bulkid`, `answer_questionid`, `answer_created`) 
@@ -874,9 +870,9 @@
             echo $row[ 'pmfolder_id' ];
             ?>, `pmfolder_userid`=<?php
             echo $row[ 'pmfolder_userid' ];
-            ?>, `pmfolder_name`=<?php
-            echo $row[ 'pmfolder_name' ];
-            ?>, `pmfolder_delid`=<?php
+            ?>, `pmfolder_name`='<?php
+            echo addslashes( $row[ 'pmfolder_name' ] );
+            ?>', `pmfolder_delid`=<?php
             echo $row[ 'pmfolder_delid' ];
             ?>, `pmfolder_typeid`='user';<?php
         }
