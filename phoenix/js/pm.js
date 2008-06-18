@@ -50,7 +50,6 @@ var pms = {
 		if ( notread ) {
 			//remove the unread icon
 			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
-			alert('Pmid: ' + pmid + ', Folderid: ' + folderid);
 			Coala.Warm( 'pm/expandpm' , { pmid : pmid, folderid: folderid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
