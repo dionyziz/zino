@@ -497,6 +497,7 @@ final class PageAction extends Page {
         if ( isset( $this->mRedirection ) ) {
             $this->mRedirection->Redirect();
         }
+        throw New Exception( 'Action didn\'t return a Redirection' );
     }
 }
 
