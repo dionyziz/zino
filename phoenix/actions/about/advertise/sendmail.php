@@ -13,6 +13,8 @@
 		$from = $from->Get();
 		$text = $text->Get();
 		
+        die( var_dump( headers_sent() ) );
+
 		// Check if e-mail is valid
 		if ( !ValidEmail( $from ) ) {
 			return Redirect( "/?p=advertise&mailsent=no" );
