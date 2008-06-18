@@ -218,6 +218,19 @@
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
+        public function Count() {
+            $query = $this->mDb->Prepare(
+			'SELECT
+				COUNT(*) AS count
+			FROM
+				:comments;
+			');
+			$query->BindTable( 'comments' );
+			$res = $query->Execute();
+			$row = $res->FetchArray();
+			return ( integer )$row[ 'count' ];
+        }
+
         public function DeleteByEntity( $entity ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
