@@ -223,9 +223,9 @@
             INSERT INTO `lastactive` SET
                 `lastactive_userid`='<?php
                 echo $row[ 'user_id' ];
-                ?>', `lastactive_updated`=<?php
+                ?>', `lastactive_updated`='<?php
                 echo $row[ 'user_lastactive' ];
-                ?>;<?php
+                ?>';<?php
         }
     }
 
@@ -358,7 +358,7 @@
                     `albums`
                 GROUP BY
                     `album_userid`
-            ) ON `user_id`=tmp.userid
+            ) AS tmp ON `user_id`=tmp.userid
         SET
             `user_egoalbumid`=albumid
         WHERE
@@ -714,7 +714,7 @@
                 echo $row[ 'user_id' ];
                 ?>, `space_bulkid`=<?php
                 echo $row[ 'revision_textid' ];
-                ?>, `revision_updated`='<?php
+                ?>, `space_updated`='<?php
                 echo $row[ 'revision_updated' ];
             ?>';<?php
         }
@@ -811,7 +811,7 @@
 			echo $row[ 'profileq_created' ];
 			?>', LAST_INSERT_ID(),'<?php
 			echo $row[ 'profileq_delid' ];
-			?>'); '<?php
+			?>');<?php
 		}
 	}
 
