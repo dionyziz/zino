@@ -4,8 +4,8 @@
 		$libs->Load( 'rabbit/helpers/validate' );
 		
 		// Hardcoded stuff
-		$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
-		//$to = "dkaragasidis@gmail.com";	// for testing
+		//$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
+		$to = "dkaragasidis@gmail.com";	// for testing
 		$subject = "Zino: Διαφημίσεις";
 		$header = "From: admin@zino.gr";
 
@@ -23,10 +23,10 @@
 		
 		// Send message
 		if ( mail( $to, $subject, $text, $header ) ) {
-			return Redirect( "?p=advertise&mailsent=yes" );
+			return Redirect( "?p=advertise&mailsent=yes" ) or die("mail sent");
 		}
 		else {
-			return Redirect( "?p=advertise&mailsent=no" );
+			return Redirect( "?p=advertise&mailsent=no" ) or die("problem in delivering mail");
 		}
 	}
 ?>
