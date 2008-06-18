@@ -1,5 +1,5 @@
 <?php
-	function ActionSendMail( tString $from, tString $text ) {
+	function ElementAboutAdvertiseSendmail( tString $from, tString $text ) {
 		global $libs;
 		$libs->Load( 'rabbit/helpers/validate' );
 		
