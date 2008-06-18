@@ -7,7 +7,6 @@
         }
         public function Redirect() {
             header( 'Location: ' . $this->mURL );
-            die( 'Redirecting to ' . $this->mURL );
         }
         public function HTTPRedirection( $url ) {
             $this->mURL = $url;
