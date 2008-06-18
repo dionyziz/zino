@@ -115,19 +115,21 @@
                 <div class="leftcorner"> </div>
                 <div class="rightcorner"> </div>
                 <div class="middle"> </div>
-                <div class="toolbar">
-                    <ul>
-                        <li><a href="" onclick="<?php
-                        ob_start();
-                        ?>pms.NewMessage( <?php
-                        echo w_json_encode( $pm->Sender->Name );
-                        ?>, <?php
-                        echo w_json_encode( $pm->Text );
-                        ?> );return false;<?php
-                        echo htmlspecialchars( ob_get_clean() );
-                        ?>">Απάντηση</a></li>
-                    </ul>
-                </div>
+                <div class="toolbar"><?php
+                    if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                        ?><ul>
+                            <li><a href="" onclick="<?php
+                            ob_start();
+                            ?>pms.NewMessage( <?php
+                            echo w_json_encode( $pm->Sender->Name );
+                            ?>, <?php
+                            echo w_json_encode( $pm->Text );
+                            ?> );return false;<?php
+                            echo htmlspecialchars( ob_get_clean() );
+                            ?>">Απάντηση</a></li>
+                        </ul><?php
+                    }
+                ?></div>
             </div>
         </div><?php
     }
