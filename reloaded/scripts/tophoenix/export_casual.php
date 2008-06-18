@@ -183,8 +183,8 @@
                     ?>-<?php
                 }
                 else {
-                    if ( isset( $unitypes[ $row[ 'user_uniid' ] ] ) && $unitypes[ $row[ 'user_uniid' ] ] != 0 ) {
-                        echo ST_TERMINATE;
+                    if ( isset( $unitypes[ $row[ 'user_uniid' ] ] ) && $unitypes[ $row[ 'user_uniid' ] ] != 0 ) { // TEI
+                        ?>TEI<?php
                     }
                     else {
                         ?>university<?php
@@ -196,13 +196,13 @@
                 `profile_weight`='0', `profile_smoker`='-', `profile_drinker`='-',
                 `profile_favquote`='', `profile_skype`='<?php
                 // TODO: haircolor/eyecolor/height/weight heuristic
-                echo $row[ 'user_skype' ];
+                echo addslashes( $row[ 'user_skype' ] );
                 ?>', `profile_msn`='<?php
-                echo $row[ 'user_msn' ];
+                echo addslashes( $row[ 'user_msn' ] );
                 ?>', `profile_yim`='<?php
-                echo $row[ 'user_yim' ];
+                echo addslashes( $row[ 'user_yim' ] );
                 ?>', `profile_gtalk`='<?php
-                echo $row[ 'user_gtalk' ];
+                echo addslashes( $row[ 'user_gtalk' ] );
                 ?>', `profile_homepage`='', `profile_firstname`='', `profile_lastname`='', `profile_numcomments`='<?php
                 echo $row[ 'user_numcomments' ];
                 ?>';<?php
