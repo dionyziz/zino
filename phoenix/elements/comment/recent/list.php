@@ -10,6 +10,8 @@
 function ElementCommentRecentList( tInteger $pageno ) {
     global $libs;
 
+    $pageno = $pageno->Get();
+
     $libs->Load( 'comment' );
 
     $finder = New CommentFinder();
