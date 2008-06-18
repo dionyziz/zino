@@ -3,6 +3,8 @@
     global $libs;
     global $page;
     
+    die( var_dump( headers_sent() ) );
+
     require_once 'libs/rabbit/rabbit.php';
 
     Rabbit_Construct( 'action' );
