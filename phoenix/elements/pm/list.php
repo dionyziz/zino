@@ -24,6 +24,7 @@
 
 		?><script type="text/javascript">
 	    var unreadpms = <?php
+		$wate->Trace('Unread messages' , $unreadCount);
 		echo $unreadCount;
 		?></script>
 		<br /><br /><br /><br />
