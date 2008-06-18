@@ -630,9 +630,9 @@
 
         ?>START TRANSACTION;<?php
         while ( $row = $res->FetchArray() ) {
-            ?>INSERT INTO bulk SET bulk_text='<?php
+            ?>INSERT INTO bulk VALUES('','<?php
             echo addslashes( $row[ 'comment_text' ] );
-            ?>';INSERT INTO comments VALUES (<?php
+            ?>');INSERT INTO comments VALUES(<?php
             echo $row[ 'comment_id' ];
             ?>,<?php
             echo $row[ 'comment_userid' ];
