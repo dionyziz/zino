@@ -3,8 +3,6 @@
     global $libs;
     global $page;
     
-    die( var_dump( headers_sent() ) );
-
     require_once 'libs/rabbit/rabbit.php';
 
     Rabbit_Construct( 'action' );
@@ -19,6 +17,7 @@
     Rabbit_ClearPostGet();
 
     $page->AttachMainElement( $p, $req );
+    die( var_dump( headers_sent() ) );
     $page->Output();
 
     Rabbit_Destruct();
