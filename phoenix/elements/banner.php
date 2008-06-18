@@ -35,13 +35,13 @@
 	    		    echo $unreadCount;
 	    		?> νέ<?php
 	    		    if( $unreadCount == 1 ) {
-	    		      ?>ο<?php  
+	    		      ?>ο μήνυμα<?php  
 	    		    }
 	    		    else {
-	    		        ?>α<?php
+	    		        ?>α μηνύματα<?php
 	    		    }
 	    		    ?>
-	    		μηνύματα</a></li>
+	    		</a></li>
 	    		<li>·</li>
 	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
 	        }
