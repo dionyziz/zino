@@ -374,12 +374,12 @@
         TRUNCATE TABLE `imagesfrontpage`;
         
         INSERT INTO `imagesfrontpage` SELECT
-                MAX( `image_id` ) AS frontpage_imageid, `image_userid` AS frontpage_userid
+                a.`image_id` AS frontpage_imageid, a.`image_userid` AS frontpage_userid
             FROM
-                `images` CROSS JOIN `users` 
-                    ON `images`.`image_albumid` = `users`.`user_egoalbumid`
-            GROUP BY
-                frontpage_userid;<?php
+                `images` AS a LEFT JOIN `images` AS b ON a.`image_id` < b.`image_id` AND a.`image_userid` = b.`image_userid` CROSS JOIN `users`
+                    ON a.`image_albumid` = `users`.`user_egoalbumid`
+            WHERE
+                b.`image_userid` IS NULL;<?php
     }
 
     function MigrateImages( $offset, $test = false ) {

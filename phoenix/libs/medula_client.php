@@ -77,7 +77,7 @@
 				$water->Notice( 'Invalid server response to "POP"; "POPPED" expected, "' . $data[ 0 ] . '" given; aborting pop operation' );
 				return array();
 			}
-			if ( ( int )$data[ 1 ] != $data[ 1 ] ) {
+			if ( ( string )( int )$data[ 1 ] != $data[ 1 ] ) {
 				$water->Notice( 'Invalid server response to "POP"; integer expression expected after "POPPED", "' . $data[ 1 ] . '" given; aborting pop operation' );
 				return array();
 			}
@@ -100,15 +100,15 @@
 		}
 		private function ParseJob( $jobdetails ) {
 			$data = explode( ' ', $jobdetails );
-			if ( ( int )$data[ 0 ] != $data[ 0 ] ) {
+			if ( ( string )( int )$data[ 0 ] != $data[ 0 ] ) {
 				$water->Notice( 'Invalid job details provided when popping job; integer expression expected for id, "' . $data[ 0 ] . '" given; skipping job' );
 				return false;
 			}
-			if ( ( int )$data[ 1 ] != $data[ 1 ] ) {
+			if ( ( string )( int )$data[ 1 ] != $data[ 1 ] ) {
 				$water->Notice( 'Invalid job details provided when popping job; integer expression expected for type, "' . $data[ 1 ] . '" given; skipping job' );
 				return false;
 			}
-			if ( ( int )$data[ 2 ] != $data[ 2 ] ) {
+			if ( ( string )( int )$data[ 2 ] != $data[ 2 ] ) {
 				$water->Notice( 'Invalid job details provided when popping job; integer expression expected for priority, "' . $data[ 2 ] . '" given; skipping job' );
 				return false;
 			}
@@ -150,7 +150,7 @@
 				$water->Notice( 'Invalid server response to "PUSH"; "PUSHED" expected, "' . $data[ 0 ] . '" given; ignoring' );
 				return;
 			}
-			if ( ( int )$data[ 1 ] != $data[ 1 ] ) {
+			if ( ( string )( int )$data[ 1 ] != $data[ 1 ] ) {
 				$water->Notice( 'Invalid server response to "PUSH"; integer expression expected after "PUSHED", "' . $data[ 1 ] . '" given; ignoring' );
 				return;
 			}
