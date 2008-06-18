@@ -65,7 +65,6 @@
             $selectfields = '*';
         }
         else {
-            $selectfields = implode( ',', array_keys( $fields ) );
             $out = array();
             foreach ( $fields as $fromfield => $tofield ) {
                 if ( is_numeric( $fromfield ) ) {
@@ -75,6 +74,7 @@
                     $out[ $fromfield ] = $tofield;
                 }
             }
+            $selectfields = implode( ',', array_keys( $out ) );
         }
         $query = "SELECT
                     $selectfields
@@ -103,16 +103,12 @@
                     $targetfield = $field;
                 }
                 else {
-                    echo 'Looking for ' . $field . '...';
-                    print_r( $out );
-                    die();
                     $targetfield = $out[ $field ];
                 }
                 $values[] = "`$targetfield`='$value'";
             }
             echo implode( ',', $values );
             ?>;<?php
-            die();
         }
     }
 
@@ -635,25 +631,27 @@
             ?>TRUNCATE TABLE `comments`;<?php
         }
 
+        ?>START TRANSACTION;<?php
         while ( $row = $res->FetchArray() ) {
-            ?>INSERT INTO `bulk` SET `bulk_text`='<?php
+            ?>INSERT INTO bulk SET bulk_text='<?php
             echo addslashes( $row[ 'comment_text' ] );
-            ?>';INSERT INTO `comments` SET `comment_id`=<?php
+            ?>';INSERT INTO comments VALUES (<?php
             echo $row[ 'comment_id' ];
-            ?>, `comment_userid`=<?php
+            ?>,<?php
             echo $row[ 'comment_userid' ];
-            ?>, `comment_created`='<?php
+            ?>,'<?php
             echo $row[ 'comment_created' ];
-            ?>', `comment_userip`=<?php
+            ?>',<?php
             echo ip2long( $row[ 'comment_userip' ] );
-            ?>, `comment_bulkid`=LAST_INSERT_ID(), `comment_itemid`=<?php
+            ?>,LAST_INSERT_ID(),<?php
             echo $row[ 'comment_storyid' ];
-            ?>, `comment_parentid`=<?php
+            ?>,<?php
             echo $row[ 'comment_parentid' ];
-            ?>, `comment_delid`=0, `comment_typeid`=<?php
+            ?>,0,<?php
             echo $commenttypes[ $row[ 'comment_typeid' ] ];
-            ?>;<?php
+            ?>);<?php
         }
+        ?>COMMIT;<?php
     }
 
     function MigrateJournals() {
