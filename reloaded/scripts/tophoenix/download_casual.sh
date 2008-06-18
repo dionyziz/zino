@@ -41,12 +41,12 @@ do
         echo -n "Downloading step $i (part $offset)... "
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
         # static filename length (for sorting)
-        if [[ $( `expr length $i` ) -eq 1 ]] then
+        if [[ `expr length $i` -eq 1 ]]; then
             $ti = 0$i
         else
             $ti = $i
         fi
-        if [[ $( `expr length $offset` ) -eq 1 ]] then
+        if [[ `expr length $offset` -eq 1 ]]; then
             $toffset = 0$offset
         else 
             $offset = $offset
