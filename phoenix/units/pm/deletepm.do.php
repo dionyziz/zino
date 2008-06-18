@@ -1,11 +1,13 @@
 <?php
-function UnitPmDeletepm( tInteger $pmid ) {
-	global $user;
-	global $libs;
-	
-	$libs->Load( 'pm' );
-	$pm = new PM( $pmid->Get() );
-	
-	$pm->Delete();
-}
+
+    function UnitPmDeletepm( tInteger $pmid, tInteger $folderid ) {
+        global $user;
+        global $libs;
+        
+        $libs->Load( 'pm/pm' );
+        $pm = new UserPM( $pmid->Get(), $folderid->Get() );
+        
+        $pm->Delete();
+    }
+
 ?>

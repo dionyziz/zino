@@ -3,7 +3,7 @@
         global $user;
         global $libs;
 		
-		$libs->Load( 'pm' );
+		$libs->Load( 'pm/pm' );
 		
         $folderid = $folderid->Get();
         $newname = $newname->Get();
@@ -12,7 +12,7 @@
         if ( !$folder->Exists() ) {
             return;
         }
-        if ( $folder->UserId != $user->Id() ) {
+        if ( $folder->Userid != $user->Id ) {
             return;
         }
         $folder->Name = $newname;

@@ -1,14 +1,14 @@
 <?php
-    function UnitPmExpandpm( tInteger $pmid ) {
+    function UnitPmExpandpm( tInteger $pmid, tInteger $folderid ) {
     	global $libs;
     	global $user;
     	
-    	$libs->Load( 'pm' );
+    	$libs->Load( 'pm/pm' );
     	$pmid = $pmid->Get();
-    	$pm = new PM( $pmid );
+        $folderid = $folderid->Get();
+    	$pm = new PM( $pmid, $folderid );
     	if ( !$pm->IsRead() ) {	
-    		$pm->DelId = 1;	
-    		$pm->Save();
+            $pm->Read();
     	}
     }
 ?>

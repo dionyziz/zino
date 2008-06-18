@@ -3,12 +3,13 @@
     	global $libs;
     	global $user;
     	
-    	$libs->Load( "pm" );	
+    	$libs->Load( "pm/pm" );	
     	
     	$folderid = $folderid->Get();
+        $folder = New PMFolder( $folderid );
     	?>var deletelink = $( '#deletefolderlink' )[ 0 ];
     	var renamelink = $( '#renamefolderlink' )[ 0 ];<?php
-    	if ( $folderid == -1 || $folderid == -2 ) {
+    	if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
     		Element( 'pm/showfolder' , $folderid );
@@ -31,9 +32,9 @@
             };
 			*/
     		pms.ShowFolderNameTop( '<?php 
-    		if ( $folderid == - 1 ) {
+    		if ( $folderid == PMFOLDER_INBOX ) {
     			?>Εισερχόμενα' );<?php
-    			$unreadmsgs = PM_UserCountUnreadPms( $user );
+    			$unreadmsgs = $user->Count->Unreadpms;
     			if ( $unreadmsgs > 0 ) {
     				?>pms.UpdateUnreadPms( <?php
     				echo $unreadmsgs;
@@ -45,8 +46,7 @@
     		}
     	}
     	else {
-    		$folder = PMFolder_Factory( $folderid );
-    		if ( $folder->UserId == $user->Id() ) {
+    		if ( $folder->Userid == $user->Id ) {
     			?>$( deletelink ).css( "display" , "block" );
     			deletelink.onclick = ( function( folderid ) {
     				return function() {
