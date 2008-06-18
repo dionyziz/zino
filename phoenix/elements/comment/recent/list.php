@@ -12,6 +12,10 @@ function ElementCommentRecentList( tInteger $pageno ) {
 
     $pageno = $pageno->Get();
 
+    if ( $pageno <= 0 ) {
+        $pageno = 1;
+    }
+
     $libs->Load( 'comment' );
 
     $finder = New CommentFinder();
