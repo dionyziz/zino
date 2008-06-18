@@ -23,10 +23,10 @@
 		
 		// Send message
 		if ( mail( $to, $subject, $text, $header ) ) {
-			return Redirect( "?p=advertise&mailsent=yes" ) or die("mail sent");
+			return Redirect( "?p=advertise&mailsent=yes" );
 		}
 		else {
-			return Redirect( "?p=advertise&mailsent=no" ) or die("problem in delivering mail");
+			return Redirect( "?p=advertise&mailsent=no" );
 		}
 	}
 ?>
