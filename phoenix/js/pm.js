@@ -136,6 +136,8 @@ var pms = {
 			$( '#folder_' + folderid ).animate( { opacity : '0' , height : '0' } , function() {
 				$( this ).remove();
 				if ( !pms.writingnewpm ) {
+				    alert( $( '#folders div' )[ 0 ] );
+				    alert( $( '#folders div' )[ 0 ].value );
 					pms.ShowFolderPm( $( '#folders div' )[ 0 ], $( '#folders div' )[ 0 ] );
 				}
 			} );
