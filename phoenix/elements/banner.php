@@ -29,7 +29,21 @@
 				Element( 'user/name', $user, false );
 				?></a></li>
 	    		<li>·</li>
-	    		<li><a href="messages" class="messages icon" onclick="return false">2 νέα μηνύματα</a></li>
+	    		<li><a href="?pms" class="messages icon" onclick="return false"> 
+	    		<?php
+	    		    $unreadCount = $user->Count->Unreadpms;
+	    		    if( $unreadCount != 0 ) {
+	    		        echo $unreadCount;
+	    		    }
+	    		?> νέ<?php
+	    		    if( $unreadCount == 1 ) {
+	    		      ?>ο<?php  
+	    		    }
+	    		    else {
+	    		        ?>α<?php
+	    		    }
+	    		    ?>
+	    		μηνύματα</a></li>
 	    		<li>·</li>
 	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
 	        }
