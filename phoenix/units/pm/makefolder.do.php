@@ -9,7 +9,7 @@ function UnitPmMakefolder( tString $foldername ) {
 
 	$folder = new PMFolder();
 	$folder->Name = $foldername;
-	$folder->Userid = $user->Id();
+	$folder->Userid = $user->Id;
 	$folder->Save();
 
 	$folderid = $folder->Id;
