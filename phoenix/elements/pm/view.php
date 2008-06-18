@@ -17,7 +17,7 @@
                 ?>" style="cursor:default;"<?php
             }
             ?>><?php
-                if ( $folder != PMFOLDER_OUTBOX ) {
+                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
                     ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
                     echo $pm->Pmid;
                     ?>', <?php
@@ -33,7 +33,7 @@
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>delete.png" /></a><?php
                 }
-                if ( !$pm->IsRead() && $folder != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsRead() && $folder->Typeid != PMFOLDER_OUTBOX ) {
                     ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>email_open.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
@@ -76,7 +76,7 @@
                     ?>ον<?php
                 }
                 ?> </div><div style="display:inline" class="infobar_info"><?php
-                if ( $folder != PMFOLDER_OUTBOX ) {
+                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
                     Element( 'user/name', $pm->Sender );
                 }
                 else {
