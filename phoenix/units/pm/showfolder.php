@@ -32,7 +32,8 @@
             };
 			*/
     		pms.ShowFolderNameTop( '<?php 
-    		if ( $folderid == PMFOLDER_INBOX ) {
+    		if ( $folder->Typeid == PMFOLDER_INBOX ) {
+    		//if ( $folderid == PMFOLDER_INBOX ) {
     			?>Εισερχόμενα' );<?php
     			$unreadmsgs = $user->Count->Unreadpms;
     			if ( $unreadmsgs > 0 ) {
