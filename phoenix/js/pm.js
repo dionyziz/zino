@@ -8,7 +8,7 @@ var pms = {
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
 		if ( pms.activefolder === 0 ) {
-			pms.node = $( '#folders div' )[ 0 ]
+			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
