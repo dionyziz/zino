@@ -21,14 +21,14 @@
 		// Prepare text messagea
 		$text .= "\n\nEmail: " . $from;
 		
+		$mailsent = "";
 		// Send message
 		if ( mail( $to, $subject, $text, $header ) ) {
-			die("sent mail");
-			return Redirect( "/?p=advertise&mailsent=yes" );
+			$mailsent = "yes";
 		}
 		else {
-			die("don't send mail");
-			return Redirect( "/?p=advertise&mailsent=no" );
+			$mailsent = "no";
 		}
+		return Redirect( "?p=advertise&mailsent=" . $mailsent );
 	}
 ?>
