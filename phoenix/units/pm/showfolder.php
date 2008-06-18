@@ -12,7 +12,7 @@
     	if ( $folder->Typeid != PMFOLDER_USER ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
-    		Element( 'pm/folder/view' , $folderid );
+    		Element( 'pm/folder/view' , $folder );
     		echo w_json_encode( ob_get_clean() );
     		?>;
 			$( deletelink ).hide().click( function() {
