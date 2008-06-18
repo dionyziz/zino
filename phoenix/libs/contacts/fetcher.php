@@ -57,7 +57,7 @@ else {
 			$return_value = proc_close($process);
 			
 			/* Exceptions */
-			die ( "$return_value: $allcontacts \n$errors" );
+			//die ( "$return_value: $allcontacts \n$errors" );
 			if ( $return_value == 2 ) { // login failure
 				return false;
 			}
