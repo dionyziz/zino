@@ -3,8 +3,7 @@
     function ElementPmFolderView( PMFolder $folder ) {
         global $water;
         
-    	$finder = New PMFinder();
-    	$messages = $finder->FindByFolder( $folder );
+        $messages = $folder->PMs;
     	$water->Trace('Pmfinder::FindByFolder', $messages);
 		
     	if ( !count( $messages ) ) {
