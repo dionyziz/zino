@@ -137,7 +137,7 @@ var pms = {
 				$( this ).remove();
 				if ( !pms.writingnewpm ) {
 				    // Show inbox
-				    var inboxstring = $( '#folders div' )[ 0 ].attr("id");
+				    var inboxstring = $( $( '#folders div' )[ 0 ] ).attr("id");
 				    alert( inboxstring );
 				    var inboxarr = inboxstring.split('_');
 				    var inboxid = inboxarr[1]; 
