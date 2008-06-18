@@ -42,14 +42,14 @@ do
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
         # static filename length (for sorting)
         if [[ `expr length $i` -eq 1 ]]; then
-            $ti = 0$i
+            ti=0$i
         else
-            $ti = $i
+            ti=$i
         fi
         if [[ `expr length $offset` -eq 1 ]]; then
-            $toffset = 0$offset
+            toffset=0$offset
         else 
-            $offset = $offset
+            offset=$offset
         fi
         wget $URL -O $workpath/$ti-$toffset.sql.gz 2>/dev/null
         if [[ $? -ne 0 ]]; then
