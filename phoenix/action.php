@@ -17,8 +17,8 @@
     Rabbit_ClearPostGet();
 
     $page->AttachMainElement( $p, $req );
-    die( var_dump( headers_sent() ) );
     $page->Output();
+    die( var_dump( headers_sent() ) );
 
     Rabbit_Destruct();
 ?>
