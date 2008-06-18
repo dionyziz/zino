@@ -471,8 +471,8 @@ final class PageAction extends Page {
         $this->Page();
     }
     public function Output() {
-        $this->GenerateBody();
         die( var_dump( headers_sent() ) );
+        $this->GenerateBody();
         $this->OutputStart();
         $this->OutputPage();
         $this->OutputEnd();
