@@ -12,7 +12,7 @@
     	if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
-    		Element( 'pm/showfolder' , $folderid );
+    		Element( 'pm/folder/view' , $folderid );
     		echo w_json_encode( ob_get_clean() );
     		?>;
 			$( deletelink ).hide().click( function() {
@@ -67,7 +67,7 @@
                 ?> );
     			pms.messagescontainer.innerHTML = <?php
     			ob_start();
-    			Element( 'pm/showfolder' , $folder );
+    			Element( 'pm/folder/view' , $folder );
     			echo w_json_encode( ob_get_clean() );
     			?>;
     			pms.ShowFolderNameTop( <?php
