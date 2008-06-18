@@ -21,6 +21,8 @@ function ElementCommentRecentList( tInteger $pageno ) {
             Element( 'frontpage/comment/view', $comment );
         }
         ?></div><?php
-    ?></div><?php
+    ?></div>
+    <div class="eof"></div><?php
+    Element( 'pagify', $pageno, '?p=comments/recent', ceil( $finder->Count() / 20 ) );
 }
 ?>
