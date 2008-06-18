@@ -9,7 +9,7 @@
         $folder = New PMFolder( $folderid );
     	?>var deletelink = $( '#deletefolderlink' )[ 0 ];
     	var renamelink = $( '#renamefolderlink' )[ 0 ];<?php
-    	if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+    	if ( $folder->Typeid != PMFOLDER_USER ) {
     		?>pms.messagescontainer.innerHTML = <?php
     		ob_start();
     		Element( 'pm/folder/view' , $folderid );
