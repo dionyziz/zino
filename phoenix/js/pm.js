@@ -136,7 +136,7 @@ var pms = {
 			$( '#folder_' + folderid ).animate( { opacity : '0' , height : '0' } , function() {
 				$( this ).remove();
 				if ( !pms.writingnewpm ) {
-					pms.ShowFolderPm( $( '#folders div' )[ 0 ], 579 );
+					pms.ShowFolderPm( $( '#folders div' )[ 0 ], 550 );
 				}
 			} );
 			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
