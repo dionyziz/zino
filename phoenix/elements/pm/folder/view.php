@@ -1,7 +1,11 @@
 <?php
 
     function ElementPmFolderView( PMFolder $folder ) {
-    	$messages = $folder->PMs;
+        global $water;
+        
+    	$finder = New PMFinder();
+    	$messages = FindByFolder( $folder );
+    	$water->Trace('Pmfinder::FindByFolder', $messages);
 		
     	if ( !count( $messages ) ) {
 			if ( $folder->Typeid == PMFOLDER_INBOX ) {

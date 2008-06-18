@@ -24,7 +24,6 @@
 
 		?><script type="text/javascript">
 	    var unreadpms = <?php
-		$water->Trace('Unread messages' , $unreadCount);
 		echo $unreadCount;
 		?></script>
 		<br /><br /><br /><br />
