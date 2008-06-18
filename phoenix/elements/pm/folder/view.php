@@ -4,7 +4,7 @@
         global $water;
         
     	$finder = New PMFinder();
-    	$messages = FindByFolder( $folder );
+    	$messages = $finder->FindByFolder( $folder );
     	$water->Trace('Pmfinder::FindByFolder', $messages);
 		
     	if ( !count( $messages ) ) {
