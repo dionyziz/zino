@@ -32,9 +32,7 @@
 	    		<li><a href="?p=pms" class="messages icon"> 
 	    		<?php
 	    		    $unreadCount = $user->Count->Unreadpms;
-	    		    if( $unreadCount != 0 ) {
-	    		        echo $unreadCount;
-	    		    }
+	    		    echo $unreadCount;
 	    		?> νέ<?php
 	    		    if( $unreadCount == 1 ) {
 	    		      ?>ο<?php  
