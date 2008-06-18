@@ -1,5 +1,7 @@
 div.latestcomments {
 	padding: 10px;
+}
+div.frontpage div.latestcomments {
 	border: 1px solid #ccc;
 }
 div.latestcomments h2 {
