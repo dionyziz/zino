@@ -97,7 +97,9 @@
                 }
                 ?>, <?php
                 echo $pm->Pmid;
-                ?> );return false;" style="display:inline;" class="infobar_info">, πριν <?php
+                ?>, <?php
+                echo $folder->Id; 
+                ?>);return false;" style="display:inline;" class="infobar_info">, πριν <?php
                 echo $pm->Since;
                 ?></div>
             </div>
