@@ -4,7 +4,8 @@
 		$libs->Load( 'rabbit/helpers/validate' );
 		
 		// Hardcoded stuff
-		$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
+		//$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
+		$to = "dkaragasidis@gmail.com";	// for testing
 		$subject = "Zino: Διαφημίσεις";
 		$header = "From: admin@zino.gr";
 
