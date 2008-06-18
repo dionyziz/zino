@@ -367,15 +367,15 @@
                 $sql .= implode( ', ', $updates );
                 $sql .= ' WHERE ';
                 $conditions = array();
-                foreach ( $this->PrimaryKeyFields as $primarykey ) {
-                    $conditions[] = '`' . $primarykey . '` = :_' . $primarykey;
+                foreach ( $this->PrimaryKeyFields as $primarykeyfield ) {
+                    $conditions[] = '`' . $primarykeyfield . '` = :_' . $primarykeyfield;
                 }
                 $sql .= implode( ' AND ', $conditions );
                 $sql .= ' LIMIT 1;';
                 $query = $this->mDb->Prepare( $sql );
                 $query->BindTable( $this->mDbTableAlias );
                 foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
-                    $query->Bind( '_' . $primarykey, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
+                    $query->Bind( '_' . $primarykeyfield, $this->mCurrentValues[ $this->mDbFields[ $primarykeyfield ] ] );
                 }
                 foreach ( $bindings as $name => $value ) {
                     $query->Bind( $name, $value );
