@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserRelationsList( tString $username , tString $subdomain , tInteger $offset ) {
+	function ElementUserRelationsList( tString $username , tString $subdomain , tInteger $pageno ) {
 		global $libs;
 		global $user;
 		global $page;
@@ -32,9 +32,9 @@
 			return;
 		}		
 		
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		$pageno = $pageno->Get();
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
 			$page->SetTitle( $theuser->Name . " Φίλοι" );
@@ -44,7 +44,7 @@
 		}
 		
 		$finder = New FriendRelationFinder();
-		$friends = $finder->FindByUser( $theuser , ( $offset - 1 )*20 , 20 );
+		$friends = $finder->FindByUser( $theuser , ( $pageno - 1 )*20 , 20 );
 		Element( 'user/sections', 'relations' , $theuser );
 		?><div id="relations"><?php
 			if ( !empty( $friends ) ) {
@@ -55,9 +55,9 @@
 			}
 			?><div class="pagifyrelations"><?php
             
-            $link = '?p=friends&subdomain=' . $theuser->Subdomain . '&offset=';
+            $link = '?p=friends&subdomain=' . $theuser->Subdomain . '&pageno=';
             $total_pages = ceil( $theuser->Count->Relations / 20 );
-			Element( 'pagify', $offset, $link, $total_pages );
+			Element( 'pagify', $pageno, $link, $total_pages );
 
 			?></div>
 			<div class="eof"></div>

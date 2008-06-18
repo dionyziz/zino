@@ -1,18 +1,18 @@
 <?php
-function ElementShoutboxList( tInteger $offset ) {
+function ElementShoutboxList( tInteger $pageno ) {
     global $user;
     global $libs;
 
-    $offset = $offset->Get();
+    $pageno = $pageno->Get();
 
-    if ( $offset <= 0 ) {
-        $offset = 1;
+    if ( $pageno <= 0 ) {
+        $pageno = 1;
     }
 
     $libs->Load( 'shoutbox' );
 
     $finder = New ShoutboxFinder();
-    $shouts = $finder->FindLatest( 20 * ( $offset - 1 ), 20 )
+    $shouts = $finder->FindLatest( 20 * ( $pageno - 1 ), 20 )
     ?><div class="shoutbox">
         <h2>Συζήτηση</h2>
         <div class="comments"><?php
@@ -22,6 +22,6 @@ function ElementShoutboxList( tInteger $offset ) {
         ?></div>
     </div>
     <div class="eof"></div><?php
-    Element( 'pagify', $offset, '?p=shoutbox&offset=', ceil( $finder->Count() / 20 ) );
+    Element( 'pagify', $pageno, '?p=shoutbox&pageno=', ceil( $finder->Count() / 20 ) );
 }
 ?>

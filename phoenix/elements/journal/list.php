@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementJournalList( tString $username , tString $subdomain , tInteger $offset ) {
+	function ElementJournalList( tString $username , tString $subdomain , tInteger $pageno ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
@@ -37,13 +37,13 @@
 			$page->SetTitle( $theuser->Name . " ημερολόγιο" );
 		}
 		
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		$pageno = $pageno->Get();
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		
 		$finder = New JournalFinder();
-		$journals = $finder->FindByUser( $theuser , ( $offset - 1 )*5 , 5 );
+		$journals = $finder->FindByUser( $theuser , ( $pageno - 1 )*5 , 5 );
 		
 		Element( 'user/sections' , 'journal' , $theuser );
 		?><div id="journallist">
@@ -73,9 +73,9 @@
 				}
 			?></ul>
 			<div class="pagifyjournals"><?php
-            $link = '?p=journals&subdomain=' . $theuser->Subdomain . '&offset=';
+            $link = '?p=journals&subdomain=' . $theuser->Subdomain . '&pageno=';
             $total_pages = ceil( $theuser->Count->Journals / 5 );
-			Element( 'pagify', $offset, $link, $total_pages );
+			Element( 'pagify', $pageno, $link, $total_pages );
 			?></div>
 		</div>
 		<div class="eof"></div><img src="<?php

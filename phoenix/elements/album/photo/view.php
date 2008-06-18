@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumPhotoView( tInteger $id , tInteger $commentid , tInteger $offset ) {
+	function ElementAlbumPhotoView( tInteger $id , tInteger $commentid , tInteger $pageno ) {
 		global $user;
 		global $page;
 		global $libs;
@@ -11,7 +11,7 @@
 		$libs->Load( 'notify' );
 		$id = $id->Get();
 		$commentid = $commentid->Get();
-		$offset = $offset->Get();
+		$pageno = $pageno->Get();
 		$image = New Image( $id );
 		
 		if( !$image->Exists() ) {
@@ -42,8 +42,8 @@
 				$title = htmlspecialchars( $image->Album->Name );
 			}
 		}
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		$finder = New FavouriteFinder();
 		$fav = $finder->FindByUserAndEntity( $user, $image );
@@ -186,7 +186,7 @@
 			if ( $image->Numcomments > 0 ) {
 				$finder = New CommentFinder();
 				if ( $commentid == 0 ) {
-					$comments = $finder->FindByPage( $image , $offset , true );
+					$comments = $finder->FindByPage( $image , $pageno , true );
                     $total_pages = $comments[ 0 ];
                     $comments = $comments[ 1 ];
 				}
@@ -194,7 +194,7 @@
 					$speccomment = New Comment( $commentid );
 					$comments = $finder->FindNear( $image , $speccomment );
                     $total_pages = $comments[ 0 ];
-					$offset = $comments[ 1 ];
+					$pageno = $comments[ 1 ];
 					$comments = $comments[ 2 ];
 					$finder = New NotificationFinder();
 					$notification = $finder->FindByComment( $speccomment );
@@ -204,8 +204,8 @@
 				}
 				Element( 'comment/list' , $comments );
 				?><div class="pagifycomments"><?php
-                    $link = '?p=photo&id=' . $image->Id . '&offset=';
-					Element( 'pagify', $offset, $link, $total_pages );
+                    $link = '?p=photo&id=' . $image->Id . '&pageno=';
+					Element( 'pagify', $pageno, $link, $total_pages );
 				?></div><?php
 			}
 			?></div>

@@ -1,5 +1,5 @@
 <?php
-	function ElementUserProfileMainView( $theuser, $commentid, $offset ) {
+	function ElementUserProfileMainView( $theuser, $commentid, $pageno ) {
 		global $libs;
 		global $user;
 		global $water;
@@ -11,7 +11,7 @@
 		if ( $theuser->Profile->Numcomments > 0 ) {
 			$finder = New CommentFinder();
 			if ( $commentid == 0 ) {
-				$comments = $finder->FindByPage( $theuser, $offset , true );
+				$comments = $finder->FindByPage( $theuser, $pageno , true );
 				$total_pages = $comments[ 0 ];
 				$comments = $comments[ 1 ];
 			}
@@ -19,7 +19,7 @@
 				$speccomment = New Comment( $commentid );
 				$comments = $finder->FindNear( $theuser, $speccomment );
 				$total_pages = $comments[ 0 ];
-				$offset = $comments[ 1 ];
+				$pageno = $comments[ 1 ];
 				$comments = $comments[ 2 ];
 				$finder = New NotificationFinder();
 				$notification = $finder->FindByComment( $speccomment );
@@ -210,8 +210,8 @@
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
-				if ( $offset <= 0 ) {
-					$offset = 1;
+				if ( $pageno <= 0 ) {
+					$pageno = 1;
 				}
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
@@ -219,8 +219,8 @@
 				if ( $theuser->Profile->Numcomments > 0 ) {
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php
-                        $link = '?p=user&name=' . $theuser->Name . '&offset=';
-						Element( 'pagify' , $offset , $link, $total_pages );
+                        $link = '?p=user&name=' . $theuser->Name . '&pageno=';
+						Element( 'pagify' , $pageno , $link, $total_pages );
 					?></div><?php
 				}
 			?></div>

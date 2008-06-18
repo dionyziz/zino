@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementAlbumList( tString $username , tString $subdomain , tInteger $offset ) {
+	function ElementAlbumList( tString $username , tString $subdomain , tInteger $pageno ) {
 		global $page;
 		global $user;
 		global $rabbit_settings;
@@ -36,16 +36,16 @@
 			$page->SetTitle( $theuser->Name . " albums" );
 		}
 
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		$pageno = $pageno->Get();
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		
 		$finder = New AlbumFinder();
-		$albums = $finder->FindByUser( $theuser , ( $offset - 1 )*12 , 12 );
+		$albums = $finder->FindByUser( $theuser , ( $pageno - 1 )*12 , 12 );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
-			if ( $offset == 1 ) {
+			if ( $pageno == 1 ) {
 				$egoalbum = New Album( $theuser->Egoalbumid );
 				if ( $user->Id == $theuser->Id || $egoalbum->Numphotos > 0 ) {
 					?><li><?php
@@ -83,9 +83,9 @@
 		?><div class="eof"></div>
 		<div class="pagifyalbums"><?php
 
-        $link = '?p=albums&subdomain=' . $theuser->Subdomain . '&offset=';
+        $link = '?p=albums&subdomain=' . $theuser->Subdomain . '&pageno=';
         $total_pages = ceil( $theuser->Count->Albums / 12 );
-		Element( 'pagify', $offset, $link, $total_pages );
+		Element( 'pagify', $pageno, $link, $total_pages );
 
 		?></div><?php
 	}

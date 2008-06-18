@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementJournalView( tInteger $id , tInteger $commentid , tInteger $offset ) {
+	function ElementJournalView( tInteger $id , tInteger $commentid , tInteger $pageno ) {
 		global $page;
 		global $rabbit_settings;
 		global $user;
@@ -11,13 +11,13 @@
 		$libs->Load( 'notify' );
 		$journal = New Journal( $id->Get() );
 		$commentid = $commentid->Get();
-		$offset = $offset->Get();
+		$pageno = $pageno->Get();
 		$finder = New FavouriteFinder();
 		$fav = $finder->FindByUserAndEntity( $user, $journal );
 		
 		if ( $journal->Exists() ) {
-			if ( $offset <= 0 ) {
-				$offset = 1;
+			if ( $pageno <= 0 ) {
+				$pageno = 1;
 			}
 			Element( 'user/sections' , 'journal' , $journal->User );
 			?><div id="journalview"><?php
@@ -91,7 +91,7 @@
 				if ( $journal->Numcomments > 0 ) {
 					$finder = New CommentFinder();
 					if ( $commentid == 0 ) {
-						$comments = $finder->FindByPage( $journal , $offset , true );
+						$comments = $finder->FindByPage( $journal , $pageno , true );
                         $total_pages = $comments[ 0 ];
                         $comments = $comments[ 1 ];
 					}
@@ -99,7 +99,7 @@
 						$speccomment = New Comment( $commentid );
 						$comments = $finder->FindNear( $journal , $speccomment );
                         $total_pages = $comments[ 0 ];
-						$offset = $comments[ 1 ];
+						$pageno = $comments[ 1 ];
 						$comments = $comments[ 2 ];
 						$finder = New NotificationFinder();
 						$notification = $finder->FindByComment( $speccomment );
@@ -109,8 +109,8 @@
 					}
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php
-                        $link = '?p=journal&id=' . $journal->Id . '&offset=';
-						Element( 'pagify', $offset, $link, $total_pages );
+                        $link = '?p=journal&id=' . $journal->Id . '&pageno=';
+						Element( 'pagify', $pageno, $link, $total_pages );
 					?></div><?php
 				}
 				?></div><?php

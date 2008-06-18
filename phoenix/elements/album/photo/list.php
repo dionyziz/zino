@@ -1,5 +1,5 @@
 <?php
-	function ElementAlbumPhotoList( tInteger $id , tInteger $offset ) {
+	function ElementAlbumPhotoList( tInteger $id , tInteger $pageno ) {
 		global $page;
 		global $user;
 		global $rabbit_settings; 
@@ -7,9 +7,9 @@
 		
 		$album = New Album( $id->Get() );
 		
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		$pageno = $pageno->Get();
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		
 		if ( !$album->Exists() ) {
@@ -27,7 +27,7 @@
 			$water->Trace( "egoalbumid " . $album->User->Egoalbumid );
 			$water->Trace( "albumid " . $album->Id );
 			$finder = New ImageFinder();
-			$images = $finder->FindByAlbum( $album , ( $offset - 1 )*20 , 20 );
+			$images = $finder->FindByAlbum( $album , ( $pageno - 1 )*20 , 20 );
 			if ( $album->Id == $album->User->Egoalbumid ) {
 				if ( strtoupper( substr( $album->User->Name, 0, 1 ) ) == substr( $album->User->Name, 0, 1 ) ) {
 					$page->SetTitle( $album->User->Name . " Φωτογραφίες" );
@@ -89,9 +89,9 @@
 			<div class="eof"></div>
 			<div class="pagifyimages"><?php
 
-            $link = '?p=album&id=' . $album->Id . '&offset=';
+            $link = '?p=album&id=' . $album->Id . '&pageno=';
             $total_pages = ceil( $album->Numphotos / 20 );
-			Element( 'pagify', $offset, $link, $total_pages );
+			Element( 'pagify', $pageno, $link, $total_pages );
 
 			?></div>
 			</div><div class="eof"></div><?php

@@ -1,13 +1,13 @@
 <?php
 	
-	function ElementUserProfileView( tString $name , tString $subdomain, tInteger $commentid , tInteger $offset ) {
+	function ElementUserProfileView( tString $name , tString $subdomain, tInteger $commentid , tInteger $pageno ) {
 		global $page;
 		global $user;
 		global $water;
 		
 		// $water->Disable();
 		$commentid = $commentid->Get();
-		$offset = $offset->Get();
+		$pageno = $pageno->Get();
 		$name = $name->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
@@ -37,7 +37,7 @@
 		$page->SetTitle( $theuser->Name );
 		?><div id="profile"><?php
 			Element( 'user/profile/sidebar/view' , $theuser );
-			Element( 'user/profile/main/view' , $theuser, $commentid, $offset );
+			Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
 			?><div class="eof"></div>
 		</div><?php
 	}

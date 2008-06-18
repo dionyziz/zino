@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollList( tString $username , tString $subdomain , tInteger $offset ) {
+	function ElementPollList( tString $username , tString $subdomain , tInteger $pageno ) {
 		global $libs;
 		global $page;
 		global $rabbit_settings;
@@ -31,9 +31,9 @@
 			return;
 		}		
 		
-		$offset = $offset->Get();
-		if ( $offset <= 0 ) {
-			$offset = 1;
+		$pageno = $pageno->Get();
+		if ( $pageno <= 0 ) {
+			$pageno = 1;
 		}
 		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
 			$page->SetTitle( $theuser->Name . " Δημοσκοπήσεις" );
@@ -43,7 +43,7 @@
 		}
 
 		$finder = New PollFinder();
-		$polls = $finder->FindByUser( $theuser  , ( $offset - 1 )*5 , 5 );
+		$polls = $finder->FindByUser( $theuser  , ( $pageno - 1 )*5 , 5 );
 
 		Element( 'user/sections', 'poll' , $theuser );
 		?><div id="polllist">
@@ -90,9 +90,9 @@
 			}
 			?><div class="pagifypolls"><?php
 
-            $link = '?p=polls&subdomain' . $theuser->Subdomain . '&offset=';
+            $link = '?p=polls&subdomain' . $theuser->Subdomain . '&pageno=';
             $total_pages = ceil( $theuser->Count->Polls / 5 );
-			Element( 'pagify', $offset, $link, $total_pages );
+			Element( 'pagify', $pageno, $link, $total_pages );
 			?></div>
 			<div class="eof"></div>
 		</div><?php

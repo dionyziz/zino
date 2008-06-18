@@ -1,6 +1,6 @@
 ﻿<?php
 	
-	function ElementPollView( tInteger $id , tInteger $commentid , tInteger $offset ) {
+	function ElementPollView( tInteger $id , tInteger $commentid , tInteger $pageno ) {
 		global $page;
 		global $libs;
 		global $water;
@@ -12,11 +12,11 @@
 		$libs->Load( 'notify' );
 		$poll = New Poll( $id->Get() );
 		$commentid = $commentid->Get();
-		$offset = $offset->Get();
+		$pageno = $pageno->Get();
 		
 		if ( $poll->Exists() ) {
-			if ( $offset <= 0 ) {
-				$offset = 1;
+			if ( $pageno <= 0 ) {
+				$pageno = 1;
 			}
 			Element( 'user/sections' , 'poll' , $poll->User );
 			if ( !$poll->IsDeleted() ) {
@@ -42,7 +42,7 @@
 						if ( $poll->Numcomments > 0 ) {
 							$finder = New CommentFinder();
 							if ( $commentid == 0 ) {
-								$comments = $finder->FindByPage( $poll , $offset , true );
+								$comments = $finder->FindByPage( $poll , $pageno , true );
                                 $total_pages = $comments[ 0 ];
                                 $comments = $comments[ 1 ];
 							}
@@ -50,7 +50,7 @@
 								$speccomment = New Comment( $commentid );
 								$comments = $finder->FindNear( $poll , $speccomment );
                                 $total_pages = $comments[ 0 ];
-								$offset = $comments[ 1 ];
+								$pageno = $comments[ 1 ];
 								$comments = $comments[ 2 ];
 								$finder = New NotificationFinder();
 								$notification = $finder->FindByComment( $speccomment );
@@ -60,8 +60,8 @@
 							}
 							Element( 'comment/list' , $comments );
 							?><div class="pagifycomments"><?php
-                                $link = '?p=poll&id=' . $poll->Id . '&offset=';
-								Element( 'pagify', $offset, $link, $total_pages );
+                                $link = '?p=poll&id=' . $poll->Id . '&pageno=';
+								Element( 'pagify', $pageno, $link, $total_pages );
 							?></div><?php
 						}
 					?></div>
