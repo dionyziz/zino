@@ -139,7 +139,7 @@ var pms = {
 				    // Show inbox
 				    var inboxstring = $( $( '#folders div' )[ 0 ] ).attr("id");
 				    var inboxarr = inboxstring.split('_');
-				    var inboxid = inboxarr[1]; 
+				    var inboxid = inboxarr[1];
 					pms.ShowFolderPm( $( '#folders div' )[ 0 ],  inboxid );
 				}
 			} );
