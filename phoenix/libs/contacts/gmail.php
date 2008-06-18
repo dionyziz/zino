@@ -1,6 +1,6 @@
 <?php
 /* Usage:
-$gmail = New ContactsGmail();
+$gmail = New ContactsFetcher();
 if ( $gmail->Login( 'username', 'password' ) ) {
    $contacts = $gmail->Retrieve();
    foreach ( $contacts as $email => $name ) {
@@ -11,10 +11,10 @@ else {
    echo "Login failure - incorrect username/password";
 }
 */
-	class ContactsGmail {
+	class ContactsFetcher {
 		private $mContacts = Array();
 		public $ambiguous = 0;
-		private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/contacts/gmail.rb'; 
+		private $mPath; //'/var/www/zino.gr/beta/phoenix/libs/contacts/contacts.rb'; 
 
 		public function Add( $email, $name = '' ) {
 			if ( strlen( $email ) == 0 || array_key_exists( $email, $this->mContacts ) ) {
@@ -30,7 +30,7 @@ else {
 
 		public function Login( $user, $pass ) {
 			global $rabbit_settings;
-			$this->mPath = $rabbit_settings[ 'rootdir' ] . '/libs/contacts/gmail.rb';
+			$this->mPath = $rabbit_settings[ 'rootdir' ] . '/libs/contacts/contacts.rb';
 			/* Pipe */
 			$descriptorspec = array(
 			   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
@@ -58,7 +58,7 @@ else {
 			
 			/* Exceptions */
 			die ( "$return_value: $allcontacts \n$errors" );
-			if ( $return_value == 2 ) { // either login failure or changes in gmail's website
+			if ( $return_value == 2 ) { // login failure
 				return false;
 			}
 			

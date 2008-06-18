@@ -5,9 +5,9 @@
         $username = $username->Get();
         $password = $password->Get();
 
-        $libs->Load( 'contacts/gmail' );
+        $libs->Load( 'contacts/fetcher' );
 
-        $gmail = New ContactsGmail();
+        $gmail = New ContactsFetcher();
 
         if ( $gmail->Login( $username, $password ) ) {
             $contacts = $gmail->Retrieve();
