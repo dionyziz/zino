@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	function ActionAboutAdvertiseSendmail( tString $from, tString $text ) {
 		global $libs;
         
