@@ -6,6 +6,10 @@
             return $this->mURL;
         }
         public function Redirect() {
+            if ( headers_sent() ) {
+                die( 'biiiiing' );
+            }
+            die( 'Okie dokie' );
             header( 'Location: ' . $this->mURL );
         }
         public function HTTPRedirection( $url ) {
