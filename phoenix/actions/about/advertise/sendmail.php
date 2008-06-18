@@ -14,7 +14,7 @@
 		
 		// Check if e-mail is valid
 		if ( !ValidEmail( $from ) ) {
-			return Redirect( "p=?advertise&mailsent=no" );
+			return Redirect( "?p=advertise&mailsent=no" );
 		}
 		
 		// Prepare text messagea
@@ -22,10 +22,10 @@
 		
 		// Send message
 		if ( mail( $to, $subject, $text, $header ) ) {
-			return Redirect( "p=?advertise&mailsent=yes" );
+			return Redirect( "?p=advertise&mailsent=yes" );
 		}
 		else {
-			return Redirect( "p=?advertise&mailsent=no" );
+			return Redirect( "?p=advertise&mailsent=no" );
 		}
 	}
 ?>
