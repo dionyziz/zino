@@ -6,7 +6,9 @@
         $unreadCount = $user->Count->Unreadpms;
 
         if ( $folder->Typeid == PMFOLDER_INBOX ) {
-            ?><div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="firstfolder"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode, <?php
+            ?><div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="folder_<?php
+            echo $folder->Id;
+            ?>"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode, <?php
                 echo $folder->Id;
             ?> );return false;">Εισερχόμενα<?php
             if ( $unreadCount ) {
