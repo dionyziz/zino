@@ -61,11 +61,11 @@
                 θα προσπαθήσουμε να σας εξυπηρετήσουμε.
                 <br/><br/>
 				<form action="do/about/advertise/sendmail" method="post">
-					<span style="font-family:serif;">Email</span><br />
-					<input type="text" style="width:250px;" id="mailadress" /><br /><br />
-					<span style="font-family:serif;">Σχόλια (προαιρετικό)</span><br />
-					<textarea style="width:400px;height:200px;"></textarea><br /><br />
-					<a href="" onclick="">&#187;Αποστολή</a>
+					Email<br />
+					<input type="text" name="from" /><br /><br />
+					Σχόλια (προαιρετικό)<br />
+					<textarea name="text"></textarea><br /><br />
+					<input type="submit" value="&#187;Αποστολή" />
 				</form>
 			</p>
 		<?php
