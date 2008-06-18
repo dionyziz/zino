@@ -21,7 +21,7 @@
 		$text .= "\n\nEmail: " . $from;
 		
 		// Send message
-		if ( mail( $to, $subject, $text, $headers ) ) {
+		if ( mail( $to, $subject, $text, $header ) ) {
 			return Redirect( "?advertise.php?mailsent=yes" );
 		}
 		else {
