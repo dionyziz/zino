@@ -492,13 +492,11 @@ final class PageAction extends Page {
         }
         
         $this->mRedirection = $redirect;
-        die( array( 'Rabbit Redirect:', var_dump( $redirect ) ) );
     }
     protected function OutputPage() {
         if ( isset( $this->mRedirection ) ) {
             $this->mRedirection->Redirect();
         }
-        // throw New Exception( 'Action didn\'t return a Redirection' );
     }
 }
 
