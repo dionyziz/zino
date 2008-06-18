@@ -75,7 +75,7 @@ var pms = {
 		var newfolderlink = newfolderdivlinks[ 0 ];
 		$( newfolderlink ).css( "color" , "#aaa8a8" ).css( "font-weight" , "bold" );
 		if ( pms.activefolder === 0 ) {
-			pms.node = $( '#firstfolder' )[ 0 ];
+			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
@@ -88,7 +88,7 @@ var pms = {
 	,
 	CancelNewFolder : function () {
 		if ( pms.activefolder === 0 ) {
-			pms.node = $( '#firstfolder' )[ 0 ];
+			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
 		if ( pms.activefolder != pms.node ) {
@@ -239,7 +239,7 @@ var pms = {
 		//reduces the number of unread messages by one
 		//if specnumber is - 1 the unread pms number is reduced by one, else the specnumber is used as the number for the unread msgs
 		var unreadmsgbanner = $( '#messagesunread' )[ 0 ];
-		var incomingdiv = $( '#firstfolder' )[ 0 ];
+		var incomingdiv = $( '#folders div' )[ 0 ];
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
 		var newtext2;
