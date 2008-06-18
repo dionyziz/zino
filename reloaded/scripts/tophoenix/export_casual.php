@@ -603,7 +603,7 @@
             3 => 1
         );
         
-        $limit = 30000;
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$comments` WHERE `comment_delid`=0;" );
             $row = $res->FetchArray();
@@ -885,7 +885,7 @@
     function MigratePMMessages( $offset = 0, $test = false ) {
         global $db, $pmmessages;
 
-        $limit = 5000;
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
             $row = $res->FetchArray();
@@ -927,7 +927,7 @@
     function MigratePMMessageInFolder( $offset, $test = 'false' ) {
         global $db, $pmmessageinfolder;
 
-        $limit = 10000;
+        $limit = 20000;
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessageinfolder`;" );
             $row = $res->FetchArray();
