@@ -209,7 +209,7 @@
 			}
 		}
         protected function OnCreate() {
-            global $libs;
+            global $user;
             global $libs;
             $libs->Load( 'notify' );
 
