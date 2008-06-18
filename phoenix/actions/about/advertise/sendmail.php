@@ -1,6 +1,9 @@
 ﻿<?php
 	function ActionAboutAdvertiseSendmail( tString $from, tString $text ) {
 		global $libs;
+        
+        die( var_dump( headers_sent() ) );
+
 		$libs->Load( 'rabbit/helpers/validate' );
 		
 		// Hardcoded stuff
@@ -12,8 +15,6 @@
 		// Get parameters
 		$from = $from->Get();
 		$text = $text->Get();
-		
-        die( var_dump( headers_sent() ) );
 
 		// Check if e-mail is valid
 		if ( !ValidEmail( $from ) ) {
