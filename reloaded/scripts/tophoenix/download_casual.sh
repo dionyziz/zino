@@ -40,7 +40,12 @@ do
 
         echo -n "Downloading step $i (part $offset)... "
         URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i&offset=$offset" 
-        wget $URL -O $workpath/$i-$offset.sql.gz 2>/dev/null
+        if [[ `expr length $i` -eq 1 ]] then
+            $ti = 0$i
+        else
+            $ti = $i
+        fi
+        wget $URL -O $workpath/$ti-$offset.sql.gz 2>/dev/null
         if [[ $? -ne 0 ]]; then
             echo "Error downloading from $URL"
             break;

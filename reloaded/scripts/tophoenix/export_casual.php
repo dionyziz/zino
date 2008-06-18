@@ -175,7 +175,7 @@
                 ?>', `profile_dob`='<?php
                 echo $row[ 'user_dob' ];
                 ?>', `profile_slogan`='<?php
-                echo $row[ 'user_subtitle' ];
+                echo addslashes( $row[ 'user_subtitle' ] );
                 ?>', `profile_uniid`='<?php
                 echo $row[ 'user_uniid' ];
                 ?>', `profile_education`='<?php
@@ -377,7 +377,7 @@
                 MAX( `image_id` ) AS frontpage_imageid, `image_userid` AS frontpage_userid
             FROM
                 `images` CROSS JOIN `users` 
-                    ON `images`.`image_albumid` = `albums`.`user_egoalbumid`
+                    ON `images`.`image_albumid` = `users`.`user_egoalbumid`
             GROUP BY
                 frontpage_userid;<?php
     }
@@ -485,6 +485,7 @@
                     FROM
                         `$polls`;"
                 );
+                ?>TRUNCATE TABLE `polls`;<?php
                 while ( $row = $res->FetchArray() ) {
                     ?>INSERT INTO `polls` SET
                         `poll_id`=<?php
