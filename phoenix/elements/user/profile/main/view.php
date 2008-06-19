@@ -10,6 +10,7 @@
 		
 		if ( $theuser->Profile->Numcomments > 0 ) {
 			$finder = New CommentFinder();
+            die( "start finding comments" );
 			if ( $commentid == 0 ) {
 				$comments = $finder->FindByPage( $theuser, $pageno , true );
 				$total_pages = $comments[ 0 ];
@@ -28,7 +29,6 @@
 				}
 			}
 		}
-        die( "comments found" );
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
