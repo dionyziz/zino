@@ -630,7 +630,6 @@
             ?>TRUNCATE TABLE `comments`;<?php
         }
 
-        ?>START TRANSACTION;<?php
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO bulk VALUES('','<?php
             echo addslashes( $row[ 'comment_text' ] );
@@ -650,7 +649,6 @@
             echo $commenttypes[ $row[ 'comment_typeid' ] ];
             ?>);<?php
         }
-        ?>COMMIT;<?php
     }
 
     function MigrateJournals() {
@@ -1080,8 +1078,10 @@
     ?> -- Step <?php
     echo $step;
     ?> migration of Excalibur Reloaded to Phoenix --
-    <?php
+    SET NAMES 'utf8';
+    START TRANSACTION;<?php
     echo $sql;
+    ?>COMMIT;?<php
     $data = gzencode( ob_get_clean(), 9 );
 
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '-' .$offset . '.sql.gz' );
