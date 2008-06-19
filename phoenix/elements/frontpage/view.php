@@ -129,8 +129,8 @@
 				?><h2>Είναι online τώρα</h2>
 				<div class="list"><?php
 					foreach( $users as $onuser ) {
-						?><a href="?p=user&amp;subdomain=<?php
-						echo $onuser->Subdomain;
+						?><a href="<?php
+						Element( 'user/url' , $onuser );
 						?>"><?php
 						Element( 'user/avatar' , $onuser , 150 , '' , '' );
 						?></a><?php
