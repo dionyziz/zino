@@ -31,6 +31,6 @@
 			$mailsent = "no";
 		}
 		
-		return Redirect( "?p=advertise&mailsent=" . $mailsent );
+		return Redirect( "?p=b&mailsent=" . $mailsent );
 	}
 ?>
