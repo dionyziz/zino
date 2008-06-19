@@ -247,6 +247,7 @@ var pms = {
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
 		var newtext2;
+		alert( unreadmsgbanner );
 		$( incominglink.firstChild ).remove();
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
@@ -271,7 +272,8 @@ var pms = {
 		}
 		
 		// Fucking.. $( unreadmsgbanner.firstChild ).remove();
-		$( unreadmsgbanner ).append( newtext2 );
+		$( unreadmsgbanner ).text( 'Test' );
+		//$( unreadmsgbanner ).append( newtext2 );
 		$( incominglink ).append( newtext );
 	}
 	,
