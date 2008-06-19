@@ -317,7 +317,7 @@ $( document ).ready( function() {
 		tolerance: "pointer",
 		drop : function(ev, ui) {
 			alert( 'pmid: ' + ui.draggable.attr( "id" ).substring( 3 ) + '|folderid: ' + $( 'div.activefolder' ).attr( "id" ).substring( 7 ) + '|targetfolderid: ' + $( this ).attr( "id" ).substring( 7 ) );
-			Coala.Warm( 'pm/transfer' , { pmid : ui.draggable.attr( "id" ).substring( 3 ) , folderid : $( this ).attr( "id" ).substring( 7 ), targetfolderid : $('div.activefolder').attr("id").substring( 7 ) } );
+			Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
 			ui.draggable.animate( { 
 				opacity: "0",
 				height: "0"
