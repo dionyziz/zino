@@ -1,9 +1,9 @@
 ﻿<?php
-	function ElementMailSent( tString $success ) {
+	function ElementMailSent( tString $mailsent ) {
 		// Get Parameter
-		$success = $success->Get();
+		$mailsent = $mailsent->Get();
 		
-		if ( $success == "yes" ) {
+		if ( $mailsent == "yes" ) {
 			?><p>Το μήνυμα στάλθηκε επιτυχώς.</p><?php
 		}
 		else {
