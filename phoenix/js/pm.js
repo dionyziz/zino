@@ -269,7 +269,8 @@ var pms = {
 			$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
-		$( unreadmsgbanner.firstChild ).remove();
+		
+		// Fucking.. $( unreadmsgbanner.firstChild ).remove();
 		$( unreadmsgbanner ).append( newtext2 );
 		$( incominglink ).append( newtext );
 	}
