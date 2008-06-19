@@ -20,13 +20,15 @@
             $this->mReceivers[] = $receiver;
         }
         public function GetReceivers() {
-            $receivers = array();
-            foreach ( $this->UserPMs as $upm ) {
-                if ( $upm->Folder->Typeid != PMFOLDER_OUTBOX ) {
-                    $receivers[] = $upm->User;
+            if ( $this->Exists() && empty( $this->mReceivers ) ) {
+                $this->mReceivers = array();
+                foreach ( $this->UserPMs as $upm ) {
+                    if ( $upm->Folder->Typeid != PMFOLDER_OUTBOX ) {
+                        $this->mReceivers[] = $upm->User;
+                    }
                 }
             }
-            return $receivers;
+            return $this->mReceivers;
         }
         public function SetText( $text ) {
             $this->Bulk->Text = $text;
