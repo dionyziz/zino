@@ -1,11 +1,11 @@
 <?php
-	function ActionAboutAdvertiseSendmail( tString $from, tString $text ) {
+	function ActionAboutAdvertisemailSendmail( tString $from, tString $text ) {
 		global $libs;
         
 		$libs->Load( 'rabbit/helpers/validate' );
 		
 		// Hardcoded stuff
-		$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com";
+		$to = "abresas@gmail.com, dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
 		$subject = "Zino: Διαφημίσεις";
 		$header = "From: admin@zino.gr";
 

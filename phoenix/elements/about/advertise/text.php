@@ -60,7 +60,7 @@
                 εντός 48 ωρών. Αν έχετε οποιαδήποτε ερώτηση, σημειώστε την στην περιοχή "Σχόλια" και
                 θα προσπαθήσουμε να σας εξυπηρετήσουμε.
                 <br/><br/>
-				<form action="do/about/advertise/sendmail" method="post">
+				<form action="do/about/advertisemail/sendmail" method="post">
 					Email<br />
 					<input type="text" name="from" style="width:250px;" /><br /><br />
 					Σχόλια (προαιρετικό)<br />
