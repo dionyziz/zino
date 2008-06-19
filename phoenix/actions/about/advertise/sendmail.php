@@ -16,7 +16,7 @@
 
 		// Check if e-mail is valid
 		if ( !ValidEmail( $from ) ) {
-			return Redirect( "/?p=advertise&mailsent=no" );
+			return Redirect( "/?p=b&mailsent=no" );
 		}
 		
 		// Prepare text messagea
