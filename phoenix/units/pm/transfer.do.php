@@ -11,6 +11,7 @@
         $targetfolderid = $targetfolderid->Get();
 
 		$pm = new UserPM( $pmid, $folderid );
+        w_assert( $pm->Exists() );
 		$pm->Folderid = $targetfolderid;
 		$pm->Save();
 	}
