@@ -5,7 +5,7 @@
 			Email:<br />
 			<input type="text" name="from" style="width:250px;"/><br /><br />
 			Σχόλια:<br />
-			<textarea name="text" style="width:400px;height:200px;"></textarea><br />
+			<textarea name="text" style="width:400px;height:200px;"></textarea><br /><br />
 			<input type="submit" value="Αποστολή" />
 		</form><?php
     }
