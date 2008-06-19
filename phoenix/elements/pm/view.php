@@ -69,7 +69,8 @@
                 else if ( is_array( $pmuser ) ) {
                     $pmuser = $pmuser[ 0 ];
                 }
-                w_assert( is_object( $pmuser ) );
+                var_dump( $pmuser );
+                die();
                 if ( $pmuser->Gender == 'female' ) {
                     ?>ην<?php
                 }
