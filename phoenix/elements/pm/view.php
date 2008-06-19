@@ -67,6 +67,7 @@
                     ?>ους<?php
                 }
                 else if ( is_array( $pmuser ) ) {
+                    w_assert( isset( $pmuser[ 0 ] ) );
                     $pmuser = $pmuser[ 0 ];
                 }
                 if ( !is_object( $pmuser ) ) {
