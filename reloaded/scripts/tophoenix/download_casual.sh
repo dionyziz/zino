@@ -49,7 +49,7 @@ do
         if [[ `expr length $offset` -eq 1 ]]; then
             toffset=0$offset
         else 
-            offset=$offset
+            toffset=$offset
         fi
         wget $URL -O $workpath/$ti-$toffset.sql.gz 2>/dev/null
         if [[ $? -ne 0 ]]; then
