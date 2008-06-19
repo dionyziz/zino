@@ -27,6 +27,8 @@
             if ( !is_array( $users ) ) {
                 $users = array( $users );
             }
+            
+            w_assert( !empty( $users ) );
 
             foreach ( $users as $i => $user ) {
                 if ( is_object( $user ) ) {
