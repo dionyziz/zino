@@ -323,7 +323,9 @@
             $prototype->Itemid = $entity->Id; //3 stands for Userprofile
             $prototype->Delid = 0;
 
-            return Comments_OnPage( $this->FindByPrototype( $prototype, $offset, $limit ), $page, $reverse );
+            $comments = $this->FindByPrototype( $prototype, $offset, $limit );
+            die( "comments found" );
+            return Comments_OnPage( $comments, $page, $reverse );
         }
     }
 

@@ -10,7 +10,6 @@
 		
 		if ( $theuser->Profile->Numcomments > 0 ) {
 			$finder = New CommentFinder();
-            die( "start finding comments" );
 			if ( $commentid == 0 ) {
 				$comments = $finder->FindByPage( $theuser, $pageno , true );
 				$total_pages = $comments[ 0 ];
