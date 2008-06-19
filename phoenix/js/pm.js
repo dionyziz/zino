@@ -242,13 +242,13 @@ var pms = {
 	UpdateUnreadPms : function( specnumber ) {
 		//reduces the number of unread messages by one
 		//if specnumber is - 1 the unread pms number is reduced by one, else the specnumber is used as the number for the unread msgs
-		var unreadmsgbanner = $( '#messagesunread' )[ 0 ];
+		var unreadmsgbanner = $( 'a.messages icon' )[ 0 ];
 		var incomingdiv = $( '#folders div' )[ 0 ];
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
 		var newtext2;
 		$( incominglink.firstChild ).remove();
-		//$( unreadmsgbanner.firstChild ).remove();
+		$( unreadmsgbanner.firstChild ).remove();
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
