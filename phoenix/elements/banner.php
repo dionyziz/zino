@@ -41,6 +41,9 @@
                             ?>α μηνύματα<?php
                         }
                     }
+                    else {
+                        ?>Μηνύματα<?php
+                    }
                 ?></a></li>
 	    		<li>·</li>
 	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
