@@ -164,7 +164,9 @@
                 echo $row[ 'user_gender' ];
                 ?>', `user_lastlogin`='<?php
                 echo $row[ 'user_lastlogon' ];
-                ?>', `user_egoalbumid`=0;<?php
+                ?>', `user_egoalbumid`=<?php
+                echo -$row[ 'user_id' ]; // indicates a "not yet set" value
+                ?>;<?php
             ?>INSERT INTO `userprofiles` SET
                 `profile_userid`=<?php
                 echo $row[ 'user_id' ];
@@ -349,7 +351,7 @@
                 0 AS album_delid, 0 AS album_numcomments, 0 AS album_numphotos
             FROM 
                 `users`
-            WHERE `user_egoalbumid`=0;
+            WHERE `user_egoalbumid`<=0;
         UPDATE
             `users` CROSS JOIN (
                 SELECT
@@ -362,7 +364,7 @@
         SET
             `user_egoalbumid`=albumid
         WHERE
-            `user_egoalbumid`=0;<?php
+            `user_egoalbumid`<=0;<?php
 
         // set avatars to the mainimages of the egoalbums (cross join ensures only users WITH egoalbums are updated)
         ?>UPDATE
