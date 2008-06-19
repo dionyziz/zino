@@ -323,7 +323,8 @@
             $prototype->Itemid = $entity->Id; //3 stands for Userprofile
             $prototype->Delid = 0;
 
-            die( "finding comments.." );
+            die( "SELECT * FROM `comments` WHERE `comment_typeid` = '" . Type_FromObject( $entity ) . "' AND `comment_itemid` = '" . $entity->Id . "' AND `comment_delid` = '0' LIMIT $offset, $limit;" );
+
             $comments = $this->FindByPrototype( $prototype, $offset, $limit );
             return Comments_OnPage( $comments, $page, $reverse );
         }
