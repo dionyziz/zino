@@ -78,6 +78,7 @@
 			"friends"			=> "user/relations/list",
             'tos'               => 'about/tos/view',
 			'advertise'			=> 'about/advertise/view',
+			'contact'			=> 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'search'            => 'developer/abresas/search',
             'commentsearch'     => 'developer/abresas/search/comments',

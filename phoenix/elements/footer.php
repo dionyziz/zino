@@ -7,7 +7,7 @@
 		?><div class="footer">
 			<ul>
 				<li><a href="http://www.kamibu.com/">Η ομάδα μας</a></li>
-				<li><a href="contact" onclick="return false">Επικοινώνησε</a></li>
+				<li><a href="?p=contact">Επικοινώνησε</a></li>
 				<li><a href="?p=tos">Όροι χρήσης</a></li>
 				<li><a href="?p=advertise">Διαφημίσου εδώ</a></li>
 			</ul>
