@@ -69,10 +69,11 @@
                 else if ( is_array( $pmuser ) ) {
                     $pmuser = $pmuser[ 0 ];
                 }
-                if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender == 'female' ) {
+                w_assert( is_object( $pmuser ) );
+                if ( $pmuser->Gender == 'female' ) {
                     ?>ην<?php
                 }
-                else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
+                else {
                     ?>ον<?php
                 }
                 ?> </div><div style="display:inline" class="infobar_info"><?php
