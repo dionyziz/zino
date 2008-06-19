@@ -48,7 +48,5 @@
 				Element( 'user/profile/sidebar/contacts' , $theuser );
 			?></div>
         </div><?php
-
-        die( "sidebar loaded" );
 	}
 ?>

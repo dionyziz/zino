@@ -28,6 +28,7 @@
 				}
 			}
 		}
+        die( "comments found" );
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
