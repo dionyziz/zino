@@ -70,7 +70,6 @@
                     $pmuser = $pmuser[ 0 ];
                 }
                 if ( !is_object( $pmuser ) ) {
-                    ob_clean();
                     var_dump( $pmuser );
                     die();
                 }
