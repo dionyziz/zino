@@ -29,19 +29,19 @@
 				Element( 'user/name', $user, false );
 				?></a></li>
 	    		<li>·</li>
-	    		<li><a href="?p=pms" class="messages icon"> 
-	    		<?php
+	    		<li><a href="?p=pms" class="messages icon"><?php
 	    		    $unreadCount = $user->Count->Unreadpms;
-	    		    echo $unreadCount;
-	    		?> νέ<?php
-	    		    if( $unreadCount == 1 ) {
-	    		      ?>ο μήνυμα<?php  
-	    		    }
-	    		    else {
-	    		        ?>α μηνύματα<?php
-	    		    }
-	    		    ?>
-	    		</a></li>
+                    if ( $unreadCount > 0 ) {
+                        echo $unreadCount;
+                        ?> νέ<?php
+                        if( $unreadCount == 1 ) {
+                            ?>ο μήνυμα<?php  
+                        }
+                        else {
+                            ?>α μηνύματα<?php
+                        }
+                    }
+                ?></a></li>
 	    		<li>·</li>
 	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
 	        }
