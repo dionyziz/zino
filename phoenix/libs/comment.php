@@ -361,15 +361,15 @@
                 $comments[] = $row;
             }
                 
-            $parented = Comments_OnPage( $comments, $page, $reverse );
+            $info = Comments_OnPage( $comments, $page, $reverse );
+            $num_pages = $info[ 0 ];
+            $comments = $info[ 1 ];
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
                     $commentids[] = $child[ 'comment_id' ];
                 }
             }
-
-            die( print_r( $parented ) );
 
             $comments = $this->FindData( $commentids );
     
@@ -381,7 +381,7 @@
                 }
             }
 
-            return $ret;
+            return array( $num_pages, $ret );
         }
     }
 
