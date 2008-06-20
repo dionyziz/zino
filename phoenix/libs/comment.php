@@ -325,7 +325,7 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
-            return $this->FindBySqlResource( $query->Execute );
+            return $this->FindBySqlResource( $query->Execute() );
         }
         public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
