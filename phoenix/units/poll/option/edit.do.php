@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollOptionEdit( tInteger $id, tString $text ) {
+    function UnitPollOptionEdit( tInteger $id, tText $text ) {
         global $user;
         global $libs;
 

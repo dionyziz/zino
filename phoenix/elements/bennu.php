@@ -1,6 +1,6 @@
 <?php
 
-    function ElementBennu( tInteger $age, tString $gender ) {
+    function ElementBennu( tInteger $age, tText $gender ) {
         global $user;
         global $libs;
 

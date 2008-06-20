@@ -1,5 +1,5 @@
 <?php
-	function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tString $gender , tInteger $location ) {
+	function UnitUserJoined( tInteger $doby , tInteger $dobm , tInteger $dobd , tText $gender , tInteger $location ) {
 		global $user;
         global $rabbit_settings;
 

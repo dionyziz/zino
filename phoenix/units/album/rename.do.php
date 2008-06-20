@@ -1,6 +1,6 @@
 <?php
 
-	function UnitAlbumRename( tInteger $albumid , tString $albumname ) {
+	function UnitAlbumRename( tInteger $albumid , tText $albumname ) {
 		global $user;
 		
 		$album = New Album( $albumid->Get() );

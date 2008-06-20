@@ -1,6 +1,6 @@
 <?php
 
-	function UnitAlbumPhotoRename( tInteger $photoid , tString $photoname ) {
+	function UnitAlbumPhotoRename( tInteger $photoid , tText $photoname ) {
 		global $user;
 		
 		$image = New Image( $photoid->Get() );

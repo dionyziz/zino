@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitUserSettingsTagsNew( tString $text , tInteger $typeid , tCoalaPointer $node ) {
+	function UnitUserSettingsTagsNew( tText $text , tInteger $typeid , tCoalaPointer $node ) {
 		global $libs;
 		global $user;
 		

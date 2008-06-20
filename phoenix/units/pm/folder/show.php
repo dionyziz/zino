@@ -1,5 +1,5 @@
 <?php
-    function UnitPmShowfolder( tInteger $folderid ) {
+    function UnitPmFolderShow( tInteger $folderid ) {
     	global $libs;
     	global $user;
     	

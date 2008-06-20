@@ -1,5 +1,5 @@
 <?php
-	function ActionAboutContactmailSendmail( tString $from, tString $text ) {
+	function ActionAboutContactmailSendmail( tText $from, tText $text ) {
 		global $libs;
         
 		$libs->Load( 'rabbit/helpers/validate' );

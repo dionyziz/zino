@@ -18,7 +18,7 @@ var Frontpage = {
 			$( 'div#' + shoutid ).animate( { height : "0" , opacity : "0" } , 300 , function() {
 				$( this ).remove();
 			} );
-			Coala.Warm( 'frontpage/shoutbox/delete' , { shoutid : shoutid } );
+			Coala.Warm( 'shoutbox/delete' , { shoutid : shoutid } );
 		}
 	}
 };
@@ -36,7 +36,7 @@ $( document ).ready( function() {
 			else {
 				var newshout = $( list ).find( 'div.empty' )[ 0 ].cloneNode( true );
 				$( newshout ).removeClass( 'empty' ).insertAfter( $( list ).find( 'div.newcomment' )[ 0 ] ).show().css( "opacity" , "0" ).animate( { opacity : "1" } , 400 ).find( 'div.text' ).append( document.createTextNode( text ) );
-				Coala.Warm( 'frontpage/shoutbox/new' , { text : text , node : newshout } );
+				Coala.Warm( 'shoutbox/new' , { text : text , node : newshout } );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
 			}
 		} );

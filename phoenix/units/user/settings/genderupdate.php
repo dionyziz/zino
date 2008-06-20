@@ -1,6 +1,6 @@
 <?php
 
-	function UnitUserSettingsGenderupdate( tString $gender , tString $sex , tString $religion , tString $politics ) {
+	function UnitUserSettingsGenderupdate( tText $gender , tText $sex , tText $religion , tText $politics ) {
 		$gender = $gender->Get();
 		$sex = $sex->Get();
 		$religion = $religion->Get();

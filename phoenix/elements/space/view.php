@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementSpaceView( tString $username , tString $subdomain ) {
+	function ElementSpaceView( tText $username , tText $subdomain ) {
 		global $user;
 		global $page;
 		

@@ -1,5 +1,5 @@
 <?php
-    function ActionUserLogin( tString $username, tString $password ) {
+    function ActionUserLogin( tText $username, tText $password ) {
     	global $user;
         global $rabbit_settings;
     	global $water;

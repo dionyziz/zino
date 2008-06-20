@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementPollList( tString $username , tString $subdomain , tInteger $pageno ) {
+	function ElementPollList( tText $username , tText $subdomain , tInteger $pageno ) {
 		global $libs;
 		global $page;
 		global $rabbit_settings;

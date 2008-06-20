@@ -1,5 +1,5 @@
 <?php
-    function UnitPmSendpm( tString $usernames , tString $pmtext ) {
+    function UnitSendpm( tText $usernames , tText $pmtext ) {
     	global $user;
     	global $libs;
 

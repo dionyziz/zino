@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPmDeletepm( tInteger $pmid, tInteger $folderid ) {
+    function UnitPmDelete( tInteger $pmid, tInteger $folderid ) {
         global $user;
         global $libs;
         

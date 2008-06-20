@@ -1,5 +1,5 @@
 <?php
-    function ElementDeveloperDionyzizContacts( tString $username, tString $password ) {
+    function ElementDeveloperDionyzizContacts( tText $username, tText $password ) {
         global $libs;
 
         $username = $username->Get();

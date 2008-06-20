@@ -1,5 +1,5 @@
 <?php
-	function UnitCommentsEdit( tInteger $id, tString $text ) {
+	function UnitCommentsEdit( tInteger $id, tText $text ) {
 		global $libs;
 		global $user;
 		

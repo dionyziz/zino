@@ -1,5 +1,5 @@
 <?php
-	function UnitCommentsNew( tString $text, tInteger $parent, tInteger $compage, tInteger $type, tCoalaPointer $node, tCoalaPointer $callback ) {
+	function UnitCommentsNew( tText $text, tInteger $parent, tInteger $compage, tInteger $type, tCoalaPointer $node, tCoalaPointer $callback ) {
 		global $libs;
 		global $user;
 		

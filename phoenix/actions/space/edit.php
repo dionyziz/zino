@@ -1,5 +1,5 @@
 <?php	
-	function ActionSpaceEdit( tString $text ) {
+	function ActionSpaceEdit( tText $text ) {
 		global $user;
 		global $libs;
 

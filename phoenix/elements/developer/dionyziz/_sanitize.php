@@ -1,5 +1,5 @@
 <?php
-    function ElementDeveloperDionyzizSanitize( tString $in ) {
+    function ElementDeveloperDionyzizSanitize( tText $in ) {
         global $libs;
         
         $libs->Load( 'sanitizer' );

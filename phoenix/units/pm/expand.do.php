@@ -1,5 +1,5 @@
 <?php
-    function UnitPmExpandpm( tInteger $pmid, tInteger $folderid ) {
+    function UnitPmExpand( tInteger $pmid, tInteger $folderid ) {
     	global $libs;
     	global $user;
     	global $water;

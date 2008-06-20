@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserRelationsList( tString $username , tString $subdomain , tInteger $pageno ) {
+	function ElementUserRelationsList( tText $username , tText $subdomain , tInteger $pageno ) {
 		global $libs;
 		global $user;
 		global $page;

@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitAlbumCreate( tString $albumname , tCoalaPointer $albumnode ) {
+	function UnitAlbumCreate( tText $albumname , tCoalaPointer $albumnode ) {
 		global $user;
 		global $rabbit_settings;
 		

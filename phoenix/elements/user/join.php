@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserJoin( tString $username) {
+	function ElementUserJoin( tText $username) {
 		global $page;
 		global $rabbit_settings;
 		global $user;

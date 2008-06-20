@@ -1,6 +1,6 @@
 <?php
 	
-	function UnitPollNew( tString $question , tString $options , tCoalaPointer $node ) {
+	function UnitPollNew( tText $question , tText $options , tCoalaPointer $node ) {
 		global $user;
 		global $libs;
 		

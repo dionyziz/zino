@@ -1,6 +1,6 @@
 <?php
 
-    function UnitPollOptionNew( tInteger $pollid, tString $text, tCoalaPointer $callback ) {
+    function UnitPollOptionNew( tInteger $pollid, tText $text, tCoalaPointer $callback ) {
         global $libs;
         global $user;
 

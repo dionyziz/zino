@@ -1,6 +1,6 @@
 <?php
 	
-	function ElementUserProfileView( tString $name , tString $subdomain, tInteger $commentid , tInteger $pageno ) {
+	function ElementUserProfileView( tText $name , tText $subdomain, tInteger $commentid , tInteger $pageno ) {
 		global $page;
 		global $user;
 		global $water;

@@ -24,7 +24,7 @@ var pms = {
 			folder.className = 'activefolder';
 		}
 		pms.activefolder = folder;
-		Coala.Cold( 'pm/showfolder' , { folderid : folderid } , function( errcode ) {
+		Coala.Cold( 'pm/folder/show' , { folderid : folderid } , function( errcode ) {
 			alert( 'Coala error: ' + errcode );
 		} );	
 	}
@@ -50,7 +50,7 @@ var pms = {
 		if ( notread ) {
 			//remove the unread icon
 			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
-			Coala.Warm( 'pm/expandpm' , { pmid : pmid, folderid: folderid } );
+			Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
 				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
@@ -127,7 +127,7 @@ var pms = {
             return;
 		}
         pms.ShowAnimation( 'Δημιουργία φακέλου...' );
-        Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
+        Coala.Warm( 'pm/folder/new' , { foldername : foldername } );
 	}
 	,
 	DeleteFolder : function( folderid ) {
@@ -143,7 +143,7 @@ var pms = {
 					pms.ShowFolderPm( $( '#folders div' )[ 0 ],  inboxid );
 				}
 			} );
-			Coala.Warm( 'pm/deletefolder' , { folderid : folderid } );
+			Coala.Warm( 'pm/folder/delete' , { folderid : folderid } );
 		} );
 	}
 	,
@@ -213,7 +213,7 @@ var pms = {
 		var messagesdivtextarealist = pms.messagescontainer.getElementsByTagName( 'textarea' );
 		var pmtext = messagesdivtextarealist[ 0 ];
 		pms.ShowAnimation( 'Αποστολή μηνύματος...' );
-		Coala.Warm( 'pm/sendpm' , { usernames : receiverslist.value , pmtext : pmtext.value } );
+		Coala.Warm( 'pm/send' , { usernames : receiverslist.value , pmtext : pmtext.value } );
 	}
 	,
 	DeletePm : function( msgnode, pmid, folderid, read ) {
@@ -235,7 +235,7 @@ var pms = {
 			}
 			pms.pmsinfolder--;
 			pms.WriteNoPms();
-			Coala.Warm( 'pm/deletepm' , { pmid : pmid, folderid : folderid } );
+			Coala.Warm( 'pm/delete' , { pmid : pmid, folderid : folderid } );
 		} );
 		
 	},

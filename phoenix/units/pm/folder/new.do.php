@@ -1,5 +1,5 @@
 <?php
-    function UnitPmMakefolder( tString $foldername ) {
+    function UnitPmFolderMake( tText $foldername ) {
         global $user;
         global $libs;
         

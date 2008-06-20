@@ -1,5 +1,5 @@
 <?php
-	function ActionJournalNew( tInteger $id , tString $title , tString $text ) {
+	function ActionJournalNew( tInteger $id , tText $title , tText $text ) {
 		global $user;
 		global $libs;
 

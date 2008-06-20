@@ -1,6 +1,6 @@
 <?php
 
-	function UnitFrontpageWelcomeoptions( tInteger $place , tString $education , tInteger $university ) {
+	function UnitFrontpageWelcomeoptions( tInteger $place , tText $education , tInteger $university ) {
 		global $user;
 		
 		if ( $user->Exists() ) {

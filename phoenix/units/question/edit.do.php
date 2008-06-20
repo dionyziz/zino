@@ -1,5 +1,5 @@
 <?php
-	function UnitQuestionEdit( tInteger $id , tString $answer, tCoalaPointer $callback ) {
+	function UnitQuestionEdit( tInteger $id , tText $answer, tCoalaPointer $callback ) {
 		global $user;
 		global $libs;
 

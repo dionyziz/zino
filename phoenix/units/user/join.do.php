@@ -1,5 +1,5 @@
 <?php
-	function UnitUserJoin( tString $username , tString $password , tString $email ) {
+	function UnitUserJoin( tText $username , tText $password , tText $email ) {
 		global $rabbit_settings;
 		
 		$username = $username->Get();
