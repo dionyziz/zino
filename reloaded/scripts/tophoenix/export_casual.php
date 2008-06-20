@@ -631,8 +631,6 @@
                 `comment_text`, `comment_typeid`, `comment_storyid`, `comment_parentid`
             FROM
                 `$comments`
-            WHERE
-                `comment_delid`=0
             LIMIT
                 " . $offset * $limit . "," . $limit . ";"
         );
@@ -641,23 +639,25 @@
         }
 
         while ( $row = $res->FetchArray() ) {
-            ?>INSERT INTO bulk VALUES('','<?php
-            echo addslashes( $row[ 'comment_text' ] );
-            ?>');INSERT INTO comments VALUES(<?php
-            echo $row[ 'comment_id' ];
-            ?>,<?php
-            echo $row[ 'comment_userid' ];
-            ?>,'<?php
-            echo $row[ 'comment_created' ];
-            ?>',<?php
-            echo ip2long( $row[ 'comment_userip' ] );
-            ?>,LAST_INSERT_ID(),<?php
-            echo $row[ 'comment_storyid' ];
-            ?>,<?php
-            echo $row[ 'comment_parentid' ];
-            ?>,0,<?php
-            echo $commenttypes[ $row[ 'comment_typeid' ] ];
-            ?>);<?php
+            if ( $row[ 'comment_delid' ] == 0 ) {
+                ?>INSERT INTO bulk VALUES('','<?php
+                echo addslashes( $row[ 'comment_text' ] );
+                ?>');INSERT INTO comments VALUES(<?php
+                echo $row[ 'comment_id' ];
+                ?>,<?php
+                echo $row[ 'comment_userid' ];
+                ?>,'<?php
+                echo $row[ 'comment_created' ];
+                ?>',<?php
+                echo ip2long( $row[ 'comment_userip' ] );
+                ?>,LAST_INSERT_ID(),<?php
+                echo $row[ 'comment_storyid' ];
+                ?>,<?php
+                echo $row[ 'comment_parentid' ];
+                ?>,0,<?php
+                echo $commenttypes[ $row[ 'comment_typeid' ] ];
+                ?>);<?php
+            }
         }
     }
 
