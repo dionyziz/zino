@@ -97,7 +97,6 @@
                 return false;
             }
             $this->mWater->Profile( 'Render Element ' . $elementid );
-            die( "before typesafe call" );
             $ret = Rabbit_TypeSafe_Call( $functionname , $this->mMainReq );
             $this->mWater->ProfileEnd();
             
