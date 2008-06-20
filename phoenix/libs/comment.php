@@ -363,7 +363,7 @@
                 
             $info = Comments_OnPage( $comments, $page, $reverse );
             $num_pages = $info[ 0 ];
-            $comments = $info[ 1 ];
+            $parented = $info[ 1 ];
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
