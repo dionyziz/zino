@@ -13,9 +13,9 @@
     function Comments_CountChildren( $comments, $id ) {
 		$count = 0;
 		foreach ( $comments as $comment ) {
-			if ( $comment->Parentid == $id ) {
+			if ( $comment[ 'comment_parentid' ] == $id ) {
 				++$count;
-				$count += Comments_CountChildren( $comments, $comment->Id );
+				$count += Comments_CountChildren( $comments[ 'comment_id' ] );
 			}
 		}
 		return $count;
@@ -24,7 +24,7 @@
 	function Comments_GetImmediateChildren( $comments, $id ) {
 		$children = array();
 		foreach ( $comments as $comment ) {
-			if ( $comment->Parentid == $id ) {
+			if ( $comment[ 'comment_parentid' ] == $id ) {
 				$children[] = $comment;
 			}
 		}
@@ -48,7 +48,7 @@
 
 	function Comments_MakeParented( &$parented, $comments, $id, $reverse = true ) {
 		foreach ( $comments as $comment ) {
-			if ( $comment->Parentid == $id ) {
+			if ( $comment[ 'comment_parentid' ] == $id ) {
 				if ( !isset( $parented[ $id ] ) || !is_array( $parented[ $id ] ) ) {
 					$parented[ $id ] = array();
 				}
@@ -58,7 +58,7 @@
 				else {
 					$parented[ $id ][] = $comment;
 				}
-				Comments_MakeParented( $parented, $comments, $comment->Id, $reverse );
+				Comments_MakeParented( $parented, $comments, $comment[ 'comment_id' ], $reverse );
 			}
 		}
 	}
@@ -126,7 +126,7 @@
 
         $comments_dump = array();
         foreach ( $comments as $comment ) {
-            $comments_dump[ $comment->Id ] = $comment->Parentid;
+            $comments_dump[ $comment[ 'comment_id' ] ] = $comment[ 'comment_parentid' ];
         }
 
         $water->Trace( 'comments on page', $comments_dump );
@@ -134,7 +134,7 @@
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
         $parents_dump = array();
         foreach ( $parents as $comment ) {
-            $parents_dump[] = $comment->Id;
+            $parents_dump[] = $comment[ 'comment_id' ];
         }
 
         $water->Trace( 'comment parents on page', $parents_dump );
@@ -150,11 +150,11 @@
         }
         foreach ( $parents as $parent ) {
             if ( $page_num == $page ) {
-                $page_children[ $parent->Id ] = Comments_CountChildren( $comments, $parent->Id );
+                $page_children[ $parent[ 'comment_id' ] ] = Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
                 $parented[ 0 ][] = $parent;
-                Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
+                Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
             }
-            $page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
+            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
                 $page_nums[] = $page_total;
                 $page_total = 0;
@@ -309,6 +309,24 @@
             $prototype->Delid = 0;
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
+        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :comments
+                WHERE
+                    `comment_id` IN :commentids
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'commentids', $comments );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            return $this->FindBySqlResource( $query->Execute );
+        }
         public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
@@ -318,17 +336,48 @@
             return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
-            // $query = $this->mDb->Prepare( "
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    `comment_id`, `comment_parentid`
+                FROM
+                    :comments
+                WHERE
+                    `comment_typeid` = :typeid AND
+                    `comment_itemid` = :itemid AND
+                    `comment_delid` = :delid
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'typeid', Type_FromObject( $entity ) );
+            $query->Bind( 'itemid', $entity->Id );
+            $query->Bind( 'delid', 0 );
+            
+            $res = $query->Execute();
+            $comments = array();
+            while ( $row = $res->FetchArray() ) {
+                $comments[] = $row;
+            }
                 
-            $prototype = New Comment();
-            $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = $entity->Id; //3 stands for Userprofile
-            $prototype->Delid = 0;
+            $parented = Comments_OnPage( $comments, $page, $reverse );
+            $commentids = array();
+            foreach ( $parented as $parentid => $children ) {
+                foreach ( $children as $child ) {
+                    $commentids[] = $child[ 'comment_id' ];
+                }
+            }
 
-            die( "SELECT * FROM `comments` WHERE `comment_typeid` = '" . Type_FromObject( $entity ) . "' AND `comment_itemid` = '" . $entity->Id . "' AND `comment_delid` = '0' LIMIT $offset, $limit;" );
+            $comments = $this->FindData( $commentids );
+    
+            $ret = array();
+            foreach ( $parented as $parentid => $children ) {
+                $ret[ $parentid ] = array();
+                foreach ( $children as $child ) {
+                    $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
+                }
+            }
 
-            $comments = $this->FindByPrototype( $prototype, $offset, $limit );
-            return Comments_OnPage( $comments, $page, $reverse );
+            return $ret;
         }
     }
 
