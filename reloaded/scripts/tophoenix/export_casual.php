@@ -1071,7 +1071,7 @@
     SET NAMES 'utf8';
     START TRANSACTION;<?php
     echo $sql;
-    ?>COMMIT;?<php
+    ?>COMMIT;<?php
     $data = gzencode( ob_get_clean(), 9 );
 
     header( 'Content-disposition: attachment; filename=reloaded2phoenix-' . $step . '-' .$offset . '.sql.gz' );
