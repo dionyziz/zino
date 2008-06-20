@@ -310,6 +310,10 @@
             return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
         }
         public function FindData( $comments, $offset = 0, $limit = 100000 ) {
+            if ( empty( $comments ) ) {
+                return array();
+            }
+
             $query = $this->mDb->Prepare( "
                 SELECT
                     *
