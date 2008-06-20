@@ -209,7 +209,6 @@
         w_assert( is_array( $req ) );
         
         // reflect!
-        die( "before reflection" );
         $basetype = New ReflectionClass( 'tBaseType' );
         $func = New ReflectionFunction( $function );
         $params = array();
@@ -217,6 +216,7 @@
         foreach ( $func->GetParameters() as $i => $parameter ) {
             $paramname = $parameter->getName();
             $paramclass = $parameter->getClass();
+            die( "parameters" );
             if ( !is_object( $paramclass ) ) {
                 throw New Exception( 'No type hinting specified for parameter ' . $paramname . ' of type-safe function ' . $function );
             }
