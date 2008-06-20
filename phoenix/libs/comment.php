@@ -318,6 +318,8 @@
             return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
+            // $query = $this->mDb->Prepare( "
+                
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id; //3 stands for Userprofile

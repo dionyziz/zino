@@ -6,6 +6,7 @@
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
+        die( "found images" );
         ?><div class="frontpage"><?php
 		if ( $newuser && $user->Exists() ) {
 			if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
