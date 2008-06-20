@@ -656,22 +656,14 @@
 
         $res = $db->Query(
             "SELECT
-                latest.`revision_title`, latest.`revision_textid`, first.`revision_creatorid`,
-                `article_created`, `article_numcomments`, `article_id`
+                `revision_title`, `revision_textid`,
+                `article_created`, `article_numcomments`, `article_id`, `article_creatorid`
             FROM
-                $articles CROSS JOIN $revisions AS latest
-                    ON `article_id` = latest.`revision_articleid` 
-                    AND `article_headrevision` = latest.`revision_id`
-                CROSS JOIN $revisions AS first
-                    ON `article_id` = first.`revision_articleid`
-                LEFT JOIN $revisions AS comparison
-                    ON `article_id` = comparison.`revision_articleid`
-                    AND comparison.revision_id < first.revision_id
+                $articles CROSS JOIN $revisions
+                    ON `article_id` = `revision_articleid` 
+                    AND `article_headrevision` = `revision_id`
             WHERE
-                comparison.revision_id IS NULL
-                AND `article_typeid`=0
-            GROUP BY
-                `article_id`;"
+                `article_typeid`=0;"
         );
 
         ?>TRUNCATE TABLE `journals`;<?php
@@ -686,7 +678,7 @@
                 ?>', `journal_bulkid`=<?php
                 echo $row[ 'revision_textid' ];
                 ?>, `journal_userid`=<?php
-                echo $row[ 'revision_creatorid' ];
+                echo $row[ 'article_creatorid' ];
                 ?>;<?php
         }
     }
@@ -696,11 +688,9 @@
 
         $res = $db->Query(
             "SELECT
-                `user_id`, `revision_textid`, `revision_updated`
+                `revision_textid`, `revision_updated`, `article_creatorid`
             FROM
-                $users CROSS JOIN $articles
-                    ON `user_blogid`=`article_id`
-                CROSS JOIN $revisions
+                $articles CROSS JOIN $revisions
                     ON `article_id`=`revision_articleid`
                     AND `revision_id`=`article_headrevision`
             WHERE
@@ -712,7 +702,7 @@
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `userspaces` SET
                 `space_userid`=<?php
-                echo $row[ 'user_id' ];
+                echo $row[ 'article_creatorid' ];
                 ?>, `space_bulkid`=<?php
                 echo $row[ 'revision_textid' ];
                 ?>, `space_updated`='<?php
