@@ -2,11 +2,11 @@
    function ElementFrontpageView( tBoolean $newuser ) {
         global $user;
 		global $rabbit_settings;
-		
+
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
+        die( "finding images" );
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
-        die( "found images" );
         ?><div class="frontpage"><?php
 		if ( $newuser && $user->Exists() ) {
 			if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
