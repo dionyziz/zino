@@ -325,7 +325,13 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
-            return $this->FindBySqlResource( $query->Execute() );
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $ret[ $row[ 'comment_id' ] ] = New Comment( $row );
+            }
+
+            return $ret;
         }
         public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
             $prototype = New Comment();
