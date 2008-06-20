@@ -161,7 +161,17 @@
                 ?>', `user_icon`=0, `user_emailverified`='no', `user_subdomain`='<?php
                 echo addslashes( $row[ 'user_subdomain' ] );
                 ?>', `user_gender`='<?php
-                echo $row[ 'user_gender' ];
+                switch ( $row[ 'user_gender' ] ) {
+                    case 'male':
+                        ?>m<?php
+                        break;
+                    case 'female':
+                        ?>f<?php
+                        break;
+                    default:
+                        ?>-<?php
+                        break;
+                }
                 ?>', `user_lastlogin`='<?php
                 echo $row[ 'user_lastlogon' ];
                 ?>', `user_egoalbumid`=<?php
