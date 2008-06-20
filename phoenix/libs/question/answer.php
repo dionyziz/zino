@@ -1,5 +1,8 @@
 <?php
 
+    global $libs;
+    $libs->Load( 'question/question' );
+
 	class AnswerFinder extends Finder {
 		protected $mModel = 'Answer';
 				
