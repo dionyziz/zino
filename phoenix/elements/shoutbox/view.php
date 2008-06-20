@@ -22,7 +22,7 @@
 					?> είπε:
 				</div>
 				<div class="text"><?php
-					echo htmlspecialchars( $shout->Text );
+					echo $shout->Text; // no htmlspecialchars(); the text is already sanitized
 				?></div>
 			</div><?php
 		}

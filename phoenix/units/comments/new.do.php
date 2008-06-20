@@ -23,7 +23,7 @@
 		$type = $type->Get();
 		
 		$comment = New Comment();
-		$comment->Text = $text;
+		$comment->Text = htmlspecialchars( $text ); // TODO: WYSIWYG
 		$comment->Userid = $user->Id;
 		$comment->Parentid = $parent;
 		$comment->Typeid = $type;

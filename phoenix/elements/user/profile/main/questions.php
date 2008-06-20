@@ -1,26 +1,27 @@
 <?php
-	function ElementUserProfileMainQuestions( $theuser ) {
-		?><ul>
-			<li>
-				<p class="question">Πόσα κιλά είναι η γιαγιά σου;</p>
-				<p class="answer">Είναι πολύ χοντρή</p>
-			</li>
-			<li>
-				<p class="question">Ποιο είναι το αγαπημένο σου φρούτο;</p>
-				<p class="answer">Το αχλάδι και το καρπούζι</p>
-			</li>
-			<li>
-				<p class="question">Πώς τη βλέπεις τη ζωή;</p>
-				<p class="answer">Δε τη βλέπω</p>
-			</li>
-			<li>
-				<p class="question">Πώς θα ήθελες να πεθάνεις;</p>
-				<p class="answer">Από την πείνα</p>
-			</li>
-			<li style="padding-bottom:20px;">
-				<p class="question">Αν εμφανιζόταν ένα τζίνι και σου έλεγε πως μπορεί να πραγματοποιήσει μια ευχή σου, τι θα του ζητούσες;</p>
-				<p class="answer">Τίποτα</p>
-			</li>
-		</ul><?php
+	function ElementUserProfileMainQuestions( User $theuser ) {
+        global $user;
+
+        $answerfinder = New AnswerFinder();
+        $answers = $answerfinder->FindByUser( $theuser );
+        if ( empty( $answers ) ) {
+            if ( $theuser->Id == $user->Id ) {
+                ?>Δεν έχεις απαντήσει σε κάποια ερώτηση.<br />
+                Απαντώντας σε ερωτήσεις μπορείς να δείξεις πράγματα
+                για τον εαυτό σου στους άλλους.<br /><br />
+                
+                <a href="<?php
+                Element( 'user/url', $user );
+                ?>questions">Απάντησε σε μία ερώτηση</a><?php
+            }
+        }
+        else {
+            ?><ul><?php
+            $answers = array_splice( $answers, 0, 7 );
+            foreach ( $answers as $answer ) {
+                Element( 'question/answer/view', $answer );
+            }
+            ?></ul><?php
+        }
 	}
 ?>

@@ -36,7 +36,7 @@
 				?> );return false;"<?php
 			}
 			?>><?php
-				echo htmlspecialchars( $comment->Text );
+				echo $comment->Text; // no htmlspecialchars(); the text is already sanitized
 			?></div><?php
 			if ( $indent <= 50 && $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 				?><div class="bottom">
