@@ -1,6 +1,5 @@
 <?php
    function ElementFrontpageView( tBoolean $newuser ) {
-        die( "frontpage view" );
         global $user;
 		global $rabbit_settings;
 
