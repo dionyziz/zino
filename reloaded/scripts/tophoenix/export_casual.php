@@ -272,7 +272,7 @@
         global $bulk;
         
         ob_start();
-        $ret = MigrateAsIs( $bulk, 'bulk', false, $offset, 250, $test );
+        $ret = MigrateAsIs( $bulk, 'bulk', false, $offset, 1000, $test );
         $res = ob_get_clean();
 
         if ( $test ) {
@@ -749,7 +749,7 @@
 
         $res = $db->Query(
             "SELECT
-                MAX(`revision_textid`), MAX(`revision_updated`), `article_creatorid`
+                MAX(`revision_textid`) AS rev, MAX(`revision_updated`) AS updated, `article_creatorid`
             FROM
                 $articles CROSS JOIN $revisions
                     ON `article_id`=`revision_articleid`
@@ -767,9 +767,9 @@
                 `space_userid`=<?php
                 echo $row[ 'article_creatorid' ];
                 ?>, `space_bulkid`=<?php
-                echo $row[ 'revision_textid' ];
+                echo $row[ 'rev' ];
                 ?>, `space_updated`='<?php
-                echo $row[ 'revision_updated' ];
+                echo $row[ 'updated' ];
             ?>';<?php
         }
     }
