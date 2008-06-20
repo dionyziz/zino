@@ -1,11 +1,11 @@
 <?php
    function ElementFrontpageView( tBoolean $newuser ) {
+        die( "frontpage view" );
         global $user;
 		global $rabbit_settings;
 
     	$newuser = $newuser->Get(); // TODO
 		$finder = New ImageFinder();
-        die( "finding images" );
 		$images = $finder->FindFrontpageLatest( 0 , 15 );
         ?><div class="frontpage"><?php
 		if ( $newuser && $user->Exists() ) {
