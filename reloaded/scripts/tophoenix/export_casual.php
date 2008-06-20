@@ -359,7 +359,7 @@
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
                 
-                if ( preg_match( '#([εΕ][Γγ][Ωώω]+|(\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#', $album[ 'album_name' ] ) ) {
+                if ( preg_match( '#([εΕ][Γγ][Ωώω]+|(\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#i', $album[ 'album_name' ] ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
@@ -472,7 +472,15 @@
                 ?>', `image_userip`=<?php
                 echo ip2long( $row[ 'image_userip' ] );
                 ?>, `image_name`='<?php
-                echo addslashes( $row[ 'image_name' ] );
+                if ( isset( $row[ 'image_description' ] ) ) {
+                    echo addslashes( $row[ 'image_description' ] );
+                }
+                else {
+                    if ( !preg_match( '#(^dsc)|(^picture )|(^[0-9_-]*$)#', $row[ 'image_name' ] ) ) {
+                        $row[ 'image_name' ] = preg_replace( '#\.(jpg|jpeg|png|gif|bmp)#', '', $row[ 'image_name' ] );
+                        echo addslashes( $row[ 'image_name' ] );
+                    }
+                }
                 ?>', `image_mime`='<?php
                 echo addslashes( $row[ 'image_mime' ] );
                 ?>', `image_width`=<?php
