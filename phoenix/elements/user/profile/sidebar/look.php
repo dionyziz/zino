@@ -5,10 +5,10 @@
 		if ( $theuser->Gender != '-' ) {
 			$showgender = true;
 		}
-		if ( $theuser->Profile->Weight != '-1' ) {
+		if ( $theuser->Profile->Weight > 0 ) {
 			$showweight = true;
 		}
-		if ( $theuser->Profile->Height != '-1' ) {
+		if ( $theuser->Profile->Height > 0 ) {
 			$showheight = true;
 		}
 		?><ul><?php
