@@ -21,8 +21,6 @@
 
     Rabbit_ClearPostGet();
     
-    die( 'attaching' );
-
     $page->AttachMainElement( 'main' , $req );
     $page->Output();
 
