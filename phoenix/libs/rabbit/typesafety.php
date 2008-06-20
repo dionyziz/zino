@@ -224,11 +224,10 @@
                     throw New Exception( 'Type hint of parameter ' . $paramname . ' of type-safe function ' . $function . ' does not exist or is not derived from tBaseType' );
                 }
                 if ( isset( $req[ $paramname ] ) ) {
-                    die( "then new instance" );
                     $params[] = $paramclass->newInstance( $req[ $paramname ] );
                 }
                 else {
-                    die( "else new instance" );
+                    die( "paramclass" . get_class( $paramclass ) );
                     $params[] = $paramclass->newInstance( false );
                 }
             }
