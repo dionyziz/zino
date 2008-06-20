@@ -216,7 +216,6 @@
         foreach ( $func->GetParameters() as $i => $parameter ) {
             $paramname = $parameter->getName();
             $paramclass = $parameter->getClass();
-            die( "parameters" );
             if ( !is_object( $paramclass ) ) {
                 throw New Exception( 'No type hinting specified for parameter ' . $paramname . ' of type-safe function ' . $function );
             }
@@ -231,6 +230,7 @@
                     $params[] = $paramclass->newInstance( false );
                 }
             }
+            die( "parameters end" );
         }
 
         
