@@ -41,7 +41,6 @@
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
         
 		ob_start();
-        die( "mastering" );
 		$res = MasterElement();
 		$master = ob_get_clean();
 		
