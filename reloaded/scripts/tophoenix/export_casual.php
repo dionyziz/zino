@@ -988,10 +988,16 @@
 
         while ( $urow = $userres->FetchArray() ) {
             $userid = $urow[ "user_id" ];
+    
+            if ( $type < 0 ) {
+                $typeid = ( $type == -1 ) ? 'inbox' : 'outbox';
 
-            ?>INSERT INTO `pmfolders` SET `pmfolder_userid`=<?php
-            echo $userid
-            ?>, `pmfolder_name`='inbox', `pmfolder_delid`=0, `pmfolder_typeid`='inbox';<?php
+                ?>INSERT INTO `pmfolders` SET `pmfolder_userid`=<?php
+                echo $userid;
+                ?>, `pmfolder_name`='folder', `pmfolder_delid`=0, `pmfolder_typeid`='<?php
+                echo $typeid;
+                ?>';<?php
+            }
     
             $sql = "SELECT
                     *
