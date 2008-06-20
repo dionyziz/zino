@@ -698,14 +698,16 @@
 
         $res = $db->Query(
             "SELECT
-                `revision_textid`, `revision_updated`, `article_creatorid`
+                MAX(`revision_textid`), MAX(`revision_updated`), `article_creatorid`
             FROM
                 $articles CROSS JOIN $revisions
                     ON `article_id`=`revision_articleid`
                     AND `revision_id`=`article_headrevision`
             WHERE
                 `article_typeid`=2
-                AND `article_delid`=0;"
+                AND `article_delid`=0
+            GROUP BY
+                `article_creatorid`;"
         );
 
         ?>TRUNCATE TABLE `userspaces`;<?php
