@@ -82,7 +82,7 @@
 
         if ( $test ) {
             $res = $db->Query( "SELECT COUNT(*) AS numrows FROM $from;" );
-            $row = $db->FetchArray();
+            $row = $res->FetchArray();
             if ( $offset * $limit < $row[ 'numrows' ] ) {
                 return true;
             }
