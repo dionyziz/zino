@@ -35,6 +35,33 @@
 
     global $user;
 
+    function ProportionalSize( $sourcew, $sourceh, $targetw, $targeth ) {
+        if ( $targetw == 0 || $targeth == 0 || ( $targetw >= $sourcew && $targeth >= $sourceh ) ) {
+            return false;
+        }
+
+        $propw = 1;
+        $proph = 1;
+        
+        // at least one of the following two must hold, as of the above if
+        if ( $sourcew > $targetw ) {
+            $propw = $sourcew / $targetw;
+        }
+        if ( $sourceh > $targeth ) {
+            $proph = $sourceh / $targeth;
+        }
+        if ( $prop == 0 ) {
+            throw New Exception( '"prop" was 0 while resizing to ' . $targetw . "x" . $targeth );
+        }
+
+        $targetw = round( $sourcew / $prop, 0 );
+        $targeth = round( $sourceh / $prop, 0 );
+
+        return array(
+            $targetw, $targeth
+        );
+    }
+
     function IsTrusted( $ip ) {
         // Check if upload comes from a legitimate source (validate by IP address)
         switch ( $ip ) {
@@ -269,7 +296,9 @@
                 `album_id`, `album_userid`, `album_created`, `album_submithost`, `album_name`, `album_mainimage`, 
                 `album_description`, `album_delid`, `album_pageviews`, `album_numcomments`
             FROM
-                `$albums`;"
+                `$albums`
+            WHERE
+                `album_delid`=0;"
         );
 
         $albumsbyuser = array();
@@ -416,6 +445,8 @@
                 `image_numcomments`
             FROM
                 `$images`
+            WHERE
+                `image_delid`=0
             LIMIT
                 " . $offset * $limit . ", " . ( $limit + 1 ) . ";"
         );
@@ -426,6 +457,11 @@
 
         $i = 0;
         while ( $row = $res->FetchArray() ) {
+            $size = ProportionalSize( $row[ 'image_width' ], $row[ 'image_height' ] );
+            if ( $size !== false ) {
+                $row[ 'image_width' ] = $size[ 0 ];
+                $row[ 'image_height' ] = $size[ 1 ];
+            }
             ?>INSERT INTO `images` SET
                 `image_id`=<?php
                 echo $row[ 'image_id' ];
@@ -495,7 +531,9 @@
                     "SELECT
                         *
                     FROM
-                        `$polls`;"
+                        `$polls`
+                    WHERE
+                        `poll_delid`=0;"
                 );
                 ?>TRUNCATE TABLE `polls`;<?php
                 while ( $row = $res->FetchArray() ) {
@@ -576,6 +614,8 @@
                     `poll_userid` AS userid, COUNT(*) AS countpolls
                 FROM
                     `polls`
+                WHERE
+                    `poll_delid`=0
                 GROUP BY
                     `poll_userid`
             ) AS tmp ON `count_userid` = tmp.userid
@@ -584,6 +624,8 @@
                     `album_userid` AS userid, COUNT(*) AS countalbums
                 FROM
                     `albums`
+                WHERE
+                    `album_delid`=0
                 GROUP BY
                     `album_userid`
             ) AS tmp1 ON `count_userid` = tmp1.userid
@@ -673,7 +715,8 @@
                     ON `article_id` = `revision_articleid` 
                     AND `article_headrevision` = `revision_id`
             WHERE
-                `article_typeid`=0;"
+                `article_typeid`=0 AND
+                `article_delid`=0;"
         );
 
         ?>TRUNCATE TABLE `journals`;<?php

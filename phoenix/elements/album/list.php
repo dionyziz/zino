@@ -42,7 +42,8 @@
 		}
 		
 		$finder = New AlbumFinder();
-		$albums = $finder->FindByUser( $theuser , ( $pageno - 1 )*12 , 12 );
+        $limit = 12;
+		$albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit );
 		Element( 'user/sections', 'album' , $theuser );
 		?><ul class="albums"><?php
 			if ( $pageno == 1 ) {
@@ -84,7 +85,7 @@
 		<div class="pagifyalbums"><?php
 
         $link = '?p=albums&subdomain=' . $theuser->Subdomain . '&pageno=';
-        $total_pages = ceil( $theuser->Count->Albums / 12 );
+        $total_pages = ceil( $theuser->Count->Albums / $limit );
 		Element( 'pagify', $pageno, $link, $total_pages );
 
 		?></div><?php

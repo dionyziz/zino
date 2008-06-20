@@ -202,11 +202,11 @@
 			}
 			?><div class="comments">
 				<h3>Σχόλια στο προφίλ <?php
-				if ( $theuser->Gender == 'm' || $user->Gender == '-' ) {
-					?>του <?php
+				if ( $theuser->Gender == 'f' ) {
+                    ?>της <?php
 				}
 				else {
-					?>της <?php
+					?>του <?php
 				}
 				Element( 'user/name' , $theuser , false );
 				?></h3><?php
