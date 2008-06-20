@@ -20,14 +20,14 @@
     class tInteger extends tBaseType {
         public function __construct( $value ) {
             $this->mValue = ( integer )$value;
-            $this->__construct( $value );
+            parent::__construct( $value );
         }
     }
     
     class tFloat extends tBaseType {
         public function __construct( $value ) {
             $this->mValue = ( float )$value;
-            $this->__construct( $value );
+            parent::__construct( $value );
         }
     }
     
@@ -42,20 +42,20 @@
             else {
                 $this->mValue = ( bool )$value;
             }
-            $this->__construct( $value );
+            parent::__construct( $value );
         }
     }
     
     class tString extends tBaseType {
         public function __construct( $value ) {
             $this->mValue = ( string )$value;
-            $this->__construct( $value );
+            parent::__construct( $value );
         }
     }
     
     class tText extends tString {
         public function __construct( $value ) {
-            $this->__construct( $value );
+            parent::__construct( $value );
             $this->mValue = iconv( 'UTF-8', 'UTF-8', $this->mValue ); // ensure UTF-8 is well-formed; if not, filter out illegal characters
         }
     }
@@ -105,31 +105,31 @@
     
     class tIntegerArray extends tArray {
         public function __construct( $values ) {
-            $this->__construct( $values, 'tInteger' );
+            parent::__construct( $values, 'tInteger' );
         }
     }
 
     class tFloatArray extends tArray {
         public function __construct( $values ) {
-            $this->__construct( $values, 'tFloat' );
+            parent::__construct( $values, 'tFloat' );
         }
     }
     
     class tBooleanArray extends tArray {
         public function __construct( $values ) {
-            $this->__construct( $values, 'tBoolean' );
+            parent::__construct( $values, 'tBoolean' );
         }
     }
 
     class tStringArray extends tArray {
         public function __construct( $values ) {
-            $this->__construct( $values, 'tString' );
+            parent::__construct( $values, 'tString' );
         }
     }
 
     class tTextArray extends tArray {
         public function __construct( $values ) {
-           $this->__construct( $values, 'tText' );
+           parent::__construct( $values, 'tText' );
         }
     }
 
