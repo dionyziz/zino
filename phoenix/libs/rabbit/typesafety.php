@@ -227,6 +227,7 @@
                     $params[] = $paramclass->newInstance( $req[ $paramname ] );
                 }
                 else {
+                    die( "paramclass: " . $paramclass->getName() );
                     $params[] = $paramclass->newInstance( false );
                 }
             }
