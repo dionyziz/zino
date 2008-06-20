@@ -209,6 +209,7 @@
         w_assert( is_array( $req ) );
         
         // reflect!
+        die( "before reflection" );
         $basetype = New ReflectionClass( 'tBaseType' );
         $func = New ReflectionFunction( $function );
         $params = array();
@@ -232,7 +233,6 @@
             }
         }
 
-        die( "before call user func array" );
         
         return call_user_func_array( $function , $params );
     }
