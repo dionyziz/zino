@@ -4,6 +4,7 @@ div.shoutbox {
 }
 div.frontpage div.shoutbox {
 	border: 1px solid #ccc;
+	width: 100%;
 }
 div.shoutbox div.comments {
 	width: 100%;
