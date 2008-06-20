@@ -9,10 +9,10 @@
 				?> πρόσθεσε ένα σχόλιο στη συζήτηση
 			</div>
 			<div class="text">
-				<textarea rows="2" cols="50"></textarea>
+				<textarea id="shoutbox_text" rows="2" cols="50" onkeyup="document.getElementById( 'shoutbox_submit' ).disabled = ( this.value.replace( /^\s+|\s+$/g, '' ).length == 0 )"></textarea>
 			</div>
 			<div class="bottom">
-				<input type="submit" value="Σχολίασε!" />
+				<input id="shoutbox_submit" type="submit" value="Σχολίασε!" disabled="disabled" />
 			</div>
 		</div><?php
 	}
