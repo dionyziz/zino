@@ -220,6 +220,7 @@
                 throw New Exception( 'No type hinting specified for parameter ' . $paramname . ' of type-safe function ' . $function );
             }
             else {
+                die( "elsing" );
                 if ( !$paramclass->isSubclassOf( $basetype ) ) {
                     throw New Exception( 'Type hint of parameter ' . $paramname . ' of type-safe function ' . $function . ' does not exist or is not derived from tBaseType' );
                 }
@@ -230,7 +231,6 @@
                     $params[] = $paramclass->newInstance( false );
                 }
             }
-            die( "parameters end" );
         }
 
         
