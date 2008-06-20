@@ -352,6 +352,8 @@
             $query->Bind( 'typeid', Type_FromObject( $entity ) );
             $query->Bind( 'itemid', $entity->Id );
             $query->Bind( 'delid', 0 );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
             
             $res = $query->Execute();
             $comments = array();
