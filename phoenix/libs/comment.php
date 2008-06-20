@@ -369,7 +369,7 @@
                 }
             }
 
-            die( print_r( $comments ) );
+            die( print_r( $parented ) );
 
             $comments = $this->FindData( $commentids );
     
