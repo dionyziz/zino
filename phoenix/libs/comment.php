@@ -367,8 +367,9 @@
 
             $info = Comments_Near( $comments, $comment );
             $num_pages = $info[ 0 ];
-            $parented = $info[ 1 ];
-            die( print_r( $parented ) );
+            $cur_page = $info[ 1 ];
+            $parented = $info[ 2 ];
+            
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
@@ -386,7 +387,7 @@
                 }
             }
 
-            return array( $num_pages, $ret );
+            return array( $num_pages, $cur_page, $ret );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             if ( $page <= 0 ) {
