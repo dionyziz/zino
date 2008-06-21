@@ -113,10 +113,10 @@
 		else {
 			?><div class="inshoutbox"><?php
 				Element( 'frontpage/shoutbox/list' );
-				?><div class="inlatestcomments"><?php
+			?></div>
+			<div class="inlatestcomments"><?php
 				Element( 'frontpage/comment/list' );
-				?></div>
-			</div>
+			?></div>
 			<div class="inevents"><?php
 			Element( 'event/list' );
 			?></div><?php
