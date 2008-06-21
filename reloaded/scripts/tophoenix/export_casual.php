@@ -1036,28 +1036,37 @@
             $res = $db->Query( $sql );
 
             $first = true;
-            ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_folderid`, `pmif_delid` ) VALUES <?php
+            if ( $res->Results() ) {
+                ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_folderid`, `pmif_delid` ) VALUES <?php
 
-            while ( $row = $res->FetchArray() ) {
-                if ( $first ) {
-                    $first = false;
-                }
-                else {
+                while ( $row = $res->FetchArray() ) {
+                    if ( $first ) {
+                        $first = false;
+                    }
+                    else {
+                        ?>, <?php
+                    }
+
+                    if ( $type < 0 ) {
+                        $folderid = "LAST_INSERT_ID()";
+                    }
+                    else {
+                        w_assert( $row[ 'pmif_folderid' ] > 0 );
+                        $folderid = $row[ 'pmif_folderid' ];
+                    }
+
+                    ?>( <?php
+                    w_assert( $row[ 'pmif_id' ] > 0 );
+                    echo $row[ 'pmif_id' ];
                     ?>, <?php
+                    echo $folderid;
+                    ?>, <?php
+                    echo $row[ 'pmif_delid' ];
+                    ?> ) <?php
                 }
 
-                $folderid = ( $type < 0 ) ? "LAST_INSERT_ID()" : $row[ 'pmif_folderid' ];
-
-                ?>( <?php
-                echo $row[ 'pmif_id' ];
-                ?>, <?php
-                echo $folderid;
-                ?>, <?php
-                echo $row[ 'pmif_delid' ];
-                ?> ) <?php
+                ?>;<?php
             }
-
-            ?>;<?php
         }
     }
 
