@@ -434,7 +434,9 @@
                 $src_x = $image->Width();
                 $src_y = $image->Height();
                 ob_start();
+                ?><div><?php
                 Element( 'image_migrate', $image, $src_x, $src_y );
+                ?></div><?php
                 return ob_get_clean();
         }
 	}
