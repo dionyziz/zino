@@ -293,7 +293,7 @@
         // migrate albums
         $res = $db->Query(
             "SELECT
-                `album_id`, `album_userid`, `album_created`, `album_submithost`, `album_name`, `album_mainimageid`, 
+                `album_id`, `album_userid`, `album_created`, `album_submithost`, `album_name`, `album_mainimage`, 
                 `album_description`, `album_delid`, `album_pageviews`, `album_numcomments`
             FROM
                 `$albums`
@@ -316,7 +316,7 @@
                 ?>, `album_name`='<?php
                 echo addslashes( $row[ 'album_name' ] );
                 ?>', `album_mainimageid`=<?php
-                echo $row[ 'album_mainimageid' ];
+                echo $row[ 'album_mainimage' ];
                 ?>, `album_description`='<?php
                 echo addslashes( $row[ 'album_description' ] );
                 ?>', `album_delid`=<?php
