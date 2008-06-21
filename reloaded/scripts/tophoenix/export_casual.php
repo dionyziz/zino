@@ -904,9 +904,7 @@
 
 		?>TRUNCATE TABLE `questions`;<?php
 		while ( $row = $res->FetchArray() ) {
-			?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
-		   	echo addslashes( $row[ 'profileq_question' ] );
-			?>' );INSERT INTO `questions` (`question_id`, `question_userid`, `question_created`, `question_text`, `question_delid`) VALUES ('<?php
+			?>INSERT INTO `questions` (`question_id`, `question_userid`, `question_created`, `question_text`, `question_delid`) VALUES ('<?php
 			echo $row[ 'profileq_id' ];
 			?>', '<?php
 			echo $row[ 'profileq_userid' ];
