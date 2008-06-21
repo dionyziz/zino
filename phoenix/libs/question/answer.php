@@ -34,14 +34,6 @@
 	class Answer extends Satori {
 		protected $mDbTableAlias = 'answers';
 
-		public function GetText() {
-			return $this->Bulk->Text;
-		}
-		
-		public function SetText( $text ) {
-			$this->Bulk->Text = $text;
-		}
-				
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
 			$this->Question = $this->HasOne( 'Question', 'Questionid' );
