@@ -906,13 +906,15 @@
 		while ( $row = $res->FetchArray() ) {
 			?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
 		   	echo addslashes( $row[ 'profileq_question' ] );
-			?>' );INSERT INTO `questions` (`question_id`, `question_userid`, `question_created`, `question_bulkid`, `question_delid`) VALUES ('<?php
+			?>' );INSERT INTO `questions` (`question_id`, `question_userid`, `question_created`, `question_text`, `question_delid`) VALUES ('<?php
 			echo $row[ 'profileq_id' ];
 			?>', '<?php
 			echo $row[ 'profileq_userid' ];
 			?>', '<?php
 			echo $row[ 'profileq_created' ];
-			?>', LAST_INSERT_ID(),'<?php
+			?>', '<?php
+            echo addslashes( $row[ 'profileq_question' ] );
+            ?>','<?php
 			echo $row[ 'profileq_delid' ];
 			?>');<?php
 		}
@@ -930,11 +932,12 @@
 
 		?>TRUNCATE TABLE `answers`;<?php
 		while ( $row = $res->FetchArray() ) {
-			?>INSERT INTO `bulk` (`bulk_text`) VALUES ( '<?php echo addslashes( $row[ 'profile_answer' ] ); ?>' );
-			INSERT INTO `answers` (`answer_userid`, `answer_bulkid`, `answer_questionid`, `answer_created`) 
-			VALUES ( '<?php
+			?>INSERT INTO `answers` (`answer_id`, `answer_userid`, `answer_text`, `answer_questionid`, `answer_created`) 
+			VALUES ( '', <?php
             echo $row[ 'profile_userid' ];
-            ?>', LAST_INSERT_ID(),'<?php
+            ?>', '<?php
+            echo addslashes( $row[ 'profile_answer' ] );
+            ?>','<?php
             echo $row[ 'profile_questionid' ];
             ?>', '<?php
             echo $row[ 'profile_date' ];
