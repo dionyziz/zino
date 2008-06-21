@@ -3,6 +3,16 @@
 
     $libs->Load( 'sanitizer' );
 
+    function WYSIWYG_PreProcess( $html ) {
+        global $rabbit_settings;
+
+        $html = preg_replace(
+            '#\<object [^>]++\>\<param [^>]+ value\="/v/([a-zA-Z0-9_-]+)"\>.*?\</object\>#i',
+            '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?v=$1" />',
+            $html
+        );
+    }
+
     function WYSIWYG_PostProcess( $html ) {
         global $xhtmlsanitizer_goodtags, $rabbit_settings;
 
