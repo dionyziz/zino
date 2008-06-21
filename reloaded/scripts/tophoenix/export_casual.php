@@ -804,7 +804,7 @@
             if ( count( $rows ) % 200 == 0 || $i == $total ) {
                 $texts = array();
                 foreach ( $rows as $row ) {
-                    $texts[ $row[ 'article_creatorid' ] ] = $row;
+                    $texts[ $row[ 'article_creatorid' ] ] = $row[ 'bulk_text' ];
                 }
                 $formatted = mformatstories( $texts );
                 foreach ( $rows as $row ) {
