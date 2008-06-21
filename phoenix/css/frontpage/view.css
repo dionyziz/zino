@@ -109,13 +109,6 @@ div.members div.login form div label {
 	display: block;
 	width: 70px;
 }
-/*
-div.latestcomments {
-	border: 1px solid #ccc;
-	width: 100%;
-	padding: 10px;
-}
-*/
 div.latestcomments h2 {
 	margin-bottom: 13px;
 }
@@ -136,14 +129,11 @@ div.inuser {
 	width: 49%;
 	float: left;
 }
-/*
-div.inlatestcomments {
-	clear: left;
-	padding-top: 20px;
-}
-*/
 div.inshoutbox {
 	border: 1px solid #ccc;
+}
+div.inshoutbox div.shoutbox div.comments {
+	width: 100%;
 }
 div.inevents {
 	float: right;
