@@ -446,8 +446,6 @@
                 `image_numcomments`
             FROM
                 `$images`
-            WHERE
-                `image_delid`=0
             LIMIT
                 " . $offset * $limit . ", " . ( $limit + 1 ) . ";"
         );
@@ -458,7 +456,7 @@
 
         $i = 0;
         while ( $row = $res->FetchArray() ) {
-            if ( $row[ 'image_width' ] < 10 || $row[ 'image_height' ] < 10 ) {
+            if ( $row[ 'image_delid' ] != 0 || $row[ 'image_width' ] < 10 || $row[ 'image_height' ] < 10 ) {
                 continue;
             }
             $size = ProportionalSize( $row[ 'image_width' ], $row[ 'image_height' ], 700, 600 );
@@ -501,7 +499,7 @@
                 echo $row[ 'image_numcomments' ];
                 ?>;<?php
             ++$i;
-            if ( $i >= $limit ) {
+            if ( $i == $limit ) {
                 break;
             }
         }
