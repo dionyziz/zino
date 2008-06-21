@@ -346,6 +346,10 @@
             return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
+            if ( $page <= 0 ) {
+                $page = 1;
+            }
+
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
