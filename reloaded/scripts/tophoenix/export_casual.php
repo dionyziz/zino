@@ -714,7 +714,7 @@
     function MigrateJournals() {
         global $db, $articles, $revisions, $bulk, $libs;
 
-        $libs->Load( 'magic' );
+        $libs->Load( 'magic_migrate' );
 
         $res = $db->Query(
             "SELECT
@@ -744,7 +744,7 @@
                 foreach ( $rows as $row ) {
                     $texts[ $row[ 'article_id' ] ] = $row[ 'bulk_text' ];
                 }
-                $formatted = mformatstories( $texts );
+                $formatted = mformatstories_( $texts );
                 foreach ( $rows as $row ) {
                     ?>INSERT INTO `bulk` VALUES ('','<?php
                     echo addslashes( $formatted[ $row[ 'article_id' ] ] );
@@ -770,7 +770,7 @@
     function MigrateSpaces() {
         global $db, $articles, $revisions, $users, $bulk, $libs;
 
-        $libs->Load( 'magic' );
+        $libs->Load( 'magic_migrate' );
 
         $res = $db->Query(
             "SELECT
@@ -806,7 +806,7 @@
                 foreach ( $rows as $row ) {
                     $texts[ $row[ 'article_creatorid' ] ] = $row[ 'bulk_text' ];
                 }
-                $formatted = mformatstories( $texts );
+                $formatted = mformatstories_( $texts );
                 foreach ( $rows as $row ) {
                     ?>INSERT INTO `bulk` VALUES ('','<?php
                         echo addslashes( $formatted[ $row[ 'article_creatorid' ] ] );
