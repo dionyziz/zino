@@ -365,6 +365,8 @@
                 $comments[] = $row;
             }
 
+            die( print_r( $comments ) );
+
             $info = Comments_Near( $comments, $comment );
             $num_pages = $info[ 0 ];
             $parented = $info[ 1 ];
