@@ -110,10 +110,9 @@
             </div>
 
             <div class="text" style="background-color: #f8f8f6;display:none;">
-                <div>
-                    <?php
-                    echo nl2br( htmlspecialchars( $pm->Text ) );
-                    ?><br /><br /><br /><br />
+                <div><?php
+                    echo $pm->Text;
+                ?><br /><br /><br /><br />
                 </div>
             </div>
             <div class="lowerline" style="background-color: #f8f8f6;display:none;">
