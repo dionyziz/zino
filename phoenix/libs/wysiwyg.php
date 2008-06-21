@@ -11,6 +11,8 @@
             '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?v=$1" />',
             $html
         );
+
+        return $html;
     }
 
     function WYSIWYG_PostProcess( $html ) {
