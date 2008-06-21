@@ -5,7 +5,7 @@
 		global $page;
 		global $libs;
 
-        $libs->Load( 'WYSIWYG' );
+        $libs->Load( 'wysiwyg' );
 		$page->SetTitle( 'Επεξεργασία χώρου' );
 		Element( 'user/sections' , 'space' , $user );
 		?><div id="editspace">
