@@ -87,8 +87,7 @@
 			if ( !$this->mConnected ) {
 				$this->mLink = $this->mDriver->Connect( $this->mHost , $this->mUsername , $this->mPassword , false );
 				if ( $this->mLink === false ) {
-					$water->Warning( "Connection to database failed:\n" . $this->mDriver->LastError( $this->mLink ) );
-					return false;
+					throw New DBException( "Connection to database failed:\n" . $this->mDriver->LastError( $this->mLink ) );
 				}
                 $this->mConnected = true;
                 if ( empty( $this->mDbName ) ) {
