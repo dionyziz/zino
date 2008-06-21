@@ -141,6 +141,9 @@ div.inlatestcomments {
 	padding-top: 20px;
 }
 */
+div.inshoutbox {
+	border: 1px solid #ccc;
+}
 div.inevents {
 	float: right;
 	width: 45%;
