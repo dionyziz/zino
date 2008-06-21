@@ -121,24 +121,24 @@
 			Element( 'event/list' );
 			?></div><?php
 		}
+		?><div class="eof"></div><?php
+		$finder = New UserFinder();
+		$users = $finder->FindOnline( 0 , 50 );
+		if ( count( $users ) > 0 ) {		
+			?><div class="nowonline">
+				<h2>Είναι online τώρα</h2>
+					<div class="list"><?php
+						foreach( $users as $onuser ) {
+							?><a href="<?php
+							Element( 'user/url' , $onuser );
+							?>"><?php
+							Element( 'user/avatar' , $onuser , 150 , '' , '' );
+							?></a><?php
+						}	
+					?></div><?php
+			?></div><?php
+		}
 		?><div class="eof"></div>
-		<div class="nowonline"><?php
-			$finder = New UserFinder();
-			$users = $finder->FindOnline( 0 , 50 );
-			if ( count( $users ) > 0 ) {
-				?><h2>Είναι online τώρα</h2>
-				<div class="list"><?php
-					foreach( $users as $onuser ) {
-						?><a href="<?php
-						Element( 'user/url' , $onuser );
-						?>"><?php
-						Element( 'user/avatar' , $onuser , 150 , '' , '' );
-						?></a><?php
-					}	
-				?></div><?php
-			}
-		?></div>
-		<div class="eof"></div>
 	</div><?php
 	}
 ?>
