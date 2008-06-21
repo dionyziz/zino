@@ -370,11 +370,10 @@
             while ( $row = $res->FetchArray() ) {
                 $comments[] = $row;
             }
-                
+
             $info = Comments_OnPage( $comments, $page, $reverse );
             $num_pages = $info[ 0 ];
             $parented = $info[ 1 ];
-            die( print_r( $parented ) );
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
