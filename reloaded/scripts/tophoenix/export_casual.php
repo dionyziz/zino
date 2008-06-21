@@ -933,7 +933,7 @@
 		?>TRUNCATE TABLE `answers`;<?php
 		while ( $row = $res->FetchArray() ) {
 			?>INSERT INTO `answers` (`answer_id`, `answer_userid`, `answer_text`, `answer_questionid`, `answer_created`) 
-			VALUES ( '', <?php
+			VALUES ( '', '<?php
             echo $row[ 'profile_userid' ];
             ?>', '<?php
             echo addslashes( $row[ 'profile_answer' ] );
