@@ -1069,6 +1069,8 @@
             $res = $db->Query( $sql );
 
             $first = true;
+            ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_userid`, `pmif_folderid`, `pmif_delid` ) <?php
+
             while ( $row = $res->FetchArray() ) {
                 if ( $first ) {
                     $first = !$first;
