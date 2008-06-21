@@ -122,6 +122,11 @@
             }
             return $target;
         }
+        public function CopyFrom( $obj ) {
+            w_assert( $obj instanceof $this->mTargetModelClass );
+
+            $this->mRetrieved = $obj;
+        }
     }
     
     class RelationHasMany extends Relation {
