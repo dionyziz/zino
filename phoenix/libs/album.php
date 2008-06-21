@@ -1,4 +1,8 @@
 <?php
+
+    global $libs;
+    $libs->Load( 'image/image' );
+
     class AlbumFinder extends Finder {
         protected $mModel = 'Album';
         
@@ -15,9 +19,13 @@
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
 
+        public function CopyMainimageFrom( $value ) {
+            $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
+        }
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
         public function SetName( $value ) {
             if ( strlen( $value ) > 100 ) {
@@ -98,9 +106,9 @@
             $this->Save();
         }
         protected function OnUpdate( $attributes ) {
-            if ( isset( $attributes[ 'Mainimage' ] ) ) {
+            if ( isset( $attributes[ 'Mainimageid' ] ) ) {
                 if ( $this->User->EgoAlbum->Id == $this->Id ) {
-                    $this->User->Icon = $this->Mainimage;
+                    $this->User->Icon = $this->Mainimageid;
                     $this->User->Save();
                 }
             }

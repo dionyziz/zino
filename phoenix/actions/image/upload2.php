@@ -9,6 +9,7 @@
 		//$water->DebugThis();
     	$libs->Load( 'image/image' );
 		$libs->Load( 'rabbit/helpers/file' );
+
 		$typeid = $typeid->Get(); //look beneath for use of typeid
         if ( !$user->Exists() || !$user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
             return Redirect();
@@ -74,7 +75,7 @@
 			if ( $typeid == 0 ) {
 				$album = New Album( $albumid );
 				if ( $album->Numphotos == 1 ) {
-					$album->Mainimage = $image->Id;
+					$album->Mainimageid = $image->Id;
 					$album->Save();
 				}
 				$jsimage = array(

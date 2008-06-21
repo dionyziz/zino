@@ -309,8 +309,8 @@
                         $frontpageimage->Imageid = $this->Id;
                         $frontpageimage->Save();
                     }
-                    if ( $this->Album->Mainimage == 0 ) {
-                        $this->Album->Mainimage = $this->Id;
+                    if ( !$this->Album->Mainimageid == 0 ) {
+                        $this->Album->Mainimageid = $this->Id;
                         $this->Album->Save();
                     }
                 }
@@ -331,14 +331,14 @@
 
             if ( $this->Albumid ) {
                 --$this->Album->Numphotos;
-                if ( $this->Album->Mainimage == $this->Id ) {
+                if ( $this->Album->Mainimageid == $this->Id ) {
                     $imagefinder = New ImageFinder();
                     $images = $imagefinder->FindByAlbum( $this->Album, 0, 1 );
                     if ( !empty( $images ) ) {
-                        $this->Album->Mainimage = $images[ 0 ]->Id;
+                        $this->Album->Mainimageid = $images[ 0 ]->Id;
                     }
                     else {
-                        $this->Album->Mainimage = 0;
+                        $this->Album->Mainimageid = 0;
                     }
                 }
 

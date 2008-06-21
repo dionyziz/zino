@@ -19,9 +19,8 @@
 				echo $album->Id;
 				?>">
 		        	<span class="albummain"><?php
-						if ( $album->Mainimage > 0 ) {	
-							$mainimage = New Image( $album->Mainimage );
-							Element( 'image/view' , $mainimage , IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' , false , 0 , 0 ); // TODO: Optimize
+						if ( $album->Mainimage->Exists() ) {	
+							Element( 'image/view', $album->Mainimage, IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' , false , 0 , 0 ); // TODO: Optimize
 						}
 						else {
                             Element( 'image/view', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' , false , 0 , 0);

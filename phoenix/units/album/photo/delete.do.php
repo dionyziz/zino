@@ -5,11 +5,7 @@
 		
 		$image = New Image( $photoid->Get() );
 		if ( $image->User->Id == $user->Id ) {
-			$albumid = $image->Album->Id;
-			if ( $image->Album->Mainimage == $image->Id ) {
-				$image->Album->Mainimage = 0;
-				$image->Album->Save();
-			}
+			$albumid = $image->Albumid;
 			$image->Delete();
 			if ( $albumid > 0 ) {
 				?>window.location.href = '<?php

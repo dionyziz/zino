@@ -115,7 +115,7 @@
 					<div class="delete"><a href="" onclick="PhotoView.Delete( '<?php
 					echo $image->Id;
 					?>' );return false;">Διαγραφή</a></div><?php
-					if ( $image->Album->Mainimage != $image->Id ) {
+					if ( $image->Album->Mainimageid != $image->Id ) {
 						?><div class="mainimage"><a href="" onclick="PhotoView.MainImage( '<?php
 						echo $image->Id;
 						?>' );return false;">
