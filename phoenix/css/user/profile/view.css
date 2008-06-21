@@ -8,8 +8,9 @@ div#profile div.sidebar {
 	background-position: right;
 	float: left;
 	position: relative;
-	width: 300px;
+	width: 330px;
 	padding: 14px 0 4px 0;
+	overflow: hidden;
 }
 div#profile div.sidebar div.basicinfo {
 	padding: 4px;
@@ -49,12 +50,10 @@ div#profile div.sidebar div.basicinfo div.deletefriend a {
 div#profile div.sidebar div.basicinfo div.info {
 	clear: left;
 }
-
 div#profile div.sidebar div.basicinfo div dl {
 	padding: 0;
 	margin: 0;
 }
-
 div#profile div.sidebar div.basicinfo dl dt {
 	display: block;
 	float: left;
@@ -73,7 +72,6 @@ div#profile div.sidebar div.basicinfo h2 {
 	margin: 0;
 	font-size: 120%;
 	color: #105cb6;
-	/*display: inline;*/
 }
 div#profile div.sidebar div.basicinfo h2  img {
 	float: left;
@@ -203,7 +201,7 @@ div#profile div.sidebar div.eof {
 	height: 51px;
 }
 div#profile div.main {
-	padding: 14px 0 0 10px;
+	padding: 14px 0 0 25px;
 	margin-left: 305px;
 	position: relative;
 }
