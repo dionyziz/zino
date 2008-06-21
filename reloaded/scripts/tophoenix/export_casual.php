@@ -456,6 +456,10 @@
 
         $i = 0;
         while ( $row = $res->FetchArray() ) {
+            ++$i;
+            if ( $i > $limit ) {
+                break;
+            }
             if ( $row[ 'image_delid' ] != 0 || $row[ 'image_width' ] < 10 || $row[ 'image_height' ] < 10 ) {
                 continue;
             }
@@ -498,10 +502,6 @@
                 ?>, `image_numcomments`=<?php
                 echo $row[ 'image_numcomments' ];
                 ?>;<?php
-            ++$i;
-            if ( $i == $limit ) {
-                break;
-            }
         }
 
         if ( $res->NumRows() < $limit + 1 ) {
