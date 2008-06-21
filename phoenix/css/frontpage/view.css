@@ -130,13 +130,16 @@ div.nowonline a img {
 	width: 100px;
 	height: 100px;
 }
+div.inuser {
+	width: 50%;
+}
 div.inlatestcomments {
 	clear: left;
 	padding-top: 20px;
 	width: 100%;
 }
 div.inevents {
-	float: left;
+	float: right;
 	width: 45%;
 	margin-left: 10px;
 }
