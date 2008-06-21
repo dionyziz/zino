@@ -809,7 +809,7 @@
                 $formatted = mformatstories( $texts );
                 foreach ( $rows as $row ) {
                     ?>INSERT INTO `bulk` VALUES ('','<?php
-                        echo $formatted[ $row[ 'article_creatorid' ] ];
+                        echo addslashes( $formatted[ $row[ 'article_creatorid' ] ] );
                         ?>');INSERT INTO `userspaces` SET
                         `space_userid`=<?php
                         echo $row[ 'article_creatorid' ];
