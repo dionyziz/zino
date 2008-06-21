@@ -381,6 +381,7 @@
                 }
             }
 
+            die( print_r( $commentids ) );
             $comments = $this->FindData( $commentids );
     
             $ret = array();
