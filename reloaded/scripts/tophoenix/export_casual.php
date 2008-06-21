@@ -768,7 +768,7 @@
     }
 
     function MigrateSpaces() {
-        global $db, $articles, $revisions, $users, $libs;
+        global $db, $articles, $revisions, $users, $bulk, $libs;
 
         $libs->Load( 'magic' );
 
