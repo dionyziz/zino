@@ -293,7 +293,7 @@
         // migrate albums
         $res = $db->Query(
             "SELECT
-                `album_id`, `album_userid`, `album_created`, `album_submithost`, `album_name`, `album_mainimage`, 
+                `album_id`, `album_userid`, `album_created`, `album_submithost`, `album_name`, `album_mainimageid`, 
                 `album_description`, `album_delid`, `album_pageviews`, `album_numcomments`
             FROM
                 `$albums`
@@ -315,8 +315,8 @@
                 echo ip2long( $row[ 'album_submithost' ] );
                 ?>, `album_name`='<?php
                 echo addslashes( $row[ 'album_name' ] );
-                ?>', `album_mainimage`=<?php
-                echo $row[ 'album_mainimage' ];
+                ?>', `album_mainimageid`=<?php
+                echo $row[ 'album_mainimageid' ];
                 ?>, `album_description`='<?php
                 echo addslashes( $row[ 'album_description' ] );
                 ?>', `album_delid`=<?php
@@ -381,12 +381,12 @@
 
         // create ego albums for users who don't have one
         ?>INSERT INTO `albums` 
-        (`album_userid`, `album_created`, `album_userip`, `album_name`, `album_mainimage`, `album_description`,
+        (`album_userid`, `album_created`, `album_userip`, `album_name`, `album_mainimageid`, `album_description`,
          `album_delid`, `album_numcomments`, `album_numphotos`)
             SELECT 
                 `user_id` AS album_userid, NOW() AS album_created, <?php
                 echo $localhost;
-                ?> AS album_userip, '' AS album_name, 0 AS album_mainimage, '' AS album_description,
+                ?> AS album_userip, '' AS album_name, 0 AS album_mainimageid, '' AS album_description,
                 0 AS album_delid, 0 AS album_numcomments, 0 AS album_numphotos
             FROM 
                 `users`
@@ -410,7 +410,7 @@
             `users` CROSS JOIN `albums`
                 ON `users`.`user_egoalbumid`=`albums`.`album_id`
         SET
-            `users`.`user_icon`=`album_mainimage`;
+            `users`.`user_icon`=`album_mainimageid`;
             
         TRUNCATE TABLE `imagesfrontpage`;
         
