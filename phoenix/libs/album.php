@@ -7,11 +7,34 @@
         protected $mModel = 'Album';
         
         public function FindByUser( User $theuser, $offset = 0, $limit = 25 ) {
-            $prototype = New Album();
-            $prototype->Userid = $theuser->Id;
-            $prototype->Delid = 0;
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :albums LEFT JOIN :images
+                        ON `album_mainimageid` = `image_id`
+                WHERE
+                    `album_userid` = :userid AND
+                    `album_delid` = 0
+                ORDER BY
+                    `album_id` DESC
+                LIMIT
+                    :offset, :limit;" );
+            
+            $query->BindTable( 'albums', 'images' );
+            $query->Bind( 'userid', $theuser->Id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $album = New Album( $row );
+                $album->CopyMainimageFrom( New Image( $row ) );
+                $ret[] = $album;
+            }
+
+            return $ret;
         }
     }
     
