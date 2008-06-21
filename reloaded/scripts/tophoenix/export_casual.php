@@ -457,7 +457,7 @@
 
         $i = 0;
         while ( $row = $res->FetchArray() ) {
-            $size = ProportionalSize( $row[ 'image_width' ], $row[ 'image_height' ] );
+            $size = ProportionalSize( $row[ 'image_width' ], $row[ 'image_height' ], 700, 600 );
             if ( $size !== false ) {
                 $row[ 'image_width' ] = $size[ 0 ];
                 $row[ 'image_height' ] = $size[ 1 ];
@@ -712,66 +712,113 @@
     }
 
     function MigrateJournals() {
-        global $db, $articles, $revisions;
+        global $db, $articles, $revisions, $bulk, $libs;
+
+        $libs->Load( 'magic' );
 
         $res = $db->Query(
             "SELECT
-                `revision_title`, `revision_textid`,
-                `article_created`, `article_numcomments`, `article_id`, `article_creatorid`
+                `revision_title`,
+                `article_created`, `article_numcomments`,
+                `article_id`, `article_creatorid`, `bulk_text`
             FROM
                 $articles CROSS JOIN $revisions
                     ON `article_id` = `revision_articleid` 
                     AND `article_headrevision` = `revision_id`
+                CROSS JOIN $bulk
+                    ON `revision_textid` = `bulk_id`
             WHERE
                 `article_typeid`=0 AND
                 `article_delid`=0;"
         );
 
         ?>TRUNCATE TABLE `journals`;<?php
+        $rows = array();
+        $i = 0;
+        $total = $res->NumRows();
         while ( $row = $res->FetchArray() ) {
-            ?>INSERT INTO `journals` SET
-                `journal_created`='<?php
-                echo $row[ 'article_created' ];
-                ?>', `journal_numcomments`=<?php
-                echo $row[ 'article_numcomments' ];
-                ?>, `journal_title`='<?php
-                echo addslashes( $row[ 'revision_title' ] );
-                ?>', `journal_bulkid`=<?php
-                echo $row[ 'revision_textid' ];
-                ?>, `journal_userid`=<?php
-                echo $row[ 'article_creatorid' ];
-                ?>;<?php
+            $rows[] = $row;
+            ++$i;
+            if ( count( $rows ) % 200 == 0 || $i == $total ) {
+                $texts = array();
+                foreach ( $rows as $row ) {
+                    $texts[ $row[ 'article_id' ] ] = $row[ 'bulk_text' ];
+                }
+                $formatted = mformatstories( $texts );
+                foreach ( $rows as $row ) {
+                    ?>INSERT INTO `bulk` VALUES ('','<?php
+                    echo addslashes( $formatted[ $row[ 'article_id' ] ] );
+                    ?>');
+                    INSERT INTO `journals` SET
+                        `journal_created`='<?php
+                        echo $row[ 'article_created' ];
+                        ?>', `journal_numcomments`=<?php
+                        echo $row[ 'article_numcomments' ];
+                        ?>, `journal_title`='<?php
+                        echo addslashes( $row[ 'revision_title' ] );
+                        ?>', `journal_bulkid`=LAST_INSERT_ID(),
+                        `journal_userid`=<?php
+                        echo $row[ 'article_creatorid' ];
+                        ?>;<?php
+                }
+                $rows = array();
+            }
         }
+        w_assert( empty( $rows ) );
     }
 
     function MigrateSpaces() {
-        global $db, $articles, $revisions, $users;
+        global $db, $articles, $revisions, $users, $libs;
+
+        $libs->Load( 'magic' );
 
         $res = $db->Query(
             "SELECT
-                MAX(`revision_textid`) AS rev, MAX(`revision_updated`) AS updated, `article_creatorid`
+                `revision_updated` AS updated, 
+                a.`article_creatorid`, `bulk_text`
             FROM
-                $articles CROSS JOIN $revisions
-                    ON `article_id`=`revision_articleid`
+                $articles AS a CROSS JOIN $revisions
+                    ON a.`article_id`=`revision_articleid`
                     AND `revision_id`=`article_headrevision`
+                LEFT JOIN $articles AS comparison
+                    ON a.`article_id` < comparison.`article_id`
+                    AND a.`article_creatorid` = comparison.`article_creatorid`
+                    AND comparison.`article_typeid`=2
+                    AND comparison.`article_delid`=0
+                CROSS JOIN $bulk
+                    ON `revision_textid` = `bulk_id`
             WHERE
-                `article_typeid`=2
-                AND `article_delid`=0
-            GROUP BY
-                `article_creatorid`;"
+                a.`article_typeid`=2
+                AND a.`article_delid`=0
+                AND comparison.`article_id` IS NULL;"
         );
 
         ?>TRUNCATE TABLE `userspaces`;<?php
+        $rows = array();
+        $i = 0;
+        $total = $res->NumRows();
         while ( $row = $res->FetchArray() ) {
-            ?>INSERT INTO `userspaces` SET
-                `space_userid`=<?php
-                echo $row[ 'article_creatorid' ];
-                ?>, `space_bulkid`=<?php
-                echo $row[ 'rev' ];
-                ?>, `space_updated`='<?php
-                echo $row[ 'updated' ];
-            ?>';<?php
+            $rows[] = $row;
+            ++$i;
+            if ( count( $rows ) % 200 == 0 || $i == $total ) {
+                $texts = array();
+                foreach ( $rows as $row ) {
+                    $texts[ $row[ 'article_creatorid' ] ] = $row;
+                }
+                $formatted = mformatstories( $texts );
+                foreach ( $rows as $row ) {
+                    ?>INSERT INTO `bulk` VALUES ('','<?php
+                        echo $formatted[ $row[ 'article_creatorid' ] ];
+                        ?>');INSERT INTO `userspaces` SET
+                        `space_userid`=<?php
+                        echo $row[ 'article_creatorid' ];
+                        ?>, `space_bulkid`=LAST_INSERT_ID(), `space_updated`='<?php
+                        echo $row[ 'updated' ];
+                    ?>';<?php
+                }
+            }
         }
+        w_assert( empty( $rows ) );
     }
 
     function MigrateTags() {
