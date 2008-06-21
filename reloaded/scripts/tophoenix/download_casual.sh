@@ -6,7 +6,7 @@ rm $workpath/test $workpath/continue $workpath/*.gz $workpath/*.sql 2>/dev/null
 echo "CONTINUE" > ~/migrate/continue
 echo "Done"
 
-standalonesteps=( 0 1 6 8 9 10 11 12 13 14 19 )
+standalonesteps=( 0 1 6 8 9 10 11 12 13 14 15 16 17 18 19 )
 for i in "${standalonesteps[@]}"
 do
     URL="http://www.zino.gr/scripts/tophoenix/export_casual.php?step=$i"
@@ -19,7 +19,7 @@ do
     echo "Done"
 done
 
-offsetsteps=( 2 3 4 5 7 15 16 17 18 )
+offsetsteps=( 2 3 4 5 7 )
 for i in "${offsetsteps[@]}"
 do
     offset=0
