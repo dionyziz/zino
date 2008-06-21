@@ -7,7 +7,7 @@
         global $rabbit_settings;
 
         $html = preg_replace(
-            '#\<object [^>]++\>\<param [^>]+ value\="/v/([a-zA-Z0-9_-]+)"\>.*?\</object\>#i',
+            '#\<object [^>]++\>\s*\<param [^>]*?value\="http\://www\.youtube\.com/v/([a-zA-Z0-9_-]+)"[^>]*+\>.*?\</object\>#i',
             '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?v=$1" />',
             $html
         );
