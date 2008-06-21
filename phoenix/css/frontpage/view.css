@@ -133,6 +133,7 @@ div.nowonline a img {
 div.inlatestcomments {
 	clear: left;
 	padding-top: 20px;
+	width: 100%;
 }
 div.inevents {
 	float: left;
