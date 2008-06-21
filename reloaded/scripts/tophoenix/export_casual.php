@@ -457,6 +457,9 @@
 
         $i = 0;
         while ( $row = $res->FetchArray() ) {
+            if ( $row[ 'image_width' ] < 10 || $row[ 'image_height' ] < 10 ) {
+                continue;
+            }
             $size = ProportionalSize( $row[ 'image_width' ], $row[ 'image_height' ], 700, 600 );
             if ( $size !== false ) {
                 $row[ 'image_width' ] = $size[ 0 ];
