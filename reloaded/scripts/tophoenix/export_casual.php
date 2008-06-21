@@ -816,6 +816,7 @@
                         echo $row[ 'updated' ];
                     ?>';<?php
                 }
+                $rows = array();
             }
         }
         w_assert( empty( $rows ) );
