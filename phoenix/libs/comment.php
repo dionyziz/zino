@@ -337,13 +337,55 @@
 
             return $ret;
         }
-        public function FindNear( $entity, $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
-            $prototype = New Comment();
-            $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = $entity->Id;
-            $prototype->Delid = 0;
+        public function FindNear( $entity, Comment $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
+            w_assert( is_object( $entity ) );
 
-            return Comments_Near( $this->FindByPrototype( $prototype, $offset, $limit ), $comment );
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    `comment_id`, `comment_parentid`
+                FROM
+                    :comments
+                WHERE
+                    `comment_typeid` = :typeid AND
+                    `comment_itemid` = :itemid AND
+                    `comment_delid` = :delid
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'comments' );
+            $query->Bind( 'typeid', Type_FromObject( $entity ) );
+            $query->Bind( 'itemid', $entity->Id );
+            $query->Bind( 'delid', 0 );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+            $res = $query->Execute();
+            $comments = array();
+            while ( $row = $res->FetchArray() ) {
+                $comments[] = $row;
+            }
+
+            $info = Comments_Near( $comments, $comment );
+            $num_pages = $info[ 0 ];
+            $parented = $info[ 1 ];
+            $commentids = array();
+            foreach ( $parented as $parentid => $children ) {
+                foreach ( $children as $child ) {
+                    $commentids[] = $child[ 'comment_id' ];
+                }
+            }
+
+            $comments = $this->FindData( $commentids );
+    
+            $ret = array();
+            foreach ( $parented as $parentid => $children ) {
+                $ret[ $parentid ] = array();
+                foreach ( $children as $child ) {
+                    $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
+                }
+            }
+
+            return array( $num_pages, $ret );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             if ( $page <= 0 ) {
