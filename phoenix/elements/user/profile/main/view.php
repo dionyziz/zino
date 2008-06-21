@@ -143,8 +143,8 @@
 			?><div class="questions">
 				<h3>Ερωτήσεις</h3><?php
 				Element( 'user/profile/main/questions' , $theuser );
-				?><a href="" class="button">Περισσότερες ερωτήσεις&raquo;</a>
-			</div><?php
+				?>
+            </div><?php
 			if ( !empty( $polls ) /*or not empty questions*/ ) {
 				?><div class="barfade" style="margin-top:20px;clear:right;">
 					<div class="leftbar"></div>
