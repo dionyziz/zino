@@ -1011,7 +1011,7 @@
     }
     
     function MigratePMFolder( $type, $offset, $test = false ) {
-        global $db, $pmfolders;
+        global $db, $pmfolders, $users;
 
         $limit = 1000;
         
