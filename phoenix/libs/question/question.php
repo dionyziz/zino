@@ -56,22 +56,13 @@
 
 	class Question extends Satori {
 		protected $mDbTableAlias = 'questions';
-
-		public function GetText() {
-			return $this->Bulk->Text;
-		}
 		
-		public function SetText( $text ) {
-			$this->Bulk->Text = $text;
-		}
-		
-		public function IsDeleted() {
+        public function IsDeleted() {
             return $this->Delid > 0;
         }
 		
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
 		}
 		
 		public function OnBeforeDelete() {
@@ -80,15 +71,6 @@
 			return false; // Avoid database row delete
 		}
 		
-		public function OnBeforeCreate() {
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
-		}
-						
-		public function OnUpdate() {
-			$this->Bulk->Save();
-		}
-						
 		public function LoadDefaults() {
 			global $user;
 

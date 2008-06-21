@@ -27,7 +27,7 @@
 		public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
 			$answer = New Answer();
 			$answer->Userid = $user->Id;
-			return $this->FindByPrototype( $answer, $offset, $limit, array( 'Userid', 'DESC' ) );
+			return $this->FindByPrototype( $answer, $offset, $limit, array( 'Id', 'DESC' ) );
 		}
 	}
 
@@ -44,19 +44,9 @@
 				
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
 			$this->Question = $this->HasOne( 'Question', 'Questionid' );
 		}
 				
-		public function OnBeforeCreate() {
-            $this->Bulk->Save();
-            $this->Bulkid = $this->Bulk->Id;
-		}
-						
-		public function OnUpdate() {
-			$this->Bulk->Save();
-		}
-						
 		public function LoadDefaults() {
 			global $user;
 
