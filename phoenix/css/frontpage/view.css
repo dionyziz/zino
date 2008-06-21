@@ -114,11 +114,11 @@ div.latestcomments h2 {
 }
 div.nowonline {
 	text-align: left;
+	border-top: 1px solid #ccc;
 }
 div.nowonline a {
 	float: left;
 	margin: 0 12px 12px 0;
-	border-top: 1px solid #ccc;
 }
 div.nowonline a img {
 	border: 1px solid #666;
