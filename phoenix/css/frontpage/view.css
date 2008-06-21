@@ -133,7 +133,8 @@ div.nowonline a img {
 	height: 100px;
 }
 div.inuser {
-	width: 50%;
+	width: 49%;
+	float: left;
 }
 /*
 div.inlatestcomments {
@@ -146,7 +147,7 @@ div.inshoutbox {
 }
 div.inevents {
 	float: right;
-	width: 45%;
+	width: 49%;
 	margin-left: 10px;
 }
 div.latestevents {
