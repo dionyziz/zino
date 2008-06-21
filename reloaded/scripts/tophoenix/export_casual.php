@@ -45,10 +45,10 @@
         
         // at least one of the following two must hold, as of the above if
         if ( $sourcew > $targetw ) {
-            $propw = $sourcew / $targetw;
+            $prop = $sourcew / $targetw;
         }
-        if ( $sourceh > $targeth ) {
-            $proph = $sourceh / $targeth;
+        if ( $sourceh >= $targeth ) {
+            $prop = $sourceh / $targeth;
         }
         if ( $prop == 0 ) {
             throw New Exception( '"prop" was 0 while resizing to ' . $targetw . "x" . $targeth );
