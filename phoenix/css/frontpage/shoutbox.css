@@ -3,14 +3,15 @@ div.shoutbox {
 	padding: 10px;
 }
 div.frontpage div.shoutbox {
-	/*border: 1px solid #ccc;*/
+	/*border: 1px solid #ccc;
 	width: 100%;
+	*/
 }
 div.shoutbox div.comments {
-	width: 100%;
+	/*width: 100%;*/
 }
 div.shoutbox div.comments div.comment {
-	width: 100%;
+	/*width: 100%;*/
     max-height: 300px;
     overflow: auto;
 }
