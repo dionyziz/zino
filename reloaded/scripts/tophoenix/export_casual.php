@@ -797,7 +797,7 @@
         ?>TRUNCATE TABLE `userspaces`;<?php
         $rows = array();
         $i = 0;
-        $total = $res->NumRows();
+        $total = count( $data );
         while ( $row = array_shift( $data ) ) {
             $rows[] = $row;
             ++$i;
