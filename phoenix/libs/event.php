@@ -213,10 +213,6 @@
             global $libs;
             $libs->Load( 'notify' );
 
-            if ( $user->Name == 'finlandos' ) {
-                die( 'Event created. Typeid: ' . $this->Typeid );
-            }
-
             /* notification firing */
             switch ( $this->Typeid ) {
                 case EVENT_COMMENT_CREATED:
