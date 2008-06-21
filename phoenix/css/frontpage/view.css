@@ -115,6 +115,7 @@ div.latestcomments h2 {
 div.nowonline {
 	text-align: left;
 	border-top: 1px solid #ccc;
+	margin-top: 20px;
 }
 div.nowonline a {
 	float: left;
