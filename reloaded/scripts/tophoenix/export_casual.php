@@ -775,29 +775,30 @@
         $res = $db->Query(
             "SELECT
                 `revision_updated` AS updated, 
-                a.`article_creatorid`, `bulk_text`
+                `article_creatorid`, `bulk_text`
             FROM
-                $articles AS a CROSS JOIN $revisions
-                    ON a.`article_id`=`revision_articleid`
+                $articles CROSS JOIN $revisions
+                    ON `article_id`=`revision_articleid`
                     AND `revision_id`=`article_headrevision`
-                LEFT JOIN $articles AS comparison
-                    ON a.`article_id` < comparison.`article_id`
-                    AND a.`article_creatorid` = comparison.`article_creatorid`
-                    AND comparison.`article_typeid`=2
-                    AND comparison.`article_delid`=0
                 CROSS JOIN $bulk
                     ON `revision_textid` = `bulk_id`
             WHERE
-                a.`article_typeid`=2
-                AND a.`article_delid`=0
-                AND comparison.`article_id` IS NULL;"
+                `article_typeid`=2
+                AND `article_delid`=0
+            ORDER BY
+                `article_id`;"
         );
+
+        $data = array();
+        while ( $row = $res->FetchArray() ) {
+            $data[ $row[ 'article_creatorid' ] ] = $row; // replace any previous duplicate entries
+        }
 
         ?>TRUNCATE TABLE `userspaces`;<?php
         $rows = array();
         $i = 0;
         $total = $res->NumRows();
-        while ( $row = $res->FetchArray() ) {
+        while ( $row = array_shift( $data ) ) {
             $rows[] = $row;
             ++$i;
             if ( count( $rows ) % 200 == 0 || $i == $total ) {
