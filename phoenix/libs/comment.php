@@ -365,11 +365,10 @@
                 $comments[] = $row;
             }
 
-            die( print_r( $comments ) );
-
             $info = Comments_Near( $comments, $comment );
             $num_pages = $info[ 0 ];
             $parented = $info[ 1 ];
+            die( print_r( $parented ) );
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
