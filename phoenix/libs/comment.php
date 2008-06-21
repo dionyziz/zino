@@ -76,7 +76,7 @@
             $page_parents[] = $parent;
 
             /* Count children and search for $comment */
-            $proc = array( $parent->Id );
+            $proc = array( $parent[ 'comment_id' ] );
             $count = 1;
             while ( !empty( $proc ) ) {
                 $id = array_pop( $proc );
@@ -84,9 +84,9 @@
                     $found_comment = true;
                 }
                 foreach ( $comments as $c ) {
-                    if ( $c->Parentid == $id ) {
+                    if ( $c[ 'comment_parentid' ] == $id ) {
                         ++$count;
-                        array_push( $proc, $c->Id );
+                        array_push( $proc, $c[ 'comment_id' ] );
                     }
                 }
             }
@@ -113,7 +113,7 @@
             else {
                 $parented[ 0 ][] = $parent;
             }
-            Comments_MakeParented( $parented, $comments, $parent->Id, $reverse );
+            Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
         }
 
         return array( Comments_CountPages( $comments, $parents ), $page_num + 1, $parented );
