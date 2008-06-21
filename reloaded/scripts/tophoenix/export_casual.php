@@ -1036,7 +1036,7 @@
             $res = $db->Query( $sql );
 
             $first = true;
-            ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_userid`, `pmif_folderid`, `pmif_delid` ) VALUES <?php
+            ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_folderid`, `pmif_delid` ) VALUES <?php
 
             while ( $row = $res->FetchArray() ) {
                 if ( $first ) {
@@ -1050,8 +1050,6 @@
 
                 ?>( <?php
                 echo $row[ 'pmif_id' ];
-                ?>, <?php
-                echo $row[ 'pmif_userid' ];
                 ?>, <?php
                 echo $folderid;
                 ?>, <?php
