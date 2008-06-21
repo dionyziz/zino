@@ -943,34 +943,17 @@
 		}		
 	}
 
-    function MigratePMMessages( $offset = 0, $test = false ) {
+    function MigratePMMessages() {
         global $db, $pmmessages;
-
-        $limit = 20000;
-        if ( $test ) {
-            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$pmmessages`;" );
-            $row = $res->FetchArray();
-            if ( $offset * $limit < $row[ 'numrows' ] ) {
-                echo ST_CONTINUE;
-            }
-            else {
-                echo ST_TERMINATE;
-            }
-            exit();
-        }
 
         $res = $db->Query(
             "SELECT
                 `pm_id`, `pm_senderid`, `pm_text`, `pm_textformatted`, `pm_date`
             FROM
-                `$pmmessages`
-            LIMIT
-                " . $offset * $limit . "," . $limit . ";"
+                `$pmmessages`;"
         );
         
-        if ( $offset == 0 ) {
-            ?>TRUNCATE TABLE `pmmessages`;<?php
-        }
+        ?>TRUNCATE TABLE `pmmessages`;<?php
 
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` SET `bulk_text`='<?php
@@ -1010,30 +993,14 @@
         }
     }
     
-    function MigratePMFolder( $type, $offset, $test = false ) {
+    function MigratePMFolder( $type ) {
         global $db, $pmfolders, $users, $pmmessageinfolder;
-
-        $limit = 1000;
-        
-        if ( $test ) {
-            $res = $db->Query( "SELECT COUNT(*) AS numrows FROM `$users`;" );
-            $row = $res->FetchArray();
-            if ( $offset * $limit < $row[ 'numrows' ] ) {
-                echo ST_CONTINUE;
-            }
-            else {
-                echo ST_TERMINATE;
-            }
-            exit();
-        }
 
         $userres = $db->Query(
             "SELECT
                 `user_id`
             FROM
-                `$users`
-            LIMIT
-                " . ( $offset * $limit ) . ", $limit;"
+                `$users`;"
         );
 
         while ( $urow = $userres->FetchArray() ) {
@@ -1097,19 +1064,19 @@
     }
 
 
-    function MigratePMInbox( $offset, $test = false ) {
+    function MigratePMInbox() {
         if ( $offset == 0 ) {
             ?>TRUNCATE TABLE `pmmessageinfolder`;<?php
         }
-        MigratePMFolder( -1, $offset, $test );
+        MigratePMFolder( -1 );
     }
 
-    function MigratePMOutbox( $offset ) {
-        MigratePMFolder( -2, $offset, $test );
+    function MigratePMOutbox() {
+        MigratePMFolder( -2 );
     }
 
-    function MigratePMOther( $offset ) {
-        MigratePMFolder( 1, $offset, $test );
+    function MigratePMOther() {
+        MigratePMFolder( 1 );
     }
 
 
@@ -1167,16 +1134,16 @@
             MigratePMFolders();
             break;
 		case 15:
-            MigratePMMessages( $offset, $test );
+            MigratePMMessages();
             break;
         case 16:
-            MigratePMInbox( $offset, $test );
+            MigratePMInbox();
             break;
         case 17:
-            MigratePMOutbox( $offset, $test );
+            MigratePMOutbox();
             break;
         case 18:
-            MigratePMOther( $offset, $test );
+            MigratePMOther();
             break;
         case 19:
             MigrateEgoAlbums();
