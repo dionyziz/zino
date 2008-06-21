@@ -6,7 +6,7 @@
 		?><div class="comment newcomment">
 			<div class="who"><?php
 				Element( 'user/display' , $user );
-				?> πρόσθεσε ένα σχόλιο στη συζήτηση
+				?>πρόσθεσε ένα σχόλιο στη συζήτηση
 			</div>
 			<div class="text">
 				<textarea id="shoutbox_text" rows="2" cols="50" onkeyup="$( '#shoutbox_submit' )[ 0 ].disabled = ( $.trim( this.value ).length == 0 )"></textarea>
