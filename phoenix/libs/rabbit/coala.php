@@ -79,13 +79,7 @@
                     $split = explode( '=' , $keyvalue );
                     $key = urldecode( $split[ 0 ] );
                     $value = urldecode( $split[ 1 ] );
-                    if ( is_numeric( $value ) ) { // cast
-                        $value = ( float )$value;
-                        if ( intval( $value ) == $value ) {
-                            $value = ( integer )$value;
-                        }
-                    }
-                    $params[ $key ] = $value;
+                    $params[ $key ] = $value; // casting will be done by the typesafety layer later on
                 }
                 $callid = substr( $unit , 1 );
                 $callid = str_replace( '..' , '' , $callid ); // only allow units inside /units
