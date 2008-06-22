@@ -67,11 +67,9 @@
                     ?>ους<?php
                 }
                 else if ( is_array( $pmuser ) ) {
-                    /*
                     if ( !isset( $pmuser[ 0 ] ) ) {
                         die( print_r( array( $pm->Pmid, $pm->Folderid, $pm->Senderid, $pm->Receivers ) ) );
                     }
-                    */
                     w_assert( isset( $pmuser[ 0 ] ) );
                     $pmuser = $pmuser[ 0 ];
                 }
