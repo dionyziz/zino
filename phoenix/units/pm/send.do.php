@@ -27,7 +27,6 @@
         $finder = New PMFolderFinder();
         $outbox = $finder->FindByUserAndType( $user, PMFOLDER_OUTBOX );
 
-    	// ?>pms.ShowFolderPm( document.getElementById( 'sentfolder' ), <?php
     	?>pms.ShowFolderPm( document.getElementById( 'folder_<?php
     	echo $outbox->Id; 
     	?>' ), <?php
