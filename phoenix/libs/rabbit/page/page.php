@@ -442,7 +442,6 @@ final class PageCoala extends Page {
         $water->Profile( 'Render Unit' );
         
         $ret = '';
-        die( var_dump( $this->mMainElements ) );
         foreach ( $this->mMainElements as $mainelement ) {
             $ret .= $coala->Run( $mainelement[ 'type' ], $mainelement[ 'name' ], $mainelement[ 'req' ] );
         }
@@ -453,6 +452,8 @@ final class PageCoala extends Page {
     public function AttachMainElement( $type, $id, $req ) {
         global $water;
         
+        die( var_dump( $req ) );
+
         w_assert( is_array( $req ) );
         
         $this->mMainElements[] = array(
