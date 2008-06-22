@@ -7,8 +7,6 @@ var pms = {
 	messagescontainer : $( '#messages' )[ 0 ],
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
-		alert( folder );
-		alert( $( '#folder_' + folderid ) );
 		if ( pms.activefolder === 0 ) {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
