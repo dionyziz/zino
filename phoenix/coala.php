@@ -15,8 +15,6 @@
     
     $units = $coala->ParseRequest( $warmable, $req );
 
-    die( var_dump( $units ) );
-
     foreach ( $units as $unit ) {
         $page->AttachMainElement( $unit[ 'type' ], $unit[ 'id' ], $unit[ 'req' ] );
     }
