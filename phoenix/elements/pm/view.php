@@ -76,7 +76,7 @@
                         $pmuser = $pmuser[ 0 ];
                     }
                     else { // TODO: BUG
-                        $pmuser[ 0 ] = $pm->Sender;
+                        $pmuser = $pm->Sender;
                     }
                 }
                 if ( !is_array( $pmuser ) ) { /* sender or one receiver */
