@@ -74,6 +74,7 @@
 
                     if ( isset( $pmuser[ 0 ] ) ) {
                         $pmuser = $pmuser[ 0 ];
+                        w_assert( is_object( $pmuser ) );
                     }
                     else { // TODO: BUG
                         $pmuser = $pm->Sender;
