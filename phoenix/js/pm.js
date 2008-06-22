@@ -268,9 +268,9 @@ var pms = {
 		else {
 			//newtext2 = document.createElement( 'img' );
 			//$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
-			newtext2 = document.createTextNode( 'Μηνύματα' );
+			//newtext2 = document.createTextNode( 'Μηνύματα' );
+			$( unreadmsgbanner ).replaceWith( 'Μηνύματα' );
 			newtext = document.createTextNode( 'Εισερχόμενα' );
-    		$( unreadmsgbanner.firstChild ).remove();
 		}
 		
 		$( unreadmsgbanner ).append( newtext2 );
