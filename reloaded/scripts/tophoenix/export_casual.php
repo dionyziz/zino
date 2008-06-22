@@ -794,7 +794,7 @@
                 `article_typeid`=2
                 AND `article_delid`=0
             ORDER BY
-                `article_id`;"
+                `revision_updated`;"
         );
 
         $data = array();
