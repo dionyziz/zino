@@ -5,6 +5,8 @@
         global $water;
         global $rabbit_settings;
 
+        w_assert( is_object( $pm->Sender ) );
+
         ?><div class="message" style="width:620px;" id="pm_<?php
             echo $pm->Pmid;
             ?>">
@@ -63,23 +65,30 @@
                     ?> προς τ<?php
                     $pmuser = $pm->Receivers;
                 }
-                if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) {
+
+                if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) { /* many receivers */
                     ?>ους<?php
                 }
-                else if ( is_array( $pmuser ) ) {
-                    if ( !isset( $pmuser[ 0 ] ) ) { // BUG
+                else if ( is_array( $pmuser ) ) { /* one receiver, no need for array */
+                    // w_assert( isset( $pmuser[ 0 ] ) );
+
+                    if ( isset( $pmuser[ 0 ] ) ) {
+                        $pmuser = $pmuser[ 0 ];
+                    }
+                    else { // TODO: BUG
                         $pmuser[ 0 ] = $pm->Sender;
                     }
-                    w_assert( isset( $pmuser[ 0 ] ) );
-                    $pmuser = $pmuser[ 0 ];
                 }
-                w_assert( is_object( $pmuser ) );
-                if ( $pmuser->Gender == 'female' ) {
-                    ?>ην<?php
+                if ( !is_array( $pmuser ) ) { /* sender or one receiver */
+                    w_assert( is_object( $pmuser ) );
+                    if ( $pmuser->Gender == 'female' ) {
+                        ?>ην<?php
+                    }
+                    else {
+                        ?>ον<?php
+                    }
                 }
-                else {
-                    ?>ον<?php
-                }
+
                 ?> </div><div style="display:inline" class="infobar_info"><?php
                 if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
                     Element( 'user/name', $pm->Sender );
