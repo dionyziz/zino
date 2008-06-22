@@ -442,10 +442,23 @@
         SET
             `user_egoalbumid`=albumid
         WHERE
-            `user_egoalbumid`<=0;<?php
+            `user_egoalbumid`<=0;
+        
+        UPDATE
+            `albums`
+                CROSS JOIN `images` AS a ON `album_id`=`image_id`
+                LEFT JOIN `images` AS b ON a.`image_id`<b.`image_id`
+        SET
+            `album_mainimageid`=a.`image_id`
+        WHERE
+            `user_mainimageid`=0
+            AND b.`image_id` IS NULL;
 
+        <?php
         // set avatars to the mainimages of the egoalbums (cross join ensures only users WITH egoalbums are updated)
-        ?>UPDATE
+        ?>
+        
+        UPDATE
             `users` CROSS JOIN `albums`
                 ON `users`.`user_egoalbumid`=`albums`.`album_id`
         SET
