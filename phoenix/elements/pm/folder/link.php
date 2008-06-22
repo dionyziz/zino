@@ -19,7 +19,7 @@
             ?></a></div><?php
         }
         else if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
-            ?><div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="<?php
+            ?><div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="folder_<?php
             echo $folder->Id; ?> "><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode,<?php
             echo $folder->Id;
             ?> );return false;">Απεσταλμένα</a></div><?php
