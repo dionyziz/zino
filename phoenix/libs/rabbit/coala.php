@@ -31,6 +31,9 @@
     		}
             
     		ob_start();
+            
+            die( var_dump( $req ) );
+
     		Rabbit_TypeSafe_Call( $unitfunc , $req );
     		$js = ob_get_clean();
     		return $js;
