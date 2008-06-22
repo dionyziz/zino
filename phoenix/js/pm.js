@@ -272,7 +272,7 @@ var pms = {
 		}
 		
 		// Fucking.. $( unreadmsgbanner.firstChild ).remove();
-		$( unreadmsgbanner ).text( 'Test' );
+		//$( unreadmsgbanner ).text( 'Test' );
 		//$( unreadmsgbanner ).append( newtext2 );
 		$( incominglink ).append( newtext );
 	}
