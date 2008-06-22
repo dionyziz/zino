@@ -68,6 +68,7 @@
                 }
                 else if ( is_array( $pmuser ) ) {
                     if ( !isset( $pmuser[ 0 ] ) ) {
+                        ob_clean();
                         die( print_r( array( $pm->Pmid, $pm->Folderid, $pm->Sender->Id, $pm->Receivers ) ) );
                     }
                     w_assert( isset( $pmuser[ 0 ] ) );
