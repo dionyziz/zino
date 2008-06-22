@@ -76,7 +76,7 @@
             $prototype = New PMFolder();
             $prototype->Userid = $user->Id;
             $prototype->Delid = 0;
-            return $this->FindByPrototype( $prototype, $offset, $limit );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Typeid', 'ASC' ) );
         }
     }
 
