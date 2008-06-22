@@ -22,6 +22,13 @@
         $folders = $finder->FindByUser( $user );
         $unreadCount = $user->Count->Unreadpms;
 
+        $folder_dump = array();
+        foreach ( $folders as $folder ) {
+            $folder_dump[] = array( $folder->Userid, $folder->Name, $folder->Typeid );
+        }
+
+        die( print_r( $folder_dump ) );
+
 		?><script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadCount;
