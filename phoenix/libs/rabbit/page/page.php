@@ -442,6 +442,7 @@ final class PageCoala extends Page {
         $water->Profile( 'Render Unit' );
         
         $ret = '';
+        die( var_dump( $this->mMainElements ) );
         foreach ( $this->mMainElements as $mainelement ) {
             $ret .= $coala->Run( $mainelement[ 'type' ], $mainelement[ 'name' ], $mainelement[ 'req' ] );
         }
