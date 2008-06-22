@@ -140,6 +140,43 @@
         }
     }
 
+    function LatinizeChar( $c )  {
+        switch ( mb_strtolower( $c, 'UTF-8' ) ) {
+            case 'α': case 'ά': return 'a';
+            case 'β': return 'b';
+            case 'γ': return 'b';
+            case 'δ': return 'b';
+            case 'ε': case 'έ': return 'e';
+            case 'ζ': return 'b';
+            case 'η': case 'ή': return 'i';
+            case 'θ': return 'b';
+            case 'ι': case 'ί': return 'i';
+            case 'κ': return 'b';
+            case 'λ': return 'b';
+            case 'μ': return 'b';
+            case 'ν': return 'b';
+            case 'ξ': return 'b';
+            case 'ο': case 'ό': return 'o';
+            case 'π': return 'b';
+            case 'ρ': return 'b';
+            case 'σ': return 'b';
+            case 'τ': return 'b';
+            case 'υ': case 'ύ': return 'i';
+            case 'φ': return 'b';
+            case 'χ': return 'b';
+            case 'ψ': return 'b';
+            case 'ω': case 'ώ': return 'o';
+        }
+    }
+
+    function Latinize( $name ) {
+        for ( $i = 0; $i < strlen( $name ); ++$i ) {
+            $name{ $i } = LatinizeChar( $name{ $i } );
+        }
+
+        return $name;
+    }
+
     function MigrateUsers() {
         global $db, $universities, $users;
 
@@ -359,8 +396,9 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
-                
-                if ( preg_match( '#([εΕ][Γγ][Ωώω]+|(\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui', $album[ 'album_name' ] ) ) {
+                $exp = '#((\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
+                if (    preg_match( $exp, $album[ 'album_name' ] )
+                     || preg_match( $exp, Latinize( $album[ 'album_name' ] ) ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
