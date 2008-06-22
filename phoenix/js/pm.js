@@ -246,8 +246,8 @@ var pms = {
 		var incomingdiv = $( '#folders div' )[ 0 ];
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
-		var newtext2;
-		alert( unreadmsgbanner );
+		var newtext2;		
+		$( unreadmsgbanner.firstChild ).remove();
 		$( incominglink.firstChild ).remove();
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
@@ -271,9 +271,7 @@ var pms = {
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		
-		// Fucking.. $( unreadmsgbanner.firstChild ).remove();
-		//$( unreadmsgbanner ).text( 'Test' );
-		//$( unreadmsgbanner ).append( newtext2 );
+		$( unreadmsgbanner ).append( newtext2 );
 		$( incominglink ).append( newtext );
 	}
 	,
