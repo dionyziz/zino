@@ -27,8 +27,6 @@
             $folder_dump[] = array( $folder->Userid, $folder->Name, $folder->Typeid );
         }
 
-        die( print_r( $folder_dump ) );
-
 		?><script type="text/javascript">
 	    var unreadpms = <?php
 		echo $unreadCount;
