@@ -73,10 +73,7 @@
                     w_assert( isset( $pmuser[ 0 ] ) );
                     $pmuser = $pmuser[ 0 ];
                 }
-                if ( !is_object( $pmuser ) ) {
-                    var_dump( $pmuser );
-                    die();
-                }
+                w_assert( is_object( $pmuser ) );
                 if ( $pmuser->Gender == 'female' ) {
                     ?>ην<?php
                 }
