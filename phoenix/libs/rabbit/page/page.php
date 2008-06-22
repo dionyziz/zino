@@ -452,8 +452,6 @@ final class PageCoala extends Page {
     public function AttachMainElement( $type, $id, $req ) {
         global $water;
         
-        die( var_dump( $req ) );
-
         w_assert( is_array( $req ) );
         
         $this->mMainElements[] = array(
