@@ -266,8 +266,9 @@ var pms = {
 			}
 		}
 		else {
-			newtext2 = document.createElement( 'img' );
-			$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
+			//newtext2 = document.createElement( 'img' );
+			//$( newtext2 ).attr( { src : 'http://static.zino.gr/images/icons/email.png' , alt : 'Μηνύματα' } ).css( "width" , "16px" ).css( "height" , "16px" ).css( "vertical-align" , "bottom" );
+			newtext2 = document.createTextNode( 'Μηνύματα' );
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 		}
 		
