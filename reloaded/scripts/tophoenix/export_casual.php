@@ -600,7 +600,10 @@
                 " . $offset * $limit . ",$limit;"
         );
 
-        ?>TRUNCATE TABLE `shoutbox`;<?php
+        if ( $offset == 0 ) {
+            ?>TRUNCATE TABLE `shoutbox`;<?php
+        }
+
         while ( $row = $res->FetchArray() ) {
             ?>INSERT INTO `bulk` (`bulk_text`) VALUES ('<?php
             echo addslashes( $row[ 'shout_textformatted' ] );
