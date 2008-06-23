@@ -57,13 +57,13 @@
                 ?>, <?php
                 echo $folder->Id;
                 ?> );return false;"><?php
-                if ( !$pm->IsSender( $user ) ) {
-                    ?> από τ<?php
-                    $pmuser = $pm->Sender;
-                }
-                else {
+                if ( $pm->IsSender( $user ) ) {
                     ?> προς τ<?php
                     $pmuser = $pm->Receivers;
+                }
+                else {
+                    ?> από τ<?php
+                    $pmuser = $pm->Sender;
                 }
 
                 if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) { /* many receivers */
@@ -91,10 +91,7 @@
                 }
 
                 ?> </div><div style="display:inline" class="infobar_info"><?php
-                if ( !$pm->IsSender( $user ) ) {
-                    Element( 'user/name', $pm->Sender );
-                }
-                else {
+                if ( $pm->IsSender( $user ) ) {
                     $receivers = $pm->Receivers;
                     while ( $receiver = array_shift( $receivers ) ) {
                         Element( 'user/name', $receiver );
@@ -102,6 +99,9 @@
                             ?>, <?php
                         }
                     }
+                }
+                else {
+                    Element( 'user/name', $pm->Sender );
                 }
                 ?></div><div onclick="pms.ExpandPm( this, <?php
                 if ( !$pm->IsRead() ) {
