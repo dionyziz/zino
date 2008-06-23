@@ -12,14 +12,14 @@
             ?>">
             <div class="infobar<?php
             
-            if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+            if ( !$pm->IsSender( $user ) ) {
                 ?> received"<?php
             }
             else {
                 ?>" style="cursor:default;"<?php
             }
             ?>><?php
-                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsSender( $user ) ) {
                     ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
                     echo $pm->Pmid;
                     ?>', <?php
@@ -35,13 +35,13 @@
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>delete.png" /></a><?php
                 }
-                if ( !$pm->IsRead() && $folder->Typeid != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
                     ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>email_open.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
                 }
                 ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
-                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsSender( $user ) ) {
                     if ( !$pm->IsRead() ) {
                         ?> true<?php
                     }
@@ -57,7 +57,7 @@
                 ?>, <?php
                 echo $folder->Id;
                 ?> );return false;"><?php
-                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsSender( $user ) ) {
                     ?> από τ<?php
                     $pmuser = $pm->Sender;
                 }
@@ -91,7 +91,7 @@
                 }
 
                 ?> </div><div style="display:inline" class="infobar_info"><?php
-                if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                if ( !$pm->IsSender( $user ) ) {
                     Element( 'user/name', $pm->Sender );
                 }
                 else {
@@ -130,7 +130,7 @@
                 <div class="rightcorner"> </div>
                 <div class="middle"> </div>
                 <div class="toolbar"><?php
-                    if ( $folder->Typeid != PMFOLDER_OUTBOX ) {
+                    if ( !$pm->IsSender( $user ) ) {
                         ?><ul>
                             <li><a href="" onclick="<?php
                             ob_start();

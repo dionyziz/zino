@@ -7,6 +7,30 @@
     class PMFinder extends Finder { /* aka UserPMFinder */
         protected $mModel = 'UserPM';
 
+        public function FindReceivers( PM $pm, $offset = 0, $limit = 20 ) {
+            $query = $this->mDb->Prepare( '
+                SELECT
+                    *
+                FROM
+                    :pmmessageinfolder 
+                    LEFT JOIN :pmfolders ON
+                        `pmif_folderid` = `pmfolder_id`
+                    LEFT JOIN :users ON
+                        `pmif_userid` = `user_id`
+                WHERE
+                    `pmif_pmid` = :pmid AND
+                    `pmfolder_typeid` != :typeid
+                LIMIT
+                    :offset, :limit;' );
+            
+            $query->BindTable( 'pmmessageinfolder', 'pmfolders', 'users' );
+            $query->Bind( 'pmid', $pm->Id );
+            $query->Bind( 'typeid', 'outbox' );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            return $this->FindBySqlResource( $query->Execute() );
+        }
         public function FindByPM( PM $pm, $offset = 0, $limit = 1000 ) {
             $prototype = New UserPM();
             $prototype->Pmid = $pm->Id;

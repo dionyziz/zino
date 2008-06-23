@@ -83,6 +83,7 @@
     				$res_new[] = $tag = $res[ $tag->Id ];
     			}
     		}
+
     		return array_reverse( $res_new );
         }
         public function FindByTextAndType( $text, $typeid ) {

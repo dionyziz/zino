@@ -21,13 +21,10 @@
         }
         public function GetReceivers() {
             if ( $this->Exists() && empty( $this->mReceivers ) ) {
-                $this->mReceivers = array();
-                foreach ( $this->UserPMs as $upm ) {
-                    if ( $upm->Folder->Typeid != PMFOLDER_OUTBOX ) {
-                        $this->mReceivers[] = $upm->User;
-                    }
-                }
+                $finder = New PMFinder();
+                $this->mReceivers = $finder->FindReceivers( $this );
             }
+
             return $this->mReceivers;
         }
         public function SetText( $text ) {
