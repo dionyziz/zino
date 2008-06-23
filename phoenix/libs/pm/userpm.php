@@ -29,7 +29,7 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
-            return $this->FindBySqlResource( $query->Execute() );
+            return $query->Execute()->ToObjectsArray( 'User' );
         }
         public function FindByPM( PM $pm, $offset = 0, $limit = 1000 ) {
             $prototype = New UserPM();
