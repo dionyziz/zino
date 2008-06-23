@@ -55,6 +55,10 @@
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
             $old = $this->FindByPrototype( $prototype );
+
+            return $old;
+
+            /* no sorting for now
             
             if ( count( $old ) < 2 ) { // No need for sorting
             	return $old;
@@ -85,6 +89,7 @@
     		}
 
     		return array_reverse( $res_new );
+            */
         }
         public function FindByTextAndType( $text, $typeid ) {
         	$prototype = New Tag();
