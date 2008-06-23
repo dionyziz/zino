@@ -1081,7 +1081,6 @@
                     `$pmmessageinfolder`
                 WHERE
                     `pmif_userid` = " . $userid . " AND
-                    `pmif_delid` < 2 AND
                     ";
             
             if ( $type < 0 ) {
