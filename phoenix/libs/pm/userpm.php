@@ -16,7 +16,7 @@
                     LEFT JOIN :pmfolders ON
                         `pmif_folderid` = `pmfolder_id`
                     LEFT JOIN :users ON
-                        `pmif_userid` = `user_id`
+                        `pmfolder_userid` = `user_id`
                 WHERE
                     `pmif_pmid` = :pmid AND
                     `pmfolder_typeid` != :typeid
