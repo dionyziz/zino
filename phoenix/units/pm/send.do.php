@@ -11,6 +11,12 @@
         $finder = New UserFinder();
         $userreceivers = $finder->FindByNames( $test );
 
+        foreach ( $userreceivers as $key => $receiver ) {
+            if ( $receiver->Id == $user->Id ) {
+                unset( $userreceivers[ $key ] );
+            }
+        }
+
         if ( empty( $userreceivers ) ) {
             ?>alert('Δεν έχεις ορίσει κάποιον έγκυρο παραλήπτη');<?php
         }

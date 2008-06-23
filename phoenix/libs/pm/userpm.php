@@ -65,6 +65,9 @@
     class UserPM extends Satori {
         protected $mDbTableAlias = 'pmmessageinfolder';
 
+        public function IsSender( User $user ) {
+            return $this->PM->Senderid = $user->Id;
+        }
         public function IsRead() {
             return $this->Delid == USERPM_READ;
         }
