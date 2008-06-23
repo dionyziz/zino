@@ -1131,9 +1131,8 @@
 
 
     function MigratePMInbox() {
-        if ( $offset == 0 ) {
-            ?>TRUNCATE TABLE `pmmessageinfolder`;<?php
-        }
+        ?>TRUNCATE TABLE `pmmessageinfolder`;<?php
+
         MigratePMFolder( -1 );
     }
 
