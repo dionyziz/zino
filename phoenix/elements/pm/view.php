@@ -72,13 +72,9 @@
                 else if ( is_array( $pmuser ) ) { /* one receiver, no need for array */
                     // w_assert( isset( $pmuser[ 0 ] ) );
 
-                    if ( isset( $pmuser[ 0 ] ) ) {
-                        $pmuser = $pmuser[ 0 ];
-                        w_assert( is_object( $pmuser ) );
-                    }
-                    else { // TODO: BUG
-                        $pmuser = $pm->Sender;
-                    }
+                    w_assert( isset( $pmuser[ 0 ] ) );
+                    $pmuser = $pmuser[ 0 ];
+                    w_assert( is_object( $pmuser ) );
                 }
                 if ( !is_array( $pmuser ) ) { /* sender or one receiver */
                     w_assert( is_object( $pmuser ) );
