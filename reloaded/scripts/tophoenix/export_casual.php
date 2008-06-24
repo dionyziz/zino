@@ -705,7 +705,7 @@
                 SELECT
                     `pmfolder_userid` AS userid, COUNT(*) AS countunreadpms
                 FROM
-                    `pmmessageinfolder` LEFT JOIN `pmfolders`
+                    `pmmessageinfolder` CROSS JOIN `pmfolders`
                         ON `pmif_folderid` = `pmfolder_id`
                 WHERE
                     `pmif_delid` = '0'
@@ -1110,6 +1110,13 @@
                 ?>INSERT INTO `pmmessageinfolder` ( `pmif_pmid`, `pmif_folderid`, `pmif_delid` ) VALUES <?php
 
                 while ( $row = $res->FetchArray() ) {
+                    if ( $type == -2 ) {
+                        $delid = 1; // pms are read if they are on your outbox
+                    }
+                    else {
+                        $delid = $row[ 'pmif_delid' ];
+                    }
+
                     if ( $first ) {
                         $first = false;
                     }
@@ -1131,7 +1138,7 @@
                     ?>, <?php
                     echo $folderid;
                     ?>, <?php
-                    echo $row[ 'pmif_delid' ];
+                    echo $delid;
                     ?> ) <?php
                 }
 
@@ -1183,46 +1190,46 @@
             MigrateShouts( $offset, $test );
             break;
         case 6:
-            MigrateCounts();
-            break;
-        case 7:
             MigrateComments( $offset, $test );
             break;
-        case 8:
+        case 7:
             MigrateJournals();
             break;
-        case 9:
+        case 8:
             MigrateSpaces();
             break;
-        case 10:
+        case 9:
             MigrateTags();
             break;
-        case 11:
+        case 10:
             MigrateRelations();
             break;
-        case 12:
+        case 11:
             MigrateQuestions();
             break;
-        case 13:
+        case 12:
 			MigrateAnswers();
             break;
-        case 14:
+        case 13:
             MigratePMFolders();
             break;
-		case 15:
+		case 14:
             MigratePMMessages();
             break;
-        case 16:
+        case 15:
             MigratePMInbox();
             break;
-        case 17:
+        case 16:
             MigratePMOutbox();
             break;
-        case 18:
+        case 17:
             MigratePMOther();
             break;
-        case 19:
+        case 18:
             MigrateEgoAlbums();
+            break;
+        case 19:
+            MigrateCounts();
             break;
     }
 
