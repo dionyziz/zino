@@ -16,7 +16,7 @@
                     LEFT JOIN :pmfolders ON
                         `pmif_folderid` = `pmfolder_id`
                     LEFT JOIN :pmmessages ON
-                        `pmif_id` = `pm_id`
+                        `pmif_pmid` = `pm_id`
                     LEFT JOIN :users ON
                         `pmfolder_userid` = `user_id`
                 WHERE
