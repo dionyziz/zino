@@ -701,10 +701,22 @@
                 GROUP BY
                     `journal_userid`
             ) AS tmp2 ON `count_userid` = tmp2.userid
+            LEFT JOIN (
+                SELECT
+                    `pmfolder_userid` AS userid, COUNT(*) AS countunreadpms
+                FROM
+                    `pmmessageinfolder` LEFT JOIN `pmfolders`
+                        ON `pmif_folderid` = `pmfolder_id`
+                WHERE
+                    `pmif_delid` = '0'
+                GROUP BY
+                    `pmfolder_userid`
+            ) AS tmp3 ON `count_userid` = tmp3.userid
         SET
             `usercounts`.`count_polls`=tmp.countpolls,
             `usercounts`.`count_albums`=tmp1.countalbums,
-            `usercounts`.`count_journals`=tmp2.countjournals;
+            `usercounts`.`count_journals`=tmp2.countjournals,
+            `usercounts`.`count_unreadpms`=tmp3.countunreadpms;
         <?php
     }
 
