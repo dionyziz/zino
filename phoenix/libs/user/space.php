@@ -13,8 +13,9 @@
                 return $text;
             }
             else {
-                $text = preg_replace( "#<[^>]*?>#", "", $text ); // strip all tags
-                return mb_substr( $text, 0, $length );
+                $text = htmlspecialchars_decode( strip_tags( $text ) );
+                $text = mb_substr( $text, 0, $length );
+                return htmlspecialchars( $text );
             }
         }
         public function SetText( $value ) {
