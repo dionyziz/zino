@@ -152,7 +152,7 @@
             $this->mUser = New User();
             $this->mUser->Name = 'testquestions';
             $this->mUser->Subdomain = 'testquestions';
-            $this->mUser->Egoalbumid = 1;
+            $this->mUser->Egoalbumid = 100000;
             $this->mUser->Save();            
             
             $ufinder = New UserFinder();
@@ -164,7 +164,7 @@
             $this->mUser2 = New User();
             $this->mUser2->Name = 'testquestions2';
             $this->mUser2->Subdomain = 'testquestions2';
-            $this->mUser2->Egoalbumid = 2;
+            $this->mUser2->Egoalbumid = 100001;
             $this->mUser2->Save();            
         }
         
