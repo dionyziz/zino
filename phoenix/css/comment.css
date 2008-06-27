@@ -32,9 +32,7 @@ div.comment div.toolbox a {
 	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
 	padding-left: 16px;	
-	/* Gatoni*/
 	padding-bottom: 2px;
-	/* till here */
 	margin-left: 5px;
 }
 div.comment div.who img.avatar {
