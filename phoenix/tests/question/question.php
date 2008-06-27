@@ -152,6 +152,7 @@
             $this->mUser = New User();
             $this->mUser->Name = 'testquestions';
             $this->mUser->Subdomain = 'testquestions';
+            $this->mUser->Egoalbumid = 1;
             $this->mUser->Save();            
             
             $ufinder = New UserFinder();
@@ -163,13 +164,11 @@
             $this->mUser2 = New User();
             $this->mUser2->Name = 'testquestions2';
             $this->mUser2->Subdomain = 'testquestions2';
+            $this->mUser2->Egoalbumid = 2;
             $this->mUser2->Save();            
-            
-            
         }
         
         public function TearDown() {
-            
             if ( is_object( $this->mUser ) ) {
                 $this->mUser->Delete();
             }
