@@ -90,7 +90,7 @@
             'pms'               => 'pm/list',
             'shoutbox'          => 'shoutbox/list',
             'questions'			=> 'question/list',
-            'answers'           => 'answer/list',
+            'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
 
     	);
