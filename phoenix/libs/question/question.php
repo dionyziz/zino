@@ -33,7 +33,7 @@
                 LEFT JOIN :answers 
                     ON question_id = answer_questionid AND answer_userid = :userid 
                 WHERE
-                    answer_userid = NULL
+                    answer_userid IS NULL
                 ORDER BY RAND()
                 LIMIT :limit;
 			');
