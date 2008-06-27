@@ -1,6 +1,6 @@
 var Questions = {
     Answer: function() {
-        var answerText = $( 'form#newanswer input' )[ 2 ].value;
+        var answerText = $( 'form#newanswer input' )[ 1 ].value;
         var questionText = $(  'div.newquestion p.question' )[ 0 ].innerText; 
 
         Coala.Warm( 'question/answer/new', {
