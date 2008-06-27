@@ -104,6 +104,8 @@
         }
         
         public function TestFindNewQuestion() {
+            $this->mUser->Count->Numcomments = 10;
+
             $q = New Question();
             $q->Userid = $this->mUser->Id;
             $q->Text = 'TestQuestionWhat?';
@@ -131,10 +133,6 @@
             
             $this->Assert( !is_object( $question ), 'Question return by QuestionFinder::FindNewQuestion is not an object' );
             //$this->AssertFalse( $question->IsDeleted(), 'Question must not be deleted' );    
-            
-            // Answer should not exist for $question
-            $answer = New Answer( $this->mUser->Id, $question->Id );
-            $this->AssertFalse( $answer->Exists(), 'Question must not have an answer' );
         }
 
 
