@@ -45,10 +45,14 @@
             $finder = New QuestionFinder();
             $question = $finder->FindNewQuestion( $theuser );
             if ( $question !== false ) {
-                ?><div class="newquestion"><?php
-                echo $question->Id;
+                ?><div class="newquestion">
+                <p class="question"><?php
                 echo htmlspecialchars( $question->Text );
-                ?></div><?php
+                ?></p>
+                <p class="answer"><form>
+                    <input type="text" id="newanswer" />
+                </form></p>
+                </div><?php
             }
         }
 
