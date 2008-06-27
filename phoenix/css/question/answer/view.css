@@ -25,11 +25,13 @@ div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
 	margin: 0;
 }
 div#answers div.newquestion {
-    padding: 5px;
+    padding: 10px;
+    border: 1px #666 solid;
     background-color: #f6f6f6;
 }
 div#answers div.newquestion form input {
     width: 250px;
+    margin: 5px;
 }
 div#answers div.questions a.button {
 	margin-left: 0;
