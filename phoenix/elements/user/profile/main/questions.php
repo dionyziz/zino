@@ -8,7 +8,9 @@
             if ( $theuser->Id == $user->Id ) {
                 ?>Δεν έχεις απαντήσει σε κάποια ερώτηση.<br />
                 
-                <a href="questions" class="button">Απάντησε σε μία ερώτηση</a><?php
+                <a href="<?php
+                Element( 'user/url', $theuser );
+                ?>questions" class="button">Απάντησε σε μία ερώτηση</a><?php
             }
         }
         else {
@@ -18,7 +20,9 @@
                 Element( 'question/answer/view', $answer );
             }
             ?></ul>
-            <a href="questions" class="button">Περισσότερες ερωτήσεις&raquo;</a><?php
+            <a href="<?php
+            Element( 'user/url', $theuser );
+            ?>questions" class="button">Περισσότερες ερωτήσεις&raquo;</a><?php
         }
 	}
 ?>
