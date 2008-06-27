@@ -18,7 +18,7 @@ var Questions = {
         li.appendChild( question );
         li.appendChild( answer );
 
-        $( 'div#answers ul' ).prepend( li );
+        $( 'div#answers ul.questions' ).prepend( li );
     },
 	Create : function() {
 		$( 'form' ).show( 450 );

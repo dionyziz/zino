@@ -63,7 +63,7 @@
             }
         }
 
-        ?><ul><?php
+        ?><ul class="questions"><?php
         foreach ( $answers as $answer ) {
             Element( 'question/answer/view', $answer );
         }
