@@ -104,7 +104,7 @@
         }
         
         public function TestFindNewQuestion() {
-            $this->mUser->Count->Numcomments = 10;
+            $this->mUser->Count->Comments = 10;
 
             $q = New Question();
             $q->Userid = $this->mUser->Id;
