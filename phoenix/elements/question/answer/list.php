@@ -38,6 +38,8 @@
         $answerfinder = New AnswerFinder();
         $answers = $answerfinder->FindByUser( $theuser );
 
+		Element( 'user/sections', 'question' , $theuser );
+
         ?><ul><?php
         foreach ( $answers as $answer ) {
             Element( 'question/answer/view', $answer );
