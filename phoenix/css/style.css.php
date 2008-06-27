@@ -17,7 +17,7 @@
 	include "poll/list.css";
 	include "poll/small.css";
 	include "poll/view.css";
-    include "qusetion/answer/view.css";
+    include "question/answer/view.css";
 	include "user/join.css";
 	include "user/joined.css";
 	include "user/list.css";
