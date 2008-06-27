@@ -41,6 +41,16 @@
         ?><div id="answers"><?php
 		Element( 'user/sections', 'question' , $theuser );
 
+        if ( $theuser->Id == $user->Id ) {
+            $finder = New QuestionFinder();
+            $question = $finder->FindNewQuestion( $this->mUser );
+            if ( $question !== false ) {
+                ?><div class="newquestion"><?php
+                echo $question->Text;
+                ?></div><?php
+            }
+        }
+
         ?><div class="questions"><ul><?php
         foreach ( $answers as $answer ) {
             Element( 'question/answer/view', $answer );
