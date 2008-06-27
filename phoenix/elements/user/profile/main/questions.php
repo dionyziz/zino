@@ -7,7 +7,7 @@
         if ( empty( $answers ) ) {
             if ( $theuser->Id == $user->Id ) {
                 ?>Δεν έχεις απαντήσει σε κάποια ερώτηση.<br />
-                
+                <br />
                 <a href="<?php
                 Element( 'user/url', $theuser );
                 ?>questions" class="button">Απάντησε σε μία ερώτηση</a><?php
@@ -19,7 +19,7 @@
             foreach ( $answers as $answer ) {
                 Element( 'question/answer/view', $answer );
             }
-            ?></ul>
+            ?></ul><br />
             <a href="<?php
             Element( 'user/url', $theuser );
             ?>questions" class="button">Περισσότερες ερωτήσεις&raquo;</a><?php
