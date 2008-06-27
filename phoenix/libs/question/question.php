@@ -26,24 +26,30 @@
 		public function FindRandomByUser( User $user ) { 
 			// This query is awesome, by dionyziz
 			$query = $this->mDb->Prepare('
-			SELECT 
-				* 
-			FROM 
-				:questions
-			LEFT JOIN :answers 
-				ON question_id = answer_questionid AND answer_userid = :userid 
-			WHERE
-				answer_userid = NULL
-			ORDER BY RAND()
-			LIMIT :limit;
+                SELECT 
+                    * 
+                FROM 
+                    :questions
+                LEFT JOIN :answers 
+                    ON question_id = answer_questionid AND answer_userid = :userid 
+                WHERE
+                    answer_userid = NULL
+                ORDER BY RAND()
+                LIMIT :limit;
 			');
+
 			$query->BindTable( 'questions' );
 			$query->BindTable( 'answers' );
 			$query->Bind( 'userid', $user->Id );
 			$query->Bind( 'limit', 1 );
 			
 			$q = $this->FindBySqlResource( $query->Execute() );
-			return $q[0];
+
+            if ( !empty( $q ) ) {
+    			return $q[ 0 ];
+            }
+
+            return false;
 		}
 		
 		public function FindNewQuestion( User $user, $exp = 1.2 ) {
