@@ -43,9 +43,9 @@
 
         if ( $theuser->Id == $user->Id ) {
             $finder = New QuestionFinder();
-            $question = $finder->FindNewQuestion( $this->mUser );
+            $question = $finder->FindNewQuestion( $theuser );
             if ( $question !== false ) {
-                ?><div class="newquestion"><?php
+                ?><div class="answer"><?php
                 echo $question->Text;
                 ?></div><?php
             }
