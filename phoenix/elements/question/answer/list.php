@@ -41,11 +41,11 @@
         ?><div id="answers"><?php
 		Element( 'user/sections', 'question' , $theuser );
 
-        ?><ul><?php
+        ?><div class="questions"><ul><?php
         foreach ( $answers as $answer ) {
             Element( 'question/answer/view', $answer );
         }
-        ?></ul>
+        ?></ul></div>
         
         </div><?php
     }

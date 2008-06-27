@@ -1,29 +1,29 @@
-div#answers div.main div.questions {
+div#answers div.questions {
 	padding-bottom: 20px;
 }
-div#answers div.main div.questions h3 {
+div#answers div.questions h3 {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
-div#answers div.main div.questions ul {
+div#answers div.questions ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	width: 70%;
 }
-div#answers div.main div.questions ul li {
+div#answers div.questions ul li {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
-div#answers div.main div.questions ul li p.question {
+div#answers div.questions ul li p.question {
 	padding: 0 0 2px 0;
 	margin: 0;
 	font-weight: bold;
 }
-div#answers div.main div.questions ul li p.answer {
+div#answers div.questions ul li p.answer {
 	padding: 0;
 	margin: 0;
 }
-div#answers div.main div.questions a.button {
+div#answers div.questions a.button {
 	margin-left: 0;
 }
