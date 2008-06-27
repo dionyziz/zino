@@ -62,6 +62,7 @@
 
 	class Question extends Satori {
 		protected $mDbTableAlias = 'questions';
+		protected $mRealDelete = false;
 		
         public function IsDeleted() {
             return $this->Delid > 0;
@@ -72,9 +73,19 @@
 		}
 		
 		public function OnBeforeDelete() {
+		    if ( $this->mRealDelete ) {
+		        return true;
+		    }
+		    
 			$this->Delid = 1;
             $this->Save();
 			return false; // Avoid database row delete
+		}
+		
+		public function RealDelete() {
+		    $this->mRealDelete = true;
+		    $this->Delete();
+		    $this->mRealDelete = false;
 		}
 		
 		public function LoadDefaults() {
