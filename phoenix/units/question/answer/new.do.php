@@ -15,7 +15,7 @@
         $questionfinder = New QuestionFinder();
         $newquestion = $questionfinder->FindNewQuestion( $user );
         
-        if ( $answer == '' || !$question->Exists() || $newquestion === false ) {
+        if ( $answertext == '' || !$question->Exists() || $newquestion === false ) {
             return;
         }
 
