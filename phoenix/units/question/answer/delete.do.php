@@ -1,5 +1,5 @@
 <?php
-    function UnitQuestionDeletea( tInteger $id, tCoalaPointer $callback ) {
+    function UnitQuestionAnswerDelete( tInteger $id, tCoalaPointer $callback ) {
     	global $user;
         global $libs;
 

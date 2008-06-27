@@ -3,7 +3,7 @@
 		global $page;
 		global $user;
 		global $rabbit_settings;
-		global $water;
+        global $xc_settings;
 		
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
@@ -51,8 +51,13 @@
                 <p class="question"><?php
                 echo htmlspecialchars( $question->Text );
                 ?></p>
-                <p class="answer"><form>
-                    <input type="text" id="newanswer" />
+                <p class="answer"><form id="newanswer">
+                    <input type="hidden" value="<?php
+                    echo $question->Id;
+                    ?>" />
+                    <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>accept.png" /></a>
                 </form></p>
                 </div><?php
             }

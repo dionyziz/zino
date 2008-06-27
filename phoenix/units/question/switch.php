@@ -1,5 +1,5 @@
 <?php
-    function UnitQuestionChangeq( tInteger $id, tCoalaPointer $callback ) {
+    function UnitQuestionSwitch( tInteger $id, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
