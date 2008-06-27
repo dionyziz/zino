@@ -46,7 +46,7 @@
             $question = $finder->FindNewQuestion( $theuser );
             if ( $question !== false ) {
                 ?><div class="newquestion"><?php
-                echo $question->Text;
+                echo htmlspecialchars( $question->Text );
                 ?></div><?php
             }
         }
