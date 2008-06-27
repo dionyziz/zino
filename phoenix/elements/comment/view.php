@@ -16,7 +16,7 @@
 		}
 		?>">
 			<div class="toolbox">
-				<span class="time">πριν <?php
+				<span style="margin-right:<?php echo $indent*20;?>px;" class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
 				if ( ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0 ) {
