@@ -28,6 +28,9 @@ div#answers div.newquestion {
     padding: 5px;
     background-color: #f6f6f6;
 }
+div#answers div.newquestion form input {
+    width: 250px;
+}
 div#answers div.questions a.button {
 	margin-left: 0;
 }
