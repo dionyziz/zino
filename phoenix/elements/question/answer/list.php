@@ -29,10 +29,10 @@
 		}
 		
 		if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
-			$page->SetTitle( $theuser->Name . " Questions" );
+			$page->SetTitle( $theuser->Name . " Ερωτήσεις" );
 		}
 		else {
-			$page->SetTitle( $theuser->Name . " questions" );
+			$page->SetTitle( $theuser->Name . " ερωτήσεις" );
 		}
 
         $answerfinder = New AnswerFinder();
