@@ -3,20 +3,24 @@
 	function ElementCommentView( $comment , $indent , $numchildren ) {
 		global $user;
 		global $libs;
+		global $water;
 		
 		$libs->Load( 'comment' );
-
+		$water->Trace( 'Indent valus is', $indent );
+		
 		?><div id="comment_<?php
 		echo $comment->Id;
 		?>" class="comment" style="border-color:#dee;<?php
 		if ( $indent > 0 ) {
 			?>margin-left:<?php
-			echo $indent*20;
+			echo $indent * 20;
 			?>px;<?php
 		}
 		?>">
 			<div class="toolbox">
-				<span style="margin-right:<?php echo $indent*20;?>px;" class="time">πριν <?php
+				<span style="margin-right:<?php
+				echo $indent * 20;
+				?>px;" class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
 				if ( ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0 ) {
