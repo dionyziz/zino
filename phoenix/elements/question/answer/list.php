@@ -45,7 +45,7 @@
             $finder = New QuestionFinder();
             $question = $finder->FindNewQuestion( $theuser );
             if ( $question !== false ) {
-                ?><div class="answer"><?php
+                ?><div class="newquestion"><?php
                 echo $question->Text;
                 ?></div><?php
             }
