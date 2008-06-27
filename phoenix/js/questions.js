@@ -8,7 +8,7 @@ var Questions = {
             'answertext': answerText
         } );
 
-        var li = documenet.createElement( 'li' );
+        var li = document.createElement( 'li' );
         var question = document.createElement( 'p' );
         var answer = document.createElement( 'p' );
         question.className = 'question';
