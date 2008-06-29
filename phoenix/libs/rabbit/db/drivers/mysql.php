@@ -43,8 +43,11 @@
         public function LastErrorNumber( $driver_link ) {
             return mysql_errno( $driver_link );
         }
-        public function LastError( $driver_link ) {
-            return mysql_error( $driver_link );
+        public function LastError( $driver_link = false ) {
+            if ( $driver_link !== false ) {
+                return mysql_error( $driver_link );
+            }
+            return mysql_error();
         }
         public function NumRows( $driver_resource ) {
             return mysql_num_rows( $driver_resource );

@@ -44,6 +44,9 @@ abstract class Page {
 	final protected function OutputEnd() {
 		echo ob_get_clean();
 	}
+    protected function WaterLink() {
+        // override me
+    }
 	protected function GenerateBody() {
 		global $water;
 		global $elemental;
@@ -81,7 +84,7 @@ abstract class Page {
 		$water->Trace( $libs->CountLoaded() . ' libraries loaded after rendering' );
 	}
     abstract protected function OutputPage();
-	public function Page() {
+	public function __construct() {
         $this->mNaturalLanguage = 'en-US';
         $this->mMainElements = array();
 	}
@@ -121,7 +124,7 @@ class PageHTML extends Page {
     protected $mMeta;
     protected $mFavIcon;
     
-    public function PageHTML() {
+    public function __construct() {
 		$this->mElements      = array();
 		$this->mScripts       = array();
         $this->mScriptsInline = array();
@@ -129,7 +132,7 @@ class PageHTML extends Page {
         $this->mMeta          = array();
         $this->mFavIcon       = false;
 		$this->CheckXML();
-        $this->Page();
+        parent::__construct();
     }
     public function XMLStrict() {
         return $this->mSupportsXML;
@@ -283,7 +286,7 @@ class PageHTML extends Page {
 		if ( !isset( $this->mStylesheets[ $filename ] ) ) {
 			$water->Trace( 'Loading stylesheet ' . $filename );
 			$this->mStylesheets[ $filename ] = array(
-                'filename' => $filename,
+                'FILENAME' => $filename,
                 'ieversion' => $ieversion
             );
             if ( count( $this->mStylesheets ) > 30 ) {
@@ -414,14 +417,24 @@ final class PageDOMElement extends PageDOMEntity {
     }
 }
 
+final class PagePlain extends Page {
+    public function __construct() {
+    }
+    protected function OutputPage() {
+        echo $this->mBody;
+    }
+	protected function WaterLink() {
+	}
+}
+
 final class PageCoala extends Page {
-    public function PageCoala() {
+    public function __construct() {
         global $coala;
         global $libs;
         
         $coala = $libs->Load( 'rabbit/coala' );
         
-        $this->Page();
+        parent::__construct();
     }
     public function Output() {
         $this->GenerateBody();
@@ -463,12 +476,12 @@ final class PageCoala extends Page {
 }
 
 final class PageAction extends Page {
-    public function PageAction() {
+    public function __construct() {
         global $actions;
         global $libs;
         
         $actions = $libs->Load( 'rabbit/action' );
-        $this->Page();
+        parent::__construct();
     }
     public function Output() {
         $this->GenerateBody();

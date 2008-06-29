@@ -8,7 +8,13 @@
         (in accordance to .htaccess)
         Use ?version to force reload, e.g. /static/folder/file?43
     */
-    
+
+    set_include_path( '../' . PATH_SEPARATOR . './' );
+
+    include 'libs/rabbit/rabbit.php';
+
+    Rabbit_Construct( 'empty' );
+
     if ( !isset( $_GET[ 'file' ] ) ) {
         header( 'HTTP/1.1 403 Forbidden' );
         return;
@@ -64,4 +70,6 @@
         }
         echo $contents;
     }
+    
+    Rabbit_Destruct();
 ?>

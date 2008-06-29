@@ -14,7 +14,7 @@
         // retrieves the last error number
         public function LastErrorNumber( $link );
         // retrieves the last error message as a user-friendly string
-        public function LastError( $link );
+        public function LastError( $link = false );
         // retrieves the number of rows in the resultset identified by passed resource
         public function NumRows( $driver_resource );
         // retrieves the number of fields in the resultset identified by passed resource

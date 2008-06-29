@@ -31,33 +31,29 @@
 			$this->mLastElement = $elementpath;
 			if ( !isset( $this->mIncluded[ $elementpath ] ) ) {
                 ob_start();
-                $ret = Rabbit_Include( 'elements/' . $elementpath );
+                $ret = Rabbit_Include( 'elements/' . $elementpath ); // throws RabbitIncludeException
                 $out = ob_get_clean();
                 
                 if ( strlen( $out ) ) {
-                    $this->mWater->Warning( 'Non-functional element output: ' . $elementpath );
+                    throw New Exception( 'Non-functional element output: ' . $elementpath );
                 }
                 
                 $this->mIncluded[ $elementpath ] = true;
 			}
 			if ( !$this->mIncluded[ $elementpath ] ) {
-    	        $this->mWater->Notice( 'Element doesn\'t exist: ' . $elementpath );
-				return false;
+    	        throw New Exception( 'Element doesn\'t exist: ' . $elementpath );
 			}
             return true;
         }
         public function GetFunction( $elementpath ) {
-            if ( !$this->IncludeFile( $elementpath ) ) {
-                return false;
-            }
+            $this->IncludeFile( $elementpath );
 			$functionname = 'Element' . str_replace( '/' , '' , $elementpath );
 			if ( function_exists( $functionname ) ) {
                 return $functionname;
             }
             $functions = get_defined_functions();
             $functions = $functions[ 'user' ];
-            $this->mWater->Warning( 'Element is not functional: ' . $elementpath . '; expected function "' . $functionname . '" (last defined: "' . $functions[ count( $functions ) - 1 ] . '")' );
-            return false;
+            throw New Exception( 'Element is not functional: ' . $elementpath . '; expected function "' . $functionname . '" (last defined: "' . $functions[ count( $functions ) - 1 ] . '")' );
         }
         public function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
 	        w_assert( func_num_args() );
@@ -79,8 +75,7 @@
     		$pagesmap = Project_PagesMap(); // Gets an array with the actual filenames on the server
             
             if ( !isset( $pagesmap[ $this->mMasterElementAlias ] ) ) {
-                $this->mWater->Notice( 'Requested master element alias is not defined in pagesmap: ' . $this->mMasterElementAlias );
-                return false; // not a master element
+                throw New Exception( 'Requested master element alias is not defined in pagesmap: ' . $this->mMasterElementAlias );
             }
             
             $master = $pagesmap[ $this->mMasterElementAlias ];
@@ -93,9 +88,6 @@
             }
             
             $functionname = $this->GetFunction( $elementid );
-            if ( $functionname === false ) {
-                return false;
-            }
             $this->mWater->Profile( 'Render Element ' . $elementid );
             $ret = Rabbit_TypeSafe_Call( $functionname , $this->mMainReq );
             $this->mWater->ProfileEnd();

@@ -14,13 +14,7 @@
         $filename = $rabbit_settings[ 'rootdir' ] . '/' . $filename;
         
         // apply masking and check for existance
-        try {
-            $maskres = Mask( $filename , !$rabbit_settings[ 'production' ] );
-        }
-        catch ( RabbitIncludeException $e ) {
-            $water->Warning( 'Rabbit_Include failed: ' . $e->getMessage() );
-            return false;
-        }
+        $maskres = Mask( $filename , !$rabbit_settings[ 'production' ] );
         
         // include and pass the return value up the callchain
         return Rabbit_IncludeReal( $maskres[ 'realpath' ] );
