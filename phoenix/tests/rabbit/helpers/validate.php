@@ -30,10 +30,10 @@
             $this->AssertFalse( ValidEmail( 'bob@kamibu-.com' ), 'ValidEmail matched a domain ending in a -' );
             $this->AssertFalse( ValidEmail( 'bob@rabbit.-kamibu-.com' ), 'ValidEmail matched a domain wrapped in -' );
             $this->Assert( ValidEmail( 'admin@192.168.0.1' ), 'ValidEmail must match an IP address domain' );
-            $this->AssertFalse( ValidEmail( 'admin@192.168.00.1' ), 'ValidEmail must not match invalid IP addresses' );
+            $this->AssertFalse( ValidEmail( 'admin@192.168.00.1' ), 'ValidEmail must not match invalid IP addresses (00)' );
             $this->AssertFalse( ValidEmail( 'admin@0.0.0.0' ), 'ValidEmail must not match the invalid IP address 0.0.0.0' );
-            $this->Assert( ValidEmail( 'bob@127.0.0.1' ), 'ValidEmail must match valid IP addresses' );
-            $this->Assert( ValidEmail( 'robert@87.12.39.255' ), 'ValidEmail must match valid IP addresses' );
+            $this->Assert( ValidEmail( 'bob@127.0.0.1' ), 'ValidEmail must match valid IP addresses (127.0.0.1)' );
+            $this->Assert( ValidEmail( 'robert@87.12.39.255' ), 'ValidEmail must match valid IP addresses (87.12.39.255)' );
         }
     }
 
