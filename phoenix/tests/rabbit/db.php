@@ -23,7 +23,7 @@
         public function LastErrorNumber( $link ) {
             return 0;
         }
-        public function LastError( $link ) {
+        public function LastError( $link = false ) {
             return 'dberror';
         }
         public function NumRows( $driver_resource ) {
