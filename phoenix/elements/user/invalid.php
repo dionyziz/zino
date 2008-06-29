@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
     function ElementUserInvalid() {
         global $user;
