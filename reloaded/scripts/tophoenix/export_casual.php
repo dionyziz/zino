@@ -726,7 +726,7 @@
                     `answers`
                 GROUP BY
                     `answer_userid`
-            ) AS tmp5 ON `answer_userid` = tmp5.userid
+            ) AS tmp5 ON `count_userid` = tmp5.userid
         SET
             `usercounts`.`count_polls`=tmp.countpolls,
             `usercounts`.`count_albums`=tmp1.countalbums,
