@@ -34,7 +34,6 @@
         $outbox = $finder->FindByUserAndType( $user, PMFOLDER_OUTBOX );
 
     	?>
-        alert( 'folder_4114' + document.getElementById( 'folder_4114' ) );  	
     	pms.ShowFolderPm( document.getElementById( 'folder_<?php
     	echo $outbox->Id;
     	?>' ), <?php
