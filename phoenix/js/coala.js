@@ -47,7 +47,9 @@ var Coala = {
 		);
 	},
 	Commit: function () {
+        alert( 'Coala.Commit: Starting' );
 		if ( Coala.ThreadedRequests.length === 0 ) {
+            alert( 'Coala.Commit: Nothing to commit' );
 			// nothing to commit
 			return;
 		}
@@ -109,6 +111,7 @@ var Coala = {
 			method = 'get';
 		}
 		request.ids = ids.join( ':' );
+        alert( 'Coala.Commit: Placing request' );
 		this._PlaceRequest( request, method, failurecallbacks );
 		Coala.ThreadedRequests = [];
 	},
