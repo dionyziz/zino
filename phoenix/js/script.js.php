@@ -23,7 +23,7 @@
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
-	//include "pm.js";
+	include "pm.js";
 	//include "frontpage.js";
     //include "moodpicker.js";
 	include "settings.js";
