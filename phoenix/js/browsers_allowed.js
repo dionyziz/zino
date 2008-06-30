@@ -1,4 +1,5 @@
 $( document ).ready( function() {
+	alert( window.location.href.substr( 30 ) );
 	if ( window.location.href.substr( 30 ) != "p=ie" ) {
 		return;
 	}
