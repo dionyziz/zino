@@ -31,6 +31,7 @@ div.comment div.toolbox img {
 div.comment div.toolbox a {
 	/*background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: repeat;*/
+	z-index: 5;
 	position: relative;
 	left: 0px;
 	top: 0px;
