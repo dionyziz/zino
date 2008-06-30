@@ -33,10 +33,10 @@
 					foreach ( $hobbies as $hobbie ) {
 						?><li>
 							<div class="aplbubble">
-								<!--<img src="<?php
+								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_left.png" />-->
-								<span><?php
+								?>aplbubble_left.png" />
+								<span style="z-index: 1;"><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
