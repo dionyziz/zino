@@ -186,7 +186,6 @@ var Coala = {
 		
 		// main connect function, used to perform an XMLHTTP request
 		this.connect = function( sURL , sMethod , sVars , fnDone ) {
-            alert( 'Sending AJAX request: ' + sURL );
 			// if we don't have an xmlhttp object there's no point in requesting anything
 			if ( !xh ) {
 				// just return false
@@ -197,6 +196,8 @@ var Coala = {
 			// make sure the method is uppercase ("GET" or "POST")
 			sMethod = sMethod.toUpperCase();
 			
+            alert( 'Trying to send requset' );
+            
 			// just to make sure no errors occur
 			try {
 				// if it's a GET method
@@ -260,6 +261,7 @@ var Coala = {
 		
 		// no xmlhttp object was created, the constructor should return null
 		if ( !xh ) {
+            alert( 'Failed to create XMLHTTP object; check your browser?' );
 			return null;
         }
 		
