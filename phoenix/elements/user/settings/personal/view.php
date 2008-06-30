@@ -38,7 +38,7 @@
 		<div class="option">
 			<label for="place">Περιοχή:</label>
 			<div class="setting" id="place"><?php
-				//Element( 'user/settings/personal/place' );
+				Element( 'user/settings/personal/place' );
 			?></div>
 		</div>
 		<div class="barfade">
