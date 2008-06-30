@@ -33,9 +33,9 @@
 					foreach ( $hobbies as $hobbie ) {
 						?><li>
 							<div class="aplbubble">
-								<img src="<?php
+								<!--<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_left.png" />
+								?>aplbubble_left.png" />-->
 								<span><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
