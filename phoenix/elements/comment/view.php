@@ -13,20 +13,17 @@
 		echo $comment->Id;
 		?>" class="comment" style="border-color:#dee;<?php
 		if ( $indent > 0 ) {
-			if ( !$deletable ) {
-				?>margin-left:<?php
-				echo $indent * 20;
-				?>px;<?php
-			}
+			?>margin-left:<?php
+			echo $indent * 20;
+			?>px;<?php
 		}
 		?>">
 			<div class="toolbox">
 				<span style="margin-right:<?php
-				if ( $deletable ) {
-					echo "0";
-				}
-				else {
+				if( !$deletable ) {
 					echo $indent * 20;
+				} else {
+					echo "0";
 				}
 				?>px;" class="time">πριν <?php
 				echo $comment->Since;
@@ -34,7 +31,8 @@
 				if ( $deletable ) {
 					?><a href="" style="margin-right:<?php
 						echo $indent * 20;
-					?>px;" onclick="Comments.Delete( <?php
+					?>px;"
+					onclick="Comments.Delete( <?php
 					echo $comment->Id;
 					?> );return false;" title="Διαγραφή"></a><?php
 				}
