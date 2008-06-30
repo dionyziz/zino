@@ -224,7 +224,8 @@ var Coala = {
 					}
 				};
 				// okay, after we've set up everything, we can safely send the request
-				xh.send(sVars);
+                alert( 'Sending Coala variables: ' + sVars );
+				xh.send( sVars );
 			}
 			catch ( z ) { 
 				// woops, something went wrong
