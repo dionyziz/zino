@@ -29,8 +29,7 @@ div.comment div.toolbox img {
 	vertical-align: text-bottom;
 }
 div.comment div.toolbox a {
-	background-image: url( 'http://static.zino.gr/phoenix/delete.jpg' );
-	/*background-image: url( 'http://static.zino.gr/phoenix/delete.jpg' );*/
+	background-image: url( 'http://static.zino.gr/phoenix/delete.png' );
 	background-repeat: no-repeat;
 	padding-left: 16px;	
 	padding-bottom: 2px;
