@@ -109,7 +109,6 @@ var Coala = {
 			method = 'get';
 		}
 		request.ids = ids.join( ':' );
-        alert( 'Coala placing request ' + request + ' ' + method );
 		this._PlaceRequest( request, method, failurecallbacks );
 		Coala.ThreadedRequests = [];
 	},
@@ -126,6 +125,7 @@ var Coala = {
 		for ( parameter in request ) {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
+        alert( realparameters.join( '&' ) );
 		Socket.connect( this.BaseURL + "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
             Coala._Callback( xh, failurecallbacks );
         } );
