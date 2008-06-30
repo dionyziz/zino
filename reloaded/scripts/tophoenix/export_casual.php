@@ -447,14 +447,12 @@
         
         UPDATE
             `albums`
-                CROSS JOIN `images` AS a ON `album_id`=`image_id`
-                LEFT JOIN `images` AS b ON a.`image_id`<b.`image_id`
+                LEFT JOIN `images` ON `album_id`=`image_id`
         SET
-            `album_mainimageid`=a.`image_id`
+            `album_mainimageid`=`image_id`
         WHERE
             `album_mainimageid`=0
-            AND b.`image_id` IS NULL;
-
+            
         <?php
         // set avatars to the mainimages of the egoalbums (cross join ensures only users WITH egoalbums are updated)
         ?>
