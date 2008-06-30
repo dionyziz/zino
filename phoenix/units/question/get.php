@@ -5,7 +5,7 @@
         
         $excludeid = $excludeid->Get();
         
-        $libs->Load( 'question' );
+        $libs->Load( 'question/question' );
         
         $questionfinder = New QuestionFinder();
         $question = $questionfinder->FindRandomByUser( $user );
