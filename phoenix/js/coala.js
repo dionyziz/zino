@@ -208,7 +208,7 @@ var Coala = {
 					sVars = "";
 				}
 				else {
-                    alert( 'Coala._AJAXSocket.connect: In POST: ' + sMethod + ' ; ' + sURL );
+                    alert( 'Coala._AJAXSocket.connect: In POST: ' + sMethod + ' ; ' + sURL   );
 					// do a request in the same manner
 					xh.open( sMethod, sURL, true );
                     alert( 'Coala._AJAXSocket.connect: Opened' );
@@ -236,7 +236,7 @@ var Coala = {
 			}
 			catch ( z ) { 
 				// woops, something went wrong
-                alert( 'Something went wrong during a Coala request: ' + err.description );
+                alert( 'Something went wrong during a Coala request: ' + z.description );
 				return false; 
 			}
             alert( 'Coala: everything OK' );
