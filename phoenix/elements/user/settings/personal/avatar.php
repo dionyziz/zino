@@ -12,10 +12,12 @@
 		<div class="avatarlist" id="avatarlist">
 			<h3>Επέλεξε μια φωτογραφία</h3>
 			<div class="uploaddiv">
+				<?php /*
 				<object data="?p=upload&amp;albumid=<?php
 				echo $user->Egoalbumid;
 				?>&amp;typeid=1" class="uploadframe" id="uploadframe" type="text/html">
 				</object>
+				*/ ?>
 			</div><?php
 			$egoalbum = New Album( $user->Egoalbumid );
 			$finder = New ImageFinder();
@@ -24,7 +26,7 @@
 				$images = $finder->FindByAlbum( $egoalbum , 0 , $egoalbum->Numphotos );
 				foreach ( $images as $image ) {	
 					?><li><?php
-					//Element( 'user/settings/personal/photosmall' , $image );
+					Element( 'user/settings/personal/photosmall' , $image );
 					?></li><?php
 				}
 			}
