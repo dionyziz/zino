@@ -35,7 +35,7 @@
 
     	?>pms.ShowFolderPm( $( '#folder_<?php
     	echo $outbox->Id; 
-    	?>' ), <?php
+    	?>' )[ 0 ], <?php
         echo $outbox->Id;
         ?> );<?php
     }
