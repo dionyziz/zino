@@ -125,7 +125,6 @@ var Coala = {
 		for ( parameter in request ) {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
-        alert( realparameters.join( '&' ) );
 		Socket.connect( this.BaseURL + "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
             Coala._Callback( xh, failurecallbacks );
         } );
@@ -187,6 +186,7 @@ var Coala = {
 		
 		// main connect function, used to perform an XMLHTTP request
 		this.connect = function( sURL , sMethod , sVars , fnDone ) {
+            alert( 'Sending AJAX request: ' + sURL );
 			// if we don't have an xmlhttp object there's no point in requesting anything
 			if ( !xh ) {
 				// just return false
