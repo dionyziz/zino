@@ -49,9 +49,7 @@ var Coala = {
 		);
 	},
 	Commit: function () {
-        alert( 'Coala.Commit: Starting' );
 		if ( Coala.ThreadedRequests.length === 0 ) {
-            alert( 'Coala.Commit: Nothing to commit' );
 			// nothing to commit
 			return;
 		}
@@ -113,12 +111,10 @@ var Coala = {
 			method = 'get';
 		}
 		request.ids = ids.join( ':' );
-        alert( 'Coala.Commit: Placing request' );
 		this._PlaceRequest( request, method, failurecallbacks );
 		Coala.ThreadedRequests = [];
 	},
 	_PlaceRequest: function ( request, method, failurecallbacks ) {
-        alert( 'Coala._PlaceRequest called' );
 		if ( request === null ) {
 			request = {};
 		}
@@ -204,7 +200,7 @@ var Coala = {
 			
 			// just to make sure no errors occur
 			try {
-                alert( 'Performing ' + sMethod + ' AJAX request' );
+                alert( 'Coala._AJAXSocket.connect: Performing ' + sMethod + ' AJAX request' );
 				// if it's a GET method
 				if ( sMethod == "GET" ) {
 					// do a simple request
@@ -212,12 +208,16 @@ var Coala = {
 					sVars = "";
 				}
 				else {
+                    alert( 'Coala._AJAXSocket.connect: In POST' );
 					// do a request in the same manner
 					xh.open( sMethod, sURL, true );
+                    alert( 'Coala._AJAXSocket.connect: Opened' );
 					// and add the variables to the HTTP header
 					xh.setRequestHeader( "Method", "POST " + sURL + " HTTP/1.1" );
+                    alert( 'Coala._AJAXSocket.connect: Set method' );
 					xh.setRequestHeader( "Content-Type",
 						"application/x-www-form-urlencoded" );
+                    alert( 'Coala._AJAXSocket.connect: Set content-type' );
 				}
                 alert( 'Coala: Setting onreadystatechange' );
 				// use the onreadystatechange callback method of the xmlhttp object
