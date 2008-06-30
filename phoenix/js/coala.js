@@ -236,7 +236,7 @@ var Coala = {
 			}
 			catch ( z ) { 
 				// woops, something went wrong
-                alert( 'Something went wrong during a Coala request: ' + z.message );
+                alert( 'Something went wrong during a Coala request: ' + z );
 				return false; 
 			}
             alert( 'Coala: everything OK' );
