@@ -713,11 +713,29 @@
                 GROUP BY
                     `pmfolder_userid`
             ) AS tmp3 ON `count_userid` = tmp3.userid
+            LEFT JOIN (
+                SELECT
+                    `relation_userid` AS userid, COUNT(*) AS countrelations
+                FROM
+                    `relations`
+                GROUP BY
+                    `relation_userid`
+            ) AS tmp4 ON `relation_userid` = tmp4.userid
+            LEFT JOIN (
+                SELECT
+                    `answer_userid` AS userid, COUNT(*) AS countanswers
+                FROM
+                    `answers`
+                GROUP BY
+                    `answer_userid`
+            ) AS tmp5 ON `answer_userid` = tmp5.userid
         SET
             `usercounts`.`count_polls`=tmp.countpolls,
             `usercounts`.`count_albums`=tmp1.countalbums,
             `usercounts`.`count_journals`=tmp2.countjournals,
-            `usercounts`.`count_unreadpms`=tmp3.countunreadpms;
+            `usercounts`.`count_unreadpms`=tmp3.countunreadpms,
+            `usercounts`.`count_relations`=tmp4.countrelations,
+            `usercounts`.`count_answers`=tmp5.countanswers;
         <?php
     }
 
