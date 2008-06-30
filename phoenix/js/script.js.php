@@ -23,9 +23,9 @@
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
-	include "pm.js";
-	//include "frontpage.js";
-    //include "moodpicker.js";
+	//include "pm.js";
+	include "frontpage.js";
+    include "moodpicker.js";
 	include "settings.js";
 	include "types.js";
     include "questions.js";
