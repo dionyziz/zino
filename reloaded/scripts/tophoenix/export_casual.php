@@ -144,27 +144,27 @@
         switch ( mb_strtolower( $c, 'UTF-8' ) ) {
             case 'α': case 'ά': return 'a';
             case 'β': return 'b';
-            case 'γ': return 'b';
-            case 'δ': return 'b';
+            case 'γ': return 'g';
+            case 'δ': return 'd';
             case 'ε': case 'έ': return 'e';
-            case 'ζ': return 'b';
+            case 'ζ': return 'z';
             case 'η': case 'ή': return 'i';
-            case 'θ': return 'b';
+            case 'θ': return 'th';
             case 'ι': case 'ί': return 'i';
-            case 'κ': return 'b';
-            case 'λ': return 'b';
-            case 'μ': return 'b';
-            case 'ν': return 'b';
-            case 'ξ': return 'b';
+            case 'κ': return 'k';
+            case 'λ': return 'l';
+            case 'μ': return 'm';
+            case 'ν': return 'n';
+            case 'ξ': return 'ks';
             case 'ο': case 'ό': return 'o';
-            case 'π': return 'b';
-            case 'ρ': return 'b';
-            case 'σ': return 'b';
-            case 'τ': return 'b';
+            case 'π': return 'p';
+            case 'ρ': return 'r';
+            case 'σ': return 's';
+            case 'τ': return 't';
             case 'υ': case 'ύ': return 'i';
-            case 'φ': return 'b';
-            case 'χ': return 'b';
-            case 'ψ': return 'b';
+            case 'φ': return 'f';
+            case 'χ': return 'x';
+            case 'ψ': return 'ps';
             case 'ω': case 'ώ': return 'o';
         }
     }
