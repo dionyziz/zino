@@ -1,6 +1,5 @@
 $( document ).ready( function() {
-	alert( $.browser.msie + " " + $.version );
-	if ( $.browser.msie && $.version < 7 ) {
+	if ( $.browser.msie && $.browser.version < 7 ) {
 		window.location.href = "?p=ie";
 	}
 } );
