@@ -1,5 +1,5 @@
 $( document ).ready( function() {
-	alert( "Trexo" );
+	alert( $.browser.msie + " " + $.version );
 	if ( $.browser.msie && $.version < 7 ) {
 		window.location.href = "?p=ie";
 	}
