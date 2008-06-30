@@ -106,7 +106,7 @@ div.ybubble i.bl {
 div.ybubble i.br {
     background-image: url( 'http://static.zino.gr/phoenix/s_br.png' );
 	position: relative;
-	left: 100px;
+	left: 80%;
 }
 div.ybubble form {
     text-align: center;
