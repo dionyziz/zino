@@ -9,7 +9,7 @@
 	include "trivial/dates.js";
 	include "coala.js";
 	include "album/list.js";
-	include "album/photo/list.js";
+	//include "album/photo/list.js";
 	include "album/photo/view.js";
 	include "notification/view.js";
 	include "poll/list.js";
