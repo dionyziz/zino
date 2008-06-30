@@ -28,7 +28,7 @@
 		<div class="option">
 			<label for="gender">Φύλο:</label>
 			<div class="setting" id="gender"><?php
-				//Element( 'user/settings/personal/gender' );
+				Element( 'user/settings/personal/gender' );
 			?></div>
 		</div>
 		<div class="barfade">
