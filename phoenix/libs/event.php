@@ -187,6 +187,21 @@
 			$prototype->Typeid = $typeids;
 			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
 		}
+        public function DeleteByUserAndType( $user, $typeid ) {
+            $query = $this->mDb->Prepare( '
+                DELETE FROM
+                    :events
+                WHERE
+                    `event_userid` = :userid AND
+                    `event_typeid` = :typeid
+                ;' );
+
+            $query->BindTable( 'events' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'typeid', $typeid );
+
+            return $query->Execute()->Impact();
+        }
 	}
 
 	class Event extends Satori {

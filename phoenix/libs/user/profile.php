@@ -149,6 +149,7 @@
                 'Aboutme' => EVENT_USERPROFILE_ABOUTME_UPDATED
             );
 
+            $finder = New EventFinder();
             foreach ( $events as $attribute => $typeid ) {
                 if ( isset( $updatedAttributes[ $attribute ] ) && $updatedAttributes[ $attribute ] && !empty( $this->$attribute ) && $this->$attribute != '-' ) {
                     $event = New Event();
@@ -156,6 +157,9 @@
                     $event->Itemid = $this->Userid;
                     $event->Userid = $this->Userid;
                     $event->Save();
+                }
+                else if ( isset( $updatedAttributes[ $attribute ] ) ) {
+                    $finder->DeleteByUserAndType( $this->User, $typeid );
                 }
             }
 
