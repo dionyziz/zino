@@ -9,7 +9,6 @@
 		?><div class="changeavatar">
 		<a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
 		</div>
-		<?php /* 
 		<div class="avatarlist" id="avatarlist">
 			<h3>Επέλεξε μια φωτογραφία</h3>
 			<div class="uploaddiv">
@@ -25,7 +24,7 @@
 				$images = $finder->FindByAlbum( $egoalbum , 0 , $egoalbum->Numphotos );
 				foreach ( $images as $image ) {	
 					?><li><?php
-					Element( 'user/settings/personal/photosmall' , $image );
+					//Element( 'user/settings/personal/photosmall' , $image );
 					?></li><?php
 				}
 			}
@@ -36,6 +35,5 @@
 				</a>
 			</div>
 		</div><?php
-		*/
 	}
 ?>
