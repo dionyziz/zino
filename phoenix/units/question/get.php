@@ -15,8 +15,8 @@
         }
         
         $j = 0;
-        while ( $newquestion->Id() == $excludeid ) { // We don't want to have the same question returned!
-            $newquestion = $user->GetUnansweredQuestion();
+        while ( $question->Id == $excludeid ) { // We don't want to have the same question returned!
+            $question = $questionfinder->FindRandomByUser( $user );
             ++$j;
             if ( $j > 10 ) {
                 return;
