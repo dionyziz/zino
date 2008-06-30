@@ -6,6 +6,8 @@
 		global $rabbit_settings;
 		global $user;
 		
+        Element( 'user/subdomainmatch' );
+        
 		$libs->Load( 'poll/poll' );
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();

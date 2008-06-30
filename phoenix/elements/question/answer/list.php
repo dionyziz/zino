@@ -5,6 +5,8 @@
 		global $rabbit_settings;
         global $xc_settings;
 		
+        Element( 'user/subdomainmatch' );
+        
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();

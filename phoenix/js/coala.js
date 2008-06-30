@@ -200,7 +200,6 @@ var Coala = {
 			
 			// just to make sure no errors occur
 			try {
-                alert( 'Coala._AJAXSocket.connect: Performing ' + sMethod + ' AJAX request' );
 				// if it's a GET method
 				if ( sMethod == "GET" ) {
 					// do a simple request
@@ -208,18 +207,13 @@ var Coala = {
 					sVars = "";
 				}
 				else {
-                    alert( 'Coala._AJAXSocket.connect: In POST: ' + sMethod + ' ; ' + sURL   );
 					// do a request in the same manner
 					xh.open( sMethod, sURL, true );
-                    alert( 'Coala._AJAXSocket.connect: Opened' );
 					// and add the variables to the HTTP header
 					xh.setRequestHeader( "Method", "POST " + sURL + " HTTP/1.1" );
-                    alert( 'Coala._AJAXSocket.connect: Set method' );
 					xh.setRequestHeader( "Content-Type",
 						"application/x-www-form-urlencoded" );
-                    alert( 'Coala._AJAXSocket.connect: Set content-type' );
 				}
-                alert( 'Coala: Setting onreadystatechange' );
 				// use the onreadystatechange callback method of the xmlhttp object
 				xh.onreadystatechange = function() {
 					// if the xmlhttp request was successful and we think that the operation hasn't been completed...
@@ -231,7 +225,6 @@ var Coala = {
 					}
 				};
 				// okay, after we've set up everything, we can safely send the request
-                alert( 'Sending Coala variables: ' + sVars );
 				xh.send( sVars );
 			}
 			catch ( z ) { 

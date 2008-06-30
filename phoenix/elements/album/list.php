@@ -6,6 +6,8 @@
 		global $rabbit_settings;
 		global $water;
 		
+        Element( 'user/subdomainmatch' );
+        
 		$username = $username->Get();
 		$subdomain = $subdomain->Get();
 		$finder = New UserFinder();
