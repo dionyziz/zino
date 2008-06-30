@@ -452,7 +452,7 @@
         SET
             `album_mainimageid`=a.`image_id`
         WHERE
-            `user_mainimageid`=0
+            `album_mainimageid`=0
             AND b.`image_id` IS NULL;
 
         <?php
