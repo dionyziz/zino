@@ -89,6 +89,7 @@
             'questions'			=> 'question/list',
             'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
+            'ie'				=> 'ie6'
 
     	);
     }

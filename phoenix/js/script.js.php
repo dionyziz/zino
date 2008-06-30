@@ -30,4 +30,5 @@
 	include "types.js";
     include "questions.js";
 	include "wysiwyg.js";
+	include "browsers_allowed.js";
 ?>
