@@ -22,7 +22,12 @@
 		?>">
 			<div class="toolbox">
 				<span style="margin-right:<?php
-				echo $indent * 20;
+				if ( $deletable ) {
+					echo "0";
+				}
+				else {
+					echo $indent * 20;
+				}
 				?>px;" class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
