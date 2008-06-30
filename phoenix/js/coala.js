@@ -232,7 +232,6 @@ var Coala = {
                 alert( 'Something went wrong during a Coala request: ' + z );
 				return false; 
 			}
-            alert( 'Coala: everything OK' );
 			// everything okay
 			return true;
 		};
