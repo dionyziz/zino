@@ -19,14 +19,14 @@
 	include "journal/new.js";
 	include "user/join.js";
 	include "user/joined.js";
-	include "user/settings.js";
+	//include "user/settings.js";
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
 	include "pm.js";
 	include "frontpage.js";
     include "moodpicker.js";
-	//include "settings.js";
+	include "settings.js";
 	include "types.js";
     include "questions.js";
 	include "wysiwyg.js";
