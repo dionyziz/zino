@@ -196,8 +196,6 @@ var Coala = {
 			// make sure the method is uppercase ("GET" or "POST")
 			sMethod = sMethod.toUpperCase();
 			
-            alert( 'Trying to send requset' );
-            
 			// just to make sure no errors occur
 			try {
 				// if it's a GET method
@@ -229,6 +227,7 @@ var Coala = {
 			}
 			catch ( z ) { 
 				// woops, something went wrong
+                alert( 'Something went wrong during a Coala request: ' + err.description );
 				return false; 
 			}
 			// everything okay
