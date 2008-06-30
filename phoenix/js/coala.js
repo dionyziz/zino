@@ -18,12 +18,14 @@ var Coala = {
     },
 	Cold: function ( unitid, parameters, failurecallback ) { // get, non-cacheable
         this._AppendRequest( unitid, parameters, 'cold', failurecallback );
+        clearTimeout( this.LazyCommit );
 		this.LazyCommit = setTimeout( function () {
             Coala.Commit();
         }, 50 );
 	},
 	Warm: function ( unitid, parameters, failurecallback ) { // post
 		this._AppendRequest( unitid, parameters, 'warm', failurecallback );
+        clearTimeout( this.LazyCommit );
 		this.LazyCommit = setTimeout( function () {
             Coala.Commit();
         }, 50 );
