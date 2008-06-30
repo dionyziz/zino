@@ -83,7 +83,7 @@
 		<div class="option">
 			<label for="photo">Φωτογραφία:</label>
 			<div class="setting" id="photo"><?php
-				Element( 'user/settings/personal/avatar' );
+				//Element( 'user/settings/personal/avatar' );
 			?></div>
 		</div>
 		<div class="barfade">
@@ -93,7 +93,7 @@
 		<div class="option">
 			<label for="mood">Διάθεση:</label>
 			<div class="setting" id="mood"><?php
-				//Element( 'user/settings/personal/mood' );
+				Element( 'user/settings/personal/mood' );
 			?></div>
 		</div>
 		<div class="barfade">
