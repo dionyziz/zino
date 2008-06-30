@@ -6,9 +6,10 @@
 		
 		//$libs->Load( 'image' );
 		Element( 'user/avatar' , $user , 150 , 'avie' , '' );
-		/*?><div class="changeavatar">
+		?><div class="changeavatar">
 		<a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
 		</div>
+		<?php /* 
 		<div class="avatarlist" id="avatarlist">
 			<h3>Επέλεξε μια φωτογραφία</h3>
 			<div class="uploaddiv">
