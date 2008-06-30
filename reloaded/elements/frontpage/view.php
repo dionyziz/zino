@@ -8,7 +8,7 @@
         $page->AttachStylesheet( 'css/sidebar.css' );
         $page->AttachScript( 'js/animations.js' );
 
-        ?><div id="phoenixrelease" style="position:relative; z-index:10; text-align: center; width: 500px; margin: 5px; padding: 15px; border: 1px solid black; background-color: #eee;"><img src="http://static.zino.gr/phoenix/info.png" alt="info" style="margin-right: 5px; position: relative; top: 5px;" />Η ταχύτητα και οι λειτουργίες του Zino ενδέχεται να είναι μειωμένες στις επόμενες 48 ώρες λόγω αναβάθμισης.</div><?php
+        ?><div id="phoenixrelease" style="position:relative; z-index:10; text-align: center; width: 500px; padding: 15px; border: 1px solid black; background-color: #eee;"><img src="http://static.zino.gr/phoenix/info.png" alt="info" style="margin-right: 5px; position: relative; top: 5px;" />Η ταχύτητα και οι λειτουργίες του Zino ενδέχεται να είναι μειωμένες στις επόμενες 48 ώρες λόγω αναβάθμισης.</div><?php
         
         Element( "photo/latest" );
         Element( "frontpage/leftbar" );
