@@ -48,7 +48,7 @@
 		<div class="option">
 			<label for="education">Εκπαίδευση:</label>
 			<div class="setting" id="education"><?php
-				//Element( 'user/settings/personal/education' );
+				Element( 'user/settings/personal/education' );
 				?><div class="forstudents<?php
 				if ( $user->Profile->Education != "-" ) {
 					?> invisible<?php
@@ -68,7 +68,7 @@
 			<label for="university">Πανεπιστήμιο</label>
 			<div class="setting" id="university"><?php
 				if ( $showuni ) {
-					//Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+					Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
 				}
 			?></div>
 		</div>
