@@ -451,7 +451,7 @@
         SET
             `album_mainimageid`=`image_id`
         WHERE
-            `album_mainimageid`=0
+            `album_mainimageid`=0;
             
         <?php
         // set avatars to the mainimages of the egoalbums (cross join ensures only users WITH egoalbums are updated)
@@ -718,7 +718,7 @@
                     `relations`
                 GROUP BY
                     `relation_userid`
-            ) AS tmp4 ON `relation_userid` = tmp4.userid
+            ) AS tmp4 ON `count_userid` = tmp4.userid
             LEFT JOIN (
                 SELECT
                     `answer_userid` AS userid, COUNT(*) AS countanswers
