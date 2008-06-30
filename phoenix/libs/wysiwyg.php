@@ -13,7 +13,7 @@
         );
         $html = preg_replace(
             '#\<embed\s*+src\="http\://www\.veoh\.com\/videodetails2\.swf\?permalinkId\=([a-zA-Z0-9_\-]+)[^"]++"[^>]++\>\</embed\>#i',
-            '<img src="' . $rabbit_settings[ 'imageurl' ] . 'video-placeholder.png?w=$1" />',
+            '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?w=$1" />',
             $html
         );
 
