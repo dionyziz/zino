@@ -3,7 +3,7 @@ var Questions = {
         $( 'div.newquestion p.question' ).empty().text( questiontext );
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;
         $( 'div.newquestion form#newanswer input' )[ 1 ].value = '';
-        $( 'div.newquestion' ).style.display = '';
+        $( 'div.newquestion' )[ 0 ].style.display = '';
     },
     Answer: function() {
         var answerText = $( 'form#newanswer input' )[ 1 ].value;
@@ -28,15 +28,6 @@ var Questions = {
         li.appendChild( answer );
 
         $( 'div#answers ul.questions' ).prepend( li );
-        $( 'div.newquestion' ).style.display = 'none';
-    },
-	Create : function() {
-		$( 'form' ).show( 450 );
-		$( '#newq' ).hide( 450 );
-		return false;
-	},
-	cancelCreate : function() {
-		$( 'form' ).hide( 450 );
-		$( '#newq' ).show( 450 );
-	}
+        $( 'div.newquestion' )[ 0 ].style.display = 'none';
+    }
 }

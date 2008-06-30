@@ -51,7 +51,7 @@
                 <p class="question"><?php
                 echo htmlspecialchars( $question->Text );
                 ?></p>
-                <p class="answer"><form id="newanswer">
+                <p class="answer"><form id="newanswer" onsubmit="Questions.Answer();return false;">
                     <input type="hidden" value="<?php
                     echo $question->Id;
                     ?>" />
