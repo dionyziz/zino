@@ -12,9 +12,12 @@
 		echo $comment->Id;
 		?>" class="comment" style="border-color:#dee;<?php
 		if ( $indent > 0 ) {
-			?>margin-left:<?php
-			echo $indent * 20;
-			?>px;<?php
+			$deletable = ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
+			if ( !$deletable ) {
+				?>margin-left:<?php
+				echo $indent * 20;
+				?>px;<?php
+			}
 		}
 		?>">
 			<div class="toolbox">
@@ -23,8 +26,10 @@
 				?>px;" class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
-				if ( ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0 ) {
-					?><a href="" onclick="Comments.Delete( <?php
+				if ( $deletable ) {
+					?><a href="" style="margin-right:<?php
+						echo $indent * 20;
+					?>px;" onclick="Comments.Delete( <?php
 					echo $comment->Id;
 					?> );return false;" title="Διαγραφή"></a><?php
 				}
