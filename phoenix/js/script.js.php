@@ -19,7 +19,7 @@
 	include "journal/new.js";
 	include "user/join.js";
 	include "user/joined.js";
-	//include "user/settings.js";
+	include "user/settings.js";
 	include "user/profile.js";
 	include "space/space.js";
 	include "banner.js";
