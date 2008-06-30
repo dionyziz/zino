@@ -11,6 +11,11 @@
             '<img src="' . $rabbit_settings[ 'imagesurl' ] . 'video-placeholder.png?v=$1" />',
             $html
         );
+        $html = preg_replace(
+            '#\<embed\s*+src\="http\://www\.veoh\.com\/videodetails2\.swf\?permalinkId\=(' . $arguments . ')[^"]++"[^>]++\>\</embed\>#i',
+            '<img src="' . $rabbit_settings[ 'imageurl' ] . 'video-placeholder.png?w=$1" />',
+            $html
+        );
 
         return $html;
     }
