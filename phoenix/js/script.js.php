@@ -26,9 +26,9 @@
 	//include "pm.js";
 	//include "frontpage.js";
     //include "moodpicker.js";
-	//include "settings.js";
-	//include "types.js";
-    //include "questions.js";
-	//include "wysiwyg.js";
-	//include "browsers_allowed.js";
+	include "settings.js";
+	include "types.js";
+    include "questions.js";
+	include "wysiwyg.js";
+	include "browsers_allowed.js";
 ?>
