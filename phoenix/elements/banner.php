@@ -51,7 +51,7 @@
 	        ?>
 		</ul><?php
 	    if ( $user->Exists() ) {
-	        ?><form method="post" action="do/user/logout"><a href="" onclick="this.form.submit(); return false;" class="logout">Έξοδος</a></form><?php
+	        ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout">Έξοδος</a></form><?php
 		}
 	    ?>
 	    <div class="eof"></div>
