@@ -87,7 +87,7 @@ div.bubble i.qbottom {
 div.ybubble {
 	padding: 0;
     position: relative;
-    width: 77%;
+    width: 80%;
     margin: 10px auto 40px auto;
 }
 div.ybubble div.body {
@@ -105,6 +105,8 @@ div.ybubble i.bl {
 }
 div.ybubble i.br {
     background-image: url( 'http://static.zino.gr/phoenix/s_br.png' );
+	position: relative;
+	left: 100px;
 }
 div.ybubble form {
     text-align: center;
