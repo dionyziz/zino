@@ -307,23 +307,25 @@ var pms = {
 	}
 };
 $( document ).ready( function() {
-	$( 'div.message' ).draggable( { 
-		helper : 'original',
-		revert : 'true',
-		cursor : 'move'
-	} );
-	$( 'div.createdfolder' ).droppable( {
-		accept: "div.message",
-		hoverClass: "hoverfolder",
-		tolerance: "pointer",
-		drop : function(ev, ui) {
-			Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
-			ui.draggable.animate( { 
-				opacity: "0",
-				height: "0"
-				} , 700 , function() {
-					ui.draggable.remove();
-			} );
-		}
-	} );
+    if ( $( '#pms' )[ 0 ] ) {
+    	$( 'div.message' ).draggable( { 
+    		helper : 'original',
+    		revert : 'true',
+    		cursor : 'move'
+    	} );
+    	$( 'div.createdfolder' ).droppable( {
+    		accept: "div.message",
+    		hoverClass: "hoverfolder",
+    		tolerance: "pointer",
+    		drop : function(ev, ui) {
+    			Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
+    			ui.draggable.animate( { 
+    				opacity: "0",
+    				height: "0"
+    				} , 700 , function() {
+    					ui.draggable.remove();
+    			} );
+    		}
+    	} );
+    }
 } );

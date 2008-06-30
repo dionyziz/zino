@@ -32,6 +32,7 @@
 		echo $unreadCount;
 		?></script>
 		<br /><br /><br /><br />
+		<div id="pms">
 		<div class="body">
 			<div class="upper">
 				<span class="title">Μηνύματα</span>
@@ -77,6 +78,7 @@
 					?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
 				</form>
 			</div>
+		</div>
 		</div>
 <?php
 	}
