@@ -8,8 +8,6 @@ var pms = {
 	messagescontainer : $( '#messages' )[ 0 ],
 	writingnewpm : false,
 	ShowFolder : function( folder , folderid ) {
-        alert( 'folder_4114' + document.getElementById( 'folder_4114' ) );  	
-		// alert( ' Folder: ' + folder + '|' + 'folderid: ' + folderid );
 		if ( pms.activefolder === 0 ) {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
@@ -319,7 +317,6 @@ $( document ).ready( function() {
 		hoverClass: "hoverfolder",
 		tolerance: "pointer",
 		drop : function(ev, ui) {
-			//alert( 'pmid: ' + ui.draggable.attr( "id" ).substring( 3 ) + '|folderid: ' + $( 'div.activefolder' ).attr( "id" ).substring( 7 ) + '|targetfolderid: ' + $( this ).attr( "id" ).substring( 7 ) );
 			Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
 			ui.draggable.animate( { 
 				opacity: "0",
