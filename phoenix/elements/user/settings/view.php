@@ -1,6 +1,6 @@
 <?php
 	function ElementUserSettingsView() {
-	/*	global $user;
+		global $user;
 		global $rabbit_settings;
 		global $page;
 		
@@ -12,27 +12,26 @@
 		}
 		?><div class="settings">
 		    <div class="sidebar"><?php
-				Element( 'user/settings/sidebar' );
+				//Element( 'user/settings/sidebar' );
 		    ?></div>
 		    <div class="tabs">
 		        <form id="personalinfo" style="display:none"><?php
-					Element( 'user/settings/personal/view' );
+					//Element( 'user/settings/personal/view' );
 		        ?></form>
 		        <form id="characteristicsinfo" style="display:none"><?php
-					Element( 'user/settings/characteristics/view' );
+					//Element( 'user/settings/characteristics/view' );
 		        ?></form>
 		        <form id="interestsinfo" style="display:none"><?php
-					Element( 'user/settings/interests' );
+					//Element( 'user/settings/interests' );
 		        ?></form>
 		        <form id="contactinfo" style="display:none"><?php
-					Element( 'user/settings/contact' );
+					//Element( 'user/settings/contact' );
 		        ?></form>
 		        <form id="settingsinfo" style="display:none"><?php
-					Element( 'user/settings/settings' );
+					//Element( 'user/settings/settings' );
 		        ?></form>
 		    </div>
 		</div>
 		<div class="eof"></div><?php
-		*/
 	}
 ?>
