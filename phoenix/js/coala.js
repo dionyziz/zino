@@ -213,6 +213,7 @@ var Coala = {
 					xh.setRequestHeader( "Content-Type",
 						"application/x-www-form-urlencoded" );
 				}
+                alert( 'Coala: Setting onreadystatechange' );
 				// use the onreadystatechange callback method of the xmlhttp object
 				xh.onreadystatechange = function() {
 					// if the xmlhttp request was successful and we think that the operation hasn't been completed...
@@ -232,6 +233,7 @@ var Coala = {
                 alert( 'Something went wrong during a Coala request: ' + err.description );
 				return false; 
 			}
+            alert( 'Coala: everything OK' );
 			// everything okay
 			return true;
 		};
