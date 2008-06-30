@@ -83,7 +83,7 @@
 		<div class="option">
 			<label for="photo">Φωτογραφία:</label>
 			<div class="setting" id="photo"><?php
-				//Element( 'user/settings/personal/avatar' );
+				Element( 'user/settings/personal/avatar' );
 			?></div>
 		</div>
 		<div class="barfade">
