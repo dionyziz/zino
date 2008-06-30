@@ -3,7 +3,7 @@ var Questions = {
         $( 'div.newquestion p.question' ).empty().text( questiontext );
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;
         $( 'div.newquestion form#newanswer input' )[ 1 ].value = '';
-        $( 'div.newquestion' ).show();
+        $( 'div.newquestion' ).fadeIn( 'fast' );
         $( 'div.newquestion form#newanswer input' )[ 1 ].focus();
     },
     Answer: function() {
