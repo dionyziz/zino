@@ -198,6 +198,7 @@ var Coala = {
 			
 			// just to make sure no errors occur
 			try {
+                alert( 'Performing ' + sMethod + ' AJAX request' );
 				// if it's a GET method
 				if ( sMethod == "GET" ) {
 					// do a simple request
