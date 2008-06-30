@@ -113,6 +113,7 @@ var Coala = {
 		Coala.ThreadedRequests = [];
 	},
 	_PlaceRequest: function ( request, method, failurecallbacks ) {
+        alert( 'Coala._PlaceRequest called' );
 		if ( request === null ) {
 			request = {};
 		}
