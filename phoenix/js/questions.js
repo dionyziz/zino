@@ -29,6 +29,6 @@ var Questions = {
         li.appendChild( answer );
 
         $( 'div#answers ul.questions' ).prepend( li );
-        $( 'div.newquestion' ).style.display = 'none';
+        $( 'div.newquestion' )[ 0 ].style.display = 'none';
     }
 }
