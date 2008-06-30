@@ -1,6 +1,6 @@
 <?php
 	function ElementUserSettingsView() {
-		global $user;
+	/*	global $user;
 		global $rabbit_settings;
 		global $page;
 		
@@ -33,5 +33,6 @@
 		    </div>
 		</div>
 		<div class="eof"></div><?php
+		*/
 	}
 ?>
