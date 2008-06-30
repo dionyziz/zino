@@ -12,7 +12,7 @@
 		}
 		?><div class="settings">
 		    <div class="sidebar"><?php
-				//Element( 'user/settings/sidebar' );
+				Element( 'user/settings/sidebar' );
 		    ?></div>
 		    <div class="tabs">
 		        <form id="personalinfo" style="display:none"><?php
