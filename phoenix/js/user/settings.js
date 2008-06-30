@@ -199,7 +199,7 @@ var Settings = {
 		}
 	}
 };
-/*$( document ).ready( function() {
+$( document ).ready( function() {
 	if ( $( 'div.settings' )[ 0 ] ) {
 		Settings.SwitchSettings( window.location.hash.substr( 1 ) );
 		$( '#gender select' ).change( function() {
@@ -541,4 +541,4 @@ var Settings = {
 			Settings.Enqueue( $( this )[ 0 ].id , value , 10 );
 		} );		
 	}
-});*/
+});
