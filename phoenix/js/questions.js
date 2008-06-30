@@ -4,6 +4,7 @@ var Questions = {
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;
         $( 'div.newquestion form#newanswer input' )[ 1 ].value = '';
         $( 'div.newquestion' )[ 0 ].style.display = '';
+        $( 'div.newquestion form#newanswer input' )[ 1 ].focus();
     },
     Answer: function() {
         var answerText = $( 'form#newanswer input' )[ 1 ].value;
