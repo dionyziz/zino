@@ -16,7 +16,7 @@
 		    ?></div>
 		    <div class="tabs">
 		        <form id="personalinfo" style="display:none"><?php
-					//Element( 'user/settings/personal/view' );
+					Element( 'user/settings/personal/view' );
 		        ?></form>
 		        <form id="characteristicsinfo" style="display:none"><?php
 					//Element( 'user/settings/characteristics/view' );
