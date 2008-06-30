@@ -35,15 +35,15 @@ var WYSIWYG = {
     InsertVideo: function ( target, userstring ) {
         if ( typeof userstring == 'string' && userstring !== '' ) {
             // youtube
-            var matchyoutube = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
-            if ( matchyoutube !== null && matchyoutube.length == 2 ) { // youtube video
+            var match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
+            if ( match !== null && match.length == 2 ) { // youtube video
                 WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
                 alert( 'Το video δεν είναι έγκυρη διεύθυνση του YouTube' );
             }
             else {
                 // veoh
-                var matchveoh = /v([a-zA-Z0-9_-]+)/.exec( userstring );
-                if ( matchveoh !== null && matchveoh.length ==2 ) { // veoh video
+                var match = /v([a-zA-Z0-9_-]+)/.exec( userstring );
+                if ( match !== null && match.length ==2 ) { // veoh video
                     WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?w=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
                 }
             }
