@@ -208,7 +208,7 @@ var Coala = {
 					sVars = "";
 				}
 				else {
-                    alert( 'Coala._AJAXSocket.connect: In POST' );
+                    alert( 'Coala._AJAXSocket.connect: In POST: ' + sMethod + ' ; ' + sURL );
 					// do a request in the same manner
 					xh.open( sMethod, sURL, true );
                     alert( 'Coala._AJAXSocket.connect: Opened' );
