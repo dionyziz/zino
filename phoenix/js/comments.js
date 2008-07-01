@@ -24,8 +24,6 @@ var Comments = {
 				return false;
 			};
 		del.title = "Διαγραφή";
-		del.css( { marginRight: '0px' } );
-		
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
@@ -89,13 +87,15 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
+		temp.find( 'div.toolbox a' ).css( { marginRight : (indent+1)*20 + 'px' } );
+		temp.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
 				} ;
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 		temp.find( "div.text textarea" ).get( 0 ).focus();
+		
 	},
 	Edit : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
