@@ -25,18 +25,16 @@ var Comments = {
 			};
 		del.title = "Διαγραφή";
 		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
-		alert( "identation: " + (indent+1)*20 );
-		var comment = $( "#comment_" + parentid );
-		comment.find( "div.toolbox a" ).css( { marginRight: (indent+1)*20 + 'px' } );
-		comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;		
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).css( { marginRight: (indent+1)*20 + 'px' } ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
+		
+		temp.find( "div.toolbox a" ).css( { marginRight: (indent+1)*20 + 'px' } );
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
