@@ -29,7 +29,7 @@ var Comments = {
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).css( { marginRight : '0px' } ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
