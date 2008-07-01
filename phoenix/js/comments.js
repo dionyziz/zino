@@ -178,12 +178,12 @@ var Comments = {
 				return false;
 			};
 		// Gatoni's Fix
-		var comment = $( '#comment_' + parentid + " div.toolbox" );
-		comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
+		//var comment = $( '#comment_' + parentid + " div.toolbox" );
+		//comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		a.title = "Διαγραφή";
-		a.css( { marginRight : (indent+1)*20 + 'px' } );
-		alert( "indent value is " + (indent+1)*20 );
-		comment.append( a );
+		//a.css( { marginRight : (indent+1)*20 + 'px' } );
+		//alert( "indent value is " + (indent+1)*20 );
+		//comment.append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
