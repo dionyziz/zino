@@ -25,6 +25,9 @@ var Comments = {
 			};
 		del.title = "Διαγραφή";
 		
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
+		alert( "identation: " + (indent+1)*20 );
+		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
@@ -61,7 +64,6 @@ var Comments = {
 											 );
 	},
 	NewCommentCallback : function( node, id, parentid ) {
-		alert("your mom");
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
