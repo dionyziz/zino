@@ -145,7 +145,6 @@
         $page_children = array();
 		$parented = array();
 		$parented[ 0 ] = array();
-        $child_nums = array();
         if ( $reverse ) {
             $parents = array_reverse( $parents );
         }
@@ -156,7 +155,6 @@
                 Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
             }
             $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
-            $child_nums[ $parent[ 'comment_id' ] ] = 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
                 $page_nums[] = $page_total;
                 $page_total = 0;
@@ -168,7 +166,6 @@
         }
 
         $page_nums[] = $page_total;
-        die( print_r( $child_nums ) );
 
         $water->Trace( "comment page nums", $page_nums );
 
