@@ -166,6 +166,7 @@
             case '¿': return 'x';
             case '¿': return 'ps';
             case '¿': case '¿': return 'o';
+            default: return $c;
         }
     }
 
