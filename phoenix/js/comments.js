@@ -34,7 +34,7 @@ var Comments = {
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
-		.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
+		temp.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
