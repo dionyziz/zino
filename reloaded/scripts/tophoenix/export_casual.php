@@ -173,7 +173,7 @@
         $ret = '';
 
         for ( $i = 0; $i < mb_strlen( $name ); ++$i ) {
-            $ret{ $i } = LatinizeChar( mb_substr( $name, $i, 1 ) );
+            $ret .= LatinizeChar( mb_substr( $name, $i, 1 ) );
         }
 
         return $ret;
