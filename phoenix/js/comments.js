@@ -20,11 +20,11 @@ var Comments = {
 			};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
 		var del = document.createElement( 'a' );
-		//del.css( { marginRight : (indent+1)*20 + 'px' } );
 		del.onclick = function() {
 				return false;
 			};
 		del.title = "Διαγραφή";
+		del.css( { marginRight: '0px' } );
 		
 		
 		// Dimiourgisa ena teras :-S
