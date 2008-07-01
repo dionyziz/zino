@@ -88,9 +88,7 @@
             'shoutbox'          => 'shoutbox/list',
             'questions'			=> 'question/list',
             'answers'           => 'question/answer/list',
-            'comments/recent'   => 'comment/recent/list',
-            'ie'				=> 'ie6'
-
+            'comments/recent'   => 'comment/recent/list'
     	);
     }
 ?>
