@@ -85,6 +85,8 @@ var Comments = {
 					Comments.Delete( id, parentid );
 					return false;
 				};
+		node.find( 'div.toolbox a').css( { marginRight : (indent+1)*20 + 'px' } );
+		node.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
