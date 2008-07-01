@@ -19,7 +19,7 @@ var Comments = {
 				return false;
 			};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
-		
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		var del = document.createElement( 'a' );
 		del.css( { marginRight : (indent+1)*20 + 'px' } );
 		del.onclick = function() {
