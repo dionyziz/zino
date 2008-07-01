@@ -141,7 +141,7 @@
     }
 
     function LatinizeChar( $c )  {
-        die( $c );
+        die( mb_strtolower( $c, 'UTF-8' ) );
         switch ( mb_strtolower( $c, 'UTF-8' ) ) {
             case '¿': case '¿': return 'a';
             case '¿': return 'b';
