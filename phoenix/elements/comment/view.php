@@ -6,7 +6,7 @@
 		global $water;
 		
 		$libs->Load( 'comment' );
-		$water->Trace( 'Indent valus is', $indent );
+		//$water->Trace( 'Indent valus is', $indent );
 		$deletable = ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
 		
 		?><div id="comment_<?php
