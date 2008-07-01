@@ -178,6 +178,8 @@ var Comments = {
 				return false;
 			};
 		a.title = "Διαγραφή";
+		// Gatoni's Fix
+		a.css( { marginRight : (indent+1)*20 + 'px' } );
 		
 		$( '#comment_' + parentid + " div.toolbox" ).append( a );
 	},
