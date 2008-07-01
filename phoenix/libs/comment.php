@@ -15,7 +15,7 @@
 		foreach ( $comments as $comment ) {
 			if ( $comment[ 'comment_parentid' ] == $id ) {
 				++$count;
-				$count += Comments_CountChildren( $comments[ 'comment_id' ] );
+				$count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
 			}
 		}
 		return $count;
