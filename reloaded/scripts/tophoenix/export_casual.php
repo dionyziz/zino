@@ -370,7 +370,7 @@
         }
     }
 
-    function MigrateEgoalbums() {
+    function MigrateEgoAlbums() {
         global $db, $albums, $users;
 
         $res = $db->Query(
@@ -398,6 +398,7 @@
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
                 $exp = '#((\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
+                die( $album[ 'album_name' ] . "\n" . Latinize( $album[ 'album_name' ] ) . "\n" . $nickname . "\n" . $subdomain );
                 if (    preg_match( $exp, $album[ 'album_name' ] )
                      || preg_match( $exp, Latinize( $album[ 'album_name' ] ) ) ) {
                     // looks like an ego album
