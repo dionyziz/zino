@@ -143,30 +143,30 @@
     function LatinizeChar( $c )  {
         die( mb_strtolower( $c, 'UTF-8' ) );
         switch ( mb_strtolower( $c, 'UTF-8' ) ) {
-            case '¿': case '¿': return 'a';
-            case '¿': return 'b';
-            case '¿': return 'g';
-            case '¿': return 'd';
-            case '¿': case '¿': return 'e';
-            case '¿': return 'z';
-            case '¿': case '¿': return 'i';
-            case '¿': return 'th';
-            case '¿': case '¿': return 'i';
-            case '¿': return 'k';
-            case '¿': return 'l';
-            case '¿': return 'm';
-            case '¿': return 'n';
-            case '¿': return 'ks';
-            case '¿': case '¿': return 'o';
-            case '¿': return 'p';
-            case '¿': return 'r';
-            case '¿': return 's';
-            case '¿': return 't';
-            case '¿': case '¿': return 'i';
-            case '¿': return 'f';
-            case '¿': return 'x';
-            case '¿': return 'ps';
-            case '¿': case '¿': return 'o';
+            case 'Î±': case 'Î¬': return 'a';
+            case 'Î²': return 'b';
+            case 'Î³': return 'g';
+            case 'Î´': return 'd';
+            case 'Îµ': case 'Î­': return 'e';
+            case 'Î¶': return 'z';
+            case 'Î·': case 'Î®': return 'i';
+            case 'Î¸': return 'th';
+            case 'Î¹': case 'Î¯': return 'i';
+            case 'Îº': return 'k';
+            case 'Î»': return 'l';
+            case 'Î¼': return 'm';
+            case 'Î½': return 'n';
+            case 'Î¾': return 'ks';
+            case 'Î¿': case 'ÏŒ': return 'o';
+            case 'Ï€': return 'p';
+            case 'Ï': return 'r';
+            case 'Ïƒ': return 's';
+            case 'Ï„': return 't';
+            case 'Ï…': case 'Ï': return 'i';
+            case 'Ï†': return 'f';
+            case 'Ï‡': return 'x';
+            case 'Ïˆ': return 'ps';
+            case 'Ï‰': case 'Ï': return 'o';
             default: return $c;
         }
     }
