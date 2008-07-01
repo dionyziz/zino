@@ -173,8 +173,8 @@
     function Latinize( $name ) {
         $ret = '';
 
-        for ( $i = 0; $i < mb_strlen( $name ); ++$i ) {
-            $ret .= LatinizeChar( mb_substr( $name, $i, 1 ) );
+        for ( $i = 0; $i < mb_strlen( $name, 'UTF-8' ); ++$i ) {
+            $ret .= LatinizeChar( mb_substr( $name, $i, 1, 'UTF-8' ) );
         }
 
         return $ret;
