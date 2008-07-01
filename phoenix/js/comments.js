@@ -182,6 +182,7 @@ var Comments = {
 		comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		a.title = "Διαγραφή";
 		a.css( { marginRight : (indent+1)*20 + 'px' } );
+		alert( "indent value is " + (indent+1)*20 );
 		comment.append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
