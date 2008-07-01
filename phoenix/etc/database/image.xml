@@ -17,6 +17,14 @@
             <index type="primary">
                 <indexfield>image_id</indexfield>
             </index>
+            <index name="image_userid" type="index">
+                <indexfield>image_userid</indexfield>
+                <indexfield>image_delid</indexfield>
+            </index>
+            <index name="LATEST" type="index">
+                <indexfield>image_albumid</indexfield>
+                <indexfield>image_delid</indexfield>
+            </index>
         </table>
         <table name="albums">
             <field name="album_id" type="int" autoincrement="yes" />

@@ -400,9 +400,10 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
-                $exp = '#((\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
-                if (    preg_match( $exp, $album[ 'album_name' ] )
-                     || preg_match( $exp, Latinize( $album[ 'album_name' ] ) ) ) {
+                $exp1 = '#((\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
+                $exp2 = '#((\b|^)(egw+|ego+|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
+                if (    preg_match( $exp1, $album[ 'album_name' ] )
+                     || preg_match( $exp2, Latinize( $album[ 'album_name' ] ) ) ) {
                     // looks like an ego album
                     ?>UPDATE `users` SET `user_egoalbumid`=<?php
                     echo $album[ 'album_id' ];
