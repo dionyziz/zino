@@ -16,13 +16,17 @@
 				?></a> έγραψε:
 			</div>
 			<div class="subject">
-				<p><span class="text">"<?php
+				<p><span class="text"><?php
 					$text = $comment->GetText( 35 );
-					echo htmlspecialchars( trim( $text ) ); //Do not remove htmlspecialchars
-					if ( strlen( $text ) > 30 ) {
-						?>...<?php
-					}
-					?>"</span>
+                    if ( !empty( $text ) ) {
+                        ?>"<?php
+    					echo trim( $text );
+    					if ( strlen( $text ) > 30 ) {
+    						?>...<?php
+    					}
+                        ?>"<?php
+                    }
+					?></span>
 					, <?php
 					switch ( $comment->Typeid ) {
 						case TYPE_POLL:
@@ -69,7 +73,8 @@
 							echo htmlspecialchars( $comment->Item->Title );
 							?></a><?php
 							break;
-					}?>
+					}
+                    ?>
 				</p>
 			</div>
 		</div><?php

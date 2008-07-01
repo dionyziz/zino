@@ -447,7 +447,7 @@
         
         UPDATE
             `albums`
-                LEFT JOIN `images` ON `album_id`=`image_id`
+                LEFT JOIN `images` ON `album_id`=`image_albumid`
         SET
             `album_mainimageid`=`image_id`
         WHERE
