@@ -177,11 +177,12 @@ var Comments = {
 				Comments.Delete( parentid );
 				return false;
 			};
-		a.title = "Διαγραφή";
 		// Gatoni's Fix
-		a.css( { marginLeft : (indent+1)*20 + 'px' } );
-		
-		$( '#comment_' + parentid + " div.toolbox" ).append( a );
+		var comment = $( '#comment_' + parentid + " div.toolbox" );
+		comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
+		a.title = "Διαγραφή";
+		a.css( { marginRight : (indent+1)*20 + 'px' } );
+		comment.append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
