@@ -27,6 +27,9 @@ var Comments = {
 		
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
 		alert( "identation: " + (indent+1)*20 );
+		var comment = $( "#comment_" + parentid );
+		comment.find( "div.toolbox a" ).css( { marginRight: (indent+1)*20 + 'px' } );
+		comment.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
