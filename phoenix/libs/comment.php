@@ -166,7 +166,6 @@
         }
 
         $page_nums[] = $page_total;
-        die( print_r( $page_nums ) );
 
         $water->Trace( "comment page nums", $page_nums );
 
