@@ -208,7 +208,7 @@
             FROM
                 `$users`;" );
         ?>TRUNCATE TABLE `events`;
-        TRUNCATE TABLE `notifications`;
+        TRUNCATE TABLE `notify`;
         TRUNCATE TABLE `users`;
         TRUNCATE TABLE `userprofiles`;
         TRUNCATE TABLE `usersettings`;
