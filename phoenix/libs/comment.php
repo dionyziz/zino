@@ -316,7 +316,7 @@
 
             $query = $this->mDb->Prepare( "
                 SELECT
-                    
+                    * 
                 FROM
                     :comments LEFT JOIN :users 
                         ON `comment_userid` = `user_id`
@@ -325,7 +325,7 @@
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'comments' );
+            $query->BindTable( 'comments', 'users' );
             $query->Bind( 'commentids', $comments );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
