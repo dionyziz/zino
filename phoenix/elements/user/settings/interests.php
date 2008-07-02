@@ -36,7 +36,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" style="z-index:1;" />
-								<span style="padding:2px 0px;;"><?php
+								<span style="margin:1px 0px;;"><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
