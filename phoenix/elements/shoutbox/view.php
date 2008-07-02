@@ -14,7 +14,7 @@
 					if ( ( $user->Id == $shout->User->Id && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
 						?><a href="" onclick="Frontpage.DeleteShout( '<?php
 						echo $shout->Id;
-						?>' );return false;" title="Διαγραφή"></a><?php
+						?>' );return false;" title="Διαγραφή">.</a><?php
 					}
 				?></div>
 				<div class="who"><?php
