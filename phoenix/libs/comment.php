@@ -309,8 +309,11 @@
                 SELECT
                     *
                 FROM
-                    :comments LEFT JOIN :users
+                    :comments 
+                    LEFT JOIN :users
                         ON `comment_userid` = `user_id`
+                    LEFT JOIN :images
+                        ON `user_avatarid` = `image_id`
                 WHERE
                     `comment_delid` = '0'
                 ORDER BY
@@ -324,16 +327,24 @@
             
             $res = $query->Execute();
             $bytype = array();
+            $bulkids = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $comment->CopyUserFrom( New User( $row ) );
+                $user = New User( $row );
+                $user->CopyAvatarFrom( $row );
+                $comment->CopyUserFrom( $user );
                 $bytype[ $comment->Typeid ][] = $comment;
+                $bulkids[] = $comment->Bulkid;
             }
+
+            $finder = New BulkFinder();
+            $bulks = $finder->FindById( $bulkids );
 
             $ret = array();
             foreach ( $bytype as $type => $comments ) {
                 $comments = $this->FindItemsByType( $type, $comments );
                 foreach ( $comments as $comment ) {
+                    $comment->CopyBulkFrom( $bulks[ $comment->Bulkid ] );
                     $ret[ $comment->Id ] = $comment;
                 }
             }
@@ -514,6 +525,9 @@
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
+        public function CopyBulkFrom( $value ) {
+            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
         }
         public function IsEditableBy( $user ) {
             return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
