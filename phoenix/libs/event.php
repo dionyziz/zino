@@ -159,8 +159,8 @@
             }
 
             $ret = array(); // sorted by eventid, ASC
-            foreach ( $bymodel as $type => $events ) {
-                $events = $this->FindItemsByModel( $events );
+            foreach ( $bymodel as $model => $events ) {
+                $events = $this->FindItemsByModel( $model, $events );
                 foreach ( $events as $event ) {
                     $ret[ $event->Id ] = $event;
                 }
@@ -168,13 +168,11 @@
             
             return array_reverse( $ret ); // return sorted by eventid, DESC
 		}
-        public function FindItemsByModel( $events ) {
+        public function FindItemsByModel( $model, $events ) {
             $eventsByItemid = array();
             while ( $event = array_shift( $events ) ) {
                 $eventsByItemid[ $event->Itemid ][] = $event;
             }
-
-            $model = Event_ModelByType( $events[ 0 ]->Typeid );
 
             $obj = New $model();
             $table = $obj->DbTable->Alias;
