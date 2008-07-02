@@ -189,7 +189,7 @@
                     `' . $field . '` IN :itemids
                 ' );
             
-            $query->Bind( $table );
+            $query->BindTable( $table );
             $query->Bind( 'itemids', array_keys( $eventsByItemid ) );
 
             $res = $query->Execute();
