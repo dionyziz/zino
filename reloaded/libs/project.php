@@ -106,7 +106,9 @@
             'wysiwyg'           => 'developer/dionyziz/wysiwyg',
             'photolist'         => 'photo/list',
             'memcache'          => 'admin/memcache',
-            'badguys'           => 'admin/badguys'
+            'badguys'           => 'admin/badguys',
+            'testmc'            => 'developer/abresas/testmc',
+            'mcform'            => 'developer/abresas/mcform',
     	);
     }
 ?>
