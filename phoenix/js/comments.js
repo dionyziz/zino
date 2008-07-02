@@ -19,22 +19,19 @@ var Comments = {
 				return false;
 			};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
+		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
 				return false;
 			};
 		del.title = "Διαγραφή";
 		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;		
-		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).css( { marginRight: indent+1)*20 + 'px'} ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
-		
-		temp.find( "div.toolbox a" ).css( { marginRight: (indent+1)*20 + 'px' } );
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
@@ -91,14 +88,13 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
+		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' );
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
 					return false;
 				} ;
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 		temp.find( "div.text textarea" ).get( 0 ).focus();
-		
 	},
 	Edit : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
@@ -182,6 +178,7 @@ var Comments = {
 				return false;
 			};
 		a.title = "Διαγραφή";
+		
 		$( '#comment_' + parentid + " div.toolbox" ).append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
