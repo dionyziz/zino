@@ -305,6 +305,9 @@
             return false;
         }
         public function FindLatest( $offset = 0, $limit = 25 ) {
+            global $libs;
+            $libs->Load( 'image' );
+
             $query = $this->mDb->Prepare( "
                 SELECT
                     *
@@ -331,7 +334,7 @@
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
                 $user = New User( $row );
-                $user->CopyAvatarFrom( $row );
+                $user->CopyAvatarFrom( New Image( $row ) );
                 $comment->CopyUserFrom( $user );
                 $bytype[ $comment->Typeid ][] = $comment;
                 $bulkids[] = $comment->Bulkid;
