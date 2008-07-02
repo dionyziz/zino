@@ -34,7 +34,8 @@
 					?>px;"
 					onclick="Comments.Delete( <?php
 					echo $comment->Id;
-					?> );return false;" title="Διαγραφή">.</a><?php // There is a reason for the dot.
+					 // There is a reason for the dot. If there's no character between <a></a> the background css image is not shown in IE7
+					?> );return false;" title="Διαγραφή">.</a><?php
 				}
 			?></div>
 			<div class="who"><?php
