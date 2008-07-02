@@ -5,37 +5,14 @@
 		global $page;
 		global $libs;
 		global $rabbit_settings;
-		
+		global $xc_settings;
+        
 		//attaching ALL css files
-		$page->AttachStylesheet( 'css/style.css.php' );
+		$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
 		
 		//start javascript attaching
-		//$page->AttachScript( 'js/jquery.js' );
-		$page->AttachScript( 'js/script.js.php' );
-		/*
-		$page->AttachScript( 'js/IE8.js' , 'javascript' , false, '7' );  
-		$page->AttachScript( 'js/modal.js' );
-		$page->AttachScript( 'js/trivial/dates.js' );
-		$page->AttachScript( 'js/coala.js' );
-		$page->AttachScript( 'js/album/list.js' );
-		$page->AttachScript( 'js/album/photo/list.js' );
-		$page->AttachScript( 'js/album/photo/view.js' );
-		$page->AttachScript( 'js/poll/list.js' );
-		$page->AttachScript( 'js/poll/view.js' );
-		$page->AttachScript( 'js/journal/list.js' );
-		$page->AttachScript( 'js/journal/view.js' );
-		$page->AttachScript( 'js/journal/new.js' );
-		$page->AttachScript( 'js/user/join.js' );
-		$page->AttachScript( 'js/user/joined.js' );
-		$page->AttachScript( 'js/user/settings.js' );
-		$page->AttachScript( 'js/user/profile.js' );
-		$page->AttachScript( 'js/space/space.js' );
-		$page->AttachScript( 'js/banner.js' );
-		$page->AttachScript( 'js/settings.js' );
-		$page->AttachScript( 'js/types.js' );
-		$page->AttachScript( 'js/wysiwyg.js' );
-		$page->AttachScript( 'js/frontpage.js' );
-		*/
+		$page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
+
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
