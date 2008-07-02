@@ -321,7 +321,7 @@
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'comments', 'users' );
+            $query->BindTable( 'comments', 'users', 'images' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
