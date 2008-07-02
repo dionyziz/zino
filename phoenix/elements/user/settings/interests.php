@@ -46,7 +46,7 @@
 								?>delete.png" /></a>
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_right.png" style="z-index:1;" />
+								?>aplbubble_right.png" style="margin-left:1px;" />
 							</div>
 						</li><?php
 					}
