@@ -326,7 +326,7 @@
             $bytype = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $comment->CopyUserFrom( $row );
+                $comment->CopyUserFrom( New User( $row ) );
                 $bytype[ $comment->Typeid ][] = $comment;
             }
 
@@ -368,7 +368,7 @@
             while ( $row = $res->FetchArray() ) {
                 $comments = $byitemids[ $row[ $field ] ];
                 foreach ( $comments as $comment ) {
-                    die( "type: " . $type . " class: " . $class );
+                    // die( "type: " . $type . " class: " . $class );
                     $comment->CopyItemFrom( New $class( $row ) );
                     $ret[] = $comment;
                 }
