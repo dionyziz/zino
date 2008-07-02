@@ -35,8 +35,8 @@
 							<div class="aplbubble">
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_left.png" style="margin-right:1px;" />
-								<span style=""><?php
+								?>aplbubble_left.png" style="" />
+								<span style="margin-left:1px"><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -46,7 +46,7 @@
 								?>delete.png" /></a>
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_right.png" style="margin-left:1px;" />
+								?>aplbubble_right.png" style="" />
 							</div>
 						</li><?php
 					}
