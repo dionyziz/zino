@@ -7,9 +7,6 @@
 		global $page;
 		
 		$page->SetTitle( 'Ανέβασε μια εικόνα' );
-		$page->AttachStyleSheet( 'css/album/photo/upload.css' );
-		$page->AttachScript( 'js/jquery.js' );
-		$page->AttachScript( 'js/album/photo/list.js' );
 		$water->Disable();
 		$page->SetWaterDump( false );
 		//typeid is 0 for album photo uploads and 1 for avatar uploads at settings

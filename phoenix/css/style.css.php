@@ -6,6 +6,7 @@
 	include "album/photo/list.css";
 	include "album/photo/small.css";
 	include "album/photo/view.css";
+	include "album/photo/upload.css";
 	include "frontpage/comments.css";
 	include "frontpage/events.css";
 	include "frontpage/shoutbox.css";
