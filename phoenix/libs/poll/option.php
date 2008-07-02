@@ -5,17 +5,41 @@
 
 	class PollOptionFinder extends Finder {
 		protected $mModel = 'PollOption';
-
+		
 		public function FindByPoll( $poll ) {
-			$option = New PollOption();
-			$option->Pollid = $poll->Id;
-			return $this->FindByPrototype( $option );
+    	    $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :polloptions 
+                WHERE 
+                    `polloption_pollid` = :pollid 
+                LIMIT 
+                    :offset, :limit
+                ");
+                
+            $query->BindTable( 'polloptions', 'polloptions' );
+            $query->Bind( 'pollid', $poll->Id );
+            $query->Bind( 'offset', 0 );
+            $query->Bind( 'limit', 25 );
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $option = New PollOption( $row );
+                $option->CopyPollFrom( $poll );
+                $ret[] = $option;
+            }
+            return $ret;
 		}
 	}
 
 	class PollOption extends Satori {
 		protected $mDbTableAlias = 'polloptions';
-
+		
+		public function CopyPollFrom( $value ) {
+            $this->mRelations[ 'Poll' ]->CopyFrom( $value );
+        }
+        
         public function Vote( $user ) {
             if ( $user instanceof User ) {
                 $user = $user->Id;
