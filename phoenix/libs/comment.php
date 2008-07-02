@@ -402,6 +402,7 @@
                     // die( "type: " . $type . " class: " . $class );
                     $obj = New $class( $row );
                     if ( $type == TYPE_USERPROFILE ) {
+                        die( 'copy avatar' );
                         $obj->CopyAvatarFrom( New Image( $row ) );
                     }
                     $comment->CopyItemFrom( New $class( $row ) );
