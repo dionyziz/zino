@@ -75,7 +75,7 @@
             $this->mUser->Profile->Email = 'test@kamibu.com';
             $this->mUser->Gender = 'male';
             $this->mUser->Rights = 10;
-            $this->mUser->Icon = 1;
+            $this->mUser->Avatarid = 1;
             
             $this->AssertEquals( '1989-11-17', $this->mUser->Profile->Dob, 'User dob changed prior to saving user' );
 
