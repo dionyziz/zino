@@ -5,7 +5,7 @@
 
         $mc->add( 'abresas', $value->Get() );
 
-        Redirect( '?p=testmc' );
+        return Redirect( '?p=testmc' );
     }
 
 ?>

@@ -4,7 +4,8 @@
         global $mc;
 
         $value = $mc->get( 'abresas' );
-        echo $value;
+        ?><br /><br /><br /><?php
+        echo var_dump( $value );
     }
 
 ?>
