@@ -46,7 +46,7 @@
 								?>delete.png" /></a>
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_right.png" style="" />
+								?>aplbubble_right.png" />
 							</div>
 						</li><?php
 					}
@@ -73,7 +73,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $song->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -110,7 +110,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $movie->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -147,7 +147,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $show->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -184,7 +184,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $book->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -221,7 +221,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $artist->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
@@ -258,7 +258,7 @@
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
 								?>aplbubble_left.png" />
-								<span><?php
+								<span style="margin-left:0.5px"><?php
 								echo htmlspecialchars( $game->Text );
 								?></span>
 								<a href="" onclick="Settings.RemoveInterest( '<?php
