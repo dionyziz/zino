@@ -29,7 +29,7 @@ var Comments = {
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).css( { marginRight: /*(indent+1)*20 +*/ '0px' } ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).css( { marginRight: indent+1)*20 + } ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
@@ -45,7 +45,6 @@ var Comments = {
 		else {
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
-			deletes.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
 				deletes.fadeOut( 400 );
 			}
@@ -92,7 +91,6 @@ var Comments = {
 	},
 	Reply : function( nodeid, indent ) {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		//temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		temp.find( "div.toolbox span.time" ).css( { marginRight : '0px' } );
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					Comments.Create( nodeid );
