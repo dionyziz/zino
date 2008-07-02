@@ -35,7 +35,7 @@
 							<div class="aplbubble">
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_left.png" style="margin-left:1px" />
+								?>aplbubble_left.png" style="padding-left:1px" />
 								<span style="z-index: 5;"><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
