@@ -27,7 +27,7 @@
 	$water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
 	$water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
 	$water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
-    $water->SetSetting( 'calltracelvl' , 4 );
+    $water->SetSetting( 'calltracelvl' , 6 );
     
     w_assert( isset( $rabbit_settings[ 'rootdir' ] ), "`rootdir' setting is not defined" );
     w_assert( isset( $rabbit_settings[ 'applicationname' ] ), "`applicationname' setting is not defined" );
