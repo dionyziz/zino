@@ -122,7 +122,8 @@
                 'SELECT
                     *
                 FROM
-                    :events
+                    :events LEFT JOIN :users
+                        ON `event_userid` = `user_id`
                 WHERE
                     `event_typeid` != :commentevent AND
                     `event_typeid` != :relationevent
@@ -141,15 +142,68 @@
             $maxtypeid = $types[ count( $types ) - 1 ];
 
             $query->BindTable( 'events' );
+            $query->BindTable( 'users' );
             $query->Bind( 'mintypeid', $mintypeid );
             $query->Bind( 'maxtypeid', $maxtypeid );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
             $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
+
+            $res = $query->Execute();
+            $bytype = array();
+            while ( $row = $res->FetchArray() ) {
+                $event = New Event( $row );
+                $event->CopyUserFrom( New User( $row ) );
+                $bytype[ $event->Typeid ][] = $event;
+            }
+
+            $ret = array(); // sorted by eventid, ASC
+            foreach ( $bytype as $type => $events ) {
+                $events = $this->FindItemsByType( $events );
+                foreach ( $events as $event ) {
+                    $ret[ $event->Id ] = $event;
+                }
+            }
             
-			return $this->FindBySQLResource( $query->Execute() );
+            return array_reverse( $ret ); // return sorted by eventid, DESC
 		}
+        public function FindItemsByType( $events ) {
+            $typeid = $events[ 0 ]->Typeid;
+            $eventsByItemid = array();
+            while ( $event = array_shift( $events ) ) {
+                $eventsByItemid[ $event->Itemid ][] = $event;
+            }
+
+            $model = Event_ModelByType( $typeid );
+            $obj = New $model();
+            $table = $obj->Table->Alias;
+            $field = $obj->PrimaryKeyFields[ 0 ];
+            
+            $query = $this->mDb->Prepare( '
+                SELECT
+                    *
+                FROM
+                    :' . $table . '
+                WHERE
+                    `' . $field . '` IN :itemids
+                ' );
+            
+            $query->Bind( $table );
+            $query->Bind( 'itemids', array_keys( $eventsByItemid ) );
+
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $events = $eventsByItemid[ $row[ $field ] ];
+                foreach ( $events as $event ) {
+                    $event->CopyItemFrom( New $model( $row ) );
+                    $ret[] = $event;
+                }
+            }
+
+            return $ret;
+        }
 		public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
 			$prototype = New Event();
 			$prototype->Userid = $user->Id;
@@ -207,6 +261,12 @@
 	class Event extends Satori {
 		protected $mDbTableAlias = 'events';
 
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
+        public function CopyItemFrom( $value ) {
+            $this->mRelations[ 'Item' ]->CopyFrom( $value );
+        }
 		public function Relations() {
 			global $water;
             global $libs;
