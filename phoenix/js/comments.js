@@ -26,6 +26,8 @@ var Comments = {
 			};
 		del.title = "Διαγραφή";
 		
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
+		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
@@ -40,6 +42,7 @@ var Comments = {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
+			alert( "op op!" );
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
