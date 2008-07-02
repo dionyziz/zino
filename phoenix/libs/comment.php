@@ -365,16 +365,33 @@
             $table = $obj->DbTable->Alias;
             $field = $obj->PrimaryKeyFields[ 0 ];
 
-            $query = $this->mDb->Prepare( "
-                SELECT
-                    *
-                FROM
-                    $table
-                WHERE
-                    $field IN :itemids
-                ;" );
+            if ( $type != TYPE_USERPROFILE ) {
+                $query = $this->mDb->Prepare( "
+                    SELECT
+                        *
+                    FROM
+                        $table
+                    WHERE
+                        $field IN :itemids
+                    ;" );
+                    
+                $query->BindTable( $table );
+            }
+            else {
+                $query = $this->mDb->Prepare( "
+                    SELECT
+                        *
+                    FROM
+                        :users
+                        LEFT JOIN :images ON 
+                            `user_avatarid` = `image_id`
+                    WHERE
+                        `user_id` IN :itemids
+                    ;" );
+
+                $query->BindTable( 'users', 'images' );
+            }
             
-            $query->BindTable( $table );
             $query->Bind( 'itemids', array_keys( $byitemids ) );
 
             $res = $query->Execute();
@@ -383,6 +400,10 @@
                 $comments = $byitemids[ $row[ $field ] ];
                 foreach ( $comments as $comment ) {
                     // die( "type: " . $type . " class: " . $class );
+                    $obj = New $class( $row );
+                    if ( $type == TYPE_USERPROFILE ) {
+                        $obj->CopyAvatarFrom( New Image( $row ) );
+                    }
                     $comment->CopyItemFrom( New $class( $row ) );
                     $ret[] = $comment;
                 }
