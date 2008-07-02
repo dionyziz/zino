@@ -35,6 +35,9 @@ var Comments = {
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end()
 		.find( "div.toolbox" ).append( del ).end();
 		
+		temp.find("div.toolbox a").css( { marginRight : (indent+1)*20 + 'px' } );
+		temp.find("div.toolbox span.time").css( { marginRight : '0px' } );
+		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
@@ -42,7 +45,6 @@ var Comments = {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
-			alert( "op op!" );
 			temp.insertAfter( "#comment_" + parentid ).fadeTo( 400, 1 );
 			var deletes = $( "#comment_" + parentid + " div.toolbox a" ); // Hide parent's delete button
 			if ( deletes.length > 0 && deletes.css( 'opacity' ) == 1 ) {
