@@ -35,7 +35,7 @@
 							<div class="aplbubble">
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_left.png" style="z-index: 0;" />
+								?>aplbubble_left.png" style="" />
 								<span style="z-index: 1;"><?php
 								echo htmlspecialchars( $hobbie->Text );
 								?></span>
@@ -46,7 +46,7 @@
 								?>delete.png" /></a>
 								<img src="<?php
 								echo $rabbit_settings[ 'imagesurl' ];
-								?>aplbubble_right.png" style="z-index: 0;" />
+								?>aplbubble_right.png" style="" />
 							</div>
 						</li><?php
 					}
