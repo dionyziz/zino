@@ -155,7 +155,7 @@
         protected $mDbTableAlias = 'users';
       
         public function CopyAvatarFrom( $value ) {
-            $this->mRelations[ 'Avatar' ] = $value;
+            $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
         protected function SetPassword( $value ) {
             $this->mCurrentValues[ 'Password' ] = md5( $value );
