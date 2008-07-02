@@ -177,7 +177,7 @@
 
             $model = Event_ModelByType( $typeid );
             $obj = New $model();
-            $table = $obj->Table->Alias;
+            $table = $obj->DbTable->Alias;
             $field = $obj->PrimaryKeyFields[ 0 ];
             
             $query = $this->mDb->Prepare( '
