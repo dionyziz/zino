@@ -334,8 +334,6 @@
             foreach ( $bytype as $type => $comments ) {
                 $comments = $this->FindItemsByType( $type, $comments );
                 foreach ( $comments as $comment ) {
-                    global $water;
-                    $water->Trace( $comment->Typeid . " " . get_class( $comment->Item ) );
                     $ret[ $comment->Id ] = $comment;
                 }
             }
@@ -370,6 +368,7 @@
             while ( $row = $res->FetchArray() ) {
                 $comments = $byitemids[ $row[ $field ] ];
                 foreach ( $comments as $comment ) {
+                    die( "type: " . $type . " class: " . $class );
                     $comment->CopyItemFrom( New $class( $row ) );
                     $ret[] = $comment;
                 }
