@@ -218,16 +218,17 @@
         public function UpdateLastLogin() {
             $this->Lastlogin = time();
         }
+        protected function OnBeforeCreate() {
+            $this->EgoAlbum->Userid = $this->Id;
+            $this->EgoAlbum->Save();
+            $this->Egoalbumid = $this->EgoAlbum->Id;
+        }
         protected function OnCreate() {
             global $libs;
 
             $libs->Load( 'pm/pm' );
 
             $this->OnUpdate();
-            $this->EgoAlbum->Userid = $this->Id;
-            $this->EgoAlbum->Save();
-            die( $this->EgoAlbum->Id . '.' );
-            $this->Egoalbumid = $this->EgoAlbum->Id;
             PMFolder_PrepareUser( $this );
 
             $this->Save(); // save again
