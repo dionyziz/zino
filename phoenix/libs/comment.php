@@ -305,37 +305,72 @@
             return false;
         }
         public function FindLatest( $offset = 0, $limit = 25 ) {
-            $prototype = New Comment();
-            $prototype->Delid = 0;
-            return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
-        }
-        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
-            if ( empty( $comments ) ) {
-                return array();
-            }
-
             $query = $this->mDb->Prepare( "
                 SELECT
-                    * 
+                    *
                 FROM
-                    :comments LEFT JOIN :users 
+                    :comments LEFT JOIN :users
                         ON `comment_userid` = `user_id`
                 WHERE
-                    `comment_id` IN :commentids
+                    `comment_delid` = '0'
+                ORDER BY
+                    `comment_id` DESC
                 LIMIT
                     :offset, :limit;" );
 
             $query->BindTable( 'comments', 'users' );
-            $query->Bind( 'commentids', $comments );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
+            
+            $res = $query->Execute();
+            $bytype = array();
+            while ( $row = $res->FetchArray() ) {
+                $comment = New Comment( $row );
+                $comment->CopyUserFrom( $row );
+                $bytype[ $comment->Typeid ][] = $comment;
+            }
+
+            $ret = array();
+            foreach ( $bytype as $type => $comments ) {
+                $comments = $this->FindItemsByType( $type, $comments );
+                foreach ( $comments as $comment ) {
+                    $ret[ $comment->Id ] = $comment;
+                }
+            }
+
+            return $ret;
+        }
+        public function FindItemsByType( $type, $comments ) {
+            $byitemids = array();
+            foreach ( $comments as $comment ) {
+                $byitemids[ $comment->Itemid ][] = $comment;
+            }
+
+            $class = Type_GetClass( $type );
+            $obj = New $class();
+            $table = $obj->DbTable->Alias;
+            $field = $obj->PrimaryKeyFields[ 0 ];
+
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    $table
+                WHERE
+                    $field IN :itemids
+                ;" );
+            
+            $query->BindTable( $table );
+            $query->Bind( 'itemids', array_keys( $byitemids ) );
 
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $comment = New Comment( $row );
-                $comment->CopyUserFrom( New User( $row ) );
-                $ret[ $row[ 'comment_id' ] ] = $comment;
+                $comments = $byitemids[ $row[ $field ] ];
+                foreach ( $comments as $comment ) {
+                    $comment->CopyItemFrom( New $class( $row ) );
+                    $ret[] = $comment;
+                }
             }
 
             return $ret;
@@ -372,24 +407,9 @@
             $num_pages = $info[ 0 ];
             $cur_page = $info[ 1 ];
             $parented = $info[ 2 ];
+
+            $comments = $this->FindParentedData( $parented );
             
-            $commentids = array();
-            foreach ( $parented as $parentid => $children ) {
-                foreach ( $children as $child ) {
-                    $commentids[] = $child[ 'comment_id' ];
-                }
-            }
-
-            $comments = $this->FindData( $commentids );
-    
-            $ret = array();
-            foreach ( $parented as $parentid => $children ) {
-                $ret[ $parentid ] = array();
-                foreach ( $children as $child ) {
-                    $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
-                }
-            }
-
             return array( $num_pages, $cur_page, $ret );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
@@ -425,6 +445,13 @@
             $info = Comments_OnPage( $comments, $page, $reverse );
             $num_pages = $info[ 0 ];
             $parented = $info[ 1 ];
+
+            $comments = $this->FindParentedData( $parented );
+
+            return array( $num_pages, $comments );
+        }
+        public function FindParentedData( $parented ) {
+            /* get comment ids from parented */
             $commentids = array();
             foreach ( $parented as $parentid => $children ) {
                 foreach ( $children as $child ) {
@@ -432,8 +459,10 @@
                 }
             }
 
+            /* fetch data for all comments */
             $comments = $this->FindData( $commentids );
     
+            /* parentify fetched data */
             $ret = array();
             foreach ( $parented as $parentid => $children ) {
                 $ret[ $parentid ] = array();
@@ -441,8 +470,37 @@
                     $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
                 }
             }
+        }
+        public function FindData( $comments, $offset = 0, $limit = 100000 ) {
+            if ( empty( $comments ) ) {
+                return array();
+            }
 
-            return array( $num_pages, $ret );
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    * 
+                FROM
+                    :comments LEFT JOIN :users 
+                        ON `comment_userid` = `user_id`
+                WHERE
+                    `comment_id` IN :commentids
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'comments', 'users' );
+            $query->Bind( 'commentids', $comments );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $comment = New Comment( $row );
+                $comment->CopyUserFrom( New User( $row ) );
+                $ret[ $row[ 'comment_id' ] ] = $comment;
+            }
+
+            return $ret;
         }
     }
 
@@ -450,6 +508,9 @@
         protected $mDbTableAlias = 'comments';
 		private $mSince;
 
+        public function CopyItemFrom( $value ) {
+            $this->mRelations[ 'Item' ]->CopyFrom( $value );
+        }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
