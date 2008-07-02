@@ -150,6 +150,9 @@
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
         
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );
