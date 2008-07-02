@@ -15,7 +15,7 @@
         $user->Space->Text = $result;
 		$user->Space->Save();
 
-        die( '.'.$text );
+        die( '.'.$result );
 
         ob_start();
         Element( 'user/url', $user );
