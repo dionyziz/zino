@@ -226,6 +226,7 @@
             $this->OnUpdate();
             $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
+            die( $this->EgoAlbum->Id . '.' );
             $this->Egoalbumid = $this->EgoAlbum->Id;
             PMFolder_PrepareUser( $this );
 
