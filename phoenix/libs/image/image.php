@@ -104,13 +104,22 @@
                 'SELECT
                     *
                 FROM
-                    :images
+                    :images 
+                    LEFT JOIN :users ON
+                        `image_userid` = `user_id`
                 WHERE
                     `image_id` IN :imageids'
             );
-            $query->BindTable( 'images' );
+            $query->BindTable( 'images', 'users' );
             $query->Bind( 'imageids', $imageids );
-            $images = $this->FindBySQLResource( $query->Execute() );
+            
+            $res = $query->Execute();
+            $images = array();
+            while ( $row = $res->FetchArray() ) {
+                $image = New Image( $row );
+                $image->CopyUserFrom( New User( $row ) );
+                $images[] = $image;
+            }
 
             $ret = array();
             foreach ( $images as $image ) {
