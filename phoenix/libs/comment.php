@@ -334,6 +334,8 @@
             foreach ( $bytype as $type => $comments ) {
                 $comments = $this->FindItemsByType( $type, $comments );
                 foreach ( $comments as $comment ) {
+                    global $water;
+                    $water->Trace( $comment->Typeid . " " . get_class( $comment->Item ) );
                     $ret[ $comment->Id ] = $comment;
                 }
             }
