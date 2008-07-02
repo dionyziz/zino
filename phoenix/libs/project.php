@@ -88,7 +88,9 @@
             'shoutbox'          => 'shoutbox/list',
             'questions'			=> 'question/list',
             'answers'           => 'question/answer/list',
-            'comments/recent'   => 'comment/recent/list'
+            'comments/recent'   => 'comment/recent/list',
+            'testmc'            => 'developer/abresas/testmc',
+            'mcform'            => 'developer/abresas/mcform',
     	);
     }
 ?>
