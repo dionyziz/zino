@@ -401,7 +401,7 @@
             foreach ( $albums as $album ) {
                 $nickname = preg_quote( $album[ 'user_name' ], '#' );
                 $subdomain = preg_quote( $album[ 'user_subdomain' ], '#' );
-                $exp1 = '#((\b|^)(me+|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
+                $exp1 = '#((\b|^)(me+(?! to)|egw+|ego+|my|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
                 $exp2 = '#((\b|^)(egw+|ego+|' . $nickname . '|' . $subdomain . ')(\b|$))#ui';
                 if (    preg_match( $exp1, $album[ 'album_name' ] )
                      || preg_match( $exp2, Latinize( $album[ 'album_name' ] ) ) ) {
