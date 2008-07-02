@@ -178,7 +178,6 @@ class PageHTML extends Page {
                 ?><!--[if IE]><?php
             }
             ?><link href="<?php
-            echo $this->mBase;
             echo $filename;
             if ( file_exists( $this->mBaseIncludePath . '/' . $filename ) ) {
                 ?>?<?php
@@ -286,7 +285,7 @@ class PageHTML extends Page {
 		if ( !isset( $this->mStylesheets[ $filename ] ) ) {
 			$water->Trace( 'Loading stylesheet ' . $filename );
 			$this->mStylesheets[ $filename ] = array(
-                'FILENAME' => $filename,
+                'filename' => $filename,
                 'ieversion' => $ieversion
             );
             if ( count( $this->mStylesheets ) > 30 ) {
