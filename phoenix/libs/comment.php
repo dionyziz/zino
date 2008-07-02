@@ -316,9 +316,10 @@
 
             $query = $this->mDb->Prepare( "
                 SELECT
-                    *
+                    
                 FROM
-                    :comments
+                    :comments LEFT JOIN :users 
+                        ON `comment_userid` = `user_id`
                 WHERE
                     `comment_id` IN :commentids
                 LIMIT
@@ -332,7 +333,9 @@
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $ret[ $row[ 'comment_id' ] ] = New Comment( $row );
+                $comment = New Comment( $row );
+                $comment->CopyUserFrom( New User( $row ) );
+                $ret[ $row[ 'comment_id' ] ] = $comment;
             }
 
             return $ret;
@@ -447,6 +450,9 @@
         protected $mDbTableAlias = 'comments';
 		private $mSince;
 
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
         public function IsEditableBy( $user ) {
             return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
         }

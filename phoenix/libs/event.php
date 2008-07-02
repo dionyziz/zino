@@ -151,16 +151,16 @@
             $query->Bind( 'limit', $limit );
 
             $res = $query->Execute();
-            $bytype = array();
+            $bymodel = array();
             while ( $row = $res->FetchArray() ) {
                 $event = New Event( $row );
                 $event->CopyUserFrom( New User( $row ) );
-                $bytype[ $event->Typeid ][] = $event;
+                $bymodel[ Event_ModelByType( $event->Typeid ) ][] = $event;
             }
 
             $ret = array(); // sorted by eventid, ASC
-            foreach ( $bytype as $type => $events ) {
-                $events = $this->FindItemsByType( $events );
+            foreach ( $bymodel as $type => $events ) {
+                $events = $this->FindItemsByModel( $events );
                 foreach ( $events as $event ) {
                     $ret[ $event->Id ] = $event;
                 }
@@ -168,14 +168,14 @@
             
             return array_reverse( $ret ); // return sorted by eventid, DESC
 		}
-        public function FindItemsByType( $events ) {
-            $typeid = $events[ 0 ]->Typeid;
+        public function FindItemsByModel( $events ) {
             $eventsByItemid = array();
             while ( $event = array_shift( $events ) ) {
                 $eventsByItemid[ $event->Itemid ][] = $event;
             }
 
-            $model = Event_ModelByType( $typeid );
+            $model = Event_ModelByType( $events[ 0 ]->Typeid );
+
             $obj = New $model();
             $table = $obj->DbTable->Alias;
             $field = $obj->PrimaryKeyFields[ 0 ];
