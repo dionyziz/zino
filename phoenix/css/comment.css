@@ -29,11 +29,13 @@ div.comment div.toolbox img {
 	vertical-align: text-bottom;
 }
 div.comment div.toolbox a {
-	/*background: url( "http://static.zino.gr/phoenix/delete.png" ) no-repeat;*/
 	background: url( "http://static.zino.gr/phoenix/s_bl.png" ) no-repeat;
 	padding-left: 16px;	
 	padding-bottom: 2px;
 	margin-left: 5px;
+	/* A little hack for IE7 */
+	color: #f4f4f4;
+	
 }
 div.comment div.who img.avatar {
 	float: left;

@@ -34,7 +34,7 @@
 					?>px;"
 					onclick="Comments.Delete( <?php
 					echo $comment->Id;
-					?> );return false;" title="Διαγραφή"></a><?php
+					?> );return false;" title="Διαγραφή">.</a><?php // There is a reason for the dot.
 				}
 			?></div>
 			<div class="who"><?php
