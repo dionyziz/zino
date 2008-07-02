@@ -306,7 +306,7 @@
         }
         public function FindLatest( $offset = 0, $limit = 25 ) {
             global $libs;
-            $libs->Load( 'image' );
+            $libs->Load( 'image/image' );
 
             $query = $this->mDb->Prepare( "
                 SELECT
