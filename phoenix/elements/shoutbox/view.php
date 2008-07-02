@@ -31,7 +31,7 @@
 	 			<div class="toolbox">
 					<span class="time">πριν λίγο</span><?php
 					if ( $user->HasPermission( PERMISSION_SHOUTBOX_DELETE )  ) {
-						?><a href="" onclick="return false" title="Διαγραφή"></a><?php
+						?><a href="" onclick="return false" title="Διαγραφή">&nbsp;</a><?php
 					}
 				?></div>
 				<div class="who"><?php
