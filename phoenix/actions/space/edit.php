@@ -15,11 +15,11 @@
         $user->Space->Text = $result;
 		$user->Space->Save();
 
+        die( '.'.$text );
+
         ob_start();
         Element( 'user/url', $user );
 
-        die( '.'.$result );
-        
 		return Redirect( ob_get_clean() . 'space' );
 	}
 ?>
