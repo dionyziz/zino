@@ -3,9 +3,11 @@
 	function ElementPollSmall( $poll , $showcommnum = false ) {
 		global $user;
 		global $rabbit_settings; 
+		global $water;
 		
 		$finder = New PollVoteFinder();
 		$showresults = $finder->FindByPollAndUser( $poll, $user );
+		$water->Trace( 'Poll showresults:' . $showresults);
 		//used to show results, will be true if the user has voted or is anonymous
 		?><div class="pollsmall">
 			<h4><a href="<?php
