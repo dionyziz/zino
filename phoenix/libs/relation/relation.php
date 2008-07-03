@@ -23,10 +23,16 @@
                         `user_avatarid` = `image_id`
                 WHERE
                     `relation_userid` = :userid
+                ORDER BY
+                    `relation_id` DESC
+                LIMIT
+                    :offset, :limit
                 ;' );
 
             $query->BindTable( 'relations', 'users', 'images' );
             $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
 
             $res = $query->Execute();
             $ret = array();
