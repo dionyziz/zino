@@ -236,7 +236,7 @@
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id; //3 stands for Userprofile
 
-            $query = $this->mDb->Query( '
+            $query = $this->mDb->Prepare( '
                 UPDATE
                     :comments
                 SET
