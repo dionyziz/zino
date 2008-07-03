@@ -69,7 +69,7 @@
             try {
                 $event->Userid = 5;
                 $event->Save();
-            } catch ( EventException $e ) {
+            } catch ( Exception $e ) {
 				$exception = true;
 			}
 		
