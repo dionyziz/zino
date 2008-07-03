@@ -170,14 +170,7 @@
                 }
             }
 
-            var_dump( $ret );
-            ?><br /><br /><?php
-            $ret = array_reverse( $ret );
-            var_dump( $ret );
-
-            die( "" );
-
-            return $ret; // return sorted by eventid, DESC
+            return krsort( $ret );
 		}
         public function FindItemsByModel( $model, $events ) {
             global $libs;
