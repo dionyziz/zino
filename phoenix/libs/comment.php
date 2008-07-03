@@ -455,6 +455,8 @@
                 $page = 1;
             }
 
+            $limit = $page * 1000; // perhaps..
+
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
