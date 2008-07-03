@@ -12,7 +12,7 @@
             $this->mRelations[ 'Location' ]->CopyFrom( $value );
         }
         public function CopyUniversityFrom( $value ) {
-            $this->mRelations[ 'University' ]->CopyFrom( $value );
+            $this->mRelations[ 'Uni' ]->CopyFrom( $value );
         }
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
