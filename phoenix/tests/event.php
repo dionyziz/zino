@@ -137,6 +137,8 @@
 
 			$this->AssertEquals( 3, count( $events ), 'Wrong number of events' );
 
+            die( print_r( $events ) );
+
 			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
 			$itemids = array( $this->mUser->Id, $this->mUser2->Id, $this->mUser->Id );
             $userids = array( $this->mUser2->Id, $this->mUser2->Id, $this->mUser->Id );
