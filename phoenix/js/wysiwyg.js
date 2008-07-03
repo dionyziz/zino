@@ -314,7 +314,9 @@ XbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
 
 XbDesignMode.prototype.setCSSCreation = function ( aUseCss ) {
     if ( this.mEditorDocument ) {
-        this.mEditorDocument.execCommand( "styleWithCSS", false, aUseCss );
+        try { // IE doesn't support this
+            this.mEditorDocument.execCommand( "styleWithCSS", false, aUseCss );
+        }
     }
     else {
         throw "no mEditorDocument found";
