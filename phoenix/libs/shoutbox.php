@@ -21,7 +21,7 @@
             global $libs;
             $libs->Load( 'image/image' );
 
-            $query = $this->mDbQuery( "
+            $query = $this->mDb->Prepare( "
                 SELECT
                     *
                 FROM
