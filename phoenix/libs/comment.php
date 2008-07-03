@@ -46,7 +46,6 @@
         }
         $num_pages = $page_num + 1;
         $mc->add( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
-        die( var_dump( $page_parents ) );
     }
 
     function Comments_CountChildren( $comments, $id ) {
@@ -180,9 +179,8 @@
 		$parented[ 0 ] = array();
 
         $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
-        $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
-        die( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . $page . ' firstcom_90367_2_0: ' . var_dump( $mc->get( 'firstcom_90367_2_0' ) ) );
+        $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
+        $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
             $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
@@ -190,7 +188,6 @@
             $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         }
         foreach ( $parents as $parent ) {
-            // die( $maxid . " minid:" . $minid . " parentid:" . $parent[ 'comment_id' ] );
             if ( !( $parent[ 'comment_id' ] <= $maxid && ( $parent[ 'comment_id' ] > $minid || $minid === false ) ) ) {
                 continue;
             }
