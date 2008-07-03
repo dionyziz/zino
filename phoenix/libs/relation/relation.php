@@ -31,7 +31,7 @@
             $res = $query->Execute();
             $ret = array();
             while ( $row = $res->FetchArray() ) {
-                $relation = New Relation( $row );
+                $relation = New FriendRelation( $row );
                 $friend = New User( $row );
                 $friend->CopyAvatarFrom( New Image( $row ) );
                 $relation->CopyFriendFrom( $friend );
