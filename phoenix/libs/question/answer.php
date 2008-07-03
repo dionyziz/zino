@@ -25,14 +25,38 @@
         }
 		
 		public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
-			$answer = New Answer();
-			$answer->Userid = $user->Id;
-			return $this->FindByPrototype( $answer, $offset, $limit, array( 'Id', 'DESC' ) );
+		    $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :answers 
+                    LEFT JOIN :questions
+                        ON `answer_questionid` = question_id
+                WHERE
+                    `answer_userid` = :userid
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'answers', 'questions' );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $answer = New Answer( $row );
+                $answer->CopyQuestionFrom( New Question( $row ) );
+                $ret[] = $answer;
+            }
+            return $ret;
 		}
 	}
 
 	class Answer extends Satori {
 		protected $mDbTableAlias = 'answers';
+		
+		public function CopyQuestionFrom( $value ) {
+            $this->mRelations[ 'Question' ]->CopyFrom( $value );
+        }
 
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
