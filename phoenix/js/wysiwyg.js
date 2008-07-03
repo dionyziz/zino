@@ -229,6 +229,7 @@ var WYSIWYG = {
             doc.body.removeChild( doc.body.firstChild );
         }
 
+        alert( oldcontents.childNodes.length );
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
