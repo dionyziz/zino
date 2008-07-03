@@ -38,7 +38,7 @@
                     :offset, :limit;" );
 
             $query->BindTable( 'answers', 'questions' );
-            $query->Bind( 'userid', $User->Id );
+            $query->Bind( 'userid', $user->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             $res = $query->Execute();
