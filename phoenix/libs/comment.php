@@ -27,7 +27,7 @@
         }
 
         $finder = New CommentFinder();
-        $comments = $finder->FindByEntity();
+        $comments = $finder->FindByEntity( $entity );
 
         $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_total = 0;
