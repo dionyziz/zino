@@ -191,6 +191,7 @@ var WYSIWYG = {
         }, 100 ); // can't do check inline -- need the timeout for the browser to realize that the designMode has/hasn't taken effect and return us the ~actual~ value, not the one we set it to
     },
     Check: function ( which, fieldname, oldcontents ) {
+        alert( 'WYSIWYG: In check' );
         var doc = WYSIWYG.GetDocument( which );
 
         if ( doc.designMode != 'on' ) {
@@ -229,7 +230,6 @@ var WYSIWYG = {
             doc.body.removeChild( doc.body.firstChild );
         }
 
-        alert( oldcontents.childNodes.length );
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
