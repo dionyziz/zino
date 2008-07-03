@@ -36,7 +36,7 @@
         $total_pages = 1;
         $page_total = 0; 
         foreach ( $parents as $parent ) {
-            $page_total += 1 + Comments_CountChildren( $comments, $parent->Id );
+            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
                 $page_total = 0;
                 $total_pages++;

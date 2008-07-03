@@ -1,6 +1,7 @@
 <?php
 	function ElementUserProfileSidebarSocialPolitics( $theuser ) {
 		if ( $theuser->Profile->Politics != '-' ) {
+            /*
 			if ( $theuser->Gender == 'm' || $theuser->Gender == '-' ) {
 				$politics = array( 
 					'right' => 'Δεξιός',
@@ -21,9 +22,10 @@
 					'nothing' => 'Τίποτα'
 				);
 			}
+            */
 			?><dt><strong>Πολιτική ιδεολογία</strong></dt>
 			<dd><?php
-			echo $politics[ $theuser->Profile->Politics ];
+            Element( 'user/trivial/politics', $theuser->Profile->Politics, $theuser->Gender );
 			?></dd><?php
 		}
 	}
