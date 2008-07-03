@@ -181,7 +181,8 @@ var WYSIWYG = {
         while ( oldcontents.childNodes.length ) {
             doc.body.appendChild( oldcontents.childNodes[ 0 ] );
         }
-        alert( oldcontents.childNodes.length );
+        
+        return;
         WYSIWYG.Enable( which, fieldname, oldcontents );
     },
     Enable: function ( which, fieldname, oldcontents ) {
