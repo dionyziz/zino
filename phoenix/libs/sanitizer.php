@@ -255,7 +255,8 @@
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
                     if ( $this->mTextProcessor !== false ) {
-                        $ret .= $this->mTextProcessor( $xmlnode );
+                        $callback = $this->mTextProcessor;
+                        $ret .= $callback( $xmlnode );
                     }
                     else {
                         $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );
