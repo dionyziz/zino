@@ -92,7 +92,7 @@
 			}
 			?><div class="pagifypolls"><?php
 
-            $link = '?p=polls&subdomain' . $theuser->Subdomain . '&pageno=';
+            $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'polls/?pageno=';
             $total_pages = ceil( $theuser->Count->Polls / 5 );
 			Element( 'pagify', $pageno, $link, $total_pages );
 			?></div>

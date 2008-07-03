@@ -75,7 +75,7 @@
 				}
 			?></ul>
 			<div class="pagifyjournals"><?php
-            $link = '?p=journals&subdomain=' . $theuser->Subdomain . '&pageno=';
+            $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'journals/?pageno=';
             $total_pages = ceil( $theuser->Count->Journals / 5 );
 			Element( 'pagify', $pageno, $link, $total_pages );
 			?></div>
