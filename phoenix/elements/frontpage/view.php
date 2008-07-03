@@ -134,7 +134,9 @@
                         echo count( $users );
                         ?> άτομα είναι online"<?php
                     }
-                    ?>>Είναι online τώρα</h2>
+                    ?>>Είναι online τώρα (<?php
+                    echo count( $users );
+                    ?>)</h2>
 					<div class="list"><?php
 						foreach( $users as $onuser ) {
 							?><a href="<?php
