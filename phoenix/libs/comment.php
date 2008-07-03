@@ -10,55 +10,14 @@
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
 	
-    function Comment_RegenerateMemcache( $entity ) {
-        global $mc;
-        global $water;
-
-        $water->Trace( "Regenerating mc for " . $entity->Id . " " . Type_FromObject( $entity ) );
-
-        $itemid = $entity->Id;
-        $typeid = Type_FromObject( $entity );
-
-        $old_num_pages = $mc->get( 'numpages_' . $itemid . '_' . $typeid );
-        if ( $old_num_pages !== false ) {
-            for ( $i = 1; $i <= $old_num_pages; ++$i ) {
-                $mc->delete( 'firstcom_' . $itemid . '_' . $typeid . '_' . $i );
-            }
-        }
-
-        $finder = New CommentFinder();
-        $comments = $finder->FindByEntity( $entity );
-
-        $parents = Comments_GetImmediateChildren( $comments, 0 );
-        $page_total = 0;
-        $page_num = 0;
-        $page_parents = array();
-        foreach ( $parents as $parent ) {
-            if ( $page_total == 0 ) {
-                $page_parents[ 'first_com_' . $itemid . '_' . $typeid . '_' . $page_num ] = $parent[ 'comment_id' ];
-                $mc->add( 'firstcom_' . $itemid . '_' . $typeid . '_' . $page_num, $parent[ 'comment_id' ] );
-            }
-            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
-            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
-                $page_total = 0;
-                $page_num++;
-            }
-        }
-        $num_pages = $page_num + 1;
-        $mc->add( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
-    }
-
     function Comments_CountChildren( $comments, $id ) {
-        global $mc;
-
-        $count = 0;
-        foreach ( $comments as $comment ) {
-            if ( $comment[ 'comment_parentid' ] == $id ) {
-                ++$count;
-                $count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
-            }
-        }
-
+		$count = 0;
+		foreach ( $comments as $comment ) {
+			if ( $comment[ 'comment_parentid' ] == $id ) {
+				++$count;
+				$count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
+			}
+		}
 		return $count;
 	}
 	
@@ -66,11 +25,9 @@
 		$children = array();
 		foreach ( $comments as $comment ) {
 			if ( $comment[ 'comment_parentid' ] == $id ) {
-				$children[ $comment[ 'comment_id' ] ] = $comment;
+				$children[] = $comment;
 			}
 		}
-
-        krsort( $children );
 
 		return $children;
 	}
@@ -106,9 +63,7 @@
 		}
 	}
     
-    function Comments_Near( $entity, $comments, $comment, $reverse = true ) {
-        global $mc;
-
+    function Comments_Near( $comments, $comment, $reverse = true ) {
         $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_num = 0;
         $page_total = 0;
@@ -152,22 +107,20 @@
         $parented = array();
         $parented[ 0 ] = array();
         foreach ( $page_parents as $parent ) {
-            $parented[ 0 ][] = $parent;
+            if ( $reverse ) {
+                array_unshift( $parented[ 0 ], $parent );
+            }
+            else {
+                $parented[ 0 ][] = $parent;
+            }
             Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
-        }
-
-        $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        if ( $num_pages === false ) {
-            Comment_RegenerateMemcache( $entity );
-            $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         }
 
         return array( Comments_CountPages( $comments, $parents ), $page_num + 1, $parented );
     }
 
-	function Comments_OnPage( $comments, $entity, $page, $reverse = true ) {
+	function Comments_OnPage( $comments, $page, $reverse = true ) {
         global $water;
-        global $mc;
 
         --$page; /* start from 0 */
 
@@ -177,25 +130,25 @@
 		$page_num = 0;
 		$parented = array();
 		$parented[ 0 ] = array();
-
-        $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-        $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
-        $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
-        if ( $num_pages === false ) {
-            Comment_RegenerateMemcache( $entity );
-            $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-            $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
-            $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
+        if ( $reverse ) {
+            $parents = array_reverse( $parents );
         }
         foreach ( $parents as $parent ) {
-            if ( !( $parent[ 'comment_id' ] <= $maxid && ( $parent[ 'comment_id' ] > $minid || $minid === false ) ) ) {
-                continue;
+            if ( $page_num == $page ) {
+                $parented[ 0 ][] = $parent;
+                Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
             }
-            $parented[ 0 ][] = $parent;
-            Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
+            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
+            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
+                $page_total = 0;
+                $page_num++;
+                if ( $page_num > $page ) {
+                    break;
+                }
+            }
         }
 
-        return array( $num_pages, $parented );
+		return array( Comments_CountPages( $comments, $parents ), $parented );
 	}
 
     /*
@@ -467,7 +420,7 @@
                 $comments[] = $row;
             }
 
-            $info = Comments_Near( $entity, $comments, $comment );
+            $info = Comments_Near( $comments, $comment );
             $num_pages = $info[ 0 ];
             $cur_page = $info[ 1 ];
             $parented = $info[ 2 ];
@@ -476,37 +429,7 @@
             
             return array( $num_pages, $cur_page, $comments );
         }
-        public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
-            $query = $this->mDb->Prepare( "
-                SELECT
-                    `comment_id`, `comment_parentid`
-                FROM
-                    :comments
-                WHERE
-                    `comment_typeid` = :typeid AND
-                    `comment_itemid` = :itemid AND
-                    `comment_delid` = :delid
-                LIMIT
-                    :offset, :limit;" );
-
-            $query->BindTable( 'comments' );
-            $query->Bind( 'typeid', Type_FromObject( $entity ) );
-            $query->Bind( 'itemid', $entity->Id );
-            $query->Bind( 'delid', 0 );
-            $query->Bind( 'offset', $offset );
-            $query->Bind( 'limit', $limit );
-            
-            $res = $query->Execute();
-            $comments = array();
-            while ( $row = $res->FetchArray() ) {
-                $comments[] = $row;
-            }
-
-            return $comments;
-        }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
-            global $mc;
-
             if ( $page <= 0 ) {
                 $page = 1;
             }
@@ -536,7 +459,7 @@
                 $comments[] = $row;
             }
 
-            $info = Comments_OnPage( $comments, $entity, $page, $reverse );
+            $info = Comments_OnPage( $comments, $page, $reverse );
             $num_pages = $info[ 0 ];
             $parented = $info[ 1 ];
 
@@ -663,13 +586,10 @@
         }
         protected function OnDelete() {
             global $libs;
-            global $mc;
             $libs->Load( 'event' );
             
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
-
-            Comment_RegenerateMemcache( $this->Item );
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
@@ -686,7 +606,7 @@
             return false;
         }
         public function OnCreate() {
-            global $mc;
+            // global $mc;
             global $libs;
 
             $libs->Load( 'event' );
@@ -705,11 +625,6 @@
             $event->Created = $this->Created;
             $event->Userid = $this->Userid;
             $event->Save();
-
-            Comment_RegenerateMemcache( $this->Item );
-        }
-        public function OnUpdate() {
-            Comment_RegenerateMemcache( $this->Item );
         }
         public function OnBeforeUpdate() {
             $this->Bulk->Save();
@@ -742,5 +657,7 @@
 			return $this->mSince;
 		}
     }
+    
+
 	
 ?>
