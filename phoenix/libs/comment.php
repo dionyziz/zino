@@ -35,7 +35,7 @@
         $page_parents = array();
         foreach ( $parents as $parent ) {
             if ( $page_total == 0 ) {
-                $page_parents[] = $parent[ 'comment_id' ];
+                $page_parents[ 'first_com_' . $itemid . '_' . $typeid . '_' . $page_num ] = $parent[ 'comment_id' ];
                 $mc->add( 'firstcom_' . $itemid . '_' . $typeid . '_' . $page_num, $parent[ 'comment_id' ] );
             }
             $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
