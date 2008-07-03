@@ -31,13 +31,14 @@
                 FROM
                     :answers 
                     LEFT JOIN :questions
-                        ON `answer_questionid` = question_id
+                        ON `answer_questionid` = `question_id`
                 WHERE
                     `answer_userid` = :userid
                 LIMIT
                     :offset, :limit;" );
 
             $query->BindTable( 'answers', 'questions' );
+            $query->Bind( 'userid', $User->Id );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             $res = $query->Execute();
