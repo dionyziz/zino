@@ -189,6 +189,8 @@
         if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
             $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+            $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
+            $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         }
         foreach ( $parents as $parent ) {
             if ( !( $parent[ 'comment_id' ] >= $minid && ( $parent[ 'comment_id' ] < $maxid || $maxid === false ) ) ) {
