@@ -176,6 +176,16 @@ var WYSIWYG = {
         WYSIWYG.Enable( which, fieldname, oldcontents );
     },
     Enable: function ( which, fieldname, oldcontents ) {
+        var doc = WYSIWYG.GetDocument( which );
+        
+        while ( doc.body.firstChild ) {
+            doc.body.removeChild( doc.body.firstChild );
+        }
+
+        while ( oldcontents.childNodes.length ) {
+            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
+        }
+
         try {
             WYSIWYG.ByName[ fieldname ] = new XbDesignMode( which );
         }
@@ -224,14 +234,6 @@ var WYSIWYG = {
             };
         }( scfield, doc );
         which.style.backgroundColor = 'white';
-
-        while ( doc.body.firstChild ) {
-            doc.body.removeChild( doc.body.firstChild );
-        }
-
-        while ( oldcontents.childNodes.length ) {
-            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
-        }
         
         WYSIWYG.Focus( which );
     }
