@@ -29,7 +29,7 @@
         $finder = New CommentFinder();
         $comments = $finder->FindByEntity( $entity );
 
-        $parents = array_reverse( Comments_GetImmediateChildren( $comments, 0 ) );
+        $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_total = 0;
         $page_num = 0;
         foreach ( $parents as $parent ) {
@@ -64,9 +64,11 @@
 		$children = array();
 		foreach ( $comments as $comment ) {
 			if ( $comment[ 'comment_parentid' ] == $id ) {
-				$children[] = $comment;
+				$children[ $comment[ 'comment_id' ] ] = $comment;
 			}
 		}
+
+        krsort( $children );
 
 		return $children;
 	}
@@ -148,12 +150,7 @@
         $parented = array();
         $parented[ 0 ] = array();
         foreach ( $page_parents as $parent ) {
-            if ( $reverse ) {
-                array_unshift( $parented[ 0 ], $parent );
-            }
-            else {
-                $parented[ 0 ][] = $parent;
-            }
+            $parented[ 0 ][] = $parent;
             Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
         }
 
@@ -178,10 +175,6 @@
 		$page_num = 0;
 		$parented = array();
 		$parented[ 0 ] = array();
-
-        if ( $reverse ) {
-            $parents = array_reverse( $parents );
-        }
 
         $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
