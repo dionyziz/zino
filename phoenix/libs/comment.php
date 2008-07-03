@@ -43,7 +43,7 @@
             }
         }
         $num_pages = $page_num + 1;
-        $mc->replace( 'numpages_' + $this->Itemid + '_' + $this->Typeid, $num_pages );
+        $mc->replace( 'numpages_' + $itemid + '_' + $typeid, $num_pages );
     }
 
     function Comments_CountChildren( $comments, $id ) {
