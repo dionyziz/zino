@@ -104,6 +104,8 @@
             return $this->FindByPrototype( New User(), 0, 25, array('Created', 'DESC') );
         }
         public function FindOnline( $offset = 0, $limit = 100 ) {
+            global $xc_settings;
+            
             $query = $this->mDb->Prepare(
                 'SELECT
                     :users.*, :images.*
@@ -114,7 +116,7 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
-                    `lastactive_updated` > NOW() - INTERVAL 5 MINUTE
+                    `lastactive_updated` > NOW() ' . $xc_settings[ 'mysql2phpdate' ] . ' - INTERVAL 5 MINUTE
                 ORDER BY
                     `lastactive_updated` DESC
                 LIMIT
