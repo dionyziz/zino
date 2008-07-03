@@ -189,12 +189,11 @@
         if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
             $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
-            $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
-            $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
+            $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
+            $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         }
-        die( $minid . " " .$maxid ); 
         foreach ( $parents as $parent ) {
-            if ( !( $parent[ 'comment_id' ] >= $minid && ( $parent[ 'comment_id' ] < $maxid || $maxid === false ) ) ) {
+            if ( !( $parent[ 'comment_id' ] <= $maxid && ( $parent[ 'comment_id' ] > $minid || $minid === false ) ) ) {
                 continue;
             }
             $parented[ 0 ][] = $parent;
