@@ -102,7 +102,7 @@
 		}
 	}
     
-    function Comments_Near( $comments, $comment, $reverse = true ) {
+    function Comments_Near( $entity, $comments, $comment, $reverse = true ) {
         $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_num = 0;
         $page_total = 0;
@@ -155,6 +155,12 @@
             Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
         }
 
+        $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        if ( $num_pages === false ) {
+            Comment_RegenerateMemcache( $entity );
+            $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        }
+
         return array( Comments_CountPages( $comments, $parents ), $page_num + 1, $parented );
     }
 
@@ -180,6 +186,7 @@
         $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
+            $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         }
         foreach ( $parents as $parent ) {
             if ( !( $parent[ 'comment_id' ] >= $minid && ( $parent[ 'comment_id' ] < $maxid || $maxid === false ) ) ) {
@@ -461,7 +468,7 @@
                 $comments[] = $row;
             }
 
-            $info = Comments_Near( $comments, $comment );
+            $info = Comments_Near( $entity, $comments, $comment );
             $num_pages = $info[ 0 ];
             $cur_page = $info[ 1 ];
             $parented = $info[ 2 ];
