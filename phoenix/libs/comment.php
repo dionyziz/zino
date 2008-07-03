@@ -170,6 +170,7 @@
 
 	function Comments_OnPage( $comments, $entity, $page, $reverse = true ) {
         global $water;
+        global $mc;
 
         --$page; /* start from 0 */
 
