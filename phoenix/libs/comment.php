@@ -32,8 +32,10 @@
         $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_total = 0;
         $page_num = 0;
+        $page_parents = array();
         foreach ( $parents as $parent ) {
             if ( $page_total == 0 ) {
+                $page_parents[] = $parent[ 'comment_id' ];
                 $mc->add( 'firstcom_' . $itemid . '_' . $typeid . '_' . $page_num, $parent[ 'comment_id' ] );
             }
             $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
@@ -44,6 +46,7 @@
         }
         $num_pages = $page_num + 1;
         $mc->add( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
+        die( var_dump( $page_parents ) );
     }
 
     function Comments_CountChildren( $comments, $id ) {
