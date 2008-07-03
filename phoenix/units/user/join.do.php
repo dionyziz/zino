@@ -8,7 +8,11 @@
 		$finder = New UserFinder(); 
 
 		if ( !User_Valid( $username ) ) {
-			?>alert( "Το όνομα χρήστη που επιλέξατε δεν είναι έγκυρο" );<?php
+			?>alert( "Το όνομα χρήστη που επιλέξατε δεν είναι έγκυρο" );
+			Join.username.focus();
+			document.body.style.cursor = 'default';
+			$( 'div a.button' ).removeClass( 'button_disabled' );
+			Join.enabled = true;<?php
 			return;
 		}
 		if ( strlen( $password ) < 4 ) {
@@ -20,10 +24,7 @@
 				Join.usernameexists = true;
 				$( $( 'form.joinform div > span' )[ 1 ] ).css( "opacity" , "0" ).css( "display" , "inline" ).animate( { opacity : "1" } , 700 );
 			}
-			Join.username.focus();
-			document.body.style.cursor = 'default';
-			$( 'div a.button' ).removeClass( 'button_disabled' );
-			Join.enabled = true;<?php
+			<?php
 		}
 		else {
 			$newuser = new User();
