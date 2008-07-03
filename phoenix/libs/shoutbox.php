@@ -44,7 +44,7 @@
             $res = $query->Execute();
             $shouts = array();
             $bulkids = array();
-            while ( $row = $res->FetchArray) {
+            while ( $row = $res->FetchArray() ) {
                 $shout = New Shout( $row );
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
