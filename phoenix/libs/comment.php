@@ -43,7 +43,7 @@
             }
         }
         $num_pages = $page_num + 1;
-        $mc->replace( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
+        $mc->add( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
     }
 
     function Comments_CountChildren( $comments, $id ) {
@@ -177,7 +177,7 @@
         $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
         $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
-        if ( $minid === false ) {
+        if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
         }
         foreach ( $parents as $parent ) {
