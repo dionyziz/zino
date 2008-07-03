@@ -12,10 +12,33 @@
         protected $mModel = 'FriendRelation';
 
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
-            $prototype = New FriendRelation();
-            $prototype->Userid = $user->Id;
-            
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            $query = $this->mDb->Prepare( '
+                SELECT
+                    *
+                FROM
+                    :relations
+                    LEFT JOIN :users ON
+                        `relation_friendid` = `user_id`
+                    LEFT JOIN :images ON
+                        `user_avatarid` = `image_id`
+                WHERE
+                    `relation_userid` = :userid
+                ;' );
+
+            $query->BindTable( 'relations', 'users', 'images' );
+            $query->Bind( 'userid', $user->Id );
+
+            $res = $query->Execute();
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $relation = New Relation( $row );
+                $friend = New User( $row );
+                $friend->CopyAvatarFrom( New Image( $row ) );
+                $relation->CopyFriendFrom( $friend );
+                $ret[] = $relation;
+            }
+
+            return $ret;
         }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
@@ -54,7 +77,10 @@
 
     class FriendRelation extends Satori {
         protected $mDbTableAlias = 'relations';
-       
+
+        public function CopyFriendFrom( $value ) {
+            $this->mRelations[ 'Friend' ]->CopyFrom( $value );
+        }
         protected function OnCreate() {
             global $libs;
 
