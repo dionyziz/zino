@@ -3,6 +3,7 @@
 		global $user;
 		global $libs;
 		
+        $libs->Load( 'wysiwyg' );
 		$libs->Load( 'shoutbox' );
 		
 		$text = $text->Get();
