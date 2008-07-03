@@ -212,7 +212,7 @@
 					$pageno = 1;
 				}
 				?>
-				<p>Τα σχόλια είναι προσωρινά μη διαθέσιμα και θα ενεργοποιηθούν σύντομα.</p>
+				<p>Τα σχόλια στα προφίλ είναι προσωρινά μη διαθέσιμα και θα ενεργοποιηθούν σύντομα.</p>
 				<?php
 				/*if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
