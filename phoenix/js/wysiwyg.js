@@ -202,6 +202,14 @@ var WYSIWYG = {
 
         WYSIWYG.ByName[ fieldname ].setCSSCreation( false );
 
+        while ( doc.body.firstChild ) {
+            doc.body.removeChild( doc.body.firstChild );
+        }
+
+        while ( oldcontents.childNodes.length ) {
+            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
+        }
+        
         var frm = which;
         while ( frm.nodeName.toLowerCase() != 'form' ) {
             frm = frm.parentNode;
@@ -225,14 +233,6 @@ var WYSIWYG = {
         }( scfield, doc );
         which.style.backgroundColor = 'white';
 
-        while ( doc.body.firstChild ) {
-            doc.body.removeChild( doc.body.firstChild );
-        }
-
-        while ( oldcontents.childNodes.length ) {
-            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
-        }
-        
         WYSIWYG.Focus( which );
     }
 };
