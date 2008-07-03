@@ -212,7 +212,7 @@
                         LEFT JOIN :moods ON
                             `profile_moodid` = `mood_id`
                     WHERE
-                        `profile_id` IN :itemids
+                        `profile_userid` IN :itemids
                 ' );
 
                 $query->BindTable( 'userprofiles', 'universities', 'places', 'moods' );
