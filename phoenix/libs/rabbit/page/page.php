@@ -499,9 +499,11 @@ final class PageAction extends Page {
         
         $water->ProfileEnd();
         
+        /*
         if ( !( $redirect instanceof HTTPRedirection ) ) {
             throw New PageException( 'Action did not return a valid redirection path: ' . $this->mMainElements[ 0 ][ 'name' ] );
         }
+        */
         
         $this->mRedirection = $redirect;
     }
