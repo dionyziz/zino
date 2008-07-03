@@ -182,6 +182,7 @@
         $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
         $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
+        die( var_dump( $mc->get( 'firstcom_90367_2_0' ) ) );
         if ( $num_pages === false ) {
             Comment_RegenerateMemcache( $entity );
             $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
