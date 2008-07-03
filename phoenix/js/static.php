@@ -64,10 +64,6 @@
     if ( $sendcontent ) {
         ob_start( 'ob_gzhandler' );
         $contents = file_get_contents( $file );
-        if ( $extension == 'js' ) {
-            require '../libs/jsmin.php';
-            $contents = JSMin::minify( $contents );
-        }
         echo $contents;
     }
     
