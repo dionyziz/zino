@@ -23,20 +23,25 @@
 		}
 		?>">
 			<div class="toolbox">
-				<span style="margin-right:<?php
+				<?php
+				/* Sto span
+				style="margin-right:<?php
 				if( !$deletable ) {
 					echo $indent * 20;
 				} else {
 					echo "0";
 				}
-				?>px;" class="time">πριν <?php
+				?>px;"*/
+				?>
+				<span class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
 				if ( $deletable ) {
-					?><a href="" style="margin-right:<?php
+					/*
+					style="margin-right:<?php
 						echo $indent * 20;
-					?>px;"
-					onclick="Comments.Delete( <?php
+					?>px;"*/
+					?><a href="" onclick="Comments.Delete( <?php
 					echo $comment->Id;
 					 // There is a reason for the dot. If there's no character between <a></a> the background css image is not shown in IE7
 					?> );return false;" title="Διαγραφή">.</a><?php
