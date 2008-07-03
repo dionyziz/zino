@@ -303,7 +303,7 @@ XbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
     if ( this.mEditorDocument ) {
         if ( aCommandName == 'inserthtml' && typeof document.selection !== 'undefined' ) {
             // IE7 inserthtml
-            this.mEditorDocument.innerHTML += aParam;
+            this.mEditorDocument.body.innerHTML += aParam;
             return;
         }
         this.mEditorDocument.execCommand( aCommandName, false, aParam );
