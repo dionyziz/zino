@@ -5,7 +5,7 @@
 		global $rabbit_settings;
 		$photo = New Image( $photoid->Get() );
 		
-		if ( $photo->IsDeleted() || $photo->UserId != $user->Id ) {
+		if ( $photo->IsDeleted() || $photo->Userid != $user->Id ) {
             return;
         }
         
