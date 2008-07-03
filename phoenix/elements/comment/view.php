@@ -23,17 +23,13 @@
 		}
 		?>">
 			<div class="toolbox">
-				<?php
-				/* Sto span
-				style="margin-right:<?php
+				<span style="margin-right:<?php
 				if( !$deletable ) {
 					echo $indent * 20;
 				} else {
 					echo "0";
 				}
-				?>px;"*/
-				?>
-				<span class="time">πριν <?php
+				?>px;" class="time">πριν <?php
 				echo $comment->Since;
 				?></span><?php
 				if ( $deletable ) {
