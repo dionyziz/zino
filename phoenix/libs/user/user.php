@@ -106,10 +106,13 @@
         public function FindOnline( $offset = 0, $limit = 100 ) {
             $query = $this->mDb->Prepare(
                 'SELECT
-                    :users.*
+                    :users.*, :images.*
                 FROM
-                    :users CROSS JOIN :lastactive
-                        ON `user_id` = `lastactive_userid`
+                    :users 
+                    CROSS JOIN :lastactive ON 
+                        `user_id` = `lastactive_userid`
+                    LEFT JOIN :images ON
+                        `user_avatarid` = `image_id`
                 WHERE
                     `lastactive_updated` > NOW() - INTERVAL 5 MINUTE
                 ORDER BY
@@ -117,12 +120,20 @@
                 LIMIT
                     :offset, :limit'
             );
-            $query->BindTable( 'users' );
-            $query->BindTable( 'lastactive' );
+
+            $query->BindTable( 'users', 'lastactive', 'images' );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
             
-            return $this->FindBySQLResource( $query->Execute() );
+            $res = $query->Execute();
+            $users = array();
+            while ( $row = $res->FetchArray() ) {
+                $user = New User( $row );
+                $user->CopyAvatarFrom( New Image( $row ) );
+                $users[] = $user;
+            }
+
+            return $user;
         }
 		public function Count() {
 			$query = $this->mDb->Prepare(
