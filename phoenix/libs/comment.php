@@ -14,15 +14,15 @@
         global $mc;
         global $water;
 
-        $water->Trace( "Regenerating mc for " + $entity->Id + " " + Type_FromObject( $entity ) );
+        $water->Trace( "Regenerating mc for " . $entity->Id . " " . Type_FromObject( $entity ) );
 
         $itemid = $entity->Id;
         $typeid = Type_FromObject( $entity );
 
-        $old_num_pages = $mc->get( 'numpages_' + $itemid + '_' + $typeid );
+        $old_num_pages = $mc->get( 'numpages_' . $itemid . '_' . $typeid );
         if ( $old_num_pages !== false ) {
             for ( $i = 1; $i <= $old_num_pages; ++$i ) {
-                $mc->delete( 'firstcom_' + $itemid + '_' + $typeid + '_' + $i );
+                $mc->delete( 'firstcom_' . $itemid . '_' . $typeid . '_' . $i );
             }
         }
 
@@ -34,7 +34,7 @@
         $page_num = 0;
         foreach ( $parents as $parent ) {
             if ( $page_total == 0 ) {
-                $mc->add( 'firstcom_' + $itemid + '_' + $typeid + '_' + $page_num, $parent[ 'comment_id' ] );
+                $mc->add( 'firstcom_' . $itemid . '_' . $typeid . '_' . $page_num, $parent[ 'comment_id' ] );
             }
             $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
@@ -43,29 +43,19 @@
             }
         }
         $num_pages = $page_num + 1;
-        $mc->replace( 'numpages_' + $itemid + '_' + $typeid, $num_pages );
+        $mc->replace( 'numpages_' . $itemid . '_' . $typeid, $num_pages );
     }
 
     function Comments_CountChildren( $comments, $id ) {
         global $mc;
 
-        /* $cached = $mc->get( 'cchildren_' + $id );
-        if ( $cached === false ) {
-        */
-            $count = 0;
-            foreach ( $comments as $comment ) {
-                if ( $comment[ 'comment_parentid' ] == $id ) {
-                    ++$count;
-                    $count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
-                }
+        $count = 0;
+        foreach ( $comments as $comment ) {
+            if ( $comment[ 'comment_parentid' ] == $id ) {
+                ++$count;
+                $count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
             }
-        /*
-            $mc->add( 'cchildren_' + $id, $count );
         }
-        else {
-            $count = $cached;
-        }
-        */
 
 		return $count;
 	}
@@ -184,9 +174,9 @@
             $parents = array_reverse( $parents );
         }
 
-        $num_pages = $mc->get( 'numpages_' + $entity->Id + '_' + Type_FromObject( $entity ) );
-        $minid = $mc->get( 'firstcom_' + $entity->Id + '_' + Type_FromObject( $entity ) + '_' + $page );
-        $maxid = $mc->get( 'firstcom_' + $entity->Id + '_' + Type_FromObject( $entity ) + '_' + $page + 1 );
+        $num_pages = $mc->get( 'numpages_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+        $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
+        $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         if ( $minid === false ) {
             Comment_RegenerateMemcache( $entity );
         }
