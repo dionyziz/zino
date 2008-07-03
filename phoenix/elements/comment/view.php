@@ -17,7 +17,7 @@
 			echo $indent * 20;
 			?>px;<?php
 			*/
-			?>margin-right:<?php
+			?>margin-left:<?php
 			echo $indent * 20;
 			?>px;<?php
 		}
