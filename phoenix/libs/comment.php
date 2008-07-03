@@ -184,7 +184,7 @@
             $parents = array_reverse( $parents );
         }
 
-        $page_num = $mc->get( 'numpages_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+        $num_pages = $mc->get( 'numpages_' + $entity->Id + '_' + Type_FromObject( $entity ) );
         $minid = $mc->get( 'firstcom_' + $entity->Id + '_' + Type_FromObject( $entity ) + '_' + $page );
         $maxid = $mc->get( 'firstcom_' + $entity->Id + '_' + Type_FromObject( $entity ) + '_' + $page + 1 );
         if ( $minid === false ) {
