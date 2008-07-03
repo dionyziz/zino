@@ -198,7 +198,7 @@
         $res = $db->Query(
             "SELECT
                 `user_id`, `user_name`, `user_password`, `user_created`, `user_registerhost`, `user_lastlogon`,
-                `user_rights`, `user_email`, `user_subdomain`, `user_signature`, `user_icon`, `user_gender`,
+                `user_rights`, `user_email`, `user_subdomain`, `user_signature`, `user_avatarid`, `user_gender`,
                 `user_msn`, `user_yim`, `user_aim`, `user_icq`, `user_gtalk`, `user_skype`, `user_dob`,
                 `user_hobbies`, `user_subtitle`, `user_blogid`, `user_place`, `user_uniid`,
                 `user_lastprofedit`, `user_lastactive`,
@@ -228,7 +228,7 @@
                 echo $row[ 'user_created' ];
                 ?>', `user_rights`='<?php
                 echo $row[ 'user_rights' ];
-                ?>', `user_icon`=0, `user_emailverified`='no', `user_subdomain`='<?php
+                ?>', `user_avatarid`=0, `user_emailverified`='no', `user_subdomain`='<?php
                 echo addslashes( $row[ 'user_subdomain' ] );
                 ?>', `user_gender`='<?php
                 switch ( $row[ 'user_gender' ] ) {
@@ -466,7 +466,7 @@
             `users` CROSS JOIN `albums`
                 ON `users`.`user_egoalbumid`=`albums`.`album_id`
         SET
-            `users`.`user_icon`=`album_mainimageid`;
+            `users`.`user_avatarid`=`album_mainimageid`;
             
         TRUNCATE TABLE `imagesfrontpage`;
         
