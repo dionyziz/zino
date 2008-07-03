@@ -173,16 +173,6 @@ var WYSIWYG = {
             return;
         }
         
-        while ( doc.body.firstChild ) {
-            doc.body.removeChild( doc.body.firstChild );
-        }
-
-        alert( oldcontents.childNodes.length );
-        while ( oldcontents.childNodes.length ) {
-            doc.body.appendChild( oldcontents.childNodes[ 0 ] );
-        }
-        
-        return;
         WYSIWYG.Enable( which, fieldname, oldcontents );
     },
     Enable: function ( which, fieldname, oldcontents ) {
@@ -235,6 +225,14 @@ var WYSIWYG = {
         }( scfield, doc );
         which.style.backgroundColor = 'white';
 
+        while ( doc.body.firstChild ) {
+            doc.body.removeChild( doc.body.firstChild );
+        }
+
+        for ( var i = 0; i < oldcontents.childNodes.length; ++i ) {
+            doc.body.appendChild( oldcontents.childNodes[ i ].cloneNode( true ) );
+        }
+        
         WYSIWYG.Focus( which );
     }
 };
