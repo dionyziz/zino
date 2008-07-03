@@ -355,7 +355,7 @@
             }
         }
         protected function OnBeforeUpdate() {
-            throw New EventException( 'Events cannot be updated' );
+            throw New Exception( 'Events cannot be updated' );
 
             return false;
         }
