@@ -300,13 +300,8 @@ function XbDesignMode( aIFrame ) {
 XbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
     if ( this.mEditorDocument ) {
         if ( aCommandName == 'inserthtml' && typeof document.selection !== 'undefined' ) {
-            alert( 'in IE7' );
-            var rng = this.mEditorDocument.selection.createRange();
-            if ( rng.item ) {
-                rng.item( 0 ).outerHTML = aParam;
-                return;
-            }
-            rng.pasteHTML( aParam );
+            // IE7 inserthtml
+            this.mEditorDocument.innerHTML += aParam;
             return;
         }
         this.mEditorDocument.execCommand( aCommandName, false, aParam );
