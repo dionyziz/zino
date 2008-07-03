@@ -18,8 +18,51 @@
 		}
 
 		public function FindLatest( $offset = 0, $limit = 20 ) {
-			$prototype = New Shout();
-	        return $this->FindByPrototype( $prototype, $offset, $limit, $orderby = array( 'Id', 'DESC' ) );
+            global $libs;
+            $libs->Load( 'image/image' );
+
+            $query = $this->mDbQuery( "
+                SELECT
+                    *
+                FROM
+                    :shoutbox
+                    LEFT JOIN :users
+                        ON `shout_userid` = `user_id`
+                    LEFT JOIN :images
+                        ON `user_avatarid` = `image_id`
+                WHERE
+                    `shout_delid` = '0'
+                ORDER BY
+                    `shout_id` DESC
+                LIMIT
+                    :offset, :limit;" );
+
+            $query->BindTable( 'shoutbox', 'users', 'images' );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+            $res = $query->Execute();
+            $shouts = array();
+            $bulkids = array();
+            while ( $row = $res->FetchArray) {
+                $shout = New Shout( $row );
+                $user = New User( $row );
+                $user->CopyAvatarFrom( New Image( $row ) );
+                $shout->CopyUserFrom( $user );
+                $shouts[] = $shout;
+                $bulkids[] = $shout->Bulkid;
+            }
+
+            $finder = New BulkFinder();
+            $bulks = $finder->FindById( $bulkids );
+
+            $ret = array();
+            while ( $shout = array_shift( $shouts ) ) {
+                $shout->CopyBulkFrom( $bulks[ $shout->Bulkid ] );
+                $ret[] = $shout;
+            }
+
+            return $ret;
 		}
 	}
 
@@ -27,6 +70,12 @@
 		protected $mDbTableAlias = 'shoutbox';
 		private $mSince;
 		
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
+        }
+        public function CopyBulkFrom( $value ) {
+            $this->mRelations[ 'Bulk' ]->CopyFrom( $value );
+        }
 		public function Relations() {
 		    $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
