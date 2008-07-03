@@ -20,9 +20,9 @@
     $libs->Load( 'mood' );
 	$libs->Load( 'question/answer' );
 	
-	$reserved = Array( 'anonymous', 'www', 'beta' );
-    
+	
     function User_Valid( $username ) {
+    	$reserved = Array( 'anonymous', 'www', 'beta' );
         return ( ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved ) );
     }
 	function User_DeriveSubdomain( $username ) {
