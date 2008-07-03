@@ -244,7 +244,8 @@
             $libs->Load( 'pm/pm' );
 
             $this->EgoAlbum->Userid = $this->Id;
-
+            $this->EgoAlbum->Save();
+            
             $this->OnUpdate();
             PMFolder_PrepareUser( $this );
 
