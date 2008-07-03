@@ -77,9 +77,6 @@
             $event->Save();
         }
         protected function OnDelete() {
-            global $libs;
-            $libs->Load( 'poll' );
-
             --$this->User->Count->Polls;
             $this->User->Count->Save();
 
