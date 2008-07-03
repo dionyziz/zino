@@ -186,7 +186,7 @@
             $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         }
         foreach ( $parents as $parent ) {
-            // die( $maxid . " minid:" . $minid . " parentid:" . $parent[ 'comment_id' ] );
+            die( $maxid . " minid:" . $minid . " parentid:" . $parent[ 'comment_id' ] );
             if ( !( $parent[ 'comment_id' ] <= $maxid && ( $parent[ 'comment_id' ] > $minid || $minid === false ) ) ) {
                 continue;
             }
