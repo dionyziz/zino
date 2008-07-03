@@ -541,7 +541,7 @@
                 $user = New User( $row );
                 $user->CopyAvatarFrom( New Image( $row ) );
                 $comment->CopyUserFrom( $user );
-                $comments[ $row[ 'comment_id' ] ] = $comment;
+                $comments[] = $comment;
                 $bulkids[] = $comment->Bulkid;
             }
 
@@ -551,7 +551,7 @@
             $ret = array();
             while ( $comment = array_shift( $comments ) ) {
                 $comment->CopyBulkFrom( $bulks[ $comment->Bulkid ] );
-                $ret[] = $comment;
+                $ret[ $comment->Id ] = $comment;
             }
 
             return $ret;
