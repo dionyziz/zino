@@ -170,7 +170,9 @@
                 }
             }
 
-            return krsort( $ret );
+            krsort( $ret );
+
+            return $ret;
 		}
         public function FindItemsByModel( $model, $events ) {
             global $libs;
