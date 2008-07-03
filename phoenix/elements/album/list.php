@@ -88,7 +88,7 @@
 
         ob_start();
         Element( 'user/url', $theuser );
-        $link = ob_get_clean() . '?p=albums&subdomain=' . $theuser->Subdomain . '&pageno=';
+        $link = ob_get_clean() . '?p=albums&pageno=';
         $total_pages = ceil( $theuser->Count->Albums / $limit );
 		Element( 'pagify', $pageno, $link, $total_pages );
 
