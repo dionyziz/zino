@@ -110,7 +110,7 @@
 					}
 					if ( $theuser->Count->Relations > 5 ) {
 						?><a href="?p=friends&amp;subdomain=<?php
-						echo $theuser->Subdomain;
+                        echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
 						?>" class="button">Περισσότεροι φίλοι&raquo;</a><?php
 					}
 				?></div>
