@@ -5,6 +5,7 @@
 		global $page;
 		global $libs;
 
+        $page->AttachScript( 'js/wysiwyg.js' ); // TODO
         $libs->Load( 'wysiwyg' );
 		$page->SetTitle( 'Επεξεργασία χώρου' );
 		Element( 'user/sections' , 'space' , $user );
