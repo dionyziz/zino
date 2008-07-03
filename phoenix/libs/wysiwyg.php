@@ -42,7 +42,7 @@
             $sanitizer->AllowTag( $goodtag );
         }
         $sanitizer->SetSource( $html );
-
+        $sanitizer->SetTextProcessor( 'WYSIWYG_Smileys' );
         $html = $sanitizer->GetXHTML();
         
         // YouTube support
@@ -63,11 +63,10 @@
             $html
         );
    
-        // smileys
         return $html;
     }
     
-	function WYSIWYG_Smileys( $text ) {		
+	function WYSIWYG_Smileys( $text ) {
 		static $smileys = array( // do not include any & or ; characters in these literals
                                  // do not allow recursive replacement: make sure result literals cannot be re-replaced
               ":D" => "teeth" ,
@@ -147,6 +146,7 @@
         static $smileysprocessedkeys = false;
         global $xc_settings;
         
+        $text = htmlspecialchars( $text );
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
                 $smileysprocessed[ $i ] = '<img src="' 
