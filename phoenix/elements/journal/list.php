@@ -3,6 +3,7 @@
 	function ElementJournalList( tText $username , tText $subdomain , tInteger $pageno ) {
 		global $page;
 		global $rabbit_settings;
+        global $xc_settings;
 		global $user;
 		
         Element( 'user/subdomainmatch' );

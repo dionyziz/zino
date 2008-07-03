@@ -4,6 +4,7 @@
 		global $libs;
 		global $user;
 		global $page;
+        global $xc_settings;
 		
 		$libs->Load( 'relation/relation' );
 		
