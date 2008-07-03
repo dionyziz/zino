@@ -193,7 +193,7 @@ var WYSIWYG = {
     Check: function ( which, fieldname, oldcontents ) {
         var doc = WYSIWYG.GetDocument( which );
 
-        if ( doc.designMode != 'on' ) {
+        if ( doc.designMode.toLowerCase() != 'on' && doc.designMode.toLowerCase() != 'inherit' ) {
             setTimeout( function () {
                 WYSIWYG.Enable( which, fieldname, oldcontents ); // RECURSE, go back to Enable() to enable WYSIWYG (late enabling) and wait for the next check!
             }, 100 );
