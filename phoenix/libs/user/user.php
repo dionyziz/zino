@@ -235,7 +235,6 @@
             $this->Lastlogin = time();
         }
         protected function OnBeforeCreate() {
-            $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
             $this->Egoalbumid = $this->EgoAlbum->Id;
         }
@@ -243,6 +242,8 @@
             global $libs;
 
             $libs->Load( 'pm/pm' );
+
+            $this->EgoAlbum->Userid = $this->Id;
 
             $this->OnUpdate();
             PMFolder_PrepareUser( $this );
