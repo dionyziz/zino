@@ -169,6 +169,8 @@
                     $ret[ $event->Id ] = $event;
                 }
             }
+
+            die( print_r( array_reverse( $ret ) ) );
             
             return array_reverse( $ret ); // return sorted by eventid, DESC
 		}

@@ -108,7 +108,7 @@
 			$this->Assert( is_array( $events ), 'FindByUser did not return an array' );
 			$this->AssertEquals( 4, count( $events ), 'FindByUser did not return right number of events' ); // 3 here + 1 egoalbum
 
-			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED, EVENT_ALBUM_CREATED );
+			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
             $itemids = array( $this->mUser->Id, $this->mUser->Id, $this->mUser->Id, $this->mUser->EgoAlbum->Id );
 			foreach ( $events as $key => $e ) {
 				$this->AssertEquals( $this->mUser->Id, $e->Userid, 'Wrong event userid' );
