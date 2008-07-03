@@ -29,7 +29,7 @@
         $finder = New CommentFinder();
         $comments = $finder->FindByEntity( $entity );
 
-        $parents = Comments_GetImmediateChildren( $comments, 0 );
+        $parents = array_reverse( Comments_GetImmediateChildren( $comments, 0 ) );
         $page_total = 0;
         $page_num = 0;
         foreach ( $parents as $parent ) {
@@ -170,6 +170,7 @@
 		$page_num = 0;
 		$parented = array();
 		$parented[ 0 ] = array();
+
         if ( $reverse ) {
             $parents = array_reverse( $parents );
         }
