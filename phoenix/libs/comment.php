@@ -506,6 +506,8 @@
                     $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
                 }
             }
+
+            return $ret;
         }
         public function FindData( $comments, $offset = 0, $limit = 100000 ) {
             if ( empty( $comments ) ) {
