@@ -19,9 +19,11 @@
     $libs->Load( 'album' );
     $libs->Load( 'mood' );
 	$libs->Load( 'question/answer' );
+	
+	$reserved = Array( 'anonymous', 'www', 'beta' );
     
     function User_Valid( $username ) {
-        return ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username );
+        return ( ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved ) );
     }
 	function User_DeriveSubdomain( $username ) {
 		/* RFC 1034 - They must start with a letter, 
