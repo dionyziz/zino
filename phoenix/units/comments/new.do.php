@@ -4,7 +4,8 @@
 		global $user;
 		
 		$libs->Load( 'comment' );
-		
+		$libs->Load( 'wysiwyg' );
+        
 		$text = $text->Get();
 		$text = trim( $text );
 		
@@ -23,7 +24,7 @@
 		$type = $type->Get();
 		
 		$comment = New Comment();
-		$comment->Text = htmlspecialchars( $text ); // TODO: WYSIWYG
+		$comment->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
 		$comment->Userid = $user->Id;
 		$comment->Parentid = $parent;
 		$comment->Typeid = $type;

@@ -4,7 +4,8 @@
 		global $user;
 		
 		$libs->Load( 'comment' );
-		
+		$libs->Load( 'wysiwyg' );
+        
 		$id = $id->Get();
 		$text = $text->Get();
 		$text = trim( $text );
@@ -31,7 +32,7 @@
 			window.location.reload();<?php
 			return;
 		}
-		$comment->Text = $text;
+		$comment->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
 		$comment->Save();
 	}	
 ?>
