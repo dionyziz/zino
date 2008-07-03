@@ -289,7 +289,7 @@ class memcached implements MemCache
    {
       global $water;
       
-      $water->Trace( "Memcache: Deleting key '$key'", $val );
+      $water->Trace( "Memcache: Deleting key '$key'" );
       
       if (!$this->_active)
          return false;
