@@ -455,8 +455,6 @@
                 $page = 1;
             }
 
-            $limit = $page * 1000; // perhaps..
-
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
@@ -466,8 +464,6 @@
                     `comment_typeid` = :typeid AND
                     `comment_itemid` = :itemid AND
                     `comment_delid` = :delid
-                ORDER BY
-                    `comment_id` DESC
                 LIMIT
                     :offset, :limit;" );
 
