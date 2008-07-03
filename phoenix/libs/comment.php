@@ -352,6 +352,8 @@
                 }
             }
 
+            krsort( $ret );
+
             return $ret;
         }
         public function FindItemsByType( $type, $comments ) {
