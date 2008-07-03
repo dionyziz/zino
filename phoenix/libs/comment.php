@@ -142,7 +142,6 @@
 		$page_total = 0;
 		$page_num = 0;
         $page_nums = array();
-        $page_children = array();
 		$parented = array();
 		$parented[ 0 ] = array();
         if ( $reverse ) {
@@ -150,7 +149,6 @@
         }
         foreach ( $parents as $parent ) {
             if ( $page_num == $page ) {
-                $page_children[ $parent[ 'comment_id' ] ] = Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
                 $parented[ 0 ][] = $parent;
                 Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
             }
