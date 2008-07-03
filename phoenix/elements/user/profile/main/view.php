@@ -3,6 +3,8 @@
 		global $libs;
 		global $user;
 		global $water;
+        global $xc_settings;
+
 		$libs->Load( 'poll/poll' );
 		$libs->Load( 'comment' );
 		$libs->Load( 'notify' );
@@ -215,7 +217,7 @@
 				if ( $theuser->Profile->Numcomments > 0 ) {
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php
-                        $link = '?p=user&name=' . $theuser->Name . '&pageno=';
+                        $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
 						Element( 'pagify' , $pageno , $link, $total_pages );
 					?></div><?php
 				}
