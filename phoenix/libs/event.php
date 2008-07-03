@@ -200,7 +200,7 @@
                 $query->BindTable( $table );
             }
             else {
-                $query = $this->Db->Prepare( '
+                $query = $this->mDb->Prepare( '
                     SELECT
                         *
                     FROM
