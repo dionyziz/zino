@@ -31,4 +31,4 @@ var Questions = {
         $( 'div#answers ul.questions' ).prepend( li );
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
     }
-}
+};

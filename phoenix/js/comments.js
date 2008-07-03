@@ -1,5 +1,5 @@
 var Comments = {
-	numchildren : new Object(),
+	numchildren : {},
 	Create : function( parentid ) {
 		var texter;
 		if ( parentid === 0 ) { // Clear new comment message
@@ -172,7 +172,7 @@ var Comments = {
 		if ( parentid !== 0 ) {
 			--Comments.numchildren[ parentid ];
 		}
-		if ( Comments.numchildren[ parentid] != 0 || !show ) {
+		if ( Comments.numchildren[ parentid] !== 0 || !show ) {
 			return;
 		}
 		
