@@ -1,9 +1,11 @@
 <?php
 
-    function ElementDeveloperAbresasTestmc() {
+    function ElementDeveloperAbresasTestmc( tText $key ) {
         global $mc;
 
-        $value = $mc->get( 'abresas' );
+        $key = $key->Get();
+
+        $value = $mc->get( $key );
         ?><br /><br /><br /><?php
         echo var_dump( $value );
     }
