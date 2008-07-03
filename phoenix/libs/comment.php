@@ -446,7 +446,7 @@
 
             $comments = $this->FindParentedData( $parented );
             
-            return array( $num_pages, $cur_page, $ret );
+            return array( $num_pages, $cur_page, $comments );
         }
         public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
             if ( $page <= 0 ) {
