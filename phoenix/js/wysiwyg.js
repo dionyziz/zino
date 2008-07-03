@@ -42,7 +42,7 @@ var WYSIWYG = {
             }
             else {
                 // veoh
-                var match = /v([a-zA-Z0-9_-]+)/.exec( userstring );
+                match = /v([a-zA-Z0-9_-]+)/.exec( userstring );
                 if ( match !== null && match.length ==2 ) { // veoh video
                     WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?w=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
                 }
@@ -88,7 +88,7 @@ var WYSIWYG = {
                             WYSIWYG.ExecCommand( target, 'inserthtml', '<img src="' + url + '" alt="' + title + '" />' );
                             Modals.Destroy();
                             return false;
-                        }
+                        };
                     }( items[ i ][ 1 ], items[ i ][ 2 ] ) );
                     photolist.appendChild( a );
                 }
@@ -316,6 +316,8 @@ XbDesignMode.prototype.setCSSCreation = function ( aUseCss ) {
     if ( this.mEditorDocument ) {
         try { // IE doesn't support this
             this.mEditorDocument.execCommand( "styleWithCSS", false, aUseCss );
+        }
+        catch ( e ) {
         }
     }
     else {
