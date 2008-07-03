@@ -8,7 +8,6 @@
 			return Redirect();
 		}
 		$libs->Load( 'question' );
-		$page->AttachScript( 'js/coala.js' );
 		$page->SetTitle( 'Ερωτήσεις Προφίλ' );
 		
 		?><h3>Ερωτήσεις Προφίλ</h3><br />

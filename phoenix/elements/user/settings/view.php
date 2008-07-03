@@ -4,8 +4,6 @@
 		global $rabbit_settings;
 		global $page;
 		
-		//$page->AttachStyleSheet( 'css/user/settings.css' );
-		//$page->AttachScript( 'js/user/settings.js' );
 		$page->SetTitle( 'Ρυθμίσεις' );
 		if ( !$user->Exists() ) {
 			return Redirect( $rabbit_settings[ 'webaddress' ] );

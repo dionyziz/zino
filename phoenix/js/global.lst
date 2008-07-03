@@ -6,6 +6,7 @@ jquery.dimensions.js
 modal.js
 trivial/dates.js
 coala.js
+places.js
 album/list.js
 album/photo/list.js
 album/photo/view.js
@@ -27,4 +28,6 @@ moodpicker.js
 settings.js
 types.js
 questions.js
+universities.js
 browsers_allowed.js
+analytics.js

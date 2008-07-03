@@ -6,10 +6,6 @@
 		global $page;
 		
 		$page->SetTitle( 'Διαχείριση πανεπιστημίων' );
-		$page->AttachScript( 'js/universities.js' );
-		$page->AttachScript( 'js/coala.js' );
-		$page->AttachScript( 'js/modal.js' );
-		$page->AttachStyleSheet( 'css/modal.css' );
 		$libs->Load( 'universities' );
 		$libs->Load( 'place' );
 		

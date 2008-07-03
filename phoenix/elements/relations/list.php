@@ -10,10 +10,6 @@
 		}
 		
 		$libs->Load( 'relations' );
-		$page->AttachScript( 'js/coala.js' );
-		$page->AttachScript( 'js/relations.js' );
-		$page->AttachScript( 'js/modal.js' );
-		$page->AttachStylesheet( 'css/modal.css' );
 		$page->SetTitle( 'Σχέσεις' );
 		
 		?><h3>Σχέσεις</h3><?php

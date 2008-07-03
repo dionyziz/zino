@@ -10,8 +10,6 @@
 		}
 		else {
 			$libs->Load( 'place' );
-			$page->AttachScript( 'js/places.js' );
-			$page->AttachScript( 'js/coala.js' );
 			
 			$page->SetTitle( 'Διαχείριση περιοχών' );
 			
