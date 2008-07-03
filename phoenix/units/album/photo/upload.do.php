@@ -5,7 +5,7 @@
 		global $user;
 		global $rabbit_settings;
 		
-		$libs->Load( 'image' );
+		$libs->Load( 'image/image' );
 		
 		$image = New Image( $imageid->Get() );
 		?>$( <?php
