@@ -26,7 +26,7 @@ var Comments = {
 			};
 		del.title = "Διαγραφή";
 		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
@@ -71,7 +71,7 @@ var Comments = {
 		}
 		Comments.numchildren[ id ] = 0;
 	
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "marginLeft" ), 10 )/20;
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).toggle( function() {
 					Comments.Reply( id, indent+1 );
@@ -95,6 +95,7 @@ var Comments = {
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
 		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
+					$( "#comment_reply_" + nodeid ).css( { marginLeft : 0, paddingLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );
 					return false;
 				} ;
@@ -207,7 +208,7 @@ var Comments = {
 $( document ).ready( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
-			var indent = parseInt( $( this ).css( 'marginLeft' ), 10 )/20;
+			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			$( this ).find( "div.bottom a" ).toggle( function() {
 					Comments.Reply( id, indent );
 					return false;
