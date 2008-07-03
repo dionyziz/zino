@@ -103,6 +103,8 @@
 	}
     
     function Comments_Near( $entity, $comments, $comment, $reverse = true ) {
+        global $mc;
+
         $parents = Comments_GetImmediateChildren( $comments, 0 );
         $page_num = 0;
         $page_total = 0;
