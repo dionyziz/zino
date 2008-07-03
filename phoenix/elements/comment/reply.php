@@ -6,7 +6,7 @@
 		
 		?><div class="comment newcomment">
 			<div class="toolbox">
-				<span class="time">τα σχόλια είναι επεξεργάσημα για ένα τέταρτο</span>
+				<span class="time">τα σχόλια είναι επεξεργάσιμα για ένα τέταρτο</span>
 			</div>
 			<div class="who"><?php
 				Element( 'user/display' , $user );
