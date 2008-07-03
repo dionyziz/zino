@@ -12,7 +12,8 @@
 		
 		//start javascript attaching
 		$page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
-
+        $page->AttachScript( 'js/comments.js' ); // TODO!
+        
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
         $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
