@@ -211,7 +211,10 @@
 				if ( $pageno <= 0 ) {
 					$pageno = 1;
 				}
-				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+				?>
+				<p>Τα σχόλια είναι προσωρινά μη διαθέσιμα και θα ενεργοποιηθούν σύντομα.</p>
+				<?php
+				/*if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
 				if ( $theuser->Profile->Numcomments > 0 ) {
@@ -220,7 +223,7 @@
                         $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
 						Element( 'pagify' , $pageno , $link, $total_pages );
 					?></div><?php
-				}
+				}*/
 			?></div>
 		</div><?php	
 	}
