@@ -8,6 +8,15 @@
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
         
+        public function CopyLocationFrom( $value ) {
+            $this->mRelations[ 'Location' ]->CopyFrom( $value );
+        }
+        public function CopyUniversityFrom( $value ) {
+            $this->mRelations[ 'University' ]->CopyFrom( $value );
+        }
+        public function CopyMoodFrom( $value ) {
+            $this->mRelations[ 'Mood' ]->CopyFrom( $value );
+        }
         protected function GetAge() {
             $validdob = false;
     		if ( $this->Dob != "0000-00-00" ) {

@@ -173,6 +173,11 @@
             return array_reverse( $ret ); // return sorted by eventid, DESC
 		}
         public function FindItemsByModel( $model, $events ) {
+            global $libs;
+            $libs->Load( 'university' );
+            $libs->Load( 'place' );
+            $libs->Load( 'mood' );
+
             $eventsByItemid = array();
             while ( $event = array_shift( $events ) ) {
                 $eventsByItemid[ $event->Itemid ][] = $event;
@@ -181,17 +186,38 @@
             $obj = New $model();
             $table = $obj->DbTable->Alias;
             $field = $obj->PrimaryKeyFields[ 0 ];
-            
-            $query = $this->mDb->Prepare( '
-                SELECT
-                    *
-                FROM
-                    :' . $table . '
-                WHERE
-                    `' . $field . '` IN :itemids
+
+            if ( strtolower( $model ) != 'userprofile' ) {
+                $query = $this->mDb->Prepare( '
+                    SELECT
+                        *
+                    FROM
+                        :' . $table . '
+                    WHERE
+                        `' . $field . '` IN :itemids
+                    ' );
+
+                $query->BindTable( $table );
+            }
+            else {
+                $query = $this->Db->Prepare( '
+                    SELECT
+                        *
+                    FROM
+                        :userprofiles
+                        LEFT JOIN :universities ON 
+                            `profile_uniid` = `uni_id`
+                        LEFT JOIN :places ON
+                            `profile_placeid` = `place_id`
+                        LEFT JOIN :moods ON
+                            `profile_moodid` = `mood_id`
+                    WHERE
+                        `profile_id` IN :itemids
                 ' );
+
+                $query->BindTable( 'userprofiles', 'universities', 'places', 'moods' );
+            }
             
-            $query->BindTable( $table );
             $query->Bind( 'itemids', array_keys( $eventsByItemid ) );
 
             $res = $query->Execute();
@@ -199,7 +225,16 @@
             while ( $row = $res->FetchArray() ) {
                 $events = $eventsByItemid[ $row[ $field ] ];
                 foreach ( $events as $event ) {
-                    $event->CopyItemFrom( New $model( $row ) );
+                    if ( strtolower( $model ) != 'userprofile' ) {
+                        $obj = New $model( $row );
+                    }
+                    else {
+                        $obj = New UserProfile( $row );
+                        $obj->CopyUniversityFrom( New Uni( $row ) );
+                        $obj->CopyLocationFrom( New Place( $row ) );
+                        $obj->CopyMoodFrom( New Mood( $row ) );
+                    }
+                    $event->CopyItemFrom( $obj );
                     $ret[] = $event;
                 }
             }
