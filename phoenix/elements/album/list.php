@@ -86,8 +86,9 @@
 		?><div class="eof"></div>
 		<div class="pagifyalbums"><?php
 
-        $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ); 
-        $link .= 'albums/?pageno=';
+        ob_start();
+        Element( 'user/url', $theuser );
+        $link = ob_get_clean() . '?p=albums&subdomain=' . $theuser->Subdomain . '&pageno=';
         $total_pages = ceil( $theuser->Count->Albums / $limit );
 		Element( 'pagify', $pageno, $link, $total_pages );
 
