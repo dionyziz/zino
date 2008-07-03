@@ -13,7 +13,7 @@
 		echo $comment->Id;
 		?>" class="comment" style="border-color:#dee;<?php
 		if ( $indent > 0 ) {
-			?>margin-left:<?php
+			?>padding-left:<?php
 			echo $indent * 20;
 			?>px;<?php
 		}
