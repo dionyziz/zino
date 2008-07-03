@@ -192,6 +192,7 @@
             $minid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . $page );
             $maxid = $mc->get( 'firstcom_' . $entity->Id . '_' . Type_FromObject( $entity ) . '_' . ( $page + 1 ) );
         }
+        die( $minid . " " .$maxid ); 
         foreach ( $parents as $parent ) {
             if ( !( $parent[ 'comment_id' ] >= $minid && ( $parent[ 'comment_id' ] < $maxid || $maxid === false ) ) ) {
                 continue;
