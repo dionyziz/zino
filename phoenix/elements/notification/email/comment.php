@@ -42,7 +42,7 @@
                     break;
                 case TYPE_POLL:
                     ?>στην δημοσκόπισή σου "<?php
-                    echo $poll->Question;
+                    echo $comment->Item->Question;
                     ?>"<?php
                     break;
             }
