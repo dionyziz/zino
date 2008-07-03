@@ -18,7 +18,9 @@
 					<div class="submit">
 						<input type="submit" value="Δημοσίευση" />
 					</div>
-				</form>
+				</form><?php
+                Element( 'wysiwyg/controls' );
+                ?>
 			</div>
 			<div class="eof"></div>
 		</div><?php

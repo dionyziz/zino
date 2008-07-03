@@ -7,6 +7,5 @@
         ?>" class="wysiwyg"><?php
         echo $contents;
         ?></div><?php
-        Element( 'wysiwyg/controls' );
     }
 ?>

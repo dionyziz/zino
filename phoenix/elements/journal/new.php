@@ -53,6 +53,7 @@
 						</div>
 					</form>
 				</div><?php
+                Element( 'wysiwyg/controls' );
 			}
 			else {
 				?>Δεν έχεις δικαίωμα να επεξεργαστείς την καταχώρηση<?php
