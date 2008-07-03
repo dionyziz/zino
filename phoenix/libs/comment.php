@@ -124,24 +124,10 @@
 
         --$page; /* start from 0 */
 
-        $comments_dump = array();
-        foreach ( $comments as $comment ) {
-            $comments_dump[ $comment[ 'comment_id' ] ] = $comment[ 'comment_parentid' ];
-        }
-
-        $water->Trace( 'comments on page', $comments_dump );
-
 		$parents = Comments_GetImmediateChildren( $comments, 0 );
-        $parents_dump = array();
-        foreach ( $parents as $comment ) {
-            $parents_dump[] = $comment[ 'comment_id' ];
-        }
-
-        $water->Trace( 'comment parents on page', $parents_dump );
 
 		$page_total = 0;
 		$page_num = 0;
-        $page_nums = array();
 		$parented = array();
 		$parented[ 0 ] = array();
         if ( $reverse ) {
@@ -154,7 +140,6 @@
             }
             $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
             if ( $page_total >= COMMENT_PAGE_LIMIT ) {
-                $page_nums[] = $page_total;
                 $page_total = 0;
                 $page_num++;
                 if ( $page_num > $page ) {
@@ -162,10 +147,6 @@
                 }
             }
         }
-
-        $page_nums[] = $page_total;
-
-        $water->Trace( "comment page nums", $page_nums );
 
 		return array( Comments_CountPages( $comments, $parents ), $parented );
 	}
