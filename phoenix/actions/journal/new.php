@@ -9,9 +9,6 @@
 		$title = $title->Get();
 		$text = $text->Get();
 		
-        if ( $user->Id == 1 ) {
-            die( '.'.$text.'.' );
-        }
 		if ( $id > 0 ) {
 			$journal = New Journal( $id );
 			if ( $journal->User->Id != $user->Id ) {
