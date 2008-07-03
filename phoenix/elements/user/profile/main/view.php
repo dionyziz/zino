@@ -10,7 +10,7 @@
 		$libs->Load( 'notify' );
 		$libs->Load( 'relation/relation' );
 		
-		if ( $theuser->Profile->Numcomments > 0 ) {
+		/*if ( $theuser->Profile->Numcomments > 0 ) {
 			$finder = New CommentFinder();
 			if ( $commentid == 0 ) {
 				$comments = $finder->FindByPage( $theuser, $pageno , true );
@@ -29,7 +29,7 @@
 					$notification->Delete();
 				}
 			}
-		}
+		}*/
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
