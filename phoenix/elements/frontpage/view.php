@@ -128,7 +128,13 @@
 		$users = $finder->FindOnline( 0 , 50 );
 		if ( count( $users ) > 0 ) {		
 			?><div class="nowonline">
-				<h2>Είναι online τώρα</h2>
+				<h2<?php
+                    if ( count( $users ) > 1 ) {
+                        ?> title="<?php
+                        echo count( $users );
+                        ?> άτομα είναι online"<?php
+                    }
+                    ?>>Είναι online τώρα</h2>
 					<div class="list"><?php
 						foreach( $users as $onuser ) {
 							?><a href="<?php
