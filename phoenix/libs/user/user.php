@@ -133,7 +133,7 @@
                 $users[] = $user;
             }
 
-            return $user;
+            return $users;
         }
 		public function Count() {
 			$query = $this->mDb->Prepare(
