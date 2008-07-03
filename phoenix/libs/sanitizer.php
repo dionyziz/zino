@@ -63,10 +63,15 @@
     class XHTMLSanitizer {
         private $mSource;
         private $mAllowedTags;
+        private $mTextProcessor;
         
         public function XHTMLSanitizer() {
             $this->mAllowedTags = array();
             $this->mSource = false;
+            $this->mTextProcessor = false;
+        }
+        public function SetTextProcessor( $textprocessor ) {
+            $this->mTextProcessor = $textprocessor;
         }
         public function SetSource( $source ) {
             global $water;
@@ -249,7 +254,12 @@
             $ret = '';
             foreach ( $root->childNodes as $xmlnode ) {
                 if ( is_string( $xmlnode ) ) {
-                    $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );
+                    if ( $this->mTextProcessor !== false ) {
+                        $ret .= $this->mTextProcessor( $xmlnode );
+                    }
+                    else {
+                        $ret .= htmlspecialchars( $xmlnode, ENT_COMPAT, 'UTF-8' );
+                    }
                 }
                 else {
                     $ret .= $this->XMLOuterHTML( $xmlnode );
