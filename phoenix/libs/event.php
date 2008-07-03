@@ -128,8 +128,7 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
-                    `event_typeid` != :commentevent AND
-                    `event_typeid` != :relationevent
+                    `event_typeid` != :commentevent
                 GROUP BY
                     ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
                     `event_userid`,
@@ -148,7 +147,7 @@
             $query->Bind( 'mintypeid', $mintypeid );
             $query->Bind( 'maxtypeid', $maxtypeid );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
-            $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
+            // $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
