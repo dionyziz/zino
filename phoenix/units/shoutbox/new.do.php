@@ -9,7 +9,7 @@
 		if ( $user->Exists() ) {
 			if ( trim ( $text ) != '' ) {
 				$shout = New Shout();
-				$shout->Text = htmlspecialchars( $text ); // TODO: WYSIWYG
+				$shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
 				$shout->Save();
 				?>$( <?php
 				echo $node;
