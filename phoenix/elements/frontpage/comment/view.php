@@ -16,18 +16,16 @@
 				?></a> έγραψε:
 			</div>
 			<div class="subject">
-				<p><span class="text"><?php
+				<p><?php
 					$text = $comment->GetText( 35 );
                     if ( !empty( $text ) ) {
-                        ?>"<?php
+                        ?><span class="text">"<?php
     					echo trim( $text );
     					if ( strlen( $text ) > 30 ) {
     						?>...<?php
     					}
-                        ?>"<?php
+                        ?>"</span>, <?php
                     }
-					?></span>
-					, <?php
 					switch ( $comment->Typeid ) {
 						case TYPE_POLL:
 							?>στη δημοσκόπηση <a href="<?php
