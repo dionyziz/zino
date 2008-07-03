@@ -11,7 +11,6 @@
 		$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
 		
 		//start javascript attaching
-		$page->AttachScript( 'js/wysiwyg.js' );
 		$page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
 
         $page->AddMeta( 'author', 'Kamibu Development Team' );
