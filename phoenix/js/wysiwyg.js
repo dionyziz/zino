@@ -225,13 +225,7 @@ var WYSIWYG = {
         }( scfield, doc );
         which.style.backgroundColor = 'white';
 
-        while ( doc.body.firstChild ) {
-            doc.body.removeChild( doc.body.firstChild );
-        }
-
-        for ( var i = 0; i < oldcontents.childNodes.length; ++i ) {
-            doc.body.appendChild( oldcontents.childNodes[ i ].cloneNode( true ) );
-        }
+        doc.body.innerHTML = oldcontents.innerHTML;
         
         WYSIWYG.Focus( which );
     }
