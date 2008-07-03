@@ -122,8 +122,11 @@
                 'SELECT
                     *
                 FROM
-                    :events LEFT JOIN :users
-                        ON `event_userid` = `user_id`
+                    :events 
+                    LEFT JOIN :users ON 
+                        `event_userid` = `user_id`
+                    LEFT JOIN :images ON
+                        `user_avatarid` = `image_id`
                 WHERE
                     `event_typeid` != :commentevent AND
                     `event_typeid` != :relationevent
@@ -141,8 +144,7 @@
             $mintypeid = $types[ 0 ];
             $maxtypeid = $types[ count( $types ) - 1 ];
 
-            $query->BindTable( 'events' );
-            $query->BindTable( 'users' );
+            $query->BindTable( 'events', 'users', 'images' );
             $query->Bind( 'mintypeid', $mintypeid );
             $query->Bind( 'maxtypeid', $maxtypeid );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
@@ -154,7 +156,9 @@
             $bymodel = array();
             while ( $row = $res->FetchArray() ) {
                 $event = New Event( $row );
-                $event->CopyUserFrom( New User( $row ) );
+                $user = New User( $row );
+                $user->CopyAvatarFrom( New Image( $row ) );
+                $event->CopyUserFrom( $user );
                 $bymodel[ Event_ModelByType( $event->Typeid ) ][] = $event;
             }
 

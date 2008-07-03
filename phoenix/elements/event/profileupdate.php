@@ -12,13 +12,17 @@
         }
         echo $eventlist[ 0 ]->User->Name;
         $profileinfo = array();
+
+        // abresas
+        // user $one->Item instead of $one->User->Profile for optimization!
+
         foreach ( $eventlist as $one ) {
             ob_start();
             switch ( $one->Typeid ) {
                 case EVENT_USERPROFILE_EDUCATION_UPDATED:
                     ?>πάει <?php
                     ob_start();
-                    Element( 'user/trivial/education' , $one->User->Profile->Education );
+                    Element( 'user/trivial/education' , $one->Item->Education );
                     $education = ob_get_clean();
                     if ( $education != mb_strtoupper( $education ) ) {
                         // if it's not all-upper case (abbreviation), lower-case it
@@ -29,35 +33,35 @@
                 case EVENT_USERPROFILE_SEXUALORIENTATION_UPDATED:
                     ?>είναι <?php
                     ob_start();
-                    Element( 'user/trivial/sex' , $one->User->Profile->Sexualorientation , $one->User->Gender );
+                    Element( 'user/trivial/sex' , $one->Item->Sexualorientation , $one->User->Gender );
                     echo mb_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_RELIGION_UPDATED:
                     ob_start();
-                    switch ( $one->User->Profile->Religion ) {
+                    switch ( $one->Item->Religion ) {
                         case 'nothing':
                             ?>δεν έχει θρησκευτικές πεποιθήσεις<?php
                             break;
                         default:
                             ?>είναι <?php
-                            Element( 'user/trivial/religion' , $one->User->Profile->Religion , $one->User->Gender );
+                            Element( 'user/trivial/religion' , $one->Item->Religion , $one->User->Gender );
                     }
                     echo mb_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_POLITICS_UPDATED:
                     ob_start();
-                    switch ( $one->User->Profile->Politics ) {
+                    switch ( $one->Item->Politics ) {
                         case 'nothing':
                             ?>δεν έχει πολιτικές πεποιθήσεις<?php
                             break;
                         default:
                             ?>είναι <?php
-                            Element( 'user/trivial/politics' , $one->User->Profile->Politics , $one->User->Gender );
+                            Element( 'user/trivial/politics' , $one->Item->Politics , $one->User->Gender );
                     }
                     echo mb_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_SMOKER_UPDATED:
-                    switch ( $one->User->Profile->Smoker ) {
+                    switch ( $one->Item->Smoker ) {
                         case 'yes':
                             ?>καπνίζει<?php
                             break;
@@ -70,7 +74,7 @@
                     }
                     break;
                 case EVENT_USERPROFILE_DRINKER_UPDATED:
-                    switch ( $one->User->Profile->Drinker ) {
+                    switch ( $one->Item->Drinker ) {
                         case 'yes':
                             ?>πίνει<?php
                             break;
@@ -86,9 +90,9 @@
                     ?>έγραψε για τον εαυτό <?php
                     echo $self;
                     ?> "<?php
-					$aboutme = mb_substr( $one->User->Profile->Aboutme, 0, 20 );
+					$aboutme = mb_substr( $one->Item->Aboutme, 0, 20 );
                     echo htmlspecialchars( $aboutme );
-					if ( mb_strlen( $one->User->Profile->Aboutme ) > mb_strlen( $aboutme ) ) {
+					if ( mb_strlen( $one->Item->Aboutme ) > mb_strlen( $aboutme ) ) {
 						?>...<?php
 					}
                     ?>"<?php
@@ -96,39 +100,39 @@
                 case EVENT_USERPROFILE_MOOD_UPDATED:
                     ?>είναι <?php
                     if ( $one->User->Gender == 'm' ) {
-                        echo htmlspecialchars( mb_strtolower( $one->User->Profile->Mood->Labelmale ) );
+                        echo htmlspecialchars( mb_strtolower( $one->Item->Mood->Labelmale ) );
                     }
                     else {
-                        echo htmlspecialchars( mb_strtolower( $one->User->Profile->Mood->Labelfemale ) );
+                        echo htmlspecialchars( mb_strtolower( $one->Item->Mood->Labelfemale ) );
                     }
                     break;
                 case EVENT_USERPROFILE_LOCATION_UPDATED:
                     ?>μένει <?php
-                    echo htmlspecialchars( $one->User->Profile->Location->Nameaccusative );
+                    echo htmlspecialchars( $one->Item->Location->Nameaccusative );
                     break;
                 case EVENT_USERPROFILE_HEIGHT_UPDATED:
                     ?>είναι <?php
                     ob_start();
-                    Element( 'user/trivial/height' , $one->User->Profile->Height );
+                    Element( 'user/trivial/height' , $one->Item->Height );
                     echo mb_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_WEIGHT_UPDATED:
                     ?>είναι <?php
                     ob_start();
-                    Element( 'user/trivial/weight' , $one->User->Profile->Weight );
+                    Element( 'user/trivial/weight' , $one->Item->Weight );
                     echo mb_strtolower( ob_get_clean() );
                     break;
                 case EVENT_USERPROFILE_HAIRCOLOR_UPDATED:
-                    if ( $one->User->Profile->Haircolor == 'highlights' ) {
+                    if ( $one->Item->Haircolor == 'highlights' ) {
                         ?>έχει ανταύγειες<?php
                     }
-                    else if ( $one->User->Profile->Haircolor == 'skinhead' ) {
+                    else if ( $one->Item->Haircolor == 'skinhead' ) {
                         ?>είναι skinhead<?php
                     }
                     else {
                         ?>έχει <?php 
                         ob_start();
-                        Element( 'user/trivial/haircolor' , $one->User->Profile->Haircolor );
+                        Element( 'user/trivial/haircolor' , $one->Item->Haircolor );
                         echo mb_strtolower( ob_get_clean() );
                         ?> μαλλί<?php
                     }
@@ -136,7 +140,7 @@
                 case EVENT_USERPROFILE_EYECOLOR_UPDATED:
                     ?>έχει <?php
                     ob_start();
-                    Element( 'user/trivial/eyecolor' , $one->User->Profile->Eyecolor );
+                    Element( 'user/trivial/eyecolor' , $one->Item->Eyecolor );
                     echo mb_strtolower( ob_get_clean() );
                     ?> χρώμα ματιών<?php
                     break;
