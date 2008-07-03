@@ -520,24 +520,38 @@
                 SELECT
                     * 
                 FROM
-                    :comments LEFT JOIN :users 
-                        ON `comment_userid` = `user_id`
+                    :comments 
+                    LEFT JOIN :users ON `comment_userid` = `user_id`
+                    LEFT JOIN :images ON `user_avatarid` = `image_id`
                 WHERE
                     `comment_id` IN :commentids
                 LIMIT
                     :offset, :limit;" );
 
-            $query->BindTable( 'comments', 'users' );
+            $query->BindTable( 'comments', 'users', 'images' );
             $query->Bind( 'commentids', $comments );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
             $res = $query->Execute();
-            $ret = array();
+            $comments = array();
+            $bulkids = array();
             while ( $row = $res->FetchArray() ) {
                 $comment = New Comment( $row );
-                $comment->CopyUserFrom( New User( $row ) );
-                $ret[ $row[ 'comment_id' ] ] = $comment;
+                $user = New User( $row );
+                $user->CopyAvatarFrom( New Image( $row ) );
+                $comment->CopyUserFrom( $user );
+                $comments[ $row[ 'comment_id' ] ] = $comment;
+                $bulkids[] = $comment->Bulkid;
+            }
+
+            $finder = New BulkFinder();
+            $bulks = $finder->FindById( $bulkids );
+
+            $ret = array();
+            while ( $comment = array_shift( $comments ) ) {
+                $comment->CopyBulkFrom( $bulks[ $comment->Bulkid ] );
+                $ret[] = $comment;
             }
 
             return $ret;
