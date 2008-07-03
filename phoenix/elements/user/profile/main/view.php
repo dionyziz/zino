@@ -55,7 +55,7 @@
 						Element( 'notification/list' , $notifs );
 					?></div>
 					<div class="expand">
-						<a href="" title="Απόκρυψη"></a>
+						<a href="" title="Απόκρυψη">&nbsp;</a>
 					</div>
 				</div><?php
 			}
