@@ -33,11 +33,9 @@
 				echo $comment->Since;
 				?></span><?php
 				if ( $deletable ) {
-					/*
-					style="margin-right:<?php
+					?><a href="" style="margin-right:<?php
 						echo $indent * 20;
-					?>px;"*/
-					?><a href="" onclick="Comments.Delete( <?php
+					?>px;" onclick="Comments.Delete( <?php
 					echo $comment->Id;
 					 // There is a reason for the dot. If there's no character between <a></a> the background css image is not shown in IE7
 					?> );return false;" title="Διαγραφή">.</a><?php
