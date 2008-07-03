@@ -299,6 +299,15 @@ function XbDesignMode( aIFrame ) {
 
 XbDesignMode.prototype.execCommand = function ( aCommandName, aParam ) {
     if ( this.mEditorDocument ) {
+        if ( aCommandName == 'inserthtml' && typeof document.selection !== 'undefined' ) {
+            var rng = this.mEditorDocument.selection.createRange();
+            if ( rng.item ) {
+                rng.item( 0 ).outerHTML = aParam;
+                return;
+            }
+            rng.pasteHTML( aParam );
+            return;
+        }
         this.mEditorDocument.execCommand( aCommandName, false, aParam );
     }
     else {
