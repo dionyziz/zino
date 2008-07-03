@@ -843,7 +843,9 @@
                     echo addslashes( $formatted[ $row[ 'article_id' ] ] );
                     ?>');
                     INSERT INTO `journals` SET
-                        `journal_created`='<?php
+                        `journal_id` = '<?php
+                        echo $row[ 'article_id' ];
+                        ?>', `journal_created`='<?php
                         echo $row[ 'article_created' ];
                         ?>', `journal_numcomments`=<?php
                         echo $row[ 'article_numcomments' ];
