@@ -1,5 +1,7 @@
 <?php
-	function ElementCommentList( $comments ) {
+	
+    /*
+    function ElementCommentList( $comments ) {
         global $water;
         global $page;
         global $user;
@@ -33,4 +35,20 @@
 			$page->AttachInlineScript( $jsarr );
 		}
 	}
+    */
+
+    function ElementCommentList( $comments, $children_nums ) {
+        global $water;
+        global $page;
+        global $user;
+
+        $indent = array(); /* comment_parentid => comment_indent */
+        $indent[ 0 ] = 0;
+
+        foreach ( $comments as $comment ) {
+            $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
+            Element( 'comment/view', $comment, $indent[ $comment->Parentid ] );
+        }
+    }   
+
 ?>

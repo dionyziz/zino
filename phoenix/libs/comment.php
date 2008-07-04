@@ -1,202 +1,76 @@
 <?php
-
-    /*
-        Developer: abresas
-    */
-
+    
     global $libs;
 
     $libs->Load( 'poll/poll' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
-	
-    function Comments_CountChildren( $comments, $id ) {
-		$count = 0;
-		foreach ( $comments as $comment ) {
-			if ( $comment[ 'comment_parentid' ] == $id ) {
-				++$count;
-				$count += Comments_CountChildren( $comments, $comment[ 'comment_id' ] );
-			}
-		}
-		return $count;
-	}
-	
-	function Comments_GetImmediateChildren( $comments, $id ) {
-		$children = array();
-		foreach ( $comments as $comment ) {
-			if ( $comment[ 'comment_parentid' ] == $id ) {
-				$children[] = $comment;
-			}
-		}
 
-		return $children;
-	}
+    function Comment_RegenerateMemcache( $entity ) {
+        global $mc;
 
-    function Comments_CountPages( $comments, $parents ) {
-        $total_pages = 1;
-        $page_total = 0; 
-        foreach ( $parents as $parent ) {
-            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
-            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
-                $page_total = 0;
-                $total_pages++;
+        $mc->delete( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+
+        $finder = New CommentFinder();
+        $comments = $finder->FindByEntity( $entity );
+
+        $paged = array();
+        $paged[ 0 ] = array();
+        $cur_page = 0;
+        $stack = array( 0 );
+        while ( !empty( $stack ) ) {
+            $parent = array_pop( $stack );
+            if ( !is_array( $parent ) ) {
+                $parentid = 0;
             }
-        }
+            else {
+                $parentid = $parent[ 'comment_id' ];
 
-        return $total_pages;
-    }
-
-	function Comments_MakeParented( &$parented, $comments, $id, $reverse = true ) {
-		foreach ( $comments as $comment ) {
-			if ( $comment[ 'comment_parentid' ] == $id ) {
-				if ( !isset( $parented[ $id ] ) || !is_array( $parented[ $id ] ) ) {
-					$parented[ $id ] = array();
-				}
-				if ( $reverse ) {
-					array_unshift( $parented[ $id ], $comment );
-				}
-				else {
-					$parented[ $id ][] = $comment;
-				}
-				Comments_MakeParented( $parented, $comments, $comment[ 'comment_id' ], $reverse );
-			}
-		}
-	}
-    
-    function Comments_Near( $comments, $comment, $reverse = true ) {
-        $parents = Comments_GetImmediateChildren( $comments, 0 );
-        $page_num = 0;
-        $page_total = 0;
-        $page_parents = array();
-
-        $target_parentid = ( $comment->Parentid > 0 ) ? $comment->Parentid : $comment->Id;
-        $found_comment = false;
-
-        foreach ( $parents as $parent ) {
-            $page_parents[] = $parent;
-
-            /* Count children and search for $comment */
-            $proc = array( $parent[ 'comment_id' ] );
-            $count = 1;
-            while ( !empty( $proc ) ) {
-                $id = array_pop( $proc );
-                if ( $id == $comment->Id ) {
-                    $found_comment = true;
-                }
-                foreach ( $comments as $c ) {
-                    if ( $c[ 'comment_parentid' ] == $id ) {
-                        ++$count;
-                        array_push( $proc, $c[ 'comment_id' ] );
+                if ( $parent[ 'comment_parentid' ] == 0 ) { // top parent found!
+                    if ( count( $paged[ $cur_page ] ) >= COMMENT_PAGE_LIMIT ) {
+                        ++$cur_page;
+                        $paged[ $cur_page ] = array();
                     }
                 }
+
+                $paged[ $cur_page ][] = $parent[ 'comment_id' ];
             }
-            /* End of counting */
-
-            $page_total += $count;
-            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
-                if ( $found_comment ) {
-                    break;
-                }
-                $page_total = 0;
-                $page_parents = array();
-                ++$page_num;
-            }
-        }
-
-        /* create parented structure */
-        $parented = array();
-        $parented[ 0 ] = array();
-        foreach ( $page_parents as $parent ) {
-            if ( $reverse ) {
-                array_unshift( $parented[ 0 ], $parent );
-            }
-            else {
-                $parented[ 0 ][] = $parent;
-            }
-            Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
-        }
-
-        return array( Comments_CountPages( $comments, $parents ), $page_num + 1, $parented );
-    }
-
-	function Comments_OnPage( $comments, $page, $reverse = true ) {
-        global $water;
-
-        --$page; /* start from 0 */
-
-		$parents = Comments_GetImmediateChildren( $comments, 0 );
-
-		$page_total = 0;
-		$page_num = 0;
-		$parented = array();
-		$parented[ 0 ] = array();
-        if ( $reverse ) {
-            $parents = array_reverse( $parents );
-        }
-        foreach ( $parents as $parent ) {
-            if ( $page_num == $page ) {
-                $parented[ 0 ][] = $parent;
-                Comments_MakeParented( $parented, $comments, $parent[ 'comment_id' ], $reverse );
-            }
-            $page_total += 1 + Comments_CountChildren( $comments, $parent[ 'comment_id' ] );
-            if ( $page_total >= COMMENT_PAGE_LIMIT ) {
-                $page_total = 0;
-                $page_num++;
-                if ( $page_num > $page ) {
-                    break;
+            foreach ( $comments as $key => $comment ) {
+                if ( $comment[ 'comment_parentid' ] == $parentid ) {
+                    array_push( $stack, $comment );
+                    unset( $comments[ $key ] );
                 }
             }
         }
 
-		return array( Comments_CountPages( $comments, $parents ), $parented );
-	}
-
-    /*
-        return parented structure of $comments
-        $parented[ $pid ] contains an array of Comment instances
-        where all comments in the array have parentid = $pid
-    */
-    function Comment_MakeTree( $comments, $reverse = true ) {
-        $parented = array();
-        if ( !is_array( $comments ) ) {
-            return $parented;
-        }
-
-        foreach( $comments as $comment ) {
-			if ( !is_array( $parented[ $comment->Parentid ] ) ) {
-				$parented[ $comment->Parentid ] = array();
-			}
-            if ( $reverse ) {
-                array_unshift( $parented[ $comment->Parentid ], $comment );
-            }
-            else {
-                $parented[ $comment->Parentid ][] = $comment;
-            }
-         }
-        
-        return $parented;
-    }
-
-    function Comment_UserIsSpamBot( $text, $finder = false ) { // change finder for testcase
-        if ( !is_object( $finder ) ) {
-            $finder = New CommentFinder();
-        }
-        if ( $finder->UserIsSpamBot() ) {
-            // email dio
-            $subject = "WARNING! Comment spambot detected!";
-            $message = "Text submitted: " . $text . "\n\n SpamBot Ip: " . UserIp();
-
-            mail( 'dionyziz@gmail.com', $subject, $message );
-
-            return true;
-        }
-
-        return false;
+        $mc->add( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ), $paged );
     }
 
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
+        public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
+            --$page; // start from 0
+
+            $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+            if ( $paged === false ) {
+                Comment_RegenerateMemcache( $entity );
+                $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+            }
+
+            $commentids = $paged[ $page ];
+            $comments = $this->FindData( $commentids );
+    
+            $ret = array();
+            foreach ( $commentids as $key => $id ) {
+                $ret[ $key ] = $comments[ $id ];
+            }
+
+            return $ret;
+        }
+        public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
+            return array();
+        }
         public function Count() {
             $query = $this->mDb->Prepare(
 			'SELECT
@@ -209,7 +83,6 @@
 			$row = $res->FetchArray();
 			return ( integer )$row[ 'count' ];
         }
-
         public function DeleteByEntity( $entity ) {
             $prototype = New Comment();
             $prototype->Typeid = Type_FromObject( $entity );
@@ -392,9 +265,7 @@
 
             return $ret;
         }
-        public function FindNear( $entity, Comment $comment, $reverse = true, $offset = 0, $limit = 100000 ) {
-            w_assert( is_object( $entity ) );
-
+        public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
@@ -404,6 +275,8 @@
                     `comment_typeid` = :typeid AND
                     `comment_itemid` = :itemid AND
                     `comment_delid` = :delid
+                ORDER BY
+                    `comment_id` ASC
                 LIMIT
                     :offset, :limit;" );
 
@@ -420,75 +293,7 @@
                 $comments[] = $row;
             }
 
-            $info = Comments_Near( $comments, $comment );
-            $num_pages = $info[ 0 ];
-            $cur_page = $info[ 1 ];
-            $parented = $info[ 2 ];
-
-            $comments = $this->FindParentedData( $parented );
-            
-            return array( $num_pages, $cur_page, $comments );
-        }
-        public function FindByPage( $entity, $page, $reverse = true, $offset = 0, $limit = 100000 ) {
-            if ( $page <= 0 ) {
-                $page = 1;
-            }
-
-            $query = $this->mDb->Prepare( "
-                SELECT
-                    `comment_id`, `comment_parentid`
-                FROM
-                    :comments
-                WHERE
-                    `comment_typeid` = :typeid AND
-                    `comment_itemid` = :itemid AND
-                    `comment_delid` = :delid
-                LIMIT
-                    :offset, :limit;" );
-
-            $query->BindTable( 'comments' );
-            $query->Bind( 'typeid', Type_FromObject( $entity ) );
-            $query->Bind( 'itemid', $entity->Id );
-            $query->Bind( 'delid', 0 );
-            $query->Bind( 'offset', $offset );
-            $query->Bind( 'limit', $limit );
-            
-            $res = $query->Execute();
-            $comments = array();
-            while ( $row = $res->FetchArray() ) {
-                $comments[] = $row;
-            }
-
-            $info = Comments_OnPage( $comments, $page, $reverse );
-            $num_pages = $info[ 0 ];
-            $parented = $info[ 1 ];
-
-            $comments = $this->FindParentedData( $parented );
-
-            return array( $num_pages, $comments );
-        }
-        public function FindParentedData( $parented ) {
-            /* get comment ids from parented */
-            $commentids = array();
-            foreach ( $parented as $parentid => $children ) {
-                foreach ( $children as $child ) {
-                    $commentids[] = $child[ 'comment_id' ];
-                }
-            }
-
-            /* fetch data for all comments */
-            $comments = $this->FindData( $commentids );
-    
-            /* parentify fetched data */
-            $ret = array();
-            foreach ( $parented as $parentid => $children ) {
-                $ret[ $parentid ] = array();
-                foreach ( $children as $child ) {
-                    $ret[ $parentid ][] = $comments[ $child[ 'comment_id' ] ];
-                }
-            }
-
-            return $ret;
+            return $comments;
         }
         public function FindData( $comments, $offset = 0, $limit = 100000 ) {
             if ( empty( $comments ) ) {
@@ -586,10 +391,17 @@
         }
         protected function OnDelete() {
             global $libs;
+            global $mc;
             $libs->Load( 'event' );
+            
+            if ( $this->Parentid > 0 ) {
+                $this->Parent->Numchildren -= 1;
+            }
             
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
+
+            Comment_RegenerateMemcache( $this->Item );
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
@@ -606,7 +418,7 @@
             return false;
         }
         public function OnCreate() {
-            // global $mc;
+            global $mc;
             global $libs;
 
             $libs->Load( 'event' );
@@ -618,6 +430,11 @@
 
             w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
             $this->Item->OnCommentCreate();
+            
+            if ( $this->Parentid > 0 ) {
+                $this->Parent->Numchildren += 1;
+                $this->Parent->Save();
+            }
 
             $event = New Event();
             $event->Typeid = EVENT_COMMENT_CREATED;
@@ -625,6 +442,17 @@
             $event->Created = $this->Created;
             $event->Userid = $this->Userid;
             $event->Save();
+
+            Comment_RegenerateMemcache( $this->Item );
+        }
+        public function OnUpdate() {
+            /* 
+             * TODO: check if parentid has changed
+             * if it has changed: regenerate and edit old and new parent numchildren
+             * if not: do not regenerate
+             */
+            
+            // Comment_RegenerateMemcache( $this->Item );
         }
         public function OnBeforeUpdate() {
             $this->Bulk->Save();
@@ -647,6 +475,7 @@
             $this->Created = NowDate();
             $this->Userip = UserIp();
 			$this->Userid = $user->Id;
+            $this->Numchildren = 0;
         }
         public function OnConstruct() {
             if ( $this->Exists() ) {
@@ -657,7 +486,5 @@
 			return $this->mSince;
 		}
     }
-    
 
-	
 ?>

@@ -1,9 +1,11 @@
 <?php
 	
-	function ElementCommentView( $comment , $indent , $numchildren ) {
+	function ElementCommentView( $comment, $indent ) {
 		global $user;
 		global $libs;
 		global $water;
+
+        $numchildren = $comment->Numchildren;
 		
 		$libs->Load( 'comment' );
 		$deletable = ( $user->Id == $comment->User->Id || $user->HasPermission( PERMISSION_COMMENT_DELETE_ALL ) ) && $numchildren == 0;
