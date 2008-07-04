@@ -59,17 +59,10 @@
 		if ( $style != "" ) {
 			echo htmlspecialchars( $style );
 		}
-		?>"<?php
-		if ( $title != "" ) {
-			?> title="<?php
+		?>" title="<?php
 			echo htmlspecialchars( $title );
-			?>"<?php
-		}
-		if ( $alt != "" ) {
-			?> alt="<?php
+			?>" alt="<?php
 			echo htmlspecialchars( $alt );
-			?>"<?php
-		}
-		?> /><?php
+			?>" /><?php
 	}
 ?>
