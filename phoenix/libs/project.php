@@ -49,9 +49,25 @@
         if ( $user->Exists() ) {
             $user->LastActivity->Save();
         }
+        
+        $water->ProfileStart( 'page' );
     }
     
     function Project_Destruct() {
+        $time = $water->ProfileEnd();
+        
+        if ( $time > 2 ) {
+            mail( 'dionyziz@gmail.com, abresas@gmail.com', 'Zino: Slow page rendering', "Hello,
+
+The following page took " . round( $time, 3 ) . " seconds to render:
+
+" . $_SERVER[ 'REQUEST_URI' ] . '
+
+I believe you should investigate.
+
+Sincerely yours,
+Project_Destruct()' );
+        }
     }
     
     function Project_PagesMap() {

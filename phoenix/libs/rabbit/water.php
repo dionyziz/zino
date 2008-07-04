@@ -87,7 +87,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$profile = array(
 				'index' => $this->mCurrentProfileIndex,
 				'algorithm' => $algorithm,
-				'start' => microtime(true)
+				'start' => microtime( true )
 			);
 			array_push( $this->mProfilesStack , $profile );
 		}
@@ -100,7 +100,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				return;
 			}
 			$profile = array_pop( $this->mProfilesStack );
-			$profile[ 'end' ] = microtime(true);
+			$profile[ 'end' ] = microtime( true );
 			$profile[ 'time' ] = $profile[ 'end' ] - $profile[ 'start' ];
 			if ( !count( $this->mProfilesStack ) ) {
 				$parent = 0;
