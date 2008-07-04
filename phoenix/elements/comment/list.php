@@ -45,10 +45,29 @@
         $indent = array(); /* comment_parentid => comment_indent */
         $indent[ 0 ] = 0;
 
+        $children_nums = array();
+
+        foreach ( $comments as $comment ) { 
+            if ( !isset( $children_nums[ $comment->Parentid ] ) ) {
+                $children_nums[ $comment->Parentid ] = 0;
+            }
+            $children_nums[ $comment->Parentid ] = $children_nums[ $comment->Parentid ] + 1;
+        }
+		
+        $jsarr = "Comments.numchildren = { ";
+
         foreach ( $comments as $comment ) {
             $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
-            Element( 'comment/view', $comment, $indent[ $comment->Parentid ] );
+            Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children_nums[ $comment->Id ] );
         }
+		
+        if ( strlen( $jsarr ) != 25 ) { // page without comments
+			$jsarr = substr( $jsarr, 0, -2);
+		}
+		$jsarr .= " };";
+		if ( $user->Id > 0 ) {
+			$page->AttachInlineScript( $jsarr );
+	    }
     }   
 
 ?>
