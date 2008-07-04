@@ -36,46 +36,6 @@
                 $paged[ $cur_page ][] = $parent[ 'comment_id' ];
             }
 
-            if ( $parentid == 0 ) {
-                $start_search = 0;
-            }
-            else {
-                /* binary search */
-                $high = count( $comments );
-                $low = 0;
-
-                while ( $high - $low > 1 ) {
-                    $probe = ( $high + $low ) / 2;
-                    if ( $comments[ $probe ][ 'comment_parentid' ] < $parentid ) {
-                        $low = $probe;
-                    }
-                    else {
-                        $high = $probe;
-                    }
-                }
-                if ( $high == count( $comments ) || $comments[ $high ] != $parentid ) {
-                    die( "no children $parentid" );
-                    continue; // no children
-                }
-                else {
-                    $start_search = $high;
-                }
-            }
-
-            for ( $i = $start_search; $i >= 0; --$i ) { /* below start_search */
-                if ( $comments[ $i ][ 'comment_parentid' ] != $parentid ) {
-                    break;
-                }
-                array_push( $stack, $comments[ $i ] );
-            }
-            for ( $i = $start_search + 1; $i < count( $comments ); ++$i ) { /* above start_search */
-                if ( $comments[ $i ][ 'comment_parentid' ] != $parentid ) {
-                    break;
-                }
-                array_push( $stack, $comments[ $i ] );
-            }
-            
-            /*
             foreach ( $comments as $key => $comment ) {
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
@@ -84,7 +44,6 @@
                     break;
                 }
             }
-            */
         }
 
         $mc->add( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
@@ -357,7 +316,7 @@
                     `comment_itemid` = :itemid AND
                     `comment_delid` = :delid
                 ORDER BY
-                    `comment_parentid`, `comment_id` ASC
+                    `comment_id` ASC
                 LIMIT
                     :offset, :limit;" );
 
