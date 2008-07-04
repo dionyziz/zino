@@ -91,7 +91,7 @@
                                 else {
                                     ?>του <?php
                                 }
-                                if ( $notif->FromUserid != $notif->Item->Userid ) {
+                                if ( $notif->Fromuserid != $notif->Item->Userid ) {
                                     ?><a href="<?php
                                     ob_start();
                                     Element( 'url', $comment );
