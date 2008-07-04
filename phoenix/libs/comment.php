@@ -40,9 +40,6 @@
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
                 }
-                else if ( $comment[ 'comment_parentid' ] > $parentid ) {
-                    break;
-                }
             }
         }
 
