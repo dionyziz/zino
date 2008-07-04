@@ -54,6 +54,7 @@
                     }
                 }
                 if ( $high == count( $comments ) || $comments[ $high ] != $parentid ) {
+                    die( "no children $parentid" );
                     continue; // no children
                 }
                 else {
