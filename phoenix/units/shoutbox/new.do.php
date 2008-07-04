@@ -38,5 +38,5 @@
 		} ).end()
 		.find( 'div.text' ).html( "<?php
 			echo $shout->Text;
-		?>" );<?php	}
+			?>" );<?php	}
 ?>

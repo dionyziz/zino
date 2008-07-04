@@ -33,15 +33,15 @@
                     throw New Exception( 'Invalid image type' );
             }
 		}
-		?><img src="<?php
+		?><img src='<?php
         Element( 'image/url', $image, $type );
-		?>"<?php
+		?>'<?php
 		if ( $class != "" ) {
-			?> class="<?php
+			?> class='<?php
 			echo htmlspecialchars( $class );
-			?>"<?php
+			?>'<?php
 		}
-		?> style="<?php
+		?> style='<?php
 		if ( $cssresizable ) {
 			?>width:<?php
 			echo $csswidth;
@@ -59,10 +59,10 @@
 		if ( $style != "" ) {
 			echo htmlspecialchars( $style );
 		}
-		?>" title="<?php
+		?>' title='<?php
 			echo htmlspecialchars( $title );
-			?>" alt="<?php
+			?>' alt='<?php
 			echo htmlspecialchars( $alt );
-			?>" /><?php
+			?>' /><?php
 	}
 ?>
