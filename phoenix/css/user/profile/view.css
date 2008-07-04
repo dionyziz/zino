@@ -130,6 +130,20 @@ div#profile div.sidebar div.social dl dd {
 	padding: 3px 0;
 	width: 100px;
 }
+div#profile div.sidebar div.social ul {
+	list-style: none;
+	float:left;
+	padding:3px 0;
+}
+div#profile div.sidebar div.social li {
+	clear: both;
+	margin-bottom: 4px;
+}
+div#profile div.sidebar div.social li strong {
+	display:block;
+	width: 170px;
+	float:left;
+}
 div#profile div.sidebar div.aboutme {
 	padding: 4px;
 	clear: both;
