@@ -11,6 +11,7 @@
 		$page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
 		
 		//start javascript attaching
+		$page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
 		$page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
         $page->AttachScript( 'js/comments.js' ); // TODO!
         
@@ -40,7 +41,6 @@
                 Element( 'footer' );
             }
         }
-        Element( 'tracking/analytics' ); // Google-Analytics, for stats
         if ( $page->Title() != '' ) { // If the title's page is not blank
             $page->SetTitle( $page->Title() . ' | ' . $rabbit_settings[ 'applicationname' ] );
         }
