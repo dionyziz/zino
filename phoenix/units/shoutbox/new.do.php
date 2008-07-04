@@ -16,7 +16,7 @@
 				echo $node;
 				?> )
 				.attr( {
-					id : <?php
+					id : s_<?php
 					echo $shout->Id;
 					?> } )
 				.find( 'div.toolbox a' ).click( function( shoutid ) {
