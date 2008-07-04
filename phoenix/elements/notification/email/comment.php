@@ -50,13 +50,15 @@
         $subject = ob_get_clean();
         echo $subject;
 
-        $text = htmlspecialchars_decode( strip_tags( $comment->Text ) );
+        $text = trim( htmlspecialchars_decode( strip_tags( $comment->Text ) ) );
         if ( !empty( $text ) ) {
             ?> και έγραψε: 
             
 "<?php
             echo $text;
-            ?>"<?php
+            ?>"
+            
+<?php
         }
         ?>
 
