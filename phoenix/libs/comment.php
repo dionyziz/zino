@@ -533,7 +533,6 @@
             $this->Created = NowDate();
             $this->Userip = UserIp();
 			$this->Userid = $user->Id;
-            $this->Numchildren = 0;
         }
         public function OnConstruct() {
             if ( $this->Exists() ) {
