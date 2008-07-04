@@ -6,10 +6,9 @@
         
         global $user;
 
-        if ( !$user->HasPermission( PERMISSION_DELETE_MEMCACHE ) ) {
+        if ( !$user->HasPermission( PERMISSION_MEMCACHE_DELETE ) ) {
             return;
         }
-
 
         return Redirect( '?p=testmc&key=' . $key->Get() );
     }

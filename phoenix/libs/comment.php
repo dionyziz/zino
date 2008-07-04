@@ -12,7 +12,6 @@
 
         $water->Profile( "Memcache generation" );
 
-
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
