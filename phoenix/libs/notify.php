@@ -15,11 +15,11 @@
                 FROM
                     :notify
                     RIGHT JOIN :events ON
-                        `notification_eventid` = `event_id`
+                        `notify_eventid` = `event_id`
                 WHERE
-                    `notification_touserid` = :userid
+                    `notify_touserid` = :userid
                 ORDER BY
-                    `notification_eventid` DESC
+                    `notify_eventid` DESC
                 LIMIT
                     :offset, :limit
                 ;" );
