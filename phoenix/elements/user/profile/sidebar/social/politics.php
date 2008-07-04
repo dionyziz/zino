@@ -23,10 +23,10 @@
 				);
 			}
             */
-			?><dt><strong>Πολιτική ιδεολογία</strong></dt>
-			<dd><?php
+			?><li><strong>Πολιτική ιδεολογία</strong>
+			<?php
             Element( 'user/trivial/politics', $theuser->Profile->Politics, $theuser->Gender );
-			?></dd><?php
+			?></li><?php
 		}
 	}
 ?>
