@@ -9,7 +9,7 @@
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
 
-        $mc->delete( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+        $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
         $comments = $finder->FindByEntity( $entity );
@@ -86,20 +86,16 @@
             */
         }
 
-        $mc->add( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ), $paged );
-        die( "added comtree_" + $entity->Id + "_" + Type_FromObject( $entity ) );
+        $mc->add( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
     }
 
     function Comment_GetMemcached( $entity ) {
         global $mc;
 
-        $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+        $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         if ( $paged === false ) {
             Comment_RegenerateMemcache( $entity );
-            $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
-        }
-        else {
-            die( "COMMENTS:" . var_dump( $paged ) );
+            $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         }
 
         return $paged;
