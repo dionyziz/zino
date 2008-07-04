@@ -8,7 +8,7 @@
         
 		$libs->Load( 'question' );
         $question = new Question( $id );
-        if ( $answer == '' || !$question->Exists() ) {
+        if ( trim( $answer ) == '' || !$question->Exists() ) {
             return;
         }
 
