@@ -16,9 +16,9 @@
 				echo $node;
 				?> )
 				.attr( {
-					id : s_<?php
+					id : "s_<?php
 					echo $shout->Id;
-					?> } )
+					?>" } )
 				.find( 'div.toolbox a' ).click( function( shoutid ) {
 					Frontpage.DeleteShout( '<?php
 					echo $shout->Id;
