@@ -210,9 +210,11 @@ $( document ).ready( function() {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			$( this ).find( "div.bottom a" ).toggle( function() {
+					alert( "Open" );
 					Comments.Reply( id, indent );
 					return false;
 				}, function() {
+					alert( "Close" );
 					$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
 					return false;
 				}
