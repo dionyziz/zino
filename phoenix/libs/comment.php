@@ -46,6 +46,16 @@
         $mc->add( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ), $paged );
     }
 
+    function Comment_GetMemcached( $entity ) {
+        $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+        if ( $paged === false ) {
+            Comment_RegenerateMemcache( $entity );
+            $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
+        }
+
+        return $paged;
+    }
+
     class CommentFinder extends Finder {
         protected $mModel = 'Comment';
 
@@ -54,11 +64,7 @@
 
             --$page; // start from 0
 
-            $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
-            if ( $paged === false ) {
-                Comment_RegenerateMemcache( $entity );
-                $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
-            }
+            $paged = Comment_GetMemcached( $entity );
 
             $commentids = $paged[ $page ];
             $comments = $this->FindData( $commentids );
@@ -71,7 +77,32 @@
             return array( count( $paged ), $ret );
         }
         public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
-            return array();
+            global $mc;
+
+            $paged = Comment_GetMemcached( $entity );
+            $cur_page = -1;
+
+            foreach ( $paged as $page => $commentids ) { /* slow? at least not if the comment is on the first pages */
+                foreach ( $commentids as $commentid ) {
+                    if ( $commentid == $comment->Id ) {
+                        $cur_page = $page;
+                        break;
+                    }
+                }
+                if ( $cur_page >= 0 ) {
+                    break;
+                }
+            }
+
+            $commentids = $paged[ $page ];
+            $comments = $this->FindData( $commentids );
+
+            $ret = array();
+            foreach ( $commentids as $key => $id ) {
+                $ret[ $key ] = $comments[ $id ];
+            }
+
+            return array( count( $paged ), $cur_page + 1, $ret ); 
         }
         public function Count() {
             $query = $this->mDb->Prepare(
