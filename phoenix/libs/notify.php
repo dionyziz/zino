@@ -7,10 +7,38 @@
         protected $mModel = 'Notification';
 
         public function FindByUser( User $user, $offset = 0, $limit = 20 ) {
-            $notif = New Notification();
-            $notif->Touserid = $user->Id;
+            global $water;
 
-            return $this->FindByPrototype( $notif, $offset, $limit, array( 'Eventid', 'DESC' ) );
+            $query = $this->mDb->Prepare( "
+                SELECT
+                    *
+                FROM
+                    :notify
+                    RIGHT JOIN :events ON
+                        `notify_eventid` = `event_id`
+                WHERE
+                    `notif_touserid` = :userid
+                ORDER BY
+                    `notif_eventid` DESC
+                LIMIT
+                    :offset, :limit
+                ;" );
+
+            $query->BindTable( 'notify', 'events' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+        
+            $res = $query->Execute();
+
+            $ret = array();
+            while ( $row = $res->FetchArray() ) {
+                $notif = New Notification( $row );
+                $notif->CopyEventFrom( New Event( $row ) );
+                $ret[] = $notif;
+            }
+
+            return $ret;
         }
         public function FindByComment( Comment $comment ) {
             global $water; 
@@ -33,7 +61,11 @@
             
             $res = $query->Execute();
             if ( $res->Results() ) {
-                return New Notification( $res->FetchArray() );
+                $row = $res->FetchArray();
+                $notif = New Notification( $row );
+                $notif->CopyEventFrom( $row );
+
+                return $notif;
             }
             else {
                 $water->Warning( "No results for comment " . $comment->Id );
@@ -101,6 +133,9 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
+        public function CopyEventFrom( $value ) {
+            $this->mRelations[ 'Event' ]->CopyFrom( $value );
+        }
         public function GetItem() {
             w_assert( $this->Event->Exists(), 'Event does not exist' );
 
