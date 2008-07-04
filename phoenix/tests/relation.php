@@ -87,7 +87,7 @@
 
             $relation->Delete();
         
-            $r = New Relation( $relation->Id );
+            $r = New FriendRelation( $relation->Id );
             w_assert( !$r->Exists() );
         }
         public function TestFindByUser() {
