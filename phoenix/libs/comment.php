@@ -68,7 +68,7 @@
                 $ret[ $key ] = $comments[ $id ];
             }
 
-            return $ret;
+            return array( count( $paged ), $ret );
         }
         public function FindNear( $entity, Comment $comment, $offset = 0, $limit = 100000 ) {
             return array();
