@@ -50,7 +50,7 @@
             $user->LastActivity->Save();
         }
         
-        $water->ProfileStart( 'page' );
+        $water->Profile( 'page' );
     }
     
     function Project_Destruct() {
