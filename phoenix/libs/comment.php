@@ -305,7 +305,7 @@
 
             return $ret;
         }
-        public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
+        public function FindByEntity( $entity, $offset = 0, $limit = 5000 ) {
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
