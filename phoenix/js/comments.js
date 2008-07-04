@@ -34,7 +34,7 @@ var Comments = {
 		.find( "div.toolbox" ).append( del ).end()
 		//.find( "div.toolbox a" ).css( { marginRight : (indent+1)*20 + 'px' } ).end()
 		//.find( "span.time" ).css( { marginRight : '0px'} ).end()
-		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
+		.find( "div.text" ).empty().append( document.createTextNode( "Αποθήκευση..." ) ).end()
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var useros = temp.find( "div.who" ).get( 0 );
@@ -65,7 +65,7 @@ var Comments = {
 										}
 											 );
 	},
-	NewCommentCallback : function( node, id, parentid ) {
+	NewCommentCallback : function( node, id, parentid, newtext ) {
 		if ( parentid !== 0 ) {
 			++Comments.numchildren[ parentid ];
 		}
@@ -81,7 +81,7 @@ var Comments = {
 					return false;
 				}
 			);
-		node.find( 'div.text' ).get( 0 ).ondblclick = function() {
+		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
 					Comments.Edit( id );
 					return false;
 				};

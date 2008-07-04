@@ -38,6 +38,8 @@
 		echo $comment->Id;
 		?>, <?php
 		echo $parent;
+		?>, <?php
+		echo nl2br( $comment->Text );
 		?> );<?php
 	}
 ?>
