@@ -55,10 +55,11 @@
     
     function Project_Destruct() {
         global $water;
+        global $rabbit_settings;
 
         $time = $water->ProfileEnd();
         
-        if ( $time > 1 ) {
+        if ( $rabbit_settings[ 'production' ] && $time > 1 ) {
             mail( 'dionyziz@gmail.com, abresas@gmail.com', 'Zino: Slow page rendering', "Hello,
 
 The following page took " . round( $time, 3 ) . " seconds to render:
