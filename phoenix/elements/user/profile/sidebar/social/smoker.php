@@ -1,10 +1,10 @@
 <?php
 	function ElementUserProfileSidebarSocialSmoker( $theuser ) {
 		if ( $theuser->Profile->Smoker != '-' ) {
-			?><dt><strong>Καπνίζεις;</strong></dt>
-			<dd><?php
+			?><li><strong>Καπνίζεις;</strong><span style="text-align:left; padding:3px 0; width: 100px;">
+			<?php
 			Element( 'user/trivial/yesno' , $theuser->Profile->Smoker );
-			?></dd><?php
+			?></span></li><?php
 		}
 	}
 ?>
