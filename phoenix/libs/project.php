@@ -59,7 +59,7 @@
 
         $time = $water->ProfileEnd();
         
-        if ( $rabbit_settings[ 'production' ] && $time > 1 ) {
+        if ( $rabbit_settings[ 'production' ] && $time > 0.5 ) {
             mail( 'dionyziz@gmail.com, abresas@gmail.com', 'Zino: Slow page rendering', "Hello,
 
 The following page took " . round( $time, 3 ) . " seconds to render:
