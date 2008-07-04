@@ -41,7 +41,6 @@
             }
             else {
                 /* binary search */
-
                 $high = count( $comments );
                 $low = 0;
 
@@ -88,6 +87,7 @@
         }
 
         $mc->add( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ), $paged );
+        die( "added comtree_" + $entity->Id + "_" + Type_FromObject( $entity ) );
     }
 
     function Comment_GetMemcached( $entity ) {
