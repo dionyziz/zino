@@ -9,7 +9,7 @@
 			$commentsnum = $album->Numcomments;
 			$photonum = $album->Numphotos;
 			if ( $album->Id == $album->User->Egoalbumid ) {
-				$albumname = 'Φωτογραφίες μου';
+				$albumname = 'Εγώ';
 			}
 			else {
 				$albumname = $album->Name;

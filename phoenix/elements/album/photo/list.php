@@ -41,7 +41,7 @@
 			}
 			?><h2><?php
 			if ( $album->Id == $album->User->Egoalbumid ) {
-				?>Φωτογραφίες μου<?php
+				?>Εγώ<?php
 			}
 			else {
 				echo htmlspecialchars( $album->Name );

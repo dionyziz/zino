@@ -55,7 +55,7 @@
 			echo $image->Album->Id;
 			?>"><?php
 			if ( $image->Album->Id == $image->User->Egoalbumid ) {
-				?>Φωτογραφίες μου<?php
+				?>Εγώ<?php
 			}
 			else {
 				echo htmlspecialchars( $image->Album->Name );
