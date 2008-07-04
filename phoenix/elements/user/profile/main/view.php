@@ -10,7 +10,6 @@
 		$libs->Load( 'notify' );
 		$libs->Load( 'relation/relation' );
 		
-        /*
 		if ( $theuser->Profile->Numcomments > 0 ) {
 			$finder = New CommentFinder();
 			if ( $commentid == 0 ) {
@@ -31,7 +30,7 @@
 				}
 			}
 		}
-          */
+
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
 		$finder = New JournalFinder();
@@ -214,10 +213,6 @@
 					$pageno = 1;
 				}
                 
-				?>
-				<p>Τα σχόλια στα προφίλ είναι προσωρινά μη διαθέσιμα και θα ενεργοποιηθούν σύντομα.</p>
-				<?php
-                /*
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
@@ -228,7 +223,6 @@
 						Element( 'pagify' , $pageno , $link, $total_pages );
 					?></div><?php
 				}
-                    */
 			?></div>
 		</div><?php	
 	}
