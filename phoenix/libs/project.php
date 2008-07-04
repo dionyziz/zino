@@ -7,7 +7,8 @@
         global $page;
         global $user;
         global $libs;
-        
+        global $PROJECT_LOADTIME;
+
     	$libs->Load( 'magic' );
     	$libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
@@ -50,14 +51,14 @@
             $user->LastActivity->Save();
         }
         
-        $water->Profile( 'page' );
+        $PROJECT_LOADTIME = microtime( true );
     }
     
     function Project_Destruct() {
-        global $water;
         global $rabbit_settings;
-
-        $time = $water->ProfileEnd();
+        global $PROJECT_LOADTIME;
+        
+        $time = microtime( true ) - $PROJECT_LOADTIME;
         
         if ( $rabbit_settings[ 'production' ] && $time > 1 ) {
             mail( 'dionyziz@gmail.com', 'Zino: Slow page rendering', "Hello,
