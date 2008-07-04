@@ -60,7 +60,7 @@
         
         $time = microtime( true ) - $PROJECT_LOADTIME;
         
-        if ( $rabbit_settings[ 'production' ] && $time > 1 ) {
+        if ( $rabbit_settings[ 'production' ] && $time > 2 ) {
             mail( 'dionyziz@gmail.com', 'Zino: Slow page rendering', "Hello,
 
 The following page took " . round( $time, 3 ) . " seconds to render:
