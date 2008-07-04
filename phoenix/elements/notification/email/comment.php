@@ -50,11 +50,15 @@
         $subject = ob_get_clean();
         echo $subject;
 
-        ?> και έγραψε:
-        
+        $text = htmlspecialchars_decode( strip_tags( $comment->Text ) );
+        if ( !empty( $text ) ) {
+            ?> και έγραψε: 
+            
 "<?php
-        echo htmlspecialchars_decode( strip_tags( $comment->Text ) );
-?>"
+            echo $text;
+            ?>"<?php
+        }
+        ?>
 
 Για να απαντήσεις στο σχόλιό <?php
         if ( $from->Gender == 'f' ) {
