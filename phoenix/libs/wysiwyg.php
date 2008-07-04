@@ -149,24 +149,24 @@
         $text = htmlspecialchars( $text );
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<img src="' 
+                $smileysprocessed[ $i ] = '<img src=\'' 
                                         . $xc_settings[ 'staticimagesurl' ] 
                                         . 'emoticons/' 
                                         . $smiley 
-                                        . '.png" alt="' 
+                                        . '.png\' alt=\'' 
                                         . htmlspecialchars( $i ) 
-                                        . '" title="' 
+                                        . '\' title=\'' 
                                         . htmlspecialchars( $i ) 
-                                        . '" class="emoticon" width="22" height="22" />';
+                                        . '\' class=\'emoticon\' width=\'22\' height=\'22\' />';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#\b;-?\)#', '<img src="' 
+        $text = preg_replace( '#\b;-?\)#', '<img src=\'' 
             . $xc_settings[ 'staticimagesurl' ] 
-            . 'emoticons/wink.png" alt=";-)" title=";-)" class="emoticon" width="22" height="22" />', $text );
+            . 'emoticons/wink.png\' alt=\';-)\' title=\';-)\' class=\'emoticon\' width=\'22\' height=\'22\' />', $text );
         return $text;
 	}
 ?>
