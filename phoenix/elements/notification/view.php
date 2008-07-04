@@ -124,7 +124,9 @@
 					$finder = New FriendRelationFinder();
 					$res = $finder->IsFriend( $user , $notif->FromUser );
 					if ( !$res ) {
-						?><div class="addfriend"><a href="" onclick="Notification.AddFriend( '<?php
+						?><div class="addfriend" id="addfriend_<?php
+                        echo $notif->Fromuserid;
+                        ?>"><a href="" onclick="Notification.AddFriend( '<?php
 						echo $notif->Event->Id;
 						?>' , '<?php
 						echo $notif->FromUser->Id;

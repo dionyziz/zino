@@ -23,7 +23,7 @@ var Notification = {
 		Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
 	},
 	AddFriend : function( eventid , theuserid ) {
-		$( 'div.notifications div.list div.event div.subject div.addfriend a' )
+		$( 'div#addfriend_' + theuserid  + ' a' )
 		.fadeOut( 400 , function() {
 			$( this )
 			.parent()
