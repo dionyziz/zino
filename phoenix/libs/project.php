@@ -91,6 +91,7 @@
             'comments/recent'   => 'comment/recent/list',
             'testmc'            => 'developer/abresas/testmc',
             'mcform'            => 'developer/abresas/mcform',
+            'mcdelete'          => 'developer/abresas/mcdelete',
     	);
     }
 ?>

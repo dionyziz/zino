@@ -8,6 +8,10 @@
 
     function Comment_RegenerateMemcache( $entity ) {
         global $mc;
+        global $water;
+
+        $water->Profile( "Memcache generation" );
+
 
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
@@ -41,8 +45,11 @@
                 $paged[ $cur_page ][] = $parent[ 'comment_id' ];
             }
 
+            if ( !isset( $children[ $parentid ] ) ) {
+                continue;
+            }
             foreach ( $children[ $parentid ] as $comment ) {
-                    array_push( $stack, $comment );
+                    $stack[] = $comment;
             }
             
             /*
@@ -56,6 +63,8 @@
         }
 
         $mc->add( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
+
+        $water->ProfileEnd();
     }
 
     function Comment_GetMemcached( $entity ) {
