@@ -86,6 +86,9 @@
             $this->AssertEquals( 'lover', $r->Type, 'Wrong type' );
 
             $relation->Delete();
+        
+            $r = New Relation( $relation->Id );
+            w_assert( !$r->Exists() );
         }
         public function TestFindByUser() {
             $ufinder = New UserFinder();
