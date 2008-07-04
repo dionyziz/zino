@@ -80,7 +80,27 @@
 					, <?php
 					switch ( $comment->Typeid ) {
 						case TYPE_USERPROFILE:
-							?>στο προφίλ σου<?php
+							?>στο προφίλ <?php
+                            if ( $notif->Item->Userid == $notif->Touserid ) {
+                                ?>σου<?php
+                            }
+                            else {
+                                if ( $notif->FromUser->Gender == 'f' ) {
+                                    ?>της <?php
+                                }
+                                else {
+                                    ?>του <?php
+                                }
+                                if ( $notif->FromUserid != $notif->Item->Userid ) {
+                                    ?><a href="<?php
+                                    ob_start();
+                                    Element( 'url', $comment );
+                                    echo htmlspecialchars( ob_get_clean() );
+                                    ?>" class="itempic"><?php
+                                    Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 );
+                                    ?></a><?php
+                                }
+                            }
 							break;
 						case TYPE_POLL:
 							?>στη δημοσκόπηση "<?php
