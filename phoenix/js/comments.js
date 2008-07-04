@@ -205,6 +205,7 @@ var Comments = {
 		}
 	}
 };
+/*
 $( document ).ready( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
@@ -221,3 +222,4 @@ $( document ).ready( function() {
 			);
 		} );
 	} );
+*/
