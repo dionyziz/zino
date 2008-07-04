@@ -38,7 +38,10 @@
             foreach ( $comments as $key => $comment ) {
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
-                    // unset( $comments[ $key ] );
+                    unset( $comments[ $key ] );
+                }
+                else if ( $comment[ 'comment_parentid' ] > $parentid ) {
+                    break;
                 }
             }
         }
@@ -313,7 +316,7 @@
                     `comment_itemid` = :itemid AND
                     `comment_delid` = :delid
                 ORDER BY
-                    `comment_id` ASC
+                    `comment_parentid`, `comment_id` ASC
                 LIMIT
                     :offset, :limit;" );
 
