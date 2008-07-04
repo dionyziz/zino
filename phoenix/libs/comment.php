@@ -42,7 +42,7 @@
                     }
                 }
 
-                $paged[ $cur_page ][] = $parent[ 'comment_id' ];
+                $paged[ $cur_page ][] = (int)$parent[ 'comment_id' ];
             }
 
             if ( !isset( $children[ $parentid ] ) ) {
