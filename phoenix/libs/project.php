@@ -58,7 +58,7 @@
 
         $time = $water->ProfileEnd();
         
-        if ( $time > 2 ) {
+        if ( $time > 1 ) {
             mail( 'dionyziz@gmail.com, abresas@gmail.com', 'Zino: Slow page rendering', "Hello,
 
 The following page took " . round( $time, 3 ) . " seconds to render:
