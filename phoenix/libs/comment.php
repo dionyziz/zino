@@ -47,6 +47,8 @@
     }
 
     function Comment_GetMemcached( $entity ) {
+        global $mc;
+
         $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
         if ( $paged === false ) {
             Comment_RegenerateMemcache( $entity );
@@ -60,8 +62,6 @@
         protected $mModel = 'Comment';
 
         public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
-            global $mc;
-
             --$page; // start from 0
 
             $paged = Comment_GetMemcached( $entity );
