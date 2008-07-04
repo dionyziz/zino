@@ -209,7 +209,7 @@ $( document ).ready( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-			$( this ).find( "div.bottom a" ).unbind( "click" ).toggle( function() {
+			$( this ).find( "div.bottom a" ).toggle( function() {
 					Comments.Reply( id, indent );
 					return false;
 				}, function() {
