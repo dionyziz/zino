@@ -38,7 +38,7 @@
             foreach ( $comments as $key => $comment ) {
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
-                    unset( $comments[ $key ] );
+                    // unset( $comments[ $key ] );
                 }
             }
         }
