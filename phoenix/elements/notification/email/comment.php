@@ -53,8 +53,8 @@
         ?> και έγραψε:
         
 "<?php
-        echo $comment->Text;
-        ?>"
+        echo htmlspecialchars_decode( strip_tags( $comment->Text ) );
+?>"
 
 Για να απαντήσεις στο σχόλιό <?php
         if ( $from->Gender == 'f' ) {
