@@ -320,6 +320,7 @@ div#profile div.main div.friends a.button {
 }
 div#profile div.main div.questions {
 	padding-bottom: 20px;
+	width: 100%;
 }
 div#profile div.main div.questions h3 {
 	padding: 5px 0 5px 0;
