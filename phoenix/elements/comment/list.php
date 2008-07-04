@@ -42,6 +42,10 @@
         global $page;
         global $user;
 
+        if ( empty( $comments ) ) {
+            return; // why did you call me?
+        }
+
         $indent = array(); /* comment_parentid => comment_indent */
         $indent[ 0 ] = 0;
         $children_nums = array();
@@ -64,9 +68,7 @@
             Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children );
         }
 		
-        if ( strlen( $jsarr ) != 25 ) { // page without comments
-			$jsarr = substr( $jsarr, 0, -2);
-		}
+        $jsarr = substr( $jsarr, 0, -2);
 		$jsarr .= " };";
 
 		if ( $user->Id > 0 ) {
