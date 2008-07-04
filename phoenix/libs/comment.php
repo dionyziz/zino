@@ -50,6 +50,8 @@
         protected $mModel = 'Comment';
 
         public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
+            global $mc;
+
             --$page; // start from 0
 
             $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
