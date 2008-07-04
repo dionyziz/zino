@@ -81,7 +81,7 @@
 					switch ( $comment->Typeid ) {
 						case TYPE_USERPROFILE:
 							?>στο προφίλ <?php
-                            if ( $notif->Item->Userid == $notif->Touserid ) {
+                            if ( $comment->Item->Userid == $notif->Touserid ) {
                                 ?>σου<?php
                             }
                             else {
@@ -91,7 +91,7 @@
                                 else {
                                     ?>του <?php
                                 }
-                                if ( $notif->Fromuserid != $notif->Item->Userid ) {
+                                if ( $notif->Fromuserid != $comment->Userid ) {
                                     ?><a href="<?php
                                     ob_start();
                                     Element( 'url', $comment );
