@@ -22,25 +22,25 @@ var Comments = {
 		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
-				return false;
-			};
+            return false;
+        };
 		del.title = "Διαγραφή";
 		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
 		
 		// Dimiourgisa ena teras :-S
-		var daddy = (parentid===0)?$( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
+		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).text( "πριν λίγο" ).end()
 		.find( "div.toolbox" ).append( del ).end()
 		//.find( "div.toolbox a" ).css( { marginRight : (indent+1)*20 + 'px' } ).end()
 		//.find( "span.time" ).css( { marginRight : '0px'} ).end()
-		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end() // "Αποθήκευση..."
+		.find( "div.text" ).empty().append( document.createTextNode( "Αποθήκευση..." ) ).end() // TODO
 		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
-		if ( parentid=== 0 ){
+		if ( parentid === 0 ) {
 			temp.insertAfter( "div.newcomment:first" ).fadeTo( 400, 1 );
 		}
 		else {
@@ -60,10 +60,10 @@ var Comments = {
 										node : temp, 
 										callback : Comments.NewCommentCallback
 									}, function() {
-											alert( "Υπήρχε ένα πρόβλημα με την δημιουργία σχολίου, παρακαλώ προσπάθησε ξανά" );
-											window.location.reload();
-										}
-											 );
+                                        alert( "Υπήρχε ένα πρόβλημα με την δημιουργία σχολίου, παρακαλώ προσπάθησε ξανά" );
+                                        window.location.reload();
+                                    }
+        );
 	},
 	NewCommentCallback : function( node, id, parentid, newtext ) {
 		if ( parentid !== 0 ) {
@@ -74,21 +74,21 @@ var Comments = {
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom a' ).toggle( function() {
-					Comments.Reply( id, indent+1 );
-					return false;
-				}, function() {
-					$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
-					return false;
-				}
-			);
+                Comments.Reply( id, indent+1 );
+                return false;
+            }, function() {
+                $( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
+                return false;
+            }
+        );
 		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
-					Comments.Edit( id );
-					return false;
-				};
+                Comments.Edit( id );
+                return false;
+            };
 		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
-					Comments.Delete( id, parentid );
-					return false;
-				};
+            Comments.Delete( id, parentid );
+            return false;
+        };
 	},
 	Reply : function( nodeid, indent ) {
 		// var temp = $( "div.newcomment:first" ).clone( true ).css( { paddingLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
