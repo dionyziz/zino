@@ -14,7 +14,7 @@
         $profileinfo = array();
 
         // abresas
-        // user $one->Item instead of $one->User->Profile for optimization!
+        // use $one->Item instead of $one->User->Profile for optimization!
 
         foreach ( $eventlist as $one ) {
             ob_start();

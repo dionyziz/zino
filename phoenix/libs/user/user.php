@@ -244,6 +244,7 @@
             global $libs;
 
             $libs->Load( 'pm/pm' );
+            $libs->Load( 'event' );
 
             $this->EgoAlbum->Userid = $this->Id;
             $this->EgoAlbum->Save();
@@ -252,6 +253,12 @@
             PMFolder_PrepareUser( $this );
 
             $this->Save(); // save again
+
+            $event = New Event();
+            $event->Typeid = EVENT_USER_CREATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Id;
+            $event->Save();
 
             if ( !empty( $this->Profile->Email ) ) {
                  // send registration e-mail
