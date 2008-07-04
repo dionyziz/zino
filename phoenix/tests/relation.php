@@ -168,6 +168,9 @@
                 $this->Assert( in_array( $relation->Userid, $userids ), 'Wrong userid' );
                 $this->Assert( in_array( $relation->Typeid, $typeids ), 'Wrong typeid' );
             }
+
+            $relation = $finder->IsFriend( $this->mUser, $this->mUser2 );
+            $this->Assert( $relation instanceof FriendRelation, 'IsFriend did not return a FriendRelation instance' );
             
             $relation1->Delete();
             $relation2->Delete();
