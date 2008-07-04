@@ -35,15 +35,56 @@
 
                 $paged[ $cur_page ][] = $parent[ 'comment_id' ];
             }
+
+            if ( $parentid == 0 ) {
+                $start_search = 0;
+            }
+            else {
+                /* binary search */
+
+                $high = count( $comments );
+                $low = 0;
+
+                while ( $high - $low > 1 ) {
+                    $probe = ( $high + $low ) / 2;
+                    if ( $comments[ $probe ][ 'comment_parentid' ] < $parentid ) {
+                        $low = $probe;
+                    }
+                    else {
+                        $high = $probe;
+                    }
+                }
+                if ( $high == count( $comments ) || $comments[ $high ] != $parentid ) {
+                    continue; // no children
+                }
+                else {
+                    $start_search = $high;
+                }
+            }
+
+            for ( $i = $start_search; $i >= 0; --$i ) { /* below start_search */
+                if ( $comments[ $i ][ 'comment_parentid' ] != $parentid ) {
+                    break;
+                }
+                array_push( $stack, $comments[ $i ] );
+            }
+            for ( $i = $start_search + 1; $i < count( $comments ); ++$i ) { /* above start_search */
+                if ( $comments[ $i ][ 'comment_parentid' ] != $parentid ) {
+                    break;
+                }
+                array_push( $stack, $comments[ $i ] );
+            }
+            
+            /*
             foreach ( $comments as $key => $comment ) {
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
-                    unset( $comments[ $key ] );
                 }
                 else if ( $comment[ 'comment_parentid' ] > $parentid ) {
                     break;
                 }
             }
+            */
         }
 
         $mc->add( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ), $paged );
@@ -305,7 +346,7 @@
 
             return $ret;
         }
-        public function FindByEntity( $entity, $offset = 0, $limit = 5000 ) {
+        public function FindByEntity( $entity, $offset = 0, $limit = 100000 ) {
             $query = $this->mDb->Prepare( "
                 SELECT
                     `comment_id`, `comment_parentid`
