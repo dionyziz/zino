@@ -37,7 +37,7 @@
 	}
     */
 
-    function ElementCommentList( $comments, $children_nums ) {
+    function ElementCommentList( $comments ) {
         global $water;
         global $page;
         global $user;
