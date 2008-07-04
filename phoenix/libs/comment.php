@@ -119,7 +119,7 @@
                 }
             }
 
-            $commentids = $paged[ $page ];
+            $commentids = $paged[ $cur_page ];
             $comments = $this->FindData( $commentids );
 
             $ret = array();
