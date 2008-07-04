@@ -62,6 +62,10 @@
         protected $mModel = 'Comment';
 
         public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
+            if ( $page <= 0 ) {
+                $page = 1;
+            }
+
             --$page; // start from 0
 
             $paged = Comment_GetMemcached( $entity );
