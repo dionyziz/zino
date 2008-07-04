@@ -58,6 +58,9 @@
 
         foreach ( $comments as $comment ) {
             $indent[ $comment->Id ] = $indent[ $comment->Parentid ] + 1;
+
+			$jsarr .= $root . " : " . $children . ", ";
+
             Element( 'comment/view', $comment, $indent[ $comment->Parentid ], $children_nums[ $comment->Id ] );
         }
 		
