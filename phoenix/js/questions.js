@@ -9,7 +9,12 @@ var Questions = {
     Answer: function() {
         var answerText = $( 'form#newanswer input' )[ 1 ].value;
         var questionText = $(  'div.newquestion p.question' )[ 0 ].childNodes[ 0 ].nodeValue; 
-
+        
+        if ( $.trim( answerText ) === '' ) {
+            alert( 'Δεν μπορείς να δημοσιεύσεις μία κενή απάντηση!' );
+            return;
+        }
+        
         Coala.Warm( 'question/answer/new', {
             'questionid': $( 'form#newanswer input' )[ 0 ].value,
             'answertext': answerText
