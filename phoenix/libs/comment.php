@@ -489,10 +489,12 @@
             w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
             $this->Item->OnCommentCreate();
             
+            /*
             if ( $this->Parentid > 0 ) {
                 $this->Parent->Numchildren += 1;
                 $this->Parent->Save();
             }
+            */
 
             $event = New Event();
             $event->Typeid = EVENT_COMMENT_CREATED;
