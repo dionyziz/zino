@@ -60,12 +60,12 @@
         
         $time = microtime( true ) - $PROJECT_LOADTIME;
         
-        if ( $rabbit_settings[ 'production' ] && $time > 3 ) {
+        if ( $rabbit_settings[ 'production' ] && $time > 4 ) {
             mail( 'dionyziz@gmail.com', 'Zino: Slow page rendering', "Hello,
 
 The following page took " . round( $time, 3 ) . " seconds to render:
 
-" . $_SERVER[ 'REQUEST_URI' ] . '
+http://" . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'REQUEST_URI' ] . '
 
 I believe you should investigate.
 
