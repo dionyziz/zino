@@ -43,4 +43,7 @@
 	// question permissions
 	define( 'PERMISSION_QUESTION_ACCESS', 50 );
 
+    define( 'PERMISSION_MEMCACHE_VIEW', 50 );
+    define( 'PERMISSION_MEMCACHE_DELETE', 50 );
+
 ?>
