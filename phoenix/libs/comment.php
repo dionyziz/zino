@@ -98,6 +98,9 @@
             Comment_RegenerateMemcache( $entity );
             $paged = $mc->get( 'comtree_' + $entity->Id + '_' + Type_FromObject( $entity ) );
         }
+        else {
+            die( "found comtree_" + $entity->Id + "_" + Type_FromObject( $entity ) );
+        }
 
         return $paged;
     }
