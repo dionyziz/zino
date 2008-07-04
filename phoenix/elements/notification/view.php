@@ -81,7 +81,7 @@
 					switch ( $comment->Typeid ) {
 						case TYPE_USERPROFILE:
 							?>στο προφίλ <?php
-                            if ( $comment->Item->Userid == $notif->Touserid ) {
+                            if ( $comment->Item->Id == $notif->Touserid ) {
                                 ?>σου<?php
                             }
                             else {
