@@ -63,7 +63,7 @@
             if ( $res->Results() ) {
                 $row = $res->FetchArray();
                 $notif = New Notification( $row );
-                $notif->CopyEventFrom( $row );
+                $notif->CopyEventFrom( New Event( $row ) );
 
                 return $notif;
             }
