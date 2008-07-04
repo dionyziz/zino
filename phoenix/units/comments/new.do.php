@@ -39,7 +39,7 @@
 		?>, <?php
 		echo $parent;
 		?>, <?php
-		echo nl2br( $comment->Text );
+		echo w_json_encode( nl2br( $comment->Text ) );
 		?> );<?php
 	}
 ?>
