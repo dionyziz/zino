@@ -14,6 +14,11 @@
         $finder = New CommentFinder();
         $comments = $finder->FindByEntity( $entity );
 
+        $children = array();
+        foreach ( $comments as $comment ) {
+            $children[ $comment[ 'comment_parentid' ] ][] = $comment;
+        }
+
         $paged = array();
         $paged[ 0 ] = array();
         $cur_page = 0;
@@ -36,11 +41,18 @@
                 $paged[ $cur_page ][] = $parent[ 'comment_id' ];
             }
 
+            foreach ( $children[ $parentid ] as $comment ) {
+                    array_push( $stack, $comment );
+            }
+            
+            /*
             foreach ( $comments as $key => $comment ) {
                 if ( $comment[ 'comment_parentid' ] == $parentid ) {
                     array_push( $stack, $comment );
+                    unset( $comments[ $key ] );
                 }
             }
+            */
         }
 
         $mc->add( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
