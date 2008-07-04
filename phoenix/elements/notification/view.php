@@ -6,6 +6,11 @@
 		global $user;
 		
 		$libs->Load( 'relation/relation' );
+
+        if ( !$notif->Event->Exists() ) {
+            return;
+        }
+
 		?><div class="event" id="<?php
 		echo $notif->Event->Id;
 		?>">
