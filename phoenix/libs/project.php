@@ -54,6 +54,8 @@
     }
     
     function Project_Destruct() {
+        global $water;
+
         $time = $water->ProfileEnd();
         
         if ( $time > 2 ) {
