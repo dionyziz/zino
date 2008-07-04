@@ -10,19 +10,22 @@
 		echo $rabbit_settings[ 'webaddress' ];
 		?>"><img src="http://static.zino.gr/phoenix/zino.png" alt="Zino" /></a></h1>
 	    <a href="#content" class="novisual">Πλοήγηση στο περιεχόμενο</a>
-		<ul><?php   
+		<?php   
 	        if ( !$user->Exists() ) {
 	            ?><form action="do/user/login" method="post">
+	            	<ul>
 					<li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>
 		            <li>·</li>
 		            <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
 		            <li style="display:none;">·</li>
 		            <li style="display:none;">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>
 		            <li style="display:none;"><input type="submit" value="Είσοδος" class="button" /></li>
+		            </ul>
 				</form><?php
 	        }
 	        else {
-	    		?><li title="Προβολή προφίλ"><a href="<?php
+	    		?><ul>
+	    		<li title="Προβολή προφίλ"><a href="<?php
                 Element( 'user/url', $user );
                 ?>" class="profile"><?php
                 Element( 'image/view', $user->Avatar, IMAGE_CROPPED_100x100, '', $user->Name, $user->Name, '', true, 16, 16  );
@@ -46,10 +49,9 @@
                     }
                 ?></a></li>
 	    		<li>·</li>
-	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li><?php
+	    		<li><a href="settings" class="settings icon">Ρυθμίσεις</a></li>
+	    		</ul><?php
 	        }
-	        ?>
-		</ul><?php
 	    if ( $user->Exists() ) {
 	        ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout">Έξοδος</a></form><?php
 		}
