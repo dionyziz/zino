@@ -77,7 +77,8 @@
 				if ( UserBrowser() == 'MSIE' ) {
 				    ?>
 				    <iframe src="?p=upload&amp;albumid=<?php
-    				echo $user->Egoalbumid;
+    				//echo $user->Egoalbumid;
+    				echo $album->Id;
     				?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
     				</iframe>
     			    <?php
@@ -85,7 +86,8 @@
 		        else {
 		            ?>
                 	<object data="?p=upload&amp;albumid=<?php
-    				echo $user->Egoalbumid;
+    				//echo $user->Egoalbumid;
+    				echo $album->Id;
     				?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html">
     				</object>
         			<?php
