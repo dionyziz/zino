@@ -54,7 +54,7 @@
     		
             $prototype = New Tag();
             $prototype->Userid = $user->Id;
-            $old = $this->FindByPrototype( $prototype );
+            $old = $this->FindByPrototype( $prototype, 0, 2000 );
 
             return $old;
 
@@ -95,12 +95,12 @@
         	$prototype = New Tag();
         	$prototype->Text = $text;
         	$prototype->Typeid = $typeid;
-        	return $this->FindByPrototype( $prototype );
+        	return $this->FindByPrototype( $prototype, 0, 2000 );
         }
         public function FindByNextId( $next_id ) {
         	$prototype = New Tag();
         	$prototype->Nextid = $next_id;
-        	return $this->FindByPrototype ( $prototype );
+        	return $this->FindByPrototype ( $prototype, 0, 2000 );
         }
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
  			$text .= "%";
