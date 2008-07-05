@@ -10,9 +10,7 @@ var Notification = {
 			}
 		} 
 		else {
-			alert( "Trexo" );
 			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
-			alert( "Trexo" );
 			document.location.href = url;
 		}
 	},
