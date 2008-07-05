@@ -216,13 +216,13 @@
 				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
 					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
 				}
-				if ( $theuser->Profile->Numcomments > 0 ) {
+				// if ( $theuser->Profile->Numcomments > 0 ) {
 					Element( 'comment/list' , $comments );
 					?><div class="pagifycomments"><?php
                         $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
 						Element( 'pagify' , $pageno , $link, $total_pages );
 					?></div><?php
-				}
+				// }
 			?></div>
 		</div><?php	
 	}
