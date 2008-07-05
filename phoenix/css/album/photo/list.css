@@ -78,7 +78,7 @@ div#photolist  div.uploaddiv {
 	right: 30px;
 	margin-top: -40px;
 }
-div#photolist div.uploaddiv object.uploadframe {
+div#photolist div.uploaddiv object.uploadframe, div#photolist div.uploaddiv iframe.uploadframe {
 	height: 60px;
 }
 div#photolist div.rename, div#photolist div.delete{
