@@ -86,9 +86,11 @@
 
             --$page; // start from 0
 
+            /*
             if ( $user->Id == 658 ) {
                 die( "paged: " . var_dump( $paged ) );
             }
+            */
 
             $paged = Comment_GetMemcached( $entity );
 
