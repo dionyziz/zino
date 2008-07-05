@@ -129,7 +129,7 @@
                                         Element( 'event/profileupdate', $eventlist );
 										break;		
 									case EVENT_USER_CREATED:
-										?> δημιούργησε λογαριασμό<?php
+                                        Element( 'user/display', $event->Item );
 										break;
 								}
 								?>
