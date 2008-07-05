@@ -71,9 +71,8 @@
 				if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
 					?><p><span class="text">"<?php
 					$comment = $notif->Item;
-					$text = $comment->GetText( 35 );
-					echo mb_substr( $text , 0 , 30 );
-					if ( strlen( $text ) > 30 ) {
+					$text = $comment->GetText( 30 );
+					if ( mb_strlen( $comment->GetText( 35 ) ) > 30 ) {
 						?>...<?php
 					}
 					?>"</span>
