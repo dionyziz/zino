@@ -3,7 +3,6 @@
 		global $rabbit_settings;
 		global $user;
 		global $libs;
-		global $water;
 		
 		$libs->Load( 'tag' );
 		$finder = New TagFinder();
@@ -17,10 +16,8 @@
 			TAG_GAME => array(),
 			TAG_SHOW => array()
 		);
-		$water->Trace( "Iparxoun: " . count( $tags ) . " endiaferonta" );
 		foreach ( $tags as $tag ) {
 			$bytype[ $tag->Typeid ][] = $tag;
-			$water->Trace( $tag->Id . "::" . $tag->Text . " tou tipou " . $tag->Typeid );
 		}
 		
 		$hobbies = $bytype[ TAG_HOBBIE ];
