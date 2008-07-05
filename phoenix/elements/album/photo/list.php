@@ -73,10 +73,24 @@
 				}
 			}
 			if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
-				?><div class="uploaddiv">
-					<object data="?p=upload&amp;albumid=<?php
-					echo $album->Id;
-					?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html"></object>
+				?><div class="uploaddiv"><?php
+				if ( UserBrowser() == 'MSIE' ) {
+				    ?>
+				    <iframe src="?p=upload&amp;albumid=<?php
+    				echo $user->Egoalbumid;
+    				?>&amp;typeid=0" class="uploadframe" id="uploadframe">
+    				</iframe>
+    			    <?php
+				}
+		        else {
+		            ?>
+                	<object data="?p=upload&amp;albumid=<?php
+    				echo $user->Egoalbumid;
+    				?>&amp;typeid=0" class="uploadframe" id="uploadframe" type="text/html">
+    				</object>
+        			<?php
+		        }
+                ?>
 				</div><?php
 			}
 			?><ul><?php
