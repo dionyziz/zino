@@ -86,11 +86,11 @@
 
             --$page; // start from 0
 
-            $paged = Comment_GetMemcached( $entity );
-
             if ( $user->Id == 658 ) {
                 die( "paged: " . var_dump( $paged ) );
             }
+
+            $paged = Comment_GetMemcached( $entity );
 
             $commentids = $paged[ $page ];
             $comments = $this->FindData( $commentids );
