@@ -129,7 +129,11 @@
                                         Element( 'event/profileupdate', $eventlist );
 										break;		
 									case EVENT_USER_CREATED:
-                                        Element( 'user/display', $event->Item );
+                                        ?><a href="<?php
+                                        Element( 'user/url' , $event->Item );
+                                        ?>"><?php
+                                        Element( 'user/avatar' , $event->Item, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
+                                        ?></a><?php
 										break;
 								}
 								?>
