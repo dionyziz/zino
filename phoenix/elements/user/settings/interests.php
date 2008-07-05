@@ -17,10 +17,12 @@
 			TAG_GAME => array(),
 			TAG_SHOW => array()
 		);
+		$water->Trace( "Iparxoun: " . count( $tags ) . " endiaferonta" );
 		foreach ( $tags as $tag ) {
 			$bytype[ $tag->Typeid ][] = $tag;
+			$water->Trace( $tag->Id . "::" . $tag->Text . " tou tipou " . $tag->Typeid );
 		}
-		$water->Trace( "Iparxoun: " . count( $tags ) . " endiaferonta" );
+		
 		$hobbies = $bytype[ TAG_HOBBIE ];
 		$movies = $bytype[ TAG_MOVIE ];
 		$books = $bytype[ TAG_BOOK ];
