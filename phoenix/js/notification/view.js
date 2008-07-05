@@ -10,7 +10,8 @@ var Notification = {
 			}
 		} 
 		else {
-			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : true } );
+			Coala.Warm( 'notification/delete' , { eventid : eventid , relationnotif : false } );
+			document.location.href = url;
 		}
 	},
 	Delete : function( eventid ) {
