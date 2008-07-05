@@ -490,7 +490,12 @@
             $this->User->OnCommentCreate();
 
             w_assert( is_object( $this->Item ), 'Comment->Item not an object' );
-            $this->Item->OnCommentCreate();
+            if ( $this->Typeid == TYPE_USERPROFILE ) {
+                $this->Item->Profile->OnCommentCreate();
+            }
+            else {
+                $this->Item->OnCommentCreate();
+            }
             
             /*
             if ( $this->Parentid > 0 ) {
