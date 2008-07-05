@@ -15,12 +15,7 @@
         $mc->delete( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
 
         $finder = New CommentFinder();
-        $comments = $finder->FindByEntity( $entity );
-
-        $children = array();
-        foreach ( $comments as $comment ) {
-            $children[ $comment[ 'comment_parentid' ] ][] = $comment;
-        }
+        $children = $finder->FindByEntity( $entity );
 
         $paged = array();
         $paged[ 0 ] = array();
@@ -64,6 +59,8 @@
         $mc->add( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ), $paged );
 
         $water->ProfileEnd();
+
+        return $paged;
     }
 
     function Comment_GetMemcached( $entity ) {
@@ -71,8 +68,7 @@
 
         $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
         if ( $paged === false ) {
-            Comment_RegenerateMemcache( $entity );
-            $paged = $mc->get( 'comtree_' . $entity->Id . '_' . Type_FromObject( $entity ) );
+            $paged = Comment_RegenerateMemcache( $entity );
         }
 
         return $paged;
@@ -345,12 +341,12 @@
             $query->Bind( 'limit', $limit );
             
             $res = $query->Execute();
-            $comments = array();
+            $children = array();
             while ( $row = $res->FetchArray() ) {
-                $comments[] = $row;
+                $children[ $row[ 'comment_parentid' ] ][] = $row;
             }
 
-            return $comments;
+            return $children;
         }
         public function FindData( $comments, $offset = 0, $limit = 100000 ) {
             if ( empty( $comments ) ) {
