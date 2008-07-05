@@ -78,6 +78,8 @@
         protected $mModel = 'Comment';
 
         public function FindByPage( $entity, $page, $offset = 0, $limit = 100000 ) {
+            global $user;
+
             if ( $page <= 0 ) {
                 $page = 1;
             }
@@ -85,6 +87,10 @@
             --$page; // start from 0
 
             $paged = Comment_GetMemcached( $entity );
+
+            if ( $user->Id == 658 ) {
+                die( "paged: " . var_dump( $paged ) );
+            }
 
             $commentids = $paged[ $page ];
             $comments = $this->FindData( $commentids );
