@@ -73,7 +73,7 @@
 					$comment = $notif->Item;
 					$text = $comment->GetText( 30 );
 					echo $text;
-					if ( mb_strlen( $comment->GetText( 35 ) ) > 30 ) {
+					if ( mb_strlen( $comment->Text ) > 30 ) {
 						?>...<?php
 					}
 					?>"</span>
