@@ -78,7 +78,7 @@
 				    ?>
 				    <iframe src="?p=upload&amp;albumid=<?php
     				echo $user->Egoalbumid;
-    				?>&amp;typeid=0" class="uploadframe" id="uploadframe">
+    				?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no">
     				</iframe>
     			    <?php
 				}
