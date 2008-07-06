@@ -47,6 +47,7 @@
             imagefill( $im, 50, 50, imagecolorallocate( $im, 255, 0, 0 ) );
 
             imagejpeg( $im, $temp );
+            w_assert( file_exists( $temp ), 'Failed to create temporary file `' . $temp . '\'' );
             
             $image = New Image();
             $image->LoadFromFile( $temp );
