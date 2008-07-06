@@ -231,13 +231,6 @@
 
             if ( $this->Albumid ) {
                 $this->Album->ImageUndeleted( $this );
-
-                $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                w_assert( count( $images ) == 1, 'We just undeleted an image, there must be some in that album' );
-                $frontpageimage = New FrontpageImage( $this->Userid );
-                $frontpageimage->Imageid = $images[ 0 ]->Id; // may not affect frontpage image if the undeleted picture is not the latest one
-                $frontpageimage->Save();
             }
 
             $this->OnUndelete();
@@ -311,7 +304,7 @@
             parent::Save();
 
             if ( $this->Albumid ) {
-                $this->Album->ImageAdded( $this );
+                $this->PhotoAdded();
             }
 
             $event = New Event();

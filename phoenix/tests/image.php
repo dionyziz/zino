@@ -166,9 +166,14 @@
         public function TearDown() {
             $this->mUser->Delete();
 
-            foreach ( $this->mImages as $image ) {
+            foreach ( $this->mImages as $i => $image ) {
                 if ( !$image->IsDeleted() ) {
-                    $image->Delete();
+                    try {
+                        $image->Delete();
+                    }
+                    catch ( Exception $e ) {
+                        throw New Exception( 'Failed to delete image #' . $i );
+                    }
                 }
             }
         }
