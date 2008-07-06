@@ -414,7 +414,8 @@
                 $change = $this->mDbTable->InsertInto( $inserts );
                 if ( $change->Impact() ) {
                     if ( $this->mAutoIncrementField !== false ) {
-                        $this->mCurrentValues[ $this->mDbFields[ $this->mAutoIncrementField ] ] = $change->InsertId();
+                        $field = $this->mDbFields[ $this->mAutoIncrementField ];
+                        $this->mPreviousValues[ $field ] = $this->mCurrentValues[ $field ] = $change->InsertId();
                     }
                 }
                 $this->mExists = true;
