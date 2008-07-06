@@ -208,18 +208,16 @@
                 $this->Album->ImageDeleted( $this );
      
                 // update latest images
-                if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
-                    $finder = New ImageFinder();
-                    $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                    $frontpageimage = New FrontpageImage( $this->Userid );
-                    if ( !count( $images ) ) {
-                        // no previous images uploaded
-                        $frontpageimage->Delete();
-                    }
-                    else {
-                        $frontpageimage->Imageid = $images[ 0 ]->Id;
-                        $frontpageimage->Save();
-                    }
+                $finder = New ImageFinder();
+                $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
+                $frontpageimage = New FrontpageImage( $this->Userid );
+                if ( !count( $images ) ) {
+                    // no previous images uploaded
+                    $frontpageimage->Delete();
+                }
+                else {
+                    $frontpageimage->Imageid = $images[ 0 ]->Id;
+                    $frontpageimage->Save();
                 }
             }
 
@@ -234,14 +232,12 @@
             if ( $this->Albumid ) {
                 $this->Album->ImageUndeleted( $this );
 
-                if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
-                    $finder = New ImageFinder();
-                    $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                    w_assert( count( $images ) == 1, 'We just undeleted an image, there must be some in that album' );
-                    $frontpageimage = New FrontpageImage( $this->Userid );
-                    $frontpageimage->Imageid = $images[ 0 ]->Id; // may not affect frontpage image if the undeleted picture is not the latest one
-                    $frontpageimage->Save();
-                }
+                $finder = New ImageFinder();
+                $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
+                w_assert( count( $images ) == 1, 'We just undeleted an image, there must be some in that album' );
+                $frontpageimage = New FrontpageImage( $this->Userid );
+                $frontpageimage->Imageid = $images[ 0 ]->Id; // may not affect frontpage image if the undeleted picture is not the latest one
+                $frontpageimage->Save();
             }
 
             $this->OnUndelete();
@@ -312,15 +308,13 @@
                 if ( $this->Albumid ) {
                     ++$this->Album->Numphotos;
                     $this->Album->Save();
-                    if ( $this->Album->Id == $this->User->EgoAlbum->Id ) {
-                        $frontpageimage = New FrontpageImage( $this->Userid );
-                        if ( !$frontpageimage->Exists() ) {
-                            $frontpageimage = New FrontpageImage();
-                            $frontpageimage->Userid = $this->Userid;
-                        }
-                        $frontpageimage->Imageid = $this->Id;
-                        $frontpageimage->Save();
+                    $frontpageimage = New FrontpageImage( $this->Userid );
+                    if ( !$frontpageimage->Exists() ) {
+                        $frontpageimage = New FrontpageImage();
+                        $frontpageimage->Userid = $this->Userid;
                     }
+                    $frontpageimage->Imageid = $this->Id;
+                    $frontpageimage->Save();
                     if ( !$this->Album->Mainimageid == 0 ) {
                         $this->Album->Mainimageid = $this->Id;
                         $this->Album->Save();
