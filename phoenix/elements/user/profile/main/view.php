@@ -9,27 +9,29 @@
 		$libs->Load( 'comment' );
 		$libs->Load( 'notify' );
 		$libs->Load( 'relation/relation' );
-		
-		// if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
-			$finder = New CommentFinder();
-			if ( $commentid == 0 ) {
-				$comments = $finder->FindByPage( $theuser, $pageno , true );
-				$total_pages = $comments[ 0 ];
-				$comments = $comments[ 1 ];
-			}
-			else {
-				$speccomment = New Comment( $commentid );
-				$comments = $finder->FindNear( $theuser, $speccomment );
-				$total_pages = $comments[ 0 ];
-				$pageno = $comments[ 1 ];
-				$comments = $comments[ 2 ];
-				$finder = New NotificationFinder();
-				$notification = $finder->FindByComment( $speccomment );
-				if ( $notification ) {
-					$notification->Delete();
-				}
-			}
-		// }
+	
+        if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
+        // if ( $theuser->Profile->Numcomments > 0 ) { // duh, problem here!
+            $finder = New CommentFinder();
+            if ( $commentid == 0 ) {
+                $comments = $finder->FindByPage( $theuser, $pageno , true );
+                $total_pages = $comments[ 0 ];
+                $comments = $comments[ 1 ];
+            }
+            else {
+                $speccomment = New Comment( $commentid );
+                $comments = $finder->FindNear( $theuser, $speccomment );
+                $total_pages = $comments[ 0 ];
+                $pageno = $comments[ 1 ];
+                $comments = $comments[ 2 ];
+                $finder = New NotificationFinder();
+                $notification = $finder->FindByComment( $speccomment );
+                if ( $notification ) {
+                    $notification->Delete();
+                }
+            }
+        // }
+        }
 
 		$finder = New PollFinder();
 		$polls = $finder->FindByUser( $theuser , 0 , 1 );
@@ -213,16 +215,18 @@
 					$pageno = 1;
 				}
                 
-				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-					Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
-				}
-				// if ( $theuser->Profile->Numcomments > 0 ) {
-					Element( 'comment/list' , $comments );
-					?><div class="pagifycomments"><?php
+                if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
+                    if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+                        Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
+                    }
+                // if ( $theuser->Profile->Numcomments > 0 ) {
+                    Element( 'comment/list' , $comments );
+                    ?><div class="pagifycomments"><?php
                         $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . '?pageno=';
-						Element( 'pagify' , $pageno , $link, $total_pages );
-					?></div><?php
-				// }
+                        Element( 'pagify' , $pageno , $link, $total_pages );
+                    ?></div><?php
+                // }
+                }
 			?></div>
 		</div><?php	
 	}

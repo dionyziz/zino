@@ -85,34 +85,36 @@
 					?></p>
 				</div><?php
 				?><div class="comments"><?php
-				if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-					Element( 'comment/reply', $journal->Id, TYPE_JOURNAL );
-				}
-				if ( $journal->Numcomments > 0 ) {
-					$finder = New CommentFinder();
-					if ( $commentid == 0 ) {
-						$comments = $finder->FindByPage( $journal , $pageno , true );
-                        $total_pages = $comments[ 0 ];
-                        $comments = $comments[ 1 ];
-					}
-					else {
-						$speccomment = New Comment( $commentid );
-						$comments = $finder->FindNear( $journal , $speccomment );
-                        $total_pages = $comments[ 0 ];
-						$pageno = $comments[ 1 ];
-						$comments = $comments[ 2 ];
-						$finder = New NotificationFinder();
-						$notification = $finder->FindByComment( $speccomment );
-						if ( $notification ) {
-							$notification->Delete();
-						}
-					}
-					Element( 'comment/list' , $comments );
-					?><div class="pagifycomments"><?php
-                        $link = '?p=journal&id=' . $journal->Id . '&pageno=';
-						Element( 'pagify', $pageno, $link, $total_pages );
-					?></div><?php
-				}
+                if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
+                    if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+                        Element( 'comment/reply', $journal->Id, TYPE_JOURNAL );
+                    }
+                    if ( $journal->Numcomments > 0 ) {
+                        $finder = New CommentFinder();
+                        if ( $commentid == 0 ) {
+                            $comments = $finder->FindByPage( $journal , $pageno , true );
+                            $total_pages = $comments[ 0 ];
+                            $comments = $comments[ 1 ];
+                        }
+                        else {
+                            $speccomment = New Comment( $commentid );
+                            $comments = $finder->FindNear( $journal , $speccomment );
+                            $total_pages = $comments[ 0 ];
+                            $pageno = $comments[ 1 ];
+                            $comments = $comments[ 2 ];
+                            $finder = New NotificationFinder();
+                            $notification = $finder->FindByComment( $speccomment );
+                            if ( $notification ) {
+                                $notification->Delete();
+                            }
+                        }
+                        Element( 'comment/list' , $comments );
+                        ?><div class="pagifycomments"><?php
+                            $link = '?p=journal&id=' . $journal->Id . '&pageno=';
+                            Element( 'pagify', $pageno, $link, $total_pages );
+                        ?></div><?php
+                    }
+                }
 				?></div><?php
 			}
 			else {

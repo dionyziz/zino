@@ -2,6 +2,7 @@
     define( 'PERMISSION_ACCESS_SITE', 10 );
 
     // comment permissions
+    define( 'PERMISSION_COMMENT_VIEW', 100 );
     define( 'PERMISSION_COMMENT_CREATE', 30 );
     define( 'PERMISSION_COMMENT_EDIT_ALL', 50 );
     define( 'PERMISSION_COMMENT_DELETE', 30 );

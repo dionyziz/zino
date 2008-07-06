@@ -180,34 +180,36 @@
 				?></div><?php
 			}
 			?><div class="comments"><?php
-			if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-				Element( 'comment/reply', $image->Id, TYPE_IMAGE );
-			}
-			if ( $image->Numcomments > 0 ) {
-				$finder = New CommentFinder();
-				if ( $commentid == 0 ) {
-					$comments = $finder->FindByPage( $image , $pageno , true );
-                    $total_pages = $comments[ 0 ];
-                    $comments = $comments[ 1 ];
-				}
-				else {
-					$speccomment = New Comment( $commentid );
-					$comments = $finder->FindNear( $image , $speccomment );
-                    $total_pages = $comments[ 0 ];
-					$pageno = $comments[ 1 ];
-					$comments = $comments[ 2 ];
-					$finder = New NotificationFinder();
-					$notification = $finder->FindByComment( $speccomment );
-					if ( $notification ) {
-						$notification->Delete();
-					}
-				}
-				Element( 'comment/list' , $comments );
-				?><div class="pagifycomments"><?php
-                    $link = '?p=photo&id=' . $image->Id . '&pageno=';
-					Element( 'pagify', $pageno, $link, $total_pages );
-				?></div><?php
-			}
+            if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
+                if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
+                    Element( 'comment/reply', $image->Id, TYPE_IMAGE );
+                }
+                if ( $image->Numcomments > 0 ) {
+                    $finder = New CommentFinder();
+                    if ( $commentid == 0 ) {
+                        $comments = $finder->FindByPage( $image , $pageno , true );
+                        $total_pages = $comments[ 0 ];
+                        $comments = $comments[ 1 ];
+                    }
+                    else {
+                        $speccomment = New Comment( $commentid );
+                        $comments = $finder->FindNear( $image , $speccomment );
+                        $total_pages = $comments[ 0 ];
+                        $pageno = $comments[ 1 ];
+                        $comments = $comments[ 2 ];
+                        $finder = New NotificationFinder();
+                        $notification = $finder->FindByComment( $speccomment );
+                        if ( $notification ) {
+                            $notification->Delete();
+                        }
+                    }
+                    Element( 'comment/list' , $comments );
+                    ?><div class="pagifycomments"><?php
+                        $link = '?p=photo&id=' . $image->Id . '&pageno=';
+                        Element( 'pagify', $pageno, $link, $total_pages );
+                    ?></div><?php
+                }
+            }
 			?></div>
 		</div><div class="eof"></div><?php
 	}
