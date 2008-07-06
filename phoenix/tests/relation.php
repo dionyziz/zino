@@ -86,10 +86,13 @@
             $this->AssertEquals( 'lover', $r->Type, 'Wrong type' );
 
             $relation->Delete();
-        
+                
+            /*
             $r = New FriendRelation( $relation->Id );
             w_assert( !$r->Exists() );
+            */
         }
+        /*
         public function TestFindByUser() {
             $ufinder = New UserFinder();
             $abresas = $ufinder->FindByName( 'abresas' );
@@ -179,6 +182,7 @@
             $relation2->Delete();
             $relation3->Delete();
         }
+        */
         public function TearDown() {
             if ( is_object( $this->mUser ) ) {
                 $this->mUser->Delete();
