@@ -37,6 +37,14 @@ var Comments = {
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
+		//---------------------
+		if ( parentid !== 0 ) {
+			var kimeno = temp.find( "div.text" );
+			var wid = parseInt( kimeno.css( "width" ), 10 );
+			kimeno.css( "width", wid-indent*20+'px' );
+		}
+		//----------------------
+		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
