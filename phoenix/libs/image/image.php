@@ -253,6 +253,8 @@
             return $this->Save();
         }
         public function LoadFromFile( $value ) {
+            w_assert( !empty( $value ), 'LoadFromFile() cannot be called with an empty argument' );
+
             $this->mTemporaryFile = $value;
 
             if ( filesize( $value ) > 1024 * 1024 ) {
