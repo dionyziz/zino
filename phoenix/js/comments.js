@@ -73,7 +73,7 @@ var Comments = {
 	
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
-		node.find( 'div.bottom a' ).css( "display", "inline" ).toggle( function() {
+		node.find( 'div.bottom' ).css( "display", "inline" ).find( 'a' ).toggle( function() {
                 Comments.Reply( id, indent+1 );
                 return false;
             }, function() {
