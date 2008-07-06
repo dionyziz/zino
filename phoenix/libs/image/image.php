@@ -270,6 +270,8 @@
         public function Upload() {
             global $water;
 
+            w_assert( !empty( $this->mTemporaryFile ), 'Please call LoadFromFile() before calling Upload(); mTemporaryFile is empty' );
+
             // throws ImageException
             $data = Image_Upload( $this->Userid, $this->Id, $this->mTemporaryFile );
 
