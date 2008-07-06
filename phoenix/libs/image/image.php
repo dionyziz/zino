@@ -300,13 +300,6 @@
         public function OnCreate() {
             global $libs;
 
-            w_assert( !empty( $this->mTemporaryFile ), 'mTemporaryFile is not set OnBeforeCreate' );
-            $this->Size = filesize( $this->mTemporaryFile );
-            
-            if ( !parent::Save() ) {
-                return;
-            }
-
             $libs->Load( 'event' );
 
             ++$this->User->Count->Images;
@@ -315,23 +308,9 @@
             // throws ImageException
             $upload = $this->Upload();
 
-            if ( parent::Save() ) { // save (update) again: Upload() has set size, width and height 
-                if ( $this->Albumid ) {
-                    ++$this->Album->Numphotos;
-                    $this->Album->Save();
-                    $frontpageimage = New FrontpageImage( $this->Userid );
-                    if ( !$frontpageimage->Exists() ) {
-                        $frontpageimage = New FrontpageImage();
-                        $frontpageimage->Userid = $this->Userid;
-                    }
-                    $frontpageimage->Imageid = $this->Id;
-                    $frontpageimage->Save();
-                    if ( !$this->Album->Mainimageid == 0 ) {
-                        $this->Album->Mainimageid = $this->Id;
-                        $this->Album->Save();
-                    }
-                }
-            }
+            parent::Save();
+
+            $this->PhotoAdded();
 
             $event = New Event();
             $event->Typeid = EVENT_IMAGE_CREATED;
@@ -339,13 +318,24 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
-        protected function OnDelete() {
-            global $libs;
-            $libs->Load( 'comment' );
-
-            --$this->User->Count->Images;
-            $this->User->Count->Save();
-
+        protected function PhotoAdded() {
+            if ( $this->Albumid ) {
+                ++$this->Album->Numphotos;
+                $this->Album->Save();
+                $frontpageimage = New FrontpageImage( $this->Userid );
+                if ( !$frontpageimage->Exists() ) {
+                    $frontpageimage = New FrontpageImage();
+                    $frontpageimage->Userid = $this->Userid;
+                }
+                $frontpageimage->Imageid = $this->Id;
+                $frontpageimage->Save();
+                if ( !$this->Album->Mainimageid == 0 ) {
+                    $this->Album->Mainimageid = $this->Id;
+                    $this->Album->Save();
+                }
+            }
+        }
+        protected function PhotoRemoved() {
             if ( $this->Albumid ) {
                 --$this->Album->Numphotos;
                 if ( $this->Album->Mainimageid == $this->Id ) {
@@ -361,12 +351,21 @@
 
                 $this->Album->Save();
             }
+        }
+        protected function OnDelete() {
+            global $libs;
+            $libs->Load( 'comment' );
+
+            --$this->User->Count->Images;
+            $this->User->Count->Save();
+
+            $this->PhotoRemoved();
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
         }
         protected function OnUndelete() {
-            $this->OnCreate();
+            $this->PhotoAdded();
         }
         public function LoadDefaults() {
             global $user;
