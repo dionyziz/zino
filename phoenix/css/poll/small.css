@@ -91,6 +91,5 @@ div.pollsmall div.results dl.pollinfo dd a, div.pollsmall div.results dl.pollinf
 }
 div.pollsmall div.voting {
 	display: none;
-	/* My Change */
-	margin-left: 170px;
+	margin-right: 100px;
 }
