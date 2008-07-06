@@ -51,6 +51,19 @@
             }
             return $ret;
 		}
+        public function DeleteByQuestion( Question $question ) {
+            $query = $this->mDb->Query( '
+                DELETE
+                FROM
+                    :answers
+                WHERE
+                    `answer_questionid` = :questionid
+                ;' );
+            $query->BindTable( 'answers' );
+            $query->Bind( 'questionid', $question->Id );
+            
+            return $query->Execute->Impact();
+        }
 	}
 
 	class Answer extends Satori {

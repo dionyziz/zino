@@ -33,7 +33,7 @@
             $this->AssertEquals( 'How?', $question1->Text, 'Question text did not retain its attribute values after saving' );
             $this->AssertEquals( 0, $question1->Delid, 'Question delid did not retain its attribute values after saving' );
             
-            $question->RealDelete();
+            $question->Delete();
 		}
         
         
@@ -60,7 +60,7 @@
             $this->AssertEquals( 'Why?', $question->Text, 'Wrong text on edited question' );
             $this->AssertEquals( 1, $question1->Delid, 'Wrong delid on edited question' );
 
-            $question->RealDelete();
+            $question->Delete();
         }
         
         public function TestDelete() {
@@ -71,7 +71,7 @@
             $question->Delid = 0;
             $question->Save();
             
-            $question->RealDelete();
+            $question->Delete();
             $this->Assert( $question->IsDeleted(), 'Question must be deleted if delid equals 1' );    
             $this->AssertEquals( 1, $question->Delid, 'Question delid did not retain its attribute values after saving' );
         }
@@ -99,8 +99,8 @@
             // This is due to delid of tables questions and prior database entries
             $this->Assert( count( $questions ) >= $num_texts, 'Questions returned texts from finder not match' );
 
-            $q1->RealDelete();
-            $q2->RealDelete();
+            $q1->Delete();
+            $q2->Delete();
         }
         
         public function TestFindNewQuestion() {
@@ -135,8 +135,8 @@
             
             $this->Assert( !is_object( $question ), 'Question return by QuestionFinder::FindNewQuestion is not an object' );
 
-            $q1->RealDelete();
-            $q2->RealDelete();
+            $q1->Delete();
+            $q2->Delete();
             $a->Delete();
         }
 

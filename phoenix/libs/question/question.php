@@ -73,32 +73,20 @@
 
 	class Question extends Satori {
 		protected $mDbTableAlias = 'questions';
-		protected $mRealDelete = false;
 		
         public function IsDeleted() {
             return $this->Delid > 0;
         }
-		
+        public function OnDelete() {
+            global $libs;
+            $libs->Load( 'question/answer' );
+
+            $finder = New AnswerFinder();
+            $finder->DeleteByQuestion( $this );
+        }
 		public function Relations() {
 			$this->User = $this->HasOne( 'User', 'Userid' );
 		}
-		
-		public function OnBeforeDelete() {
-		    if ( $this->mRealDelete ) {
-		        return true;
-		    }
-		    
-			$this->Delid = 1;
-            $this->Save();
-			return false; // Avoid database row delete
-		}
-		
-		public function RealDelete() {
-		    $this->mRealDelete = true;
-		    $this->Delete();
-		    $this->mRealDelete = false;
-		}
-		
 		public function LoadDefaults() {
 			global $user;
 
