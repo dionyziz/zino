@@ -310,7 +310,9 @@
 
             parent::Save();
 
-            $this->PhotoAdded();
+            if ( $this->Albumid ) {
+                $this->Album->ImageAdded( $this );
+            }
 
             $event = New Event();
             $event->Typeid = EVENT_IMAGE_CREATED;
