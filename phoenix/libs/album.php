@@ -31,6 +31,7 @@
             while ( $row = $res->FetchArray() ) {
                 $album = New Album( $row );
                 $album->CopyMainimageFrom( New Image( $row ) );
+                $album->CopyUserFrom( $theuser );
                 $ret[] = $album;
             }
 
@@ -44,6 +45,9 @@
 
         public function CopyMainimageFrom( $value ) {
             $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
+        }
+        public function CopyUserFrom( $value ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
         public function Relations() {
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
