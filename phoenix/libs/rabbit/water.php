@@ -1103,9 +1103,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             return $this->callstack_plaintext( $callstack );
         }
 		private function chopfile( $filename ) {
-            if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.203.221.147' ) {
-                die( 'I wish to have no connection with any ship that does not sail fast; for I intend to go in harm\'s way.' );
-            }
+            /* 
+                if ( $_SERVER[ 'REMOTE_ADDR' ] == '87.203.221.147' ) {
+                    die( 'I wish to have no connection with any ship that does not sail fast; for I intend to go in harm\'s way.' );
+                }
+                */
             if ( $filename === __FILE__ ) {
                 return '<water>';
             }
