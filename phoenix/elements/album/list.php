@@ -6,6 +6,8 @@
 		global $rabbit_settings;
 		global $water;
 		
+		$page->AttachStylesheet( 'css/album/list_ie.css', true );
+		
         Element( 'user/subdomainmatch' );
         
 		$username = $username->Get();
