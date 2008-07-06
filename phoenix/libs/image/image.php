@@ -292,10 +292,14 @@
 
             return true;
         }
+        public function OnBeforeCreate() {
+            w_assert( !empty( $this->mTemporaryFile ), 'mTemporaryFile is not set OnBeforeCreate' );
+
+            $this->Size = filesize( $this->mTemporaryFile );
+        }
         public function OnCreate() {
             global $libs;
 
-            w_assert( !empty( $this->mTemporaryFile ), 'mTemporaryFile is not set OnCreate' );
             $this->Size = filesize( $this->mTemporaryFile );
             
             if ( !parent::Save() ) {
