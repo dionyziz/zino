@@ -100,6 +100,7 @@ Project_Destruct()' );
 			'advertise'			=> 'about/advertise/view',
 			'contact'			=> 'about/contact/view',
             'unittest'          => 'developer/test/view',
+            'watertest'         => 'developer/dionyziz/water',
             'debug'             => 'developer/water',
             'jslint'            => 'developer/js/lint',
             'a'                 => 'user/invalid',
