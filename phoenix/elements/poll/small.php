@@ -85,7 +85,7 @@
 					}
 				}
 			?></div>
-			<div class="voting"><img src="<?php
+			<div class="voting" style="width:450px;"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>ajax-loader.gif" alt="Παρακαλώ περιμένετε..." title="Παρακαλώ περιμένετε..." /> Παρακαλώ περιμένετε...
 			</div>
