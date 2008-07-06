@@ -1,7 +1,5 @@
 <?php
     function ElementDeveloperDionyzizWater() {
-        global $water;
-        
-        echo $water->Enabled()? 'yes': 'no';
+        echo $_SERVER[ 'REMOTE_ADDR' ];
     }
 ?>
