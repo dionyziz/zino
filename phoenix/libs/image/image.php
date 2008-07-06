@@ -256,6 +256,7 @@
             w_assert( !empty( $value ), 'LoadFromFile() cannot be called with an empty argument' );
 
             $this->mTemporaryFile = $value;
+            w_assert( !empty( $this->mTemporaryFile ), 'Could not set mTemporaryFile' );
 
             if ( filesize( $value ) > 1024 * 1024 ) {
                 return -1;
@@ -263,7 +264,7 @@
             return 0;
         }
         public function SetName( $value ) {
-            if ( strlen( $value ) > 96 ) { // TODO: mb_strlen()
+            if ( mb_strlen( $value ) > 96 ) {
                 $value = mb_substr( $value , 0 , 96 );
             }
             
