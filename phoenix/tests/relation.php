@@ -79,6 +79,9 @@
             $relation->Typeid = $lover_type->Id;
             $relation->Save();
 
+            var_dump( $relation->Id );
+            die();
+
             $r = New FriendRelation( $relation->Id );
             $this->AssertEquals( $this->mUser->Id, $r->Userid, 'Wrong userid' );
             $this->AssertEquals( $abresas->Id, $r->Friendid, 'Wrong friendid' );
