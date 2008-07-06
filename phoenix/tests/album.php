@@ -107,7 +107,7 @@
             $this->mAlbums[ 0 ]->Name = 'Hahaho';
             $this->mAlbums[ 0 ]->Save();
 
-            $album = New Album( $this->mAlbums[ 0 ]->Name );
+            $album = New Album( $this->mAlbums[ 0 ]->Id );
             $this->AssertEquals( 'Hahaho', $album->Name, 'Failed to rename album' );
         }
         public function TestImages() {
