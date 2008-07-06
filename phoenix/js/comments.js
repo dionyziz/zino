@@ -35,7 +35,7 @@ var Comments = {
 		//.find( "div.toolbox a" ).css( { marginRight : (indent+1)*20 + 'px' } ).end()
 		//.find( "span.time" ).css( { marginRight : '0px'} ).end()
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
-		.find( "div.bottom" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
+		.find( "div.bottom" ).css( "display", "none" ).empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
@@ -73,7 +73,7 @@ var Comments = {
 	
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
-		node.find( 'div.bottom a' ).toggle( function() {
+		node.find( 'div.bottom a' ).css( "display", "inline" ).toggle( function() {
                 Comments.Reply( id, indent+1 );
                 return false;
             }, function() {
