@@ -7,7 +7,7 @@
         $curl = curl_init();
 
         if ( !file_exists( $tempfile ) ) {
-            throw New Exception( 'Image_Upload() failed: Target temporary file does not exist' );
+            throw New Exception( 'Image_Upload() failed: Target temporary file does not exist: ' . $tempfile );
         }
 
         $data = array(
