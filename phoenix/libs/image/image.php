@@ -318,40 +318,6 @@
             $event->Userid = $this->Userid;
             $event->Save();
         }
-        protected function PhotoAdded() {
-            if ( $this->Albumid ) {
-                ++$this->Album->Numphotos;
-                $this->Album->Save();
-                $frontpageimage = New FrontpageImage( $this->Userid );
-                if ( !$frontpageimage->Exists() ) {
-                    $frontpageimage = New FrontpageImage();
-                    $frontpageimage->Userid = $this->Userid;
-                }
-                $frontpageimage->Imageid = $this->Id;
-                $frontpageimage->Save();
-                if ( !$this->Album->Mainimageid == 0 ) {
-                    $this->Album->Mainimageid = $this->Id;
-                    $this->Album->Save();
-                }
-            }
-        }
-        protected function PhotoRemoved() {
-            if ( $this->Albumid ) {
-                --$this->Album->Numphotos;
-                if ( $this->Album->Mainimageid == $this->Id ) {
-                    $imagefinder = New ImageFinder();
-                    $images = $imagefinder->FindByAlbum( $this->Album, 0, 1 );
-                    if ( !empty( $images ) ) {
-                        $this->Album->Mainimageid = $images[ 0 ]->Id;
-                    }
-                    else {
-                        $this->Album->Mainimageid = 0;
-                    }
-                }
-
-                $this->Album->Save();
-            }
-        }
         protected function OnDelete() {
             global $libs;
             $libs->Load( 'comment' );
@@ -359,13 +325,17 @@
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
-            $this->PhotoRemoved();
+            if ( $this->Albumid ) {
+                $this->Album->ImageDeleted( $this );
+            }
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
         }
         protected function OnUndelete() {
-            $this->PhotoAdded();
+            if ( $this->Albumid ) {
+                $this->Album->ImageUndeleted( $this );
+            }
         }
         public function LoadDefaults() {
             global $user;

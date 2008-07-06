@@ -129,13 +129,31 @@
 			--$this->Numcomments;
 		    $this->Save();	
         }
-        public function ImageDeleted( $image ) {
-            $this->Numcomments -= $image->Numcomments;
+        public function ImageAdded( Image $image ) {
+            $this->Numcomments += $image->Numcomments;
+            ++$this->Numphotos;
+            if ( $this->Mainimageid == 0 ) {
+                $this->Mainimageid = $image->Id;
+            }
             $this->Save();
         }
-        public function ImageUndeleted( $image ) {
-            $this->Numcomments += $image->Numcomments;
+        public function ImageDeleted( Image $image ) {
+            $this->Numcomments -= $image->Numcomments;
+            --$this->Numphotos;
+            if ( $this->Mainimageid == $image->Id ) {
+                $imagefinder = New ImageFinder();
+                $images = $imagefinder->FindByAlbum( $this, 0, 1 );
+                if ( !empty( $images ) ) {
+                    $this->Mainimageid = $images[ 0 ]->Id;
+                }
+                else {
+                    $this->Mainimageid = 0;
+                }
+            }
             $this->Save();
+        }
+        public function ImageUndeleted( Image $image ) {
+            $this->ImageAdded( $image );
         }
         protected function OnUpdate( $attributes ) {
             if ( isset( $attributes[ 'Mainimageid' ] ) ) {
