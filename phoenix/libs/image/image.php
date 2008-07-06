@@ -206,19 +206,6 @@
 
             if ( $this->Albumid ) {
                 $this->Album->ImageDeleted( $this );
-     
-                // update latest images
-                $finder = New ImageFinder();
-                $images = $finder->FindByAlbum( $this->User->EgoAlbum, 0, 1 );
-                $frontpageimage = New FrontpageImage( $this->Userid );
-                if ( !count( $images ) ) {
-                    // no previous images uploaded
-                    $frontpageimage->Delete();
-                }
-                else {
-                    $frontpageimage->Imageid = $images[ 0 ]->Id;
-                    $frontpageimage->Save();
-                }
             }
 
             $this->OnDelete();
@@ -315,6 +302,7 @@
         }
         protected function OnDelete() {
             global $libs;
+
             $libs->Load( 'comment' );
 
             --$this->User->Count->Images;

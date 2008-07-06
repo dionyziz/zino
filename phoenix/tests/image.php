@@ -138,6 +138,7 @@
             $this->Assert( $this->mImages[ 1 ]->Id, $results[ 0 ]->Id, 'FindFrontpageLatest did not return the expected image' );
 
             $this->mImages[ 1 ]->Delete();
+            w_assert( $this->mImages[ 1 ]->IsDeleted(), 'IsDeleted didn\'t update accordingly' );
         
             $results = $this->mFinder->FindFrontpageLatest( 0, 1 );
             $this->Assert( empty( $results ) || $results[ 0 ]->Id != $this->mImages[ 1 ]->Id, 'FindFrontpageLatest did not remove image when it was deleted' );
