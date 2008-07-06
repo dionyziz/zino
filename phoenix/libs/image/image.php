@@ -23,7 +23,7 @@
         
         public function FindByIds( $imageids ) {
             w_assert( is_array( $imageids ), 'ImageFinder->FindByIds() expects an array' );
-            foreach ( $imagesids as $imageid ) {
+            foreach ( $imageids as $imageid ) {
                 w_assert( is_int( $imageid ), 'Each item of the array passed to ImageFinder->FindByIds() must be an integer' );
             }
             if ( !count( $imageids ) ) {
