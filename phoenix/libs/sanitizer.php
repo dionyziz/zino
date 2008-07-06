@@ -121,6 +121,7 @@
             $descriptors = array(
                 0 => array( "pipe", "r" ),
                 1 => array( "pipe", "w" ),
+                2 => array( "pipe", "r" )
             );
             
             $process = proc_open( $rabbit_settings[ 'rootdir' ] . '/bin/sanitizer/sanitize', $descriptors, $pipes, '.', array() );
