@@ -304,7 +304,7 @@
             parent::Save();
 
             if ( $this->Albumid ) {
-                $this->PhotoAdded();
+                $this->Album->PhotoAdded();
             }
 
             $event = New Event();
