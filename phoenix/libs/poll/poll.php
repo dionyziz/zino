@@ -77,8 +77,12 @@
             $event->Save();
         }
         protected function OnDelete() {
+            global $libs;
+
             --$this->User->Count->Polls;
             $this->User->Count->Save();
+
+            $libs->Load( 'comment' );
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
