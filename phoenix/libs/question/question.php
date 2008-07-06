@@ -25,17 +25,28 @@
         }
 		public function FindRandomByUser( User $user ) { 
 			// This query is awesome, by dionyziz
+            // OPTIMIZED: This query is awesome *now*, by abresas :)
 			$query = $this->mDb->Prepare('
                 SELECT 
-                    * 
+                    *
                 FROM 
                     :questions
-                LEFT JOIN :answers 
-                    ON question_id = answer_questionid AND answer_userid = :userid 
-                WHERE
-                    answer_userid IS NULL
-                ORDER BY RAND()
-                LIMIT :limit;
+                    LEFT JOIN :answers ON 
+                        `question_id` = `answer_questionid`
+                WHERE 
+                    `question_id` IN (
+                        SELECT 
+                            `question_id`
+                        FROM 
+                            :questions
+                            LEFT JOIN :answers ON 
+                                `question_id` = `answer_questionid` AND 
+                                `answer_userid` = :userid
+                        WHERE 
+                            answer_id IS NULL
+                        ORDER BY RAND()
+                    )
+                LIMIT 1 ;
 			');
 
 			$query->BindTable( 'questions' );
