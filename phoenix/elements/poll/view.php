@@ -21,7 +21,7 @@
 			Element( 'user/sections' , 'poll' , $poll->User );
 			if ( !$poll->IsDeleted() ) {
 				$page->SetTitle( $poll->Question );
-				?><div id="pollview">
+				?><div id="pollview" style="width:500px;">
 					<div><?php
 					Element( 'poll/small' , $poll , false ); //don't show comments number
 					?>

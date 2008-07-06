@@ -9,7 +9,7 @@
 		$showresults = $finder->FindByPollAndUser( $poll, $user );
 		$water->Trace( 'Poll showresults:' . $showresults);
 		//used to show results, will be true if the user has voted or is anonymous
-		?><div class="pollsmall" style="width:450px;">
+		?><div class="pollsmall">
 			<h4><a href="<?php
 				?>?p=poll&amp;id=<?php
 				echo $poll->Id;
@@ -85,7 +85,7 @@
 					}
 				}
 			?></div>
-			<div class="voting" style="width:450px;"><img src="<?php
+			<div class="voting"><img src="<?php
 			echo $rabbit_settings[ 'imagesurl' ];
 			?>ajax-loader.gif" alt="Παρακαλώ περιμένετε..." title="Παρακαλώ περιμένετε..." /> Παρακαλώ περιμένετε...
 			</div>
