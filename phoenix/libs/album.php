@@ -32,7 +32,12 @@
                 $album = New Album( $row );
                 $album->CopyMainimageFrom( New Image( $row ) );
                 $album->CopyUserFrom( $theuser );
-                $ret[] = $album;
+                if ( $theuser->Egoalbumid == $album->Id ) {
+                    array_unshift( $ret, $album );
+                }
+                else {
+                    $ret[] = $album;
+                }
             }
 
             return $ret;
