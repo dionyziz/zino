@@ -295,6 +295,7 @@
         public function OnCreate() {
             global $libs;
 
+            w_assert( !empty( $this->mTemporaryFile ), 'mTemporaryFile is not set OnCreate' );
             $this->Size = filesize( $this->mTemporaryFile );
             
             if ( !parent::Save() ) {
