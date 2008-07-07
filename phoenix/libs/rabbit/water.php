@@ -28,10 +28,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         
         $water->HandleException( $exception );
     }
-	function w_assert( $condition, $reason = '' ) {
-		global $water;
-		
-		$water->Assert( $condition, $reason );
+	function w_assert( $expression, $reason = '' ) {
+        if ( !$expression ) {
+            $msg = 'Assertion failed';
+            if ( !empty( $reason ) ) {
+                $msg .= ': ' . $reason;
+            }
+            throw New ExceptionFailedAssertion( $msg );
+        }
 	}
 	
     class ExceptionFailedAssertion extends Exception {
@@ -522,15 +526,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		public function HandleException( $exception, $data = false ) {
 			// since there has been no try/catch pair, this is a fatal exception
 			$this->FatalError( $exception->getMessage(), $data, $exception->getTrace() );
-		}
-		public function Assert( $expression, $reason = '' ) {
-			if ( !$expression ) {
-                $msg = 'Assertion failed';
-                if ( !empty( $reason ) ) {
-                    $msg .= ': ' . $reason;
-                }
-				throw New ExceptionFailedAssertion( $msg );
-			}
 		}
 		private function FatalError( $message, $data, $backtrace = false ) {
 			global $page;
