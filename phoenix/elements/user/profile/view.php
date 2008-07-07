@@ -5,8 +5,6 @@
 		global $user;
 		global $water;
 		
-		// $water->Disable();
-        $water->Enable();
 		$commentid = $commentid->Get();
 		$pageno = $pageno->Get();
 		$name = $name->Get();

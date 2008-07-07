@@ -7,14 +7,10 @@
 		global $user;
 		global $rabbit_settings;
 
-        $water->Enable();
-		
         if ( !$user->Exists() ) {
             return;
         }
 
-        $water->Enable();
-        
 		$libs->Load( 'pm/pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
        	
