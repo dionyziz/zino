@@ -37,13 +37,13 @@ var Comments = {
 		.find( "div.text" ).empty().append( document.createTextNode( texter ) ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
-		/*//---------------------
-		if ( parentid !== 0 ) {
+		//---------------------
+		if ( parentid !== 0 && !$.browser.msie ) {
 			var kimeno = temp.find( "div.text" );
 			var wid = parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent*20+'px' );
 		}
-		//----------------------*/
+		//----------------------
 		
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
@@ -217,11 +217,13 @@ $( document ).ready( function() {
 		$( "div.comments div.comment" ).not( ".newcomment" ).not( ".empty" ).each( function( i ) {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
-			/*//---------------------
-			var kimeno = $( this ).find( "div.text" );
-			var wid = parseInt( kimeno.css( "width" ), 10 );
-			kimeno.css( "width", wid-indent*20+'px' );
-			//----------------------*/
+			//---------------------
+			if ( ! $.browser.msie ) {
+				var kimeno = $( this ).find( "div.text" );
+				var wid = parseInt( kimeno.css( "width" ), 10 );
+				kimeno.css( "width", wid-indent*20+'px' );
+			}
+			//----------------------
 			$( this ).find( "div.bottom a" ).unbind( "click" ).toggle( function() {
 					Comments.Reply( id, indent );
 					return false;
