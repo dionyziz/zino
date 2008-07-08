@@ -15,6 +15,8 @@
             // this type of lookups will either return a single record or none
             $unique = false;
             
+            var_dump( $mods );
+
             foreach ( $this->mDbIndexes as $index ) {
                 switch ( $index->Type ) {
                     case DB_KEY_UNIQUE:
