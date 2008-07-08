@@ -178,8 +178,11 @@
         public function FieldByName( $name ) {
             $this->Fields;
             if ( !isset( $this->mFields[ $name ] ) ) {
-                die( var_dump( $this->mFields ) );
-                die( "Field not found $name" );
+                foreach ( $this->mFields as $field ) {
+                    echo $field->Name;
+                    ?><br /><?php
+                }
+                die();
                 return false;
             }
             die( "Field found $name" );
