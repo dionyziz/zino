@@ -176,6 +176,7 @@
             return $this->mAlias;
         }
         public function FieldByName( $name ) {
+            die( "Retrieving field $name" );
             $this->Fields;
             if ( !isset( $this->mFields[ $name ] ) ) {
                 return false;
