@@ -6,6 +6,9 @@
         $tablename = $table->Name;
         $tablealias = $table->Alias;
         $database = $table->Database;
+        if ( $database === false ) {
+            die( $tablealias . '.' );
+        }
         $databasealias = $database->Alias();
         if ( $cache === false ) {
             $cache = $mc->get( 'dbcache' );
