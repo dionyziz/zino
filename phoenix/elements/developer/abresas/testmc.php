@@ -13,6 +13,8 @@
         $value = $mc->get( $key );
         ?><br /><br /><br /><?php
         echo var_dump( $value );
+        ?><br /><br />---------------<br /><br /><?php
+        print_r( $value );
     }
 
 ?>
