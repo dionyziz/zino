@@ -30,6 +30,7 @@
                 $indexinfos[ $row[ 'Key_name' ] ][] = $row;
             }
             $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
+            $water->Trace( 'Writting ' . count( $cache[ $databasealias ] ) . ' tables to cache' );
             $mc->add( $key, $cache );
         }
         $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
