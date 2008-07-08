@@ -179,8 +179,10 @@
             die( "Retrieving field $name" );
             $this->Fields;
             if ( !isset( $this->mFields[ $name ] ) ) {
+                die( "Field not found $name" );
                 return false;
             }
+            die( "Field found $name" );
             return $this->mFields[ $name ];
         }
         protected function GetFields() {
