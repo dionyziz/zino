@@ -1,18 +1,19 @@
 <?php
     function DBTable_GetIndexes( DBTable $table ) {
         global $mc;
+        global $water;
         static $cache = false;
 
+        $water->Trace( 'Caching DB Indexes for ' . $table );
+        $key = 'dbcache';
         w_assert( $table instanceof DBTable );
         $tablename = $table->Name;
         $tablealias = $table->Alias;
         $database = $table->Database;
-        if ( !is_object( $database ) ) {
-            die( var_dump( $database ) );
-        }
+        w_assert( $database instanceof DB );
         $databasealias = $database->Alias();
         if ( $cache === false ) {
-            $cache = $mc->get( 'dbcache' );
+            $cache = $mc->get( $key );
         }
         if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
             $query = $database->Prepare(
@@ -28,7 +29,7 @@
                 $indexinfos[ $row[ 'Key_name' ] ][] = $row;
             }
             $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
-            $mc->add( 'dbcache', $cache );
+            $mc->add( $key, $cache );
         }
         $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
         $indexes = array();
