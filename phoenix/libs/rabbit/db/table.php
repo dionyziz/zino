@@ -57,6 +57,7 @@
                 foreach ( $fieldinfos as $fieldinfo ) {
                     $fields[] = New DBField( $table, $fieldinfo );
                 }
+                die( var_dump( $fields ) );
                 return $fields; 
         }
     }
