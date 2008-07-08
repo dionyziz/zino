@@ -40,6 +40,8 @@
                 }
             }
         }
+        var_dump( $user );
+        die();
 
         if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $page->AttachMainElement( 'user/banned', array() );
