@@ -33,7 +33,6 @@
                     $mc->set( $key, $cache );
                 }
                 $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
-                die( var_dump( $indexinfos ) );
                 $indexes = array();
                 foreach ( $indexinfos as $indexinfo ) {
                     $indexes[] = New DBIndex( $table, $indexinfo );
@@ -177,6 +176,7 @@
             return $this->mAlias;
         }
         public function FieldByName( $name ) {
+            $this->Fields;
             if ( !isset( $this->mFields[ $name ] ) ) {
                 return false;
             }
