@@ -108,6 +108,7 @@
                 $this->mType = DB_KEY_UNIQUE;
             }
             foreach ( $info as $field ) {
+                die( $field[ 'Column_name' ] );
                 $this->mFields[ ( int )$field[ 'Seq_in_index' ] - 1 ] = $this->mParentTable->FieldByName( $field[ 'Column_name' ] );
             }
             die( var_dump( $this->mFields ) );
