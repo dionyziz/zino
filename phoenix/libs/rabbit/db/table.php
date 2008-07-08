@@ -1,10 +1,9 @@
 <?php
-    function DBTable_GetIndexes( DBTable $table ) {
+    function DBTable_GetInfo( DBTable $table, $type = 'indexes' ) {
         global $mc;
         global $water;
         static $cache = false;
 
-        $water->Trace( 'Caching DB Indexes for ' . $table );
         $key = 'dbcache';
         w_assert( $table instanceof DBTable );
         $tablename = $table->Name;
@@ -14,34 +13,52 @@
         $databasealias = $database->Alias();
         if ( $cache === false ) {
             $cache = $mc->get( $key );
-            $water->Trace( 'Got DB Cache for ' . count( $cache[ $databasealias ] ) . ' tables' );
         }
-        if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
-            $query = $database->Prepare(
-                'SHOW INDEX FROM :' . $tablealias . ';'
-            );
-            $query->BindTable( $tablealias );
-            $res = $query->Execute();
-            $indexinfos = array();
-            while ( $row = $res->FetchArray() ) {
-                if ( !isset( $indexinfos[ $row[ 'Key_name' ] ] ) ) {
-                    $indexinfos[ $row[ 'Key_name' ] ] = array();
+        switch ( $type ) {
+            case 'indexes':
+                if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
+                    $query = $database->Prepare(
+                        'SHOW INDEX FROM :' . $tablealias . ';'
+                    );
+                    $query->BindTable( $tablealias );
+                    $res = $query->Execute();
+                    $indexinfos = array();
+                    while ( $row = $res->FetchArray() ) {
+                        if ( !isset( $indexinfos[ $row[ 'Key_name' ] ] ) ) {
+                            $indexinfos[ $row[ 'Key_name' ] ] = array();
+                        }
+                        $indexinfos[ $row[ 'Key_name' ] ][] = $row;
+                    }
+                    $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
+                    $mc->set( $key, $cache );
                 }
-                $indexinfos[ $row[ 'Key_name' ] ][] = $row;
-            }
-            $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
-            $water->Trace( 'Writting ' . count( $cache[ $databasealias ] ) . ' tables to cache' );
-            $success = $mc->set( $key, $cache );
-            if ( !$success ) {
-                die( 'Failed to memcache table indexes at ' . count( $cache[ $databasealias ] ) );
-            }
+                $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
+                $indexes = array();
+                foreach ( $indexinfos as $indexinfo ) {
+                    $indexes[] = New DBIndex( $table, $indexinfo );
+                }
+                return $indexes;
+            case 'fields':
+                if ( !isset( $cache[ $databasealias ][ $tablename ][ 'fields' ] ) ) {
+                    $query = $database->Prepare(
+                        'SHOW FIELDS FROM :' . $tablealias . ';'
+                    );
+                    $query->BindTable( $tablealias );
+                    $res = $query->Execute();
+                    $fieldinfos = array();
+                    while ( $row = $res->FetchArray() ) {
+                        $fieldinfos[] = $row;
+                    }
+                    $cache[ $databasealias ][ $tablename ][ 'fields' ] = $fieldinfos;
+                    $mc->set( $key, $cache );
+                }
+                $fieldinfos = $cache[ $databasealias ][ $tablename ][ 'fields' ];
+                $fields = array();
+                foreach ( $fieldinfos as $fieldinfo ) {
+                    $fields[] = New DBField( $table, $row );
+                }
+                return $fields; 
         }
-        $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
-        $indexes = array();
-        foreach ( $indexinfos as $indexinfo ) {
-            $indexes[] = New DBIndex( $table, $indexinfo );
-        }
-        return $indexes;
     }
 
 	class DBTable extends Overloadable {
@@ -166,21 +183,13 @@
         }
         protected function GetFields() {
             if ( $this->mFields === false ) {
-                $query = $this->mDb->Prepare( 
-                    'SHOW FIELDS FROM :' . $this->mAlias . ';'
-                );
-                $query->BindTable( $this->mAlias );
-                $res = $query->Execute();
-                $this->mFields = array();
-                while ( $row = $res->FetchArray() ) {
-                    $this->mFields[ $row[ 'Field' ] ] = New DBField( $this, $row );
-                }
+                $this->mFields = DBTable_GetInfo( $this, 'fields' );
             }
             return $this->mFields;
         }
         protected function GetIndexes() {
             if ( $this->mIndexes === false ) {
-                $this->mIndexes = DBTable_GetIndexes( $this );
+                $this->mIndexes = DBTable_GetInfo( $this, 'indexes' );
             }
             return $this->mIndexes;
         }
