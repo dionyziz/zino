@@ -1,4 +1,39 @@
 <?php
+    function DBTable_GetIndexes( Table $table ) {
+        global $mc;
+        static $cache = false;
+
+        $tablename = $table->Name;
+        $tablealias = $table->Alias;
+        $database = $table->Database;
+        $databasealias = $database->Alias();
+        if ( $cache === false ) {
+            $cache = $mc->get( 'dbcache' );
+        }
+        if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
+            $query = $database->Prepare(
+                'SHOW INDEX FROM :' . $tablealias . ';'
+            );
+            $query->BindTable( $tablealias );
+            $res = $query->Execute();
+            $indexinfos = array();
+            while ( $row = $res->FetchArray() ) {
+                if ( !isset( $indexinfos[ $row[ 'Key_name' ] ] ) ) {
+                    $indexinfos[ $row[ 'Key_name' ] ] = array();
+                }
+                $indexinfos[ $row[ 'Key_name' ] ][] = $row;
+            }
+            $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
+            $mc->add( 'dbcache', $cache );
+        }
+        $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
+        $indexes = array();
+        foreach ( $indexinfos as $indexinfo ) {
+            $indexes[] = New DBIndex( $table, $indexinfo );
+        }
+        return $indexes;
+    }
+
 	class DBTable extends Overloadable {
 		protected $mDb;
 		protected $mTableName;
@@ -135,22 +170,7 @@
         }
         protected function GetIndexes() {
             if ( $this->mIndexes === false ) {
-                $query = $this->mDb->Prepare(
-                    'SHOW INDEX FROM :' . $this->mAlias . ';'
-                );
-                $query->BindTable( $this->mAlias );
-                $res = $query->Execute();
-                $this->mIndexes = array();
-                $indexinfos = array();
-                while ( $row = $res->FetchArray() ) {
-                    if ( !isset( $indexinfos[ $row[ 'Key_name' ] ] ) ) {
-                        $indexinfos[ $row[ 'Key_name' ] ] = array();
-                    }
-                    $indexinfos[ $row[ 'Key_name' ] ][] = $row;
-                }
-                foreach ( $indexinfos as $indexinfo ) {
-                    $this->mIndexes[] = New DBIndex( $this, $indexinfo );
-                }
+                $this->mIndexes = DBTable_GetIndexes( $this->Name );
             }
             return $this->mIndexes;
         }

@@ -17,6 +17,7 @@
     }
     
 	class Database {
+        protected $mAlias;
 		protected $mDbName;
 		protected $mHost;
 		protected $mUsername;
@@ -62,6 +63,12 @@
         }
         public function Port() {
             return $this->mPort;
+        }
+        public function Alias() {
+            return $this->mAlias;
+        }
+        public function SetAlias( $value ) {
+            $this->mAlias = $value;
         }
         public function Equals( Database $target ) {
             return $this->Link() == $target->Link();
