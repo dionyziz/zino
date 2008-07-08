@@ -6,8 +6,8 @@
         $tablename = $table->Name;
         $tablealias = $table->Alias;
         $database = $table->Database;
-        if ( $database === false ) {
-            die( $tablealias . '.' );
+        if ( !is_object( $database ) ) {
+            die( var_dump( $database ) );
         }
         $databasealias = $database->Alias();
         if ( $cache === false ) {
