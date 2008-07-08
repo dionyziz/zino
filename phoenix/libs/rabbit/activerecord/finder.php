@@ -16,12 +16,11 @@
             $unique = false;
             
             foreach ( $this->mDbIndexes as $index ) {
-                echo $index->Type;
-                ?><br /><?php
                 switch ( $index->Type ) {
                     case DB_KEY_UNIQUE:
                     case DB_KEY_PRIMARY:
                         $unique = true;
+                        var_dump( count( $index->Fields ) );
                         foreach ( $index->Fields as $field ) {
                             if ( !isset( $mods[ $field->Name ] ) ) {
                                 $unique = false;
