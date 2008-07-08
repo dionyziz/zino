@@ -55,7 +55,7 @@
                 $fieldinfos = $cache[ $databasealias ][ $tablename ][ 'fields' ];
                 $fields = array();
                 foreach ( $fieldinfos as $fieldinfo ) {
-                    $fields[] = New DBField( $table, $row );
+                    $fields[] = New DBField( $table, $fieldinfo );
                 }
                 return $fields; 
         }
