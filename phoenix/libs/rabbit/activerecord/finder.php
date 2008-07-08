@@ -20,8 +20,9 @@
                     case DB_KEY_UNIQUE:
                     case DB_KEY_PRIMARY:
                         $unique = true;
-                        var_dump( count( $index->Fields ) );
                         foreach ( $index->Fields as $field ) {
+                            var_dump( $field->Name );
+
                             if ( !isset( $mods[ $field->Name ] ) ) {
                                 $unique = false;
                                 break;
