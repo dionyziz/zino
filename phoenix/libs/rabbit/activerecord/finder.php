@@ -12,7 +12,8 @@
             w_assert( is_int( $limit ), 'Limit must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\', ' . gettype( $limit ) . ' given' );
             
             $mods = $prototype->FetchPrototypeChanges();
-            
+            die( var_dump( $mods ) );
+
             // check if this lookup will yield to a unique result
             // this type of lookups will either return a single record or none
             $unique = false;
@@ -109,13 +110,6 @@
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
             $this->mAttribute2DbField = array_flip( $prototype->DbFields );
-            var_dump( $prototype->DbFields );
-            die();
-            foreach ( $prototype->DbFields as $field ) {
-                echo $field->Name;
-                ?><br /><?php
-            }
-            die();
         }
     }
 ?>
