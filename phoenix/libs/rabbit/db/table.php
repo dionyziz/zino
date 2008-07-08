@@ -10,7 +10,7 @@
         $tablename = $table->Name;
         $tablealias = $table->Alias;
         $database = $table->Database;
-        w_assert( $database instanceof Db );
+        w_assert( $database instanceof Database );
         $databasealias = $database->Alias();
         if ( $cache === false ) {
             $cache = $mc->get( $key );
