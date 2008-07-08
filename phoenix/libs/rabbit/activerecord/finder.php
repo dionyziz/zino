@@ -11,9 +11,6 @@
             w_assert( is_int( $offset ), 'Offset must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\' ' . gettype( $offset ) . ' given' );
             w_assert( is_int( $limit ), 'Limit must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\', ' . gettype( $limit ) . ' given' );
             
-            $mods = $prototype->FetchPrototypeChanges();
-            die( var_dump( $mods ) );
-
             // check if this lookup will yield to a unique result
             // this type of lookups will either return a single record or none
             $unique = false;
@@ -36,6 +33,8 @@
                     break;
                 }
             }
+
+            die( var_dump( $unique ) );
             
             $sql = 'SELECT
                         *
