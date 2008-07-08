@@ -33,6 +33,7 @@
                     $mc->set( $key, $cache );
                 }
                 $indexinfos = $cache[ $databasealias ][ $tablename ][ 'indexes' ];
+                die( var_dump( $indexinfos ) );
                 $indexes = array();
                 foreach ( $indexinfos as $indexinfo ) {
                     $indexes[] = New DBIndex( $table, $indexinfo );
