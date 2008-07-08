@@ -16,6 +16,8 @@
             $unique = false;
             
             foreach ( $this->mDbIndexes as $index ) {
+                echo $index->Type;
+                ?><br /><?php
                 switch ( $index->Type ) {
                     case DB_KEY_UNIQUE:
                     case DB_KEY_PRIMARY:
