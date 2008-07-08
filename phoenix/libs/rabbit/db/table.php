@@ -174,7 +174,7 @@
         }
         protected function GetIndexes() {
             if ( $this->mIndexes === false ) {
-                $this->mIndexes = DBTable_GetIndexes( $this->Name );
+                $this->mIndexes = DBTable_GetIndexes( $this );
             }
             return $this->mIndexes;
         }
