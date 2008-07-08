@@ -108,12 +108,12 @@
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances? (late static binding required?)
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
-            foreach ( $this->mDbIndexes as $index ) {
-                echo $index->Name;
+            $this->mAttribute2DbField = array_flip( $prototype->DbFields );
+            foreach ( $prototype->DbFields as $field ) {
+                echo $field->Name;
                 ?><br /><?php
             }
             die();
-            $this->mAttribute2DbField = array_flip( $prototype->DbFields );
         }
     }
 ?>
