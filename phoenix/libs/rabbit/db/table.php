@@ -14,6 +14,7 @@
         $databasealias = $database->Alias();
         if ( $cache === false ) {
             $cache = $mc->get( $key );
+            $water->Trace( 'Got DB Cache for ' . count( $cache[ $databasealias ] ) . ' tables' );
         }
         if ( !isset( $cache[ $databasealias ][ $tablename ][ 'indexes' ] ) ) {
             $query = $database->Prepare(
