@@ -31,7 +31,7 @@
             }
             $cache[ $databasealias ][ $tablename ][ 'indexes' ] = $indexinfos;
             $water->Trace( 'Writting ' . count( $cache[ $databasealias ] ) . ' tables to cache' );
-            $success = $mc->add( $key, $cache );
+            $success = $mc->set( $key, $cache );
             if ( !$success ) {
                 die( 'Failed to memcache table indexes at ' . count( $cache[ $databasealias ] ) );
             }

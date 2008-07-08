@@ -3,7 +3,7 @@
     function ActionTestmc( tString $value ) {
         global $mc;
 
-        $mc->add( 'abresas', $value->Get() );
+        $mc->set( 'abresas', $value->Get() );
 
         return Redirect( '?p=testmc' );
     }

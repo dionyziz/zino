@@ -7,6 +7,7 @@
         public function get( $key );
         public function get_multi( $keys );
         public function add( $key, $value, $expires = 0 );
+        public function set( $key, $value, $expires = 0 );
         public function delete( $key, $aftertimeout = 0 );
         public function replace( $key, $value );
     }
@@ -23,6 +24,9 @@
 		public function add( $key , $value , $expires = 0 ) {
 			return true; // success
 		}
+        public function set( $key, $value, $expires = 0 ) {
+            return true; // success
+        }
 		public function delete( $key , $aftertimeout = 0 ) {
 		}
 		public function replace( $key , $value ) {
@@ -88,6 +92,13 @@
 			return $ret;
 		}
 		public function add( $key , $value , $expires = 0 ) {
+            $value = $this->get( $key );
+
+            if ( $value === false ) {
+                $this->set( $key, $value, $expires );
+            }
+		}
+        public function set( $key, $value, $expires = 0 ) {
 			if ( $expires == 0 ) {
 				$expires = 30 * 60; // by default expire in 30 minutes
 			}
@@ -96,10 +107,10 @@
 			
 			w_assert( is_numeric( $expires ) );
 			$query = $this->mDb->Prepare(
-                    "REPLACE DELAYED INTO
-						" . $this->mDbTableAlias . "
-					(`mc_key`, `mc_value`, `mc_expires`) VALUES
-					(:_key, :_value, NOW() + INTERVAL $expires SECOND);"
+                "REPLACE DELAYED INTO
+                    " . $this->mDbTableAlias . "
+                (`mc_key`, `mc_value`, `mc_expires`) VALUES
+                (:_key, :_value, NOW() + INTERVAL $expires SECOND);"
             );
             $query->BindTable( $this->mDbTableAlias );
             $query->Bind( '_key', $key );
@@ -108,7 +119,7 @@
 			$change = $query->Execute( $sql );
 			
 			return true;
-		}
+        }
 		public function delete( $key , $aftertimeout = 0 /* N/A yet */ ) {
 			global $water;
 			
