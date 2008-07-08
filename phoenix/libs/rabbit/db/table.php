@@ -1,8 +1,9 @@
 <?php
-    function DBTable_GetIndexes( Table $table ) {
+    function DBTable_GetIndexes( DBTable $table ) {
         global $mc;
         static $cache = false;
 
+        w_assert( $table instanceof DBTable );
         $tablename = $table->Name;
         $tablealias = $table->Alias;
         $database = $table->Database;
