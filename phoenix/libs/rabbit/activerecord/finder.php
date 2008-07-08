@@ -109,6 +109,8 @@
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
             $this->mAttribute2DbField = array_flip( $prototype->DbFields );
+            var_dump( $prototype->DbFields );
+            die();
             foreach ( $prototype->DbFields as $field ) {
                 echo $field->Name;
                 ?><br /><?php
