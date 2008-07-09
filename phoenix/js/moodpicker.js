@@ -5,7 +5,7 @@ var MoodDropdown = {
             return;
         }
 
-        $( this.CurrentOpen ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbutton.png\')';
+        $( this.CurrentOpen ).css( 'overflow', 'hidden' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'' + ExcaliburSettings.imagesurl + 'dropbutton.png\')';
         $( this.CurrentOpen ).find( 'div.pick' ).fadeOut( 400 );
         $( this.CurrentOpen ).find( 'div.view' ).css( 'opacity', 1 );
         this.CurrentOpen = 0;
@@ -26,7 +26,7 @@ var MoodDropdown = {
             }
         }
         this.CurrentOpen = who;
-        $( who ).css( 'overflow', '' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'http://static.zino.gr/phoenix/dropbuttonpushed.png\')';
+        $( who ).css( 'overflow', '' ).find( 'a' )[ 0 ].style.backgroundImage = 'url(\'' + ExcaliburSettings.imagesurl + 'dropbuttonpushed.png\')';
         $( who ).find( 'div.view' ).css( 'opacity', 0.5 );
         $( who ).find( 'div.pick' ).hide();
         $( who ).find( 'div.pick' ).fadeIn( 400 );

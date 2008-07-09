@@ -287,7 +287,7 @@ var pms = {
 	ShowAnimation : function( texttoshow ) {
 		pms.ClearMessages();
 		var loadinggif = document.createElement( 'img' );
-		$( loadinggif ).attr( { src : 'http://static.zino.gr/images/ajax-loader.gif' , alt : texttoshow , title : texttoshow } );
+		$( loadinggif ).attr( { src : ExcaliburSettings.imagesurl + 'ajax-loader.gif' , alt : texttoshow , title : texttoshow } );
 		var loadingtext = document.createTextNode( ' ' + texttoshow );
 		$( pms.messagescontainer ).append( loadinggif ).append( loadingtext );
 	}

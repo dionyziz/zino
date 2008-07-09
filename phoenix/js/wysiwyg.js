@@ -37,13 +37,13 @@ var WYSIWYG = {
             // youtube
             var match = /v\=([a-zA-Z0-9_-]+)/.exec( userstring );
             if ( match !== null && match.length == 2 ) { // youtube video
-                WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
+                WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?v=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
             }
             else {
                 // veoh
                 match = /v([a-zA-Z0-9_-]+)/.exec( userstring );
                 if ( match !== null && match.length ==2 ) { // veoh video
-                    WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="http://static.zino.gr/phoenix/video-placeholder.png?w=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
+                    WYSIWYG.ExecCommand( target, 'inserthtml', '<br /><img src="' + ExcaliburSettings.imagesurl + 'video-placeholder.png?w=' + match[ 1 ] + '" alt="Στη θέση αυτή θα εμφανιστεί το video σου" style="border:1px dotted blue;" /><br />' );
                 }
                 else {
                     alert( 'Το video δεν είναι έγκυρη διεύθυνση του YouTube' );
@@ -64,7 +64,7 @@ var WYSIWYG = {
     InsertFromAlbum: function ( target, albumid, where ) {
         var img = document.createElement( 'img' );
         
-        img.src = 'http://static.zino.gr/phoenix/ajax-loader.gif';
+        img.src = ExcaliburSettings.imagesurl + 'ajax-loader.gif';
         img.alt = 'Φόρτωση...';
 
         $( where ).parents( 'div.albumlist' ).parents( 'form' ).find( 'div.photolist' ).empty().append( img );
