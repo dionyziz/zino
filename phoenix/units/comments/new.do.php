@@ -23,8 +23,15 @@
 		$compage = $compage->Get();
 		$type = $type->Get();
 		
+
 		$comment = New Comment();
-		$comment->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
+		$text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
+        if ( strlen( $text ) > 1048576 ) { // strlen() is significant here; do not use mb_substr
+            // if comment is bigger than a megabyte
+            // drop it
+            return;
+        }
+        $comment->Text = $text;
 		$comment->Userid = $user->Id;
 		$comment->Parentid = $parent;
 		$comment->Typeid = $type;
