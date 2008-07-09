@@ -107,6 +107,13 @@ var Comments = {
 					Comments.Create( nodeid );
 					return false;
 				} ;
+		//-----------------------------
+		if ( !$.browser.msie ) {
+			var wid = temp.find( "div.text" ).css( "width" );
+			var indent = parseInt( $( "#comment_" + nodeid ).css( "paddingLeft" ), 10 );
+			temp.find( "div.text" ).css( "width", wid-indent+'px' );
+		}
+		//-----------------------------
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 		temp.find( "div.text textarea" ).get( 0 ).focus();
 	},
