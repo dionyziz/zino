@@ -140,8 +140,7 @@
                     )
                 GROUP BY
                     `event_typeid`,
-                    `event_userid`,
-                    `event_inprofile`
+                    `event_userid`
                 LIMIT
                     :offset, :limit;'
             );
@@ -355,13 +354,6 @@
                     $notif->Save();
                     break;
             }
-        }
-        protected function OnBeforeCreate() {
-            $types = Event_TypesByModel( 'USERPROFILE' );
-            $mintypeid = $types[ 0 ];
-            $maxtypeid = $types[ count( $types ) - 1 ];
-
-            $this->Inprofile = ( ( $this->Typeid > $mintypeid ) && ( $this->Typeid < $maxtypeid ) );
         }
         protected function OnBeforeUpdate() {
             throw New Exception( 'Events cannot be updated' );
