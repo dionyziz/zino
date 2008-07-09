@@ -27,7 +27,7 @@ var Comments = {
             return false;
         };
 		del.title = "Διαγραφή";
-		del.style.marginRight = (parentid===0)?0:indent*20+'px';
+		del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
