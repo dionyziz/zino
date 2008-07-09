@@ -44,7 +44,7 @@ var Comments = {
 			kimeno.css( "width", wid-indent*20+'px' );
 		}
 		//----------------------
-		
+
 		var useros = temp.find( "div.who" ).get( 0 );
 		useros.removeChild( useros.lastChild );
 		useros.appendChild( document.createTextNode( " είπε:" ) );
@@ -192,6 +192,7 @@ var Comments = {
 				return false;
 			};
 		a.title = "Διαγραφή";
+		a.style.marginRight = parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) + 'px';
 		
 		$( '#comment_' + parentid + " div.toolbox" ).append( a );
 	},
