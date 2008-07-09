@@ -109,8 +109,8 @@ var Comments = {
 				} ;
 		//-----------------------------
 		if ( !$.browser.msie ) {
-			var wid = temp.find( "div.text textarea" ).css( "width" );
-			var indent = temp.css( "marginLeft" );
+			var wid = parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
+			var indent = parseInt( temp.css( "marginLeft" ), 10 );
 			temp.find( "div.text textarea" ).css( "width", wid-indent+'px' );
 		}
 		//-----------------------------
