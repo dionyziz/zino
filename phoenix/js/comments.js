@@ -113,8 +113,7 @@ var Comments = {
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		if ( !$.browser.msie ) {
 			var wid = parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
-			var indent = parseInt( temp.css( "marginLeft" ), 10 );
-			temp.find( "div.text textarea" ).css( "width", wid-indent+'px' );
+			temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
 		}
 		//-----------------------------
 	},
