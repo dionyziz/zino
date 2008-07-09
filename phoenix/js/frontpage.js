@@ -27,7 +27,7 @@ $( document ).ready( function() {
 		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
 			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
-			if ( $.trim( text ) == '' ) {
+			if ( $.trim( text ) === '' ) {
 				
 				alert( 'Δε μπορείς να δημοσιεύσεις κενό μήνυμα' );
 				$( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value = '';
