@@ -110,7 +110,7 @@ var Comments = {
 
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 		temp.find( "div.text textarea" ).get( 0 ).focus();
-		//-----------------------------
+		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
 		if ( !$.browser.msie ) {
 			var wid = parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
 			var indent = parseInt( temp.css( "marginLeft" ), 10 );
