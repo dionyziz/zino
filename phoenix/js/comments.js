@@ -109,9 +109,9 @@ var Comments = {
 				} ;
 		//-----------------------------
 		if ( !$.browser.msie ) {
-			var wid = temp.find( "div.text" ).css( "width" );
+			var wid = temp.find( "div.text textarea" ).css( "width" );
 			var indent = parseInt( $( "#comment_" + nodeid ).css( "paddingLeft" ), 10 );
-			temp.find( "div.text" ).css( "width", wid-indent+'px' );
+			temp.find( "div.text textarea" ).css( "width", wid-indent+'px' );
 		}
 		//-----------------------------
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
