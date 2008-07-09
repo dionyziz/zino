@@ -107,6 +107,9 @@ var Comments = {
 					Comments.Create( nodeid );
 					return false;
 				} ;
+
+		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
+		temp.find( "div.text textarea" ).get( 0 ).focus();
 		//-----------------------------
 		if ( !$.browser.msie ) {
 			var wid = parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
@@ -114,8 +117,6 @@ var Comments = {
 			temp.find( "div.text textarea" ).css( "width", wid-indent+'px' );
 		}
 		//-----------------------------
-		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
-		temp.find( "div.text textarea" ).get( 0 ).focus();
 	},
 	Edit : function( nodeid ) {
 		var node = $( "#comment_" + nodeid );
