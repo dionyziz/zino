@@ -20,13 +20,14 @@ var Comments = {
 			};
 		a.appendChild( document.createTextNode( "Απάντησε" ) );
 		
+		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
             return false;
         };
 		del.title = "Διαγραφή";
-		
-		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) / 20;
+		del.style.marginRight = (parentid===0)?0:indent*20+'px';
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
