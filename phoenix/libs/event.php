@@ -142,7 +142,6 @@
                     `event_typeid`,
                     `event_userid`,
                     `event_inprofile`
-                    )
                 LIMIT
                     :offset, :limit;'
             );
