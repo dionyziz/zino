@@ -194,7 +194,7 @@ var Comments = {
 		a.title = "Διαγραφή";
 		a.style.marginRight = parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 ) + 'px';
 		
-		$( '#comment_' + parentid + " div.toolbox" ).append( a );
+		$( '#comment_' + parentid + " div.toolbox" ).find( "span" ).css( "marginRight", 0 ).end().append( a );
 	},
 	FixCommentsNumber : function( type, inc ) {
 		if ( type != 2 && type != 4 ) { // If !Image or Journal
