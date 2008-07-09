@@ -128,24 +128,26 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
-                    `event_typeid` != :commentevent
+                    `event_id` IN (
+                        SELECT
+                            `event_id`
+                        FROM
+                            :events
+                        WHERE
+                            `event_typeid` != :commentevent
+                        ORDER BY
+                            `event_id` DESC
+                    )
                 GROUP BY
-                    ( `event_typeid` < :mintypeid OR `event_typeid` > :maxtypeid ) * `event_id`,
+                    `event_typeid`,
                     `event_userid`,
-                    `event_typeid`
-                ORDER BY
-                    `event_id` DESC
+                    `event_inprofile`
+                    )
                 LIMIT
                     :offset, :limit;'
             );
 
-            $types = Event_TypesByModel( 'USERPROFILE' );
-            $mintypeid = $types[ 0 ];
-            $maxtypeid = $types[ count( $types ) - 1 ];
-
             $query->BindTable( 'events', 'users', 'images' );
-            $query->Bind( 'mintypeid', $mintypeid );
-            $query->Bind( 'maxtypeid', $maxtypeid );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
             // $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
@@ -354,6 +356,13 @@
                     $notif->Save();
                     break;
             }
+        }
+        protected function OnBeforeCreate() {
+            $types = Event_TypesByModel( 'USERPROFILE' );
+            $mintypeid = $types[ 0 ];
+            $maxtypeid = $types[ count( $types ) - 1 ];
+
+            $this->Inprofile = ( ( $this->Typeid > $mintypeid ) && ( $this->Typeid < $maxtypeid ) );
         }
         protected function OnBeforeUpdate() {
             throw New Exception( 'Events cannot be updated' );
