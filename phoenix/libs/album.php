@@ -135,6 +135,13 @@
             if ( $this->Mainimageid == 0 ) {
                 $this->Mainimageid = $image->Id;
             }
+            $frontpage = New FrontpageImage( $image->Userid );
+            if ( !$frontpage->Exists() ) {
+                $frontpage = New FrontpageImage();
+                $frontpage->Userid = $image->Userid;
+            }
+            $frontpage->Imageid = $image->Id;
+            $frontpage->Save();
             $this->Save();
         }
         public function ImageDeleted( Image $image ) {
@@ -148,6 +155,20 @@
                 }
                 else {
                     $this->Mainimageid = 0;
+                }
+            }
+            $frontpage = New FrontpageImage( $image->Userid );
+            if ( $frontpage->Exists() ) {
+                if ( $frontpage->Imageid == $image->Id ) {
+                    $finder = New ImageFinder();
+                    $oldimage = $finder->FindByUser( $image->User, 0, 1 );
+                    if ( $oldimage === false ) {
+                        $frontpage->Delete();
+                    }
+                    else {
+                        $frontpage->Imageid = $oldimage->Id;
+                        $frontpage->Save();
+                    }
                 }
             }
             $this->Save();
