@@ -14,7 +14,7 @@
 				}
 			?></div>
         <div class="eof"></div>
-		<div class="more"><a href="?p=comments/recent" class="button">Όλα τα σχόλια&raquo;</a></div>
+		<div class="more"><a href="comments" class="button">Όλα τα σχόλια&raquo;</a></div>
 		</div><?php
 	
 	}
