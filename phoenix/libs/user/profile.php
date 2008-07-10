@@ -167,7 +167,9 @@
                     $event->Userid = $this->Userid;
                     $event->Save();
                 }
-                else if ( isset( $updatedAttributes[ $attribute ] ) ) {
+                if ( isset( $updatedAttributes[ $attribute ] ) ) {
+                    // if the attribute has change, delete the old value
+                    // whether it has an empty value or not
                     $finder->DeleteByUserAndType( $this->User, $typeid );
                 }
             }

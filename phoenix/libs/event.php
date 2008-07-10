@@ -128,19 +128,9 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
-                    `event_id` IN (
-                        SELECT
-                            `event_id`
-                        FROM
-                            :events
-                        WHERE
-                            `event_typeid` != :commentevent
-                        ORDER BY
-                            `event_id` DESC
-                    )
-                GROUP BY
-                    `event_typeid`,
-                    `event_userid`
+                    `event_typeid` != :commentevent
+                ORDER BY
+                    `event_id` DESC
                 LIMIT
                     :offset, :limit;'
             );

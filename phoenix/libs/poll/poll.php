@@ -86,6 +86,9 @@
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
+
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
         }
         public function UndoDelete() {
             $this->Delid = 0;
