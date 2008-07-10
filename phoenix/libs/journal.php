@@ -40,9 +40,6 @@
                 return htmlspecialchars( $text );
             }
         }
-		public function SetText( $text ) {
-			$this->Bulk->Text = $text;
-		}
         public function OnBeforeCreate() {
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
