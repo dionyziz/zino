@@ -173,7 +173,7 @@
             }
 
             $relation = $finder->IsFriend( $this->mUser, $this->mUser2 );
-            $this->Assert( $relation instanceof FriendRelation, 'IsFriend did not return a FriendRelation instance' );
+            $this->Assert( $relation == FRIENDS_A_HAS_B, 'IsFriend did not return right result' );
             
             $relation1->Delete();
             $relation2->Delete();

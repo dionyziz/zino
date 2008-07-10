@@ -18,7 +18,7 @@
         ?> <?php
         echo $from->Name;
         ?> σε πρόσθεσε <?php
-        if ( $relationfinder->IsFriend( $from, $notification->ToUser ) | FRIENDS_BOTH == FRIENDS_BOTH ) {
+        if ( $relationfinder->IsFriend( $from, $notification->ToUser ) == FRIENDS_BOTH ) {
             ?>και <?php
             if ( $from->Gender == 'f' ) {
                 ?>αυτή<?php

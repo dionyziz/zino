@@ -13,7 +13,7 @@
 				Element( 'user/profile/sidebar/mood' , $theuser );
 				if ( $user->Id != $theuser->Id && $user->Exists() ) {
 					$finder = New FriendRelationFinder();
-					$res = $finder->IsFriend( $user , $theuser );
+					$res = $finder->FindFriendship( $user , $theuser );
 					if ( !$res ) {
 						?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
 						echo $theuser->Id;

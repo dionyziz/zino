@@ -53,7 +53,6 @@
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function IsFriend( User $a, User $b ) {
-            /*
             $status = FRIENDS_NONE;
 
             $prototype = New FriendRelation();
@@ -71,8 +70,8 @@
             }
 
             return $status;
-            */
-
+        }
+        public function FindFriendship( User $a, User $b ) {
             $prototype = New FriendRelation();
             $prototype->Userid = $a->Id;
             $prototype->Friendid = $b->Id;

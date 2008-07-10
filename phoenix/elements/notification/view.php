@@ -122,7 +122,7 @@
 				}
 				else {
 					$finder = New FriendRelationFinder();
-					$res = $finder->IsFriend( $user , $notif->FromUser );
+					$res = $finder->FindFriendship( $user , $notif->FromUser );
 					if ( !$res ) {
 						?><div class="addfriend" id="addfriend_<?php
                         echo $notif->Fromuserid;
