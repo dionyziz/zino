@@ -53,7 +53,7 @@
                     `event_typeid` = :typeid AND
                     `event_itemid` = :commentid AND
                     `notify_touserid` = :userid
-                LIMIT 1;" );
+                ;" );
 
             $query->BindTable( 'notify', 'events' );
             $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
