@@ -26,6 +26,9 @@
 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+class XMLException extends Exception {
+}
+
 class XMLNode {
     public $attributes; // array key => value
     public $childNodes; // array of XMLNodes or strings
@@ -148,7 +151,6 @@ class XMLParser {
         $current->appendChild( $string );
     }
     public function XMLParser( $xml ) {
-        die( $xml );
         $this->mXML = $xml;
         $this->mNodesQueue = array();
         $this->mError = false;
@@ -191,15 +193,15 @@ class XMLParser {
         xml_parser_free( $this->mNativeParser );
         
         if ( !empty( $this->mError ) ) {
-            $water->Notice( 'XML Parsing Failed: ' . $this->mError );
-            return false;
+            throw New Exception( 'XML Parsing Failed: ' . $this->mError );
         }
         if ( $this->mLastNode === false ) {
-            $water->Notice( 'XML Parsing Failed: No root node specified', $this->mXML );
-            return false;
+            throw New Exception( 'XML Parsing Failed: No root node specified (' . $this->mXML . ')' );
         }
         $water->Trace( 'Parsed XML', $this->mXML );
         
+        die( 'Parsed XML: ' . $this->mXML );
+
         return $this->mLastNode; // return root node (or false if none)
     }
 }
