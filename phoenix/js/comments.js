@@ -111,10 +111,8 @@ var Comments = {
 		temp.insertAfter( '#comment_' + nodeid ).fadeTo( 300, 1 );
 		temp.find( "div.text textarea" ).get( 0 ).focus();
 		//-----------------------------We do not know the width of the element until it is appended. Leave this piece of code here
-		if ( !$.browser.msie ) {
-			var wid = parseInt( temp.find( "div.text textarea" ).css( "width" ), 10 );
-			temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
-		}
+		var wid = ( $.browser.msie )?( temp.find( "div.text textarea" ).get( 0 ).offsetWidth-20 ):parseInt( kimeno.find( "div.text textarea" ).css( "width" ), 10 );
+		temp.find( "div.text textarea" ).css( "width", wid-(indent+1)*20+'px' );
 		//-----------------------------
 	},
 	Edit : function( nodeid ) {
