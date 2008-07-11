@@ -45,6 +45,8 @@
         $sanitizer->SetTextProcessor( 'WYSIWYG_Smileys' );
         $html = $sanitizer->GetXHTML();
         
+        die( $html );
+
         // YouTube support
         $html = preg_replace( 
             '#\<img[^>]*?src\=(["\']?)' 
@@ -63,8 +65,6 @@
             $html
         );
    
-        die( $html );
-
         return $html;
     }
     
