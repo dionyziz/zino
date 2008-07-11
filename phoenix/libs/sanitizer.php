@@ -148,10 +148,10 @@
             
             $water->Trace( 'Sanitizer exited with status ' . $returnvalue );
             
+            die( $ret );
             $parser = New XMLParser( '<body>' . trim( $this->ReduceWhitespace( $ret ) ) . '</body>' );
             $parser->ignoreEmptyTextNodes( false );
             $body = $parser->Parse();
-            die( var_dump( $body ) );
             
             if ( $body === false ) {
                 return '';
