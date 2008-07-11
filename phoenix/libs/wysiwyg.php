@@ -23,8 +23,6 @@
     function WYSIWYG_PostProcess( $html ) {
         global $xhtmlsanitizer_goodtags, $rabbit_settings;
 
-        die( $html );
-
         $sanitizer = New XHTMLSanitizer();
 
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
@@ -65,6 +63,8 @@
             $html
         );
    
+        die( $html );
+
         return $html;
     }
     
