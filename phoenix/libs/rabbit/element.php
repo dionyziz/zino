@@ -93,9 +93,10 @@
                 $elementid = $master;
             }
             
-            $functionname = $this->GetFunction( $elementid );
-            $this->mWater->Profile( 'Render Element ' . $elementid );
-            $ret = Rabbit_TypeSafe_Call( $functionname , $this->mMainReq );
+            $classname = $this->GetClass( $elementid );
+            $element = New $classname();
+            $this->mWater->Profile( 'Render Master Element ' . $elementid );
+            $ret = Rabbit_TypeSafe_Call( array( $element, 'Render' ), $this->mMainReq );
             $this->mWater->ProfileEnd();
             
             if ( $ret === false ) { // boolean `false' should only be returned when the element does not exist

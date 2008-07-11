@@ -207,13 +207,29 @@
 
     function Rabbit_TypeSafe_Call( $function , $req ) {
         w_assert( is_array( $req ) );
+
+        $basetype = New ReflectionClass( 'tBaseType' );
         
         // reflect!
-        $basetype = New ReflectionClass( 'tBaseType' );
-        $func = New ReflectionFunction( $function );
+        if ( is_array( $function ) ) {
+            // if $function is a class name and a method name...
+            w_assert( is_array( $function ) );
+
+            $obj = $function[ 0 ];
+            $class = get_class( $function[ 0 ] );
+            $method = $function[ 1 ];
+
+            $refl = New ReflectionClass( $class );
+            $func = $refl->getMethod( $method );
+        }
+        else {
+            // if $function is a simple function...
+            $func = New ReflectionFunction( $function );
+        }
+
         $params = array();
         
-        foreach ( $func->GetParameters() as $i => $parameter ) {
+        foreach ( $func->getParameters() as $i => $parameter ) {
             $paramname = $parameter->getName();
             $paramclass = $parameter->getClass();
             if ( !is_object( $paramclass ) ) {
@@ -232,7 +248,10 @@
             }
         }
 
-        
+        if ( isset( $method ) ) {
+            return $method->invokeArgs( $obj, $params );
+        }
+
         return call_user_func_array( $function , $params );
     }
 ?>
