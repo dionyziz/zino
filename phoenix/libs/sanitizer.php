@@ -118,8 +118,6 @@
             
             $source = $this->RemoveComments( $source );
 
-            die( $source );
-
             $descriptors = array(
                 0 => array( "pipe", "r" ),
                 1 => array( "pipe", "w" ),
@@ -153,7 +151,7 @@
             $parser = New XMLParser( '<body>' . trim( $this->ReduceWhitespace( $ret ) ) . '</body>' );
             $parser->ignoreEmptyTextNodes( false );
             $body = $parser->Parse();
-            // die( var_dump( $body ) );
+            die( var_dump( $body ) );
             
             if ( $body === false ) {
                 return '';
