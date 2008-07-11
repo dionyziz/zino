@@ -67,11 +67,7 @@ var Comments = {
 										type : type,
 										node : temp, 
 										callback : Comments.NewCommentCallback
-									}, function() {
-                                        alert( "Υπήρχε ένα πρόβλημα με την δημιουργία σχολίου, παρακαλώ προσπάθησε ξανά" );
-                                        window.location.reload();
-                                    }
-        );
+									} );
 	},
 	NewCommentCallback : function( node, id, parentid, newtext ) {
 		if ( parentid !== 0 ) {
@@ -146,10 +142,7 @@ var Comments = {
 					.find( "div.bottom" ).css( 'display', 'block' );
 					Coala.Warm( 'comments/edit', {	id : daddy.attr( 'id' ).substring( 8 ),
 													text : texter
-												}, function() {
-													alert( "Υπήρχε ένα πρόβλημα με την επεξεργασία σχολίου, παρακαλώ προσπάθησε ξανά" );
-													window.location.reload();
-											} );
+												} );
 				};
 			
 		var input2 = document.createElement( 'input' );
@@ -177,9 +170,7 @@ var Comments = {
 		node.fadeOut( 450, function() { $( this ).remove(); } );
 		Comments.FixCommentsNumber( node.find( "#type:first" ).text(), false );
 		Coala.Warm( 'comments/delete', { commentid : nodeid, 
-										callback : Comments.DeleteCommentCallback }, function() {
-									alert( 'Υπήρχε κάποιο πρόβλημα με την διαγραφή σχολίου, παρακαλώ προσπαθήστε ξανά' );
-									window.location.reload();
+										callback : Comments.DeleteCommentCallback
 							} );
 	},
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
