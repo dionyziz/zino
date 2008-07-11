@@ -37,9 +37,9 @@ var Comments = {
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		//---------------------
-		if ( parentid !== 0 && !$.browser.msie ) {
+		if ( parentid !== 0 ) {
 			var kimeno = temp.find( "div.text" );
-			var wid = parseInt( kimeno.css( "width" ), 10 );
+			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
 			kimeno.css( "width", wid-indent*20+'px' );
 		}
 		//----------------------
@@ -226,11 +226,9 @@ $( document ).ready( function() {
 			var id = $( this ).attr( 'id' ).substring( 8 );
 			var indent = parseInt( $( this ).css( 'paddingLeft' ), 10 )/20;
 			//---------------------
-			if ( ! $.browser.msie ) {
-				var kimeno = $( this ).find( "div.text" );
-				var wid = parseInt( kimeno.css( "width" ), 10 );
-				kimeno.css( "width", wid-indent*20+'px' );
-			}
+			var kimeno = $( this ).find( "div.text" );
+			var wid = ( $.browser.msie )?( kimeno.get( 0 ).offsetWidth-20 ):parseInt( kimeno.css( "width" ), 10 );
+			kimeno.css( "width", wid-indent*20+'px' );
 			//----------------------
 			$( this ).find( "div.bottom a" ).unbind( "click" ).toggle( function() {
 					Comments.Reply( id, indent );
