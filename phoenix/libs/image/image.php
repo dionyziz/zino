@@ -314,6 +314,9 @@
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
+
+            $finder = New EventFinder();
+            $finder->DeleteByEntity( $this );
         }
         protected function OnUndelete() {
             if ( $this->Albumid ) {
