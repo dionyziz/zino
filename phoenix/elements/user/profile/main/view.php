@@ -25,7 +25,7 @@
                 $pageno = $comments[ 1 ];
                 $comments = $comments[ 2 ];
                 $finder = New NotificationFinder();
-                $notification->DeleteByCommentAndUser( $speccomment, $user );
+                $finder->DeleteByCommentAndUser( $speccomment, $user );
             }
         // }
         }
