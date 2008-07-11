@@ -23,6 +23,8 @@
     function WYSIWYG_PostProcess( $html ) {
         global $xhtmlsanitizer_goodtags, $rabbit_settings;
 
+        $html = str_replace( '&nbsp;', ' ', $html );
+
         $sanitizer = New XHTMLSanitizer();
 
         foreach ( $xhtmlsanitizer_goodtags as $tag => $attributes ) {
