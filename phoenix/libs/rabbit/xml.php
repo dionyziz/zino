@@ -200,8 +200,6 @@ class XMLParser {
         }
         $water->Trace( 'Parsed XML', $this->mXML );
         
-        die( 'Parsed XML: ' . $this->mXML );
-
         return $this->mLastNode; // return root node (or false if none)
     }
 }
