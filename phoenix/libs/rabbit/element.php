@@ -1,4 +1,10 @@
 <?php
+    abstract class Element {
+        public final function __construct() {
+        }
+        abstract public function Render();
+    }
+
 	final class Elemental {
 		private $mLastElement;
 		private $mIncluded;
@@ -45,26 +51,26 @@
 			}
             return true;
         }
-        public function GetFunction( $elementpath ) {
+        public function GetClass( $elementpath ) {
             $this->IncludeFile( $elementpath );
-			$functionname = 'Element' . str_replace( '/' , '' , $elementpath );
-			if ( function_exists( $functionname ) ) {
-                return $functionname;
+			$classname = 'Element' . str_replace( '/' , '' , $elementpath );
+			if ( class_exists( $classname ) ) {
+                return $classname;
             }
-            $functions = get_defined_functions();
-            $functions = $functions[ 'user' ];
-            throw New Exception( 'Element is not functional: ' . $elementpath . '; expected function "' . $functionname . '" (last defined: "' . $functions[ count( $functions ) - 1 ] . '")' );
+            $classes = get_declared_classes();
+            throw New Exception( 'Element class not defined for element ' . $elementpath . '; expected class "' . $classname . '" (last defined: "' . $classes[ count( $classes ) - 1 ] . '")' );
         }
         public function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
 	        w_assert( func_num_args() );
 	        $args = func_get_args();
 	        $elementpath = array_shift( $args );
-			$functionname = $this->GetFunction( $elementpath );
-            if ( $functionname === false ) {
+			$classname = $this->GetClass( $elementpath );
+            if ( $classname === false ) {
                 return false;
             }
             $this->mWater->Profile( 'Render Element ' . $elementpath );
-            $ret = call_user_func_array( $functionname , $args );
+            $element = New $classname();
+            $ret = call_user_func_array( array( $element, 'Render' ), $args );
             $this->mWater->ProfileEnd();
             
 			return $ret;
