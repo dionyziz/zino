@@ -18,8 +18,8 @@
 
         $libs->Load( 'rabbit/helpers/validate' );
 
-        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#", $toname ) );
-        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#", $fromname ) );
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $toname ) );
+        w_assert( preg_match( "#^[a-z0-9_.!\\/*() -]*+$#i", $fromname ) );
         w_assert( ValidEmail( $toemail ) );
         w_assert( ValidEmail( $fromemail ) );
 
