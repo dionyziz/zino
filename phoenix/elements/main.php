@@ -13,7 +13,7 @@
 		//start javascript attaching
 		$page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
 		$page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
-        $page->AttachScript( 'js/comments.js' ); // TODO!
+        //$page->AttachScript( 'js/comments.js' ); // TODO!
         
         $page->AddMeta( 'author', 'Kamibu Development Team' );
         $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );
