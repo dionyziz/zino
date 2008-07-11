@@ -148,6 +148,7 @@ class XMLParser {
         $current->appendChild( $string );
     }
     public function XMLParser( $xml ) {
+        die( $xml );
         $this->mXML = $xml;
         $this->mNodesQueue = array();
         $this->mError = false;
