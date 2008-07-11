@@ -128,7 +128,8 @@
                     LEFT JOIN :images ON
                         `user_avatarid` = `image_id`
                 WHERE
-                    `event_typeid` != :commentevent
+                    `event_typeid` != :commentevent AND
+                    `event_typeid` != :relationevent
                 ORDER BY
                     `event_id` DESC
                 LIMIT
@@ -137,7 +138,7 @@
 
             $query->BindTable( 'events', 'users', 'images' );
             $query->Bind( 'commentevent', EVENT_COMMENT_CREATED );
-            // $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
+            $query->Bind( 'relationevent', EVENT_FRIENDRELATION_CREATED );
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
