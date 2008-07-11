@@ -455,10 +455,6 @@
             global $mc;
             $libs->Load( 'event' );
             
-            if ( $this->Parentid > 0 ) {
-                $this->Parent->Numchildren -= 1;
-            }
-            
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
@@ -496,13 +492,6 @@
             else {
                 $this->Item->OnCommentCreate();
             }
-            
-            /*
-            if ( $this->Parentid > 0 ) {
-                $this->Parent->Numchildren += 1;
-                $this->Parent->Save();
-            }
-            */
 
             $event = New Event();
             $event->Typeid = EVENT_COMMENT_CREATED;
@@ -512,6 +501,9 @@
             $event->Save();
 
             Comment_RegenerateMemcache( $this->Item );
+
+            $finder = New NotificationFinder();
+            $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
         }
         public function OnUpdate() {
             /* 

@@ -54,10 +54,7 @@
                                     $pageno = $comments[ 1 ];
                                     $comments = $comments[ 2 ];
                                     $finder = New NotificationFinder();
-                                    $notification = $finder->FindByComment( $speccomment );
-                                    if ( $notification ) {
-                                        $notification->Delete();
-                                    }
+                                    $finder->DeleteByCommentAndUser( $speccomment, $user );
                                 }
                                 Element( 'comment/list' , $comments );
                                 ?><div class="pagifycomments"><?php

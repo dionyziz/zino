@@ -40,6 +40,28 @@
 
             return $ret;
         }
+        public function DeleteByCommentAndUser( Comment $comment, User $user ) {
+            $query = $this->mDb->Prepare( "
+                DELETE
+                FROM
+                    :notify
+                USING
+                    :notify 
+                    RIGHT JOIN :events ON
+                        `notify_eventid` = `event_id`
+                WHERE
+                    `event_typeid` = :typeid AND
+                    `event_itemid` = :commentid AND
+                    `notify_touserid` = :userid
+                LIMIT 1;" );
+
+            $query->BindTable( 'notify', 'events' );
+            $query->Bind( 'typeid', EVENT_COMMENT_CREATED );
+            $query->Bind( 'commentid', $comment->Id );
+            $query->Bind( 'userid', $user->Id );
+
+            return $query->Execute()->Impact();
+        }
         public function FindByComment( Comment $comment ) {
             global $water; 
 
