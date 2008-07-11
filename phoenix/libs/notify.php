@@ -146,6 +146,9 @@
         }
         public function Email() {
             global $rabbit_settings;
+            global $libs;
+
+            $libs->Load( 'rabbit/helpers/email' );
             
             switch ( $this->Event->Typeid ) {
                 case EVENT_COMMENT_CREATED:
@@ -160,7 +163,7 @@
             $message = ob_get_clean();
 
             // send an email
-            mail( $this->ToUser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
+            Email( $this->ToUser->Profile->Email, $subject, $message, 'From: ' . $rabbit_settings[ 'applicationname' ] . ' <noreply@' . $rabbit_settings[ 'hostname' ] . ">\r\nReply-to: noreply <noreply@" . $rabbit_settings[ 'hostname' ] . '>' );
         }
         public function OnBeforeCreate() {
             global $water;
