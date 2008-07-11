@@ -140,10 +140,11 @@
 			$typeids = array( EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
 			$itemids = array( $this->mUser->Id, $this->mUser2->Id, $this->mUser->Id );
             $userids = array( $this->mUser2->Id, $this->mUser2->Id, $this->mUser->Id );
-            foreach ( $events as $key => $e ) {
-                $this->AssertEquals( $typeids[ $key ], $e->Typeid, 'Wrong typeid' );
-                $this->AssertEquals( $itemids[ $key ], $e->Itemid, 'Wrong itemid' );
-                $this->AssertEquals( $userids[ $key ], $e->Userid, 'Wrong userid' );
+            for ( $i = 0; $i < count( $events ); ++$i ) {
+                $e = $events[ $i ];
+                $this->AssertEquals( $typeids[ $i ], $e->Typeid, 'Wrong typeid' );
+                $this->AssertEquals( $itemids[ $i ], $e->Itemid, 'Wrong itemid' );
+                $this->AssertEquals( $userids[ $i ], $e->Userid, 'Wrong userid' );
             }
 
             $event->Delete();
