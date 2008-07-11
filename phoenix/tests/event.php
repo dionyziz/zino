@@ -106,7 +106,7 @@
 			$finder = New EventFinder();
 			$events = $finder->FindByUser( $this->mUser );
 			$this->Assert( is_array( $events ), 'FindByUser did not return an array' );
-			$this->AssertEquals( 3, count( $events ), 'FindByUser did not return right number of events' ); // 3 here + user created
+			$this->AssertEquals( 4, count( $events ), 'FindByUser did not return right number of events' ); // 3 here + user created
 
 			$typeids = array( EVENT_USER_CREATED, EVENT_USERPROFILE_VISITED, EVENT_USERPROFILE_UPDATED, EVENT_USERPROFILE_MOOD_UPDATED );
             $itemids = array( $this->mUser->Id, $this->mUser->Id, $this->mUser->Id, $this->mUser->Id );
