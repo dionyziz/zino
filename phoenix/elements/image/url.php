@@ -6,6 +6,9 @@
         public function Render( $cacheid, Image $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
             global $xc_settings, $rabbit_settings;
 
+            if ( !is_object( $image ) ) {
+                throw New Exception( 'ImageURL must be called with  aanimge argument' );
+            }
             if ( $image->IsDeleted() ) {
                 return;
             }
