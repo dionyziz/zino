@@ -249,7 +249,7 @@
         }
 
         if ( isset( $method ) ) {
-            return $method->invokeArgs( $obj, $params );
+            return $func->invokeArgs( $obj, $params );
         }
 
         return call_user_func_array( $function , $params );
