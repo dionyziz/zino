@@ -2,7 +2,6 @@
     abstract class Element {
         public final function __construct() {
         }
-        abstract public function Render();
     }
 
 	final class Elemental {
