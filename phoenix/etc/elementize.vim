@@ -1,3 +1,4 @@
 GDgg/Render
-jVG>
+jVG>G
+:execute "normal I\<backspace>\<esc>"
 :wq

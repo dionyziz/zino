@@ -1,5 +1,7 @@
 <?php
-    function ElementDeveloperDionyzizWater() {
-        echo $_SERVER[ 'REMOTE_ADDR' ];
+    class ElementDeveloperDionyzizWater extends Element {
+        public function Render() {
+            echo $_SERVER[ 'REMOTE_ADDR' ];
+        }
     }
 ?>

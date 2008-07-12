@@ -1,8 +1,10 @@
 <?php
 	
-	function ElementUserTrivialPlace( $place ) {
-		if ( $place->Exists() ) {
-			echo htmlspecialchars( $place->Name );
-		}
-	}
+	class ElementUserTrivialPlace extends Element {
+        public function Render( $place ) {
+            if ( $place->Exists() ) {
+                echo htmlspecialchars( $place->Name );
+            }
+        }
+    }
 ?>

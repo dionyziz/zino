@@ -1,14 +1,16 @@
 <?php
 	
-	function ElementUserSubdomain( $theuser ) {
-	    if ( !is_object( $theuser ) ) {
-            return;
+	class ElementUserSubdomain extends Element {
+        public function Render( $theuser ) {
+            if ( !is_object( $theuser ) ) {
+                return;
+            }
+            if ( !( $theuser instanceof User ) ) {
+                return;
+            }
+            if ( $theuser->Subdomain != '' ) {
+                echo htmlspecialchars( $theuser->Subdomain );
+            }
         }
-        if ( !( $theuser instanceof User ) ) {
-            return;
-        }
-        if ( $theuser->Subdomain != '' ) {
-            echo htmlspecialchars( $theuser->Subdomain );
-        }
-	}
+    }
 ?>
