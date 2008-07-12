@@ -35,7 +35,7 @@
                 }
             }
             ?><img src="<?php
-            Element( 'image/url', $image->Id, $image, $type );
+            Element( 'image/url', $image, $type );
             ?>"<?php
             if ( $class != "" ) {
                 ?> class="<?php

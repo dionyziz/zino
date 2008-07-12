@@ -1,13 +1,12 @@
 <?php
     // Content-type: text/plain
     class ElementImageURL extends Element {
-        protected $mPersistent = array( 'cacheid', 'type' );
-
-        public function Render( $cacheid, Image $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
+        public function Render( $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
             global $xc_settings, $rabbit_settings;
 
             if ( !is_object( $image ) ) {
-                throw New Exception( 'ImageURL must be called with  aanimge argument' );
+                echo $xc_settings[ 'staticimagesurl' ] . $image;
+                return;
             }
             if ( $image->IsDeleted() ) {
                 return;
