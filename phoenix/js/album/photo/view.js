@@ -7,9 +7,9 @@ var PhotoView = {
 			var photoname = $( 'div#photoview h2' ).html();
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
-					PhotoView.renameFunc( this, photoid, photoname );
+					PhotoView.renameFunc( this, photoid, photoname, albumname );
 				}
-			} ).blur( function() { PhotoView.renameFunc( this, photoid, photoname ); } );
+			} ).blur( function() { PhotoView.renameFunc( this, photoid, photoname, albumname ); } );
 			$( inputbox )[ 0 ].value = photoname;
 			$( 'div#photoview h2' ).empty().append( inputbox );
 		}
@@ -43,7 +43,7 @@ var PhotoView = {
 			Coala.Warm( 'favourites/add' , { itemid : photoid , typeid : Types.Image } );
 		}	
 	},
-	renameFunc : function( elem, photoid, photoname ) {
+	renameFunc : function( elem, photoid, photoname, albumname ) {
 		var name = elem.value;
 		if ( photoname != name ) {
 			Coala.Warm( 'album/photo/rename' , { photoid : photoid , photoname : name } );
