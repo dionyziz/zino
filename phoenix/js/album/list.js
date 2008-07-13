@@ -5,9 +5,9 @@ var AlbumList = {
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-
+				AlbumList.renameFunc( this, newalbum );
 			}
-		} );
+		} ).blur( function() { AlbumList.renameFunc( this, newalbum ); } );
 		setTimeout( function() {
 			$( newalbum ).show( 400 , function() {
 				$( 'span.desc input' )[ 0 ].focus();
@@ -37,13 +37,13 @@ var AlbumList = {
 		} );
 		$( 'li.create' ).empty().append( link );
 	},
-	renameFunc : function() {
+	renameFunc : function( elem, newalbum ) {
 		var albumname = $( 'span.desc input' )[ 0 ].value;
 		if ( albumname !== '' ) {
 			var spandesc = document.createElement( 'span' );
 			$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
-			$( this ).parent().parent().find( "a" ).append( spandesc );
-			$( this ).parent().remove();
+			$( elem ).parent().parent().find( "a" ).append( spandesc );
+			$( elem ).parent().remove();
 			//$( 'li.create' ).html( $( 'div.creating' ).html() );
 			document.body.style.cursor = 'wait';
 			Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
