@@ -52,7 +52,6 @@ var PhotoList = {
 	},
 	renameFunc : function( elem, albumid, albumname ) {
 		var name = elem.value;
-		//$( this )[ 0 ].value;
 		if ( albumname != name && name !== '' ) {
 			window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
 			Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
