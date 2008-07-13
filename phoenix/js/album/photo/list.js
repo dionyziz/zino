@@ -15,17 +15,9 @@ var PhotoList = {
 			var albumname = $( 'div#photolist h2' ).html();
 			$( inputbox ).attr( { 'type' : 'text' } ).css( 'width' , '200px' ).keydown( function( event ) {
 				if ( event.keyCode == 13 ) {
-					var name = $( this )[ 0 ].value;
-					if ( albumname != name && name !== '' ) {
-						window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
-						Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
-					}
-					if ( name!== '' ) {
-						$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
-					}
-					PhotoList.renaming = false;
+					PhotoList.renameFunc( this, albumid, albumname );
 				}
-			} );
+			} ).blur( function() { PhotoList.renameFunc( this, albumid, albumname ); } );
 			$( inputbox )[ 0 ].value = albumname;
 			$( 'div#photolist h2' ).empty().append( inputbox );
 		}
@@ -57,6 +49,18 @@ var PhotoList = {
 			var text = document.createTextNode( photonum );
 			$( 'div#photolist dl dt.photonum' ).empty().append( text );
 		}
+	},
+	renameFunc : function( elem, albumid, albumname ) {
+		var name = elem.value;
+		//$( this )[ 0 ].value;
+		if ( albumname != name && name !== '' ) {
+			window.document.title = name + ' | ' + ExcaliburSettings.applicationname;
+			Coala.Warm( 'album/rename' , { albumid : albumid , albumname : name } );
+		}
+		if ( name!== '' ) {
+			$( 'div#photolist h2' ).empty().append( document.createTextNode( name ) );
+		}
+		PhotoList.renaming = false;
 	}
 };
 $( document ).ready( function() {
