@@ -5,16 +5,7 @@ var AlbumList = {
 		$( 'ul.albums' )[ 0 ].insertBefore( newalbum , $( 'li.create' )[ 0 ] );
 		$( 'span.desc input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
-				var albumname = $( 'span.desc input' )[ 0 ].value;
-				if ( albumname !== '' ) {
-					var spandesc = document.createElement( 'span' );
-					$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
-					$( this ).parent().parent().find( "a" ).append( spandesc );
-					$( this ).parent().remove();
-					//$( 'li.create' ).html( $( 'div.creating' ).html() );
-					document.body.style.cursor = 'wait';
-					Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
-				}
+
 			}
 		} );
 		setTimeout( function() {
@@ -45,6 +36,18 @@ var AlbumList = {
 			return false;
 		} );
 		$( 'li.create' ).empty().append( link );
+	},
+	renameFunc : function() {
+		var albumname = $( 'span.desc input' )[ 0 ].value;
+		if ( albumname !== '' ) {
+			var spandesc = document.createElement( 'span' );
+			$( spandesc ).append( document.createTextNode( albumname ) ).addClass( "desc" );
+			$( this ).parent().parent().find( "a" ).append( spandesc );
+			$( this ).parent().remove();
+			//$( 'li.create' ).html( $( 'div.creating' ).html() );
+			document.body.style.cursor = 'wait';
+			Coala.Warm( 'album/create' , { albumname : albumname , albumnode : newalbum } );
+		}
 	}
 };
 $( document ).ready( function() {
