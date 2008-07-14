@@ -4,10 +4,15 @@
 		global $user;
 		
 		$libs->Load( 'tag' );
-		$text = $text->Get();
+		$text = trim( $text->Get() );
 		
 		if ( !$user->Exists() ) {
 			?>alert( "Πρέπει να είσαι συνδεδεμένος για να αλλάξεις τα ενδιαφέροντά σου" );
+			window.location.reload();<?php
+			return;
+		}
+		if ( $text === '' ) {
+			?>alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
 			window.location.reload();<?php
 			return;
 		}
