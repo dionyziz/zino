@@ -11,7 +11,7 @@
 			window.location.reload();<?php
 			return;
 		}
-		if ( strlen( $text ) > 32 ) {
+		if ( mb_strlen( $text ) > 32 ) {
 			?>alert( "Το κείμενο πρέπει να έχει μήκος λιγότερο από 33 χαρακτήρες" );
 			window.location.reload();<?php
 			return;
