@@ -204,10 +204,6 @@
             $this->Delid = 1;
             $this->Save();
 
-            if ( $this->Albumid ) {
-                $this->Album->ImageDeleted( $this );
-            }
-
             $this->OnDelete();
             
             return false;
@@ -308,7 +304,7 @@
             --$this->User->Count->Images;
             $this->User->Count->Save();
 
-            if ( $this->Albumid ) {
+            if ( $this->Albumid > 0 ) {
                 $this->Album->ImageDeleted( $this );
             }
 

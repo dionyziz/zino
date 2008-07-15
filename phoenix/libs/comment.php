@@ -145,10 +145,6 @@
 			return ( integer )$row[ 'count' ];
         }
         public function DeleteByEntity( $entity ) {
-            $prototype = New Comment();
-            $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = $entity->Id; //3 stands for Userprofile
-
             $query = $this->mDb->Prepare( '
                 UPDATE
                     :comments
