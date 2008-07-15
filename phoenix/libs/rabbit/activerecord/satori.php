@@ -481,6 +481,8 @@
             return $res;
         }
         protected function InitializeFields() {
+            global $rabbit_settings;
+
             if ( !( $this->mDb instanceof Database ) ) {
                 throw New SatoriException( 'Database not specified or invalid for Satori class `' . get_class( $this ). '\'' );
             }
