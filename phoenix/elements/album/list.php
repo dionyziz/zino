@@ -51,8 +51,13 @@
             $albums = $finder->FindByUser( $theuser, ( $pageno - 1 ) * $limit, $limit );
             Element( 'user/sections', 'album' , $theuser );
             ?><ul class="albums"><?php
+				if ( $pageno == 1 ) {
+					?><li><?php
+					Element( 'album/small', $theuser->Egoalbum, false );
+					?></li><?php
+				}
                 foreach ( $albums as $album ) {
-                    if ( $user->Id == $theuser->Id || $album->Numphotos > 0 ) {
+                    if ( ( $user->Id == $theuser->Id || $album->Numphotos > 0 ) && $album->Id != $theuser->Egoalbumid ) {
                         ?><li><?php
                             Element( 'album/small' , $album , false );
                         ?></li><?php
