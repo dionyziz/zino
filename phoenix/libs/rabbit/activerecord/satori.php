@@ -493,10 +493,7 @@
                 throw New SatoriException( 'Database table not specified, invalid, or database table alias non-existing for Satori class `' . get_class( $this ) . '\'' );
             }
             
-            $this->mDbColumns = array();
-            foreach ( $this->mDbTable->Fields as $field ) {
-                $this->mDbColumns[ $field->Name ] = $field;
-            }
+            $this->mDbColumns = $this->mDbTable->Fields;
             if ( !count( $this->mDbColumns ) ) {
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any columns' );
             }

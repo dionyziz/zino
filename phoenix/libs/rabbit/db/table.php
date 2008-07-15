@@ -258,7 +258,7 @@
             w_assert( count( $fields ) );
             foreach ( $fields as $field ) {
                 w_assert( $field instanceof DBField );
-                $this->mFields[] = $field;
+                $this->mFields[ $field->Name ] = $field;
             }
         }
         public function CreateIndex( /* $indexe1, $index2, ... */ ) {

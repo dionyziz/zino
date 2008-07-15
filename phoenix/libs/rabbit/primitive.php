@@ -147,6 +147,7 @@
                 if ( is_int( $alias ) ) {
                     $alias = $tablename;
                 }
+                // TODO: Optimize: Lazy loading?
                 $GLOBALS[ $dbname ]->AttachTable( $alias, $database[ 'prefix' ] . $tablename );
             }
         }

@@ -153,7 +153,9 @@
             return New DBQuery( $rawsql, $this, $this->mDriver );
         }
         public function AttachTable( $alias, $actual ) {
-            if ( !preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ) ) {
+            global $rabbit_settings;
+
+            if ( !$rabbit_settings[ 'production' ] && !preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $alias ) ) {
                 throw New DBException( 'Invalid database table alias `' . $alias . '\'' );
             }
             $this->mTables[ $alias ] = New DBTable( $this, $actual, $alias );
