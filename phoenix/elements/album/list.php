@@ -53,7 +53,7 @@
             ?><ul class="albums"><?php
 				if ( $pageno == 1 ) {
 					?><li><?php
-					Element( 'album/small', $theuser->Egoalbum, false );
+					Element( 'album/small', $theuser->EgoAlbum, false );
 					?></li><?php
 				}
                 foreach ( $albums as $album ) {
