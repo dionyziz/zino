@@ -40,7 +40,7 @@
             echo $subject;
             ?>.
 
-    Για να δεις το προφίλ <?php
+Για να δεις το προφίλ <?php
             if ( $from->Gender == 'f' ) {
                 ?>της<?php
             }
@@ -50,8 +50,8 @@
             ?> <?php
             echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
-            
-    <?php
+        
+<?php
             Element( 'user/url', $from );
 
             Element( 'email/footer' );
