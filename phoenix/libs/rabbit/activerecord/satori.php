@@ -526,6 +526,7 @@
                     foreach ( $index->Fields as $field ) {
                         $this->mPrimaryKeyFields[] = $field->Name;
                     }
+                    break;
                 }
             }
             if ( !count( $this->mPrimaryKeyFields ) ) {
@@ -534,11 +535,12 @@
             
             $this->mCurrentValues = array();
             foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                w_assert( is_string( $fieldname ) );
-                w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
-                w_assert( is_string( $attributename ) );
-                w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
-                
+                if ( !$rabbit_settings[ 'production' ] ) {
+                    w_assert( is_string( $fieldname ) );
+                    w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
+                    w_assert( is_string( $attributename ) );
+                    w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
+                }                    
                 // default value
                 $this->mCurrentValues[ $attributename ] = false;
             }
