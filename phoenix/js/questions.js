@@ -66,4 +66,12 @@ var Questions = {
    	}
 };
 
-
+$( document ).ready( function() {
+		$( "div#answers ul.questions li" ).each( function( i ) {
+			$( this ).mouseover( function() {
+				$( this ).find( 'a' ).show();
+			} ).mouseout( function() {
+				$( this ).find( 'a' ).hide();
+			} );
+		} );
+	} );
