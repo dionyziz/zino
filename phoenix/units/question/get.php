@@ -8,7 +8,7 @@
         $libs->Load( 'question/question' );
         
         $questionfinder = New QuestionFinder();
-        $question = $questionfinder->FindRandomByUser( $user );
+        $question = $questionfinder->FindNewQuestion( $user );
         
         if ( $question === false ) {
             return;
@@ -16,7 +16,7 @@
         
         $j = 0;
         while ( $question->Id == $excludeid ) { // We don't want to have the same question returned!
-            $question = $questionfinder->FindRandomByUser( $user );
+            $question = $questionfinder->FindNewQuestion( $user );
             ++$j;
             if ( $j > 10 ) {
                 return;
