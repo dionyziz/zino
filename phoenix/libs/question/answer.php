@@ -83,7 +83,11 @@
 
 			$this->Userid = $user->Id;
 			$this->Created = NowDate();
-		}		
+		}
+		protected function OnCreate() {
+			global $user;
+			++$user->Count->Answers;
+		}
 	}
 	
 ?>
