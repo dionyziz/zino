@@ -46,10 +46,18 @@ var Questions = {
         $( 'div#answers ul.questions' ).prepend( li );
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
     },
-    AnswerCallback : function( id ) {
+    AnswerCallback: function( id ) {
     	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).click( function() {
     													Questions.Delete( id );
     												} );
+   	},
+   	Delete: function( id ) {
+   		Coala.Warm( 'question/answer/delete', {
+   			'id' : id
+   		} );
+   		$( 'ul#q_' + id ).hide( 400, function() { 
+   				$( this ).remove();
+   			} );
    	}
 };
 
