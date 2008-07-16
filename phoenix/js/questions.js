@@ -58,6 +58,11 @@ var Questions = {
    		$( 'li#q_' + id ).hide( 400, function() { 
    				$( this ).remove();
    			} );
+   		if ( $( 'div.newquestion:first' ).css( 'display' ) === "none" ) {
+   			Coala.Cold( 'question/get', {
+		        'callback': Questions.Renew
+		    } );
+		}
    	}
 };
 
