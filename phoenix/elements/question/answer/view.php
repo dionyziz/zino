@@ -1,6 +1,6 @@
 <?php
     class ElementQuestionAnswerView extends Element {
-        public function Render( Answer $answer ) {
+        public function Render( Answer $answer, $owner ) {
         	global $user;
             ?><li id="q_<?php
             echo $answer->Id;
@@ -11,7 +11,7 @@
                 <p class="answer"><?php
                 echo htmlspecialchars( $answer->Text );
                 ?></p><?php
-                if ( $user->Id === $answer->Userid ) {
+                if ( $owner ) {
                 ?><a href="" onclick="Questions.Delete( <?php
 		        	echo $answer->Id;
 		        	?> );return false;" title="Διαγραφή Ερώτησης" /><?php

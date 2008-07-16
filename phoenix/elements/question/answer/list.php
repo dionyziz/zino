@@ -45,8 +45,8 @@
             Element( 'user/sections', 'question' , $theuser );
 
             ?><div class="questions"><?php
-
-            if ( $theuser->Id == $user->Id ) {
+			$owner = $theuser->Id == $user->Id;
+            if ( $owner ) {
                 $finder = New QuestionFinder();
                 $question = $finder->FindNewQuestion( $theuser );
                 if ( $question !== false ) {
@@ -67,8 +67,9 @@
             }
 
             ?><ul class="questions"><?php
+          	
             foreach ( $answers as $answer ) {
-                Element( 'question/answer/view', $answer );
+                Element( 'question/answer/view', $answer, $owner );
             }
             ?></ul></div>
             
