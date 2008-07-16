@@ -6,16 +6,15 @@
     //          Think before you type, and always benchmark. Thanks! :-)
 
     abstract class Overloadable {
-        private $mMethods = false;
+        private $mCache;
 
         public function __set( $name, $value ) {
             // check if a custom setter is specified
             $methodname = 'Set' . $name;
-            if ( $this->mMethods === false ) {
-                $this->mMethods = array_flip( get_class_methods( $this ) );
-                die( print_r( $this->mMethods ) );
+            if ( !isset( $this->mCache[ $methodname ] ) ) {
+                $this->mCache[ $methodname ] = method_exists( $this, $methodname );
             }
-            if ( isset( $this->mMethods[ $methodname ] ) ) {
+            if ( $this->mCache[ $methodname ] ) {
                 return $this->$methodname( $value ) !== false;
             }
             // else fallthru
@@ -24,11 +23,10 @@
         public function __get( $name ) {
             // check if a custom getter is specified
             $methodname = 'Get' . $name;
-            if ( $this->mMethods === false ) {
-                $this->mMethods = array_flip( get_class_methods( $this ) );
-                die( print_r( $this->mMethods ) );
+            if ( !isset( $this->mCache[ $methodname ] ) ) {
+                $this->mCache[ $methodname ] = method_exists( $this, $methodname );
             }
-            if ( isset( $this->mMethods[ $methodname ] ) ) {
+            if ( $this->mCache[ $methodname ] ) {
                 return $this->$methodname();
             }
             // else fallthru
