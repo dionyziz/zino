@@ -47,7 +47,7 @@ var Questions = {
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
     },
     AnswerCallback : function( id ) {
-    	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).onclick( function() {
+    	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).click( function() {
     													Questions.Delete( id );
     												} );
    	}
