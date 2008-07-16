@@ -60,7 +60,7 @@
                         ?>" />
                         <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
-                        ?>accept.png" /></a>
+                        ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a>
                     </form></p>
                     </div><?php
                 }
