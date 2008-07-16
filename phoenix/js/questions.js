@@ -31,7 +31,7 @@ var Questions = {
         var answer = document.createElement( 'p' );
         answer.className = 'answer';
         
-        var a = document.createElemet( 'a' );
+        var a = document.createElement( 'a' );
         var img = document.createElement( 'img' );
         img.src = ExcaliburSettings.imagesurl + 'delete.png';
         
