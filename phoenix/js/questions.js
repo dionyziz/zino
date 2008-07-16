@@ -25,6 +25,11 @@ var Questions = {
         } );
 
         var li = document.createElement( 'li' );
+        $( li ).mouseover( function() {
+				$( this ).find( 'a' ).show();
+			} ).mouseout( function() {
+				$( this ).find( 'a' ).hide();
+			} );
         
         var question = document.createElement( 'p' );
         question.className = 'question';
