@@ -15,7 +15,7 @@ div#answers div.questions ul li {
 	padding: 5px 0 5px 0;
 	margin: 0;
 }
-div#answers div.questions ul li {
+div#answers div.questions ul li a {
 	margin-left: 5px;
 }
 div#answers div.questions ul li p.question, div#answers div.newquestion p.question {

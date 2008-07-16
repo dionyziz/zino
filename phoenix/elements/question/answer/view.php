@@ -19,7 +19,7 @@
 		        	echo $xc_settings[ 'staticimagesurl' ];
 		        	?>delete.png" alt="Διαγραφή Ερώτησης" title="Διαγραφή Ερώτησης" /></a><?php
 		        }
-            ?></li><br /><?php
+            ?></li><?php
         }
     }
 ?>
