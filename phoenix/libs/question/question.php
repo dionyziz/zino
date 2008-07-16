@@ -67,6 +67,7 @@
 			if( pow( $exp, $user->Count->Comments ) > $user->Count->Answers ) {
 				return $this->FindRandomByUser( $user );
 			}
+			return false;
 		}
 		
 	}
