@@ -49,21 +49,23 @@
             if ( $owner ) {
                 $finder = New QuestionFinder();
                 $question = $finder->FindNewQuestion( $theuser );
-                if ( $question !== false ) {
-                    ?><div class="newquestion">
-                    <p class="question"><?php
-                    echo htmlspecialchars( $question->Text );
-                    ?></p>
-                    <p class="answer"><form id="newanswer" onsubmit="Questions.Answer();return false;">
-                        <input type="hidden" value="<?php
-                        echo $question->Id;
-                        ?>" />
-                        <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a>
-                    </form></p>
-                    </div><?php
+                ?><div class="newquestion"<?php
+                if ( $question === false ) {
+                	?> style="display:none"<?php
                 }
+                ?>>
+                <p class="question"><?php
+                echo htmlspecialchars( $question->Text );
+                ?></p>
+                <p class="answer"><form id="newanswer" onsubmit="Questions.Answer();return false;">
+                    <input type="hidden" value="<?php
+                    echo $question->Id;
+                    ?>" />
+                    <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a>
+                </form></p>
+                </div><?php
             }
 
             ?><ul class="questions"><?php
