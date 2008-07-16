@@ -86,7 +86,14 @@
 		}
 		protected function OnCreate() {
 			global $user;
+			
 			++$user->Count->Answers;
+			$user->Count->Save();
+		}
+		protected function OnDelete() {
+			global $user;
+			
+			--$user->Count->Answers;
 			$user->Count->Save();
 		}
 	}
