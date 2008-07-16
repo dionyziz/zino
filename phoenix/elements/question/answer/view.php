@@ -3,9 +3,13 @@
         public function Render( Answer $answer, $owner ) {
         	global $user;
         	global $xc_settings;
-            ?><li id="q_<?php
-            echo $answer->Id;
-            ?>">
+            ?><li<?php
+            if ( $owner ) {
+		        ?> id="q_<?php
+		        echo $answer->Id;
+		        ?>"<?php
+		    }
+		    ?>>
                 <p class="question"><?php
                 echo htmlspecialchars( $answer->Question->Text );
                 ?></p>
