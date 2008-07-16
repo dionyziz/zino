@@ -26,6 +26,7 @@
             $methodname = 'Get' . $name;
             if ( $this->mMethods === false ) {
                 $this->mMethods = array_flip( get_class_methods( $this ) );
+                die( print_r( $this->mMethods ) );
             }
             if ( isset( $this->mMethods[ $methodname ] ) ) {
                 return $this->$methodname();
