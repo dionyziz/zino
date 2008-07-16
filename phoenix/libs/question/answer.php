@@ -87,6 +87,7 @@
 		protected function OnCreate() {
 			global $user;
 			++$user->Count->Answers;
+			$user->Count->Save();
 		}
 	}
 	
