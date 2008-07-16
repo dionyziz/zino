@@ -503,14 +503,13 @@
             }
             
             $this->mDbFields = array();
-            $this->mDbFieldKeys = array();
+            $this->mDbFieldKeys = array_keys( $this->mDbColumns );
             $this->mAutoIncrementField = false;
             
             foreach ( $this->mDbColumns as $column ) {
                 $parts = explode( '_', $column->Name );
                 $attribute = ucfirst( $parts[ 1 ] );
                 $this->mDbFields[ $column->Name ] = $attribute;
-                $this->mDbFieldKeys[] = $column->Name;
                 if ( $column->IsAutoIncrement ) {
                     $this->mAutoIncrementField = $column->Name;
                     // autoincrement attributes are read-only
@@ -532,16 +531,18 @@
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have a primary key' );
             }
             
-            $this->mCurrentValues = array();
-            foreach ( $this->mDbFields as $fieldname => $attributename ) {
-                if ( !$rabbit_settings[ 'production' ] ) {
-                    w_assert( is_string( $fieldname ) );
-                    w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
-                    w_assert( is_string( $attributename ) );
-                    w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
-                }                    
-                // default value
-                $this->mCurrentValues[ $attributename ] = false;
+            // default values
+            $this->mCurrentValues = array_combine( $this->mDbFields, array_fill( 0, count( $this->mDbFields ), false ) );
+            
+            if ( !$rabbit_settings[ 'production' ] ) {
+                foreach ( $this->mDbFields as $fieldname => $attributename ) {
+                    if ( !$rabbit_settings[ 'production' ] ) {
+                        w_assert( is_string( $fieldname ) );
+                        w_assert( preg_match( '#^[a-zA-Z0-9_\-]+$#', $fieldname ) );
+                        w_assert( is_string( $attributename ) );
+                        w_assert( preg_match( '#^[a-zA-Z][a-zA-Z0-9]*$#', $attributename ) );
+                    } 
+                }
             }
         }
         public function FetchPrototypeChanges() {
