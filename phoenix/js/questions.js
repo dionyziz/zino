@@ -24,16 +24,27 @@ var Questions = {
         } );
 
         var li = document.createElement( 'li' );
+        
         var question = document.createElement( 'p' );
-        var answer = document.createElement( 'p' );
         question.className = 'question';
+        
+        var answer = document.createElement( 'p' );
         answer.className = 'answer';
+        
+        var a = document.createElemet( 'a' );
+        var img = document.createElement( 'img' );
+        img.src = ExcaliburSettings.imagesurl + 'delete.png';
+        
         question.appendChild( document.createTextNode( questionText ) );
         answer.appendChild( document.createTextNode( answerText ) );
+        a.appendChild( img );
         li.appendChild( question );
         li.appendChild( answer );
+        li.appendChild( a );
 
         $( 'div#answers ul.questions' ).prepend( li );
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
     }
 };
+
+
