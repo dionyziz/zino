@@ -55,7 +55,7 @@ var Questions = {
    		Coala.Warm( 'question/answer/delete', {
    			'id' : id
    		} );
-   		$( 'ul#q_' + id ).hide( 400, function() { 
+   		$( 'li#q_' + id ).hide( 400, function() { 
    				$( this ).remove();
    			} );
    	}
