@@ -8,7 +8,7 @@
             if ( !$user->HasPermission( PERMISSION_QUESTION_ACCESS ) ) {
                 return Redirect();
             }
-            $libs->Load( 'question' );
+            $libs->Load( 'question/question' );
             $page->SetTitle( 'Ερωτήσεις Προφίλ' );
             
             ?><h3>Ερωτήσεις Προφίλ</h3><br />
