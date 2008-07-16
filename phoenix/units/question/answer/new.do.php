@@ -1,5 +1,5 @@
 <?php
-	function UnitQuestionAnswerNew( tInteger $questionid , tText $answertext ) {
+	function UnitQuestionAnswerNew( tInteger $questionid , tText $answertext, tCoalaPointer $callback ) {
 		global $user;
 		global $libs;
 		
@@ -24,5 +24,10 @@
         $answer->Userid = $user->Id;
         $answer->Text = $answertext;
         $answer->Save();
+        
+        echo $callback;
+        ?>( <?php
+        echo $answer->Id;
+        ?> );<?php
 	}
 ?>

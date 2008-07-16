@@ -44,7 +44,12 @@ var Questions = {
 
         $( 'div#answers ul.questions' ).prepend( li );
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
-    }
+    },
+    NewCallback : function( id ) {
+    	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).onclick( function() {
+    													Questions.Delete( id );
+    												} );
+   	}
 };
 
 
