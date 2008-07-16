@@ -18,6 +18,7 @@ div#answers div.questions ul li {
 div#answers div.questions ul li a {
 	background-image: url( "http://static.zino.gr/phoenix/delete.png" );
 	background-repeat: no-repeat;
+	background-position: center;
 	width: 16px;
 	height: 16px;
 }
