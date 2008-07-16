@@ -38,6 +38,7 @@ var Questions = {
         answer.className = 'answer';
         
         var a = document.createElement( 'a' );
+        a.style.display="none";
         var img = document.createElement( 'img' );
         img.src = ExcaliburSettings.imagesurl + 'delete.png';
         
