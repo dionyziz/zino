@@ -28,7 +28,6 @@ div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
 	padding: 0;
 	margin: 0;
 	display: inline;
-	height:20px;
 }
 div#answers div.newquestion {
     padding: 10px;
