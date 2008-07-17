@@ -69,6 +69,7 @@ var Questions = {
 		        'callback': Questions.Renew
 		    } );
 		}
+		return false;
    	}
 };
 

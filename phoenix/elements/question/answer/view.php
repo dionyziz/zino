@@ -17,9 +17,9 @@
                 echo htmlspecialchars( $answer->Text );
                 ?></p><?php
                 if ( $owner ) {
-                ?><a href="" onclick="Questions.Delete( <?php
+                ?><a href="" onclick="return Questions.Delete( <?php
 		        	echo $answer->Id;
-		        	?> );return false;" title="Διαγραφή Ερώτησης"><img src="<?php
+		        	?> );" title="Διαγραφή Ερώτησης"><img src="<?php
 		        	echo $xc_settings[ 'staticimagesurl' ];
 		        	?>delete.png" alt="Διαγραφή Ερώτησης" title="Διαγραφή Ερώτησης" /></a><?php
 		        }
