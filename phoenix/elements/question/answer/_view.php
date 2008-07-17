@@ -3,12 +3,6 @@
         public function Render( Answer $answer, $owner=false ) {
         	global $user;
         	global $xc_settings;
-        	//----------------------------
-        	global $page;
-        	
-        	$page->AttachStylesheet( 'css/question/answer/view.css' );
-        	$page->AttachScript( 'js/question.js' );
-        	//----------------------------
             ?><li<?php
             if ( $owner ) {
 		        ?> id="q_<?php

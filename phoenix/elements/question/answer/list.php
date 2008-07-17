@@ -6,6 +6,11 @@
             global $rabbit_settings;
             global $xc_settings;
             
+           	//----------------------------
+        	$page->AttachStylesheet( 'css/question/answer/view.css' );
+        	$page->AttachScript( 'js/questions.js' );
+        	//----------------------------
+            
             Element( 'user/subdomainmatch' );
             
             $username = $username->Get();
