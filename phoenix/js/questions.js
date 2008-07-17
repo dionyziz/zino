@@ -91,7 +91,7 @@ var Questions = {
    		
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).hide();
    		$( 'li#q_' + id).get( 0 ).appendChild( form );
-   	}
+   	},
    	Delete: function( id ) {
    		Coala.Warm( 'question/answer/delete', {
    			'id' : id
