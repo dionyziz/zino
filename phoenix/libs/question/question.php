@@ -26,6 +26,7 @@
 		public function FindRandomByUser( User $user ) { 
 			// This query is awesome, by dionyziz
             // OPTIMIZED: This query is awesome *now*, by abresas :)
+            // FIXED: This query is aweseome *now* that works, by kostis90gr :-D
 			$query = $this->mDb->Prepare('
                 SELECT 
                     *
@@ -44,10 +45,11 @@
                                 `answer_userid` = :userid
                         WHERE 
                             answer_id IS NULL
-                        ORDER BY RAND()
                     )
+                ORDER BY RAND()
                 LIMIT 1 ;
 			');
+			// It would be fine if we could use a LIMIT within an IN statement but this feature is not yet implemented in MySQL 5.0
 
 			$query->BindTable( 'questions' );
 			$query->BindTable( 'answers' );
