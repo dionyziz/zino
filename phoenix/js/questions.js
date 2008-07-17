@@ -55,6 +55,7 @@ var Questions = {
     AnswerCallback: function( id ) {
     	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).click( function() {
     													Questions.Delete( id );
+    													return false;
     												} );
    	},
    	Delete: function( id ) {
