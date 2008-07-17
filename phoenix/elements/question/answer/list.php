@@ -61,10 +61,10 @@
                     <input type="hidden" value="<?php
                     echo $question->Id;
                     ?>" />
-                    <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
+                    <input type="text" /> <a href="" title="Απάντησε" onclick="Questions.Answer();return false;"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a> 
-                    <a href="" onclick="Coala.Cold( 'question/get', { 
+                    <a href="" title="Αλλαγή Ερώτησης" onclick="Coala.Cold( 'question/get', { 
                     		'callback': Questions.Renew,
                     		'excludeid' : <?php
                     		echo $question->Id;
