@@ -19,6 +19,9 @@ div#answers div.questions ul li a {
 	margin-left: 5px;
 	display: none;
 }
+div#answers div.questions ul li a img {
+	height: 14px;
+}
 div#answers div.questions ul li p.question, div#answers div.newquestion p.question {
 	padding: 0 0 2px 0;
 	margin: 0;
@@ -28,6 +31,7 @@ div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
 	padding: 0;
 	margin: 0;
 	display: inline;
+	font-size: 14px;
 }
 div#answers div.newquestion {
     padding: 10px;
