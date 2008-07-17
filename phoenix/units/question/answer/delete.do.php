@@ -5,6 +5,8 @@
 		
 		$libs->Load( 'question/answer' );
 		
+		$id = $id->Get();
+		
 		$answer = New Answer( $id );
 		
 		if ( !$answer->Exists() ) {
