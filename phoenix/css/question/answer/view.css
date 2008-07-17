@@ -14,7 +14,6 @@ div#answers div.questions ul {
 div#answers div.questions ul li {
 	padding: 5px 0 5px 0;
 	margin: 0;
-	line-height: 16px;
 }
 div#answers div.questions ul li a {
 	margin-left: 5px;
@@ -29,6 +28,7 @@ div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
 	padding: 0;
 	margin: 0;
 	display: inline;
+	height: 16px;
 }
 div#answers div.newquestion {
     padding: 10px;
