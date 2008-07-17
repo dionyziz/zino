@@ -58,6 +58,40 @@ var Questions = {
     													return false;
     												} );
    	},
+   	Edit : function( id ) {
+   		var form = document.createElement( 'form' );
+   		form.onsubmit = function() { return false; };
+   		form.id = "q_edit_" + id;
+   		
+   		var input = document.createElement( 'input' );
+   		input.value = $( 'li#q_' + id + ' p.answer' ).get( 0 ).firstChild.nodeValue;
+   		
+   		var accept = document.createElement( 'a' );
+   		accept.onclick = function() { return false; };
+   		
+   		var acceptimg = document.createElement( 'img' );
+   		acceptimg.alt = "Επεξεργασία";
+   		acceptimg.title = "Επεξεργασία";
+   		acceptimg.src = ExcaliburSettings.imagesurl + 'accept.png';
+   		
+   		var cancel = document.createElement( 'a' );
+   		cancel.onclick = function() { return false; };
+   		
+   		var cancelimg = document.createElement( 'img' );
+   		cancelimg.alt = "Ακύρωση";
+   		cancelimg.title = "Ακύρωση";
+   		cancelimg.src = ExcaliburSettings.imagesurl + 'cancel.png';
+   		
+   		accept.appendChild( acceptimg );
+   		cancel.appendChild( cancelimg );
+   		form.appendChild( input );
+   		form.appendChild( document.createTextNode( " " ) );
+   		form.appendChild( accept );
+   		form.appendChild( cancel );
+   		
+   		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).hide();
+   		$( 'li#q_' + id).get( 0 ).appendChild( form );
+   	}
    	Delete: function( id ) {
    		Coala.Warm( 'question/answer/delete', {
    			'id' : id
