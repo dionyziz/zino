@@ -63,7 +63,10 @@
                     ?>" />
                     <input type="text" /> <a href="" onclick="Questions.Answer();return false;"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
-                    ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a>
+                    ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a> 
+                    <a href="" onclick="Coala.Cold( 'question/get', { 'callback': Questions.Renew } );return false;"><img src="<?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>arrow_refresh.png" alt="Αλλαγή Ερώτησης" title="Αλλαγή Ερώτησης" /></a>
                 </form></p>
                 </div><?php
             }
