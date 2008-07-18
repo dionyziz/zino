@@ -3,7 +3,8 @@
 	class ElementUserTrivialWeight extends Element {
         public function Render( $weight ) {
             if ( $weight == -1 ) {
-                ?>-<?php
+				// Removed "-" from here to resolve #414 <- Remove this comment
+                ?><?php
             }
             else if ( $weight == -2 ) {
                 ?>Kάτω από 30kg<?php
