@@ -9,11 +9,21 @@
             global $xc_settings;
             
             //attaching ALL css files
-            $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
+            if ( $rabbit_settings[ 'production' ] ) {
+                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
+            }
+            else {
+                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css' );
+            }
             
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
-            $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
+            if ( $rabbit_settings[ 'production' ] ) {
+                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
+            }
+            else {
+                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js' );
+            }
             
             $page->AddMeta( 'author', 'Kamibu Development Team' );
             $page->AddMeta( 'keywords', 'greek friends chat community greece meet people' );

@@ -35,8 +35,7 @@
             catch ( ExceptionFailedAssertion $e ) {
                 $caught = true;
             }
-            $this->AssertFalse( $caught, 'A true assertion should not cause an exception' );
-            $caught = false;
+            $this->AssertFalse( $caught, 'A true assertion should not cause an exception' ); $caught = false;
             try {
                 w_assert( false, 'Hello, world' );
             }
