@@ -9,19 +9,21 @@ div.pollsmall div.results ul {
 	padding: 0;
 	margin: 10px 0 0 0;
 	list-style: none;
-	width: 450px;
+	width: 550px;
 }
 div.pollsmall div.results ul li {
 	height: 20px;
 	margin: 0;
 	padding: 3px 0;
-	width: 450px;
+	width: 550px;
 }
 div.pollsmall div.results ul li dl {
 	padding: 0;
 	margin: 0;
 }
 div.pollsmall div.results ul li dl dt.resultterm {
+	width: 275px;
+	clear: both;
 	float: right;
 	padding: 0;
 	margin: 0;
@@ -35,10 +37,12 @@ div.pollsmall div.results ul li dl dd.votedefinition {
 	vertical-align: 3px;
 }
 div.pollsmall div.results ul li dl dd {
+	width: 300px;
 	padding: 0;
 	margin: 0;
 }
 div.pollsmall div.results ul li dl dd span {
+	float: left;
 	padding-left: 7px;
 }
 div.pollsmall div.results ul li dl dd div.percentagebar {
