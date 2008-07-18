@@ -6,11 +6,11 @@
             
             ?><select>
                 <option value="-3"<?php
-                if ( $user->Profile->Height == -1 ) {
+                if ( $user->Profile->Height == -3 ) {
                     ?> selected="selected"<?php
                 }
                 ?>><?php
-                Element( 'user/trivial/height' , -1 );
+                Element( 'user/trivial/height' , -3 );
                 ?></option>
                 <option value="-2"<?php
                 if ( $user->Profile->Height == -2 ) {
@@ -31,11 +31,11 @@
                     ?></option><?php
                 }
                 ?><option value="-1"<?php
-                if ( $user->Profile->Height == -3 ) {
+                if ( $user->Profile->Height == -1 ) {
                     ?> selected="selected"<?php
                 }
                 ?>><?php
-                Element( 'user/trivial/height' , -3  );
+                Element( 'user/trivial/height' , -1  );
                 ?></option>
             </select><?php
         }
