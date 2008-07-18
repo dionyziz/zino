@@ -2,14 +2,14 @@
 	
 	class ElementUserTrivialHeight extends Element {
         public function Render( $height ) {
-            if ( $height == -1 ) {
+            if ( $height == -3 ) {
 				// Removed "-" from here to resolve #414 <- Remove this comment
                 ?><?php
             }
             else if ( $height == -2 ) {
                 ?>Κάτω από 1.20m<?php
             }
-            else if ( $height == -3 ) {
+            else if ( $height == -1 ) {
                 ?>Πάνω από 2.20m<?php
             }
             else {

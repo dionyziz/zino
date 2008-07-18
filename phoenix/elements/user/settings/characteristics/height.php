@@ -5,7 +5,7 @@
             global $user;
             
             ?><select>
-                <option value="-1"<?php
+                <option value="-3"<?php
                 if ( $user->Profile->Height == -1 ) {
                     ?> selected="selected"<?php
                 }
@@ -30,7 +30,7 @@
                     Element( 'user/trivial/height' , $i );
                     ?></option><?php
                 }
-                ?><option value="-3"<?php
+                ?><option value="-1"<?php
                 if ( $user->Profile->Height == -3 ) {
                     ?> selected="selected"<?php
                 }

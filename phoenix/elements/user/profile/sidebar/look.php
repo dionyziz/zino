@@ -6,10 +6,10 @@
             if ( $theuser->Gender != '-' ) {
                 $showgender = true;
             }
-            if ( $theuser->Profile->Weight >= -3 ) {
+            if ( $theuser->Profile->Weight > -3 ) {
                 $showweight = true;
             }
-            if ( $theuser->Profile->Height >= -3 ) {
+            if ( $theuser->Profile->Height > -3 ) {
                 $showheight = true;
             }
             ?><ul><?php
