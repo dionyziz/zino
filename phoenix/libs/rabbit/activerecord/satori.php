@@ -231,35 +231,7 @@
             }
             return $this->mCurrentValues[ $name ];
 		}
-        protected function Relations() {
-            // override me
-        }
-        public function IsSignificantAttribute( $attribute ) {
-            // does a change in the field named $fieldname that a relation relies upon require a relation rebuild?
-            // not if the value is generated within this very instance in a way that the related classes cannot access directly,
-            // such as an autoincrement value
-
-            if ( $this->mAutoIncrementField == $this->mAttribute2DbField[ $attribute ] ) {
-                return false;
-            }
-            return true;
-        }
-        protected function HasOne( $className, $foreignKey ) {
-            if ( !$this->mAllowRelationDefinition ) {
-                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
-            }
-            return New RelationHasOne( $this, $className, $foreignKey );
-        }
-        protected function HasMany( $finderName, $methodName, $foreignKey ) {
-            if ( !$this->mAllowRelationDefinition ) {
-                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
-            }
-            return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
-        }
         public function __set( $name, $value ) {
-            if ( parent::__set( $name, $value ) === true ) {
-                return;
-            }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
@@ -286,6 +258,31 @@
             }
             
             $this->mCurrentValues[ $name ] = $value;
+        }
+        protected function Relations() {
+            // override me
+        }
+        public function IsSignificantAttribute( $attribute ) {
+            // does a change in the field named $fieldname that a relation relies upon require a relation rebuild?
+            // not if the value is generated within this very instance in a way that the related classes cannot access directly,
+            // such as an autoincrement value
+
+            if ( $this->mAutoIncrementField == $this->mAttribute2DbField[ $attribute ] ) {
+                return false;
+            }
+            return true;
+        }
+        protected function HasOne( $className, $foreignKey ) {
+            if ( !$this->mAllowRelationDefinition ) {
+                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+            }
+            return New RelationHasOne( $this, $className, $foreignKey );
+        }
+        protected function HasMany( $finderName, $methodName, $foreignKey ) {
+            if ( !$this->mAllowRelationDefinition ) {
+                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+            }
+            return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
         }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields );
