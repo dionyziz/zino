@@ -70,14 +70,14 @@
 		public function __set( $key, $value ) {
 			switch ( $key ) {
 				case 'Name':
-					w_assert( is_string( $name ), 'Database field name specified is invalid' );
-					$this->mName = $name;
+					w_assert( is_string( $value ), 'Database field name specified is invalid' );
+					$this->mName = $value;
 					break;
 				case 'Type':
-					if ( !in_array( $type, $this->mValidDataTypes ) ) {
+					if ( !in_array( $value, $this->mValidDataTypes ) ) {
 						throw New DBException( 'Database field data type specified is invalid' );
 					}
-					$this->mType = $type;
+					$this->mType = $value;
 					if ( $this->mLength === false ) {
 						// no length specified, use default lengths
 						switch ( $this->mType ) {
