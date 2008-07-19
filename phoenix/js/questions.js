@@ -4,6 +4,12 @@ var Questions = {
         $( 'div.newquestion p.question' ).empty().text( questiontext );
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;
         $( 'div.newquestion form#newanswer input' )[ 1 ].value = '';
+        $( 'div.newquestion form#newanswer a:last' ).get( 0 ).onclick = function() {
+        	Coala.Cold( 'question/get', { 
+            	'callback': Questions.Renew,
+            	'excludeid' : questionid
+            } );return false;
+        };
         $( 'div.newquestion' ).fadeIn( 'fast' );
         $( 'div.newquestion form#newanswer input' )[ 1 ].focus();
     },
