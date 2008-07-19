@@ -109,6 +109,7 @@ var Questions = {
 			} ).mouseout( function() {
 				$( this ).find( 'a' ).hide();
 			} );
+		Questions.busy = false;
 	},
    	Delete: function( id ) {
    		Coala.Warm( 'question/answer/delete', {
