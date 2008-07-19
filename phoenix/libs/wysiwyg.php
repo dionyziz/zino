@@ -44,7 +44,7 @@
             $sanitizer->AllowTag( $goodtag );
         }
         $sanitizer->SetSource( $html );
-        $sanitizer->SetTextProcessor( 'WYSIWYG_Smileys' );
+        $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
         $html = $sanitizer->GetXHTML();
         
         // YouTube support
@@ -67,7 +67,23 @@
    
         return $html;
     }
+
+    function WYSIWYG_Links( $text ) {
+        $text = preg_replace( 
+            '/\b(https?\:\/\/[a-z0-9.-]+(\/[a-zA-Z0-9.\/+?=&;%-]*)?)\b/',
+            '<a href="\1">\1</a>',
+            $text
+        );
+        return $text;
+    }
     
+    function WYSIWYG_TextProcess( $text ) {
+        $text = htmlspecialchars( $text );
+        $text = WYSIWYG_Links( $text );        
+        $text = WYSIWYG_Smileys( $text );
+        return $text;
+    }
+
 	function WYSIWYG_Smileys( $text ) {
 		static $smileys = array( // do not include any & or ; characters in these literals
                                  // do not allow recursive replacement: make sure result literals cannot be re-replaced
@@ -148,7 +164,6 @@
         static $smileysprocessedkeys = false;
         global $xc_settings;
         
-        $text = htmlspecialchars( $text );
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
                 $smileysprocessed[ $i ] = '<img src=\'' 
