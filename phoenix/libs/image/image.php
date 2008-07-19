@@ -298,9 +298,8 @@
         }
         protected function OnDelete() {
             global $libs;
-            
-			$libs->Load( 'comment' );
-            $libs->Load( 'event' );
+
+            $libs->Load( 'comment' );
 
             --$this->User->Count->Images;
             $this->User->Count->Save();

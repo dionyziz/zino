@@ -1,5 +1,4 @@
 <?php
-
     function DBTable_GetInfo( DBTable $table, $type = 'indexes' ) {
         global $mc;
         global $water;
@@ -62,7 +61,7 @@
         }
     }
 
-	class DBTable {
+	class DBTable extends Overloadable {
 		protected $mDb;
 		protected $mTableName;
 		protected $mAlias;
@@ -170,6 +169,12 @@
             }
             return true;
         }
+        protected function GetName() {
+            return $this->mTableName;
+        }
+        protected function GetAlias() {
+            return $this->mAlias;
+        }
         public function FieldByName( $name ) {
             $this->Fields;
             if ( !isset( $this->mFields[ $name ] ) ) {
@@ -177,39 +182,34 @@
             }
             return $this->mFields[ $name ];
         }
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Name':
-					return $this->mTableName;
-				case 'Alias':
-					return $this->mAlias;
-				case 'Fields':
-				case 'Indexes':
-					$attribute = 'm' . $key;
-					if ( $this->$attribute === false ) {
-						$this->$attribute = DbTable_GetInfo( $this, strtolower( $key ) );
-					}
-					return $this->$attribute;
-				case 'Database':
-					return $this->mDb;
-			}
-		}
-		public function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Name':
-					w_assert( is_string( $value ), "Table name should be a string" );
-					$this->mTableName = $value;
-					break;
-				case 'Alias':
-					$this->mAlias = $value;
-					break;
-				case 'Database':
-					w_assert( is_object( $db ) );
-					w_assert( $db instanceof Database );
-					$this->mDb = $db;
-					break;
-			}
-		}
+        protected function GetFields() {
+            if ( $this->mFields === false ) {
+                $this->mFields = DBTable_GetInfo( $this, 'fields' );
+            }
+            return $this->mFields;
+        }
+        protected function GetIndexes() {
+            if ( $this->mIndexes === false ) {
+                $this->mIndexes = DBTable_GetInfo( $this, 'indexes' );
+            }
+            return $this->mIndexes;
+        }
+        protected function SetName( $value ) {
+            w_assert( is_string( $value ), "Table name should be a string" );
+
+            $this->mTableName = $value;
+        }
+        protected function SetAlias( $value ) {
+            $this->mAlias = $value;
+        }
+        protected function SetDatabase( Database $db ) {
+            w_assert( is_object( $db ) );
+            w_assert( $db instanceof Database );
+            $this->mDb = $db;
+        }
+        protected function GetDatabase() {
+            return $this->mDb;
+        }
 		public function __construct( $db = false, $tablename = false, $alias = '' ) {
             $this->mExists = false;
             
