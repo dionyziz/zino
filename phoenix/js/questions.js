@@ -97,21 +97,18 @@ var Questions = {
    		form.appendChild( cancel );
    		
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).hide();
-   		$( 'li#q_' + id ).unbind( "mouseover" ).unbind( "mouseout" ).get( 0 ).appendChild( form );
+   		Questions.hide();
+   		$( 'li#q_' + id ).get( 0 ).appendChild( form );
    		$( accept ).show();
    		$( cancel ).show();
    	},
    	cancelEdit : function( id ) {
    		$( 'li#q_' + id + ' form' ).remove();
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).show();
-   		$( 'li#q_' + id ).mouseover( function() {
-				$( this ).find( 'a' ).show();
-			} ).mouseout( function() {
-				$( this ).find( 'a' ).hide();
-			} );
+   		Questions.show();
 		Questions.busy = false;
 	},
-   	Delete: function( id ) {
+   	Delete : function( id ) {
    		Coala.Warm( 'question/answer/delete', {
    			'id' : id
    		} );
@@ -124,15 +121,23 @@ var Questions = {
 		    } );
 		}
 		return false;
-   	}
-};
-
-$( document ).ready( function() {
-		$( "div#answers ul.questions li" ).each( function( i ) {
+   	},
+   	show : function() {
+   		$( "div#answers ul.questions li" ).each( function( i ) {
 			$( this ).mouseover( function() {
 				$( this ).find( 'a' ).show();
 			} ).mouseout( function() {
 				$( this ).find( 'a' ).hide();
 			} );
 		} );
+	},
+	hide : function() {
+		$( "div#answers ul.questions li" ).each( function( i ) {
+			$( this ).unbind( "mouseover" ).unbind( "mouseout" );
+		}
+	}
+};
+
+$( document ).ready( function() {
+		Questions.show();
 	} );
