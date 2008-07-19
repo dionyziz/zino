@@ -91,6 +91,8 @@ var Questions = {
    		
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).hide();
    		$( 'li#q_' + id).unbind( "mouseover" ).unbind( "mouseout" ).get( 0 ).appendChild( form );
+   		$( accept ).show();
+   		$( cancel ).show();
    	},
    	Delete: function( id ) {
    		Coala.Warm( 'question/answer/delete', {
