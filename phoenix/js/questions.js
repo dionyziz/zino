@@ -78,7 +78,10 @@ var Questions = {
    						alert( "Δεν μπορείς να δημοσιεύσεις μία κενή απάντηση" );
    						return false;
    					}
-   					//Coala.Warm()
+   					Coala.Warm( 'question/answer/edit', {
+   						'id' : id,
+   						'answertext' : texter
+   					} );
    					Questions.finishEdit( id, texter );
    					return false;
    		 	}
