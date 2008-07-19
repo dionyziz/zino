@@ -21,7 +21,7 @@
 
     Rabbit_ClearPostGet();
     
-    $page->AttachMainElement( 'main' , $req );
+    $page->AttachMainElement( 'main', $req );
     $page->Output();
 
     Rabbit_Destruct();
