@@ -2,9 +2,10 @@
     /*
         Developer: Dionyziz
     */
+    
     global $libs;
     
-    // $libs->Load( 'rabbit/overloadable' );
+    $libs->Load( 'rabbit/overloadable' );
     $libs->Load( 'rabbit/activerecord/finder' );
     
     class SatoriException extends Exception {
@@ -187,7 +188,7 @@
     }
     
     // Active Record Base
-    abstract class Satori {
+    abstract class Satori extends Overloadable {
         protected $mDb; // database object referring to the database where the object is stored
         protected $mDbName; // name of the database we'll use for this object (defaults to your first database)
         protected $mDbTableAlias; // database table alias this object is mapped from
@@ -208,29 +209,48 @@
         private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         private $mAllowRelationDefinition;
-       
-	   	protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Attribute2DbField':
-				case 'Db':
-				case 'DbTable':
-				case 'DbFields':
-				case 'PrimaryKeyFields':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
-            
-			if ( isset( $this->mRelations[ $name ] ) ) {
-                return $this->mRelations[ $name ]->Retrieve();
+        
+        protected function Relations() {
+            // override me
+        }
+        public function IsSignificantAttribute( $attribute ) {
+            // does a change in the field named $fieldname that a relation relies upon require a relation rebuild?
+            // not if the value is generated within this very instance in a way that the related classes cannot access directly,
+            // such as an autoincrement value
+
+            if ( $this->mAutoIncrementField == $this->mAttribute2DbField[ $attribute ] ) {
+                return false;
             }
-            
-            $name = ucfirst( $name );
-            if ( !in_array( $name, $this->mDbFields ) ) {
-                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+            return true;
+        }
+        public function GetAttribute2DbField() {
+            return $this->mAttribute2DbField;
+        }
+        protected function HasOne( $className, $foreignKey ) {
+            if ( !$this->mAllowRelationDefinition ) {
+                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
-            return $this->mCurrentValues[ $name ];
-		}
+            return New RelationHasOne( $this, $className, $foreignKey );
+        }
+        protected function HasMany( $finderName, $methodName, $foreignKey ) {
+            if ( !$this->mAllowRelationDefinition ) {
+                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+            }
+            return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
+        }
+        protected function GetDb() {
+            return $this->mDb;
+        }
+        protected function GetDbTable() {
+            return $this->mDbTable;
+        }
+        protected function GetDbFields() {
+            return $this->mDbFields;
+        }
         public function __set( $name, $value ) {
+            if ( parent::__set( $name, $value ) === true ) {
+                return;
+            }
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
@@ -258,30 +278,20 @@
             
             $this->mCurrentValues[ $name ] = $value;
         }
-        protected function Relations() {
-            // override me
-        }
-        public function IsSignificantAttribute( $attribute ) {
-            // does a change in the field named $fieldname that a relation relies upon require a relation rebuild?
-            // not if the value is generated within this very instance in a way that the related classes cannot access directly,
-            // such as an autoincrement value
-
-            if ( $this->mAutoIncrementField == $this->mAttribute2DbField[ $attribute ] ) {
-                return false;
+        public function __get( $name ) {
+            if ( !is_null( $got = parent::__get( $name ) ) ) {
+                return $got;
             }
-            return true;
-        }
-        protected function HasOne( $className, $foreignKey ) {
-            if ( !$this->mAllowRelationDefinition ) {
-                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+            
+            if ( isset( $this->mRelations[ $name ] ) ) {
+                return $this->mRelations[ $name ]->Retrieve();
             }
-            return New RelationHasOne( $this, $className, $foreignKey );
-        }
-        protected function HasMany( $finderName, $methodName, $foreignKey ) {
-            if ( !$this->mAllowRelationDefinition ) {
-                throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
+            
+            $name = ucfirst( $name );
+            if ( !in_array( $name, $this->mDbFields ) ) {
+                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
             }
-            return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
+            return $this->mCurrentValues[ $name ];
         }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields );
@@ -314,6 +324,9 @@
         public function Exists() {
             // check if the current object exists; this can be overloaded if you wish, but you can also set $this->mExists
             return $this->mExists;
+        }
+        protected function GetPrimaryKeyFields() {
+            return $this->mPrimaryKeyFields;
         }
         protected function DefineRelations() {
             $this->mOldRelations = $this->mRelations;
