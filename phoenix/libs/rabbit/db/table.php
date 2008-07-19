@@ -1,4 +1,5 @@
 <?php
+
     function DBTable_GetInfo( DBTable $table, $type = 'indexes' ) {
         global $mc;
         global $water;

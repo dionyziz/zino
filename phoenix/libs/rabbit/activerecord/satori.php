@@ -2,7 +2,6 @@
     /*
         Developer: Dionyziz
     */
-    
     global $libs;
     
     // $libs->Load( 'rabbit/overloadable' );

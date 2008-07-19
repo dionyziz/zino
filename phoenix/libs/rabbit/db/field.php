@@ -1,4 +1,5 @@
 <?php
+
 	// Define database data types
     define( 'DB_TYPE_INT' 		, 'DB_TYPE_INT' );
     define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
