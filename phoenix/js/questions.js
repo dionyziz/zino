@@ -134,7 +134,7 @@ var Questions = {
 	hide : function() {
 		$( "div#answers ul.questions li" ).each( function( i ) {
 			$( this ).unbind( "mouseover" ).unbind( "mouseout" );
-		}
+		};
 	}
 };
 
