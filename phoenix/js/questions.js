@@ -66,7 +66,7 @@ var Questions = {
     													return false;
     												} ).end()
     											.find( "a:last" ).click( function() {
-    												Question.Delete( id );
+    												Questions.Delete( id );
     												return false;
     											} );
    	},
