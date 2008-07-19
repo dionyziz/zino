@@ -5,7 +5,7 @@
     
     global $libs;
     
-    $libs->Load( 'rabbit/overloadable' );
+    // $libs->Load( 'rabbit/overloadable' );
     $libs->Load( 'rabbit/activerecord/finder' );
     
     class SatoriException extends Exception {
@@ -188,7 +188,7 @@
     }
     
     // Active Record Base
-    abstract class Satori extends Overloadable {
+    abstract class Satori {
         protected $mDb; // database object referring to the database where the object is stored
         protected $mDbName; // name of the database we'll use for this object (defaults to your first database)
         protected $mDbTableAlias; // database table alias this object is mapped from
@@ -209,7 +209,28 @@
         private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         private $mAllowRelationDefinition;
-        
+       
+	   	protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Attribute2DbField':
+				case 'Db':
+				case 'DbTable':
+				case 'DbFields':
+				case 'PrimaryKeyFields':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+            
+			if ( isset( $this->mRelations[ $name ] ) ) {
+                return $this->mRelations[ $name ]->Retrieve();
+            }
+            
+            $name = ucfirst( $name );
+            if ( !in_array( $name, $this->mDbFields ) ) {
+                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+            }
+            return $this->mCurrentValues[ $name ];
+		}
         protected function Relations() {
             // override me
         }
@@ -223,9 +244,6 @@
             }
             return true;
         }
-        public function GetAttribute2DbField() {
-            return $this->mAttribute2DbField;
-        }
         protected function HasOne( $className, $foreignKey ) {
             if ( !$this->mAllowRelationDefinition ) {
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
@@ -237,15 +255,6 @@
                 throw New SatoriException( 'HasOne relations must be defined in the Relations() function of `' . get_class( $this ) . '\'' );
             }
             return New RelationHasMany( $this, $finderName, $methodName, $foreignKey );
-        }
-        protected function GetDb() {
-            return $this->mDb;
-        }
-        protected function GetDbTable() {
-            return $this->mDbTable;
-        }
-        protected function GetDbFields() {
-            return $this->mDbFields;
         }
         public function __set( $name, $value ) {
             if ( parent::__set( $name, $value ) === true ) {
@@ -278,21 +287,6 @@
             
             $this->mCurrentValues[ $name ] = $value;
         }
-        public function __get( $name ) {
-            if ( !is_null( $got = parent::__get( $name ) ) ) {
-                return $got;
-            }
-            
-            if ( isset( $this->mRelations[ $name ] ) ) {
-                return $this->mRelations[ $name ]->Retrieve();
-            }
-            
-            $name = ucfirst( $name );
-            if ( !in_array( $name, $this->mDbFields ) ) {
-                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
-            }
-            return $this->mCurrentValues[ $name ];
-        }
         public function __isset( $name ) {
             return in_array( $name, $this->mDbFields );
         }
@@ -324,9 +318,6 @@
         public function Exists() {
             // check if the current object exists; this can be overloaded if you wish, but you can also set $this->mExists
             return $this->mExists;
-        }
-        protected function GetPrimaryKeyFields() {
-            return $this->mPrimaryKeyFields;
         }
         protected function DefineRelations() {
             $this->mOldRelations = $this->mRelations;
