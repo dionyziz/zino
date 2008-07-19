@@ -298,6 +298,7 @@
         }
         protected function OnDelete() {
             global $libs;
+            
 			$libs->Load( 'comment' );
             $libs->Load( 'event' );
 
