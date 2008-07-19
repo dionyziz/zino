@@ -17,7 +17,12 @@
                 echo htmlspecialchars( $answer->Text );
                 ?></p><?php
                 if ( $owner ) {
-                ?><a href="" onclick="Questions.Delete( <?php
+                ?><a href="" onclick="Questions.Edit( <?php
+		           	echo $answer->Id;
+		           	?> );return false;" title="Επεξεργασία Ερώτησης"><img src="<?php
+		           	echo $xc_settings[ 'staticimagesurl' ];
+		           	?>edit.png" alt="Επεξεργασία Ερώτησης" title="Επεξεργασία Ερώτησης" /></a> 
+                  <a href="" onclick="Questions.Delete( <?php
 		        	echo $answer->Id;
 		        	?> );return false;" title="Διαγραφή Ερώτησης"><img src="<?php
 		        	echo $xc_settings[ 'staticimagesurl' ];
