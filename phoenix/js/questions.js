@@ -38,26 +38,37 @@ var Questions = {
         var answer = document.createElement( 'p' );
         answer.className = 'answer';
         
-        var a = document.createElement( 'a' );
-        a.style.display="none";
-        var img = document.createElement( 'img' );
-        img.src = ExcaliburSettings.imagesurl + 'delete.png';
+        var edit = document.createElement( 'a' );
+        edit.style.display = "none";
+        var editimg = document.createElement( 'img' );
+        editimg.src = ExcaliburSettings.imagesurl + 'edit.png';
+        
+        var del = document.createElement( 'a' );
+        del.style.display = "none";
+        var delimg = document.createElement( 'img' );
+        delimg.src = ExcaliburSettings.imagesurl + 'delete.png';
         
         question.appendChild( document.createTextNode( questionText ) );
         answer.appendChild( document.createTextNode( answerText ) );
-        a.appendChild( img );
+        edit.appendChild( editimg );
+        del.appendChild( delimg );
         li.appendChild( question );
         li.appendChild( answer );
-        li.appendChild( a );
+        li.appendChild( edit );
+        li.appendChild( del );
 
         $( 'div#answers ul.questions' ).prepend( li );
         $( 'div.newquestion' )[ 0 ].style.display = 'none';
     },
     AnswerCallback: function( id ) {
-    	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a" ).click( function() {
-    													Questions.Delete( id );
+    	$( 'div#answers ul.questions li:first' ).attr( "id", "q_" + id ).find( "a:first" ).click( function() {
+    													Questions.Edit( id );
     													return false;
-    												} );
+    												} ).end()
+    											.find( "a:last" ).click( function() {
+    												Question.Delete( id );
+    												return false;
+    											} );
    	},
    	Edit : function( id ) {
    		if ( Questions.busy ) {
