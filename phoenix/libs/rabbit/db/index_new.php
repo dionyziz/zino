@@ -1,5 +1,4 @@
 <?php
-
 	// Define database index types
 	define( 'DB_KEY_INDEX'		, 1 );
 	define( 'DB_KEY_UNIQUE'		, 2 );
