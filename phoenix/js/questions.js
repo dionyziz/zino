@@ -71,7 +71,18 @@ var Questions = {
    		input.value = $( 'li#q_' + id + ' p.answer' ).get( 0 ).firstChild.nodeValue;
    		
    		var accept = document.createElement( 'a' );
-   		accept.onclick = function() { return false; };
+   		accept.onclick = function( id ) {
+   			return function() {
+   					var texter = $( 'li#q_' + id + ' form input' ).val();
+   					if ( $.trim( texter ) === '' ) {
+   						alert( "Δεν μπορείς να δημοσιεύσεις μία κενή απάντηση" );
+   						return false;
+   					}
+   					//Coala.Warm()
+   					Questions.finishEdit( id, texter );
+   					return false;
+   		 	}
+   		 }( id );
    		
    		var acceptimg = document.createElement( 'img' );
    		acceptimg.alt = "Επεξεργασία";
@@ -80,7 +91,7 @@ var Questions = {
    		
    		var cancel = document.createElement( 'a' );
    		cancel.onclick = function() { 
-   				Questions.cancelEdit( id );
+   				Questions.finishEdit( id, false );
    				return false;
    			};
    		
@@ -102,8 +113,11 @@ var Questions = {
    		$( accept ).show();
    		$( cancel ).show();
    	},
-   	cancelEdit : function( id ) {
+   	finishEdit : function( id, texter ) {
    		$( 'li#q_' + id + ' form' ).remove();
+   		if ( texter !== false ) {
+   			$( 'li#q_' + id + ' p.answer' ).text( texter );
+   		}
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).show();
    		Questions.show();
 		Questions.busy = false;
