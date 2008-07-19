@@ -8,7 +8,8 @@ var Questions = {
         	Coala.Cold( 'question/get', { 
             	'callback': Questions.Renew,
             	'excludeid' : questionid
-            } );return false;
+            } );
+            return false;
         };
         $( 'div.newquestion' ).fadeIn( 'fast' );
         $( 'div.newquestion form#newanswer input' )[ 1 ].focus();
