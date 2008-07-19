@@ -1,4 +1,5 @@
 var Questions = {
+	busy : false, // do not allow to answers to be edited simultaneously
     Renew: function ( questionid, questiontext ) {
         $( 'div.newquestion p.question' ).empty().text( questiontext );
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;
@@ -59,9 +60,12 @@ var Questions = {
     												} );
    	},
    	Edit : function( id ) {
+   		if ( Questions.busy ) {
+   			return;
+   		}
+   		Questions.busy = true;
    		var form = document.createElement( 'form' );
    		form.onsubmit = function() { return false; };
-   		form.id = "q_edit_" + id;
    		
    		var input = document.createElement( 'input' );
    		input.value = $( 'li#q_' + id + ' p.answer' ).get( 0 ).firstChild.nodeValue;
@@ -75,7 +79,10 @@ var Questions = {
    		acceptimg.src = ExcaliburSettings.imagesurl + 'accept.png';
    		
    		var cancel = document.createElement( 'a' );
-   		cancel.onclick = function() { return false; };
+   		cancel.onclick = function() { 
+   				Questions.cancelEdit( id );
+   				return false;
+   			};
    		
    		var cancelimg = document.createElement( 'img' );
    		cancelimg.alt = "Ακύρωση";
@@ -90,10 +97,19 @@ var Questions = {
    		form.appendChild( cancel );
    		
    		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).hide();
-   		$( 'li#q_' + id).unbind( "mouseover" ).unbind( "mouseout" ).get( 0 ).appendChild( form );
+   		$( 'li#q_' + id ).unbind( "mouseover" ).unbind( "mouseout" ).get( 0 ).appendChild( form );
    		$( accept ).show();
    		$( cancel ).show();
    	},
+   	cancelEdit : function( id ) {
+   		$( 'li#q_' + id + ' form' ).remove();
+   		$( 'li#q_' + id + ' p.answer, li#q_' + id + ' a' ).show();
+   		$( 'li#q_' + id ).mouseover( function() {
+				$( this ).find( 'a' ).show();
+			} ).mouseout( function() {
+				$( this ).find( 'a' ).hide();
+			} );
+	},
    	Delete: function( id ) {
    		Coala.Warm( 'question/answer/delete', {
    			'id' : id
