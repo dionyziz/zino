@@ -24,5 +24,4 @@
         ?> );<?php
         $user->AnswerQuestion( $id, $answer );
 	}
-
 ?>
