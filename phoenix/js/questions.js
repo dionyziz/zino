@@ -69,23 +69,18 @@ var Questions = {
    		
    		var input = document.createElement( 'input' );
    		input.value = $( 'li#q_' + id + ' p.answer' ).get( 0 ).firstChild.nodeValue;
+   		$( input ).keydown( function( event ) {
+   				if ( event.keyCode == 13 ) {
+   					Questions.submitEdit( id );
+   				}
+   			} ).blur( function() {
+   				Questions.submitEdit( id );
+   			} );
    		
    		var accept = document.createElement( 'a' );
-   		accept.onclick = function( id ) {
-   			return function() {
-   					var texter = $( 'li#q_' + id + ' form input' ).val();
-   					if ( $.trim( texter ) === '' ) {
-   						alert( "Δεν μπορείς να δημοσιεύσεις μία κενή απάντηση" );
-   						return false;
-   					}
-   					Coala.Warm( 'question/answer/edit', {
-   						'id' : id,
-   						'answertext' : texter
-   					} );
-   					Questions.finishEdit( id, texter );
-   					return false;
-   		 	}
-   		 }( id );
+   		accept.onclick = function() {
+   				Questions.submitEdit( id );	
+   			};
    		
    		var acceptimg = document.createElement( 'img' );
    		acceptimg.alt = "Επεξεργασία";
@@ -116,6 +111,19 @@ var Questions = {
    		$( accept ).show();
    		$( cancel ).show();
    	},
+   	submitEdit : function( id ) {
+   		var texter = $( 'li#q_' + id + ' form input' ).val();
+		if ( $.trim( texter ) === '' ) {
+			alert( "Δεν μπορείς να δημοσιεύσεις μία κενή απάντηση" );
+			return false;
+		}
+		Coala.Warm( 'question/answer/edit', {
+			'id' : id,
+			'answertext' : texter
+		} );
+		Questions.finishEdit( id, texter );
+		return false;
+	},
    	finishEdit : function( id, texter ) {
    		$( 'li#q_' + id + ' form' ).remove();
    		if ( texter !== false ) {
