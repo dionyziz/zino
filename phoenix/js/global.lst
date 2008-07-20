@@ -20,6 +20,7 @@ user/join.js
 user/joined.js
 user/settings.js
 user/profile.js
+user/suggest.js
 space/space.js
 banner.js
 pm.js
