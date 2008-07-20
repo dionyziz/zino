@@ -219,6 +219,7 @@ div#profile div.main {
 	margin-left: 330px;
 	position: relative;
 }
+/*
 div#profile div.main div.notifications {
 	padding: 5px 0 0 0;
 	top: 0;
@@ -278,7 +279,7 @@ div#profile div.main div.notifications div.list div.event div.subject div.addfri
 	background-position: 0 -1px;
 	padding-left: 18px;
 }
-
+*/
 div#profile div.main div.ybubble {
 	margin: -28px 0 20px 50px;
 	width: 500px;
