@@ -47,7 +47,7 @@
 		$arr .= "}";
 		if ( is_array( $res ) ) {
 			?>alert( "Ine Array me length: <?php
-			echo $count( $res );
+			echo count( $res );
 			?>" );<?php
 		}
 			
