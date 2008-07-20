@@ -7,6 +7,15 @@
             $this->AssertEquals( '<a href="https://foo.bar.org/?blah=baz&amp;alpha=beta">https://foo.bar.org/?blah=baz&amp;alpha=beta</a>', WYSIWYG_Links( 'https://foo.bar.org/?blah=baz&amp;alpha=beta' ) );
             $this->AssertEquals( 'Hello, <a href="http://en.wikipedia.org/wiki/World">http://en.wikipedia.org/wiki/World</a>!', WYSIWYG_Links( 'Hello, http://en.wikipedia.org/wiki/World!' ) );
         }
+        
+        public function TestSmileys() {
+            global $xc_settings;
+
+            $this->AssertEquals( '<img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/smile.png\' alt=\':-)\' title=\':-)\' class=\'emoticon\' width=\'22\' height=\'22\' />', WYSIWYG_Smileys( ':-)' ) );
+            $this->AssertEquals( 'lol <img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/tongue.png\' alt=\':P\' title=\':P\' class=\'emoticon\' width=\'22\' height=\'22\' /> at you', WYSIWYG_Smileys( 'lol :P at you' ) );
+            $this->AssertEquals( 'Watch this <img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/airplane.png\' alt=\':airplane:\' title=\':airplane:\' class=\'emoticon\' width=\'22\' height=\'22\' />!', WYSIWYG_Smileys( 'Watch this :airplane:!' ) );
+            $this->AssertEquals( '<img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/wink.png\' alt=\';-)\' title=\';-)\' class=\'emoticon\' width=\'22\' height=\'22\' />', WYSIWYG_Smileys( ';-)' ) );
+        }
     }
 
     return New TestWYSIWYG();
