@@ -38,8 +38,8 @@ var Suggest = {
 			alert( 'Tipota' );
 			return;
 		}
-		for( var i=0;i<suggestions.length;++i ) {
-			alert( suggestions[i] );
+		for( var i in suggestions ) {
+			alert(  i + ":" + suggestions[i] );
 		}
 	}
 }
