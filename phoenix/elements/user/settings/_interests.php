@@ -63,6 +63,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -100,6 +103,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'songs' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -137,6 +143,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'movies' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -174,6 +183,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'shows' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -211,6 +223,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'books' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -248,6 +263,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'artists' );"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -285,6 +303,9 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <form>
+                        	<select size="5" onkeypress="Suggest.selectMove( event, 'games' );"/>
+                        </form>
                     </div>
                 </div>
             </div>

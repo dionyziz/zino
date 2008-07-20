@@ -176,6 +176,13 @@ div.settings div.tabs form#interestsinfo div.option div.setting div.add a {
 	margin-left: 1px;
 	vertical-align: -2px;
 }
+div.settings div.tabs form#interestsinfo div.option div.setting div.add form {
+	display: none;
+}
+div.settings div.tabs form#interestsinfo div.option div.setting div.add form select {
+	width: 200px;
+	border-top-width: 0px;
+}
 div.settings div.tabs form#interestsinfo div.creation {
 	display: none;
 }
