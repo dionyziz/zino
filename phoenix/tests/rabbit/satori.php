@@ -104,15 +104,15 @@
         protected $mOnCreateNumCalls = 0;
         protected $mOnUpdateNumCalls = 0;
 
-        protected function GetOnDeleteNumCalls() {
-            return $this->mOnDeleteNumCalls;
-        }
-        protected function GetOnCreateNumCalls() {
-            return $this->mOnCreateNumCalls;
-        }
-        protected function GetOnUpdateNumCalls() {
-            return $this->mOnUpdateNumCalls;
-        }
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'OnDeleteNumCalls':
+				case 'OnCreateNumCalls':
+				case 'OnUpdateNumCalls':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+		}
         public function LoadDefaults() {
             $this->Char = 'abcd';
             $this->Name = 'coco';
