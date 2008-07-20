@@ -122,11 +122,15 @@
  		protected $mDbTableAlias = 'tags';
  		private $mUser;
  		
- 		protected function GetUser() {
- 			if ( !is_object( $this->mUser ) || $this->mUser->Id != $this->Userid ) {
- 				$this->mUser = New User( $this->Userid );
- 			}
- 			return $this->mUser;
+		protected function __get( $key ) {
+			if ( $key == 'User' ) {
+				if ( !is_object( $this->mUser ) || $this->mUser->Id != $this->Userid ) {
+					$this->mUser = New User( $this->Userid );
+				}
+				return $this->mUser;
+			}
+
+			return parent::__get( $key );
  		}
  		public function MoveAfter( $tag ) {
  			if ( !is_tag( $tag ) ) {

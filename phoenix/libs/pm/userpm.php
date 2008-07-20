@@ -88,24 +88,21 @@
 
             return false;
         }
-        public function GetSender() {
-            return $this->PM->Sender;
-        }
-        public function GetText() {
-            return $this->PM->Text;
-        }
-        public function GetReceivers() {
-            return $this->PM->Receivers;
-        }
-        public function GetUser() {
-            return $this->Folder->User;
-        }
-        public function GetCreated() {
-            return $this->PM->Created;
-        }
-        public function GetSince() {
-            return $this->PM->Since;
-        }
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Sender':
+				case 'Text':
+				case 'Receivers':
+				case 'Created':
+				case 'Since':
+					$attribute = 'm' . $key;
+					return $this->PM->$attribute;
+				case 'User':
+					return $this->Folder->User;
+				default:
+					return parent::__get( $key );
+			}
+		}
         protected function Relations() {
             $this->PM = $this->HasOne( 'PM', 'Pmid' );
             $this->Folder = $this->HasOne( 'PMFolder', 'Folderid' );

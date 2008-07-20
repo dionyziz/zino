@@ -50,9 +50,12 @@
         protected $mTypeId;
         protected $mItemId;
 
-        public function GetAdmin() {
-            return $this->mAdmin;
-        }
+		protected function __get( $key ) {
+			if ( $key == 'Admin' ) {
+				return $this->mAdmin;
+			}
+			return parent::__get( $key );
+		}
         public function AdminAction( $construct ) {
             global $db;
             global $adminactions;

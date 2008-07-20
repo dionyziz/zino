@@ -18,9 +18,13 @@
 	class Poll extends Satori {
 		protected $mDbTableAlias = 'polls';
 
-        protected function GetTitle() {
-            return $this->Question;
-        }
+		protected function __get( $key ) {
+			if ( $key == 'Title' ) {
+				return $this->Question;
+			}
+
+			return parent::__get( $key );
+		}
         public function OnVoteCreate() {
             ++$this->Numvotes;
             $this->Save();
@@ -37,11 +41,6 @@
             --$this->Numcomments;
             $this->Save();
         }
-		/*
-        public function GetPercentage() {
-            return ( $this->Numvotes / $this->Poll->Numvotes ) * 100;
-        }
-		*/
         public function CreateOption( $text ) {
             $option = New PollOption();
             $option->Text = $text;

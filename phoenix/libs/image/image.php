@@ -150,6 +150,26 @@
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
         
+		protected function __get( $key ) {
+			global $rabbit_settings;
+			
+			if ( $key == 'ServerUrl' ) {
+				return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
+			}
+
+			return parent::__get( $key );
+		}
+		protected function __set( $key, $value ) {
+			if ( $key == 'Name' ) {
+				if ( mb_strlen( $value ) > 96 ) {
+					$value = mb_substr( $value , 0 , 96 );
+				}
+				
+				$this->mCurrentValues[ 'Name' ] = $value;
+			}
+
+			parent::__set( $key, $value );
+        }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
         }
@@ -157,11 +177,6 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );
         }
-		public function GetServerUrl() {
-			global $rabbit_settings;
-			
-			return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
-		}
 		public function IsDeleted() {
             return $this->Delid > 0 || !$this->Exists();
         }
@@ -238,13 +253,6 @@
                 return -1;
             }
             return 0;
-        }
-        public function SetName( $value ) {
-            if ( mb_strlen( $value ) > 96 ) {
-                $value = mb_substr( $value , 0 , 96 );
-            }
-            
-            $this->mCurrentValues[ 'Name' ] = $value;
         }
         public function Upload() {
             global $water;

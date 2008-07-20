@@ -155,16 +155,20 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Since':
+					return dateDiff( $this->Event->Created, NowDate() );
+				case 'Item':
+					w_assert( $this->Event->Exists(), 'Event does not exist' );
+
+					return $this->Event->Item;
+				default:
+					return parent::__get( $key );
+			}
+		}
         public function CopyEventFrom( $value ) {
             $this->mRelations[ 'Event' ]->CopyFrom( $value );
-        }
-        public function GetItem() {
-            w_assert( $this->Event->Exists(), 'Event does not exist' );
-
-            return $this->Event->Item;
-        }
-        public function GetFromUser() {
-            return $this->Event->User;
         }
         public function Email() {
             global $rabbit_settings;
@@ -226,9 +230,6 @@
         public function OnBeforeUpdate() {
             throw New Exception( 'Notifications cannot be edited!' );
         }
-		public function GetSince() {
-			return dateDiff( $this->Event->Created, NowDate() );
-		}
     }
 
 ?>

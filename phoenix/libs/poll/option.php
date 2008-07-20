@@ -36,10 +36,16 @@
 	class PollOption extends Satori {
 		protected $mDbTableAlias = 'polloptions';
 		
+		protected function __get( $key ) {
+			if ( $key == 'Percentage' ) {
+				return $this->Numvotes / $this->Poll->Numvotes;
+			}
+
+			return parent::__get( $key );
+		}
 		public function CopyPollFrom( $value ) {
             $this->mRelations[ 'Poll' ]->CopyFrom( $value );
         }
-        
         public function Vote( $user ) {
             if ( $user instanceof User ) {
                 $user = $user->Id;
@@ -56,9 +62,6 @@
         public function OnVoteCreate() {
             ++$this->Numvotes;
             $this->Save();
-        }
-		public function GetPercentage() {
-            return $this->Numvotes / $this->Poll->Numvotes;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
