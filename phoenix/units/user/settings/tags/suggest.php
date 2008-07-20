@@ -46,7 +46,7 @@
 		}
 		$arr .= "}";
 		?>alert( "<?php
-		echo var_export( $res );
+		echo w_json_encode( var_export( $res ) );
 		?>" );<?php
 			
 		/*
