@@ -8,10 +8,7 @@
                 ?><div class="comment" style="border-color: #dee;" id="s_<?php
                 echo $shout->Id;
                 ?>">
-                    <div class="toolbox">
-                        <span class="time">πριν <?php
-                        echo $shout->Since;
-                        ?></span><?php
+                    <div class="toolbox"><?php
                         if ( ( $user->Id == $shout->User->Id && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
                             ?><a href="" onclick="Frontpage.DeleteShout( '<?php
                             echo $shout->Id;
