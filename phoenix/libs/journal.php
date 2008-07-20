@@ -40,6 +40,7 @@
 			switch ( $key ) {
 				case 'Text':
 					$this->Bulk->Text = $value;
+					break;
 				default:
 					return parent::__set( $key, $value );
 			}
