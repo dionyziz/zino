@@ -95,12 +95,23 @@
             $this->Bulkid = $this->Bulk->Id;
         }
 
-        public function SetText( $text ) {
-            $this->Bulk->Text = $text;
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Text':
+                    return $this->Bulk->Text;
+                default:
+                    return parent::__get( $key );
+            }
         }
 
-        public function GetText() {
-            return $this->Bulk->Text;
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Text':
+                    $this->Bulk->Text = $value;
+                    return;
+                default:
+                    return parent::__set( $key, $value );
+            }
         }
 
 		public function OnCreate() {
