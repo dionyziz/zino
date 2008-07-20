@@ -13,7 +13,7 @@ var Suggest = {
 		}
 		else if ( event.keyCode == 13 ) {
 			var text = sel.get( 0 ).options[ selindex ].value;
-			$( 'div.' + type + ' input' ).val( text );
+			$( 'div.' + type + ' input' ).val( text ).focus();
 			sel.find( 'option' ).remove();
 			$( 'div.' + type + ' form' ).hide();
 		}
