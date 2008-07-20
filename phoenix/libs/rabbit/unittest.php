@@ -20,8 +20,8 @@
 		public function __set( $key, $value ) {
 			switch ( $key ) {
 				case 'Name':
-					w_assert( is_string( $name ) );
-					w_assert( !empty( $name ) );
+					w_assert( is_string( $key ) );
+					w_assert( !empty( $key ) );
 					// fallthrough
 				case 'Tester':
 					$attribute = 'm' . $key;
