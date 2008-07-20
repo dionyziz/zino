@@ -221,15 +221,15 @@
 					return $this->$attribute;
 			}
             
-			if ( isset( $this->mRelations[ $name ] ) ) {
-                return $this->mRelations[ $name ]->Retrieve();
+			if ( isset( $this->mRelations[ $key ] ) ) {
+                return $this->mRelations[ $key ]->Retrieve();
             }
             
-            $name = ucfirst( $name );
-            if ( !in_array( $name, $this->mDbFields ) ) {
-                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $name . '\' on a `' . get_class( $this ) . '\' instance' );
+            $key = ucfirst( $key );
+            if ( !in_array( $key, $this->mDbFields ) ) {
+                throw New SatoriException( 'Attempting to read non-existing Satori property `' . $key . '\' on a `' . get_class( $this ) . '\' instance' );
             }
-            return $this->mCurrentValues[ $name ];
+            return $this->mCurrentValues[ $key ];
 		}
         public function __set( $name, $value ) {
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
