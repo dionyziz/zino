@@ -3,7 +3,9 @@
         public function Render( tBoolean $newuser ) {
             global $user;
             global $rabbit_settings;
-
+			global $libs;
+			
+			$libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0 , 15 );
