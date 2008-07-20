@@ -57,5 +57,26 @@ $( document ).ready( function() {
 				Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
 			} );
 		}
+		$( 'div.frontpage div.notifications div.expand a' ).click( function() {
+			if ( $( notiflist ).hasClass( 'invisible' ) ) {
+				$( 'div.frontpage div.notifications div.expand a' )
+				.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_up.png" )' )
+				.attr( {
+					title : 'Απόκρυψη'
+				} );
+				$( notiflist ).removeClass( 'invisible' ).animate( { height : notiflistheight } , 400 );
+			}
+			else {
+				$( 'div.frontpage div.notifications div.expand a' )
+				.css( "background-image" , 'url( "' + ExcaliburSettings.imagesurl + 'arrow_down.png" )' )
+				.attr( {
+					title : 'Εμφάνιση'
+				} );
+				$( notiflist ).animate( { height : "0" } , 400 , function() {
+					$( notiflist ).addClass( 'invisible' );
+				} );
+			}
+			return false;
+		} );
 	}
 } );
