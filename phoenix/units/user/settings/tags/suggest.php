@@ -35,12 +35,22 @@
 		
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
+		
+		$arr = "{ ";
+		$len = count( $res );
+		for( $i = 0; $i < $len; ++$i ) {
+			$arr .= w_json_encode( $res[ $i ] );
+			if ( $i != $len-1 ) {
+				$arr .= ", ";
+			}
+		}
+		$arr .= "}";
 
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
 		?>, <?php
-		echo w_json_encode( $res );
+		echo $arr;
 		?> );<?php
 	}
 ?>
