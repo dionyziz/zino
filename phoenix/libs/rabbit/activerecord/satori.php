@@ -231,7 +231,7 @@
             }
             return $this->mCurrentValues[ $key ];
 		}
-        public function __set( $name, $value ) {
+        protected function __set( $name, $value ) {
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
