@@ -33,6 +33,11 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		alert( typeof suggestions );
+		if ( suggestions.length === 0 ) {
+			return;
+		}
+		for( var i=0;i<suggestions.length;++i ) {
+			alert( suggestions[i] );
+		}
 	}
 }
