@@ -172,17 +172,27 @@
         public function CopyAvatarFrom( $value ) {
             $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
-        protected function SetPassword( $value ) {
-            $this->mCurrentValues[ 'Password' ] = md5( $value );
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Password':
+					$this->mCurrentValues[ 'Password' ] = md5( $value );
+					break;
+				default:
+					return parent::__set( $key, $value );
+			}
         }
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Password':
+					throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );
+				case 'LastActive':
+					return $this->LastActivity->Updated;
+				default:
+					return parent::__get( $key );
+			}
+		}
         public function IsCorrectPassword( $value ) {
             return md5( $value ) == $this->mCurrentValues[ 'Password' ];
-        }
-        protected function GetPassword() {
-            throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );
-        }
-        protected function GetLastActive() {
-            return $this->LastActivity->Updated;
         }
         protected function Relations() {
             $this->Preferences = $this->HasOne( 'UserSettings', 'Id' );
