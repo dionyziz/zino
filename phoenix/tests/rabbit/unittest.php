@@ -48,7 +48,6 @@
             $this->AssertNotNull( false, 'AssertNotNull should succeed with the boolean false parameter' );
             $this->AssertNotNull( array( true ), 'AssertNotNull should succeed with a non-empty array parameter' );
             $this->AssertNotNull( array(), 'AssertNotNull should succeed with the empty array parameter' );
-            $this->AssertNull( $foobar, 'AssertNull should succeed with an undefined variable' );
             $foobar = null;
             $this->AssertNull( $foobar, 'AssertNull should succeed with a null variable' );
             $this->AssertNull( $GLOBALS[ 'foobar' ], 'AssertNull should succeed with a non-defined array index in $GLOBALS' );
