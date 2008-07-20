@@ -203,9 +203,9 @@
 					$this->mAlias = $value;
 					break;
 				case 'Database':
-					w_assert( is_object( $db ) );
-					w_assert( $db instanceof Database );
-					$this->mDb = $db;
+					w_assert( is_object( $value ) );
+					w_assert( $value instanceof Database );
+					$this->mDb = $value;
 					break;
 			}
 		}
