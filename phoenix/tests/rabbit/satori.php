@@ -111,6 +111,8 @@
 				case 'OnUpdateNumCalls':
 					$attribute = 'm' . $key;
 					return $this->$attribute;
+				default:
+					return parent::__get( $key );
 			}
 		}
         public function LoadDefaults() {
