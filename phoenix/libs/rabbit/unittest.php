@@ -3,27 +3,37 @@
         Developer: Dionyziz
     */
     
-    abstract class Testcase extends Overloadable {
+    abstract class Testcase {
         protected $mTester;
         protected $mName;
         protected $mAppliesTo;
         
         final public function Testcase() {
         }
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'Name':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+		}
+		public function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Name':
+					w_assert( is_string( $name ) );
+					w_assert( !empty( $name ) );
+					// fallthrough
+				case 'Tester':
+					$attribute = 'm' . $key;
+					$this->$attribute = $value;
+			}
+		}
         public function SetUp() { // overridable
         }
         public function TearDown() { // overridable
         }
         final public function AppliesTo() {
             return $this->mAppliesTo;
-        }
-        protected function SetName( $name ) {
-            w_assert( is_string( $name ) );
-            w_assert( !empty( $name ) );
-            $this->mName = $name;
-        }
-        protected function GetName() {
-            return $this->mName;
         }
         protected function AssertNull( $actual, $message = '' ) {
             return $this->InformTester(
@@ -82,9 +92,6 @@
         }
         protected function InformTester( AssertResult $result ) {
             return $this->mTester->Inform( $result );
-        }
-        public function SetTester( Tester $tester ) {
-            $this->mTester = $tester;
         }
     }
     
@@ -231,20 +238,27 @@
         }
     }
     
-    class TestcaseResult extends Overloadable implements Iterator { // a group of run results, the results for a complete testcase
+    class TestcaseResult implements Iterator { // a group of run results, the results for a complete testcase
         protected $mRunResults;
         protected $mTestcase;
         protected $mSuccess;
         protected $mNumRuns;
         protected $mNumSuccessfulRuns;
         protected $mNumAssertions;
-        
-        protected function GetTestcase() {
-            return $this->mTestcase;
-        }
-        protected function GetResults() {
-            return $this->mRunResults;
-        }
+       
+	   	public function __get( $key ) {
+			switch ( $key ) {
+				case 'Results':
+					return $this->mRunResults;
+				case 'Testcase':
+				case 'NumRuns':
+				case 'NumSuccessfulRuns':
+				case 'NumAssertions':
+				case 'Success':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+		}
         public function rewind() {
             return reset( $this->mRunResults );
         }
@@ -259,18 +273,6 @@
         }
         public function valid() {
             return $this->current() !== false;
-        }
-        protected function GetNumRuns() {
-            return $this->mNumRuns;
-        }
-        protected function GetNumSuccessfulRuns() {
-            return $this->mNumSuccessfulRuns;
-        }
-        protected function GetNumAssertions() {
-            return $this->mNumAssertions;
-        }
-        protected function GetSuccess() {
-            return $this->mSuccess;
         }
         public function TestcaseResult( Testcase $testcase, array $runresults ) {
             w_assert( is_array( $runresults ) );
@@ -293,7 +295,7 @@
         }
     }
     
-    class RunResult extends Overloadable implements Iterator { // a group of assertion results, a result of a test (function in the testcase class)
+    class RunResult implements Iterator { // a group of assertion results, a result of a test (function in the testcase class)
         protected $mAssertionResults;
         protected $mSuccess;
         protected $mRunName;
@@ -315,18 +317,16 @@
         public function valid() {
             return $this->current() !== false;
         }
-        protected function GetRunName() {
-            return $this->mRunName;
-        }
-        protected function GetSuccess() {
-            return $this->mSuccess;
-        }
-        protected function GetNumAssertions() {
-            return $this->mNumAssertions;
-        }
-        protected function GetNumSuccessfulAssertions() {
-            return $this->mNumSuccessfulAssertions;
-        }
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'RunName':
+				case 'Success':
+				case 'NumAssertions':
+				case 'NumSuccessfulAssertions':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+		}
         public function RunResult( array $assertionresults, $runname ) {
             w_assert( is_string( $runname ) );
             w_assert( !empty( $runname ) );
@@ -347,24 +347,22 @@
         }
     }
     
-    class AssertResult extends Overloadable { // most basic test, a simple assertion
+    class AssertResult { // most basic test, a simple assertion
         protected $mSuccess;
         protected $mMessage;
         protected $mActual;
         protected $mExpected;
         
-        protected function GetSuccess() {
-            return $this->mSuccess;
-        }
-        protected function GetMessage() {
-            return $this->mMessage;
-        }
-        protected function GetActual() {
-            return $this->mActual;
-        }
-        protected function GetExpected() {
-            return $this->mExpected;
-        }
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'Success':
+				case 'Message':
+				case 'Actual':
+				case 'Excpected':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
+		}
         public function __construct( $success, $message, $actual, $expected ) {
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
@@ -376,9 +374,12 @@
     class AssertResultFailedByException extends AssertResult {
         protected $mCallstack;
 
-        public function GetCallstack() {
-            return $this->mCallstack;
-        }
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'Callstack':
+					return $this->mCallstack;
+			}
+		}
         public function AssertResultFailedByException( $message, $callstack ) {
             w_assert( is_array( $callstack ) );
             $this->mCallstack = $callstack;

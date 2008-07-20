@@ -4,7 +4,7 @@
 	define( 'DB_KEY_UNIQUE'		, 2 );
 	define( 'DB_KEY_PRIMARY'	, 3 );
     
-    class DBIndex extends Overloadable {
+    class DBIndex {
         private $mExists;
         private $mFields;
         private $mName;
@@ -12,15 +12,64 @@
         private $mCardinality;
         private $mParentTable;
         
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'Fields':
+				case 'Name':
+				case 'Type':
+				case 'Cardinality':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+				case 'SQL':
+					$sql = '';
+					if ( $this->mType == DB_KEY_PRIMARY ) {
+						$sql .= 'PRIMARY KEY ';
+					}
+					else {
+						if ( $this->mType == DB_KEY_UNIQUE ) {
+							$sql .= 'UNIQUE ';
+						}
+						$sql .= 'INDEX ';
+					}
+					$fields = array();
+					foreach ( $this->mFields as $field ) {
+						$fields[] = $field->Name;
+					}
+					$sql .= $this->mName;
+					$sql .= ' (`' . implode('`, `', $fields) . '`)';
+					return $sql;
+			}
+		}
+		public function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Type':
+					switch ( $value ) {
+						case DB_KEY_INDEX:
+						case DB_KEY_UNIQUE:
+						case DB_KEY_PRIMARY:
+							$this->mType = $value;
+							return;
+						default:
+							throw New DBException( 'Invalid index type `' . $value . '\'' );
+					}
+					break;
+				case 'Exists':
+					w_assert( is_bool( $value ) );
+					w_assert( $value === true );
+					/* fallthrough */
+				case 'Name':
+				case 'Type':
+					$attribute = 'm' . $key;
+					$this->$attribute = $value;
+					break;
+			}
+		}
         public function Exists() {
             return $this->mExists;
         }
         public function AddField( DBField $field ) {
             w_assert( is_object( $field ) );
             $this->mFields[] = $field;
-        }
-        protected function GetFields() {
-            return $this->mFields;
         }
         public function Save() {
             global $water;
@@ -35,56 +84,6 @@
             );
             $query->BindTable( $this->mParentTable->Alias );
             $query->Execute();
-        }
-        public function GetSQL() {
-            $sql = '';
-            if ( $this->mType == DB_KEY_PRIMARY ) {
-                $sql .= 'PRIMARY KEY ';
-            }
-            else {
-                if ( $this->mType == DB_KEY_UNIQUE ) {
-                    $sql .= 'UNIQUE ';
-                }
-                $sql .= 'INDEX ';
-            }
-            $fields = array();
-            foreach ( $this->mFields as $field ) {
-                $fields[] = $field->Name;
-            }
-            $sql .= $this->mName;
-            $sql .= ' (`' . implode('`, `', $fields) . '`)';
-            return $sql;
-        }
-        protected function GetType() {
-            return $this->mType;
-        }
-        protected function GetName() {
-            return $this->mName;
-        }
-        protected function SetType( $type ) {
-            switch ( $type ) {
-                case DB_KEY_INDEX:
-                case DB_KEY_UNIQUE:
-                case DB_KEY_PRIMARY:
-                    $this->mType = $type;
-                    return;
-                default:
-                    throw New DBException( 'Invalid index type `' . $type . '\'' );
-            }
-        }
-        protected function SetName( $name ) {
-            $this->mName = $name;
-        }
-        protected function SetParentTable( DBTable $table ) {
-            $this->mParentTable = $table;
-        }
-        protected function GetCardinality() {
-            return $this->mCardinality;
-        }
-        protected function SetExists( $value ) {
-            w_assert( is_bool( $value ) );
-            w_assert( $value === true );
-            $this->mExists = $value;
         }
         public function Unserialize( $info ) {
             w_assert( is_array( $info ) );
