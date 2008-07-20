@@ -31,7 +31,7 @@
 		protected function __get( $key ) {
 			switch ( $key ) {
 				case 'Text':
-					return $this->GetText();
+					return $this->Bulk->Text;
 				default:
 					return parent::__get( $key );
 			}
@@ -45,17 +45,12 @@
 					return parent::__set( $key, $value );
 			}
 		}
-        public function GetText( $length = false ) {
+        public function GetText( $length ) {
+			w_assert( is_int( $length ) );
             $text = $this->Bulk->Text;
-
-            if ( $length == false ) {
-                return $text;
-            }
-            else {
-                $text = htmlspecialchars_decode( strip_tags( $text ) );
-                $text = mb_substr( $text, 0, $length );
-                return htmlspecialchars( $text );
-            }
+			$text = htmlspecialchars_decode( strip_tags( $text ) );
+			$text = mb_substr( $text, 0, $length );
+			return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();

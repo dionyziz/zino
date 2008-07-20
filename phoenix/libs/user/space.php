@@ -6,20 +6,28 @@
     class UserSpace extends Satori {
         protected $mDbTableAlias = 'userspaces';
         
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Text':
+					return $this->Bulk->Text;
+				default:
+					return parent::__get( $key );
+			}
+		}
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Text':
+					$this->Bulk->Text = $value;
+					break;
+				default:
+					return parent::__set( $key, $value );
+			}
+		}
         public function GetText( $length = false ) {
             $text = $this->Bulk->Text;
-
-            if ( $length == false ) {
-                return $text;
-            }
-            else {
-                $text = htmlspecialchars_decode( strip_tags( $text ) );
-                $text = mb_substr( $text, 0, $length );
-                return htmlspecialchars( $text );
-            }
-        }
-        public function SetText( $value ) {
-            $this->Bulk->Text = $value;
+			$text = htmlspecialchars_decode( strip_tags( $text ) );
+			$text = mb_substr( $text, 0, $length );
+			return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();

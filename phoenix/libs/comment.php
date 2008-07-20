@@ -422,13 +422,9 @@
 					return parent::__set( $key, $value );
 			}
         }
-		public function GetText( $length = false ) {
+		public function GetText( $length ) {
+			w_assert( is_int( $length ) );
 			$text = $this->Bulk->Text;
-
-			if ( $length === false ) {
-				return $text;
-			}
-
 			$text = htmlspecialchars_decode( strip_tags( $text ) );
 			$text = mb_substr( $text, 0, $length );
 			return htmlspecialchars( $text );
