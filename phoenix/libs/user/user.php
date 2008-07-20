@@ -62,7 +62,9 @@
             $prototype = New User();
             $prototype->Name = $username;
             $prototype->Password = $password;
-			die( 'Checking for user ' . $username . ' logged in with ' . $password );
+			echo( 'Checking for user ' . $username . ' logged in with ' . $password );
+			$user = $this->FindByPrototype( $prototype );
+			die( var_dump( $user ) );
             return $this->FindByPrototype( $prototype );
         }
         public function FindByIdAndAuthtoken( $userid, $authtoken ) {
