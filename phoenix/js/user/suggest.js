@@ -38,5 +38,4 @@ var Suggest = {
 			alert( suggestions[i] );
 		}
 	}
-	}
 }
