@@ -99,6 +99,8 @@
             switch ( $key ) {
                 case 'Text':
                     return $this->Bulk->Text;
+                case 'Since':
+                    return $this->mSince;
                 default:
                     return parent::__get( $key );
             }
@@ -142,9 +144,6 @@
     			$this->mSince = dateDiff( $this->Created, NowDate() );
             }
         }
-		public function GetSince() {
-			return $this->mSince;
-		}
 	}
 	
 ?>
