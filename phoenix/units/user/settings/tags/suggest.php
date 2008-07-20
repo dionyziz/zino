@@ -1,6 +1,7 @@
 <?php
 	function UnitUserSettingsTagsSuggest( tString $text, tString $type, tCoalaPointer $callback ) {
 		global $libs;
+		global $water;
 		
 		$libs->Load( 'tag' );
 		
@@ -35,6 +36,8 @@
 		
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
+		
+		$water->Trac( var_dump( $res ) );
 		
 		echo $callback;
 		?>( <?php
