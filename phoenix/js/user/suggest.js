@@ -4,8 +4,18 @@ var Suggest = {
 			return;
 		}
 		var sel = $( 'div.' + type + ' select' );
-		if ( ( sel.attr( "selectedIndex" ) === undefined && event.keyCode == 38 ) || ( sel.attr( "selectedIndex" ) == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
+		var selindex = sel.attr( "selectedIndex" );
+		if ( selindex === undefined ) {
+			selindex = 0;
+		}
+		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
 			$( 'div.' + type + ' input' ).focus();
+		}
+		else if ( event.keyCode == 13 ) {
+			var text = sel.get( 0 ).options[ selindex ].value;
+			$( 'div.' + type + ' input' ).val( text );
+			sel.find( 'option' ).remove();
+			$( 'div.' + type + ' form' ).hide();
 		}
 	},
 	inputMove : function( event, type ) {
