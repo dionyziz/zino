@@ -39,7 +39,7 @@
 		$arr = "{ ";
 		$len = count( $res );
 		for( $i = 0; $i < $len; ++$i ) {
-			$arr .= w_json_encode( $res[ $i ] );
+			$arr .= $res[ $i ];
 			if ( $i != $len-1 ) {
 				$arr .= ", ";
 			}
