@@ -144,7 +144,7 @@ div.inevents {
 }
 */
 div.inlatestcomments {
-	float: right;
+	float: left;
 	width: 49%;
 	margin-left: 10px;
 }
