@@ -45,11 +45,9 @@
 			}
 		}
 		$arr .= "}";
-		if ( is_array( $res ) && is_string( $res[0] ) ) {
-			?>alert( "Ine Array me length: <?php
-			echo count( $res );
-			?>" );<?php
-		}
+		?>alert( "<?php
+		echo var_export( $res );
+		?>" );<?php
 			
 		/*
 		echo $callback;
