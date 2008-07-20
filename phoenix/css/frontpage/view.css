@@ -137,14 +137,14 @@ div.inshoutbox div.shoutbox div.comments {
 	width: 100%;
 }
 /*
-div.inevents {
+div.inevents { //there is no such class anymore
 	float: right;
 	width: 49%;
 	margin-left: 10px;
 }
 */
 div.inlatestcomments {
-	float: left;
+	float: right;
 	width: 49%;
 	margin-left: 10px;
 }
