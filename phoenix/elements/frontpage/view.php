@@ -116,7 +116,7 @@
                     <div class="inshoutbox"><?php
                         Element( 'frontpage/shoutbox/list' );
                     ?></div>
-                    <div class="latestevents"><?php
+                    <div class="inlatestevents"><?php
                        Element( 'event/list' );
                     ?></div>
                 </div>
