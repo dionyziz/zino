@@ -41,7 +41,7 @@
 				case 'Text':
 					$this->Bulk->Text = $value;
 				default:
-					return parent::__get( $key, $value );
+					return parent::__set( $key, $value );
 			}
 		}
         public function GetText( $length = false ) {
