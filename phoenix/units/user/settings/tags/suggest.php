@@ -45,12 +45,15 @@
 			}
 		}
 		$arr .= "}";
-
+		?>alert( <?php
+			w_json_encode( $arr );
+		?>);<?php
+		/*
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
 		?>, <?php
 		echo $arr;
-		?> );<?php
+		?> );<?php */
 	}
 ?>
