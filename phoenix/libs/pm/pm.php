@@ -8,30 +8,42 @@
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
 
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Receivers':
+					if ( $this->Exists() && empty( $this->mReceivers ) ) {
+						$finder = New PMFinder();
+						$this->mReceivers = $finder->FindReceivers( $this );
+					}
+
+					return $this->mReceivers;
+				case 'Since':
+					return dateDistance( $this->Created );
+				case 'Text':
+					return $this->Bulk->Text;
+				default:
+					return parent::__get( $key );
+			}
+		}
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Receivers':
+					$this->mReceivers = $value;
+					break;
+				case 'Text':
+					$this->Bulk->Text = $value;
+					break;
+				default:
+					parent::__set( $key, $value );
+			}
+		}
         public function OnDelete() {
             foreach ( $this->UserPMs as $upm ) {
                 $upm->Delete();
             }
         }
-        public function SetReceivers( $receivers ) {
-            $this->mReceivers = $receivers;
-        }
         public function AddReceiver( $receiver ) {
             $this->mReceivers[] = $receiver;
-        }
-        public function GetReceivers() {
-            if ( $this->Exists() && empty( $this->mReceivers ) ) {
-                $finder = New PMFinder();
-                $this->mReceivers = $finder->FindReceivers( $this );
-            }
-
-            return $this->mReceivers;
-        }
-        public function SetText( $text ) {
-            $this->Bulk->Text = $text;
-        }
-        public function GetText() {
-            return $this->Bulk->Text;
         }
         protected function OnBeforeCreate() {
             $this->Bulk->Save();
@@ -75,9 +87,6 @@
         }
         protected function OnConstruct() {
             $this->mReceivers = array();
-        }
-        protected function GetSince() {
-            return dateDistance( $this->Created );
         }
         protected function LoadDefaults() {
             global $user;
