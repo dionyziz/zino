@@ -5,6 +5,7 @@
     
     global $libs;
     
+    $libs->Load( 'rabbit/overloadable' );
     $libs->Load( 'rabbit/activerecord/finder' );
     
     class SatoriException extends Exception {
