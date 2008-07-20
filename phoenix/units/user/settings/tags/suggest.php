@@ -45,7 +45,7 @@
 			}
 		}
 		$arr .= "}";
-		if ( is_array( $res ) ) {
+		if ( is_array( $res ) && is_string( $res[0] ) ) {
 			?>alert( "Ine Array me length: <?php
 			echo count( $res );
 			?>" );<?php
