@@ -136,7 +136,14 @@ div.inshoutbox {
 div.inshoutbox div.shoutbox div.comments {
 	width: 100%;
 }
+/*
 div.inevents {
+	float: right;
+	width: 49%;
+	margin-left: 10px;
+}
+*/
+div.inlatestcomments {
 	float: right;
 	width: 49%;
 	margin-left: 10px;

@@ -116,12 +116,12 @@
                     <div class="inshoutbox"><?php
                         Element( 'frontpage/shoutbox/list' );
                     ?></div>
-                    <div class="inlatestcomments"><?php
-                        Element( 'frontpage/comment/list' );
+                    <div class="latestevents"><?php
+                       Element( 'event/list' );
                     ?></div>
                 </div>
-                <div class="inevents"><?php
-                Element( 'event/list' );
+                <div class="inlatestcomments"><?php
+                Element( 'frontpage/comment/list' );
                 ?></div><?php
             }
             ?><div class="eof"></div><?php
