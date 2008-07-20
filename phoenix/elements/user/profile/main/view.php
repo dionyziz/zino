@@ -40,10 +40,12 @@
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
             }
+			/*
             if ( $user->Id == $theuser->Id ) {
                 $finder = New NotificationFinder();
                 $notifs = $finder->FindByUser( $user , 0 , 5 );
             }
+			*/
             $showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
             //$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
             $showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;

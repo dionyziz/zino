@@ -7,7 +7,9 @@
             $newuser = $newuser->Get(); // TODO
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0 , 15 );
-			$shownotifications = $theuser->Id == $user->Id && count( $notifs ) > 0;
+			$finder = New NotificationFinder();
+            $notifs = $finder->FindByUser( $user , 0 , 5 );
+			$shownotifications = count( $notifs ) > 0;
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
                 if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
