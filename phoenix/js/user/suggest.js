@@ -33,6 +33,7 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
+		alert( suggestions.length );
 		if ( suggestions.length === 0 ) {
 			alert( 'Tipota' );
 			return;
