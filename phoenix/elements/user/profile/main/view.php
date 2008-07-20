@@ -27,6 +27,7 @@
                     $comments = $comments[ 2 ];
                     $finder = New NotificationFinder();
                     $finder->DeleteByCommentAndUser( $speccomment, $user );
+					$water->Trace( 'speccoment is ' . $speccomment->Id );
                 }
             // }
             }
