@@ -409,6 +409,8 @@
 					return $this->Bulk->Text;
 				case 'Since':
 					return $this->mSince;
+				default:
+					return parent::__get( $key );
 			}
 		}
 		public function GetText( $length = false ) {
