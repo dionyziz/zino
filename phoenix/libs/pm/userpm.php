@@ -95,8 +95,7 @@
 				case 'Receivers':
 				case 'Created':
 				case 'Since':
-					$attribute = 'm' . $key;
-					return $this->PM->$attribute;
+					return $this->PM->$key;
 				case 'User':
 					return $this->Folder->User;
 				default:
