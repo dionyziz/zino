@@ -9,25 +9,25 @@
 		
 		switch( $type ) {
 			case 'hobbies':
-				$act_type = 1;
+				$act_type = TAG_HOBBIE;
 				break;
 			case 'movies':
-				$act_type = 2;
+				$act_type = TAG_MOVIE;
 				break;
 			case 'books':
-				$act_type = 3;
+				$act_type = TAG_BOOK;
 				break;
 			case 'songs':
-				$act_type = 4;
+				$act_type = TAG_SONG;
 				break;
 			case 'artists':
-				$act_type = 5;
+				$act_type = TAG_ARTIST;
 				break;
 			case 'games':
-				$act_type = 6;
+				$act_type = TAG_GAME;
 				break;
 			case 'shows':
-				$act_type = 7;
+				$act_type = TAG_SHOW;
 				break;
 			default:
 				$type = -1;
@@ -45,9 +45,12 @@
 			}
 		}
 		$arr .= "}";
-		?>alert( <?php
-			echo w_json_encode( $arr );
-		?>);<?php
+		if ( is_array( $res ) ) {
+			?>alert( "Ine Array me length: <?php
+			echo $count( $res );
+			?>" );<?php
+		}
+			
 		/*
 		echo $callback;
 		?>( <?php
