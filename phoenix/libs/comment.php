@@ -413,6 +413,15 @@
 					return parent::__get( $key );
 			}
 		}
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Text':
+					$this->Bulk->Text = $value;
+					return;
+				default:
+					return parent::__set( $key, $value );
+			}
+        }
 		public function GetText( $length = false ) {
 			$text = $this->Bulk->Text;
 
@@ -435,9 +444,6 @@
         }
         public function IsEditableBy( $user ) {
             return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
-        }
-        public function SetText( $value ) {
-            $this->Bulk->Text = $value;
         }
         public function IsDeleted() {
             return $this->Delid > 0;
