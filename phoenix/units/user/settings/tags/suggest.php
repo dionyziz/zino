@@ -35,9 +35,7 @@
 		
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
-		?>alert( <?php
-		echo w_json_encode( $res[0] );
-		?> );<?php
+
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
