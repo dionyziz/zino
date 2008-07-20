@@ -45,9 +45,9 @@
 			}
 		}
 		$arr .= "}";
-		?>alert( "<?php
+		?>alert( <?php
 		echo w_json_encode( var_export( $res ) );
-		?>" );<?php
+		?> );<?php
 			
 		/*
 		echo $callback;
