@@ -17,54 +17,69 @@
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
         }
-        protected function GetAge() {
-            $validdob = false;
-    		if ( $this->Dob != "0000-00-00" ) {
-                $validdob = true;
-                $nowdate = getdate();
-                $nowyear = $nowdate[ "year" ];
-                $ageyear = $nowyear - $this->BirthYear;
-                $nowmonth = $nowdate[ "mon" ];
-                $nowday = $nowdate[ "mday" ];
-                $hasbirthday = false;
-                if ( $nowmonth < $this->BirthMonth ) {
-                    --$ageyear;
-                }
-                else {
-                    if ( $nowmonth == $this->BirthMonth ) {
-                        if ( $nowday < $this->BirthDay ) {
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Age':
+                    $validdob = false;
+                    if ( $this->Dob != "0000-00-00" ) {
+                        $validdob = true;
+                        $nowdate = getdate();
+                        $nowyear = $nowdate[ "year" ];
+                        $ageyear = $nowyear - $this->BirthYear;
+                        $nowmonth = $nowdate[ "mon" ];
+                        $nowday = $nowdate[ "mday" ];
+                        $hasbirthday = false;
+                        if ( $nowmonth < $this->BirthMonth ) {
                             --$ageyear;
                         }
                         else {
-                            if ( $nowday == $this->BirthDay ) {
-                                $hasbirthday = true;
+                            if ( $nowmonth == $this->BirthMonth ) {
+                                if ( $nowday < $this->BirthDay ) {
+                                    --$ageyear;
+                                }
+                                else {
+                                    if ( $nowday == $this->BirthDay ) {
+                                        $hasbirthday = true;
+                                    }
+                                }
                             }
                         }
                     }
-                }
-    		}
-            if ( isset( $ageyear ) && $ageyear > 5 ) {
-                return $ageyear;
+                    if ( isset( $ageyear ) && $ageyear > 5 ) {
+                        return $ageyear;
+                    }
+                    return false;
+                case 'BirthDay':
+                    if ( $this->Dob == '0000-00-00' ) {
+                        return 0;
+                    }
+                    return ( int )date( 'j', strtotime( $this->Dob ) );
+                case 'BirthMonth':
+                    if ( $this->Dob == '0000-00-00' ) {
+                        return 0;
+                    }
+                    return ( int )date( 'n', strtotime( $this->Dob ) );
+                case 'BirthYear':
+                    if ( $this->Dob == '0000-00-00' ) {
+                        return 0;
+                    }
+                    return ( int )date( 'Y', strtotime( $this->Dob ) );
+                case 'HasBirthday':
+                    if ( $this->Dob != "0000-00-00" ) {
+                        $nowdate = getdate();
+                        $dobmonth = ( int )date( 'n', $this->Dob );
+                        $dobday = ( int )date( 'j', $this->Dob );
+                        $ageyear = $nowyear - $dobyear;
+                        $nowmonth = $nowdate[ "mon" ];
+                        $nowday = $nowdate[ "mday" ];
+                        if ( $nowmonth == $dobmonth && $nowday == $dobday ) {
+                            return true;
+                        }
+                    }
+                    return false;
+                default:
+                    return parent::__get( $key );
             }
-            return false;
-        }
-        protected function GetBirthDay() {
-            if ( $this->Dob == '0000-00-00' ) {
-                return 0;
-            }
-            return ( int )date( 'j', strtotime( $this->Dob ) );
-        }
-        protected function GetBirthMonth() {
-            if ( $this->Dob == '0000-00-00' ) {
-                return 0;
-            }
-            return ( int )date( 'n', strtotime( $this->Dob ) );
-        }
-        protected function GetBirthYear() {
-            if ( $this->Dob == '0000-00-00' ) {
-                return 0;
-            }
-            return ( int )date( 'Y', strtotime( $this->Dob ) );
         }
         protected function MakeBirthdate( $day, $month, $year ) {
             w_assert( is_int( $day ) );
@@ -84,40 +99,23 @@
             }
             return "$year-$month-$day";
         }
-        protected function SetBirthDay( $value ) {
-            global $water;
-            
-            w_assert( is_int( $value ) );
-            $this->Dob = $this->MakeBirthdate( $value, $this->BirthMonth, $this->BirthYear );
-            $water->Trace( 'Updated DOB to ' . $this->Dob );
-        }
-        protected function SetBirthMonth( $value ) {
+        protected function __set( $key, $value ) {
             global $water;
 
-            w_assert( is_int( $value ) );
-            $this->Dob = $this->MakeBirthdate( $this->BirthDay, $value, $this->BirthYear );
-            $water->Trace( 'Updated DOB to ' . $this->Dob );
-        }
-        protected function SetBirthYear( $value ) {
-            global $water;
-
-            w_assert( is_int( $value ) );
-            $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
-            $water->Trace( 'Updated DOB to ' . $this->Dob );
-        }
-        protected function GetHasBirthday() {
-    		if ( $this->Dob != "0000-00-00" ) {
-                $nowdate = getdate();
-                $dobmonth = ( int )date( 'n', $this->Dob );
-                $dobday = ( int )date( 'j', $this->Dob );
-                $ageyear = $nowyear - $dobyear;
-                $nowmonth = $nowdate[ "mon" ];
-                $nowday = $nowdate[ "mday" ];
-                if ( $nowmonth == $dobmonth && $nowday == $dobday ) {
-                    return true;
-                }
-    		}
-            return false;
+            switch ( $key ) {
+                case 'BirthDay':
+                    w_assert( is_int( $value ) );
+                    $this->Dob = $this->MakeBirthdate( $value, $this->BirthMonth, $this->BirthYear );
+                    $water->Trace( 'Updated DOB to ' . $this->Dob );
+                case 'BirthMonth':
+                    w_assert( is_int( $value ) );
+                    $this->Dob = $this->MakeBirthdate( $this->BirthDay, $value, $this->BirthYear );
+                    $water->Trace( 'Updated DOB to ' . $this->Dob );
+                case 'BirthYear':
+                    w_assert( is_int( $value ) );
+                    $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
+                    $water->Trace( 'Updated DOB to ' . $this->Dob );
+            }
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
