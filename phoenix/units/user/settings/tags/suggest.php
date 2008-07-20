@@ -45,9 +45,11 @@
 			}
 		}
 		$arr .= "}";
+		foreach( $res as $i ) {
 		?>alert( <?php
-		echo w_json_encode( var_export( $res[0] ) );
+		echo w_json_encode( var_export( $i ) );
 		?> );<?php
+		}
 			
 		/*
 		echo $callback;
