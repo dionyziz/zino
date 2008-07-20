@@ -181,7 +181,7 @@
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\b);-?\))(\b|$)#', '<img src=\'' 
+        $text = preg_replace( '#(^|\b);-?\)(\b|$)#', '<img src=\'' 
             . $xc_settings[ 'staticimagesurl' ] 
             . 'emoticons/wink.png\' alt=\';-)\' title=\';-)\' class=\'emoticon\' width=\'22\' height=\'22\' />', $text );
         return $text;
