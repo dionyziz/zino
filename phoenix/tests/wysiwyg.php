@@ -8,4 +8,6 @@
             $this->AssertEquals( 'Hello, <a href="http://en.wikipedia.org/wiki/World">http://en.wikipedia.org/wiki/World</a>!', WYSIWYG_Links( 'Hello, http://en.wikipedia.org/wiki/World!' ) );
         }
     }
+
+    return New TestWYSIWYG();
 ?>
