@@ -218,7 +218,9 @@
 				case 'DbFields':
 				case 'PrimaryKeyFields':
 					$attribute = 'm' . $key;
-					die( $attribute . ": " . var_dump( $this->$attribute ) );
+					if ( $key == 'Db' ) {
+						die( $attribute . ": " . var_dump( $this->$attribute ) );
+					}
 					return $this->$attribute;
 			}
             
