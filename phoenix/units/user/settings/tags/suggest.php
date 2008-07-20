@@ -47,7 +47,7 @@
 		$arr .= "}";
 		foreach( $res as $i ) {
 		?>alert( <?php
-		echo w_json_encode( var_export( $i ) );
+		echo w_json_encode( $i );
 		?> );<?php
 		}
 			
