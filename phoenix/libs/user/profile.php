@@ -115,6 +115,8 @@
                     w_assert( is_int( $value ) );
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
+				default:
+					parent::__set( $key, $value );
             }
         }
         protected function Relations() {
