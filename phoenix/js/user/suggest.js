@@ -31,5 +31,8 @@ var Suggest = {
 			sel.attr( 'selectedIndex', sel.get(0).options.length-1 );
 			sel.focus();
 		}
+	},
+	suggestCallback : function( type, suggestions ) {
+		alert( typeof suggestions );
 	}
 }
