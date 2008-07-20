@@ -132,6 +132,7 @@ div.inuser {
 }
 div.inshoutbox {
 	border: 1px solid #ccc;
+	margin-bottom: 20px;
 }
 div.inshoutbox div.shoutbox div.comments {
 	width: 100%;
