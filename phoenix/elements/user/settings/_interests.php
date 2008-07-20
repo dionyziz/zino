@@ -73,6 +73,7 @@
                         		<option value="fest">fest</option>
                         		<option value="nest">nest</option>
                         		<option vallue="budapest">budapest</option>
+                        	</select>
                         </form>
                     </div>
                 </div>
