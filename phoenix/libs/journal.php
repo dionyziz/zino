@@ -28,6 +28,22 @@
 			$this->Userid = $user->Id;
             $this->Created = NowDate();
 		}
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Text':
+					return $this->GetText();
+				default:
+					return parent::__get( $key );
+			}
+		}
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Text':
+					$this->Bulk->Text = $value;
+				default:
+					return parent::__get( $key, $value );
+			}
+		}
         public function GetText( $length = false ) {
             $text = $this->Bulk->Text;
 
@@ -39,9 +55,6 @@
                 $text = mb_substr( $text, 0, $length );
                 return htmlspecialchars( $text );
             }
-        }
-        public function SetText( $text ) {
-            $this->Bulk->Text = $text;
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();
