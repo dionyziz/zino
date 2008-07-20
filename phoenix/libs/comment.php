@@ -403,6 +403,24 @@
         protected $mDbTableAlias = 'comments';
 		private $mSince;
 
+		public function __get( $key ) {
+			switch ( $key ) {
+				case 'Text':
+					$text = $this->Bulk->Text;
+
+					$args = func_get_args();
+					$length = isset( $args[ 1 ] ) ? $args[ 1 ] : false;
+					if ( $length == false ) {
+						return $text;
+					}
+
+					$text = htmlspecialchars_decode( strip_tags( $text ) );
+					$text = mb_substr( $text, 0, $length );
+					return htmlspecialchars( $text );
+				case 'Since':
+					return $this->mSince;
+			}
+		}
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
         }
@@ -414,18 +432,6 @@
         }
         public function IsEditableBy( $user ) {
             return $this->Userid = $user->Id || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL ); 
-        }
-        public function GetText( $length = false ) {
-            $text = $this->Bulk->Text;
-
-            if ( $length == false ) {
-                return $text;
-            }
-            else {
-                $text = htmlspecialchars_decode( strip_tags( $text ) );
-                $text = mb_substr( $text, 0, $length );
-                return htmlspecialchars( $text );
-            }
         }
         public function SetText( $value ) {
             $this->Bulk->Text = $value;
@@ -537,9 +543,6 @@
     			$this->mSince = dateDiff( $this->Created, NowDate() );
             }
         }
-		public function GetSince() {
-			return $this->mSince;
-		}
     }
 
 ?>
