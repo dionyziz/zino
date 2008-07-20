@@ -51,6 +51,7 @@ $( document ).ready( function() {
 		.mouseout( function() {
 			$( this ).css( "border" , "0" ).css( "padding" , "5px" );
 		} );
+		/*
 		$( 'div#profile div.main div.notifications div.expand a' ).click( function() {
 			if ( $( notiflist ).hasClass( 'invisible' ) ) {
 				$( 'div#profile div.main div.notifications div.expand a' )
@@ -72,5 +73,6 @@ $( document ).ready( function() {
 			}
 			return false;
 		} );
+		*/
 	}
 } );

@@ -146,7 +146,7 @@ div.inlatestevents {
 	padding: 10px;
 	border: 1px solid #ccc;
 }
-div.frontpage div.main div.notifications {
+div.frontpage div.notifications {
 	padding: 5px 0 0 0;
 	top: 0;
 	margin: 0 0 20px 50px;
@@ -163,43 +163,43 @@ div.frontpage div.notifications div.expand a {
 	background-position: 4px 5px;
 	padding-left: 18px;
 }
-div.frontpage div.main div.notifications h3 {
+div.frontpage div.notifications h3 {
 	margin: 0 0 10px 0;
 	padding: 5px 0 0 20px;
 }
-div.frontpage div.main div.notifications  div.list div.event {
+div.frontpage div.notifications  div.list div.event {
 	float: none;
 	width: 95%;
 	margin: 2px auto;
 	padding: 5px;
 	cursor: pointer;
 }
-div.frontpage div.main div.notifications div.list div.event div.toolbox a {
+div.frontpage div.notifications div.list div.event div.toolbox a {
 	z-index: 100;
 }
-div.frontpage div.main div.notifications div.list div.event div.who img.avatar {
+div.frontpage div.notifications div.list div.event div.who img.avatar {
 	width: 50px;
 	height: 50px;
 	border: 1px solid #666;
 	float: left;
 	margin: 0 4px 0 0;
 }
-div.frontpage div.main div.notifications  div.list div.event div.subject p img {
+div.frontpage div.notifications  div.list div.event div.subject p img {
 	float: right;
 	margin-top: -17px;
 }
-div.frontpage div.main div.notificatios div.list div.event div.subject p a.itempic img {
+div.frontpage div.notificatios div.list div.event div.subject p a.itempic img {
 	width: 75px;
 	height: 75px;
 }
-div.frontpage div.main div.notifications div.list div.event div.subject div.addfriend {
+div.frontpage div.notifications div.list div.event div.subject div.addfriend {
 	margin-bottom: 4px;
 	font-size: 90%;
 }
-div.frontpage div.main div.notifications div.list div.event div.subject div.viewprofile {
+div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
 	font-size: 90%;
 }
-div.frontpage div.main div.notifications div.list div.event div.subject div.addfriend a {
+div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
 	background-repeat: no-repeat;
 	background-position: 0 -1px;
