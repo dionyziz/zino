@@ -232,9 +232,6 @@
             return $this->mCurrentValues[ $key ];
 		}
         protected function __set( $name, $value ) {
-			if ( $name == 'Mood' ) {
-				die( var_dump( $this->mAllowRelationDefinition ) . " " . var_dump( $value ) );
-			}
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {
