@@ -156,6 +156,7 @@ div.frontpage div.notifications {
 	border-top: 0;
 	position: absolute;
 	background-color: #fdfdfd;
+	z-index: 2;
 }
 div.frontpage div.notifications div.expand a {
 	background-image: url( 'http://static.zino.gr/phoenix/arrow_up.png' );
