@@ -45,7 +45,7 @@
 		$len = strlen( $arr );
 		$arr[ $len-1 ] = $arr[ $len-2 ] = ''; */
 		
-		$arr .= " 'asd' )";
+		$arr .= " 'asd' );";
 
 		echo $arr;		
 		echo $callback;
