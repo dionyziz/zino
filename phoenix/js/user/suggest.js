@@ -17,7 +17,7 @@ var Suggest = {
 		if ( selindex === undefined ) {
 			selindex = 0;
 		}
-		// If Up or Down is pressed
+		// If Up or Down is pressed TODO: prevent input's onkeyup from firing
 		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
 			$( 'div.' + type + ' input' ).focus();
 		}
@@ -61,16 +61,16 @@ var Suggest = {
 		}
 	},
 	fire : function( event, type ) {
-		/*if ( event.keyCode == 38 || event.keyCode == 40 ) {
+		if ( event.keyCode == 38 || event.keyCode == 40 ) {
 			return;
-		}*/
+		}
 		var text = $( 'div.' + type + ' input' ).val();
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
 		}
-		if ( $.trim( text ) == '' || ( $.trim( text ).length == 1 && ( event.keyCode == 38 || event.keyCode == 40 ) ) ) {
+		if ( $.trim( text ) == '' ) {
 			return;
 		}
-		Suggest.timeoutid[ type ] = window.setTimeout( "var tex = $( 'div." + type + " input' ).val();Coala.Cold( 'user/settings/tags/suggest', { 'text' : tex, 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
+		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
 	}
 }
