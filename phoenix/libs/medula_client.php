@@ -161,20 +161,20 @@
 		}
 	}
 	
-	class MedulaJob extends Overloadable {
+	class MedulaJob {
 		private $mType;
 		private $mId;
 		private $mPriority;
 		private $mCreated;
 		
-		protected function GetType() {
-			return $this->mType;
-		}
-		protected function GetId() {
-			return $this->mId;
-		}
-		protected function GetPriority() {
-			return $this->mPriority;
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Type':
+				case 'Id':
+				case 'Priority':
+					$attribute = 'm' . $key;
+					return $this->$attribute;
+			}
 		}
 		public function __construct( $type, $id, $priority ) {
 			w_assert( is_int( $type ) );

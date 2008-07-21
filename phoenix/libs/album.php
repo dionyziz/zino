@@ -43,8 +43,28 @@
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
 
-        public function CopyMainimageFrom( $value ) {
-            $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Name':
+					if ( strlen( $value ) > 100 ) {
+						$value = mb_substr( $value, 0, 100 );
+					}
+
+					$this->mcurrentvalues[ 'name' ] = $value;
+					break;
+				case 'Description':
+					if ( strlen( $value ) > 200 ) {
+						$value = mb_substr( value, 0, 200 );
+					}
+
+					$this->mCurrentValues[ 'Description' ] = $value;
+					break;
+				default:
+					parent::__set( $key, $value );
+			}
+		}
+        public function copymainimagefrom( $value ) {
+            $this->mrelations[ 'mainimage' ]->copyfrom( $value );
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
@@ -53,20 +73,6 @@
             $this->Images = $this->HasMany( 'ImageFinder', 'FindByAlbum', $this );
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
-        }
-        public function SetName( $value ) {
-            if ( strlen( $value ) > 100 ) {
-                $value = mb_substr( $value, 0, 100 );
-            }
-
-            $this->mCurrentValues[ 'Name' ] = $value;
-        }
-        public function SetDescription( $value ) {
-            if ( strlen( $value ) > 200 ) {
-                $value = mb_substr( value, 0, 200 );
-            }
-
-            $this->mCurrentValues[ 'Description' ] = $value;
         }
 		public function IsDeleted() {
 			return $this->Delid > 0;

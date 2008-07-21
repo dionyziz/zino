@@ -44,6 +44,22 @@
 			$this->mCharSet = false;
             $this->mTables = array();
 		}
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Alias':
+					$this->mAlias = $value;
+					break;
+				case 'Charset':
+					$charset = $value;
+					if ( $this->mCharSet !== $charset ) {
+						$this->mCharSet = $charset;
+						$this->mCharSetApplied = false;
+					}
+					break;
+				default:
+					parent::__set( $key, $value );
+			}
+		}
 		public function Connect( $host = 'localhost' ) {
 			$this->mHost = $host;
             
@@ -66,9 +82,6 @@
         }
         public function Alias() {
             return $this->mAlias;
-        }
-        public function SetAlias( $value ) {
-            $this->mAlias = $value;
         }
         public function Equals( Database $target ) {
             return $this->Link() == $target->Link();
@@ -103,12 +116,6 @@
                 return $this->SwitchDb( $this->mDbName );
 			}
 			return false;
-		}
-		public function SetCharset( $charset ) {
-			if ( $this->mCharSet !== $charset ) {
-				$this->mCharSet = $charset;
-				$this->mCharSetApplied = false;
-			}
 		}
 		private function CharSetApply() {
 			if ( !$this->mCharSetApplied ) {

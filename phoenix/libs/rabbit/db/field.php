@@ -48,6 +48,9 @@
 				 	$attribute = 'm' . $key;
 					return $this->$attribute;
 				 case 'SQL':
+					// returns a string representation of the field as it would be used within a CREATE or 
+					// ALTER query
+
 					$sql = "`" . $this->Name . "` ";
 					$sql .= ":_" . $this->Type . " "; // autobound
 
@@ -101,12 +104,20 @@
 					break;
 				case 'IsAutoIncrement':
 					w_assert( is_bool( $value ) );
-					$this->IsAutoIncrement = $value;
+					$this->mIsAutoIncrement = $value;
 					break;
 				case 'ParentTable':
 					// called by table save
             		$this->mParentTable = $value;
 					break;
+				case 'Exists':
+					// called by table creation method
+					w_assert( is_bool( $value ) );
+					w_assert( $value === true );
+					$this->mExists = $value;
+					break;
+				default:
+					parent::__set( $key, $value );
 			}
         }
         public function Equals( DBField $target ) {
@@ -121,16 +132,6 @@
                 && $this->Default == $target->Default
                 && $this->Type == $target->Type
                 && $this->ParentTable->Equals( $target->ParentTable );
-        }
-        public function GetSQL() {
-            // returns a string representation of the field as it would be used within a CREATE or 
-            // ALTER query
-        }
-        public function SetExists( $value ) {
-            // called by table creation method
-            w_assert( is_bool( $value ) );
-            w_assert( $value === true );
-            $this->mExists = $value;
         }
         public function CastValueToNativeType( $value ) {
             switch ( $this->mType ) {

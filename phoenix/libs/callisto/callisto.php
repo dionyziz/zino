@@ -22,9 +22,15 @@
         protected $mLastActive;
         protected $mToken;
         
-        protected function SetChannel( Callisto_Channel $channel ) {
-            $this->mChannel = ( string )$channel;
-        }
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Channel':
+					$this->mChannel = ( string )$value;
+					break;
+				default:
+					parent::__set( $key, $value );
+			}
+		}
         protected function LoadDefaults() {
             $this->ScrambleToken();
             $this->mLastActive = NowDate();

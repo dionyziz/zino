@@ -14,6 +14,17 @@
         protected $mDbTableAlias = 'places';
 		
         // no privcheck after this point
+		protected function __get( $key ) {
+			switch ( $key ) {
+				case 'Nameaccusative':
+					if ( empty( $this->mCurrentValues[ 'Nameaccusative' ] ) ) {
+						return $this->Name;
+					}
+					return $this->mCurrentValues[ 'Nameaccusative' ];
+				default:
+					return parent::__get( $key );
+			}
+		}
 		public function OnBeforeDelete() {
             $this->Delid = 1;
 			$this->Save();
@@ -29,12 +40,6 @@
         }
         public function IsDeleted() {
             return $this->Delid != 0;
-        }
-        public function GetNameaccusative() {
-            if ( empty( $this->mCurrentValues[ 'Nameaccusative' ] ) ) {
-                return $this->Name;
-            }
-            return $this->mCurrentValues[ 'Nameaccusative' ];
         }
 	}
 ?>

@@ -83,6 +83,13 @@
     class FriendRelation extends Satori {
         protected $mDbTableAlias = 'relations';
 
+		protected function __get( $key ) {
+			if ( $key == 'Type' ) {
+				return $this->RelationType->Text;
+			}
+
+			return parent::__get( $key );
+		}
         public function CopyFriendFrom( $value ) {
             $this->mRelations[ 'Friend' ]->CopyFrom( $value );
         }
@@ -133,9 +140,6 @@
 
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
-        }
-        public function GetType() {
-            return $this->RelationType->Text;
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );

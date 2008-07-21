@@ -67,14 +67,21 @@
     final class Bulk extends Satori {
         protected $mDbTableAlias = 'bulk';
 
-        protected function SetText( $text ) {
-            if ( strlen( $text ) > pow( 2, 20 ) ) { // strlen is significant; do not change to mb_strlen, as we want to count actual bytes
-                // if text is more than 1MB
-                // drop it
-                return;
-            }
-            $this->mCurrentValues[ 'Text' ] = $text;
-        }
+		protected function __set( $key, $value ) {
+			switch ( $key ) {
+				case 'Text':
+					$text = $value;
+					if ( strlen( $text ) > pow( 2, 20 ) ) { // strlen is significant; do not change to mb_strlen, as we want to count actual bytes
+						// if text is more than 1MB
+						// drop it
+						return;
+					}
+					$this->mCurrentValues[ 'Text' ] = $text;
+					break;
+				default:
+					parent::__set( $key, $value );
+			}
+		}
     }
 
 ?>
