@@ -41,7 +41,7 @@ var Suggest = {
 			sel.focus();
 		}
 		else {
-			sel.hide();
+			$( 'div.' + type + ' form' ).show();
 			sel.find( 'option' ).remove();
 		}
 	},
