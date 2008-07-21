@@ -78,7 +78,7 @@
     function WYSIWYG_Links( $text ) {
         $text = preg_replace( 
             '#\b(https?\:\/\/[a-z0-9.-]+(\/[a-zA-Z0-9.\/+?=&;%-]*)?)\b#',
-            '<a href="\1\2">\1\2</a>',
+            '<a href="\1">\1</a>',
             $text
         );
         return $text;
