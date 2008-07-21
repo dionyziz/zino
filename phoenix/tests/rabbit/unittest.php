@@ -66,6 +66,7 @@
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
             $this->AssertFalse( $bad->Success, 'Unsuccessful assertion indicated as successful' );
             $this->AssertTrue( $good->Success, 'Successful assertion indicated as non-successful' );
+			die( var_dump( 'hello' == $bad->Message ) . ' ' . $bad->Message );
             $this->AssertEquals( 'hello', $bad->Message, 'Unable to retrieve unsuccessful assertion message' );
             $this->AssertEquals( 'world', $good->Message, 'Unable to retrieve successful assertion message' );
             $this->AssertEquals( 'actual string 1', $bad->Actual, 'Unable to retrieve unsuccessful assertion actual value' );

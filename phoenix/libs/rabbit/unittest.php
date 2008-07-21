@@ -356,8 +356,6 @@
 		public function __get( $key ) {
 			switch ( $key ) {
 				case 'Message':
-					$attribute = 'm' . $key;
-					die( $key . " " . $this->mMessage . " " . $this->$attribute );
 				case 'Success':
 				case 'Actual':
 				case 'Excpected':
