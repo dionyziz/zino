@@ -36,7 +36,7 @@
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
 		
-		$arr = "array( ";
+		$arr = "var arr = new Array( ";
 		foreach( $res as $i ) {
 			$arr .= w_json_encode( $i );
 			$arr .= ", ";
@@ -44,16 +44,11 @@
 		$len = strlen( $arr );
 		$arr[ $len-1 ] = $arr[ $len-2 ] = '';
 		$arr .= ")";
-		
-		?>alert( "<?php
-		echo htmlspecialchars( $arr );
-		?> ");<?php
-		
+
+		echo $arr;		
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
-		?>, <?php
-		echo $arr;
-		?> );<?php
+		?>, arr );<?php
 	}
 ?>
