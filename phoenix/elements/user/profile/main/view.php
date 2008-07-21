@@ -76,12 +76,14 @@
                     else {
                         ?><ul></ul><?php
                     }
+                ?></div>
+				<div><?php
 					if ( $theuser->Count->Albums > 1 ) {
 						?><div class="viewalbums"><a href="<?php
 						Element( 'user/url' , $theuser );
 						?>albums" class="button">Προβολή albums&raquo;</a></div><?php
 					}
-                ?></div><?php
+				?></div><?php
                 $finder = New FriendRelationFinder();
                 $friends = $finder->FindByUser( $theuser , 0 , 5 ); 
                 
