@@ -33,10 +33,8 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		if ( suggestions === false ) {
-			return;
-		}
 		for( var i=0;i<suggestions.length-1;++i ) {
-			
+			alert( suggestions[i] );
+		}
 	}
 }

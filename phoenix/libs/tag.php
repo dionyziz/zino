@@ -110,6 +110,7 @@
  				WHERE 
  					`tag_text` LIKE :TagText
  				AND `tag_typeid` = :TagType
+ 				LIMIT 0, 20
  			");
  			$query->BindTable( 'tags' );
  			$query->Bind( "TagText", $text );

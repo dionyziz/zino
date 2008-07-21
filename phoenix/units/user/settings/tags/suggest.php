@@ -36,9 +36,6 @@
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
 		
-		?>alert( "<?php
-		echo count( $res );
-		?>" );<?php
 		$arr = "var arr = new Array( ";
 		foreach( $res as $i ) {
 			$arr .= w_json_encode( $i );
