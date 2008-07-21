@@ -354,14 +354,11 @@
         protected $mExpected;
         
 		public function __get( $key ) {
-			if ( $key == 'Message' ) {
-				$attribute = 'm' . $key;
-				die( $key . " " . $this->mMessage . " " . $this->$attribute );
-			}
-
 			switch ( $key ) {
-				case 'Success':
 				case 'Message':
+					$attribute = 'm' . $key;
+					die( $key . " " . $this->mMessage . " " . $this->$attribute );
+				case 'Success':
 				case 'Actual':
 				case 'Excpected':
 					$attribute = 'm' . $key;
