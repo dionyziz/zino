@@ -33,8 +33,18 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		for( var i=0;i<suggestions.length-1;++i ) {
-			alert( suggestions[i] );
+		if ( suggestions.length == 0 ) {
+			return;
+		}
+		$( 'div.' + type + ' form' ).show();
+		var sel = $( 'div.' + type + ' select' );
+		sel.find( 'option' ).remove();
+		sel = sel.get(0);
+		for( var i in suggestions ) {
+			var opt = document.createElement( 'option' );
+			opt.value = suggestions[i];
+			opt.appendChild( document.createTextNode( suggestions[i] ) );
+			sel.appendChild( opt );
 		}
 	}
 }
