@@ -1,5 +1,5 @@
 var Questions = {
-	busy : false, // do not allow to answers to be edited simultaneously
+	busy : false, // do not allow two answers to be edited simultaneously
     Renew: function ( questionid, questiontext ) {
         $( 'div.newquestion p.question' ).empty().text( questiontext );
         $( 'div.newquestion form#newanswer input' )[ 0 ].value = questionid;

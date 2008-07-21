@@ -27,6 +27,7 @@ div#answers div.questions ul li p.question, div#answers div.newquestion p.questi
 	margin: 0;
 	font-weight: bold;
 }
+
 div#answers div.questions ul li p.answer, div#answers div.newquestion p.answer {
 	padding: 0;
 	margin: 0;
