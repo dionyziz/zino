@@ -50,9 +50,10 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		if ( suggestions.length == 0 || suggestions[0] == '' ) {
+		if ( suggestions.length == 0 ) {
 			return;
 		}
+		alert( suggestions.lenth + ' ' + suggestions[0] );
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' );
 		sel = sel.get(0);
