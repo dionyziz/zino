@@ -46,7 +46,7 @@
 		$arr .= "}";
 		
 		?>alert( <?php
-		w_json_encode( $arr );
+		echo $arr;
 		?> );<?php
 		
 		echo $callback;
