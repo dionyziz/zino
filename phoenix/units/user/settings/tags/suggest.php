@@ -41,9 +41,11 @@
 			$arr .= w_json_encode( $i );
 			$arr .= ", ";
 		}
+		/*
 		$len = strlen( $arr );
-		$arr[ $len-1 ] = $arr[ $len-2 ] = '';
-		$arr .= ")";
+		$arr[ $len-1 ] = $arr[ $len-2 ] = ''; */
+		
+		$arr .= " 'asd' )";
 
 		echo $arr;		
 		echo $callback;
