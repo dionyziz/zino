@@ -65,7 +65,7 @@ var Suggest = {
 		}
 	},
 	fire : function( event, type ) {
-		if ( event.keyCode == 38 || event.keyCode == 40 ) {
+		if ( event.keyCode == 38 || event.keyCode == 40 || event.keyCode == 13 ) {
 			return;
 		}
 		var text = $( 'div.' + type + ' input' ).val();
