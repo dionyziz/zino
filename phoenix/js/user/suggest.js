@@ -18,9 +18,9 @@ var Suggest = {
 			selindex = 0;
 		}
 		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
-			var inp = $( 'div.' + type + ' input' );
-			var f = inp.get(0).onkeyup;
-			inp.get(0).onkeyup = '';
+			var inp = $( 'div.' + type + ' input' ).get( 0 );
+			var f = inp.onkeyup;
+			inp.onkeyup = '';
 			inp.focus();
 			inp.onkeyup = f;
 		}
