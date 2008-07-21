@@ -355,7 +355,7 @@
         
 		public function __get( $key ) {
 			if ( $key == 'Message' ) {
-				$attrbute = 'm' . $key;
+				$attribute = 'm' . $key;
 				die( $key . " " . $this->mMessage . " " . $this->$attribute );
 			}
 
