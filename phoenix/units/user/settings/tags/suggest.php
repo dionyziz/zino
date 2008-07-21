@@ -36,6 +36,7 @@
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
 		
+		/*
 		$arr = "{ ";
 		$len = count( $res );
 		for( $i = 0; $i < $len; ++$i ) {
@@ -49,14 +50,13 @@
 		?>alert( <?php
 		echo w_json_encode( $i );
 		?> );<?php
-		}
+		} */
 			
-		/*
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
 		?>, <?php
-		echo $arr;
-		?> );<?php */
+		echo w_json_encode( $arr );
+		?> );<?php
 	}
 ?>

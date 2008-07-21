@@ -34,7 +34,7 @@ var Suggest = {
 	},
 	suggestCallback : function( type, suggestions ) {
 		alert( suggestions.length );
-		for( var i=0;i<suggestions.length;++i ) {
+		for( var i in suggestions ) {
 			alert( suggestions[i] );
 		}
 	}
