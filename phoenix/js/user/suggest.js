@@ -51,7 +51,6 @@ var Suggest = {
 		}
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' );
-		//sel.find( 'option' ).remove();
 		sel = sel.get(0);
 		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		for( var i in suggestions ) {
@@ -63,11 +62,11 @@ var Suggest = {
 	},
 	fire : function( type ) {
 		var text = $( 'div.' + type + ' input' ).val();
-		if ( $.trim( text ) == '' ) {
-			return;
-		}
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
+		}
+		if ( $.trim( text ) == '' ) {
+			return;
 		}
 		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
 	}

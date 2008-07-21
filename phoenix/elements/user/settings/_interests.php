@@ -60,7 +60,7 @@
                         }
                     ?></ul>
                     <div class="add hobbies">
-                        <input type="text" onkeypress="Suggest.inputMove( event, 'hobbies' );Suggest.fire( 'hobbies' );"  />
+                        <input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( 'hobbies' );"  />
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
