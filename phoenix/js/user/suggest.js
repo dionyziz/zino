@@ -41,6 +41,7 @@ var Suggest = {
 			sel.focus();
 		}
 		else {
+			sel.hide();
 			sel.find( 'option' ).remove();
 		}
 	},
@@ -60,10 +61,13 @@ var Suggest = {
 		}
 	},
 	fire : function( type ) {
+		var text = $( 'div.' + type + ' input' ).val();
+		if ( $.trim( text ) == '' ) {
+			return;
+		}
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
 		}
-		var text = $( 'div.' + type + ' input' ).val();
 		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
 	}
 }
