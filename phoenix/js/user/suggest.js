@@ -51,6 +51,7 @@ var Suggest = {
 		}
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' );
+		sel.find( 'option' ).remove();
 		sel = sel.get(0);
 		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		for( var i in suggestions ) {
