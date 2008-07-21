@@ -60,12 +60,12 @@
                         }
                     ?></ul>
                     <div class="add hobbies">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
+                        <input type="text" onkeydown="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeydown="Suggest.selectMove( event, 'hobbies' );"/>
+                        	<select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
                         </form>
                     </div>
                 </div>

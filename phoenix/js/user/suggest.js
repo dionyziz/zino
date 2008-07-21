@@ -61,14 +61,14 @@ var Suggest = {
 		}
 	},
 	fire : function( event, type ) {
-		if ( event.keyCode == 38 || event.keyCode == 40 ) {
+		/*if ( event.keyCode == 38 || event.keyCode == 40 ) {
 			return;
-		}
+		}*/
 		var text = $( 'div.' + type + ' input' ).val();
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
 		}
-		if ( $.trim( text ) == '' ) {
+		if ( $.trim( text ) == '' || ( $.trim( text ).length == 1 && ( event.keyCode == 38 || event.keyCode == 40 ) ) ) {
 			return;
 		}
 		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
