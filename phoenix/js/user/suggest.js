@@ -18,7 +18,11 @@ var Suggest = {
 			selindex = 0;
 		}
 		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
-			$( 'div.' + type + ' input' ).focus();
+			var inp = $( 'div.' + type + ' input' );
+			var f = inp.get(0).onkeyup;
+			inp.get(0).onkeyup = '';
+			inp.focus();
+			inp.onkeyup = f;
 		}
 		else if ( event.keyCode == 13 ) {
 			var text = sel.get( 0 ).options[ selindex ].value;
@@ -51,7 +55,6 @@ var Suggest = {
 		}
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' );
-		//sel.find( 'option' ).remove();
 		sel = sel.get(0);
 		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		for( var i in suggestions ) {
