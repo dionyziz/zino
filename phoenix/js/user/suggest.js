@@ -65,12 +65,15 @@ var Suggest = {
 		}
 	},
 	fire : function( event, type ) {
-		if ( event.keyCode == 38 || event.keyCode == 40 || event.keyCode == 13 ) {
+		if ( event.keyCode == 38 || event.keyCode == 40 ) {
 			return;
 		}
 		var text = $( 'div.' + type + ' input' ).val();
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
+		}
+		if ( event.keyCode == 13 ) {
+			return;
 		}
 		if ( $.trim( text ) == '' ) {
 			return;
