@@ -36,31 +36,20 @@
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
 		
-		/*
 		$arr = "{ ";
-		$len = count( $res );
-		for( $i = 0; $i < $len; ++$i ) {
-			$arr .= $res[ $i ];
-			if ( $i != $len-1 ) {
-				$arr .= ", ";
-			}
-		}
-		$arr .= "}"; */
-		$k=0;
 		foreach( $res as $i ) {
-		?>alert( "<?php
-		echo $k;
-		?>" + <?php
-		echo w_json_encode( $i );
-		?> );<?php
-		++$k;
+			$arr .= w_json_encode( $i );
+			$arr .= ", ";
 		}
-		/*
+		$len = strlen( $arr );
+		$arr[ $len-1 ] = $arr[ $len-2 ] = '';
+		$arr .= "}";
+
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
 		?>, <?php
-		echo w_json_encode( $res );
-		?> );<?php */
+		echo $arr;
+		?> );<?php
 	}
 ?>
