@@ -1,4 +1,13 @@
 var Suggest = {
+	timeoutid : { 
+		'hobbies' : false,
+		'movies' : false,
+		'books' : false,
+		'songs' : false,
+		'artists' : false,
+		'games' : false,
+		'shows' : false
+	},
 	selectMove : function( event, type ) {
 		if ( $( 'div.' + type + ' form' ).css( "display" ) == "none" ) {
 			return;
@@ -16,6 +25,9 @@ var Suggest = {
 			$( 'div.' + type + ' input' ).val( text ).focus();
 			sel.find( 'option' ).remove();
 			$( 'div.' + type + ' form' ).hide();
+		}
+		else {
+			sel.find( 'option' ).remove();
 		}
 	},
 	inputMove : function( event, type ) {
@@ -38,7 +50,7 @@ var Suggest = {
 		}
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' );
-		sel.find( 'option' ).remove();
+		//sel.find( 'option' ).remove();
 		sel = sel.get(0);
 		for( var i in suggestions ) {
 			var opt = document.createElement( 'option' );
@@ -46,5 +58,12 @@ var Suggest = {
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
 			sel.appendChild( opt );
 		}
+	},
+	fire : function( type ) {
+		if ( Suggest.timeoutid[ type ] !== false ) {
+			window.clearTimeout( Suggest.timeoutid[ type ] );
+		}
+		var text = $( 'div.' + type + ' input' ).val();
+		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
 	}
 }
