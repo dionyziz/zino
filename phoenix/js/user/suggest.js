@@ -26,9 +26,6 @@ var Suggest = {
 			sel.find( 'option' ).remove();
 			$( 'div.' + type + ' form' ).hide();
 		}
-		else {
-			sel.find( 'option' ).remove();
-		}
 	},
 	inputMove : function( event, type ) {
 		if ( $( 'div.' + type + ' form' ).css( "display" ) == "none" ) {
@@ -42,6 +39,9 @@ var Suggest = {
 		else if ( event.keyCode == 38 ) {
 			sel.attr( 'selectedIndex', sel.get(0).options.length-1 );
 			sel.focus();
+		}
+		else {
+			sel.find( 'option' ).remove();
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
