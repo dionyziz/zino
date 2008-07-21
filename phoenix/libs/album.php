@@ -64,7 +64,7 @@
 			}
 		}
 		public function CopyMainImageFrom( $value ) {
-			w_assert( isset( $this->mRelations[ 'MainImage' ] ), 'MainImage relation is not set' );
+			w_assert( isset( $this->mRelations[ 'Mainimage' ] ), 'MainImage relation is not set' );
             $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
         }
         public function CopyUserFrom( $value ) {
