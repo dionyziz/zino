@@ -44,7 +44,11 @@
 		$len = strlen( $arr );
 		$arr[ $len-1 ] = $arr[ $len-2 ] = '';
 		$arr .= "}";
-
+		
+		?>alert( <?php
+		w_json_encode( $arr );
+		?> );<?php
+		
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
