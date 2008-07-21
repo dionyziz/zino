@@ -140,7 +140,7 @@
             $GLOBALS[ $dbname ] = new Database( $database[ 'name' ], $driver );
             $GLOBALS[ $dbname ]->Connect( $database[ 'hostname' ] );
             $GLOBALS[ $dbname ]->Authenticate( $database[ 'username' ] , $database[ 'password' ] );
-            $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] );
+            $GLOBALS[ $dbname ]->SetCharset( $database[ 'charset' ] ); 
             $GLOBALS[ $dbname ]->SetAlias( $dbname );
             
             foreach ( $database[ 'tables' ] as $alias => $tablename ) {

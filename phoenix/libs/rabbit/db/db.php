@@ -44,20 +44,13 @@
 			$this->mCharSet = false;
             $this->mTables = array();
 		}
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Alias':
-					$this->mAlias = $value;
-					break;
-				case 'Charset':
-					$charset = $value;
-					if ( $this->mCharSet !== $charset ) {
-						$this->mCharSet = $charset;
-						$this->mCharSetApplied = false;
-					}
-					break;
-				default:
-					parent::__set( $key, $value );
+		public function SetAlias( $value ) {
+			$this->mAlias = $value;
+		}
+		public function SetCharset( $charset ) {
+			if ( $this->mCharSet !== $charset ) {
+				$this->mCharSet = $charset;
+				$this->mCharSetApplied = false;
 			}
 		}
 		public function Connect( $host = 'localhost' ) {
