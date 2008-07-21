@@ -243,6 +243,9 @@ div#profile div.main div.photos div.more {
 	float: right;
 	margin-top: 5px;
 }
+div.morealbums {
+	margin-bottom: 5px;
+}
 div#profile div.main div.photos div.viewalbums {
 	margin-top: 20px;
 }

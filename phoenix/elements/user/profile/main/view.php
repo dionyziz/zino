@@ -77,7 +77,7 @@
                         ?><ul></ul><?php
                     }
                 ?></div>
-				<div><?php
+				<div class="morealbums"><?php
 					if ( $theuser->Count->Albums > 1 ) {
 						?><div class="viewalbums"><a href="<?php
 						Element( 'user/url' , $theuser );
