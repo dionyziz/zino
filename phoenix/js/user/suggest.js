@@ -57,7 +57,7 @@ var Suggest = {
 			var opt = document.createElement( 'option' );
 			opt.value = suggestions[i];
 			opt.onclick = function() {
-				$( 'div.' + type + ' input' ).get( 0 ).value = this.value;
+				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			}
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
