@@ -50,7 +50,7 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		if ( suggestions.length == 0 ) {
+		if ( suggestions.length == 0 || suggestions[0] == '' ) {
 			return;
 		}
 		$( 'div.' + type + ' form' ).show();
