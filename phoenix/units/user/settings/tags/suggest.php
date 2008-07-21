@@ -45,18 +45,22 @@
 				$arr .= ", ";
 			}
 		}
-		$arr .= "}";
+		$arr .= "}"; */
+		$k=0;
 		foreach( $res as $i ) {
-		?>alert( <?php
+		?>alert( "<?php
+		echo $k;
+		?>" + <?php
 		echo w_json_encode( $i );
 		?> );<?php
-		} */
-			
+		++$k;
+		}
+		/*
 		echo $callback;
 		?>( <?php
 		echo w_json_encode( $type );
 		?>, <?php
 		echo w_json_encode( $res );
-		?> );<?php
+		?> );<?php */
 	}
 ?>
