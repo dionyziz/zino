@@ -35,17 +35,6 @@
 		
 		$finder = New TagFinder();
 		$res = $finder->FindSuggestions( $text, $act_type );
-		
-/*		$arr = "var arr = new Array( ";
-		foreach( $res as $i ) {
-			$arr .= w_json_encode( $i );
-			$arr .= ", ";
-		}
-		/*
-		$len = strlen( $arr );
-		$arr[ $len-1 ] = $arr[ $len-2 ] = ''; 
-		
-		$arr .= " 'asd' );"; */
 	
 		echo $callback;
 		?>( <?php
