@@ -33,9 +33,10 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions ) {
-		alert( suggestions.length );
-		for( var i in suggestions ) {
-			alert( suggestions[i] );
+		if ( suggestions === false ) {
+			return;
 		}
+		for( var i=0;i<suggestions.length-1;++i ) {
+			
 	}
 }
