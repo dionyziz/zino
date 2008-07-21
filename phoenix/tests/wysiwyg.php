@@ -16,6 +16,15 @@
             $this->AssertEquals( 'Watch this <img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/airplane.png\' alt=\':airplane:\' title=\':airplane:\' class=\'emoticon\' width=\'22\' height=\'22\' />!', WYSIWYG_Smileys( 'Watch this :airplane:!' ) );
             $this->AssertEquals( '<img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/wink.png\' alt=\';-)\' title=\';-)\' class=\'emoticon\' width=\'22\' height=\'22\' />', WYSIWYG_Smileys( ';-)' ) );
         }
+        
+        public function TestText() {
+            global $xc_settings;
+
+            $this->AssertEquals(
+                '<a href="http://foo/&amp;bar">http://foo/&amp;bar</a><img src= \'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/omg.png\' alt=\':wow:\' title=\':wow:\' class=\'emoticon\' height=\'22\' width=\'22\' />',
+                WYSIWYG_TextProcess( 'http://foo/&bar :wow:' )
+            );
+        }
     }
 
     return New TestWYSIWYG();
