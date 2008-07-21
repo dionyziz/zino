@@ -65,7 +65,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
+                        	<select onkeyup="Suggest.selectMove( event, 'hobbies' );"/>
                         </form>
                     </div>
                 </div>

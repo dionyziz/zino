@@ -1,5 +1,5 @@
 var Suggest = {
-	timeoutid : { 
+	timeoutid : { // During the execution of the code, this array holds the setTimeOut id's for each suggestion type
 		'hobbies' : false,
 		'movies' : false,
 		'books' : false,
@@ -17,6 +17,7 @@ var Suggest = {
 		if ( selindex === undefined ) {
 			selindex = 0;
 		}
+		// If Up or Down is pressed
 		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
 			$( 'div.' + type + ' input' ).focus();
 		}
@@ -50,8 +51,7 @@ var Suggest = {
 			return;
 		}
 		$( 'div.' + type + ' form' ).show();
-		var sel = $( 'div.' + type + ' select' );
-		sel = sel.get(0);
+		var sel = $( 'div.' + type + ' select' ).get( 0 );
 		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		for( var i in suggestions ) {
 			var opt = document.createElement( 'option' );
