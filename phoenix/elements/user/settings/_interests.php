@@ -64,8 +64,7 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form style="display: inline">
-                        	<?php // This thing will be dynamic a little later ?>
+                        <form>
                         	<select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
                         </form>
                     </div>
