@@ -45,9 +45,9 @@
 		$arr[ $len-1 ] = $arr[ $len-2 ] = '';
 		$arr .= ")";
 		
-		?>alert( <?php
-		echo $arr;
-		?> );<?php
+		?>alert( "<?php
+		echo htmlspecialchars( $arr );
+		?> ");<?php
 		
 		echo $callback;
 		?>( <?php
