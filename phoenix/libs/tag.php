@@ -103,6 +103,8 @@
         	return $this->FindByPrototype ( $prototype, 0, 2000 );
         }
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
+        	global $user;
+        
  			$text .= "%";
  			$query = $this->mDb->Prepare("
  				SELECT DISTINCT tag_text 
@@ -110,11 +112,13 @@
  				WHERE 
  					`tag_text` LIKE :TagText
  				AND `tag_typeid` = :TagType
+ 				AND `tag_userid` <> :UserId
  				LIMIT 0, 50
  			");
  			$query->BindTable( 'tags' );
  			$query->Bind( "TagText", $text );
  			$query->Bind( "TagType", $type );
+ 			$query->Bind( "UserId", $user->Id );
  			$res = $query->Execute();
  			$arr = array();
  			while( $row = $res->FetchArray() ) {
