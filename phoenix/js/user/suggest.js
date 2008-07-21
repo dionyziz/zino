@@ -72,10 +72,7 @@ var Suggest = {
 		if ( Suggest.timeoutid[ type ] !== false ) {
 			window.clearTimeout( Suggest.timeoutid[ type ] );
 		}
-		if ( event.keyCode == 13 ) {
-			return;
-		}
-		if ( $.trim( text ) == '' ) {
+		if ( event.keyCode == 13 || $.trim( text ) == '' ) { // Leave keyCode==13 here. Otherwise suggestions will appear after the interest is added
 			return;
 		}
 		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
