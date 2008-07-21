@@ -38,7 +38,7 @@
                     }
                 ?></div>
                 <div class="who"><?php
-                    Element( 'user/display' , $comment->User );
+                    Element( 'user/display', $comment->User );
                     ?> είπε:
                 </div>
                 <div class="text"<?php
