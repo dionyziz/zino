@@ -66,14 +66,7 @@
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form style="display: inline">
                         	<?php // This thing will be dynamic a little later ?>
-                        	<select size="5" onkeypress="Suggest.selectMove( event, 'hobbies' );">
-                        		<option value="test">test</option>
-                        		<option value="best">best</option>
-                        		<option value="guest">guest</option>
-                        		<option value="fest">fest</option>
-                        		<option value="nest">nest</option>
-                        		<option vallue="budapest">budapest</option>
-                        	</select>
+                        	<select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
                         </form>
                     </div>
                 </div>
