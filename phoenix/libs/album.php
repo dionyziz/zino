@@ -63,8 +63,8 @@
 					parent::__set( $key, $value );
 			}
 		}
-        public function copymainimagefrom( $value ) {
-            $this->mrelations[ 'mainimage' ]->copyfrom( $value );
+		public function CopyMainImageFrom( $value ) {
+            $this->mRelations[ 'MainImage' ]->CopyFrom( $value );
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
