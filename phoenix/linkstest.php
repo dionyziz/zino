@@ -199,7 +199,7 @@
 	);
 
 	function linksTest($text) {
-		return WYSIWYG_TextProcess($text);
+		return WYSIWYG_PostProcess($text);
 	}
 
 	foreach ($tests as $t) {
