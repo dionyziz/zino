@@ -199,7 +199,7 @@
 	);
 
 	function works($text) {
-		return $WYSIWYG_TextProcess($text);
+		return WYSIWYG_TextProcess($text);
 	}
 
 	function doesNotWork($text) {
