@@ -16,7 +16,7 @@
 	);
 
 	foreach ( $tests as $t ) {
-		$result = WYSIWYG_Links($text);
+		$result = WYSIWYG_Links($t);
 		echo "$result <br />\n";
 	}
 ?>
