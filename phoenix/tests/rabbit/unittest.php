@@ -53,7 +53,8 @@
             $this->AssertNull( $GLOBALS[ 'foobar' ], 'AssertNull should succeed with a non-defined array index in $GLOBALS' );
             $foobar = array();
             $this->AssertNull( $foobar[ 'foobar' ], 'AssertNull should succeed with a non-defined array index' );
-            $this->AssertEquals( 'hello', 'hello', 'AssertEquals should succeed with two equal strins' );
+            $this->AssertEquals( 'hello world', 'hello world', 'AssertEquals should succeed with two equal strins' );
+            $this->AssertEquals( 'hello hell', 'hello world', 'AssertEquals should fail with two unequal strins' );
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'Testcase'       ), 'Testcase class does not exist'       );
