@@ -1,7 +1,7 @@
 <?php
     class ElementQuestionAnswerView extends Element {
         public function Render( Answer $answer, $owner=false ) {
-        	 global $user;
+        	global $user;
         	global $xc_settings;
             ?><li<?php
             if ( $owner ) {
