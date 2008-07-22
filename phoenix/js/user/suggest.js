@@ -86,8 +86,7 @@ var Suggest = {
 				if ( typeid == -1 ) {
 					return;
 				}
-				//$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
-				$( 'div.' + type + ' input' ).focus().get( 0 ).value = '';
+				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
 				Settings.AddInterest( this.value, typeid );
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			};
