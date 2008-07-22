@@ -199,7 +199,10 @@
 	);
 
 	function linksTest($text) {
-		return WYSIWYG_PostProcess($text);
+		$sanitizer = New XHTMLSanitizer();
+		$sanitizer->SetSource($text);
+		$sanitizer->SetTextProcessor('WYSIWYG_TextProcess');
+		return $sanitizer->GetXHTML();
 	}
 
 	foreach ($tests as $t) {
