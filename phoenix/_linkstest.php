@@ -199,7 +199,7 @@
 	);
 
 	foreach ($tests as $t) {
-		$result = WYSIWYG_TextProcess($t);
+		$result = WYSIWYG_PostProcess($t);
 		echo "$result <br />\n";
 	}
 
