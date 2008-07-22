@@ -1,5 +1,6 @@
 var Suggest = {
 	timeoutid : { // During the execution of the code, this array holds the setTimeOut id's for each suggestion type
+		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 		'hobbies' : false,
 		'movies' : false,
 		'books' : false,
@@ -10,6 +11,7 @@ var Suggest = {
 	},
 	type2int : function( type ) {
 		switch( type ) {
+			// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 			case 'hobbies':
 				return 1;
 			case 'movies':

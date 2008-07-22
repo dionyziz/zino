@@ -457,6 +457,7 @@ $( document ).ready( function() {
 		});
 		
 		//interesttags
+		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 		$( 'form#interestsinfo div.option div.setting div.hobbies input' ).keydown( function( event ) {
 			if ( event.keyCode == 13 ) {
 				Settings.AddInterest( 'hobbies' , 1 );

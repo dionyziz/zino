@@ -35,6 +35,8 @@
             $artists = $bytype[ TAG_ARTIST ];
             $games = $bytype[ TAG_GAME ];
             $shows = $bytype[ TAG_SHOW ];
+            
+            // INTEREST_TAG_TYPE   Please Update the whole file when you add a new interest tag type
             ?><div class="option">
                 <label>Hobbies:</label>
                 <div class="setting">

@@ -7,6 +7,7 @@
 		$text = $text->Get();
 		$type = $type->Get();
 		
+		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
 		switch( $type ) {
 			case 'hobbies':
 				$act_type = TAG_HOBBIE;

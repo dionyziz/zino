@@ -1,4 +1,7 @@
 <?php
+	// Everytime you define a new interest tag type, please change all the files that include a comment with the following text: INTEREST_TAG_TYPE, and update them accordingly. If you use Linux, an easy way to do this is by executing the following commands in your local repository root:
+	// find -iname "*.php" -or -iname "*.js" ! -path "*svn*" -print0 | xargs -0 grep -i "INTEREST_TAG_TYPE" -n --color -C5
+	// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     define( 'TAG_HOBBIE', 1 );
     define( 'TAG_MOVIE', 2 );
     define( 'TAG_BOOK', 3 );
@@ -101,7 +104,7 @@
         	$prototype = New Tag();
         	$prototype->Nextid = $next_id;
         	return $this->FindByPrototype ( $prototype, 0, 2000 );
-        }
+        }// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
         public function FindSuggestions( $text, $type ) { //finds all tags of a certain type, starting with text
         	global $user;
         
