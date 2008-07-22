@@ -46,9 +46,6 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            if ( $expected === 'hello hell' ) {
-                 die( var_dump( $expected ) );
-            }
             return $this->InformTester(
                 New AssertResult( $actual === $expected, $message, $actual, $expected )
             );
@@ -361,7 +358,7 @@
 				case 'Message':
 				case 'Success':
 				case 'Actual':
-				case 'Excpected':
+				case 'Expected':
 					$attribute = 'm' . $key;
 					return $this->$attribute;
 			}
