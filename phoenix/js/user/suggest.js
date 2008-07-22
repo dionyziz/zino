@@ -57,7 +57,38 @@ var Suggest = {
 			var opt = document.createElement( 'option' );
 			opt.value = suggestions[i];
 			opt.onclick = function() {
-				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
+				var typeid;
+				switch( type ) {
+					case 'hobbies':
+						typeid = 1;
+						break;
+					case 'movies':
+						typeid = 2;
+						break;
+					case 'books':
+						typeid = 3;
+						break;
+					case 'songs':
+						typeid = 4;
+						break;
+					case 'artists':
+						typeid = 5;
+						break;
+					case 'games':
+						typeid = 6;
+						break;
+					case 'shows':
+						typeid = 7;
+						break;
+					default:
+						typeid = -1;
+				}
+				if ( typeid == -1 ) {
+					return;
+				}
+				//$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
+				$( 'div.' + type + ' input' ).focus().get( 0 ).value = '';
+				Settings.AddInterest( this.value, typeid );
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			}
 			opt.onmouseover = function() {
