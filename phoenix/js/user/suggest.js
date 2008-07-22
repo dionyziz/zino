@@ -8,6 +8,26 @@ var Suggest = {
 		'games' : false,
 		'shows' : false
 	},
+	type2int : function( type ) {
+		switch( type ) {
+			case 'hobbies':
+				return 1;
+			case 'movies':
+				return 2;
+			case 'books':
+				return 3;
+			case 'songs':
+				return 4;
+			case 'artists':
+				return 5;
+			case 'games':
+				return 6;
+			case 'shows':
+				return 7;
+			default:
+				return -1;
+		}
+	},
 	selectMove : function( event, type ) {
 		if ( $( 'div.' + type + ' form' ).css( "display" ) == "none" ) {
 			return;
@@ -24,6 +44,11 @@ var Suggest = {
 		else if ( event.keyCode == 13 ) {
 			var text = sel.get( 0 ).options[ selindex ].value;
 			$( 'div.' + type + ' input' ).val( text ).focus();
+			var typeid = Suggest.type2int( type );
+			if ( typeid === -1 ) {
+				return;
+			}
+			Settings.AddInterest( type, typeid );
 			sel.find( 'option' ).remove();
 			$( 'div.' + type + ' form' ).hide();
 		}
@@ -57,32 +82,7 @@ var Suggest = {
 			var opt = document.createElement( 'option' );
 			opt.value = suggestions[i];
 			opt.onclick = function() {
-				var typeid;
-				switch( type ) {
-					case 'hobbies':
-						typeid = 1;
-						break;
-					case 'movies':
-						typeid = 2;
-						break;
-					case 'books':
-						typeid = 3;
-						break;
-					case 'songs':
-						typeid = 4;
-						break;
-					case 'artists':
-						typeid = 5;
-						break;
-					case 'games':
-						typeid = 6;
-						break;
-					case 'shows':
-						typeid = 7;
-						break;
-					default:
-						typeid = -1;
-				}
+				var typeid = Suggest.type2int( type );
 				if ( typeid == -1 ) {
 					return;
 				}
