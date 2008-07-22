@@ -43,9 +43,9 @@
             }
             $sanitizer->AllowTag( $goodtag );
         }
-        //$sanitizer->SetSource( $html );
-        //$sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
-        //$html = $sanitizer->GetXHTML();
+        $sanitizer->SetSource( $html );
+        $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
+        $html = $sanitizer->GetXHTML();
         
         // YouTube support
         $html = preg_replace(
