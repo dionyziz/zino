@@ -200,7 +200,7 @@
 
 	foreach ($tests as $t) {
 		$result = WYSIWYG_PostProcess($t);
-		echo "$result <br />\n";
+		echo "$result <br></br>\n";
 	}
 
 	Rabbit_Destruct();
