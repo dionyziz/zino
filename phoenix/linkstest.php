@@ -200,8 +200,12 @@
 		'hello <a href="https://world/i.php?a=s&j=v">world</a> !'
 	);
 
+	function linksTest($text) {
+		return WYSIWYG_Links($text);
+	}
+
 	foreach ($tests as $t) {
-		$result = WYSIWYG_PostProcess($t);
+		// $result = WYSIWYG_PostProcess($t);
 		echo "$result <br></br>\n";
 	}
 
