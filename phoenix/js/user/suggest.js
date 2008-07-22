@@ -60,6 +60,12 @@ var Suggest = {
 				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			}
+			opt.onmouseover = function() {
+				this.style.backgroundColor = '#E4EAF9';
+			}
+			opt.onmouseout = function() {
+				this.style.backgroundColor = 'white';
+			}
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
 			sel.appendChild( opt );
 		}
