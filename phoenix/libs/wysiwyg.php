@@ -43,15 +43,15 @@
             }
             $sanitizer->AllowTag( $goodtag );
         }
-        $sanitizer->SetSource( $html );
-        $sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
-        $html = $sanitizer->GetXHTML();
+        //$sanitizer->SetSource( $html );
+        //$sanitizer->SetTextProcessor( 'WYSIWYG_TextProcess' );
+        //$html = $sanitizer->GetXHTML();
         
         // YouTube support
-        $html = preg_replace( 
-            '#\<img[^>]*?src\=(["\']?)' 
+        $html = preg_replace(
+           '#\<img[^>]*?src\=(["\']?)' 
             . preg_quote( $rabbit_settings[ 'imagesurl' ], "#i" )
-            . 'video-placeholder\.png\?v\=([a-zA-Z0-9_-]+)\1[^>]*/?\>#i', 
+            . 'video-placeholder\.png\?v\=([a-zA-Z0-9_-]+)\1[^>]*/?\>#i',
             '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/\2"></param><embed src="http://www.youtube.com/v/\2" type="application/x-shockwave-flash" width="425" height="344"></embed></object>', 
             $html
         );
@@ -71,7 +71,7 @@
     function WYSIWYG_TextProcess( $text ) {
         $text = htmlspecialchars( $text );
         $text = WYSIWYG_Links( $text );
-        $text = WYSIWYG_Smileys( $text );
+        // $text = WYSIWYG_Smileys( $text );
         return $text;
     }
 
