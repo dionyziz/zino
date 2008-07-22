@@ -80,7 +80,7 @@
 	}
 
 	function WYSIWYG_TextProcess($text) {
-		$text = htmlspecialchars($text);
+		/*$text = htmlspecialchars($text);*/
 		$text = WYSIWYG_Links($text);
 		$text = WYSIWYG_Smileys($text);
 		return $text;
