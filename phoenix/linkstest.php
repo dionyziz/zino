@@ -80,7 +80,7 @@
 	}
 
 	function WYSIWYG_TextProcess($text) {
-		/*$text = htmlspecialchars($text);*/
+		$text = htmlspecialchars($text);
 		$text = WYSIWYG_Links($text);
 		$text = WYSIWYG_Smileys($text);
 		return $text;
@@ -198,7 +198,11 @@
 		'OK https://foo.bar.gr/wiki.php?a=true&s=false ... htts://mistake.org/ http:/another.net/index.php ...'
 	);
 
-	function linksTest($text) {
+	function works($text) {
+		return $WYSIWYG_TextProcess($text);
+	}
+
+	function doesNotWork($text) {
 		$sanitizer = New XHTMLSanitizer();
 		$sanitizer->SetSource($text);
 		$sanitizer->SetTextProcessor('WYSIWYG_TextProcess');
@@ -206,8 +210,9 @@
 	}
 
 	foreach ($tests as $t) {
-		$result = linksTest($t);
-		echo "$result <br></br>\n";
+		$w = works($t);
+		$d = doesNotWork($t);
+		echo "$w | $d <br></br>\n";
 	}
 
 	Rabbit_Destruct();
