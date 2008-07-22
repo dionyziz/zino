@@ -8,6 +8,13 @@
 		return $text;
 	}
 
+	function WYSIWYG_TextProcess( $text ) {
+		$text = htmlspecialchars( $text );
+		$text = WYSIWYG_Links( $text );
+		// $text = WYSIWYG_Smileys( $text );
+		return $text;
+	}
+
 	$tests = array(
 		'http://www.google.com/',
 		'Hello https://python.org/ !',
@@ -16,7 +23,7 @@
 	);
 
 	foreach ( $tests as $t ) {
-		$result = WYSIWYG_Links($t);
+		$result = WYSIWYG_TextProcess($t);
 		echo "$result <br />\n";
 	}
 ?>
