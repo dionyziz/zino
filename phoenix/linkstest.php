@@ -71,18 +71,18 @@
 	}
 
 	function WYSIWYG_Links($text) {
-		/*$text = preg_replace(
+		$text = preg_replace(
 			'#\b(https?\://[a-z0-9.-]+(/[a-zA-Z0-9./+?;&=%-]*)?)#',
 			'<a href="\1">\1</a>',
 			$text
-		);*/
+		);
 		return $text;
 	}
 
 	function WYSIWYG_TextProcess($text) {
-		$text = htmlspecialchars($text);
+		/*$text = htmlspecialchars($text);
 		$text = WYSIWYG_Links($text);
-		$text = WYSIWYG_Smileys($text);
+		$text = WYSIWYG_Smileys($text);*/
 		return $text;
 	}
 
