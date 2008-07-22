@@ -46,7 +46,7 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            if ( $expected == 'hello hell' ) {
+            if ( $expected === 'hello hell' ) {
                  die( var_dump( $expected ) );
             }
             return $this->InformTester(
