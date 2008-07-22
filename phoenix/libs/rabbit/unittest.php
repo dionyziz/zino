@@ -46,7 +46,6 @@
             );
         }
         protected function AssertEquals( $expected, $actual, $message = '' ) {
-            die( 'AssertEquals: ' . $expected . ', ' . $actual );
             return $this->InformTester(
                 New AssertResult( $actual === $expected, $message, $actual, $expected )
             );
