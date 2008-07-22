@@ -87,7 +87,7 @@ var Suggest = {
 					return;
 				}
 				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
-				Settings.AddInterest( this.value, typeid );
+				Settings.AddInterest( type, typeid );
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			};
 			opt.onmouseover = function() {
