@@ -205,7 +205,7 @@
 	}
 
 	foreach ($tests as $t) {
-		// $result = WYSIWYG_PostProcess($t);
+		$result = linksTest($t);
 		echo "$result <br></br>\n";
 	}
 
