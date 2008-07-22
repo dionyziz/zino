@@ -21,7 +21,7 @@
 		}
 		
 		$shout = New Shout();
-		$shout->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
+		$shout->Text = WYSIWYG_PostProcess( $text ); // TODO: WYSIWYG
 		$shout->Save();
 		?>$( <?php
 		echo $node;
