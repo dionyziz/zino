@@ -81,8 +81,8 @@
 
 	function WYSIWYG_TextProcess($text) {
 		$text = htmlspecialchars($text);
-		$text = WYSIWYG_Links($text);
-		/*$text = WYSIWYG_Smileys($text);*/
+		/*$text = WYSIWYG_Links($text);
+		$text = WYSIWYG_Smileys($text);*/
 		return $text;
 	}
 
@@ -195,7 +195,9 @@
 		'http://www.google.com/',
 		'Hello https://python.org/ !',
 		'http://localhost/index.php?p=comments&a=show <-- look here',
-		'OK https://foo.bar.gr/wiki.php?a=true&s=false ... htts://mistake.org/ http:/another.net/index.php ...'
+		'OK https://foo.bar.gr/wiki.php?a=true&s=false ... htts://mistake.org/ http:/another.net/index.php ...',
+		'<a href="http://www.lol.com/">lol</a>',
+		'hello <a href="https://world/i.php?a=s&j=v">world</a> !'
 	);
 
 	foreach ($tests as $t) {
