@@ -107,14 +107,17 @@
                     w_assert( is_int( $value ) );
                     $this->Dob = $this->MakeBirthdate( $value, $this->BirthMonth, $this->BirthYear );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
+                    break;
                 case 'BirthMonth':
                     w_assert( is_int( $value ) );
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $value, $this->BirthYear );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
+                    break;
                 case 'BirthYear':
                     w_assert( is_int( $value ) );
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
+                    break;
 				default:
 					parent::__set( $key, $value );
             }
