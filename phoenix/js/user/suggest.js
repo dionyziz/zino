@@ -90,13 +90,13 @@ var Suggest = {
 				$( 'div.' + type + ' input' ).focus().get( 0 ).value = '';
 				Settings.AddInterest( this.value, typeid );
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
-			}
+			};
 			opt.onmouseover = function() {
 				this.style.backgroundColor = '#E4EAF9';
-			}
+			};
 			opt.onmouseout = function() {
 				this.style.backgroundColor = 'white';
-			}
+			};
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
 			sel.appendChild( opt );
 		}
@@ -114,4 +114,4 @@ var Suggest = {
 		}
 		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 1500 );
 	}
-}
+};

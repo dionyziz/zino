@@ -8,6 +8,7 @@
             global $page;
             
             $page->AttachScript( 'js/user/suggest.js' );
+            $page->AttachScript( 'js/user/_settings.js' );
             $page->AttachStyleSheet( 'css/user/settings.css' );
             //----------------
             
