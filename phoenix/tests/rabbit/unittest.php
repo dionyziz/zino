@@ -64,6 +64,7 @@
         public function TestAssertResult() {
             $bad  = New AssertResult( false, 'hello', 'actual string 1', 'expected string 1' );
             $good = New AssertResult( true,  'world', 'actual string 2', 'expected string 2' );
+            die( var_dump( $bad->Message ) );
             $this->AssertFalse( $bad->Success, 'Unsuccessful assertion indicated as successful' );
             $this->AssertTrue( $good->Success, 'Successful assertion indicated as non-successful' );
             $this->AssertEquals( 'hello', $bad->Message, 'Unable to retrieve unsuccessful assertion message' );

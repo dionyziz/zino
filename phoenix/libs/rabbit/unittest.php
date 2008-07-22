@@ -364,7 +364,6 @@
 			}
 		}
         public function __construct( $success, $message, $actual, $expected ) {
-            die( $message );
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
             $this->mActual   = $actual;
