@@ -172,7 +172,7 @@
         //return array( $text, $weeks, $days, $hours, $minutes, $seconds);
     }
 
-    function dateDiffNew( $dateTimeBegin, $dateTimeEndS ) {
+    function dateDiffNew( $dateTimeBegin, $dateTimeEnd ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
             return false;
         }
@@ -233,7 +233,7 @@
             $weeks -= $months * 4;
         }
 
-        $string = array(
+        $result = array(
             'months' => $months,
             'weeks' => $weeks,
             'days' => $days,
@@ -242,7 +242,7 @@
             'seconds' => $seconds
         );
 
-        return $string;
+        return $result;
     }
 
     function sqldate2xml( $date ) {
