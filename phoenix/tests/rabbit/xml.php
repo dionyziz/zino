@@ -2,7 +2,7 @@
     class TestXML extends Testcase {
         protected $mAppliesTo = 'libs/rabbit/xml';
 
-        public function TestXML() {
+        public function TestParse() {
             $parser = New XMLParser(
                 '<?xml version="1.0"?>
                  <garden name="flowers">
