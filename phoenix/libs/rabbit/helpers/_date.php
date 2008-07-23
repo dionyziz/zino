@@ -1,4 +1,6 @@
 <?php
+    include("date.php");
+
     function daysDistance( $pastDate ) {
         return daysDiff( $pastDate , NowDate() );
     }
@@ -30,7 +32,7 @@
         return dateDiff( $pastDate , NowDate() );
     }
 
-    function dateDiff( $dateTimeBegin, $dateTimeEndS ) {
+    function dateDiffNew( $dateTimeBegin, $dateTimeEndS ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
             return false;
         }
