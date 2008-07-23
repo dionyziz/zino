@@ -21,7 +21,7 @@
             global $xc_settings;
 
             $this->AssertEquals(
-                '<a href="http://foo/&amp;bar">http://foo/&amp;bar</a> <img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/omg.png\' alt=\':wow:\' title=\':wow:\' class=\'emoticon\' height=\'22\' width=\'22\' />',
+                '<a href="http://foo/&amp;bar">http://foo/&amp;bar</a> <img src=\'' . $xc_settings[ 'staticimagesurl' ] . 'emoticons/omg.png\' alt=\':wow:\' title=\':wow:\' class=\'emoticon\' width=\'22\' height=\'22\' />',
                 WYSIWYG_TextProcess( 'http://foo/&bar :wow:' )
             );
         }
