@@ -21,14 +21,15 @@
             return false;
         }
         
-        $rest = ($diff % 86400);
-        $days = ($diff - $rest) / 86400; # seconds a day
+        $rest= ($diff % 86400);
+        $days  = ($diff - $rest) / 86400; # seconds a day
 
         return $days;
     }
     function dateDistance( $pastDate ) {
         return dateDiff( $pastDate , NowDate() );
     }
+
     function dateDiff( $dateTimeBegin, $dateTimeEndS ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
             return false;
