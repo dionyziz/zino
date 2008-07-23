@@ -34,5 +34,10 @@
         }
         $comment->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
         $comment->Save();
+        ?>$( 'div#comment_<?php
+        echo $id;
+        ?> div.text' ).html( <?php
+        echo w_json_encode( $comment->Text );
+        ?> );<?php
     }    
 ?>

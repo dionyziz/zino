@@ -55,12 +55,7 @@
                         <a href="">Απάντησε</a> σε αυτό το σχόλιο
                     </div><?php
                 }
-                /*?><div id="children_<?php
-                echo $comment->Id;
-                ?>" style="display:none"><?php
-                echo $numchildren;
-                ?></div>*/?>
-            </div><?php
+            ?></div><?php
         }
     }
 ?>

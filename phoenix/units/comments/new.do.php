@@ -25,7 +25,7 @@
         
 
         $comment = New Comment();
-        $text = WYSIWYG_PostProcess( htmlspecialchars( $text ) ); // TODO: WYSIWYG
+        $text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
         $comment->Text = $text;
         $comment->Userid = $user->Id;
         $comment->Parentid = $parent;
