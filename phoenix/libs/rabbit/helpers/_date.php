@@ -22,7 +22,7 @@
             // error condition
             return false;
         }
-        
+
         $rest = ( $diff % 86400 );
         $days = ( $diff - $rest ) / 86400; // seconds a day
 
@@ -39,7 +39,7 @@
         }
         $dateTimeBegin = strtotime( $dateTimeBegin );
         $dateTimeEnd = strtotime( $dateTimeEnd );
-        
+
         if ( $dateTimeEnd === -1 || $dateTimeBegin === -1 ) {
             // error condition
             return false;
@@ -53,7 +53,7 @@
         }
 
         $weeks = $days = $hours = $minutes = $seconds = 0; // initialize vars
-        
+
         if ( $diff % 604800 > 0 ) {
             $rest1 = $diff % 604800;
             $weeks = ( $diff - $rest1 ) / 604800; // seconds a week
@@ -76,13 +76,12 @@
                 }
             }
             else {
-                $days = $rest1/ 86400;
+                $days = $rest1 / 86400;
             }
         }
         else {
             $weeks = $diff / 604800;
         }
-        // $seconds = $dateTimeEnd - ( ( ( ( $weeks * 7 + $days ) * 24 + $hours ) * 60 ) + $minutes );
         if ( $weeks ) {
             $hours = 0;
         }
@@ -91,7 +90,7 @@
         }
         $months = floor( $weeks / 4 );
         if ( $months ) {
-            $weeks = $weeks - $months * 4;
+            $weeks -= $weeks - $months * 4;
         }
         
         $string = array();
@@ -172,40 +171,41 @@
         return $text;
         //return array( $text, $weeks, $days, $hours, $minutes, $seconds);
     }
+
     function dateDiffNew( $dateTimeBegin, $dateTimeEndS ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
             return false;
         }
 
-        $dateTimeBegin = strtotime( $dateTimeBegin) ;
+        $dateTimeBegin = strtotime( $dateTimeBegin );
         $dateTimeEnd = strtotime( $dateTimeEnd );
-        
+
         if ( $dateTimeEnd === -1 || $dateTimeBegin === -1 ) {
             // error condition
             return false;
         }
-        
+
         $diff = $dateTimeEnd - $dateTimeBegin;
-        
+
         if ( $diff < 0 ) {
             // error condition
             return false;
         }
-        
+
         $weeks = $days = $hours = $minutes = $seconds = 0; // initialize vars
-        
+
         if ( $diff % 604800 > 0 ) {
-            $rest1  = $diff % 604800;
-            $weeks  = ( $diff - $rest1 ) / 604800; // seconds a week
+            $rest1 = $diff % 604800;
+            $weeks = ( $diff - $rest1 ) / 604800; // seconds a week
             if ( $rest1 % 86400 > 0 ) {
                 $rest2 = ( $rest1 % 86400 );
-                $days  = ( $rest1 - $rest2 ) / 86400; // seconds a day
+                $days = ( $rest1 - $rest2 ) / 86400; // seconds a day
                 if ( $rest2 % 3600 > 0 ) {
                     $rest3 = ( $rest2 % 3600 );
                     $hours = ( $rest2 - $rest3 ) / 3600; // seconds an hour
                     if ( $rest3 % 60 > 0 ) {
                         $seconds = ( $rest3 % 60 );
-                        $minutes = ( $rest3 - $seconds ) / 60;  // seconds a minute
+                        $minutes = ( $rest3 - $seconds ) / 60; // seconds a minute
                     } 
                     else {
                         $minutes = $rest3 / 60;
@@ -222,7 +222,6 @@
         else {
             $weeks = $diff / 604800;
         }
-        // $seconds = $dateTimeEnd - ( ( ( ( $weeks * 7 + $days ) * 24 + $hours ) * 60 ) + $minutes );
         if ( $weeks ) {
             $hours = 0;
         }
@@ -231,7 +230,7 @@
         }
         $months = floor( $weeks / 4 );
         if ( $months ) {
-            $weeks = $weeks - $months * 4;
+            $weeks -= $months * 4;
         }
 
         $string = array(
@@ -242,26 +241,28 @@
             'minutes' => $minutes,
             'seconds' => $seconds
         );
-        
+
         return $string;
     }
+
     function sqldate2xml( $date ) {
-        return str_replace( " ", "T", $date ) . "Z" ;
+        return str_replace( ' ', 'T', $date ) . 'Z';
     }
+
     function ParseDate( $date, &$year, &$month, &$day, &$hour, &$minute, &$second ) {
         if ( !$date || $date == "0000-00-00 00:00:00" )
             return;
-            
-        $dateElements             = split(' ', $date);
+
+        $dateElements = split( ' ', $date );
         ParseSolDate( $dateElements[ 0 ], $year, $month, $day );
 
-        $dateTimeElements         = split(':', $dateElements[ 1 ] );
-        
-        $hour     = $dateTimeElements[ 0 ];
+        $dateTimeElements = split( ':', $dateElements[ 1 ] );
+
+        $hour = $dateTimeElements[ 0 ];
         $minute = $dateTimeElements[ 1 ];
         $second = $dateTimeElements[ 2 ];
     }
-    
+
     function ParseSolDate( $date, &$year, &$month, &$day ) {
         $year = $month = $day = 0;
         $dateDateElements = explode( '-', $date );
@@ -275,61 +276,59 @@
             }
         }
     }
-    
+
     function NowDate() {
-        return date("Y-m-d H:i:s", time() );
+        return date( 'Y-m-d H:i:s', time() );
     }
-    
+
     function NowSolDate() {
-        return date("Y-m-d", time() );
+        return date( 'Y-m-d', time() );
     }
-    
+
     // TODO: make it non-greek-specific
     function GrMonth( $month ) {
-        switch( $month ) {
+        switch ( $month ) {
             case 1:
-                return "Ιαν";
+                return 'Ιαν';
             case 2:
-                return "Φεβ";
+                return 'Φεβ';
             case 3:
-                return "Μάρ";
+                return 'Μάρ';
             case 4:
-                return "Απρ";
+                return 'Απρ';
             case 5:
-                return "Μάη";
+                return 'Μάη';
             case 6:
-                return "Ιουν";
+                return 'Ιουν';
             case 7:
-                return "Ιούλ";
+                return 'Ιούλ';
             case 8:
-                return "Αύγ";
+                return 'Αύγ';
             case 9:
-                return "Σεπ";
+                return 'Σεπ';
             case 10:
-                return "Οκτ";
+                return 'Οκτ';
             case 11:
-                return "Νοε";
+                return 'Νοε';
             case 12:
-                return "Δεκ";
+                return 'Δεκ';
         }
     }
-    
+
     function MakeDate( $sqldate ) {
         if ( !$sqldate )
-            return "";
-            
-        ParseDate( $sqldate, 
-                    $Year, $Month, $Day,
-                    $Hour, $Minute, $Second );
+            return '';
+
+        ParseDate( $sqldate, $Year, $Month, $Day, $Hour, $Minute, $Second );
+
+        $dateTimestamp = mktime( $Hour, $Minute, $Second, $Month, $Day, $Year );
         
-        $dateTimestamp = mktime( $Hour, $Minute, $Second,
-                                   $Month, $Day, $Year );
-        
-        $dateDay = date( "d", $dateTimestamp );
-        $dateMonth = date( "n", $dateTimestamp );
+        $dateDay = date( 'd', $dateTimestamp );
+        $dateMonth = date( 'n', $dateTimestamp );
         $displayMonth = GrMonth( $dateMonth );
-        $dateRst = date( "y, H:i", $dateTimestamp );
+        $dateRst = date( 'y, H:i', $dateTimestamp );
         return "$dateDay $displayMonth $dateRst";
     }
 
 ?>
+
