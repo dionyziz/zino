@@ -94,15 +94,10 @@ var Suggest = {
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			};
 			opt.onmouseover = function( type, counter ) {
-				//this.style.backgroundColor = '#E4EAF9';
 				return function() {
-				    $( 'div.' + type + ' select' ).attr( 'selectedIndex', '' + counter );
+				    $( 'div.' + type + ' select' ).focus().attr( 'selectedIndex', '' + counter );
 				};
 			}( type, counter );
-			/*
-			opt.onmouseout = function() {
-				this.style.backgroundColor = 'white';
-			};*/
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
 			sel.appendChild( opt );
 			++counter;
