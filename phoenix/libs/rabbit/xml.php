@@ -43,6 +43,13 @@ class XMLNode {
     }
     public function appendChild( $child ) {
         w_assert( is_string( $child ) || $child instanceof XMLNode );
+        if ( is_string( $child ) ) {
+            $lastchild = count( $this->childNodes ) - 1;
+            if ( $lastchild >= 0 && is_string( $this->childNodes[ $lastchild ] ) ) {
+                $this->childNodes[ $lastchild ] .= $child;
+                return;
+            }
+        }
         $this->childNodes[] = $child;
     }
     public function firstChild() {
