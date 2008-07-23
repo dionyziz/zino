@@ -134,15 +134,15 @@
         }
         public function Count() {
             $query = $this->mDb->Prepare(
-			'SELECT
-				COUNT(*) AS count
-			FROM
-				:comments;
-			');
-			$query->BindTable( 'comments' );
-			$res = $query->Execute();
-			$row = $res->FetchArray();
-			return ( integer )$row[ 'count' ];
+            'SELECT
+                COUNT(*) AS count
+            FROM
+                :comments;
+            ');
+            $query->BindTable( 'comments' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            return ( integer )$row[ 'count' ];
         }
         public function DeleteByEntity( $entity ) {
             $query = $this->mDb->Prepare( '
@@ -401,34 +401,34 @@
 
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
-		private $mSince;
+        private $mSince;
 
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Text':
-					return $this->Bulk->Text;
-				case 'Since':
-					return $this->mSince;
-				default:
-					return parent::__get( $key );
-			}
-		}
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Text':
-					$this->Bulk->Text = $value;
-					return;
-				default:
-					return parent::__set( $key, $value );
-			}
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Text':
+                    return $this->Bulk->Text;
+                case 'Since':
+                    return $this->mSince;
+                default:
+                    return parent::__get( $key );
+            }
         }
-		public function GetText( $length ) {
-			w_assert( is_int( $length ) );
-			$text = $this->Bulk->Text;
-			$text = htmlspecialchars_decode( strip_tags( $text ) );
-			$text = mb_substr( $text, 0, $length );
-			return htmlspecialchars( $text );
-		}
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Text':
+                    $this->Bulk->Text = $value;
+                    return;
+                default:
+                    return parent::__set( $key, $value );
+            }
+        }
+        public function GetText( $length ) {
+            w_assert( is_int( $length ) );
+            $text = $this->Bulk->Text;
+            $text = htmlspecialchars_decode( strip_tags( $text ) );
+            $text = mb_substr( $text, 0, $length );
+            return htmlspecialchars( $text );
+        }
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
         }
@@ -450,7 +450,7 @@
 
             $this->User->OnCommentDelete();
 
-			w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
+            w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
             $this->Item->OnCommentDelete();
 
             $this->OnDelete();
@@ -474,7 +474,7 @@
 
             $this->Delid = 0;
             if ( $this->Save() ) {
-				$this->Item->OnCommentCreate();
+                $this->Item->OnCommentCreate();
                 $this->User->AddContrib();
                 return true;
             }
@@ -529,23 +529,23 @@
             $this->Bulkid = $this->Bulk->Id;
         }
         public function Relations() {
-			if ( $this->Exists() ) {
-	            $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
-			}
+            if ( $this->Exists() ) {
+                $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+            }
             $this->Parent = $this->HasOne( 'Comment', 'Parentid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Bulk = $this->HasOne( 'Bulk', 'Bulkid' );
         }
         public function LoadDefaults() {
-			global $user;
+            global $user;
 
             $this->Created = NowDate();
             $this->Userip = UserIp();
-			$this->Userid = $user->Id;
+            $this->Userid = $user->Id;
         }
         public function OnConstruct() {
             if ( $this->Exists() ) {
-    			$this->mSince = dateDiff( $this->Created, NowDate() );
+                $this->mSince = dateDiff( $this->Created, NowDate() );
             }
         }
     }

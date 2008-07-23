@@ -1,40 +1,40 @@
 <?php
     final class Coala {
         public function Run( $type , $which , $req ) {
-    		global $water;
-    		
-    		w_assert( strpos( $which , '..' ) == false );
-    		w_assert( $type == 'warm' || $type == 'cold' );
+            global $water;
             
-    		$file = 'units/' . $which;
-    		if ( $type == 'warm' ) {
-    			$file .= '.do';
-    		}
-    		
-    		ob_start();
-    		Rabbit_Include( $file );
-    		$output = ob_get_clean();
-    		if ( strlen( $output ) ) {
+            w_assert( strpos( $which , '..' ) == false );
+            w_assert( $type == 'warm' || $type == 'cold' );
+            
+            $file = 'units/' . $which;
+            if ( $type == 'warm' ) {
+                $file .= '.do';
+            }
+            
+            ob_start();
+            Rabbit_Include( $file );
+            $output = ob_get_clean();
+            if ( strlen( $output ) ) {
                 ?>alert('Coala unit should not output data on include (' + <?php
                 echo w_json_encode( $output )
                 ?> + '); coala call failed');<?php
-        		$water->Notice( 'Coala unit should not output data on include; coala call failed' );
-    			return;
-    		}
-    		$unitfunc = 'Unit' . str_replace( '/' , '' , $which );
-    		if ( !function_exists( $unitfunc ) ) {
+                $water->Notice( 'Coala unit should not output data on include; coala call failed' );
+                return;
+            }
+            $unitfunc = 'Unit' . str_replace( '/' , '' , $which );
+            if ( !function_exists( $unitfunc ) ) {
                 ?>alert('Coala unit does not contain the appropriate function (' + <?php
                 echo w_json_encode( $unitfunc );
                 ?> + '); coala call failed');<?php
                 $water->Notice( 'Coala unit does not contain the appropriate function; coala call failed' );
-    			return;
-    		}
+                return;
+            }
             
-    		ob_start();
+            ob_start();
             
-    		Rabbit_TypeSafe_Call( $unitfunc , $req );
-    		$js = ob_get_clean();
-    		return $js;
+            Rabbit_TypeSafe_Call( $unitfunc , $req );
+            $js = ob_get_clean();
+            return $js;
         }
         public function ParseRequest( $warmable , $req ) {
             // parse a coala request and return an array of main elements

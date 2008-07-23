@@ -1,5 +1,5 @@
-<?php	
-	class ElementUserProfileSidebarSocialReligion extends Element {
+<?php    
+    class ElementUserProfileSidebarSocialReligion extends Element {
         public function Render( $theuser ) {
             if ( $theuser->Profile->Religion != '-' ) {
                 ?><li><strong>Θρήσκευμα</strong>

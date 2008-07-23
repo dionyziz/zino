@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileMainView extends Element {
+    class ElementUserProfileMainView extends Element {
         public function Render( $theuser, $commentid, $pageno ) {
             global $libs;
             global $user;
@@ -27,7 +27,7 @@
                     $comments = $comments[ 2 ];
                     $finder = New NotificationFinder();
                     $finder->DeleteByCommentAndUser( $speccomment, $user );
-					$water->Trace( 'speccoment is ' . $speccomment->Id );
+                    $water->Trace( 'speccoment is ' . $speccomment->Id );
                 }
             // }
             }
@@ -46,7 +46,7 @@
             //show avatar upload only if there are no notifications
             ?><div class="main"><?php
                 if ( $showuploadavatar ) {
-                    ?><div class="ybubble">	
+                    ?><div class="ybubble">    
                         <div class="body">
                             <h3>Ανέβασε μια φωτογραφία σου</h3>
                             <div class="uploaddiv">
@@ -77,13 +77,13 @@
                         ?><ul></ul><?php
                     }
                 ?></div>
-				<div class="morealbums"><?php
-					if ( $theuser->Count->Albums > 1 ) {
-						?><div class="viewalbums"><a href="<?php
-						Element( 'user/url' , $theuser );
-						?>albums" class="button">Προβολή albums&raquo;</a></div><?php
-					}
-				?></div><?php
+                <div class="morealbums"><?php
+                    if ( $theuser->Count->Albums > 1 ) {
+                        ?><div class="viewalbums"><a href="<?php
+                        Element( 'user/url' , $theuser );
+                        ?>albums" class="button">Προβολή albums&raquo;</a></div><?php
+                    }
+                ?></div><?php
                 $finder = New FriendRelationFinder();
                 $friends = $finder->FindByUser( $theuser , 0 , 5 ); 
                 
@@ -153,7 +153,7 @@
                             ?><a href="<?php
                             Element( 'user/url' , $theuser );
                             ?>journals" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
-                        }	
+                        }    
                     ?></div>
                     <div class="barfade">
                         <div class="leftbar"></div>
@@ -213,7 +213,7 @@
                         // }
                     ?></div><?php
                 }
-            ?></div><?php	
+            ?></div><?php    
         }
     }
 ?>

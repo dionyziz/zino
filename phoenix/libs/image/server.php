@@ -2,7 +2,7 @@
     function Image_Upload( $userid, $imageid, $tempfile ) {
         global $xc_settings;
         global $rabbit_settings;
-		global $user;              
+        global $user;              
 
         $curl = curl_init();
 
@@ -49,31 +49,31 @@
 
         curl_close( $curl );
 
-		if ( strpos( $data, "error" ) !== false ) {
+        if ( strpos( $data, "error" ) !== false ) {
             throw New ImageException( 'Image_Upload could not upload the image: Server returned an error: ' . $data );
-		}
-		else if ( strpos( $data, "success" ) !== false ) {
+        }
+        else if ( strpos( $data, "success" ) !== false ) {
             // throw New ImageException( $data );
 
-			$start = strpos( $data, "[" ) + 1;
+            $start = strpos( $data, "[" ) + 1;
 
-			$data = substr( $data, $start, strlen( $data ) - $start - 1 );
-			$split = explode( "," , $data );
-			$width = $split[ 0 ];
+            $data = substr( $data, $start, strlen( $data ) - $start - 1 );
+            $split = explode( "," , $data );
+            $width = $split[ 0 ];
             $height = $split[ 1 ];
-			$filesize = $split[ 2 ];
+            $filesize = $split[ 2 ];
             $mime = $split[ 3 ];
 
             $upload = array();
-			$upload[ 'width' ] = ( integer )$width;
-			$upload[ 'height' ] = ( integer )$height;
-			$upload[ 'filesize' ] = ( integer )$filesize;
+            $upload[ 'width' ] = ( integer )$width;
+            $upload[ 'height' ] = ( integer )$height;
+            $upload[ 'filesize' ] = ( integer )$filesize;
             $upload[ 'mime' ] = $mime;
 
             return $upload;
-		}
+        }
         // err'd
         throw New ImageException( 'Image_Upload could not upload the image: Server returned an unknown state: ' . $data );
-	}
+    }
 
 ?>

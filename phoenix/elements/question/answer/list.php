@@ -1,5 +1,5 @@
 <?php
-	class ElementQuestionAnswerList extends Element {
+    class ElementQuestionAnswerList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
             global $page;
             global $user;
@@ -26,7 +26,7 @@
                 else {
                     $theuser = $finder->FindBySubdomain( $subdomain );
                 }
-            }	
+            }    
             if ( !isset( $theuser ) || $theuser === false ) {
                 return Element( '404' );
             }
@@ -45,13 +45,13 @@
             Element( 'user/sections', 'question' , $theuser );
 
             ?><div class="questions"><?php
-			$owner = $theuser->Id == $user->Id;
+            $owner = $theuser->Id == $user->Id;
             if ( $owner ) {
                 $finder = New QuestionFinder();
                 $question = $finder->FindNewQuestion( $theuser );
                 ?><div class="newquestion"<?php
                 if ( $question === false ) {
-                	?> style="display:none"<?php
+                    ?> style="display:none"<?php
                 }
                 ?>>
                 <p class="question"><?php
@@ -65,10 +65,10 @@
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a> 
                     <a href="" title="Αλλαγή Ερώτησης" onclick="Coala.Cold( 'question/get', { 
-                    		'callback': Questions.Renew,
-                    		'excludeid' : <?php
-                    		echo $question->Id;
-                    		?>} );return false;"><img src="<?php
+                            'callback': Questions.Renew,
+                            'excludeid' : <?php
+                            echo $question->Id;
+                            ?>} );return false;"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>arrow_refresh.png" alt="Αλλαγή Ερώτησης" title="Αλλαγή Ερώτησης" /></a>
                 </form></p>
@@ -76,7 +76,7 @@
             }
 
             ?><ul class="questions"><?php
-          	
+              
             foreach ( $answers as $answer ) {
                 Element( 'question/answer/view', $answer, $owner );
             }

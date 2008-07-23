@@ -1,6 +1,6 @@
 <?php 
-	class ElementUserProfileSidebarInterests extends Element {
-        public function Render( $theuser ) {	
+    class ElementUserProfileSidebarInterests extends Element {
+        public function Render( $theuser ) {    
             global $libs;
             
             $libs->Load( 'tag' );

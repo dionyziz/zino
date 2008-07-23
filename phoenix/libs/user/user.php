@@ -18,26 +18,26 @@
     $libs->Load( 'journal' );
     $libs->Load( 'album' );
     $libs->Load( 'mood' );
-	$libs->Load( 'question/answer' );
-	
-	
+    $libs->Load( 'question/answer' );
+    
+    
     function User_Valid( $username ) {
-    	$reserved = Array( 'anonymous', 'www', 'beta' );
+        $reserved = Array( 'anonymous', 'www', 'beta' );
         return ( ( bool )preg_match( '#^[a-zA-Z][a-zA-Z\-_0-9]{3,19}$#', $username ) && !in_array( $username , $reserved ) );
     }
-	function User_DeriveSubdomain( $username ) {
-		/* RFC 1034 - They must start with a letter, 
-		end with a letter or digit,
-		and have as interior characters only letters, digits, and hyphen.
-		Labels must be 63 characters or less. */
-		$username = strtolower( $username );
-		$username = preg_replace( '/([^a-z0-9-])/i', '-', $username ); //convert invalid chars to hyphens
-		$pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
-		if ( !preg_match( $pattern, $username, $matches ) ) {
-			return false;
-		}
-		return $matches[ 0 ];
-	}
+    function User_DeriveSubdomain( $username ) {
+        /* RFC 1034 - They must start with a letter, 
+        end with a letter or digit,
+        and have as interior characters only letters, digits, and hyphen.
+        Labels must be 63 characters or less. */
+        $username = strtolower( $username );
+        $username = preg_replace( '/([^a-z0-9-])/i', '-', $username ); //convert invalid chars to hyphens
+        $pattern = '/([a-z]+)([a-z0-9-]*)([a-z0-9]+)/i';
+        if ( !preg_match( $pattern, $username, $matches ) ) {
+            return false;
+        }
+        return $matches[ 0 ];
+    }
     
     class UserFinder extends Finder {
         protected $mModel = 'User';
@@ -139,18 +139,18 @@
 
             return $users;
         }
-		public function Count() {
-			$query = $this->mDb->Prepare(
-				'SELECT
-					COUNT(*) AS numusers
-				FROM
-					:users;'
-			);
-			$query->BindTable( 'users' );
-			$res = $query->Execute();
-			$row = $res->FetchArray();
-			return ( int )$row[ 'numusers' ];
-		}
+        public function Count() {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT(*) AS numusers
+                FROM
+                    :users;'
+            );
+            $query->BindTable( 'users' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            return ( int )$row[ 'numusers' ];
+        }
         public function ClearPlace( $placeid ) {
             $query = $this->mDb->Prepare(
                 'UPDATE
@@ -172,25 +172,25 @@
         public function CopyAvatarFrom( $value ) {
             $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Password':
-					$this->mCurrentValues[ 'Password' ] = md5( $value );
-					break;
-				default:
-					return parent::__set( $key, $value );
-			}
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Password':
+                    $this->mCurrentValues[ 'Password' ] = md5( $value );
+                    break;
+                default:
+                    return parent::__set( $key, $value );
+            }
         }
-		protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Password':
-					throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );
-				case 'LastActive':
-					return $this->LastActivity->Updated;
-				default:
-					return parent::__get( $key );
-			}
-		}
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Password':
+                    throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );
+                case 'LastActive':
+                    return $this->LastActivity->Updated;
+                default:
+                    return parent::__get( $key );
+            }
+        }
         public function IsCorrectPassword( $value ) {
             return md5( $value ) == $this->mCurrentValues[ 'Password' ];
         }
@@ -313,8 +313,8 @@
                 // order doesn't really matter, it's all random after all
                 $authtoken .= dechex($first) . dechex($second);
             }
-			
-			$this->Authtoken = $authtoken;
+            
+            $this->Authtoken = $authtoken;
         } 
         // user added a new comment; for profile comments, UserProfile::OnCommentCreate
         public function OnCommentCreate() {

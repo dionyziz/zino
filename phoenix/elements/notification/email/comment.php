@@ -1,6 +1,6 @@
 <?php
     /// Content-type: text/plain ///
-	class ElementNotificationEmailComment extends Element {
+    class ElementNotificationEmailComment extends Element {
         public function Render( Notification $notification ) {
             $from = $notification->FromUser;
             $comment = $notification->Item;

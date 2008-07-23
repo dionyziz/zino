@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementJournalSmall extends Element {
+    
+    class ElementJournalSmall extends Element {
         public function Render( $journal ) {
             global $user;
             global $libs;

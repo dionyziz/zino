@@ -12,6 +12,6 @@
             User_ClearCookie();
         }
 
-    	return Redirect( $_SERVER[ 'HTTP_REFERER' ] );
+        return Redirect( $_SERVER[ 'HTTP_REFERER' ] );
     }
 ?>

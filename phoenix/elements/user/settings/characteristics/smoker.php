@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsCharacteristicsSmoker extends Element {
+    
+    class ElementUserSettingsCharacteristicsSmoker extends Element {
         public function Render() {
             global $user;
             

@@ -1,5 +1,5 @@
 <?php
-	class ElementUserDisplay extends Element {
+    class ElementUserDisplay extends Element {
         public function Render( User $theuser ) {
             ?><a href="<?php
             Element( 'user/url' , $theuser );

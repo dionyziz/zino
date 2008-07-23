@@ -1,9 +1,9 @@
 <?php
-	class ElementPlaceList extends Element {
+    class ElementPlaceList extends Element {
         public function Render() {
             global $page;
             global $user;
-            global $libs;		
+            global $libs;        
             global $xc_settings;
             
             if ( !( $user->CanModifyStories() ) || $user->Rights() < $xc_settings[ 'readonly' ] ) {

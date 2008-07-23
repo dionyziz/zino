@@ -8,18 +8,18 @@
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
-		protected function LoadDefaults() {
-			$this->Education = '-';
-			$this->Sexualorientation = '-';
-			$this->Religion = '-';
-			$this->Politics = '-';	
-			$this->Eyecolor = '-';
-			$this->Haircolor = '-';
-			$this->Smoker = '-';
-			$this->Drinker = '-';
-			$this->Height = -1;
-			$this->Weight = -1;
-		}
+        protected function LoadDefaults() {
+            $this->Education = '-';
+            $this->Sexualorientation = '-';
+            $this->Religion = '-';
+            $this->Politics = '-';    
+            $this->Eyecolor = '-';
+            $this->Haircolor = '-';
+            $this->Smoker = '-';
+            $this->Drinker = '-';
+            $this->Height = -1;
+            $this->Weight = -1;
+        }
     }
 
 ?>

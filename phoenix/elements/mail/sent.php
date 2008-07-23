@@ -1,5 +1,5 @@
 ﻿<?php
-	class ElementMailSent extends Element {
+    class ElementMailSent extends Element {
         public function Render( tBoolean $mailsent ) {
             // Get Parameter
             $mailsent = $mailsent->Get();

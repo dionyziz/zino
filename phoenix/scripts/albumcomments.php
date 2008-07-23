@@ -1,16 +1,16 @@
 <?php
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
+    set_include_path( '../:./' );
     
-	require_once 'libs/rabbit/rabbit.php';
+    global $page;
+    global $libs;
+    
+    require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
-	Rabbit_ClearPostGet();
-	
-	$libs->Load( 'albums' );
+    Rabbit_ClearPostGet();
+    
+    $libs->Load( 'albums' );
 
     function GetAllAlbums() {
         global $db;
@@ -84,9 +84,9 @@
 
         ?>OK<br /><?php
     }
-	
+    
     $page->Output();
 
     Rabbit_Destruct();
-	
+    
 ?>

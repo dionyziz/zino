@@ -1,16 +1,16 @@
 <?php
-	function ValidId( $x ) {
-		if ( is_numeric( $x ) ) {
-			$z = intval( $x );
-			return ( ( $z == $x ) && ( $z > 0 ) );
-		}
+    function ValidId( $x ) {
+        if ( is_numeric( $x ) ) {
+            $z = intval( $x );
+            return ( ( $z == $x ) && ( $z > 0 ) );
+        }
         return false;
-	}
+    }
 
-	function ValidURL( $url ) {
-		$pattern = "/^(http|https)\:\/\/[a-zA-Z0-9_\/\?\=\-%\:\.#&]*$/";
-		return ( bool )preg_match( $pattern, $url );
-	}
+    function ValidURL( $url ) {
+        $pattern = "/^(http|https)\:\/\/[a-zA-Z0-9_\/\?\=\-%\:\.#&]*$/";
+        return ( bool )preg_match( $pattern, $url );
+    }
 
     function ValidEmail( $email ) {
         // Partially incorrect:

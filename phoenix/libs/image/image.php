@@ -1,13 +1,13 @@
 <?php
-	/*
-	Images media structure for images 
-	*/
-	
-	global $libs;
-	
-	$libs->Load( 'album' );
+    /*
+    Images media structure for images 
+    */
+    
+    global $libs;
+    
+    $libs->Load( 'album' );
     $libs->Load( 'image/server' );
-	$libs->Load( 'image/frontpage' );
+    $libs->Load( 'image/frontpage' );
     $libs->Load( 'rabbit/helpers/file' );
 
     define( 'IMAGE_PROPORTIONAL_210x210', '210' );
@@ -130,45 +130,45 @@
             return $ret;
         }
         public function Count() {
-    		$query = $this->mDb->Prepare("
-    			SELECT 
-    				COUNT(*) AS imagesnum
-    			FROM 
-    				:images
-    			WHERE
-    				`image_delid` = 0;");
+            $query = $this->mDb->Prepare("
+                SELECT 
+                    COUNT(*) AS imagesnum
+                FROM 
+                    :images
+                WHERE
+                    `image_delid` = 0;");
             $query->BindTable( 'images' );
             
-    		$res = $query->Execute();
-    		$row = $res->FetchArray();
+            $res = $query->Execute();
+            $row = $res->FetchArray();
 
-    		return ( int )$row[ "imagesnum" ];
-    	}
+            return ( int )$row[ "imagesnum" ];
+        }
     }
-	
+    
     class Image extends Satori {
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
         
-		protected function __get( $key ) {
-			global $rabbit_settings;
-			
-			if ( $key == 'ServerUrl' ) {
-				return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
-			}
+        protected function __get( $key ) {
+            global $rabbit_settings;
+            
+            if ( $key == 'ServerUrl' ) {
+                return $rabbit_settings[ 'resourcesdir' ] . '/' . $this->Userid . '/' . $this->Id;
+            }
 
-			return parent::__get( $key );
-		}
-		protected function __set( $key, $value ) {
-			if ( $key == 'Name' ) {
-				if ( mb_strlen( $value ) > 96 ) {
-					$value = mb_substr( $value , 0 , 96 );
-				}
-				
-				$this->mCurrentValues[ 'Name' ] = $value;
-			}
+            return parent::__get( $key );
+        }
+        protected function __set( $key, $value ) {
+            if ( $key == 'Name' ) {
+                if ( mb_strlen( $value ) > 96 ) {
+                    $value = mb_substr( $value , 0 , 96 );
+                }
+                
+                $this->mCurrentValues[ 'Name' ] = $value;
+            }
 
-			parent::__set( $key, $value );
+            parent::__set( $key, $value );
         }
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
@@ -177,32 +177,32 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Album = $this->HasOne( 'Album', 'Albumid' );
         }
-		public function IsDeleted() {
+        public function IsDeleted() {
             return $this->Delid > 0 || !$this->Exists();
         }
-		public function ProportionalSize( $maxw , $maxh ) {
-			$propw = 1;
-			$proph = 1;
-			if ( $this->Width > $maxw ) {
-				$propw = $this->Width / $maxw;
-			}
-			if ( $this->Height > $maxh ) {
-				$proph = $this->Height / $maxh;
-			}
-			$prop = max( $propw , $proph );
-			$size[ 0 ] = round( $this->Width / $prop , 0 );
-			$size[ 1 ] = round( $this->Height / $prop , 0 );
-			
-			return $size;
-		}
-		public function OnCommentCreate() {
+        public function ProportionalSize( $maxw , $maxh ) {
+            $propw = 1;
+            $proph = 1;
+            if ( $this->Width > $maxw ) {
+                $propw = $this->Width / $maxw;
+            }
+            if ( $this->Height > $maxh ) {
+                $proph = $this->Height / $maxh;
+            }
+            $prop = max( $propw , $proph );
+            $size[ 0 ] = round( $this->Width / $prop , 0 );
+            $size[ 1 ] = round( $this->Height / $prop , 0 );
+            
+            return $size;
+        }
+        public function OnCommentCreate() {
             if ( $this->Albumid ) {
                 $this->Album->OnCommentCreate();
             }
-		   
+           
             ++$this->Numcomments;
-		    return $this->Save();
-		}
+            return $this->Save();
+        }
         public function OnCommentDelete() {
             if ( $this->Albumid ) {
                 $this->Album->OnCommentDelete();
@@ -215,14 +215,14 @@
             ++$this->Pageviews;
             return $this->Save();
         }
-		public function OnBeforeDelete() {
+        public function OnBeforeDelete() {
             $this->Delid = 1;
             $this->Save();
 
             $this->OnDelete();
             
             return false;
-		}
+        }
         public function Undelete() {
             $this->Delid = 0;
             $this->Save();
@@ -307,7 +307,7 @@
         protected function OnDelete() {
             global $libs;
             
-			$libs->Load( 'comment' );
+            $libs->Load( 'comment' );
             $libs->Load( 'event' );
 
             --$this->User->Count->Images;

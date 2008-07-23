@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementPollSmall extends Element {
+    
+    class ElementPollSmall extends Element {
         public function Render( $poll , $showcommnum = false ) {
             global $user;
             global $rabbit_settings; 
@@ -17,7 +17,7 @@
                 ?>"><?php
                 echo htmlspecialchars( $poll->Question );
                 ?></a></h4>
-                <div class="results">	
+                <div class="results">    
                     <ul><?php
                         $finder = New PollOptionFinder();
                         $options = $finder->FindByPoll( $poll );

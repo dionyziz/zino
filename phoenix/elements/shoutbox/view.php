@@ -1,6 +1,6 @@
 <?php
 
-	class ElementShoutboxView extends Element {
+    class ElementShoutboxView extends Element {
         public function Render( $shout , $empty ) {
             global $user;
             

@@ -10,7 +10,7 @@
             $this->Assert( class_exists( 'AnswerFinder' ), 'Class AnswerFinder does not exist' );
         }
 
-		public function TestMethodsExist() {
+        public function TestMethodsExist() {
             $finder = New AnswerFinder();
             $this->Assert( method_exists( $finder, 'Count' ), 'AnswerFinder::Count method does not exist' );
             $this->Assert( method_exists( $finder, 'FindAll' ), 'AnswerFinder::FindAll method does not exist' );
@@ -32,7 +32,7 @@
             $this->AssertEquals( 'TestAnswer', $answer1->Text, 'Answer text did not retain its attribute values after saving' );
             
             $answer->Delete();
-		}
+        }
 
         public function TestEdit() {
             // Temp

@@ -88,20 +88,20 @@
 
             return false;
         }
-		protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Sender':
-				case 'Text':
-				case 'Receivers':
-				case 'Created':
-				case 'Since':
-					return $this->PM->$key;
-				case 'User':
-					return $this->Folder->User;
-				default:
-					return parent::__get( $key );
-			}
-		}
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Sender':
+                case 'Text':
+                case 'Receivers':
+                case 'Created':
+                case 'Since':
+                    return $this->PM->$key;
+                case 'User':
+                    return $this->Folder->User;
+                default:
+                    return parent::__get( $key );
+            }
+        }
         protected function Relations() {
             $this->PM = $this->HasOne( 'PM', 'Pmid' );
             $this->Folder = $this->HasOne( 'PMFolder', 'Folderid' );

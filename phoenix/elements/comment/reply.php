@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementCommentReply extends Element {
+    
+    class ElementCommentReply extends Element {
         public function Render( $itemid, $typeid ) {
             global $user;
             global $page;

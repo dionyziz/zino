@@ -4,11 +4,11 @@
         }
     }
 
-	final class Elemental {
-		private $mLastElement;
-		private $mIncluded;
-		private $mSettings;
-		private $mWater;
+    final class Elemental {
+        private $mLastElement;
+        private $mIncluded;
+        private $mSettings;
+        private $mWater;
         private $mMainReq;
         private $mMasterCall;
         private $mMasterElementAlias;
@@ -31,10 +31,10 @@
             }
         }
         public function IncludeFile( $elementpath ) {
-	        w_assert( is_string( $elementpath ) && strlen( $elementpath ) );
-			$elementpath = strtolower( $elementpath );
-			$this->mLastElement = $elementpath;
-			if ( !isset( $this->mIncluded[ $elementpath ] ) ) {
+            w_assert( is_string( $elementpath ) && strlen( $elementpath ) );
+            $elementpath = strtolower( $elementpath );
+            $this->mLastElement = $elementpath;
+            if ( !isset( $this->mIncluded[ $elementpath ] ) ) {
                 ob_start();
                 $ret = Rabbit_Include( 'elements/' . $elementpath ); // throws RabbitIncludeException
                 $out = ob_get_clean();
@@ -44,26 +44,26 @@
                 }
                 
                 $this->mIncluded[ $elementpath ] = true;
-			}
-			if ( !$this->mIncluded[ $elementpath ] ) {
-    	        throw New Exception( 'Element doesn\'t exist: ' . $elementpath );
-			}
+            }
+            if ( !$this->mIncluded[ $elementpath ] ) {
+                throw New Exception( 'Element doesn\'t exist: ' . $elementpath );
+            }
             return true;
         }
         public function GetClass( $elementpath ) {
             $this->IncludeFile( $elementpath );
-			$classname = 'Element' . str_replace( '/' , '' , $elementpath );
-			if ( class_exists( $classname ) ) {
+            $classname = 'Element' . str_replace( '/' , '' , $elementpath );
+            if ( class_exists( $classname ) ) {
                 return $classname;
             }
             $classes = get_declared_classes();
             throw New Exception( 'Element class not defined for element ' . $elementpath . '; expected class "' . $classname . '" (last defined: "' . $classes[ count( $classes ) - 1 ] . '")' );
         }
         public function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
-	        w_assert( func_num_args() );
-	        $args = func_get_args();
-	        $elementpath = array_shift( $args );
-			$classname = $this->GetClass( $elementpath );
+            w_assert( func_num_args() );
+            $args = func_get_args();
+            $elementpath = array_shift( $args );
+            $classname = $this->GetClass( $elementpath );
             if ( $classname === false ) {
                 return false;
             }
@@ -72,12 +72,12 @@
             $ret = call_user_func_array( array( $element, 'Render' ), $args );
             $this->mWater->ProfileEnd();
             
-			return $ret;
-		}
+            return $ret;
+        }
         public function MasterElement() {
             $this->mMasterCall = true;
             
-    		$pagesmap = Project_PagesMap(); // Gets an array with the actual filenames on the server
+            $pagesmap = Project_PagesMap(); // Gets an array with the actual filenames on the server
             
             if ( !isset( $pagesmap[ $this->mMasterElementAlias ] ) ) {
                 throw New Exception( 'Requested master element alias is not defined in pagesmap: ' . $this->mMasterElementAlias );
@@ -102,7 +102,7 @@
                 return 0;
             }
             
-			return $ret;
+            return $ret;
         }
         public function MainElement( $which, $req ) {
             if ( !isset( $req[ 'p' ] ) ) {
@@ -121,7 +121,7 @@
             
             return $ret;
         }
-	}
+    }
 
     function MasterElement() { // MAGICal
         global $elemental;
@@ -130,10 +130,10 @@
     }
     
     function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
-		global $elemental;
-		
-		$args = func_get_args();
-		return call_user_func_array( array( $elemental , 'Element' ) , $args );
+        global $elemental;
+        
+        $args = func_get_args();
+        return call_user_func_array( array( $elemental , 'Element' ) , $args );
     }
     
     return new Elemental();

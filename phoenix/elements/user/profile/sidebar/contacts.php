@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarContacts extends Element {
+    class ElementUserProfileSidebarContacts extends Element {
         public function Render( $theuser ) {
             global $rabbit_settings;
             

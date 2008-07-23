@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsCharacteristicsDrinker extends Element {
+    
+    class ElementUserSettingsCharacteristicsDrinker extends Element {
         public function Render() {
             global $user;
             

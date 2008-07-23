@@ -1,5 +1,5 @@
 <?php
-	class ElementUserJoined extends Element {
+    class ElementUserJoined extends Element {
         public function Render() {
             global $user;
             global $rabbit_settings;

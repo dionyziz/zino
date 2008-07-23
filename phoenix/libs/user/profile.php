@@ -4,7 +4,7 @@
     $libs->Load( 'place' );
     $libs->Load( 'university' );
     $libs->Load( 'user/oldprofile' );
-	
+    
     class UserProfile extends Satori {
         protected $mDbTableAlias = 'userprofiles';
         
@@ -118,8 +118,8 @@
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
                     break;
-				default:
-					parent::__set( $key, $value );
+                default:
+                    parent::__set( $key, $value );
             }
         }
         protected function Relations() {
@@ -129,18 +129,18 @@
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
-		protected function LoadDefaults() {
-			$this->Education = '-';
-			$this->Sexualorientation = '-';
-			$this->Religion = '-';
-			$this->Politics = '-';	
-			$this->Eyecolor = '-';
-			$this->Haircolor = '-';
-			$this->Smoker = '-';
-			$this->Drinker = '-';
-			$this->Height = -1;
-			$this->Weight = -1;
-		}
+        protected function LoadDefaults() {
+            $this->Education = '-';
+            $this->Sexualorientation = '-';
+            $this->Religion = '-';
+            $this->Politics = '-';    
+            $this->Eyecolor = '-';
+            $this->Haircolor = '-';
+            $this->Smoker = '-';
+            $this->Drinker = '-';
+            $this->Height = -1;
+            $this->Weight = -1;
+        }
         protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $libs;
             $libs->Load( 'event' );

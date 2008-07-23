@@ -15,19 +15,19 @@
         }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'User' ), 'User class does not exist' );
-			$this->Assert( class_exists( 'UserFinder' ), 'UserFinder class does not exist' );
+            $this->Assert( class_exists( 'UserFinder' ), 'UserFinder class does not exist' );
         }
         public function TestFunctionsExist() {
             $this->Assert( function_exists( 'User_Valid' ), 'User_Valid function does not exist' );            
         }
-		public function TestFindersExists() {
-			$finder = New UserFinder();
-			$this->Assert( method_exists( $finder, 'FindByNameAndPassword' ), 'UserFinder::FindByNameAndPassword does not exist' );
-			$this->Assert( method_exists( $finder, 'FindByIdAndAuthtoken' ), 'UserFinder::FindByIdAndAuthtoken does not exist' );
-			$this->Assert( method_exists( $finder, 'FindByName' ), 'UserFinder::FindByName does not exist' );
-			$this->Assert( method_exists( $finder, 'FindBySubdomain' ), 'UserFinder::FindBySubdomain does not exist' );
-			$this->Assert( method_exists( $finder, 'Count' ), 'UserFinder::Count does not exist' );
-		}
+        public function TestFindersExists() {
+            $finder = New UserFinder();
+            $this->Assert( method_exists( $finder, 'FindByNameAndPassword' ), 'UserFinder::FindByNameAndPassword does not exist' );
+            $this->Assert( method_exists( $finder, 'FindByIdAndAuthtoken' ), 'UserFinder::FindByIdAndAuthtoken does not exist' );
+            $this->Assert( method_exists( $finder, 'FindByName' ), 'UserFinder::FindByName does not exist' );
+            $this->Assert( method_exists( $finder, 'FindBySubdomain' ), 'UserFinder::FindBySubdomain does not exist' );
+            $this->Assert( method_exists( $finder, 'Count' ), 'UserFinder::Count does not exist' );
+        }
         public function TestProperties() {
             $user = New User();
             $this->Assert( is_object( $user->Profile ), 'User::Profile is not an object' );
@@ -61,10 +61,10 @@
         }
         public function TestCreation() {
             $this->mUser = New User();
-			$finder = New UserFinder();
-			
+            $finder = New UserFinder();
+            
             $oldcount = $finder->Count();
-			
+            
             $this->mUser->Name = 'usertest';
             $this->mUser->Password = 'secret';
 

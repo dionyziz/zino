@@ -1,8 +1,8 @@
 <?php
-	
-	class ElementUserTrivialPolitics extends Element {
+    
+    class ElementUserTrivialPolitics extends Element {
         public function Render( $politic , $gender ) {
-            if ( $gender == 'm' || $gender == '-' ) {				
+            if ( $gender == 'm' || $gender == '-' ) {                
                 $politics = array( 
                         '-' => '-',
                         'right' => 'Δεξιός',

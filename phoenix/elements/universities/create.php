@@ -1,5 +1,5 @@
 <?php
-	class ElementUniversitiesCreate extends Element {
+    class ElementUniversitiesCreate extends Element {
         public function Render() {
             global $user;
             global $water;
@@ -33,7 +33,7 @@
                         ?></option><?php
                     }
                 ?></select><br /><br />
-                <input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />			
+                <input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />            
                 <br /><br />
                 <div class="unilist" id="unilist"><?php
                 foreach( $allunis as $uni ) {

@@ -1,6 +1,6 @@
 <?php
 
-	class ElementNotificationView extends Element {
+    class ElementNotificationView extends Element {
         public function Render( $notif ) {
             global $rabbit_settings;
             global $libs;

@@ -18,7 +18,7 @@
                     `image_albumid`, COUNT( * ) AS numphotos
                 FROM 
                     `$images`
-                WHERE	
+                WHERE    
                     `image_delid` = '0'
                 GROUP BY
                     `image_albumid`;";

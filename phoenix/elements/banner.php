@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementBanner extends Element {
+    
+    class ElementBanner extends Element {
         public function Render() {
             global $page;
             global $user;

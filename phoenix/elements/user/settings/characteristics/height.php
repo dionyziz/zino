@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsCharacteristicsHeight extends Element {
+    class ElementUserSettingsCharacteristicsHeight extends Element {
         public function Render() {
             global $user;
             

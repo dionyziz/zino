@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsSettings extends Element {
+    class ElementUserSettingsSettings extends Element {
         public function Render() {
             global $rabbit_settings;
             global $user;
@@ -66,7 +66,7 @@
                             if ( $user->Preferences->Notifyjournalcomment == 'yes' ) {
                                 ?>checked="true"<?php
                             }
-                            ?>/></td>						
+                            ?>/></td>                        
                         </tr>
                         <tr>
                             <th>Απαντήσεις στα σχόλιά μου:</th>

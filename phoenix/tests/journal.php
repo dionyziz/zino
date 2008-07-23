@@ -9,11 +9,11 @@
             $this->Assert( class_exists( 'JournalFinder' ), 'Class JournalFinder does not exist' );
         }
         public function SetUp() {
-			$ufinder = New UserFinder();
-			$user = $ufinder->FindByName( "testjournals" );
-			if ( is_object( $user ) ) {
-				$user->Delete();
-			}
+            $ufinder = New UserFinder();
+            $user = $ufinder->FindByName( "testjournals" );
+            if ( is_object( $user ) ) {
+                $user->Delete();
+            }
 
             $user = New User();
             $user->Name = 'testjournals';
@@ -35,9 +35,9 @@
             $journal2->Delete();
         }
         public function TearDown() {
-			if ( is_object( $this->mUser ) ) {
-	            $this->mUser->Delete();
-			}
+            if ( is_object( $this->mUser ) ) {
+                $this->mUser->Delete();
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementJournalList extends Element {
+    
+    class ElementJournalList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
             global $page;
             global $rabbit_settings;
@@ -11,7 +11,7 @@
             
             $username = $username->Get();
             $subdomain = $subdomain->Get();
-            $finder = New UserFinder();	
+            $finder = New UserFinder();    
             if ( $username != '' ) {
                 if ( strtolower( $username ) == strtolower( $user->Name ) ) {
                     $theuser = $user;

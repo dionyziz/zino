@@ -1,21 +1,21 @@
 <?php
 
-	/*
-	Developer: abresas
-	*/
+    /*
+    Developer: abresas
+    */
 
-	/*
-	new comment
+    /*
+    new comment
 
-	$event = New Event();
-	$event->Typeid = EVENT_COMMENT_CREATED;
-	$event->Itemid = $comment->Id;
-	$event->Created = $comment->Created;
-	$event->Userid = $comment->Userid;
-	$event->Save();
-	*/
+    $event = New Event();
+    $event->Typeid = EVENT_COMMENT_CREATED;
+    $event->Itemid = $comment->Id;
+    $event->Created = $comment->Created;
+    $event->Userid = $comment->Userid;
+    $event->Save();
+    */
 
-	function Event_Types() {
+    function Event_Types() {
         // New events here!
         // EVENT_MODEL(_ATTRIBUTE)_ACTION
         return array(
@@ -57,7 +57,7 @@
             36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
             37 => 'EVENT_USER_CREATED'
         );
-	}
+    }
 
     function Event_TypesByModel( $model ) {
         static $typesbymodel = array();
@@ -78,8 +78,8 @@
         return $typesbymodel[ $model ];
     }
 
-	function Event_ModelByType( $type ) {
-		static $models = array();
+    function Event_ModelByType( $type ) {
+        static $models = array();
         if ( empty( $models ) ) {
             $types = Event_Types();
             foreach ( $types as $key => $value ) {
@@ -91,15 +91,15 @@
             throw New Exception( "Unknown event type $type" );
         }
         return $models[ $type ];
-	}
+    }
 
-	$events = Event_Types();
+    $events = Event_Types();
     foreach ( $events as $key => $event ) {
         define( $event, $key );
     }
 
-	class EventFinder extends Finder {
-		protected $mModel = 'Event';
+    class EventFinder extends Finder {
+        protected $mModel = 'Event';
 
         public function DeleteByEntity( $entity ) {
             $query = $this->mDb->Prepare( '
@@ -117,7 +117,7 @@
 
             return $query->Execute()->Impact();
         }
-		public function FindLatest( $offset = 0, $limit = 20 ) {
+        public function FindLatest( $offset = 0, $limit = 20 ) {
             $query = $this->mDb->Prepare(
                 'SELECT
                     *
@@ -163,7 +163,7 @@
             krsort( $ret );
 
             return $ret;
-		}
+        }
         public function FindItemsByModel( $model, $events ) {
             global $libs;
             $libs->Load( 'university' );
@@ -233,17 +233,17 @@
 
             return $ret;
         }
-		public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
-			$prototype = New Event();
-			$prototype->Userid = $user->Id;
-			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
-		}
-		public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = 'DESC' ) {
-			if ( !is_array( $typeids ) ) {
-				$typeids = array( $typeids );
-			}
+        public function FindByUser( $user, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
+            $prototype = New Event();
+            $prototype->Userid = $user->Id;
+            return $this->FindByPrototype( $prototype, $offset, $limit, $order );
+        }
+        public function FindByType( $typeids, $offset = 0, $limit = 1000, $order = 'DESC' ) {
+            if ( !is_array( $typeids ) ) {
+                $typeids = array( $typeids );
+            }
 
-			w_assert( $order == 'DESC' || $order == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
+            w_assert( $order == 'DESC' || $order == 'ASC', "Only 'ASC' or 'DESC' values are allowed in the order" );
 
             $query = $this->mDb->Prepare(
                 'SELECT
@@ -262,14 +262,14 @@
             $query->Bind( 'offset', $offset );
             $query->Bind( 'limit', $limit );
 
-			return $this->FindBySQLResource( $query->Execute() );
-		}
-		public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
-			$prototype = New Event();
-			$prototype->Userid = $user->Id;
-			$prototype->Typeid = $typeids;
-			return $this->FindByPrototype( $prototype, $offset, $limit, $order );
-		}
+            return $this->FindBySQLResource( $query->Execute() );
+        }
+        public function FindByUserAndType( $user, $typeids, $offset = 0, $limit = 1000, $order = array( 'Id', 'DESC' ) ) {
+            $prototype = New Event();
+            $prototype->Userid = $user->Id;
+            $prototype->Typeid = $typeids;
+            return $this->FindByPrototype( $prototype, $offset, $limit, $order );
+        }
         public function DeleteByUserAndType( $user, $typeid ) {
             $query = $this->mDb->Prepare( '
                 DELETE FROM
@@ -285,10 +285,10 @@
 
             return $query->Execute()->Impact();
         }
-	}
+    }
 
-	class Event extends Satori {
-		protected $mDbTableAlias = 'events';
+    class Event extends Satori {
+        protected $mDbTableAlias = 'events';
 
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
@@ -296,22 +296,22 @@
         public function CopyItemFrom( $value ) {
             $this->mRelations[ 'Item' ]->CopyFrom( $value );
         }
-		public function Relations() {
-			global $water;
+        public function Relations() {
+            global $water;
             global $libs;
 
             $libs->Load( 'comment' );
             $libs->Load( 'relation/relation' );
 
             if ( $this->Exists() ) {
-    			$model = Event_ModelByType( $this->Typeid );
+                $model = Event_ModelByType( $this->Typeid );
             }
-			
-			$this->User = $this->HasOne( 'User', 'Userid' );
-			if ( $this->Exists() ) {
-				$this->Item = $this->HasOne( $model, 'Itemid' );
-			}
-		}
+            
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            if ( $this->Exists() ) {
+                $this->Item = $this->HasOne( $model, 'Itemid' );
+            }
+        }
         protected function OnCreate() {
             global $user;
             global $libs;
@@ -351,9 +351,9 @@
 
             return false;
         }
-		public function LoadDefaults() {
-			$this->Created = NowDate();
-		}
-	}
+        public function LoadDefaults() {
+            $this->Created = NowDate();
+        }
+    }
 
 ?>

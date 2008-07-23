@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsPersonalMood extends Element {
+    class ElementUserSettingsPersonalMood extends Element {
         public function Render() {
             global $user, $libs, $xc_settings;
             

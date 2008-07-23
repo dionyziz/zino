@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementJournalNew extends Element {
+    
+    class ElementJournalNew extends Element {
         public function Render( tInteger $id ) {
             global $user;
             global $page;

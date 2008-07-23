@@ -10,24 +10,24 @@
         
         final public function Testcase() {
         }
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Name':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
-		}
-		public function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Name':
-					w_assert( is_string( $key ) );
-					w_assert( !empty( $key ) );
-					// fallthrough
-				case 'Tester':
-					$attribute = 'm' . $key;
-					$this->$attribute = $value;
-			}
-		}
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Name':
+                    $attribute = 'm' . $key;
+                    return $this->$attribute;
+            }
+        }
+        public function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Name':
+                    w_assert( is_string( $key ) );
+                    w_assert( !empty( $key ) );
+                    // fallthrough
+                case 'Tester':
+                    $attribute = 'm' . $key;
+                    $this->$attribute = $value;
+            }
+        }
         public function SetUp() { // overridable
         }
         public function TearDown() { // overridable
@@ -246,19 +246,19 @@
         protected $mNumSuccessfulRuns;
         protected $mNumAssertions;
        
-	   	public function __get( $key ) {
-			switch ( $key ) {
-				case 'Results':
-					return $this->mRunResults;
-				case 'Testcase':
-				case 'NumRuns':
-				case 'NumSuccessfulRuns':
-				case 'NumAssertions':
-				case 'Success':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
-		}
+           public function __get( $key ) {
+            switch ( $key ) {
+                case 'Results':
+                    return $this->mRunResults;
+                case 'Testcase':
+                case 'NumRuns':
+                case 'NumSuccessfulRuns':
+                case 'NumAssertions':
+                case 'Success':
+                    $attribute = 'm' . $key;
+                    return $this->$attribute;
+            }
+        }
         public function rewind() {
             return reset( $this->mRunResults );
         }
@@ -317,16 +317,16 @@
         public function valid() {
             return $this->current() !== false;
         }
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'RunName':
-				case 'Success':
-				case 'NumAssertions':
-				case 'NumSuccessfulAssertions':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
-		}
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'RunName':
+                case 'Success':
+                case 'NumAssertions':
+                case 'NumSuccessfulAssertions':
+                    $attribute = 'm' . $key;
+                    return $this->$attribute;
+            }
+        }
         public function RunResult( array $assertionresults, $runname ) {
             w_assert( is_string( $runname ) );
             w_assert( !empty( $runname ) );
@@ -353,16 +353,16 @@
         protected $mActual;
         protected $mExpected;
         
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Message':
-				case 'Success':
-				case 'Actual':
-				case 'Expected':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
-		}
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Message':
+                case 'Success':
+                case 'Actual':
+                case 'Expected':
+                    $attribute = 'm' . $key;
+                    return $this->$attribute;
+            }
+        }
         public function __construct( $success, $message, $actual, $expected ) {
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
@@ -374,12 +374,12 @@
     class AssertResultFailedByException extends AssertResult {
         protected $mCallstack;
 
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Callstack':
-					return $this->mCallstack;
-			}
-		}
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Callstack':
+                    return $this->mCallstack;
+            }
+        }
         public function AssertResultFailedByException( $message, $callstack ) {
             w_assert( is_array( $callstack ) );
             $this->mCallstack = $callstack;

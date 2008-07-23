@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarView extends Element {
+    class ElementUserProfileSidebarView extends Element {
         public function Render( $theuser ) {
             global $rabbit_settings;
             global $libs;

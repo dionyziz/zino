@@ -1,6 +1,6 @@
 <?php
     /// Content-type: text/plain ///
-	class ElementNotificationEmailFriend extends Element {
+    class ElementNotificationEmailFriend extends Element {
         public function Render( Notification $notification ) {
             $relationfinder = New FriendRelationFinder();
 

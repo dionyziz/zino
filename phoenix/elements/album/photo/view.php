@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementAlbumPhotoView extends Element {
+    
+    class ElementAlbumPhotoView extends Element {
         public function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {
             global $user;
             global $page;
@@ -19,7 +19,7 @@
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-		Element( 'user/sections', 'album' , $image->User );
+        Element( 'user/sections', 'album' , $image->User );
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
@@ -38,7 +38,7 @@
                         $page->SetTitle( $image->Album->User->Name . " φωτογραφίες" );
                     }
                     $title = $image->User->Name;
-                }	
+                }    
                 else {
                     $page->SetTitle( $image->Album->Name );
                     $title = htmlspecialchars( $image->Album->Name );
@@ -153,7 +153,7 @@
                                 ?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
                             </div><?php
                         }
-                        ?><ul><?php	
+                        ?><ul><?php    
                             if ( $pivot > 0 ) {
                                 for ( $i = 0; $i < $pivot ; ++$i ) {
                                     ?><li><span><a href="?p=photo&amp;id=<?php
@@ -166,7 +166,7 @@
                             ?><li class="selected"><?php
                                 Element( 'image/view' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
                             ?></li><?php
-                            if ( $pivot < 12 ) {						
+                            if ( $pivot < 12 ) {                        
                                 for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
                                     ?><li><span><a href="?p=photo&amp;id=<?php
                                     echo $photos[ $i ]->Id;
@@ -178,10 +178,10 @@
                         ?></ul><?php
                     ?></div><?php
                 }
-				?><div class="thephoto"><?php
+                ?><div class="thephoto"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                 ?></div><?php
-				/*
+                /*
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="photothumbs"><?php
                         $finder = New ImageFinder();
@@ -208,7 +208,7 @@
                                 ?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
                             </div><?php
                         }
-                        ?><ul><?php	
+                        ?><ul><?php    
                             if ( $pivot > 0 ) {
                                 for ( $i = 0; $i < $pivot ; ++$i ) {
                                     ?><li><span><a href="?p=photo&amp;id=<?php
@@ -221,7 +221,7 @@
                             ?><li class="selected"><?php
                                 Element( 'image/view' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
                             ?></li><?php
-                            if ( $pivot < 12 ) {						
+                            if ( $pivot < 12 ) {                        
                                 for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
                                     ?><li><span><a href="?p=photo&amp;id=<?php
                                     echo $photos[ $i ]->Id;
@@ -233,7 +233,7 @@
                         ?></ul><?php
                     ?></div><?php
                 }
-				*/
+                */
                 ?><div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {

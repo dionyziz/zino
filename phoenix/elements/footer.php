@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementFooter extends Element {
+    
+    class ElementFooter extends Element {
         public function Render() {
             //global $page;
             

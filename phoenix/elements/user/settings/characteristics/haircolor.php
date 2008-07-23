@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsCharacteristicsHaircolor extends Element {
+    class ElementUserSettingsCharacteristicsHaircolor extends Element {
         public function Render() {
             global $user;
             

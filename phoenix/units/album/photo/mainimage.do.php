@@ -1,11 +1,11 @@
 <?php
-	
-	function UnitAlbumPhotoMainimage( tInteger $photoid ) {
-		global $user;
-		global $rabbit_settings;
-		$photo = New Image( $photoid->Get() );
-		
-		if ( $photo->IsDeleted() || $photo->Userid != $user->Id ) {
+    
+    function UnitAlbumPhotoMainimage( tInteger $photoid ) {
+        global $user;
+        global $rabbit_settings;
+        $photo = New Image( $photoid->Get() );
+        
+        if ( $photo->IsDeleted() || $photo->Userid != $user->Id ) {
             return;
         }
         

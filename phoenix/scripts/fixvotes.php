@@ -1,20 +1,20 @@
 <?php
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
+    set_include_path( '../:./' );
+    
+    global $page;
+    global $libs;
     global $user;
     
-	require_once 'libs/rabbit/rabbit.php';
+    require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
-	Rabbit_ClearPostGet();
+    Rabbit_ClearPostGet();
 
     if ( !$user->CanModifyCategories() ) {
         return false;
     }
-	
+    
     global $db;
     global $votes;
     
@@ -47,5 +47,5 @@
     }
 
     Rabbit_Destruct();
-	
+    
 ?>

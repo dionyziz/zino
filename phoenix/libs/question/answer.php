@@ -3,29 +3,29 @@
     global $libs;
     $libs->Load( 'question/question' );
 
-	class AnswerFinder extends Finder {
-		protected $mModel = 'Answer';
-				
-		public function Count() {
-			$query = $this->mDb->Prepare(
-			'SELECT
-				COUNT(*) AS answerscount
-			FROM
-				:answers
-			');
-			$query->BindTable( 'answers' );
-			$res = $query->Execute();
-			$row = $res->FetchArray();
-			return ( int )$row[ 'answerscount' ];
-		}
-		
-		public function FindAll( $offset = 0, $limit = 10000 ) {
+    class AnswerFinder extends Finder {
+        protected $mModel = 'Answer';
+                
+        public function Count() {
+            $query = $this->mDb->Prepare(
+            'SELECT
+                COUNT(*) AS answerscount
+            FROM
+                :answers
+            ');
+            $query->BindTable( 'answers' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            return ( int )$row[ 'answerscount' ];
+        }
+        
+        public function FindAll( $offset = 0, $limit = 10000 ) {
             $prototype = New Answer();
             return $this->FindByPrototype( $prototype, $offset, $limit );
         }
-		
-		public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
-		    $query = $this->mDb->Prepare( "
+        
+        public function FindByUser( User $user, $offset = 0, $limit = 10000 ) {
+            $query = $this->mDb->Prepare( "
                 SELECT
                     *
                 FROM
@@ -50,7 +50,7 @@
                 $ret[] = $answer;
             }
             return $ret;
-		}
+        }
         public function DeleteByQuestion( Question $question ) {
             $query = $this->mDb->Query( '
                 DELETE
@@ -64,38 +64,38 @@
             
             return $query->Execute->Impact();
         }
-	}
+    }
 
-	class Answer extends Satori {
-		protected $mDbTableAlias = 'answers';
-		
-		public function CopyQuestionFrom( $value ) {
+    class Answer extends Satori {
+        protected $mDbTableAlias = 'answers';
+        
+        public function CopyQuestionFrom( $value ) {
             $this->mRelations[ 'Question' ]->CopyFrom( $value );
         }
 
-		public function Relations() {
-			$this->User = $this->HasOne( 'User', 'Userid' );
-			$this->Question = $this->HasOne( 'Question', 'Questionid' );
-		}
-				
-		public function LoadDefaults() {
-			global $user;
+        public function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Question = $this->HasOne( 'Question', 'Questionid' );
+        }
+                
+        public function LoadDefaults() {
+            global $user;
 
-			$this->Userid = $user->Id;
-			$this->Created = NowDate();
-		}
-		protected function OnCreate() {
-			global $user;
-			
-			++$user->Count->Answers;
-			$user->Count->Save();
-		}
-		protected function OnDelete() {
-			global $user;
-			
-			--$user->Count->Answers;
-			$user->Count->Save();
-		}
-	}
-	
+            $this->Userid = $user->Id;
+            $this->Created = NowDate();
+        }
+        protected function OnCreate() {
+            global $user;
+            
+            ++$user->Count->Answers;
+            $user->Count->Save();
+        }
+        protected function OnDelete() {
+            global $user;
+            
+            --$user->Count->Answers;
+            $user->Count->Save();
+        }
+    }
+    
 ?>

@@ -1,15 +1,15 @@
 <?php
 /*
-	Developer: Dionyziz
+    Developer: Dionyziz
 */
 
 class PageException extends Exception {
 }
 
 abstract class Page {
-	protected $mTitle;
-	protected $mBody;
-	protected $mMainElements;
+    protected $mTitle;
+    protected $mBody;
+    protected $mMainElements;
     protected $mNaturalLanguage;
     protected $mValidLanguages;
     protected $mDoWaterDump;
@@ -37,23 +37,23 @@ abstract class Page {
         }
         $this->mNaturalLanguage = $languagecode;
     }
-	final protected function OutputStart() {
-		ob_start();
+    final protected function OutputStart() {
+        ob_start();
         // $this->mOutputLevel = ob_get_level();
-	}
-	final protected function OutputEnd() {
-		echo ob_get_clean();
-	}
+    }
+    final protected function OutputEnd() {
+        echo ob_get_clean();
+    }
     protected function WaterLink() {
         // override me
     }
-	protected function GenerateBody() {
-		global $water;
-		global $elemental;
+    protected function GenerateBody() {
+        global $water;
+        global $elemental;
         
-		$water->Profile( 'Render Page' );
-		
-		ob_start();
+        $water->Profile( 'Render Page' );
+        
+        ob_start();
         foreach ( $this->mMainElements as $mainelement ) {
             $ret = $elemental->MainElement( $mainelement[ 'name' ], $mainelement[ 'req' ] );
             
@@ -61,49 +61,49 @@ abstract class Page {
                 $this->mRedirection = $ret;
             }
         }
-		$this->mBody = ob_get_clean();
-		
-		$water->ProfileEnd();
-	}
-	public function Output() {
-		global $water;
-		global $libs;
-		
-		$water->Trace( $libs->CountLoaded() . ' libraries loaded before rendering' );
-		$this->GenerateBody();
-		
-		$this->WaterLink();
-		
+        $this->mBody = ob_get_clean();
+        
+        $water->ProfileEnd();
+    }
+    public function Output() {
+        global $water;
+        global $libs;
+        
+        $water->Trace( $libs->CountLoaded() . ' libraries loaded before rendering' );
+        $this->GenerateBody();
+        
+        $this->WaterLink();
+        
         if ( $this->mRedirection instanceof HTTPRedirection ) {
             return $this->mRedirection->Redirect();
         }
         
-		$this->OutputStart();
+        $this->OutputStart();
         $this->OutputPage();
-		$this->OutputEnd();
-		$water->Trace( $libs->CountLoaded() . ' libraries loaded after rendering' );
-	}
+        $this->OutputEnd();
+        $water->Trace( $libs->CountLoaded() . ' libraries loaded after rendering' );
+    }
     abstract protected function OutputPage();
-	public function __construct() {
+    public function __construct() {
         $this->mNaturalLanguage = 'en-US';
         $this->mMainElements = array();
-	}
-	public function Title() {
-		return $this->mTitle;
-	}
-	public function SetTitle( $title ) {
-		$this->mTitle = $title;
-	}
-	public function AttachMainElement( $mainelementid , $req ) {
+    }
+    public function Title() {
+        return $this->mTitle;
+    }
+    public function SetTitle( $title ) {
+        $this->mTitle = $title;
+    }
+    public function AttachMainElement( $mainelementid , $req ) {
         global $water;
         
         w_assert( is_array( $req ) );
         
-		$this->mMainElements[] = array(
+        $this->mMainElements[] = array(
             'name' => $mainelementid,
             'req'  => $req
         );
-	}
+    }
 }
 
 final class PageEmpty extends Page {
@@ -116,22 +116,22 @@ final class PageEmpty extends Page {
 }
 
 class PageHTML extends Page {
-	protected $mSupportsXML;
-	protected $mStylesheets;
-	protected $mScripts;
+    protected $mSupportsXML;
+    protected $mStylesheets;
+    protected $mScripts;
     protected $mScriptsInline;
-	protected $mBase;
+    protected $mBase;
     protected $mMeta;
     protected $mFavIcon;
     
     public function __construct() {
-		$this->mElements      = array();
-		$this->mScripts       = array();
+        $this->mElements      = array();
+        $this->mScripts       = array();
         $this->mScriptsInline = array();
-		$this->mStylesheets   = array();
+        $this->mStylesheets   = array();
         $this->mMeta          = array();
         $this->mFavIcon       = false;
-		$this->CheckXML();
+        $this->CheckXML();
         parent::__construct();
     }
     public function XMLStrict() {
@@ -141,38 +141,38 @@ class PageHTML extends Page {
         $this->mFavIcon = $favicon;
     }
     protected function OutputPage() {
-		$this->OutputHeaders();
-		$this->OutputHTMLStart();
-		$this->OutputHTMLHeader();
-		$this->OutputHTMLMain();
-		$this->OutputHTMLEnd();
+        $this->OutputHeaders();
+        $this->OutputHTMLStart();
+        $this->OutputHTMLHeader();
+        $this->OutputHTMLMain();
+        $this->OutputHTMLEnd();
     }
-	private function OutputHeaders() {
-		if ( $this->mSupportsXML ) {
-			header( "Content-Type: application/xhtml+xml; charset=utf-8" );
-		}
-		else {
-			header( "Content-Type: text/html; charset=utf-8" );
-		}
-	}
-	private function OutputHTMLStart() {
+    private function OutputHeaders() {
+        if ( $this->mSupportsXML ) {
+            header( "Content-Type: application/xhtml+xml; charset=utf-8" );
+        }
+        else {
+            header( "Content-Type: text/html; charset=utf-8" );
+        }
+    }
+    private function OutputHTMLStart() {
         echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
-		?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+        ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php
         echo $this->mNaturalLanguage;
         ?>" lang="<?php
         echo $this->mNaturalLanguage;
         ?>"><?php
-	}
-	private function OutputHTMLHeader() {
-		?><head><title><?php
-			echo htmlspecialchars( $this->mTitle );
-		?></title><?php
-		if ( !empty( $this->mBase ) ) {
-			?><base href="<?php
-			echo $this->mBase;
-			?>" /><?php
-		}
+    }
+    private function OutputHTMLHeader() {
+        ?><head><title><?php
+            echo htmlspecialchars( $this->mTitle );
+        ?></title><?php
+        if ( !empty( $this->mBase ) ) {
+            ?><base href="<?php
+            echo $this->mBase;
+            ?>" /><?php
+        }
         foreach ( $this->mStylesheets as $filename => $info ) {
             if ( $info[ 'ieversion' ] !== false ) {
                 ?><!--[if IE]><?php
@@ -204,13 +204,13 @@ class PageHTML extends Page {
             echo htmlspecialchars( $this->mFavIcon );
             ?>" type="image/vnd.microsoft.icon" /><?php
         }
-		foreach ( $this->mScripts as $script ) {
+        foreach ( $this->mScripts as $script ) {
             if ( $script[ 'head' ] ) {
                 $this->OutputScript( $script );
             }
-		}
-		?></head><?php
-	}
+        }
+        ?></head><?php
+    }
     private function OutputScript( $script ) {
         w_assert( is_array( $script ) );
         
@@ -235,15 +235,15 @@ class PageHTML extends Page {
             echo "\n";
         }
     }
-	private function OutputHTMLMain() {
-		ob_start( 'html_filter' );
-		?><body><?php
-		echo $this->mBody;
-		foreach ( $this->mScripts as $script ) {
+    private function OutputHTMLMain() {
+        ob_start( 'html_filter' );
+        ?><body><?php
+        echo $this->mBody;
+        foreach ( $this->mScripts as $script ) {
             if ( !$script[ 'head' ] ) {
                 $this->OutputScript( $script );
             }
-		}
+        }
         foreach ( $this->mScriptsInline as $language => $code ) {
             ?><script type="text/<?php
             echo $language;
@@ -256,75 +256,75 @@ class PageHTML extends Page {
             }
             ?></script><?php
         }
-		?></body><?php
-		echo ob_get_clean();
-	}
-	private function OutputHTMLEnd() {
-	   ?></html><?php
-	}
-	private function CheckXML() {
-		$xmlmimetype = 'application/xhtml+xml';
-		$accepted = explode( ',' , $_SERVER[ 'HTTP_ACCEPT' ] );
-		if ( in_array( $xmlmimetype , $accepted ) ) {
-			$this->mSupportsXML = true;
-		}
-		else {
-			$this->mSupportsXML = false;
-		}
-	}
-	public function SetBase( $base ) {
-		$this->mBase = $base;
-	}
+        ?></body><?php
+        echo ob_get_clean();
+    }
+    private function OutputHTMLEnd() {
+       ?></html><?php
+    }
+    private function CheckXML() {
+        $xmlmimetype = 'application/xhtml+xml';
+        $accepted = explode( ',' , $_SERVER[ 'HTTP_ACCEPT' ] );
+        if ( in_array( $xmlmimetype , $accepted ) ) {
+            $this->mSupportsXML = true;
+        }
+        else {
+            $this->mSupportsXML = false;
+        }
+    }
+    public function SetBase( $base ) {
+        $this->mBase = $base;
+    }
     public function AddMeta( $name, $content ) {
         w_assert( preg_match( '#^[a-z]+$#', $name ) );
         $this->mMeta[ $name ] = $content;
     }
-	public function AttachStylesheet( $filename, $ieversion = false ) {
-		global $water;
-		
-		if ( !isset( $this->mStylesheets[ $filename ] ) ) {
-			$water->Trace( 'Loading stylesheet ' . $filename );
-			$this->mStylesheets[ $filename ] = array(
+    public function AttachStylesheet( $filename, $ieversion = false ) {
+        global $water;
+        
+        if ( !isset( $this->mStylesheets[ $filename ] ) ) {
+            $water->Trace( 'Loading stylesheet ' . $filename );
+            $this->mStylesheets[ $filename ] = array(
                 'filename' => $filename,
                 'ieversion' => $ieversion
             );
             if ( count( $this->mStylesheets ) > 30 ) {
                 $water->Warning( 'You are approaching or over 32 CSS loaded stylesheets. Internet Explorer may not be able to handle this.' );
             }
-		}
-	}
-	public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
-		global $water;
-		
-		if ( !isset( $this->mScripts[ $filename ] ) ) {
-			$water->Trace( 'Loading script ' . $filename );
-			$this->mScripts[ $filename ] = array( 'language'  => $language, 
-												  'filename'  => $filename, 
-												  'ieversion' => $ieversion,
+        }
+    }
+    public function AttachScript( $filename, $language = 'javascript', $head = false, $ieversion = '' ) {
+        global $water;
+        
+        if ( !isset( $this->mScripts[ $filename ] ) ) {
+            $water->Trace( 'Loading script ' . $filename );
+            $this->mScripts[ $filename ] = array( 'language'  => $language, 
+                                                  'filename'  => $filename, 
+                                                  'ieversion' => $ieversion,
                                                   'head'      => $head );
-		}
+        }
         else if ( $head && !$this->mScripts[ $filename ][ 'head' ] ) {
             $this->mScripts[ $filename ][ 'head' ] = true; // somebody needs to load this a priori, do so 
         }
-	}
+    }
     public function AttachInlineScript( $code, $language = 'javascript' ) {
         if ( !isset( $this->mScriptsInline[ $language ] ) ) {
             $this->mScriptsInline[ $language ] = '';
         }
         $this->mScriptsInline[ $language ] .= $code;
     }
-	protected function WaterLink() {
-		global $water;
+    protected function WaterLink() {
+        global $water;
         
-		// keep in mind that profiles and alerts beyond this point will not be dumped
-		if ( $this->mDoWaterDump ) {
+        // keep in mind that profiles and alerts beyond this point will not be dumped
+        if ( $this->mDoWaterDump ) {
             $water->SetSetting( 'strict', $this->XMLStrict() );
             ob_start();
             $water->GenerateHTML();
             $this->mBody = ob_get_clean() . $this->mBody;
             $this->AttachStylesheet( 'css/water.css' );
-		}
-	}
+        }
+    }
 
     /* DOM Handling Functions */
     public function appendChild( PageDOMEntity $element ) {
@@ -422,8 +422,8 @@ final class PagePlain extends Page {
     protected function OutputPage() {
         echo $this->mBody;
     }
-	protected function WaterLink() {
-	}
+    protected function WaterLink() {
+    }
 }
 
 final class PageCoala extends Page {

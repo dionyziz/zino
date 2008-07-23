@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementSpaceEdit extends Element {
+    
+    class ElementSpaceEdit extends Element {
         public function Render() {
             global $user;
             global $page;

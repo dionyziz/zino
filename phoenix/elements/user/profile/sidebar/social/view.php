@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarSocialView extends Element {
+    class ElementUserProfileSidebarSocialView extends Element {
         public function Render( $theuser ) {
             ?><ul><?php
             Element( 'user/profile/sidebar/social/sex' , $theuser );

@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsPersonalUniversity extends Element {
+    
+    class ElementUserSettingsPersonalUniversity extends Element {
         public function Render( $placeid , $typeid ) {
             global $user;
             
@@ -8,7 +8,7 @@
                 $finder = New UniFinder();
                 //typeid is 0 for AEI and 1 for TEI
                 $unis = $finder->Find( $placeid , $typeid );
-                if ( count( $unis ) > 0 ) {	
+                if ( count( $unis ) > 0 ) {    
                     ?><select>
                         <option value="-1"<?php
                         if ( $user->Profile->Uniid == 0 ) {

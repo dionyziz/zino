@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsPersonalGender extends Element {
+    class ElementUserSettingsPersonalGender extends Element {
         public function Render() {
             global $user;
             

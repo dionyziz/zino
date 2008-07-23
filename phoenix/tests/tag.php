@@ -13,17 +13,17 @@
         private $mBookTag4;
 
         public function SetUp() {
-        	global $libs;
-        	$libs->Load( 'tag' );
-        	
+            global $libs;
+            $libs->Load( 'tag' );
+            
             $finder = New UserFinder();
             $users = $finder->FindByName( 'testtag1' );
             if ( is_object( $users ) ) {
-            	$users->Delete();
+                $users->Delete();
             }
             $users = $finder->FindByName( 'testtag2' );
             if ( is_object( $users ) ) {
-            	$users->Delete();
+                $users->Delete();
             }
 
             $user = New User();
@@ -189,10 +189,10 @@
 
             $tags = $finder->FindByUser( $this->mUser1 );
             if ( $tags[0]->Text == "Sin City" ) {
-            	array_shift( $tags );
+                array_shift( $tags );
             }
             else {
-            	array_pop( $tags );
+                array_pop( $tags );
             }
 
             $texts = array( 'The journal of a Magus', 'The Trial' );
@@ -211,10 +211,10 @@
             $tags = $finder->FindByUser( $this->mUser1 );
             
             if ( $tags[0]->Text == "Sin City" ) {
-            	array_shift( $tags );
+                array_shift( $tags );
             }
             else {
-            	array_pop( $tags );
+                array_pop( $tags );
             }
 
             $texts = array( 'The Trial', 'The journal of a Magus' );
@@ -272,22 +272,22 @@
                 $this->mUser2->Delete();
             }
             if ( is_object( $this->mBookTag ) && $this->mBookTag->Exists() ) {
-            	$this->mBookTag->Delete();
+                $this->mBookTag->Delete();
             }
             if ( is_object( $this->mMovieTag1 ) && $this->mMovieTag1->Exists() ) {
-            	$this->mMovieTag1->Delete();
+                $this->mMovieTag1->Delete();
             }
             if ( is_object( $this->mMovieTag2 ) && $this->mMovieTag2->Exists() ) {
-            	$this->mMovieTag2->Delete();
+                $this->mMovieTag2->Delete();
             }
             if ( is_object( $this->mMovieTag3 ) && $this->mMovieTag3->Exists() ) {
-            	$this->mMovieTag3->Delete();
+                $this->mMovieTag3->Delete();
             }
             if ( is_object( $this->mBookTag2 ) && $this->mBookTag2->Exists() ) {
-            	$this->mBookTag2->Delete();
+                $this->mBookTag2->Delete();
             }
             if ( is_object( $this->mBookTag3 ) && $this->mBookTag3->Exists() ) {
-            	$this->mBookTag3->Delete();
+                $this->mBookTag3->Delete();
             }
         }
     }

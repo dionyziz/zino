@@ -110,15 +110,15 @@
         protected function MakeObj() {
             // instantiate $className with a variable number of arguments (the number of columns in the primary key can vary)
             $class = New ReflectionClass( $this->mTargetModelClass );
-			$args = $this->Args();
+            $args = $this->Args();
             
             // create object instance to referenced object
-			$target = $class->newInstanceArgs( $args );
+            $target = $class->newInstanceArgs( $args );
             if ( !$target->Exists() ) { // no such object
                 // create empty new object instance
                 $target = $class->newInstanceArgs( array() );
                 // define primary keys
-				$target->DefinePrimaryKeyAttributes( $args );
+                $target->DefinePrimaryKeyAttributes( $args );
             }
             return $target;
         }
@@ -210,18 +210,18 @@
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         private $mAllowRelationDefinition;
        
-	   	protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Attribute2DbField':
-				case 'Db':
-				case 'DbTable':
-				case 'DbFields':
-				case 'PrimaryKeyFields':
-					$attribute = 'm' . $key;
-					return $this->$attribute;
-			}
+           protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Attribute2DbField':
+                case 'Db':
+                case 'DbTable':
+                case 'DbFields':
+                case 'PrimaryKeyFields':
+                    $attribute = 'm' . $key;
+                    return $this->$attribute;
+            }
             
-			if ( isset( $this->mRelations[ $key ] ) ) {
+            if ( isset( $this->mRelations[ $key ] ) ) {
                 return $this->mRelations[ $key ]->Retrieve();
             }
             
@@ -230,7 +230,7 @@
                 throw New SatoriException( 'Attempting to read non-existing Satori property `' . $key . '\' on a `' . get_class( $this ) . '\' instance' );
             }
             return $this->mCurrentValues[ $key ];
-		}
+        }
         protected function __set( $name, $value ) {
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {

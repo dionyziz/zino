@@ -1,5 +1,5 @@
 <?php
-	class ElementRelationsList extends Element {
+    class ElementRelationsList extends Element {
         public function Render() {
             global $page;
             global $user;
@@ -31,7 +31,7 @@
                 </form>
                 <br /><br /><br />
                 <?php
-            if( count( $relations ) ) {	?>
+            if( count( $relations ) ) {    ?>
                 <ul id="relations" style="list-style-type: none;"><?php
 
                 foreach( $relations as $relation ) {

@@ -1,46 +1,46 @@
 <?php
 
-	class FavouriteFinder extends Finder {
-		protected $mModel = 'Favourite';
+    class FavouriteFinder extends Finder {
+        protected $mModel = 'Favourite';
 
-		function FindByUserAndType( $user, $types ) {
-			$prototype = New Favourite();
-			$prototype->Typeid = $types;
-			$prototype->Userid = $user->Id;
+        function FindByUserAndType( $user, $types ) {
+            $prototype = New Favourite();
+            $prototype->Typeid = $types;
+            $prototype->Userid = $user->Id;
 
-			return $this->FindByPrototype( $prototype );
-		}
-		function FindByUserAndEntity( $user, $entity ) {
-			$prototype = New Favourite();
-			$prototype->Typeid = Type_FromObject( $entity );
-			$prototype->Itemid = $entity->Id;
-			$prototype->Userid = $user->Id;
+            return $this->FindByPrototype( $prototype );
+        }
+        function FindByUserAndEntity( $user, $entity ) {
+            $prototype = New Favourite();
+            $prototype->Typeid = Type_FromObject( $entity );
+            $prototype->Itemid = $entity->Id;
+            $prototype->Userid = $user->Id;
 
-			return $this->FindByPrototype( $prototype );
-		}
-		function FindByEntity( $entity ) {
-			$prototype = New Favourite();
-			$prototype->Typeid = Type_FromObject( $entity );
-			$prototype->Itemid = $entity->Id;
+            return $this->FindByPrototype( $prototype );
+        }
+        function FindByEntity( $entity ) {
+            $prototype = New Favourite();
+            $prototype->Typeid = Type_FromObject( $entity );
+            $prototype->Itemid = $entity->Id;
 
-			return $this->FindByPrototype( $prototype );
-		}
-	}
+            return $this->FindByPrototype( $prototype );
+        }
+    }
 
     class Favourite extends Satori {
-		protected $mDbTableAlias = 'favourites';
+        protected $mDbTableAlias = 'favourites';
 
-		public function Relations() {
-			$this->User = $this->HasOne( 'User', 'Userid' );
-			if ( $this->Exists() ) {
-				$this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
-			}
-		}
-		public function LoadDefaults() {
-			global $user;
+        public function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+            if ( $this->Exists() ) {
+                $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+            }
+        }
+        public function LoadDefaults() {
+            global $user;
 
-			$this->Userid = $user->Id;
-		}
+            $this->Userid = $user->Id;
+        }
     }
 
 ?>

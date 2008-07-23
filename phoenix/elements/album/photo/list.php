@@ -1,5 +1,5 @@
 <?php
-	class ElementAlbumPhotoList extends Element {
+    class ElementAlbumPhotoList extends Element {
         public function Render( tInteger $id , tInteger $pageno ) {
             global $page;
             global $user;

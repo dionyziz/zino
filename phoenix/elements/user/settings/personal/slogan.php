@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsPersonalSlogan extends Element {
+    
+    class ElementUserSettingsPersonalSlogan extends Element {
         public function Render() {
             global $user;
             

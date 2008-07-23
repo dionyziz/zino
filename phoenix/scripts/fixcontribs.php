@@ -1,19 +1,19 @@
 <?php
-	return;
-	
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
+    return;
     
-	require_once 'libs/rabbit/rabbit.php';
+    set_include_path( '../:./' );
+    
+    global $page;
+    global $libs;
+    
+    require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
-	Rabbit_ClearPostGet();
-	
-	$libs->Load( 'comment' );
-	
+    Rabbit_ClearPostGet();
+    
+    $libs->Load( 'comment' );
+    
     global $db;
     
     $sql = "SELECT `user_id` FROM `merlin_users`;";
@@ -44,5 +44,5 @@
     $page->Output();
 
     Rabbit_Destruct();
-	
+    
 ?>

@@ -1,5 +1,5 @@
 <?php
-	class ElementPollView extends Element {
+    class ElementPollView extends Element {
         function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {
                 global $page;
                 global $libs;

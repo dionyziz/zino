@@ -1,6 +1,6 @@
 <?php 
 
-	class ElementUserProfileSidebarLook extends Element {
+    class ElementUserProfileSidebarLook extends Element {
         public function Render( $theuser ) {
             $showgender = $showweight = $showheight = false;
             if ( $theuser->Gender != '-' ) {

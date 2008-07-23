@@ -22,15 +22,15 @@
         protected $mLastActive;
         protected $mToken;
         
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Channel':
-					$this->mChannel = ( string )$value;
-					break;
-				default:
-					parent::__set( $key, $value );
-			}
-		}
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Channel':
+                    $this->mChannel = ( string )$value;
+                    break;
+                default:
+                    parent::__set( $key, $value );
+            }
+        }
         protected function LoadDefaults() {
             $this->ScrambleToken();
             $this->mLastActive = NowDate();

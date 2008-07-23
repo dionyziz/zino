@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSubdomain extends Element {
+    
+    class ElementUserSubdomain extends Element {
         public function Render( $theuser ) {
             if ( !is_object( $theuser ) ) {
                 return;

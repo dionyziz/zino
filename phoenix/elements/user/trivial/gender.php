@@ -1,10 +1,10 @@
 <?php
-	
-	class ElementUserTrivialGender extends Element {
+    
+    class ElementUserTrivialGender extends Element {
         public function Render( $gender ) {
-            $sex = array( '-'	=>	'-',
-                          'm' 	=> 'Άνδρας',
-                          'f'	=> 'Γυναίκα'
+            $sex = array( '-'    =>    '-',
+                          'm'     => 'Άνδρας',
+                          'f'    => 'Γυναίκα'
             );
             echo htmlspecialchars( $sex[ $gender ] );
         }

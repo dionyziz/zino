@@ -1,6 +1,6 @@
 <?php
     /// Content-type: text/plain ///
-	class ElementEmailFooter extends Element {
+    class ElementEmailFooter extends Element {
         public function Render( $existinguser = true ) {
             global $rabbit_settings;
 

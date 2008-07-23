@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserProfileMainPhotos extends Element {
+    
+    class ElementUserProfileMainPhotos extends Element {
         public function Render( $images , $egoalbum ) {
             global $water;
             
@@ -12,7 +12,7 @@
                     Element( 'image/view' , $image , IMAGE_CROPPED_100x100 , '' , $image->Name , $image->Name , '' , false , 0 , 0 );
                     ?></a></li><?php
                 }
-            ?></ul><?php	
+            ?></ul><?php    
         }
     }
 ?>

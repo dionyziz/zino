@@ -84,8 +84,8 @@
         return $text;
     }
 
-	function WYSIWYG_Smileys( $text ) {
-		static $smileys = array( // do not include any & or ; characters in these literals
+    function WYSIWYG_Smileys( $text ) {
+        static $smileys = array( // do not include any & or ; characters in these literals
                                  // do not allow recursive replacement: make sure result literals cannot be re-replaced
               ":D" => "teeth" ,
               ":-)" => "smile" ,
@@ -185,5 +185,5 @@
             . $xc_settings[ 'staticimagesurl' ] 
             . 'emoticons/wink.png" alt=";-)" title=";-)" class="emoticon" width="22" height="22" />\2', $text );
         return $text;
-	}
+    }
 ?>

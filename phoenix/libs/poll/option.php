@@ -1,13 +1,13 @@
 <?php
 
-	global $libs;
-	$libs->Load( 'poll/vote' );
+    global $libs;
+    $libs->Load( 'poll/vote' );
 
-	class PollOptionFinder extends Finder {
-		protected $mModel = 'PollOption';
-		
-		public function FindByPoll( $poll ) {
-    	    $query = $this->mDb->Prepare( "
+    class PollOptionFinder extends Finder {
+        protected $mModel = 'PollOption';
+        
+        public function FindByPoll( $poll ) {
+            $query = $this->mDb->Prepare( "
                 SELECT
                     *
                 FROM
@@ -30,20 +30,20 @@
                 $ret[] = $option;
             }
             return $ret;
-		}
-	}
+        }
+    }
 
-	class PollOption extends Satori {
-		protected $mDbTableAlias = 'polloptions';
-		
-		protected function __get( $key ) {
-			if ( $key == 'Percentage' ) {
-				return $this->Numvotes / $this->Poll->Numvotes;
-			}
+    class PollOption extends Satori {
+        protected $mDbTableAlias = 'polloptions';
+        
+        protected function __get( $key ) {
+            if ( $key == 'Percentage' ) {
+                return $this->Numvotes / $this->Poll->Numvotes;
+            }
 
-			return parent::__get( $key );
-		}
-		public function CopyPollFrom( $value ) {
+            return parent::__get( $key );
+        }
+        public function CopyPollFrom( $value ) {
             $this->mRelations[ 'Poll' ]->CopyFrom( $value );
         }
         public function Vote( $user ) {
@@ -76,10 +76,10 @@
             $this->DelId = 0;
             $this->Save();
         }
-		protected function Relations() {
-			$this->Poll = $this->HasOne( 'Poll', 'Pollid' );
+        protected function Relations() {
+            $this->Poll = $this->HasOne( 'Poll', 'Pollid' );
             $this->Votes = $this->HasMany( 'PollVoteFinder', 'FindByOption', $this );
-		}
-	}
+        }
+    }
 
 ?>

@@ -1,15 +1,15 @@
 <?php
-	// Define database data types
-    define( 'DB_TYPE_INT' 		, 'DB_TYPE_INT' );
-    define( 'DB_TYPE_VARCHAR' 	, 'DB_TYPE_VARCHAR' );
-    define( 'DB_TYPE_CHAR' 		, 'DB_TYPE_CHAR' );
-    define( 'DB_TYPE_TEXT' 		, 'DB_TYPE_TEXT' );
+    // Define database data types
+    define( 'DB_TYPE_INT'         , 'DB_TYPE_INT' );
+    define( 'DB_TYPE_VARCHAR'     , 'DB_TYPE_VARCHAR' );
+    define( 'DB_TYPE_CHAR'         , 'DB_TYPE_CHAR' );
+    define( 'DB_TYPE_TEXT'         , 'DB_TYPE_TEXT' );
     define( 'DB_TYPE_LONGTEXT'  , 'DB_TYPE_LONGTEXT' );
-    define( 'DB_TYPE_DATETIME'	, 'DB_TYPE_DATETIME' );
-    define( 'DB_TYPE_DATE'	    , 'DB_TYPE_DATE' );
-    define( 'DB_TYPE_FLOAT'		, 'DB_TYPE_FLOAT' );
-    define( 'DB_TYPE_ENUM'		, 'DB_TYPE_ENUM' );
-	
+    define( 'DB_TYPE_DATETIME'    , 'DB_TYPE_DATETIME' );
+    define( 'DB_TYPE_DATE'        , 'DB_TYPE_DATE' );
+    define( 'DB_TYPE_FLOAT'        , 'DB_TYPE_FLOAT' );
+    define( 'DB_TYPE_ENUM'        , 'DB_TYPE_ENUM' );
+    
     class DBField {
         protected $mValidDataTypes = array(
             DB_TYPE_INT,
@@ -24,101 +24,101 @@
         );
         protected $mName;
         protected $mType;
-		protected $mLength;
+        protected $mLength;
         protected $mDefault;
-		protected $mExists;
+        protected $mExists;
         protected $mNull;
-		protected $mStoredState;
+        protected $mStoredState;
         protected $mIsAutoIncrement;
         protected $mParentTable;
         
         public function Exists() {
             return $this->mExists;
         }
-		public function __get( $key ) {
-			switch ( $key ) {
-				 case 'Name':
-				 case 'Type':
-				 case 'Default':
-				 case 'Length':
-				 case 'Null':
-				 case 'IsPrimaryKey':
-				 case 'IsAutoIncrement':
-				 case 'ParentTable':
-				 	$attribute = 'm' . $key;
-					return $this->$attribute;
-				 case 'SQL':
-					// returns a string representation of the field as it would be used within a CREATE or 
-					// ALTER query
+        public function __get( $key ) {
+            switch ( $key ) {
+                 case 'Name':
+                 case 'Type':
+                 case 'Default':
+                 case 'Length':
+                 case 'Null':
+                 case 'IsPrimaryKey':
+                 case 'IsAutoIncrement':
+                 case 'ParentTable':
+                     $attribute = 'm' . $key;
+                    return $this->$attribute;
+                 case 'SQL':
+                    // returns a string representation of the field as it would be used within a CREATE or 
+                    // ALTER query
 
-					$sql = "`" . $this->Name . "` ";
-					$sql .= ":_" . $this->Type . " "; // autobound
+                    $sql = "`" . $this->Name . "` ";
+                    $sql .= ":_" . $this->Type . " "; // autobound
 
-					if ( !empty( $this->mLength ) ) {   
-						$sql .= "(" . $this->mLength . ")";
-					}
-					$sql .= " ";
-					if ( !$this->Null ) {
-						$sql .= "NOT NULL ";
-					}
-					if ( !empty( $this->mDefault ) ) {
-						$sql .= "DEFAULT " . $this->mDefault . " ";
-					}
-					if ( $this->IsAutoIncrement ) {
-						$sql .= "AUTO_INCREMENT";
-					}
-					return $sql;
-			}
-		}
-		public function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Name':
-					w_assert( is_string( $value ), 'Database field name specified is invalid' );
-					$this->mName = $value;
-					break;
-				case 'Type':
-					if ( !in_array( $value, $this->mValidDataTypes ) ) {
-						throw New DBException( 'Database field data type specified is invalid' );
-					}
-					$this->mType = $value;
-					if ( $this->mLength === false ) {
-						// no length specified, use default lengths
-						switch ( $this->mType ) {
-							case DB_TYPE_INT:
-								$this->Length = 11;
-								break;
-						}
-					}
-					break;
-				case 'Default':
-					w_assert( is_scalar( $value ), 'Non-scalar value set as default value for database field' );
-					$this->mDefault = $value;
-					break;
-				case 'Length':
-					w_assert( is_int( $value ) );
-					$this->mLength = $value;
-					break;
-				case 'Null':
-					w_assert( is_bool( $value ), 'Database field can only be null or not null (bool)' );
-					$this->mNull = $value;
-					break;
-				case 'IsAutoIncrement':
-					w_assert( is_bool( $value ) );
-					$this->mIsAutoIncrement = $value;
-					break;
-				case 'ParentTable':
-					// called by table save
-            		$this->mParentTable = $value;
-					break;
-				case 'Exists':
-					// called by table creation method
-					w_assert( is_bool( $value ) );
-					w_assert( $value === true );
-					$this->mExists = $value;
-					break;
-				default:
-					parent::__set( $key, $value );
-			}
+                    if ( !empty( $this->mLength ) ) {   
+                        $sql .= "(" . $this->mLength . ")";
+                    }
+                    $sql .= " ";
+                    if ( !$this->Null ) {
+                        $sql .= "NOT NULL ";
+                    }
+                    if ( !empty( $this->mDefault ) ) {
+                        $sql .= "DEFAULT " . $this->mDefault . " ";
+                    }
+                    if ( $this->IsAutoIncrement ) {
+                        $sql .= "AUTO_INCREMENT";
+                    }
+                    return $sql;
+            }
+        }
+        public function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Name':
+                    w_assert( is_string( $value ), 'Database field name specified is invalid' );
+                    $this->mName = $value;
+                    break;
+                case 'Type':
+                    if ( !in_array( $value, $this->mValidDataTypes ) ) {
+                        throw New DBException( 'Database field data type specified is invalid' );
+                    }
+                    $this->mType = $value;
+                    if ( $this->mLength === false ) {
+                        // no length specified, use default lengths
+                        switch ( $this->mType ) {
+                            case DB_TYPE_INT:
+                                $this->Length = 11;
+                                break;
+                        }
+                    }
+                    break;
+                case 'Default':
+                    w_assert( is_scalar( $value ), 'Non-scalar value set as default value for database field' );
+                    $this->mDefault = $value;
+                    break;
+                case 'Length':
+                    w_assert( is_int( $value ) );
+                    $this->mLength = $value;
+                    break;
+                case 'Null':
+                    w_assert( is_bool( $value ), 'Database field can only be null or not null (bool)' );
+                    $this->mNull = $value;
+                    break;
+                case 'IsAutoIncrement':
+                    w_assert( is_bool( $value ) );
+                    $this->mIsAutoIncrement = $value;
+                    break;
+                case 'ParentTable':
+                    // called by table save
+                    $this->mParentTable = $value;
+                    break;
+                case 'Exists':
+                    // called by table creation method
+                    w_assert( is_bool( $value ) );
+                    w_assert( $value === true );
+                    $this->mExists = $value;
+                    break;
+                default:
+                    parent::__set( $key, $value );
+            }
         }
         public function Equals( DBField $target ) {
             if ( !is_object( $target ) ) {

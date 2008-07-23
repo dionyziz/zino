@@ -1,7 +1,7 @@
 <?php
 
-	global $libs;
-	$libs->Load( 'bulk' );
+    global $libs;
+    $libs->Load( 'bulk' );
 
     class JournalFinder extends Finder {
         protected $mModel = 'Journal';
@@ -22,43 +22,43 @@
     class Journal extends Satori {
         protected $mDbTableAlias = 'journals';
        
-	   	public function LoadDefaults() {
-			global $user;
+           public function LoadDefaults() {
+            global $user;
 
-			$this->Userid = $user->Id;
+            $this->Userid = $user->Id;
             $this->Created = NowDate();
-		}
-		protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Text':
-					return $this->Bulk->Text;
-				default:
-					return parent::__get( $key );
-			}
-		}
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Text':
-					$this->Bulk->Text = $value;
-					break;
-				default:
-					return parent::__set( $key, $value );
-			}
-		}
+        }
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Text':
+                    return $this->Bulk->Text;
+                default:
+                    return parent::__get( $key );
+            }
+        }
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Text':
+                    $this->Bulk->Text = $value;
+                    break;
+                default:
+                    return parent::__set( $key, $value );
+            }
+        }
         public function GetText( $length ) {
-			w_assert( is_int( $length ) );
+            w_assert( is_int( $length ) );
             $text = $this->Bulk->Text;
-			$text = htmlspecialchars_decode( strip_tags( $text ) );
-			$text = mb_substr( $text, 0, $length );
-			return htmlspecialchars( $text );
+            $text = htmlspecialchars_decode( strip_tags( $text ) );
+            $text = mb_substr( $text, 0, $length );
+            return htmlspecialchars( $text );
         }
         public function OnBeforeCreate() {
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }
-		public function OnUpdate() {
+        public function OnUpdate() {
             $this->Bulk->Save();
-		}
+        }
         public function OnCommentCreate() {
             ++$this->Numcomments;
             $this->Save();

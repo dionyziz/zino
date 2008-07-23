@@ -1,12 +1,12 @@
 <?php
-	set_include_path( '../:./' );
+    set_include_path( '../:./' );
 
-	global $water;
-	global $libs;
+    global $water;
+    global $libs;
     global $db;
     global $user;
     
-	require 'libs/rabbit/rabbit.php';
+    require 'libs/rabbit/rabbit.php';
 
     Rabbit_Construct( 'empty' );
 

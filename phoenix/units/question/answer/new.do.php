@@ -1,8 +1,8 @@
 <?php
-	function UnitQuestionAnswerNew( tInteger $questionid , tText $answertext, tCoalaPointer $callback ) {
-		global $user;
-		global $libs;
-		
+    function UnitQuestionAnswerNew( tInteger $questionid , tText $answertext, tCoalaPointer $callback ) {
+        global $user;
+        global $libs;
+        
         $questionid = $questionid->Get();
         $answertext = $answertext->Get();
         $answertext = trim( $answertext );
@@ -29,5 +29,5 @@
         ?>( <?php
         echo $answer->Id;
         ?> );<?php
-	}
+    }
 ?>

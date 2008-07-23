@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementJournalView extends Element {
+    
+    class ElementJournalView extends Element {
         public function Render( tInteger $id , tInteger $commentid , tInteger $pageno ) {
             global $page;
             global $rabbit_settings;
@@ -27,7 +27,7 @@
                     ?><h2><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></h2>
-                    <div class="journal" style="clear:none;">	
+                    <div class="journal" style="clear:none;">    
                         <dl><?php
                             if ( $journal->Numcomments > 0 ) {
                                 ?><dd class="commentsnum"><?php
@@ -77,7 +77,7 @@
                                         echo $journal->Id;
                                         ?>' );return false;">Διαγραφή
                                         </a>
-                                    </div>						
+                                    </div>                        
                                 </div><?php
                             }
                         ?><div class="eof"></div>

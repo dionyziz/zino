@@ -1,9 +1,9 @@
 <?php
-	class ElementAlbumPhotoSmall extends Element {
+    class ElementAlbumPhotoSmall extends Element {
         public function Render( $image , $showdesc = false ,  $showcomnum = false ) {
             if ( $image->Name != '' ) {
                 $title = htmlspecialchars( $image->Name );
-            }	
+            }    
             else {
                 $title = htmlspecialchars( $image->Album->Name );
             }

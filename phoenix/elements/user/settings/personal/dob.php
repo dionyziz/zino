@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsPersonalDob extends Element {
+    class ElementUserSettingsPersonalDob extends Element {
         public function Render() {
             global $user;
 

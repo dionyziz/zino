@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarSocialPolitics extends Element {
+    class ElementUserProfileSidebarSocialPolitics extends Element {
         public function Render( $theuser ) {
             if ( $theuser->Profile->Politics != '-' ) {
                 /*

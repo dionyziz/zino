@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSections extends Element {
+    class ElementUserSections extends Element {
         public function Render( $section , $theuser ) {
             ?><div class="usersections">
                 <a href="<?php

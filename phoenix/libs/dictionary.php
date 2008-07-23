@@ -5,21 +5,21 @@
         global $db;
         global $water;
         
-		$query = $db->Prepare("
-			SELECT
+        $query = $db->Prepare("
+            SELECT
                 *
             FROM
                 :dictionarywords
             WHERE
                 `word_id` = :Random
             LIMIT :Limit
-			;
-		");
-		
-		$query->BindTable( 'dictionarywords' );
-		$query->Bind( 'Random', rand( 1, 76833 ) );
-		$query->Bind( 'Limit', 1 );
-		
+            ;
+        ");
+        
+        $query->BindTable( 'dictionarywords' );
+        $query->Bind( 'Random', rand( 1, 76833 ) );
+        $query->Bind( 'Limit', 1 );
+        
         $res = $query->Execute();
 
         if ( !$res->Results() ) {

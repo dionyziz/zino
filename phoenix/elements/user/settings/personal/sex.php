@@ -1,7 +1,7 @@
 <?php
 
-	class ElementUserSettingsPersonalSex extends Element {
-        public function Render( $selected , $gender ) {		
+    class ElementUserSettingsPersonalSex extends Element {
+        public function Render( $selected , $gender ) {        
             ?><select><?php
             $sexs = array( '-' , 'straight' , 'gay' , 'bi' );
             foreach ( $sexs as $sex ) {

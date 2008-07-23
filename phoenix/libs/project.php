@@ -1,16 +1,16 @@
 <?php
     function Project_Construct( $mode ) {
-    	global $xc_settings;
+        global $xc_settings;
         global $rabbit_settings;
-    	global $page;
+        global $page;
         global $water;
         global $page;
         global $user;
         global $libs;
         global $PROJECT_LOADTIME;
 
-    	$libs->Load( 'magic' );
-    	$libs->Load( 'user/user' );
+        $libs->Load( 'magic' );
+        $libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
         $libs->Load( 'ban' );
         $libs->Load( 'types' );
@@ -77,42 +77,42 @@ Project_Destruct()' );
     function Project_PagesMap() {
         // This function is used for matching the value of the $p variable with the actual file on the server.
         // For example $p = register matches with the user/new file.
-    	return array(
-    		""                 	=> "frontpage/view",
+        return array(
+            ""                     => "frontpage/view",
             "bennu"             => "bennu",
-			"user"			    => "user/profile/view",
-			"settings"			=> "user/settings/view",
-			"join" 				=> "user/join",
-			"joined"			=> "user/joined",
-			"journals"			=> "journal/list",
-			"journal"			=> "journal/view",
-			"addjournal"		=> "journal/new",
-			"polls"				=> "poll/list",
-			"poll"				=> "poll/view",
-			"space"				=> "space/view",
-			"editspace"			=> "space/edit",
-			"albums"			=> "album/list",
-			"album" 			=> "album/photo/list",
-			"photo"				=> "album/photo/view",
-			"upload" 			=> "album/photo/upload",
-			"friends"			=> "user/relations/list",
+            "user"                => "user/profile/view",
+            "settings"            => "user/settings/view",
+            "join"                 => "user/join",
+            "joined"            => "user/joined",
+            "journals"            => "journal/list",
+            "journal"            => "journal/view",
+            "addjournal"        => "journal/new",
+            "polls"                => "poll/list",
+            "poll"                => "poll/view",
+            "space"                => "space/view",
+            "editspace"            => "space/edit",
+            "albums"            => "album/list",
+            "album"             => "album/photo/list",
+            "photo"                => "album/photo/view",
+            "upload"             => "album/photo/upload",
+            "friends"            => "user/relations/list",
             'tos'               => 'about/tos/view',
-			'advertise'			=> 'about/advertise/view',
-			'contact'			=> 'about/contact/view',
+            'advertise'            => 'about/advertise/view',
+            'contact'            => 'about/contact/view',
             'unittest'          => 'developer/test/view',
             'watertest'         => 'developer/dionyziz/water',
             'debug'             => 'developer/water',
             'jslint'            => 'developer/js/lint',
             'a'                 => 'user/invalid',
-			'b'					=> 'mail/sent',
+            'b'                    => 'mail/sent',
             'pms'               => 'pm/list',
             'shoutbox'          => 'shoutbox/list',
-            'questions'			=> 'question/list',
+            'questions'            => 'question/list',
             'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
             'testmc'            => 'developer/abresas/testmc',
             'mcform'            => 'developer/abresas/mcform',
             'mcdelete'          => 'developer/abresas/mcdelete',
-    	);
+        );
     }
 ?>

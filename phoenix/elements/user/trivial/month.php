@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserTrivialMonth extends Element {
+    
+    class ElementUserTrivialMonth extends Element {
         public function Render( $month ) {
             $months = array( '-' => '-',
                              '01' => 'Ιανουαρίου',

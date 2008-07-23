@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserList extends Element {
+    class ElementUserList extends Element {
         public function Render( $relations ) {
             ?><div class="people">
                 <ul><?php
@@ -12,7 +12,7 @@
                         ?><strong><?php
                         echo Element( 'user/name' , $relation->Friend , false );
                         ?></strong><span>προβολή προφίλ &raquo;</span></a></li><?php
-                    }			
+                    }            
                 ?></ul>
                 <div class="eof"></div>
             </div><?php

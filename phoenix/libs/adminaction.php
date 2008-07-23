@@ -16,25 +16,25 @@
 
             return false;
         }
-		
-		// Prepared query
-		$query = $db->Prepare("
-			SELECT
-				*
-			FROM
-				`$adminactions`
-			WHERE
-				`$adminaction_adminid` = :AdminId
-			;
-		");
-		
-		// Assign values to query
-		$query->Bind( 'AdminId', $adminid );
-		
-		// Execute query
-		$res = $query->Execute();
-		
-		$actions    = array();
+        
+        // Prepared query
+        $query = $db->Prepare("
+            SELECT
+                *
+            FROM
+                `$adminactions`
+            WHERE
+                `$adminaction_adminid` = :AdminId
+            ;
+        ");
+        
+        // Assign values to query
+        $query->Bind( 'AdminId', $adminid );
+        
+        // Execute query
+        $res = $query->Execute();
+        
+        $actions    = array();
         while ( $row = $res->FetchArray() ) {
             $actions[] = new AdminAction( $row );
         }
@@ -50,12 +50,12 @@
         protected $mTypeId;
         protected $mItemId;
 
-		protected function __get( $key ) {
-			if ( $key == 'Admin' ) {
-				return $this->mAdmin;
-			}
-			return parent::__get( $key );
-		}
+        protected function __get( $key ) {
+            if ( $key == 'Admin' ) {
+                return $this->mAdmin;
+            }
+            return parent::__get( $key );
+        }
         public function AdminAction( $construct ) {
             global $db;
             global $adminactions;
@@ -64,24 +64,24 @@
             $this->mDbTable = $adminactions;
 
             if ( !is_array( $construct ) ) {
-				
-				// Prepared query
-				$query = $this->mDb->Prepare("
-					SELECT
-	                	*
-	                FROM
-	                	`$adminactions` RIGHT JOIN
-	                    `$users` ON `adminaction_adminid` = `user_id`
-	                WHERE
-	                	`adminaction_id` = :Construct
-	                LIMIT 1
-					;
-				");
-				
-				// Assign values to query
-				$query->Bind('Construct', $construct );
-             	
-				// Execute query
+                
+                // Prepared query
+                $query = $this->mDb->Prepare("
+                    SELECT
+                        *
+                    FROM
+                        `$adminactions` RIGHT JOIN
+                        `$users` ON `adminaction_adminid` = `user_id`
+                    WHERE
+                        `adminaction_id` = :Construct
+                    LIMIT 1
+                    ;
+                ");
+                
+                // Assign values to query
+                $query->Bind('Construct', $construct );
+                 
+                // Execute query
                 $construct = $query->Execute()->FetchArray();
             }
 

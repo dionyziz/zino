@@ -1,11 +1,11 @@
 <?php
 
-	class ElementUserSettingsCharacteristicsWeight extends Element {
+    class ElementUserSettingsCharacteristicsWeight extends Element {
         public function Render() {
             global $user;
             
             ?><select>
-                <option value="-3"<?php					
+                <option value="-3"<?php                    
                 if ( $user->Profile->Weight == -3 ) {
                     ?> selected="selected"<?php
                 }

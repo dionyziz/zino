@@ -13,12 +13,12 @@
     class Ban extends Satori {
         protected $mDbTableAlias = 'ipban';
         
-		protected function __get( $key ) {
-			if ( $key == 'Expired' ) {
-				return strtotime( $this->Expiredate ) < time();
-			}
+        protected function __get( $key ) {
+            if ( $key == 'Expired' ) {
+                return strtotime( $this->Expiredate ) < time();
+            }
 
-			return parent::__get( $key );
-		}
+            return parent::__get( $key );
+        }
     }
 ?>

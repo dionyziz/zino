@@ -692,9 +692,9 @@
             </div>
         </form>
         <form id="settings" style="display:none" action="">
-        	<h4>
-        		<label>Να λαμβάνω ειδοποιήσεις:</label>
-        	</h4>
+            <h4>
+                <label>Να λαμβάνω ειδοποιήσεις:</label>
+            </h4>
             <div class="setting">
                 <table>
                     <thead>
@@ -763,17 +763,17 @@
         }
     }
     function FocusSettingLink( li, focus ) {
-    	var len = li.className.length;
+        var len = li.className.length;
         if ( focus ) {
             if ( len <= 14 ) {
-            	li.className += " selected";
+                li.className += " selected";
             }
             li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
         }
         else {
             if ( len > 14 ) {
-	            li.className = li.className.substr( 0, len-9 ); // remove the selected CSS class
-	        }
+                li.className = li.className.substr( 0, len-9 ); // remove the selected CSS class
+            }
             li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
         }
     }

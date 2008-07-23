@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsContact extends Element {
+    class ElementUserSettingsContact extends Element {
         public function Render() {
             global $user;
             global $rabbit_settings;

@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsCharacteristicsEyecolor extends Element {
+    class ElementUserSettingsCharacteristicsEyecolor extends Element {
         public function Render() {
             global $user;
             

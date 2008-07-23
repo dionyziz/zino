@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementSpaceView extends Element {
+    
+    class ElementSpaceView extends Element {
         public function Render( tText $username , tText $subdomain ) {
             global $user;
             global $page;
@@ -27,7 +27,7 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 ?>Ο χρήστης δεν υπάρχει<?php
                 return;
-            }	
+            }    
             if ( strtoupper( substr( $theuser->Name, 0, 1 ) ) == substr( $theuser->Name, 0, 1 ) ) {
                 $page->SetTitle( $theuser->Name . " Χώρος" );
             }

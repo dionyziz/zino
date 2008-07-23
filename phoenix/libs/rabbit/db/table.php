@@ -61,74 +61,74 @@
         }
     }
 
-	class DBTable {
-		protected $mDb;
-		protected $mTableName;
-		protected $mAlias;
+    class DBTable {
+        protected $mDb;
+        protected $mTableName;
+        protected $mAlias;
         protected $mFields;
         protected $mIndexes;
-		protected $mExists;
+        protected $mExists;
         
-		public function InsertInto( $inserts, $ignore = false, $delayed = false, $quota = 500 ) {
-			// $insert = array( field1 => value1 , field2 => value2 , ... );
-			// ->Insert( $insert );
-			// ->Insert( array( $insert1 , $insert2 , ... ) );
-			
-			w_assert( !( $ignore && $delayed ) );
+        public function InsertInto( $inserts, $ignore = false, $delayed = false, $quota = 500 ) {
+            // $insert = array( field1 => value1 , field2 => value2 , ... );
+            // ->Insert( $insert );
+            // ->Insert( array( $insert1 , $insert2 , ... ) );
+            
+            w_assert( !( $ignore && $delayed ) );
             w_assert( $this->Exists() ); // cannot insert into a non-existing table
             
-			// assert at least one insert statement; or at least one field
-			w_assert( count( $inserts ) );
-			// if doing only one direct insert, call self with that special case;
-			// keep in mind that in single inserts, the values of the array must be scalar
-			// while in multiple inserts, the values are arrays of scalar values
-			if ( !is_array( end( $inserts ) ) ) {
-				$inserts = array( $inserts );
-				$multipleinserts = false;
-			}
-			else {
-				$multipleinserts = true;
-			}
-			
-			if ( $ignore ) {
-				$insertinto = 'INSERT IGNORE INTO';
-			}
-			else if ( $delayed ) {
-				$insertinto = 'INSERT DELAYED INTO';
-			}
-			else {
-				$insertinto = 'INSERT INTO';
-			}
-			
-			// get last insert to get the fields of the insert
-			$lastinsert = end( $inserts );
-			$fields = array();
-			// build fields list (only once)
-			foreach ( $lastinsert as $field => $value ) {
-				// assert correct field names
-				w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $field ) );
-				$fields[] = $field;
-			}
-			// assert there is at least one field
-			w_assert( count( $fields ) );
-			// return value will be an array of change structures
-			$changes = array();
-			// split insert into 500's, for speed and robustness; this also limits the chance of getting out of query
-			// size bounds
-			for ( $i = 0 ; $i < count( $inserts ) ; $i += $quota ) {
-				$partinserts = array_slice( $inserts , $i , $quota );
-				w_assert( count( $partinserts ) );
-				$insertvalues = array();
-				foreach ( $partinserts as $insert ) {
-					reset( $fields );
-					foreach ( $insert as $field => $value ) {
-						// assert the fields are the same number and in the same order in each insert
-						$thisfield = each( $fields );
-						w_assert( $thisfield[ 'value' ] == $field );
-					}
-					$insertvalues[] = $insert;
-				}
-				w_assert( count( $insertvalues ) );
+            // assert at least one insert statement; or at least one field
+            w_assert( count( $inserts ) );
+            // if doing only one direct insert, call self with that special case;
+            // keep in mind that in single inserts, the values of the array must be scalar
+            // while in multiple inserts, the values are arrays of scalar values
+            if ( !is_array( end( $inserts ) ) ) {
+                $inserts = array( $inserts );
+                $multipleinserts = false;
+            }
+            else {
+                $multipleinserts = true;
+            }
+            
+            if ( $ignore ) {
+                $insertinto = 'INSERT IGNORE INTO';
+            }
+            else if ( $delayed ) {
+                $insertinto = 'INSERT DELAYED INTO';
+            }
+            else {
+                $insertinto = 'INSERT INTO';
+            }
+            
+            // get last insert to get the fields of the insert
+            $lastinsert = end( $inserts );
+            $fields = array();
+            // build fields list (only once)
+            foreach ( $lastinsert as $field => $value ) {
+                // assert correct field names
+                w_assert( preg_match( '/^[a-zA-Z0-9_\-]+$/' , $field ) );
+                $fields[] = $field;
+            }
+            // assert there is at least one field
+            w_assert( count( $fields ) );
+            // return value will be an array of change structures
+            $changes = array();
+            // split insert into 500's, for speed and robustness; this also limits the chance of getting out of query
+            // size bounds
+            for ( $i = 0 ; $i < count( $inserts ) ; $i += $quota ) {
+                $partinserts = array_slice( $inserts , $i , $quota );
+                w_assert( count( $partinserts ) );
+                $insertvalues = array();
+                foreach ( $partinserts as $insert ) {
+                    reset( $fields );
+                    foreach ( $insert as $field => $value ) {
+                        // assert the fields are the same number and in the same order in each insert
+                        $thisfield = each( $fields );
+                        w_assert( $thisfield[ 'value' ] == $field );
+                    }
+                    $insertvalues[] = $insert;
+                }
+                w_assert( count( $insertvalues ) );
                 $bindings = array();
                 $i = 0;
                 foreach ( $insertvalues as $valuetuple ) {
@@ -136,11 +136,11 @@
                     ++$i;
                 }
                 
-				$query = $this->mDb->Prepare(
+                $query = $this->mDb->Prepare(
                     "$insertinto
-						:" . $this->mAlias . "
-					(`" . implode( '`, `' , $fields ) . "`) VALUES
-					" . implode( ',', $bindings ) . ";"
+                        :" . $this->mAlias . "
+                    (`" . implode( '`, `' , $fields ) . "`) VALUES
+                    " . implode( ',', $bindings ) . ";"
                 ); // implode all value lists into (list1), (list2), ...
                 $i = 0;
                 foreach ( $insertvalues as $valuestuple ) {
@@ -148,13 +148,13 @@
                     ++$i;
                 }
                 $query->BindTable( $this->mAlias );
-				$changes[] = $query->Execute();
-			}
-			if ( !$multipleinserts ) {
-				return end( $changes ); // only return the one and only single item of $changes
-			}
-			return $changes; // return an array of change
-		}
+                $changes[] = $query->Execute();
+            }
+            if ( !$multipleinserts ) {
+                return end( $changes ); // only return the one and only single item of $changes
+            }
+            return $changes; // return an array of change
+        }
         public function Equals( DBTable $target ) {
             if (    $this->Exists() != $target->Exists()
                  || $this->Name != $target->Name
@@ -176,40 +176,40 @@
             }
             return $this->mFields[ $name ];
         }
-		public function __get( $key ) {
-			switch ( $key ) {
-				case 'Name':
-					return $this->mTableName;
-				case 'Alias':
-					return $this->mAlias;
-				case 'Fields':
-				case 'Indexes':
-					$attribute = 'm' . $key;
-					if ( $this->$attribute === false ) {
-						$this->$attribute = DbTable_GetInfo( $this, strtolower( $key ) );
-					}
-					return $this->$attribute;
-				case 'Database':
-					return $this->mDb;
-			}
-		}
-		public function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Name':
-					w_assert( is_string( $value ), "Table name should be a string" );
-					$this->mTableName = $value;
-					break;
-				case 'Alias':
-					$this->mAlias = $value;
-					break;
-				case 'Database':
-					w_assert( is_object( $value ) );
-					w_assert( $value instanceof Database );
-					$this->mDb = $value;
-					break;
-			}
-		}
-		public function __construct( $db = false, $tablename = false, $alias = '' ) {
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Name':
+                    return $this->mTableName;
+                case 'Alias':
+                    return $this->mAlias;
+                case 'Fields':
+                case 'Indexes':
+                    $attribute = 'm' . $key;
+                    if ( $this->$attribute === false ) {
+                        $this->$attribute = DbTable_GetInfo( $this, strtolower( $key ) );
+                    }
+                    return $this->$attribute;
+                case 'Database':
+                    return $this->mDb;
+            }
+        }
+        public function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Name':
+                    w_assert( is_string( $value ), "Table name should be a string" );
+                    $this->mTableName = $value;
+                    break;
+                case 'Alias':
+                    $this->mAlias = $value;
+                    break;
+                case 'Database':
+                    w_assert( is_object( $value ) );
+                    w_assert( $value instanceof Database );
+                    $this->mDb = $value;
+                    break;
+            }
+        }
+        public function __construct( $db = false, $tablename = false, $alias = '' ) {
             $this->mExists = false;
             
             if ( $db !== false ) {
@@ -223,22 +223,22 @@
             
             if ( $tablename === false ) {
                 // new table
-				w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
-    			$this->mFields = array(); // no fields defined yet
-			}
-			else {
+                w_assert( $alias === '', 'No aliases should be passed for new DB tables' );
+                $this->mFields = array(); // no fields defined yet
+            }
+            else {
                 // existing table
-				w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
-	            w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
-	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
-	            w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
-				$this->mTableName = $tablename;
+                w_assert( is_string( $alias ), 'Database table alias `' . $alias . '\' is not a string' );
+                w_assert( is_string( $tablename ), 'Database table name `' . $tablename . '\' is not a string' );
+                w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]*$#', $alias ), 'Database table alias `' . $alias . '\' is invalid' );
+                w_assert( preg_match( '#^[\.a-zA-Z0-9_\-]+$#', $tablename ), 'Database table name `' . $tablename . '\' is invalid' );
+                $this->mTableName = $tablename;
                 $this->mExists = true;
-    			$this->mFields = false; // not retrieved yet
-			}
-			$this->mAlias = $alias;
+                $this->mFields = false; // not retrieved yet
+            }
+            $this->mAlias = $alias;
             $this->mIndexes = false;
-		}
+        }
         public function Copy( $newtable, $newalias ) {
             $this->mDb->AttachTable( $newalias, $newtable );
 
@@ -247,11 +247,11 @@
             $query->BindTable( $this->mAlias );
             $query->Execute();
         }
-		public function Truncate() {
-			$query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
+        public function Truncate() {
+            $query = $this->mDb->Prepare( 'TRUNCATE :' . $this->mAlias . ';' );
             $query->BindTable( $this->mAlias );
             return $query->Execute();
-		}
+        }
         public function CreateField( /* $field1, $field2, ... */ ) {
             $fields = func_get_args();
             w_assert( count( $fields ) );
@@ -310,5 +310,5 @@
         public function __toString() {
             return ( string )$this->mDb . '.`' . $this->mTableName . '`';
         }
-	}
+    }
 ?>

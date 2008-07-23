@@ -32,7 +32,7 @@
                 $album = New Album( $row );
                 $album->CopyMainimageFrom( New Image( $row ) );
                 $album->CopyUserFrom( $theuser );
-				$ret[] = $album;
+                $ret[] = $album;
             }
 
             return $ret;
@@ -43,28 +43,28 @@
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
 
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Name':
-					if ( strlen( $value ) > 100 ) {
-						$value = mb_substr( $value, 0, 100 );
-					}
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Name':
+                    if ( strlen( $value ) > 100 ) {
+                        $value = mb_substr( $value, 0, 100 );
+                    }
 
-					$this->mcurrentvalues[ 'name' ] = $value;
-					break;
-				case 'Description':
-					if ( strlen( $value ) > 200 ) {
-						$value = mb_substr( value, 0, 200 );
-					}
+                    $this->mcurrentvalues[ 'name' ] = $value;
+                    break;
+                case 'Description':
+                    if ( strlen( $value ) > 200 ) {
+                        $value = mb_substr( value, 0, 200 );
+                    }
 
-					$this->mCurrentValues[ 'Description' ] = $value;
-					break;
-				default:
-					parent::__set( $key, $value );
-			}
-		}
-		public function CopyMainImageFrom( $value ) {
-			w_assert( isset( $this->mRelations[ 'Mainimage' ] ), 'MainImage relation is not set' );
+                    $this->mCurrentValues[ 'Description' ] = $value;
+                    break;
+                default:
+                    parent::__set( $key, $value );
+            }
+        }
+        public function CopyMainImageFrom( $value ) {
+            w_assert( isset( $this->mRelations[ 'Mainimage' ] ), 'MainImage relation is not set' );
             $this->mRelations[ 'Mainimage' ]->CopyFrom( $value );
         }
         public function CopyUserFrom( $value ) {
@@ -75,10 +75,10 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Mainimage = $this->HasOne( 'Image', 'Mainimageid' );
         }
-		public function IsDeleted() {
-			return $this->Delid > 0;
-		}
-		public function OnBeforeDelete() {
+        public function IsDeleted() {
+            return $this->Delid > 0;
+        }
+        public function OnBeforeDelete() {
             global $water;
             global $libs;
 
@@ -90,7 +90,7 @@
             }
             $this->Delid = 1;
             $this->Save();
-		    
+            
             --$this->User->Count->Albums;
             $this->User->Count->Save();
 
@@ -105,31 +105,31 @@
             TODO
                                                                 -- dionyziz
             */
-			$query  = $this->mDb->Prepare("
-				UPDATE 
+            $query  = $this->mDb->Prepare("
+                UPDATE 
                     :" . $this->mImageTableAlias . "
-				SET
-					`image_delid` 	= :ImageDelId
-				WHERE
-				  	`image_albumid` = :AlbumId;
-			");
-			$query->BindTable( $this->mImageTableAlias );
-			$query->Bind( 'ImageDelId', 1 );
-			$query->Bind( 'AlbumId', $this->Id );
-			$query->Execute();
+                SET
+                    `image_delid`     = :ImageDelId
+                WHERE
+                      `image_albumid` = :AlbumId;
+            ");
+            $query->BindTable( $this->mImageTableAlias );
+            $query->Bind( 'ImageDelId', 1 );
+            $query->Bind( 'AlbumId', $this->Id );
+            $query->Execute();
 
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
 
             return false;
-		}
+        }
         public function OnCommentCreate() {
-			++$this->Numcomments;
-		    $this->Save();	
+            ++$this->Numcomments;
+            $this->Save();    
         }
         public function OnCommentDelete() {
-			--$this->Numcomments;
-		    $this->Save();	
+            --$this->Numcomments;
+            $this->Save();    
         }
         public function ImageAdded( Image $image ) {
             $this->Numcomments += $image->Numcomments;
@@ -202,11 +202,11 @@
             */
         }
         public function LoadDefaults() {
-			global $user;
-			
+            global $user;
+            
             $this->Created = NowDate();
-			$this->Userid = $user->Id;
-			$this->Userip = UserIp();
+            $this->Userid = $user->Id;
+            $this->Userip = UserIp();
         }
     }
 

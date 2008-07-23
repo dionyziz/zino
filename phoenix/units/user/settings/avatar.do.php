@@ -1,12 +1,12 @@
 <?php
-	
-	function UnitUserSettingsAvatar( tInteger $imageid ) {
-		global $user;
-		global $rabbit_settings;
-		
-		$image = New Image( $imageid->Get() );
-		
-		if ( $image->IsDeleted() ) {
+    
+    function UnitUserSettingsAvatar( tInteger $imageid ) {
+        global $user;
+        global $rabbit_settings;
+        
+        $image = New Image( $imageid->Get() );
+        
+        if ( $image->IsDeleted() ) {
             ?>alert( 'Sorry, this image is deleted' );<?php
             return;
         }
@@ -41,5 +41,5 @@
 
         $user->EgoAlbum->Mainimageid = $image->Id;
         $user->EgoAlbum->Save();
-	}
+    }
 ?>

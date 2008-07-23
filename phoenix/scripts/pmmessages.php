@@ -1,19 +1,19 @@
 <?php
-	set_include_path( '../:./' );
-	
-	global $page;
-	global $libs;
+    set_include_path( '../:./' );
+    
+    global $page;
+    global $libs;
     global $db;
     global $pmmessages;
     global $pmmessageinfolder;
     
-	require_once 'libs/rabbit/rabbit.php';
+    require_once 'libs/rabbit/rabbit.php';
     Rabbit_Construct( 'HTML' );
     $req = $_GET;
     
-	Rabbit_ClearPostGet();
-	
-	$libs->Load( 'albums' );
+    Rabbit_ClearPostGet();
+    
+    $libs->Load( 'albums' );
 
     function GetAllPms() {
         global $db;
@@ -65,9 +65,9 @@
 
         ?>OK<br /><?php
     }
-	
+    
     $page->Output();
 
     Rabbit_Destruct();
-	
+    
 ?>

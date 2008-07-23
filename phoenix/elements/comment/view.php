@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementCommentView extends Element {
+    
+    class ElementCommentView extends Element {
         public function Render( $comment, $indent, $numchildren ) {
             global $user;
             global $libs;

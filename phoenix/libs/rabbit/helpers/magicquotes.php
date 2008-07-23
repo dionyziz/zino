@@ -1,10 +1,10 @@
 <?php
-	function magicquotes_off() {
+    function magicquotes_off() {
         $_GET    = transcribe( $_GET  );
         $_POST   = transcribe( $_POST );
         $_FILES  = transcribe( $_FILES );
         $_COOKIE = transcribe( $_COOKIE );
-	}
+    }
     
     function transcribe( $aList, $aIsTopLevel = true ) {
         // from http://gr2.php.net/manual/en/function.get-magic-quotes-gpc.php#49612

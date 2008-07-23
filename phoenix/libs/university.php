@@ -1,8 +1,8 @@
 <?php
-	/*
-		Developer: Izual
-		Backend for the universities task
-	*/
+    /*
+        Developer: Izual
+        Backend for the universities task
+    */
 
     class UniFinder extends Finder {
         protected $mModel = 'Uni';
@@ -19,21 +19,21 @@
         }
     }
 
-	final class Uni extends Satori {
+    final class Uni extends Satori {
         protected $mDbTableAlias = 'universities';
         
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
-		public function OnBeforeDelete() {
-			$this->DelId = 1;
-			$this->Save();
+        public function OnBeforeDelete() {
+            $this->DelId = 1;
+            $this->Save();
 
             return false;
-		}
-		protected function LoadDefaults() {
-			$this->Created = NowDate();
-		}
-	}
+        }
+        protected function LoadDefaults() {
+            $this->Created = NowDate();
+        }
+    }
 ?>

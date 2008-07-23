@@ -31,7 +31,7 @@
                 <span>Προφίλ χρηστών</span>
                 <strong>1 μήνας 220€</strong>
                 <strong>3 μήνες 200€/μήνα</strong>
-            </li>			
+            </li>            
             <li>
                 <span>Προβολή φωτογραφιών</span>
                 <strong>1 μήνας 200€</strong>
@@ -47,7 +47,7 @@
             <li>
                 <span>Κεντρική σελίδα και προφίλ χρηστών</span>
                 <strong>1 μήνας 400€</strong>
-                <strong>3 μήνες 350€/μήνα</strong>		
+                <strong>3 μήνες 350€/μήνα</strong>        
             </li>
             <li>
                 <span>Κεντρική σελίδα, προφίλ χρηστών και προβολή φωτογραφιών</span>
@@ -79,7 +79,7 @@
             <input type="text" id="mailadress"></input>
             <p>Σχόλια (προαιρετικό)</p>
             <textarea></textarea>
-            <a href="" class="button">Αποστολή&raquo;</a>	
+            <a href="" class="button">Αποστολή&raquo;</a>    
         </form>
     }
 ?>

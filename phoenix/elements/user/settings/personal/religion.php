@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsPersonalReligion extends Element {
+    class ElementUserSettingsPersonalReligion extends Element {
         public function Render( $selected , $gender ) {
             ?><select><?php
                 $religions = array( '-' , 'christian' , 'muslim' , 'atheist' , 'agnostic' , 'nothing' );

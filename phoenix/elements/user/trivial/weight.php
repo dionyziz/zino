@@ -1,9 +1,9 @@
 <?php
-	
-	class ElementUserTrivialWeight extends Element {
+    
+    class ElementUserTrivialWeight extends Element {
         public function Render( $weight ) {
             if ( $weight == -3 ) {
-				// Removed "-" from here to resolve #414 <- Remove this comment
+                // Removed "-" from here to resolve #414 <- Remove this comment
                 ?><?php
             }
             else if ( $weight == -2 ) {

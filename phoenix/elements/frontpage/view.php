@@ -3,15 +3,15 @@
         public function Render( tBoolean $newuser ) {
             global $user;
             global $rabbit_settings;
-			global $libs;
-			
-			$libs->Load( 'notify' );
+            global $libs;
+            
+            $libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
             $finder = New ImageFinder();
             $images = $finder->FindFrontpageLatest( 0 , 15 );
-			$finder = New NotificationFinder();
+            $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user , 0 , 5 );
-			$shownotifications = count( $notifs ) > 0;
+            $shownotifications = count( $notifs ) > 0;
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
                 if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
@@ -23,63 +23,63 @@
                     }
                 }
                 $showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
-				if ( !$shownotifications ) {
-					?><div class="ybubble">
-	                    <div class="body">
-	                        <a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
-	                        <form>
-	                            <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
-	                            <div>
-	                                <span>Πόλη:</span><?php
-	                                if ( $user->Profile->Placeid != 0 ) {
-	                                    echo htmlspecialchars( $user->Profile->Location->Name );
-	                                }
-	                                else { 
-	                                    ?><div id="selectplace"><?php
-	                                    Element( 'user/settings/personal/place' , $user );
-	                                    ?></div><?php
-	                                }
-	                                ?><div id="selecteducation">
-	                                    <span>Εκπαίδευση:</span><?php
-	                                    Element( 'user/settings/personal/education' , $user );
-	                                ?></div>
-	                                <div id="selectuni"<?php
-	                                if ( !$showuni ) {
-	                                    ?> class="invisible"<?php
-	                                }
-	                                ?>>
-	                                <span>Πανεπιστήμιο:</span><?php
-	                                    if ( $showuni ) {
-	                                        Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
-	                                    }
-	                                ?></div>
-	                                <div class="saving invisible">
-	                                    <img src="<?php
-	                                    echo $rabbit_settings[ 'imagesurl' ];
-	                                    ?>ajax-loader.gif" alt="Γίνεται αποθήκευση" title="Γίνεται αποθήκευση" /> Γίνεται αποθήκευση
-	                                </div>
-	                                <div class="saved invisible">
-	                                    Έγινε αποθήκευση
-	                                </div>
-	                            </div>
-	                            <p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
-	                        </form>
-	                    </div>
-	                    <i class="bl"></i>
-	                    <i class="br"></i>
-	                </div><?php
-				}
+                if ( !$shownotifications ) {
+                    ?><div class="ybubble">
+                        <div class="body">
+                            <a href="" onclick="Frontpage.Closenewuser();return false;"><img src="images/cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+                            <form>
+                                <p style="margin:0">Αν είσαι φοιτητής επέλεξε τη σχολή σου αλλιώς το είδος της εκπαίδευσής σου:</p>
+                                <div>
+                                    <span>Πόλη:</span><?php
+                                    if ( $user->Profile->Placeid != 0 ) {
+                                        echo htmlspecialchars( $user->Profile->Location->Name );
+                                    }
+                                    else { 
+                                        ?><div id="selectplace"><?php
+                                        Element( 'user/settings/personal/place' , $user );
+                                        ?></div><?php
+                                    }
+                                    ?><div id="selecteducation">
+                                        <span>Εκπαίδευση:</span><?php
+                                        Element( 'user/settings/personal/education' , $user );
+                                    ?></div>
+                                    <div id="selectuni"<?php
+                                    if ( !$showuni ) {
+                                        ?> class="invisible"<?php
+                                    }
+                                    ?>>
+                                    <span>Πανεπιστήμιο:</span><?php
+                                        if ( $showuni ) {
+                                            Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+                                        }
+                                    ?></div>
+                                    <div class="saving invisible">
+                                        <img src="<?php
+                                        echo $rabbit_settings[ 'imagesurl' ];
+                                        ?>ajax-loader.gif" alt="Γίνεται αποθήκευση" title="Γίνεται αποθήκευση" /> Γίνεται αποθήκευση
+                                    </div>
+                                    <div class="saved invisible">
+                                        Έγινε αποθήκευση
+                                    </div>
+                                </div>
+                                <p>Μπορείς να το κάνεις και αργότερα από τις ρυθμίσεις.</p>
+                            </form>
+                        </div>
+                        <i class="bl"></i>
+                        <i class="br"></i>
+                    </div><?php
+                }
             }
-			if ( $shownotifications ) {
-				?><div class="notifications">
-					<h3>Ενημερώσεις</h3>
-					<div class="list"><?php
-						Element( 'notification/list' , $notifs );
-					?></div>
-					<div class="expand">
-						<a href="" title="Απόκρυψη">&nbsp;</a>
-					</div>
-				</div><?php
+            if ( $shownotifications ) {
+                ?><div class="notifications">
+                    <h3>Ενημερώσεις</h3>
+                    <div class="list"><?php
+                        Element( 'notification/list' , $notifs );
+                    ?></div>
+                    <div class="expand">
+                        <a href="" title="Απόκρυψη">&nbsp;</a>
+                    </div>
+                </div><?php
             }
             if ( count( $images ) > 0 ) {
                 ?><div class="latestimages">
@@ -145,7 +145,7 @@
             ?><div class="eof"></div><?php
             $finder = New UserFinder();
             $users = $finder->FindOnline( 0 , 50 );
-            if ( count( $users ) > 0 ) {		
+            if ( count( $users ) > 0 ) {        
                 ?><div class="nowonline">
                     <h2<?php
                         if ( count( $users ) > 1 ) {
@@ -163,7 +163,7 @@
                                 ?>"><?php
                                 Element( 'user/avatar' , $onuser , 150 , '' , '' );
                                 ?></a><?php
-                            }	
+                            }    
                         ?></div><?php
                 ?></div><?php
             }

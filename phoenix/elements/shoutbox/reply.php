@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementShoutboxReply extends Element {
+    
+    class ElementShoutboxReply extends Element {
         public function Render() {
             global $user;
             

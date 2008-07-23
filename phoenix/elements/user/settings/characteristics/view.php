@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsCharacteristicsView extends Element {
+    class ElementUserSettingsCharacteristicsView extends Element {
         public function Render() {
             ?><div class="option">
                 <label>Χρώμα μαλλιών</label>
@@ -61,7 +61,7 @@
             <div class="barfade">
                 <div class="leftbar"></div>
                 <div class="rightbar"></div>
-            </div><?php	
+            </div><?php    
             }
     }
 ?>

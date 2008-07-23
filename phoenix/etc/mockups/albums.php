@@ -1,12 +1,12 @@
 <?php
-	include "usersections.php";
+    include "usersections.php";
 ?>
 <ul class="albums">
     <li>
         <a href="" onclick="return false;">
-        	<span class="albummain">
-        		<img src="images/apartments.jpg" alt="Φωτογραφίες" />
-        	</span>
+            <span class="albummain">
+                <img src="images/apartments.jpg" alt="Φωτογραφίες" />
+            </span>
             <span class="desc">Πολυκατοικίες</span>
         </a>
         <dl>
@@ -18,8 +18,8 @@
     </li>
     <li>
         <a href="" onclick="return false;">
-        	<span class="albummain">
-            	<img src="images/boobs.jpg" alt="Φωτογραφίες" />
+            <span class="albummain">
+                <img src="images/boobs.jpg" alt="Φωτογραφίες" />
             </span>
             <span class="desc">Boobs</span>
         </a>
@@ -32,8 +32,8 @@
     </li>
     <li>
         <a href="" onclick="return false;">
-        	<span class="albummain">
-            	<img src="images/condom.jpg" alt="Φωτογραφίες" />
+            <span class="albummain">
+                <img src="images/condom.jpg" alt="Φωτογραφίες" />
             </span>
             <span class="desc">Πούτσες</span>
         </a>
@@ -46,9 +46,9 @@
     </li>
     <li>
         <a href="" onclick="return false;">
-			<span class="albummain">
-				<img src="images/spade.jpg" alt="Φωτογραφίες" />
-			</span>
+            <span class="albummain">
+                <img src="images/spade.jpg" alt="Φωτογραφίες" />
+            </span>
             <span class="desc">Φτυάρια</span>
         </a>
         <dl>

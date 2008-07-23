@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserTrivialSex extends Element {
+    
+    class ElementUserTrivialSex extends Element {
         public function Render( $sex , $gender ) {
             if ( $gender == 'm' || $gender == '-' ) {
                 $sexes = array( 

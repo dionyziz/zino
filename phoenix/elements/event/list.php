@@ -1,5 +1,5 @@
 <?php
-	class ElementEventList extends Element {
+    class ElementEventList extends Element {
         public function Render() {
             global $libs;
             
@@ -20,7 +20,7 @@
                     foreach ( $events as $i => $event ) {
                         if ( in_array( $event->Typeid, $profiletypes ) ) { 
                             $type = 'profile_update';
-                        }	
+                        }    
                         else {
                             $type = $event->Typeid;
                         }
@@ -128,7 +128,7 @@
                                             break;
                                         case 'profile_update':
                                             Element( 'event/profileupdate', $eventlist );
-                                            break;		
+                                            break;        
                                         case EVENT_USER_CREATED:
                                             ?><a href="<?php
                                             Element( 'user/url' , $event->Item );
@@ -138,7 +138,7 @@
                                             break;
                                     }
                                     ?>
-                                </div>					
+                                </div>                    
                             </div><?php
                         }
                     }

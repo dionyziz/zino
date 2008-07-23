@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsPersonalView extends Element {
+    class ElementUserSettingsPersonalView extends Element {
         public function Render() {
             global $water;
             global $user;

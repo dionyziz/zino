@@ -1,14 +1,14 @@
 <?php
 
-	/*  
-	pageno: current page number
-	link: link to the page. it should end with offset= e.g. '/journal/Hello?offset='
-	total_pages: the total pages of the entity
-	*/
+    /*  
+    pageno: current page number
+    link: link to the page. it should end with offset= e.g. '/journal/Hello?offset='
+    total_pages: the total pages of the entity
+    */
     class ElementPagify extends Element {
         public function Render( $pageno, $link, $total_pages ) {
             if ( $pageno > $total_pages || $pageno < 0 ) {
-                return;	
+                return;    
             }
             
             ?><div class="pagify"><?php

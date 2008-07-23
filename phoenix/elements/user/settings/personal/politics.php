@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsPersonalPolitics extends Element {
+    class ElementUserSettingsPersonalPolitics extends Element {
         public function Render( $selected , $gender ) {
             ?><select><?php
                 $politics = array( '-' , 'right' , 'left' , 'center' , 'radical right' , 'radical left' , 'center left', 'center right', 'nothing' );

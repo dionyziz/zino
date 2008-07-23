@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementPollList extends Element {
+    
+    class ElementPollList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
             global $libs;
             global $page;
@@ -33,7 +33,7 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 ?>Ο χρήστης δεν υπάρχει<?php
                 return;
-            }		
+            }        
             
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {

@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsInterests extends Element {
+    class ElementUserSettingsInterests extends Element {
         public function Render() {
             global $rabbit_settings;
             global $user;
@@ -68,7 +68,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
                         </form>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'songs' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'songs' );"/>
                         </form>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'movies' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'movies' );"/>
                         </form>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'shows' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'shows' );"/>
                         </form>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'books' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'books' );"/>
                         </form>
                     </div>
                 </div>
@@ -268,7 +268,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'artists' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'artists' );"/>
                         </form>
                     </div>
                 </div>
@@ -308,7 +308,7 @@
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
                         <form>
-                        	<select onkeypress="Suggest.selectMove( event, 'games' );"/>
+                            <select onkeypress="Suggest.selectMove( event, 'games' );"/>
                         </form>
                     </div>
                 </div>

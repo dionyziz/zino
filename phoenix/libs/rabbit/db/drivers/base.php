@@ -26,10 +26,10 @@
         public function FetchField( $driver_resource, $offset );
         // retrieves a user-friendly name for this driver as a string
         public function GetName();
-		// get a native database data type describing string by constant
-		public function DataTypeByConstant( $constant );
-		// get a rabbit DB data type from a native datatype describing string 
-		public function ConstantByDataType( $datatype );
+        // get a native database data type describing string by constant
+        public function DataTypeByConstant( $constant );
+        // get a rabbit DB data type from a native datatype describing string 
+        public function ConstantByDataType( $datatype );
         // get an associative array pointing from data type constants to native database driver 
         // string representations of the types to-be-used within queries
         public function DataTypes();

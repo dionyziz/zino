@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserRelationsList extends Element {
+    
+    class ElementUserRelationsList extends Element {
         public function Render( tText $username , tText $subdomain , tInteger $pageno ) {
             global $libs;
             global $user;
@@ -32,7 +32,7 @@
             if ( !isset( $theuser ) || $theuser === false ) {
                 ?>Ο χρήστης δεν υπάρχει<?php
                 return;
-            }		
+            }        
             
             $pageno = $pageno->Get();
             if ( $pageno <= 0 ) {

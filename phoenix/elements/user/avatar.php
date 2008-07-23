@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserAvatar extends Element {
+    
+    class ElementUserAvatar extends Element {
         public function Render( $theuser , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
             global $rabbit_settings;
             

@@ -37,8 +37,8 @@
         public function GetName() {
             return 'TestRabbitDbDriver';
         }
-		public function DataTypeByConstant( $constant ) {}
-		public function ConstantByDataType( $datatype ) {}
+        public function DataTypeByConstant( $constant ) {}
+        public function ConstantByDataType( $datatype ) {}
         public function DataTypes() {}
         public function ConstructField( DBField $target, $info ) {}
     }
@@ -47,7 +47,7 @@
         protected $mAppliesTo = 'libs/rabbit/db/db';
         private $mDummyDb;
         private $mFirstDatabase;
-		private $mTestTable;
+        private $mTestTable;
         private $mField1;
         private $mField2;
         private $mField3;
@@ -87,16 +87,16 @@
             $this->Assert( method_exists( $this->mDummyDb, 'SetCharset' ), 'Method Database->SetCharset() doesn\'t exist' );
             $this->Assert( method_exists( $this->mDummyDb, 'SwitchDb' ), 'Method Database->SwitchDb() doesn\'t exist' );
             
-			// DBTable
-			$table = New DBTable();	
-			$this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() doesn\'t exist' );
-			$this->Assert( method_exists( $table, 'CreateIndex' ) , 'Method DBTable->CreateIndex() doesn\'t exist' );
+            // DBTable
+            $table = New DBTable();    
+            $this->Assert( method_exists( $table, 'CreateField' ) , 'Method DBTable->CreateField() doesn\'t exist' );
+            $this->Assert( method_exists( $table, 'CreateIndex' ) , 'Method DBTable->CreateIndex() doesn\'t exist' );
             $this->Assert( method_exists( $table, 'Exists' ), 'Method DBTable->Exists() doesn\'t exist' );
-			
-			// DBIndex
-			$index = New DBIndex();	
-			$this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() doesn\'t exist' );
-			$this->Assert( method_exists( $index, 'Save' ) , 'Method DBIndex->Save() doesn\'t exist' );
+            
+            // DBIndex
+            $index = New DBIndex();    
+            $this->Assert( method_exists( $index, 'AddField' ) ,  'Method DBIndex->CreateField() doesn\'t exist' );
+            $this->Assert( method_exists( $index, 'Save' ) , 'Method DBIndex->Save() doesn\'t exist' );
         }
         public function TestPublicImport() {
             global $rabbit_settings;
@@ -112,20 +112,20 @@
             $this->Assert( is_object( $GLOBALS[ $key ] ), 'Database imported into the global namespace was not an object' );
             $this->Assert( $GLOBALS[ $key ] instanceof Database, 'Database imported into the global namespace does not appear to be a Database instance' );
         }
-		public function TestConstantsExist() {
-			// Database data types
-			$this->Assert( defined( 'DB_TYPE_DATETIME' )	, 'Constant of database type DATETIME must be defined' );
-			$this->Assert( defined( 'DB_TYPE_VARCHAR' )		, 'Constant of database type VARCHAR must be defined' );
-			$this->Assert( defined( 'DB_TYPE_ENUM' )		, 'Constant of database type ENUM must be defined' );
-			$this->Assert( defined( 'DB_TYPE_CHAR' )		, 'Constant of database type CHAR must be defined' );
-			$this->Assert( defined( 'DB_TYPE_INT' )			, 'Constant of database type INT must be defined' );
-			$this->Assert( defined( 'DB_TYPE_TEXT' )		, 'Constant of database type TEXT must be defined' );
-			$this->Assert( defined( 'DB_TYPE_FLOAT' )		, 'Constant of database type FLOAT must be defined' );
-			
-			// Database key index types
-			$this->Assert( defined( 'DB_KEY_INDEX' )	, 'Constant of database key INDEX must be defined' );
-			$this->Assert( defined( 'DB_KEY_UNIQUE' )	, 'Constant of database key UNIQUE must be defined' );
-			$this->Assert( defined( 'DB_KEY_PRIMARY' )	, 'Constant of database key PRIMARY must be defined' );
+        public function TestConstantsExist() {
+            // Database data types
+            $this->Assert( defined( 'DB_TYPE_DATETIME' )    , 'Constant of database type DATETIME must be defined' );
+            $this->Assert( defined( 'DB_TYPE_VARCHAR' )        , 'Constant of database type VARCHAR must be defined' );
+            $this->Assert( defined( 'DB_TYPE_ENUM' )        , 'Constant of database type ENUM must be defined' );
+            $this->Assert( defined( 'DB_TYPE_CHAR' )        , 'Constant of database type CHAR must be defined' );
+            $this->Assert( defined( 'DB_TYPE_INT' )            , 'Constant of database type INT must be defined' );
+            $this->Assert( defined( 'DB_TYPE_TEXT' )        , 'Constant of database type TEXT must be defined' );
+            $this->Assert( defined( 'DB_TYPE_FLOAT' )        , 'Constant of database type FLOAT must be defined' );
+            
+            // Database key index types
+            $this->Assert( defined( 'DB_KEY_INDEX' )    , 'Constant of database key INDEX must be defined' );
+            $this->Assert( defined( 'DB_KEY_UNIQUE' )    , 'Constant of database key UNIQUE must be defined' );
+            $this->Assert( defined( 'DB_KEY_PRIMARY' )    , 'Constant of database key PRIMARY must be defined' );
         }
         public function TestDatabaseEquality() {
             $this->Assert( $this->mFirstDatabase->Equals( $this->mFirstDatabase ), 'A database should be equal to itself (1)' );
@@ -166,7 +166,7 @@
             $this->AssertEquals( 0, count( $tables ), 'Number of tables attached should be zero after detaching all existing tables' );
         }
         public function TestTableEquality() {
-			$table = New DBTable();
+            $table = New DBTable();
             $this->Assert( $table->Equals( $table ), 'A new table must be equal to itself' );
             
             $this->mDummyDb->AttachTable( 'alias', 'actual' );
@@ -183,41 +183,41 @@
             }
             $this->Assert( $caught, 'Wrong index types should not be allowed -- an exception is expected' );
         }
-		public function TestCreateTable() {
-			$table = New DBTable();
-			$this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
+        public function TestCreateTable() {
+            $table = New DBTable();
+            $this->AssertFalse( $table->Exists(), 'Table must not exist prior to creation' );
             $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must be an array when creating a new table' );
             $this->AssertEquals( 0, count( $table->Fields ), 'No fields must exist before we add them to a new database table' );
             
-			$table->Name = 'rabbit_test';
+            $table->Name = 'rabbit_test';
             $this->AssertEquals( 'rabbit_test', $table->Name, 'Table name could not be set' );
             
             $table->Alias = 'rabbit_test';
             $this->AssertEquals( 'rabbit_test', $table->Alias, 'Table alias could not be set' );
             
-			$this->mField1 = New DBField();
+            $this->mField1 = New DBField();
             $this->AssertFalse( $this->mField1->Exists(), 'Field must not exist prior to creation' );
             $this->mField1->Name = 'user_id';
             $this->AssertEquals( 'user_id', $this->mField1->Name, 'Field name could not be set' );
-			$this->mField1->Type = DB_TYPE_INT;
+            $this->mField1->Type = DB_TYPE_INT;
             $this->AssertEquals( DB_TYPE_INT, $this->mField1->Type, 'Field type could not be set to DB_TYPE_INT' );
-			$this->mField1->IsAutoIncrement = true;
+            $this->mField1->IsAutoIncrement = true;
             $this->AssertEquals( true, $this->mField1->IsAutoIncrement, 'Field autoincrement could not be set' );
 
-			$this->mField2 = New DBField();
-			$this->mField2->Name = 'user_name';
-			$this->mField2->Type = DB_TYPE_CHAR;
+            $this->mField2 = New DBField();
+            $this->mField2->Name = 'user_name';
+            $this->mField2->Type = DB_TYPE_CHAR;
             $this->AssertEquals( DB_TYPE_CHAR, $this->mField2->Type, 'Field type could not be set to DB_TYPE_CHAR' );
-			$this->mField2->Length = 32;
+            $this->mField2->Length = 32;
             $this->AssertEquals( 32, $this->mField2->Length, 'Field length could not be set' );
             
-			$this->mField3 = New DBField();
-			$this->mField3->Name = 'user_subdomain';
-			$this->mField3->Type = DB_TYPE_CHAR;
-			$this->mField3->Length = 32;
+            $this->mField3 = New DBField();
+            $this->mField3->Name = 'user_subdomain';
+            $this->mField3->Type = DB_TYPE_CHAR;
+            $this->mField3->Length = 32;
 
-			$table->CreateField( $this->mField1 ); // DBField
-			$table->CreateField( $this->mField2, $this->mField3 );
+            $table->CreateField( $this->mField1 ); // DBField
+            $table->CreateField( $this->mField2, $this->mField3 );
             
             $this->Assert( is_array( $table->Fields ), 'DBTable->Fields must contain the fields to be created, even prior to table creation' );
             $this->AssertEquals( 3, count( $table->Fields ), 'Created 3 fields, but they\'re not there' );
@@ -243,38 +243,38 @@
                 ++$i;
             }
             
-			$primary = New DBIndex();
+            $primary = New DBIndex();
             $this->AssertFalse( $primary->Exists(), 'Primary key must not exist prior to creation' );
             $this->Assert( is_array( $primary->Fields ), 'Index fields must be an array, even when no fields have been added yet' );
             $this->AssertEquals( 0, count( $primary->Fields ), 'Index fields must be the empty array when no fields have been added yet' );
-			$primary->AddField( $this->mField1 );
+            $primary->AddField( $this->mField1 );
             $this->AssertEquals( 1, count( $primary->Fields ), 'Could not add one field to an index' );
             $this->AssertEquals( $this->mField1, reset( $primary->Fields ), 'The field added to the index does not match the field specified' );
-		 	$primary->Type = DB_KEY_PRIMARY;
+             $primary->Type = DB_KEY_PRIMARY;
             $this->AssertEquals( DB_KEY_PRIMARY, $primary->Type, 'Could not set key type to DB_KEY_PRIMARY' );
 
-			$username = New DBIndex();
-			$username->AddField( $this->mField2 );
-			$username->Type = DB_KEY_UNIQUE;
+            $username = New DBIndex();
+            $username->AddField( $this->mField2 );
+            $username->Type = DB_KEY_UNIQUE;
             $this->AssertEquals( DB_KEY_UNIQUE, $username->Type, 'Could not set key type to DB_KEY_UNIQUE' );
             $username->Name = 'USER_UNIQUE';
             $this->AssertEquals( 'USER_UNIQUE', $username->Name, 'Could not set the name of a unique index' );
 
-			$subdomain = New DBIndex();
-			$subdomain->AddField( $this->mField2 ); // DBField or array of DBField
-			$subdomain->AddField( $this->mField3 ); // order matters
+            $subdomain = New DBIndex();
+            $subdomain->AddField( $this->mField2 ); // DBField or array of DBField
+            $subdomain->AddField( $this->mField3 ); // order matters
             $this->AssertEquals( 2, count( $subdomain->Fields ), 'Could not create a multifield index' );
             $this->AssertEquals( $this->mField2, reset( $subdomain->Fields ), 'Multifield index must maintain field order (1)' );
             $this->AssertEquals( $this->mField3, next( $subdomain->Fields ), 'Multifield index must maintain field order (2)' );
             $subdomain->Name = 'USER_UNIQUE_SUBDOMAIN';
             $this->AssertEquals( 'USER_UNIQUE_SUBDOMAIN', $subdomain->Name, 'Could not set the name of an index prior to specifying its type' );
-			$subdomain->Type = DB_KEY_INDEX;
+            $subdomain->Type = DB_KEY_INDEX;
             $this->AssertEquals( DB_KEY_INDEX, $subdomain->Type, 'Could not set key type to DB_KEY_INDEX' );
 
-			$table->CreateIndex( $primary ); // DBIndex
-			$table->CreateIndex( $username, $subdomain );
+            $table->CreateIndex( $primary ); // DBIndex
+            $table->CreateIndex( $username, $subdomain );
 
-			$table->Database = $this->mFirstDatabase;
+            $table->Database = $this->mFirstDatabase;
             $this->AssertEquals( $this->mFirstDatabase, $table->Database, 'Could not set table database' );
             
             try {
@@ -284,10 +284,10 @@
                 $this->Assert( false, 'Failed to execute table creation query' );
             }
             
-			$this->mTestTable = $table;
-			
-			$this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
-		}
+            $this->mTestTable = $table;
+            
+            $this->AssertTrue( $this->mTestTable->Exists(), 'Table must exist after creation' );
+        }
         public function TestTableList() {
             $tables = $this->mFirstDatabase->Tables();
             $this->Assert( is_array( $tables ), 'Value returned by Database->Tables() must be an array' );
@@ -386,10 +386,10 @@
                 ++$i;
             }
         }
-		public function TestDeleteTable() {
-			$this->mTestTable->Delete();
-			$this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
-		}
+        public function TestDeleteTable() {
+            $this->mTestTable->Delete();
+            $this->AssertFalse( $this->mTestTable->Exists(), 'Table must not exist after deletion' );
+        }
     }
     
     return New TestRabbitDb();

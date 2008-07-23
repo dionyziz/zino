@@ -155,18 +155,18 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
-		protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Since':
-					return dateDiff( $this->Event->Created, NowDate() );
-				case 'Item':
-					w_assert( $this->Event->Exists(), 'Event does not exist' );
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Since':
+                    return dateDiff( $this->Event->Created, NowDate() );
+                case 'Item':
+                    w_assert( $this->Event->Exists(), 'Event does not exist' );
 
-					return $this->Event->Item;
-				default:
-					return parent::__get( $key );
-			}
-		}
+                    return $this->Event->Item;
+                default:
+                    return parent::__get( $key );
+            }
+        }
         public function CopyEventFrom( $value ) {
             $this->mRelations[ 'Event' ]->CopyFrom( $value );
         }

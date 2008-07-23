@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserProfileSidebarInfo extends Element {
+    class ElementUserProfileSidebarInfo extends Element {
         public function Render( $theuser ) {
             ?><div class="info">
                 <dl><?php

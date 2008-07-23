@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementAlbumPhotoUpload extends Element {
+    
+    class ElementAlbumPhotoUpload extends Element {
         public function Render( tInteger $albumid , tInteger $typeid ) {
             global $water;
             global $user;
@@ -30,8 +30,8 @@
                         <img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε" title="Παρακαλώ περιμένετε" />
-                        Παρακαλώ περιμένετε				
-                    </div><?php	
+                        Παρακαλώ περιμένετε                
+                    </div><?php    
             }
             return array( 'tiny' => true );
         }

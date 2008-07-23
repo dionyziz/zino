@@ -8,7 +8,7 @@
     
     global $rabbit_settings; // settings map
     // it is important that these singletons keeps their names, as they are used as-they-are in the code
-	global $water;
+    global $water;
     global $libs;
     global $elemental;
     global $page;
@@ -17,16 +17,16 @@
     
     // you might want to modify this require to the fullpath to your settings file
     $rabbit_settings = require_once 'settings.php'; // site-wise settings
-	
+    
     // set the include path that will be used from now on, relative to the rootdir of our site
-	set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
+    set_include_path( get_include_path() . PATH_SEPARATOR . $rabbit_settings[ 'rootdir' ] );
     
     // load the debugging library
-	$water = require_once 'libs/rabbit/water.php';
-	$water->SetSetting( 'window_url'   , $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
-	$water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
-	$water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
-	$water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
+    $water = require_once 'libs/rabbit/water.php';
+    $water->SetSetting( 'window_url'   , $rabbit_settings[ 'webaddress' ] . '/?p=debug' );
+    $water->SetSetting( 'images_url'   , $rabbit_settings[ 'imagesurl' ] . 'water/' );
+    $water->SetSetting( 'css_url'      , $rabbit_settings[ 'webaddress' ] . '/css/water.css' );
+    $water->SetSetting( 'server_root'  , $rabbit_settings[ 'rootdir' ] );
     $water->SetSetting( 'calltracelvl' , 8 );
     
     w_assert( isset( $rabbit_settings[ 'rootdir' ] ), "`rootdir' setting is not defined" );
@@ -46,16 +46,16 @@
     }
 
     // enable the debugging library if we're not on a production environment
-	if ( !$rabbit_settings[ 'production' ] ) {
-		$water->Enable(); // might be disabled later using ->Disable() if you wish
-	}
+    if ( !$rabbit_settings[ 'production' ] ) {
+        $water->Enable(); // might be disabled later using ->Disable() if you wish
+    }
     
     require_once 'libs/rabbit/mask.php';
     
     // load the libraries system -- it will be used to load everything else
     // the debugging module is NOT loaded using the libraries system, just
     // to make debugging the libraries system easier
-	$libs = require_once 'libs/rabbit/lib.php';
+    $libs = require_once 'libs/rabbit/lib.php';
 
     // load the helper libraries
     $libs->Load( 'rabbit/helpers/helpers' );
@@ -83,26 +83,26 @@
         $httphost = strtolower( $httphost[ 0 ] );
         if ( $rabbit_settings[ 'hostname' ] !== false && !isset( $rabbit_settings[ 'hostnameforce' ] ) || $rabbit_settings[ 'hostnameforce' ] === true ) {
             w_assert( is_string( $rabbit_settings[ 'hostname' ] ) );
-        	if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
-        		header( 'HTTP/1.1 301 Moved Permanently' );
-        		header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
-        		exit();
-        	}
+            if ( $httphost != strtolower( $rabbit_settings[ 'hostname' ] ) ) {
+                header( 'HTTP/1.1 301 Moved Permanently' );
+                header( 'Location: ' . $rabbit_settings[ 'webaddress' ] . '/' );
+                exit();
+            }
         }
     }
     
     // define timezone, as of PHP 5.1.0
-	if ( function_exists( 'date_default_timezone_set' ) ) {
-		date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
-	}
-	
-	// manual register_globals off
-	registerglobals_off(); 
-	magicquotes_off();
+    if ( function_exists( 'date_default_timezone_set' ) ) {
+        date_default_timezone_set( $rabbit_settings[ 'timezone' ] );
+    }
+    
+    // manual register_globals off
+    registerglobals_off(); 
+    magicquotes_off();
 
     $libs->Load( 'rabbit/typesafety' );
     $libs->Load( 'rabbit/activerecord/satori' );
-	$libs->Load( 'rabbit/db/db' );
+    $libs->Load( 'rabbit/db/db' );
     if ( isset( $rabbit_settings[ 'memcache' ] ) ) {
         $libs->Load( 'rabbit/memcache/mc' );
     }
@@ -166,7 +166,7 @@
     if ( function_exists( 'Project_OnBeforeSessionStart' ) ) {
         Project_OnBeforeSessionStart();
     }
-	session_start(); 
+    session_start(); 
     registerglobals_off(); // this needs to be performed again now that session_start has been fired
     if ( function_exists( 'Project_OnAfterSessionStart' ) ) {
         Project_OnAfterSessionStart();

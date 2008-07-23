@@ -8,35 +8,35 @@
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
 
-		protected function __get( $key ) {
-			switch ( $key ) {
-				case 'Receivers':
-					if ( $this->Exists() && empty( $this->mReceivers ) ) {
-						$finder = New PMFinder();
-						$this->mReceivers = $finder->FindReceivers( $this );
-					}
+        protected function __get( $key ) {
+            switch ( $key ) {
+                case 'Receivers':
+                    if ( $this->Exists() && empty( $this->mReceivers ) ) {
+                        $finder = New PMFinder();
+                        $this->mReceivers = $finder->FindReceivers( $this );
+                    }
 
-					return $this->mReceivers;
-				case 'Since':
-					return dateDistance( $this->Created );
-				case 'Text':
-					return $this->Bulk->Text;
-				default:
-					return parent::__get( $key );
-			}
-		}
-		protected function __set( $key, $value ) {
-			switch ( $key ) {
-				case 'Receivers':
-					$this->mReceivers = $value;
-					break;
-				case 'Text':
-					$this->Bulk->Text = $value;
-					break;
-				default:
-					parent::__set( $key, $value );
-			}
-		}
+                    return $this->mReceivers;
+                case 'Since':
+                    return dateDistance( $this->Created );
+                case 'Text':
+                    return $this->Bulk->Text;
+                default:
+                    return parent::__get( $key );
+            }
+        }
+        protected function __set( $key, $value ) {
+            switch ( $key ) {
+                case 'Receivers':
+                    $this->mReceivers = $value;
+                    break;
+                case 'Text':
+                    $this->Bulk->Text = $value;
+                    break;
+                default:
+                    parent::__set( $key, $value );
+            }
+        }
         public function OnDelete() {
             foreach ( $this->UserPMs as $upm ) {
                 $upm->Delete();

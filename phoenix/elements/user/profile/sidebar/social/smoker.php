@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarSocialSmoker extends Element {
+    class ElementUserProfileSidebarSocialSmoker extends Element {
         public function Render( $theuser ) {
             if ( $theuser->Profile->Smoker != '-' ) {
                 ?><li><strong>Καπνίζεις;</strong>

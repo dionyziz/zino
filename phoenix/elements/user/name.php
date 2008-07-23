@@ -1,5 +1,5 @@
 <?php
-	class ElementUserName extends Element {
+    class ElementUserName extends Element {
         public function Render( User $theuser, $link = true ) {
             if ( !$link ) {
                 echo htmlspecialchars( $theuser->Name );

@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarMood extends Element {
+    class ElementUserProfileSidebarMood extends Element {
         public function Render( $theuser ) {
             global $xc_settings;
             

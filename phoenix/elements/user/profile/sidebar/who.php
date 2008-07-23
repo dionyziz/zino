@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileSidebarWho extends Element {
+    class ElementUserProfileSidebarWho extends Element {
         public function Render( $theuser ) {
             ?><h2><?php
                 Element( 'user/avatar' , $theuser , 150 , '' , 'margin-bottom:5px' , false , 0 , 0 );

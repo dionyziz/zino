@@ -1,19 +1,19 @@
 <?php
-	function UnitQuestionEdit( tInteger $id , tText $answer, tCoalaPointer $callback ) {
-		global $user;
-		global $libs;
+    function UnitQuestionEdit( tInteger $id , tText $answer, tCoalaPointer $callback ) {
+        global $user;
+        global $libs;
 
         $id = $id->Get();
         $answer = $answer->Get();
         
-		$libs->Load( 'question' );
+        $libs->Load( 'question' );
         $question = new Question( $id );
         if ( trim( $answer ) == '' || !$question->Exists() ) {
             return;
         }
 
-		$formatted = mformatanswers( array( myucfirst( $answer ) ) );
-		
+        $formatted = mformatanswers( array( myucfirst( $answer ) ) );
+        
         echo $callback;
         ?>( <?php
         echo $id;
@@ -23,5 +23,5 @@
         echo w_json_encode( $answer );
         ?> );<?php
         $user->AnswerQuestion( $id, $answer );
-	}
+    }
 ?>

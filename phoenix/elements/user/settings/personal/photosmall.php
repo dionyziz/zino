@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsPersonalPhotosmall extends Element {
+    
+    class ElementUserSettingsPersonalPhotosmall extends Element {
         public function Render( $image ) {
             ?><a href="" onclick="Settings.SelectAvatar( '<?php
             echo $image->Id;

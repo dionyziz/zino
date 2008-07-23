@@ -1,7 +1,7 @@
 <?php
-	class ElementUserTrivialYesno extends Element {
+    class ElementUserTrivialYesno extends Element {
         public function Render( $answer ) {
-            $yesno = array( '-'	  => '-',
+            $yesno = array( '-'      => '-',
                             'yes' => 'Ναι', 
                             'no' => 'Όχι',
                             'socially' => 'Με παρέα'

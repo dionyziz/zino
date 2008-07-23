@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsPersonalEducation extends Element {
+    
+    class ElementUserSettingsPersonalEducation extends Element {
         public function Render() {
             global $user;
             

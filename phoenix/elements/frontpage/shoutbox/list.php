@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementFrontpageShoutboxList extends Element {
+    
+    class ElementFrontpageShoutboxList extends Element {
         public function Render() {
             global $user;
             global $libs;

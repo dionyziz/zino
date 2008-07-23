@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementFrontpageCommentView extends Element {
+    
+    class ElementFrontpageCommentView extends Element {
         public function Render( $comment ) {
             ?><div class="event">
                 <div class="toolbox">

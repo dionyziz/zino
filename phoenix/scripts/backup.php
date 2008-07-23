@@ -5,8 +5,8 @@
         die( 'This script may only run in a non-production environment!' );
     }
     
-	set_include_path( '../:./' );
-	require_once 'libs/rabbit/rabbit.php';
+    set_include_path( '../:./' );
+    require_once 'libs/rabbit/rabbit.php';
 
     $step = isset( $_GET[ "step" ] ) ? $_GET[ "step" ] : 0;
     

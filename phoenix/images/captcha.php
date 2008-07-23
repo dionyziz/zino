@@ -1,5 +1,5 @@
 <?php
-	set_include_path( '../:./' );
+    set_include_path( '../:./' );
 
     global $page;
     global $user;
@@ -7,7 +7,7 @@
     global $rabbit_settings;
     global $water;
     
-	require_once 'libs/rabbit/rabbit.php';
+    require_once 'libs/rabbit/rabbit.php';
     
     Rabbit_Construct();
 

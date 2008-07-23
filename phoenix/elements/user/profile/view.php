@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserProfileView extends Element {
+    
+    class ElementUserProfileView extends Element {
         public function Render( tText $name , tText $subdomain, tInteger $commentid , tInteger $pageno ) {
             global $page;
             global $user;

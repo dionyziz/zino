@@ -6,20 +6,20 @@
     
     class DBDriver_MySQL implements DBDriver {
         // Rabbit DB constant to native mysql type descriptor
-		private $mDataTypes = array( 
-			DB_TYPE_INT 		=> 'INT',
-			DB_TYPE_VARCHAR 	=> 'VARCHAR',
-			DB_TYPE_CHAR		=> 'CHAR',
-			DB_TYPE_TEXT		=> 'TEXT',
+        private $mDataTypes = array( 
+            DB_TYPE_INT         => 'INT',
+            DB_TYPE_VARCHAR     => 'VARCHAR',
+            DB_TYPE_CHAR        => 'CHAR',
+            DB_TYPE_TEXT        => 'TEXT',
             DB_TYPE_LONGTEXT    => 'LONGTEXT',
-			DB_TYPE_DATETIME	=> 'DATETIME',
-			DB_TYPE_DATE        => 'DATE',
-			DB_TYPE_FLOAT		=> 'FLOAT',
-			DB_TYPE_ENUM		=> 'ENUM'
-		); 
-		private $mFlippedDataTypes = false;
-		
-		public function GetName() {
+            DB_TYPE_DATETIME    => 'DATETIME',
+            DB_TYPE_DATE        => 'DATE',
+            DB_TYPE_FLOAT        => 'FLOAT',
+            DB_TYPE_ENUM        => 'ENUM'
+        ); 
+        private $mFlippedDataTypes = false;
+        
+        public function GetName() {
             return 'MySQL';
         }
         public function LastAffectedRows( $driver_link ) {
@@ -61,12 +61,12 @@
         public function FetchField( $driver_resource, $offset ) {
             return mysql_fetch_field( $driver_resource, $offset );
         }
-		public function DataTypeByConstant( $constant ) {
-			return $this->mDataTypes[ $constant ]; 
-		}
-		public function ConstantByDataType( $datatype ) {
-			if ( $this->mFlippedDataTypes === false ) {
-				$this->mFlippedDataTypes = array_flip( $this->mDataTypes );
+        public function DataTypeByConstant( $constant ) {
+            return $this->mDataTypes[ $constant ]; 
+        }
+        public function ConstantByDataType( $datatype ) {
+            if ( $this->mFlippedDataTypes === false ) {
+                $this->mFlippedDataTypes = array_flip( $this->mDataTypes );
                 // FLOAT synonyms or similars
                 $this->mFlippedDataTypes[ 'DECIMAL' ] = DB_TYPE_FLOAT;
                 $this->mFlippedDataTypes[ 'DEC' ] = DB_TYPE_FLOAT;
@@ -94,12 +94,12 @@
                 $this->mFlippedDataTypes[ 'MEDIUMTEXT' ] = DB_TYPE_TEXT;
                 // LONGTEXT
                 $this->mFlippedDataTypes[ 'LONGBLOB' ] = DB_TYPE_LONGTEXT;
-			}
+            }
             if ( isset( $this->mFlippedDataTypes[ $datatype ] ) ) {
-    			return $this->mFlippedDataTypes[ $datatype ];
+                return $this->mFlippedDataTypes[ $datatype ];
             }
             throw New DBException( 'Invalid data type specified for field: ' . $datatype );
-		}
+        }
         public function DataTypes() {
             return $this->mDataTypes;
         }

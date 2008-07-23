@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserSettingsPersonalFavquote extends Element {
+    
+    class ElementUserSettingsPersonalFavquote extends Element {
         public function Render() {
             global $user;
 

@@ -1,7 +1,7 @@
 <?php
 
-	class TestPoll extends Testcase {
-		protected $mAppliesTo = 'libs/poll/poll';
+    class TestPoll extends Testcase {
+        protected $mAppliesTo = 'libs/poll/poll';
         private $mPoll;
         private $mOption;
         private $mUser;
@@ -207,8 +207,8 @@
         public function TearDown() {
             $this->mUser->Delete();
         }
-	}
+    }
 
-	return New TestPoll();
+    return New TestPoll();
 
 ?>

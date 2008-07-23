@@ -1,5 +1,5 @@
 <?php
-	class ElementUserSettingsSidebar extends Element {
+    class ElementUserSettingsSidebar extends Element {
         public function Render() {
             global $rabbit_settings;
             global $user;

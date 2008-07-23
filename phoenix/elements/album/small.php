@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementAlbumSmall extends Element {
+    
+    class ElementAlbumSmall extends Element {
         public function Render( $album , $creationmockup = false ) {
             global $water;
             global $xc_settings;
@@ -20,7 +20,7 @@
                     echo $album->Id;
                     ?>">
                         <span class="albummain"><?php
-                            if ( $album->Mainimage->Exists() ) {	
+                            if ( $album->Mainimage->Exists() ) {    
                                 Element( 'image/view', $album->Mainimage, IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' , false , 0 , 0 ); // TODO: Optimize
                             }
                             else {

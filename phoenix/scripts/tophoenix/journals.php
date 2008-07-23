@@ -1,5 +1,5 @@
 <?php
-	set_include_path( '../../:./' );
+    set_include_path( '../../:./' );
     require_once 'libs/rabbit/rabbit.php';
 
     define('ARTICLE_TYPE_NORMAL', 0);

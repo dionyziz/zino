@@ -1,6 +1,6 @@
 <?php
 
-	class ElementUserSettingsPersonalAboutme extends Element {
+    class ElementUserSettingsPersonalAboutme extends Element {
         public function Render() {
             global $user;
             

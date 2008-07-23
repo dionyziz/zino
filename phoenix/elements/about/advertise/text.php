@@ -1,6 +1,6 @@
 <?php
-	class ElementAboutAdvertiseText extends Element {
-        public function Render() {		
+    class ElementAboutAdvertiseText extends Element {
+        public function Render() {        
             ?><h2>Διαφήμιση στο Zino</h2>
                 
                 <h3>Τι είναι το Zino</h3>

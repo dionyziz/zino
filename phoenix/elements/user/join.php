@@ -1,6 +1,6 @@
 <?php
-	
-	class ElementUserJoin extends Element {
+    
+    class ElementUserJoin extends Element {
         public function Render( tText $username) {
             global $page;
             global $rabbit_settings;

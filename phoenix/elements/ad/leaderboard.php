@@ -1,5 +1,5 @@
 <?php
-	// Google Ads
+    // Google Ads
     class ElementAdLeaderboard extends Element {
         public function Render() {
             global $user;

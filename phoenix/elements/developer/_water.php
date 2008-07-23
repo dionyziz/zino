@@ -1,9 +1,9 @@
 <?php
-	class ElementDeveloperWater extends Element {
+    class ElementDeveloperWater extends Element {
         public function Render() {
             global $rabbit_settings;
             
-            ?><script type="text/javascript"><?php	
+            ?><script type="text/javascript"><?php    
             ob_start();
             ?>
                 var imgfolder = <?php
@@ -285,7 +285,7 @@
                         re.href = "javascript:Reload(\"" + page + "\")";
 
                         var link = document.createTextNode( "Refresh" );
-                        re.appendChild( link );		
+                        re.appendChild( link );        
                         document.body.appendChild(re);
                         
                         for ( i = 0 ; i < 3 ; ++i ) {
@@ -384,7 +384,7 @@
                         row.style.color = 'black';
                         row.style.fontFamily = 'Trebuchet MS,sans-serif,Helvetica';
                         row.style.marginLeft = indent * 10 + "px";
-                        row.style.marginBottom = "1px";			
+                        row.style.marginBottom = "1px";            
                         
                         realtime = ( Math.round( profile.time * 1000 * 100 ) / 100 ) + ""; 
 
@@ -434,7 +434,7 @@
                     element.style.borderLeft = '0px solid black';
                     element.style.borderRight = '0px solid black';
                     element.style.display = 'none';
-                    element.id = 'main_sql';			
+                    element.id = 'main_sql';            
                     
                     calls = 0;
                     
@@ -528,7 +528,7 @@
                         
                         element.appendChild( sacktitle );
                         ++calls;
-                        for ( j	in sql.calltrace ) {
+                        for ( j    in sql.calltrace ) {
                             sqlcall = sql.calltrace[ j ];
                             
                             if ( sqlcall.class == "Water" && sqlcall.name =="LogSQLEnd" ) {
@@ -595,7 +595,7 @@
                             
                             ++j;
                             ++calls;
-                        }	
+                        }    
                     }
                     g( 'main' ).appendChild( element );
                     
@@ -663,7 +663,7 @@
                             erroricon.width = 12;
                             erroricon.height = 12;
                         
-                            errordescr.appendChild(erroricon);	
+                            errordescr.appendChild(erroricon);    
                         }
                         
                         errordescr.appendChild(errorcontent);

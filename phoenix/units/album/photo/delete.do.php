@@ -1,19 +1,19 @@
 <?php
-	function UnitAlbumPhotoDelete( tInteger $photoid ) {
-		global $user;
+    function UnitAlbumPhotoDelete( tInteger $photoid ) {
+        global $user;
         global $rabbit_settings;
-		
-		$image = New Image( $photoid->Get() );
-		if ( $image->User->Id == $user->Id ) {
-			$albumid = $image->Albumid;
-			$image->Delete();
-			if ( $albumid > 0 ) {
-				?>window.location.href = '<?php
-				echo $rabbit_settings[ 'webaddress' ];
-				?>?p=album&id=<?php
-				echo $albumid;
-				?>';<?php
-			}
-		}
-	}
+        
+        $image = New Image( $photoid->Get() );
+        if ( $image->User->Id == $user->Id ) {
+            $albumid = $image->Albumid;
+            $image->Delete();
+            if ( $albumid > 0 ) {
+                ?>window.location.href = '<?php
+                echo $rabbit_settings[ 'webaddress' ];
+                ?>?p=album&id=<?php
+                echo $albumid;
+                ?>';<?php
+            }
+        }
+    }
 ?>

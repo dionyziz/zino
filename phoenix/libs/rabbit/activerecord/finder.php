@@ -106,7 +106,7 @@
                 throw New SatoriException( 'mModel defined for finder `' . get_class( $this ) . '\' must be a class extending Satori' );
             }
             $this->mDb = $prototype->Db; // TODO: cache this across all finder instances? (late static binding required?)
-			w_assert( is_object( $this->mDb ) );
+            w_assert( is_object( $this->mDb ) );
             $this->mDbTableAlias = $prototype->DbTable->Alias;
             $this->mDbIndexes = $prototype->DbTable->Indexes;
             $this->mAttribute2DbField = array_flip( $prototype->DbFields );

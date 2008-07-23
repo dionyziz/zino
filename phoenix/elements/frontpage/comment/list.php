@@ -1,5 +1,5 @@
 <?php
-	class ElementFrontpageCommentList extends Element {
+    class ElementFrontpageCommentList extends Element {
         public function Render() {
             global $libs;
 

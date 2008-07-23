@@ -2,9 +2,9 @@
     function UnitPmFolderRename( tInteger $folderid, tText $newname ) {
         global $user;
         global $libs;
-		
-		$libs->Load( 'pm/pm' );
-		
+        
+        $libs->Load( 'pm/pm' );
+        
         $folderid = $folderid->Get();
         $newname = $newname->Get();
         

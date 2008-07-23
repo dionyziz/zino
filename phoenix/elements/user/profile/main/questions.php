@@ -1,5 +1,5 @@
 <?php
-	class ElementUserProfileMainQuestions extends Element {
+    class ElementUserProfileMainQuestions extends Element {
         public function Render( User $theuser ) {
             global $user;
 
