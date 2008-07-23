@@ -49,7 +49,7 @@
         
         // YouTube support
         $html = preg_replace(
-           '#\<img[^>]*?src\=(["\']?)' 
+           '#\<img[^>]*?src\=([""]?)' 
             . preg_quote( $rabbit_settings[ 'imagesurl' ], "#i" )
             . 'video-placeholder\.png\?v\=([a-zA-Z0-9_-]+)\1[^>]*/?\>#i',
             '<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/\2"></param><embed src="http://www.youtube.com/v/\2" type="application/x-shockwave-flash" width="425" height="344"></embed></object>', 
@@ -58,7 +58,7 @@
         
         // Veoh support
         $html = preg_replace(
-            '#\<img[^>]*?src\=(["\']?)'
+            '#\<img[^>]*?src\=([""]?)'
             . preg_quote( $rabbit_settings[ 'imagesurl' ], '#i' )
             . 'video-placeholder\.png\?w\=([a-zA-Z0-9_-]+)\1[^>]*/?\>#i',
             '<embed src="http://www.veoh.com/videodetails2.swf?permalinkId=\2&amp;id=anonymous&amp;player=videodetailsembedded&amp;videoAutoPlay=0" allowFullScreen="true" width="540" height="438" bgcolor="#000000" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>',
@@ -166,24 +166,24 @@
         
         if ( $smileysprocessed === false ) {
             foreach ( $smileys as $i => $smiley ) {
-                $smileysprocessed[ $i ] = '<img src=\'' 
+                $smileysprocessed[ $i ] = '<img src="' 
                                         . $xc_settings[ 'staticimagesurl' ] 
                                         . 'emoticons/' 
                                         . $smiley 
-                                        . '.png\' alt=\'' 
+                                        . '.png" alt="' 
                                         . htmlspecialchars( $i ) 
-                                        . '\' title=\'' 
+                                        . '" title="' 
                                         . htmlspecialchars( $i ) 
-                                        . '\' class=\'emoticon\' width=\'22\' height=\'22\' />';
+                                        . '" class="emoticon" width="22" height="22" />';
             }
             $smileysprocessedkeys = array_keys( $smileysprocessed );
         }
         
         $text = str_replace( $smileysprocessedkeys, $smileysprocessed, $text );
         // wink special case
-        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<img src=\'' 
+        $text = preg_replace( '#(^|\s);-?\)(\s|$)#', '\1<img src="' 
             . $xc_settings[ 'staticimagesurl' ] 
-            . 'emoticons/wink.png\' alt=\';-)\' title=\';-)\' class=\'emoticon\' width=\'22\' height=\'22\' />\2', $text );
+            . 'emoticons/wink.png" alt=";-)" title=";-)" class="emoticon" width="22" height="22" />\2', $text );
         return $text;
 	}
 ?>
