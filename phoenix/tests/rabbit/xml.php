@@ -22,6 +22,22 @@
                 $this->AssertEquals( 'name', $name, 'Attribute name was not "name" as expected' );
                 $this->AssertEquals( 'flowers', $value, 'Attribute value was not "flowers" as expected' );
             }
+            $this->AssertEquals( 3, count( $root->childNodes ), 'Number of childNodes is invalid' );
+            $i = 0;
+            foreach ( $root->childNodes as $child ) {
+                switch ( $i ) {
+                    case 0:
+                        $this->Assert( $child instanceof XMLNode );
+                        break;
+                    case 1:
+                        $this->Assert( $child instanceof XMLNode );
+                        break;
+                    case 2:
+                        $this->Assert( is_string( $child ) );
+                        break;
+                }
+                ++$i;
+            }
         }
     }
 
