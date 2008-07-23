@@ -191,12 +191,7 @@
 		return $text;
 	}
 
-	$tests = array(
-		'http://www.google.com/',
-		'Hello https://python.org/ !',
-		'http://localhost/index.php?p=comments&a=show <-- look here',
-		'OK https://foo.bar.gr/wiki.php?a=true&s=false ... htts://mistake.org/ http:/another.net/index.php ...'
-	);
+	$test = 'http://localhost/index.php?p=comments&a=show <-- look here';
 
 	function works($text) {
 		return WYSIWYG_TextProcess($text);
@@ -209,11 +204,9 @@
 		return $sanitizer->GetXHTML();
 	}
 
-	foreach ($tests as $t) {
-		$w = works($t);
-		$d = doesNotWork($t);
-		echo "$w | $d <br></br>\n";
-	}
+    $w = works($test);
+    $d = doesNotWork($test);
+    echo "$w | $d <br></br>\n";
 
 	Rabbit_Destruct();
 ?>
