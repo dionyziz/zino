@@ -200,7 +200,7 @@
 	function doesNotWork($text) {
 		$sanitizer = New XHTMLSanitizer();
 		$sanitizer->SetSource($text);
-		$sanitizer->SetTextProcessor('WYSIWYG_TextProcess');
+		// $sanitizer->SetTextProcessor('WYSIWYG_TextProcess');
 		return $sanitizer->GetXHTML();
 	}
 
