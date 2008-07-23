@@ -38,11 +38,11 @@
         w_assert( preg_match( '#^[A-Za-z0-9]*$#', $authtoken ) );
 
         $eofw = 2147483646;
-        setcookie( $xc_settings[ 'cookiename' ], "$userid:$authtoken" , $eofw, '/', $xc_settings[ 'cookiedomain' ] );
+        setcookie( $xc_settings[ 'cookiename' ], "$userid:$authtoken" , $eofw, '/', $xc_settings[ 'cookiedomain' ], false, true );
     }
     function User_ClearCookie() {
         global $xc_settings;
 
-        setcookie( $xc_settings[ 'cookiename' ], '', time() - 86400, '/', $xc_settings[ 'cookiedomain' ] );
+        setcookie( $xc_settings[ 'cookiename' ], '', time() - 86400, '/', $xc_settings[ 'cookiedomain' ], false, true );
     }
 ?>
