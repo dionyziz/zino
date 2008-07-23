@@ -93,10 +93,12 @@ var Suggest = {
 				Settings.AddInterest( type, typeid );
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			};
-			opt.onmouseover = function() {
+			opt.onmouseover = function( type, counter ) {
 				//this.style.backgroundColor = '#E4EAF9';
-				$( 'div.' + type + ' select' ).attr( 'selectedIndex', '' + counter );
-			};
+				return function() {
+				    $( 'div.' + type + ' select' ).attr( 'selectedIndex', '' + counter );
+				};
+			}( type, counter );
 			/*
 			opt.onmouseout = function() {
 				this.style.backgroundColor = 'white';
