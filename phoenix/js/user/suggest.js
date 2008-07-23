@@ -80,6 +80,7 @@ var Suggest = {
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' ).get( 0 );
 		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
+		var counter = 0;
 		for( var i in suggestions ) {
 			var opt = document.createElement( 'option' );
 			opt.value = suggestions[i];
@@ -93,13 +94,16 @@ var Suggest = {
 				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
 			};
 			opt.onmouseover = function() {
-				this.style.backgroundColor = '#E4EAF9';
+				//this.style.backgroundColor = '#E4EAF9';
+				$( 'div.' + type + ' select' ).attr( 'selectedIndex', counter );
 			};
+			/*
 			opt.onmouseout = function() {
 				this.style.backgroundColor = 'white';
-			};
+			};*/
 			opt.appendChild( document.createTextNode( suggestions[i] ) );
 			sel.appendChild( opt );
+			++counter;
 		}
 	},
 	fire : function( event, type ) {
