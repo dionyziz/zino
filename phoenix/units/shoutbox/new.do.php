@@ -37,6 +37,6 @@
             return false;
         } ).end()
         .find( 'div.text' ).html( "<?php
-            echo $shout->Text;
+            echo w_json_encode( $shout->Text );
             ?>" );<?php    }
 ?>
