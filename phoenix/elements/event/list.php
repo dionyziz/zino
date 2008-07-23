@@ -13,7 +13,7 @@
             );
 
             $finder = New EventFinder();
-            $events = $finder->FindLatest( 0, 10 );
+            $events = $finder->FindLatest( 0, 15 );
             ?><div class="latestevents">
                 <h2>Συνέβησαν πρόσφατα</h2>
                 <div class="list"><?php
