@@ -16,6 +16,12 @@
             );
             $root = $parser->Parse();
             $this->Assert( $root instanceof XMLNode, 'XML Parser did not return an XML root node' ); 
+            $this->AssertEquals( 'garden', $root->nodeName, 'Root node name is invalid' );
+            $this->AssertEquals( 1, count( $root->attributes ), 'Root node does not have one attribute as expected' );
+            foreach ( $root->attributes as $name => $value ) {
+                $this->AssertEquals( 'name', $name, 'Attribute name was not "name" as expected' );
+                $this->AssertEquals( 'flowers', $value, 'Attribute value was not "flowers" as expected' );
+            }
         }
     }
 
