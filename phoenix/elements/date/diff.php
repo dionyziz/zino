@@ -13,7 +13,7 @@
             $minutes = $diff[ 'minutes' ];
 
             if ( $months ) {
-                if ( count( $months ) === 1 ) {
+                if ( $months == 1 ) {
                     ?>τον προηγούμενο μήνα<?php
                 }
                 else {
@@ -23,7 +23,7 @@
                 }
             }
             else if ( $weeks ) {
-                if ( count( $weeks ) === 1 ) {
+                if ( $weeks == 1 ) {
                     ?>την προηγούμενη εβδομάδα<?php
                 }
                 else {
@@ -33,10 +33,10 @@
                 }
             }
             else if ( $days ) {
-                if ( count( $days ) === 1 ) {
+                if ( $days == 1 ) {
                     ?>χθες<?php
                 }
-                else if ( count( $days ) == 2 ) {
+                else if ( $days == 2 ) {
                     ?>προχθές<?php
                 }
                 else {
@@ -46,7 +46,7 @@
                 }
             }
             else if ( $hours ) {
-                if ( count( $hours ) === 1 ) {
+                if ( $hours == 1 ) {
                     ?>πριν 1 ώρα<?php
                 }
                 else {
@@ -56,16 +56,16 @@
                 }
             }
             else if ( $minutes ) {
-                if ( count( $minutes ) === 1 ) {
+                if ( $minutes == 1 ) {
                     ?>πριν 1 λεπτό<?php
                 }
-                else if ( count( $minutes ) == 15 ) {
+                else if ( $minutes == 15 ) {
                     ?>πριν ένα τέταρτο<?php
                 }
-                else if ( count( $minutes ) == 30 ) {
+                else if ( $minutes == 30 ) {
                     ?>πριν μισή ώρα<?php
                 }
-                else if ( count( $minutes ) == 45 ) {
+                else if ( $minutes == 45 ) {
                     ?>πριν τρία τέταρτα<?php
                 }
                 else {
