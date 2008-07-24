@@ -30,7 +30,7 @@
     }
 
     function dateDistance( $pastDate ) {
-        return dateDiff( $pastDate, NowDate() );
+        return dateDiffNew( $pastDate, NowDate() );
     }
 
     function dateDiff( $dateTimeBegin, $dateTimeEnd, $incseconds = false ) {
