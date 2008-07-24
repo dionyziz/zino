@@ -10,7 +10,6 @@
     // it is important that these singletons keeps their names, as they are used as-they-are in the code
     global $water;
     global $libs;
-    global $elemental;
     global $page;
     
     Rabbit_ClearSuperGlobals();
@@ -157,8 +156,8 @@
     }
     
     // load the elements system
-    $elemental = $libs->Load( 'rabbit/element' );
-    $elemental->SetSetting( 'production' , $rabbit_settings[ 'production' ] );
+    $libs->Load( 'rabbit/element' );
+    Elemental::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );
