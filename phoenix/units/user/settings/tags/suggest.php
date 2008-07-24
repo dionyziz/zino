@@ -42,6 +42,6 @@
         echo w_json_encode( $type );
         ?>, <?php
         echo w_json_encode( $res );
-        ?> );<?php
+        ?>, true );<?php
     }
 ?>

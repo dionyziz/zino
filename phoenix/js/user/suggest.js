@@ -1,14 +1,24 @@
 var Suggest = {
-	timeoutid : { // During the execution of the code, this array holds the setTimeOut id's for each suggestion type
-		// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
-		'hobbies' : false,
-		'movies' : false,
-		'books' : false,
-		'songs' : false,
-		'artists' : false,
-		'games' : false,
-		'shows' : false
-	},
+    // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+    list : {
+        'hobbies' : New Array(),
+        'movies' : New Array(),
+        'books' : New Array(),
+        'songs' : New Array(),
+        'artists' : New Array(),
+        'games' : New Array(),
+        'shows' : New Array(),
+    },
+    // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
+    requested : { 
+        'hobbies' : New Array(),
+        'movies' : New Array(),
+        'books' : New Array(),
+        'songs' : New Array(),
+        'artists' : New Array(),
+        'games' : New Array(),
+        'shows' : New Array(),
+    },
 	type2int : function( type ) {
 		switch( type ) {
 			// INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
@@ -73,14 +83,24 @@ var Suggest = {
 			sel.find( 'option' ).remove();
 		}
 	},
-	suggestCallback : function( type, suggestions ) {
+	suggestCallback : function( type, suggestions, callbacked ) {
 		if ( suggestions.length == undefined ) {
 			return;
 		}
+		
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' ).get( 0 );
-		sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
-		var counter = 0;
+		
+		var counter;
+		if ( !callbacked ) {
+		    sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
+		    counter = 0;
+		}
+		else {
+		    sel.size = ( sel.size + suggestions.length >= 5 )?5:( sel.size + suggestions.length );
+		    counter = sel.size;
+		}
+		
 		for( var i in suggestions ) {
 			var opt = document.createElement( 'option' );
 			opt.value = suggestions[i];
@@ -108,12 +128,19 @@ var Suggest = {
 			return;
 		}
 		var text = $( 'div.' + type + ' input' ).val();
-		if ( Suggest.timeoutid[ type ] !== false ) {
-			window.clearTimeout( Suggest.timeoutid[ type ] );
-		}
 		if ( event.keyCode == 13 || $.trim( text ) === '' ) { // Leave keyCode==13 here. Otherwise suggestions will appear after the interest is added
 			return;
 		}
-		Suggest.timeoutid[ type ] = window.setTimeout( "Coala.Cold( 'user/settings/tags/suggest', { 'text' : '" + text + "', 'type' : '" + type + "', 'callback' : Suggest.suggestCallback } );", 500 );
+		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
+		                return( item.substr( 0, text.length ) == text );
+		               } );
+		Suggest.suggestCallback( type, suggestions, false );
+		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) === -1 ) {
+		    return;
+		}
+		Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
+		                                            'type' : type,
+		                                            'callback' : Suggest.suggestCallback
+		                                           } );
 	}
 };
