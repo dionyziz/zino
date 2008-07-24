@@ -31,4 +31,3 @@ def deassertize(directory, extensions):
 if __name__ == '__main__':
 	exts = sys.argv[1:] or ('php',)
 	deassertize('.', exts)
-

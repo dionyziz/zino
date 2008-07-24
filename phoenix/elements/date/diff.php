@@ -3,15 +3,29 @@
     class ElementDateDiff extends Element {
 
         public function Render( $date ) {
-            $diff = dateDistance( $date );
+            $diff = dateDiff( $date );
 
+            $years = $diff[ 'years' ];
             $months = $diff[ 'months' ];
             $weeks = $diff[ 'weeks' ];
             $days = $diff[ 'days' ];
             $hours = $diff[ 'hours' ];
             $minutes = $diff[ 'minutes' ];
 
-            if ( $months ) {
+            if ( $years ) {
+                if ( $years == 1 ) {
+                    ?>πέρσι<?php
+                }
+                else if ( $years == 2 ) {
+                    ?>πρόπερσι<?php
+                }
+                else {
+                    ?>πριν <?php
+                    echo $years;
+                    ?> χρόνια<?php
+                }
+            }
+            else if ( $months ) {
                 if ( $months == 1 ) {
                     ?>τον προηγούμενο μήνα<?php
                 }
