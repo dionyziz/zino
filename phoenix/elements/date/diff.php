@@ -2,8 +2,7 @@
 
     class ElementDateDiff extends Element {
 
-        public function Render( $timestamp ) {
-            $date = date( 'Y-m-d H:i:s', $timestamp );
+        public function Render( $date ) {
             $diff = dateDistance( $date );
 
             $months = $diff[ 'months' ];
