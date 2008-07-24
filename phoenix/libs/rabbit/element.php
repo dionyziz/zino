@@ -125,6 +125,6 @@
     
     function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
         $args = func_get_args(); // can't pass func_get_args() as a parameter without priorly assigning it to a variable
-        return call_user_func_array( 'Elemental::Element', $args );
+        return call_user_func_array( array( 'Elemental', 'Element' ), $args );
     }
 ?>
