@@ -49,13 +49,12 @@ abstract class Page {
     }
     protected function GenerateBody() {
         global $water;
-        global $elemental;
         
         $water->Profile( 'Render Page' );
         
         ob_start();
         foreach ( $this->mMainElements as $mainelement ) {
-            $ret = $elemental->MainElement( $mainelement[ 'name' ], $mainelement[ 'req' ] );
+            $ret = Elemental::MainElement( $mainelement[ 'name' ], $mainelement[ 'req' ] );
             
             if ( $ret instanceof HTTPRedirection ) {
                 $this->mRedirection = $ret;
