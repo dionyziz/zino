@@ -138,9 +138,9 @@ var Suggest = {
 			return;
 		}
 		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
-		                alert( text );
 		                return( item.substr( 0, text.length ) == text );
 		               } );
+		alert( suggestions.length );
 		Suggest.suggestCallback( type, suggestions, false );
 		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) === -1 ) {
 		    return;
