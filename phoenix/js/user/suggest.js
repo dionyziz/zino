@@ -140,9 +140,8 @@ var Suggest = {
 		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
 		                return( item.substr( 0, text.length ) == text );
 		               } );
-		alert( suggestions.length );
 		Suggest.suggestCallback( type, suggestions, false );
-		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) === -1 ) {
+		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
 		    return;
 		}
 		Coala.Cold( 'user/settings/tags/suggest', { 'text' : text,
