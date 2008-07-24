@@ -174,6 +174,7 @@
 
     function dateDiffNew( $dateTimeBegin, $dateTimeEnd ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
+            // error condition
             return false;
         }
 
@@ -239,7 +240,6 @@
             'days' => $days,
             'hours' => $hours,
             'minutes' => $minutes,
-            'seconds' => $seconds
         );
 
         return $result;
