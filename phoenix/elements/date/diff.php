@@ -17,9 +17,9 @@
                     ?>τον προηγούμενο μήνα<?php
                 }
                 else {
-                    ?>πριν<?php
+                    ?>πριν <?php
                     echo $months;
-                    ?>μήνες<?php
+                    ?> μήνες<?php
                 }
             }
             else if ( $weeks ) {
@@ -27,9 +27,9 @@
                     ?>την προηγούμενη εβδομάδα<?php
                 }
                 else {
-                    ?>πριν<?php
+                    ?>πριν <?php
                     echo $weeks;
-                    ?>εβδομάδες<?php
+                    ?> εβδομάδες<?php
                 }
             }
             else if ( $days ) {
@@ -40,9 +40,9 @@
                     ?>προχθές<?php
                 }
                 else {
-                    ?>πριν<?php
+                    ?>πριν <?php
                     echo $days;
-                    ?>μέρες<?php
+                    ?> μέρες<?php
                 }
             }
             else if ( $hours ) {
@@ -50,9 +50,9 @@
                     ?>πριν 1 ώρα<?php
                 }
                 else {
-                    ?>πριν<?php
+                    ?>πριν <?php
                     echo $hours;
-                    ?>ώρες<?php
+                    ?> ώρες<?php
                 }
             }
             else if ( $minutes ) {
@@ -69,9 +69,9 @@
                     ?>πριν τρία τέταρτα<?php
                 }
                 else {
-                    ?>πριν<?php
+                    ?>πριν <?php
                     echo $minutes;
-                    ?>λεπτά<?php
+                    ?> λεπτά<?php
                 }
             }
             else {
