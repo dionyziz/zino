@@ -7,7 +7,7 @@ var Suggest = {
         'songs' : {},
         'artists' : {},
         'games' : {},
-        'shows' : {},
+        'shows' : {}
     },
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     requested : { 
@@ -17,7 +17,7 @@ var Suggest = {
         'songs' : {},
         'artists' : {},
         'games' : {},
-        'shows' : {},
+        'shows' : {}
     },
 	type2int : function( type ) {
 		switch( type ) {
