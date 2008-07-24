@@ -1,23 +1,23 @@
 var Suggest = {
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     list : {
-        'hobbies' : New Array(),
-        'movies' : New Array(),
-        'books' : New Array(),
-        'songs' : New Array(),
-        'artists' : New Array(),
-        'games' : New Array(),
-        'shows' : New Array(),
+        'hobbies' : {},
+        'movies' : {},
+        'books' : {},
+        'songs' : {},
+        'artists' : {},
+        'games' : {},
+        'shows' : {},
     },
     // INTEREST_TAG_TYPE   Please Update everytime you define a new interesttag_type constant
     requested : { 
-        'hobbies' : New Array(),
-        'movies' : New Array(),
-        'books' : New Array(),
-        'songs' : New Array(),
-        'artists' : New Array(),
-        'games' : New Array(),
-        'shows' : New Array(),
+        'hobbies' : {},
+        'movies' : {},
+        'books' : {},
+        'songs' : {},
+        'artists' : {},
+        'games' : {},
+        'shows' : {},
     },
 	type2int : function( type ) {
 		switch( type ) {
