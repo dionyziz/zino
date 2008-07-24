@@ -17,7 +17,7 @@
             ?>">
                 <div class="toolbox">
                     <span class="time"><?php
-                    Element( 'date/diff', $notif->Since );
+                    Element( 'date/diff', $notif->Event->Created );
                     ?></span>
                     <a href="" onclick="Notification.Delete( '<?php
                     echo $notif->Event->Id;
