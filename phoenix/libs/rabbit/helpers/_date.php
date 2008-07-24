@@ -1,6 +1,6 @@
 <?php
 
-    function daysDiff( $dateTimeBegin, $dateTimeEnd ) {
+    function daysDiff( $dateTimeBegin, $dateTimeEnd = NULL ) {
         if ( !isset( $dateTimeEnd ) ) {
             $dateTimeEnd = NowDate();
         }
@@ -31,7 +31,7 @@
         return $days;
     }
 
-    function dateDiff( $dateTimeBegin, $dateTimeEnd ) {
+    function dateDiff( $dateTimeBegin, $dateTimeEnd = NULL ) {
         if ( !isset( $dateTimeEnd ) ) {
             $dateTimeEnd = NowDate();
         }
@@ -96,9 +96,9 @@
         if ( $months ) {
             $weeks -= $months * 4;
         }
-        $years = floor( $months / 12);
+        $years = floor( $months / 12 );
         if ( $years ) {
-            $months -= $years * 4;
+            $months -= $years * 12;
         }
 
         $result = array(
