@@ -94,7 +94,6 @@
                 case 'Text':
                 case 'Receivers':
                 case 'Created':
-                case 'Since':
                     return $this->PM->$key;
                 case 'User':
                     return $this->Folder->User;

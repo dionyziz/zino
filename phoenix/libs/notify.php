@@ -158,7 +158,7 @@
         protected function __get( $key ) {
             switch ( $key ) {
                 case 'Since':
-                    return dateDiff( $this->Event->Created, NowDate() );
+                    return dateDiff( $this->Event->Created );
                 case 'Item':
                     w_assert( $this->Event->Exists(), 'Event does not exist' );
 

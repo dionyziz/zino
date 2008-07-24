@@ -68,7 +68,6 @@
 
     class Shout extends Satori {
         protected $mDbTableAlias = 'shoutbox';
-        private $mSince;
         
         public function CopyUserFrom( $value ) {
             $this->mRelations[ 'User' ]->CopyFrom( $value );
@@ -99,8 +98,6 @@
             switch ( $key ) {
                 case 'Text':
                     return $this->Bulk->Text;
-                case 'Since':
-                    return $this->mSince;
                 default:
                     return parent::__get( $key );
             }
@@ -139,11 +136,6 @@
             }
         }
         
-        public function OnConstruct() {
-            if ( $this->Exists() ) {
-                $this->mSince = dateDiff( $this->Created, NowDate() );
-            }
-        }
     }
     
 ?>

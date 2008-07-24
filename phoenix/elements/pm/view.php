@@ -111,8 +111,8 @@
                     echo $pm->Pmid;
                     ?>, <?php
                     echo $folder->Id; 
-                    ?>);return false;" style="display:inline;" class="infobar_info">, πριν <?php
-                    echo $pm->Since;
+                    ?>);return false;" style="display:inline;" class="infobar_info">, <?php
+                    Element( 'date/diff', $pm->Created );
                     ?></div>
                 </div>
 

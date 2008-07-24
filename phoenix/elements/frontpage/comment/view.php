@@ -4,8 +4,8 @@
         public function Render( $comment ) {
             ?><div class="event">
                 <div class="toolbox">
-                    <span class="time">πριν <?php
-                    echo $comment->Since;
+                    <span class="time"><?php
+                    Element( 'date/diff', $comment->Created );
                     ?></span>
                 </div>
                 <div class="who">

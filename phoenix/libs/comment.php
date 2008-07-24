@@ -401,14 +401,11 @@
 
     class Comment extends Satori {
         protected $mDbTableAlias = 'comments';
-        private $mSince;
 
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
                     return $this->Bulk->Text;
-                case 'Since':
-                    return $this->mSince;
                 default:
                     return parent::__get( $key );
             }
@@ -542,11 +539,6 @@
             $this->Created = NowDate();
             $this->Userip = UserIp();
             $this->Userid = $user->Id;
-        }
-        public function OnConstruct() {
-            if ( $this->Exists() ) {
-                $this->mSince = dateDiff( $this->Created, NowDate() );
-            }
         }
     }
 

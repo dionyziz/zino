@@ -25,8 +25,8 @@
                     } else {
                         echo "0";
                     }
-                    ?>px;" class="time">πριν <?php
-                    echo $comment->Since;
+                    ?>px;" class="time"><?php
+                    Element( 'date/diff', $comment->Created );
                     ?></span><?php
                     if ( $deletable ) {
                         ?><a href="" style="margin-right:<?php

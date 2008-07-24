@@ -17,8 +17,6 @@
                     }
 
                     return $this->mReceivers;
-                case 'Since':
-                    return dateDistance( $this->Created );
                 case 'Text':
                     return $this->Bulk->Text;
                 default:
