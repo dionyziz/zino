@@ -26,7 +26,7 @@
                         echo "0";
                     }
                     ?>px;" class="time"><?php
-                    Element( 'date/diff', $comment->created );
+                    Element( 'date/diff', $comment->Created );
                     ?></span><?php
                     if ( $deletable ) {
                         ?><a href="" style="margin-right:<?php
