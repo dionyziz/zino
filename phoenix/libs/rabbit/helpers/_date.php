@@ -6,8 +6,10 @@
 
     function daysDiff( $dateTimeBegin, $dateTimeEnd ) {
         if ( !$dateTimeBegin || !$dateTimeEnd ) {
+            // error condition
             return false;
         }
+
         $dateTimeBegin = strtotime( $dateTimeBegin );
         $dateTimeEnd = strtotime( $dateTimeEnd );
 
