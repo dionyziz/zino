@@ -88,6 +88,12 @@ var Suggest = {
 			return;
 		}
 		
+		for( var i=0;i<suggestions.length;++i ) {
+		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
+		        Suggest.list[ type ].push( suggestions[i] );
+		    }
+		}
+		
 		$( 'div.' + type + ' form' ).show();
 		var sel = $( 'div.' + type + ' select' ).get( 0 );
 		
@@ -132,6 +138,7 @@ var Suggest = {
 			return;
 		}
 		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
+		                alert( text );
 		                return( item.substr( 0, text.length ) == text );
 		               } );
 		Suggest.suggestCallback( type, suggestions, false );
@@ -142,5 +149,6 @@ var Suggest = {
 		                                            'type' : type,
 		                                            'callback' : Suggest.suggestCallback
 		                                           } );
+		Suggest.requested[ type ].push( text );
 	}
 };
