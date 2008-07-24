@@ -84,7 +84,7 @@ var Suggest = {
 		}
 	},
 	suggestCallback : function( type, suggestions, callbacked ) {
-		if ( suggestions.length == undefined ) {
+		if ( suggestions.length === undefined || suggestions.length == 0 ) {
 			return;
 		}
 		
