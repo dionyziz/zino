@@ -32,7 +32,9 @@
                 }
                 // else fallthrough to include the file
             }
-            die( $path );
+            if ( $path != 'main' ) {
+                die( $path );
+            }
             self::IncludeFile( $path );
         }
         static public function EncodeArguments( $args ) {
