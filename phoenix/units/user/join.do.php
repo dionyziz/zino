@@ -1,11 +1,11 @@
 <?php
     function UnitUserJoin( tText $username , tText $password , tText $email ) {
         global $rabbit_settings;
-        
+        global $libs;
+		
         $username = $username->Get();
         $password = $password->Get();
         $email = $email->Get();
-        $finder = New UserFinder(); 
 
         if ( !User_Valid( $username ) ) {
             ?>alert( "Το όνομα χρήστη που επιλέξατε δεν είναι έγκυρο" );
@@ -19,6 +19,7 @@
             ?>alert( "Ο κωδικός που επιλέξατε δεν είναι αρκετά μεγάλος" );<?php
             return;
         }
+        $finder = New UserFinder(); 
         if ( $finder->IsTaken( $username ) ) {
             ?>if ( !Join.usernameexists ) {
                 Join.usernameexists = true;
@@ -27,11 +28,12 @@
             <?php
         }
         else {
-            $newuser = new User();
+			$libs->Load( 'rabbit/helpers/validate' );
+            $newuser = New User();
             $newuser->Name = $username;
             $newuser->Subdomain = User_DeriveSubdomain( $username );
             $newuser->Password = $password;
-            if ( preg_match( '#^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9.\-_]+$#', $email )  ) {
+            if ( ValidEmail( $email )  ) {
                 $newuser->Profile->Email = $email;
             }
             $_SESSION[ 's_userid' ] = $newuser->Id;
