@@ -61,7 +61,7 @@ var Suggest = {
 				return;
 			}
 			Settings.AddInterest( type, typeid );
-			sel.find( 'option' ).remove();
+			sel.attr( 'size', 0 ).find( 'option' ).remove();
 			$( 'div.' + type + ' form' ).hide();
 		}
 	},
@@ -80,7 +80,7 @@ var Suggest = {
 		}
 		else {
 			$( 'div.' + type + ' form' ).hide();
-			sel.find( 'option' ).remove();
+			sel.atrr( 'size', 0 ).find( 'option' ).remove();
 		}
 	},
 	suggestCallback : function( type, suggestions, callbacked ) {
@@ -123,7 +123,7 @@ var Suggest = {
 				    }
 				    $( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
 				    Settings.AddInterest( type, typeid );
-				    $( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
+				    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
 			    };
 			    opt.onmouseover = function( type, counter ) {
 				    return function() {
