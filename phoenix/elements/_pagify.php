@@ -64,8 +64,9 @@
             if ( $text != '' ) {
                 ?><div class="notifycount"><?php
                 echo $text;
-                ?></div></div><?php
+                ?></div><?php
             }
+            ?></div><?php
         }
 
     }
