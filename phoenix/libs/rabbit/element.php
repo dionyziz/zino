@@ -10,6 +10,7 @@
         private static $mMainReq;
         private static $mMasterCall = false;
         private static $mMasterElementAlias;
+        private static $mPersistentElements = false; // array of persistent element paths => array of significant argument positions
         
         static public function SetSetting( $setting, $value ) {
             switch ( $setting ) {
@@ -25,13 +26,16 @@
             global $mc;
             global $water;
 
-            $persistent = $mc->get( 'persistentelements' );
-            if ( is_array( $persistent ) ) {
-                if ( isset( $persistent[ $path ] ) ) {
-                    return $persistent[ $path ];
+            if ( self::$mPersistentElements === false ) {
+                self::$mPersistentElements = $mc->get( 'persistentelements' );
+                if ( !is_array( self::$mPersistentElements ) ) {
+                    self::$mPersistentElements = array();
                 }
-                // else fallthrough to include the file
             }
+            if ( isset( self::$mPersistentElements[ $path ] ) ) {
+                return self::$mPersistentElements[ $path ];
+            }
+            // else fallthrough to include the file
             self::IncludeFile( $path );
             return false;
         }
