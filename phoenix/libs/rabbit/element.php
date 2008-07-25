@@ -151,7 +151,7 @@
             
             self::IncludeFile( $elementid );
             $classname = self::GetClass( $elementid );
-            $element = New $classname();
+            $element = New $classname( $elementid );
             $water->Profile( 'Render Master Element ' . $elementid );
             $ret = Rabbit_TypeSafe_Call( array( $element, 'Render' ), self::$mMainReq );
             $water->ProfileEnd();
