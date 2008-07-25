@@ -8,6 +8,7 @@
         
         $text = $text->Get();
         $text = trim( $text );
+        $text = nl2br( $text );
         
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
             ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
