@@ -25,9 +25,6 @@
             global $mc;
             global $water;
 
-            if ( $path != 'main' ) {
-                die( $path );
-            }
             $persistent = $mc->get( 'persistentelements' );
             if ( is_array( $persistent ) ) {
                 if ( isset( $persistent[ $path ] ) ) {
