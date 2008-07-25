@@ -78,8 +78,9 @@
                 ?></ul>
                 <div class="pagifyjournals"><?php
                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'journals?pageno=';
-                $total_pages = ceil( $theuser->Count->Journals / 5 );
-                Element( 'pagify', $pageno, $link, $total_pages );
+                $total_journals = $theuser->Count->Journals;
+                $total_pages = ceil( $total_journals / 5 );
+                Element( 'pagify', $pageno, $link, "( " . $total_journals . " Καταχωρήσεις )" );
                 ?></div>
             </div>
             <div class="eof"></div><img src="<?php

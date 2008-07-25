@@ -58,8 +58,9 @@
                 ?><div class="pagifyrelations"><?php
                 
                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends?pageno=';
-                $total_pages = ceil( $theuser->Count->Relations / 20 );
-                Element( 'pagify', $pageno, $link, $total_pages );
+                $total_friends = $theuser->Count->Relations;
+                $total_pages = ceil( $total_friends / 20 );
+                Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_friends . " Φίλοι )" );
 
                 ?></div>
                 <div class="eof"></div>
