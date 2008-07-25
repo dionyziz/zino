@@ -33,6 +33,7 @@
                 // else fallthrough to include the file
             }
             self::IncludeFile( $path );
+            return false;
         }
         static public function EncodeArguments( $args ) {
             return md5( serialize( $args ) );
