@@ -30,7 +30,7 @@
             $page->AddMeta( 'description', 'Το ' . $rabbit_settings[ 'applicationname' ] . ' είναι μία ελληνική κοινότητα φίλων - είσαι μέσα;' );
             
             ob_start();
-            $res = Elemental::MasterElement();
+            $res = Element::MasterElement();
             $master = ob_get_clean();
             
             if ( $res === false ) { //If the page requested is not in the pages available
