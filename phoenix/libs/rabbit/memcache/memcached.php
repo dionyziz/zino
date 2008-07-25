@@ -411,6 +411,7 @@ class memcached implements MemCache
       
           return $val[$key];
       }
+      $water->Trace( "Memcache: MISS '$key'" );
       return false;
    }
 
