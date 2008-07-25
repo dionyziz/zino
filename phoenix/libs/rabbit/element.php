@@ -23,9 +23,11 @@
         }
         static public function GetPersistentElementSignificantArgs( $path ) {
             global $mc;
+            global $water;
 
             $persistent = $mc->get( 'persistentelements' );
             if ( is_array( $persistent ) ) {
+                die( 'Persistent element found!' );
                 if ( isset( $persistent[ $path ] ) ) {
                     return $persistent[ $path ];
                 }
