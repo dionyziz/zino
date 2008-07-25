@@ -94,7 +94,7 @@
             $this->Bulkid = $this->Bulk->Id;
         }
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Text':
                     return $this->Bulk->Text;
@@ -103,7 +103,7 @@
             }
         }
 
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
                     $this->Bulk->Text = $value;

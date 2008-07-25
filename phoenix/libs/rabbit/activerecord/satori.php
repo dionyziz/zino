@@ -210,7 +210,7 @@
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         private $mAllowRelationDefinition;
        
-           protected function __get( $key ) {
+           public function __get( $key ) {
             switch ( $key ) {
                 case 'Attribute2DbField':
                 case 'Db':
@@ -231,7 +231,7 @@
             }
             return $this->mCurrentValues[ $key ];
         }
-        protected function __set( $name, $value ) {
+        public function __set( $name, $value ) {
             if ( $this->mAllowRelationDefinition && $value instanceof Relation ) {
                 if ( isset( $this->mOldRelations[ $name ] ) ) {
                     if ( $this->mOldRelations[ $name ]->Equals( $value ) ) {

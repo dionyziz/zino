@@ -43,7 +43,7 @@
         protected $mDbTableAlias = 'albums';
         private $mImageTableAlias = 'images';
 
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Name':
                     if ( strlen( $value ) > 100 ) {

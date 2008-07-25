@@ -167,7 +167,7 @@
         private $mPriority;
         private $mCreated;
         
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Type':
                 case 'Id':

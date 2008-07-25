@@ -150,7 +150,7 @@
         protected $mDbTableAlias = 'images';
         protected $mTemporaryFile;
         
-        protected function __get( $key ) {
+        public function __get( $key ) {
             global $rabbit_settings;
             
             if ( $key == 'ServerUrl' ) {
@@ -159,7 +159,7 @@
 
             return parent::__get( $key );
         }
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             if ( $key == 'Name' ) {
                 if ( mb_strlen( $value ) > 96 ) {
                     $value = mb_substr( $value , 0 , 96 );

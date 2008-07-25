@@ -172,7 +172,7 @@
         public function CopyAvatarFrom( $value ) {
             $this->mRelations[ 'Avatar' ]->CopyFrom( $value );
         }
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Password':
                     $this->mCurrentValues[ 'Password' ] = md5( $value );
@@ -181,7 +181,7 @@
                     return parent::__set( $key, $value );
             }
         }
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Password':
                     throw New UserException( 'User passwords cannot be retrieved, as they are encrypted; use IsCorrectPassword() for comparisons' );

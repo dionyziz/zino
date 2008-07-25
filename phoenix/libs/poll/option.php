@@ -36,7 +36,7 @@
     class PollOption extends Satori {
         protected $mDbTableAlias = 'polloptions';
         
-        protected function __get( $key ) {
+        public function __get( $key ) {
             if ( $key == 'Percentage' ) {
                 return $this->Numvotes / $this->Poll->Numvotes;
             }

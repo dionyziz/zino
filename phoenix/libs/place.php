@@ -14,7 +14,7 @@
         protected $mDbTableAlias = 'places';
         
         // no privcheck after this point
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Nameaccusative':
                     if ( empty( $this->mCurrentValues[ 'Nameaccusative' ] ) ) {

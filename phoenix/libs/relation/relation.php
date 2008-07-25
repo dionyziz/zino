@@ -83,7 +83,7 @@
     class FriendRelation extends Satori {
         protected $mDbTableAlias = 'relations';
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             if ( $key == 'Type' ) {
                 return $this->RelationType->Text;
             }

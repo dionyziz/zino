@@ -18,7 +18,7 @@
     class Poll extends Satori {
         protected $mDbTableAlias = 'polls';
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             if ( $key == 'Title' ) {
                 return $this->Question;
             }

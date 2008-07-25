@@ -22,7 +22,7 @@
         protected $mLastActive;
         protected $mToken;
         
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Channel':
                     $this->mChannel = ( string )$value;

@@ -88,7 +88,7 @@
 
             return false;
         }
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Sender':
                 case 'Text':

@@ -356,11 +356,11 @@ final class PageDOMElement extends PageDOMEntity {
     private $mChildren;
     
     /* attribute magic functions */
-    private function __set( $name , $value ) {
+    public function __set( $name , $value ) {
         w_assert( $this->ValidAttribute( $name ) );
         $this->mAttributes[ $name ] = $value;
     }
-    private function __get( $name ) {
+    public function __get( $name ) {
         global $water;
         
         w_assert( $this->ValidAttribute( $name ) );

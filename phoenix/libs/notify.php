@@ -155,7 +155,7 @@
     class Notification extends Satori {
         protected $mDbTableAlias = 'notify';
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Item':
                     w_assert( $this->Event->Exists(), 'Event does not exist' );

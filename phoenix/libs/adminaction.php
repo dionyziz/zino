@@ -50,7 +50,7 @@
         protected $mTypeId;
         protected $mItemId;
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             if ( $key == 'Admin' ) {
                 return $this->mAdmin;
             }

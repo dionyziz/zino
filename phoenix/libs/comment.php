@@ -410,7 +410,7 @@
                     return parent::__get( $key );
             }
         }
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
                     $this->Bulk->Text = $value;

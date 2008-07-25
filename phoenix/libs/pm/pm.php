@@ -8,7 +8,7 @@
         protected $mDbTableAlias = 'pmmessages';
         protected $mReceivers;
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Receivers':
                     if ( $this->Exists() && empty( $this->mReceivers ) ) {
@@ -23,7 +23,7 @@
                     return parent::__get( $key );
             }
         }
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Receivers':
                     $this->mReceivers = $value;

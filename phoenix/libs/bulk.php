@@ -67,7 +67,7 @@
     final class Bulk extends Satori {
         protected $mDbTableAlias = 'bulk';
 
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             switch ( $key ) {
                 case 'Text':
                     $text = $value;

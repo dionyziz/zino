@@ -17,7 +17,7 @@
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
         }
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Age':
                     $validdob = false;
@@ -99,7 +99,7 @@
             }
             return "$year-$month-$day";
         }
-        protected function __set( $key, $value ) {
+        public function __set( $key, $value ) {
             global $water;
 
             switch ( $key ) {

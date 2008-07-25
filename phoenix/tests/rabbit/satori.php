@@ -104,7 +104,7 @@
         protected $mOnCreateNumCalls = 0;
         protected $mOnUpdateNumCalls = 0;
 
-        protected function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'OnDeleteNumCalls':
                 case 'OnCreateNumCalls':
