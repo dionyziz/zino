@@ -140,6 +140,7 @@ var Suggest = {
 			    
 			    var divani = document.createElement( 'div' );
 			    divani.style.fontWeight = 'bold';
+			    divani.style.display = 'inline';
 			    
 			    //opt.appendChild( document.createTextNode( suggestions[i] ) );
 			    divani.appendChild( document.createTextNode( text ) );
