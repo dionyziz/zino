@@ -10,6 +10,14 @@ div.pagify a.previous {
 	background-repeat: no-repeat;
 	padding: 0 0 0 16px;
 }
+div.pagify a.nextbacklinks, div.pagify strong {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+div.pagify notifycount {
+    color: #aaa;
+    font-size: small;
+}
 div.pagify {
 	font-size: 11pt;
 	text-align: center;
