@@ -88,12 +88,14 @@ var Suggest = {
 			return;
 		}
 		
+		var sugLength = suggestions.length;
 		for( var i=0;i<suggestions.length;++i ) {
 		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
 		        Suggest.list[ type ].push( suggestions[i] );
 		    }
 		    else if ( callbacked ) {
 		        suggestions[i] = '';
+		        --sugLength;
 		    }
 		}
 		
@@ -102,11 +104,11 @@ var Suggest = {
 		
 		var counter;
 		if ( !callbacked || sel.size === undefined  ) {
-		    sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
+		    sel.size = ( sugLength >= 5 )?5:sugLength;
 		    counter = 0;
 		}
 		else {
-		    sel.size = ( sel.size + suggestions.length >= 5 )?5:( sel.size + suggestions.length );
+		    sel.size = ( sel.size + sugLength >= 5 )?5:( sel.size + sugLength );
 		    counter = sel.size;
 		}
 		
