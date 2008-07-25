@@ -54,7 +54,7 @@ abstract class Page {
         
         ob_start();
         foreach ( $this->mMainElements as $mainelement ) {
-            $ret = Elemental::MainElement( $mainelement[ 'name' ], $mainelement[ 'req' ] );
+            $ret = Element::MainElement( $mainelement[ 'name' ], $mainelement[ 'req' ] );
             
             if ( $ret instanceof HTTPRedirection ) {
                 $this->mRedirection = $ret;
