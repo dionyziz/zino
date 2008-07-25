@@ -56,7 +56,8 @@ var Suggest = {
 			$( 'div.' + type + ' input' ).focus();
 		}
 		else if ( event.keyCode == 27 ) { // Escape
-		    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
+		    $( 'div.' + type ).find( 'form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove().end()
+		    .find( 'input' ).focus();
 		    return;
 		}
 		else if ( event.keyCode == 13 ) {
@@ -160,7 +161,8 @@ var Suggest = {
 			return;
 		}
 		if ( event.keyCode == 27 ) { //Escape
-		    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
+		    $( 'div.' + type ).find( 'form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove().end()
+            .find( 'input' ).focus();
 		    return;
 		}
 		var text = $( 'div.' + type + ' input' ).val();
