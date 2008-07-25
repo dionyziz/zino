@@ -92,6 +92,9 @@ var Suggest = {
 		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
 		        Suggest.list[ type ].push( suggestions[i] );
 		    }
+		    else {
+		        suggestions[i] = '';
+		    }
 		}
 		
 		$( 'div.' + type + ' form' ).show();
@@ -108,25 +111,27 @@ var Suggest = {
 		}
 		
 		for( var i in suggestions ) {
-			var opt = document.createElement( 'option' );
-			opt.value = suggestions[i];
-			opt.onclick = function() {
-				var typeid = Suggest.type2int( type );
-				if ( typeid == -1 ) {
-					return;
-				}
-				$( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
-				Settings.AddInterest( type, typeid );
-				$( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
-			};
-			opt.onmouseover = function( type, counter ) {
-				return function() {
-				    $( 'div.' + type + ' select' ).focus().attr( 'selectedIndex', '' + counter );
-				};
-			}( type, counter );
-			opt.appendChild( document.createTextNode( suggestions[i] ) );
-			sel.appendChild( opt );
-			++counter;
+		    if ( suggestions[i] !== '' ) {
+			    var opt = document.createElement( 'option' );
+			    opt.value = suggestions[i];
+			    opt.onclick = function() {
+				    var typeid = Suggest.type2int( type );
+				    if ( typeid == -1 ) {
+					    return;
+				    }
+				    $( 'div.' + type + ' input' ).focus().get( 0 ).value = this.value;
+				    Settings.AddInterest( type, typeid );
+				    $( 'div.' + type + ' form' ).hide().find( 'option' ).remove();
+			    };
+			    opt.onmouseover = function( type, counter ) {
+				    return function() {
+				        $( 'div.' + type + ' select' ).focus().attr( 'selectedIndex', '' + counter );
+				    };
+			    }( type, counter );
+			    opt.appendChild( document.createTextNode( suggestions[i] ) );
+			    sel.appendChild( opt );
+			    ++counter;
+			}
 		}
 	},
 	fire : function( event, type ) {
