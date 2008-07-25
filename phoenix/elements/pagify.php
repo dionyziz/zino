@@ -4,9 +4,10 @@
     pageno: current page number
     link: link to the page. it should end with offset= e.g. '/journal/Hello?offset='
     total_pages: the total pages of the entity
+    text: Show a text under the 1 2 3
     */
     class ElementPagify extends Element {
-        public function Render( $pageno, $link, $total_pages ) {
+        public function Render( $pageno, $link, $total_pages, $text = '' ) {
             if ( $pageno > $total_pages || $pageno < 0 ) {
                 return;    
             }
@@ -60,6 +61,11 @@
                 ?>" class="next" title="Επόμενη"></a></span><?php
             }
             
+            if ( $text != '' ) {
+                ?><div class="pagifycount"><?php
+                echo $text;
+                ?></div><?php
+            }
             ?></div><?php
         }
 
