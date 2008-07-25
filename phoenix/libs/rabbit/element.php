@@ -25,15 +25,15 @@
             global $mc;
             global $water;
 
+            if ( $path != 'main' ) {
+                die( $path );
+            }
             $persistent = $mc->get( 'persistentelements' );
             if ( is_array( $persistent ) ) {
                 if ( isset( $persistent[ $path ] ) ) {
                     return $persistent[ $path ];
                 }
                 // else fallthrough to include the file
-            }
-            if ( $path != 'main' ) {
-                die( $path );
             }
             self::IncludeFile( $path );
         }
