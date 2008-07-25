@@ -55,6 +55,10 @@ var Suggest = {
 		if ( ( selindex === 0 && event.keyCode == 38 ) || ( selindex == sel.get(0).options.length-1 && event.keyCode == 40 ) ) {
 			$( 'div.' + type + ' input' ).focus();
 		}
+		else if ( event.keyCode == 27 ) { // Escape
+		    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
+		    return;
+		}
 		else if ( event.keyCode == 13 ) {
 			var text = sel.get( 0 ).options[ selindex ].value;
 			$( 'div.' + type + ' input' ).val( text ).focus();
@@ -155,6 +159,10 @@ var Suggest = {
 	fire : function( event, type ) {
 		if ( event.keyCode == 38 || event.keyCode == 40 ) { // Up/Down key button
 			return;
+		}
+		if ( event.keyCode == 27 ) { //Escape
+		    $( 'div.' + type + ' form' ).hide().find( 'select' ).attr( 'size', 0 ).find( 'option' ).remove();
+		    return;
 		}
 		var text = $( 'div.' + type + ' input' ).val();
 		if ( event.keyCode == 13 || $.trim( text ) === '' ) { // Leave keyCode==13 here. Otherwise suggestions will appear after the interest is added
