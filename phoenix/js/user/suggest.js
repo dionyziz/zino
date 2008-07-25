@@ -138,7 +138,7 @@ var Suggest = {
 			return;
 		}
 		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
-		                return( item.toUpperCase.substr( 0, text.length ) == text.toUpperCase );
+		                return( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
 		Suggest.suggestCallback( type, suggestions, false );
 		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
