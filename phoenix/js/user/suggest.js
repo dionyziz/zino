@@ -109,7 +109,7 @@ var Suggest = {
 		}
 		else {
 		    sel.size = ( sel.size + sugLength >= 5 )?5:( sel.size + sugLength );
-		    counter = sel.size;
+		    counter = sel.childNodes.length;
 		}
 		
 		for( var i in suggestions ) {
