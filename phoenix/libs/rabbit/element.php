@@ -27,12 +27,12 @@
 
             $persistent = $mc->get( 'persistentelements' );
             if ( is_array( $persistent ) ) {
-                die( 'Persistent element found!' );
                 if ( isset( $persistent[ $path ] ) ) {
                     return $persistent[ $path ];
                 }
                 // else fallthrough to include the file
             }
+            die( $path );
             self::IncludeFile( $path );
         }
         static public function EncodeArguments( $args ) {
