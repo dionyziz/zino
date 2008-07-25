@@ -72,6 +72,7 @@ var Suggest = {
 			return;
 		}
 		var sel = $( 'div.' + type + ' select' );
+		alert( event.keyCode );
 		if ( event.keyCode == 40 ) {
 			sel.attr( 'selectedIndex', 0 );
 			sel.focus();
@@ -142,7 +143,6 @@ var Suggest = {
 			    divani.style.fontWeight = 'bold';
 			    divani.style.display = 'inline';
 			    
-			    //opt.appendChild( document.createTextNode( suggestions[i] ) );
 			    divani.appendChild( document.createTextNode( text ) );
 			    opt.appendChild( divani );
 			    opt.appendChild( document.createTextNode( suggestions[i].substr( text.length ) ) );
