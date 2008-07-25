@@ -118,6 +118,7 @@ var Suggest = {
 		}
 		
 		// Display at last the suggestions
+		var text = $( 'div.' + type + ' input' ).val();
 		for( var i in suggestions ) {
 		    if ( suggestions[i] !== '' ) {
 			    var opt = document.createElement( 'option' );
@@ -136,7 +137,14 @@ var Suggest = {
 				        $( 'div.' + type + ' select' ).focus().attr( 'selectedIndex', '' + counter );
 				    };
 			    }( type, counter );
-			    opt.appendChild( document.createTextNode( suggestions[i] ) );
+			    
+			    var divani = document.createElement( 'div' );
+			    divani.style.fontWeight = 'bold';
+			    
+			    //opt.appendChild( document.createTextNode( suggestions[i] ) );
+			    divani.appendChild( document.createTextNode( text ) );
+			    opt.appendChild( divani );
+			    opt.appendChild( document.createTextNode( suggestions[i].substr( text.length ) ) );
 			    sel.appendChild( opt );
 			    ++counter;
 			}
