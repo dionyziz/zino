@@ -98,7 +98,7 @@ var Suggest = {
 		var sel = $( 'div.' + type + ' select' ).get( 0 );
 		
 		var counter;
-		if ( !callbacked ) {
+		if ( !callbacked || sel.size === 0 || sel.size === undefined  ) {
 		    sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		    counter = 0;
 		}
