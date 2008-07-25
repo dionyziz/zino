@@ -25,11 +25,11 @@
             global $mc;
 
             $persistent = $mc->get( 'persistentelements' );
-            if ( !is_array( $persistent ) ) {
-                return false;
-            }
-            if ( isset( $persistent[ $path ] ) ) {
-                return $persistent[ $path ];
+            if ( is_array( $persistent ) ) {
+                if ( isset( $persistent[ $path ] ) ) {
+                    return $persistent[ $path ];
+                }
+                // else fallthrough to include the file
             }
             self::IncludeFile( $path );
         }
