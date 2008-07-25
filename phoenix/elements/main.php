@@ -1,5 +1,5 @@
 <?php
-    class ElementMain {
+    class ElementMain extends Element {
         public function Render() {
             global $user;
             global $water;
