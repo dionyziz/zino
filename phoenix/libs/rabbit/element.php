@@ -25,7 +25,7 @@
             global $mc;
 
             $persistent = $mc->get( 'persistentelements' );
-            if ( !is_array( $peristent ) ) {
+            if ( !is_array( $persitent ) ) {
                 return false;
             }
             if ( isset( $persistent[ $path ] ) ) {
