@@ -92,7 +92,7 @@ var Suggest = {
 		    if ( $.inArray( suggestions[i], Suggest.list[ type ] ) === -1 ) {
 		        Suggest.list[ type ].push( suggestions[i] );
 		    }
-		    else {
+		    else if ( callbacked ) {
 		        suggestions[i] = '';
 		    }
 		}
