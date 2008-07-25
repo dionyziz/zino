@@ -21,6 +21,49 @@
                     throw New Exception( 'Invalid Elemental setting' , $setting );
             }
         }
+        static public function GetPersistentElementSignificantArgs( $path ) {
+            global $mc;
+
+            $persistent = $mc->get( 'persistentelements' );
+            if ( !is_array( $peristent ) ) {
+                return false;
+            }
+            if ( isset( $persistent[ $path ] ) ) {
+                return $persistent[ $path ];
+            }
+            self::IncludeFile( $path );
+        }
+        static public function EncodeArguments( $args ) {
+            return md5( serialize( $args ) );
+        }
+        static public function LoadFromCache( $elementpath, $args ) {
+            global $mc;
+
+            // retrieve positions of significant arguments
+            $significant = self::GetPersistentElementSignificantArgs( $elementpath );
+            if ( $significant === false ) { // not a persistent element
+                return false;
+            }
+            // it's a persistent element, check cache
+            $params = array(); // a list of the values of the significant arguments, in order
+            foreach ( $significant as $pos ) {
+                w_assert( is_int( $pos ) );
+                w_assert( isset( $args[ $pos ] ) );
+                $params[] = $args[ $pos ];
+            }
+            $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
+            $ret = $mc->get( $elementpath . ':' . $sig );
+            if ( $ret === false ) {
+                // not cached
+                return false;
+            }
+            w_assert( is_array( $ret ) );
+            w_assert( count( $ret ) == 2 ); // echoed value + return value
+            // cached, echo its cached data
+            echo $ret[ 0 ];
+            // return its cached data (usually empty)
+            return $ret[ 1 ];
+        }
         static public function IncludeFile( $elementpath ) {
             w_assert( is_string( $elementpath ) && strlen( $elementpath ) );
             $elementpath = strtolower( $elementpath );
@@ -41,7 +84,6 @@
             return true;
         }
         static public function GetClass( $elementpath ) {
-            self::IncludeFile( $elementpath );
             $classname = 'Element' . str_replace( '/' , '' , $elementpath );
             if ( class_exists( $classname ) ) {
                 return $classname;
@@ -55,6 +97,9 @@
             w_assert( func_num_args() );
             $args = func_get_args();
             $elementpath = array_shift( $args );
+            if ( ( $ret = self::LoadFromCache( $elementpath, $args ) ) !== false ) {
+                return $ret;
+            }
             $classname = self::GetClass( $elementpath );
             if ( $classname === false ) {
                 return false;

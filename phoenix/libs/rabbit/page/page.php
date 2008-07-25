@@ -94,8 +94,6 @@ abstract class Page {
         $this->mTitle = $title;
     }
     public function AttachMainElement( $mainelementid , $req ) {
-        global $water;
-        
         w_assert( is_array( $req ) );
         
         $this->mMainElements[] = array(
