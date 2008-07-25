@@ -138,6 +138,7 @@
                 $elementid = $master;
             }
             
+            self::IncludeFile( $elementid );
             $classname = self::GetClass( $elementid );
             $element = New $classname();
             $water->Profile( 'Render Master Element ' . $elementid );
