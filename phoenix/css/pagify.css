@@ -14,7 +14,7 @@ div.pagify a.nextbacklinks, div.pagify strong {
     padding-left: 4px;
     padding-right: 4px;
 }
-div.pagify notifycount {
+div.pagify div.pagifycount {
     color: #aaa;
     font-size: small;
 }

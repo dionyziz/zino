@@ -61,11 +61,11 @@
                 ?>" class="next" title="Επόμενη"></a></span><?php
             }
             
-            if ( $text != '' ) {
-                ?><div class="notifycount"><?php
+            //if ( $text != '' ) {
+                ?><div class="pagifycount"><?php
                 echo $text;
                 ?></div><?php
-            }
+            //}
             ?></div><?php
         }
 
