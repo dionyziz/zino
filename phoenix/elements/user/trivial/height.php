@@ -3,7 +3,6 @@
     class ElementUserTrivialHeight extends Element {
         public function Render( $height ) {
             if ( $height == -3 ) {
-                // Removed "-" from here to resolve #414 <- Remove this comment
                 ?><?php
             }
             else if ( $height == -2 ) {
