@@ -8,7 +8,6 @@
         
         $text = $text->Get();
         $text = trim( $text );
-        $text = nl2br( $text );
         
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
             ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
@@ -26,7 +25,8 @@
         
 
         $comment = New Comment();
-        $text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
+        $text = nl2br( htmlspecialchars( $text ) );
+        $text = WYSIWYG_PostProcess( $text );
         $comment->Text = $text;
         $comment->Userid = $user->Id;
         $comment->Parentid = $parent;

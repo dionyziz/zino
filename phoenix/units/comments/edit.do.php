@@ -32,7 +32,8 @@
             window.location.reload();<?php
             return;
         }
-        $comment->Text = WYSIWYG_PostProcess( htmlspecialchars( $text ) );
+        $text = nl2br( htmlspecialchars( $text ) );
+        $comment->Text = WYSIWYG_PostProcess( $text );
         $comment->Save();
         ?>$( 'div#comment_<?php
         echo $id;
