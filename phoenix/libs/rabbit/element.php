@@ -98,9 +98,6 @@
             w_assert( func_num_args() );
             $args = func_get_args();
             $elementpath = array_shift( $args );
-            if ( $elementpath != 'main' ) {
-                die( 'Element::' . $elementpath );
-            }
             if ( ( $ret = self::LoadFromCache( $elementpath, $args ) ) !== false ) {
                 return $ret;
             }
