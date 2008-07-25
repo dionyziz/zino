@@ -157,7 +157,7 @@
     
     // load the elements system
     $libs->Load( 'rabbit/element' );
-    Elemental::SetSetting( 'production', $rabbit_settings[ 'production' ] );
+    Element::SetSetting( 'production', $rabbit_settings[ 'production' ] );
 
     $libs->Load( 'rabbit/page/page' );
     $libs->Load( 'project' );

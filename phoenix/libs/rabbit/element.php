@@ -1,17 +1,17 @@
 <?php
     abstract class Element {
-        public final function __construct() {
-        }
-    }
-
-    final class Elemental {
+        // static members
         private static $mIncluded;
         private static $mSettings = array( 'production' => true );
         private static $mMainReq;
         private static $mMasterCall = false;
         private static $mMasterElementAlias;
         private static $mPersistentElements = false; // array of persistent element paths => array of significant argument positions
+        // non-static members
+        protected $mPersistent = false;
+        protected $mPath = '';
         
+        // static methods
         static public function SetSetting( $setting, $value ) {
             switch ( $setting ) {
                 case 'production':
@@ -22,7 +22,7 @@
                     throw New Exception( 'Invalid Elemental setting' , $setting );
             }
         }
-        static public function GetPersistentElementSignificantArgs( $path ) {
+        static public function GetPersistentElementSignificantArgs( $path = false ) {
             global $mc;
             global $water;
 
@@ -32,11 +32,13 @@
                     self::$mPersistentElements = array();
                 }
             }
+            if ( $path === false ) {
+                return self::$mPersistentElements;
+            }
             if ( isset( self::$mPersistentElements[ $path ] ) ) {
                 return self::$mPersistentElements[ $path ];
             }
-            // else fallthrough to include the file
-            self::IncludeFile( $path );
+            // else fallthrough
             return false;
         }
         static public function EncodeArguments( $args ) {
@@ -97,7 +99,8 @@
             $classes = get_declared_classes();
             throw New Exception( 'Element class not defined for element ' . $elementpath . '; expected class "' . $classname . '" (last defined: "' . $classes[ count( $classes ) - 1 ] . '")' );
         }
-        static public function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
+        // fires an element
+        static public function Fire( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
             global $water;
 
             w_assert( func_num_args() );
@@ -106,13 +109,22 @@
             if ( ( $ret = self::LoadFromCache( $elementpath, $args ) ) !== false ) {
                 return $ret;
             }
+            self::IncludeFile( $elementpath );
             $classname = self::GetClass( $elementpath );
             if ( $classname === false ) {
                 return false;
             }
             $water->Profile( 'Render Element ' . $elementpath );
-            $element = New $classname();
+            $element = New $classname( $elementpath );
+            ob_start();
             $ret = call_user_func_array( array( $element, 'Render' ), $args );
+            $echo = ob_get_clean();
+            if ( $element->IsPersistent() ) {
+                // cache the result
+                $sig = self::EncodeArguments( $element->GetSignificantArgs() );
+                $mc->add( $elementpath . ':' . $sig, array( $echo, $ret ) );
+            }
+            echo $echo;
             $water->ProfileEnd();
             
             return $ret;
@@ -162,21 +174,54 @@
             unset( $req[ 'p' ] );
 
             self::$mMainReq = $req;
-            $ret = self::Element( $which ); // this function call should set ->mMasterCall to true
+            $ret = self::Fire( $which ); // this function call should set ->mMasterCall to true
             if ( !self::$mMasterCall ) {
                 $water->Warning( 'Main element did not invoke a MasterElement call; please modify your main element to invoke MasterElement() at your desired location' );
             }
             
             return $ret;
         }
+        // 
+        // non-static methods...
+        //
+        public function IsPersistent() {
+            return $this->mPersistent !== false;
+        }
+        public function GetSignificantArgs( $args ) {
+            w_assert( is_array( $this->mPersistent ) );
+            w_assert( count( $this->mPersistent ) >= 1 );
+
+            $me = New ReflectionClass( self );
+            $render = $me->getMethod( 'Render' );
+            $params = $render->getParameters();
+
+            $significant = self::GetPersistentElementSignificantArgs();
+
+            if ( !isset( $significant[ $this->mPath ] ) ) {
+                $i = 0;
+                foreach ( $params as $param ) {
+                    if ( $this->mPersistent[ $i ] == $param->getName ) {
+                        $ret[] = $i;
+                        ++$i;
+                        if ( $i == count( $this->mPersistent ) ) {
+                            break;
+                        }
+                    }
+                }
+                w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
+                self::$mPersistentElements[ $this->mPath ] = $ret;
+                $mc->add( 'persistentelements', self::$mPersistentElements );
+            }
+
+            return $args;
+        }
+        public final function __construct( $path ) {
+            $this->mPath = $path;
+        }
     }
 
-    function MasterElement() { // MAGICal
-        Elemental::MasterElement();
-    }
-    
     function Element( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
         $args = func_get_args(); // can't pass func_get_args() as a parameter without priorly assigning it to a variable
-        return call_user_func_array( array( 'Elemental', 'Element' ), $args );
+        return call_user_func_array( array( 'Element', 'Fire' ), $args );
     }
 ?>

@@ -445,7 +445,6 @@ final class PageCoala extends Page {
     }
     protected function GenerateBody() {
         global $water;
-        global $elemental;
         global $coala;
         
         $water->Profile( 'Render Unit' );
