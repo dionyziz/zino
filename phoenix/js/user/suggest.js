@@ -76,7 +76,6 @@ var Suggest = {
 			return;
 		}
 		var sel = $( 'div.' + type + ' select' );
-		alert( event.keyCode );
 		if ( event.keyCode == 40 ) {
 			sel.attr( 'selectedIndex', 0 );
 			sel.focus();
