@@ -3,14 +3,22 @@
 import sys
 import os
 
+functions = (
+	'w_assert',
+	'$water->Notice',
+	'$water->Trace',
+	'$water->Warning'
+)
+
 def optimize(filename):
 	new = []
 	toAppend = True
 	f = open(filename)
 	for line in f:
 		stripped = line.strip()
-		if stripped.startswith('w_assert'):
-			toAppend = False
+		for f in functions:
+			if stripped.startswith(f):
+				toAppend = False
 		if toAppend:
 			new.append(line)
 		if stripped.endswith(';'):
@@ -20,7 +28,7 @@ def optimize(filename):
 	f.write(''.join(new))
 	f.close()
 
-def deassertize(directory, extensions):
+def dewaterize(directory, extensions):
 	for root, subdirs, files in os.walk(directory):
 		for filename in files:
 			for ext in extensions:
