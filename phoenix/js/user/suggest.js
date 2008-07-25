@@ -98,7 +98,7 @@ var Suggest = {
 		var sel = $( 'div.' + type + ' select' ).get( 0 );
 		
 		var counter;
-		if ( !callbacked || sel.size === 0 || sel.size === undefined  ) {
+		if ( !callbacked || sel.size === undefined  ) {
 		    sel.size = ( suggestions.length >= 5 )?5:suggestions.length;
 		    counter = 0;
 		}
@@ -138,7 +138,7 @@ var Suggest = {
 			return;
 		}
 		var suggestions = $.grep( Suggest.list[ type ], function( item, index ) {
-		                return( item.substr( 0, text.length ) == text );
+		                return( item.toUpperCase.substr( 0, text.length ) == text.toUpperCase );
 		               } );
 		Suggest.suggestCallback( type, suggestions, false );
 		if ( suggestions.length > 40 || $.inArray( text, Suggest.requested[ type ] ) !== -1 ) {
