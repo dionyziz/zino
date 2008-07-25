@@ -80,7 +80,7 @@ var Suggest = {
 		}
 		else {
 			$( 'div.' + type + ' form' ).hide();
-			sel.atrr( 'size', 0 ).find( 'option' ).remove();
+			sel.attr( 'size', 0 ).find( 'option' ).remove();
 		}
 	},
 	suggestCallback : function( type, suggestions, callbacked ) {
