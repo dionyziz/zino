@@ -47,7 +47,7 @@ div.header div.eof {
     width: 71px;
     height: 50px;
 	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -612px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -613px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
 	background-position: 0 0;
 	*/
@@ -94,7 +94,7 @@ div.header ul li a.profile img {
 }
 div.header ul li a.register span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -952px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -950px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
 	
 }
