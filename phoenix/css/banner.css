@@ -31,8 +31,11 @@ div.header h1 {
     _top: 3px;
 	left: 0;
 	position: absolute;
-	background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
+	background-image: url( 'http://static.zino.gr/phoenix/icons.png' );
+	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
 	background-position: 0 0;
+	*/
+	background-position: 0 -563px;
 	background-repeat: no-repeat;
 }
 div.header div.eof {
