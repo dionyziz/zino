@@ -5,7 +5,6 @@
             global $user;
 
             $unreadCount = $user->Count->Unreadpms;
-
             if ( $folder->Typeid == PMFOLDER_INBOX ) {
                 ?><div class="activefolder folder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="folder_<?php
                 echo $folder->Id;
