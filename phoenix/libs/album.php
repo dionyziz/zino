@@ -164,10 +164,11 @@
                 if ( $frontpage->Imageid == $image->Id ) {
                     $finder = New ImageFinder();
                     $oldimage = $finder->FindByUser( $image->User, 0, 1 );
-                    if ( $oldimage === false ) {
+                    if ( count( $oldimage ) === 0 ) {
                         $frontpage->Delete();
                     }
                     else {
+                        $oldimage = $oldimage[ 0 ];
                         $frontpage->Imageid = $oldimage->Id;
                         $frontpage->Save();
                     }
