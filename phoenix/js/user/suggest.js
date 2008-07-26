@@ -185,3 +185,6 @@ var Suggest = {
 		Suggest.requested[ type ].push( text );
 	}
 };
+$( document ).ready( function() {
+    $( 'div.add select option' ).remove();
+  } );
