@@ -208,7 +208,13 @@
                         }
                     }
                 }
-                w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
+                // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
+                if ( $i != count( $this->mPersistent ) ) {
+                    print_r( $params );
+                    ?>-----------------------------<?php
+                    print_r( $this->mPersistent );
+                    die();
+                }
                 self::$mPersistentElements[ $this->mPath ] = $ret;
                 $mc->add( 'persistentelements', self::$mPersistentElements );
             }
