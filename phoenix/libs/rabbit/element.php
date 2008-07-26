@@ -220,8 +220,12 @@
                 self::$mPersistentElements[ $this->mPath ] = $ret;
                 $mc->add( 'persistentelements', self::$mPersistentElements );
             }
+            $ret = array();
+            foreach ( self::$mPersistentElements[ $this->mPath ] as $i ) {
+                $ret[] = $args[ $i ];
+            }
 
-            return $args;
+            return $ret;
         }
         public final function __construct( $path ) {
             $this->mPath = $path;
