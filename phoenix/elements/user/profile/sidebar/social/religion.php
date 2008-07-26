@@ -1,6 +1,8 @@
 <?php    
     class ElementUserProfileSidebarSocialReligion extends Element {
-        public function Render( $theuser ) {
+        protected $mPersistent = array( 'religion', 'gender' );
+
+        public function Render( $religion, $gender ) {
             if ( $theuser->Profile->Religion != '-' ) {
                 ?><li><strong>Θρήσκευμα</strong>
                 <?php

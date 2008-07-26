@@ -1,10 +1,12 @@
 <?php
     class ElementUserProfileSidebarSocialSex extends Element {
-        public function Render( $theuser ) {
-            if ( $theuser->Profile->Sexualorientation != '-' ) {
+        protected $mPersistent = array( 'sexualorientation', 'gender' );
+
+        public function Render( $sexualorientation, $gender ) {
+            if ( $sexualorientation != '-' ) {
                 ?><li><strong>Σεξουαλικές προτιμήσεις</strong>
                 <?php
-                Element( 'user/trivial/sex' , $theuser->Profile->Sexualorientation , $theuser->Gender );
+                Element( 'user/trivial/sex' , $sexualorientation , $gender );
                 ?></li><?php
             }
         }

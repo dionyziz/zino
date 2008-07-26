@@ -17,6 +17,9 @@
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
         }
+        protected function OnBeforeUpdate() {
+            $this->Updated = NowDate();
+        }
         public function __get( $key ) {
             switch ( $key ) {
                 case 'Age':
@@ -140,6 +143,7 @@
             $this->Drinker = '-';
             $this->Height = -3;
             $this->Weight = -3;
+            $this->Updated = NowDate();
         }
         protected function OnUpdate( $updatedAttributes, $previousValues ) {
             global $libs;

@@ -1,10 +1,12 @@
 <?php
     class ElementUserProfileSidebarSocialDrinker extends Element {
-        public function Render( $theuser ) {
-            if ( $theuser->Profile->Drinker != '-' ) {
+        protected $mPersistent = array( 'drinker' );
+
+        public function Render( $drinker ) {
+            if ( $drinker != '-' ) {
                 ?><li><strong>Πίνεις;</strong>
                 <?php
-                Element( 'user/trivial/yesno' , $theuser->Profile->Drinker );
+                Element( 'user/trivial/yesno' , $drinker );
                 ?></li><?php
             }
         }

@@ -1,10 +1,12 @@
 <?php
     class ElementUserProfileSidebarSocialSmoker extends Element {
-        public function Render( $theuser ) {
-            if ( $theuser->Profile->Smoker != '-' ) {
+        protected $mPersistent = array( 'smoker' );
+
+        public function Render( $smoker ) {
+            if ( $smoker != '-' ) {
                 ?><li><strong>Καπνίζεις;</strong>
                 <?php
-                Element( 'user/trivial/yesno' , $theuser->Profile->Smoker );
+                Element( 'user/trivial/yesno' , $smoker );
                 ?></li><?php
             }
         }

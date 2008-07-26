@@ -1,21 +1,16 @@
 <?php 
 
     class ElementUserProfileSidebarLook extends Element {
-        public function Render( $theuser ) {
-            $showgender = $showweight = $showheight = false;
-            if ( $theuser->Gender != '-' ) {
-                $showgender = true;
-            }
-            if ( $theuser->Profile->Weight > -3 ) {
-                $showweight = true;
-            }
-            if ( $theuser->Profile->Height > -3 ) {
-                $showheight = true;
-            }
+        protected $mPersistent = array( 'height', 'weight', 'gender' );
+        
+        public function Render( $height, $weight, $gender ) {
+            $showgender = $gender != '-';
+            $showweight = $weight > -3;
+            $showheight = $height > -3;
             ?><ul><?php
                 if ( $showgender ) {
                     ?><li><?php
-                    Element( 'user/trivial/gender' , $theuser->Gender );
+                    Element( 'user/trivial/gender', $gender );
                     ?></li><?php
                 }
                 if ( ( $showgender && $showweight ) || ( $showgender && !$showweight && $showheight ) ) {
@@ -23,7 +18,7 @@
                 }
                 if ( $showheight ) {
                     ?><li><?php
-                    Element( 'user/trivial/height' , $theuser->Profile->Height );
+                    Element( 'user/trivial/height' , $height );
                     ?></li><?php
                 }
                 if ( $showweight && $showheight ) {
@@ -31,7 +26,7 @@
                 }
                 if ( $showweight ) {
                     ?><li><?php
-                    Element( 'user/trivial/weight' , $theuser->Profile->Weight );
+                    Element( 'user/trivial/weight' , $weight );
                     ?></li><?php
                 }
             ?></ul><?php

@@ -9,9 +9,9 @@
             
             ?><div class="sidebar">
                 <div class="basicinfo"><?php
-                    Element( 'user/profile/sidebar/who' , $theuser );
-                    Element( 'user/profile/sidebar/slogan' , $theuser );
-                    Element( 'user/profile/sidebar/mood' , $theuser );
+                    Element( 'user/profile/sidebar/who', $theuser );
+                    Element( 'user/profile/sidebar/slogan', $theuser->Profile->Slogan );
+                    Element( 'user/profile/sidebar/mood', $theuser->Profile->Mood, $theuser->Profile->Mood->Id, $theuser->Gender );
                     if ( $user->Id != $theuser->Id && $user->Exists() ) {
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $theuser );
@@ -28,25 +28,25 @@
                             ?>' );return false;">Διαγραφή από τους φίλους</a></div><?php
                         }
                     }
-                    Element( 'user/profile/sidebar/info' , $theuser );
+                    Element( 'user/profile/sidebar/info', $theuser, $theuser->Id, $theuser->Profile->Updated );
                 ?></div>
                 <div class="look">
                     <img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>body-male-slim-short.jpg" alt="" /><?php
-                    Element( 'user/profile/sidebar/look' , $theuser );
+                    Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight,  $theuser->Gender );
                 ?></div>
                 <div class="social"><?php
                     Element( 'user/profile/sidebar/social/view' , $theuser );
                 ?></div>
                 <div class="aboutme"><?php
-                    Element( 'user/profile/sidebar/aboutme' , $theuser );
+                    Element( 'user/profile/sidebar/aboutme' , $theuser->Profile->Aboutme );
                 ?></div>
                 <div class="interests"><?php
                     Element( 'user/profile/sidebar/interests' , $theuser );
                 ?></div>
                 <div class="contacts"><?php
-                    Element( 'user/profile/sidebar/contacts' , $theuser );
+                    Element( 'user/profile/sidebar/contacts' , $theuser, $theuser->Id, $theuser->Profile->Updated );
                 ?></div>
             </div><?php
         }

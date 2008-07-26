@@ -1,10 +1,12 @@
 <?php
     class ElementUserProfileSidebarSocialEducation extends Element {
-        public function Render( $theuser ) {
-            if ( $theuser->Profile->Education != '-' ) {
+        protected $mPersistent = array( 'education' );
+
+        public function Render( $education ) {
+            if ( $education!= '-' ) {
                 ?><li><strong>Μόρφωση</strong>
                 <?php
-                Element( 'user/trivial/education' , $theuser->Profile->Education );
+                Element( 'user/trivial/education' , $education );
                 ?></li><?php
             }
         }

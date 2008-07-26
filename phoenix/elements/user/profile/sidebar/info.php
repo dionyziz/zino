@@ -1,7 +1,9 @@
 <?php
 
     class ElementUserProfileSidebarInfo extends Element {
-        public function Render( $theuser ) {
+        protected $mPersistent = array( 'userid', 'updated' );
+
+        public function Render( $theuser, $userid, $updated ) {
             ?><div class="info">
                 <dl><?php
                     if ( $theuser->Profile->Age ) {

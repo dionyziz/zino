@@ -1,28 +1,30 @@
 <?php
     class ElementUserProfileSidebarMood extends Element {
-        public function Render( $theuser ) {
+        protected $mPersistent = array( 'moodid', 'gender' );
+
+        public function Render( Mood $mood, $moodid, $gender ) {
             global $xc_settings;
             
-            if ( $theuser->Profile->Mood->Exists() ) {
+            if ( $mood->Exists() ) {
                 ?><div class="mood">
                     <strong>Διάθεση</strong> 
                     <img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>moods/<?php
-                    echo $theuser->Profile->Mood->Url;
+                    echo $mood->Url;
                     ?>"<?php
-                    if ( $theuser->Gender == 'f' ) {
+                    if ( $gender == 'f' ) {
                         ?> alt="<?php
-                        echo htmlspecialchars( $theuser->Profile->Mood->Labelfemale );
+                        echo htmlspecialchars( $mood->Labelfemale );
                         ?>" title="<?php
-                        echo htmlspecialchars( $theuser->Profile->Mood->Labelfemale );
+                        echo htmlspecialchars( $mood->Labelfemale );
                         ?>"<?php
                     } 
                     else {
                         ?> alt="<?php
-                        echo htmlspecialchars( $theuser->Profile->Mood->Labelmale );
+                        echo htmlspecialchars( $mood->Labelmale );
                         ?>" title="<?php
-                        echo htmlspecialchars( $theuser->Profile->Mood->Labelmale );
+                        echo htmlspecialchars( $mood->Labelmale );
                         ?>"<?php
                     }
                     ?>/>
