@@ -68,13 +68,16 @@ div.header ul li {
 	display: inline;
 	color: white;
 }
+div.header ul li a span {
+	padding-left: 0;
+}
 div.header ul li a.messages span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -806px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -805px;
 }
 div.header ul li a.settings span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -312px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -311px;
 }
 div.header ul li a.login span {
 	padding-left: 16px;
