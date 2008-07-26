@@ -4,7 +4,7 @@
         global $water;
         static $cache = false;
 
-        $key = 'dbcache';
+        $key = 'dbcache:' . $rabbit_settings[ 'dbschemaversion' ];
         w_assert( $table instanceof DBTable );
         $tablename = $table->Name;
         $tablealias = $table->Alias;

@@ -37,6 +37,9 @@
     if ( !isset( $rabbit_settings[ 'timezone' ] ) ) {
         $rabbit_settings[ 'timezone' ] = 'GMT';
     }
+    if ( !isset( $rabbit_settings[ 'dbschemaversion' ] ) ) {
+        $rabbit_settings[ 'dbschemaversion' ] = 0;
+    }
     if ( function_exists( 'mb_internal_encoding' ) ) {
         mb_internal_encoding( 'UTF-8' );
     }
