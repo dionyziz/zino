@@ -4,7 +4,7 @@
 
         public function Render( $slogan ) {
             ?><span class="subtitle"><?php
-            echo htmlspecialchars( $theuser->Profile->Slogan );
+            echo htmlspecialchars( $slogan );
             ?></span><?php
         }
     }
