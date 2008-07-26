@@ -93,12 +93,10 @@ var pms = {
 			pms.activefolder = pms.node;
 		}
 		pms.activefolder.className = '';
-		$( pms.activefolder ).addClass( 'activefolder' );
+		$( pms.activefolder ).addClass( 'activefolder' )
+		.addClass( 'folder' );
 		if ( pms.activefolder != pms.node ) {
 			$( pms.activefolder ).addClass( 'top' );
-		}
-		else {
-			pms.activefolder.className = 'activefolder';
 		}
 		$( '#newfolderlink' ).css( "background-color" , "#ffffff" );
 		$( $( '#newfolderlink a' )[ 0 ] ).css( "color" , "#d0cfcf" ).css( "font-weight" , "normal" );
