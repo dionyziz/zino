@@ -188,6 +188,8 @@
             return $this->mPersistent !== false;
         }
         public function GetSignificantArgs( $args ) {
+            global $mc;
+
             w_assert( is_array( $this->mPersistent ) );
             w_assert( count( $this->mPersistent ) >= 1 );
 
