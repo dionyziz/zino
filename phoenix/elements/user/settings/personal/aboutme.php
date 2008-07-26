@@ -4,7 +4,7 @@
         public function Render() {
             global $user;
             
-            ?><textarea><?php
+            ?><textarea rows="" cols=""><?php
             echo htmlspecialchars( $user->Profile->Aboutme );
             ?></textarea><?php
         }

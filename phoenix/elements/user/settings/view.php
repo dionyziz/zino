@@ -14,19 +14,19 @@
                     Element( 'user/settings/sidebar' );
                 ?></div>
                 <div class="tabs">
-                    <form id="personalinfo" style="display:none"><?php
+                    <form id="personalinfo" action="" style="display:none"><?php
                         Element( 'user/settings/personal/view' );
                     ?></form>
-                    <form id="characteristicsinfo" style="display:none"><?php
+                    <form id="characteristicsinfo" action="" style="display:none"><?php
                         Element( 'user/settings/characteristics/view' );
                     ?></form>
-                    <form id="interestsinfo" style="display:none"><?php
+                    <form id="interestsinfo" action="" style="display:none"><?php
                         Element( 'user/settings/interests' );
                     ?></form>
-                    <form id="contactinfo" style="display:none"><?php
+                    <form id="contactinfo" action="" style="display:none"><?php
                         Element( 'user/settings/contact' );
                     ?></form>
-                    <form id="settingsinfo" style="display:none"><?php
+                    <form id="settingsinfo" action="" style="display:none"><?php
                         Element( 'user/settings/settings' );
                     ?></form>
                 </div>

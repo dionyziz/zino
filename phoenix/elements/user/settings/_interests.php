@@ -46,7 +46,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" style="" />
+                                    ?>aplbubble_left.png" style="" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
@@ -54,10 +54,10 @@
                                     echo $hobbie->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -67,8 +67,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'hobbies' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'hobbies' );"></select>
                         </form>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
@@ -94,10 +94,10 @@
                                     echo $song->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -107,8 +107,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'songs' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'songs' );"></select>
                         </form>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
@@ -134,10 +134,10 @@
                                     echo $movie->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -147,8 +147,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'movies' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'movies' );"></select>
                         </form>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
@@ -174,10 +174,10 @@
                                     echo $show->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -187,8 +187,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'shows' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'shows' );"></select>
                         </form>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
@@ -214,10 +214,10 @@
                                     echo $book->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -227,8 +227,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'books' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'books' );"></select>
                         </form>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
@@ -254,10 +254,10 @@
                                     echo $artist->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -267,8 +267,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'artists' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'artists' );"></select>
                         </form>
                     </div>
                 </div>
@@ -286,7 +286,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
+                                    ?>aplbubble_left.png" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
@@ -294,10 +294,10 @@
                                     echo $game->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
@@ -307,8 +307,8 @@
                         <a href="" onclick="return false;"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
-                        <form>
-                            <select onkeypress="Suggest.selectMove( event, 'games' );"/>
+                        <form action="">
+                            <select onkeypress="Suggest.selectMove( event, 'games' );"></select>
                         </form>
                     </div>
                 </div>

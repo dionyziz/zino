@@ -13,7 +13,7 @@
                     <span>
                         <img src="<?php
                         echo $rabbit_settings[ "imagesurl" ];
-                        ?>exclamation.png" /> Το email δεν είναι έγκυρο
+                        ?>exclamation.png" alt="" /> Το email δεν είναι έγκυρο
                     </span>
                     <div class="explanation">Το e-mail δεν εμφανίζεται στο προφίλ σου.</div>
                 </div>
@@ -31,7 +31,7 @@
                     <span>
                         <img src="<?php
                         echo $rabbit_settings[ "imagesurl" ];
-                        ?>exclamation.png" /> Το MSN δεν είναι έγκυρο
+                        ?>exclamation.png" alt="" /> Το MSN δεν είναι έγκυρο
                     </span>
                 </div>
             </div>

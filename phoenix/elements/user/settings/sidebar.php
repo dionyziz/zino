@@ -14,7 +14,7 @@
             <div>
                 <span class="saving"><img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-                ?>ajax-loader.gif" /> Αποθήκευση...
+                ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                 </span>
                 <span class="saved">Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
             </div>

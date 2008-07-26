@@ -37,7 +37,7 @@
                                 <div class="aplbubble">
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" style="" />
+                                    ?>aplbubble_left.png" style="" alt="" />
                                     <span style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
@@ -45,10 +45,10 @@
                                     echo $hobbie->Id;
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
+                                    ?>delete.png" alt="" /></a>
                                     <img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>aplbubble_right.png" alt="" />
                                 </div>
                             </li><?php
                         }
