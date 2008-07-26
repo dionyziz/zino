@@ -200,7 +200,7 @@
             if ( !isset( $significant[ $this->mPath ] ) ) {
                 $i = 0;
                 foreach ( $params as $param ) {
-                    if ( $this->mPersistent[ $i ] == $param->getName ) {
+                    if ( $this->mPersistent[ $i ] == $param->getName() ) {
                         $ret[] = $i;
                         ++$i;
                         if ( $i == count( $this->mPersistent ) ) {
