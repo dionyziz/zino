@@ -15,9 +15,9 @@
                 if ( !$user->Exists() ) {
                     ?><form action="do/user/login" method="post">
                         <ul>
-                        <li><a href="join" class="register icon">Δημιούργησε λογαριασμό</a></li>
+                        <li><a href="join" class="register icon"><span></span>Δημιούργησε λογαριασμό</a></li>
                         <li>·</li>
-                        <li><a href="?#login" onclick="Banner.Login();return false" class="login icon">Είσοδος</a></li>
+                        <li><a href="?#login" onclick="Banner.Login();return false" class="login icon"><span></span>Είσοδος</a></li>
                         <li style="display:none;">·</li>
                         <li style="display:none;">Όνομα: <input type="text" name="username" /> Κωδικός: <input type="password" name="password" /></li>
                         <li style="display:none;"><input type="submit" value="Είσοδος" class="button" /></li>
@@ -33,7 +33,8 @@
                     Element( 'user/name', $user, false );
                     ?></a></li>
                     <li>·</li>
-                    <li><a id="unreadmessages" href="messages" class="messages icon"><?php
+                    <li><a id="unreadmessages" href="messages" class="messages icon">
+						<span></span><?php
                         $unreadCount = $user->Count->Unreadpms;
                         if ( $unreadCount > 0 ) {
                             echo $unreadCount;
@@ -50,11 +51,11 @@
                         }
                     ?></a></li>
                     <li>·</li>
-                    <li><a href="settings" class="settings icon">Ρυθμίσεις</a></li>
+                    <li><a href="settings" class="settings icon"><span></span>Ρυθμίσεις</a></li>
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout">Έξοδος</a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout"><span></span>Έξοδος</a></form><?php
             }
             ?>
             <div class="eof"></div>

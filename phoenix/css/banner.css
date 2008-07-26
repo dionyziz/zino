@@ -72,14 +72,17 @@ div.header ul li {
 	display: inline;
 	color: white;
 }
-div.header ul li a.messages {
-	background-image: url('http://static.zino.gr/phoenix/mail_generic.png');
+div.header ul li a.messages span {
+	padding-left: 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -596px;
 }
-div.header ul li a.settings {
-	background-image: url('http://static.zino.gr/phoenix/wrench_orange.png');
+div.header ul li a.settings span {
+	padding-left: 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -1922px;
 }
-div.header ul li a.login {
-	background-image: url('http://static.zino.gr/phoenix/up.png');
+div.header ul li a.login span {
+	padding-left: 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -1790px;
 	_background-image: url('http://static.zino.gr/phoenix/_up.png');
 }
 div.header ul li a.profile img {
@@ -87,9 +90,11 @@ div.header ul li a.profile img {
     margin-right: 6px;
     border: 1px solid #eee;
 }
-div.header ul li a.register {
-	background-image: url('http://static.zino.gr/phoenix/bookmark_toolbar.png');
+div.header ul li a.register span {
+	padding-left: 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -937px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
+	
 }
 div.header ul li a.icon {
 	background-repeat: no-repeat;
@@ -117,9 +122,7 @@ div.header a:hover {
 div.header a img {
 	vertical-align: text-top;
 }
-div.header a.logout {
-	background-image: url('http://static.zino.gr/phoenix/arrow_right.gif');
-	background-repeat: no-repeat;
-	background-position: right;
-	padding-right: 20px;
+div.header a.logout span {
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -497px;
+	padding-left: 16px;
 }
