@@ -126,7 +126,7 @@ div.header a img {
 }
 div.header a.logout span {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -497px;
-	padding-left: 17px 0 0 16px;
+	padding: 17px 0 0 16px;
 	margin-left: 5px;
 	float: right;
 }
