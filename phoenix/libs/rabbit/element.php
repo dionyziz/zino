@@ -102,6 +102,7 @@
         // fires an element
         static public function Fire( /* $elementpath , $arg1 , $arg2 , $arg3 , ... , $argN */ ) {
             global $water;
+            global $mc;
 
             w_assert( func_num_args() );
             $args = func_get_args();
