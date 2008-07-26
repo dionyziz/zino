@@ -80,11 +80,10 @@ var pms = {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
+		pms.activefolder.className = '';
+		$( pms.activefolder ).addClass( 'folder' );
 		if ( pms.activefolder != pms.node ) {
-			pms.activefolder.className = 'folder top';
-		}
-		else {
-			pms.activefolder.className = 'folder';
+			$( pms.activefolder ).addClass = 'top';
 		}
 	}
 	,
@@ -93,8 +92,10 @@ var pms = {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
+		pms.activefolder.className = '';
+		$( pms.activefolder ).addClass( 'activefolder' );
 		if ( pms.activefolder != pms.node ) {
-			pms.activefolder.className = 'activefolder top';
+			$( pms.activefolder ).addClass( 'top' );
 		}
 		else {
 			pms.activefolder.className = 'activefolder';

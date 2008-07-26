@@ -45,7 +45,7 @@
                             Element( 'pm/folder/link', $folder );
                         }
 
-                        ?><div class="newfolder top" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew"><span></span>Νέος Φάκελος</a></div>
+                        ?><div class="newfolder top folder" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew"><span></span>Νέος Φάκελος</a></div>
                     </div><br />
                     <a href="" class="folder_links" onclick="pms.NewMessage( '' , '' );return false;"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
