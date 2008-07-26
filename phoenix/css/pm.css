@@ -46,7 +46,7 @@ div.folder {
 div.folder span {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1797px;
 	padding-left: 16px;
-	margin-right: 5px;
+	margin: 0 2px;
 }
 /*
 div.hoverfolder {
