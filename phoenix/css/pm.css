@@ -46,6 +46,10 @@ div.folder {
 	padding: 3px 3px 3px 22px;
 	min-width: 108px;
 }
+div.folder span {
+	background: url( 'http://static.zino.gr/images/icons.png' ) no-repeat 0 -1847px;
+	padding-left: 16px;
+}
 /*
 div.hoverfolder {
 	background-color: #f4f5f7;

@@ -18,12 +18,6 @@ var pms = {
 			//pms.activefolder.className = 'folder top';
 			$( pms.activefolder ).addClass( 'top' );
 		}
-		/*
-		else {
-			//pms.activefolder.className = 'folder';
-			$( pms.activefolder ).addClass( 'folder' );
-		}
-		*/
 		folder.className = '';
 		$( folder ).addClass( 'activefolder' )
 		.addClass( 'folder' );
@@ -31,12 +25,6 @@ var pms = {
 			//folder.className = 'activefolder top';
 			$( folder ).addClass( 'top' );
 		}
-		/*
-		else {
-			//folder.className = 'activefolder';
-			$( folder ).addClass( 'activefolder' );
-		}
-		*/
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/folder/show' , { folderid : folderid } , function( errcode ) {
 			alert( 'Coala error: ' + errcode );

@@ -11,7 +11,7 @@
                 echo $folder->Id;
                 ?>"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode, <?php
                     echo $folder->Id;
-                ?> );return false;">Εισερχόμενα<?php
+                ?> );return false;"><span></span>Εισερχόμενα<?php
                 if ( $unreadCount ) {
                     ?> (<?php
                     echo $unreadCount;
@@ -24,7 +24,7 @@
                 echo $folder->Id; 
                 ?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode,<?php
                 echo $folder->Id;
-                ?> );return false;">Απεσταλμένα</a></div><?php
+                ?> );return false;"><span></span>Απεσταλμένα</a></div><?php
             }
             else {
                 ?><div class="createdfolder folder top" id="folder_<?php
@@ -35,7 +35,7 @@
                 echo htmlspecialchars( $folder->Name );
                 ?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode , '<?php
                 echo $folder->Id;
-                ?>' );return false;"><?php
+                ?>' );return false;"><span></span><?php
                 echo htmlspecialchars( $folder->Name );
                 ?></a></div><?php
             }
