@@ -2,6 +2,7 @@
     function DBTable_GetInfo( DBTable $table, $type = 'indexes' ) {
         global $mc;
         global $water;
+        global $rabbit_settings;
         static $cache = false;
 
         $key = 'dbcache:' . $rabbit_settings[ 'dbschemaversion' ];
