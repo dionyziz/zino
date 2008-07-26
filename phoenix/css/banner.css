@@ -70,15 +70,15 @@ div.header ul li {
 }
 div.header ul li a.messages span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -734px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -806px;
 }
 div.header ul li a.settings span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -182px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -312px;
 }
 div.header ul li a.login span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -1790px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -116px;
 	_background-image: url('http://static.zino.gr/phoenix/_up.png');
 }
 div.header ul li a.profile img {
@@ -88,7 +88,7 @@ div.header ul li a.profile img {
 }
 div.header ul li a.register span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -937px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1003px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
 	
 }
