@@ -31,7 +31,7 @@ div.header h1 {
     _top: 3px;
 	left: 0;
 	position: absolute;
-	background-image: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -563px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -563px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
 	background-position: 0 0;
 	*/
@@ -47,7 +47,7 @@ div.header div.eof {
     width: 71px;
     height: 50px;
 	position: absolute;
-	background-image: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -663px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -663px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
 	background-position: 0 0;
 	*/
