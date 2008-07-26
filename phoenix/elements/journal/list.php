@@ -6,6 +6,7 @@
             global $rabbit_settings;
             global $xc_settings;
             global $user;
+            global $water;
             
             Element( 'user/subdomainmatch' );
             
@@ -79,6 +80,7 @@
                 <div class="pagifyjournals"><?php
                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'journals?pageno=';
                 $total_journals = $theuser->Count->Journals;
+                $water->Trace( $total_journals );
                 $total_pages = ceil( $total_journals / 5 );
                 Element( 'pagify', $pageno, $link, "( " . $total_journals . " Καταχωρήσεις )" );
                 ?></div>
