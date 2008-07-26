@@ -316,14 +316,14 @@
             <div class="aplbubble creation">
                 <img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_left.png" />
+                ?>aplbubble_left.png" alt="" />
                 <span></span>
                 <a href="" style="display:none;" class="delete"><img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-                ?>delete.png" /></a>
+                ?>delete.png" alt="" /></a>
                 <img src="<?php
                 echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_right.png" />
+                ?>aplbubble_right.png" alt="" />
             </div><?php
         }
     }
