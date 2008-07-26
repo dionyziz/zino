@@ -40,10 +40,7 @@ div.top {
 	border-top: 1px solid #d7d7d7;
 }
 div.folder {	
-	background-image: url( 'http://static.zino.gr/images/folder.png' );
-	background-position: 3px 3px;
-	background-repeat: no-repeat;
-	padding: 3px 3px 3px 22px;
+	padding: 3px 3px 3px 0;
 	min-width: 108px;
 }
 div.folder span {
