@@ -191,7 +191,7 @@
             w_assert( is_array( $this->mPersistent ) );
             w_assert( count( $this->mPersistent ) >= 1 );
 
-            $me = New ReflectionClass( self );
+            $me = New ReflectionClass( get_class( $this ) );
             $render = $me->getMethod( 'Render' );
             $params = $render->getParameters();
 
