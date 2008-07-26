@@ -35,11 +35,6 @@ div.body div.leftbar div.folders {
 div.activefolder {
 	font-weight: bold;
 	background-color: #d6e6f7;
-	background-image: url( 'http://static.zino.gr/images/folder.png' );
-	background-position: 3px 3px;
-	background-repeat: no-repeat;
-	padding: 3px 3px 3px 22px;
-	min-width: 108px;
 }
 div.top {
 	border-top: 1px solid #d7d7d7;

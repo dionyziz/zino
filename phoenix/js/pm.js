@@ -12,18 +12,30 @@ var pms = {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
 		}
+		pms.activefolder.className = '';
+		$( pms.activefolder ).addClass( 'folder' )
 		if ( pms.activefolder != pms.node ) {
-			pms.activefolder.className = 'folder top';
+			//pms.activefolder.className = 'folder top';
+			$( pms.activefolder ).addClass( 'top' );
 		}
+		/*
 		else {
-			pms.activefolder.className = 'folder';
+			//pms.activefolder.className = 'folder';
+			$( pms.activefolder ).addClass( 'folder' );
 		}
+		*/
+		folder.className = '';
+		$( folder ).addClass( 'activefolder' );
 		if ( folder != pms.node ) {
-			folder.className = 'activefolder top';
+			//folder.className = 'activefolder top';
+			$( folder ).addClass( 'top' );
 		}
+		/*
 		else {
-			folder.className = 'activefolder';
+			//folder.className = 'activefolder';
+			$( folder ).addClass( 'activefolder' );
 		}
+		*/
 		pms.activefolder = folder;
 		Coala.Cold( 'pm/folder/show' , { folderid : folderid } , function( errcode ) {
 			alert( 'Coala error: ' + errcode );
