@@ -68,7 +68,7 @@ div.header ul li {
 	display: inline;
 	color: white;
 }
-div.header ul li a span {
+div.header ul li a {
 	padding-left: 0;
 }
 div.header ul li a.messages span {
