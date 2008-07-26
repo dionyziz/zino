@@ -44,8 +44,9 @@ div.folder {
 	min-width: 108px;
 }
 div.folder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1800px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1797px;
 	padding-left: 16px;
+	margin-right: 5px;
 }
 /*
 div.hoverfolder {
