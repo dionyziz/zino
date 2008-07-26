@@ -118,7 +118,7 @@ div.header a.logout {
 	right: 8px;
 	top: 6px;
 }
-div.header a span.linktext:hover {
+div.header a a.linktext:hover {
 	text-decoration: underline;
 }
 /*
