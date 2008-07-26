@@ -58,12 +58,11 @@ div.hoverfolder {
 	min-width: 108px;
 }
 */
-div.newfolder {
+div.newfolder span {
 	/*border-top: 1px solid #d7d7d7;*/
-	background-image: url( 'http://static.zino.gr/images/folder_add.png' );
-	background-position: 3px 3px;
-	background-repeat: no-repeat;
-	padding: 3px 3px 3px 22px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1847px;
+	padding-left: 16px;
+	margin: 0 2px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
