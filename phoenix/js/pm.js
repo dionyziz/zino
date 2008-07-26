@@ -13,7 +13,7 @@ var pms = {
 			pms.activefolder = pms.node;
 		}
 		pms.activefolder.className = '';
-		$( pms.activefolder ).addClass( 'folder' )
+		$( pms.activefolder ).addClass( 'folder' );
 		if ( pms.activefolder != pms.node ) {
 			//pms.activefolder.className = 'folder top';
 			$( pms.activefolder ).addClass( 'top' );
@@ -25,7 +25,8 @@ var pms = {
 		}
 		*/
 		folder.className = '';
-		$( folder ).addClass( 'activefolder' );
+		$( folder ).addClass( 'activefolder' )
+		.addClass( 'folder' );
 		if ( folder != pms.node ) {
 			//folder.className = 'activefolder top';
 			$( folder ).addClass( 'top' );
