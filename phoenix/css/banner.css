@@ -118,9 +118,14 @@ div.header a.logout {
 	right: 8px;
 	top: 6px;
 }
+div.header a span.linktext:hover {
+	text-decoration: underline;
+}
+/*
 div.header a:hover {
 	text-decoration: underline;
 }
+*/
 div.header a img {
 	vertical-align: text-top;
 }

@@ -34,7 +34,8 @@
                     ?></a></li>
                     <li>·</li>
                     <li><a id="unreadmessages" href="messages" class="messages icon">
-						<span></span><?php
+						<span></span>
+						<span class="linktext"><?php
                         $unreadCount = $user->Count->Unreadpms;
                         if ( $unreadCount > 0 ) {
                             echo $unreadCount;
@@ -49,13 +50,13 @@
                         else {
                             ?>Μηνύματα<?php
                         }
-                    ?></a></li>
+                    ?></span></a></li>
                     <li>·</li>
-                    <li><a href="settings" class="settings icon"><span></span>Ρυθμίσεις</a></li>
+                    <li><a href="settings" class="settings icon"><span></span><span class="linktext">Ρυθμίσεις</span></a></li>
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout"><span></span>Έξοδος</a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout"><span></span><span class="linktext">Έξοδος</span></a></form><?php
             }
             ?>
             <div class="eof"></div>
