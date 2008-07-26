@@ -121,7 +121,7 @@
             $echo = ob_get_clean();
             if ( $element->IsPersistent() ) {
                 // cache the result
-                $sig = self::EncodeArguments( $element->GetSignificantArgs() );
+                $sig = self::EncodeArguments( $element->GetSignificantArgs( $args ) );
                 $mc->add( $elementpath . ':' . $sig, array( $echo, $ret ) );
             }
             echo $echo;
