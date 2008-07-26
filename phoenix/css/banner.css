@@ -95,11 +95,12 @@ div.header ul li a.register span {
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
 	
 }
+/*
 div.header ul li a.icon {
 	background-repeat: no-repeat;
 	background-position: left;
-	padding-left: 20px;
 }
+*/
 div.header ul li a.self {
 	padding-left: 30px;
 }
