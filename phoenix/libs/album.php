@@ -50,7 +50,7 @@
                         $value = mb_substr( $value, 0, 100 );
                     }
 
-                    $this->mCurrentValues[ 'name' ] = $value;
+                    $this->mCurrentValues[ 'Name' ] = $value;
                     break;
                 case 'Description':
                     if ( strlen( $value ) > 200 ) {
