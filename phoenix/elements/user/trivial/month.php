@@ -1,6 +1,8 @@
 <?php
     
     class ElementUserTrivialMonth extends Element {
+        protected $mPersistent = array( 'month' );
+
         public function Render( $month ) {
             $months = array( '-' => '-',
                              '01' => 'Ιανουαρίου',

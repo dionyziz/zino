@@ -1,6 +1,8 @@
 <?php
     
     class ElementUserTrivialSex extends Element {
+        protected $mPersistent = array( 'sex', 'gender' );
+
         public function Render( $sex , $gender ) {
             if ( $gender == 'm' || $gender == '-' ) {
                 $sexes = array( 

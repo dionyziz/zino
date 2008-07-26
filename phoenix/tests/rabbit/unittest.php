@@ -198,6 +198,7 @@
                                     break;
                                 case 1:
                                     $this->Assert( $assertion instanceof AssertResultFailedByException, 'Failed exceptions should log an AssertResultFailedByException class instance' );
+                                    $this->Assert( 'Unanticipated Failure', $assertion->Message, 'Failed to capture unanticipated failure message' );
                             }
                             ++$j;
                         }
