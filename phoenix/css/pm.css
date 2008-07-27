@@ -211,6 +211,7 @@ form#newfolderform a.acceptcreate {
 	padding-left: 16px;
 }
 form#newfolderform a.cancelcreate {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1554px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1152px;
 	padding-left: 16px;
+	margin-left: 5px;
 }
