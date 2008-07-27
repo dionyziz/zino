@@ -1,4 +1,5 @@
 <?php
+
     class TestWYSIWYG extends Testcase {
         protected $mAppliesTo = 'libs/wysiwyg';
 
@@ -32,4 +33,5 @@
     }
 
     return New TestWYSIWYG();
+
 ?>
