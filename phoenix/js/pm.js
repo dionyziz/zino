@@ -53,14 +53,7 @@ var pms = {
 			//remove the unread icon
 			$( '#pm_' + pmid + ' div.infobar span.unreadpm' ).hide();
 			Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
-			/*
-			if ( unreadicon ) {
-				pms.UpdateUnreadPms( - 1 );
-				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
-					$( unreadicon ).remove();
-				});
-			}
-			*/
+			pms.UpdateUnreadPms( -1 );
 		}
 	}
 	,
@@ -251,7 +244,9 @@ var pms = {
 		var newtext;
 		var newtext2;		
 		$( unreadmsgbanner.firstChild ).remove();
-		$( incominglink.firstChild ).remove();
+		while( incominglink.firstChild ) {
+			incominglink.remove( incominglink.firstChild );
+		}
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
 				--unreadpms;
@@ -272,9 +267,10 @@ var pms = {
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 			newtext2 = document.createTextNode( 'Μηνύματα' );
 		}
-		
-		$( unreadmsgbanner ).append( newtext2 );
+		var folderspan = document.createTextNode( 'span' );
+		$( incominglink ).append( folderspan );
 		$( incominglink ).append( newtext );
+		$( unreadmsgbanner ).append( newtext2 );
 	}
 	,
 	ShowFolderNameTop : function( texttoshow ) {
