@@ -161,55 +161,26 @@ div.message div.toolbar {
 div.message div.toolbar div.left {
 	display: inline;
 	background: #dedddb url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1282px;
-	/*
-	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarleft.jpg' );
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	background-color: #dedddb;
-	*/
-	/*margin: 0 2px 0 2px;*/
 	float: left;
 	width: 7px;
 	height: 14px;
 }
-/*
-div.message div.toolbar ul li input.submit {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
-	/*
-	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
-	background-repeat: no-repeat;
-	
-	color: #858583;
-	cursor: pointer;	
-}
-
-div.message div.toolbar ul li  input.submit:hover {
-	text-decoration: none;
-	color: black;
-}
-*/
 div.message div.toolbar div.middle2 {
 	background: #dddddb;
 	float: left;
 	height: 14px;
 }
-div.message div.toolbar div.middle a {
+div.message div.toolbar div.middle2 a {
 	color: #858583;
 }
-div.message div.toolbar div.middle a:hover {
+div.message div.toolbar div.middle2 a:hover {
 	color: #000;
 }
 div.message div.toolbar div.right{
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
-	/*
-	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	*/
 	float: left;
 	width: 7px;
 	height: 14px;
-	/*cursor: pointer;*/
 }
 div.message div.toolbar ul li  a:hover {
 	text-decoration: none;
