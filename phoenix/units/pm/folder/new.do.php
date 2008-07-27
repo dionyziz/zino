@@ -13,16 +13,14 @@
         $foldername = w_json_encode( $foldername );
         ?>var newfolderlink = document.getElementById( 'newfolderlink' );
         var newfolder = document.createElement( 'div' );
-        $( newfolder ).attr( { id : '<?php
+		var spannewfolder = document.createElement( 'span' );
+        $( newfolder ).attr( { id : 'folder_<?php
         echo $folderid;
         ?>' , alt : <?php
         echo $foldername;
         ?> , title : <?php
         echo $foldername;
-        ?> } ).addClass( 'folder' ).addClass( 'top' );
-        newfolder.id = 'folder_<?php
-        echo $folderid;
-        ?>';
+        ?> } ).addClass( 'folder' ).addClass( 'top' ).append( spannewfolder );
         var newfolderhref = document.createElement( 'a' );
         $( newfolderhref ).attr( { href : '' } ).addClass( 'folderlinks' ).click( function( folder , folderid ) {
             pms.ShowFolderPm( newfolder , <?php

@@ -21,16 +21,6 @@
             $( renamelink ).hide().click( function() {
                 return false;
             } );
-            /*
-            deletelink.style.display = 'none';
-            deletelink.onclick = function() {
-                return false;
-            };
-            renamelink.style.display = 'none';
-            renamelink.onclick = function () {
-                return false;
-            };
-            */
             pms.ShowFolderNameTop( '<?php 
             if ( $folder->Typeid == PMFOLDER_INBOX ) {
             //if ( $folderid == PMFOLDER_INBOX ) {
