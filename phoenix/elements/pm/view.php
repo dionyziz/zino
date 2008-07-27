@@ -124,7 +124,7 @@
                     <div class="toolbar"><?php
                         if ( !$pm->IsSender( $user ) ) {
                             ?><div class="left"></div>
-							<div class="middle">
+							<div class="middle2">
                                 <a href="" onclick="<?php
                                 ob_start();
                                 ?>pms.NewMessage( <?php

@@ -139,14 +139,14 @@ div.message div.lowerline div.leftcorner {
 	width: 10px;
 	float: left;
 }
-/*
+
 div.message div.lowerline div.middle {
 	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' );
 	background-repeat: repeat-x;
 	background-position: bottom;
 	height: 13px;
 }
-*/
+
 div.message div.lowerline div.rightcorner {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -236px -1207px;
 	height: 13px;
@@ -188,7 +188,7 @@ div.message div.toolbar ul li  input.submit:hover {
 	color: black;
 }
 */
-div.message div.toolbar div.middle {
+div.message div.toolbar div.middle2 {
 	background: #dddddb;
 	float: left;
 	height: 14px;
