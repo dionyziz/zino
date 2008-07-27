@@ -45,8 +45,9 @@
             global $mc;
 
             var_dump( self::$mPersistentElements );
-            die( 'Applying persistency: ' . $path );
             self::$mPersistentElements[ $path ] = $args;
+            var_dump( self::$mPersistentElements );
+            die();
             $mc->add( 'persistentelements', self::$mPersistentElements );
         }
         static public function EncodeArguments( $args ) {
