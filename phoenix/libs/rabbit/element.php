@@ -68,9 +68,11 @@
             $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
             $ret = $mc->get( 'persistent:' . $elementpath . ':' . $sig );
             if ( $ret === false ) {
+                $water->Trace( 'Persistent element MISS: ' . $elementpath . ' ( "' . implode( '", "', $params ) . '" )' );
                 // not cached
                 return false;
             }
+            $water->Trace( 'Persistent element HIT: ' . $elementpath . ' ( "' . implode( '", "', $params ) . '" )' );
             w_assert( is_array( $ret ) );
             w_assert( count( $ret ) == 2 ); // echoed value + return value
             // cached, echo its cached data
