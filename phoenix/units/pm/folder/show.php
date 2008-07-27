@@ -25,12 +25,14 @@
             if ( $folder->Typeid == PMFOLDER_INBOX ) {
             //if ( $folderid == PMFOLDER_INBOX ) {
                 ?>Εισερχόμενα' );<?php
+				/*
                 $unreadmsgs = $user->Count->Unreadpms;
                 if ( $unreadmsgs > 0 ) {
                     ?>pms.UpdateUnreadPms( <?php
                     echo $unreadmsgs;
                     ?> );<?php
                 }
+				*/
             }
             else {
                 ?>Απεσταλμένα' );<?php
