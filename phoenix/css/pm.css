@@ -69,6 +69,11 @@ div.leftbar a.newpm span {
 	padding: 2px 0 2px 18px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -391px;
 }
+div.leftbar a.deletefolder span {
+	margin-right: 2px;
+	padding: 2px 0 2px 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -441px;
+}
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
 }

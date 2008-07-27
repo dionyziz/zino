@@ -48,9 +48,7 @@
                         ?><div class="newfolder top folder" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew"><span></span>Νέος Φάκελος</a></div>
                     </div><br />
                     <a href="" class="folder_links newpm" onclick="pms.NewMessage( '' , '' );return false;"><span></span>Νέο μήνυμα</a><br />
-                    <a href="" id="deletefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>folder_delete.png" alt="Διαγραφή φακέλου" title="Διαγραφή φακέλου" /> Διαγραφή φακέλου</a>
+                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false;" style="display:none;">Διαγραφή φακέλου</a>
                     <a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
