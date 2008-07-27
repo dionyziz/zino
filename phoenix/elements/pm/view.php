@@ -124,7 +124,6 @@
                     <div class="toolbar"><?php
                         if ( !$pm->IsSender( $user ) ) {
                             ?><div class="left"></div>
-							<div class="right"></div>
 							<div class="middle">
                                 <a href="" onclick="<?php
                                 ob_start();
@@ -135,7 +134,8 @@
                                 ?> );return false;<?php
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>">Απάντηση</a>
-							</div><?php
+							</div>
+							<div class="right"></div><?php
                         }
                     ?></div>
                 </div>
