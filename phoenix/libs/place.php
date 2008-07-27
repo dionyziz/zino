@@ -35,8 +35,8 @@
         }
         public function LoadDefaults() {
             $this->Delid = 0;
-            $this->X     = 0;
-            $this->Y     = 0;
+            $this->X = 0;
+            $this->Y = 0;
         }
         public function IsDeleted() {
             return $this->Delid != 0;
