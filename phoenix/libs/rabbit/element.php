@@ -25,9 +25,10 @@
         static public function GetPersistentElementSignificantArgs( $path = false ) {
             global $mc;
             global $water;
+            global $rabbit_settings;
 
             if ( self::$mPersistentElements === false ) {
-                self::$mPersistentElements = $mc->get( 'persistentelements' );
+                self::$mPersistentElements = $mc->get( 'persistentelements:' . $rabbit_settings[ 'elementschemaversion' ] );
                 if ( !is_array( self::$mPersistentElements ) ) {
                     self::$mPersistentElements = array();
                 }
@@ -43,9 +44,10 @@
         }
         static public function SetPersistentElementSignificantArgs( $path, $args ) {
             global $mc;
+            global $rabbit_settings;
 
             self::$mPersistentElements[ $path ] = $args;
-            $mc->set( 'persistentelements', self::$mPersistentElements );
+            $mc->set( 'persistentelements:' . $rabbit_settings[ 'elementschemaversion' ], self::$mPersistentElements );
         }
         static public function EncodeArguments( $args ) {
             return md5( serialize( $args ) );
