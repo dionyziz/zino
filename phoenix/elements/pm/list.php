@@ -61,12 +61,8 @@
                     Δώσε ένα όνομα για τον φάκελό σου<br /><br />
                     <form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
                         <input type="textbox" style="width:130px;" /> 
-                        <a href="" onclick="pms.CreateNewFolder( this.parentNode );return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
-                        <a href="" onclick="pms.CancelNewFolder();return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>cancel.png" alt="Ακύρωση" title="Ακύρωση" /></a>
+                        <a href="" class="acceptcreate" onclick="pms.CreateNewFolder( this.parentNode );return false;"></a>
+                        <a href="" class="cancelcreate" onclick="pms.CancelNewFolder();return false;"></a>
                     </form>
                 </div>
             </div>
