@@ -66,7 +66,7 @@
                 $params[] = $args[ $pos ];
             }
             $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
-            $ret = $mc->get( $elementpath . ':' . $sig );
+            $ret = $mc->get( 'persistent:' . $elementpath . ':' . $sig );
             if ( $ret === false ) {
                 // not cached
                 return false;
