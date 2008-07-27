@@ -41,6 +41,12 @@
             // else fallthrough
             return false;
         }
+        static public function SetPersistentElementSignificantArgs( $path, $args ) {
+            global $mc;
+
+            self::$mPersistentElements[ $path ] = $args;
+            $mc->add( 'persistentelements', self::$mPersistentElements );
+        }
         static public function EncodeArguments( $args ) {
             return md5( serialize( $args ) );
         }
@@ -198,9 +204,8 @@
             $render = $me->getMethod( 'Render' );
             $params = $render->getParameters();
 
-            $significant = self::GetPersistentElementSignificantArgs();
-
-            if ( !isset( $significant[ $this->mPath ] ) ) {
+            $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
+            if ( $significant === false ) {
                 $i = 0;
                 foreach ( $params as $param ) {
                     if ( $this->mPersistent[ $i ] == $param->getName() ) {
@@ -215,11 +220,11 @@
                 if ( $i != count( $this->mPersistent ) ) {
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
                 }
-                self::$mPersistentElements[ $this->mPath ] = $ret;
-                $mc->add( 'persistentelements', self::$mPersistentElements );
+                Element::SetPersistentElementSignificantArgs( $this->mPath, $ret );
+                $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             }
             $ret = array();
-            foreach ( self::$mPersistentElements[ $this->mPath ] as $i ) {
+            foreach ( $significant as $i ) {
                 $ret[] = $args[ $i ];
             }
 
