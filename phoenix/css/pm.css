@@ -95,8 +95,8 @@ div.messages div.message div.infobar a.deletelink {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1414px;
 }
 div.message div.infobar span.unreadpm {
-	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -378px;;
+	padding-left: 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -392px;
 }
 div.messages div.message div.infobar div.infobar_info {
 	padding: 1px;
