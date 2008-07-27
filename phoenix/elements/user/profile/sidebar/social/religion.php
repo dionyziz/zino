@@ -3,10 +3,9 @@
         protected $mPersistent = array( 'religion', 'gender' );
 
         public function Render( $religion, $gender ) {
-            if ( $theuser->Profile->Religion != '-' ) {
-                ?><li><strong>Θρήσκευμα</strong>
-                <?php
-                Element( 'user/trivial/religion' , $theuser->Profile->Religion , $theuser->Gender );
+            if ( $religion != '-' ) {
+                ?><li><strong>Θρήσκευμα</strong> <?php
+                Element( 'user/trivial/religion' , $religion , $gender );
                 ?></li><?php
             }
         }
