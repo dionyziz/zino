@@ -213,6 +213,7 @@
             $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             if ( $significant === false ) {
                 $i = 0;
+                $ret = array();
                 foreach ( $params as $param ) {
                     if ( $this->mPersistent[ $i ] == $param->getName() ) {
                         $ret[] = $i;
