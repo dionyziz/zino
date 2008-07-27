@@ -44,11 +44,8 @@
         static public function SetPersistentElementSignificantArgs( $path, $args ) {
             global $mc;
 
-            var_dump( self::$mPersistentElements );
             self::$mPersistentElements[ $path ] = $args;
-            var_dump( self::$mPersistentElements );
-            die();
-            $mc->add( 'persistentelements', self::$mPersistentElements );
+            $mc->set( 'persistentelements', self::$mPersistentElements );
         }
         static public function EncodeArguments( $args ) {
             return md5( serialize( $args ) );
@@ -132,7 +129,7 @@
             if ( $element->IsPersistent() ) {
                 // cache the result
                 $sig = self::EncodeArguments( $element->GetSignificantArgs( $args ) );
-                $mc->add( $elementpath . ':' . $sig, array( $echo, $ret ) );
+                $mc->set( 'persistent:' . $elementpath . ':' . $sig, array( $echo, $ret ) );
             }
             echo $echo;
             $water->ProfileEnd();
