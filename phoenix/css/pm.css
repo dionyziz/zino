@@ -134,12 +134,7 @@ div.message div.lowerline {
 	position: relative;
 }
 div.message div.lowerline div.leftcorner {
-	/*
-	background-image: url( 'http://static.zino.gr/images/pm-downleft.jpg' );
-	background-repeat: no-repeat;
-	background-position: bottom left;
-	*/
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -1145px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -234px -1144px;
 	height: 13px;
 	width: 10px;
 	float: left;
@@ -151,12 +146,7 @@ div.message div.lowerline div.middle {
 	height: 13px;
 }
 div.message div.lowerline div.rightcorner {
-	/*
-	background-image: url( 'http://static.zino.gr/images/pm-downright.jpg' );
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	*/
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -1208px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -236px -1207px;
 	height: 13px;
 	width: 10px;
 	float: right;
