@@ -51,14 +51,16 @@ var pms = {
 		pms.activepm = pmdiv;
 		if ( notread ) {
 			//remove the unread icon
-			var unreadicon = $( '#pm_' + pmid + ' div.infobar img' )[ 1 ];
+			$( '#pm_' + pmid + ' div.infobar span.unreadpm' ).hide();
 			Coala.Warm( 'pm/expand' , { pmid : pmid, folderid: folderid } );
+			/*
 			if ( unreadicon ) {
 				pms.UpdateUnreadPms( - 1 );
 				$( unreadicon ).animate( { opacity: "0" , width: "0" } , 800 , function() {
 					$( unreadicon ).remove();
 				});
 			}
+			*/
 		}
 	}
 	,
