@@ -187,15 +187,12 @@ div.message div.toolbar ul li  input.submit:hover {
 }
 */
 div.message div.toolbar div.middle {
-	color: #858583;
-	background-color: #dedddb;
+	background-color: #dddddb;
 	float: left;
+	height: 14px;
 }
 div.message div.toolbar div.middle a {
 	color: #858583;
-	display: block;
-	height: 14px;
-	background: #dddddb;
 }
 div.message div.toolbar div.middle a:hover {
 	color: #000;
