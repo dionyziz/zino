@@ -65,6 +65,7 @@
                 w_assert( is_int( $pos ) );
                 w_assert( isset( $args[ $pos ] ) );
                 $params[] = $args[ $pos ];
+                w_assert( is_scalar( $args[ $pos ] ), 'Persistent element significant argument must be scalar; ' . gettype( $args[ $pos ] ) . ' given for argument ' . $pos . ' of element `' . $elementpath . '\'' );
             }
             $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
             $ret = $mc->get( 'persistent:' . $elementpath . ':' . $sig );
