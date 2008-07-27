@@ -156,12 +156,6 @@ div.message div.toolbar {
 	right: 9px;
 	bottom: 3px;
 }
-div.message div.toolbar ul {
-	display: block;
-	height: 16px;
-	margin: 0;
-	padding: 0;
-}
 div.message div.toolbar div.left {
 	display: inline;
 	background: #dedddb url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1282px;
@@ -176,19 +170,22 @@ div.message div.toolbar div.left {
 	width: 7px;
 	height: 16px;
 }
+/*
 div.message div.toolbar ul li input.submit {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
 	/*
 	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
-	*/
+	
 	color: #858583;
 	cursor: pointer;	
 }
+
 div.message div.toolbar ul li  input.submit:hover {
 	text-decoration: none;
 	color: black;
 }
+*/
 div.message div.toolbar div.middle {
 	color: #858583;
 	background-color: #dedddb;
@@ -199,6 +196,9 @@ div.message div.toolbar div.middle a {
 	display: block;
 	height: 16px;
 	background: #dddddb;
+}
+div.message div.toolbar div.middle a:hover {
+	color: #000;
 }
 div.message div.toolbar div.right{
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
