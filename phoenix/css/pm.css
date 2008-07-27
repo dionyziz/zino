@@ -72,13 +72,19 @@ div.leftbar a.newpm span {
 div.leftbar a.deletefolder span {
 	margin-right: 2px;
 	padding: 2px 0 2px 18px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -441px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -463px;;
+}
+div.leftbar a.renamefolder span {
+	margin-right: 2px;
+	padding: 2px 0 2px 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -520px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
 }
 a.folderlinks , a.folderlinks:active , a.folderlinks:visited , a.folderlinksactive:hover {
 	text-decoration: none;
+	padding-top: 5px;
 }
 a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folderlinksnew:hover {
 	color: #d0cfcf;

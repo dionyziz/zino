@@ -49,9 +49,7 @@
                     </div><br />
                     <a href="" class="folder_links newpm" onclick="pms.NewMessage( '' , '' );return false;"><span></span>Νέο μήνυμα</a><br />
                     <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false;" style="display:none;"><span></span>Διαγραφή φακέλου</a>
-                    <a href="" id="renamefolderlink" class="folder_links" onclick="return false;" style="display:none;"><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>folder_edit.png" alt="Μετονομασία φακέλου" title="Μετονομασία φακέλου" /> Μετονομασία φακέλου</a>
+                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false;" style="display:none;"><span></span>Μετονομασία φακέλου</a>
                 </div>
                 <div class="rightbar" style="float:left;">
                     <div class="messages" id="messages"><?php
