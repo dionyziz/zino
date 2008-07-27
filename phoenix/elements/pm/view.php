@@ -21,7 +21,7 @@
                 }
                 ?>><?php
                     if ( !$pm->IsSender( $user ) ) {
-                        ?><a href="" style="float:right;" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
+                        ?><a href="" title="Διαγραφή" onclick="pms.DeletePm( this.parentNode.parentNode, '<?php
                         echo $pm->Pmid;
                         ?>', <?php
                         echo $folder->Id;
@@ -32,9 +32,7 @@
                         else {
                             ?>false<?php
                         }
-                        ?>' );return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>delete.png" /></a><?php
+                        ?>' );return false;"></a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
                         ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
