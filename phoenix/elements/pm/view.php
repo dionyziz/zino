@@ -35,9 +35,7 @@
                         ?>' );return false;"></a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
-                        ?><img style="float:left;padding: 0px 4px 3px 2px;" src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>email_open.png" alt="Νέο μήνημα" title="Νέο μήνυμα" /><?php
+                        ?><span class="unreadpm"></span><?php
                     }
                     ?><div class="infobar_info" onclick="pms.ExpandPm( this, <?php
                     if ( !$pm->IsSender( $user ) ) {
