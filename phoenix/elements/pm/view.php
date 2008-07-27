@@ -12,7 +12,6 @@
                 echo $pm->Pmid;
                 ?>">
                 <div class="infobar<?php
-                
                 if ( !$pm->IsSender( $user ) ) {
                     ?> received"<?php
                 }

@@ -220,9 +220,9 @@ var pms = {
 	DeletePm : function( msgnode, pmid, folderid, read ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το μήνυμα;' , function() {
 			pms.activepms = 0;
-			var delimg2 = $( '#pm_' + pmid + ' img' )[ 1 ];
+			var delimg2 = $( '#pm_' + pmid + ' div.infobar span.unreadpm' )[ 1 ];
 			$( '#pm_' + pmid + ' div.lowerline' ).hide();
-			$( $( '#pm_' + pmid + ' img' )[ 0 ] ).hide();
+			//$( $( '#pm_' + pmid + ' img' )[ 0 ] ).hide();
 			if ( delimg2 ) {
 				//if the message is already read there is no such image
 				$( delimg2 ).hide();
