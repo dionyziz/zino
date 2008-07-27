@@ -40,7 +40,7 @@
                     Element( 'user/profile/sidebar/social/view' , $theuser );
                 ?></div>
                 <div class="aboutme"><?php
-                    Element( 'user/profile/sidebar/aboutme' , $theuser->Profile->Aboutme );
+                    Element( 'user/profile/sidebar/aboutme' , $theuser->Profile->Aboutme, $theuser->Id, $theuser->Profile->Updated );
                 ?></div>
                 <div class="interests"><?php
                     Element( 'user/profile/sidebar/interests' , $theuser );
