@@ -245,7 +245,7 @@ var pms = {
 		var newtext2;		
 		$( unreadmsgbanner.firstChild ).remove();
 		while( incominglink.firstChild ) {
-			incominglink.remove( incominglink.firstChild );
+			incominglink.removeChild( incominglink.firstChild );
 		}
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
