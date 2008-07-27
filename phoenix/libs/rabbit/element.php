@@ -52,6 +52,7 @@
         }
         static public function LoadFromCache( $elementpath, $args ) {
             global $mc;
+            global $water;
 
             // retrieve positions of significant arguments
             $significant = self::GetPersistentElementSignificantArgs( $elementpath );
