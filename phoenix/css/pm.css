@@ -64,6 +64,10 @@ div.newfolder span {
 	padding-left: 16px;
 	margin: 0 2px;
 }
+div.leftbar a.newpm span {
+	padding-left: 18px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -392px;
+}
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
 }
