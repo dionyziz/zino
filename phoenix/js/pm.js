@@ -83,7 +83,7 @@ var pms = {
 		pms.activefolder.className = '';
 		$( pms.activefolder ).addClass( 'folder' );
 		if ( pms.activefolder != pms.node ) {
-			$( pms.activefolder ).addClass = 'top';
+			$( pms.activefolder ).addClass( 'top' );
 		}
 	}
 	,
