@@ -243,9 +243,11 @@ var pms = {
 		var incominglink = incomingdiv.firstChild;
 		var newtext;
 		var newtext2;		
-		$( unreadmsgbanner.firstChild ).remove();
 		while( incominglink.firstChild ) {
 			incominglink.removeChild( incominglink.firstChild );
+		}
+		while( unreadmsgbanner.firstChild ) {
+			unreadmsgbanner.removeChild( unreadmsgbanner.firstChild );
 		}
 		if ( unreadpms > 1 ) {
 			if ( specnumber == -1 ) {
@@ -267,9 +269,11 @@ var pms = {
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 			newtext2 = document.createTextNode( 'Μηνύματα' );
 		}
-		var folderspan = document.createTextNode( 'span' );
+		var folderspan = document.createElement( 'span' );
+		var bannerspan = document.createElement( 'span' );
 		$( incominglink ).append( folderspan );
 		$( incominglink ).append( newtext );
+		$( unreadmsgbanner ).append( bannerspan );
 		$( unreadmsgbanner ).append( newtext2 );
 	}
 	,
