@@ -214,10 +214,10 @@
                 foreach ( $params as $param ) {
                     if ( $this->mPersistent[ $i ] == $param->getName() ) {
                         $ret[] = $i;
-                        ++$i;
-                        if ( $i == count( $this->mPersistent ) ) {
-                            break;
-                        }
+                    }
+                    ++$i;
+                    if ( $i == count( $this->mPersistent ) ) {
+                        break;
                     }
                 }
                 // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
