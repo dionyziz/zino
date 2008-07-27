@@ -118,13 +118,15 @@
                     </div>
                 </div>
                 <div class="lowerline" style="background-color: #f8f8f6;display:none;">
-                    <div class="leftcorner"> </div>
-                    <div class="rightcorner"> </div>
-                    <div class="middle"> </div>
+                    <div class="leftcorner"></div>
+                    <div class="rightcorner"></div>
+                    <div class="middle"></div>
                     <div class="toolbar"><?php
                         if ( !$pm->IsSender( $user ) ) {
-                            ?><ul>
-                                <li><a href="" onclick="<?php
+                            ?><div class="left"></div>
+							<div class="right"></div>
+							<div class="middle">
+                                <a href="" onclick="<?php
                                 ob_start();
                                 ?>pms.NewMessage( <?php
                                 echo w_json_encode( $pm->Sender->Name );
@@ -132,8 +134,8 @@
                                 echo w_json_encode( $pm->Text );
                                 ?> );return false;<?php
                                 echo htmlspecialchars( ob_get_clean() );
-                                ?>">Απάντηση</a></li>
-                            </ul><?php
+                                ?>">Απάντηση</a>
+							</div><?php
                         }
                     ?></div>
                 </div>

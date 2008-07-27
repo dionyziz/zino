@@ -162,7 +162,7 @@ div.message div.toolbar ul {
 	margin: 0;
 	padding: 0;
 }
-div.message div.toolbar ul li {
+div.message div.toolbar div.left {
 	display: inline;
 	background: #dedddb url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1282px;
 	/*
@@ -172,8 +172,8 @@ div.message div.toolbar ul li {
 	background-color: #dedddb;
 	*/
 	padding: 0 0 2px 7px;
-	margin: 0 2px 0 2px;
-	float: right;
+	/*margin: 0 2px 0 2px;*/
+	float: left;
 }
 div.message div.toolbar ul li input.submit {
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
@@ -188,16 +188,21 @@ div.message div.toolbar ul li  input.submit:hover {
 	text-decoration: none;
 	color: black;
 }
-div.message div.toolbar ul li  a {
+div.message div.toolbar div.middle {
+	color: #858583;
+	background-color: #dedddb;
+}
+div.message div.toolbar div.right{
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1348px;
 	/*
 	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	*/
+	float: right;
 	color: #858583;
 	padding: 2px 7px 2px 0;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 div.message div.toolbar ul li  a:hover {
 	text-decoration: none;
