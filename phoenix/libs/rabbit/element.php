@@ -44,6 +44,7 @@
         static public function SetPersistentElementSignificantArgs( $path, $args ) {
             global $mc;
 
+            die( 'Applying persistency: ' . $path );
             self::$mPersistentElements[ $path ] = $args;
             $mc->add( 'persistentelements', self::$mPersistentElements );
         }
