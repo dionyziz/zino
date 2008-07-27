@@ -96,14 +96,14 @@ div.messages div.message {
 	position: relative; 
 	margin-bottom: 15px;
 }
-div.messages div.message div.infobar {
+div.message div.infobar {
 	height: 21px;
 	border: 1px solid #cdcdcb;
 	padding: 3px 3px 0px 3px;
     cursor: move;
     background-color: white;
 }
-div.messages div.message div.infobar a.deletelink {
+div.message div.infobar a.deletelink {
 	float: right;
 	padding: 16px 0pt 0pt 16px; 
 	margin-top: 1px;
@@ -113,27 +113,27 @@ div.message div.infobar span.unreadpm {
 	padding-left: 18px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -392px;
 }
-div.messages div.message div.infobar div.infobar_info {
+div.message div.infobar div.infobar_info {
 	padding: 1px;
 	display: inline;
 	height: 21px;
 	cursor: pointer;
 }
-div.messages div.message div.text {
+div.message div.text {
 	background-color: #f8f8f6;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
     padding-right: 60px;
 	overflow: auto;
 }
-div.messages div.message div.text div {
+div.message div.text div {
 	padding: 10px 5px 0px 5px;
 }
-div.messages div.message div.lowerline {
+div.message div.lowerline {
 	height: 13px;
 	position: relative;
 }
-div.messages div.message div.lowerline div.leftcorner {
+div.message div.lowerline div.leftcorner {
 	background-image: url( 'http://static.zino.gr/images/pm-downleft.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom left;
@@ -141,13 +141,13 @@ div.messages div.message div.lowerline div.leftcorner {
 	width: 10px;
 	float: left;
 }
-div.messages div.message div.lowerline div.middle {
+div.message div.lowerline div.middle {
 	background-image: url( 'http://static.zino.gr/images/pm-downfade.jpg' );
 	background-repeat: repeat-x;
 	background-position: bottom;
 	height: 13px;
 }
-div.messages div.message div.lowerline div.rightcorner {
+div.message div.lowerline div.rightcorner {
 	background-image: url( 'http://static.zino.gr/images/pm-downright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
@@ -155,18 +155,18 @@ div.messages div.message div.lowerline div.rightcorner {
 	width: 10px;
 	float: right;
 }
-div.messages div.message div.toolbar {
+div.message div.toolbar {
 	position: absolute;
 	right: 9px;
 	bottom: 3px;
 }
-div.messages div.message div.toolbar ul {
+div.message div.toolbar ul {
 	display: block;
 	height: 16px;
 	margin: 0;
 	padding: 0;
 }
-div.messages div.message div.toolbar ul li {
+div.message div.toolbar ul li {
 	display: inline;
 	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarleft.jpg' );
 	background-repeat: no-repeat;
@@ -176,18 +176,17 @@ div.messages div.message div.toolbar ul li {
 	margin: 0 2px 0 2px;
 	float: right;
 }
-div.messages div.message div.toolbar ul li input.submit {
+div.message div.toolbar ul li input.submit {
 	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	color: #858583;
 	cursor: pointer;	
 }
-div.messages div.message div.toolbar ul li  input.submit:hover {
+div.message div.toolbar ul li  input.submit:hover {
 	text-decoration: none;
 	color: black;
 }
-
-div.messages div.message div.toolbar ul li  a {
+div.message div.toolbar ul li  a {
 	background-image: url( 'http://static.zino.gr/images/commentbox-toolbarright.jpg' );
 	background-repeat: no-repeat;
 	background-position: bottom right;
@@ -195,7 +194,7 @@ div.messages div.message div.toolbar ul li  a {
 	padding: 2px 7px 2px 0;
 	cursor: pointer;
 }
-div.messages div.message div.toolbar ul li  a:hover {
+div.message div.toolbar ul li  a:hover {
 	text-decoration: none;
 	color: black;
 }
