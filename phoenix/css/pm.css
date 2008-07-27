@@ -90,6 +90,8 @@ div.messages div.message div.infobar {
 }
 div.messages div.message div.infobar a.deletelink {
 	float: right;
+	padding: 16px 0pt 0pt 16px; 
+	margin-top: 1px;
 	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1414px;
 }
 div.messages div.message div.infobar div.infobar_info {
