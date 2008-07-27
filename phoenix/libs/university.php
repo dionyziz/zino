@@ -7,7 +7,7 @@
     class UniFinder extends Finder {
         protected $mModel = 'Uni';
         
-        public function Find( $placeid = 0, $typeid = false , $offset = 0 , $limit = 10000 ) {
+        public function Find( $placeid = 0, $typeid = false, $offset = 0, $limit = 10000 ) {
             $prototype = New Uni();
             if ( $placeid != 0 ) {
                 $prototype->Placeid = $placeid;
@@ -15,7 +15,7 @@
             if ( $typeid !== false ) {
                 $prototype->Typeid = $typeid;
             }
-            return $this->FindByPrototype( $prototype , $offset , $limit , array( 'Name' , 'ASC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Name' , 'ASC' ) );
         }
     }
 
