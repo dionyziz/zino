@@ -58,7 +58,7 @@ div.header h1 img {
 div.header ul {
 	display: block;
 	padding: 10px;
-	margin: 0;
+	margin: 2px 0 0 0;
 	height: 50px;
 	text-align: center;
 }
@@ -74,12 +74,12 @@ div.header ul li a {
 div.header ul li a.messages span {
 	padding-left: 16px;
 	margin-right: 2px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -754px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -755px;
 }
 div.header ul li a.settings span {
 	padding: 0 0 3px 16px;
 	margin-right: 4px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -471px -259px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -471px -261px;
 	}
 div.header ul li a.login span {
 	padding-left: 16px;
