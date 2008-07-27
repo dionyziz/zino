@@ -168,7 +168,7 @@ div.message div.toolbar div.left {
 	/*margin: 0 2px 0 2px;*/
 	float: left;
 	width: 7px;
-	height: 16px;
+	height: 14px;
 }
 /*
 div.message div.toolbar ul li input.submit {
@@ -194,7 +194,7 @@ div.message div.toolbar div.middle {
 div.message div.toolbar div.middle a {
 	color: #858583;
 	display: block;
-	height: 16px;
+	height: 14px;
 	background: #dddddb;
 }
 div.message div.toolbar div.middle a:hover {
@@ -209,7 +209,7 @@ div.message div.toolbar div.right{
 	*/
 	float: left;
 	width: 7px;
-	height: 16px;
+	height: 14px;
 	/*cursor: pointer;*/
 }
 div.message div.toolbar ul li  a:hover {
