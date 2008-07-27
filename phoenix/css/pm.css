@@ -77,14 +77,13 @@ div.leftbar a.deletefolder span {
 div.leftbar a.renamefolder span {
 	margin-right: 2px;
 	padding: 2px 0 2px 18px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -520px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -534px;
 }
 a.folderlinksactive , a.folderlinksactive:active , a.folderlinksactive:visited , a.folderlinksactive:hover {
 	text-decoration: none;
 }
 a.folderlinks , a.folderlinks:active , a.folderlinks:visited , a.folderlinksactive:hover {
 	text-decoration: none;
-	padding-top: 5px;
 }
 a.folderlinksnew , a.folderlinksnew:active , a.folderlinksnew:visited , a.folderlinksnew:hover {
 	color: #d0cfcf;
@@ -202,6 +201,7 @@ div.messages div.message div.toolbar ul li  a:hover {
 }
 a.folder_links , a.folderlinks:active , a.folderlinks:visited , a.folderlinks:hover {
 	text-decoration: none;
+	padding-top: 5px;
 }
 div.hoverfolder {
 	background-color: #f4f5f7;
