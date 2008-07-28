@@ -120,10 +120,9 @@ div.header a.logout {
 	top: 6px;
 }
 div.header a.logout span {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -446px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -429px;
 	padding: 17px 0 0 16px;
-	margin-left: 5px;
-	float: right;
+	margin-left: 2px;
 }
 div.header a:hover {
 	text-decoration: underline;
