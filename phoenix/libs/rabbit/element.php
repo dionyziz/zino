@@ -150,7 +150,8 @@
             $pagesmap = Project_PagesMap(); // Gets an array with the actual filenames on the server
             
             if ( !isset( $pagesmap[ self::$mMasterElementAlias ] ) ) {
-                throw New Exception( 'Requested master element alias is not defined in pagesmap: ' . self::$mMasterElementAlias );
+                //throw New Exception( 'Requested master element alias is not defined in pagesmap: ' . self::$mMasterElementAlias );
+                return false;
             }
             
             $master = $pagesmap[ self::$mMasterElementAlias ];
