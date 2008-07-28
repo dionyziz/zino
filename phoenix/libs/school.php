@@ -9,6 +9,11 @@
             return FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
 
+        public function FindByUser( $userid ) {
+            $user = New User( $userid );
+            $schoolid = $user->Schoolid;
+            return New School( $schoolid );
+        }
     }
 
     class School extends Satori {

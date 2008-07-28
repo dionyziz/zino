@@ -2,7 +2,6 @@
     function Project_Construct( $mode ) {
         global $xc_settings;
         global $rabbit_settings;
-        global $page;
         global $water;
         global $page;
         global $user;
