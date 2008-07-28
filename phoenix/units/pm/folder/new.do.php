@@ -26,6 +26,7 @@
             pms.ShowFolderPm( newfolder , <?php
             echo $folderid;
             ?> );
+            return false;
         }).append( document.createTextNode( <?php
         echo $foldername;
         ?> ) );
