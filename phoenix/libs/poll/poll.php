@@ -82,6 +82,7 @@
             $this->User->Count->Save();
 
             $libs->Load( 'comment' );
+            $libs->Load( 'event' );
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
