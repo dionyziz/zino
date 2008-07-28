@@ -36,7 +36,7 @@
             ?>' );
             return false;
         } ).end()
-        .find( 'div.text' ).html( "<?php
+        .find( 'div.text' ).html( <?php
             echo w_json_encode( $shout->Text );
-            ?>" );<?php    }
+            ?> );<?php    }
 ?>
