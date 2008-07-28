@@ -66,7 +66,7 @@
                 }
                 ?>><?php
                     if ( $egoalbum->Numphotos > 0 ) {
-                        if ( $egoalbum->Numphotos > 8 ) {
+                        if ( $egoalbum->Numphotos > 5 ) {
                             ?><div class="more"><a href="?p=album&amp;id=<?php
                             echo $egoalbum->Id;
                             ?>" class="button" title="Περισσότερες φωτογραφίες μου">&raquo;</a></div><?php
