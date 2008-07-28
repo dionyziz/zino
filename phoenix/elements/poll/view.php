@@ -23,7 +23,7 @@
                         $page->SetTitle( $poll->Question );
                         ?><div id="pollview">
                             <div><?php
-                            Element( 'poll/small' , $poll , false ); //don't show comments number
+                            Element( 'poll/small' , $poll , true ); // don't show comments number  just testing --indy
                             ?>
                             </div>
                             <div class="eof"></div><?php
