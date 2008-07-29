@@ -188,7 +188,7 @@
                 echo $image->Width;
                 ?>px;height:<?php
                 echo $image->Height;
-                ?>px;" onmousedown="Tag.clicked=true;Tag.focus( event );return false;" onmouseup="Tag.clicked=false;return false;" onmouseout="Tag.clicked=false;return false;" onmousemove="alert( 'run' );Tag.drag( event );return false;"><?php
+                ?>px;" onmousedown="Tag.clicked=true;Tag.focus( event );return false;" onmouseup="Tag.clicked=false;return false;" onmouseout="Tag.clicked=false;return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div><?php
