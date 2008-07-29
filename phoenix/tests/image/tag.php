@@ -94,6 +94,7 @@
         }
         */
         public function TearDown() {
+            w_assert( is_object( $this->mImage ) );
             $this->mImage->Delete();
             $this->mUser->Delete();
             $this->mUser2->Delete();
