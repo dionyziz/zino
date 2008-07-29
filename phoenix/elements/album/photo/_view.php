@@ -10,6 +10,10 @@
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
+            
+            //------------------
+            $page->AttachStylesheet( 'css/album/photo/tag.css' );
+            //------------------
             $id = $id->Get();
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
