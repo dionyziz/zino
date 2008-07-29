@@ -53,5 +53,23 @@
                 <indexfield>frontpage_imageid</indexfield>
             </index>
         </table>
+        <table name="imagetags">
+            <field name="tag_id" type="int" autoincrement="yes" />
+            <field name="tag_imageid" type="int" ref="images.image_id" />
+            <field name="tag_personid" type="int" ref="users.user_id" />
+            <field name="tag_ownerid" type="int" ref="users.user_id" />
+            <field name="tag_created" type="datetime" />
+            <field name="tag_left" type="int" />
+            <field name="tag_top" type="int" />
+            <field name="tag_width" type="int" />
+            <field name="tag_height" type="int" />
+            <index type="primary">
+                <indexfield>tag_id</indexfield>
+            </index>
+            <index type="PERSON_IN_IMAGE" type="unique">
+                <indexfield>tag_imageid</indexfield>
+                <indexfield>tag_personid</indexfield>
+            </index>
+        </table>
     </database>
 </project>
