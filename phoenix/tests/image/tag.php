@@ -8,6 +8,8 @@
         private $mTag2;
 
         public function SetUp() {
+            die( 'SetUp' );
+
             $this->mUser = New User();
             $this->mUser->Name = 'testimagetags';
             $this->mUser->Subdomain = 'testimagetags';
@@ -27,6 +29,8 @@
             $this->mImage->Name = 'test';
             $this->mImage->Userid = $this->mUser->Id;
             $this->mImage->Save();
+
+            w_assert( is_object( $this->mImage ) );
         }
         /*
 	    public function TestClassesExist() {
