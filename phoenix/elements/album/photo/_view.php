@@ -185,9 +185,9 @@
                 }
                 ?><div class="thephoto" style="width:<?php
                 echo $image->Width;
-                ?>;height:<?php
+                ?>px;height:<?php
                 echo $image->Height;
-                ?>;"><?php
+                ?>px;"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     ?><div class="tagme"></div>
                 </div><?php
