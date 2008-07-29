@@ -40,7 +40,6 @@
 
             w_assert( is_object( $this->mImage ) );
         }
-        /*
 	    public function TestClassesExist() {
             $this->Assert( class_exists( 'ImageTag' ), 'ImageTag class does not exist' );
             $this->Assert( class_exists( 'ImageTagFinder' ), 'ImageTagFinder class does not exist' );
@@ -92,6 +91,7 @@
                 ++$i;
             }
         }
+        /*
         public function TestTagDeletion() {
             $this->mTag1->Delete();
             $this->mTag2->Delete();
