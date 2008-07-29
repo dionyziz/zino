@@ -1,4 +1,5 @@
 var Tag = {
+    clicked : false,
     focus : function( event ) {
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
