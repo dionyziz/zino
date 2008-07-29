@@ -381,7 +381,6 @@
             }
         }
         public function AssertResultFailedByException( $message, $callstack ) {
-            die( 'AssertResultFailedByException: ' . $message );
             w_assert( is_array( $callstack ) );
             $this->mCallstack = $callstack;
             parent::__construct( false, $message, '(exceptional failure)', '' );

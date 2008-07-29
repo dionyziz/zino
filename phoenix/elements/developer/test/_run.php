@@ -28,6 +28,7 @@
                 foreach ( $runresult as $assertresult ) {
                     if ( $assertresult instanceof AssertResultFailedByException ) {
                         ?><li><b>Unanticipated fail:</b> <em class="message"><?php
+                        die( 'Hahahho: ' . $assertresult->Message );
                         echo htmlspecialchars( $assertresult->Message );
                         ?></em><br /><?php
                         $water->callstack( $water->callstack_lastword( $assertresult->Callstack ) );
