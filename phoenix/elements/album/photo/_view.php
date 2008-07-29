@@ -13,6 +13,7 @@
             
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
+            $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
             $id = $id->Get();
             $commentid = $commentid->Get();
