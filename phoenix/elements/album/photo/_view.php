@@ -98,7 +98,7 @@
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
                         ?></a></dd>
-                        <dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="return false;">Ποιος είναι στην φωτογραφία</a></dd><?php
+                        <dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="return false;">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                 ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
