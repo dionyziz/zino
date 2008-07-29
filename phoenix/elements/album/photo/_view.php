@@ -104,7 +104,7 @@
                         ?></a></dd>
                         <dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="return false;">Γνωρίζεις κάποιον;</a></dd><?php
                     }
-                ?></dl><?php
+                 ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
                         <div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
@@ -183,10 +183,14 @@
                         ?></ul><?php
                     ?></div><?php
                 }
-                ?><div class="thephoto"><?php
+                ?><div class="thephoto" style="width:<?php
+                echo $image->Width;
+                ?>;height:<?php
+                echo $image->Height;
+                ?>;"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     ?><div class="tagme"></div>
-                ?></div><?php
+                </div><?php
                 /*
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="photothumbs"><?php
