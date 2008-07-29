@@ -364,9 +364,6 @@
             }
         }
         public function __construct( $success, $message, $actual, $expected ) {
-            if ( $this instanceof AssertResultFailedByException ) {
-                die( 'PowerRangers: ' . $message );
-            }
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
             $this->mActual   = $actual;
@@ -381,6 +378,8 @@
             switch ( $key ) {
                 case 'Callstack':
                     return $this->mCallstack;
+                default:
+                    return parent::__get( $key );
             }
         }
         public function AssertResultFailedByException( $message, $callstack ) {
