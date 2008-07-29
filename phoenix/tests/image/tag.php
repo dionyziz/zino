@@ -76,16 +76,6 @@
             foreach ( $tags as $tag ) {
                 switch ( $i ) {
                     case 0:
-                        $this->Assert( $tag->Exists(), 'Tag1 found, but does not exist' );
-                        $this->AssertEquals( $this->mUser->Id, $tag->Personid, 'Tag1 has wrong personid' );   
-                        $this->AssertEquals( $this->mUser->Id, $tag->Ownerid, 'Tag1 has wrong ownerid' );   
-                        $this->AssertEquals( $this->mImage->Id, $tag->Imageid, 'Tag1 has wrong imageid' );
-                        $this->AssertEquals( 20, $tag->Left, 'Tag1 Left is wrong' );
-                        $this->AssertEquals( 21, $tag->Top, 'Tag1 Top is wrong' );
-                        $this->AssertEquals( 150, $tag->Width, 'Tag1 Width is wrong' );
-                        $this->AssertEquals( 150, $tag->Height, 'Tag1 Height is wrong' );
-                        break;
-                    case 1:
                         $this->Assert( $tag->Exists(), 'Tag2 found, but does not exist' );
                         $this->AssertEquals( $this->mUser2->Id, $tag->Personid, 'Tag2 has wrong personid' );   
                         $this->AssertEquals( $this->mUser->Id, $tag->Ownerid, 'Tag2 has wrong ownerid' );   
@@ -94,6 +84,16 @@
                         $this->AssertEquals( 60, $tag->Top, 'Tag1 Y is wrong' );
                         $this->AssertEquals( 200, $tag->Width, 'Tag2 Width is wrong' );
                         $this->AssertEquals( 100, $tag->Height, 'Tag2 Height is wrong' );
+                        break;
+                    case 1:
+                        $this->Assert( $tag->Exists(), 'Tag1 found, but does not exist' );
+                        $this->AssertEquals( $this->mUser->Id, $tag->Personid, 'Tag1 has wrong personid' );   
+                        $this->AssertEquals( $this->mUser->Id, $tag->Ownerid, 'Tag1 has wrong ownerid' );   
+                        $this->AssertEquals( $this->mImage->Id, $tag->Imageid, 'Tag1 has wrong imageid' );
+                        $this->AssertEquals( 20, $tag->Left, 'Tag1 Left is wrong' );
+                        $this->AssertEquals( 21, $tag->Top, 'Tag1 Top is wrong' );
+                        $this->AssertEquals( 150, $tag->Width, 'Tag1 Width is wrong' );
+                        $this->AssertEquals( 150, $tag->Height, 'Tag1 Height is wrong' );
                         break;
                 }
                 ++$i;
