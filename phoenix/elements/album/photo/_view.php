@@ -187,7 +187,7 @@
                 echo $image->Width;
                 ?>px;height:<?php
                 echo $image->Height;
-                ?>px;"><?php
+                ?>px;" onclick="Tag.focus( event );return false;"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div><?php
