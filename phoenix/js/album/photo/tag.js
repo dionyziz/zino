@@ -28,5 +28,8 @@ var Tag = {
         if ( event.button == 0 ) {
             Tag.focus( event );
         }
+        else {
+            alert( event.button );
+        }
     }
 };
