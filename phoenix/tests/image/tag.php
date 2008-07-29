@@ -1,5 +1,5 @@
 <?php
-	class TestPhotoTag extends Testcase {
+	class TestImageTag extends Testcase {
         protected $mAppliesTo = 'libs/image/tag';
         private $mImage;
         private $mUser;
