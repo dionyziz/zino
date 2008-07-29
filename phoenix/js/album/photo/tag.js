@@ -6,17 +6,19 @@ var Tag = {
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
-        if ( x < tag_width/2 ) {
-            x = tag_width/2;
+        x -= tag_width / 2;
+        y -= tag_height / 2;
+        if ( x < 0 ) {
+            x = 0;
         }
-        if ( x > image_width-tag_width/2 ) {
-            x = image_width-tag_width/2;
+        if ( x + tag_width > image_width ) {
+            x = image_width - tag_width;
         }
-        if ( y < tag_height/2 ) {
-            y = tag_height/2;
+        if ( y < 0 ) {
+            y = 0;
         }
-        if ( y > image_height-tag_height/2 ) {
-            y = image_height-tag_height/2;
+        if ( y + tag_height > image_height ) {
+            y = image_height - tag_height;
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
     }
