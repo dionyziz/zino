@@ -1,4 +1,4 @@
-var Tag {
+var Tag = {
     focus : function( event ) {
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).attr( 'offsetLeft' );
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).attr( 'offsetTop' );
