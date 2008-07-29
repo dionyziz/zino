@@ -364,6 +364,9 @@
             }
         }
         public function __construct( $success, $message, $actual, $expected ) {
+            if ( $this instanceof AssertResultFailedByException ) {
+                die( 'PowerRangers: ' . $message );
+            }
             $this->mSuccess  = $success;
             $this->mMessage  = $message;
             $this->mActual   = $actual;
