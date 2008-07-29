@@ -8,8 +8,6 @@
         private $mTag2;
 
         public function SetUp() {
-            die( 'SetUp' );
-
             $this->mUser = New User();
             $this->mUser->Name = 'testimagetags';
             $this->mUser->Subdomain = 'testimagetags';
