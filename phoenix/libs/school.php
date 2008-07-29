@@ -1,5 +1,8 @@
 <?php
 
+    class SchoolException extends Exception {
+    }
+
     class SchoolFinder extends Finder {
         protected $mModel = 'School';
 
@@ -15,6 +18,14 @@
                 $prototype->Userid = $userid;
             }
             return FindByPrototype( $prototype, $offset, $limit, 'Name' );
+        }
+
+        public function Count() {
+            $query = $this->mDb->Prepare( 'SELECT COUNT(*) AS schoolsnum FROM :schools;' );
+            $query->BindTable( 'schools' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            return ( int )$row[ 'schoolsnum' ];
         }
     }
 
