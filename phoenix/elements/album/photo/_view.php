@@ -189,8 +189,10 @@
                 echo $image->Height;
                 ?>px;"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
-                    ?><div class="tagme"></div>
-                </div><?php
+                    if ( $image->Width > 170 && $image->Height > 170 ) {
+                        ?><div class="tagme"></div><?php
+                    }
+                ?></div><?php
                 /*
                 if ( $image->Album->Numphotos > 1 ) {
                     ?><div class="photothumbs"><?php
