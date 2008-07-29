@@ -8,6 +8,16 @@
         private $mTag2;
 
         public function SetUp() {
+            $finder = New UserFinder();
+            $user = $finder->FindByName( 'testimagetags' );
+            if ( $user !== false ) {
+                $user->Delete();
+            }
+            $user = $finder->FindByName( 'testimagetags2' );
+            if ( $user !== false ) {
+                $user->Delete();
+            }
+
             $this->mUser = New User();
             $this->mUser->Name = 'testimagetags';
             $this->mUser->Subdomain = 'testimagetags';
