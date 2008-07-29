@@ -30,5 +30,14 @@ var Tag = {
             alert( 'pao pao pao pao bgazo ftera' );
             Tag.focus( event );
         }
+    },
+    ekso : function( event ) {
+        if ( $.browser.msie ) {
+            event.cancelBubble = true;
+        }
+        else {
+            event.stopPropagation();
+        }
+        Tag.clicked=false;
     }
 };
