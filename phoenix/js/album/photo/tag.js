@@ -5,7 +5,7 @@ var Tag = {
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
         // Change border_width accordingly
-        var border_width = 3;
+        var border_width = 3*2;
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
         x -= tag_width / 2;
