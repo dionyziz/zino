@@ -12,14 +12,14 @@ var Tag = {
         if ( x < 0 ) {
             x = 0;
         }
-        if ( x + tag_width > image_width ) {
-            x = image_width - tag_width - border_width ;
+        if ( x + tag_width + border_width > image_width ) {
+            x = image_width - tag_width - border_width;
         }
         if ( y < 0 ) {
             y = 0;
         }
-        if ( y + tag_height > image_height ) {
-            y = image_height - tag_height - border_width;
+        if ( y + tag_height + border_width > image_height ) {
+            y = Math.ceil( image_height - tag_height - border_width );
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
     }
