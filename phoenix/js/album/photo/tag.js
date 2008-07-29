@@ -26,11 +26,8 @@ var Tag = {
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
     },
     drag : function( event ) {
-        if ( event.button == 0 ) {
+        if ( Tag.clicked ) {
             Tag.focus( event );
-        }
-        else {
-            alert( event.button );
         }
     }
 };
