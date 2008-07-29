@@ -18,6 +18,6 @@ var Tag = {
         if ( y > image_height-tag_height/2 ) {
             y = image_height-tag_height/2;
         }
-        $( 'div.tagme' ).css( { 'left' : x + 'px', 'top' : y + 'px' } );
+        $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
     }
 };
