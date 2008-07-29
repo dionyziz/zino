@@ -27,6 +27,7 @@ var Tag = {
     },
     drag : function( event ) {
         if ( Tag.clicked ) {
+            alert( 'pao pao pao pao bgazo ftera' );
             Tag.focus( event );
         }
     }
