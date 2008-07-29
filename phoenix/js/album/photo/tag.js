@@ -4,7 +4,8 @@ var Tag = {
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
-        var border_width = parseInt( $( 'div.tagme' ).css( 'borderWidth' ), 10 );
+        // Change border_width accordingly
+        var border_width = 3;
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
         x -= tag_width / 2;
@@ -19,7 +20,7 @@ var Tag = {
             y = 0;
         }
         if ( y + tag_height + border_width > image_height ) {
-            y = Math.ceil( image_height - tag_height - border_width );
+            y = image_height - tag_height - border_width;
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
     }
