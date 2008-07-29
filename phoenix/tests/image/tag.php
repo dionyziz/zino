@@ -28,6 +28,7 @@
             $this->mImage->Userid = $this->mUser->Id;
             $this->mImage->Save();
         }
+        /*
 	    public function TestClassesExist() {
             $this->Assert( class_exists( 'ImageTag' ), 'ImageTag class does not exist' );
             $this->Assert( class_exists( 'ImageTagFinder' ), 'ImageTagFinder class does not exist' );
@@ -89,6 +90,7 @@
             $this->AssertFalse( $tag1->Exists(), 'Tag1 exists after deletion' );
             $this->AssertFalse( $tag2->Exists(), 'Tag2 exists after deletion' );
         }
+        */
         public function TearDown() {
             $this->mImage->Delete();
             $this->mUser->Delete();
