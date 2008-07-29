@@ -89,6 +89,11 @@
             $this->AssertFalse( $tag1->Exists(), 'Tag1 exists after deletion' );
             $this->AssertFalse( $tag2->Exists(), 'Tag2 exists after deletion' );
         }
+        public function TearDown() {
+            $this->mImage->Delete();
+            $this->mUser->Delete();
+            $this->mUser2->Delete();
+        }
 	}
 
     return New TestImageTag();
