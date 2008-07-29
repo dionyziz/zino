@@ -90,4 +90,6 @@
             $this->AssertFalse( $tag2->Exists(), 'Tag2 exists after deletion' );
         }
 	}
+
+    return New TestImageTag();
 ?>
