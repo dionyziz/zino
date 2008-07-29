@@ -99,7 +99,6 @@
                 ++$i;
             }
         }
-        /*
         public function TestTagDeletion() {
             $this->mTag1->Delete();
             $this->mTag2->Delete();
@@ -110,7 +109,6 @@
             $this->AssertFalse( $tag1->Exists(), 'Tag1 exists after deletion' );
             $this->AssertFalse( $tag2->Exists(), 'Tag2 exists after deletion' );
         }
-        */
         public function TearDown() {
             w_assert( is_object( $this->mImage ) );
             $this->mImage->Delete();
