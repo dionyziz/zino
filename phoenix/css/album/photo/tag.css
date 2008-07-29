@@ -3,6 +3,7 @@ div.tagme {
     height: 170px;
     border-style: dotted;
     border-color: #FFFFBB;
+    border-width: 3px;
     position: absolute;
     left: 100px;
     top: 100px;
