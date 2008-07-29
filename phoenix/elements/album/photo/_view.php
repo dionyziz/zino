@@ -181,6 +181,7 @@
                 }
                 ?><div class="thephoto"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
+                    ?><div class="tagme"></div>
                 ?></div><?php
                 /*
                 if ( $image->Album->Numphotos > 1 ) {

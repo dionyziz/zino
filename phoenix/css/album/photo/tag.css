@@ -1,0 +1,8 @@
+div.tagme {
+    width: 25px;
+    height: 25px;
+    border-style: dotted;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}

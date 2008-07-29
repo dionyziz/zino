@@ -120,6 +120,7 @@ div#photoview div.photothumbs ul li a img {
 div#photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
+	position: relative;
 }
 div#photoview div.comments {
 	margin-top: 50px;
