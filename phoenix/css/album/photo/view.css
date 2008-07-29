@@ -121,7 +121,7 @@ div#photoview div.thephoto {
 	text-align:center;
 	padding-top: 0;
 	position: relative;
-	border: solid;
+	margin: auto;
 }
 div#photoview div.comments {
 	margin-top: 50px;
