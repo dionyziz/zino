@@ -23,14 +23,7 @@
 
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
-            $this->Type = $this->HasOne( 'Type', 'Typeid' );
             $this->Users = $this->HasMany( 'UserFinder', 'FindBySchool', $this );
-        }
-
-        public function OnBeforeDelete() {
-            $this->Delid = 1;
-            $this->Save();
-            return false;
         }
 
         protected function LoadDefaults() {
