@@ -1,14 +1,15 @@
 <?php
-
     class ElementUserSettingsPersonalPlace extends Element {
-        public function Render() {
+		protected $mPersistent = array( 'placeid' );
+		
+        public function Render( $placeid ) {
             global $user;
             
             $finder = New PlaceFinder();
             $places = $finder->FindAll();
             ?><select>
                 <option value="-1"<?php
-                if ( $user->Profile->Placeid == 0 ) {
+                if ( $placeid == 0 ) {
                     ?> selected="selected"<?php
                 }
                 ?>>-</option><?php
@@ -16,11 +17,11 @@
                     ?><option value="<?php
                     echo $place->Id;
                     ?>"<?php
-                    if ( $user->Profile->Placeid == $place->Id ) {
+                    if ( $placeid == $place->Id ) {
                         ?> selected="selected"<?php
                     }
                     ?>><?php
-                    Element( 'user/trivial/place' , $place );
+                    Element( 'user/trivial/place', $place, $place->Id );
                     ?></option><?php
                 }
             ?></select><?php

@@ -39,7 +39,7 @@
             <div class="option">
                 <label for="place">Περιοχή:</label>
                 <div class="setting" id="place"><?php
-                    Element( 'user/settings/personal/place' );
+                    Element( 'user/settings/personal/place', $user->Profile->Placeid );
                 ?></div>
             </div>
             <div class="barfade">
