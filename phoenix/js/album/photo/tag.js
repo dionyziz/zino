@@ -1,7 +1,7 @@
 var Tag = {
     focus : function( event ) {
-        alert( event.offsetX );
-        alert( event.offsetY );
+        alert( event.pageX );
+        alert( event.pageY );
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).attr( 'offsetLeft' );
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).attr( 'offsetTop' );
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
