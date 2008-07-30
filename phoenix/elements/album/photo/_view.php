@@ -14,6 +14,7 @@
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
             $page->AttachScript( 'js/album/photo/tag.js' );
+            $page->AttachInlineScript( "Tag.friends = { 'albert', 'arigato', 'aribas', 'arnaki', 'blueman', 'friderikos', 'tsiki tsiki' };" );
             //------------------
             $id = $id->Get();
             $commentid = $commentid->Get();
@@ -198,9 +199,7 @@
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" />
                             </form>
                             <ul class="frienders">
-                                <li><a href="" title="">First</a></li>
-                                <li><a href="" title="">Second</a></li>
-                                <li><a href="" title="">aaaaaaaaaaaaaaaaaaaa</a></li>
+                                <li></li>
                             </ul>
                         </div><?php
                     }

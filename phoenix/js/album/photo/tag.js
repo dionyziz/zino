@@ -1,4 +1,5 @@
 var Tag = {
+    friends : new Array(0),
     clicked : false,
     focus : function( event ) {
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
@@ -48,4 +49,12 @@ var Tag = {
 };
 $( document ).ready( function() {
     $( 'div.thephoto div.frienders form input' ).focus();
+    var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end().get( 0 );
+    for( var i=0; i < Tag.friends.length; ++i ) {
+        var li = document.createElement( 'li' );
+        var a = document.createElement( 'a' );
+        a.appendChild( document.createTextNode( Tag.friends[ i ] );
+        li.appendChild( a );
+        ul.appendChild( li );
+    }
  });
