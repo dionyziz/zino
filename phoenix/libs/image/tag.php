@@ -12,6 +12,11 @@
 
             return $this->FindByPrototype( $prototype, 0, 10, array( 'Id', 'DESC' ) );
         }
+        public function LoadDefaults() {
+            global $user;
+
+            $this->Ownerid = $user->Id;
+        }
     }
 
     class ImageTag extends Satori {
