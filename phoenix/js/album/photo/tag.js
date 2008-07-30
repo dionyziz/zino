@@ -24,13 +24,12 @@ var Tag = {
             y = image_height - tag_height - border_width;
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
-        
+        $( 'div.thephoto ul' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     },
     drag : function( event ) {
         if ( Tag.clicked ) {
             Tag.focus( event );
         }
-        return false;
     },
     ekso : function( event ) {
         if ( $.browser.msie ) {
@@ -39,14 +38,7 @@ var Tag = {
         else {
             event.stopPropagation();
         }
-        Tag.clicked = false;
-    },
-    showSug : function() {
-        Tag.clicked = false;
-        var x = $( 'div.tagme' ).css( 'left' );
-        var y = $( 'div.tagme' ).css( 'top' );
-        $( 'div.thephoto ul' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
-        return false;
+        Tag.clicked=false;
     }
 };
 $( document ).ready( function() {
