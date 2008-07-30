@@ -23,7 +23,6 @@ div.thephoto div.frienders ul {
     color: #99FFFF;
     margin-right: 20px;
     text-align: center;
-    text-decoration: none;
 }
 div.thephoto div.frienders ul li a:hover {
     text-decoration: underline;
