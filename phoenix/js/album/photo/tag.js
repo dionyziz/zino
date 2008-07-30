@@ -1,5 +1,5 @@
 var Tag = {
-    friends : new Array(0),
+    friends : {},
     clicked : false,
     start : function() {
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
