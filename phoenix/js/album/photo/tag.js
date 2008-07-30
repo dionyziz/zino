@@ -21,7 +21,7 @@ var Tag = {
         $( 'div.thephoto div.frienders form input' ).focus();
     },
     focus : function( event ) {
-        if (  $( "div.thephoto div" ).get( 0 ).style.display == "none" ) {
+        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
             return;
         }
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
