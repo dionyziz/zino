@@ -3,9 +3,11 @@ div.thephoto div.frienders {
     left: 270px;
     top: 100px;
 }
+div.thephoto div.frienders form {
+    margin-left: 20px;
+}
 div.thephoto div.frienders form input {
-    width: 150px;
-    padding-left: 10px;
+    width: 100px;
 }
 div.thephoto div.tagme {
     width: 170px;
@@ -19,6 +21,8 @@ div.thephoto div.tagme {
 div.thephoto div.frienders ul {
     list-style-type: none;
     color: #99FFFF;
+    margin-right: 20px;
+    text-align: center;
 }
 div.thephoto div.frienders ul li {
     cursor: pointer;
