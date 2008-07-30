@@ -38,6 +38,8 @@
             $this->mSchool = New School();
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';
             $this->mSchool->Placeid = 13;
+            // $this->AssertThrows( $this->mSchool->Typeid = -2, SchoolException, 'When an invalid type id is set, a SchoolException must be thrown' );
+            // $this->AssertThrows( $this->mSchool->Typeid = 9, SchoolException, 'When an invalid type id is set, a SchoolException must be thrown' );
             $this->mSchool->Typeid = 2;
             $this->mSchool->Save();
             $id = $this->mSchool->Id;

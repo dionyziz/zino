@@ -1,5 +1,18 @@
 <?php
 
+    $types = array(
+        'SCHOOL_ELEMENTARY',
+        'SCHOOL_JUNIORHIGH',
+        'SCHOOL_HIGH',
+        'SCHOOL_TEE',
+        'SCHOOL_TEI',
+        'SCHOOL_AEI'
+    );
+
+    foreach ( $types as $number => $type ) {
+        define( $type, $number );
+    }
+
     class SchoolException extends Exception {
     }
 
@@ -28,6 +41,15 @@
 
     class School extends Satori {
         protected $mDbTableAlias = 'schools';
+
+        public function __set( $key, $value ) {
+            if ( $key == 'Typeid' ) {
+                if ( $value < 0 || $value > 5 ) {
+                    throw New SchoolException( 'Type id must be between 0 and 5, inclusive' );
+                }
+            }
+            parent::__set( $key, $value );
+        }
 
         protected function Relations() {
             $this->Place = $this->HasOne( 'Place', 'Placeid' );
