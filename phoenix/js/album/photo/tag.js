@@ -28,6 +28,7 @@ var Tag = {
     },
     drag : function( event ) {
         if ( Tag.clicked ) {
+            $( 'div.thephoto div.frienders' ).hide();
             Tag.focus( event );
         }
     },
