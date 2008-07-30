@@ -1,7 +1,5 @@
 <?php
 
-    global $user;
-
     class TestSchool extends Testcase {
         protected $mAppliesTo = 'libs/school';
         protected $mFinder;
@@ -66,6 +64,8 @@
         }
 
         public function TestAssign() {
+            global $user;
+
             $school = New School( 1 );
             $school->Approved = 1;
             $school->Save();
