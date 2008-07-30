@@ -1,5 +1,7 @@
 <?php
 
+    global $user;
+
     class TestSchool extends Testcase {
         protected $mAppliesTo = 'libs/school';
         protected $mFinder;
