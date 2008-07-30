@@ -6,16 +6,13 @@
     class SchoolFinder extends Finder {
         protected $mModel = 'School';
 
-        public function Find( $placeid = false, $typeid = false, $userid = false, $offset = 0, $limit = 10000 ) {
+        public function Find( $placeid = false, $typeid = false, $offset = 0, $limit = 10000 ) {
             $prototype = New School();
             if ( $placeid !== false ) {
                 $prototype->Placeid = $placeid;
             }
             if ( $typeid !== false ) {
                 $prototype->Typeid = $typeid;
-            }
-            if ( $userid !== false ) {
-                $prototype->Userid = $userid;
             }
             return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
