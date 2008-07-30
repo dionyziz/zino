@@ -39,6 +39,10 @@ var Tag = {
             event.stopPropagation();
         }
         Tag.clicked=false;
+    },
+    focusInput : function( event ) {
+        $( 'div.thephoto div.frienders form input' ).focus();
+        Tag.ekso( event );
     }
 };
 $( document ).ready( function() {
