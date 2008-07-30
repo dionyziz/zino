@@ -192,10 +192,14 @@
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div>
-                        <ul class="frienders">
-                            <li>First</li>
-                            <li>Second</li>
-                        </ul><?php
+                        <div>
+                            <form action="">
+                                <input type="text" value="" />
+                            </form>
+                            <ul class="frienders">
+                                <li>First</li>
+                                <li>Second</li>
+                            </ul><?php
                     }
                 ?></div><?php
                 /*

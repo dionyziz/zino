@@ -40,3 +40,6 @@ var Tag = {
         Tag.clicked=false;
     }
 };
+$( document ).ready( function() {
+    $( 'div.thephoto div form input' ).focus();
+ });
