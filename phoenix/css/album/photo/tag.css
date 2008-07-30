@@ -1,12 +1,12 @@
-div.thephoto div {
+div.thephoto div.frienders {
     position: absolute;
     left: 270px;
     top: 100px;
 }
-div.thephoto div form input {
+div.thephoto div.frienders form input {
     width: 50px;
 }
-div.tagme {
+div.thephoto div.tagme {
     width: 170px;
     height: 170px;
     /* If you change border width, change js/album/photo/tag.js */
@@ -15,10 +15,10 @@ div.tagme {
     left: 100px;
     top: 100px;
 }
-ul.frienders {
+div.thephoto div.frienders ul {
     list-style-type: none;
     color: #99FFFF;
 }
-ul.frienders li {
+div.thephoto div.frienders ul li {
     cursor: pointer;
 }
