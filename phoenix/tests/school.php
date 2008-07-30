@@ -63,6 +63,22 @@
             $this->AssertEquals( 4, $this->mSchool->Placeid, 'School cannot be replaced' );
         }
 
+        public function TestAssign() {
+            $school = New School( 1 );
+            $school->Approved = 1;
+            $school->Save();
+            $user->School = $school;
+            $user->Save();
+            $this->Assert(
+                $user->School instanceof School &&
+                is_string( $user->School->Name ) &&
+                is_int( $user->School->Placeid ) &&
+                is_int( $user->School->Typeid ),
+                'School cannot be assigned to user'
+            );
+            $this->AssertEquals( 1, $user->School->Approved, 'School cannot be assigned to user unless it is approved' );
+        }
+
         public function TestDelete() {
             $id = $this->mSchool->Id;
             $this->mSchool->Delete();
