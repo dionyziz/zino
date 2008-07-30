@@ -6,7 +6,13 @@ var Tag = {
         .get( 0 );
         for( var i=0; i < Tag.friends.length; ++i ) {
             var li = document.createElement( 'li' );
+            li.style.cursor = "pointer";
+            
             var a = document.createElement( 'a' );
+            a.onmousedown = function( event ) {
+                    return false;
+                    Tag.ekso( event );
+                };
             a.appendChild( document.createTextNode( Tag.friends[ i ] ) );
             li.appendChild( a );
             ul.appendChild( li );
