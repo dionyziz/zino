@@ -53,7 +53,7 @@ $( document ).ready( function() {
     for( var i=0; i < Tag.friends.length; ++i ) {
         var li = document.createElement( 'li' );
         var a = document.createElement( 'a' );
-        a.appendChild( document.createTextNode( Tag.friends[ i ] );
+        a.appendChild( document.createTextNode( Tag.friends[ i ] ) );
         li.appendChild( a );
         ul.appendChild( li );
     }
