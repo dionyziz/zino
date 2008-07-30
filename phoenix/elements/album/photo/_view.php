@@ -197,9 +197,9 @@
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" />
                             </form>
                             <ul class="frienders">
-                                <li>First</li>
-                                <li>Second</li>
-                                <li>aaaaaaaaaaaaaaaaaaaa</li>
+                                <li><a href="" title="">First</a></li>
+                                <li><a href="" title="">Second</a></li>
+                                <li><a href="" title="">aaaaaaaaaaaaaaaaaaaa</a></li>
                             </ul>
                         </div><?php
                     }
