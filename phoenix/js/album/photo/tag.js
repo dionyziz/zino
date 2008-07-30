@@ -74,5 +74,12 @@ var Tag = {
         }
         Tag.clicked=false;
         $( 'div.thephoto div.frienders' ).show();
+    },
+    katoPontike : function( event ) {
+        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
+            return;
+        }
+        Tag.clicked=true;
+        Tag.focus( event );
     }
 };
