@@ -19,16 +19,19 @@
         public function TestFind() {
             $this->mFinder = New SchoolFinder();
             $schools = $this->mFinder->Find();
-            $this->Assert( is_array( $schools ) );
+            $this->Assert( is_array( $schools ), 'SchoolFinder->Find does not return an array' );
             foreach ( $schools as $school ) {
-                $this->Assert( $school instanceof School );
+                if ( !( $school instanceof School ) ) {
+                    $this->Assert( false, 'SchoolFinder->Find does not return School instances' );
+                    break;
+                }
             }
         }
 
         public function TestCount() {
             $count = $this->mFinder->Count();
-            $this->Assert( is_int( $count ) );
-            $this->Assert( $count >= 0 );
+            $this->Assert( is_int( $count ), 'SchoolFinder->Count does not return an integer' );
+            $this->Assert( $count >= 0, 'SchoolFinder->Count does not return a positive number' );
         }
 
         public function TestCreate() {
@@ -38,30 +41,33 @@
             $this->mSchool->Placeid = 13;
             $this->mSchool->Save();
             $id = $this->mSchool->Id;
-            $count = $this->mFinder->Find( $schoolid = $id );
-            $this->AssertEquals( 1, $count );
+            $count = $this->mFinder->Count( false, false, false, $id );
+            $this->AssertEquals( 1, $count, 'School creation failed' );
         }
 
         public function TestApprove() {
-            $this->AssertEquals( 0, $this->mSchool->Approved ); 
+            $this->AssertEquals( 0, $this->mSchool->Approved, 'Schools must not be approved by default' ); 
             $this->mSchool->Approved = 1;
             $this->mSchool->Save();
-            $this->AssertEquals( 1, $this->mSchool->Approved );
+            $this->AssertEquals( 1, $this->mSchool->Approved, 'School cannot be approved' );
             $this->mSchool->Approved = 0;
             $this->mSchool->Save();
-            $this->AssertEquals( 0, $this->mSchool->Approved );
+            $this->AssertEquals( 0, $this->mSchool->Approved, 'School cannot be disapproved' );
         }
 
         public function TestEdit() {
             $this->mSchool->Name = '9th Infinitely and Extraordinarily Inappropriate School';
             $this->mSchool->Placeid = 4;
             $this->mSchool->Save();
-            // TODO
+            $this->AssertEquals( '9th Infinitely and Extraordinarily Inappropriate School', $this->mSchool->Name, 'School cannot be renamed' );
+            $this->AssertEquals( 4, $this->mSchool->Placeid, 'School cannot be replaced' );
         }
 
         public function TestDelete() {
+            $id = $this->mSchool->Id;
             $this->mSchool->Delete();
-            // TODO
+            $count = $this->mFinder->Count( false, false, false, $id );
+            $this->AssertEquals( 0, $count, 'School deletion failed' );
         }
     }
 
