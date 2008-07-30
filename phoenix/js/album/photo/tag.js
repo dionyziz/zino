@@ -1,6 +1,7 @@
 var Tag = {
     friends : [],
     clicked : false,
+    run : false,
     start : function() {
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
@@ -19,9 +20,10 @@ var Tag = {
         }
         $( 'div.thephoto div' ).show();
         $( 'div.thephoto div.frienders form input' ).focus();
+        Tag.run = true;
     },
     focus : function( event ) {
-        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
+        if ( !Tag.run ) {
             return;
         }
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
@@ -69,14 +71,14 @@ var Tag = {
         Tag.ekso( event );
     },
     showSug : function( event ) {
-        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
+        if ( !Tag.run ) {
             return;
         }
         Tag.clicked=false;
         $( 'div.thephoto div.frienders' ).show();
     },
     katoPontike : function( event ) {
-        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
+        if ( !Tag.run ) {
             return;
         }
         Tag.clicked=true;
