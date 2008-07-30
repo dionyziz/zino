@@ -49,7 +49,8 @@ var Tag = {
 };
 $( document ).ready( function() {
     $( 'div.thephoto div.frienders form input' ).focus();
-    var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end().get( 0 );
+    var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
+    .get( 0 );
     for( var i=0; i < Tag.friends.length; ++i ) {
         var li = document.createElement( 'li' );
         var a = document.createElement( 'a' );

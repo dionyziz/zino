@@ -13,8 +13,8 @@
             
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
-            $page->AttachScript( 'js/album/photo/tag.js' );
             $page->AttachInlineScript( "Tag.friends = { 'albert', 'arigato', 'aribas', 'arnaki', 'blueman', 'friderikos', 'tsiki tsiki' };" );
+            $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
             $id = $id->Get();
             $commentid = $commentid->Get();
