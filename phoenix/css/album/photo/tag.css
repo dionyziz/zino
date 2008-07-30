@@ -2,6 +2,8 @@ div.thephoto div.frienders {
     position: absolute;
     left: 270px;
     top: 100px;
+    border-style: solid;
+    background-color: white;
 }
 div.thephoto div.frienders form {
     margin-left: 20px;
