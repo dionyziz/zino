@@ -24,7 +24,7 @@ var Tag = {
             y = image_height - tag_height - border_width;
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
-        $( 'div.thephoto div' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
+        $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     },
     drag : function( event ) {
         if ( Tag.clicked ) {
@@ -42,5 +42,5 @@ var Tag = {
     }
 };
 $( document ).ready( function() {
-    $( 'div.thephoto div form input' ).focus();
+    $( 'div.thephoto div.frienders form input' ).focus();
  });
