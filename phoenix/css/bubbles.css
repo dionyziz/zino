@@ -39,16 +39,20 @@ i.br {
     display: block;
 }
 div.bubble i.tl {
-    background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -234px -1389px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );*/
 }
 div.bubble i.tr {
-    background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -236px -1449px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );*/
 }
 div.bubble i.bl {
-    background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -234px -1271px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );*/
 }
 div.bubble i.br {
-    background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -236px -1329px;
+    /*background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );*/
 }
 div.bubble i.qleft {
     background-image: url( 'http://static.zino.gr/phoenix/q_left.jpg' );

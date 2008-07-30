@@ -29,9 +29,8 @@ div.comment div.toolbox img {
 	vertical-align: text-bottom;
 }
 div.comment div.toolbox a {
-	background: url( "http://static.zino.gr/phoenix/delete.png" ) no-repeat;
-	padding-left: 16px;	
-	padding-bottom: 2px;
+	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -1478px;
+	padding: 0 0 2px 16px;
 	margin-left: 5px;
 	/* A little hack for IE7 */
 	color: #f4f4f4;
@@ -53,17 +52,6 @@ div.comment div.bottom {
 div.comment div.text {
 	margin: 4px 0 0 60px;
 	padding: 0;
-}
-div.oldcomment div.who {
-	background-color: #eaf0f5;
-}
-div.oldcomment div.who a {
-	background-image: url('images/1downarrow.png');
-	background-repeat: no-repeat;
-	background-position: -4px -5px;
-	padding: 1px 1px 1px 18px;
-	font-size: 90%;
-	display: block;
 }
 div.newcomment {
 	margin: 6px 0 6px 3px;
