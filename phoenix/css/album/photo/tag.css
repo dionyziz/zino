@@ -1,3 +1,8 @@
+div.thephoto div {
+    position: absolute;
+    left: 270px;
+    top: 100px;
+}
 div.thephoto div form input {
     width: 50px;
 }
@@ -11,9 +16,6 @@ div.tagme {
     top: 100px;
 }
 ul.frienders {
-    position: absolute;
-    left: 270px;
-    top: 100px;
     list-style-type: none;
     color: #99FFFF;
 }
