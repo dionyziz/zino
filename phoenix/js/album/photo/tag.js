@@ -52,6 +52,9 @@ var Tag = {
         $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     },
     drag : function( event ) {
+        if ( !Tag.run ) {
+            return;
+        }
         if ( Tag.clicked ) {
             $( 'div.thephoto div.frienders' ).hide();
             Tag.focus( event );
