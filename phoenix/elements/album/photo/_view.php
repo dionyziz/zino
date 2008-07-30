@@ -199,6 +199,7 @@
                             <ul class="frienders">
                                 <li>First</li>
                                 <li>Second</li>
+                                <li>aaaaaaaaaaaaaaaaaaaa</li>
                             </ul>
                         </div><?php
                     }
