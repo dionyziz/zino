@@ -37,8 +37,8 @@
         public function TestCreate() {
             $this->mSchool = New School();
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';
-            $this->mSchool->Typeid = 2;
             $this->mSchool->Placeid = 13;
+            $this->mSchool->Typeid = 2;
             $this->mSchool->Save();
             $id = $this->mSchool->Id;
             $count = $this->mFinder->Count( false, false, false, $id );
