@@ -194,7 +194,7 @@
                         ?><div class="tagme"></div>
                         <div class="frienders">
                             <form action="">
-                                <input type="text" value="" onclick="Tag.focusInput( event );" />
+                                <input type="text" value="" onmousedown="Tag.focusInput( event );" />
                             </form>
                             <ul class="frienders">
                                 <li>First</li>
