@@ -41,7 +41,7 @@
             $this->mSchool->Typeid = 2;
             $this->mSchool->Save();
             $id = $this->mSchool->Id;
-            $count = $this->mFinder->Count( false, false, false, $id );
+            $count = count( $this->mFinder->Find( false, false, false, $id ) );
             $this->AssertEquals( 1, $count, 'School creation failed' );
         }
 
@@ -66,7 +66,7 @@
         public function TestDelete() {
             $id = $this->mSchool->Id;
             $this->mSchool->Delete();
-            $count = $this->mFinder->Count( false, false, false, $id );
+            $count = count( $this->mFinder->Find( false, false, false, $id ) );
             $this->AssertEquals( 0, $count, 'School deletion failed' );
         }
     }
