@@ -1,3 +1,6 @@
+div.thephoto div {
+    display: none;
+}
 div.thephoto div.frienders {
     position: absolute;
     left: 270px;
