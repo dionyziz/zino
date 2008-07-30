@@ -20,7 +20,7 @@
             if ( $schoolid !== false ) {
                 $prototype->Id = $schoolid;
             }
-            return FindByPrototype( $prototype, $offset, $limit, 'Name' );
+            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
 
         public function Count() {
