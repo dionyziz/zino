@@ -85,7 +85,7 @@ div.header ul li a.login span {
 	padding-left: 16px;
 	margin-right: 1px;
 	/*background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -64px;*/
-	background-image: url('http://static.zino.gr/phoenix/_up.png');
+	background-image: url('http://static.zino.gr/phoenix/up.png');
 }
 div.header ul li a.profile img {
     vertical-align: bottom;
