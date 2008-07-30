@@ -67,5 +67,12 @@ var Tag = {
     focusInput : function( event ) {
         $( 'div.thephoto div.frienders form input' ).focus();
         Tag.ekso( event );
+    },
+    showSug : function( event ) {
+        if ( $( "div.thephoto div:first" ).css( "display" ) == "none" ) {
+            return;
+        }
+        Tag.clicked=false;
+        $( 'div.thephoto div.frienders' ).show();
     }
 };
