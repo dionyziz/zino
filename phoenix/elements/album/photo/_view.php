@@ -13,7 +13,7 @@
             
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
-            $page->AttachInlineScript( "Tag.friends = { 'albert', 'arigato', 'aribas', 'arnaki', 'blueman', 'friderikos', 'tsiki tsiki' };" );
+            $page->AttachInlineScript( "Tag.friends = [ 'albert', 'arigato', 'aribas', 'arnaki', 'blueman', 'friderikos', 'tsiki tsiki' ];" );
             $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
             $id = $id->Get();

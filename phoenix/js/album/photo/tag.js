@@ -1,5 +1,5 @@
 var Tag = {
-    friends : {},
+    friends : [],
     clicked : false,
     start : function() {
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
@@ -15,6 +15,9 @@ var Tag = {
         $( 'div.thephoto div.frienders form input' ).focus();
     },
     focus : function( event ) {
+        if (  $( "div.thephoto div" ).get( 0 ).style.display == "none" ) {
+            return;
+        }
         var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
