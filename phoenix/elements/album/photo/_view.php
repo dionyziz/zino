@@ -193,6 +193,7 @@
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div>
                         <div class="frienders">
+                            <div>Ποιός είναι αυτός;</div>
                             <form action="">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" />
                             </form>

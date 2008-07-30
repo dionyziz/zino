@@ -5,7 +5,7 @@ div.thephoto div.frienders {
     border-style: solid;
     border-width: 1px;
     background-color: white;
-    width: 200px;
+    width: 250px;
     margin-left: 20px;
 }
 div.thephoto div.frienders form {
@@ -26,12 +26,8 @@ div.thephoto div.tagme {
 div.thephoto div.frienders ul {
     list-style-type: none;
     margin-right: 20px;
-    text-align: center;
+    text-align: left;
 }
-/*
-div.thephoto div.frienders ul li a {
-    color: #99FFFF;
-}*/
 div.thephoto div.frienders ul li a:hover {
     text-decoration: underline;
 }
