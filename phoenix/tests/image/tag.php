@@ -44,7 +44,7 @@
             $this->Assert( class_exists( 'ImageTag' ), 'ImageTag class does not exist' );
             $this->Assert( class_exists( 'ImageTagFinder' ), 'ImageTagFinder class does not exist' );
         }
-        public function TestTagCreation() {
+        public function TestCreate() {
             $this->mTag1 = New ImageTag(); 
             $this->mTag1->Left = 20;
             $this->mTag1->Top = 21;
@@ -99,7 +99,7 @@
                 ++$i;
             }
         }
-        public function TestTagDeletion() {
+        public function TestDelete() {
             $this->mTag1->Delete();
             $this->mTag2->Delete();
 
