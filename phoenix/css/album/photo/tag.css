@@ -20,9 +20,11 @@ div.thephoto div.tagme {
 }
 div.thephoto div.frienders ul {
     list-style-type: none;
-    color: #99FFFF;
     margin-right: 20px;
     text-align: center;
+}
+div.thephoto div.frienders ul li a {
+    color: #99FFFF;
 }
 div.thephoto div.frienders ul li a:hover {
     text-decoration: underline;
