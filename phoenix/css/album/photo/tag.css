@@ -3,10 +3,14 @@ div.thephoto div.frienders {
     left: 270px;
     top: 100px;
     border-style: solid;
+    border-width: 1px;
     background-color: white;
+    width: 200px;
+    margin-left: 20px;
 }
 div.thephoto div.frienders form {
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+    margin-top: 5px;
 }
 div.thephoto div.frienders form input {
     width: 100px;
