@@ -40,7 +40,7 @@
             $this->mSchool->Placeid = 13;
             $thrown = false;
             try {
-                $this->Typeid = 9;
+                $this->mSchool->Typeid = 9;
             }
             catch ( SchoolException $e ) {
                 $thrown = true;
