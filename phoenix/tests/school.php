@@ -76,18 +76,18 @@
 
             $this->mSchool->Approved = 1;
             $this->mSchool->Save();
-            $school = $user->School;
-            $user->School = $this->mSchool;
+            $school = $user->Profile->School;
+            $user->Profile->School = $this->mSchool;
             $user->Save();
             $this->Assert(
-                $user->School instanceof School &&
-                is_string( $user->School->Name ) &&
-                is_int( $user->School->Placeid ) &&
-                is_int( $user->School->Typeid ),
+                $user->Profile->School instanceof School &&
+                is_string( $user->Profile->School->Name ) &&
+                is_int( $user->Profile->School->Placeid ) &&
+                is_int( $user->Profile->School->Typeid ),
                 'School cannot be assigned to user'
             );
-            $this->AssertEquals( 1, $user->School->Approved, 'School cannot be assigned to user unless it is approved' );
-            $user->School = $school;
+            $this->AssertEquals( 1, $user->Profile->School->Approved, 'School cannot be assigned to user unless it is approved' );
+            $user->Profile->School = $school;
             $user->Save();
         }
 
