@@ -36,6 +36,7 @@
 
         public function TestCreate() {
             $this->mSchool = New School();
+            $this->Assert( false, $this->mSchool->mRelations );
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';
             $this->mSchool->Placeid = 13;
             $thrown = false;
