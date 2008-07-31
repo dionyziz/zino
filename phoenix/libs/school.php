@@ -10,7 +10,7 @@
     );
 
     foreach ( $types as $number => $type ) {
-        define( $type, $number );
+        define( $type, $number + 1 );
     }
 
     class SchoolException extends Exception {
@@ -44,8 +44,8 @@
 
         public function __set( $key, $value ) {
             if ( $key == 'Typeid' ) {
-                if ( $value < 0 || $value > 5 ) {
-                    throw New SchoolException( 'Type id must be between 0 and 5, inclusive' );
+                if ( $value < 1 || $value > 6 ) {
+                    throw New SchoolException( 'Type id must be between 1 and 6, inclusive' );
                 }
             }
             parent::__set( $key, $value );

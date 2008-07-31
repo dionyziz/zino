@@ -38,8 +38,14 @@
             $this->mSchool = New School();
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';
             $this->mSchool->Placeid = 13;
-            // $this->AssertThrows( $this->mSchool->Typeid = -2, SchoolException, 'When an invalid type id is set, a SchoolException must be thrown' );
-            // $this->AssertThrows( $this->mSchool->Typeid = 9, SchoolException, 'When an invalid type id is set, a SchoolException must be thrown' );
+            $thrown = false;
+            try {
+                $this->Typeid = 9;
+            }
+            catch ( SchoolException $e ) {
+                $thrown = true;
+            }
+            $this->Assert( $thrown, 'When an invalid type id is set, a SchoolException must be thrown' );
             $this->mSchool->Typeid = 2;
             $this->mSchool->Save();
             $id = $this->mSchool->Id;
@@ -68,10 +74,10 @@
         public function TestAssign() {
             global $user;
 
-            $school = New School( 1 );
-            $school->Approved = 1;
-            $school->Save();
-            $user->School = $school;
+            $this->mSchool->Approved = 1;
+            $this->mSchool->Save();
+            $school = $user->School;
+            $user->School = $this->mSchool;
             $user->Save();
             $this->Assert(
                 $user->School instanceof School &&
@@ -81,6 +87,8 @@
                 'School cannot be assigned to user'
             );
             $this->AssertEquals( 1, $user->School->Approved, 'School cannot be assigned to user unless it is approved' );
+            $user->School = $school;
+            $user->Save();
         }
 
         public function TestDelete() {
