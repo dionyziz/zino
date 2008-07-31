@@ -84,8 +84,7 @@
                         }
                     }
                     return false;
-                default:
-                    return parent::__get( $key );
+                return parent::__get( $key );
             }
         }
         protected function MakeBirthdate( $day, $month, $year ) {
