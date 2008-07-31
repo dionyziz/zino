@@ -125,6 +125,9 @@
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
                     break;
+                case 'School':
+                    $this->Schoolid = $value->Id;
+                    break;
                 default:
                     parent::__set( $key, $value );
             }
