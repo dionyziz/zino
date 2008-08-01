@@ -36,7 +36,7 @@
 
         public function TestCreate() {
             $this->mSchool = New School();
-            foreach ( $this->mSchool->mRelations as $r ) {
+            foreach ( $this->mSchool->GetRelations() as $r ) {
                 $this->Assert( false, $r );
             }
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';

@@ -84,7 +84,8 @@
                         }
                     }
                     return false;
-                return parent::__get( $key );
+                default:
+                    return parent::__get( $key );
             }
         }
         protected function MakeBirthdate( $day, $month, $year ) {
@@ -138,6 +139,9 @@
             $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
+        }
+        public function GetRelations() {
+            return $this->mRelations;
         }
         protected function LoadDefaults() {
             $this->Education = '-';

@@ -48,9 +48,7 @@
                     throw New SchoolException( 'Type id must be between 1 and 6, inclusive' );
                 }
             }
-            else {
-                parent::__set( $key, $value );
-            }
+            parent::__set( $key, $value );
         }
 
         protected function Relations() {
