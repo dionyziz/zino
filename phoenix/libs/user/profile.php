@@ -140,9 +140,6 @@
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
-        public function GetRelations() {
-            return $this->mRelations;
-        }
         protected function LoadDefaults() {
             $this->Education = '-';
             $this->Sexualorientation = '-';
