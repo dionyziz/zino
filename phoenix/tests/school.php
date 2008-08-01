@@ -36,9 +36,6 @@
 
         public function TestCreate() {
             $this->mSchool = New School();
-            foreach ( $this->mSchool->GetRelations() as $r ) {
-                $this->Assert( false, $r );
-            }
             $this->mSchool->Name = '9th Extraordinarily Inappropriate School';
             $this->mSchool->Placeid = 13;
             $thrown = false;
@@ -79,7 +76,11 @@
 
             $this->mSchool->Approved = 1;
             $this->mSchool->Save();
-            $school = $user->Profile->School;
+            $hasSchool = false;
+            if ( isset( $user->Profile->School ) ) {
+                $hasSchool = true;
+                $school = $user->Profile->School;
+            }
             $user->Profile->School = $this->mSchool;
             $user->Save();
             $this->Assert(
@@ -90,7 +91,12 @@
                 'School cannot be assigned to user'
             );
             $this->AssertEquals( 1, $user->Profile->School->Approved, 'School cannot be assigned to user unless it is approved' );
-            $user->Profile->School = $school;
+            if ( $hasSchool ) {
+                $user->Profile->School = $school;
+            }
+            else {
+                unset( $user->Profile->School );
+            }
             $user->Save();
         }
 

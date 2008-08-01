@@ -60,10 +60,6 @@
             $this->Created = NowDate();
             $this->Approved = 0;
         }
-
-        public function GetRelations() {
-            return $this->mRelations;
-        }
     }
 
 ?>
