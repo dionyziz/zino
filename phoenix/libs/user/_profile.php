@@ -3,6 +3,7 @@
     
     $libs->Load( 'place' );
     $libs->Load( 'university' );
+    $libs->Load( 'school' );
     $libs->Load( 'user/oldprofile' );
     
     class UserProfile extends Satori {
@@ -13,6 +14,9 @@
         }
         public function CopyUniversityFrom( $value ) {
             $this->mRelations[ 'Uni' ]->CopyFrom( $value );
+        }
+        public function CopySchoolFrom( $value ) {
+            $this->mRelations[ 'School' ]->CopyFrom( $value );
         }
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
@@ -121,6 +125,9 @@
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
                     break;
+                case 'School':
+                    $this->Schoolid = $value->Id;
+                    break;
                 default:
                     parent::__set( $key, $value );
             }
@@ -129,6 +136,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
             $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
+            $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
