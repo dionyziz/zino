@@ -37,6 +37,12 @@
                         Element( 'user/trivial/eyecolor' , $theuser->Profile->Eyecolor );
                         ?></dd><?php
                     }
+					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
+						?><dt><strong>Συνδεδεμένος</strong></dt>
+						<dd>πριν <?php
+						Element( 'date/diff' , $theuser->LastActivity->Updated );
+						?></dd><?php
+					}
                 ?></dl>
             </div><?php
         }
