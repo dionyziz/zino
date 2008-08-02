@@ -227,6 +227,10 @@
                     }
                 }
                 if ( $this->mPath == 'user/profile/sidebar/info' ) {
+                    var_dump( $ret );
+                    ?>---<?php
+                    var_dump( $this->mPersistent );
+                    ?>---<?php
                     die( var_dump( $params ) );
                 }
                 // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
