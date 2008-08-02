@@ -109,6 +109,9 @@
         public function __set( $key, $value ) {
             global $water;
 
+            if ( $key == 'School' && $this->mAllowRelationDefinition ) {
+                return parent::__set( $key, $value );
+            }
             switch ( $key ) {
                 case 'BirthDay':
                     w_assert( is_int( $value ) );
