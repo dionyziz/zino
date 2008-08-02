@@ -56,6 +56,8 @@
             global $mc;
             global $water;
 
+            return false;
+
             // retrieve positions of significant arguments
             $significant = self::GetPersistentElementSignificantArgs( $elementpath );
             if ( $significant === false ) { // not a persistent element
