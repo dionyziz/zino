@@ -33,7 +33,7 @@
             }
         }
         else {
-            if ( strtolower( substr( $_SERVER[ 'HTTP_REFERER' ], 0, strlen( $rabbit_settings[ 'webaddress' ] ) ) ) != strtolower( $rabbit_settinsg[ 'webaddress' ] ) ) {
+            if ( strtolower( substr( $_SERVER[ 'HTTP_REFERER' ], 0, strlen( $rabbit_settings[ 'webaddress' ] ) ) ) != strtolower( $rabbit_settings[ 'webaddress' ] ) ) {
                 throw New Exception( $_SERVER[ 'HTTP_REFERER' ] . ' is not a valid HTTP referer (non-local)' );
             }
         }
