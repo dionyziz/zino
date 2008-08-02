@@ -5,7 +5,6 @@
         
         protected function Relations() {
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
-            $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
