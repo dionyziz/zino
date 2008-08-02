@@ -220,10 +220,10 @@
                 foreach ( $params as $param ) {
                     if ( $this->mPersistent[ $i ] == $param->getName() ) {
                         $ret[] = $i;
-                    }
-                    ++$i;
-                    if ( $i == count( $this->mPersistent ) ) {
-                        break;
+                        ++$i;
+                        if ( $i == count( $this->mPersistent ) ) {
+                            break;
+                        }
                     }
                 }
                 if ( $this->mPath == 'user/profile/sidebar/info' ) {
