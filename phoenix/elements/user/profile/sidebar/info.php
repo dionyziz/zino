@@ -22,7 +22,7 @@
                         $uni = New Uni( $theuser->Profile->Uniid );
                         ?><dt><strong>Πανεπιστήμιο</strong></dt>
                         <dd><?php
-                        Element( 'user/trivial/university' , $uni->Name );
+                        Element( 'user/trivial/university' , $uni );
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Haircolor != '-' ) {
