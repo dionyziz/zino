@@ -208,9 +208,9 @@
         protected $mRelations;
         private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
-        private $mAllowRelationDefinition;
+        protected $mAllowRelationDefinition;
        
-           public function __get( $key ) {
+        public function __get( $key ) {
             switch ( $key ) {
                 case 'Attribute2DbField':
                 case 'Db':
