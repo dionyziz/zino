@@ -43,7 +43,7 @@
                         ?></div>
                         <div>
                             <span>Περιοχή:</span><?php
-                            Element( 'user/settings/personal/place' , $user->Location->Id );
+                            Element( 'user/settings/personal/place' , $user->Profile->Location->Id );
                         ?></div>
                     </form>
                 </div>
