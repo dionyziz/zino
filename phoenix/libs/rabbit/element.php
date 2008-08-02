@@ -226,7 +226,9 @@
                         break;
                     }
                 }
-                die( var_dump( $params ) );
+                if ( $this->mPath == 'user/profile/sidebar/info' ) {
+                    die( var_dump( $params ) );
+                }
                 // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
                 if ( $i != count( $this->mPersistent ) ) {
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
