@@ -2,9 +2,16 @@
 
     class TestSchool extends Testcase {
         protected $mAppliesTo = 'libs/school';
+        protected $mUser;
         protected $mFinder;
         protected $mSchool;
 
+        public function SetUp() {
+            $this->mUser = New User();
+            $this->mUser->Name = 'testschooluser';
+            $this->mUser->Subdomain = 'testschooluser';
+            $this->mUser->Save();
+        }
         public function TestClassesExist() {
             $this->Assert( class_exists( 'SchoolException' ), 'class SchoolException does not exist' );
             $this->Assert( class_exists( 'SchoolFinder' ), 'class SchoolFinder does not exist' );
@@ -72,32 +79,17 @@
         }
 
         public function TestAssign() {
-            global $user;
-
             $this->mSchool->Approved = 1;
             $this->mSchool->Save();
-            $hasSchool = false;
-            if ( isset( $user->Profile->School ) ) {
-                $hasSchool = true;
-                $school = $user->Profile->School;
-            }
-            $user->Profile->School = $this->mSchool;
-            $user->Save();
+            $this->mUser->Profile->School = $this->mSchool;
             $this->Assert(
-                $user->Profile->School instanceof School &&
-                is_string( $user->Profile->School->Name ) &&
-                is_int( $user->Profile->School->Placeid ) &&
-                is_int( $user->Profile->School->Typeid ),
+                $this->mUser->Profile->School instanceof School &&
+                is_string( $this->mUser->Profile->School->Name ) &&
+                is_int( $this->mUser->Profile->School->Placeid ) &&
+                is_int( $this->mUser->Profile->School->Typeid ),
                 'School cannot be assigned to user'
             );
-            $this->AssertEquals( 1, $user->Profile->School->Approved, 'School cannot be assigned to user unless it is approved' );
-            if ( $hasSchool ) {
-                $user->Profile->School = $school;
-            }
-            else {
-                unset( $user->Profile->School );
-            }
-            $user->Save();
+            $this->AssertEquals( 1, $this->mUser->Profile->School->Approved, 'School cannot be assigned to user unless it is approved' );
         }
 
         public function TestDelete() {
@@ -105,6 +97,10 @@
             $this->mSchool->Delete();
             $school = New School( $id );
             $this->Assert( !$school->Exists(), 'School deletion failed' );
+        }
+
+        public function TearDown() {
+            $this->mUser->Delete();
         }
     }
 
