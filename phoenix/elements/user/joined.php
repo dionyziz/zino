@@ -35,15 +35,15 @@
                     <form>
                         <div>
                             <span>Ημερομηνία γέννησης:</span><?php
-                            Element( 'user/settings/personal/dob' , $user );
+                            Element( 'user/settings/personal/dob' );
                         ?></div>
                         <div>
                             <span>Φύλο:</span><?php
-                            Element( 'user/settings/personal/gender' , $user );
+                            Element( 'user/settings/personal/gender' , $user->Gender );
                         ?></div>
                         <div>
                             <span>Περιοχή:</span><?php
-                            Element( 'user/settings/personal/place' , $user );
+                            Element( 'user/settings/personal/place' , $user->Place->Id );
                         ?></div>
                     </form>
                 </div>
