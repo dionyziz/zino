@@ -2,7 +2,6 @@
     global $libs;
     
     $libs->Load( 'place' );
-    $libs->Load( 'university' );
     $libs->Load( 'school' );
     $libs->Load( 'user/oldprofile' );
     
@@ -11,9 +10,6 @@
         
         public function CopyLocationFrom( $value ) {
             $this->mRelations[ 'Location' ]->CopyFrom( $value );
-        }
-        public function CopyUniversityFrom( $value ) {
-            $this->mRelations[ 'Uni' ]->CopyFrom( $value );
         }
         public function CopySchoolFrom( $value ) {
             $this->mRelations[ 'School' ]->CopyFrom( $value );
@@ -138,7 +134,6 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
-            $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
             $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
