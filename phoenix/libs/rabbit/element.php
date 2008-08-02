@@ -216,15 +216,17 @@
             $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             if ( true || $significant === false ) {
                 $i = 0;
+                $j = 0;
                 $ret = array();
                 foreach ( $params as $param ) {
                     if ( $this->mPersistent[ $i ] == $param->getName() ) {
-                        $ret[] = $i;
+                        $ret[] = $j;
                         ++$i;
                         if ( $i == count( $this->mPersistent ) ) {
                             break;
                         }
                     }
+                    ++$j;
                 }
                 if ( $this->mPath == 'user/profile/sidebar/info' ) {
                     var_dump( $ret );
