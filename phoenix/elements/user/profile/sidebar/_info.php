@@ -18,7 +18,7 @@
                         echo htmlspecialchars( $theuser->Profile->Location->Name );
                         ?></dd><?php
                     }
-                    if ( $theuser->Profile->Uniid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {
+                    if ( $theuser->Profile->Schoolid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {
                         $school = New School( $theuser->Profile->Schoolid );
                         ?><dt><strong>Πανεπιστήμιο</strong></dt>
                         <dd><?php
