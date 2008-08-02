@@ -212,7 +212,7 @@
             $params = $render->getParameters();
 
             $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
-            if ( $significant === false ) {
+            if ( true || $significant === false ) {
                 $i = 0;
                 $ret = array();
                 foreach ( $params as $param ) {
@@ -224,6 +224,7 @@
                         break;
                     }
                 }
+                die( var_dump( $params ) );
                 // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
                 if ( $i != count( $this->mPersistent ) ) {
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
