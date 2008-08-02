@@ -56,8 +56,6 @@
             global $mc;
             global $water;
 
-            return false;
-
             // retrieve positions of significant arguments
             $significant = self::GetPersistentElementSignificantArgs( $elementpath );
             if ( $significant === false ) { // not a persistent element
@@ -214,7 +212,7 @@
             $params = $render->getParameters();
 
             $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
-            if ( true || $significant === false ) {
+            if ( $significant === false ) {
                 $i = 0;
                 $j = 0;
                 $ret = array();
