@@ -50,9 +50,10 @@
                     <dd> </dd></dl></div>
             </div>
             
-            <div class="friendship" style="background-color:#ffdf80;background-image:url('http://static.zino.gr/phoenix/bubblefade.png');background-repeat:no-repeat;background-position:top right;padding:10px;margin:0 20px 10px 330px;">
+            <div id="antisocial" class="antisocial" style="background-color:#ffdf80;background-image:url('http://static.zino.gr/phoenix/bubblefade.png');background-repeat:no-repeat;background-position:top right;padding:10px;margin:0 20px 10px 330px;">
             <span style="">Ο izual σε έχει προσθέσει στους φίλους, αλλά εσύ όχι.</span>
-            <div style="padding:10px 5px 0 10px"><a href="" onclick="function(node){setTimeout(function(){$(node).hide()},2000);}(this.parentNode.parentNode);this.parentNode.innerHTML='Έγινε προσθήκη'; return false;" style="background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ); background-repeat: no-repeat; background-position: 0 -1px; padding-left: 20px;">Πρόσθεσέ τον στους φίλους</a></div>
+            <div style="padding:10px 5px 0 10px"><a href="" onclick="setTimeout(function(){$('antisocial').animate({height:0,opacity:0
+});},400);$(this.parentNode).animate({opacity:200}).text('Έγινε προσθήκη').animate({opacity:1},200);return false;" style="background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ); background-repeat: no-repeat; background-position: 0 -1px; padding-left: 20px;">Πρόσθεσέ τον στους φίλους</a></div>
             </div>
             
             
