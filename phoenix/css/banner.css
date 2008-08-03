@@ -120,7 +120,7 @@ div.header a.logout {
 }
 div.header a.logout span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -429px;
-	padding: 17px 0 0 16px;
+	padding: 17px 0 0 15px;
 	margin-left: 2px;
 }
 div.header a:hover {
