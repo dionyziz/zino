@@ -52,7 +52,7 @@
             
             <div class="friendship" style="background-color:#ffdf80;background-image:url('http://static.zino.gr/phoenix/bubblefade.png');background-repeat:no-repeat;background-position:top right;padding:10px;margin:0 20px 10px 330px;">
             <span style="">Ο izual σε έχει προσθέσει στους φίλους, αλλά εσύ όχι.</span>
-            <div style="padding:10px 5px 0 10px"><a href="" onclick="this.parentNode.parentNode.parentNode.innerHTML = 'Έγινε προσθήκη'; setTimeout(function(){$(this.parentNode.parentNode.parentNode).hide(),4000); return false;" style="background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ); background-repeat: no-repeat; background-position: 0 -1px; padding-left: 20px;">Πρόσθεσέ τον στους φίλους</a></div>
+            <div style="padding:10px 5px 0 10px"><a href="" onclick="this.parentNode.parentNode.parentNode.innerHTML = 'Έγινε προσθήκη'; setTimeout(function(){$(this.parentNode.parentNode.parentNode).hide()},4000); return false;" style="background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ); background-repeat: no-repeat; background-position: 0 -1px; padding-left: 20px;">Πρόσθεσέ τον στους φίλους</a></div>
             </div>
             
             
@@ -217,4 +217,4 @@ Izual
                 <div class="copy">
                     &copy; 2008 <a href="http://www.kamibu.com/">Kamibu</a>
                 </div>
-            </div><script type="text/javascript" src="http://static.zino.gr/js/global.js"></script></body></html>
+            </div><script type="text/javascript">function urchinTracker() {}</script><script type="text/javascript" src="http://static.zino.gr/js/global.js"></script></body></html>
