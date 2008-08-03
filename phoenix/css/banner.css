@@ -31,7 +31,7 @@ div.header h1 {
     _top: 3px;
 	left: 0;
 	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -512px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -512px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-begin2.jpg');
 	background-position: 0 0;
 	*/
@@ -47,7 +47,7 @@ div.header div.eof {
     width: 71px;
     height: 50px;
 	position: absolute;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -613px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -613px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
 	background-position: 0 0;
 	*/
@@ -74,17 +74,17 @@ div.header ul li a {
 div.header ul li a.messages span {
 	padding-left: 16px;
 	margin-right: 2px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -235px -755px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -755px;
 }
 div.header ul li a.settings span {
 	padding: 0 0 3px 16px;
 	margin-right: 4px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -471px -261px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -261px;
 	}
 div.header ul li a.login span {
 	padding-left: 16px;
 	margin-right: 1px;
-	/*background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat -470px -64px;*/
+	/*background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -64px;*/
 	background-image: url('http://static.zino.gr/phoenix/up.png');
 }
 div.header ul li a.profile img {
@@ -94,7 +94,7 @@ div.header ul li a.profile img {
 }
 div.header ul li a.register span {
 	padding-left: 16px;
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -950px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -950px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
 	
 }
@@ -120,7 +120,7 @@ div.header a.logout {
 	top: 6px;
 }
 div.header a.logout span {
-	background: url( 'http://static.zino.gr/phoenix/icons.png' ) no-repeat 0 -429px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -429px;
 	padding: 17px 0 0 16px;
 	margin-left: 2px;
 }
