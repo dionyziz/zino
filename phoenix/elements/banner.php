@@ -33,7 +33,7 @@
                     Element( 'user/name', $user, false );
                     ?></a></li>
                     <li>·</li>
-                    <li><a id="unreadmessages" href="messages" class="messages icon"><span></span><?php
+                    <li><a id="unreadmessages" href="messages" class="messages icon"><span>&nbsp;</span><?php
                         $unreadCount = $user->Count->Unreadpms;
                         if ( $unreadCount > 0 ) {
                             echo $unreadCount;
@@ -50,11 +50,11 @@
                         }
                     ?></a></li>
                     <li>·</li>
-                    <li><a href="settings" class="settings icon"><span></span>Ρυθμίσεις</a></li>
+                    <li><a href="settings" class="settings icon"><span>&nbsp;</span>Ρυθμίσεις</a></li>
                     </ul><?php
                 }
             if ( $user->Exists() ) {
-                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout">Έξοδος<span></span></a></form><?php
+                ?><form method="post" action="do/user/logout"><a href="" onclick="this.parentNode.submit(); return false;" class="logout">Έξοδος<span>&nbsp;</span></a></form><?php
             }
             ?>
             <div class="eof"></div>
