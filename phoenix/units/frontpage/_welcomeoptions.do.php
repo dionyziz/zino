@@ -46,22 +46,13 @@
                         $( 'div.frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
                 } );
             } );<?php
-            static $edumap = array(
-                'elementary' => 1,
-                'gymnasium' => 2,
-                'TEE' => 3,
-                'lyceum' => 4,
-                'TEI' => 5,
-                'university' => 6
-            );
-            $typeid = $edumap[ $user->Profile->Education ];
-            $showschool = isset( $typeid ) && $user->Profile->Placeid > 0;
+            $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#selectuni' ).html( <?php
                         ob_start();
                         ?><span>Πανεπιστήμιο</span><?php
-                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $typeid );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#selectuni select' ).change( function() {

@@ -1,12 +1,12 @@
 <?php
-
+    
     class ElementUserSettingsPersonalSchool extends Element {
         public function Render( $placeid, $typeid ) {
             global $user;
             
-            if ( ( $placeid > 0 ) && ( $typeid >= 1 || $typeid <= 6 ) ) {
+            if ( ( $placeid > 0 ) && ( $typeid >= 1 && $typeid <= 6 ) ) {
                 $finder = New SchoolFinder();
-                $schools = $finder->Find( $placeid, $typeid );
+                $shcools = $finder->Find( $placeid, $typeid );
                 if ( count( $schools ) > 0 ) {    
                     ?><select>
                         <option value="-1"<?php
@@ -22,7 +22,7 @@
                                 ?> selected="selected"<?php
                             }
                             ?>><?php
-                            Element( 'user/trivial/school', $school );
+                            Element( 'user/trivial/school', $uni );
                             ?></option><?php
                         }
                     ?></select><?php
