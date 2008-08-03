@@ -70,13 +70,13 @@
             ?>">
                 <label for="university">Πανεπιστήμιο</label>
                 <div class="setting" id="university"><?php
-                    if ( $showuni ) {
+                    if ( $showschool ) {
                         Element( 'user/settings/personal/school', $user->Profile->Placeid, $typeid );
                     }
                 ?></div>
             </div>
             <div id="unibarfade" class="barfade<?php
-            if ( !$showuni ) {
+            if ( !$showschool ) {
                 ?> invisible<?php
             }
             ?>">
