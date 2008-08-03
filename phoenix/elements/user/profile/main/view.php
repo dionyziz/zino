@@ -43,6 +43,12 @@
             }
             $showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
             $showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
+
+            $finder = New FriendRelationFinder();
+            if ( $finder->IsFriend( $user, $theuser ) == FRIENDS_B_HAS_A ) {
+                Element( 'user/profile/main/antisocial', $theuser );
+            }
+
             //show avatar upload only if there are no notifications
             ?><div class="main"><?php
                 if ( $showuploadavatar ) {

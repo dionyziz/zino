@@ -14,6 +14,6 @@ require all parties involved in the development to co-agree in order for them to
 permission.
 
 By reading, editing, using and contributing to the CODE, you agree that you have read and agree 
-with the above copyright notice, which have been disclosed to you when you joined the development 
+with the above copyright notice, which has been disclosed to you when you joined the development 
 team or when these terms were last modified.
 
