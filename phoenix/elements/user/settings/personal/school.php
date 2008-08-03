@@ -1,17 +1,16 @@
 <?php
-    
+
     class ElementUserSettingsPersonalSchool extends Element {
         public function Render( $placeid, $typeid ) {
             global $user;
             
-            if ( ( $placeid > 0 ) && ( $typeid == 0 || $typeid == 1 ) ) {
+            if ( ( $placeid > 0 ) && ( $typeid >= 1 || $typeid <= 6 ) ) {
                 $finder = New SchoolFinder();
-                //typeid is 0 for AEI and 1 for TEI
                 $schools = $finder->Find( $placeid, $typeid );
                 if ( count( $schools ) > 0 ) {    
                     ?><select>
                         <option value="-1"<?php
-                        if ( $user->Profile->Uniid == 0 ) {
+                        if ( $user->Profile->Schoolid == 0 ) {
                             ?> selected="selected"<?php
                         }
                         ?>>-</option><?php
@@ -34,4 +33,5 @@
             }
         }
     }
+
 ?>
