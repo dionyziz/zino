@@ -81,7 +81,7 @@ div.header ul li a.settings span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -261px;
 }
 div.header ul li a.login span {
-	padding-left: 16px;
+	padding-left: 12px;
 	margin-right: 1px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -64px;
 	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
@@ -92,7 +92,7 @@ div.header ul li a.profile img {
     border: 1px solid #eee;
 }
 div.header ul li a.register span {
-	padding-left: 16px;
+	padding-left: 12px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -950px;
 	_background-image: url('http://static.zino.gr/phoenix/_bookmark_toolbar.png');
 	
