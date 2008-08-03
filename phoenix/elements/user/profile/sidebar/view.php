@@ -28,7 +28,7 @@
                             ?>' );return false;">Διαγραφή από τους φίλους</a></div><?php
                         }
                     }
-                    Element( 'user/profile/sidebar/info', $theuser, $theuser->Id );
+                    Element( 'user/profile/sidebar/info', $theuser );
                 ?></div>
                 <div class="look">
                     <img src="<?php
