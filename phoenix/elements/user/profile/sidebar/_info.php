@@ -1,7 +1,7 @@
 <?php
 
     class ElementUserProfileSidebarInfo extends Element {
-        protected $mPersistent = array( 'userid', 'updated' );
+        protected $mPersistent = array( 'userid' );
 
         public function Render( $theuser, $userid, $updated ) {
             ?><div class="info">
