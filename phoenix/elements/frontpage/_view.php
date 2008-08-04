@@ -157,7 +157,7 @@
                 </div>
 				<div class="eof"></div>
                 <div class="inlatestevents"><?php
-                Element( 'frontpage/event/list' );
+                Element( 'event/list' );
                 ?></div><?php
             }
             ?><div class="eof"></div><?php
