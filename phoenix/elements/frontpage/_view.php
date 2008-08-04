@@ -160,6 +160,7 @@
                 Element( 'event/list' );
                 ?></div><?php
             }
+			/*
             ?><div class="eof"></div><?php
             $finder = New UserFinder();
             $users = $finder->FindOnline( 0 , 50 );
@@ -185,6 +186,7 @@
                         ?></div><?php
                 ?></div><?php
             }
+	*/
             ?><div class="eof"></div>
         </div><?php
         }
