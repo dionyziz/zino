@@ -6,7 +6,7 @@
             $libs->Load( 'comment' );
             
             $finder = New CommentFinder();
-            $comments = $finder->FindLatest( 0 , 10 );
+            $comments = $finder->FindLatest( 0 , 5 );
             ?><div class="latestcomments">
                 <h2>Πρόσφατα σχόλια</h2>
                 <div class="list"><?php
