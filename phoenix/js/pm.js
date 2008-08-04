@@ -68,10 +68,14 @@ var pms = {
 		Modals.Create( newfoldermodal , 250 , 80 );
 		textbox.focus();
 		textbox.select();
-		$( newfolderdiv ).css( "background-color" , "#e1e9f2" );
+		newfolderdiv.className = '';
+		$( newfolderdiv ).addClass( 'folder' )
+		.addClass( 'newfolderactive' );
+		/*
 		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
 		var newfolderlink = newfolderdivlinks[ 0 ];
 		$( newfolderlink ).css( "color" , "#aaa8a8" ).css( "font-weight" , "bold" );
+		*/
 		if ( pms.activefolder === 0 ) {
 			pms.node = $( '#folders div' )[ 0 ];
 			pms.activefolder = pms.node;
