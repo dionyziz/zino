@@ -100,7 +100,8 @@ var pms = {
 			$( pms.activefolder ).addClass( 'top' );
 		}
 		$( '#newfolderlink' )[ 0 ].className = '';
-		$( '#newfolderlink' ).addClass( 'folder' ).addClass( 'top' );
+		$( '#newfolderlink' ).addClass( 'folder' )
+		.addClass( 'top' )
 		.addClass( 'newfolder' );
 		Modals.Destroy();
 	}
