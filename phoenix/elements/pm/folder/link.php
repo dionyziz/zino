@@ -6,7 +6,7 @@
 
             $unreadCount = $user->Count->Unreadpms;
             if ( $folder->Typeid == PMFOLDER_INBOX ) {
-                ?><div class="activefolder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="folder_<?php
+                ?><div class="activefolder folder" alt="Εισερχόμενα" title="Εισερχόμενα" onload="pms.activefolder = this;return false;" id="folder_<?php
                 echo $folder->Id;
                 ?>"><a href="" class="folderlinksactive" onclick="pms.ShowFolderPm( this.parentNode, <?php
                     echo $folder->Id;
@@ -19,14 +19,14 @@
                 ?></a></div><?php
             }
             else if ( $folder->Typeid == PMFOLDER_OUTBOX ) {
-                ?><div class="folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="folder_<?php
+                ?><div class="noactivefolder folder top" alt="Απεσταλμένα" title="Απεσταλμένα" id="folder_<?php
                 echo $folder->Id; 
                 ?>"><a href="" class="folderlinks" onclick="pms.ShowFolderPm( this.parentNode,<?php
                 echo $folder->Id;
                 ?> );return false;"><span></span>Απεσταλμένα</a></div><?php
             }
             else {
-                ?><div class="createdfolder folder top" id="folder_<?php
+                ?><div class="noactivefolder createdfolder folder top" id="folder_<?php
                 echo $folder->Id;
                 ?>" alt="<?php
                 echo htmlspecialchars( $folder->Name );
