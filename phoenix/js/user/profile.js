@@ -39,16 +39,17 @@ var Profile = {
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
 	},
-    AntisocialAddFriend : function ( node ) {
+    AntisocialAddFriend : function ( userid ) {
         setTimeout( function() {
             $( '#antisocial' ).slideUp( 'slow' );
         }, 1201 );
-        $( node.parentNode ).animate( {
+        $( '#antisocial div' ).animate( {
             opacity: 0
         }, 200, 'swing', function() {
             $( '#antisocial div' ).html( '<strong>Έγινε προσθήκη</strong>' ).animate( {
                 opacity: 1
             }, 200 )
         } );
+        this.AddFriend( userid );
     }
 };
