@@ -99,8 +99,9 @@ var pms = {
 		if ( pms.activefolder != pms.node ) {
 			$( pms.activefolder ).addClass( 'top' );
 		}
-		$( '#newfolderlink' ).css( "background-color" , "#ffffff" );
-		$( $( '#newfolderlink a' )[ 0 ] ).css( "color" , "#d0cfcf" ).css( "font-weight" , "normal" );
+		$( '#newfolderlink' )[ 0 ].className = '';
+		$( '#newfolderlink' ).addClass( 'folder' ).addClass( 'top' );
+		.addClass( 'newfolder' );
 		Modals.Destroy();
 	}
 	,
