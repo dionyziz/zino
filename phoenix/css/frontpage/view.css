@@ -216,15 +216,30 @@ div.frontpage div.inuser div.inlatestcomments {
 	float: left;
 	width: 35%;
 }
+div.frontpage div.inuser div.inlatestcomments div.latestcomments {
+	padding-top: 0;
+}
 div.frontpage div.inuser div.inshoutbox {
 	float: left;
 	width: 30%;
+}
+div.frontpage div.inuser div.inshoutbox div.shoutbox {
+	margin-top: 0;
+	padding-top: 0;
+}
+div.frontpage div.inuser div.inshoutbox div.shoutbox h2 {
+	margin: 10px 0;
+	font-size: 110%;
 }
 div.frontpage div.inuser div.inonlineusers {
 	float: left;
 	width: 30%;
 	margin-left: 10px;
 	border: 1px solid #ccc;
+}
+div.frontpage div.inuser div.inonlineusers {
+	margin: 10px 0pt 10px 10px; 
+	font-size: 110%;
 }
 
 
