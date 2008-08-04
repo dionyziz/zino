@@ -219,6 +219,10 @@ div.frontpage div.inuser div.inlatestcomments {
 div.frontpage div.inuser div.inlatestcomments div.latestcomments {
 	padding-top: 0;
 }
+div.frontpage div.inuser div.inlatestcomments div.latestcomments h2 {
+	margin: 10px 0pt; 
+	font-size: 110%;
+}
 div.frontpage div.inuser div.inshoutbox {
 	float: left;
 	width: 30%;
@@ -237,7 +241,7 @@ div.frontpage div.inuser div.inonlineusers {
 	margin-left: 10px;
 	border: 1px solid #ccc;
 }
-div.frontpage div.inuser div.inonlineusers {
+div.frontpage div.inuser div.inonlineusers h2{
 	margin: 10px 0pt 10px 10px; 
 	font-size: 110%;
 }
