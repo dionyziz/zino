@@ -208,6 +208,10 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 	padding-left: 18px;
 }
 /*  CSS FOR MASKED ELEMENT */
+div.frontpage div.inuser {
+	float: none;
+	width: 100%;
+}
 div.frontpage div.inuser div.inlatestcomments {
 	float: left;
 	width: 30%;
