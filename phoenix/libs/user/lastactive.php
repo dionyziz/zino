@@ -17,6 +17,9 @@
         public function LoadDefaults() {
             $this->Updated = NowDate();
         }
+        public function IsOnline() {
+            return time() - strtotime( $this->Updated ) < 60 * 6;
+        }
     }
 
 ?>
