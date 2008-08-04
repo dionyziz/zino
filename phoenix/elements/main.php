@@ -10,19 +10,19 @@
             
             //attaching ALL css files
             if ( $rabbit_settings[ 'production' ] ) {
-                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css' );
+                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
             }
             else {
-                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css' );
+                $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
             }
             
             //start javascript attaching
             $page->AttachScript( 'http://www.google-analytics.com/urchin.js' );
             if ( $rabbit_settings[ 'production' ] ) {
-                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js' );
+                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global.js?' . $xc_settings[ 'jsversion' ] );
             }
             else {
-                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js' );
+                $page->AttachScript( $xc_settings[ 'staticjsurl' ] . 'global-beta.js?' . $xc_settings[ 'jsversion' ] );
             }
             
             $page->AddMeta( 'author', 'Kamibu Development Team' );
