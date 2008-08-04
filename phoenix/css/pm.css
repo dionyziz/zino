@@ -32,10 +32,6 @@ div.body div.leftbar div.folders {
 	border: 1px solid #838080;
 	max-width: 400px;
 }
-div.activefolder {
-	font-weight: bold;
-	background-color: #d6e6f7;
-}
 div.top {
 	border-top: 1px solid #d7d7d7;
 }
@@ -44,31 +40,29 @@ div.folder {
 	min-width: 108px;
 }
 div.folder span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1797px;
 	padding-left: 16px;
 	margin: 0 2px;
+}
+div.noactivefolder span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1797px;
+}
+div.activefolder {
+	font-weight: bold;
+	background: #d6e6f7;
 }
 div.activefolder span {
-	/*this declaration must be below the div.folder span declaration*/
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1797px;
-	padding-left: 16px;
-	margin: 0 2px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -605px;
 }
-/*
-div.hoverfolder {
-	background-color: #f4f5f7;
-	background-image: url( 'http://static.zino.gr/images/folder.png' );
-	background-position: 3px 3px;
-	background-repeat: no-repeat;
-	padding: 3px 3px 3px 22px;
-	min-width: 108px;
-}
-*/
 div.newfolder span {
-	/*border-top: 1px solid #d7d7d7;*/
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1863px;
-	padding-left: 16px;
-	margin: 0 2px;
+}
+div.newfolderactive {
+	font-weight: bold;
+	background: #d6e6f7;
+}
+div.newfolderactive span {
+	font-weight: bold;
+	background: #d6e6f7 url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1863px;
 }
 div.leftbar a.newpm span {
 	margin-right: 2px;
