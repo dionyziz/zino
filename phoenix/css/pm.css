@@ -48,6 +48,12 @@ div.folder span {
 	padding-left: 16px;
 	margin: 0 2px;
 }
+div.activefolder span {
+	/*this declaration must be below the div.folder span declaration*/
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1797px;
+	padding-left: 16px;
+	margin: 0 2px;
+}
 /*
 div.hoverfolder {
 	background-color: #f4f5f7;
