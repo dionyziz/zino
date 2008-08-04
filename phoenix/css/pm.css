@@ -105,12 +105,12 @@ div.message div.infobar {
 }
 div.message div.infobar a.deletelink {
 	float: right;
-	padding: 16px 0pt 0pt 12px; 
+	padding: 16px 0pt 0pt 16px; 
 	margin-top: 1px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
 }
 div.message div.infobar span.unreadpm {
-	padding-left: 14px;
+	padding-left: 16px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -392px;
 }
 div.message div.infobar div.infobar_info {
