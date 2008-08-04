@@ -214,17 +214,15 @@ div.frontpage div.inuser {
 }
 div.frontpage div.inuser div.inlatestcomments {
 	float: left;
-	width: 33%;
+	width: 30%;
 }
 div.frontpage div.inuser div.inshoutbox {
 	float: left;
-	width: 33%;
+	width: 30%;
 }
 div.frontpage div.inuser div.inonlineusers {
 	float: left;
-	width: 33%;
-	margin-left: 10px;
-	border: 1px solid #ccc;
+	width: 30%;
 }
 
 
