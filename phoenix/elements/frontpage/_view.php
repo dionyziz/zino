@@ -124,10 +124,10 @@
             else {
                 ?><div class="inuser">
 					<div class="inlatestcomments"><?php
-                       Element( 'event/list' );
+                       Element( 'frontpage/comment/list' );
                     ?></div>
                     <div class="inshoutbox"><?php
-                        Element( 'frontpage/comment/list' );
+                        Element( 'shoutbox/list' );
                     ?></div><?php
 					$finder = New UserFinder();
 		            $users = $finder->FindOnline( 0 , 50 );
