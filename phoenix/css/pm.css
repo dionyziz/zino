@@ -105,7 +105,7 @@ div.message div.infobar {
 }
 div.message div.infobar a.deletelink {
 	float: right;
-	padding-left: 16px;
+	padding-left: 12px;
 	margin-top: 1px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
 }

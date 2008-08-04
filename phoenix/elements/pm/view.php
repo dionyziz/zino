@@ -31,7 +31,7 @@
                         else {
                             ?>false<?php
                         }
-                        ?>' );return false;"></a><?php
+                        ?>' );return false;">&nbsp;</a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
                         ?><span class="unreadpm">&nbsp;</span><?php
