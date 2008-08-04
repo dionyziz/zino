@@ -38,7 +38,12 @@
 					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
 						?><dt><strong>Online</strong></dt>
 						<dd><?php
-						Element( 'date/diff' , $theuser->LastActivity->Updated );
+						if ( $theuser->LastActivity->IsOnline() ) {
+							?>αυτή τη στιγμή!<?php
+						}
+						else {
+							Element( 'date/diff' , $theuser->LastActivity->Updated );
+						}
 						?></dd><?php
 					}
                 ?></dl>
