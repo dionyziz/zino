@@ -47,9 +47,9 @@
 
                         ?><div class="newfolder top folder" id="newfolderlink" alt="Δημιούργησε έναν νέο φάκελο" title="Δημιούργησε έναν νέο φάκελο" onclick="pms.NewFolder();return false;"><a href="" class="folderlinksnew"><span></span>Νέος Φάκελος</a></div>
                     </div><br />
-                    <a href="" class="folder_links newpm" onclick="pms.NewMessage( '' , '' );return false;"><span></span>Νέο μήνυμα</a><br />
-                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false;" style="display:none;"><span></span>Διαγραφή φακέλου</a>
-                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false;" style="display:none;"><span></span>Μετονομασία φακέλου</a>
+                    <a href="" class="folder_links newpm" onclick="pms.NewMessage( '' , '' );return false;"><span>&nbsp;</span>Νέο μήνυμα</a><br />
+                    <a href="" id="deletefolderlink" class="folder_links deletefolder" onclick="return false;" style="display:none;"><span>&nbsp;</span>Διαγραφή φακέλου</a>
+                    <a href="" id="renamefolderlink" class="folder_links renamefolder" onclick="return false;" style="display:none;"><span>&nbsp;</span>Μετονομασία φακέλου</a>
                 </div>
                 <div class="rightbar" style="float:left;">
                     <div class="messages" id="messages"><?php
@@ -61,8 +61,8 @@
                     Δώσε ένα όνομα για τον φάκελό σου<br /><br />
                     <form id="newfolderform" onsubmit="pms.CreateNewFolder( this );return false;" action="" method="">
                         <input type="textbox" style="width:130px;" /> 
-                        <a href="" class="acceptcreate" onclick="pms.CreateNewFolder( this.parentNode );return false;"></a>
-                        <a href="" class="cancelcreate" onclick="pms.CancelNewFolder();return false;"></a>
+                        <a href="" class="acceptcreate" onclick="pms.CreateNewFolder( this.parentNode );return false;">&nbsp;</a>
+                        <a href="" class="cancelcreate" onclick="pms.CancelNewFolder();return false;">&nbsp;</a>
                     </form>
                 </div>
             </div>
