@@ -43,7 +43,7 @@
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'image/view' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , false , 0 , 0 );
+                                Element( 'image/view' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
                                 ?></a><?php
                                 break;
                             case TYPE_USERPROFILE:
@@ -60,7 +60,7 @@
                                 Element( 'url', $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 );
+                                Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
                                 ?></a><?php
                                 break;
                             case TYPE_JOURNAL:
