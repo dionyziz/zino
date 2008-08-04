@@ -25,7 +25,7 @@
                     } else {
                         echo "0";
                     }
-                    ?>px;" class="time" href="#<?php
+                    ?>px;" class="time" href="#comment_<?php
                     echo $comment->Id;
                     ?>"><?php
                     Element( 'date/diff', $comment->Created );
