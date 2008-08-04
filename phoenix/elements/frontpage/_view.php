@@ -14,18 +14,7 @@
             $shownotifications = count( $notifs ) > 0;
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
-                if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-' ) {
-                    static $edumap = array(
-                        'elementary' => 1,
-                        'gymnasium' => 2,
-                        'TEE' => 3,
-                        'lyceum' => 4,
-                        'TEI' => 5,
-                        'university' => 6
-                    );
-                    $typeid = $edumap[ $user->Profile->Education ];
-                }
-                $showschool = isset( $typeid ) && $user->Profile->Placeid > 0;
+                $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">

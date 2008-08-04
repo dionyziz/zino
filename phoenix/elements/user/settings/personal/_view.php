@@ -4,16 +4,7 @@
             global $water;
             global $user;
             global $rabbit_settings;
-            static $edumap = array(
-                'elementary' => 1,
-                'gymnasium' => 2,
-                'TEE' => 3,
-                'lyceum' => 4,
-                'TEI' => 5,
-                'university' => 6
-            );
-            $typeid = $edumap[ $user->Profile->Education ];
-            $showschool = isset( $typeid ) && $user->Profile->Placeid > 0;
+            $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
             ?><div class="option">
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth"><?php

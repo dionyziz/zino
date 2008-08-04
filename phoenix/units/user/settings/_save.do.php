@@ -250,16 +250,7 @@
             $user->Save();
             
             //$user->Profile->Save();
-            static $edumap = array(
-                'elementary' => 1,
-                'gymnasium' => 2,
-                'TEE' => 3,
-                'lyceum' => 4,
-                'TEI' => 5,
-                'university' => 6
-            );
-            $typeid = $edumap[ $user->Profile->Education ];
-            $showschool = isset( $typeid ) && $user->Profile->Placeid > 0;
+            $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
