@@ -31,7 +31,7 @@ var Comments = {
 		
 		// Dimiourgisa ena teras :-S
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
-		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
+		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "a.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
 		.find( "div.toolbox" ).append( del ).end()
 		.find( "div.text" ).empty().html( texter.replace( /\n/gi, "<br />" ) ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
@@ -97,7 +97,7 @@ var Comments = {
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
 		var temp = $( "div.newcomment:first" ).clone( true ).css( { marginLeft : (indent+1)*20 + 'px', opacity : 0 } ).attr( 'id', 'comment_reply_' + nodeid );
-		temp.find( "div.toolbox span.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
+		temp.find( "div.toolbox a.time" ).css( { marginRight : (indent+1)*20 + 'px' } );
 		temp.find( "div.bottom form input:first" ).get( 0 ).onclick = function() { // Only with DOM JS the onclick event is overwritten
 					$( "#comment_reply_" + nodeid ).css( { marginLeft : 0, paddingLeft : (indent+1)*20 + 'px' } );
 					Comments.Create( nodeid );

@@ -21,7 +21,7 @@ div.comment div.toolbox {
 	float: right;
 	padding: 2px 6px 2px 2px;
 }
-div.comment div.toolbox span.time {
+div.comment div.toolbox a.time {
 	color: #999;
 	font-size: 80%;
 }
