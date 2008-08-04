@@ -37,6 +37,17 @@
                         Element( 'user/trivial/eyecolor' , $theuser->Profile->Eyecolor );
                         ?></dd><?php
                     }
+					if ( $theuser->LastActivity->Updated != '0000-00-00 00:00:00' ) {
+						?><dt><strong>Online</strong></dt>
+						<dd><?php
+						if ( $theuser->LastActivity->IsOnline() ) {
+							?>αυτή τη στιγμή!<?php
+						}
+						else {
+							Element( 'date/diff' , $theuser->LastActivity->Updated );
+						}
+						?></dd><?php
+					}
                 ?></dl>
             </div><?php
         }
