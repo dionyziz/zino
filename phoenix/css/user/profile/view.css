@@ -214,6 +214,25 @@ div#profile div.sidebar div.eof {
 	width: 41px;
 	height: 51px;
 }
+div#profile div#antisocial {
+    background-color: #ffdf80;
+    background-image: url('http://static.zino.gr/phoenix/bubblefade.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding: 10px;
+    margin: 0 20px 10px 330px;
+}
+div#profile div#antisocial div {
+    padding: 10px 5px 0 0px;
+    width: 100%;
+    height: 20px;
+}
+div#profile div#antisocial div a {
+    background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
+    background-repeat: no-repeat;
+    background-position: 0 -1px;
+    padding-left: 20px;
+}
 div#profile div.main {
 	padding: 14px 0 0 25px;
 	margin-left: 330px;

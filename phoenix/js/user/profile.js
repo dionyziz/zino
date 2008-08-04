@@ -37,7 +37,18 @@ var Profile = {
 			.removeClass( 'deletefriend' )
 			.addClass( 'addfriend' );
 		} );
-		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );
-		
-	}
+		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
+	},
+    AntisocialAddFriend : function ( node ) {
+        setTimeout( function() {
+            $( '#antisocial' ).slideUp( 'slow' );
+        }, 1201 );
+        $( node.parentNode ).animate( {
+            opacity: 0
+        }, 200, 'swing', function() {
+            $( '#antisocial div' ).html( '<strong>Έγινε προσθήκη</strong>' ).animate( {
+                opacity: 1
+            }, 200 )
+        } );
+    }
 };
