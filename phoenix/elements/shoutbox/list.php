@@ -24,5 +24,5 @@ class ElementShoutboxList extends Element {
         <div class="eof"></div><?php
         Element( 'pagify', $pageno, '?p=shoutbox&pageno=', ceil( $finder->Count() / 20 ) );
     }
-    }
+}
 ?>

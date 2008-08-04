@@ -127,7 +127,7 @@
                        Element( 'frontpage/comment/list' );
                     ?></div>
                     <div class="inshoutbox"><?php
-                        Element( 'shoutbox/list' );
+                        Element( 'frontpage/shoutbox/list' );
                     ?></div><?php
 					$finder = New UserFinder();
 		            $users = $finder->FindOnline( 0 , 50 );
