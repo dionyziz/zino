@@ -70,7 +70,8 @@ var pms = {
 		textbox.select();
 		newfolderdiv.className = '';
 		$( newfolderdiv ).addClass( 'folder' )
-		.addClass( 'newfolderactive' );
+		.addClass( 'newfolderactive' )
+		.addClass( 'top' );
 		/*
 		var newfolderdivlinks = newfolderdiv.getElementsByTagName( 'a' );
 		var newfolderlink = newfolderdivlinks[ 0 ];
