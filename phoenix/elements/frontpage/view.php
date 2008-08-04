@@ -161,7 +161,7 @@
                                 ?><a href="<?php
                                 Element( 'user/url' , $onuser );
                                 ?>"><?php
-                                Element( 'user/avatar' , $onuser , 150 , '' , '' );
+                                Element( 'user/avatar' , $onuser , 100 , '' , '' );
                                 ?></a><?php
                             }    
                         ?></div><?php
