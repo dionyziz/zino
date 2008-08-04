@@ -209,6 +209,7 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 }
 /*  CSS FOR MASKED ELEMENT */
 div.frontpage div.inuser div.inlatestcomments {
+	float: left;
 	width: 30%;
 }
 div.frontpage div.inuser div.inshoutbox {
@@ -216,7 +217,7 @@ div.frontpage div.inuser div.inshoutbox {
 	width: 30%;
 }
 div.frontpage div.inuser div.inonlineusers {
-	float: right;
+	float: left;
 	width: 30%;
 }
 

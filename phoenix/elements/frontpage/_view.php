@@ -123,11 +123,11 @@
             } 
             else {
                 ?><div class="inuser">
+					<div class="inshoutbox"><?php
+                        Element( 'frontpage/shoutbox/list' );
+                    ?></div>
 					<div class="inlatestcomments"><?php
                        Element( 'frontpage/comment/list' );
-                    ?></div>
-                    <div class="inshoutbox"><?php
-                        Element( 'frontpage/shoutbox/list' );
                     ?></div><?php
 					$finder = New UserFinder();
 		            $users = $finder->FindOnline( 0 , 50 );
