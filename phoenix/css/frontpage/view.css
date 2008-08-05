@@ -218,6 +218,10 @@ div.frontpage div.zinomeeting {
 	text-align: center;
 	
 }
+div.frontpage div.zinomeeting h3 {
+	margin: 5px 0;
+	text-align: center;
+}
 /*  CSS FOR MASKED ELEMENT */
 /*
 div.frontpage div.inuser {
