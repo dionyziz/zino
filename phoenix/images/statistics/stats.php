@@ -41,7 +41,12 @@
 
 	if($title=="") exit(0);//Not valid get name
 
-	$chart=new LineChart(1000,500);			
+	if($_GET['days']==30) $x=500;
+	else if($_GET['days']==60) $x=750;
+	else if($_GET['days']==90) $x=1000;
+	
+
+	$chart=new LineChart($x,$x-250);	//1000 for 90 days,750 for 60 days 500 for 30 days		
 	$dataSet=new XYDataSet();	
 	
 	foreach ($stat as $row) {	
