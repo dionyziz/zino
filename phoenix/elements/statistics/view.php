@@ -13,7 +13,7 @@
 		
 			echo '<h2>Daily statistics</h2>';
 
-			echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.';" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.'" alt="img"/>';
 			echo '<img src="images/statistics/stats.php?name=users&amp;days='.$daysBefore.'" alt="img"/>';
 			echo '<img src="images/statistics/stats.php?name=images&amp;days='.$daysBefore.'" alt="img"/>';
 			echo '<img src="images/statistics/stats.php?name=polls&amp;days='.$daysBefore.'" alt="img"/>';
