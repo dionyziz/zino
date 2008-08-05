@@ -12,6 +12,7 @@
 			
 	$dataSet=new XYDataSet();
 	
+	$stat=Statistics_Get(1,1);
 	foreach($stat as $row)
 	$dataSet->addPoint(new Point($row['day'],$row['count'])); 
 
