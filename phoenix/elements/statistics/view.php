@@ -9,6 +9,7 @@
 			$page->setTitle( 'Daily statistics' );
 
 			$daysBefore=$daysBefore->Get();
+			echo '<p>'.$daysBefore.'</p>';
 		
 			echo '<h2>Daily statistics</h2>';
 
