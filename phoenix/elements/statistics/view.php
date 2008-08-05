@@ -67,19 +67,19 @@
 				if($graphType=="Images") echo '</strong>';
 				echo '</a></li>';
 				
-				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
 				if($graphType=="Polls") echo '<strong>';
 				echo 'Polls';
 				if($graphType=="Polls") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
 				if($graphType=="Comments") echo '<strong>';
 				echo 'Comments';
 				if($graphType=="Comments") echo '</strong>';
 				echo '</a></li>';
 			
-				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
 				if($graphType=="Journals") echo '<strong>';
 				echo 'Journals';
 				if($graphType=="Journals") echo '</strong>';
