@@ -11,31 +11,31 @@
 	$ttle="";
 
 	if ($_GET[ 'name' ] == 'shouts' ) {
-		$stat=Statistics_Get( 'shoutbox' , 'shout_created' );
+		$stat=Statistics_Get( 'shoutbox' , 'shout_created' ,$GET['days']);
 		$title = "new Shouts per day";	
 	}
 	else if ($_GET['name']=='users') {
-		$stat=Statistics_Get( 'users' , 'user_created' );
+		$stat=Statistics_Get( 'users' , 'user_created' , $GET['days']);
 		$title="new Users per day";
 	}
 	else if ( $_GET['name'] == 'images' ) {
-		$stat=Statistics_Get('images','image_created');
+		$stat=Statistics_Get( 'images' , 'image_created' , $GET['days']);
 		$title="new Users per day";
 	}
 	else if ($_GET['name']=='polls')	{
-		$stat=Statistics_Get('polls','poll_created');
+		$stat=Statistics_Get( 'polls' , 'poll_created' , $GET['days']);
 		$title="new Polls per day";
 	}
 	else if ($_GET['name']=='comments') {
-		$stat=Statistics_Get('comments','comment_created');
+		$stat=Statistics_Get('comments','comment_created' , $GET['days']);
 		$title="new Comments per day";
 	}
 	else if ($_GET['name']=='journals') {
-		$stat=Statistics_Get('journals','journal_created');
+		$stat=Statistics_Get('journals','journal_created' , $GET['days']);
 		$title="new Journals per day";
 	}
 	else if ($_GET['name']=='albums') {
-		$stat=Statistics_Get('albums','album_created');
+		$stat=Statistics_Get('albums','album_created' , $GET['days']);
 		$title="new Albums per day";
 	}
 
