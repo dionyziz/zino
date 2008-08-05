@@ -139,7 +139,7 @@
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
         protected function LoadDefaults() {
-            $this->Education = '-';
+            $this->Education = 0;
             $this->Sexualorientation = '-';
             $this->Religion = '-';
             $this->Politics = '-';    
