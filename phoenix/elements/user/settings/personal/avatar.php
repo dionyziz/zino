@@ -12,11 +12,11 @@
             </div>
             <div class="avatarlist" id="avatarlist">
                 <h3>Επέλεξε μια φωτογραφία</h3>
-                <div class="uploaddiv" style="height: 800px;">
+                <div class="uploaddiv">
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
                         ?>
-                        <iframe src="?p=upload&amp;albumid=<?php
+                        <iframe style="height: 250px;" src="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
                         ?>&amp;typeid=1" class="uploadframe" id="uploadframe">
                         </iframe>
