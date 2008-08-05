@@ -1,6 +1,6 @@
 <?php
-	set_include_path( 'wwwroot' );
-	require_once '../../libs/rabbit/rabbit.php';
+	set_include_path( '../../:./' );
+	require_once 'libs/rabbit/rabbit.php';
 	Rabbit_Construct('plain');
 
 	global $libs;
