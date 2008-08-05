@@ -13,17 +13,23 @@
 			echo '<h2>Daily statistics</h2>';
 
 			echo '<ul>';
-			if($daysBefore==0 || $daysBefore==30) echo'<stong>';
-			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30">30</a>'; 
-			if($daysBefore==0 || $daysBefore==30) echo'</stong>';
+			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30">';
+			if($daysBefore==30 || $daysBefore==0) echo'<stong>';
+			echo '30'; 
+			if($daysBefore==30 || $daysBefore==0) echo'</stong>';
+			echo '</a>';
 
+			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60">';
 			if($daysBefore==60) echo'<stong>';
-			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60">60</a>'; 
+			echo '60'; 
 			if($daysBefore==60) echo'</stong>';
-
+			echo '</a>';
+			
+			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90">';
 			if($daysBefore==90) echo'<stong>';
-			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90">90</a>'; 
+			echo '90'; 
 			if($daysBefore==90) echo'</stong>';
+			echo '</a>';
 			echo '</ul>';
 
 			echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.'" alt="img"/>';
