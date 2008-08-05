@@ -13,9 +13,8 @@
 			$page->setTitle( 'Statistics' );
 		
 			echo '<h1>Statistics</h1>';
-			$stat=Statistics_Get();
-			foreach($stat as $row)
-			echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
+
+			echo '<img src="images/statistics/stats.php" alt="img"/>';
 		
 			/*$chart=new LineChart(500,250);
 			
