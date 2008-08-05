@@ -12,7 +12,7 @@
             </div>
             <div class="avatarlist" id="avatarlist">
                 <h3>Επέλεξε μια φωτογραφία</h3>
-                <div class="uploaddiv" style="height: 400px;">
+                <div class="uploaddiv" style="height: 800px;">
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
                         ?>
