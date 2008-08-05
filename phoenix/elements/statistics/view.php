@@ -59,6 +59,36 @@
 				if($graphType=="Users") echo '<strong>';
 				echo 'Users';
 				if($graphType=="Users") echo '</strong>';
+				echo '</a></li>';
+
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Images">';
+				if($graphType=="Images") echo '<strong>';
+				echo 'Users';
+				if($graphType=="Images") echo '</strong>';
+				echo '</a></li>';
+				
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
+				if($graphType=="Polls") echo '<strong>';
+				echo 'Users';
+				if($graphType=="Polls") echo '</strong>';
+				echo '</a></li>';
+			
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
+				if($graphType=="Journals") echo '<strong>';
+				echo 'Users';
+				if($graphType=="Journals") echo '</strong>';
+				echo '</a></li>';
+
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Albums">';
+				if($graphType=="Albums") echo '<strong>';
+				echo 'Users';
+				if($graphType=="Albums") echo '</strong>';
+				echo '</a></li>';
+
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=All">';
+				if($graphType=="All") echo '<strong>';
+				echo 'Users';
+				if($graphType=="All") echo '</strong>';
 				echo '</a></li>';	
 			echo '</ul>';
 	
