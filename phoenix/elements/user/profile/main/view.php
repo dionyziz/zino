@@ -56,22 +56,20 @@
                         <div class="body">
                             <h3>Ανέβασε μια φωτογραφία σου</h3>
                             <div class="uploaddiv">
-                            <?php
-                                /*
-                                <iframe src="?p=upload&amp;albumid=<?php
-                                echo $user->Egoalbumid;
-                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe" frameborder="0"></iframe>*/
-                                ?>
-                                <object data="?p=upload&amp;albumid=<?php
-                                echo $user->Egoalbumid;
-                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
-                                    <param name="src" value="?p=upload&amp;albumid=<?php
+                                <?php
+                                if ( UserBrowser() == "MSIE" ) {
+                                    ?><iframe src="?p=upload&amp;albumid=<?php
+                                        echo $album->Id;
+                                        ?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
+                                      </iframe><?php
+                                }
+                                else {
+                                    ?><object data="?p=upload&albumid=<?php
                                     echo $user->Egoalbumid;
-                                    ?>&amp;typeid=2" />
-                                Ola auta ine m...Mparmpoutsala
-                                </object>
-                                
-                            </div>
+                                    ?>&typeid=2" class="uploadframe" id="uploadframe" type="text/html">
+                                    </object><?php
+                                }
+                         ?></div>
                         </div>
                         <i class="bl"></i>
                         <i class="br"></i>

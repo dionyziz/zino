@@ -256,9 +256,7 @@ div#profile div.main div.ybubble div.body div.uploaddiv {
 
 div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 	height: 40px;
-	width: 100px;
-	overflow: auto;
-	border: none;
+	width: 450px;
 }
 /*
 div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
