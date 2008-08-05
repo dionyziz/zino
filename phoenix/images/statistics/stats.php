@@ -50,16 +50,32 @@
 	$dataSet=new XYDataSet();	
 	
 	$i=0;
+	$lastday="";
+	$lastmonth;
 	foreach ($stat as $row) {	
 		if ($i%10==0) {
 			$date=new DateTime($row['day']);
 			$label=$date->format('m-d');
 		}
-		else $label="";
+		else 
+		{
+			$label="";
+			$date=new DateTime($row['day']);
+		}
 
+		if($lastday!="")
+		{
+			for($e=0;$e<((int)$date->format('d')-$lastday+((int)$date->format('m')-$lastmonth)*30);$e++)
+			$dataSet->addPoint(new Point("",0)); 
+
+		}
+		
 		$dataSet->addPoint(new Point($label,$row['count'])); 
 
 		$i++;
+	
+		$lastday=(int)$date->format('d');
+		$lastmonth=(int)$date->format('m');
 	}
 
 	$chart->setDataSet($dataSet);
