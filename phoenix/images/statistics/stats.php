@@ -15,37 +15,12 @@
 	$libs->Load( 'statistics' );
 
 	$ttle="";
+	
+	if((int)$_GET['days']!=60 && (int)$_GET['days']!=90)
+        $_GET['days']=30;
 
-	if ($_GET[ 'name' ] == 'shouts' ) {
-		$stat=Statistics_Get( 'shoutbox' , 'shout_created' ,$_GET['days']);
-		$title = "new Shouts per day";	
-	}
-	else if ($_GET['name']=='users') {
-		$stat=Statistics_Get( 'users' , 'user_created' , $_GET['days']);
-		$title="new Users per day";
-	}
-	else if ( $_GET['name'] == 'images' ) {
-		$stat=Statistics_Get( 'images' , 'image_created' , $_GET['days']);
-		$title="new Images per day";
-	}
-	else if ($_GET['name']=='polls')	{
-		$stat=Statistics_Get( 'polls' , 'poll_created' , $_GET['days']);
-		$title="new Polls per day";
-	}
-	else if ($_GET['name']=='comments') {
-		$stat=Statistics_Get('comments','comment_created' , $_GET['days']);
-		$title="new Comments per day";
-	}
-	else if ($_GET['name']=='journals') {
-		$stat=Statistics_Get('journals','journal_created' , $_GET['days']);
-		$title="new Journals per day";
-	}
-	else if ($_GET['name']=='albums') {
-		$stat=Statistics_Get('albums','album_created' , $_GET['days']);
-		$title="new Albums per day";
-	}
-
-	if($title=="") exit(0);//Not valid get name
+	$stat=Statistics_Get($_GET[ 'name' ],$_GET['days']);
+	$title="new ".$_GET[ 'name' ]." per day";
 
 	if($_GET['days']==30) $x=500;
 	else if($_GET['days']==60) $x=750;
