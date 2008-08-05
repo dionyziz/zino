@@ -85,14 +85,15 @@ div#profile div.sidebar div.basicinfo h2 span.name {
 }
 div#profile div.sidebar div.look {
 	clear: both;
-	padding: 10px;
+	padding: 0 10px 10px 10px;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
-	background-color: white;
+	background: #fff;
+	height: 30px;
 }
 div#profile div.sidebar div.look span.malebody {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -875px;
-	padding-left: 16px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -870px; 
+	padding: 50px 0 0 16px;
 }
 div#profile div.sidebar div.look ul li.dot {
 	color: #999;
@@ -114,6 +115,7 @@ div#profile div.sidebar div.look ul li {
 div#profile div.sidebar div.social {
 	padding: 4px;
 	clear: both;
+	margin-top: 10px;
 }
 div#profile div.sidebar div.social dl {
 	padding: 0;
