@@ -41,6 +41,10 @@
 					echo '</a>';
 				echo '</li>';
 			echo '</ul>';
+
+			echo '<ul>';
+			echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType=Shoutbox">Shoutbox</a></li>';
+			echo '</ul>';
 	
 			if ($graphType=="Shoutbox") echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.'" alt="img"/>';
 			else if ($graphType=="Users") echo '<img src="images/statistics/stats.php?name=users&amp;days='.$daysBefore.'" alt="img"/>';
