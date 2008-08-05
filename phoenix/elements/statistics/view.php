@@ -18,7 +18,7 @@
 
 			echo '<ul>';
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;'.$graphType.'">';
+					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType='.$graphType.'">';
 					if($daysBefore==30) echo'<strong>';
 					echo '30 days before'; 
 					if($daysBefore==30) echo'</strong>';
@@ -26,7 +26,7 @@
 				echo '</li>';
 
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60&amp;'.$graphType.'">';
+					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60&amp;graphType='.$graphType.'">';
 					if($daysBefore==60) echo'<strong>';
 					echo '60 days before'; 
 					if($daysBefore==60) echo'</strong>';
@@ -34,7 +34,7 @@
 				echo '</li>';			
 	
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90&amp;'.$graphType.'">';
+					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90&amp;graphType='.$graphType.'">';
 					if($daysBefore==90) echo'<strong>';
 					echo '90 days before'; 
 					if($daysBefore==90) echo'</strong>';
