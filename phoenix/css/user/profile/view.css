@@ -253,10 +253,14 @@ div#profile div.main div.ybubble div.body h3 {
 div#profile div.main div.ybubble div.body div.uploaddiv {
 	margin: 0 0 5px -30px;
 }
-/*
+
 div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 	height: 40px;
+	width: 100px;
+	overflow: auto;
+	border: none;
 }
+/*
 div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
 	height: 40px;
 }
