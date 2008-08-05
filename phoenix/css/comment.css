@@ -64,7 +64,7 @@ div.newcomment div.who {
 div.newcomment div.who a {
 	margin-right: 5px;
 }
-div.newcomment div.toolbox a.time {
+div.newcomment div.toolbox span.time {
 	margin-right: 2px;
 }
 div.newcomment, div.comments div.newcomment div.who {
