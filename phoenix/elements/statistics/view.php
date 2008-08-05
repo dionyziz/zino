@@ -12,8 +12,9 @@
 			$page->setTitle( 'Statistics' );
 		
 			echo '<h1>Statistics</h1>';
-			$stats=Statistics_Get();
-			echo '<p>'.$stats['day']." ".$stats['count'].'</p>'; 
+			$stat=Statistics_Get();
+			foreach($stat as $row)
+			echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
 		}
 	}
 ?>
