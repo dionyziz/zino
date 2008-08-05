@@ -207,7 +207,15 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 	background-position: 0 -1px;
 	padding-left: 18px;
 }
+
+div.frontpage div.zinomeeting {
+	padding: 10px;
+	border: 1px solid #ccc;
+	background: #f7f7ff;
+	
+}
 /*  CSS FOR MASKED ELEMENT */
+/*
 div.frontpage div.inuser {
 	float: none;
 	width: 100%;
@@ -245,6 +253,5 @@ div.frontpage div.inuser div.inonlineusers h2{
 	margin: 10px 0pt 10px 10px; 
 	font-size: 110%;
 }
-
-
+*/
 /* END OF CSS FOR MASKED ELEMENTS */
