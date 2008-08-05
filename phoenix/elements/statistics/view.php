@@ -13,9 +13,9 @@
 			echo '<h2>Daily statistics</h2>';
 
 			echo '<ul>
-				 <a href=https://beta.zino.gr/phoenix/?p=statistics&daysBefore=30>30</a> 
-				 <a href=https://beta.zino.gr/phoenix/?p=statistics&daysBefore=60>60</a>
-				 <a href=https://beta.zino.gr/phoenix/?p=statistics&daysBefore=90>90</a>
+				 <a href="https://beta.zino.gr/phoenix/?p=statistics&daysBefore=30">30</a> 
+				 <a href="https://beta.zino.gr/phoenix/?p=statistics&daysBefore=60">60</a>
+				 <a href="https://beta.zino.gr/phoenix/?p=statistics&daysBefore=90">90</a>
 			      </ul>';
 
 			echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.'" alt="img"/>';
