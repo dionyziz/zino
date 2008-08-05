@@ -8,16 +8,33 @@
 	$libs->Load( 'libchart/classes/libchart' );
 	$libs->Load( 'statistics' );
 
+	$ttle="";
+
 	if($_GET['name']=='shout')
-	$stat=Statistics_Get('shoutbox','shout_created');
-	if($_GET['name']=='users')
-	$stat=Statistics_Get('users','user_created');
-	if($_GET['name']=='images')
-	$stat=Statistics_Get('images','image_created');
-	if($_GET['name']=='polls')
-	$stat=Statistics_Get('polls','poll_created');
-	if($_GET['name']=='comments')
-	$stat=Statistics_Get('comments','comment_created');
+	{
+		$stat=Statistics_Get('shoutbox','shout_created');
+		$title="new Shouts per day";	
+	}
+	else if($_GET['name']=='users')
+	{
+		$stat=Statistics_Get('users','user_created');
+		$title="new Users per day";
+	}
+	else if($_GET['name']=='images')
+	{
+		$stat=Statistics_Get('images','image_created');
+		$title="new Users per day";
+	}
+	else if($_GET['name']=='polls')
+	{
+		$stat=Statistics_Get('polls','poll_created');
+		$title="new Polls per day";
+	}
+	else if($_GET['name']=='comments')
+	{
+		$stat=Statistics_Get('comments','comment_created');
+		$title="new Comments per day";
+	}
 
 
 
