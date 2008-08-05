@@ -36,8 +36,6 @@
 		$title="new Comments per day";
 	}
 
-
-
 	$chart=new LineChart(500,250);			
 	$dataSet=new XYDataSet();	
 	
@@ -45,7 +43,7 @@
 	$dataSet->addPoint(new Point($row['day'],$row['count'])); 
 
 	$chart->setDataSet($dataSet);
-	$chart->SetTitle("new Shouts per day");
+	$chart->SetTitle( $title );
 
 	header( 'Content-type: image/png' );
 	$chart->render();
