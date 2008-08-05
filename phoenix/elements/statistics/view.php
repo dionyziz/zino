@@ -9,17 +9,15 @@
 			global $page;
 
 			$libs->Load( 'statistics' );
-			$libs->Load( 'libchart/classes/libchart' );
+			//$libs->Load( 'libchart/classes/libchart' );
 			$page->setTitle( 'Statistics' );
 		
-			//echo '<h1>Statistics</h1>';
+			echo '<h1>Statistics</h1>';
 			$stat=Statistics_Get();
 			foreach($stat as $row)
-			;//echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
-
-			//include "libchart/classes/libchart.php";
+			echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
 		
-			$chart=new LineChart(500,250);
+			/*$chart=new LineChart(500,250);
 			
 			$dataSet=new XYDataSet();
 			$dataSet->addPoint(new Point("2008-06-24",5));
@@ -32,8 +30,10 @@
 			$chart->setDataSet($dataSet);
 		
 			$chart->SetTitle("new Shouts per day");
-			header( 'Content-type: image/png' );
-			echo $chart->render();
+			//$chart->render();
+			*/
+			
+			Graph_Image_Get();
 		}
 	}
 ?>
