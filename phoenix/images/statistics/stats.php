@@ -41,7 +41,7 @@
 
 	if($title=="") exit(0);//Not valid get name
 
-	$chart=new LineChart(500,250);			
+	$chart=new LineChart(750,500);			
 	$dataSet=new XYDataSet();	
 	
 	foreach ($stat as $row) {	
