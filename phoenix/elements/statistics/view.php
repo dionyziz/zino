@@ -48,12 +48,6 @@
 				echo 'Shoutbox';
 				if($graphType=="Shoutbox") echo '</strong>';
 				echo '</a></li>';
-
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
-				if($graphType=="Comments") echo '<strong>';
-				echo 'Comments';
-				if($graphType=="Comments") echo '</strong>';
-				echo '</a></li>';
 			
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Users">';
 				if($graphType=="Users") echo '<strong>';
@@ -63,31 +57,37 @@
 
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Images">';
 				if($graphType=="Images") echo '<strong>';
-				echo 'Users';
+				echo 'Images';
 				if($graphType=="Images") echo '</strong>';
 				echo '</a></li>';
 				
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
 				if($graphType=="Polls") echo '<strong>';
-				echo 'Users';
+				echo 'Polls';
 				if($graphType=="Polls") echo '</strong>';
+				echo '</a></li>';
+
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
+				if($graphType=="Comments") echo '<strong>';
+				echo 'Comments';
+				if($graphType=="Comments") echo '</strong>';
 				echo '</a></li>';
 			
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
 				if($graphType=="Journals") echo '<strong>';
-				echo 'Users';
+				echo 'Journals';
 				if($graphType=="Journals") echo '</strong>';
 				echo '</a></li>';
 
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Albums">';
 				if($graphType=="Albums") echo '<strong>';
-				echo 'Users';
+				echo 'Albums';
 				if($graphType=="Albums") echo '</strong>';
 				echo '</a></li>';
 
 				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=All">';
 				if($graphType=="All") echo '<strong>';
-				echo 'Users';
+				echo 'All';
 				if($graphType=="All") echo '</strong>';
 				echo '</a></li>';	
 			echo '</ul>';
