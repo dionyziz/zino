@@ -56,7 +56,9 @@
 			$label=$date->format('m-d');
 		}
 		else $label="";
+
 		$dataSet->addPoint(new Point($label,$row['count'])); 
+
 		$i++;
 	}
 
