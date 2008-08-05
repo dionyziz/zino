@@ -256,13 +256,7 @@ div#profile div.main div.ybubble div.body div.uploaddiv {
 
 div#profile div.main div.ybubble div.body div.uploaddiv object.uploadframe {
 	height: 40px;
-	width: 450px;
 }
-/*
-div#profile div.main div.ybubble div.body div.uploaddiv iframe.uploadframe {
-	height: 40px;
-}
-*/
 div#profile div.main div.photos {
 	height: 150px;
 }
