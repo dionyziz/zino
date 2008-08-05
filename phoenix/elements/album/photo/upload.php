@@ -13,7 +13,7 @@
             //typeid is 0 for album photo uploads and 1 for avatar uploads at settings
             $album = New Album( $albumid->Get() );
             if ( $typeid->Get() == 2 && UserBrowser() == "MSIE" ) {
-                $page->AttachInlineScript( "document.body.style.color = '#ffdf80';" );
+                $page->AttachInlineScript( "document.body.style.backgroundColor = '#ffdf80';" );
             }
             if ( $album->User->Id == $user->Id && $user->HasPermission( PERMISSION_IMAGE_CREATE ) ) {
                 ?><form method="post" enctype="multipart/form-data" action="do/image/upload2" id="uploadform">
