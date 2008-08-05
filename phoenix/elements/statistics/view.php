@@ -12,10 +12,10 @@
 			$libs->Load( 'libchart/classes/libchart' );
 			$page->setTitle( 'Statistics' );
 		
-			echo '<h1>Statistics</h1>';
+			//echo '<h1>Statistics</h1>';
 			$stat=Statistics_Get();
 			foreach($stat as $row)
-			echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
+			;//echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
 
 			//include "libchart/classes/libchart.php";
 		
@@ -32,6 +32,7 @@
 			$chart->setDataSet($dataSet);
 		
 			$chart->SetTitle("new Shouts per day");
+			header( 'Content-type: image/png' );
 			$chart->render();
 		}
 	}
