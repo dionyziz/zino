@@ -41,7 +41,7 @@
 	
 				echo '<li>';
 					echo '<a href="?p=statistics&amp;daysBefore=90&amp;graphType='.$graphType.'">';
-					if($daysBefore==90) echo'<strong>';
+					if( $daysBefore==90 ) echo'<strong>';
 					echo '90 days before'; 
 					if($daysBefore==90) echo'</strong>';
 					echo '</a>';
