@@ -16,7 +16,7 @@
                     <?php
                     if ( UserBrowser() == 'MSIE' ) {
                         ?>
-                        <iframe src="?p=upload&amp;albumid=<?php
+                        <iframe style="height: 50px;" src="?p=upload&amp;albumid=<?php
                         echo $user->Egoalbumid;
                         ?>&amp;typeid=1" class="uploadframe" id="uploadframe">
                         </iframe>
