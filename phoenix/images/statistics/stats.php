@@ -46,13 +46,16 @@
 		$title="new Albums per day";
 	}
 
-	if($title=="") exit(0);//Not valid get id
+	if($title=="") exit(0);//Not valid get name
 
 	$chart=new LineChart(500,250);			
 	$dataSet=new XYDataSet();	
 	
 	foreach($stat as $row)
-	$dataSet->addPoint(new Point($row['day'],$row['count'])); 
+	{	
+		$date=new DateTime($row['day']);
+		$dataSet->addPoint(new Point($date->format('m-d'),$row['count'])); 
+	}
 
 	$chart->setDataSet($dataSet);
 	$chart->SetTitle( $title );
