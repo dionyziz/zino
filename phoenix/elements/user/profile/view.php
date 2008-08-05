@@ -39,6 +39,9 @@
                 Element( 'user/profile/sidebar/view' , $theuser );
                 Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
                 ?><div class="eof"></div>
+                <div style="text-align:center">
+                    <a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a>
+                </div><br />
             </div><?php
         }
     }

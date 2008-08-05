@@ -204,7 +204,7 @@
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     ?><div class="comments">
                         <h3>Σχόλια στο προφίλ <?php
-                        if ( $theuser->Gender == 'f' ) {
+                        if ( $theuser->Gender == 'f' ) {gpad 
                             ?>της <?php
                         }
                         else {
@@ -228,9 +228,7 @@
                         // }
                     ?></div><?php
                 }
-            ?><br /><div style="text-align:center">
-                <a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a>
-            </div><br /></div><?php    
+            ?><br /></div><?php    
         }
     }
 ?>
