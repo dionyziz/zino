@@ -58,7 +58,7 @@
                             <div class="uploaddiv">
                                 <iframe src="?p=upload&amp;albumid=<?php
                                 echo $user->Egoalbumid;
-                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe"></iframe>
+                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe" frameborder="0"></iframe>
                                 <?php
                                 /*<object data="?p=upload&amp;albumid=<?php
                                 echo $user->Egoalbumid;
