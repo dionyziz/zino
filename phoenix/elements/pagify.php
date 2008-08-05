@@ -17,7 +17,7 @@
             if ( $pageno > 1 ) { /* left arrow */
                 ?><span class="leftpage"><a href="<?php
                 echo htmlspecialchars( $link . ( $pageno - 1 ) );
-                ?>" class="previous" title="Προηγούμενη"></a></span><?php
+                ?>" class="previous" title="Προηγούμενη">&nbsp;</a></span><?php
             }
             
             ?><span><?php
@@ -58,7 +58,7 @@
             if ( $pageno + 1 <= $total_pages ) { /* right arrow */
                 ?><span class="rightpage"><a href="<?php
                 echo htmlspecialchars( $link . ( $pageno + 1 ) );
-                ?>" class="next" title="Επόμενη"></a></span><?php
+                ?>" class="next" title="Επόμενη">&nbsp;</a></span><?php
             }
             
             if ( $text != '' ) {
