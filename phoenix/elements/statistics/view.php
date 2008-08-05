@@ -32,7 +32,7 @@
 			$chart->setDataSet($dataSet);
 		
 			$chart->SetTitle("new Shouts per day");
-			//$chart->render("graph1.png");
+			$chart->render();
 		}
 	}
 ?>
