@@ -23,7 +23,7 @@
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Haircolor != '-' ) {
-                        ?><dt><strong>Χρώμα μαλλιών</strong></dt>
+                        ?><dt><strong>Μαλλιά</strong></dt>
                         <dd><?php
                         Element( 'user/trivial/haircolor' , $theuser->Profile->Haircolor );
                         ?></dd><?php
