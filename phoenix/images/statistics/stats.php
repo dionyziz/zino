@@ -10,7 +10,7 @@
 
 	$ttle="";
 
-	if($_GET['name']=='shout')
+	if($_GET['name']=='shouts')
 	{
 		$stat=Statistics_Get('shoutbox','shout_created');
 		$title="new Shouts per day";	
@@ -35,6 +35,18 @@
 		$stat=Statistics_Get('comments','comment_created');
 		$title="new Comments per day";
 	}
+	else if($_GET['name']=='journals')
+	{
+		$stat=Statistics_Get('journals','journal_created');
+		$title="new Journals per day";
+	}
+	else if($_GET['name']=='albums')
+	{
+		$stat=Statistics_Get('albums','album_created');
+		$title="new Albums per day";
+	}
+
+	if($title=="") exit(0);//Not valid get id
 
 	$chart=new LineChart(500,250);			
 	$dataSet=new XYDataSet();	
