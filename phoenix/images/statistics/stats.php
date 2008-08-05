@@ -77,6 +77,9 @@
 		$lastday=(int)$date->format('d');
 		$lastmonth=(int)$date->format('m');
 	}
+	for($e=0;$e<((int)date()->format('d')-$lastday+((int)date()->format('m')-$lastmonth)*30)-1;$e++)
+	$dataSet->addPoint(new Point("",0)); 
+	
 
 	$chart->setDataSet($dataSet);
 	$chart->SetTitle( $title );
