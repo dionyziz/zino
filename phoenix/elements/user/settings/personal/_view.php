@@ -5,7 +5,6 @@
             global $user;
             global $rabbit_settings;
             $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
-            ?><script type="text/javascript">alert( <?php echo $showschool; ?> );</script><?php
             ?><div class="option">
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth"><?php
