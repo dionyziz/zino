@@ -18,14 +18,14 @@
                         if ( !$res ) {
                             ?><div class="addfriend"><a href="" onclick="Profile.AddFriend( '<?php
                             echo $theuser->Id;
-                            ?>' );return false;">Προσθήκη στους φίλους</a></div><?php
+                            ?>' );return false;"><span>&nbsp;</span>Προσθήκη στους φίλους</a></div><?php
                         }
                         else {
                             ?><div class="deletefriend"><a href="" onclick="Profile.DeleteFriend( '<?php
                             echo $res->Id;
                             ?>' , '<?php
                             echo $theuser->Id;
-                            ?>' );return false;">Διαγραφή από τους φίλους</a></div><?php
+                            ?>' );return false;"><span>&nbsp;</span>Διαγραφή από τους φίλους</a></div><?php
                         }
                     }
                     Element( 'user/profile/sidebar/info', $theuser );

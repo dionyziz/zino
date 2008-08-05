@@ -14,32 +14,22 @@ var Profile = {
         if ( !this.AntisocialCalled ) {
             return this.AntisocialAddFriend( userid );
         }
-		$( 'div.sidebar div.basicinfo div.addfriend a' ).animate( { opacity : "0" } , 400 , function() {
+		$( 'div.sidebar div.basicinfo div.addfriend a' ).hide( 400 , function() {
 			$( this )
-			.css( 'display' , 'none' )
-			.empty()
-			.append( document.createTextNode( 'Διαγραφή από τους φίλους' ) )
-			.click( function() {
-				return false;
-			} );
-			$( $( this )[ 0 ].parentNode )
-			.removeClass( 'addfriend' )
-			.addClass( 'deletefriend' );	
+			.parent()
+			.css( 'display' , 'hidden' )
+			.append( document.createTextNode( 'Έγινε προσθήκη' ) )
+			.show( 400 );
 		} );
 		Coala.Warm( 'user/relations/new' , { userid : userid } );
 	},
 	DeleteFriend : function( relationid , theuserid ) {
-		$( 'div.sidebar div.basicinfo div.deletefriend a' ).animate( { opacity : "0" } , 400 , function() {
+		$( 'div.sidebar div.basicinfo div.deletefriend a' ).hide( 400 , function() {
 			$( this )
-			.css( 'display' , 'none' )
-			.empty()
-			.append( document.createTextNode( 'Προσθήκη στους φίλους' ) )
-			.click( function() {
-				return false;
-			} );
-			$( $( this )[ 0 ].parentNode )
-			.removeClass( 'deletefriend' )
-			.addClass( 'addfriend' );
+			.parent()
+			.css( 'display' , 'hidden' )
+			.append( document.createTextNode( 'Έγινε διαγραφή' ) )
+			.show( 400 );
 		} );
 		Coala.Warm( 'user/relations/delete' , { relationid : relationid , theuserid : theuserid } );		
 	},
