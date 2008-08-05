@@ -43,19 +43,19 @@
 			echo '</ul>';
 
 			echo '<ul>';
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType=Shoutbox">';
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
 				if($graphType=="Shoutbox") echo '<strong>';
 				echo 'Shoutbox';
 				if($graphType=="Shoutbox") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType=Comments">';
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
 				if($graphType=="Comments") echo '<strong>';
 				echo 'Comments';
 				if($graphType=="Comments") echo '</strong>';
 				echo '</a></li>';
 			
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType=Users">';
+				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Users">';
 				if($graphType=="Users") echo '<strong>';
 				echo 'Users';
 				if($graphType=="Users") echo '</strong>';
