@@ -56,10 +56,15 @@
                         <div class="body">
                             <h3>Ανέβασε μια φωτογραφία σου</h3>
                             <div class="uploaddiv">
-                                <object data="?p=upload&amp;albumid=<?php
+                                <iframe src="?p=upload&amp;albumid=<?php
+                                echo $user->Egoalbumid;
+                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe"></iframe>
+                                <?php
+                                /*<object data="?p=upload&amp;albumid=<?php
                                 echo $user->Egoalbumid;
                                 ?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
-                                </object>
+                                </object>*/
+                                ?>
                             </div>
                         </div>
                         <i class="bl"></i>
