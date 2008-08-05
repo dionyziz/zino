@@ -64,9 +64,9 @@
                                       </iframe><?php
                                 }
                                 else {
-                                    ?><object data="?p=upload&albumid=<?php
+                                    ?><object data="?p=upload&amp;albumid=<?php
                                     echo $user->Egoalbumid;
-                                    ?>&typeid=2" class="uploadframe" id="uploadframe" type="text/html">
+                                    ?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
                                     </object><?php
                                 }
                          ?></div>
