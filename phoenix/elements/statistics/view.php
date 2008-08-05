@@ -5,6 +5,12 @@
 		
 		public function Render(tInteger $daysBefore,tText $graphType) {
 			global $page;
+			global $user;
+
+			if ( !$user->HasPermission( PERMISSION_STATISTICS_VIEW ) ) {
+			echo 'Permission denied';	
+			return;
+			}
 
 			$page->setTitle( 'Daily statistics' );
 
