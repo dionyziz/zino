@@ -62,12 +62,12 @@
                                 echo $user->Egoalbumid;
                                 ?>&amp;typeid=2" class="uploadframe" id="uploadframe" frameborder="0"></iframe>*/
                                 ?>
-                                <object data="?p=upload&albumid=<?php
+                                <object data="?p=upload&amp;albumid=<?php
                                 echo $user->Egoalbumid;
-                                ?>&typeid=2" class="uploadframe" id="uploadframe" type="text/html">
-                                    <param name="src" value="?p=upload&albumid=<?php
+                                ?>&amp;typeid=2" class="uploadframe" id="uploadframe" type="text/html">
+                                    <param name="src" value="?p=upload&amp;albumid=<?php
                                     echo $user->Egoalbumid;
-                                    ?>&typeid=2" />
+                                    ?>&amp;typeid=2" />
                                 Ola auta ine m...Mparmpoutsala
                                 </object>
                                 
