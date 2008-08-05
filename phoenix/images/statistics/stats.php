@@ -51,7 +51,7 @@
 	
 	$i=0;
 	$today=date();
-	$first=date_sub($today,'P'.$_GET['days'].'D');
+	$first=date_sub($today,new DateInterval('P'.$_GET['days'].'D'));
 	$lastday=$first->format('d');
 	$lastmonth=$first->format('m');
 	foreach ($stat as $row) {	
