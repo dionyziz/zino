@@ -3,7 +3,7 @@
 
 		global  $db;
 
-		$query=$db->Prepare( "SELECT MONTH_DAY(".$date_field.") AS day,COUNT(*) AS count  FROM ".$dbname." WHERE ".$date_field.">NOW()-INTERVAL 30 DAY GROUP BY day ORDER BY ".$date_field." ASC" );
+		$query=$db->Prepare( "SELECT DATE(".$date_field.") AS day,COUNT(*) AS count  FROM ".$dbname." WHERE ".$date_field.">NOW()-INTERVAL 30 DAY GROUP BY day ORDER BY day ASC" );
 		$query->BindTable( $dbname );
 		$res=$query->Execute();
 		
