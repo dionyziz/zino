@@ -13,13 +13,13 @@
 		
 			echo '<h2>Daily statistics</h2>';
 
-			echo '<img src="images/statistics/stats.php?name=shouts&days='.$daysBefore.';" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=users&days='.$daysBefore.'" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=images&days='.$daysBefore.'" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=polls&days='.$daysBefore.'" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=comments&days='.$daysBefore.'" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=albums&days='.$daysBefore.'" alt="img"/>';
-			echo '<img src="images/statistics/stats.php?name=journals&days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.';" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=users&amp;days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=images&amp;days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=polls&amp;days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=comments&amp;days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=albums&amp;days='.$daysBefore.'" alt="img"/>';
+			echo '<img src="images/statistics/stats.php?name=journals&amp;days='.$daysBefore.'" alt="img"/>';
 		}
 	}
 ?>
