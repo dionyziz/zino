@@ -32,20 +32,18 @@ div#profile div.sidebar div.basicinfo div.addfriend {
 	margin-bottom: 15px;
 	height: 20px;
 }
-div#profile div.sidebar div.basicinfo div.addfriend a {
-	background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
-	background-repeat: no-repeat;
-	padding-left: 18px;
+div#profile div.sidebar div.basicinfo div.addfriend a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -130px;
+	padding-left: 16px;
 }
 div#profile div.sidebar div.basicinfo div.deletefriend {
 	clear: left;
 	margin-bottom: 15px;
 	height: 20px;
 }
-div#profile div.sidebar div.basicinfo div.deletefriend a {
-	background-image: url( 'http://static.zino.gr/phoenix/user_delete.png' );
-	background-repeat: no-repeat;
-	padding-left: 18px;
+div#profile div.sidebar div.basicinfo div.deletefriend a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -826px;
+	padding-left: 16px;
 }
 div#profile div.sidebar div.basicinfo div.info {
 	clear: left;
