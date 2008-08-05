@@ -90,6 +90,10 @@ div#profile div.sidebar div.look {
 	border-bottom: 1px solid #ccc;
 	background-color: white;
 }
+div#profile div.sidebar div.look span.malebody {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -471px -875px;
+	padding-left: 16px;
+}
 div#profile div.sidebar div.look ul li.dot {
 	color: #999;
 	font-size: 100%;

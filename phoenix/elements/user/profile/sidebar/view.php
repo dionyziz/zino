@@ -31,9 +31,7 @@
                     Element( 'user/profile/sidebar/info', $theuser );
                 ?></div>
                 <div class="look">
-                    <img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>body-male-slim-short.jpg" alt="" /><?php
+					<span class="malebody">&nbsp;</span><?php
                     Element( 'user/profile/sidebar/look', $theuser->Profile->Height, $theuser->Profile->Weight,  $theuser->Gender );
                 ?></div>
                 <div class="social"><?php
