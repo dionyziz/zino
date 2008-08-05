@@ -228,7 +228,9 @@
                         // }
                     ?></div><?php
                 }
-            ?></div><?php    
+            ?><div style="text-align:center">
+                <a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a>
+            </div></div><?php    
         }
     }
 ?>
