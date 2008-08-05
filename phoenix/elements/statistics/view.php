@@ -24,7 +24,7 @@
 
 			echo '<ul>';
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30&amp;graphType='.$graphType.'">';
+					echo '<a href="?p=statistics&amp;daysBefore=30&amp;graphType='.$graphType.'">';
 					if($daysBefore==30) echo'<strong>';
 					echo '30 days before'; 
 					if($daysBefore==30) echo'</strong>';
@@ -32,7 +32,7 @@
 				echo '</li>';
 
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60&amp;graphType='.$graphType.'">';
+					echo '<a href="?p=statistics&amp;daysBefore=60&amp;graphType='.$graphType.'">';
 					if($daysBefore==60) echo'<strong>';
 					echo '60 days before'; 
 					if($daysBefore==60) echo'</strong>';
@@ -40,7 +40,7 @@
 				echo '</li>';			
 	
 				echo '<li>';
-					echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90&amp;graphType='.$graphType.'">';
+					echo '<a href="?p=statistics&amp;daysBefore=90&amp;graphType='.$graphType.'">';
 					if($daysBefore==90) echo'<strong>';
 					echo '90 days before'; 
 					if($daysBefore==90) echo'</strong>';
@@ -49,49 +49,49 @@
 			echo '</ul>';
 
 			echo '<ul>';
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
 				if($graphType=="Shoutbox") echo '<strong>';
 				echo 'Shoutbox';
 				if($graphType=="Shoutbox") echo '</strong>';
 				echo '</a></li>';
 			
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Users">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Users">';
 				if($graphType=="Users") echo '<strong>';
 				echo 'Users';
 				if($graphType=="Users") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Images">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Images">';
 				if($graphType=="Images") echo '<strong>';
 				echo 'Images';
 				if($graphType=="Images") echo '</strong>';
 				echo '</a></li>';
 				
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
+				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Polls">';
 				if($graphType=="Polls") echo '<strong>';
 				echo 'Polls';
 				if($graphType=="Polls") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
+				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Comments">';
 				if($graphType=="Comments") echo '<strong>';
 				echo 'Comments';
 				if($graphType=="Comments") echo '</strong>';
 				echo '</a></li>';
 			
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
+				echo '<li><a href="p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Journals">';
 				if($graphType=="Journals") echo '<strong>';
 				echo 'Journals';
 				if($graphType=="Journals") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Albums">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Albums">';
 				if($graphType=="Albums") echo '<strong>';
 				echo 'Albums';
 				if($graphType=="Albums") echo '</strong>';
 				echo '</a></li>';
 
-				echo '<li><a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=All">';
+				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=All">';
 				if($graphType=="All") echo '<strong>';
 				echo 'All';
 				if($graphType=="All") echo '</strong>';
