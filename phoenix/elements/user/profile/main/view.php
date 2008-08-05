@@ -68,6 +68,7 @@
                                     <param name="src" value="?p=upload&amp;albumid=<?php
                                     echo $user->Egoalbumid;
                                     ?>&amp;typeid=2" />
+                                Ola auta ine m...Mparmpoutsala
                                 </object>
                                 
                             </div>
