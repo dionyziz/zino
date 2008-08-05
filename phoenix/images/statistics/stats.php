@@ -50,9 +50,10 @@
 	$dataSet=new XYDataSet();	
 	
 	$i=0;
-	$lastday=date('d');
-	$lastmonth=date('m');
 	$today=date();
+	$first=date_sub($today,'P'.$_GET['days'].'D');
+	$lastday=$first->format('d');
+	$lastmonth=$first->format('m');
 	foreach ($stat as $row) {	
 		if ($i%10==0) {
 			$date=new DateTime($row['day']);
