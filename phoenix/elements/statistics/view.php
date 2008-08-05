@@ -98,7 +98,7 @@
 				echo '</a></li>';	
 			echo '</ul>';
 	
-			if ($graphType=="Shoutbox" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=shouts&amp;days='.$daysBefore.'" alt="img"/>';
+			if ($graphType=="Shoutbox" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=shoutbox&amp;days='.$daysBefore.'" alt="img"/>';
 			if ($graphType=="Users" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=users&amp;days='.$daysBefore.'" alt="img"/>';
 			if ($graphType=="Images" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=images&amp;days='.$daysBefore.'" alt="img"/>';
 			if ($graphType=="Polls" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=polls&amp;days='.$daysBefore.'" alt="img"/>';
