@@ -49,9 +49,15 @@
 	$chart=new LineChart($x,$x-250);	//1000 for 90 days,750 for 60 days 500 for 30 days		
 	$dataSet=new XYDataSet();	
 	
+	$i=0;
 	foreach ($stat as $row) {	
-		$date=new DateTime($row['day']);
-		$dataSet->addPoint(new Point($date->format('m-d'),$row['count'])); 
+		if ($i%10==0) {
+			$date=new DateTime($row['day']);
+			$label=$date->format('m-d');
+		}
+		else $label="";
+		$dataSet->addPoint(new Point($label,$row['count'])); 
+		$i++;
 	}
 
 	$chart->setDataSet($dataSet);
