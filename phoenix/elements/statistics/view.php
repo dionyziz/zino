@@ -32,7 +32,7 @@
 			$chart->SetTitle("new Shouts per day");
 			echo '<img src="data:image/png;base64,';
 			//$chart->render();
-			echo '" alt="img">';
+			echo '" alt="img"/>';
 		}
 	}
 ?>
