@@ -6,9 +6,9 @@
 		public function Render() {
 			global $page;
 
-			$page->setTitle( 'Statistics' );
+			$page->setTitle( 'Daily statistics' );
 		
-			echo '<h2>Statistics</h2>';
+			echo '<h2>Daily statistics</h2>';
 
 			echo '<img src="images/statistics/stats.php?name=shouts" alt="img"/>';
 			echo '<img src="images/statistics/stats.php?name=users" alt="img"/>';
