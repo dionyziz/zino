@@ -50,7 +50,7 @@
                     <dd> </dd></dl></div>
             </div>
             
-            <div id="antisocial" class="antisocial" style="background-color:#ffdf80;background-image:url('http://static.zino.gr/phoenix/bubblefade.png');background-repeat:no-repeat;background-position:top right;padding:10px;margin:0 20px 10px 330px;height:30px">
+            <div id="antisocial" class="antisocial" style="background-color:#ffdf80;background-image:url('http://static.zino.gr/phoenix/bubblefade.png');background-repeat:no-repeat;background-position:top right;padding:10px;margin:0 20px 10px 330px;height:40px">
             <span style="">Ο izual σε έχει προσθέσει στους φίλους, αλλά εσύ όχι.</span>
             <div style="padding:10px 5px 0 0px;width:100%;height:20px"><a href="" onclick="setTimeout(function(){$('#antisocial').slideUp('slow');},1200);$(this.parentNode).animate({opacity:0},200,'swing',function(){$('#antisocial div').html('<strong>Έγινε προσθήκη</strong>').animate({opacity:1},200)});return false;" style="background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ); background-repeat: no-repeat; background-position: 0 -1px; padding-left: 20px;">Πρόσθεσέ τον στους φίλους</a></div>
             </div>
