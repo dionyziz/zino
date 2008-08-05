@@ -71,16 +71,8 @@
                 $user->Profile->Education = $education;
             }
             if ( $school ) {
-                if ( $school == -1 ) {
-                    $schoolid = 0;
-                }
-                else {
-                    $newschool = New School( $school );
-                    if ( $newschool->Exists() ) {
-                        $schoolid = $newschool->Id;
-                    }
-                }
-                $user->Profile->School = $schoolid;
+                $newschool = New School( $school );
+                $user->Profile->School = $newschool;
             }
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
