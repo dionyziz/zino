@@ -212,6 +212,10 @@ div.frontpage div.zinomeeting {
 	padding: 10px;
 	border: 1px solid #ccc;
 	background: #f7f7ff;
+	border-top: none; 
+	margin: 0px auto; 
+	width: 70%; 
+	text-align: center;
 	
 }
 /*  CSS FOR MASKED ELEMENT */
