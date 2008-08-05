@@ -65,7 +65,7 @@
 
 		if($lastday!="")
 		{
-			for($e=0;$e<((int)$date->format('d')-$lastday+((int)$date->format('m')-$lastmonth)*30);$e++)
+			for($e=0;$e<((int)$date->format('d')-$lastday+((int)$date->format('m')-$lastmonth)*30)-1;$e++)
 			$dataSet->addPoint(new Point("",0)); 
 
 		}
