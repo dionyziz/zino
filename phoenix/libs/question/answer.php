@@ -30,7 +30,7 @@
                     *
                 FROM
                     :answers 
-                    LEFT JOIN :questions
+                    CROSS JOIN :questions
                         ON `answer_questionid` = `question_id`
                 WHERE
                     `answer_userid` = :userid
