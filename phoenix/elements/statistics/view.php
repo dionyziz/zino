@@ -15,25 +15,25 @@
 			echo '<ul>';
 			echo '<li>';
 			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=30">';
-			if($daysBefore==30 || $daysBefore==0) echo'<stong>';
-			echo '30'; 
-			if($daysBefore==30 || $daysBefore==0) echo'</stong>';
+			if($daysBefore==30 || $daysBefore==0) echo'<bold>';
+			echo '30 days before'; 
+			if($daysBefore==30 || $daysBefore==0) echo'</bold>';
 			echo '</a>';
 			echo '</li>';
 
 			echo '<li>';
 			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=60">';
-			if($daysBefore==60) echo'<stong>';
-			echo '60'; 
-			if($daysBefore==60) echo'</stong>';
+			if($daysBefore==60) echo'<bold>';
+			echo '60 days before'; 
+			if($daysBefore==60) echo'</bold>';
 			echo '</a>';
 			echo '</li>';			
 
 			echo '<li>';
 			echo '<a href="https://beta.zino.gr/phoenix/?p=statistics&amp;daysBefore=90">';
-			if($daysBefore==90) echo'<stong>';
-			echo '90'; 
-			if($daysBefore==90) echo'</stong>';
+			if($daysBefore==90) echo'<bold>';
+			echo '90 days before'; 
+			if($daysBefore==90) echo'</bold>';
 			echo '</a>';
 			echo '</li>';
 			echo '</ul>';
