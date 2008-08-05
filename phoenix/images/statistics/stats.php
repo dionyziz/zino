@@ -20,7 +20,7 @@
 	}
 	else if ( $_GET['name'] == 'images' ) {
 		$stat=Statistics_Get( 'images' , 'image_created' , $_GET['days']);
-		$title="new Users per day";
+		$title="new Images per day";
 	}
 	else if ($_GET['name']=='polls')	{
 		$stat=Statistics_Get( 'polls' , 'poll_created' , $_GET['days']);
