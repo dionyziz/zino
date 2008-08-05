@@ -9,6 +9,7 @@
 			global $page;
 
 			$libs->Load( 'statistics' );
+			$libs->Load( 'libchart/classes/libchart' );
 			$page->setTitle( 'Statistics' );
 		
 			echo '<h1>Statistics</h1>';
