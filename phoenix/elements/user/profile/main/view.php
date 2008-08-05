@@ -59,7 +59,7 @@
                                 <?php
                                 if ( UserBrowser() == "MSIE" ) {
                                     ?><iframe src="?p=upload&amp;albumid=<?php
-                                        echo $album->Id;
+                                        echo $user->Egoalbumid;
                                         ?>&amp;typeid=0" class="uploadframe" id="uploadframe" scrolling="no" frameborder="0">
                                       </iframe><?php
                                 }
