@@ -9,7 +9,7 @@
 			global $page;
 
 			$libs->Load( 'statistics' );
-			//$libs->Load( 'libchart/classes/libchart' );
+			$libs->Load( 'libchart/classes/libchart' );
 			$page->setTitle( 'Statistics' );
 		
 			echo '<h1>Statistics</h1>';
@@ -17,7 +17,7 @@
 			foreach($stat as $row)
 			echo '<p>'.$row['day']." ".$row['count'].'</p>'; 
 		
-			/*$chart=new LineChart(500,250);
+			$chart=new LineChart(500,250);
 			
 			$dataSet=new XYDataSet();
 			$dataSet->addPoint(new Point("2008-06-24",5));
@@ -30,10 +30,9 @@
 			$chart->setDataSet($dataSet);
 		
 			$chart->SetTitle("new Shouts per day");
-			//$chart->render();
-			*/
-			
-			Graph_Image_Get();
+			echo '<img src="data:image/png;base64,';
+			$chart->render();
+			echo '" alt="img">';
 		}
 	}
 ?>
