@@ -10,6 +10,14 @@
 
 	if($_GET['name']=='shout')
 	$stat=Statistics_Get('shoutbox','shout_created');
+	if($_GET['name']=='users')
+	$stat=Statistics_Get('users','user_created');
+	if($_GET['name']=='images')
+	$stat=Statistics_Get('images','image_created');
+	if($_GET['name']=='polls')
+	$stat=Statistics_Get('polls','poll_created');
+	if($_GET['name']=='comments')
+	$stat=Statistics_Get('comments','comment_created');
 
 
 
