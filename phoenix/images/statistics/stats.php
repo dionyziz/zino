@@ -4,6 +4,12 @@
 	Rabbit_Construct('plain');
 
 	global $libs;
+	global $user;
+
+	if ( !$user->HasPermission( PERMISSION_STATISTICS_VIEW ) ) {
+	echo 'Permission denied';	
+	return;
+	}
 
 	$libs->Load( 'libchart/classes/libchart' );
 	$libs->Load( 'statistics' );
