@@ -50,6 +50,12 @@ var Tag = {
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
+        if ( $.browser.msie ) {
+            event.cancelBubble = true;
+        }
+        else {
+            event.stopPropagation();
+        }
     },
     drag : function( event ) {
         if ( !Tag.run ) {
