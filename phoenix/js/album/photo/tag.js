@@ -92,7 +92,7 @@ var Tag = {
     filterSug : function( event ) {
         var text = $( 'div.thephoto div.frienders form input' ).val();
         var friends = $.grep( Tag.friends, function( item, index ) {
-                        return item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
+                        return ( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
         Tag.start( friends );
     }
