@@ -41,7 +41,9 @@
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
             }
-            $showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
+            //$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
+			// Let's make it not appearing first...
+			$showspace = false;
             $showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
 
             $finder = New FriendRelationFinder();
