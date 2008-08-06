@@ -8,23 +8,27 @@
 			global $user;
 
 			if ( !$user->HasPermission( PERMISSION_STATISTICS_VIEW ) ) {
-			echo 'Permission denied';	
+			?> Permission denied <?php
 			return;
 			}
 
 			$page->setTitle( 'Daily statistics' );
 
-			$daysBefore=$daysBefore->Get();
-			$graphType=$graphType->Get();
+			$daysBefore = $daysBefore->Get();
+			$graphType = $graphType->Get();
 
-			if($daysBefore==0) $daysBefore=30;
-			if($graphType=="") $graphType="Shoutbox";
+			if( $daysBefore == 0 ) {
+			$daysBefore = 30;
+			}
+			if( $graphType == "" ) {
+			$graphType = "Shoutbox";
+			}
 		
-			echo '<h2>Daily statistics</h2>';
+			?> <h2>Daily statistics</h2> <?php
 
-			echo '<ul>';
-				echo '<li>';
-					echo '<a href="?p=statistics&amp;daysBefore=30&amp;graphType='.$graphType.'">';
+			?> <ul> <?php
+				?> <li> <?php
+					?> <a href="?p=statistics&amp;daysBefore=30&amp;graphType= <?php echo $graphType ?> > <?php
 					if($daysBefore==30) echo'<strong>';
 					echo '30 days before'; 
 					if($daysBefore==30) echo'</strong>';
