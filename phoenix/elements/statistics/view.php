@@ -28,7 +28,7 @@
 
 			?> <ul> <?php
 				?> <li> <?php
-					?> <a href="?p=statistics&amp;daysBefore=30&amp;graphType= <?php echo $graphType ?> > <?php
+					?> <a href="?p=statistics&amp;daysBefore=30&amp;graphType= <?php echo $graphType ?> "> <?php
 					if($daysBefore==30) echo'<strong>';
 					echo '30 days before'; 
 					if($daysBefore==30) echo'</strong>';
