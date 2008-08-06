@@ -42,14 +42,26 @@
 				}				
 			?> </ul> <?php
 
-			/*?> <ul> <?php				
+		        ?> <ul> <?php				
 				foreach ( array( 'Shoutbox', 'Users', 'Images', 'Polls', 'Comments', 'Journals', 'Albums', 'All' ) as $table) {
 					?> <li> <?php
-					?>
-				}
-			?> </ul> <?php*/
+					?><a href="?p=statistics&amp;daysBefore=<?php echo $daysBefore; ?>&amp;graphType=<?php echo $table; ?>"> <?php
 
-			echo '<ul>';
+					if (  $graphType == $table ) {
+					?> <strong> <?php
+					}
+					
+					echo $table;
+				
+					if (  $graphType == $table ) {
+					?> </strong> <?php
+					}
+			
+					?> </a></li> <?php					
+				}
+			?> </ul> <?php
+
+			/*echo '<ul>';
 				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
 				if($graphType=="Shoutbox") echo '<strong>';
 				echo 'Shoutbox';
@@ -97,7 +109,7 @@
 				echo 'All';
 				if($graphType=="All") echo '</strong>';
 				echo '</a></li>';	
-			echo '</ul>';
+			echo '</ul>';*/
 	
 			if ($graphType=="Shoutbox" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=shoutbox&amp;days='.$daysBefore.'" alt="img"/>';
 			if ($graphType=="Users" || $graphType=="All") echo '<img src="images/statistics/stats.php?name=users&amp;days='.$daysBefore.'" alt="img"/>';
