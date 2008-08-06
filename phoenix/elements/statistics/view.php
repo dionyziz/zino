@@ -28,7 +28,7 @@
 
 			?> <ul> <?php				
 				foreach ( array( 30, 60, 90 ) as  $days ) {					
-				?> <li> <?php
+					?> <li> <?php
 					?> <a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
 					if ( $daysBefore == $days) {
 					?> <strong> <?php
@@ -41,6 +41,13 @@
 					?> </a></li> <?php			
 				}				
 			?> </ul> <?php
+
+			/*?> <ul> <?php				
+				foreach ( array( 'Shoutbox', 'Users', 'Images', 'Polls', 'Comments', 'Journals', 'Albums', 'All' ) as $table) {
+					?> <li> <?php
+					?>
+				}
+			?> </ul> <?php*/
 
 			echo '<ul>';
 				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
