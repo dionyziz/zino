@@ -48,7 +48,8 @@ class Elementfavouritefavourite extends Element {
 	                    <div><a href="">Parkour</a> από <a href="">dionyziz</a></div>
 	                </li>
 	            </ul>
-	        </div><?php
+	        </div>
+			</div><?php
 		}
     }
 ?>
