@@ -17,30 +17,30 @@
 			$daysBefore = $daysBefore->Get();
 			$graphType = $graphType->Get();
 
-			if( $daysBefore == 0 ) {
+			if ( $daysBefore == 0 ) {
 			$daysBefore = 30;
 			}
-			if( $graphType == "" ) {
+			if ( $graphType == "" ) {
 			$graphType = "Shoutbox";
 			}
 		
 			?> <h2>Daily statistics</h2> <?php
 
-			?> <ul> <?php
-				
-				foreach ( array( 30, 60, 90 ) as  $days ) {
-					
+			?> <ul> <?php				
+				foreach ( array( 30, 60, 90 ) as  $days ) {					
 				?> <li> <?php
 					?> <a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
-					if( $daysBefore == $days)  echo'<strong>';
-					echo $days.' days before'; 
-					if( $daysBefore == $days ) echo'</strong>';
-					echo '</a>';
-				echo '</li>';			
-				}
-
-				
-			echo '</ul>';
+					if ( $daysBefore == $days) {
+					?> <strong> <?php
+					}
+					echo $days;
+					?> days before<?php 
+					if ( $daysBefore == $days ) {
+					?> </strong> <?php
+					}
+					?> </a></li> <?php			
+				}				
+			?> </ul> <?php
 
 			echo '<ul>';
 				echo '<li><a href="?p=statistics&amp;daysBefore='.$daysBefore.'&amp;graphType=Shoutbox">';
