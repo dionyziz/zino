@@ -103,10 +103,10 @@
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
-                        ?></a></dd>
-                        <dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start();return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                        ?></a></dd><?php
                     }
-                 ?></dl><?php
+                    ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start();return false;">Γνωρίζεις κάποιον;</a></dd>
+                 </dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
                         <div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
