@@ -1,5 +1,5 @@
 <?php
-class ElementFavourite extends Element {
+class Elementfavouritefavourite extends Element {
 	public function Render() {?><div id="favourites">
 	        <h2>Αγαπημένα</h2>
 	        <div style="padding: 5px 0 0 20px;"><a href="">&laquo;Επιστροφή στο προφίλ</a></div>
