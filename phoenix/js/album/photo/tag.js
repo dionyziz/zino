@@ -11,7 +11,6 @@ var Tag = {
             
             var a = document.createElement( 'a' );
             a.onmousedown = function( event ) {
-                    return false;
                     Tag.ekso( event );
                 };
             a.appendChild( document.createTextNode( Tag.friends[ i ] ) );
