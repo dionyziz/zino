@@ -46,6 +46,37 @@
 
             return $ret;
         }
+        public function FindMutualByUser( $user, $offset = 0, $limit = 10000 ) {
+            // Cool Query by kostis90gr and dionyziz
+            $query = $this->mDb->Prepare( '
+                SELECT 
+                    `user_name`
+                FROM
+                    :relations AS a
+                    CROSS JOIN :relations AS b ON
+                        b.relation_friendid = :userid AND
+                        b.relation_userid = a.relation_friendid
+                    LEFT JOIN :users ON
+                        a.relation_friendid = `user_id`
+                WHERE 
+                    `relation_userid` = :userid
+                LIMIT
+                    :offset, :limit
+                ;' );
+                
+            $query->BindTable( 'relations', 'users' );
+            $query->Bind( 'userid', $user->Id );
+            $query->Bind( 'offset', $offset );
+            $query->Bind( 'limit', $limit );
+            
+            $res = $query->Execute();
+            $ret = array();
+            while( $row = $res->FetchArray() ) {
+                $ret[] = $row[ 'user_name' ];
+            }
+            
+            return $ret;
+        }
         public function FindByFriend( $friend, $offset = 0, $limit = 10000 ) {
             $prototype = New FriendRelation();
             $prototype->Friendid = $friend->Id;
