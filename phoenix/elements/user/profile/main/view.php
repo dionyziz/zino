@@ -41,9 +41,7 @@
                 $finder = New ImageFinder();
                 $images = $finder->FindByAlbum( $egoalbum , 0 , 10 );
             }
-            //$showspace = $theuser->Id == $user->Id || strlen( $theuser->Space->GetText( 4 ) ) > 0;
-			// Let's make it not appearing first...
-			$showspace = false;
+            
             $showuploadavatar = $theuser->Id == $user->Id && $egoalbum->Numphotos == 0;
 
             $finder = New FriendRelationFinder();
@@ -175,32 +173,6 @@
                     <div class="barfade">
                         <div class="leftbar"></div>
                         <div class="rightbar"></div>
-                    </div><?php
-                }
-                if ( $showspace ) {
-                    ?><div class="space">
-                        <h3>Χώρος</h3><?php
-                        $showtext = $theuser->Space->GetText( 300 );
-                        if ( strlen( $theuser->Space->GetText( 5 ) ) > 0 ) {
-                            ?><div><?php
-                            echo $showtext;
-                            if ( strlen( $theuser->Space->GetText( 301 ) ) > strlen( $showtext ) ) {
-                                ?>...<?php
-                            }
-                            ?></div><a href="?p=space&amp;subdomain=<?php
-                            echo $theuser->Subdomain;
-                            ?>" class="button">Προβολή χώρου&raquo;</a><?php
-                        }
-                        else {
-                            ?><div class="nospace">
-                                Δεν έχεις επεξεργαστεί τον χώρο σου ακόμα. Κάνε click στο παρακάτω link για να τον επεξεργαστείς.
-                                <br /><a href="?p=editspace">Επεξεργασία χώρου</a>
-                            </div><?php
-                        }
-                    ?></div>
-                    <div class="barfade">
-                            <div class="leftbar"></div>
-                            <div class="rightbar"></div>
                     </div><?php
                 }
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
