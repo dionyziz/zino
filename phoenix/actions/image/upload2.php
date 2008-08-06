@@ -92,9 +92,7 @@
                 ?> );<?php
             }
             else if ( $typeid == 2 ) {
-                ?>
-                alert( 'Trexo' );
-                parent.Profile.AddAvatar( <?php
+                ?>parent.Profile.AddAvatar( <?php
                 echo $image->Id;
                 ?> );<?php
             }
