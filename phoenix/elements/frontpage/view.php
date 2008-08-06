@@ -81,11 +81,6 @@
                     </div>
                 </div><?php
             }
-			?><div class="zinomeeting">
-				<h3>Zino Meeting</h3>
-				Την <b>Τετάρτη 6 Αυγούστου</b> και ώρα <b>7μμ</b> θα πραγματοποιηθεί στα Ιωάννινα Zino Μeeting. Όλα τα μέλη (και όχι μόνο) από Ιωάννινα και μη είναι καλοδεχούμενα.
-				Τόπος συγκέντρωσης έξω από τη <b>Νομαρχία</b>.
-			</div><?php
             if ( count( $images ) > 0 ) {
                 ?><div class="latestimages">
                 <ul><?php
