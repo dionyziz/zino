@@ -113,6 +113,7 @@ Project_Destruct()' );
             'mcform'            => 'developer/abresas/mcform',
 	    'statistics'	=> 'statistics/view',
             'mcdelete'          => 'developer/abresas/mcdelete',
+			'favourites'		=> 'favourite/favourites',
         );
     }
 ?>
