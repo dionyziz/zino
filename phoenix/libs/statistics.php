@@ -1,9 +1,9 @@
 <?php 
-	function Statistics_Get($table_name,$days_passed=30) {
+	function Statistics_Get( $table_name , $days_passed=30) {
 
 		global  $db;
 
-		switch($table_name){
+		switch( $table_name ){
 		case "shoutbox":
 			$date_field="shout_created";
 			break;
@@ -26,17 +26,13 @@
 			$date_field="album_created";
 			break;
 		default:
-			$date_field="error";
-		}
-
-		if($date_field=="error") {
-		return;
+			return;
 		}
 
 		
-		$query=$db->Prepare( "SELECT DATE(".$date_field.") AS day,COUNT(*) AS count  FROM ".$table_name." WHERE ".$date_field.">NOW()-INTERVAL :days_before DAY GROUP BY day ORDER BY day ASC" );
+		$query=$db->Prepare( "SELECT DATE(".$date_field.") AS day,COUNT(*) AS count  FROM :$table_name WHERE ".$date_field.">NOW()-INTERVAL :days_before DAY GROUP BY day ORDER BY day ASC" );
 		$query->BindTable( $table_name );
-		$query->Bind('days_before',$days_passed);
+		$query->Bind('days_before', $days_passed );
 		$res=$query->Execute();
 		
 		$array = $res->MakeArray();		
