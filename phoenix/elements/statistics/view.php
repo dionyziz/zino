@@ -27,29 +27,19 @@
 			?> <h2>Daily statistics</h2> <?php
 
 			?> <ul> <?php
+				
+				foreach ( array( 30, 60, 90 ) as  $days ) {
+					
 				?> <li> <?php
-					?> <a href="?p=statistics&amp;daysBefore=30&amp;graphType=<?php echo $graphType ?> "> <?php
-					if( $daysBefore == 30) echo'<strong>';
+					?> <a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
+					if( $daysBefore == $days)  echo'<strong>';
 					echo '30 days before'; 
-					if($daysBefore==30) echo'</strong>';
-					echo '</a>';
-				echo '</li>';
-
-				echo '<li>';
-					echo '<a href="?p=statistics&amp;daysBefore=60&amp;graphType='.$graphType.'">';
-					if($daysBefore==60) echo'<strong>';
-					echo '60 days before'; 
-					if($daysBefore==60) echo'</strong>';
+					if( $daysBefore == $days ) echo'</strong>';
 					echo '</a>';
 				echo '</li>';			
-	
-				echo '<li>';
-					echo '<a href="?p=statistics&amp;daysBefore=90&amp;graphType='.$graphType.'">';
-					if( $daysBefore==90 ) echo'<strong>';
-					echo '90 days before'; 
-					if($daysBefore==90) echo'</strong>';
-					echo '</a>';
-				echo '</li>';
+				}
+
+				
 			echo '</ul>';
 
 			echo '<ul>';
