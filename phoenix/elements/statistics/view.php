@@ -33,7 +33,7 @@
 				?> <li> <?php
 					?> <a href="?p=statistics&amp;daysBefore=<?php echo $days;?>&amp;graphType=<?php echo $graphType ?> "> <?php
 					if( $daysBefore == $days)  echo'<strong>';
-					echo '30 days before'; 
+					echo $days.' days before'; 
 					if( $daysBefore == $days ) echo'</strong>';
 					echo '</a>';
 				echo '</li>';			
