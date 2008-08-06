@@ -2,10 +2,13 @@ var Tag = {
     friends : [],
     clicked : false,
     run : false,
-    start : function() {
+    start : function( kollitaria ) {
+        if ( kollitaria === false ) {
+            kollitaria = Tag.friends;
+        }
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
-        for( var i=0; i < Tag.friends.length; ++i ) {
+        for( var i=0; i < kollitaria.length; ++i ) {
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
             
@@ -13,7 +16,7 @@ var Tag = {
             a.onmousedown = function( event ) {
                     Tag.ekso( event );
                 };
-            a.appendChild( document.createTextNode( Tag.friends[ i ] ) );
+            a.appendChild( document.createTextNode( kollitaria[ i ] ) );
             li.appendChild( a );
             ul.appendChild( li );
         }
@@ -51,7 +54,7 @@ var Tag = {
         $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     },
     drag : function( event ) {
-        if ( !Tag.run ) {
+        if ( !Tag.run ) {0, text.length ) == text.toUpperCase() );
             return;
         }
         if ( Tag.clicked ) {
@@ -85,5 +88,12 @@ var Tag = {
         }
         Tag.clicked=true;
         Tag.focus( event );
+    },
+    filterSug : function( event ) {
+        var text = $( 'div.thephoto div.frienders form input' ).val();
+        var friends = $.grep( Tag.friends, function( item, index ) {
+                        return item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
+		               } );
+        Tag.start( friends );
     }
 };

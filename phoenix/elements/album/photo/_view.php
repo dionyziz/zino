@@ -105,7 +105,7 @@
                         }
                         ?></a></dd><?php
                     }
-                    ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start();return false;">Γνωρίζεις κάποιον;</a></dd>
+                    ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false );return false;">Γνωρίζεις κάποιον;</a></dd>
                  </dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
@@ -196,7 +196,7 @@
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="">
-                                <input type="text" value="" onmousedown="Tag.focusInput( event );" />
+                                <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
                             <ul class="frienders">
                                 <li></li>
