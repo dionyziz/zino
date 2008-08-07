@@ -5,7 +5,7 @@
             global $user;
             
             ?><select><?php
-                $educations = range( 1, 7 );
+                $educations = range( 1, 6 );
                 foreach ( $educations as $education ) {
                     ?><option value="<?php
                     echo $education;
