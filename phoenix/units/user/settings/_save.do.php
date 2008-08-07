@@ -44,7 +44,11 @@
             $notifyreply = $notifyreply->Get();
             $emailfriendaddition = $emailfriendaddition->Get();
             $notifyfriendaddition = $notifyfriendaddition->Get();
-            
+
+            var_dump( $education);
+            var_dump( $school );
+            die;
+
             if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
                 if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
                     $user->Profile->BirthDay = $dobd;
