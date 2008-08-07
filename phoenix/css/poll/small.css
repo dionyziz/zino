@@ -84,12 +84,7 @@ div.pollsmall div.results dl.pollinfo dd, div.pollsmall div.results dl.pollinfo2
 	font-size: 80%;
 }
 div.pollsmall div.results a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1216px;
-	/*
-	background-image: url( 'http://static.zino.gr/phoenix/iconlist.png' );
-	background-position: 0 -670px;
-	background-repeat: no-repeat;
-	*/
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1215px;
 	padding-left: 16px;
 }
 div.pollsmall div.voting {
