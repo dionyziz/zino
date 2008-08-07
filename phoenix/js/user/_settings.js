@@ -45,15 +45,15 @@ var Settings = {
 	FocusSettingLink : function( li , focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-				$( li ).addClass( 'selected' )
-				.removeClass( tabname )
+				$( li ).removeClass( tabname )
+				.addClass( 'selected' )
 				.addClass( 'selected' + tabname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 			else {
-				$( li ).addClass( 'selected' )
-				.removeClass( tabname )
-				.addClass( 'selected' + tabname );
+				$( li ).removeClass( 'selected' )
+				.removeClass( 'selected' + tabname )
+				.addClass( tabname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 		}
