@@ -42,7 +42,7 @@ var Settings = {
 			Settings.FocusSettingLink( settingslis[ 0 ] , true , validtabs[ 0 ] );
 		}
 	},
-	FocusSettingLink : function( li, focus ) {
+	FocusSettingLink : function( li , focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
 				$( li ).addClass( 'selected' )
