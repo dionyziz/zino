@@ -111,3 +111,6 @@ var Tag = {
         Tag.run = false;
     }
 };
+$( document ).ready( function() {
+        $( 'dd.addtag a' ).toggle( Tag.start, function() { Tag.close( event );return false; } );
+    } );

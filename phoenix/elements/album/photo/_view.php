@@ -120,7 +120,7 @@
                         ?></a></dd><?php
                     }
                     if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
-                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false );return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
