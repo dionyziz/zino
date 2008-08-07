@@ -36,7 +36,7 @@
                             ?><li>
                                 <div class="aplbubble">
 									<span class="aplbubbleleft">&nbsp;</span>
-                                    <span class="aplbubblemiddle" style="margin-left:0.5px"><?php
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
                                     <a href="" onclick="Settings.RemoveInterest( '<?php

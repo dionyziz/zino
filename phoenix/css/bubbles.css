@@ -147,9 +147,8 @@ div.aplbubble span.aplbubblemiddle {
 	vertical-align: -1px;
 }
 div.aplbubble a.delete {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
+	padding-left: 12px;
 	position: absolute;
-}
-div.aplbubble a.delete img {
-	margin: 1px 0 0 0;
 }
 
