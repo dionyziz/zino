@@ -35,12 +35,9 @@
         if ( $photoowner->Id != $user->Id 
              || $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH ) {
              /*?>alert( 'Δεν έχεις καμία σχέση με τον κάτοχο της φωτογραφίας' );
-             alert( 
-             echo $relationfinder->IsFriend( $photoowner, $user );
-             ?> );
              window.location.reload();<?php*/
              var_dump( $photoowner->Id != $user->Id  );
-             var_dump( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH );
+             var_dump( ( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH ) != FRIENDS_BOTH );
              var_dump( $relationfinder->IsFriend( $photoowner, $user ) );
              var_dump( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH );
               var_dump( $photoowner->Id != $user->Id 
