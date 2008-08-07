@@ -79,16 +79,10 @@ var Settings = {
 		Settings.Dequeue();
 	},
 	AddInterest : function( type , typeid ) {
+		alert( 'create' );
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
-		if ( $.trim( intervalue ) == '' ) {
-			alert( 'true' );
-		}
-		else {
-			alert( 'false' );
-		}
 		if ( $.trim( intervalue ) !== '' ) {
-			alert( 'create' );
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
 				var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
