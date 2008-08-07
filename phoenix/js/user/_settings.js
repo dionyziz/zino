@@ -79,7 +79,6 @@ var Settings = {
 		Settings.Dequeue();
 	},
 	AddInterest : function( type , typeid ) {
-		alert( 'create' );
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( $.trim( intervalue ) !== '' ) {
@@ -466,6 +465,7 @@ $( document ).ready( function() {
 			}
 		} );
 		$( 'form#interestsinfo div.option div.setting div.hobbies a' ).click( function() {
+			alert( 'create hobby' );
 			Settings.AddInterest( 'hobbies' , 1 );
 			if ( Suggest.timeoutid.hobbies !== false ) {
 				window.clearTimeout( Suggest.timeoutid.hobbies );
