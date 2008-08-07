@@ -112,5 +112,12 @@ var Tag = {
     }
 };
 $( document ).ready( function() {
-        $( 'dd.addtag a' ).toggle( function() { Tag.start( false );return false; }, function( event ) { Tag.close( event );return false; } );
+        $( 'dd.addtag a' ).click( function( event ) {
+                if ( Tag.run ) {
+                    Tag.close( event );
+                    return false;
+                }
+                Tag.start( false );
+            } );
+
     } );
