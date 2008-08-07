@@ -180,61 +180,11 @@
                 }
                 ?><div class="thephoto"><?php
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
-                ?></div><?php
-                /*
-                if ( $image->Album->Numphotos > 1 ) {
-                    ?><div class="photothumbs"><?php
-                        $finder = New ImageFinder();
-                        $photos = $finder->FindAround( $image , 12 );
-                        $pivot = $i = 0;
-                        foreach ( $photos as $photo ) {
-                            if ( $photo->Id == $image->Id ) {
-                                $pivot = $i;
-                                break;
-                            }
-                            ++$i;
-                        }
-                        if ( $pivot > 0 ) {
-                            ?><div class="left arrow">
-                                <a href="?p=photo&amp;id=<?php
-                                echo $photos[ $pivot - 1 ]->Id;
-                                ?>" class="nav"><img src="images/previous.jpg" alt="Προηγούμενη" title="Προηγούμενη" class="hoverclass" /></a>
-                            </div><?php
-                        }
-                        if ( $pivot + 1 < count( $photos ) && count( $photos ) > 1 ) {
-                            ?><div class="right arrow">
-                                <a href="?p=photo&amp;id=<?php
-                                echo $photos[ $pivot + 1 ]->Id;
-                                ?>" class="nav"><img src="images/next.jpg" alt="Επόμενη" title="Επόμενη" class="hoverclass" /></a>
-                            </div><?php
-                        }
-                        ?><ul><?php    
-                            if ( $pivot > 0 ) {
-                                for ( $i = 0; $i < $pivot ; ++$i ) {
-                                    ?><li><span><a href="?p=photo&amp;id=<?php
-                                    echo $photos[ $i ]->Id;
-                                    ?>"><?php
-                                    Element( 'image/view' , $photos[ $i ] , IMAGE_CROPPED_100x100, '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
-                                    ?></a></span></li><?php
-                                }
-                            }
-                            ?><li class="selected"><?php
-                                Element( 'image/view' , $photos[ $pivot ] , IMAGE_CROPPED_100x100, '' , $photos[ $pivot ]->Name , $photos[ $pivot ]->Name , '' , false , 0 , 0 );
-                            ?></li><?php
-                            if ( $pivot < 12 ) {                        
-                                for ( $i = $pivot + 1; $i < count( $photos ); ++$i ) {
-                                    ?><li><span><a href="?p=photo&amp;id=<?php
-                                    echo $photos[ $i ]->Id;
-                                    ?>"><?php
-                                    Element( 'image/view' , $photos[ $i ] , IMAGE_CROPPED_100x100 , '' , $photos[ $i ]->Name , $photos[ $i ]->Name , '' , false , 0 , 0 );
-                                    ?></a></span></li><?php
-                                }
-                            }
-                        ?></ul><?php
-                    ?></div><?php
-                }
-                */
-                ?><div class="comments"><?php
+                ?></div>
+				<div class="banner 728x90">
+					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
+				</div>
+                <div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
                         Element( 'comment/reply', $image->Id, TYPE_IMAGE );
