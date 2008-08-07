@@ -22,7 +22,7 @@
                     $jsarr .= "'" . $mutual_friend . "', ";
                 }
                 $jsarr = substr( $jsarr, 0, -2);
-                $jsarr .= " };";
+                $jsarr .= " ];";
                 
                 if ( !empty( $mutual ) ) {
                     $page->AttachInlineScript( $jsarr );
