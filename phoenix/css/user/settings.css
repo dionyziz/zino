@@ -72,22 +72,34 @@ li.personal a span{
 	padding: 0 0 22px 22px; 
 	float: left;
 }
-li a span {
+div.sidebar ol li a span {
 	background-repeat: no-repeat;
 	margin-left: -30px;
 	padding: 0 0 22px 22px;
 	float: left;
 }
-li.characteristics a span {
-    background: url('http://static.zino.gr/phoenix/icons.jpg') 0 -865px;;
+div.sidebar ol li.selectedcharacteristics a span {
+
 }
-li.interests a span {
+div.sidebar ol li.selectedinterests a span {
+
+}
+div.sidebar ol li.selectedcontact s span {
+
+}
+div.sidebar ol li.selectedsettings a span {
+
+}
+div.sidebar ol li.characteristics a span {
+    background: url('http://static.zino.gr/phoenix/icons.jpg') 0 -815px;
+}
+div.sidebar ol li.interests a span {
     background: url('http://static.zino.gr/phoenix/icons.jpg') -235px -342px;
 }
-li.contact a span {
+div.sidebar ol li.contact a span {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) -235px -618px;
 }
-li.settings a span {
+div.sidebar ol li.settings a span {
     background: url('http://static.zino.gr/phoenix/icons.jpg') -235px -72px;;
 }
 div.settings div.tabs {

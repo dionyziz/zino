@@ -26,30 +26,35 @@ var Settings = {
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
 				$( '#' + divtoshow + 'info' ).show();
-				Settings.FocusSettingLink( settingslis[ i ], true );
+				Settings.FocusSettingLink( settingslis[ i ], true , validtabs[ i ] );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
 			else {
 				$( '#' + validtabs[ i ] + 'info' ).hide();
-				Settings.FocusSettingLink( settingslis[ i ], false );
+				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );
 				
 			}
 		}
 		if ( !found ) {
 			$( '#' + validtabs[ 0 ] + 'info' ).show();
 			window.location.hash = window.location.hash.substr( 0, 1 ) + 'personal';
-			Settings.FocusSettingLink( settingslis[ 0 ] , true );
+			Settings.FocusSettingLink( settingslis[ 0 ] , true , validtabs[ 0 ] );
 		}
 	},
-	FocusSettingLink : function( li, focus ) {
+	FocusSettingLink : function( li, focus , tabname ) {
 		if ( li ) {
 			if ( focus ) {
-				$( li ).addClass( 'selected' );
+				$( li ).addClass( 'selected' )
+				.removeClass( tabname )
+				.addClass( 'selected' + tabname );
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
 			}
 			else {
-				$( li ).removeClass( 'selected' );
+				$( li ).removeClass( 'selected' )
+				.removeClass( 'selected' + tabname )
+				.addClass( tabname );
+				;
 				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
