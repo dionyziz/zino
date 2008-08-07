@@ -120,5 +120,3 @@ $( document ).ready( function() {
                 Tag.start( false );
             } );
     } );
-
-    } );
