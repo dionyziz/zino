@@ -58,7 +58,7 @@
                     ?></ul>
                     <div class="add hobbies">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
-                        <a href="" onclick="return false;"></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'hobbies' );"><option value=""/></select>
                         </form>
@@ -90,9 +90,7 @@
                     ?></ul>
                     <div class="add songs">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'songs' );Suggest.fire( event, 'songs' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'songs' );"><option value=""/></select>
                         </form>
@@ -124,9 +122,7 @@
                     ?></ul>
                     <div class="add movies">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'movies' );Suggest.fire( event, 'movies' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'movies' );"><option value=""/></select>
                         </form>
@@ -158,9 +154,7 @@
                     ?></ul>
                     <div class="add shows">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'shows' );Suggest.fire( event, 'shows' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'shows' );"><option value=""/></select>
                         </form>
@@ -192,9 +186,7 @@
                     ?></ul>
                     <div class="add books">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'books' );Suggest.fire( event, 'books' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'books' );"><option value=""/></select>
                         </form>
@@ -226,9 +218,7 @@
                     ?></ul>
                     <div class="add artists">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'artists' );Suggest.fire( event, 'artists' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'artists' );"><option value=""/></select>
                         </form>
@@ -260,9 +250,7 @@
                     ?></ul>
                     <div class="add games">
                         <input type="text" onkeyup="Suggest.inputMove( event, 'games' );Suggest.fire( event, 'games' );"  />
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                         <form action="">
                             <select onkeypress="Suggest.selectMove( event, 'games' );"><option value=""/></select>
                         </form>
