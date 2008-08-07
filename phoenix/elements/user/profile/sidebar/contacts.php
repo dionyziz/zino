@@ -7,33 +7,25 @@
             
             ?><dl><?php
                 if ( $theuser->Profile->Skype != '' ) {
-                    ?><dt><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>skype.jpg" alt="skype" title="Skype" /></dt>
+                    ?><dt class="skype"></dt>
                     <dd><?php 
                     echo htmlspecialchars( $theuser->Profile->Skype );
                     ?></dd><?php
                 }
                 if ( $theuser->Profile->Msn != '' ) {
-                    ?><dt><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>msn.jpg" alt="msn" title="MSN" /></dt>
+                    ?><dt class="msn"></dt>
                     <dd><?php
                     echo htmlspecialchars( $theuser->Profile->Msn );
                     ?></dd><?php
                 }
                 if ( $theuser->Profile->Gtalk != '' ) {
-                    ?><dt><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>gtalk.png" alt="gtalk" title="Gtalk" /></dt>
+                    ?><dt class="gtalk"></dt>
                     <dd><?php
                     echo htmlspecialchars( $theuser->Profile->Gtalk );
                     ?></dd><?php
                 }
                 if ( $theuser->Profile->Yim != '' ) {
-                    ?><dt><img src="<?php
-                    echo $rabbit_settings[ 'imagesurl' ];
-                    ?>/yahoo.jpg" alt="yahoo" title="Yahoo" /></dt>
+                    ?><dt class="yim"></dt>
                     <dd><?php
                     echo htmlspecialchars( $theuser->Profile->Yim );
                     ?></dd><?php

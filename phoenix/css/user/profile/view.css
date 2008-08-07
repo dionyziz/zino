@@ -190,6 +190,19 @@ div#profile div.sidebar div.contacts {
 div#profile div.sidebar div.contacts dt {
 	float: left;
 	height: 18px;
+	width: 18px;
+}
+div.contacts dl dt.skype {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -144px;
+}
+div.contacts dl dt.msn {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -821px;
+}
+div.contacts dl dt.gtalk {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -144px;
+}
+div.contacts dl dt.yim {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -470px -328px;
 }
 div#profile div.sidebar div.contacts dd {
 	height: 18px;
