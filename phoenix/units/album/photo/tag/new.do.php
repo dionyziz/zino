@@ -30,7 +30,7 @@
         // check for permissions
         $photoowner = $photo->User;
 
-        $relationfinder = New RelationFinder();
+        $relationfinder = New FriendRelationFinder();
         // check if user is owner of photo or friend of owner; you can't tag some unknown person's photos
         if ( $photoowner->Id != $user->Id 
              && $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH == FRIENDS_BOTH ) {
