@@ -81,6 +81,12 @@ var Settings = {
 	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
+		if ( $.trim( intervalue ) == '' ) {
+			alert( 'true' );
+		}
+		else {
+			alert( 'false' );
+		}
 		if ( $.trim( intervalue ) !== '' ) {
 			alert( 'create' );
 			if ( intervalue.length <= 32 ) {
