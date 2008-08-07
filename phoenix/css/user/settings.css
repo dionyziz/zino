@@ -334,4 +334,6 @@ span.invaliddob span {
 div.setting div.add a {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
 	padding-left: 16px;
+	margin-left: 5px;
+	vertical-align: 1px;
 }
