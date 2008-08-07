@@ -16,4 +16,5 @@
             echo htmlspecialchars( $educations[ $education ] );
         }
     }
+
 ?>
