@@ -20,6 +20,7 @@ div#pollview div.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
 	padding-left: 12px;
 	vertical-align: -1px;
+	margin-right: 2px;
 }
 div#pollview div.comments {
 	margin-top: 50px;
