@@ -16,7 +16,8 @@ div.settings div.sidebar div span  {
 	opacity: 0;
 }
 div.settings div.sidebar div span.saved span {
-    background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;    padding-left: 23px;
+    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;
+    padding-left: 23px;
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
