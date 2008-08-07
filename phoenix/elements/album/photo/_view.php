@@ -276,7 +276,10 @@
                     ?></div><?php
                 }
                 */
-                ?><div class="comments"><?php
+                ?><div class="banner 728x90">
+					<a href=""><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
+				</div>
+				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
                         Element( 'comment/reply', $image->Id, TYPE_IMAGE );
