@@ -16,15 +16,15 @@
         $photo = New Image( $photoid );
         $userfinder = New UserFinder();
         $theuser = $userfinder->FindByName( $username );
-        
-        //$theuser = New User( $userid );
 
         if ( !$theuser->Exists() ) {
-            // target user does not exist
+            ?>alert( 'Ο χρήστης αυτός είναι αποκύημα της φαντασίας σας' );
+            window.location.reload();<?php
             return;
         }
         if ( !$photo->Exists() ) {
-            // target photo does not exist
+            ?>alert( 'Η φωτογραφία που προσπαθείται να tagαρεται δεν υπάρχει' );
+            window.location.reload();<?php
             return;
         }
         // check for permissions
@@ -34,13 +34,15 @@
         // check if user is owner of photo or friend of owner; you can't tag some unknown person's photos
         if ( $photoowner->Id != $user->Id 
              && $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH == FRIENDS_BOTH ) {
-            // the user doing the tag doesn't know the owner of the photo -- don't allow the tagging
+             ?>alert( 'Δεν έχεις καμία σχέση με τον συγκεκριμένο χρήστη' );
+             window.location.reload();<?php
             return;
         }
 
         // now check that the tagged person is the friend of the user; you can't tag who doesn't know you
         if ( $relationfinder->IsFriend( $theuser, $user ) | FRIENDS_BOTH != FRIENDS_BOTH ) {
-            // the user doing the tag doesn't know the person they say they know on the picture -- don't allow the tagging
+            ?>alert( 'Ο συγκεκριμένος χρήστης δεν έχει καμία σχέση μαζί σας' );
+            window.location.reload();<?php
             return;
         }
 
