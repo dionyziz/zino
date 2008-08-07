@@ -20,7 +20,7 @@ var Tag = {
             var a = document.createElement( 'a' );
             a.onmousedown = function( event ) {
                     Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid, 'username' : kollitaria[ i ] } );
-                    kollitaria[ i ] = '';
+                    Tag.friends[ i ] = '';
                     Tag.close( event );
                     // add tag
                 };
