@@ -223,7 +223,7 @@
                         </div><?php
                     }
                 ?></div>
-				<div class="banner 728x90">
+				<div class="banner b728x90">
 					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
 				</div>
 				<div class="comments"><?php
