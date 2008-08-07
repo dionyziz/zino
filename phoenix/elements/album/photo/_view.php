@@ -211,7 +211,7 @@
                         ?><div class="tagme"></div>
                         <a name="tagging_area" class="ankh" href="" />
                         <div class="frienders">
-                            <a href="" class="closer" onclick="Tag.close( event );return false;" />
+                            <a href="" class="closer" onmousedown="Tag.close( event );return false;" />
                             <div>Ποιός είναι αυτός;</div>
                             <form action="">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
