@@ -82,6 +82,7 @@ var Settings = {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
 		if ( $.trim( intervalue ) !== '' ) {
+			alert( 'create' );
 			if ( intervalue.length <= 32 ) {
 				var newli = document.createElement( 'li' );
 				var newspan = $( 'div.settings div.tabs form#interestsinfo div.creation' )[ 0 ].cloneNode( true );
@@ -99,7 +100,6 @@ var Settings = {
 		}
 		else {
 			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
