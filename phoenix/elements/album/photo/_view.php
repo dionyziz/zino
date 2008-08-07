@@ -209,7 +209,7 @@
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div>
-                        <a name="tagging_area" href=""></a>
+                        <a name="tagging_area" class="ankh" href=""></a>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="">
