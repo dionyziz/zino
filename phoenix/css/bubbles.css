@@ -150,5 +150,9 @@ div.aplbubble a.delete {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1412px;
 	padding: 0 0 3px 12px;
 	position: absolute;
+	float: right;
+	display: block;
+	width: 16px;
+	height: 16px;
 }
 
