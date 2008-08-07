@@ -4,7 +4,7 @@
         global $libs;
 
         $libs->Load( 'relation/relation' );
-        $libs->Load( 'images/tag' );
+        $libs->Load( 'image/tag' );
 
         if ( !$user->Exists() ) {
             // require login
