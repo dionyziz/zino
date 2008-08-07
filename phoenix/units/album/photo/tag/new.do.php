@@ -1,6 +1,9 @@
 <?php
     function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username ) {
         global $user;
+        global $libs;
+
+        $libs->Load( 'relation/relation' );
 
         if ( !$user->Exists() ) {
             // require login
