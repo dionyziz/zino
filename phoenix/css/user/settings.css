@@ -25,7 +25,6 @@ div.settings div.sidebar a.backtoprofile {
     margin: 10px;
     display: block;
     height: 30px;
-    line-height: 30px;
     border: 1px solid #ccf;
     font-weight: bold;
     text-align: center;
@@ -33,8 +32,9 @@ div.settings div.sidebar a.backtoprofile {
 div.settings div.sidebar a.backtoprofile span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px 0;
 	float: right;
-	padding: 0 0 22px 22px;
+	padding: 0 0 0 16px;
 	margin-top: -25px;
+	line-height: 22px;
 }
 div.settings div.sidebar ol {
     list-style: none;
