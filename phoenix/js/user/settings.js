@@ -43,7 +43,7 @@ var Settings = {
 		}
 	},
 	FocusSettingLink : function( li, focus , tabname ) {
-		alert( tabname );
+		alert( 'tabname is' + tabname );
 		if ( li ) {
 			if ( focus ) {
 				$( li ).addClass( 'selected' )
