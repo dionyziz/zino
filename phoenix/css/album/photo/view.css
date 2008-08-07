@@ -123,8 +123,11 @@ div#photoview div.thephoto {
 	position: relative;
 	margin: auto;
 }
+div#photoview div.banner {
+	margin-top: 20px;
+}
 div#photoview div.comments {
-	margin-top: 50px;
+	margin-top: 20px;
 }
 div#photoview div.comments div.pagifycomments {
 	text-align: center;
