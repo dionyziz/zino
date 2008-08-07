@@ -51,13 +51,18 @@ div.pollsmall div.results ul li dl dd div.percentagebar {
 }
 div.pollsmall div.results ul li dl dd div.percentagebar div.leftrounded {
 	float: left;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -953px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -952px;
 	height: 13px;
 	width: 9px;
 }
 div.pollsmall div.results ul li dl dd div.percentagebar div.rightrounded {
 	float: right;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1016px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1015px;
+	/*
+	background: url( 'http://static.zino.gr/phoenix/iconlist.png' ) no-repeat -80px -113px;
+	background-position: -80px -113px;
+	background-repeat: no-repeat;
+	*/
 	height: 13px;
 	width: 9px;
 }
