@@ -41,30 +41,38 @@ div#polllist ul li div.results dl.pollinfo dd a {
 div#polllist ul li div.results ul li {
 	padding: 5px 0 1px 0;
 }
-div#polllist div.creationmockup {
+div.creationmockup {
 	border: 1px solid #ccc;
 	border-style: dotted;
 	padding: 15px;
 	width: 450px;
 	display: none;
 }
-div#polllist div.creationmockup div input {
+div.creationmockup div input {
 	width: 300px;
+	padding: 2px;
 }
-div#polllist div.creationmockup div a {
+div.creationmockup div a.createpoll {
 	margin-left: 3px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
 }
-div#polllist div.creationmockup div.tip , div#polllist div.tip2 {
+div.creationmockup div.tip , div#polllist div.tip2 {
 	font-size: 90%;
 	margin-top: 5px;
 }
-div#polllist div.creationmockup div.tip span , div#polllist div.tip2 span {
+div.creationmockup div.tip span , div#polllist div.tip2 span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1599px;
 	padding: 0 5px 0 12px;
 }
-div#polllist div.tip2 {
+div.creationmockup div.tip2 {
 	display: none;
 	margin-bottom: 25px;
+}
+div.creationmockup div.newoption {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1544px;
+	padding-left: 10px;
+	margin: 2px 0;
+	overflow: hidden;
 }
 div#polllist div.creatingpoll {
 	display: none;
@@ -80,12 +88,6 @@ div#polllist ul li.create a {
 div#polllist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
-}
-div#polllist ul li div.creationmockup div.newoption {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1544px;
-	padding-left: 10px;
-	margin: 2px 0;
-	overflow: hidden;
 }
 div#polllist  div.pagifypolls {
 	text-align: center;

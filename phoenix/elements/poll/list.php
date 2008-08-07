@@ -73,9 +73,7 @@
                 if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                     ?><div class="creationmockup">
                         <div>
-                            <input type="text" /><a href=""><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>accept.png" alt="Δημιουργία" title="Δημιουργία" /></a>
+                            <input type="text" /><a href="" title="Δημιουργία" class="createpoll"></a>
                         </div>
                         <div class="tip">
                             <span>&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου
