@@ -163,28 +163,30 @@ div.settings div.tabs form div div.setting {
 div.settings div.tabs form#contactinfo div div.setting input {
 	width: 300px;
 }
-div.settings div.tabs form#interestsinfo div.option {
+form#interestsinfo div.option {
 	margin: 10px 0;
 }
-div.settings div.tabs form#interestsinfo div.option div.setting div.add {
+form#interestsinfo div.option div.setting div.add {
 	padding-top: 20px;
 	clear: left;
 }
-div.settings div.tabs form#interestsinfo div.option div.setting div.add input {
+form#interestsinfo div.option div.setting div.add a {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
+	padding-left: 16px;
+	margin-left: 5px;
+	vertical-align: 1px;
+}
+form#interestsinfo div.option div.setting div.add input {
 	width: 200px;
 }
-div.settings div.tabs form#interestsinfo div.option div.setting div.add a {
-	margin-left: 1px;
-	vertical-align: -2px;
-}
-div.settings div.tabs form#interestsinfo div.option div.setting div.add form {
+form#interestsinfo div.option div.setting div.add form {
 	display: none;
 }
-div.settings div.tabs form#interestsinfo div.option div.setting div.add form select {
+form#interestsinfo div.option div.setting div.add form select {
 	width: 200px;
 	border-top-width: 0px;
 }
-div.settings div.tabs form#interestsinfo div.creation {
+form#interestsinfo div.creation {
 	display: none;
 }
 div.settings div.tabs form div div.setting ul.interesttags {
@@ -330,11 +332,4 @@ div.settings div.explanation {
 span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
 	padding: 0 4px 0 12px;
-}
-div.setting div.add a {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
-	padding-left: 16px;
-	margin-left: 5px;
-	vertical-align: 1px;
-	display: none;
 }
