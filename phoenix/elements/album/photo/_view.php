@@ -12,6 +12,11 @@
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
             
+            $id = $id->Get();
+            $commentid = $commentid->Get();
+            $pageno = $pageno->Get();
+            $image = New Image( $id );
+            
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
@@ -22,7 +27,7 @@
                     $jsarr .= "'" . $mutual_friend . "', ";
                 }
                 $jsarr = substr( $jsarr, 0, -2);
-                $jsarr .= " ];";
+                $jsarr .= " ];Tag.photoid = " . $id . ";";
                 
                 if ( !empty( $mutual ) ) {
                     $page->AttachInlineScript( $jsarr );
@@ -30,10 +35,6 @@
             }
             $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
-            $id = $id->Get();
-            $commentid = $commentid->Get();
-            $pageno = $pageno->Get();
-            $image = New Image( $id );
             
             if( !$image->Exists() ) {
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
@@ -119,7 +120,7 @@
                         }
                         ?></a></dd><?php
                     }
-                    if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
+                    if ( $user->HasPermission( PERMISSION_TAG_CREATE ) && !empty( $mutual ) ) {
                         ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php

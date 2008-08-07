@@ -1,4 +1,5 @@
 var Tag = {
+    photoid : false,
     friends : [],
     clicked : false,
     run : false,
@@ -10,12 +11,17 @@ var Tag = {
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
         for( var i=0; i < len; ++i ) {
+            if ( kollitaria[i] === '' ) {
+                continue;
+            }
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
             
             var a = document.createElement( 'a' );
             a.onmousedown = function( event ) {
-                    Tag.ekso( event );
+                    Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid, 'username' : kollitaria[ i ] } );
+                    Tag.close( event );
+                    // add tag
                 };
             a.appendChild( document.createTextNode( kollitaria[ i ] ) );
             li.appendChild( a );
