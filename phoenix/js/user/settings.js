@@ -20,6 +20,7 @@ var Settings = {
 	renewpassworderror : false,
 	SwitchSettings : function( divtoshow ) {
 		//hack so that it is executed only when it is loaded
+		alert( 'test' );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
 		var settingslis = $( 'div.settings div.sidebar ol li' );
