@@ -22,7 +22,7 @@
                                 ?> selected="selected"<?php
                             }
                             ?>><?php
-                            Element( 'user/trivial/school', $uni );
+                            Element( 'user/trivial/school', $school );
                             ?></option><?php
                         }
                     ?></select><?php
