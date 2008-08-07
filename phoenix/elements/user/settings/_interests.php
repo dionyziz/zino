@@ -82,11 +82,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -118,11 +116,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -150,20 +146,14 @@
                         foreach ( $shows as $show) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" alt="" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" alt="" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -190,20 +180,14 @@
                         foreach ( $books as $book ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" alt="" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" alt="" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -228,22 +212,16 @@
                 <div class="setting">
                     <ul class="interesttags artists"><?php
                         foreach ( $artists as $artist ) {
-                            ?><li>
+	                        ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" alt="" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" alt="" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -270,20 +248,14 @@
                         foreach ( $games as $game ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" alt="" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" alt="" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
@@ -300,16 +272,10 @@
                 </div>
             </div>
             <div class="aplbubble creation">
-                <img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_left.png" alt="" />
-                <span></span>
-                <a href="" style="display:none;" class="delete"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>delete.png" alt="" /></a>
-                <img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_right.png" alt="" />
+				<span class="aplbubbleleft">&nbsp;</span>
+				<span class="aplbubblemiddle"></span>
+				<a href="" class="delete">&nbsp;</a>
+				<span class="aplbubbleright">&nbsp;</span>
             </div><?php
         }
     }
