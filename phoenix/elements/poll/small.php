@@ -72,7 +72,7 @@
                             ?>">
                                 <dd><a href="?p=poll&amp;id=<?php
                                 echo $poll->Id;
-                                ?>"><?php
+                                ?>"><span>&nbsp;</span><?php
                                 echo $poll->Numcomments;
                                 ?> σχόλι<?php
                                 if ( $poll->Numcomments == 1 ) {
