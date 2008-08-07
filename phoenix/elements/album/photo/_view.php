@@ -16,7 +16,7 @@
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $relfinder = New FriendRelationFinder();
-                $mutual = $relfinder->FindMutualByUser( $user->Id );
+                $mutual = $relfinder->FindMutualByUser( $user );
                 $jsarr = "Tag.friends = [ ";
                 foreach( $mutual as $mutual_friend ) {
                     $jsarr .= "'" . $mutual_friend . "', ";
