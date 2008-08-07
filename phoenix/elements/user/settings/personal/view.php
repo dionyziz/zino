@@ -16,9 +16,7 @@
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth"><?php
                     Element( 'user/settings/personal/dob' );
-                ?><span class="invaliddob"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>exclamation.png" alt="" /> Η ημερομηνία δεν είναι έγκυρη
+                ?><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη
                 </span>
                 </div>
             </div>

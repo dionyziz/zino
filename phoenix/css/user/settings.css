@@ -320,3 +320,7 @@ div.settings div.explanation {
     font-size: 90%;
     margin-top: 10px;
 }
+span.invaliddob span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
+	padding-left: 12px;
+}
