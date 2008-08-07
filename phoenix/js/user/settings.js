@@ -20,21 +20,18 @@ var Settings = {
 	renewpassworderror : false,
 	SwitchSettings : function( divtoshow ) {
 		//hack so that it is executed only when it is loaded
-		alert( 'test' );
 		var validtabs = [ 'personal', 'characteristics', 'interests', 'contact', 'settings' ];
 		var found = false;
 		var settingslis = $( 'div.settings div.sidebar ol li' );
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
 				$( '#' + divtoshow + 'info' ).show();
-				alert( 'focusing' );
 				Settings.FocusSettingLink( settingslis[ i ], true , validtabs[ i ] );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
 			else {
 				$( '#' + validtabs[ i ] + 'info' ).hide();
-				alert( 'unfocusing' );
 				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );
 				
 			}
@@ -46,7 +43,6 @@ var Settings = {
 		}
 	},
 	FocusSettingLink : function( li, focus , tabname ) {
-		alert( 'tabname is' + tabname );
 		if ( li ) {
 			if ( focus ) {
 				$( li ).addClass( 'selected' )
