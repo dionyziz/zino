@@ -1,15 +1,16 @@
 div.thephoto div {
     display: none;
 }
+/*
 div.thephoto a {
     position: absolute;
-    left: 270px;
-    top: 100px;
-}
+    left: 0px;
+    top: 0px;
+}*/
 div.thephoto div.frienders {
     position: absolute;
-    left: 270px;
-    top: 100px;
+    left: 0px;
+    top: 0px;
     border-style: solid;
     border-width: 1px;
     background-color: white;
