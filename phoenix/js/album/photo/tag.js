@@ -24,7 +24,13 @@ var Tag = {
         $( 'div.thephoto div' ).show();
         $( 'div.thephoto div.frienders form input' ).focus();
         if ( !Tag.run ) {
-            document.location.href += "#tagging_area";
+            var locate = window.location;
+            if ( locate.substr( locate.length-13 ) != "#tagging_area" ) {
+                window.location += "#tagging_area";
+            }
+            else {
+                window.location = window.location;
+            }
         }
         Tag.run = true;
     },
@@ -66,7 +72,7 @@ var Tag = {
             Tag.focus( event );
         }
     },
-    ekso : function( event ) {
+    ekso : function( event ) { // Works as bubble canceling function
         if ( $.browser.msie ) {
             event.cancelBubble = true;
         }
@@ -99,5 +105,9 @@ var Tag = {
                         return ( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
         Tag.start( friends );
+    },
+    close : function( event ) {
+        $( 'div.thephoto div' ).hide();
+        Tag.run = false;
     }
 };
