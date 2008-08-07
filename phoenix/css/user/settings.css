@@ -75,7 +75,7 @@ li.personal a span{
 div.sidebar ol li a span {
 	background-repeat: no-repeat;
 	margin-left: -30px;
-	padding: 0 0 22px 22px;
+	padding-left: 22px;
 	float: left;
 }
 div.sidebar ol li.selectedcharacteristics a span {
