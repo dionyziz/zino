@@ -1,5 +1,5 @@
 <?php
-    function UnitAlbumPhotoTagNew( tInteger $photoid, tInteger $userid ) {
+    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username ) {
         global $user;
 
         if ( !$user->Exists() ) {
@@ -8,10 +8,13 @@
         }
 
         $photoid = $photoid->Get();
-        $userid = $userid->Get();
+        $username = $username->Get();
 
         $photo = New Image( $photoid );
-        $theuser = New User( $userid );
+        $userfinder = New UserFinder();
+        $theuser = $userfinder->FindByName( $username );
+        
+        //$theuser = New User( $userid );
 
         if ( !$theuser->Exists() ) {
             // target user does not exist
@@ -41,7 +44,7 @@
         // all OK, proceed
         $tag = New ImageTag();
         $tag->Imageid = $photoid;
-        $tag->Personid = $userid;
+        $tag->Personid = $theuser->Id;
         $tag->Save();
     }
 ?>
