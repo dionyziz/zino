@@ -27,12 +27,14 @@ var Settings = {
 			if ( divtoshow == validtabs[ i ] ) {
 				$( '#' + divtoshow + 'info' ).show();
 				Settings.FocusSettingLink( settingslis[ i ], true , validtabs[ i ] );
+				alert( 'focused' );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
 			else {
 				$( '#' + validtabs[ i ] + 'info' ).hide();
 				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );
+				alert( 'unfocused' );
 				
 			}
 		}
