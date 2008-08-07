@@ -331,3 +331,7 @@ span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
 	padding: 0 4px 0 12px;
 }
+div.setting div.add a {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
+	padding-left: 16px;
+}
