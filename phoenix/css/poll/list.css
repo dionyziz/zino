@@ -64,7 +64,7 @@ div.creationmockup div.tip span , div#polllist div.tip2 span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1599px;
 	padding: 0 5px 0 12px;
 }
-div.creationmockup div.tip2 {
+div#polllist div.tip2 {
 	display: none;
 	margin-bottom: 25px;
 }
