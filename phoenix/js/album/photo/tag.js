@@ -23,7 +23,7 @@ var Tag = {
         }
         $( 'div.thephoto div' ).show();
         $( 'div.thephoto div.frienders form input' ).focus();
-        document.location.href = "#tagging_area";
+        document.location.href += "#tagging_area";
         Tag.run = true;
     },
     focus : function( event ) {
