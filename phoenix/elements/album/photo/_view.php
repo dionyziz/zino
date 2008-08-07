@@ -10,10 +10,21 @@
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
+            $libs->Load( 'relation/relation' );
             
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
-            $page->AttachInlineScript( "Tag.friends = [ 'albert', 'arigato', 'aribas', 'arnaki', 'blueman', 'friderikos', 'tsiki tsiki' ];" );
+            $relfinder = New FriendRelationFinder();
+            $mutual = $relfinder->FindMutualByUser( $user->Id );
+            $jsarr = "Tag.friends = [ ";
+            foreach( $mutual as $mutual_friend ) {
+                $jsarr .= "'" . $mutual_friend . "', ";
+            }
+            $jsarr = substr( $jsarr, 0, -2);
+            $jsarr .= " };";
+            if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
+                $page->AttachInlineScript( $jsarr );
+            }
             $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
             $id = $id->Get();
@@ -105,8 +116,10 @@
                         }
                         ?></a></dd><?php
                     }
-                    ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false );return false;">Γνωρίζεις κάποιον;</a></dd>
-                 </dl><?php
+                    if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
+                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false );return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                    }
+                 ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
                         <div class="edit"><a href="" onclick="PhotoView.Rename( '<?php

@@ -49,4 +49,7 @@
 
    //statistics permissions
    define( 'PERMISSION_STATISTICS_VIEW', 50 );
+   
+   //photo tagging permissions
+   define( 'PERMISSION_TAG_CREATE', 30 );
 ?>
