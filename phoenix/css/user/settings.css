@@ -322,5 +322,5 @@ div.settings div.explanation {
 }
 span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
-	padding-left: 12px;
+	padding: 0 4px 0 12px;
 }
