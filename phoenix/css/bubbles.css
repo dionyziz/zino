@@ -143,8 +143,8 @@ div.aplbubble span.aplbubbleright {
 	padding: 0 0 3px 19px;
 }
 div.aplbubble span.ablbubblemiddle {
-	margin: 0 0 3px -6px;
-	vertical-align: 4px;
+	margin: 0 0 0 -7px;
+	vertical-align: -1px;
 }
 div.aplbubble a.delete {
 	position: absolute;
