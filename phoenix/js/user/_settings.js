@@ -54,7 +54,7 @@ var Settings = {
 				$( li ).removeClass( 'selected' )
 				.removeClass( 'selected' + tabname )
 				.addClass( tabname );
-				li.getElementsByTagName( 'a' )[ 0 ].style.color = 'white';
+				li.getElementsByTagName( 'a' )[ 0 ].style.color = '#105cb6';
 			}
 		}
 	},
