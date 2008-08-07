@@ -15,11 +15,8 @@ div.settings div.sidebar div span  {
 	display: none;
 	opacity: 0;
 }
-div.settings div.sidebar div span.saved {
-    background-image: url('http://static.zino.gr/phoenix/iconlist.png');
-    background-position: 0 -532px;
-    background-repeat: no-repeat;
-    padding-left: 25px;
+div.settings div.sidebar div span.saved span {
+    background-image: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1082px;    padding-left: 23px;
     height: 30px;
     line-height: 30px;
     vertical-align: middle;
@@ -34,8 +31,7 @@ div.settings div.sidebar a.backtoprofile {
     text-align: center;
 }
 div.settings div.sidebar a.backtoprofile span {
-	background-image: url('http://static.zino.gr/phoenix/forward22.png');
-    background-repeat: no-repeat;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px 0;
 	float: right;
 	padding: 0 0 22px 22px;
 	margin-top: -25px;
@@ -69,40 +65,30 @@ div.settings div.sidebar ol li a {
     border-bottom: 1px solid #eef;
     display: block;
 }
-div.settings div.sidebar ol li.personal a span{
+li.personal a span{
     background-image: url('http://static.zino.gr/phoenix/info.png');
 	background-repeat: no-repeat;
 	margin-left: -30px; 
 	padding: 0 0 22px 22px; 
 	float: left;
 }
-div.settings div.sidebar ol li.characteristics a span {
-    background-image: url('http://static.zino.gr/phoenix/bookmark.png');
+li a span {
 	background-repeat: no-repeat;
-	margin-left: -30px; 
-	padding: 0 0 22px 22px; 
+	margin-left: -30px;
+	padding: 0 0 22px 22px;
 	float: left;
 }
-div.settings div.sidebar ol li.interests a span {
-    background-image: url('http://static.zino.gr/phoenix/idea.png');
-	background-repeat: no-repeat;
-	margin-left: -30px; 
-	padding: 0 0 22px 22px; 
-	float: left;
+li.characteristics a span {
+    background: url('http://static.zino.gr/phoenix/icons.jpg') 0 -865px;;
 }
-div.settings div.sidebar ol li.contact a span {
-    background-image: url('http://static.zino.gr/phoenix/kontact_mail.png');
-	background-repeat: no-repeat;
-	margin-left: -30px; 
-	padding: 0 0 22px 22px; 
-	float: left;
+li.interests a span {
+    background: url('http://static.zino.gr/phoenix/icons.jpg') -235px -342px;
 }
-div.settings div.sidebar ol li.settings a span {
-    background-image: url('http://static.zino.gr/phoenix/gear.png');
-	background-repeat: no-repeat;
-	margin-left: -30px; 
-	padding: 0 0 22px 22px; 
-	float: left;
+li.contact a span {
+    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) -235px -618px;
+}
+li.settings a span {
+    background: url('http://static.zino.gr/phoenix/icons.jpg') -235px -72px;;
 }
 div.settings div.tabs {
     margin-right: 350px;

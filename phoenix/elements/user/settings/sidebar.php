@@ -16,11 +16,11 @@
                 echo $rabbit_settings[ 'imagesurl' ];
                 ?>ajax-loader.gif" alt="Αποθήκευση" /> Αποθήκευση...
                 </span>
-                <span class="saved">Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
+                <span class="saved"><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
             </div>
             <a class="backtoprofile button" style="padding-top:0;padding-bottom:0;" href="<?php
             Element( 'user/url' , $user );
-            ?>">Επιστροφή στο προφίλ<span></span></a><?php
+            ?>">Επιστροφή στο προφίλ<span>&nbsp;</span></a><?php
         }
     }
 ?>
