@@ -1,5 +1,5 @@
 <?php
-    
+
     class ElementUserSettingsPersonalEducation extends Element {
         public function Render() {
             global $user;
@@ -20,4 +20,5 @@
             ?></select><?php
         }
     }
+
 ?>
