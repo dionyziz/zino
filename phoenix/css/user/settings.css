@@ -336,4 +336,5 @@ div.setting div.add a {
 	padding-left: 16px;
 	margin-left: 5px;
 	vertical-align: 1px;
+	display: none;
 }
