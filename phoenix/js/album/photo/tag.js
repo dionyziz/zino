@@ -6,7 +6,7 @@ var Tag = {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
-        var len = ( kollitaria.length < 25 ) ? kollitaria.length : 25;
+        var len = ( kollitaria.length < 15 ) ? kollitaria.length : 15;
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
         for( var i=0; i < len; ++i ) {
