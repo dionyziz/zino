@@ -47,6 +47,8 @@
             return $ret;
         }
         public function FindMutualByUser( $user, $offset = 0, $limit = 10000 ) {
+            global $water;
+        
             // Cool Query by kostis90gr and dionyziz
             $query = $this->mDb->Prepare( '
                 SELECT 
@@ -74,6 +76,8 @@
             while( $row = $res->FetchArray() ) {
                 $ret[] = $row[ 'user_name' ];
             }
+            
+            $water->Trace( count( $ret ) );
             
             return $ret;
         }
