@@ -118,5 +118,6 @@ $( document ).ready( function() {
                     return false;
                 }
                 Tag.start( false );
+                return false;
             } );
     } );
