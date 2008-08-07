@@ -1,6 +1,6 @@
 <?php
 
-    function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tText $gender , tInteger $place , tText $education , tInteger $school , tInteger $mood , tText $sex , tText $religion , tText $politics , tText $slogan , tText $aboutme , tText $favquote , tText $haircolor , tText $eyecolor , tInteger $height , tInteger $weight , tText $smoker , tText $drinker , tText $email , tText $msn , tText $gtalk , tText $skype , tText $yahoo , tText $web , tText $oldpassword , tText $newpassword , tText $emailprofilecomment , tText $notifyprofilecomment , tText $emailphotocomment , tText $notifyphotocomment , tText $emailpollcomment , tText $notifypollcomment , tText $emailjournalcomment , tText $notifyjournalcomment , tText $emailreply , tText $notifyreply , tText $emailfriendaddition , tText $notifyfriendaddition ) {
+    function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tText $gender , tInteger $place , tInteger $education , tInteger $school , tInteger $mood , tText $sex , tText $religion , tText $politics , tText $slogan , tText $aboutme , tText $favquote , tText $haircolor , tText $eyecolor , tInteger $height , tInteger $weight , tText $smoker , tText $drinker , tText $email , tText $msn , tText $gtalk , tText $skype , tText $yahoo , tText $web , tText $oldpassword , tText $newpassword , tText $emailprofilecomment , tText $notifyprofilecomment , tText $emailphotocomment , tText $notifyphotocomment , tText $emailpollcomment , tText $notifypollcomment , tText $emailjournalcomment , tText $notifyjournalcomment , tText $emailreply , tText $notifyreply , tText $emailfriendaddition , tText $notifyfriendaddition ) {
         global $user;
 
         if ( $user->Exists() ) {
@@ -71,8 +71,7 @@
                 $user->Profile->Education = $education;
             }
             if ( $school ) {
-                $newschool = New School( $school );
-                $user->Profile->School = $newschool;
+                $user->Profile->School = New School( $school );
             }
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
@@ -247,7 +246,7 @@
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
                         ob_start();
-                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $typeid );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#university select' ).change( function() {
