@@ -20,7 +20,9 @@ div.thephoto div.frienders a.closer {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1155px;
     width: 10px;
     height: 10px;
-    margin: 5px 20px 0 0;
+    position: absolute;
+    top: 5px;
+    right: 20px;
 }
 div.thephoto div.frienders div {
     margin-top: 10px;
