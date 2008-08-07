@@ -135,12 +135,12 @@ div.aplbubble {
 	margin-right: 10px;
 }
 div.aplbubble span.aplbubbleleft {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat;
-	padding-left: 10px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -477px -1273px;
+	padding: 0 0 3px 10px;
 }
 div.aplbubble span.aplbubbleright {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat;
-	padding-left: 19px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -464px -1306px;
+	padding: 0 0 3px 19px;
 }
 div.aplbubble span.ablbubblemiddle {
 	margin: 0 0 3px -6px;
