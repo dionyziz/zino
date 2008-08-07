@@ -59,7 +59,7 @@
                     LEFT JOIN :users ON
                         a.relation_friendid = `user_id`
                 WHERE 
-                    `relation_userid` = :userid
+                    a.relation_userid = :userid
                 LIMIT
                     :offset, :limit
                 ;' );

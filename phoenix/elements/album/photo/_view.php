@@ -14,16 +14,19 @@
             
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
-            $relfinder = New FriendRelationFinder();
-            $mutual = $relfinder->FindMutualByUser( $user->Id );
-            $jsarr = "Tag.friends = [ ";
-            foreach( $mutual as $mutual_friend ) {
-                $jsarr .= "'" . $mutual_friend . "', ";
-            }
-            $jsarr = substr( $jsarr, 0, -2);
-            $jsarr .= " };";
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
-                $page->AttachInlineScript( $jsarr );
+                $relfinder = New FriendRelationFinder();
+                $mutual = $relfinder->FindMutualByUser( $user->Id );
+                $jsarr = "Tag.friends = [ ";
+                foreach( $mutual as $mutual_friend ) {
+                    $jsarr .= "'" . $mutual_friend . "', ";
+                }
+                $jsarr = substr( $jsarr, 0, -2);
+                $jsarr .= " };";
+                
+                if ( !empty( $mutual ) ) {
+                    $page->AttachInlineScript( $jsarr );
+                }
             }
             $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
