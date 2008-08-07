@@ -54,9 +54,7 @@
                 <ul><?php
                     if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                         ?><li class="create">
-                            <a href="" class="new"><img src="<?php
-                            echo $rabbit_settings[ 'imagesurl' ];
-                            ?>add3.png" alt="Δημιουργία δημοσκόπησης" title="Δημιουργία δημοσκόπησης" />Δημιουργία δημοσκόπησης</a>
+                            <a href="" class="new"><span>&nbsp;</span>Δημιουργία δημοσκόπησης</a>
                         </li><?php
                     }
                     if ( !empty( $polls ) ) {
@@ -84,7 +82,7 @@
                         </div>
                     </div>
                     <div class="tip2">
-                        Γράψε μια επιλογή για τη δημοσκόπησή σου
+						<span>&nbsp;</span>Γράψε μια επιλογή για τη δημοσκόπησή σου
                     </div>
                     <div class="creatingpoll">
                         <img src="<?php
