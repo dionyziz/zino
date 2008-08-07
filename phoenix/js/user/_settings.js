@@ -95,14 +95,12 @@ var Settings = {
 			else {
 				alert( 'Το κείμενό σου μπορεί να έχει 32 χαρακτήρες το πολύ' );
 			}
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 		else {
 			alert( 'Δε μπορείς να προσθέσεις κενό ενδιαφέρον' );
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
-			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
+		$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value = '';
+		$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 	},
 	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
