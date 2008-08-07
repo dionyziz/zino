@@ -1,12 +1,11 @@
 div.thephoto div {
     display: none;
 }
-/*
 div.thephoto a {
     position: absolute;
-    left: 0px;
-    top: 0px;
-}*/
+    left: 50px;
+    top: 50px;
+}
 div.thephoto div.frienders {
     position: absolute;
     left: 170px;
