@@ -44,10 +44,8 @@
                         foreach ( $hobbies as $hobbie ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" style="" alt="" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle" style="margin-left:0.5px"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
                                     <a href="" onclick="Settings.RemoveInterest( '<?php
@@ -55,9 +53,7 @@
                                     ?>' , this );return false;" class="delete"><img src="<?php
                                     echo $rabbit_settings[ 'imagesurl' ];
                                     ?>delete.png" alt="" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" alt="" />
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
