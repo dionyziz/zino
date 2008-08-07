@@ -73,7 +73,7 @@
                 if ( $theuser->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_CREATE ) ) {
                     ?><div class="creationmockup">
                         <div>
-                            <input type="text" /><a href="" title="Δημιουργία" class="createpoll"></a>
+                            <input type="text" /><a href="" title="Δημιουργία" class="createpoll">&nbsp;</a>
                         </div>
                         <div class="tip">
                             <span>&nbsp;</span>Γράψε μια ερώτηση για τη δημοσκόπησή σου

@@ -55,6 +55,8 @@ div.creationmockup div input {
 div.creationmockup div a.createpoll {
 	margin-left: 3px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
+	padding-left: 12px;
+	
 }
 div.creationmockup div.tip , div#polllist div.tip2 {
 	font-size: 90%;
