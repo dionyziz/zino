@@ -65,13 +65,6 @@ div.settings div.sidebar ol li a {
     border-bottom: 1px solid #eef;
     display: block;
 }
-li.personal a span{
-    background-image: url('http://static.zino.gr/phoenix/info.png');
-	background-repeat: no-repeat;
-	margin-left: -30px; 
-	padding: 0 0 22px 22px; 
-	float: left;
-}
 div.sidebar ol li a span {
 	background-repeat: no-repeat;
 	margin-left: -30px;
@@ -84,12 +77,15 @@ div.sidebar ol li.selectedcharacteristics a span {
 div.sidebar ol li.selectedinterests a span {
 
 }
-div.sidebar ol li.selectedcontact s span {
+div.sidebar ol li.selectedcontact a span {
 
 }
 div.sidebar ol li.selectedsettings a span {
 
 }
+div.sidebar ol li.personal a span {
+    background: url('http://static.zino.gr/phoenix/icons.jpg') -235px -546px;
+}	
 div.sidebar ol li.characteristics a span {
     background: url('http://static.zino.gr/phoenix/icons.jpg') 0 -815px;
 }
