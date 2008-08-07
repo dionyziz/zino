@@ -209,8 +209,9 @@
                     Element( 'image/view' , $image , IMAGE_FULLVIEW, '' , $title , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
                         ?><div class="tagme"></div>
-                        <a name="tagging_area" class="ankh" href=""></a>
+                        <a name="tagging_area" class="ankh" href="" />
                         <div class="frienders">
+                            <a href="" class="closer" />
                             <div>Ποιός είναι αυτός;</div>
                             <form action="">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
