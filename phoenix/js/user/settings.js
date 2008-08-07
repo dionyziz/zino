@@ -79,6 +79,7 @@ var Settings = {
 		Coala.Warm( 'user/settings/save' , Settings.queue );
 		Settings.Dequeue();
 	},
+	/*
 	AddInterest : function( type , typeid ) {
 		//type can be either: hobbies, movies, books, songs, artists, games, quotes, shows
 		var intervalue = $( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].value;
@@ -105,6 +106,7 @@ var Settings = {
 			$( 'div.settings div.tabs form#interestsinfo div.option div.setting div.' + type + ' input' )[ 0 ].focus();
 		}
 	},
+	*/
 	RemoveInterest : function( tagid , node ) {
 		var parent = node.parentNode.parentNode;
 		$( node ).remove();
