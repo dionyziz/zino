@@ -56,12 +56,11 @@ div#polllist div.creationmockup div a {
 }
 div#polllist div.creationmockup div.tip , div#polllist div.tip2 {
 	font-size: 90%;
-	padding: 1px 0 0 20px;
 	margin-top: 5px;
 }
 div#polllist div.creationmockup div.tip span , div#polllist div.tip2 span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1559px;
-	padding-left: 12px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1599px;
+	padding: 0 5px 0 12px;
 }
 div#polllist div.tip2 {
 	display: none;
