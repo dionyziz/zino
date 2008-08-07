@@ -26,15 +26,15 @@ var Settings = {
 		for ( i = 0; i < validtabs.length; ++i ) {
 			if ( divtoshow == validtabs[ i ] ) {
 				$( '#' + divtoshow + 'info' ).show();
+				alert( 'focusing' );
 				Settings.FocusSettingLink( settingslis[ i ], true , validtabs[ i ] );
-				alert( 'focused' );
 				window.location.hash = window.location.hash.substr( 0, 1 ) + validtabs[ i ];
 				found = true;
 			}
 			else {
 				$( '#' + validtabs[ i ] + 'info' ).hide();
+				alert( 'unfocusing' );
 				Settings.FocusSettingLink( settingslis[ i ], false , validtabs[ i ] );
-				alert( 'unfocused' );
 				
 			}
 		}
