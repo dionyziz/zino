@@ -31,7 +31,7 @@
                                 ?><div class="delete">
                                     <a href="" onclick="PollView.Delete( '<?php
                                     echo $poll->Id;
-                                    ?>' );return false;">Διαγραφή
+                                    ?>' );return false;"><span>&nbsp;</span>Διαγραφή
                                     </a>
                                 </div><?php
                             }
