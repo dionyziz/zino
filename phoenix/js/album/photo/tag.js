@@ -112,5 +112,5 @@ var Tag = {
     }
 };
 $( document ).ready( function() {
-        $( 'dd.addtag a' ).toggle( Tag.start, function() { Tag.close( event );return false; } );
+        $( 'dd.addtag a' ).toggle( function() { Tag.start( false );return false; }, function( event ) { Tag.close( event );return false; } );
     } );
