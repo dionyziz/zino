@@ -34,12 +34,18 @@
         // check if user is owner of photo or friend of owner; you can't tag some unknown person's photos
         if ( $photoowner->Id != $user->Id 
              || $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH ) {
-             ?>alert( 'Δεν έχεις καμία σχέση με τον κάτοχο της φωτογραφίας' );
-             alert( <?php
+             /*?>alert( 'Δεν έχεις καμία σχέση με τον κάτοχο της φωτογραφίας' );
+             alert( 
              echo $relationfinder->IsFriend( $photoowner, $user );
              ?> );
-             window.location.reload();<?php
-            return;
+             window.location.reload();<?php*/
+             var_dump( $photoowner->Id != $user->Id  );
+             var_dump( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH );
+             var_dump( $relationfinder->IsFriend( $photoowner, $user ) );
+             var_dump( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH );
+              var_dump( $photoowner->Id != $user->Id 
+             || $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH );
+            die();
         }
 
         // now check that the tagged person is the friend of the user; you can't tag who doesn't know you
