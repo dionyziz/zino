@@ -42,7 +42,7 @@
                 <div class="setting" id="education"><?php
                     Element( 'user/settings/personal/education' );
                     ?><div class="forstudents<?php
-                    if ( $user->Profile->Education != "-" ) {
+                    if ( $user->Profile->Education > 0 ) {
                         ?> invisible<?php
                     }
                     ?>">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
