@@ -24,12 +24,12 @@ var Tag = {
         $( 'div.thephoto div' ).show();
         $( 'div.thephoto div.frienders form input' ).focus();
         if ( !Tag.run ) {
-            var locate = window.location;
+            var locate = document.location.href;
             if ( locate.substr( locate.length-13 ) != "#tagging_area" ) {
-                window.location += "#tagging_area";
+                document.location.href += "#tagging_area";
             }
             else {
-                window.location = window.location;
+                document.location.href = document.location.href;
             }
         }
         Tag.run = true;
