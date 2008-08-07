@@ -39,11 +39,9 @@
                                     <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $hobbie->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" alt="" /></a>
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -51,9 +49,7 @@
                     ?></ul>
                     <div class="add hobbies">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -68,29 +64,21 @@
                         foreach ( $songs as $song ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $song->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add songs">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -105,29 +93,21 @@
                         foreach ( $movies as $movie ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $movie->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add movies">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -142,29 +122,21 @@
                         foreach ( $shows as $show) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $show->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add shows">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+						<a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -179,29 +151,21 @@
                         foreach ( $books as $book ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $book->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add books">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -214,31 +178,23 @@
                 <div class="setting">
                     <ul class="interesttags artists"><?php
                         foreach ( $artists as $artist ) {
-                            ?><li>
+	                        ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $artist->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add artists">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+                        <a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -253,43 +209,29 @@
                         foreach ( $games as $game ) {
                             ?><li>
                                 <div class="aplbubble">
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_left.png" />
-                                    <span style="margin-left:0.5px"><?php
+									<span class="aplbubbleleft">&nbsp;</span>
+                                    <span class="aplbubblemiddle"><?php
                                     echo htmlspecialchars( $game->Text );
                                     ?></span>
-                                    <a href="" onclick="Settings.RemoveInterest( '<?php
+									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );return false;" class="delete"><img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>delete.png" /></a>
-                                    <img src="<?php
-                                    echo $rabbit_settings[ 'imagesurl' ];
-                                    ?>aplbubble_right.png" />
+                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
                         }
                     ?></ul>
                     <div class="add games">
                         <input type="text"/>
-                        <a href="" onclick="return false;"><img src="<?php
-                        echo $rabbit_settings[ 'imagesurl' ];
-                        ?>add.png" alt="Προσθήκη" title="Προσθήκη" /></a>
+						<a href="" onclick="return false;" title="Προσθήκη"></a>		
                     </div>
                 </div>
             </div>
             <div class="aplbubble creation">
-                <img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_left.png" />
-                <span></span>
-                <a href="" style="display:none;" class="delete"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>delete.png" /></a>
-                <img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>aplbubble_right.png" />
+				<span class="aplbubbleleft">&nbsp;</span>
+				<span class="aplbubblemiddle"></span>
+				<a href="" class="delete">&nbsp;</a>
+				<span class="aplbubbleright">&nbsp;</span>
             </div><?php
         }
     }
