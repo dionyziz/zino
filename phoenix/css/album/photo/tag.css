@@ -3,8 +3,8 @@ div.thephoto div {
 }
 div.thephoto a {
     position: absolute;
-    left: 50px;
-    top: 50px;
+    left: 0px;
+    top: 0px;
 }
 div.thephoto div.frienders {
     position: absolute;
