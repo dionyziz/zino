@@ -62,6 +62,8 @@
                         a.relation_friendid = `user_id`
                 WHERE 
                     a.relation_userid = :userid
+                ORDER BY
+                    `user_name` ASC
                 LIMIT
                     :offset, :limit
                 ;' );

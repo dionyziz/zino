@@ -6,9 +6,10 @@ var Tag = {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
+        var len = ( kollitaria.length < 25 ) ? kollitaria.length : 25;
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
-        for( var i=0; i < kollitaria.length; ++i ) {
+        for( var i=0; i < len; ++i ) {
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
             
