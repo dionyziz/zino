@@ -1,7 +1,6 @@
 var Tag = {
     photoid : false,
     friends : [],
-    already_friends : [],
     clicked : false,
     run : false,
     start : function( kollitaria ) {
