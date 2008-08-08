@@ -1,5 +1,5 @@
 <?php
-    
+
     class ElementUserSettingsPersonalSchool extends Element {
         public function Render( $placeid, $typeid ) {
             global $user;
