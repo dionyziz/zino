@@ -19,7 +19,13 @@ var Tag = {
             
             var a = document.createElement( 'a' );
             a.onmousedown = function( event ) {
-                    Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid, 'username' : kollitaria[ i ] } );
+                    var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
+                    var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
+                    Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
+                                                         'username' : kollitaria[ i ],
+                                                         'left' : left,
+                                                         'top' : top
+                                                        } );
                     Tag.friends[ i ] = '';
                     Tag.close( event );
                     // add tag

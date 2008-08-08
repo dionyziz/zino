@@ -1,5 +1,5 @@
 <?php
-    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username ) {
+    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username, tInteger $left, tInteger $top ) {
         global $user;
         global $libs;
 
@@ -13,6 +13,8 @@
 
         $photoid = $photoid->Get();
         $username = $username->Get();
+        $left = $left->Get();
+        $top = $top->Get();
 
         $photo = New Image( $photoid );
         $userfinder = New UserFinder();
@@ -38,14 +40,6 @@
              ?>alert( 'Δεν έχεις καμία σχέση με τον κάτοχο της φωτογραφίας' );
              window.location.reload();<?php
              return;
-             /*
-             var_dump( $photoowner->Id != $user->Id  );
-             var_dump( ( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH ) != FRIENDS_BOTH );
-             var_dump( $relationfinder->IsFriend( $photoowner, $user ) );
-             var_dump( $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH );
-              var_dump( $photoowner->Id != $user->Id 
-             || $relationfinder->IsFriend( $photoowner, $user ) | FRIENDS_BOTH != FRIENDS_BOTH );
-            die(); */
         }
 
         // now check that the tagged person is the friend of the user; you can't tag who doesn't know you
@@ -59,6 +53,9 @@
         $tag = New ImageTag();
         $tag->Imageid = $photoid;
         $tag->Personid = $theuser->Id;
+        $tag->Ownerid = $user->Id;
+        $tag->Left = $left;
+        $tag->Top = $top;
         $tag->Save();
     }
 ?>
