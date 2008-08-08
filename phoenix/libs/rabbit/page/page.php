@@ -38,7 +38,7 @@ abstract class Page {
         $this->mNaturalLanguage = $languagecode;
     }
     final protected function OutputStart() {
-        ob_start( 'ob_gzhandler' );
+        ob_start();
         // $this->mOutputLevel = ob_get_level();
     }
     final protected function OutputEnd() {
