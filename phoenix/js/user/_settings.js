@@ -250,7 +250,7 @@ $( document ).ready( function() {
 			Settings.Enqueue( 'education' , this.value , 1000 );
 		});
 		$( '#university select' ).change( function() {
-			Settings.Enqueue( 'university' , this.value , 1000 );
+			Settings.Enqueue( 'school' , this.value , 1000 );
 		});
 		$( '#sex select' ).change( function() {
 			Settings.Enqueue( 'sex' , this.value , 3000 );
