@@ -241,7 +241,7 @@
             $user->Save();
             $user->Profile->Save();
 
-            $showschool = $user->Profile->Education == 6 && $user->Profile->Placeid > 0;
+            $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
