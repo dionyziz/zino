@@ -17,7 +17,7 @@ var Tag = {
             }
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
-            if ( $.inArray( kollitaria[ i ], already_tagged ) {
+            if ( $.inArray( kollitaria[ i ], already_tagged ) ) {
                 li.style.display = "none";
             }
             var a = document.createElement( 'a' );
