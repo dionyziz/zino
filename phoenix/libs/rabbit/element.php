@@ -256,6 +256,7 @@
                 }
                 Element::SetPersistentElementSignificantArgs( $this->mPath, $ret );
                 Element::SetPersistentElementMtime( $this->mPath, filemtime( 'elements/' . $this->mPath . '.php' ) );
+                w_assert( strlen( $this->mPath ) < 73, 'Persistent element paths must be less than 73 characters long; "' . $this->mPath . '" exceeds this limit' );
                 $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             }
             $ret = array();
