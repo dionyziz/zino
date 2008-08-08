@@ -24,12 +24,11 @@ def optimize( filename ):
             new.append( line )
         if stripped.endswith( ';' ):
             toAppend = True
-    f.seek( 0 )
-    for line in f:
+    f.close()
+    for line in new:
         if '$water' in line:
             removeGlobal = False
             break
-    f.close()
     contents = removeGlobal and [ line for line in new if 'global $water' not in line ] or new
     f = open( filename, 'w' )
     f.write( ''.join( contents ) )
