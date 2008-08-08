@@ -237,16 +237,16 @@
             if ( $notifyfriendaddition ) {
                 $user->Preferences->Notifyfriendaddition = $notifyfriendaddition;
             }
-            
+ 
             $user->Save();
-            
-            //$user->Profile->Save();
-            $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
+            $user->Profile->Save();
+
+            $showschool = $user->Profile->Education == 6 && $user->Profile->Placeid > 0;
             if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
                         ob_start();
-                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->School->Typeid );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#university select' ).change( function() {
