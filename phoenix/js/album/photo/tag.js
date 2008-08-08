@@ -21,19 +21,21 @@ var Tag = {
                 li.style.display = "none";
             }
             var a = document.createElement( 'a' );
-            a.onmousedown = function( event ) {
-                    var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
-                    var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
-                    Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
-                                                         'username' : kollitaria[ i ],
-                                                         'left' : left,
-                                                         'top' : top
-                                                        } );
-                    $( this ).parent().hide();
-                    Tag.already_tagged.push( kollitaria[ i ] );
-                    Tag.close( event );
-                    // add tag
-                };
+            a.onmousedown = function( username ) {
+                            return function( event ) {
+                                var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
+                                var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
+                                Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
+                                                                     'username' : username,
+                                                                     'left' : left,
+                                                                     'top' : top
+                                                                    } );
+                                $( this ).parent().hide();
+                                Tag.already_tagged.push( username );
+                                Tag.close( event );
+                                // add tag
+                            }
+                } )( kollitaria[ i ] );
             a.appendChild( document.createTextNode( kollitaria[ i ] ) );
             li.appendChild( a );
             ul.appendChild( li );
