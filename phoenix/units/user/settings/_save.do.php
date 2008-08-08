@@ -72,8 +72,8 @@
             }
             if ( $school ) {
                 $user->Profile->School = New School( $school );
-                var_dump( $user->Profile->School ); die;
             }
+            var_dump( $school ); die;
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
             }
