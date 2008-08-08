@@ -22,9 +22,8 @@
                     throw New Exception( 'Invalid Elemental setting' , $setting );
             }
         }
-        static public function GetPersistentElementSignificantArgs( $path = false ) {
+        static public function GetPersistentElementSignificantArgs( $path ) {
             global $mc;
-            global $water;
             global $rabbit_settings;
 
             if ( self::$mPersistentElements === false ) {
@@ -33,11 +32,24 @@
                     self::$mPersistentElements = array();
                 }
             }
-            if ( $path === false ) {
-                return self::$mPersistentElements;
+            if ( isset( self::$mPersistentElements[ $path ] ) ) {
+                return self::$mPersistentElements[ $path ][ 'args' ];
+            }
+            // else fallthrough
+            return false;
+        }
+        static public function GetPersistentElementMtime( $path = false ) {
+            global $mc;
+            global $rabbit_settings;
+
+            if ( self::$mPersistentElements === false ) {
+                self::$mPersistentElements = $mc->get( 'persistentelements:' . $rabbit_settings[ 'elementschemaversion' ] );
+                if ( !is_array( self::$mPersistentElements ) ) {
+                    self::$mPersistentElements = array();
+                }
             }
             if ( isset( self::$mPersistentElements[ $path ] ) ) {
-                return self::$mPersistentElements[ $path ];
+                return self::$mPersistentElements[ $path ][ 'mtime' ];
             }
             // else fallthrough
             return false;
@@ -46,7 +58,14 @@
             global $mc;
             global $rabbit_settings;
 
-            self::$mPersistentElements[ $path ] = $args;
+            self::$mPersistentElements[ $path ][ 'args' ] = $args;
+            $mc->set( 'persistentelements:' . $rabbit_settings[ 'elementschemaversion' ], self::$mPersistentElements );
+        }
+        static public function SetPersistentElementMtime( $path, $mtime ) {
+            global $mc;
+            global $rabbit_settings;
+
+            self::$mPersistentElements[ $path ][ 'mtime' ] = $mtime;
             $mc->set( 'persistentelements:' . $rabbit_settings[ 'elementschemaversion' ], self::$mPersistentElements );
         }
         static public function EncodeArguments( $args ) {
@@ -61,6 +80,7 @@
             if ( $significant === false ) { // not a persistent element
                 return false;
             }
+            $mtime = self::GetPersistentElementMtime( $elementpath );
             // it's a persistent element, check cache
             $params = array(); // a list of the values of the significant arguments, in order
             foreach ( $significant as $pos ) {
@@ -70,7 +90,7 @@
                 w_assert( is_scalar( $args[ $pos ] ), 'Persistent element significant argument must be scalar; ' . gettype( $args[ $pos ] ) . ' given for argument ' . $pos . ' of element `' . $elementpath . '\'' );
             }
             $sig = self::EncodeArguments( $params ); // retrieve invokation signature (string)
-            $ret = $mc->get( 'persistent:' . $elementpath . ':' . $sig );
+            $ret = $mc->get( 'persistent:' . $elementpath . ':' . $sig . ':' . $mtime );
             if ( $ret === false ) {
                 $water->Trace( 'Persistent element MISS: ' . $elementpath . ' ( "' . implode( '", "', $params ) . '" )' );
                 // not cached
@@ -213,6 +233,9 @@
 
             $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             if ( $significant === false ) {
+                // this part is called only once for each persistent element
+                // to cache the function signature and file mtime
+                // (it is ~not~ called again for a different permutation of the significant arguments)
                 $i = 0;
                 $j = 0;
                 $ret = array();
@@ -231,6 +254,7 @@
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
                 }
                 Element::SetPersistentElementSignificantArgs( $this->mPath, $ret );
+                Element::SetPersistentElementMtime( $this->mPath, filemtime( $this->mPath ) );
                 $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             }
             $ret = array();
