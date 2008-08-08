@@ -21,7 +21,7 @@ var Tag = {
                 li.style.display = "none";
             }
             var a = document.createElement( 'a' );
-            a.onmousedown = function( username ) {
+            a.onmousedown = ( function( username ) {
                             return function( event ) {
                                 var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
                                 var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
