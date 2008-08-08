@@ -20,7 +20,7 @@ class Elementfavouritefavourite extends Element {
 			
 			// Find all user's favourite journals
 			$favfinder = new FavouriteFinder();
-			$favourites = $finder->FindByUserAndType( $user, TYPE_JOURNAL );
+			$favourites = $finder->FindByUserAndType( $user->Id, TYPE_JOURNAL );
 
 			// print what you have find
 			foreach ( $favourites as $value ) {
