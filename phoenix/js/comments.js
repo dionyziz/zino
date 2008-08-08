@@ -1,3 +1,5 @@
+alert( 'Hello, world!' );
+
 var Comments = {
 	numchildren : {},
 	Create : function( parentid ) {
