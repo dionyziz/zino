@@ -155,7 +155,8 @@
             if ( $element->IsPersistent() ) {
                 // cache the result
                 $sig = self::EncodeArguments( $element->GetSignificantArgs( $args ) );
-                $mc->set( 'persistent:' . $elementpath . ':' . $sig, array( $echo, $ret ) );
+                $mtime = self::GetPersistentElementMtime( $this->mPath );
+                $mc->set( 'persistent:' . $elementpath . ':' . $sig . ':' . $mtime, array( $echo, $ret ) );
             }
             echo $echo;
             $water->ProfileEnd();
