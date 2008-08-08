@@ -139,6 +139,7 @@ var Coala = {
             }
 			return;
 		}
+
 		try {
 			if ( typeof xh.status !== 'undefined' && xh.status !== 0){
 				httpStatus = xh.status;
