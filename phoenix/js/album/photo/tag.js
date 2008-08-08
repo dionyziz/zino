@@ -1,6 +1,7 @@
 var Tag = {
     photoid : false,
     friends : [],
+    already_tagged : [],
     clicked : false,
     run : false,
     start : function( kollitaria ) {
@@ -16,7 +17,9 @@ var Tag = {
             }
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
-            
+            if ( $.inArray( kollitaria[ i ], already_tagged ) {
+                li.style.display = "none";
+            }
             var a = document.createElement( 'a' );
             a.onmousedown = function( event ) {
                     var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
@@ -27,7 +30,7 @@ var Tag = {
                                                          'top' : top
                                                         } );
                     $( this ).parent().hide();
-                    Tag.already_friends.push( kollitaria[ i ] );
+                    Tag.already_tagged.push( kollitaria[ i ] );
                     Tag.close( event );
                     // add tag
                 };
