@@ -31,6 +31,7 @@ var Tag = {
                                                                      'top' : top
                                                                     } );
                                 $( this ).parent().hide();
+                                $( 'div.thephoto div.frienders form input' ).val( '' );
                                 Tag.already_tagged.push( username );
                                 Tag.close( event );
                                 // add tag
