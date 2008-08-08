@@ -254,7 +254,7 @@
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
                 }
                 Element::SetPersistentElementSignificantArgs( $this->mPath, $ret );
-                Element::SetPersistentElementMtime( $this->mPath, filemtime( $this->mPath ) );
+                Element::SetPersistentElementMtime( $this->mPath, filemtime( 'elements/' . $this->mPath . '.php' ) );
                 $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             }
             $ret = array();
