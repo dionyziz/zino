@@ -155,7 +155,7 @@
             if ( $element->IsPersistent() ) {
                 // cache the result
                 $sig = self::EncodeArguments( $element->GetSignificantArgs( $args ) );
-                $mtime = self::GetPersistentElementMtime( $this->mPath );
+                $mtime = self::GetPersistentElementMtime( $elementpath );
                 $mc->set( 'persistent:' . $elementpath . ':' . $sig . ':' . $mtime, array( $echo, $ret ) );
             }
             echo $echo;
