@@ -246,7 +246,7 @@
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
                         ob_start();
-                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->School->Typeid );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#university select' ).change( function() {
