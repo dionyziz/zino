@@ -48,7 +48,8 @@
             window.location.reload();<?php
             return;
         }
-
+        var_dump( $theuser->Id );
+        die();
         // all OK, proceed
         $tag = New ImageTag();
         $tag->Imageid = $photoid;
