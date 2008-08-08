@@ -4,6 +4,7 @@
             global $water;
             global $user;
             global $rabbit_settings;
+
             $showschool = $user->Profile->Education == 6 && $user->Profile->Placeid > 0;
             ?><div class="option">
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
@@ -60,7 +61,7 @@
                 <label for="university">Πανεπιστήμιο</label>
                 <div class="setting" id="university"><?php
                     if ( $showschool ) {
-                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->School->Typeid  );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education  );
                     }
                 ?></div>
             </div>
