@@ -1,6 +1,7 @@
 var Tag = {
     photoid : false,
     friends : [],
+    already_friends : [],
     clicked : false,
     run : false,
     start : function( kollitaria ) {
@@ -26,7 +27,8 @@ var Tag = {
                                                          'left' : left,
                                                          'top' : top
                                                         } );
-                    Tag.friends[ i ] = '';
+                    $( this ).parent().hide();
+                    Tag.already_friends.push( kollitaria[ i ] );
                     Tag.close( event );
                     // add tag
                 };
