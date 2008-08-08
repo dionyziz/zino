@@ -3,7 +3,6 @@
     function UnitUserSettingsSave( tInteger $dobd, tInteger $dobm, tInteger $doby, tText $gender, tInteger $place, tInteger $education, tInteger $school, tInteger $mood, tText $sex, tText $religion, tText $politics, tText $slogan, tText $aboutme, tText $favquote, tText $haircolor, tText $eyecolor, tInteger $height, tInteger $weight, tText $smoker, tText $drinker, tText $email, tText $msn, tText $gtalk, tText $skype, tText $yahoo, tText $web, tText $oldpassword, tText $newpassword, tText $emailprofilecomment, tText $notifyprofilecomment, tText $emailphotocomment, tText $notifyphotocomment, tText $emailpollcomment, tText $notifypollcomment, tText $emailjournalcomment, tText $notifyjournalcomment, tText $emailreply, tText $notifyreply, tText $emailfriendaddition, tText $notifyfriendaddition ) {
         global $user;
 
-        var_dump( $school ); die;
         if ( $user->Exists() ) {
             $dobd = $dobd->Get();
             $dobm = $dobm->Get();
@@ -12,6 +11,7 @@
             $place = $place->Get();
             $education = $education->Get();
             $school = $school->Get();
+            var_dump( $school ); die;
             $mood = $mood->Get();
             $sex = $sex->Get();
             $religion = $religion->Get();
