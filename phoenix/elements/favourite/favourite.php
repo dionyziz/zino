@@ -16,11 +16,11 @@ class Elementfavouritefavourite extends Element {
 			// Get username as a parameter, and get the user object using UserFinder
 			$username = $username->Get();
 			$ufinder = new UserFinder();
-			$user = $ufinder->FindByName( $username );
+			$mUser = $ufinder->FindByName( $username );
 			
 			// Find all user's favourite journals
 			$favfinder = new FavouriteFinder();
-			$favourites = $finder->FindByUserAndType( $user->Id, TYPE_JOURNAL );
+			$favourites = $finder->FindByUserAndType( $this->$mUser->Id, TYPE_JOURNAL );
 
 			// print what you have find
 			foreach ( $favourites as $value ) {
