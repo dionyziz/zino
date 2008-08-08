@@ -8,13 +8,13 @@
             $libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
             $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0 , 15 );
+            $images = $finder->FindFrontpageLatest( 0, 15 );
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user , 0 , 5 );
+            $notifs = $finder->FindByUser( $user, 0, 5 );
             $shownotifications = count( $notifs ) > 0;
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
-                $showschool = $user->Profile->Education > 0 && $user->Profile->Placeid > 0;
+                $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
@@ -28,21 +28,21 @@
                                     }
                                     else { 
                                         ?><div id="selectplace"><?php
-                                        Element( 'user/settings/personal/place' , $user );
+                                        Element( 'user/settings/personal/place', $user );
                                         ?></div><?php
                                     }
                                     ?><div id="selecteducation">
                                         <span>Εκπαίδευση:</span><?php
-                                        Element( 'user/settings/personal/education' , $user );
+                                        Element( 'user/settings/personal/education', $user );
                                     ?></div>
                                     <div id="selectuni"<?php
                                     if ( !$showschool ) {
                                         ?> class="invisible"<?php
                                     }
                                     ?>>
-                                    <span>Σχολείο:</span><?php
+                                    <span>Πανεπιστήμιο:</span><?php
                                         if ( $showschool ) {
-                                            Element( 'user/settings/personal/school', $user->Profile->Placeid, $typeid );
+                                            Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                                         }
                                     ?></div>
                                     <div class="saving invisible">
@@ -66,7 +66,7 @@
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
-                        Element( 'notification/list' , $notifs );
+                        Element( 'notification/list', $notifs );
                     ?></div>
                     <div class="expand">
                         <a href="" title="Απόκρυψη">&nbsp;</a>
@@ -80,7 +80,7 @@
                         ?><li><a href="?p=photo&amp;id=<?php
                         echo $image->Id;
                         ?>"><?php
-                        Element( 'image/view' , $image , 100 , '' , $image->User->Name , $image->User->Name , '' , false , 0 , 0 );
+                        Element( 'image/view', $image, 100, '', $image->User->Name, $image->User->Name, '', false, 0, 0 );
                         ?></a></li><?php
                     }
                     ?>
@@ -130,7 +130,7 @@
                        Element( 'frontpage/comment/list' );
                     ?></div><?php
 					$finder = New UserFinder();
-		            $users = $finder->FindOnline( 0 , 50 );
+		            $users = $finder->FindOnline( 0, 50 );
 		            if ( count( $users ) > 0 ) {        
 		                ?><div class="inonlineusers">
 		                    <h2<?php
@@ -145,9 +145,9 @@
 		                        <div class="list"><?php
 		                            foreach( $users as $onuser ) {
 		                                ?><a href="<?php
-		                                Element( 'user/url' , $onuser );
+		                                Element( 'user/url', $onuser );
 		                                ?>"><?php
-		                                Element( 'user/avatar' , $onuser , 100 , '' , '' );
+		                                Element( 'user/avatar', $onuser, 100, '', '' );
 		                                ?></a><?php
 		                            }    
 		                        ?></div><?php
@@ -163,7 +163,7 @@
 			/*
             ?><div class="eof"></div><?php
             $finder = New UserFinder();
-            $users = $finder->FindOnline( 0 , 50 );
+            $users = $finder->FindOnline( 0, 50 );
             if ( count( $users ) > 0 ) {        
                 ?><div class="nowonline">
                     <h2<?php
@@ -178,9 +178,9 @@
                         <div class="list"><?php
                             foreach( $users as $onuser ) {
                                 ?><a href="<?php
-                                Element( 'user/url' , $onuser );
+                                Element( 'user/url', $onuser );
                                 ?>"><?php
-                                Element( 'user/avatar' , $onuser , 100 , '' , '' );
+                                Element( 'user/avatar', $onuser, 100, '', '' );
                                 ?></a><?php
                             }    
                         ?></div><?php
