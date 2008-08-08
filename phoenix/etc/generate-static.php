@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-    if ( count( $argv ) != 2 ) {
+    if ( count( $argv ) != 3 ) {
         echo "/* Usage: generate.php <beta|production> <location> */\n";
         return;
     }
