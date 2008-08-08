@@ -1,7 +1,6 @@
 <?php
-
     class ElementUserProfileSidebarInfo extends Element {
-        public function Render( $theuser, $userid, $updated ) {
+        public function Render( $theuser ) {
             ?><div class="info">
                 <dl><?php
                     if ( $theuser->Profile->Age ) {
