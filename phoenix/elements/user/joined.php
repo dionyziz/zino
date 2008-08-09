@@ -32,7 +32,7 @@
                     </p>
                     <form>
                         <div>
-                            <span>Ημερομηνία γέννησης:</span><?php
+                            <span>Ημερομηνία γέννησης:</span><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span><?php
                             Element( 'user/settings/personal/dob' );
                         ?></div>
                         <div>
@@ -44,7 +44,6 @@
                             Element( 'user/settings/personal/place' , $user->Profile->Location->Id );
                         ?></div>
                     </form>
-					<span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
                 </div>
                 <div style="text-align:center;">
                     <a href="" class="button button_big">Συνέχεια &raquo;</a>
