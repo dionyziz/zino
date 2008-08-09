@@ -120,7 +120,7 @@
                         }
                         ?></a></dd><?php
                     }
-                    if ( $user->HasPermission( PERMISSION_TAG_CREATE ) && !empty( $mutual ) && !( $image->User->Id != $user->Id && $relationfinder->IsFriend( $image->User, $user ) != FRIENDS_BOTH ) ) {
+                    if ( $user->HasPermission( PERMISSION_TAG_CREATE ) && !empty( $mutual ) ) {
                         ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php
