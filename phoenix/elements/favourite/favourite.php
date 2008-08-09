@@ -7,20 +7,17 @@ class Elementfavouritefavourite extends Element {
 	
 	Gatoni
 	*/
-	public function Render( tText $username) {
+	public function Render( tText $userid) {
 			// Load libraries
 			global $libs;
 			$libs->Load( 'favourite' );
 			$libs->Load( 'journal' );
-
-			// Get username as a parameter, and get the user object using UserFinder
-			$username = $username->Get();
-			$ufinder = new UserFinder();
-			$mUser = $ufinder->FindByName( $username );
+			
+			$userid = $userid->Get();
 			
 			// Find all user's favourite journals
 			$favfinder = new FavouriteFinder();
-			$favourites = $favfinder->FindByUserAndType( $this->$mUser->Id, TYPE_JOURNAL );
+			$favourites = $favfinder->FindByUserAndType( $this->$userid, TYPE_JOURNAL );
 
 			// print what you have find
 			foreach ( $favourites as $value ) {
