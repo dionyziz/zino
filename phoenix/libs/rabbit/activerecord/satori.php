@@ -503,7 +503,7 @@
                     if ( count( $index->Fields ) == 1 ) {
                         if ( $index->Fields[ 0 ]->IsAutoIncrement ) {
                             $this->mAutoIncrementField = $index->Fields[ 0 ]->Name;
-                            $parts = explode( '_', $this->mAutoincrementField );
+                            $parts = explode( '_', $this->mAutoIncrementField );
                             // autoincrement attributes are read-only
                             $this->MakeReadOnly( ucfirst( $parts[ 1 ] ) );
                         }
