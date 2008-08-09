@@ -37,12 +37,11 @@ div#joined div.profinfo form span {
 }
 div#joined div.profinfo form span.invaliddob {
 	padding: 0;
-	display: none;
 	font-weight: bold;
 	font-size: 90%;
 }
 div#joined div.profinfo form span.invaliddob span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1s665px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
 	padding: 0 4px 0 12px;
 	display: inline;
 }

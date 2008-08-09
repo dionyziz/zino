@@ -8,7 +8,7 @@
         $dobd = $dobd->Get();
         $gender = $gender->Get();
         $location = $location->Get();
-
+		$validdob = true;
         if ( $dobd >=1 && $dobd <=31  && $dobm >= 1 && $dobm <= 12 && $doby ) {
             if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
                 $user->Profile->BirthMonth = $dobm;
@@ -16,6 +16,10 @@
                 $user->Profile->BirthYear = $doby;
             }
         }
+		else {
+			$validdob = false;
+			?>$( 'div.profinfo form div span.invaliddob' ).css( 'opacity' , '0' ).removeClass( 'invisible' ).animate( { opacity : "1" } , 200 );<?php
+		}
         if( $gender == 'm' || $gender == 'f' ) {
             $user->Gender = $gender;
         }
@@ -32,8 +36,10 @@
         }
         $user->Save();
         $user->Profile->Save();
-        ?>location.href = '<?php
-        echo $rabbit_settings[ 'webaddress' ];
-        ?>?newuser=true';<?php
+		if ( $validdob ) {
+	        ?>location.href = '<?php
+	        echo $rabbit_settings[ 'webaddress' ];
+	        ?>?newuser=true';<?php
+		}
     }
 ?>
