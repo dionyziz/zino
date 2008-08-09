@@ -15,7 +15,7 @@
             var theDiv = document.createElement( 'div' );
             theDiv.appendChild( easterEggImg );
             theDiv.style.display = 'none';
-            body.appendChild( theDiv );
+            document.body.appendChild( theDiv );
             Modals.Create( theDiv.cloneNode( true ) );<?php
             return;
         }
