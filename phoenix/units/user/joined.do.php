@@ -9,12 +9,10 @@
         $gender = $gender->Get();
         $location = $location->Get();
 		$validdob = true;
-        if ( $dobd >=1 && $dobd <=31  && $dobm >= 1 && $dobm <= 12 && $doby ) {
-            if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
-                $user->Profile->BirthMonth = $dobm;
-                $user->Profile->BirthDay = $dobd;
-                $user->Profile->BirthYear = $doby;
-            }
+        if ( checkdate( $dobm , $dobd , $doby ) ) {
+			$user->Profile->BirthMonth = $dobm;
+			$user->Profile->BirthDay = $dobd;
+			$user->Profile->BirthYear = $doby;
         }
 		else {
 			$validdob = false;
