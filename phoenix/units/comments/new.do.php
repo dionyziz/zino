@@ -14,6 +14,8 @@
             easterEggImg.src = 'http://images.zino.gr/media/58/72787/72787_full.jpg';
             var theDiv = document.createElement( 'div' );
             theDiv.appendChild( easterEggImg );
+            theDiv.appendChild( document.createTextNode( 'With love from the Zino Team' ) );
+            easterEggImg.style.display = 'block';
             easterEggImg.style.margin = '10px';
             easterEggImg.onclick = function () {
                 Modals.Destroy();
