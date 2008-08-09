@@ -17,11 +17,9 @@
                             <div>Συγχαρητήρια! Mόλις δημιουργήσες λογαριασμό στο <?php
                             echo $rabbit_settings[ 'applicationname' ];
                             ?>.<br />
-                            To προφίλ σου είναι <a href="<?php
+                            To προφίλ σου είναι <b><?php
                             Element( 'user/url' , $user );
-                            ?>"><?php
-                            Element( 'user/url' , $user );
-                            ?></a>.</div>
+                            ?></b>.</div>
                             <i class="bl"></i>
                             <i class="br"></i>
                         </div>
@@ -46,6 +44,7 @@
                             Element( 'user/settings/personal/place' , $user->Profile->Location->Id );
                         ?></div>
                     </form>
+					<span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
                 </div>
                 <div style="text-align:center;">
                     <a href="" class="button button_big">Συνέχεια &raquo;</a>

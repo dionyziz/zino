@@ -118,15 +118,16 @@ div.settings div.tabs form div label {
     width: 300px;
     display: block;
 }
-div.settings div.tabs form#personalinfo div span.invaliddob {
+form#personalinfo div span.invaliddob {
 	display: none;
 	opacity: 0;
 	font-weight: bold;
 	padding-left: 10px;
 	font-size: 80%;
 }
-div.settings div.tabs form#personalinfo div span.invaliddob img {
-	vertical-align: -3px;
+form#personalinfo div span.invaliddob span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
+	padding: 0 4px 0 12px;
 }
 div.settings div.tabs form#personalinfo div.option div.setting div.avatarlist {
 	display: none;
@@ -328,8 +329,4 @@ div.settings div.explanation {
     color: #aaa;
     font-size: 90%;
     margin-top: 10px;
-}
-span.invaliddob span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
-	padding: 0 4px 0 12px;
 }

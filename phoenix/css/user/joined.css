@@ -35,6 +35,14 @@ div#joined div.profinfo form span {
 	padding: 10px 0 3px 0;
 	display: block;
 }
+div#joined div.profinfo form span.invaliddob {
+	padding: 0;
+	display: none;
+}
+div#joined div.profinfo form span.invaliddob span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
+	padding: 0 4px 0 12px;
+}
 div#joined div.profinfo p {
 	font-size: 105%;
 }
