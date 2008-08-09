@@ -29,8 +29,11 @@
 				default:
 					throw New Exception( 'Invalid image type' );
 			}
+			if ( $image->IsDeleted() ) {
+				return;
+			}
             ?><img src="<?php
-            Element( 'image/url', $image, $type );
+            Element( 'image/url', $image->Id , $image->User->Id , $type );
             ?>"<?php
             if ( $class != "" ) {
                 ?> class="<?php
@@ -56,10 +59,10 @@
                 echo htmlspecialchars( $style );
             }
             ?>" title="<?php
-                echo htmlspecialchars( $title );
-                ?>" alt="<?php
-                echo htmlspecialchars( $alt );
-                ?>" /><?php
+			echo htmlspecialchars( $title );
+			?>" alt="<?php
+			echo htmlspecialchars( $alt );
+			?>" /><?php
         }
     }
 ?>

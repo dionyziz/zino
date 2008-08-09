@@ -19,7 +19,7 @@
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-        Element( 'user/sections', 'album' , $image->User );
+			Element( 'user/sections', 'album' , $image->User );
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
