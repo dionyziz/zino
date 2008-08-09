@@ -15,15 +15,15 @@
                         echo htmlspecialchars( $theuser->Profile->Location->Name );
                         ?></dd><?php
                     }
-                    if ( $theuser->Profile->Uniid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {
-                        $uni = New Uni( $theuser->Profile->Uniid );
+                    if ( $theuser->Profile->Schoolid > 0 && $theuser->Profile->Placeid > 0 && $theuser->Profile->Education != "-" ) {
+                        $school = New School( $theuser->Profile->Schoolid );
                         ?><dt><strong>Πανεπιστήμιο</strong></dt>
                         <dd><?php
-                        Element( 'user/trivial/university' , $uni );
+                        Element( 'user/trivial/school', $school );
                         ?></dd><?php
                     }
                     if ( $theuser->Profile->Haircolor != '-' ) {
-                        ?><dt><strong>Μαλλιά</strong></dt>
+                        ?><dt><strong>Χρώμα μαλλιών</strong></dt>
                         <dd><?php
                         Element( 'user/trivial/haircolor' , $theuser->Profile->Haircolor );
                         ?></dd><?php
@@ -49,4 +49,5 @@
             </div><?php
         }
     }
+
 ?>
