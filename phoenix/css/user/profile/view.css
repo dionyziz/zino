@@ -223,8 +223,7 @@ div#profile div.sidebar div.eof {
 }
 */
 div#profile div#antisocial {
-    background-color: #ffdf80;
-    background: url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
+    background: #ffdf80 url('http://static.zino.gr/phoenix/bubblefade.png') no-repeat top right;
     padding: 10px;
     margin: 0 20px 10px 330px;
     height: 40px;
