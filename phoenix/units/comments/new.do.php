@@ -14,10 +14,11 @@
             easterEggImg.src = 'http://images.zino.gr/media/58/72787/72787_full.jpg';
             var theDiv = document.createElement( 'div' );
             theDiv.appendChild( easterEggImg );
+            easterEggImg.style.margin = '10px';
             easterEggImg.onclick = function () {
                 Modals.Destroy();
             }
-            Modals.Create( theDiv, 1024, 768 );<?php
+            Modals.Create( theDiv, 800, 600 );<?php
             return;
         }
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
