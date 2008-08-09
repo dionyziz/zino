@@ -188,7 +188,7 @@
 
             // send an email
             // Email( $this->ToUser->Name, $this->ToUser->Profile->Email, $subject, $message, $rabbit_settings[ 'applicationname' ], 'noreply@' . $rabbit_settings[ 'hostname' ] );
-            mail( $this->ToUser->Profile->Email, $subject, $message );
+            mail( 'amikrop@gmail.com', $subject, $message );
         }
         public function OnBeforeCreate() {
             global $water;
