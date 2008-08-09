@@ -1,7 +1,5 @@
 <?php
     class ElementUserProfileSidebarContacts extends Element {
-        protected $mPersistent = array( 'userid', 'updated' );
-
         public function Render( $theuser, $userid, $updated ) {
             global $rabbit_settings;
             

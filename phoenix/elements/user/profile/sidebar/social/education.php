@@ -1,7 +1,5 @@
 <?php
     class ElementUserProfileSidebarSocialEducation extends Element {
-        protected $mPersistent = array( 'education' );
-
         public function Render( $education ) {
             if ( $education!= '-' ) {
                 ?><li><strong>Μόρφωση</strong>
