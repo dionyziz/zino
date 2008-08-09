@@ -24,9 +24,15 @@
                                 Element( 'image/view', $album->Mainimage, IMAGE_CROPPED_100x100 , '' , $albumname , $albumname , '' , false , 0 , 0 ); // TODO: Optimize
                             }
                             else {
-                                Element( 'image/view', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' , false , 0 , 0);
+                                //Element( 'image/view', 'anonymous100.jpg', '100x100', '', $albumname, $albumname, '' , false , 0 , 0);
+								?><img src="<?php
+								echo $rabbit_settings[ 'imagesurl' ];
+								?>anonymous100.jpg" alt="<?php
+								echo htmlspecialchars( $albumname );
+								?>" title="<?php
+								echo htmlspecialchars( $albumname );
+								?>" style="width:100px;height:100px;" /><?php
                             }
-                        
                         ?></span>
                         <span class="desc"><?php
                         echo htmlspecialchars( $albumname );

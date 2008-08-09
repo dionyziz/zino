@@ -15,7 +15,20 @@
                 }
             }
             else {
-                Element( 'image/view' , 'anonymous' . $size . '.jpg' , $size . 'x' . $size , $class , $theuser->Name , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+                //Element( 'image/view' , 'anonymous' . $size . '.jpg' , $size . 'x' . $size , $class , $theuser->Name , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+				?><img src="<?php
+				echo $rabbit_settings[ 'imagesurl' ];
+				?>anonymous<?php
+				echo $size;
+				?>.jpg" alt="<?php
+				echo htmlspecialchars( $theuser->Name );
+				?>" title="<?php
+				echo htmlspecialchars( $theuser->Name );
+				?>" style="width:<?php
+				echo $size;
+				?>px;height:<?php
+				echo $size;
+				?>px;" /><?php
             }
         }
     }
