@@ -24,11 +24,25 @@
 				echo htmlspecialchars( $theuser->Name );
 				?>" title="<?php
 				echo htmlspecialchars( $theuser->Name );
-				?>" style="width:<?php
-				echo $size;
-				?>px;height:<?php
-				echo $size;
-				?>px;" /><?php
+				?>" style="<?php
+				if ( !$cssresizable ) {
+					?>width:<?php
+					echo $size;
+					?>px;height:<?php
+					echo $size;
+					?>px;<?php
+				}
+				else {
+					?>width:<?php
+					echo $csswidth;
+					?>px;height:<?php
+					echo $cssheight;
+					?>px;<?php
+				}
+				if ( $style != '' ) {
+					echo htmlspecialchars( $style );
+				}
+				?>" /><?php
             }
         }
     }
