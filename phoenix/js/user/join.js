@@ -63,6 +63,8 @@ $( document ).ready( function(){
 					$( $( 'form.joinform div > span' )[ 1 ] ).animate( { opacity: "0" } , 700 , function() {
 						$( this ).css( "display" , "none" );
 					});
+					$( 'div a.button' ).removeClass( 'button_disabled' );
+					Join.enabled = true;
 				}
 			}
 			if ( Join.invalidusername ) {
