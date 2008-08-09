@@ -14,10 +14,6 @@
 			$user->Profile->BirthDay = $dobd;
 			$user->Profile->BirthYear = $doby;
         }
-		else {
-			$validdob = false;
-			?>$( 'div.profinfo form div span.invaliddob' ).css( 'opacity' , '0' ).removeClass( 'invisible' ).animate( { opacity : "1" } , 200 );<?php
-		}
         if( $gender == 'm' || $gender == 'f' ) {
             $user->Gender = $gender;
         }
@@ -34,6 +30,7 @@
         }
         $user->Save();
         $user->Profile->Save();
+		?>$( 'div a.button' ).removeClass( 'button_disabled' );<?php
 		if ( $validdob ) {
 	        ?>location.href = '<?php
 	        echo $rabbit_settings[ 'webaddress' ];
