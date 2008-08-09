@@ -40,6 +40,8 @@ div#joined div.profinfo form span.invaliddob {
 	font-weight: bold;
 	font-size: 90%;
 	display: none;
+	margin-left: 5px;
+	vertical-align: 1px;
 }
 div#joined div.profinfo form span.invaliddob span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1665px;
