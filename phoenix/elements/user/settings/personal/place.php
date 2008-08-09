@@ -1,7 +1,5 @@
 <?php
     class ElementUserSettingsPersonalPlace extends Element {
-		protected $mPersistent = array( 'placeid' );
-		
         public function Render( $placeid ) {
             global $user;
             
