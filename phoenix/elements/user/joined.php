@@ -19,7 +19,7 @@
                             ?>.<br />
                             To προφίλ σου είναι <b><?php
                             Element( 'user/url' , $user );
-                            ?></b>.</div>
+                            ?></b></div>
                             <i class="bl"></i>
                             <i class="br"></i>
                         </div>
