@@ -7,7 +7,7 @@ class Elementfavouritefavourite extends Element {
 	
 	Gatoni
 	*/
-	public function Render( tText $userid) {
+	public function Render( tInteger $userid ) {
 			// Load libraries
 			global $libs;
 			$libs->Load( 'favourite' );
