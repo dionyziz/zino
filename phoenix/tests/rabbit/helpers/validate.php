@@ -14,6 +14,7 @@
             );
         }
         public function TestEmail() {
+            $this->Assert( ValidEmail( 'amikrop@gmail.com' ), 'ValidEmail failed for "amikrop@gmail.com"' );
             $this->Assert( ValidEmail( 'dionyziz@gmail.com' ), 'ValidEmail failed for "dionyziz@gmail.com"' );
             $this->AssertFalse( ValidEmail( 'hello' ), 'ValidEmail succeeded for "hello"' );
             $this->Assert( ValidEmail( 'dionysis.zindros@dionyziz.com' ), 'ValidEmail failed for "dionysis.zindros@dionyziz.com"' );
