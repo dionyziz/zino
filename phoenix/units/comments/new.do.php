@@ -16,7 +16,7 @@
             theDiv.appendChild( easterEggImg );
             theDiv.appendChild( document.createTextNode( 'With love from the Zino Team' ) );
             easterEggImg.style.display = 'block';
-            easterEggImg.style.margin = '10px';
+            easterEggImg.style.margin = '10px auto 10px auto';
             easterEggImg.onclick = function () {
                 Modals.Destroy();
             }
