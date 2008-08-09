@@ -490,21 +490,24 @@
             $this->mDbFieldKeys = array_keys( $this->mDbColumns );
             $this->mAutoIncrementField = false;
             
-            foreach ( $this->mDbColumns as $column ) {
-                $parts = explode( '_', $column->Name );
+            foreach ( $this->mDbFieldKeys as $columnname ) {
+                $parts = explode( '_', $columnname );
                 $attribute = ucfirst( $parts[ 1 ] );
-                $this->mDbFields[ $column->Name ] = $attribute;
-                if ( $column->IsAutoIncrement ) {
-                    $this->mAutoIncrementField = $column->Name;
-                    // autoincrement attributes are read-only
-                    $this->MakeReadOnly( $attribute );
-                }
+                $this->mDbFields[ $columnname ] = $attribute;
             }
             $this->mAttribute2DbField = array_flip( $this->mDbFields ); // TODO: cache this across all instances of the same Satori object
             
             $this->mPrimaryKeyFields = array(); // TODO: cache
             foreach ( $this->mDbIndexes as $index ) {
                 if ( $index->Type == DB_KEY_PRIMARY ) {
+                    if ( count( $index->Fields ) == 1 ) {
+                        if ( $index->Fields[ 0 ]->IsAutoIncrement ) {
+                            $this->mAutoIncrementField = $index->Fields[ 0 ]->Name;
+                            $parts = explode( '_', $this->mAutoincrementField );
+                            // autoincrement attributes are read-only
+                            $this->MakeReadOnly( ucfirst( $parts[ 1 ] ) );
+                        }
+                    }
                     foreach ( $index->Fields as $field ) {
                         $this->mPrimaryKeyFields[] = $field->Name;
                     }
