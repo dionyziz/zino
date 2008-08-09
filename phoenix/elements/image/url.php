@@ -4,10 +4,6 @@
         public function Render( $image, $type = IMAGE_PROPORTIONAL_210x210 ) {
             global $xc_settings, $rabbit_settings;
 
-            if ( !is_object( $image ) ) {
-                echo $xc_settings[ 'staticimagesurl' ] . $image;
-                return;
-            }
             if ( $image->IsDeleted() ) {
                 return;
             }

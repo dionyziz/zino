@@ -15,7 +15,6 @@
                 }
             }
             else {
-                //Element( 'image/view' , 'anonymous' . $size . '.jpg' , $size . 'x' . $size , $class , $theuser->Name , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
 				?><img src="<?php
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>anonymous<?php
