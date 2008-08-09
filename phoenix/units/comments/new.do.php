@@ -9,6 +9,15 @@
         $text = $text->Get();
         $text = trim( $text );
         
+        if ( $text == 'Was George Orwell right about 1984?' ) {
+            ?>var easterEggImg = document.createElement( 'img' );
+            easterEggImg.src = 'http://images.zino.gr/media/58/72787/72787_full.jpg';
+            var theDiv = document.createElement( 'div' );
+            theDiv.appendChild( easterEggImg );
+            theDiv.style.display = 'none';
+            body.appendChild( theDiv );
+            Modals.Create( theDiv.cloneNode( true ) );<?php
+        }
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
             ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
             return;
