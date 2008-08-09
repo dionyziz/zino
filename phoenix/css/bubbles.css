@@ -89,7 +89,7 @@ div.ybubble {
     margin: 10px auto 40px auto;
 }
 div.ybubble div.body {
-	background: #ffdf80; 
+	background: #ffda74; 
 	height: 100%;
 }
 div.ybubble i.tl {
@@ -102,7 +102,7 @@ div.ybubble i.bl {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1708px;
 }
 div.ybubble i.br {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1769px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1768px;
 	/*
 	position: relative;
 	left: 99%;
