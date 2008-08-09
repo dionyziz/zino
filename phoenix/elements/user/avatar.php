@@ -20,7 +20,13 @@
 				echo $rabbit_settings[ 'imagesurl' ];
 				?>anonymous<?php
 				echo $size;
-				?>.jpg" alt="<?php
+				?>.jpg"<?php
+				if ( $class != "" ) {
+					?> class="<?php
+					echo htmlspecialchars( $class ); 
+					?>"<?php
+				}
+				?> alt="<?php
 				echo htmlspecialchars( $theuser->Name );
 				?>" title="<?php
 				echo htmlspecialchars( $theuser->Name );
@@ -39,7 +45,7 @@
 					echo $cssheight;
 					?>px;<?php
 				}
-				if ( $style != '' ) {
+				if ( $style != "" ) {
 					echo htmlspecialchars( $style );
 				}
 				?>" /><?php
