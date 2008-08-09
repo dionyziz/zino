@@ -32,9 +32,10 @@
                     </p>
                     <form>
                         <div>
-                            <span>Ημερομηνία γέννησης:</span><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span><?php
+                            <span>Ημερομηνία γέννησης:</span><?php
                             Element( 'user/settings/personal/dob' );
-                        ?></div>
+                        ?><span class="invaliddob"><span>&nbsp;</span>Η ημερομηνία δεν είναι έγκυρη</span>
+						</div>
                         <div>
                             <span>Φύλο:</span><?php
                             Element( 'user/settings/personal/gender' , $user->Gender );
