@@ -39,19 +39,19 @@ i.br {
     display: block;
 }
 div.bubble i.tl {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1391px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -1389px;
     /*background-image: url( 'http://static.zino.gr/phoenix/q_tl.jpg' );*/
 }
 div.bubble i.tr {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1451px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1449px;
     /*background-image: url( 'http://static.zino.gr/phoenix/q_tr.jpg' );*/
 }
 div.bubble i.bl {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1271px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -234px -1271px;
     /*background-image: url( 'http://static.zino.gr/phoenix/q_bl.jpg' );*/
 }
 div.bubble i.br {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1331px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -236px -1329px;
     /*background-image: url( 'http://static.zino.gr/phoenix/q_br.jpg' );*/
 }
 div.bubble i.qleft {
