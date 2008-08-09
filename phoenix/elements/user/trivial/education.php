@@ -4,15 +4,17 @@
         protected $mPersistent = array( 'education' );
 
         public function Render( $education ) {
-            $educations = array( '-' => '-',
-                                 'elementary' => 'Δημοτικό',
-                                 'gymnasium' => 'Γυμνάσιο',
-                                 'TEE'           => 'ΤΕΕ',
-                                 'lyceum'       => 'Λύκειο',
-                                 'TEI'          => 'ΤΕΙ',
-                                 'university' => 'Πανεπιστήμιο'
+            $educations = array(
+                '-',
+                'Δημοτικό',
+                'Γυμνάσιο',
+                'ΤΕΕ',
+                'Λύκειο',
+                'ΤΕΙ',
+                'Πανεπιστήμιο'
             );
             echo htmlspecialchars( $educations[ $education ] );
         }
     }
+
 ?>

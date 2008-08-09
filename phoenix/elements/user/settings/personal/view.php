@@ -1,17 +1,12 @@
 <?php
+
     class ElementUserSettingsPersonalView extends Element {
         public function Render() {
             global $water;
             global $user;
             global $rabbit_settings;
-            
-            if ( $user->Profile->Education == 'university' ) {
-                $typeid = 0;
-            }
-            else if( $user->Profile->Education == 'TEI' ) {
-                $typeid  = 1;
-            }
-            $showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
+
+            $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
             ?><div class="option">
                 <label for="dateofbirth">Ημερομηνία Γέννησης:</label>
                 <div class="setting" id="dateofbirth"><?php
@@ -49,7 +44,7 @@
                 <div class="setting" id="education"><?php
                     Element( 'user/settings/personal/education' );
                     ?><div class="forstudents<?php
-                    if ( $user->Profile->Education != "-" ) {
+                    if ( $user->Profile->Education >= 5 ) {
                         ?> invisible<?php
                     }
                     ?>">Αν είσαι φοιτητής όρισε την περιοχή και το είδος του εκπαιδευτικού ιδρύματος</div>
@@ -60,19 +55,19 @@
                 <div class="rightbar"></div>
             </div>
             <div class="option<?php
-            if ( !$showuni ) {
+            if ( !$showschool ) {
                 ?> invisible<?php
             }
             ?>">
                 <label for="university">Πανεπιστήμιο</label>
                 <div class="setting" id="university"><?php
-                    if ( $showuni ) {
-                        Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+                    if ( $showschool ) {
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education  );
                     }
                 ?></div>
             </div>
             <div id="unibarfade" class="barfade<?php
-            if ( !$showuni ) {
+            if ( !$showschool ) {
                 ?> invisible<?php
             }
             ?>">
@@ -161,4 +156,5 @@
             </div><?php
         }
     }
+
 ?>

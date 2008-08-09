@@ -166,7 +166,7 @@
         }
         public function FindItemsByModel( $model, $events ) {
             global $libs;
-            $libs->Load( 'university' );
+            $libs->Load( 'school' );
             $libs->Load( 'place' );
             $libs->Load( 'mood' );
 
@@ -197,8 +197,8 @@
                         *
                     FROM
                         :userprofiles
-                        LEFT JOIN :universities ON 
-                            `profile_uniid` = `uni_id`
+                        LEFT JOIN :schools ON 
+                            `profile_schoolid` = `school_id`
                         LEFT JOIN :places ON
                             `profile_placeid` = `place_id`
                         LEFT JOIN :moods ON
@@ -207,7 +207,7 @@
                         `profile_userid` IN :itemids
                 ' );
 
-                $query->BindTable( 'userprofiles', 'universities', 'places', 'moods' );
+                $query->BindTable( 'userprofiles', 'schools', 'places', 'moods' );
             }
             
             $query->Bind( 'itemids', array_keys( $eventsByItemid ) );
@@ -222,7 +222,7 @@
                     }
                     else {
                         $obj = New UserProfile( $row );
-                        $obj->CopyUniversityFrom( New Uni( $row ) );
+                        $obj->CopySchoolFrom( New School( $row ) );
                         $obj->CopyLocationFrom( New Place( $row ) );
                         $obj->CopyMoodFrom( New Mood( $row ) );
                     }

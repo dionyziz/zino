@@ -1,6 +1,6 @@
-<?php 
-    function Statistics_Get ( $table_name , $days_passed = 30 ) {
+<?php
 
+    function Statistics_Get( $table_name, $days_passed = 30 ) {
         global  $db;
 
         switch ( $table_name ) {
@@ -29,7 +29,6 @@
                 return;
         }
 
-        
         $query = $db->Prepare( "SELECT DATE(" . $date_field . ") AS day,COUNT(*) AS count  FROM :$table_name WHERE " . $date_field . ">NOW()-INTERVAL :days_before DAY GROUP BY day ORDER BY day ASC" );
         $query->BindTable( $table_name );
         $query->Bind( 'days_before', $days_passed );
@@ -39,4 +38,5 @@
 
         return $array;
     }
+
 ?>

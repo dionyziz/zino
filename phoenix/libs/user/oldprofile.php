@@ -5,11 +5,11 @@
         
         protected function Relations() {
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
-            $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
+            $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
         }
         protected function LoadDefaults() {
-            $this->Education = '-';
+            $this->Education = 0;
             $this->Sexualorientation = '-';
             $this->Religion = '-';
             $this->Politics = '-';    

@@ -2,7 +2,7 @@
     global $libs;
     
     $libs->Load( 'place' );
-    $libs->Load( 'university' );
+    $libs->Load( 'school' );
     $libs->Load( 'user/oldprofile' );
     
     class UserProfile extends Satori {
@@ -11,8 +11,8 @@
         public function CopyLocationFrom( $value ) {
             $this->mRelations[ 'Location' ]->CopyFrom( $value );
         }
-        public function CopyUniversityFrom( $value ) {
-            $this->mRelations[ 'Uni' ]->CopyFrom( $value );
+        public function CopySchoolFrom( $value ) {
+            $this->mRelations[ 'School' ]->CopyFrom( $value );
         }
         public function CopyMoodFrom( $value ) {
             $this->mRelations[ 'Mood' ]->CopyFrom( $value );
@@ -105,6 +105,9 @@
         public function __set( $key, $value ) {
             global $water;
 
+            if ( $key == 'School' && $this->mAllowRelationDefinition ) {
+                return parent::__set( $key, $value );
+            }
             switch ( $key ) {
                 case 'BirthDay':
                     w_assert( is_int( $value ) );
@@ -121,6 +124,9 @@
                     $this->Dob = $this->MakeBirthdate( $this->BirthDay, $this->BirthMonth, $value );
                     $water->Trace( 'Updated DOB to ' . $this->Dob );
                     break;
+                case 'School':
+                    $this->Schoolid = $value->Id;
+                    break;
                 default:
                     parent::__set( $key, $value );
             }
@@ -128,12 +134,12 @@
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
             $this->Location = $this->HasOne( 'Place', 'Placeid' );
-            $this->Uni = $this->HasOne( 'Uni', 'Uniid' );
+            $this->School = $this->HasOne( 'School', 'Schoolid' );
             $this->Mood = $this->HasOne( 'Mood', 'Moodid' );
             $this->OldProfile = $this->HasOne( 'OldUserProfile', 'Userid' );
         }
         protected function LoadDefaults() {
-            $this->Education = '-';
+            $this->Education = 0;
             $this->Sexualorientation = '-';
             $this->Religion = '-';
             $this->Politics = '-';    

@@ -1,6 +1,6 @@
 <?php
 
-    function UnitUserSettingsSave( tInteger $dobd , tInteger $dobm , tInteger $doby , tText $gender , tInteger $place , tText $education , tInteger $university , tInteger $mood , tText $sex , tText $religion , tText $politics , tText $slogan , tText $aboutme , tText $favquote , tText $haircolor , tText $eyecolor , tInteger $height , tInteger $weight , tText $smoker , tText $drinker , tText $email , tText $msn , tText $gtalk , tText $skype , tText $yahoo , tText $web , tText $oldpassword , tText $newpassword , tText $emailprofilecomment , tText $notifyprofilecomment , tText $emailphotocomment , tText $notifyphotocomment , tText $emailpollcomment , tText $notifypollcomment , tText $emailjournalcomment , tText $notifyjournalcomment , tText $emailreply , tText $notifyreply , tText $emailfriendaddition , tText $notifyfriendaddition ) {
+    function UnitUserSettingsSave( tInteger $dobd, tInteger $dobm, tInteger $doby, tText $gender, tInteger $place, tInteger $education, tInteger $school, tInteger $mood, tText $sex, tText $religion, tText $politics, tText $slogan, tText $aboutme, tText $favquote, tText $haircolor, tText $eyecolor, tInteger $height, tInteger $weight, tText $smoker, tText $drinker, tText $email, tText $msn, tText $gtalk, tText $skype, tText $yahoo, tText $web, tText $oldpassword, tText $newpassword, tText $emailprofilecomment, tText $notifyprofilecomment, tText $emailphotocomment, tText $notifyphotocomment, tText $emailpollcomment, tText $notifypollcomment, tText $emailjournalcomment, tText $notifyjournalcomment, tText $emailreply, tText $notifyreply, tText $emailfriendaddition, tText $notifyfriendaddition ) {
         global $user;
 
         if ( $user->Exists() ) {
@@ -10,7 +10,7 @@
             $gender = $gender->Get();
             $place = $place->Get();
             $education = $education->Get();
-            $university = $university->Get();
+            $school = $school->Get();
             $mood = $mood->Get();
             $sex = $sex->Get();
             $religion = $religion->Get();
@@ -44,7 +44,7 @@
             $notifyreply = $notifyreply->Get();
             $emailfriendaddition = $emailfriendaddition->Get();
             $notifyfriendaddition = $notifyfriendaddition->Get();
-            
+
             if ( $dobd >=1 && $dobd <=31  && $dobm >= 1&& $dobm <= 12 && $doby ) {
                 if ( strtotime( $doby . '-' . $dobm . '-' . $dobd ) ) {
                     $user->Profile->BirthDay = $dobd;
@@ -70,17 +70,8 @@
             if ( $education ) {
                 $user->Profile->Education = $education;
             }
-            if ( $university ) {
-                if ( $university == -1 ) {
-                    $uniid = 0;
-                }
-                else {
-                    $newuni = New Uni( $university );
-                    if ( $newuni->Exists() ) {
-                        $uniid = $newuni->Id;
-                    }
-                }
-                $user->Profile->Uniid = $uniid;
+            if ( $school ) {
+                $user->Profile->School = New School( $school );
             }
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
@@ -141,8 +132,8 @@
                     }
                     else {
                         $emailerror = true;
-                        ?>$( 'div#email span' ).css( "display" , "inline" )
-                        .animate( { opacity: "1"} , 200 , function() {
+                        ?>$( 'div#email span' ).css( "display", "inline" )
+                        .animate( { opacity: "1"}, 200, function() {
                             Settings.invalidemail = true;
                         } );<?php
                     }
@@ -160,8 +151,8 @@
                     }
                     else {
                         $msnerror = true;
-                        ?>$( 'div#msn span' ).css( "display" , "inline" )
-                        .animate( { opacity: "1"} , 200 , function() {
+                        ?>$( 'div#msn span' ).css( "display", "inline" )
+                        .animate( { opacity: "1"}, 200, function() {
                             Settings.invalidmsn = true;
                         } );<?php
                     }
@@ -181,20 +172,20 @@
             }
             if ( !$emailerror && !$msnerror ) {
                 ?>$( Settings.showsaving )
-                    .animate( { opacity : "0" } , 200 , function() {
-                    $( Settings.showsaving ).css( "display" , "none" );
+                    .animate( { opacity : "0" }, 200, function() {
+                    $( Settings.showsaving ).css( "display", "none" );
                     $( Settings.showsaved )
-                        .css( "display" , "block" )
-                        .css( "opacity" , "1" )
-                        .animate( { opacity : "0" } , 1500 , function() {
-                            $( Settings.showsaved ).css( "display" , "none" ).css( "opacity" , "0" );
+                        .css( "display", "block" )
+                        .css( "opacity", "1" )
+                        .animate( { opacity : "0" }, 1500, function() {
+                            $( Settings.showsaved ).css( "display", "none" ).css( "opacity", "0" );
                         });
                 });
                 <?php
             }
             else {
-                ?>$( Settings.showsaving ).animate( { opacity : "0" } , 200 , function() {
-                        $( Settings.showsaving ).css( "display" , "none" );
+                ?>$( Settings.showsaving ).animate( { opacity : "0" }, 200, function() {
+                        $( Settings.showsaving ).css( "display", "none" );
                     });<?php        
             }
             if ( $oldpassword && $newpassword ) {
@@ -246,40 +237,34 @@
             if ( $notifyfriendaddition ) {
                 $user->Preferences->Notifyfriendaddition = $notifyfriendaddition;
             }
-            
+ 
             $user->Save();
-            
-            //$user->Profile->Save();
-            if ( $user->Profile->Education == 'university' ) {
-                $typeid = 0;
-            }
-            else if( $user->Profile->Education == 'TEI' ) {
-                $typeid  = 1;
-            }
-            $showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
-            if ( $showuni ) {
+            $user->Profile->Save();
+
+            $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
+            if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#university' ).html( <?php
                         ob_start();
-                        Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#university select' ).change( function() {
-                        Settings.Enqueue( 'university' , this.value , 1000 );
+                        Settings.Enqueue( 'university', this.value, 1000 );
                     });
                     if ( $( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-                        $( $( '#university' )[ 0 ].parentNode ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
-                        $( '#unibarfade' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );
+                        $( $( '#university' )[ 0 ].parentNode ).css( "opacity", "0" ).removeClass( "invisible" ).animate( { opacity : "1" }, 200 );
+                        $( '#unibarfade' ).css( "opacity", "0" ).removeClass( "invisible" ).animate( { opacity : "1" }, 200 );
                     }<?php
                 }
             }
             else {
                 if ( $place || $education ) {
                     ?>if ( !$( $( '#university' )[ 0 ].parentNode ).hasClass( 'invisible' ) ) {
-                        $( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "0" } , 200 , function() {
+                        $( $( '#university' )[ 0 ].parentNode ).animate( { opacity : "0" }, 200, function() {
                             $( this ).addClass( "invisible" );
                         } );
-                        $( '#unibarfade' ).animate( { opacity : "0" } , 200 , function() {
+                        $( '#unibarfade' ).animate( { opacity : "0" }, 200, function() {
                             $( this ).addClass( "invisible" );
                         } );
                     }<?php
@@ -287,4 +272,5 @@
             }
         }
     }
+
 ?>
