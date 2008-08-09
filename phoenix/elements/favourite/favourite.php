@@ -24,7 +24,7 @@ class Elementfavouritefavourite extends Element {
 
 			// print what you have find
 			foreach ( $favourites as $value ) {
-				echo $value;
+				echo $value->Itemid;
 			}
 		}
     }
