@@ -166,6 +166,7 @@ $( document ).ready( function(){
 			}
 			if ( create ) {
 				if ( Join.enabled ) {
+					alert( 'creating' );
 					document.body.style.cursor = 'wait';
 					$( this ).addClass( 'button_disabled' );
 					Coala.Warm( 'user/join' , { username : Join.username.value , password : Join.password.value , email : Join.email.value } );
