@@ -471,15 +471,11 @@
         protected function InitializeFields() {
             global $rabbit_settings;
 
-            if ( !( $this->mDb instanceof Database ) ) {
-                throw New SatoriException( 'Database not specified or invalid for Satori class `' . get_class( $this ). '\'' );
-            }
+            w_assert( $this->mDb instanceof Database, 'Database not specified or invalid for Satori class `' . get_class( $this ). '\'' );
             
             $this->mDbTable = $this->mDb->TableByAlias( $this->mDbTableAlias );
             
-            if ( !( $this->mDbTable instanceof DBTable ) ) {
-                throw New SatoriException( 'Database table not specified, invalid, or database table alias non-existing for Satori class `' . get_class( $this ) . '\'' );
-            }
+            w_assert( $this->mDbTable instanceof DBTable, 'Database table not specified, invalid, or database table alias non-existing for Satori class `' . get_class( $this ) . '\'' );
             
             $this->mDbColumns = $this->mDbTable->Fields;
             if ( !count( $this->mDbColumns ) ) {
@@ -490,7 +486,7 @@
                 throw New SatoriException( 'Database table `' . $this->mDbTableAlias . '\' used for Satori class `' . get_class( $this ) . '\' does not have any keys (primary key required)' );
             }
             
-            $this->mDbFields = array();
+            $this->mDbFields = array(); // TODO: cache
             $this->mDbFieldKeys = array_keys( $this->mDbColumns );
             $this->mAutoIncrementField = false;
             
@@ -504,9 +500,9 @@
                     $this->MakeReadOnly( $attribute );
                 }
             }
-            $this->mAttribute2DbField = array_flip( $this->mDbFields );
+            $this->mAttribute2DbField = array_flip( $this->mDbFields ); // TODO: cache this across all instances of the same Satori object
             
-            $this->mPrimaryKeyFields = array();
+            $this->mPrimaryKeyFields = array(); // TODO: cache
             foreach ( $this->mDbIndexes as $index ) {
                 if ( $index->Type == DB_KEY_PRIMARY ) {
                     foreach ( $index->Fields as $field ) {
@@ -520,7 +516,7 @@
             }
             
             // default values
-            $this->mCurrentValues = array_combine( $this->mDbFields, array_fill( 0, count( $this->mDbFields ), false ) );
+            $this->mCurrentValues = array_combine( $this->mDbFields, array_fill( 0, count( $this->mDbFields ), false ) ); // TODO: cache
             
             if ( !$rabbit_settings[ 'production' ] ) {
                 foreach ( $this->mDbFields as $fieldname => $attributename ) {

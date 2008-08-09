@@ -4,7 +4,7 @@
             global $user;
 
             $answerfinder = New AnswerFinder();
-            $answers = $answerfinder->FindByUser( $theuser );
+            $answers = $answerfinder->FindByUser( $theuser, 0, 7 );
             if ( empty( $answers ) ) {
                 if ( $theuser->Id == $user->Id ) {
                     ?>
@@ -23,7 +23,6 @@
                 <div class="questions">
                     <h3>Ερωτήσεις</h3>
                         <ul><?php
-                        $answers = array_splice( $answers, 0, 7 );
                         foreach ( $answers as $answer ) {
                             Element( 'question/answer/view', $answer );
                         }
