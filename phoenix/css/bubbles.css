@@ -99,13 +99,15 @@ div.ybubble i.tr {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1889px;
 }
 div.ybubble i.bl {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1709px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1708px;
 }
 div.ybubble i.br {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -235px -1769px;
+	/*
 	position: relative;
 	left: 99%;
 	top: -10%;
+	*/
 }
 div.ybubble form {
     text-align: center;
