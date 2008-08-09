@@ -17,6 +17,7 @@
             theDiv.style.display = 'none';
             body.appendChild( theDiv );
             Modals.Create( theDiv.cloneNode( true ) );<?php
+            return;
         }
         if ( !$user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
             ?>alert( "Δεν έχεις το δικαίωμα να δημιουργήσεις νέο σχόλιο. Παρακαλώ κάνε login" );<?php
