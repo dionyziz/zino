@@ -55,6 +55,8 @@
         $tag->Ownerid = $user->Id;
         $tag->Left = $left;
         $tag->Top = $top;
+        $tag->Width = 170;
+        $tag->Height = 170;
         $tag->Save();
     }
 ?>
