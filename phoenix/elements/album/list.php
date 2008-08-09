@@ -85,7 +85,7 @@
             <div class="pagifyalbums"><?php
 
             ob_start();
-            Element( 'user/url', $theuser );
+            Element( 'user/url', $theuser->Id , $theuser->Subdomain );
             $link = ob_get_clean() . 'albums?pageno=';
             $total_albums = $theuser->Count->Albums;
             $total_pages = ceil( $total_albums / $limit );

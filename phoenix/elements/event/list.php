@@ -120,7 +120,7 @@
                                         case EVENT_FRIENDRELATION_CREATED:
                                             foreach ( $eventlist as $one ) {
                                                 ?><a href="<?php
-                                                Element( 'user/url' , $one->Item->Friend );
+                                                Element( 'user/url' , $one->Item->Friend->Id , $one->Item->Friend->Subdomain );
                                                 ?>"><?php
                                                 Element( 'user/avatar' , $one->Item->Friend, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
                                                 ?></a><?php
@@ -131,7 +131,7 @@
                                             break;        
                                         case EVENT_USER_CREATED:
                                             ?><a href="<?php
-                                            Element( 'user/url' , $event->Item );
+                                            Element( 'user/url' , $event->Item->Id , $event->Item->Subdomain );
                                             ?>"><?php
                                             Element( 'user/avatar' , $event->Item, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
                                             ?></a><?php

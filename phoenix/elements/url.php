@@ -8,9 +8,9 @@
 
             switch ( get_class( $target ) ) {
                 case 'UserProfile':
-                    return Element( 'user/url', $target->User );
+                    return Element( 'user/url', $target->User->Id , $target->User->Subdomain );
                 case 'User':
-                    return Element( 'user/url', $target );
+                    return Element( 'user/url', $target->Id , $target->Subdomain );
                 case 'Image':
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>/?p=photo&id=<?php // do not escape this & -- we're in plaintext mode; use output buffering in your caller if you want to htmlspecialchars()

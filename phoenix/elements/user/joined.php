@@ -18,7 +18,7 @@
                             echo $rabbit_settings[ 'applicationname' ];
                             ?>.<br />
                             To προφίλ σου είναι <b><?php
-                            Element( 'user/url' , $user );
+                            Element( 'user/url' , $user->Id , $user->Subdomain );
                             ?></b></div>
                             <i class="bl"></i>
                             <i class="br"></i>

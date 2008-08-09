@@ -6,7 +6,7 @@
                 <ul><?php
                     foreach ( $relations as $relation ) {
                         ?><li><a href="<?php
-                        Element( 'user/url', $relation->Friend );
+                        Element( 'user/url', $relation->Friend->Id , $relation->Friend->Subdomain );
                         ?>"><?php
                         Element( 'user/avatar', $relation->Friend, 100, '', '', false, 0, 0 );
                         ?><strong><?php

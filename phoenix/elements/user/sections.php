@@ -4,7 +4,7 @@
         public function Render( $section , $theuser ) {
             ?><div class="usersections">
                 <a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>"><?php
                     Element( 'user/avatar' , $theuser , 150 , '' , '' );
                     ?><span class="name"><?php
@@ -17,7 +17,7 @@
                         ?> class="selected"<?php
                     }
                     ?>><a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>albums">Albums</a></li>
                     <li>·</li>
                     <li<?php
@@ -25,7 +25,7 @@
                         ?> class="selected"<?php
                     }
                     ?>><a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>polls">Δημοσκοπήσεις</a></li>
                     <li>·</li>
                     <li<?php
@@ -33,7 +33,7 @@
                         ?> class="selected"<?php
                     }
                     ?>><a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>journals">Ημερολόγιο</a></li>
                     <li>·</li>
                     <li<?php
@@ -41,7 +41,7 @@
                         ?> class="selected"<?php
                     }
                     ?>><a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>space">Χώρος</a></li>
                     <li>·</li>
                     <li<?php
@@ -49,7 +49,7 @@
                         ?> class="selected"<?php
                     }
                     ?>><a href="<?php
-                    Element( 'user/url' , $theuser );
+                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>friends">Φίλοι</a></li>
                 </ul>
             </div><?php

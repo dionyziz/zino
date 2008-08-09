@@ -95,7 +95,7 @@
                 <div class="morealbums"><?php
                     if ( $theuser->Count->Albums > 1 ) {
                         ?><div class="viewalbums"><a href="<?php
-                        Element( 'user/url' , $theuser );
+                        Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                         ?>albums" class="button">Προβολή albums&raquo;</a></div><?php
                     }
                 ?></div><?php
@@ -130,7 +130,7 @@
                             Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
                             με τις δημοσκοπήσεις και να δημιουργήσεις μια.
                             <div><a href="<?php
-                            Element( 'user/url' , $theuser );
+                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                             ?>polls">Δημοσκοπήσεις</a>
                             </div>
                             </div><?php
@@ -140,7 +140,7 @@
                             Element( 'poll/small' , $polls[ 0 ] , true );
                             ?></div>
                             <a href="<?php
-                            Element( 'user/url' , $theuser );
+                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                             ?>polls" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
                         }
                     ?></div><?php
@@ -166,7 +166,7 @@
                         else {
                             Element( 'journal/small' , $journals[ 0 ] );
                             ?><a href="<?php
-                            Element( 'user/url' , $theuser );
+                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                             ?>journals" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
                         }    
                     ?></div>

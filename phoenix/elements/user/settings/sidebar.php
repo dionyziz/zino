@@ -19,7 +19,7 @@
                 <span class="saved"><span>&nbsp;</span>Οι επιλογές σου αποθηκεύτηκαν αυτόματα</span>
             </div>
             <a class="backtoprofile button" href="<?php
-            Element( 'user/url' , $user );
+            Element( 'user/url' , $user->Id , $user->Subdomain );
             ?>">Επιστροφή στο προφίλ<span>&nbsp;</span></a><?php
         }
     }

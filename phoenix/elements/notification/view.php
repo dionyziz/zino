@@ -141,7 +141,7 @@
                             ?>ν στους φίλους</a></div><?php
                         }
                         ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
-                        Element( 'user/url' , $notif->FromUser );
+                        Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
                         ?>' , '0' , '<?php
                         echo $notif->Event->Id;
                         ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php

@@ -13,7 +13,7 @@
                         Δεν έχεις απαντήσει σε κάποια ερώτηση.<br />
                         <br />
                         <a href="<?php
-                        Element( 'user/url', $theuser );
+                        Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                         ?>questions" class="button">Απάντησε σε μία ερώτηση</a>
                     </div><?php
                 }
@@ -29,7 +29,7 @@
                         }
                         ?></ul><br />
                         <a href="<?php
-                        Element( 'user/url', $theuser );
+                        Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                         ?>questions" class="button">Περισσότερες ερωτήσεις&raquo;</a>
                 </div><?php
             }

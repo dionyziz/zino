@@ -6,7 +6,7 @@
             }
             else {
                 ?><a href="<?php
-                Element( 'user/url' , $theuser );
+                Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                 ?>"><?php
                 echo htmlspecialchars( $theuser->Name );
                 ?></a><?php

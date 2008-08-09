@@ -10,7 +10,7 @@
                 </div>
                 <div class="who">
                     <a href="<?php
-                    Element( 'user/url' , $comment->User );
+                    Element( 'user/url' , $comment->User->Id , $comment->User->Subdomain );
                     ?>"><?php
                         Element( 'user/avatar' , $comment->User , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;

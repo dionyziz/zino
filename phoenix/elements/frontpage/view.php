@@ -159,7 +159,7 @@
                         <div class="list"><?php
                             foreach( $users as $onuser ) {
                                 ?><a href="<?php
-                                Element( 'user/url' , $onuser );
+                                Element( 'user/url' , $onuser->Id , $onuser->Subdomain );
                                 ?>"><?php
                                 Element( 'user/avatar' , $onuser , 100 , '' , '' );
                                 ?></a><?php

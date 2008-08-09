@@ -16,7 +16,7 @@
         $user->Space->Save();
 
         ob_start();
-        Element( 'user/url', $user );
+        Element( 'user/url', $user->Id , $user->Subdomain );
 
         return Redirect( ob_get_clean() . 'space' );
     }

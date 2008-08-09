@@ -52,7 +52,7 @@
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
         
 <?php
-            Element( 'user/url', $from );
+            Element( 'user/url', $from->Id , $from->Subdomain );
 
             Element( 'email/footer' );
 
