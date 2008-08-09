@@ -41,7 +41,7 @@
                 }
                 ?>><?php
                     Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
-                    Element( 'user/name' , $notif->FromUser , false );
+                    Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
                         if ( $notif->Item->Parentid == 0 ) {
                             ?> έγραψε:<?php

@@ -86,14 +86,14 @@
                     if ( $pm->IsSender( $user ) ) {
                         $receivers = $pm->Receivers;
                         while ( $receiver = array_shift( $receivers ) ) {
-                            Element( 'user/name', $receiver );
+                            Element( 'user/name', $receiver->Id , $receiver->Name , $receiver->Subdomain );
                             if ( count( $receivers ) ) {
                                 ?>, <?php
                             }
                         }
                     }
                     else {
-                        Element( 'user/name', $pm->Sender );
+                        Element( 'user/name', $pm->Sender->Id , $pm->Sender->Name , $pm->Sender->Subdomain );
                     }
                     ?></div><div onclick="pms.ExpandPm( this, <?php
                     if ( !$pm->IsRead() ) {

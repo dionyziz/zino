@@ -30,7 +30,7 @@
                     Element( 'user/url', $user->Id , $user->Subdomain );
                     ?>" class="profile"><?php
                     Element( 'image/view', $user->Avatar, IMAGE_CROPPED_100x100, '', $user->Name, $user->Name, '', true, 16, 16  );
-                    Element( 'user/name', $user, false );
+                    Element( 'user/name', $user->Id , $user->Name , $user->Subdomain , false );
                     ?></a></li>
                     <li>·</li>
                     <li><a id="unreadmessages" href="messages" class="messages icon"><span>&nbsp;</span><?php

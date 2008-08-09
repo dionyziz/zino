@@ -184,7 +184,7 @@
                         else {
                             ?>του <?php
                         }
-                        Element( 'user/name' , $theuser , false );
+                        Element( 'user/name' , $theuser->Id , $theuser->Name , $theuser->Subdomain , false );
                         ?></h3><?php
                         if ( $pageno <= 0 ) {
                             $pageno = 1;
