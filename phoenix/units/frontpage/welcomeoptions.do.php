@@ -1,12 +1,12 @@
 <?php
 
-    function UnitFrontpageWelcomeoptions( tInteger $place , tText $education , tInteger $university ) {
+    function UnitFrontpageWelcomeoptions( tInteger $place , tText $education , tInteger $schoolid ) {
         global $user;
         
         if ( $user->Exists() ) {
             $place = $place->Get();
             $education = $education->Get();
-            $university = $university->Get();
+            $schoolid = $schoolid->Get();
             
             if ( $place ) {
                 if ( $place == -1 ) {
@@ -23,17 +23,8 @@
             if ( $education ) {
                 $user->Profile->Education = $education;
             }
-            if ( $university ) {
-                if ( $university == -1 ) {
-                    $uniid = 0;
-                }
-                else {
-                    $newuni = New Uni( $university );
-                    if ( $newuni->Exists() ) {
-                        $uniid = $newuni->Id;
-                    }
-                }
-                $user->Profile->Uniid = $uniid;
+            if ( $schoolid ) {
+                $user->Profile->School = New School( $schoolid );
             }
             $user->Save();
             $user->Profile->Save();
@@ -46,25 +37,19 @@
                         $( 'div.frontpage div.ybubble div.body div.saved' ).addClass( 'invisible' );
                 } );
             } );<?php
-            if ( $user->Profile->Education == 'university' ) {
-                $typeid = 0;
-            }
-            else if ( $user->Profile->Education == 'TEI' ) {
-                $typeid  = 1;
-            }
-            $showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
-            if ( $showuni ) {
+            $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
+            if ( $showschool ) {
                 if ( $place || $education ) {
                     ?>$( '#selectuni' ).html( <?php
                         ob_start();
                         ?><span>Πανεπιστήμιο</span><?php
-                        Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+                        Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                         echo w_json_encode( ob_get_clean() );
                     ?> );
                     $( '#selectuni select' ).change( function() {
-                        var uni = $( '#selectuni select' )[ 0 ].value;
+                        var school = $( '#selectuni select' )[ 0 ].value;
                         $( 'div.frontpage div.ybubble div.body div.saving' ).removeClass( 'invisible' );
-                        Coala.Warm( 'frontpage/welcomeoptions' , { university : uni } );
+                        Coala.Warm( 'frontpage/welcomeoptions' , { school : school } );
                     });
                     if ( $( '#selectuni' ).hasClass( 'invisible' ) ) {
                         $( '#selectuni' ).css( "opacity" , "0" ).removeClass( "invisible" ).animate( { opacity : "1" } , 200 );

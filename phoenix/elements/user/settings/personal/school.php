@@ -10,7 +10,7 @@
                 if ( count( $schools ) > 0 ) {    
                     ?><select>
                         <option value="-1"<?php
-                        if ( $user->Profile->Schoolid == 0 ) {
+                        if ( $user->Profile->School->Id == 0 ) {
                             ?> selected="selected"<?php
                         }
                         ?>>-</option><?php
@@ -18,7 +18,7 @@
                             ?><option value="<?php
                             echo $school->Id;
                             ?>"<?php
-                            if ( $user->Profile->Schoolid == $school->Id ) {
+                            if ( $user->Profile->School->Id == $school->Id ) {
                                 ?> selected="selected"<?php
                             }
                             ?>><?php
