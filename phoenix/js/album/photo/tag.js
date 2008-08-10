@@ -39,7 +39,7 @@ var Tag = {
                                 $( 'div.image_tags' ).get( 0 ).appendChild( div );
                                 
                                 if ( Tag.already_tagged <= 2 ) {
-                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο ";
+                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
                                 }
                                 else {
                                     $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
@@ -154,10 +154,22 @@ var Tag = {
     del : function( id, username ) {
         var index = $.inArray( username, Tag.already_tagged );
         if ( index === -1 ) { // This will never run under normal cirmustances
-            alert( 'fall' );
             return;
         }
+        var count = Tag.already_tagged.length;
+        for( var i=0; i<Tag.already_tagged.length; ++i ) {
+            if ( Tag.already_tagged[ i ] == '' ) {
+                --count;
+            }
+        }
         Tag.already_tagged[ index ] = '';
+        --count;
+        if ( count == 0 ) {
+            $( 'div.image_tags' ).hide();
+        }
+        else if ( count == 1 ) {
+            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
+        }
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
     newCallback : function( id, username ) {
