@@ -106,6 +106,18 @@ var Tag = {
     },
     drag : function( event ) {
         if ( !Tag.run ) {
+            var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
+            var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+            $( 'div.tanga div' ).each( function( i ) {
+                var left = parseInt( $( this ).css( 'left' ), 10 );
+                var top = parseInt( $( this ).css( 'top' ), 10 );
+                if ( x>left && x < left+170 && y > top && y < top+170 ) {
+                    $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
+                }
+                else {
+                    $( this ).css( {"borderWidth" : "0px", "cursor" : "default" } );
+                }
+            } );
             return;
         }
         if ( Tag.clicked ) {
