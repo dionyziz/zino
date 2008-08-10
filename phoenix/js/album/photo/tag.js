@@ -4,6 +4,7 @@ var Tag = {
     already_tagged : [],
     clicked : false,
     run : false,
+    busy : false,
     start : function( kollitaria ) {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
@@ -207,11 +208,15 @@ $( document ).ready( function() {
                 } ); 
             } );
         $( 'div.thephoto div.tanga div' ).mouseover( function() {
-                            if ( !Tag.run ) {
+                            if ( !Tag.run && !Tag.busy ) {
+                                Tag.busy = true;
                                 $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ); 
                             }
                         } );
-        $( 'div.thephoto div.tanga div' ).mouseout( function() { $( this ).css( { "borderWidth" : "0px", "cursor" : "default" } ); } );
+        $( 'div.thephoto div.tanga div' ).mouseout( function() { 
+                            $( this ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
+                            Tag.busy = false;
+                        } );
             
         var border_width = 3*2;
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
