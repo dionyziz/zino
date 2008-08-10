@@ -242,6 +242,7 @@
                         if ( in_array( $person_name, $mutual ) ) {
                             ?><a class="tag_del" href="" /><?php
                         }
+                        ?></div><?php
                     }
                     if ( $tags_num > 0 ) {
                         ?></div><?php
