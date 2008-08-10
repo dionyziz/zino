@@ -14,7 +14,22 @@
     define( 'IMAGE_CROPPED_100x100', '100' );
     define( 'IMAGE_CROPPED_150x150', '150' );
     define( 'IMAGE_FULLVIEW', 'full' );
-
+	
+	function ProportionalSize( $maxw , $maxh , $imagewidth , $imageheight ) {
+            $propw = 1;
+            $proph = 1;
+            if ( $imagewidth > $maxw ) {
+                $propw = $imagewidth / $maxw;
+            }
+            if ( $imageheight > $maxh ) {
+                $proph = $imageheight / $maxh;
+            }
+            $prop = max( $propw , $proph );
+            $size[ 0 ] = round( $imagewidth / $prop , 0 );
+            $size[ 1 ] = round( $imageheight / $prop , 0 );
+            
+            return $size;
+        }
     class ImageException extends Exception {
     }
 

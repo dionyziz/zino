@@ -8,8 +8,8 @@
 
 			switch ( $type ) {
 				case IMAGE_PROPORTIONAL_210x210:
-					if ( $image->Width <= 210 && $image->Height <= 210 ) {
-						list( $width , $height ) = ProportionalSize( 210 , 210 );
+					if ( $imagewidth <= 210 && $imageheight <= 210 ) {
+						list( $width , $height ) = ProportionalSize( 210 , 210 , $imagewidth , $imageheight );
 					}
 					break;
 				case IMAGE_CROPPED_100x100:
