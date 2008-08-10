@@ -224,7 +224,10 @@
                                 echo $tag->Left;
                                 ?>px;top:<?php
                                 echo $tag->Top;
-                                ?>px;"></div><?php
+                                ?>px;" onmouseover="function() {
+                                        $( this ).css( 'display', 'block' );
+                                        return false;
+                                    }"></div><?php
                             }
                         ?></div>
                         <div class="tagme"></div>
