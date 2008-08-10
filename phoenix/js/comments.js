@@ -36,6 +36,9 @@ var Comments = {
 		.find( "div.text" ).empty()./*html( texter.replace( /\n/gi, "<br />" ) )*/text( texter ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
+		var valu = temp.find( "div.text" ).html();
+		temp.find( "div.text" ).html( valu.replace( /\n/gi, "<br />" ) );
+		
 		//---------------------
 		if ( parentid !== 0 ) {
 			var kimeno = temp.find( "div.text" );
