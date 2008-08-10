@@ -4,8 +4,8 @@
         public function Render( PMFolder $folder ) {
             global $water;
             
-            $messages = $folder->PMs;
-            $water->Trace('Pmfinder::FindByFolder', $messages);
+            $finder = New PMFinder();
+            $messages = $finder->FindByFolder( $folder, 200 );
             
             if ( !count( $messages ) ) {
                 if ( $folder->Typeid == PMFOLDER_INBOX ) {

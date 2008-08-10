@@ -16,20 +16,21 @@
     define( 'IMAGE_FULLVIEW', 'full' );
 	
 	function ProportionalSize( $maxw , $maxh , $imagewidth , $imageheight ) {
-            $propw = 1;
-            $proph = 1;
-            if ( $imagewidth > $maxw ) {
-                $propw = $imagewidth / $maxw;
-            }
-            if ( $imageheight > $maxh ) {
-                $proph = $imageheight / $maxh;
-            }
-            $prop = max( $propw , $proph );
-            $size[ 0 ] = round( $imagewidth / $prop , 0 );
-            $size[ 1 ] = round( $imageheight / $prop , 0 );
-            
-            return $size;
+        $propw = 1;
+        $proph = 1;
+        if ( $imagewidth > $maxw ) {
+            $propw = $imagewidth / $maxw;
         }
+        if ( $imageheight > $maxh ) {
+            $proph = $imageheight / $maxh;
+        }
+        $prop = max( $propw , $proph );
+        $size[ 0 ] = round( $imagewidth / $prop , 0 );
+        $size[ 1 ] = round( $imageheight / $prop , 0 );
+        
+        return $size;
+    }
+
     class ImageException extends Exception {
     }
 
@@ -194,21 +195,6 @@
         }
         public function IsDeleted() {
             return $this->Delid > 0 || !$this->Exists();
-        }
-        public function ProportionalSize( $maxw , $maxh ) {
-            $propw = 1;
-            $proph = 1;
-            if ( $this->Width > $maxw ) {
-                $propw = $this->Width / $maxw;
-            }
-            if ( $this->Height > $maxh ) {
-                $proph = $this->Height / $maxh;
-            }
-            $prop = max( $propw , $proph );
-            $size[ 0 ] = round( $this->Width / $prop , 0 );
-            $size[ 1 ] = round( $this->Height / $prop , 0 );
-            
-            return $size;
         }
         public function OnCommentCreate() {
             if ( $this->Albumid ) {
