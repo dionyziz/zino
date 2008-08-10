@@ -112,10 +112,10 @@ var Tag = {
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
                 if ( x>left && x < left+170 && y > top && y < top+170 ) {
-                    $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
+                    $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ).find( 'div' ).show();
                 }
                 else {
-                    $( this ).css( {"borderWidth" : "0px", "cursor" : "default" } );
+                    $( this ).css( {"borderWidth" : "0px", "cursor" : "default" } ).find( 'div' ).hide();
                 }
             } );
             return;
