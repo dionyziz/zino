@@ -152,5 +152,9 @@ $( document ).ready( function() {
         $( 'div.image_tags div' ).each( function( i ) {
                 Tag.already_tagged.push( $( this ).find( 'a:first' ).text() );
             } );
-        $( 'div.image_tags div a.tag_del' ).click( function() { $( this ).parent().hide( 400, function() { $( this ).remove(); } ); } );
+        $( 'div.image_tags div a.tag_del' ).click( function() {
+                $( this ).parent().hide( 400, function() {
+                    $( this ).remove(); 
+                } ); 
+            } );
     } );
