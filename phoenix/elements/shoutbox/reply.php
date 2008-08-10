@@ -6,7 +6,7 @@
             
             ?><div class="comment newcomment">
                 <div class="who"><?php
-                    Element( 'user/display' , $user );
+                    Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                     ?>πρόσθεσε ένα σχόλιο στη συζήτηση
                 </div>
                 <div class="text">

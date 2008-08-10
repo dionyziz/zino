@@ -46,7 +46,7 @@
                                 <div class="toolbox">
                                 </div>
                                 <div class="who"><?php
-                                    Element( 'user/display' , $event->User );
+                                    Element( 'user/display' , $event->User->Id , $event->User->Avatar->Id , $event->User );
                                     switch ( $type ) {
                                         case EVENT_IMAGE_CREATED:
                                             ?> ανέβασε <?php

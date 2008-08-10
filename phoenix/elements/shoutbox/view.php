@@ -16,7 +16,7 @@
                         }
                     ?></div>
                     <div class="who"><?php
-                        Element( 'user/display' , $shout->User );
+                        Element( 'user/display' , $shout->User->Id , $shout->User->Avatar->Id , $shout->User );
                         ?> είπε:
                     </div>
                     <div class="text"><?php
@@ -32,7 +32,7 @@
                         }
                     ?></div>
                     <div class="who"><?php
-                        Element( 'user/display' , $user );
+                        Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                         ?> είπε:
                     </div>
                     <div class="text"></div>
