@@ -40,7 +40,7 @@
                     ?>' );"<?php
                 }
                 ?>><?php
-                    Element( 'user/avatar' , $notif->FromUser , 100 , 'avatar' , '' , true , 50 , 50 );
+                    Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                     Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
                         if ( $notif->Item->Parentid == 0 ) {
@@ -98,7 +98,7 @@
                                         Element( 'url', $comment );
                                         echo htmlspecialchars( ob_get_clean() );
                                         ?>" class="itempic"><?php
-                                        Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 );
+                                        Element( 'user/avatar' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , $user->Name , IMAGE_CROPPED_100x100 , '' , '' , false , 0 , 0 );
                                         ?></a><?php
                                     }
                                 }

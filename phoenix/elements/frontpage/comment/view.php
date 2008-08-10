@@ -7,7 +7,7 @@
                     <a href="<?php
                     Element( 'user/url' , $comment->User->Id , $comment->User->Subdomain );
                     ?>"><?php
-                        Element( 'user/avatar' , $comment->User , 100 , 'avatar' , '' , true , 50 , 50 );
+                        Element( 'user/avatar' , $comment->User->Avatar->Id , $comment->User->Id , $comment->User->Avatar->Width , $comment->User->Avatar->Height , $comment->User->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                         echo $comment->User->Name;
                     ?></a> έγραψε:
                 </div>
@@ -55,7 +55,7 @@
                                 Element( 'url', $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'user/avatar' , $user, IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
+                                Element( 'user/avatar' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , $user->Name , IMAGE_CROPPED_100x100 , '' , '' , true , 75 , 75 );
                                 ?></a><?php
                                 break;
                             case TYPE_JOURNAL:

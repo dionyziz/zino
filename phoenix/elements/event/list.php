@@ -122,7 +122,7 @@
                                                 ?><a href="<?php
                                                 Element( 'user/url' , $one->Item->Friend->Id , $one->Item->Friend->Subdomain );
                                                 ?>"><?php
-                                                Element( 'user/avatar' , $one->Item->Friend, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
+                                                Element( 'user/avatar' , $one->Item->Friend->Avatar->Id , $one->Item->Friend->Id , $one->Item->Friend->Avatar->Width , $$one->Item->Friend->Avatar->Height , $one->Item->Friend->Name , 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
                                                 ?></a><?php
                                             }
                                             break;
@@ -133,7 +133,7 @@
                                             ?><a href="<?php
                                             Element( 'user/url' , $event->Item->Id , $event->Item->Subdomain );
                                             ?>"><?php
-                                            Element( 'user/avatar' , $event->Item, 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
+                                            Element( 'user/avatar' , $event->Item->Avatar->Id , $event->Item->Id , $event->Item->Avatar->Width , $event->Item->Avatar->Height , $event->Item->Name , 100 , '' , 'margin-right:3px;' , false , 0 , 0 );
                                             ?></a><?php
                                             break;
                                     }

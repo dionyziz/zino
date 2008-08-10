@@ -147,7 +147,7 @@
 		                                ?><a href="<?php
 		                                Element( 'user/url', $onuser->Id , $onuser->Subdomain );
 		                                ?>"><?php
-		                                Element( 'user/avatar', $onuser, 100, '', '' );
+                                        Element( 'user/avatar' , $onuser->Avatar->Id , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , '' , '' );
 		                                ?></a><?php
 		                            }    
 		                        ?></div><?php

@@ -6,7 +6,7 @@
                 <a href="<?php
                     Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                     ?>"><?php
-                    Element( 'user/avatar' , $theuser , 150 , '' , '' );
+                    Element( 'user/avatar' , $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 150 , '' , '' );
                     ?><span class="name"><?php
                     echo $theuser->Name;
                     ?></span>

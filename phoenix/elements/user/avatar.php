@@ -1,17 +1,17 @@
 <?php
     
     class ElementUserAvatar extends Element {
-        public function Render( $theuser , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
+        protected $mPersistent = array( 'avatarid' , 'size' , 'class' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' );
+        public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
             global $rabbit_settings;
             
             // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
-            if ( $theuser->Avatarid > 0 ) {
-                $avatar = $theuser->Avatar;
+            if ( $avataruserid > 0 ) {
                 if ( $size == 150 ) {
-                    Element( 'image/view' , $avatar->Id , $avatar->User->Id , $avatar->Width , $avatar->Height , IMAGE_CROPPED_150x150, $class , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+                    Element( 'image/view' , $avatarid , $avataruserid , $avatarwidth , $avatarheight , IMAGE_CROPPED_150x150, $class , $theusername , $style , $cssresizable , $csswidth , $cssheight );
                 }
                 else if ( $size == 100 ) {
-                    Element( 'image/view' , $avatar->Id , $avatar->User->Id , $avatar->Width , $avatar->Height ,  IMAGE_CROPPED_100x100, $class , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+                    Element( 'image/view' , $avatarid , $avataruserid , $avatarwidth , $avatarheight ,  IMAGE_CROPPED_100x100, $class , $theusername , $style , $cssresizable , $csswidth , $cssheight );
                 }
             }
             else {
@@ -26,9 +26,9 @@
 					?>"<?php
 				}
 				?> alt="<?php
-				echo htmlspecialchars( $theuser->Name );
+				echo htmlspecialchars( $theusername );
 				?>" title="<?php
-				echo htmlspecialchars( $theuser->Name );
+				echo htmlspecialchars( $theusername );
 				?>" style="<?php
 				if ( !$cssresizable ) {
 					?>width:<?php

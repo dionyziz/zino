@@ -6,7 +6,7 @@
             global $libs;
             
             //$libs->Load( 'image' );
-            Element( 'user/avatar' , $user , 150 , 'avie' , '' );
+            Element( 'user/avatar' , $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height , $user->Name , 150 , 'avie' , '' , false , 0 , 0 );
             ?><div class="changeavatar">
             <a href="" onclick="Settings.ShowAvatarChange();return false;">Αλλαγή εικόνας</a>
             </div>
