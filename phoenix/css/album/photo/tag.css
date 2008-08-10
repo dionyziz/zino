@@ -80,7 +80,7 @@ div.thephoto div.tanga div.tag {
 div.thephoto div.tanga div.tag div {
     position: absolute;
     background-color: #FFFFBB;
-    font-color: blue;
+    color: blue;
     border: 1px solid black;
     display: none;
 }
