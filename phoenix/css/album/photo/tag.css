@@ -71,7 +71,7 @@ div.thephoto div.tanga {
 }
 div.thephoto div.tanga div {
     position: absolute;
-    display: none;
+    opacity: 0px;
     border: 2px solid #FFFFBB;
     width: 170px;
     height: 170px;
