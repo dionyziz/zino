@@ -228,7 +228,8 @@
                     $tags = $tagfinder->FindByImage( $image );
                     $tags_num = count( $tags );
                     if ( $tags_num > 0 ) {
-                        ?><div class="image_tags"><?php
+                        ?><div class="image_tags">Υπάρχουν σε αυτή την εικόνα οι: <?php
+                        // Change so that it displays the appropriate text when there is only one tag
                     }
                     foreach( $tags as $tag ) {
                     // optimize by making finder return usernames
