@@ -241,9 +241,14 @@
                         echo $person_name;
                         ?></a><?php
                         if ( $tag->Ownerid == $user->Id ) {
-                            ?><a class="tag_del" href="" onclick="Tag.del( <?php
-                            echo $tag->Id;
-                            ?> );return false;" /><?php
+                            ?><a class="tag_del" href="" onclick="function( node ) {
+                                        return function() {
+                                            Tag.del( <?php
+                                            echo $tag->Id;
+                                            ?>, node );
+                                            return false;
+                                        };
+                                    } )( this );" /><?php
                         }
                         ?></div><?php
                     }

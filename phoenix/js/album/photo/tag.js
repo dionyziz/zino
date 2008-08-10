@@ -130,9 +130,8 @@ var Tag = {
         $( 'div.thephoto div' ).hide();
         Tag.run = false;
     },
-    del : function( id ) {
-        alert( $( this ).parent().get(0).nodeName );
-        var username = $( this ).parent().find( 'a:first' ).text();
+    del : function( id, node ) {
+        var username = $( node ).parent().find( 'a:first' ).text();
         alert( username );
         $( this ).parent().hide( 400, function() { $( this ).remove(); } );
         var index = $.inArray( username, Tag.already_tagged );
