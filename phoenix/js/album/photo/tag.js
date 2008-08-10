@@ -129,6 +129,16 @@ var Tag = {
     close : function( event ) {
         $( 'div.thephoto div' ).hide();
         Tag.run = false;
+    },
+    del : function( id ) {
+        var username = $( this ).parent().find( 'a:first' ).text();
+        $( this ).parent().hide( 400, function() { $( this ).remove(); } );
+        var index = $.inArray( username, Tag.already_tagged );
+        if ( index === -1 ) { // This will never run under normal cirmustances
+            return;
+        }
+        Tag.already_tagged[ index ] = '';
+        Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     }
 };
 $( document ).ready( function() {
