@@ -1,12 +1,13 @@
 <?php
     
     class ElementShoutboxReply extends Element {
-        public function Render() {
+        protected $mPersistent = array( 'userid' , 'useravatarid' );
+        public function Render( $userid , $useravatarid , $user ) {
             global $user;
             
             ?><div class="comment newcomment">
                 <div class="who"><?php
-                    Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
+                    Element( 'user/display' , $userid , $useravatarid , $user );
                     ?>πρόσθεσε ένα σχόλιο στη συζήτηση
                 </div>
                 <div class="text">

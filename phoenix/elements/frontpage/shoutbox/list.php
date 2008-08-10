@@ -12,7 +12,7 @@
                 <h2>Συζήτηση</h2>
                 <div class="comments"><?php
                     if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
-                        Element( 'shoutbox/reply' );
+                        Element( 'shoutbox/reply' , $user->Id , $user->Avatar->Id , $user );
                     }
                     foreach ( $shouts as $shout ) {
                         Element( 'shoutbox/view' , $shout , false );
