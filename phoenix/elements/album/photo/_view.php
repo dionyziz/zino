@@ -220,15 +220,19 @@
                                 $person = New User( $tag->Personid );
                                 $person_name = $person->Name;
                                 $unames[] = $person_name;
-                                ?><div style="left:<?php
+                                ?><div class="tag" style="left:<?php
                                 echo $tag->Left;
                                 ?>px;top:<?php
                                 echo $tag->Top;
-                                ?>px;" title="<?php
-                                echo $person_name;
-                                ?>" onclick="document.location.href='http://<?php
+                                ?>px;" onclick="document.location.href='http://<?php
                                 echo $person->Subdomain;
-                                ?>.zino.gr';"></div><?php
+                                ?>.zino.gr';">
+                                <div style="top:<?php
+                                echo $tag->Top;
+                                ?>px;"><?php
+                                echo $person_name;
+                                ?></div>
+                                </div><?php
                             }
                         ?></div>
                         <div class="tagme"></div>

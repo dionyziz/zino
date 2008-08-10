@@ -69,10 +69,18 @@ div.image_tags div a.tag_del {
 div.thephoto div.tanga {
     display: block;
 }
-div.thephoto div.tanga div {
+div.thephoto div.tanga div.tag {
     position: absolute;
     display: block;
     border: 0 solid #FFFFBB;
     width: 170px;
     height: 170px;
+    text-align: center;
+}
+div.thephoto div.tanga div.tag div {
+    position: absolute;
+    background-color: #FFFFBB;
+    font-color: blue;
+    border: 1px solid black;
+    display: none;
 }
