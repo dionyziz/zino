@@ -206,6 +206,8 @@ $( document ).ready( function() {
                     $( this ).remove(); 
                 } ); 
             } );
+        $( 'div.thephoto div.tanga div' ).mouseover( function() { alert( "Trexo" );$( this ).show(); } );
+            
         var border_width = 3*2;
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
         var tag_height = parseInt( $( 'div.tagme' ).css( 'height' ), 10 );
