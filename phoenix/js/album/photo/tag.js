@@ -35,7 +35,7 @@ var Tag = {
                                 Tag.already_tagged.push( username );
                                 Tag.close( event );
                                 // add tag
-                            }
+                            };
                 } )( kollitaria[ i ] );
             a.appendChild( document.createTextNode( kollitaria[ i ] ) );
             li.appendChild( a );
