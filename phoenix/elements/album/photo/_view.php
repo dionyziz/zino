@@ -240,7 +240,7 @@
                         ?>"><?php
                         echo $person_name;
                         ?></a><?php
-                        if ( in_array( $person_name, $mutual ) ) {
+                        if ( $tag->Ownerid == $user->Id ) {
                             ?><a class="tag_del" href="" /><?php
                         }
                         ?></div><?php
