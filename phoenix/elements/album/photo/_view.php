@@ -222,9 +222,9 @@
                                 $unames[] = $person_name;
                                 ?><div style="left:<?php
                                 echo $tag->Left;
-                                ?>;top:<?php
+                                ?>px;top:<?php
                                 echo $tag->Top;
-                                ?>;"></div><?php
+                                ?>px;"></div><?php
                             }
                         ?></div>
                         <div class="tagme"></div>
