@@ -226,7 +226,6 @@
             global $mc;
 
             w_assert( is_array( $this->mPersistent ) );
-            w_assert( count( $this->mPersistent ) >= 1 );
 
             $me = New ReflectionClass( get_class( $this ) );
             $render = $me->getMethod( 'Render' );
@@ -240,15 +239,17 @@
                 $i = 0;
                 $j = 0;
                 $ret = array();
-                foreach ( $params as $param ) {
-                    if ( $this->mPersistent[ $i ] == $param->getName() ) {
-                        $ret[] = $j;
-                        ++$i;
-                        if ( $i == count( $this->mPersistent ) ) {
-                            break;
+                if ( count( $this->mPersistent ) ) {
+                    foreach ( $params as $param ) {
+                        if ( $this->mPersistent[ $i ] == $param->getName() ) {
+                            $ret[] = $j;
+                            ++$i;
+                            if ( $i == count( $this->mPersistent ) ) {
+                                break;
+                            }
                         }
+                        ++$j;
                     }
-                    ++$j;
                 }
                 // w_assert( $i == count( $this->mPersistent ), 'Arguments in mPersistent do not match the element\'s argument list' );
                 if ( $i != count( $this->mPersistent ) ) {
