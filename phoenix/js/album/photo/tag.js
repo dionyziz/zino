@@ -37,6 +37,14 @@ var Tag = {
                                 div.appendChild( a );
                                 
                                 $( 'div.image_tags' ).get( 0 ).appendChild( div );
+                                
+                                if ( Tag.already_tagged <= 2 ) {
+                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο ";
+                                }
+                                else {
+                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
+                                }
+                                    
                                 $( 'div.image_tags' ).show();
                                 
                                 Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
