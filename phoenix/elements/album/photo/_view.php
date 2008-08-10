@@ -231,8 +231,21 @@
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
                     }
-                    ?>>Υπάρχουν σε αυτή την εικόνα οι: <?php
-                    // Change so that it displays the appropriate text when there is only one tag
+                    ?>><?php
+                    if ( $tags_num == 1 ) {
+                        ?>Υπάρχει σε αυτήν την εικόνα <?php
+                        $atomo = New Users( $tag->Personid );
+                        $gender = $atomo->Gender;
+                        if ( $gender == 'f' ) {
+                            ?> η <?php
+                        }
+                        else {
+                            ?> ο <?php
+                        }
+                    }
+                    else {
+                        ?>Υπάρχουν σε αυτή την εικόνα οι: <?php
+                    }
                     foreach( $tags as $tag ) {
                     // optimize by making finder return usernames
                         $person = New User( $tag->Personid );
