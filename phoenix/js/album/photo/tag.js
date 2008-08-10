@@ -141,7 +141,7 @@ $( document ).ready( function() {
                 return false;
             } );
         $( 'div.image_tags div' ).each( function( i ) {
-                Tag.already_tagged.push( this.firstChild.nodeValue );
-                alert( this.firstChild.nodeValue );
+                Tag.already_tagged.push( $( this ).find( 'a:first' ).get( 0 ).firstChild.nodeValue );
+                alert( $( this ).find( 'a:first' ).get( 0 ).firstChild.nodeValue );
             } );
     } );
