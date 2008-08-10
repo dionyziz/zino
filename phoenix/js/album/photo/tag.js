@@ -140,4 +140,7 @@ $( document ).ready( function() {
                 Tag.start( false );
                 return false;
             } );
+        $( 'div.image_tags div a:first' ).each( function( i ) {
+                Tag.already_tagged.push( $( this ).val() );
+            } );
     } );
