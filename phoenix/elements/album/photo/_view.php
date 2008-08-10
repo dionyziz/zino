@@ -234,7 +234,7 @@
                     ?>><?php
                     if ( $tags_num == 1 ) {
                         ?>Υπάρχει σε αυτήν την εικόνα <?php
-                        $atomo = New User( $tag->Personid );
+                        $atomo = New User( $tags[0]->Personid );
                         $gender = $atomo->Gender;
                         if ( $gender == 'f' ) {
                             ?> η <?php
