@@ -247,7 +247,7 @@
                             echo $tag->Id;
                             ?>, '<?php
                             echo $person_name;
-                            ?>' );return false;" /><?php
+                            ?>' );return false;" title="Διαγραφή" /><?php
                         }
                         ?></div><?php
                     }

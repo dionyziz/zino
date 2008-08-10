@@ -1,5 +1,5 @@
 <?php
-    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username, tInteger $left, tInteger $top ) {
+    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username, tInteger $left, tInteger $top, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
@@ -58,5 +58,12 @@
         $tag->Width = 170;
         $tag->Height = 170;
         $tag->Save();
+        
+        echo $callback;
+        ?>( <?php
+        echo $tag->Id;
+        ?>, <?php
+        echo w_json_encode( $user->Name );
+        ?> );<?php
     }
 ?>

@@ -28,11 +28,22 @@ var Tag = {
                                 Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
                                                                      'username' : username,
                                                                      'left' : left,
-                                                                     'top' : top
+                                                                     'top' : top,
+                                                                     'callback' : Tag.newCallback
                                                                     } );
                                 $( this ).parent().hide();
                                 $( 'div.thephoto div.frienders form input' ).val( '' );
                                 Tag.already_tagged.push( username );
+                                
+                                var div = document.createElement( 'div' );
+                                var a = document.createElement( 'a' );
+                                a.title = username;
+                                a.appendChild( document.createTextNode( username ) );
+                                div.appendChild( a );
+                                
+                                $( 'div.image_tags' ).get( 0 ).appendChild( div );
+                                $( 'div.image_tags' ).show();
+                                
                                 Tag.close( event );
                                 // add tag
                             };
@@ -138,6 +149,21 @@ var Tag = {
         }
         Tag.already_tagged[ index ] = '';
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
+    },
+    newCallback : function( id, username ) {
+        var a = document.createElement( 'a' );
+        a.title = "Διαγραφή";
+        a.onclick = function() { 
+            Tag.del( id, username );
+            return false;
+          };
+        $( a ).click( function() {
+                $( this ).parent().hide( 400, function() {
+                    $( this ).remove(); 
+                } ); 
+            } );
+        
+        $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
     }
 };
 $( document ).ready( function() {
