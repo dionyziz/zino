@@ -71,9 +71,6 @@
             if ( $school ) {
                 $user->Profile->School = New School( $school );
             }
-            if ( $education < 5 ) {
-                $user->Profile->School = NULL;
-            }
             if ( $mood ) {
                 $user->Profile->Moodid = $mood;
             }
