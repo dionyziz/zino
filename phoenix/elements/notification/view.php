@@ -40,7 +40,7 @@
                     ?>' );"<?php
                 }
                 ?>><?php
-                    Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
+                    Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                     Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
                     if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
                         if ( $notif->Item->Parentid == 0 ) {
