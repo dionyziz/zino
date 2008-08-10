@@ -142,6 +142,5 @@ $( document ).ready( function() {
             } );
         $( 'div.image_tags div' ).each( function( i ) {
                 Tag.already_tagged.push( $( this ).find( 'a:first' ).get( 0 ).firstChild.nodeValue );
-                alert( $( this ).find( 'a:first' ).get( 0 ).firstChild.nodeValue );
             } );
     } );
