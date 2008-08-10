@@ -140,7 +140,8 @@ $( document ).ready( function() {
                 Tag.start( false );
                 return false;
             } );
-        $( 'div.image_tags div a:first' ).each( function( i ) {
-                Tag.already_tagged.push( $( this ).val() );
+        $( 'div.image_tags div' ).each( function( i ) {
+                Tag.already_tagged.push( this.firstChild.nodeValue );
+                alert( this.firstChild.nodeValue );
             } );
     } );
