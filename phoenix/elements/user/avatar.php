@@ -6,7 +6,7 @@
             global $rabbit_settings;
             
             // size can either be 150 or 50, which means avatars of size 150x150 or 50x50 respectively
-            if ( $avataruserid > 0 ) {
+            if ( $avatarid > 0 ) {
                 if ( $size == 150 ) {
                     Element( 'image/view' , $avatarid , $avataruserid , $avatarwidth , $avatarheight , IMAGE_CROPPED_150x150, $class , $theusername , $style , $cssresizable , $csswidth , $cssheight );
                 }
