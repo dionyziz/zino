@@ -11,6 +11,7 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'image/tag' );
             
             $id = $id->Get();
             $commentid = $commentid->Get();
