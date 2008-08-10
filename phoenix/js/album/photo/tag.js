@@ -192,7 +192,7 @@ $( document ).ready( function() {
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
         var x = ( image_width - tag_width - border_width )/2;
-        var y = ( image_height - tag_height - border_width )*0.75; // 3/4
+        var y = ( image_height - tag_height - border_width )*0.25; // 3/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     } );
