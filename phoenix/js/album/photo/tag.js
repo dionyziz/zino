@@ -132,9 +132,11 @@ var Tag = {
     },
     del : function( id ) {
         var username = $( this ).parent().find( 'a:first' ).text();
+        alert( username );
         $( this ).parent().hide( 400, function() { $( this ).remove(); } );
         var index = $.inArray( username, Tag.already_tagged );
         if ( index === -1 ) { // This will never run under normal cirmustances
+            alert( 'fall' );
             return;
         }
         Tag.already_tagged[ index ] = '';
