@@ -224,7 +224,9 @@
                                 echo $tag->Left;
                                 ?>px;top:<?php
                                 echo $tag->Top;
-                                ?>px;"></div><?php
+                                ?>px;" title="<?php
+                                echo $person_name;
+                                ?>"></div><?php
                             }
                         ?></div>
                         <div class="tagme"></div>
