@@ -1,7 +1,7 @@
 <?php
     
     class ElementUserAvatar extends Element {
-        protected $mPersistent = array( 'avatarid' , 'size' , 'class' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' , 'theusername' );
+        protected $mPersistent = array( 'avatarid' , 'theusername' , 'size' , 'class' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' );
         public function Render( $avatarid , $avataruserid , $avatarwidth , $avatarheight , $theusername , $size , $class = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
             global $rabbit_settings;
             
