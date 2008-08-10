@@ -3,11 +3,6 @@
     class ElementFrontpageCommentView extends Element {
         public function Render( $comment ) {
             ?><div class="event">
-                <div class="toolbox">
-                    <span class="time"><?php
-                    Element( 'date/diff', $comment->Created );
-                    ?></span>
-                </div>
                 <div class="who">
                     <a href="<?php
                     Element( 'user/url' , $comment->User->Id , $comment->User->Subdomain );
@@ -43,7 +38,7 @@
                                 Element( 'url' , $comment );
                                 echo htmlspecialchars( ob_get_clean() );
                                 ?>" class="itempic"><?php
-                                Element( 'image/view' , $comment->Item , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , $comment->Item->Name , '' , true , 75 , 75 );
+                                Element( 'image/view' , $comment->Item->Id , $comment->Item->User->Id , $comment->Item->Width , $comment->Item->Height , IMAGE_CROPPED_100x100 , '' , $comment->Item->Name , '' , true , 75 , 75 );
                                 ?></a><?php
                                 break;
                             case TYPE_USERPROFILE:
