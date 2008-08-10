@@ -29,7 +29,7 @@
                     <li title="Προβολή προφίλ"><a href="<?php
                     Element( 'user/url', $user->Id , $user->Subdomain );
                     ?>" class="profile"><?php
-                    Element( 'image/view', $user->Avatar->Id , $user->Avatar->User->Id , $user->Avatar->Width , $user->Avatar->Height ,  IMAGE_CROPPED_100x100 , '' , $user->Name, '' , true , 16 , 16  );
+                    Element( 'image/view', $user->Avatar->Id , $user->Id , $user->Avatar->Width , $user->Avatar->Height ,  IMAGE_CROPPED_100x100 , '' , $user->Name, '' , true , 16 , 16  );
                     Element( 'user/name', $user->Id , $user->Name , $user->Subdomain , false );
                     ?></a></li>
                     <li>·</li>
