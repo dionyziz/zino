@@ -130,11 +130,7 @@ var Tag = {
         $( 'div.thephoto div' ).hide();
         Tag.run = false;
     },
-    del : function( id ) {
-        alert( this.parentNode.nodeName );
-        var username = $( this ).parent().find( 'a:first' ).text();
-        alert( username );
-        $( this ).parent().hide( 400, function() { $( this ).remove(); } );
+    del : function( id, username ) {
         var index = $.inArray( username, Tag.already_tagged );
         if ( index === -1 ) { // This will never run under normal cirmustances
             alert( 'fall' );
@@ -156,4 +152,5 @@ $( document ).ready( function() {
         $( 'div.image_tags div' ).each( function( i ) {
                 Tag.already_tagged.push( $( this ).find( 'a:first' ).text() );
             } );
+        $( 'div.image_tags div a.tag_del' ).click( function() { $( this ).parent().hide( 400, function() { $( this ).remove(); } ); } );
     } );

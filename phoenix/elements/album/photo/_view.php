@@ -243,7 +243,9 @@
                         if ( $tag->Ownerid == $user->Id ) {
                             ?><a class="tag_del" href="" onclick="Tag.del( <?php
                             echo $tag->Id;
-                            ?>);return false;" /><?php
+                            ?>, '<?php
+                            echo $person_name;
+                            ?>' );return false;" /><?php
                         }
                         ?></div><?php
                     }
