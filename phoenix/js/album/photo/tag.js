@@ -211,7 +211,7 @@ $( document ).ready( function() {
                                 $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ); 
                             }
                         } );
-        $( 'div.thephoto div.tanga div' ).mouseout( function() { $( this ).css( "borderWidth", "0px" ); } );
+        $( 'div.thephoto div.tanga div' ).mouseout( function() { $( this ).css( { "borderWidth" : "0px", "cursor" : "default" } ); } );
             
         var border_width = 3*2;
         var tag_width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
