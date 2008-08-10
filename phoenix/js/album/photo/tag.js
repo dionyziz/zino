@@ -25,12 +25,7 @@ var Tag = {
                             return function( event ) {
                                 var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
                                 var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
-                                Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
-                                                                     'username' : username,
-                                                                     'left' : left,
-                                                                     'top' : top,
-                                                                     'callback' : Tag.newCallback
-                                                                    } );
+                                
                                 $( this ).parent().hide();
                                 $( 'div.thephoto div.frienders form input' ).val( '' );
                                 Tag.already_tagged.push( username );
@@ -43,6 +38,13 @@ var Tag = {
                                 
                                 $( 'div.image_tags' ).get( 0 ).appendChild( div );
                                 $( 'div.image_tags' ).show();
+                                
+                                Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
+                                                                     'username' : username,
+                                                                     'left' : left,
+                                                                     'top' : top,
+                                                                     'callback' : Tag.newCallback
+                                                                    } );
                                 
                                 Tag.close( event );
                                 // add tag
@@ -151,12 +153,15 @@ var Tag = {
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
     newCallback : function( id, username ) {
+        alert( 'trexo' );
+    
         var a = document.createElement( 'a' );
         a.title = "Διαγραφή";
         a.onclick = function() { 
             Tag.del( id, username );
             return false;
           };
+        a.className = "tag_del";
         $( a ).click( function() {
                 $( this ).parent().hide( 400, function() {
                     $( this ).remove(); 

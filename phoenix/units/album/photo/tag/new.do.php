@@ -63,7 +63,7 @@
         ?>( <?php
         echo $tag->Id;
         ?>, <?php
-        echo w_json_encode( $user->Name );
+        echo w_json_encode( $username );
         ?> );<?php
     }
 ?>
