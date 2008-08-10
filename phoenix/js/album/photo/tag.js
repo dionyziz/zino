@@ -62,7 +62,7 @@ var Tag = {
             li.appendChild( a );
             ul.appendChild( li );
         }
-        $( 'div.thephoto div' ).show();
+        $( 'div.thephoto > div:not( div.tanga )' ).not.show();
         if ( !Tag.run ) {
             var locate = document.location.href;
             if ( locate.substr( locate.length-13 ) != "#tagging_area" ) {
