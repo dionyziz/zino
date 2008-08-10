@@ -227,9 +227,7 @@
                                 ?>px;" onclick="document.location.href='http://<?php
                                 echo $person->Subdomain;
                                 ?>.zino.gr';">
-                                <div style="top:<?php
-                                echo $tag->Top;
-                                ?>px;"><?php
+                                <div><?php
                                 echo $person_name;
                                 ?></div>
                                 </div><?php
