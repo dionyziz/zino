@@ -246,8 +246,9 @@
                                             Tag.del( <?php
                                             echo $tag->Id;
                                             ?>, node );
+                                            return false;
                                         };
-                                    } )( this );return false;" /><?php
+                                    } )( this );" /><?php
                         }
                         ?></div><?php
                     }
