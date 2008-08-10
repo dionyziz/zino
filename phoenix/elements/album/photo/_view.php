@@ -227,10 +227,12 @@
                     $tagfinder = New ImageTagFinder();
                     $tags = $tagfinder->FindByImage( $image );
                     $tags_num = count( $tags );
-                    if ( $tags_num > 0 ) {
-                        ?><div class="image_tags">Υπάρχουν σε αυτή την εικόνα οι: <?php
-                        // Change so that it displays the appropriate text when there is only one tag
+                    ?><div class="image_tags" <?php
+                    if ( $tags_num == 0 ) {
+                        ?>style="display:none"<?php
                     }
+                    ?>>Υπάρχουν σε αυτή την εικόνα οι: <?php
+                    // Change so that it displays the appropriate text when there is only one tag
                     foreach( $tags as $tag ) {
                     // optimize by making finder return usernames
                         $person = New User( $tag->Personid );
@@ -249,9 +251,7 @@
                         }
                         ?></div><?php
                     }
-                    if ( $tags_num > 0 ) {
-                        ?></div><?php
-                    }
+                    ?></div><?php
                 ?><div class="banner b728x90">
 					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
 				</div>
