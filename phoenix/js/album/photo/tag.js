@@ -206,7 +206,11 @@ $( document ).ready( function() {
                     $( this ).remove(); 
                 } ); 
             } );
-        $( 'div.thephoto div.tanga div' ).mouseover( function() { $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ); } );
+        $( 'div.thephoto div.tanga div' ).mouseover( function() {
+                            if ( !Tag.run ) {
+                                $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ); 
+                            }
+                        } );
         $( 'div.thephoto div.tanga div' ).mouseout( function() { $( this ).css( "borderWidth", "0px" ); } );
             
         var border_width = 3*2;
