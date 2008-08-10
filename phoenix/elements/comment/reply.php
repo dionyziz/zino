@@ -1,7 +1,8 @@
 <?php
     
     class ElementCommentReply extends Element {
-        public function Render( $itemid, $typeid ) {
+        protected $mPersistent = array( 'itemid' , 'typeid' , 'userid' , 'avatarid' );
+        public function Render( $itemid, $typeid , $userid , $avatarid ) {
             global $user;
             global $page;
             

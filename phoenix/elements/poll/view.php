@@ -38,7 +38,7 @@
                             ?><div class="comments"><?php
                                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-                                        Element( 'comment/reply', $poll->Id, TYPE_POLL );
+                                        Element( 'comment/reply', $poll->Id, TYPE_POLL , $user->Id , $user->Avatar->Id );
                                     }
                                     if ( $poll->Numcomments > 0 ) {
                                         $finder = New CommentFinder();

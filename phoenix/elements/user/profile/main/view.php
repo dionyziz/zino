@@ -191,7 +191,7 @@
                         }
                         
                             if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-                                Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE );
+                                Element( 'comment/reply', $theuser->Id, TYPE_USERPROFILE , $theuser->Id , $theuser->Avatar->Id );
                             }
                         // if ( $theuser->Profile->Numcomments > 0 ) {
                             Element( 'comment/list' , $comments );

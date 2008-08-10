@@ -88,7 +88,7 @@
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                         if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
-                            Element( 'comment/reply', $journal->Id, TYPE_JOURNAL );
+                            Element( 'comment/reply', $journal->Id, TYPE_JOURNAL , $user->Id , $user->Avatar->Id );
                         }
                         if ( $journal->Numcomments > 0 ) {
                             $finder = New CommentFinder();
