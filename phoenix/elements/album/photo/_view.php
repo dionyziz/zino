@@ -226,7 +226,9 @@
                                 echo $tag->Top;
                                 ?>px;" title="<?php
                                 echo $person_name;
-                                ?>"></div><?php
+                                ?>" onclick="document.location.href='<?php
+                                echo $user->Subdomain;
+                                ?>.zino.gr';"></div><?php
                             }
                         ?></div>
                         <div class="tagme"></div>
