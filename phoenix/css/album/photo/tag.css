@@ -57,11 +57,11 @@ div.image_tags {
 }
 div.image_tags div {
     display: inline;
+    margin-left: 3px;
 }
 div.image_tags div a.tag_del {
-    /* What the cock? */
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
     width: 15px;
     height: 20px;
-    padding-left: 12px;
+    padding-left: 15px;
 }
