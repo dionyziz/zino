@@ -8,10 +8,10 @@
             if ( $theuser->Avatarid > 0 ) {
                 $avatar = $theuser->Avatar;
                 if ( $size == 150 ) {
-                    Element( 'image/view' , $avatar , IMAGE_CROPPED_150x150, $class , $theuser->Name , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+                    Element( 'image/view' , $avatar->Id , $avatar->User->Id , $avatar->Width , $avatar->Height , IMAGE_CROPPED_150x150, $class , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
                 }
                 else if ( $size == 100 ) {
-                    Element( 'image/view' , $avatar , IMAGE_CROPPED_100x100, $class , $theuser->Name , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
+                    Element( 'image/view' , $avatar->Id , $avatar->User->Id , $avatar->Width , $avatar->Height ,  IMAGE_CROPPED_100x100, $class , $theuser->Name , $style , $cssresizable , $csswidth , $cssheight );
                 }
             }
             else {

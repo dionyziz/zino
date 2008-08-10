@@ -56,7 +56,7 @@
                             echo $album->Id;
                             ?>, this);return false;">
                             <?php
-                            Element( 'image/view', $album->Mainimage, IMAGE_CROPPED_100x100, '', $title, $title, '', false, 0, 0 ); // TODO: Optimize
+                            Element( 'image/view', $album->Mainimage->Id , $album->Mainimage->User->Id , $album->Mainimage->Width , $album->Mainimage->Height , IMAGE_CROPPED_100x100 , '' , $title , '', false, 0, 0 ); // TODO: Optimize
                             ?><br /><?php
                             echo htmlspecialchars( $title );
                             ?></a>

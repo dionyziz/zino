@@ -1,20 +1,17 @@
 <?php
     class ElementImageView extends Element {
-        public function Render( $image, $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alt = '', $title = '', $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
-            global $xc_settings;
+		protected $mPersistent = array( 'imageid' , 'type' , 'class' , 'alttitle' , 'style' , 'cssresizable' , 'csswidth' , 'cssheight' );
+		public function Render( $imageid, $imageuserid , $imagewidth , $imageheight , $type = IMAGE_PROPORTIONAL_210x210, $class = '', $alttitle = '' , $style = '' , $cssresizable = false , $csswidth = 0 , $cssheight = 0 ) {
+            //imageid  , imageuserid, imagewidth, imageheight
+			global $xc_settings;
             global $rabbit_settings;
 
-			if ( $image->IsDeleted() ) {
-				return;
-			}
 			switch ( $type ) {
 				case IMAGE_PROPORTIONAL_210x210:
 					if ( $image->Width <= 210 && $image->Height <= 210 ) {
-						$width = $image->Width;
-						$height = $image->Height;
-						break;
+						$width = $imagewidth;
+						$height = $imageheight;
 					}
-					list( $width, $height ) = $image->ProportionalSize( 210, 210 );
 					break;
 				case IMAGE_CROPPED_100x100:
 					$width = $height = 100;
@@ -23,17 +20,14 @@
 					$width = $height = 150;
 					break;
 				case IMAGE_FULLVIEW:
-					$width = $image->Width;
-					$height = $image->Height;
+					$width = $imagewidth;
+					$height = $imageheight;
 					break;
 				default:
 					throw New Exception( 'Invalid image type' );
 			}
-			if ( $image->IsDeleted() ) {
-				return;
-			}
             ?><img src="<?php
-            Element( 'image/url', $image->Id , $image->User->Id , $type );
+            Element( 'image/url', $imageid , $imageuserid , $type );
             ?>"<?php
             if ( $class != "" ) {
                 ?> class="<?php
@@ -59,9 +53,9 @@
                 echo htmlspecialchars( $style );
             }
             ?>" title="<?php
-			echo htmlspecialchars( $title );
+			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
-			echo htmlspecialchars( $alt );
+			echo htmlspecialchars( $alttitle );
 			?>" /><?php
         }
     }

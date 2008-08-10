@@ -88,7 +88,7 @@
                         ?><li><a href="?p=photo&amp;id=<?php
                         echo $image->Id;
                         ?>"><?php
-                        Element( 'image/view' , $image , 100 , '' , $image->User->Name , $image->User->Name , '' , false , 0 , 0 );
+                        Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPEED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 );
                         ?></a></li><?php
                     }
                     ?>
