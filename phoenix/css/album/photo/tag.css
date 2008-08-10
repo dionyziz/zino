@@ -66,3 +66,8 @@ div.image_tags div a.tag_del {
     padding-left: 15px;
     margin-left: 5px;
 }
+div.tanga div {
+    position: absolute;
+    display: inline;
+    border: 2px solid #FFFFBB;
+}

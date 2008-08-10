@@ -210,7 +210,24 @@
                 ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event );return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
-                        ?><div class="tagme"></div>
+                        ?>
+                        <div class="tanga"><?php
+                            $tagfinder = New ImageTagFinder();
+                            $tags = $tagfinder->FindByImage( $image );
+                            $tags_num = count( $tags );
+                            $unames = array();
+                            foreach( $tags as $tag ) {
+                                $person = New User( $tag->Personid );
+                                $person_name = $person->Name;
+                                $unames[] = $person_name;
+                                ?><div style="left:<?php
+                                echo $tag->Left;
+                                ?>;top:<?php
+                                echo $tag->Top;
+                                ?>;"></div><?php
+                            }
+                        ?></div>
+                        <div class="tagme"></div>
                         <a name="tagging_area" class="ankh" href="" />
                         <div class="frienders">
                             <a href="" class="closer" onmousedown="Tag.close( event );return false;" />
@@ -223,11 +240,7 @@
                             </ul>
                         </div><?php
                     }
-                ?></div><?php
-                    $tagfinder = New ImageTagFinder();
-                    $tags = $tagfinder->FindByImage( $image );
-                    $tags_num = count( $tags );
-                    ?><div class="image_tags" <?php
+                ?></div><div class="image_tags" <?php
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
                     }
@@ -246,26 +259,24 @@
                     else {
                         ?>Υπάρχουν σε αυτή την εικόνα οι: <?php
                     }
-                    foreach( $tags as $tag ) {
+                    for( $i=0; $i<$tags_num; ++$i ) {
                     // optimize by making finder return usernames
-                        $person = New User( $tag->Personid );
-                        $person_name = $person->Name;
                         ?><div><a href="" title="<?php
-                        echo $person_name;
+                        echo $unames[ $i ];
                         ?>"><?php
-                        echo $person_name;
+                        echo $unames[ $i ];
                         ?></a><?php
-                        if ( $tag->Ownerid == $user->Id ) {
+                        if ( $tags[ $i ]->Ownerid == $user->Id ) {
                             ?><a class="tag_del" href="" onclick="Tag.del( <?php
-                            echo $tag->Id;
+                            echo $tags[ $i ]->Id;
                             ?>, '<?php
-                            echo $person_name;
+                            echo $unames[ $i ];
                             ?>' );return false;" title="Διαγραφή" /><?php
                         }
                         ?></div><?php
                     }
-                    ?></div><?php
-                ?><div class="banner b728x90">
+                    ?></div>
+                    <div class="banner b728x90">
 					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
 				</div>
 				<div class="comments"><?php
