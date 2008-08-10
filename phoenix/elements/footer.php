@@ -1,10 +1,8 @@
 <?php
     
     class ElementFooter extends Element {
+        protected $mPersistent = array();
         public function Render() {
-            //global $page;
-            
-            //$page->AttachStylesheet( 'css/footer.css' );
             ?><div class="footer">
                 <ul>
                     <li><a href="?p=contact">Επικοινώνησε</a></li>
