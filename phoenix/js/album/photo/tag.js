@@ -131,7 +131,7 @@ var Tag = {
         Tag.run = false;
     },
     del : function( id ) {
-        alert( this );
+        alert( this.parentNode.nodeName );
         var username = $( this ).parent().find( 'a:first' ).text();
         alert( username );
         $( this ).parent().hide( 400, function() { $( this ).remove(); } );
