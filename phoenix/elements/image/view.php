@@ -8,10 +8,12 @@
 
 			switch ( $type ) {
 				case IMAGE_PROPORTIONAL_210x210:
+					/*
 					if ( $image->Width <= 210 && $image->Height <= 210 ) {
 						$width = $imagewidth;
 						$height = $imageheight;
 					}
+					*/
 					break;
 				case IMAGE_CROPPED_100x100:
 					$width = $height = 100;
