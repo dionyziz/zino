@@ -33,7 +33,7 @@ var Comments = {
 		var daddy = ( parentid === 0 )? $( "div.newcomment:first" ).clone( true ):$( "#comment_reply_" + parentid );
 		var temp = daddy.css( "opacity", 0 ).removeClass( "newcomment" ).find( "span.time" ).css( "marginRight", 0 ).text( "πριν λίγο" ).end()
 		.find( "div.toolbox" ).append( del ).end()
-		.find( "div.text" ).empty().text( texter.replace( /\n/gi, "<br />" ) ).end()
+		.find( "div.text" ).empty().html( texter.replace( /\n/gi, "<br />" ) ).end()
 		.find( "div.bottom" ).hide().empty().append( a ).append( document.createTextNode( " σε αυτό το σχόλιο" ) ).end();
 		
 		//---------------------
