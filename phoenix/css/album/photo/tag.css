@@ -51,4 +51,15 @@ div.thephoto div.frienders ul {
 div.thephoto div.frienders ul li a:hover {
     text-decoration: underline;
 }
-
+div.image_tags {
+    margin-top: 10px;
+    text-align: center;
+}
+div.image_tags div {
+    display: inline;
+}
+div.image_tags div a.tag_del {
+    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
+    width: 15px;
+    height: 20px;
+}

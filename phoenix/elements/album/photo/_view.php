@@ -222,8 +222,30 @@
                             </ul>
                         </div><?php
                     }
-                ?></div>
-				<div class="banner b728x90">
+                ?></div><?php
+                    $tagfinder = New ImageTagFinder();
+                    $tags = $tagfinder->FindByImage( $image );
+                    $tags_num = count( $tags );
+                    if ( $tags_num > 0 ) {
+                        ?><div class="image_tags"><?php
+                    }
+                    foreach( $tags as $tag ) {
+                    // optimize by making finder return usernames
+                        $person = New User( $tag->Personid );
+                        $person_name = $person->Name;
+                        ?><div><a href="" title="<?php
+                        echo $person_name;
+                        ?>"><?php
+                        echo $person_name;
+                        ?></a><?php
+                        if ( in_array( $person_name, $mutual ) ) {
+                            ?><a class="tag_del" href="" /><?php
+                        }
+                    }
+                    if ( $tags_num > 0 ) {
+                        ?></div><?php
+                    }
+                ?><div class="banner b728x90">
 					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
 				</div>
 				<div class="comments"><?php
