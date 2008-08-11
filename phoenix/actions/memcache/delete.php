@@ -11,6 +11,6 @@
         $key = $key->Get();
         $mc->delete( $key );
 
-        return Redirect( '?p=testmc&key=' . $key );
+        return Redirect( '?p=mc&key=' . $key );
     }
 ?>
