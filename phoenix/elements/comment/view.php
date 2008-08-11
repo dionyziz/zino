@@ -38,6 +38,7 @@
                     }
                 ?></div>
                 <div class="who"><?php
+                    die ( 'commentuserid ' . $comment->User->Id );
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
                     ?> είπε:
                 </div>
