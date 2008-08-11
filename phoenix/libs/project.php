@@ -109,9 +109,8 @@ Project_Destruct()' );
             'questions'            => 'question/list',
             'answers'           => 'question/answer/list',
             'comments/recent'   => 'comment/recent/list',
-            'testmc'            => 'developer/abresas/testmc',
-            'mcform'            => 'developer/abresas/mcform',
-	    'statistics'	=> 'statistics/view',
+            'mc'            => 'developer/memcache/view',
+	        'statistics'	=> 'statistics/view',
             'mcdelete'          => 'developer/abresas/mcdelete',
 			'favourites'		=> 'favourite/favourite',
         );
