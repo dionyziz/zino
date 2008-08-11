@@ -148,7 +148,9 @@
                     </div>
                 </div><?php
             }
-            ?><div class="eof"></div><?php
+            ?>
+            </div>
+            <div class="eof"></div><?php
         }
     }
 ?>
