@@ -38,7 +38,7 @@
                     }
                 ?></div>
                 <div class="who"><?php
-                    die ( 'commentuserid ' . $comment->User->Id );
+                    die ( 'commentuserid ' . $comment->User->Id . ' is_object comment ' . is_object( $comment ) . ' comment id ' . $comment->Id );
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
                     ?> είπε:
                 </div>
