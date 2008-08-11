@@ -11,7 +11,6 @@
                     <span class="time">τα σχόλια είναι επεξεργάσιμα για ένα τέταρτο</span>
                 </div>
                 <div class="who"><?php
-                    die( 'userid ' . $user->Id );
                     Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                     ?> πρόσθεσε ένα σχόλιο
                 </div>
