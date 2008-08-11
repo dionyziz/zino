@@ -5,19 +5,21 @@
         global $water;
         global $libs;
         
+        $username = $username->Get();
+        $password = $password->Get();
         $finder = New UserFinder();
-        $user = $finder->FindByNameAndPassword( $username->Get(), $password->Get() );
+        $user = $finder->FindByNameAndPassword( $username, $password );
         
+        $libs->Load( 'loginattempt' );
+        $loginattempt = New LoginAttempt();
         if ( $user === false ) {
-            $libs->Load( 'loginattempt' );
-            $loginattempt = New LoginAttempt();
-            $loginattempt->Username = $username->Get();
-            $loginattempt->Password = $password->Get();
+            $loginattempt->Username = $username;
+            $loginattempt->Password = $password;
             $loginattempt->Save();
 
             return Redirect( "?p=a" );
         }
-        $loginattempt->Username = $username->Get();
+        $loginattempt->Username = $username;
         // don't store the password for security reasons
         $loginattempt->Success = 'yes';
         $loginattempt->Save();
