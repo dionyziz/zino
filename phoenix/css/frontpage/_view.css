@@ -110,43 +110,6 @@ div.members div.login form div label {
 	display: block;
 	width: 70px;
 }
-div.latestcomments h2 {
-	margin-bottom: 13px;
-}
-div.nowonline {
-	text-align: left;
-	border-top: 1px solid #ccc;
-	margin-top: 20px;
-}
-div.nowonline a {
-	float: left;
-	margin: 0 12px 12px 0;
-}
-div.nowonline a img {
-	border: 1px solid #666;
-	width: 100px;
-	height: 100px;
-}
-div.inuser {
-	width: 49%;
-	float: left;
-}
-div.inshoutbox {
-	border: 1px solid #ccc;
-	margin-bottom: 20px;
-}
-div.inshoutbox div.shoutbox div.comments {
-	width: 100%;
-}
-div.inlatestcomments {
-	float: right;
-	width: 49%;
-	margin-left: 10px;
-}
-div.inlatestevents {
-	padding: 10px;
-	border: 1px solid #ccc;
-}
 div.frontpage div.notifications {
 	padding: 5px 0 0 0;
 	top: 0;

@@ -10,9 +10,9 @@
                         if ( count( $users ) > 1 ) {
                             ?> title="<?php
                             echo count( $users );
-                            ?> άτομα είναι online"<?php
+                            ?> Ξ¬Ο„ΞΏΞΌΞ± ΞµΞ―Ξ½Ξ±ΞΉ online"<?php
                         }
-                        ?>>Είναι online τώρα (<?php
+                        ?>>Ξ•Ξ―Ξ½Ξ±ΞΉ online Ο„ΟΟΞ± (<?php
                         echo count( $users );
                         ?>)</h2>
                         <div class="list"><?php
