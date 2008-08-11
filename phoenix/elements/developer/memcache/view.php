@@ -11,7 +11,8 @@
 
             $key = $key->Get();
 
-            ?><form action="?p=testmc" method="get">
+            ?>
+            <br /><br /><form action="?p=testmc" method="get">
                 Memcache key: <input type="text" name="key" value="<?php
                 echo htmlspecialchars( $key );
                 ?>" />
