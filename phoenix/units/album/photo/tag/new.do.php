@@ -64,6 +64,8 @@
         echo $tag->Id;
         ?>, <?php
         echo w_json_encode( $username );
+        ?>, <?php
+        echo w_json_encode( $theuser->Subdomain );
         ?> );<?php
     }
 ?>
