@@ -208,58 +208,18 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 	padding-left: 18px;
 }
 
-div.frontpage div.zinomeeting {
-	padding: 10px;
-	border: 1px solid #ccc;
-	background: #f7f7ff;
-	border-top: none; 
-	margin: 0px auto; 
-	width: 70%; 
-	text-align: center;
-	
-}
-div.frontpage div.zinomeeting h3 {
-	margin: 5px 0;
-	text-align: center;
-}
 /*  CSS FOR MASKED ELEMENT */
 
 div.frontpage div.inuser {
 	float: none;
 	width: 100%;
 }
-div.frontpage div.inuser div.inlatestcomments {
-	float: left;
-	width: 35%;
+div.inuser div.left {
+    width: 48%;
+    float: left;
 }
-div.frontpage div.inuser div.inlatestcomments div.latestcomments {
-	padding-top: 0;
+div.inuser div.right {
+    width: 48%;
+    float: right;
 }
-div.frontpage div.inuser div.inlatestcomments div.latestcomments h2 {
-	margin: 10px 0pt; 
-	font-size: 110%;
-}
-div.frontpage div.inuser div.inshoutbox {
-	float: left;
-	width: 30%;
-}
-div.frontpage div.inuser div.inshoutbox div.shoutbox {
-	margin-top: 0;
-	padding-top: 0;
-}
-div.frontpage div.inuser div.inshoutbox div.shoutbox h2 {
-	margin: 10px 0;
-	font-size: 110%;
-}
-div.frontpage div.inuser div.inonlineusers {
-	float: left;
-	width: 30%;
-	margin-left: 10px;
-	border: 1px solid #ccc;
-}
-div.frontpage div.inuser div.inonlineusers h2{
-	margin: 10px 0pt 10px 10px; 
-	font-size: 110%;
-}
-
 /* END OF CSS FOR MASKED ELEMENTS */

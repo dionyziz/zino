@@ -123,6 +123,34 @@
             } 
             else {
                 ?><div class="inuser">
+                    <div class="left">
+                        <div class="shoutbox"><?php
+                            Element( 'frontpage/shoutbox/list' );
+                        ?></div>
+                        <div class="onlinenow"><?php
+                            Element( 'frontpage/online' );
+                        ?></div>
+                    </div>
+                    <div class="right">
+                        <div class="latest">
+                            <h2>Πρόσφατα γεγονότα</h2>
+                            <div class="comments">
+                                Latest comments here
+                            </div>
+                            <div class="journals">
+                                Latest journals here
+                            </div>
+                            <div class="polls">
+                                Latest polls here
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+                <?php
+                
+                /*
+                <div class="inuser">
 					<div class="inshoutbox"><?php
                         Element( 'frontpage/shoutbox/list' );
                     ?></div>
@@ -158,6 +186,7 @@
 				<div class="eof"></div>
                 <div class="inlatestevents"><?php
                 Element( 'event/list' );
+                */
                 ?></div><?php
             }
             ?><div class="eof"></div>
