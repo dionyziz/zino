@@ -160,7 +160,7 @@ var Tag = {
         Tag.start( friends );
     },
     close : function( event ) {
-        $( 'div.thephoto div' ).not( 'div.tanga' ).hide();
+        $( 'div.thephoto > div' ).not( 'div.tanga' ).hide();
         Tag.run = false;
     },
     del : function( id, username ) {
