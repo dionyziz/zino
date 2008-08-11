@@ -13,7 +13,7 @@
 
             ?>
             <br /><br /><form method="get">
-                <input type="hidden" name="p" value="testmc" />
+                <input type="hidden" name="p" value="mc" />
                 Memcache key: <input type="text" name="key" value="<?php
                 echo htmlspecialchars( $key );
                 ?>" />
