@@ -1,9 +1,26 @@
 <?php
     class ElementFrontpagePollList extends Element {
         public function Render() {
-            ?><div class="latestpolls">
-                <h2>Δημοσκοπήσεις</h2>
-            </div><?php
+            $finder = New PollFinder();
+            $polls = $finder->FindAll( 0 , 5 );
+            ?><div class="list">
+                <h2>Δημοσκοπήσεις</h2><?php
+                foreach ( $polls as $poll ) {
+                    ?><div class="event">
+                        <div class="who"><?php
+                            Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
+                        ?> καταχώρησε
+                        </div>
+                        <div class="subject">
+                            <a href="?p=poll&amp;id=<?php
+                            echo $poll->Id;
+                            ?>"><?php
+                            echo htmlspecialchars( $poll->Question );
+                            ?></a>
+                        </div>
+                    </div><?php
+                }
+            ?></div><?php
         }
     }
 ?>
