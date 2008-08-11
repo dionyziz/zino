@@ -3,6 +3,7 @@
         global $user;
         global $rabbit_settings;
         global $water;
+        global $libs;
         
         $finder = New UserFinder();
         $user = $finder->FindByNameAndPassword( $username->Get(), $password->Get() );
