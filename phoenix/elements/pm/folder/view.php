@@ -5,7 +5,7 @@
             global $water;
             
             $finder = New PMFinder();
-            $messages = $finder->FindByFolder( $folder, 200 );
+            $messages = $finder->FindByFolder( $folder, 0, 200 );
             
             if ( !count( $messages ) ) {
                 if ( $folder->Typeid == PMFOLDER_INBOX ) {
