@@ -53,7 +53,6 @@
             $children_nums = array();
 
             foreach ( $comments as $comment ) { 
-                $water->Trace( 'comment id is '. $comment->Id );
                 if ( !isset( $children_nums[ $comment->Parentid ] ) ) {
                     $children_nums[ $comment->Parentid ] = 0;
                 }
