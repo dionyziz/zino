@@ -172,9 +172,6 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 }
 
 /*  CSS FOR MASKED ELEMENT */
-div.onlinenow {
-    border: 1px solid #666;
-}
 div.onlinenow a {
     margin-right: 10px;
 }
