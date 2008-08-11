@@ -137,12 +137,12 @@
                             <div class="comments"><?php
                                 Element( 'frontpage/comment/list' );
                             ?></div>
-                            <div class="journals">
-                                Latest journals here
-                            </div>
-                            <div class="polls">
-                                Latest polls here
-                            </div>
+                            <div class="journals"><?php
+                                Element( 'frontpage/journal/list' );
+                            ?></div>
+                            <div class="polls"><?php
+                                Element( 'frontpage/poll/list' );
+                            ?></div>
                         </div>
                     
                     </div>
