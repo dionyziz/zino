@@ -1,5 +1,5 @@
 <?php
-   class ElementFrontpageView extends Element {
+   class ElementFrontpageOnline extends Element {
         public function Render() {
             $finder = New UserFinder();
 		    $users = $finder->FindOnline( 0 , 50 );
