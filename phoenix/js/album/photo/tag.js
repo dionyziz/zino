@@ -177,6 +177,9 @@ var Tag = {
         if ( index === -1 ) { // This will never run under normal cirmustances
             return;
         }
+        
+        $( "div.thephoto div.tanga div:contains('" + username + "')" ).remove();
+        
         var count = Tag.already_tagged.length;
         for( var i=0; i<Tag.already_tagged.length; ++i ) {
             if ( Tag.already_tagged[ i ] == '' ) {
