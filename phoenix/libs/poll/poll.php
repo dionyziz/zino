@@ -13,6 +13,9 @@
 
             return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindAll( $offset = 0, $limit = 20 ) {
+            return $this->FindByPrototype( New Poll(), $offset, $limit, array( 'Id', 'DESC' ) );
+        }
     }
 
     class Poll extends Satori {

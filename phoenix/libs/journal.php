@@ -17,6 +17,9 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function FindAll( $offset = 0, $limit = 20 ) {
+            return $this->FindByPrototype( New Journal(), $offset, $limit, array( 'Id', 'DESC' ) );
+        }
     }
     
     class Journal extends Satori {
