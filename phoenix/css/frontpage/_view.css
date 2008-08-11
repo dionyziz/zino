@@ -172,7 +172,15 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
 }
 
 /*  CSS FOR MASKED ELEMENT */
-
+div.onlinenow {
+    border: 1px solid #666;
+}
+div.onlinenow a {
+    margin-right: 10px;
+}
+div.onlinenow a img {
+    border: 1px solid #666;
+}
 div.frontpage div.inuser {
 	float: none;
 	width: 100%;
@@ -184,6 +192,10 @@ div.inuser div.left {
 div.inuser div.right {
     width: 48%;
     float: right;
+}
+div.inuser div.left div.onlinenow {
+    padding-left: 10px;
+    margin-top: 40px;
 }
 div.inuser div.right div.comments {
     width: 100%;
