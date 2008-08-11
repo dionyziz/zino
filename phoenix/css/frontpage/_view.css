@@ -185,4 +185,13 @@ div.inuser div.right {
     width: 48%;
     float: right;
 }
+div.inuser div.right div.comments {
+    width: 100%;
+}
+div.inuser div.right div.journals {
+    width: 100%;
+}
+div.inuser div.right div.polls {
+    width: 100%;
+}
 /* END OF CSS FOR MASKED ELEMENTS */

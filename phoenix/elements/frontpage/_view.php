@@ -134,9 +134,9 @@
                     <div class="right">
                         <div class="latest">
                             <h2>Πρόσφατα γεγονότα</h2>
-                            <div class="comments">
-                                Latest comments here
-                            </div>
+                            <div class="comments"><?php
+                                Element( 'frontpage/comment/list' );
+                            ?></div>
                             <div class="journals">
                                 Latest journals here
                             </div>
