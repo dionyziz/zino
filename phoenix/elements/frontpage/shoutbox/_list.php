@@ -9,7 +9,7 @@
             $finder = New ShoutboxFinder();
             $shouts = $finder->FindLatest( 0 , 5 )
             ?><div class="shoutbox">
-                <h2>Συζήτηση</h2>
+                <h2>Ξ£Ο…Ξ¶Ξ®Ο„Ξ·ΟƒΞ·</h2>
                 <div class="comments"><?php
                     if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {
                         Element( 'shoutbox/reply' , $user->Id , $user->Avatar->Id , $user );
@@ -20,7 +20,7 @@
                     Element( 'shoutbox/view'  , false , true );
                 ?></div>
             <div class="eof"></div>
-            <div class="more"><a href="shouts" class="button">Όλες οι συζητήσεις&raquo;</a></div>
+            <div class="more"><a href="shouts" class="button">ΞΞ»ΞµΟ‚ ΞΏΞΉ ΟƒΟ…Ξ¶Ξ·Ο„Ξ®ΟƒΞµΞΉΟ‚&raquo;</a></div>
             </div><?php
         }
     }
