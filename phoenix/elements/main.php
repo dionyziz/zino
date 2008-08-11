@@ -14,6 +14,7 @@
             }
             else {
                 $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global-beta.css?' . $xc_settings[ 'cssversion' ] );
+                $page->AttachStylesheet( 'css/frontpage/_view.css' );
             }
             
             //start javascript attaching
