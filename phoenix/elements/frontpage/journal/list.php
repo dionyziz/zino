@@ -2,7 +2,7 @@
     class ElementFrontpageJournalList extends Element {
         public function Render() {
             $finder = New JournalFinder();
-            $journals = $finder->FindAll( 0 , 5 );
+            $journals = $finder->FindAll( 0 , 4 );
             ?><div class="list">
                 <h2>Ημερολόγια</h2><?php
                 foreach ( $journals as $journal ) {

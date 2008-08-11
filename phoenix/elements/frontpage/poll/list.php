@@ -2,7 +2,7 @@
     class ElementFrontpagePollList extends Element {
         public function Render() {
             $finder = New PollFinder();
-            $polls = $finder->FindAll( 0 , 5 );
+            $polls = $finder->FindAll( 0 , 4 );
             ?><div class="list">
                 <h2>Δημοσκοπήσεις</h2><?php
                 foreach ( $polls as $poll ) {

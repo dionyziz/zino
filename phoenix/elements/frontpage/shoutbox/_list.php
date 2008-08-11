@@ -7,7 +7,7 @@
             $libs->Load( 'shoutbox' );
             
             $finder = New ShoutboxFinder();
-            $shouts = $finder->FindLatest( 0 , 5 )
+            $shouts = $finder->FindLatest( 0 , 7 )
             ?><h2>Συζήτηση</h2>
             <div class="comments"><?php
                 if ( $user->Exists() && $user->HasPermission( PERMISSION_SHOUTBOX_CREATE ) ) {

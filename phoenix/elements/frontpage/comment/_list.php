@@ -6,7 +6,7 @@
             $libs->Load( 'comment' );
             
             $finder = New CommentFinder();
-            $comments = $finder->FindLatest( 0 , 5 );
+            $comments = $finder->FindLatest( 0 , 7 );
             ?><h2>Σχόλια</h2>
             <div class="list"><?php
                 foreach ( $comments as $comment ) {
