@@ -38,10 +38,6 @@
                     }
                 ?></div>
                 <div class="who"><?php
-                    var_dump( $comment->User->Id );
-                    var_dump( is_object( $comment ) );
-                    var_dump( $comment->Id );
-                    die();
                     Element( 'user/display', $comment->User->Id , $comment->User->Avatar->Id , $comment->User );
                     ?> είπε:
                 </div>
