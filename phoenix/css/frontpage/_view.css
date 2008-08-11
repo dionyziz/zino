@@ -194,13 +194,19 @@ div.inuser div.left div.onlinenow {
     padding-left: 10px;
     margin-top: 40px;
 }
-div.inuser div.right div.comments {
+div.inuser div.right div.latest > h2 {
+    margin-bottom: 5px;
+}
+div.inuser div.right div.latest div h2 {
+    font-size: 90%;
+}
+div.inuser div.right div.latest div.comments {
     width: 100%;
 }
-div.inuser div.right div.journals {
+div.inuser div.right div.latest div.journals {
     width: 100%;
 }
-div.inuser div.right div.polls {
+div.inuser div.right div.latest div.polls {
     width: 100%;
 }
 /* END OF CSS FOR MASKED ELEMENTS */
