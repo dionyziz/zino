@@ -71,7 +71,7 @@ var Tag = {
             li.appendChild( a );
             ul.appendChild( li );
         }
-        $( 'div.thephoto > div' ).not( 'div.tanga' ).show();
+        $( 'div.thephoto > div:not(.tanga)' ).show();
         if ( !Tag.run ) {
             var locate = document.location.href;
             if ( locate.substr( locate.length-13 ) != "#tagging_area" ) {
@@ -169,7 +169,7 @@ var Tag = {
         Tag.start( friends );
     },
     close : function( event ) {
-        $( 'div.thephoto > div' ).not( 'div.tanga' ).hide();
+        $( 'div.thephoto > div:not(.tanga)' ).hide();
         Tag.run = false;
     },
     del : function( id, username ) {
