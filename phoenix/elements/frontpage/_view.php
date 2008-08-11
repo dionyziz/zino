@@ -146,51 +146,9 @@
                         </div>
                     
                     </div>
-                </div>
-                <?php
-                
-                /*
-                <div class="inuser">
-					<div class="inshoutbox"><?php
-                        Element( 'frontpage/shoutbox/list' );
-                    ?></div>
-					<div class="inlatestcomments"><?php
-                       Element( 'frontpage/comment/list' );
-                    ?></div><?php
-					$finder = New UserFinder();
-		            $users = $finder->FindOnline( 0, 50 );
-		            if ( count( $users ) > 0 ) {        
-		                ?><div class="inonlineusers">
-		                    <h2<?php
-		                        if ( count( $users ) > 1 ) {
-		                            ?> title="<?php
-		                            echo count( $users );
-		                            ?> άτομα είναι online"<?php
-		                        }
-		                        ?>>Είναι online τώρα (<?php
-		                        echo count( $users );
-		                        ?>)</h2>
-		                        <div class="list"><?php
-		                            foreach( $users as $onuser ) {
-		                                ?><a href="<?php
-		                                Element( 'user/url', $onuser->Id , $onuser->Subdomain );
-		                                ?>"><?php
-                                        Element( 'user/avatar' , $onuser->Avatar->Id , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , '' , '' , false , 0 , 0 );
-		                                ?></a><?php
-		                            }    
-		                        ?></div><?php
-		                ?></div><?php
-		            }
-					?>
-                </div>
-				<div class="eof"></div>
-                <div class="inlatestevents"><?php
-                Element( 'event/list' );
-                */
-                ?></div><?php
+                </div><?php
             }
-            ?><div class="eof"></div>
-        </div><?php
+            ?><div class="eof"></div><?php
         }
     }
 ?>
