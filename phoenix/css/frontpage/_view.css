@@ -194,6 +194,9 @@ div.inuser div.left div.onlinenow {
     padding-left: 10px;
     margin-top: 40px;
 }
+div.latest div.journals {
+    margin-bottom: 10px;
+}
 div.inuser div.right div.latest > h2 {
     margin-bottom: 5px;
 }
