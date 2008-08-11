@@ -2,7 +2,6 @@
     class ElementUserDisplay extends Element {
         protected $mPersistent = array( 'theuserid' , 'avatarid' );
         public function Render( $theuserid , $avatarid , $theuser ) {
-            die( "theuserid " . $theuserid );
             ?><a href="<?php
             Element( 'user/url' , $theuserid , $theuser->Subdomain );
             ?>"><?php
