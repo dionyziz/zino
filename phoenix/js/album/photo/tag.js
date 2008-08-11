@@ -38,6 +38,16 @@ var Tag = {
                                 
                                 $( 'div.image_tags' ).get( 0 ).appendChild( div );
                                 
+                                var divani = document.createElement( 'div' );
+                                divani.className = "tag";
+                                divani.style.left = left + 'px';
+                                divani.style.top = top + 'px';
+                                var divani2 = document.createElement( 'div' );
+                                
+                                divani2.appendChild( document.createTextNode( username ) );
+                                divani.appendChild( divani2 );
+                                $( 'div.tanga' ).get( 0 ).appendChild( divani );
+                                
                                 if ( Tag.already_tagged <= 2 ) {
                                     $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
                                 }
@@ -55,7 +65,6 @@ var Tag = {
                                                                     } );
                                 
                                 Tag.close( event );
-                                // add tag
                             };
                 } )( kollitaria[ i ] );
             a.appendChild( document.createTextNode( kollitaria[ i ] ) );
@@ -184,7 +193,7 @@ var Tag = {
         }
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
-    newCallback : function( id, username ) {
+    newCallback : function( id, username, subdomain ) {
         var a = document.createElement( 'a' );
         a.title = "Διαγραφή";
         a.onclick = function() { 
@@ -199,6 +208,7 @@ var Tag = {
             } );
         
         $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
+        $( 'div.thephoto div.tanga div.tag:last' ).click( function() { document.location.href = "http://" + subdomain + ".zino.gr"; } );
     }
 };
 $( document ).ready( function() {
@@ -234,7 +244,7 @@ $( document ).ready( function() {
         var image_width = parseInt( $( 'div.thephoto' ).css( 'width' ), 10 );
         var image_height = parseInt( $( 'div.thephoto' ).css( 'height' ), 10 );
         var x = ( image_width - tag_width - border_width )/2;
-        var y = ( image_height - tag_height - border_width )*0.25; // 3/4
+        var y = ( image_height - tag_height - border_width )*0.25; // 1/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
         $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
     } );
