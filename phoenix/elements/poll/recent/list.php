@@ -8,7 +8,7 @@ class ElementPollRecentList extends Element {
         if ( $pageno <= 0 ) {
             $pageno = 1;
         }
-        $libs->Load( 'poll' );
+        $libs->Load( 'poll/poll' );
         $finder = New PollFinder();
         $polls = $finder->FindAll( 20 * ( $pageno - 1 ), 20 )
         ?><div class="polls">
