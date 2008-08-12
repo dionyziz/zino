@@ -87,6 +87,7 @@
                 </ul>
                 </div><?php
             }
+            
                 ?><div class="inuser">
                     <div class="left">
                         <div class="shoutbox"><?php
