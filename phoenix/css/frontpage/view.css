@@ -177,6 +177,7 @@ div.onlinenow a {
 }
 div.onlinenow a img {
     border: 1px solid #666;
+    margin-bottom: 10px;
 }
 div.frontpage div.inuser {
     float: none;
