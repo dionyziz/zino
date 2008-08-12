@@ -1,5 +1,6 @@
 <?php
     class ElementDeveloperDionyzizConsole extends Element {
+        // just a test
         public function Render() {
             if ( $rabbit_settings[ 'production' ] !== false ) {
                 return;
