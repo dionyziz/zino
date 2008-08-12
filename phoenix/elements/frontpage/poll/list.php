@@ -4,7 +4,7 @@
             $finder = New PollFinder();
             $polls = $finder->FindAll( 0 , 4 );
             ?><div class="list">
-                <h2>Δημοσκοπήσεις</h2><?php
+                <h2>Δημοσκοπήσεις (<a href="">όλες οι δημοσκοπήσεις</a>)</h2><?php
                 foreach ( $polls as $poll ) {
                     ?><div class="event">
                         <div class="who"><?php
