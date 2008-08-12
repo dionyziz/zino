@@ -1,6 +1,6 @@
 <?php
-
     global $libs;
+
     $libs->Load( 'poll/option' );
 
     class PollFinder extends Finder {
