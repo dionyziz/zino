@@ -2,10 +2,7 @@ body {
     margin: 0;
 }
 div.modal {
-	background-position: top right;
-	background-repeat: repeat-x;
-	background-color: #e8eaec;
-    background-image: url('http://static.zino.gr/images/sorabody.jpg');
+    background: #e8eaec url( 'http://static.zino.gr/images/sorabody.jpg' ) repeat-x top right;
     border: 1px solid #2e486c;
     z-index: 1000;
     margin: auto;
@@ -27,6 +24,5 @@ div.modalbg {
     _height: 100%;
     _filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
     z-index: 680;
-    background-image: url('http://static.zino.gr/images/modalbg.png');
-    background-repeat: repeat;
+    background: url( 'http://static.zino.gr/images/modalbg.png' );
 }
