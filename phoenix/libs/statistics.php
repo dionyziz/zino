@@ -1,6 +1,5 @@
 <?php
     function Statistics_Get( $table_name, $days_passed = 30 ) {
-
         global $db;
 
         switch ( $table_name ) {
