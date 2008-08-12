@@ -8,17 +8,17 @@ class ElementPollRecentList extends Element {
         if ( $pageno <= 0 ) {
             $pageno = 1;
         }
-        
+        $libs->Load( 'poll' );
         $finder = New PollFinder();
         $polls = $finder->FindAll( 20 * ( $pageno - 1 ), 20 )
         ?><div class="polls">
-            <h2>Δημοσκοπήσεις</h2>
+            <h2>Ξ”Ξ·ΞΌΞΏΟƒΞΊΞΏΟ€Ξ®ΟƒΞµΞΉΟ‚</h2>
             <div class="list"><?php
                 foreach ( $polls as $poll ) {
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
-                        ?> καταχώρησε
+                        ?> ΞΊΞ±Ο„Ξ±Ο‡ΟΟΞ·ΟƒΞµ
                         </div>
                         <div class="subject">
                             <a href="?p=poll&amp;id=<?php
