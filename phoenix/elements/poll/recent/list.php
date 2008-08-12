@@ -18,7 +18,7 @@ class ElementPollRecentList extends Element {
                     ?><div class="event">
                         <div class="who"><?php
                             Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
-                        ?> καταχώρησε
+                        ?> δημιούργησε τη δημοσκόπηση
                         </div>
                         <div class="subject">
                             <a href="?p=poll&amp;id=<?php
