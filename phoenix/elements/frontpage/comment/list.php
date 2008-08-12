@@ -6,18 +6,14 @@
             $libs->Load( 'comment' );
             
             $finder = New CommentFinder();
-            $comments = $finder->FindLatest( 0 , 10 );
-            ?><div class="latestcomments">
-                <h2>Πρόσφατα σχόλια</h2>
-                <div class="list"><?php
-                    foreach ( $comments as $comment ) {
-                        Element( 'frontpage/comment/view' , $comment );
-                    }
-                ?></div>
-            <div class="eof"></div>
-            <div class="more"><a href="comments" class="button">Όλα τα σχόλια&raquo;</a></div>
-            </div><?php
-        
+            $comments = $finder->FindLatest( 0 , 7 );
+            ?><h2>Σχόλια (<a href="comments">προβολή όλων</a>)</h2>
+            <div class="list"><?php
+                foreach ( $comments as $comment ) {
+                    Element( 'frontpage/comment/view' , $comment );
+                }
+            ?></div>
+            <div class="eof"></div><?php
         }
     }
 ?>

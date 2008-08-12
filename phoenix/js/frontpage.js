@@ -7,7 +7,7 @@ var Frontpage = {
 	/*
 	Showunis : function( node ) {
 		var divlist = node.getElementsByTagName( 'div' );
-		var contenthtml = "<span style=\"padding-left:5px;\">ÐáíåðéóôÞìéï:</span><select><option value=\"0\" selected=\"selected\">-</option><option value=\"2\">Öéëïëïãßá</option><option value=\"6\">Çëåêôñïëüãùí Ìç÷áíéêþí &amp; Ìç÷áíéêþí Õðïëïãéóôþí</option><option value=\"9\">ÉáôñéêÞ</option><option value=\"23\">ÇëåêôñïíéêÞ</option><option value=\"25\">Öéëïóïößá</option><option value=\"43\">Èåïëïãßá</option><option value=\"35\">ÐëçñïöïñéêÞ</option><option value=\"67\">Ìç÷áíéêüò Õðïëïãéóôþí</option><option value=\"98\">ÏäïíôïúáôñéêÞ</option></select>";
+		var contenthtml = "<span style=\"padding-left:5px;\">?aia?eoo?iei:</span><select><option value=\"0\" selected=\"selected\">-</option><option value=\"2\">Oeeieia?a</option><option value=\"6\">Ceaeonieuaui Ic?aiee?i &amp; Ic?aiee?i O?ieiaeoo?i</option><option value=\"9\">Eaonee?</option><option value=\"23\">Ceaeoniiee?</option><option value=\"25\">Oeeioio?a</option><option value=\"43\">Eaieia?a</option><option value=\"35\">?ecnioinee?</option><option value=\"67\">Ic?aieeuo O?ieiaeoo?i</option><option value=\"98\">Iaiioiuaonee?</option></select>";
 		var newdiv = document.createElement( 'div' );
 		newdiv.innerHTML = contenthtml;
 		node.insertBefore( newdiv, divlist[ 0 ].nextSibling );
@@ -23,9 +23,12 @@ var Frontpage = {
 	}
 };
 $( document ).ready( function() {
-	if ( $( 'div.frontpage div.inshoutbox' )[ 0 ] ) {
-		$( 'div.frontpage div.inshoutbox div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
-			var list = $( 'div.frontpage div.inshoutbox div.shoutbox div.comments' );
+	if ( $( 'div.frontpage div.inuser div.shoutbox' )[ 0 ] ) {
+        if ( $( 'div.frontpage div.members div.join' ) ) {
+            $( 'div.frontpage div.members div.join input' )[ 1 ].focus();
+        }
+		$( 'div.frontpage div.inuser div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
+			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
 			if ( $.trim( text ) === '' ) {
 				

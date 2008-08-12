@@ -8,21 +8,13 @@
             $libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
             $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0 , 15 );
+            $images = $finder->FindFrontpageLatest( 0, 15 );
             $finder = New NotificationFinder();
-            $notifs = $finder->FindByUser( $user , 0 , 5 );
+            $notifs = $finder->FindByUser( $user, 0, 5 );
             $shownotifications = count( $notifs ) > 0;
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
-                if ( $user->Profile->Placeid != 0 && $user->Profile->Education != '-') {
-                    if ( $user->Profile->Education == 'university' ) {
-                        $typeid = 0;
-                    }
-                    else if( $user->Profile->Education == 'TEI' ) {
-                        $typeid  = 1;
-                    }
-                }
-                $showuni = isset( $typeid ) && $user->Profile->Placeid > 0;
+                $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
                 if ( !$shownotifications ) {
                     ?><div class="ybubble">
                         <div class="body">
@@ -36,21 +28,21 @@
                                     }
                                     else { 
                                         ?><div id="selectplace"><?php
-                                        Element( 'user/settings/personal/place' , $user );
+                                        Element( 'user/settings/personal/place', $user );
                                         ?></div><?php
                                     }
                                     ?><div id="selecteducation">
                                         <span>Εκπαίδευση:</span><?php
-                                        Element( 'user/settings/personal/education' , $user );
+                                        Element( 'user/settings/personal/education', $user );
                                     ?></div>
                                     <div id="selectuni"<?php
-                                    if ( !$showuni ) {
+                                    if ( !$showschool ) {
                                         ?> class="invisible"<?php
                                     }
                                     ?>>
                                     <span>Πανεπιστήμιο:</span><?php
-                                        if ( $showuni ) {
-                                            Element( 'user/settings/personal/university' , $user->Profile->Placeid , $typeid );
+                                        if ( $showschool ) {
+                                            Element( 'user/settings/personal/school', $user->Profile->Placeid, $user->Profile->Education );
                                         }
                                     ?></div>
                                     <div class="saving invisible">
@@ -74,7 +66,7 @@
                 ?><div class="notifications">
                     <h3>Ενημερώσεις</h3>
                     <div class="list"><?php
-                        Element( 'notification/list' , $notifs );
+                        Element( 'notification/list', $notifs );
                     ?></div>
                     <div class="expand">
                         <a href="" title="Απόκρυψη">&nbsp;</a>
@@ -124,51 +116,45 @@
                         </form>
                     </div>
                 </div>
-                <div class="eof"></div>
-                <div class="outshoutbox"><?php
-                Element( 'frontpage/shoutbox/list' );
-                ?></div><?php
+                <div class="eof"></div><?php
             } 
-            else {
-                ?><div class="inuser">
-                    <div class="inshoutbox"><?php
+            ?><div class="inuser">
+                <div class="left">
+                    <div class="shoutbox"><?php
                         Element( 'frontpage/shoutbox/list' );
                     ?></div>
-                    <div class="inlatestevents"><?php
-                       Element( 'event/list' );
+                    <div class="onlinenow"><?php
+                        Element( 'frontpage/online' );
                     ?></div>
                 </div>
-                <div class="inlatestcomments"><?php
-                Element( 'frontpage/comment/list' );
-                ?></div><?php
-            }
-            ?><div class="eof"></div><?php
-            $finder = New UserFinder();
-            $users = $finder->FindOnline( 0 , 50 );
-            if ( count( $users ) > 0 ) {        
-                ?><div class="nowonline">
-                    <h2<?php
-                        if ( count( $users ) > 1 ) {
-                            ?> title="<?php
-                            echo count( $users );
-                            ?> άτομα είναι online"<?php
-                        }
-                        ?>>Είναι online τώρα (<?php
-                        echo count( $users );
-                        ?>)</h2>
-                        <div class="list"><?php
-                            foreach( $users as $onuser ) {
-                                ?><a href="<?php
-                                Element( 'user/url' , $onuser->Id , $onuser->Subdomain );
-                                ?>"><?php
-                                Element( 'user/avatar' , $onuser->Avatar->Id , $onuser->Id , $onuser->Avatar->Width , $onuser->Avatar->Height , $onuser->Name , 100 , '' , '' , false , 0 , 0 );
-                                ?></a><?php
-                            }    
-                        ?></div><?php
-                ?></div><?php
-            }
-            ?><div class="eof"></div>
-        </div><?php
+                <div class="right">
+                    <div class="latest">
+                        <h2>Πρόσφατα γεγονότα</h2>
+                        <div class="comments"><?php
+                            Element( 'frontpage/comment/list' );
+                        ?></div>
+                        <div class="eof"></div>
+                        <div class="barfade">
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
+                            </div>
+                        <div class="journals"><?php
+                            Element( 'frontpage/journal/list' );
+                        ?></div>
+                        <div class="eof"></div>
+                        <div class="barfade">
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
+                            </div>
+                        <div class="polls"><?php
+                            Element( 'frontpage/poll/list' );
+                        ?></div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div class="eof"></div><?php
         }
     }
 ?>
