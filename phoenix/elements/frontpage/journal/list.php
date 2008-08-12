@@ -4,7 +4,7 @@
             $finder = New JournalFinder();
             $journals = $finder->FindAll( 0 , 4 );
             ?><div class="list">
-                <h2>Ημερολόγια (<a href="">προβολή όλων</a>)</h2><?php
+                <h2>Ημερολόγια (<a href="?p=journals">προβολή όλων</a>)</h2><?php
                 foreach ( $journals as $journal ) {
                     ?><div class="event">
                         <div class="who"><?php
