@@ -1,7 +1,6 @@
 <?php
-
     function Statistics_Get( $table_name, $days_passed = 30 ) {
-        global  $db;
+        global $db;
 
         switch ( $table_name ) {
             case "shoutbox":
