@@ -137,9 +137,17 @@
                             <div class="comments"><?php
                                 Element( 'frontpage/comment/list' );
                             ?></div>
+                            <div class="barfade">
+                                    <div class="leftbar"></div>
+                                    <div class="rightbar"></div>
+                                </div>
                             <div class="journals"><?php
                                 Element( 'frontpage/journal/list' );
                             ?></div>
+                            <div class="barfade">
+                                    <div class="leftbar"></div>
+                                    <div class="rightbar"></div>
+                                </div>
                             <div class="polls"><?php
                                 Element( 'frontpage/poll/list' );
                             ?></div>
