@@ -36,6 +36,5 @@
         $array = $res->MakeArray();		
 
         return $array;
-        
     }
 ?>
