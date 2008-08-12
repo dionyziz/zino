@@ -1,3 +1,6 @@
+div.wysiwyg {
+    hello: world;
+}
 div.wysiwyg iframe {
     border: 1px solid #666;
     width: 100%;
