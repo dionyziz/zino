@@ -25,7 +25,7 @@ var Frontpage = {
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inuser div.shoutbox' )[ 0 ] ) {
         if ( $( 'div.frontpage div.members div.join' ) ) {
-            $( 'div.frontpage div.members div.join' )[ 1 ].focus();
+            $( 'div.frontpage div.members div.join input' )[ 1 ].focus();
         }
 		$( 'div.frontpage div.inuser div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
 			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
