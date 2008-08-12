@@ -24,7 +24,6 @@ var Frontpage = {
 };
 $( document ).ready( function() {
 	if ( $( 'div.frontpage div.inuser div.shoutbox' )[ 0 ] ) {
-        alert( 'test' );
 		$( 'div.frontpage div.inuser div.shoutbox div.comments div.newcomment div.bottom input' ).click( function() {
 			var list = $( 'div.frontpage div.inuser div.shoutbox div.comments' );
 			var text = $( list ).find( 'div.newcomment div.text textarea' )[ 0 ].value;
