@@ -116,10 +116,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="eof"></div>
-                <div class="outshoutbox"><?php
-                Element( 'frontpage/shoutbox/list' );
-                ?></div><?php
+                <div class="eof"></div><?php
             } 
             ?><div class="inuser">
                 <div class="left">
