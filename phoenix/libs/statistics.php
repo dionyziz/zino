@@ -38,5 +38,4 @@
 
         return $array;
     }
-
 ?>
