@@ -37,7 +37,10 @@ var Tag = {
                                 var div = document.createElement( 'div' );
                                 var a = document.createElement( 'a' );
                                 a.title = username;
+                                $( a ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
+                                $( a ).mouseout( function() { Tag.showhideTag( this, false ); } );
                                 a.appendChild( document.createTextNode( username ) );
+                                
                                 div.appendChild( a );
                                 
                                 $( 'div.image_tags' ).get( 0 ).appendChild( div );
@@ -239,10 +242,20 @@ var Tag = {
         
         $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
         $( 'div.thephoto div.tanga div.tag:last' ).click( function() { document.location.href = "http://" + subdomain + ".zino.gr"; } );
+    },
+    showhideTag : function( node, show, event ) {
+        if ( show ) {
+            if ( !Tag.run ) {
+                $( node ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
+                Tag.ekso( event );
+            }
+            return;
+        }
+        $( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
     }
 };
 $( document ).ready( function() {
-        // Toolbox -- Gnorizis kapion. Do not use toggle, since this anchor is not the only one that disabled tagging
+        // Toolbox -- Gnorizis kapion. Do not use toggle, since this anchor is not the only one that disables tagging
         $( 'dd.addtag a' ).click( function( event ) {
                 if ( Tag.run ) {
                     Tag.close( event );
@@ -261,15 +274,8 @@ $( document ).ready( function() {
                 } ); 
             } );
         // Show/Hide tags when not tagging
-        $( 'div.thephoto div.tanga div' ).mouseover( function(event) {
-                            if ( !Tag.run ) {
-                                $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
-                                Tag.ekso( event );
-                            }
-                        } );
-        $( 'div.thephoto div.tanga div' ).mouseout( function() { 
-                            $( this ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
-                        } );
+        $( 'div.thephoto div.tanga div' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
+        $( 'div.thephoto div.tanga div' ).mouseout( function() { Tag.showhideTag( this, false ); } );
         
         // Dump Face Detection Heuristic. Most faces are located on the first quarter of the image vertically, and in the middle horizontally. Place tag frame there
         // Change border_width accordingly

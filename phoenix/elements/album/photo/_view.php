@@ -219,7 +219,7 @@
                             foreach( $tags as $tag ) {
                                 $person = New User( $tag->Personid );
                                 $person_name = $person->Name;
-                                $unames[] = $person_name;
+                                $unames[] = $person;
                                 ?><div class="tag" style="left:<?php
                                 echo $tag->Left;
                                 ?>px;top:<?php
@@ -267,16 +267,18 @@
                     }
                     for( $i=0; $i<$tags_num; ++$i ) {
                     // optimize by making finder return usernames
-                        ?><div><a href="" title="<?php
-                        echo $unames[ $i ];
+                        ?><div><a href="http://<?php
+                        echo $unames[ $i ]->Subdomain;
+                        ?>.zino.gr" title="<?php
+                        echo $unames[ $i ]->Name;
                         ?>"><?php
-                        echo $unames[ $i ];
+                        echo $unames[ $i ]->Name;
                         ?></a><?php
                         if ( $tags[ $i ]->Ownerid == $user->Id ) {
                             ?><a class="tag_del" href="" onclick="Tag.del( <?php
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
-                            echo $unames[ $i ];
+                            echo $unames[ $i ]->Name;
                             ?>' );return false;" title="Διαγραφή" /><?php
                         }
                         ?></div><?php
