@@ -137,6 +137,7 @@
                             <div class="comments"><?php
                                 Element( 'frontpage/comment/list' );
                             ?></div>
+                            <div class="eof"></div>
                             <div class="barfade">
                                     <div class="leftbar"></div>
                                     <div class="rightbar"></div>
@@ -144,6 +145,7 @@
                             <div class="journals"><?php
                                 Element( 'frontpage/journal/list' );
                             ?></div>
+                            <div class="eof"></div>
                             <div class="barfade">
                                     <div class="leftbar"></div>
                                     <div class="rightbar"></div>
