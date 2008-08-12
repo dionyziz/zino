@@ -1,0 +1,38 @@
+<?php
+class ElementPollRecentList extends Element {
+        public function Render( tInteger $pageno ) {
+        global $libs;
+
+        $pageno = $pageno->Get();
+
+        if ( $pageno <= 0 ) {
+            $pageno = 1;
+        }
+        
+        $finder = New PollFinder();
+        $polls = $finder->FindAll( 20 * ( $pageno - 1 ), 20 )
+        ?><div class="polls">
+            <h2>Δημοσκοπήσεις</h2>
+            <div class="list"><?php
+                foreach ( $polls as $poll ) {
+                    ?><div class="event">
+                        <div class="who"><?php
+                            Element( 'user/display' , $poll->User->Id , $poll->User->Avatar->Id , $poll->User );
+                        ?> καταχώρησε
+                        </div>
+                        <div class="subject">
+                            <a href="?p=poll&amp;id=<?php
+                            echo $poll->Id;
+                            ?>"><?php
+                            echo htmlspecialchars( $poll->Question );
+                            ?></a>
+                        </div>
+                    </div><?php
+                }
+            ?></div>
+        </div>
+        <div class="eof"></div><?php
+        Element( 'pagify', $pageno, '?p=polls&pageno=', ceil( $finder->Count() / 20 ) );
+    }
+}
+?>
