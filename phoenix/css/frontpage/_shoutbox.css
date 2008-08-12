@@ -2,7 +2,7 @@ div.shoutbox {
 	padding-left: 10px;
 }
 div.shoutbox div.comments {
-	/*width: 100%;*/
+	width: 100%;
 }
 div.shoutbox div.comments div.comment {
 	/*width: 100%;*/
