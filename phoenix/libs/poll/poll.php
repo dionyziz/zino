@@ -13,8 +13,27 @@
 
             return $this->FindByPrototype( $poll, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function Count() {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT( * ) AS numpolls
+                FROM
+                    :polls
+                WHERE
+                    `poll_delid`=0'
+            );
+            $query->BindTable( 'polls' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            $numpolls = $row[ 'numpolls' ];
+
+            return $numpolls;
+        }
         public function FindAll( $offset = 0, $limit = 20 ) {
-            return $this->FindByPrototype( New Poll(), $offset, $limit, array( 'Id', 'DESC' ) );
+            $prototype = New Poll();
+            $prototype->Delid = 0;
+
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
 

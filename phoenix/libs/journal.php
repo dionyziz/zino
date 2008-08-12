@@ -17,6 +17,20 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        public function Count() {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT( * ) AS numjournals
+                FROM
+                    :journals'
+            );
+            $query->BindTable( 'journals' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            $numjournals = $row[ 'numjournals' ];
+
+            return $numjournals;
+        }
         public function FindAll( $offset = 0, $limit = 20 ) {
             return $this->FindByPrototype( New Journal(), $offset, $limit, array( 'Id', 'DESC' ) );
         }
