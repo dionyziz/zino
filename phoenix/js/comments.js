@@ -15,6 +15,7 @@ var Comments = {
 			alert( "Δε μπορείς να δημοσιεύσεις κενό μήνυμα" );
 			return;
 		}
+
 		var a = document.createElement( 'a' );
 		a.onclick = function() {
 				return false;
