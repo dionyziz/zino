@@ -5,7 +5,7 @@ div.list div.event {
 	float: left;
 	clear: both;
 	margin: 0 0 20px 0;
-	width: 10%;
+	width: 100%;
 }
 div.list div.event div.toolbox {
 	float: right;
