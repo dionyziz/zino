@@ -87,43 +87,77 @@
                 </ul>
                 </div><?php
             }
-                ?><div class="inuser">
-                    <div class="left">
-                        <div class="shoutbox"><?php
-                            Element( 'frontpage/shoutbox/list' );
-                        ?></div>
-                        <div class="onlinenow"><?php
-                            Element( 'frontpage/online' );
-                        ?></div>
+            if ( !$user->Exists() ) {
+                ?><div class="members">
+                    <div class="join">
+                        <form action="" method="get">
+                            <h2>Δημιούργησε το προφίλ σου!</h2>
+                            <div>
+                                <input type="hidden" name="p" value="join" />
+                                <label>Όνομα:</label><input type="text" name="username" />
+                            </div>
+                            <div>
+                                <input value="Δημιουργία &raquo;" type="submit" /> 
+                            </div>
+                        </form>
                     </div>
-                    <div class="right">
-                        <div class="latest">
-                            <h2>Πρόσφατα γεγονότα</h2>
-                            <div class="comments"><?php
-                                Element( 'frontpage/comment/list' );
-                            ?></div>
-                            <div class="eof"></div>
-                            <div class="barfade">
-                                    <div class="leftbar"></div>
-                                    <div class="rightbar"></div>
-                                </div>
-                            <div class="journals"><?php
-                                Element( 'frontpage/journal/list' );
-                            ?></div>
-                            <div class="eof"></div>
-                            <div class="barfade">
-                                    <div class="leftbar"></div>
-                                    <div class="rightbar"></div>
-                                </div>
-                            <div class="polls"><?php
-                                Element( 'frontpage/poll/list' );
-                            ?></div>
-                        </div>
-                    
+                    <div class="login">
+                        <form action="do/user/login" method="post">
+                            <h2>Είσοδος στο zino</h2>
+                            <div>
+                                <label>Όνομα:</label> <input type="text" name="username" />
+                            </div>
+                            <div>
+                                <label>Κωδικός:</label> <input type="password" name="password" />
+                            </div>
+                            <div>
+                                <input type="submit" value="Είσοδος &raquo;" />
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <div class="eof"></div>
+                <div class="outshoutbox"><?php
+                Element( 'frontpage/shoutbox/list' );
+                ?></div><?php
+            } 
+            ?><div class="inuser">
+                <div class="left">
+                    <div class="shoutbox"><?php
+                        Element( 'frontpage/shoutbox/list' );
+                    ?></div>
+                    <div class="onlinenow"><?php
+                        Element( 'frontpage/online' );
+                    ?></div>
+                </div>
+                <div class="right">
+                    <div class="latest">
+                        <h2>Πρόσφατα γεγονότα</h2>
+                        <div class="comments"><?php
+                            Element( 'frontpage/comment/list' );
+                        ?></div>
+                        <div class="eof"></div>
+                        <div class="barfade">
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
+                            </div>
+                        <div class="journals"><?php
+                            Element( 'frontpage/journal/list' );
+                        ?></div>
+                        <div class="eof"></div>
+                        <div class="barfade">
+                                <div class="leftbar"></div>
+                                <div class="rightbar"></div>
+                            </div>
+                        <div class="polls"><?php
+                            Element( 'frontpage/poll/list' );
+                        ?></div>
+                    </div>
+                
+                </div>
             </div>
-            <div class="eof"></div><?php
+        </div>
+        <div class="eof"></div><?php
         }
     }
 ?>
