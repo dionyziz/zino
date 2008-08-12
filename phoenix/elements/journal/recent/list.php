@@ -32,7 +32,7 @@ class ElementJournalRecentList extends Element {
             ?></div>
         </div>
         <div class="eof"></div><?php
-        Element( 'pagify', $pageno, '?p=journals&pageno=', ceil( $finder->Count() / 20 ) );
+        Element( 'pagify', $pageno, '?p=alljournals&pageno=', ceil( $finder->Count() / 20 ) );
     }
 }
 ?>

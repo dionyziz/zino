@@ -32,7 +32,7 @@ class ElementPollRecentList extends Element {
             ?></div>
         </div>
         <div class="eof"></div><?php
-        Element( 'pagify', $pageno, '?p=polls&pageno=', ceil( $finder->Count() / 20 ) );
+        Element( 'pagify', $pageno, '?p=allpolls&pageno=', ceil( $finder->Count() / 20 ) );
     }
 }
 ?>
