@@ -276,7 +276,21 @@ $( document ).ready( function() {
             } );
         // Already Tagged people
         $( 'div.image_tags div' ).each( function( i ) {
-                Tag.already_tagged.push( $( this ).find( 'a:first' ).text() );
+                var username = $( this ).find( 'a:first' ).text();
+                Tag.already_tagged.push( username );
+                var a = $( this ).find( 'a:first' ).get( 0 );
+                a.onmouseover = ( function( username ) { 
+                           return function( event ) {
+                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                Tag.showhideTag( nod , true, event ); 
+                            };
+                        } )( username );
+                a.onmouseout = ( function( username ) { 
+                        return function () {
+                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                            Tag.showhideTag( nod, false ); 
+                        };
+                    } )( username );
             } );
         $( 'div.image_tags div a.tag_del' ).click( function() {
                 $( this ).parent().hide( 400, function() {
