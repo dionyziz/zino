@@ -37,13 +37,13 @@ var Tag = {
                                 var div = document.createElement( 'div' );
                                 var a = document.createElement( 'a' );
                                 a.title = username;
-                                $( a ).mouseover( function( username ) { 
+                                a.onmouseover = ( function( username ) { 
                                            return function( event ) {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
                                                 Tag.showhideTag( nod , true, event ); 
                                             }
                                         } )( username );
-                                $( a ).mouseout( function( username ) { 
+                                a.onmouseout = ( function( username ) { 
                                         return function () {
                                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
                                             Tag.showhideTag( nod, false ); 
