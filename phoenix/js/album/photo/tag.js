@@ -282,12 +282,14 @@ $( document ).ready( function() {
                 a.onmouseover = ( function( username ) { 
                            return function( event ) {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                nod.find( 'div' ).show();
                                 Tag.showhideTag( nod , true, event ); 
                             };
                         } )( username );
                 a.onmouseout = ( function( username ) { 
                         return function () {
                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                            nod.fine( 'div' ).hide();
                             Tag.showhideTag( nod, false ); 
                         };
                     } )( username );
