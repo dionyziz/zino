@@ -53,7 +53,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><span class="commentsnumber">23</span></span><?php
+			?>" /><span class="info"><span class="commentsnumber">&nbsp;</span>23</span></span><?php
         }
     }
 ?>
