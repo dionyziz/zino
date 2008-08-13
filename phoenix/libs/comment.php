@@ -463,8 +463,6 @@
             $finder->DeleteByEntity( $this );
 
             Comment_RegenerateMemcache( $this->Item );
-
-            Sequence_Increment( TYPE_COMMENT );
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
