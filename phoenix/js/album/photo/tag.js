@@ -281,15 +281,15 @@ $( document ).ready( function() {
                 var a = $( this ).find( 'a:first' ).get( 0 );
                 a.onmouseover = ( function( username ) { 
                            return function( event ) {
-                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
-                                nod.find( 'div' ).show();
+                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).show().end()
+                                .get( 0 );
                                 Tag.showhideTag( nod , true, event ); 
                             };
                         } )( username );
                 a.onmouseout = ( function( username ) { 
                         return function () {
-                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
-                            nod.find( 'div' ).hide();
+                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide()
+                            .get( 0 );
                             Tag.showhideTag( nod, false ); 
                         };
                     } )( username );
