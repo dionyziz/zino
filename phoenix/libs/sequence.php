@@ -7,6 +7,7 @@
                         ON DUPLICATE KEY UPDATE `value`=`value` + 1' );
         $query->BindTable( 'sequences' );
         $query->Bind( 'key' , $key );
+        $query->Execute();
     }
 
     class SequenceFinder extends Finder {
