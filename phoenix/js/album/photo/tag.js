@@ -37,9 +37,18 @@ var Tag = {
                                 var div = document.createElement( 'div' );
                                 var a = document.createElement( 'a' );
                                 a.title = username;
-                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
-                                $( a ).mouseover( function(event) { Tag.showhideTag( nod , true, event ); } );
-                                $( a ).mouseout( function() { Tag.showhideTag( nod, false ); } );
+                                $( a ).mouseover( function( username ) { 
+                                           return function( event ) {
+                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                                Tag.showhideTag( nod , true, event ); 
+                                            }
+                                        } )( username );
+                                $( a ).mouseout( function( username ) { 
+                                        return function () {
+                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                            Tag.showhideTag( nod, false ); 
+                                        }
+                                    } )( username );
                                 a.appendChild( document.createTextNode( username ) );
                                 
                                 div.appendChild( a );
