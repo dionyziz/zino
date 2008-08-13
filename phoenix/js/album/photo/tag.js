@@ -41,13 +41,13 @@ var Tag = {
                                            return function( event ) {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
                                                 Tag.showhideTag( nod , true, event ); 
-                                            }
+                                            };
                                         } )( username );
                                 a.onmouseout = ( function( username ) { 
                                         return function () {
                                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
                                             Tag.showhideTag( nod, false ); 
-                                        }
+                                        };
                                     } )( username );
                                 a.appendChild( document.createTextNode( username ) );
                                 
