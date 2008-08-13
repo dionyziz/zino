@@ -321,4 +321,4 @@
             </div><div class="eof"></div><?php
         }
     }
-?>$relationfinder->IsFriend( $theuser, $user ) | FRIENDS_BOTH ) != FRIENDS_BOTH
+?>
