@@ -10,6 +10,7 @@ span.imageview span.info {
     right: 1px;
     border-top: 1px solid #ccccee;
     border-left: 1px solid #ccccee;
+    color: #000;
 }
 span.imageview span.info span.commentsnumber {
     padding-left: 12px;

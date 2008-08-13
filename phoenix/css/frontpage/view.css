@@ -49,18 +49,15 @@ div.latestimages ul {
 }
 div.latestimages ul li {
     float: left;
-    padding: 5px;
-    height: 200px;
+    margin: 5px;
+    height: 100px;
     text-align: center;
 }
 div.latestimages ul li img {
     border: 1px solid #cce;
-    width: 100px;
-    height: 100px;
 }
 div.members div.join {
-    background-image: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' );
-    background-repeat: no-repeat;
+    background: url( 'http://static.zino.gr/phoenix/frontpagejoin.jpg' ) no-repeat;
     height: 133px;
     width: 486px;
     float: left;
@@ -89,8 +86,7 @@ div.members form label {
     margin-right: 5px;
 }
 div.members div.login {
-    background-image: url( 'http://static.zino.gr/phoenix/frontpagelogin.jpg' );
-    background-repeat: no-repeat;
+    background: url( 'http://static.zino.gr/phoenix/frontpagelogin.jpg' ) no-repeat;
     text-align: left;
     height: 129px;
     width: 293px;
@@ -122,10 +118,7 @@ div.frontpage div.notifications {
     z-index: 2;
 }
 div.frontpage div.notifications div.expand a {
-    background-image: url( 'http://static.zino.gr/phoenix/arrow_up.png' );
-    background-repeat: no-repeat;
-    background-color: #cfc9fd;
-    background-position: 4px 5px;
+    background: #cfc9fd url( 'http://static.zino.gr/phoenix/arrow_up.png' ) no-repeat 4px 5px;
     padding-left: 18px;
 }
 div.frontpage div.notifications h3 {
@@ -165,9 +158,7 @@ div.frontpage div.notifications div.list div.event div.subject div.viewprofile {
     font-size: 90%;
 }
 div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
-    background-image: url( 'http://static.zino.gr/phoenix/user_add.png' );
-    background-repeat: no-repeat;
-    background-position: 0 -1px;
+    background-image: url( 'http://static.zino.gr/phoenix/user_add.png' ) no-repeat 0 -1px;
     padding-left: 18px;
 }
 
