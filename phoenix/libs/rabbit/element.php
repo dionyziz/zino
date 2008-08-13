@@ -256,7 +256,10 @@
                     throw New Exception( 'Persistent element significant arguments do not match the arguments of the element: ' . $this->mPath );
                 }
                 Element::SetPersistentElementSignificantArgs( $this->mPath, $ret );
-                Element::SetPersistentElementMtime( $this->mPath, filemtime( 'elements/' . $this->mPath . '.php' ) );
+                
+                $maskinfo = Mask( $this->mPath, !$rabbit_settings[ 'production' ] );
+
+                Element::SetPersistentElementMtime( $this->mPath, filemtime( $maskinfo[ 'realpath' ] ) );
                 w_assert( strlen( $this->mPath ) < 73, 'Persistent element paths must be less than 73 characters long; "' . $this->mPath . '" exceeds this limit' );
                 $significant = Element::GetPersistentElementSignificantArgs( $this->mPath );
             }
