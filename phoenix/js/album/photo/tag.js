@@ -290,7 +290,7 @@ $( document ).ready( function() {
                         } )( username );
                 a.onmouseout = ( function( username ) { 
                         return function () {
-                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide()
+                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide().end()
                             .get( 0 );
                             Tag.showhideTag( nod, false ); 
                         };
