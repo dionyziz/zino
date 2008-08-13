@@ -28,7 +28,7 @@
                     $jsarr .= "'" . $mutual_friend . "', ";
                 }
                 //$jsarr = substr( $jsarr, 0, -2);
-                $jsarr .= $user->Name;
+                $jsarr .= "'" . $user->Name . "'";
                 $jsarr .= " ];Tag.photoid = " . $id . ";";
                 
                 if ( !empty( $mutual ) ) {
