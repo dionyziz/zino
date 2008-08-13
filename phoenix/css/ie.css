@@ -1,0 +1,4 @@
+/* this rule applies to the images in order to show the comments number in the right lower edge */
+span.imageview span.info {
+    bottom: 0;
+}
