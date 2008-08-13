@@ -20,7 +20,7 @@
                 FROM
                     :sequences
                 WHERE
-                    `sequence_name` IN :frontpage'
+                    `sequence_key` IN :frontpage'
             );
             $query->BindTable( 'sequences' );
             $query->Bind( 'frontpage', array( TYPE_SHOUT, TYPE_COMMENT, TYPE_IMAGE, TYPE_JOURNAL, TYPE_POLL ) );
