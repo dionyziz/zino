@@ -1,14 +1,9 @@
 <?php
-
     class ElementUserSettingsInterests extends Element {
         public function Render() {
             global $rabbit_settings;
             global $user;
             global $libs;
-            //----------------
-            global $page;
-            
-            //----------------
             
             $libs->Load( 'tag' );
             $finder = New TagFinder();
@@ -33,8 +28,6 @@
             $artists = $bytype[ TAG_ARTIST ];
             $games = $bytype[ TAG_GAME ];
             $shows = $bytype[ TAG_SHOW ];
-            
-            // INTEREST_TAG_TYPE   Please Update the whole file when you add a new interest tag type
             ?><div class="option">
                 <label>Hobbies:</label>
                 <div class="setting">
@@ -55,11 +48,8 @@
                         }
                     ?></ul>
                     <div class="add hobbies">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'hobbies' );Suggest.fire( event, 'hobbies' );"  />
+                        <input type="text"/>
                         <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'hobbies' );"><option value=""/></select>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -87,11 +77,8 @@
                         }
                     ?></ul>
                     <div class="add songs">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'songs' );Suggest.fire( event, 'songs' );"  />
+                        <input type="text"/>
                         <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'songs' );"><option value=""/></select>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -119,11 +106,8 @@
                         }
                     ?></ul>
                     <div class="add movies">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'movies' );Suggest.fire( event, 'movies' );"  />
+                        <input type="text"/>
                         <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'movies' );"><option value=""/></select>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -151,11 +135,8 @@
                         }
                     ?></ul>
                     <div class="add shows">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'shows' );Suggest.fire( event, 'shows' );"  />
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'shows' );"><option value=""/></select>
-                        </form>
+                        <input type="text"/>
+						<a href="" onclick="return false;" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -183,11 +164,8 @@
                         }
                     ?></ul>
                     <div class="add books">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'books' );Suggest.fire( event, 'books' );"  />
+                        <input type="text"/>
                         <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'books' );"><option value=""/></select>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -215,11 +193,8 @@
                         }
                     ?></ul>
                     <div class="add artists">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'artists' );Suggest.fire( event, 'artists' );"  />
+                        <input type="text"/>
                         <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'artists' );"><option value=""/></select>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -247,11 +222,8 @@
                         }
                     ?></ul>
                     <div class="add games">
-                        <input type="text" onkeyup="Suggest.inputMove( event, 'games' );Suggest.fire( event, 'games' );"  />
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
-                        <form action="">
-                            <select onkeypress="Suggest.selectMove( event, 'games' );"><option value=""/></select>
-                        </form>
+                        <input type="text"/>
+						<a href="" onclick="return false;" title="Προσθήκη"></a>		
                     </div>
                 </div>
             </div>
@@ -263,5 +235,4 @@
             </div><?php
         }
     }
-
 ?>
