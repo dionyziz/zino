@@ -38,7 +38,7 @@ var Tag = {
                                 var a = document.createElement( 'a' );
                                 a.title = username;
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
-                                $( a ).mouseover( function(event) { Tag.showhideTag( $( nod , true, event ); } );
+                                $( a ).mouseover( function(event) { Tag.showhideTag( nod , true, event ); } );
                                 $( a ).mouseout( function() { Tag.showhideTag( nod, false ); } );
                                 a.appendChild( document.createTextNode( username ) );
                                 
@@ -212,13 +212,13 @@ var Tag = {
         // Determine the number of the actual tagged people. TODO: Why not use DOM?
         var count = Tag.already_tagged.length;
         for( var i=0; i<Tag.already_tagged.length; ++i ) {
-            if ( Tag.already_tagged[ i ] == '' ) {
+            if ( Tag.already_tagged[ i ] === '' ) {
                 --count;
             }
         }
         Tag.already_tagged[ index ] = '';
         --count;
-        if ( count == 0 ) {
+        if ( count === 0 ) {
             $( 'div.image_tags' ).hide();
         }
         else if ( count == 1 ) {
