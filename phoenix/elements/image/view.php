@@ -53,7 +53,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><?php
+			?>" />te<?php
         }
     }
 ?>
