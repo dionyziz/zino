@@ -7,6 +7,7 @@
             
             $libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
+            $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user, 0, 5 );
             $shownotifications = count( $notifs ) > 0;
             $sequencefinder = New SequenceFinder();
