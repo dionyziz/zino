@@ -39,13 +39,15 @@ var Tag = {
                                 a.title = username;
                                 a.onmouseover = ( function( username ) { 
                                            return function( event ) {
-                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).show().end()
+                                                .get( 0 );
                                                 Tag.showhideTag( nod , true, event ); 
                                             };
                                         } )( username );
                                 a.onmouseout = ( function( username ) { 
                                         return function () {
-                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide().end()
+                                            .get( 0 );
                                             Tag.showhideTag( nod, false ); 
                                         };
                                     } )( username );
