@@ -14,6 +14,8 @@
         protected $mModel = 'Sequence';
 
         public function FindFrontpage() {
+            static $frontpagetypes = array( TYPE_SHOUT, TYPE_COMMENT, TYPE_IMAGE, TYPE_JOURNAL, TYPE_POLL );
+
             $query = $this->mDb->Prepare(
                 'SELECT
                     *
@@ -23,13 +25,18 @@
                     `sequence_key` IN :frontpage'
             );
             $query->BindTable( 'sequences' );
-            $query->Bind( 'frontpage', array( TYPE_SHOUT, TYPE_COMMENT, TYPE_IMAGE, TYPE_JOURNAL, TYPE_POLL ) );
+            $query->Bind( 'frontpage', $frontpagetypes );
 
             $sequences = $this->FindBySqlResource( $query->Execute() );
 
             $ret = array();
             foreach ( $sequences as $sequence ) {
                 $ret[ $sequence->Key ] = $sequence->Value;
+            }
+            foreach ( $frontpagetypes as $type ) {
+                if ( !isset( $ret[ $type ] ) ) {
+                    $ret[ $type ] = -1;
+                }
             }
 
             return $ret;
