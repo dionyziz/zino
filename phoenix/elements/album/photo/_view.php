@@ -212,8 +212,7 @@
                 ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event );return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 170 && $image->Height > 170 ) {
-                        ?>
-                        <div class="tanga"><?php
+                        ?><div class="tanga"><?php
                             $tagfinder = New ImageTagFinder();
                             $tags = $tagfinder->FindByImage( $image );
                             $tags_num = count( $tags );
@@ -248,7 +247,9 @@
                             </ul>
                         </div><?php
                     }
-                ?></div><div class="image_tags" <?php
+                ?></div><?php
+                if ( $image->Width > 170 && $image->Height > 170 ) {
+                    ?><div class="image_tags" <?php
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
                     }
@@ -285,8 +286,9 @@
                         }
                         ?></div><?php
                     }
-                    ?></div>
-                    <div class="banner b728x90">
+                    ?></div><?php
+                }
+                    ?><div class="banner b728x90">
 					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
 				</div>
 				<div class="comments"><?php
