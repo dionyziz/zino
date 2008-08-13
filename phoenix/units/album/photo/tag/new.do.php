@@ -43,7 +43,7 @@
         }
 
         // now check that the tagged person is the friend of the user; you can't tag who doesn't know you
-        if ( ( $relationfinder->IsFriend( $theuser, $user ) | FRIENDS_BOTH ) != FRIENDS_BOTH ) {
+        if ( ( $relationfinder->IsFriend( $theuser, $user ) | FRIENDS_BOTH ) != FRIENDS_BOTH && $theuser->Id != $user->Id ) {
             ?>alert( 'Ο συγκεκριμένος χρήστης δεν έχει καμία σχέση μαζί σας' );
             window.location.reload();<?php
             return;
