@@ -208,6 +208,7 @@ var Tag = {
     },
     // Disable tagging
     close : function( event ) {
+        $( 'div.thephoto div.frienders form input' ).val( '' );
         $( 'div.thephoto > div:not(.tanga)' ).hide();
         Tag.run = false;
     },
