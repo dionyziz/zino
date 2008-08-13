@@ -8,8 +8,10 @@ span.imageview span.info {
     position: absolute;
     bottom: 4px;
     right: 1px;
+    border-top: 1px solid #ccccee;
+    border-left: 1px solid #ccccee;
 }
 span.imageview span.info span.commentsnumber {
     padding-left: 12px;
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -473px -1337px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat -472px -1367px;
 }   
