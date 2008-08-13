@@ -23,7 +23,7 @@
 				default:
 					throw New Exception( 'Invalid image type' );
 			}
-            ?><img src="<?php
+            ?><span><img src="<?php
             Element( 'image/url', $imageid , $imageuserid , $type );
             ?>"<?php
             if ( $class != "" ) {
@@ -53,7 +53,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><?php
+			?>" /></span><?php
         }
     }
 ?>
