@@ -13,7 +13,7 @@
     class SequenceFinder extends Finder {
         protected $mModel = 'Sequence';
 
-        protected function FindFrontpage() {
+        public function FindFrontpage() {
             $query = $this->mDb->Prepare(
                 'SELECT
                     *
