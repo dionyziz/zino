@@ -175,9 +175,6 @@
     $libs->Load( 'rabbit/memcache/memcached' );
     
     switch ( $rabbit_settings[ 'memcache' ][ 'type' ] ) {
-        case 'dummy':
-            $mc = New MemCacheDummy();
-            break;
         case 'sql':
             $mc = New MemCacheSQL( $rabbit_settings[ 'memcache' ][ 'dbtable' ] );
             break;
@@ -189,6 +186,10 @@
                 'compress_threshold' => 10240,
                 'persistant' => true
             ) );
+            break;
+        case 'dummy':
+        default:
+            $mc = New MemCacheDummy();
             break;
     }
 ?>
