@@ -37,8 +37,9 @@ var Tag = {
                                 var div = document.createElement( 'div' );
                                 var a = document.createElement( 'a' );
                                 a.title = username;
-                                $( a ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
-                                $( a ).mouseout( function() { Tag.showhideTag( this, false ); } );
+                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).get( 0 );
+                                $( a ).mouseover( function(event) { Tag.showhideTag( $( nod , true, event ); } );
+                                $( a ).mouseout( function() { Tag.showhideTag( nod, false ); } );
                                 a.appendChild( document.createTextNode( username ) );
                                 
                                 div.appendChild( a );
