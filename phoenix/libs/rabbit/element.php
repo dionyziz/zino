@@ -224,6 +224,7 @@
         }
         public function GetSignificantArgs( $args ) {
             global $mc;
+            global $rabbit_settings;
 
             w_assert( is_array( $this->mPersistent ) );
 
