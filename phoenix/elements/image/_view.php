@@ -23,7 +23,7 @@
 				default:
 					throw New Exception( 'Invalid image type' );
 			}
-            ?><span><img src="<?php
+            ?><span class="imageview"><img src="<?php
             Element( 'image/url', $imageid , $imageuserid , $type );
             ?>"<?php
             if ( $class != "" ) {
@@ -53,7 +53,7 @@
 			echo htmlspecialchars( $alttitle );
 			?>" alt="<?php
 			echo htmlspecialchars( $alttitle );
-			?>" /><span>23</span></span><?php
+			?>" /><span class="commentsnumber">23</span></span><?php
         }
     }
 ?>

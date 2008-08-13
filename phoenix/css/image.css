@@ -1,0 +1,8 @@
+span.imageview {
+    position: relative;
+}
+span.imageview span.commentsnumber {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}   
