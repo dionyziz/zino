@@ -1,5 +1,5 @@
 <?php    
-    class ElementFrontpageShoutboxList extends Element {
+    class ElementFrontpageShoutboxRecent extends Element {
         protected $mPersistent = array( 'shoutboxseq' );
         public function Render( $shoutboxseq ) {
             global $libs;
