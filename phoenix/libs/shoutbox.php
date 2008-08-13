@@ -118,6 +118,8 @@
             
             ++$user->Count->Shouts;
             $user->Count->Save();
+
+            Sequence_Increment( TYPE_SHOUT );
         }
         
         public function OnDelete() {
@@ -125,6 +127,12 @@
             
             --$user->Count->Shouts;
             $user->Count->Save();
+
+            Sequence_Increment( TYPE_SHOUT );
+        }
+
+        public function OnUpdate() {
+            Sequence_Increment( TYPE_SHOUT );
         }
         
         public function IsEditableBy( $user ) {

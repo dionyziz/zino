@@ -5,7 +5,9 @@
             1 => array( 'TYPE_POLL', 'Poll' ),
             2 => array( 'TYPE_IMAGE', 'Image' ),
             3 => array( 'TYPE_USERPROFILE', 'User' ),
-            4 => array( 'TYPE_JOURNAL', 'Journal' )
+            4 => array( 'TYPE_JOURNAL', 'Journal' ),
+            5 => array( 'TYPE_COMMENT', 'Comment' ),
+            6 => array( 'TYPE_SHOUT', 'Shout' )
         );
     }
 

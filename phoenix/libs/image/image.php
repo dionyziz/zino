@@ -304,6 +304,8 @@
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
+
+            Sequence_Increment( TYPE_IMAGE );
         }
         protected function OnDelete() {
             global $libs;
@@ -323,6 +325,8 @@
 
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
+
+            Sequence_Increment( TYPE_IMAGE );
         }
         protected function OnUndelete() {
             if ( $this->Albumid ) {

@@ -96,6 +96,8 @@
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
+
+            Sequence_Inrement( TYPE_POLL );
         }
         protected function OnDelete() {
             global $libs;
@@ -111,11 +113,14 @@
 
             $finder = New EventFinder();
             $finder->DeleteByEntity( $this );
+
+            Sequence_Increment( TYPE_POLL );
         }
         public function UndoDelete() {
             $this->Delid = 0;
-            $poll->Question = "Who is your favourite Beatle?";
             $this->Save();
+
+            Sequence_Increment( TYPE_POLL );
         }
         protected function LoadDefaults() {
             $this->Created = NowDate();

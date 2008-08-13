@@ -463,6 +463,8 @@
             $finder->DeleteByEntity( $this );
 
             Comment_RegenerateMemcache( $this->Item );
+
+            Sequence_Increment( TYPE_COMMENT );
         }
         public function UndoDelete( $user ) {
             if ( !$this->IsDeleted() || $this->Parent->IsDeleted() ) {
@@ -483,8 +485,6 @@
             global $libs;
 
             $libs->Load( 'event' );
-
-            // $mc->delete( 'latestcomments' );
 
             w_assert( is_object( $this->User ), 'Comment->User not an object' );
             $this->User->OnCommentCreate();
@@ -508,6 +508,8 @@
 
             $finder = New NotificationFinder();
             $finder->DeleteByCommentAndUser( $this->Parent, $this->User );
+
+            Sequence_Increment( TYPE_COMMENT );
         }
         public function OnUpdate() {
             /* 
@@ -517,11 +519,15 @@
              */
             
             // Comment_RegenerateMemcache( $this->Item );
+            Sequence_Increment( TYPE_COMMENT );
         }
         public function OnBeforeUpdate() {
             $this->Bulk->Save();
         }
         public function OnBeforeCreate() {
+            if ( !in_array( $this->Typeid, array( TYPE_POLL, TYPE_IMAGE, TYPE_USERPROFILE, TYPE_JOURNAL ) ) ) {
+                throw New Exception( 'Comment is not within the allowed types' );
+            }
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }

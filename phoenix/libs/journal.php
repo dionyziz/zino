@@ -99,6 +99,8 @@
             $event->Itemid = $this->Id;
             $event->Userid = $this->Userid;
             $event->Save();
+
+            Sequence_Increment( TYPE_JOURNAL );
         }
         protected function OnDelete() {
             global $libs;
@@ -113,6 +115,8 @@
 
             $finder = New CommentFinder();
             $finder->DeleteByEntity( $this );
+
+            Sequence_Increment( TYPE_JOURNAL );
         }
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
