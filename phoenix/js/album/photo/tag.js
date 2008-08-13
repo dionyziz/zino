@@ -189,6 +189,7 @@ var Tag = {
         }
         Tag.clicked=false;
         $( 'div.thephoto div.frienders' ).show();
+        $( 'div.thephoto div.frienders form input' ).focus();
     },
     // onmousedown the image
     katoPontike : function( event ) {
