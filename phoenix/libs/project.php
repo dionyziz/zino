@@ -13,6 +13,8 @@
         $libs->Load( 'user/cookie' );
         $libs->Load( 'ban' );
         $libs->Load( 'types' );
+        $libs->Load( 'sequence' );
+
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
         $finder = New UserFinder();
