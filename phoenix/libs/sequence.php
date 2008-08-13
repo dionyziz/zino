@@ -4,7 +4,7 @@
 
         $query = $db->Prepare( 'INSERT INTO :sequences (`sequence_key`, `sequence_value`) 
                         VALUES (:key, 0) 
-                        ON DUPLICATE KEY UPDATE `value`=`value` + 1' );
+                        ON DUPLICATE KEY UPDATE `sequence_value`=`sequence_value` + 1' );
         $query->BindTable( 'sequences' );
         $query->Bind( 'key' , $key );
         $query->Execute();
