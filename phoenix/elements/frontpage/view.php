@@ -7,11 +7,10 @@
             
             $libs->Load( 'notify' );
             $newuser = $newuser->Get(); // TODO
-            $finder = New ImageFinder();
-            $images = $finder->FindFrontpageLatest( 0, 15 );
-            $finder = New NotificationFinder();
             $notifs = $finder->FindByUser( $user, 0, 5 );
             $shownotifications = count( $notifs ) > 0;
+            $sequencefinder = New SequenceFinder();
+            $sequences = $sequencefinder->FindFrontpage();
             ?><div class="frontpage"><?php
             if ( $newuser && $user->Exists() ) {
                 $showschool = $user->Profile->Education >= 5 && $user->Profile->Placeid > 0;
@@ -73,20 +72,7 @@
                     </div>
                 </div><?php
             }
-            if ( count( $images ) > 0 ) {
-                ?><div class="latestimages">
-                <ul><?php
-                    foreach ( $images as $image ) {
-                        ?><li><a href="?p=photo&amp;id=<?php
-                        echo $image->Id;
-                        ?>"><?php
-                        Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->User->Name , '' , false , 0 , 0 );
-                        ?></a></li><?php
-                    }
-                    ?>
-                </ul>
-                </div><?php
-            }
+            Element( 'frontpage/image/list' , $sequences[ TYPE_IMAGE ] );
             if ( !$user->Exists() ) {
                 ?><div class="members">
                     <div class="join">
@@ -121,7 +107,7 @@
             ?><div class="inuser">
                 <div class="left">
                     <div class="shoutbox"><?php
-                        Element( 'frontpage/shoutbox/list' );
+                        Element( 'frontpage/shoutbox/list' , $sequences[ TYPE_SHOUT ] );
                     ?></div>
                     <div class="onlinenow"><?php
                         Element( 'frontpage/online' );
@@ -131,7 +117,7 @@
                     <div class="latest">
                         <h2>Πρόσφατα γεγονότα</h2>
                         <div class="comments"><?php
-                            Element( 'frontpage/comment/list' );
+                            Element( 'frontpage/comment/list' , $sequences[ TYPE_COMMENT ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
@@ -139,7 +125,7 @@
                                 <div class="rightbar"></div>
                             </div>
                         <div class="journals"><?php
-                            Element( 'frontpage/journal/list' );
+                            Element( 'frontpage/journal/list' , $sequences[ TYPE_JOURNAL ] );
                         ?></div>
                         <div class="eof"></div>
                         <div class="barfade">
@@ -147,7 +133,7 @@
                                 <div class="rightbar"></div>
                             </div>
                         <div class="polls"><?php
-                            Element( 'frontpage/poll/list' );
+                            Element( 'frontpage/poll/list' , $sequences[ TYPE_POLL ] );
                         ?></div>
                     </div>
                 

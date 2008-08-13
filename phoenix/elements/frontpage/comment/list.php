@@ -1,6 +1,7 @@
 <?php
     class ElementFrontpageCommentList extends Element {
-        public function Render() {
+        protected $mPersistent = array( 'commentseq' );
+        public function Render( $commentseq ) {
             global $libs;
 
             $libs->Load( 'comment' );

@@ -1,6 +1,7 @@
 <?php
     class ElementFrontpageJournalList extends Element {
-        public function Render() {
+        protected $mPersistent = array( 'journalseq' );
+        public function Render( $journalseq ) {
             $finder = New JournalFinder();
             $journals = $finder->FindAll( 0 , 4 );
             ?><div class="list">

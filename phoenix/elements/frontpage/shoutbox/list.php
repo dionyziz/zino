@@ -1,7 +1,8 @@
 <?php
     
     class ElementFrontpageShoutboxList extends Element {
-        public function Render() {
+        protected $mPersistent = array( 'shoutboxseq' );
+        public function Render( $shoutboxseq ) {
             global $user;
             global $libs;
             $libs->Load( 'shoutbox' );
