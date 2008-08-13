@@ -25,7 +25,14 @@
             $query->BindTable( 'sequences' );
             $query->Bind( 'frontpage', array( TYPE_SHOUT, TYPE_COMMENT, TYPE_IMAGE, TYPE_JOURNAL, TYPE_POLL ) );
 
-            return $this->FindBySqlResource( $query->Execute() );
+            $sequences = $this->FindBySqlResource( $query->Execute() );
+
+            $ret = array();
+            foreach ( $sequences as $sequence ) {
+                $ret[ $sequence->Key ] = $sequence->Value;
+            }
+
+            return $ret;
         }
     }
 
