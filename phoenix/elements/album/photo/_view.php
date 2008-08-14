@@ -240,10 +240,10 @@
                         <div class="frienders">
                             <a href="" class="closer" onmousedown="Tag.close( event );return false;" />
                             <div>Ποιός είναι αυτός;</div>
-                            <form action="">
+                            <form action="" onsubmit="return false;">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
-                            <ul class="frienders">
+                            <ul>
                                 <li></li>
                             </ul>
                         </div><?php
