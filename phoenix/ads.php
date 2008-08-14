@@ -32,11 +32,10 @@
     <body><?php
         switch ( $type ) {
             case AD_JOURNAL:
-            case AD_POLL:
                 ?><script type="text/javascript"><!--
                 google_ad_client = "pub-6131563030489305";
-                /* 728x90, created 8/14/08 */
-                google_ad_slot = "5223999939";
+                /* 728x90, journal view */
+                google_ad_slot = "0626736805";
                 google_ad_width = 728;
                 google_ad_height = 90;
                 //-->
@@ -44,6 +43,20 @@
                 <script type="text/javascript"
                 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                 </script><?php
+                break;
+            case AD_POLL:
+                ?><script type="text/javascript"><!--
+                google_ad_client = "pub-6131563030489305";
+                /* 728x90, poll view */
+                google_ad_slot = "8159773384";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script><?php
+                break;
         }
     ?></body>
 </html><?php
