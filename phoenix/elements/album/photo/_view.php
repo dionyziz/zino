@@ -21,6 +21,7 @@
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
             $relfinder = New FriendRelationFinder();
+            die( var_dump( $relfinder->IsFriend( New User( 1 ), New User( 4171 ) ) ) );
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $mutual = $relfinder->FindMutualByUser( $user );
                 $jsarr = "Tag.friends = [ ";
