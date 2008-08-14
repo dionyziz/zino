@@ -37,6 +37,7 @@ var Tag = {
                                 var div = document.createElement( 'div' );
                                 var a = document.createElement( 'a' );
                                 a.title = username;
+                                a.style.cursor = "pointer";
                                 a.onmouseover = ( function( username ) { 
                                            return function( event ) {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
