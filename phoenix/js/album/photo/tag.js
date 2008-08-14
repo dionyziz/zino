@@ -265,12 +265,12 @@ var Tag = {
     showhideTag : function( node, show, event ) {
         if ( show ) {
             if ( !Tag.run ) {
-                node.css( { "borderWidth" : "2px", "cursor" : "pointer" } );
+                $( node ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
                 Tag.ekso( event );
             }
             return;
         }
-        node.css( { "borderWidth" : "0px", "cursor" : "default" } ); 
+        $( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
     }
 };
 $( document ).ready( function() {
