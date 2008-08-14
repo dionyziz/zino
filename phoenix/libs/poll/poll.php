@@ -97,7 +97,7 @@
             $event->Userid = $this->Userid;
             $event->Save();
 
-            Sequence_Inrement( TYPE_POLL );
+            Sequence_Increment( TYPE_POLL );
         }
         protected function OnDelete() {
             global $libs;
