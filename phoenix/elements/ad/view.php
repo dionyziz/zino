@@ -1,13 +1,11 @@
 <?php
     class ElementAdView extends Element {
-        protected $mPersistent = array( 'type' );
+        protected $mPersistent = array( 'type', 'xmlstrict' );
 
-        public function Render( $type ) {
-            global $page;
-
+        public function Render( $type, $xmlstrict ) {
             switch ( $type ) {
                 case AD_JOURNAL:
-                    if ( $page->XMLStrict() ) {
+                    if ( $xmlstrict ) {
                         ?><object data="ads.php?type=<?php
                         echo $type;
                         ?>" type="text/html" style="width:733px;height:95px;">

@@ -181,7 +181,7 @@
                 ?><div class="thephoto"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
                 ?></div><?php
-                Element( 'ad/view', AD_PHOTO );
+                Element( 'ad/view', AD_PHOTO, $page->XMLStrict() );
                 ?>
                 <div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {

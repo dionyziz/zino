@@ -39,7 +39,7 @@
                 Element( 'user/profile/sidebar/view' , $theuser );
                 Element( 'user/profile/main/view' , $theuser, $commentid, $pageno );
                 ?><div class="eof"></div><?php
-                Element( 'ad/view', AD_USERPROFILE );
+                Element( 'ad/view', AD_USERPROFILE, $page->XMLStrict() );
             ?></div><?php
         }
     }

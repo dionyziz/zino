@@ -289,7 +289,7 @@
                     ?></div><?php
                 }
                 
-                Element( 'ad/view', AD_PHOTO );
+                Element( 'ad/view', AD_PHOTO, $page->XMLStrict() );
 
                 ?>
 				<div class="comments"><?php
