@@ -6,7 +6,6 @@ TODO:
     --Na kani bold to tmima tou onomatos p pliktrologise kapios (~)
     --Na figi to X k na mpi Akirosi button
     --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
-    --Na mporo na sbino tags p exoun gini se dikia m photo
     --Otan Tag.run===true, na mn iparxi to Gnorizis Kapion link
     --Tag Notifications
     --Meta to Tag creation na gini fadeIn to tag gia 2-3s
@@ -118,6 +117,7 @@ var Tag = {
             li.appendChild( a );
             ul.appendChild( li );
         }
+        $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
         
         if ( !Tag.run ) { // If the tagging is to appear (not to be refreshed by typing something in the input), and focus is needed
@@ -233,6 +233,7 @@ var Tag = {
     // Disable tagging
     close : function( event ) {
         $( 'div.thephoto div.frienders form input' ).val( '' );
+        $( 'dd.addtag' ).show();
         $( 'div.thephoto > div:not(.tanga)' ).hide();
         Tag.run = false;
     },
