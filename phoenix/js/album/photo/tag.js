@@ -285,16 +285,20 @@ $( document ).ready( function() {
                 var a = $( this ).find( 'a:first' ).get( 0 );
                 a.onmouseover = ( function( username ) { 
                            return function( event ) {
-                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).show().end()
-                                .get( 0 );
-                                Tag.showhideTag( nod , true, event ); 
+                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                if ( !Tag.run ) {
+                                    nod.find( 'div' ).show();
+                                }
+                                Tag.showhideTag( nod.get( 0 ) , true, event ); 
                             };
                         } )( username );
                 a.onmouseout = ( function( username ) { 
                         return function () {
-                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide().end()
-                            .get( 0 );
-                            Tag.showhideTag( nod, false ); 
+                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" )
+                            if ( !Tag.run ) {
+                                nod.find( 'div' ).hide();
+                            }
+                            Tag.showhideTag( nod.get( 0 ), false ); 
                         };
                     } )( username );
             } );
