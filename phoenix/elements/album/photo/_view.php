@@ -42,7 +42,7 @@
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-        Element( 'user/sections', 'album' , $image->User );
+            Element( 'user/sections', 'album' , $image->User );
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
@@ -288,9 +288,10 @@
                     }
                     ?></div><?php
                 }
-                    ?><div class="banner b728x90">
-					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
-				</div>
+                
+                Element( 'ad/view', AD_PHOTO );
+
+                ?>
 				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
