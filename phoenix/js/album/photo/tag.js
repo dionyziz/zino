@@ -251,6 +251,7 @@ var Tag = {
             Tag.del( id, username );
             return false;
           };
+        a.style.cursor = "pointer";
         a.className = "tag_del";
         $( a ).click( function() {
                 $( this ).parent().hide( 400, function() {
