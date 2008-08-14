@@ -6,7 +6,6 @@ TODO:
     --Na kani bold to tmima tou onomatos p pliktrologise kapios (~)
     --Na figi to X k na mpi Akirosi button
     --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
-    --Otan Tag.run===true, na mn iparxi to Gnorizis Kapion link
     --Tag Notifications
     --Meta to Tag creation na gini fadeIn to tag gia 2-3s
     --Otan iparxi ena Tag stn gonia ( i teleuteo tag? ) k to mouse plisiazi to onoma, emfanizi border
@@ -42,75 +41,7 @@ var Tag = {
             var a = document.createElement( 'a' );
             a.onmousedown = ( function( username ) {
                             return function( event ) {
-                                // Get the current position of the tagging window
-                                var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
-                                var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
-                                
-                                $( this ).parent().hide(); // hide username from friends TODO: why not just remove?
-                                $( 'div.thephoto div.frienders form input' ).val( '' ); // clear the input field
-                                Tag.already_tagged.push( username ); // add username to the array of the people tagged
-                                
-                                // Add username to tagged people below the photo
-                                var div = document.createElement( 'div' );
-                                var a = document.createElement( 'a' );
-                                a.title = username;
-                                a.style.cursor = "pointer";
-                                a.onmouseover = ( function( username ) { 
-                                           return function( event ) {
-                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
-                                                Tag.showhideTag( nod, true, event );
-                                                if ( !Tag.run ) {
-                                                    nod.find( 'div' ).css( 'borderWidth', '0px' ).show().end();
-                                                }
-                                            };
-                                        } )( username );
-                                a.onmouseout = ( function( username ) { 
-                                        return function () {
-                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
-                                            Tag.showhideTag( nod, false );
-                                            if ( !Tag.run ) {
-                                                nod.find( 'div' ).hide().end();
-                                            }
-                                        };
-                                    } )( username );
-                                a.appendChild( document.createTextNode( username ) );
-                                
-                                div.appendChild( a );
-                                
-                                $( 'div.image_tags' ).get( 0 ).appendChild( div );
-                                
-                                // Add a place on the image where the user appears
-                                var divani = document.createElement( 'div' );
-                                divani.className = "tag";
-                                divani.style.left = left + 'px';
-                                divani.style.top = top + 'px';
-                                var divani2 = document.createElement( 'div' );
-                                // updates the friendlist and enables tagging
-                                divani2.appendChild( document.createTextNode( username ) );
-                                divani.appendChild( divani2 );
-                                $( 'div.tanga' ).get( 0 ).appendChild( divani );
-                                
-                                // Display correct text based on the number of people already tagged in the picture
-                                if ( Tag.already_tagged <= 2 ) {
-                                    // TODO: Maybe the only user is a girl, not a boy
-                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
-                                }
-                                else {
-                                    $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
-                                }
-                                
-                                // Show all the actual image tags    
-                                $( 'div.image_tags' ).show();
-                                
-                                Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
-                                                                     'username' : username,
-                                                                     'left' : left,
-                                                                     'top' : top,
-                                                                     'callback' : Tag.newCallback
-                                                                    } );
-                                
-                                // Disable tagging
-                                Tag.close( event );
+                                Tag.submitTag( event, username, this );
                             };
                 } )( kollitaria[ i ] );
             a.appendChild( document.createTextNode( kollitaria[ i ] ) );
@@ -131,6 +62,77 @@ var Tag = {
         }
         $( 'div.thephoto div.frienders form input' ).focus();
         Tag.run = true; // Tagging is now fully enabled
+    },
+    submitTag : function( event, username, node ) {
+        // Get the current position of the tagging window
+        var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
+        var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
+        
+        $( node ).parent().hide(); // hide username from friends TODO: why not just remove?
+        $( 'div.thephoto div.frienders form input' ).val( '' ); // clear the input field
+        Tag.already_tagged.push( username ); // add username to the array of the people tagged
+        
+        // Add username to tagged people below the photo
+        var div = document.createElement( 'div' );
+        var a = document.createElement( 'a' );
+        a.title = username;
+        a.style.cursor = "pointer";
+        a.onmouseover = ( function( username ) { 
+                   return function( event ) {
+                        var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                        Tag.showhideTag( nod, true, event );
+                        if ( !Tag.run ) {
+                            nod.find( 'div' ).css( 'borderWidth', '0px' ).show().end();
+                        }
+                    };
+                } )( username );
+        a.onmouseout = ( function( username ) { 
+                return function () {
+                    var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                    Tag.showhideTag( nod, false );
+                    if ( !Tag.run ) {
+                        nod.find( 'div' ).hide().end();
+                    }
+                };
+            } )( username );
+        a.appendChild( document.createTextNode( username ) );
+        
+        div.appendChild( a );
+        
+        $( 'div.image_tags' ).get( 0 ).appendChild( div );
+        
+        // Add a place on the image where the user appears
+        var divani = document.createElement( 'div' );
+        divani.className = "tag";
+        divani.style.left = left + 'px';
+        divani.style.top = top + 'px';
+        var divani2 = document.createElement( 'div' );
+        // updates the friendlist and enables tagging
+        divani2.appendChild( document.createTextNode( username ) );
+        divani.appendChild( divani2 );
+        $( 'div.tanga' ).get( 0 ).appendChild( divani );
+        
+        // Display correct text based on the number of people already tagged in the picture
+        if ( Tag.already_tagged <= 2 ) {
+            // TODO: Maybe the only user is a girl, not a boy
+            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
+        }
+        else {
+            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
+        }
+        
+        // Show all the actual image tags    
+        $( 'div.image_tags' ).show();
+        
+        Coala.Warm( 'album/photo/tag/new', { 'photoid' : Tag.photoid,
+                                             'username' : username,
+                                             'left' : left,
+                                             'top' : top,
+                                             'callback' : Tag.newCallback
+                                            } );
+        
+        // Disable tagging
+        Tag.close( event );
     },
     // Moves the tagging windows to a new position
     focus : function( event ) {
