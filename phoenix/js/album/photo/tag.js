@@ -294,15 +294,6 @@ var Tag = {
     }
 };
 $( document ).ready( function() {
-        // Toolbox -- Gnorizis kapion. Do not use toggle, since this anchor is not the only one that disables tagging
-        $( 'dd.addtag a' ).click( function( event ) {
-                if ( Tag.run ) {
-                    Tag.close( event );
-                    return false;
-                }
-                Tag.start( false );
-                return false;
-            } );
         // Already Tagged people
         $( 'div.image_tags div' ).each( function( i ) {
                 var username = $( this ).find( 'a:first' ).text();
