@@ -7,6 +7,7 @@
             global $user;
             global $libs;
             
+            die( 'test' );
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
