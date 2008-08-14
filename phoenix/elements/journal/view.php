@@ -7,7 +7,6 @@
             global $user;
             global $libs;
             
-            die( 'test' );
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
@@ -86,6 +85,7 @@
                         echo $journal->Text; //purposely not formatted
                         ?></p>
                     </div><?php
+                    die( 'test' );
                     Element( 'ad/view', AD_JOURNAL ); 
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
