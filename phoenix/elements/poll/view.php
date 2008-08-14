@@ -35,6 +35,7 @@
                                     </a>
                                 </div><?php
                             }
+                            ?><br /><?php
                             Element( 'ad/view', AD_POLL, $page->XMLStrict() );
                             ?><div class="comments"><?php
                                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
