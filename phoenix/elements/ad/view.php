@@ -3,17 +3,10 @@
         public function Render( $type ) {
             switch ( $type ) {
                 case AD_JOURNAL:
-                    ?><script type="text/javascript"><!--
-                    google_ad_client = "pub-6131563030489305";
-                    /* 728x90, created 8/14/08 */
-                    google_ad_slot = "5223999939";
-                    google_ad_width = 728;
-                    google_ad_height = 90;
-                    //-->
-                    </script>
-                    <script type="text/javascript"
-                    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                    </script><?php
+                    ?><object data="ads.php?type=<?php
+                    echo $type;
+                    ?>" type="text/html">
+                    </object><?php
                     break;
                 case AD_USERPROFILE:
                     ?>
