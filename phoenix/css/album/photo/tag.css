@@ -25,7 +25,7 @@ div.thephoto div.frienders a.closer {
     right: 15px;
 }
 div.thephoto div.frienders div {
-    display: inline;
+    display: block;
     margin-top: 10px;
 }
 div.thephoto div.frienders form {
