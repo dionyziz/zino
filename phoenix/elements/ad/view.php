@@ -1,8 +1,6 @@
 <?php
     class ElementAdView extends Element {
         public function Render( $type ) {
-            die( 'fools!' );
-
             switch ( $type ) {
                 case AD_JOURNAL:
                     ?><script type="text/javascript"><!--
