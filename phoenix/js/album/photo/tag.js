@@ -42,7 +42,7 @@ var Tag = {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                                 Tag.showhideTag( nod, true, event );
                                                 if ( !Tag.run ) {
-                                                    nod.find( 'div' ).show().end();
+                                                    nod.find( 'div' ).css( 'borderWidth', '0px' ).show().end();
                                                 }
                                             };
                                         } )( username );
@@ -293,7 +293,7 @@ $( document ).ready( function() {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                 Tag.showhideTag( nod, true, event );
                                 if ( !Tag.run ) {
-                                    nod.find( 'div' ).show().end();
+                                    nod.find( 'div' ).css( 'borderWidth', '0px' ).show().end();
                                 }
                             };
                         } )( username );
