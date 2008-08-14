@@ -56,6 +56,7 @@
                                             $finder = New NotificationFinder();
                                             $finder->DeleteByCommentAndUser( $speccomment, $user );
                                         }
+                                        Element( 'ad/view', AD_POLL, $page->XMLStrict() );
                                         Element( 'comment/list' , $comments );
                                         ?><div class="pagifycomments"><?php
                                             $link = '?p=poll&id=' . $poll->Id . '&pageno=';

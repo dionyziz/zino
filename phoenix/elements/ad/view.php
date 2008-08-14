@@ -5,6 +5,7 @@
         public function Render( $type, $xmlstrict ) {
             switch ( $type ) {
                 case AD_JOURNAL:
+                case AD_POLL:
                     if ( $xmlstrict ) {
                         ?><object data="ads.php?type=<?php
                         echo $type;

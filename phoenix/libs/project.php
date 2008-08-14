@@ -2,6 +2,7 @@
     define( 'AD_JOURNAL', 1 );
     define( 'AD_PHOTO', 2 );
     define( 'AD_USERPROFILE', 3 );
+    define( 'AD_POLL', 4 );
 
     function Project_Construct( $mode ) {
         global $xc_settings;
