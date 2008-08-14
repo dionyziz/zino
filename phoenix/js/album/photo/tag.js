@@ -1,3 +1,22 @@
+/*
+TODO:
+    --Tagging Box Resizing
+    --Resolve Overlapping Tags
+    --Auto Scrolling
+    --Label p na lei "Onoma Xristi" pano apo to Input
+    --Na kani bold to tmima tou onomatos p pliktrologise kapios (~)
+    --Na figi to X k na mpi Akirosi button
+    --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
+    --Na mporo na sbino tags p exoun gini se dikia m photo
+    --Otan Tag.run===true, na mn iparxi to Gnorizis Kapion link
+    --Tag Notifications
+    --Meta to Tag creation na gini fadeIn to tag gia 2-3s
+    --Otan iparxi ena Tag stn gonia ( i teleuteo tag? ) k to mouse plisiazi to onoma, emfanizi border
+    --Ta onomata dn exoun style.cursor="pointer"
+    --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
+    --An kanis click kapou, dn mporis xoris na ksanakanis click, na kanis d&d
+    --Otan grafis olokliro to onoma enos filou k auto iparxi stn lista, tote na gini Tag creation, allios onsubmit="return false"
+*/
 var Tag = {
     photoid : false, // set by view.php, contains the id of the current photo
     friends : [], // an array of all your mutual friends
