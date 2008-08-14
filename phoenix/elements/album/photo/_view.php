@@ -21,7 +21,6 @@
             //------------------
             $page->AttachStylesheet( 'css/album/photo/tag.css' );
             $relfinder = New FriendRelationFinder();
-            die( var_dump( $relfinder->IsFriend( New User( 1 ), New User( 4171 ) ) ) );
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $mutual = $relfinder->FindMutualByUser( $user );
                 $jsarr = "Tag.friends = [ ";
@@ -127,7 +126,7 @@
                     if ( $user->HasPermission( PERMISSION_TAG_CREATE )
                         && !empty( $mutual )
                         && ( $image->User->Id == $user->Id || 
-                            ( $relfinder->IsFriend( $image->User, $user ) | FRIENDS_BOTH ) == FRIENDS_BOTH )
+                             $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
                         && $image->Width > 170 && $image->Height > 170 ) {
                         ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία">Γνωρίζεις κάποιον;</a></dd><?php
                     }
