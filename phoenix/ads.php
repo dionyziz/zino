@@ -32,6 +32,7 @@
     <body><?php
         switch ( $type ) {
             case AD_JOURNAL:
+            case AD_POLL:
                 ?><script type="text/javascript"><!--
                 google_ad_client = "pub-6131563030489305";
                 /* 728x90, created 8/14/08 */
