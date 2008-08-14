@@ -39,15 +39,19 @@ var Tag = {
                                 a.title = username;
                                 a.onmouseover = ( function( username ) { 
                                            return function( event ) {
-                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).show().end()
-                                                .get( 0 );
-                                                Tag.showhideTag( nod , true, event ); 
+                                                var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                                if ( !Tag.run ) {
+                                                    nod.find( 'div' ).show();
+                                                }
+                                                Tag.showhideTag( nod, true, event ); 
                                             };
                                         } )( username );
                                 a.onmouseout = ( function( username ) { 
                                         return function () {
-                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" ).find( 'div' ).hide().end()
-                                            .get( 0 );
+                                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                            if ( !Tag.run ) {
+                                                nod.find( 'div' ).hide();
+                                            }
                                             Tag.showhideTag( nod, false ); 
                                         };
                                     } )( username );
@@ -260,12 +264,12 @@ var Tag = {
     showhideTag : function( node, show, event ) {
         if ( show ) {
             if ( !Tag.run ) {
-                $( node ).css( { "borderWidth" : "2px", "cursor" : "pointer" } );
+                node.css( { "borderWidth" : "2px", "cursor" : "pointer" } );
                 Tag.ekso( event );
             }
             return;
         }
-        $( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
+        node.css( { "borderWidth" : "0px", "cursor" : "default" } ); 
     }
 };
 $( document ).ready( function() {
@@ -289,7 +293,7 @@ $( document ).ready( function() {
                                 if ( !Tag.run ) {
                                     nod.find( 'div' ).show();
                                 }
-                                Tag.showhideTag( nod.get( 0 ) , true, event ); 
+                                Tag.showhideTag( nod, true, event ); 
                             };
                         } )( username );
                 a.onmouseout = ( function( username ) { 
@@ -298,7 +302,7 @@ $( document ).ready( function() {
                             if ( !Tag.run ) {
                                 nod.find( 'div' ).hide();
                             }
-                            Tag.showhideTag( nod.get( 0 ), false ); 
+                            Tag.showhideTag( nod, false ); 
                         };
                     } )( username );
             } );
