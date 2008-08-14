@@ -8,13 +8,6 @@
                 ?><div class="comment" style="border-color: #dee;" id="s_<?php
                 echo $shout->Id;
                 ?>">
-                    <div class="toolbox"><?php
-                        if ( ( $user->Id == $shout->User->Id && $user->HasPermission( PERMISSION_SHOUTBOX_DELETE ) ) || $user->HasPermission( PERMISSION_SHOUTBOX_DELETE_ALL ) ) {
-                            ?><a href="" onclick="Frontpage.DeleteShout( '<?php
-                            echo $shout->Id;
-                            ?>' );return false;" title="Διαγραφή">.</a><?php
-                        }
-                    ?></div>
                     <div class="who"><?php
                         Element( 'user/display' , $shout->User->Id , $shout->User->Avatar->Id , $shout->User );
                         ?> είπε:
@@ -26,11 +19,6 @@
             }
             else {
                 ?><div class="comment empty" style="border-color:#dee;display:none">
-                    <div class="toolbox"><?php
-                        if ( $user->HasPermission( PERMISSION_SHOUTBOX_DELETE )  ) {
-                            ?><a href="" onclick="return false" title="Διαγραφή">&nbsp;</a><?php
-                        }
-                    ?></div>
                     <div class="who"><?php
                         Element( 'user/display' , $user->Id , $user->Avatar->Id , $user );
                         ?> είπε:

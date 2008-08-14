@@ -13,7 +13,6 @@
             return;
         }
         
-        
         if ( trim ( $text ) == '' ) {
             ?>alert( "Δεν μπορείς να δημοσιεύσεις κενό μήνυμα" );
             window.location.reload();<?php
@@ -30,12 +29,6 @@
             id : "s_<?php
             echo $shout->Id;
             ?>" } )
-        .find( 'div.toolbox a' ).click( function( shoutid ) {
-            Frontpage.DeleteShout( '<?php
-            echo $shout->Id;
-            ?>' );
-            return false;
-        } ).end()
         .find( 'div.text' ).html( <?php
             echo w_json_encode( $shout->Text );
             ?> );<?php    }
