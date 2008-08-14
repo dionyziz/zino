@@ -31,9 +31,7 @@
                 $jsarr .= "'" . $user->Name . "'";
                 $jsarr .= " ];Tag.photoid = " . $id . ";";
                 
-                if ( !empty( $mutual ) ) {
-                    $page->AttachInlineScript( $jsarr );
-                }
+                $page->AttachInlineScript( $jsarr );
             }
             $page->AttachScript( 'js/album/photo/tag.js' );
             //------------------
@@ -124,7 +122,6 @@
                     }
 
                     if ( $user->HasPermission( PERMISSION_TAG_CREATE )
-                        && !empty( $mutual )
                         && ( $image->User->Id == $user->Id || 
                              $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
                         && $image->Width > 170 && $image->Height > 170 ) {
