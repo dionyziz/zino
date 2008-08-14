@@ -178,7 +178,7 @@
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     ?><div class="comments">
                         <h3>Σχόλια στο προφίλ <?php
-                        if ( $theuser->Gender == 'f' ) {gpad 
+                        if ( $theuser->Gender == 'f' ) {
                             ?>της <?php
                         }
                         else {
