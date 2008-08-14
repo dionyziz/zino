@@ -1,5 +1,7 @@
 <?php
     class ElementAdView extends Element {
+        protected $mPersistent = array( 'type' );
+
         public function Render( $type ) {
             global $page;
 
