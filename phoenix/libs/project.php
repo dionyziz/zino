@@ -1,4 +1,8 @@
 <?php
+    define( 'AD_JOURNAL', 1 );
+    define( 'AD_PHOTO', 2 );
+    define( 'AD_USERPROFILE', 3 );
+
     function Project_Construct( $mode ) {
         global $xc_settings;
         global $rabbit_settings;

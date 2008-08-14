@@ -180,10 +180,9 @@
                 }
                 ?><div class="thephoto"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
-                ?></div>
-				<div class="banner b728x90">
-					<a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
-				</div>
+                ?></div><?php
+                Element( 'ad/view', AD_PHOTO );
+                ?>
                 <div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
