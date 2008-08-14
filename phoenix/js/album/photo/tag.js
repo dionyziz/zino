@@ -40,19 +40,19 @@ var Tag = {
                                 a.onmouseover = ( function( username ) { 
                                            return function( event ) {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                                Tag.showhideTag( nod, true, event );
                                                 if ( !Tag.run ) {
                                                     nod.find( 'div' ).show().end();
                                                 }
-                                                Tag.showhideTag( nod, true, event ); 
                                             };
                                         } )( username );
                                 a.onmouseout = ( function( username ) { 
                                         return function () {
                                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                            Tag.showhideTag( nod, false );
                                             if ( !Tag.run ) {
                                                 nod.find( 'div' ).hide().end();
                                             }
-                                            Tag.showhideTag( nod, false ); 
                                         };
                                     } )( username );
                                 a.appendChild( document.createTextNode( username ) );
@@ -291,19 +291,19 @@ $( document ).ready( function() {
                 a.onmouseover = ( function( username ) { 
                            return function( event ) {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                                Tag.showhideTag( nod, true, event );
                                 if ( !Tag.run ) {
                                     nod.find( 'div' ).show().end();
                                 }
-                                Tag.showhideTag( nod, true, event ); 
                             };
                         } )( username );
                 a.onmouseout = ( function( username ) { 
                         return function () {
-                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" )
+                            var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
+                            Tag.showhideTag( nod, false );
                             if ( !Tag.run ) {
                                 nod.find( 'div' ).hide().end();
                             }
-                            Tag.showhideTag( nod, false ); 
                         };
                     } )( username );
             } );
