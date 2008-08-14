@@ -3,11 +3,14 @@
         protected $mPersistent = array( 'type', 'xmlstrict' );
 
         public function Render( $type, $xmlstrict ) {
+            ?><br />
+            <div class="banner b728x90"><?php
             switch ( $type ) {
                 case AD_JOURNAL:
                 case AD_POLL:
                     if ( $xmlstrict ) {
-                        ?><object data="ads.php?type=<?php
+                        ?>
+                        <object data="ads.php?type=<?php
                         echo $type;
                         ?>" type="text/html" style="width:733px;height:95px;">
                         </object><?php
@@ -27,21 +30,15 @@
                     }
                     break;
                 case AD_USERPROFILE:
-                    ?>
-                    <br />
-                    <div style="text-align:center">
-                        <a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a>
-                    </div><br />
-                    <?php
+                    ?><a href="http://www.gameplanet.gr/" style="margin:auto"><img src="http://static.zino.gr/images/ads/gameplanet-leaderboard.jpg" alt="Gameplanet" /></a><?php
                     break;
                 case AD_PHOTO:
-                    ?><div class="banner b728x90">
-                        <a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a>
-                    </div><?php
+                    ?><a href="http://www.mad.tv/madradio/"><img src="http://static.zino.gr/phoenix/banners/madradio.gif" /></a><?php
                     break;
                 default:
                     ?><div>(ad type not defined)</div><?php
             }
+            ?></div><?php
         }
     }
 ?>
