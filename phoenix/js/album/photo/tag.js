@@ -41,7 +41,7 @@ var Tag = {
                                            return function( event ) {
                                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                                 if ( !Tag.run ) {
-                                                    nod.find( 'div' ).show();
+                                                    nod.find( 'div' ).show().end();
                                                 }
                                                 Tag.showhideTag( nod, true, event ); 
                                             };
@@ -50,7 +50,7 @@ var Tag = {
                                         return function () {
                                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                             if ( !Tag.run ) {
-                                                nod.find( 'div' ).hide();
+                                                nod.find( 'div' ).hide().end();
                                             }
                                             Tag.showhideTag( nod, false ); 
                                         };
@@ -292,7 +292,7 @@ $( document ).ready( function() {
                            return function( event ) {
                                 var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" );
                                 if ( !Tag.run ) {
-                                    nod.find( 'div' ).show();
+                                    nod.find( 'div' ).show().end();
                                 }
                                 Tag.showhideTag( nod, true, event ); 
                             };
@@ -301,7 +301,7 @@ $( document ).ready( function() {
                         return function () {
                             var nod = $( "div.thephoto div.tanga div:contains('" + username + "')" )
                             if ( !Tag.run ) {
-                                nod.find( 'div' ).hide();
+                                nod.find( 'div' ).hide().end();
                             }
                             Tag.showhideTag( nod, false ); 
                         };
