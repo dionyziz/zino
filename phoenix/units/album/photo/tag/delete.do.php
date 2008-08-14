@@ -13,8 +13,9 @@
         }
         
         $tag = New ImageTag( $id );
-        if ( $user->Id != $tag->Ownerid ) {
-            ?>alert( "Δεν μπορείς να διαγράψεις ένα Tag που δεν δημιούργησες ο ίδιος" );
+        $img = New Image( $tag->Imageid );
+        if ( $user->Id != $tag->Ownerid && $user->Id != $img->User->Id ) {
+            ?>alert( "Δεν μπορείς να διαγράψεις ένα Tag που δεν δημιούργησες ο ίδιος ή δεν έχει γίνει σε δικιά σου εικόνα" );
             window.location.reload();<?php
             return;
         }

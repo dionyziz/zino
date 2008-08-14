@@ -3,7 +3,6 @@ TODO:
     --Tagging Box Resizing
     --Resolve Overlapping Tags
     --Auto Scrolling
-    --Label p na lei "Onoma Xristi" pano apo to Input
     --Na kani bold to tmima tou onomatos p pliktrologise kapios (~)
     --Na figi to X k na mpi Akirosi button
     --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
