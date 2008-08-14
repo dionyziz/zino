@@ -85,7 +85,6 @@
                         echo $journal->Text; //purposely not formatted
                         ?></p>
                     </div><?php
-                    die( 'test' );
                     Element( 'ad/view', AD_JOURNAL ); 
                     ?><div class="comments"><?php
                     if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
