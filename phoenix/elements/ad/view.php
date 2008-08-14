@@ -5,7 +5,7 @@
                 case AD_JOURNAL:
                     ?><object data="ads.php?type=<?php
                     echo $type;
-                    ?>" type="text/html">
+                    ?>" type="text/html" style="width:733px;height:95px;">
                     </object><?php
                     break;
                 case AD_USERPROFILE:
