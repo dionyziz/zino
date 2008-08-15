@@ -4,6 +4,8 @@
         global $libs;
 
         $libs->Load( 'pm/pm' );
+        $libs->Load( 'wysiwyg' );
+
         $usernames = $usernames->Get();
         $pmtext = $pmtext->Get();
         
