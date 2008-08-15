@@ -8,6 +8,12 @@
             global $rabbit_settings;
             global $xc_settings;
             
+            ?>
+            <!--
+                    Σε ενδιαφέρει ο κώδικάς μας; Τότε ίσως θα ήθελες να δουλέψεις μαζί μας. Τσέκαρε στο http://www.kamibu.com/join
+                    και μην διστάσεις να επικοινωνήσεις μαζί μας.
+                -->
+            <?php
             //attaching ALL css files
             if ( $rabbit_settings[ 'production' ] ) {
                 $page->AttachStylesheet( $xc_settings[ 'staticcssurl' ] . 'global.css?' . $xc_settings[ 'cssversion' ] );
