@@ -23,7 +23,9 @@
         else {
             $pm = new PM();
             $pm->Senderid = $user->Id;
-            $pm->Text = htmlspecialchars( $pmtext );
+            $pmtext = nl2br( htmlspecialchars( $pmtext ) );
+            $pmtext = WYSIWYG_PostProcess( $pmtext );
+            $pm->Text = $pmtext;
             foreach ( $userreceivers as $receiver ) {    
                 $pm->AddReceiver( $receiver );
             }
