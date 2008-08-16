@@ -1,7 +1,12 @@
 <?php
     class ElementFrontpagePollList extends Element {
         protected $mPersistent = array( 'pollseq' );
+
         public function Render( $pollseq ) {
+            global $libs;
+
+            $libs->Load( 'poll/poll' );
+
             $finder = New PollFinder();
             $polls = $finder->FindAll( 0 , 4 );
             ?><div class="list">
