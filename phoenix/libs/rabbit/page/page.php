@@ -258,7 +258,7 @@ class PageHTML extends Page {
     }
     private function OutputHTMLEnd() {
 		ob_start();
-        ?></html><?php
+        ?></htmltest><?php
 		echo ob_get_clean();
     }
     private function CheckXML() {
