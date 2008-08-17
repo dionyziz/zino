@@ -254,10 +254,9 @@ class PageHTML extends Page {
             ?></script><?php
         }
         ?></body><?php
-        echo ob_get_clean();
+        //echo ob_get_clean();
     }
     private function OutputHTMLEnd() {
-		ob_start();
         ?></htmltest><?php
 		echo ob_get_clean();
     }
