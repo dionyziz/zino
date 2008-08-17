@@ -41,7 +41,7 @@
         while ( strpos( $src , $dspace ) !== false ) {
             $src = str_replace( $dspace , $space , $src );
         }
-        
+        die("test");
         //strip unnecessary spaces between tags
         $src = str_replace( "> <" , "><" , $src );
         
