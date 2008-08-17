@@ -233,7 +233,8 @@ class PageHTML extends Page {
         }
     }
     private function OutputHTMLMain() {
-        ob_start( 'html_filter' );
+        //ob_start( 'html_filter' );
+		ob_start();
         ?><body><?php
         echo $this->mBody;
         foreach ( $this->mScripts as $script ) {
@@ -254,7 +255,7 @@ class PageHTML extends Page {
             ?></script><?php
         }
         ?></body><?php
-        //echo ob_get_clean();
+        echo ob_get_clean();
     }
     private function OutputHTMLEnd() {
         ?></html><?php
