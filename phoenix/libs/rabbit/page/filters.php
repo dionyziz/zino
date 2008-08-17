@@ -24,10 +24,10 @@
     }
 
     function html_filter( $src ) {
-        global $nofilters;
+        //global $nofilters;
         // function html_filter(): Minimizes download time 
         // for given source code by stripping out unnecessary stuff
-        
+        $nofilters = 1;
         if( $nofilters )
             return $src;
             
