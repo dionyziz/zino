@@ -45,7 +45,7 @@ var Tag = {
                 } )( kollitaria[ i ] );
             var b = document.createElement( 'b' );
             b.appendChild( document.createTextNode( keyword ) );
-            a.appendChild( document.createTextNode( keyword.substr( keyword.length ) ) );
+            a.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
             li.appendChild( a );
             ul.appendChild( li );
         }
