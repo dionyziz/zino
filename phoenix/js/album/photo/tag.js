@@ -20,7 +20,7 @@ var Tag = {
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
     run : false, // when tagging action is enabled
     // updates the friendlist and enables tagging
-    start : function( kollitaria ) {
+    start : function( kollitaria, keyword ) {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
@@ -43,7 +43,9 @@ var Tag = {
                                 Tag.submitTag( event, username, this );
                             };
                 } )( kollitaria[ i ] );
-            a.appendChild( document.createTextNode( kollitaria[ i ] ) );
+            var b = document.createElement( 'b' );
+            b.appendChild( document.createTextNode( keyword ) );
+            a.appendChild( document.createTextNode( keyword.substr( keyword.length ) ) );
             li.appendChild( a );
             ul.appendChild( li );
         }
@@ -233,7 +235,7 @@ var Tag = {
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
                         return ( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
-        Tag.start( friends ); // update friend list
+        Tag.start( friends, text ); // update friend list
     },
     // Disable tagging
     close : function( event ) {
