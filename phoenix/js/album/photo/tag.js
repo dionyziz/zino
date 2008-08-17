@@ -12,7 +12,6 @@ TODO:
     --Ta onomata dn exoun style.cursor="pointer"
     --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
     --An kanis click kapou, dn mporis xoris na ksanakanis click, na kanis d&d
-    --Otan grafis olokliro to onoma enos filou k auto iparxi stn lista, tote na gini Tag creation, allios onsubmit="return false"
 */
 var Tag = {
     photoid : false, // set by view.php, contains the id of the current photo
