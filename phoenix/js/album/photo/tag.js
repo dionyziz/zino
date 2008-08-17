@@ -228,7 +228,7 @@ var Tag = {
     filterSug : function( event ) {
         var text = $( 'div.thephoto div.frienders form input' ).val();
         if ( event.keyCode === 13 && $.inArray( text, Tag.friends ) !== -1 ) {
-            Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "')" ).get( 0 ) );
+            Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "') a" ).get( 0 ) );
             return;
         }
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
