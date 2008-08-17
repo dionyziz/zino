@@ -257,7 +257,8 @@ class PageHTML extends Page {
         echo ob_get_clean();
     }
     private function OutputHTMLEnd() {
-       ?></html><?php
+       /* ?></html><?php */
+	   echo "</html>";
     }
     private function CheckXML() {
         $xmlmimetype = 'application/xhtml+xml';
