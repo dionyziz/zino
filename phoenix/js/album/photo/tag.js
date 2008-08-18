@@ -39,11 +39,11 @@ var Tag = {
                 li.style.display = "none";
             }
             
-            var div = document.createElement( 'div' );
-            div.onmouseover = function() {
+            var bspan = document.createElement( 'span' );
+            bspan.onmouseover = function() {
                             $( this ).css( 'textDecoration', 'underline' );
                         };
-            div.onmousedown = ( function( username ) {
+            bspan.onmousedown = ( function( username ) {
                             return function( event ) {
                                 Tag.submitTag( event, username, this );
                             };
