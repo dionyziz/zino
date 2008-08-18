@@ -284,6 +284,7 @@ var pms = {
 		$( incominglink ).append( newtext );
 		$( unreadmsgbanner ).append( bannerspan );
 		$( unreadmsgbanner ).append( newtext2 );
+		unreadmsgbanner.className = unreadmsgbanner.className.replace( / unread/gi, '' );
 	}
 	,
 	ShowFolderNameTop : function( texttoshow ) {
