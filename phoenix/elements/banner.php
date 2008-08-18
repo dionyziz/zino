@@ -35,8 +35,12 @@
                     Element( 'user/name', $user->Id , $user->Name , $user->Subdomain , false );
                     ?></a></li>
                     <li>·</li>
-                    <li><a id="unreadmessages" href="messages" class="messages icon"><span>&nbsp;</span><?php
-                        $unreadCount = $user->Count->Unreadpms;
+                    <li><a id="unreadmessages" href="messages" class="messages icon<?php
+                    $unreadCount = $user->Count->Unreadpms;
+                    if ( $unreadCount > 0 ) {
+                        ?> unread<?php
+                    }
+                    ?>"><span>&nbsp;</span><?php
                         if ( $unreadCount > 0 ) {
                             echo $unreadCount;
                             ?> νέ<?php

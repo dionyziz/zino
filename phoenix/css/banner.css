@@ -68,6 +68,9 @@ div.header ul li {
 	display: inline;
 	color: white;
 }
+div.header ul li a.unread {
+    color: red;
+}
 div.header ul li a {
 	padding-left: 0;
 }
