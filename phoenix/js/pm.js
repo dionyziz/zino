@@ -275,6 +275,9 @@ var pms = {
 			}
 		}
 		else {
+		    if ( specnumber == -1 && unreadpms == 1 ) {
+		        unreadpms = 0;
+		    }
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 			newtext2 = document.createTextNode( 'Μηνύματα' );
 		}
