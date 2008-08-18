@@ -232,8 +232,19 @@ var Tag = {
     // Displays friends based on what the user typed in the input box
     filterSug : function( event ) {
         var text = $( 'div.thephoto div.frienders form input' ).val();
-        if ( event.keyCode === 13 && $.inArray( text, Tag.friends ) !== -1 ) {
-            Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "') a" ).get( 0 ) );
+        if ( event.keyCode === 13 ) {
+            var index, found;
+            found = false;
+            for( index=0; index < Tag.friends.length; ++index ) {
+                if ( text.toUpperCase() == Tag.friends[ index ].toUpperCase() ) {
+                    found = true;
+                    break;
+                }
+            }
+            if ( !found ) {
+                return;
+            }
+            Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + Tag.friends[ index ] + "') a" ).get( 0 ) );
             return;
         }
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
