@@ -244,7 +244,7 @@ var Tag = {
             if ( !found ) {
                 return;
             }
-            Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + Tag.friends[ index ] + "') a" ).get( 0 ) );
+            Tag.submitTag( event, Tag.friends[ index ], $( "div.thephoto div.frienders ul li:contains('" + Tag.friends[ index ] + "') a" ).get( 0 ) );
             return;
         }
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
