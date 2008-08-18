@@ -47,7 +47,7 @@ var Tag = {
                 
             var span = document.createElement( 'span' );
             
-            span.appendChild( document.createTextNode( keyword ) );
+            span.appendChild( document.createTextNode( kollitaria[ i ].substr( 0, keyword.length ) ) );
             div.appendChild( span );
             div.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
             li.appendChild( div );
