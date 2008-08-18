@@ -129,7 +129,7 @@ var Tag = {
         // updates the friendlist and enables tagging
         divani2.appendChild( document.createTextNode( username ) );
         divani.appendChild( divani2 );
-        $( divani ).show().fadeIn( 2000, function() { $( 'div.tanga' ).get( 0 ).appendChild( this ); } );
+        $( 'div.tanga' ).get( 0 ).appendChild( divani );
         
         // Display correct text based on the number of people already tagged in the picture
         if ( Tag.already_tagged <= 2 ) {
