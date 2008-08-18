@@ -32,11 +32,32 @@ var Tag = {
             if ( kollitaria[i] === '' ) { // flagged username. Do not display
                 continue;
             }
+            
             var li = document.createElement( 'li' );
             li.style.cursor = "pointer";
             if ( $.inArray( kollitaria[ i ], Tag.already_tagged ) != -1 ) { // the person is already recognised on this pic. Do not display
                 li.style.display = "none";
             }
+            
+            var div = document.createElement( 'div' );
+            div.onmouseover = function() {
+                            $( this ).css( 'textDecoration', 'underline' );
+                        };
+            div.onmousedown = ( function( username ) {
+                            return function( event ) {
+                                Tag.submitTag( event, username, this );
+                            };
+                } )( kollitaria[ i ] );
+                
+            var span = document.createElement( 'span' );
+            
+            span.appendChild( document.createTextNode( keyword );
+            div.appendChild( span );
+            div.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
+            li.appendChild( div );
+            ul.appendChild( li );
+            
+            /*
             var a = document.createElement( 'a' );
             a.onmousedown = ( function( username ) {
                             return function( event ) {
@@ -48,7 +69,7 @@ var Tag = {
             a.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
             li.appendChild( b );
             li.appendChild( a );
-            ul.appendChild( li );
+            ul.appendChild( li );*/
         }
         $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags

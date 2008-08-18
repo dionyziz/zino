@@ -49,8 +49,15 @@ div.thephoto div.frienders ul {
     margin-right: 20px;
     text-align: left;
 }
+/*
 div.thephoto div.frienders ul li a:hover {
     text-decoration: underline;
+}*/
+div.thephoto div.frienders ul li div {
+    color: #B5CDE8;
+}
+div.thephoto div.frienders ul li div span {
+    color: #3366FF;
 }
 div.image_tags {
     margin-top: 10px;
