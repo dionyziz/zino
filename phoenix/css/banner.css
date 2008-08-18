@@ -69,7 +69,7 @@ div.header ul li {
 	color: white;
 }
 div.header ul li a.unread {
-    color: red;
+    color: #FF0044;
 }
 div.header ul li a {
 	padding-left: 0;
