@@ -93,4 +93,5 @@ div.thephoto div.tanga div.tag div {
     border: 1px solid black;
     display: none;
     padding: 0 5px 0 5px;
+    cursor: pointer;
 }
