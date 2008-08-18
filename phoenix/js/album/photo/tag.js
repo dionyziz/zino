@@ -52,20 +52,6 @@ var Tag = {
             div.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
             li.appendChild( div );
             ul.appendChild( li );
-            
-            /*
-            var a = document.createElement( 'a' );
-            a.onmousedown = ( function( username ) {
-                            return function( event ) {
-                                Tag.submitTag( event, username, this );
-                            };
-                } )( kollitaria[ i ] );
-            var b = document.createElement( 'b' );
-            b.appendChild( document.createTextNode( keyword ) );
-            a.appendChild( document.createTextNode( kollitaria[ i ].substr( keyword.length ) ) );
-            li.appendChild( b );
-            li.appendChild( a );
-            ul.appendChild( li );*/
         }
         $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
