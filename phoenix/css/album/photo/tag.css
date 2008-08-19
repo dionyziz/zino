@@ -19,6 +19,7 @@ div.thephoto div.frienders {
 }
 div.thephoto div.frienders div.closer {
     text-align: center;
+    margin-bottom: 15px;
 }
 /*
 div.thephoto div.frienders a.closer {
