@@ -53,7 +53,7 @@ var Tag = {
         }
         $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
-        
+        /*
         if ( !Tag.run ) { // If the tagging is to appear (not to be refreshed by typing something in the input), and focus is needed
             var locate = document.location.href;
             if ( locate.substr( locate.length-13 ) != "#tagging_area" ) {
@@ -62,7 +62,8 @@ var Tag = {
             else {
                 document.location.href = document.location.href;
             }
-        }
+        }*/
+        $( 'div.tagme' ).get(0).scrollIntoView( true );
         $( 'div.thephoto div.frienders form input' ).focus();
         Tag.run = true; // Tagging is now fully enabled
     },
