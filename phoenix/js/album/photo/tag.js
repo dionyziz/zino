@@ -10,6 +10,12 @@ TODO:
     --Ta onomata dn exoun style.cursor="pointer"
     --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
     --An kanis click kapou, dn mporis xoris na ksanakanis click, na kanis d&d
+    --To box dn ginete panta hide me onmouseout
+    
+    From IE7 with love:
+        --To onoma dn emfanizete terma aristera, alla sto kentro i sta deksia
+        --Otan ginete onmouseover pano sto onoma sto tag, anabosbini
+        --Otan ginonte onmouseover ta tags kato apo tn ikona, dn emfanizonte ta onomata
 */
 var Tag = {
     photoid : false, // set by view.php, contains the id of the current photo
