@@ -23,7 +23,8 @@ var Tag = {
             kollitaria = Tag.friends;
         }
         // Display only the first 15 entries
-        var len = ( kollitaria.length < 15 ) ? kollitaria.length : 15;
+        //var len = ( kollitaria.length < 15 ) ? kollitaria.length : 15;
+        var len = kollitaria.length;
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
         for( var i=0; i < len; ++i ) {
