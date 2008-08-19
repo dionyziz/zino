@@ -236,7 +236,6 @@
                             }
                         ?></div>
                         <div class="tagme"></div>
-                        <a name="tagging_area" class="ankh" href="" />
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">

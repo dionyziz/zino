@@ -1,11 +1,6 @@
 div.thephoto div {
     display: none;
 }
-div.thephoto a.ankh {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-}
 div.thephoto div.frienders {
     position: absolute;
     left: 170px;
