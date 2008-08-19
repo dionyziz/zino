@@ -285,7 +285,7 @@
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
-                            ?>' );return false;" title="Διαγραφή" /><?php
+                            ?>' );return false;" title="Διαγραφή"></a><?php
                         }
                         ?></div><?php
                     }

@@ -22,12 +22,9 @@ var Tag = {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
-        // Display only the first 15 entries
-        //var len = ( kollitaria.length < 15 ) ? kollitaria.length : 15;
-        var len = kollitaria.length;
         var ul = $( 'div.thephoto div.frienders ul' ).find( 'li' ).remove().end()
         .get( 0 );
-        for( var i=0; i < len; ++i ) {
+        for( var i=0; i < kollitaria.length; ++i ) {
             if ( kollitaria[i] === '' ) { // flagged username. Do not display
                 continue;
             }
@@ -42,6 +39,7 @@ var Tag = {
             div.onmousedown = ( function( username ) {
                             return function( event ) {
                                 Tag.submitTag( event, username, this );
+                                return false;
                             };
                 } )( kollitaria[ i ] );
                 
