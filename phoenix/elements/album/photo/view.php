@@ -10,16 +10,37 @@
             $libs->Load( 'comment' );
             $libs->Load( 'favourite' );
             $libs->Load( 'notify' );
+            $libs->Load( 'relation/relation' );
+            $libs->Load( 'image/tag' );
+            
             $id = $id->Get();
             $commentid = $commentid->Get();
             $pageno = $pageno->Get();
             $image = New Image( $id );
             
+            //------------------
+            $page->AttachStylesheet( 'css/album/photo/tag.css' );
+            $relfinder = New FriendRelationFinder();
+            if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
+                $mutual = $relfinder->FindMutualByUser( $user );
+                $jsarr = "Tag.friends = [ ";
+                foreach( $mutual as $mutual_friend ) {
+                    $jsarr .= "'" . $mutual_friend . "', ";
+                }
+                //$jsarr = substr( $jsarr, 0, -2);
+                $jsarr .= "'" . $user->Name . "'";
+                $jsarr .= " ];Tag.photoid = " . $id . ";";
+                
+                $page->AttachInlineScript( $jsarr );
+            }
+            $page->AttachScript( 'js/album/photo/tag.js' );
+            //------------------
+            
             if( !$image->Exists() ) {
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
                 return;
             }
-			Element( 'user/sections', 'album' , $image->User );
+            Element( 'user/sections', 'album' , $image->User );
             if ( $image->IsDeleted() ) {
                 ?>Η φωτογραφία έχει διαγραφεί<div class="eof"></div><?php
                 return;
@@ -99,7 +120,14 @@
                         }
                         ?></a></dd><?php
                     }
-                ?></dl><?php
+
+                    if ( $user->HasPermission( PERMISSION_TAG_CREATE )
+                        && ( $image->User->Id == $user->Id || 
+                             $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
+                        && $image->Width > 170 && $image->Height > 170 ) {
+                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '' );return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                    }
+                 ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
                     ?><div class="owner">
                         <div class="edit"><a href="" onclick="PhotoView.Rename( '<?php
@@ -178,12 +206,95 @@
                         ?></ul><?php
                     ?></div><?php
                 }
-                ?><div class="thephoto"><?php
+                ?><div class="thephoto" style="width:<?php
+                echo $image->Width;
+                ?>px;height:<?php
+                echo $image->Height;
+                ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event );return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
+                    if ( $image->Width > 170 && $image->Height > 170 ) {
+                        ?><div class="tanga"><?php
+                            $tagfinder = New ImageTagFinder();
+                            $tags = $tagfinder->FindByImage( $image );
+                            $tags_num = count( $tags );
+                            $unames = array();
+                            foreach( $tags as $tag ) {
+                                $person = New User( $tag->Personid );
+                                $person_name = $person->Name;
+                                $unames[] = $person;
+                                ?><div class="tag" style="left:<?php
+                                echo $tag->Left;
+                                ?>px;top:<?php
+                                echo $tag->Top;
+                                ?>px;" onclick="document.location.href='http://<?php
+                                echo $person->Subdomain;
+                                ?>.zino.gr';">
+                                <div><?php
+                                echo $person_name;
+                                ?></div>
+                                </div><?php
+                            }
+                        ?></div>
+                        <div class="tagme"></div>
+                        <div class="frienders">
+                            <div>Ποιός είναι αυτός;</div>
+                            <form action="" onsubmit="return false;">
+                                <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
+                            </form>
+                            <ul onmousedown="Tag.ekso( event );return false;">
+                                <li></li>
+                            </ul>
+                            <div class="closer">
+                                <a href="" class="button" onmousedown="Tag.close();return false;">Ακύρωση</a>
+                            </div>
+                        </div><?php
+                    }
                 ?></div><?php
+                if ( $image->Width > 170 && $image->Height > 170 ) {
+                    ?><div class="image_tags" <?php
+                    if ( $tags_num == 0 ) {
+                        ?>style="display:none"<?php
+                    }
+                    ?>><?php
+                    if ( $tags_num == 1 ) {
+                        ?>Υπάρχει σε αυτήν την εικόνα <?php
+                        $atomo = New User( $tags[0]->Personid );
+                        $gender = $atomo->Gender;
+                        if ( $gender == 'f' ) {
+                            ?> η <?php
+                        }
+                        else {
+                            ?> ο <?php
+                        }
+                    }
+                    else {
+                        ?>Υπάρχουν σε αυτή την εικόνα οι: <?php
+                    }
+                    for( $i=0; $i<$tags_num; ++$i ) {
+                    // optimize by making finder return usernames
+                        ?><div><a href="http://<?php
+                        echo $unames[ $i ]->Subdomain;
+                        ?>.zino.gr" title="<?php
+                        echo $unames[ $i ]->Name;
+                        ?>"><?php
+                        echo $unames[ $i ]->Name;
+                        ?></a><?php
+                        if ( $tags[ $i ]->Ownerid == $user->Id || $image->User->Id == $user->Id ) {
+                            ?><a class="tag_del" href="" onclick="Tag.del( <?php
+                            echo $tags[ $i ]->Id;
+                            ?>, '<?php
+                            echo $unames[ $i ]->Name;
+                            ?>' );return false;" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
+                        }
+                        ?></div><?php
+                    }
+                    ?></div><?php
+                }
+                
                 Element( 'ad/view', AD_PHOTO, $page->XMLStrict() );
+
                 ?>
-                <div class="comments"><?php
+				<div class="comments"><?php
                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
                     if ( $user->HasPermission( PERMISSION_COMMENT_CREATE ) ) {
                         Element( 'comment/reply', $image->Id, TYPE_IMAGE , $user->Id , $user->Avatar->Id );
