@@ -10,6 +10,7 @@ places.js
 album/list.js
 album/photo/list.js
 album/photo/view.js
+album/photo/tag.js
 notification/view.js
 poll/list.js
 poll/view.js

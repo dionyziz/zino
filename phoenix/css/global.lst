@@ -5,6 +5,7 @@ album/photo/list.css
 album/photo/small.css
 album/photo/view.css
 album/photo/upload.css
+album/photo/tag.css
 frontpage/comments.css
 frontpage/events.css
 frontpage/shoutbox.css

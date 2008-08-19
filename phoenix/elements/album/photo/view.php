@@ -18,8 +18,6 @@
             $pageno = $pageno->Get();
             $image = New Image( $id );
             
-            //------------------
-            $page->AttachStylesheet( 'css/album/photo/tag.css' );
             $relfinder = New FriendRelationFinder();
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $mutual = $relfinder->FindMutualByUser( $user );
@@ -27,14 +25,11 @@
                 foreach( $mutual as $mutual_friend ) {
                     $jsarr .= "'" . $mutual_friend . "', ";
                 }
-                //$jsarr = substr( $jsarr, 0, -2);
                 $jsarr .= "'" . $user->Name . "'";
                 $jsarr .= " ];Tag.photoid = " . $id . ";";
                 
                 $page->AttachInlineScript( $jsarr );
             }
-            $page->AttachScript( 'js/album/photo/tag.js' );
-            //------------------
             
             if( !$image->Exists() ) {
                 ?>Η φωτογραφία δεν υπάρχει<div class="eof"></div><?php
