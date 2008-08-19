@@ -237,12 +237,12 @@
                         ?></div>
                         <div class="tagme"></div>
                         <a name="tagging_area" class="ankh" href="" />
-                        <div class="frienders" onclick="Tag.ekso( event );return false;">
+                        <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
-                            <ul>
+                            <ul onmousedown="Tag.ekso( event );return false;">
                                 <li></li>
                             </ul>
                             <div class="closer">
