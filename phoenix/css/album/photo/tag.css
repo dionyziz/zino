@@ -79,6 +79,7 @@ div.thephoto div.tanga div.tag {
     height: 170px;
     text-align: center;
     cursor: pointer;
+    background: url( 'http://static.zino.gr/images/blank.gif' ) repeat 0 0;
 }
 div.thephoto div.tanga div.tag div {
     position: absolute;
