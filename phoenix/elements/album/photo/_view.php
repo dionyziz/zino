@@ -242,7 +242,7 @@
                             <form action="" onsubmit="return false;">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
-                            <ul>
+                            <ul onclick="Tag.ekso( event );return false;">
                                 <li></li>
                             </ul>
                             <div class="closer">
