@@ -3,7 +3,6 @@ TODO:
     --Tagging Box Resizing
     --Resolve Overlapping Tags
     --Auto Scrolling
-    --Na figi to X k na mpi Akirosi button
     --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
     --Tag Notifications
     --Meta to Tag creation na gini fadeIn to tag gia 2-3s
