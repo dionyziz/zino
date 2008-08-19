@@ -79,7 +79,7 @@ div.thephoto div.tanga div.tag {
     height: 170px;
     text-align: center;
     cursor: pointer;
-    background-color: white;
+    background-color: transparent;
 }
 div.thephoto div.tanga div.tag div {
     position: absolute;
