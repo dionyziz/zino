@@ -238,7 +238,6 @@
                         <div class="tagme"></div>
                         <a name="tagging_area" class="ankh" href="" />
                         <div class="frienders">
-                            <a href="" class="closer" onmousedown="Tag.close( event );return false;" />
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeyup="Tag.filterSug( event );" />
@@ -246,6 +245,9 @@
                             <ul>
                                 <li></li>
                             </ul>
+                            <div class="closer">
+                                <a href="" class="button" onmousedown="Tag.close( event );return false;" />
+                            </div>
                         </div><?php
                     }
                 ?></div><?php

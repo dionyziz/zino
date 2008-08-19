@@ -17,6 +17,10 @@ div.thephoto div.frienders {
     margin-left: 20px;
     opacity: 0.95;
 }
+div.thephoto div.frienders div.closer {
+    text-align: center;
+}
+/*
 div.thephoto div.frienders a.closer {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1155px;
     width: 10px;
@@ -24,7 +28,7 @@ div.thephoto div.frienders a.closer {
     position: absolute;
     top: 8px;
     right: 15px;
-}
+}*/
 div.thephoto div.frienders div {
     display: block;
     margin-top: 10px;
