@@ -231,7 +231,7 @@
                                 ?>.zino.gr';">
                                 <div><?php
                                 echo $person_name;
-                                ?></div>
+                                ?></div>&nbsp;
                                 </div><?php
                             }
                         ?></div>
