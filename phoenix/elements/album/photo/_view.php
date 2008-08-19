@@ -246,7 +246,7 @@
                                 <li></li>
                             </ul>
                             <div class="closer">
-                                <a href="" class="button" onmousedown="Tag.close( event );return false;">Ακύρωση</a>
+                                <a href="" class="button" onmousedown="Tag.close();return false;">Ακύρωση</a>
                             </div>
                         </div><?php
                     }

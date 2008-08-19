@@ -135,7 +135,7 @@ var Tag = {
                                             } );
         
         // Disable tagging
-        Tag.close( event );
+        Tag.close();
         return false;
     },
     // Moves the tagging windows to a new position
@@ -252,10 +252,11 @@ var Tag = {
         Tag.start( friends, text ); // update friend list
     },
     // Disable tagging
-    close : function( event ) {
+    close : function() {
         $( 'div.thephoto div.frienders form input' ).val( '' );
         $( 'dd.addtag' ).show();
-        $( 'div.thephoto > div:not(.tanga)' ).hide();
+        //$( 'div.thephoto > div:not(.tanga)' ).hide();
+        $( 'div.thephoto div.frienders, div.thephoto div.tagme' ).hide();
         Tag.run = false;
         return false;
     },
