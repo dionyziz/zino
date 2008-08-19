@@ -46,7 +46,7 @@ div.thephoto div.frienders ul {
     margin-right: 20px;
     text-align: left;
     overflow: auto;
-    height: 270px;
+    max-height: 270px;
 }
 div.thephoto div.frienders ul li div {
     display: inline;
