@@ -79,7 +79,7 @@ div.thephoto div.tanga div.tag {
     height: 170px;
     text-align: center;
     cursor: pointer;
-    background-color: transparent;
+    background-color: transparent; /* This is so that the div can be clickable in IE7*/
 }
 div.thephoto div.tanga div.tag div {
     position: absolute;
