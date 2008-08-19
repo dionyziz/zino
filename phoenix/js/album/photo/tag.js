@@ -136,6 +136,7 @@ var Tag = {
         
         // Disable tagging
         Tag.close( event );
+        return false;
     },
     // Moves the tagging windows to a new position
     focus : function( event ) {
@@ -256,6 +257,7 @@ var Tag = {
         $( 'dd.addtag' ).show();
         $( 'div.thephoto > div:not(.tanga)' ).hide();
         Tag.run = false;
+        return false;
     },
     // Delete an image tag
     del : function( id, username ) {
@@ -302,6 +304,7 @@ var Tag = {
         a.appendChild( document.createTextNode( " " ) ); // Space needed for CSS Spriting
         $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
         $( 'div.thephoto div.tanga div.tag:last' ).click( function() { document.location.href = "http://" + subdomain + ".zino.gr"; } );
+        return false;
     },
     showhideTag : function( node, show, event ) {
         if ( show ) {
