@@ -285,7 +285,7 @@
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
-                            ?>' );return false;" title="Διαγραφή"></a><?php
+                            ?>' );return false;" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
                         }
                         ?></div><?php
                     }

@@ -299,6 +299,7 @@ var Tag = {
                 } ); 
             } );
         
+        a.appendChild( document.createTextNode( " " ) ); // Space needed for CSS Spriting
         $( 'div.image_tags div:last' ).get( 0 ).appendChild( a );
         $( 'div.thephoto div.tanga div.tag:last' ).click( function() { document.location.href = "http://" + subdomain + ".zino.gr"; } );
     },
