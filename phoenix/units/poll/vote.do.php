@@ -20,7 +20,7 @@
             echo $node;
             ?> ).html( <?php
             ob_start();
-            Element( 'poll/small' , $poll , false );
+            Element( 'poll/result/view' , $poll , false );
             echo w_json_encode( ob_get_clean() );
             ?> ).css( "opacity" , "0 " ).animate( { opacity : "1" } , 400 );<?php
         }
