@@ -16,7 +16,7 @@
                 echo htmlspecialchars( $poll->Question );
                 ?></a></h4>
                 <div class="results"><?php
-                Element( 'poll/result/view', $poll );
+                Element( 'poll/result/view', $poll, $showresults );
                 if ( $showcommnum ) {
                     if ( $poll->Numcomments > 0 ) {
                         ?><dl class="<?php
