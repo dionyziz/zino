@@ -77,6 +77,14 @@
                                     ?></a></dd><?php
                                 }
                                 */
+                                if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
+                                    ?><dd class="delete">
+                                        <a href="" onclick="PollView.Delete( '<?php
+                                        echo $poll->Id;
+                                        ?>' );return false;"><span>&nbsp;</span>Διαγραφή
+                                        </a>
+                                    </dd><?php
+                                }
                                 ?></dl><div><div class="pollsmall">
                                     <div class="results"><?php
                                     Element( 'poll/result/view', $poll, $showresults );
@@ -85,14 +93,6 @@
                                 </div>
                             </div>
                             <div class="eof"></div><?php
-                            if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
-                                ?><div class="delete">
-                                    <a href="" onclick="PollView.Delete( '<?php
-                                    echo $poll->Id;
-                                    ?>' );return false;"><span>&nbsp;</span>Διαγραφή
-                                    </a>
-                                </div><?php
-                            }
                             ?><br /><?php
                             Element( 'ad/view', AD_POLL, $page->XMLStrict() );
                             ?><div class="comments"><?php

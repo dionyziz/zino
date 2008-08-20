@@ -13,10 +13,10 @@ div#pollview div.pollsmall {
 div#pollview div.pollsmall div.results {
 	margin-bottom: 30px;
 }
-div#pollview div.delete {
+div#pollview dd.delete {
 	margin-bottom: 10px;
 }
-div#pollview div.delete a span {
+div#pollview dd.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
 	padding-left: 12px;
 	vertical-align: -1px;
