@@ -92,8 +92,7 @@
                                     ?></div>
                                 </div>
                             </div>
-                            <div class="eof"></div><?php
-                            ?><br /><?php
+                            <br /><?php
                             Element( 'ad/view', AD_POLL, $page->XMLStrict() );
                             ?><div class="comments"><?php
                                 if ( $user->HasPermission( PERMISSION_COMMENT_VIEW ) ) {
