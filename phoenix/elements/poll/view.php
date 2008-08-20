@@ -15,7 +15,7 @@
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
                 $finder = New FavouriteFinder();
-                $fav = $finder->FindByUserAndEntity( $user, $journal );
+                $fav = $finder->FindByUserAndEntity( $user, $poll );
                 
                 if ( $poll->Exists() ) {
                     if ( $pageno <= 0 ) {
