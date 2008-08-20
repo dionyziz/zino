@@ -17,36 +17,31 @@
                 ?></a></h4>
                 <div class="results"><?php
                 Element( 'poll/result/view', $poll, $showresults );
-                if ( $showcommnum ) {
-                    if ( $poll->Numcomments > 0 ) {
-                        ?><dl class="<?php
-                        if ( $showresults ) {
-                            ?>pollinfo<?php
-                        }
-                        else {
-                            ?>pollinfo2<?php
-                        }
-                        ?>">
-                            <dd><a href="?p=poll&amp;id=<?php
-                            echo $poll->Id;
-                            ?>"><span>&nbsp;</span><?php
-                            echo $poll->Numcomments;
-                            ?> σχόλι<?php
-                            if ( $poll->Numcomments == 1 ) {
-                                ?>ο<?php
-                            }
-                            else { 
-                                ?>α<?php
-                            }
-                            ?></a></dd>
-                        </dl><?php
+                if ( $showcommnum && $poll->Numcomments > 0 ) {
+                    ?><dl class="<?php
+                    if ( $showresults ) {
+                        ?>pollinfo<?php
                     }
+                    else {
+                        ?>pollinfo2<?php
+                    }
+                    ?>">
+                        <dd><a href="?p=poll&amp;id=<?php
+                        echo $poll->Id;
+                        ?>"><span>&nbsp;</span><?php
+                        echo $poll->Numcomments;
+                        ?> σχόλι<?php
+                        if ( $poll->Numcomments == 1 ) {
+                            ?>ο<?php
+                        }
+                        else { 
+                            ?>α<?php
+                        }
+                        ?></a></dd>
+                    </dl><?php
                 }
+                Element( 'poll/vote' );
                 ?></div>
-                <div class="voting"><img src="<?php
-                echo $rabbit_settings[ 'imagesurl' ];
-                ?>ajax-loader.gif" alt="Παρακαλώ περιμένετε..." title="Παρακαλώ περιμένετε..." /> Παρακαλώ περιμένετε...
-                </div>
             </div><?php
         }
     }
