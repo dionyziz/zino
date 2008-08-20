@@ -22,7 +22,6 @@ div.pollsmall div.results ul li dl {
 }
 div.pollsmall div.results ul li dl dt.resultterm {
 	width: 275px;
-    border: 1px solid red;
 	float: right;
 	padding: 0;
 	margin: 0;
@@ -42,7 +41,6 @@ div.pollsmall div.results ul li dl dd {
 	width: 270px;
 	padding: 0;
 	margin: 0;
-    border: 1px solid green;
 }
 div.pollsmall div.results ul li dl dd span {
 	padding-left: 7px;
