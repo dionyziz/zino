@@ -81,7 +81,7 @@
                                     </a>
                                 </dd><?php
                             }
-                            ?></dl><div><div class="poll">
+                            ?></dl><div><div class="poll" id="polllist">
                                 <div class="results"><?php
                                 Element( 'poll/result/view', $poll, $showresults );
                                 Element( 'poll/vote' );
