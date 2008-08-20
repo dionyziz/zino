@@ -28,13 +28,14 @@ div.pollsmall div.results ul li dl dt.resultterm {
 	margin: 0;
 }
 div.pollsmall div.results ul li dl dt.voteterm {
-	display: inline;
 	margin-right: 3px;
+    width: 20px;
+    float: left;
+    display: block;
 }
 div.pollsmall div.results ul li dl dd.votedefinition {
-	display: inline;
+	display: block;
 	vertical-align: 3px;
-    padding-left: 20px;
 }
 div.pollsmall div.results ul li dl dd {
 	width: 300px;
