@@ -7,7 +7,7 @@ div#pollview div.comments {
 	overflow: hidden;
 }
 div#pollview h2 {
-	margin: 0;
+	margin: 0 0 0 170px;
 	padding: 0 0 3px 0;
 }
 div#pollview div.pollsmall {
@@ -25,7 +25,7 @@ div#pollview div.comments div.pagifycomments {
 div#pollview dl {
 	text-align: left;
 	padding: 0;
-	margin: 0;
+	margin: 0 0 0 170px;
 }
 div#pollview dd.delete {
     display: inline;
