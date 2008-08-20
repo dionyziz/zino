@@ -18,7 +18,7 @@
                     :offset, :limit
                 ");
                 
-            $query->BindTable( 'polloptions', 'polloptions' );
+            $query->BindTable( 'polloptions' );
             $query->Bind( 'pollid', $poll->Id );
             $query->Bind( 'offset', 0 );
             $query->Bind( 'limit', 25 );
