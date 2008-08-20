@@ -29,7 +29,7 @@
                     ?></h2>
                     <div class="journal" style="clear:none;">    
                         <dl><?php
-                            ?><dd><?php
+                            ?><dd class="createdate"><?php
                             Element( 'date/diff', $journal->Created );
                             ?></dd><?php
                             if ( $journal->Numcomments > 0 ) {
