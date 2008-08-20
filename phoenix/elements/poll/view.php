@@ -30,12 +30,9 @@
                     if ( !$poll->IsDeleted() ) {
                         $page->SetTitle( $poll->Question );
                         ?><div id="pollview">
-                            <h4><a href="<?php
-                            ?>?p=poll&amp;id=<?php
-                            echo $poll->Id;
-                            ?>"><?php
+                            <h2><?php
                                 echo htmlspecialchars( $poll->Question );
-                            ?></a></h4>
+                            ?></h2>
                             <dl><?php
                                 ?><dd class="createdate"><?php
                                 Element( 'date/diff', $poll->Created );
