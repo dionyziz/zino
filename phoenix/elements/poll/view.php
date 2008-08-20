@@ -28,6 +28,7 @@
                     }
                     Element( 'user/sections' , 'poll' , $poll->User );
                     if ( !$poll->IsDeleted() ) {
+                        ?><div id="pollview"><?php
                         $page->SetTitle( $poll->Question );
                         ?><h2><?php
                             echo htmlspecialchars( $poll->Question );
@@ -86,6 +87,7 @@
                                 Element( 'poll/result/view', $poll, $showresults );
                                 Element( 'poll/vote' );
                                 ?></div>
+                            </div>
                             </div>
                             <br /><?php
                             Element( 'ad/view', AD_POLL, $page->XMLStrict() );
