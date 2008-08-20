@@ -12,9 +12,7 @@
                                     echo htmlspecialchars( $option->Text );
                                 ?></dt>
                                 <dd><?php //max width will be 220px and minimum 24px
-                                ?><div class="option"><?php
-                                    echo round( $option->Percentage * 100, 0 );
-                                    ?>%
+                                ?><div class="option">
                                     <div class="percentagebar" style="width:<?php
                                     echo 24 + round( $option->Percentage * 196 );
                                     ?>px;">
@@ -22,7 +20,9 @@
                                         <div class="rightrounded"></div>
                                         <div class="middlerounded"></div>
                                     </div>
-                                </div></dd><?php
+                                </div><?php
+                                    echo round( $option->Percentage * 100, 0 );
+                                ?>%</dd><?php
                             }
                             else {
                                 ?><dt class="voteterm"><input type="radio" name="poll_<?php
