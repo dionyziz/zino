@@ -14,7 +14,7 @@ div#pollview div.pollsmall div.results {
 	margin-bottom: 30px;
 }
 div#pollview dd.delete {
-	margin-bottom: 10px;
+	margin-top: 10px;
 }
 div#pollview dd.delete a span {
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
