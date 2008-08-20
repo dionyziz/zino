@@ -37,6 +37,7 @@ div.pollsmall div.results ul li dl dd.votedefinition {
 	display: block;
 	vertical-align: 3px;
     margin-left: 23px;
+    border: 1px solid green;
 }
 div.pollsmall div.results ul li dl dd {
 	width: 300px;
