@@ -45,14 +45,11 @@ div.pollsmall div.results ul li dl dd span {
 	padding-left: 7px;
 }
 div.pollsmall div.results ul li dl dd div.option {
-	height: 13px;
+	height: 15px;
 	float: left;
 }
-div.pollsmall div.results ul li dl dd div.option span {
-    float: right;
-    display: block;
-}
 div.pollsmall div.results ul li dl dd div.option div.percentagebar {
+    float: left;
     height: 13px;
 }
 div.pollsmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
