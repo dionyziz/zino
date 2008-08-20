@@ -25,7 +25,10 @@ div#pollview div.comments div.pagifycomments {
 div#pollview dl {
 	text-align: left;
 	padding: 0;
-	margin: 0 0 0 170px;
+	margin: 0;
+}
+div#pollview dl.toolbar {
+    margin-left: 170px;
 }
 div#pollview dd.delete {
     display: inline;

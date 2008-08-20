@@ -33,7 +33,7 @@
                         ?><h2><?php
                             echo htmlspecialchars( $poll->Question );
                         ?></h2>
-                        <dl><?php
+                        <dl class="toolbar"><?php
                             ?><dd class="createdate"><?php
                             Element( 'date/diff', $poll->Created );
                             ?></dd><?php
