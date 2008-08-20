@@ -15,6 +15,9 @@
                                     
                                 ?>
                                 <div class="option">
+                                    <span><?php
+                                    echo round( $option->Percentage * 100 , 0 );
+                                    ?>%</span>
                                     <div class="percentagebar" style="width:<?php
                                     echo 24 + round( $option->Percentage * 196 );
                                     ?>px;">
@@ -22,9 +25,6 @@
                                         <div class="rightrounded"></div>
                                         <div class="middlerounded"></div>
                                     </div>
-                                    <span><?php
-                                    echo round( $option->Percentage * 100 , 0 );
-                                    ?>%</span>
                                 </div>
                                 </dd><?php
                             }
