@@ -120,7 +120,7 @@
                         && ( $image->User->Id == $user->Id || 
                              $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
                         && $image->Width > 170 && $image->Height > 170 ) {
-                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '' );return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="$( 'div.tagme' ).get(0).scrollIntoView( true );Tag.start( false, '' );return false;">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
