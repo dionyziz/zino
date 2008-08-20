@@ -13,16 +13,19 @@
                                 ?></dt>
                                 <dd><?php //max width will be 220px and minimum 24px
                                     
-                                ?><div class="percentagebar" style="width:<?php
-                                echo 24 + round( $option->Percentage * 196 );
-                                ?>px;">
-                                    <div class="leftrounded"></div>
-                                    <div class="rightrounded"></div>
-                                    <div class="middlerounded"></div>
+                                ?>
+                                <div class="option">
+                                    <div class="percentagebar" style="width:<?php
+                                    echo 24 + round( $option->Percentage * 196 );
+                                    ?>px;">
+                                        <div class="leftrounded"></div>
+                                        <div class="rightrounded"></div>
+                                        <div class="middlerounded"></div>
+                                    </div>
+                                    <span><?php
+                                    echo round( $option->Percentage * 100 , 0 );
+                                    ?>%</span>
                                 </div>
-                                <span><?php
-                                echo round( $option->Percentage * 100 , 0 );
-                                ?>%</span>
                                 </dd><?php
                             }
                             else {
