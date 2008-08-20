@@ -24,7 +24,7 @@ div#pollview dl {
 	padding: 0;
 	margin: 0;
 }
-div#pollview dd.delete {
+iv#pollview dd.delete {
     display: inline;
     margin: 0;
     padding: 0 0 0 2px;
@@ -37,6 +37,7 @@ div#pollview dd.delete a span {
 }
 div#pollview dl dd.createdate {
     margin-bottom: 10px;
+    padding: 0;
 }
 div#pollview dl dd.commentsnum {
 	margin: 0 5px 0 0;
