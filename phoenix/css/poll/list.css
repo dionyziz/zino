@@ -1,4 +1,6 @@
 div#polllist {
+    border: 5px solid red;
+    background-color: green;
 	margin-bottom: 50px;
 }
 div#polllist ul li h3{
@@ -83,7 +85,7 @@ div#polllist ul li.create a img {
 	vertical-align: -10px;
 	margin-right: 5px;
 }
-div#polllist  div.pagifypolls {
+div#polllist div.pagifypolls {
 	text-align: center;
 	margin-top: 20px;
 }
