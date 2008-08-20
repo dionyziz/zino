@@ -13,15 +13,6 @@ div#pollview div.pollsmall {
 div#pollview div.pollsmall div.results {
 	margin-bottom: 30px;
 }
-div#pollview dd.delete {
-	margin-top: 10px;
-}
-div#pollview dd.delete a span {
-	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
-	padding-left: 12px;
-	vertical-align: -1px;
-	margin-right: 2px;
-}
 div#pollview div.comments {
 	margin-top: 50px;
 }	
@@ -32,6 +23,17 @@ div#pollview dl {
 	text-align: left;
 	padding: 0;
 	margin: 0;
+}
+div#pollview dd.delete {
+    display: inline;
+    margin: 0;
+    padding: 0 0 0 2px;
+}
+div#pollview dd.delete a span {
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1414px;
+	padding-left: 12px;
+	vertical-align: -1px;
+	margin-right: 2px;
 }
 div#pollview dl dd.createdate {
     margin-bottom: 10px;
@@ -45,7 +47,7 @@ div#pollview dl dd.commentsnum {
 	background-repeat: no-repeat;
 	font-size: 90%;
 }
-div#pollview dl dd.addfav{
+div#pollview dl dd.addfav {
 	margin: 0;
 	padding: 0 0 0 2px;
 	display: inline;
