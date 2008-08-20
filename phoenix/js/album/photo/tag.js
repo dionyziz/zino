@@ -228,6 +228,10 @@ var Tag = {
     // Displays friends based on what the user typed in the input box
     filterSug : function( event ) {
         var text = $( 'div.thephoto div.frienders form input' ).val();
+        if ( event.keyCode === 27 ) {
+            Tag.close();
+            return;
+        }
         if ( event.keyCode === 13 ) {
             var index, found;
             found = false;
@@ -252,7 +256,6 @@ var Tag = {
     close : function() {
         $( 'div.thephoto div.frienders form input' ).val( '' );
         $( 'dd.addtag' ).show();
-        //$( 'div.thephoto > div:not(.tanga)' ).hide();
         $( 'div.thephoto div.frienders, div.thephoto div.tagme' ).hide();
         Tag.run = false;
         return false;
