@@ -34,7 +34,7 @@
                         ON `answer_questionid` = `question_id`
                 WHERE
                     `answer_userid` = :userid
-                ORDER BY `answer_id` DESC
+                ORDER BY RAND()
                 LIMIT
                     :offset, :limit;" );
 
