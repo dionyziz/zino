@@ -1,3 +1,6 @@
+div#pollview {
+    margin-bottom: 20px;
+}
 div#pollview div.comments {
 	float: left;
 	width: 90%;
