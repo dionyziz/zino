@@ -24,7 +24,7 @@ var Tag = {
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
     run : false, // when tagging action is enabled
     // updates the friendlist and enables tagging
-    start : function( kollitaria, keyword ) {
+    start : function( kollitaria, keyword, aux ) {
         if ( kollitaria === false ) {
             kollitaria = Tag.friends;
         }
@@ -59,6 +59,9 @@ var Tag = {
         }
         $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
+        if ( aux === true ) {
+            $( 'div.tagme' ).get(0).scrollIntoView( true );
+        }
         $( 'div.thephoto div.frienders form input' ).focus();
         Tag.run = true; // Tagging is now fully enabled
     },
