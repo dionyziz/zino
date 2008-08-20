@@ -10,6 +10,7 @@
                 $libs->Load( 'poll/poll' );
                 $libs->Load( 'comment' );
                 $libs->Load( 'notify' );
+                $libs->Load( 'favourite' );
                 $poll = New Poll( $id->Get() );
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
