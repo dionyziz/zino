@@ -29,6 +29,9 @@
                     ?></h2>
                     <div class="journal" style="clear:none;">    
                         <dl><?php
+                            ?><dd><?php
+                            Element( 'date/diff', $journal->Created );
+                            ?></dd><?php
                             if ( $journal->Numcomments > 0 ) {
                                 ?><dd class="commentsnum"><?php
                                 echo $journal->Numcomments;
