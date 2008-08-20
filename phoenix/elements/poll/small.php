@@ -3,7 +3,6 @@
         public function Render( $poll , $showcommnum = false ) {
             global $user;
             global $rabbit_settings; 
-            global $water;
             
             $finder = New PollVoteFinder();
             $showresults = $finder->FindByPollAndUser( $poll, $user );

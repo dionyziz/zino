@@ -11,11 +11,16 @@
                 $libs->Load( 'comment' );
                 $libs->Load( 'notify' );
                 $libs->Load( 'favourite' );
+
                 $poll = New Poll( $id->Get() );
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
+
                 $finder = New FavouriteFinder();
                 $fav = $finder->FindByUserAndEntity( $user, $poll );
+
+                $finder = New PollVoteFinder();
+                $showresults = $finder->FindByPollAndUser( $poll, $user );
                 
                 if ( $poll->Exists() ) {
                     if ( $pageno <= 0 ) {
@@ -25,6 +30,12 @@
                     if ( !$poll->IsDeleted() ) {
                         $page->SetTitle( $poll->Question );
                         ?><div id="pollview">
+                            <h4><a href="<?php
+                            ?>?p=poll&amp;id=<?php
+                            echo $poll->Id;
+                            ?>"><?php
+                                echo htmlspecialchars( $poll->Question );
+                            ?></a></h4>
                             <dl><?php
                                 ?><dd class="createdate"><?php
                                 Element( 'date/diff', $poll->Created );
@@ -66,9 +77,12 @@
                                     ?></a></dd><?php
                                 }
                                 */
-                                ?></dl><div><?php
-                                Element( 'poll/small' , $poll , false ); // don't show comments number
-                                ?>
+                                ?></dl><div><div class="pollsmall">
+                                    <div class="results"><?php
+                                    Element( 'poll/result/view', $poll, $showresults );
+                                    Element( 'poll/vote' );
+                                    ?></div>
+                                </div>
                             </div>
                             <div class="eof"></div><?php
                             if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
