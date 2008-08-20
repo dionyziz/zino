@@ -16,6 +16,7 @@ TODO:
         --To onoma dn emfanizete terma aristera, alla sto kentro i sta deksia
         --Otan ginete onmouseover pano sto onoma sto tag, anabosbini
         --Otan ginonte onmouseover ta tags kato apo tn ikona, dn emfanizonte ta onomata
+        --Otan kano click sto box dn me kani redirect sto profil tou xristi
 */
 var Tag = {
     photoid : false, // set by view.php, contains the id of the current photo
