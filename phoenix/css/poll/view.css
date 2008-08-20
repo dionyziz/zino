@@ -3,9 +3,9 @@ div#pollview div.comments {
 	width: 90%;
 	overflow: hidden;
 }
-div#pollview div.pollsmall h4 {
+div#journalview h2 {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 3px 0;
 }
 div#pollview div.pollsmall {
 	margin-left: 170px;
