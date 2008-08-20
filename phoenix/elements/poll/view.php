@@ -13,6 +13,8 @@
                 $poll = New Poll( $id->Get() );
                 $commentid = $commentid->Get();
                 $pageno = $pageno->Get();
+                $finder = New FavouriteFinder();
+                $fav = $finder->FindByUserAndEntity( $user, $journal );
                 
                 if ( $poll->Exists() ) {
                     if ( $pageno <= 0 ) {
@@ -22,9 +24,50 @@
                     if ( !$poll->IsDeleted() ) {
                         $page->SetTitle( $poll->Question );
                         ?><div id="pollview">
-                            <div><?php
-                            Element( 'poll/small' , $poll , false ); // don't show comments number
-                            ?>
+                            <dl><?php
+                                ?><dd class="createdate"><?php
+                                Element( 'date/diff', $poll->Created );
+                                ?></dd><?php
+                                if ( $poll->Numcomments > 0 ) {
+                                    ?><dd class="commentsnum"><?php
+                                    echo $poll->Numcomments;
+                                    ?> σχόλι<?php
+                                    if ( $poll->Numcomments == 1 ) {
+                                        ?>ο<?php
+                                    }
+                                    else {
+                                        ?>α<?php
+                                    }
+                                    ?></dd><?php
+                                }
+                                /*
+                                if ( $poll->User->Id != $user->Id ) {
+                                    ?><dd class="addfav"><a href="" class="<?php
+                                    if ( !$fav ) {
+                                        ?>add<?php
+                                    }
+                                    else {
+                                        ?>isadded<?php
+                                    }
+                                    ?>" title="<?php
+                                    if ( !$fav ) {
+                                        ?>Προσθήκη στα αγαπημένα<?php
+                                    }
+                                    else {
+                                        ?>Αγαπημένο<?php
+                                    }
+                                    ?>" onclick="PollView.AddFav( '<?php
+                                    echo $poll->Id;
+                                    ?>' , this );return false;"><?php
+                                    if ( !$fav ) {
+                                        ?>Προσθήκη στα αγαπημένα<?php
+                                    }
+                                    ?></a></dd><?php
+                                }
+                                */
+                                ?></dl><div><?php
+                                Element( 'poll/small' , $poll , false ); // don't show comments number
+                                ?>
                             </div>
                             <div class="eof"></div><?php
                             if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {

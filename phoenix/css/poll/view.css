@@ -28,3 +28,37 @@ div#pollview div.comments {
 div#pollview div.comments div.pagifycomments {
 	text-align: center;
 }
+div#pollview dl {
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+div#pollview dl dd.createdate {
+    margin-bottom: 10px;
+}
+div#pollview dl dd.commentsnum {
+	margin: 0 5px 0 0;
+	padding: 0 0 0 18px;
+	display: inline;
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-position: 0 -670px;
+	background-repeat: no-repeat;
+	font-size: 90%;
+}
+div#pollview dl dd.addfav{
+	margin: 0;
+	padding: 0 0 0 2px;
+	display: inline;
+}
+div#pollview dl dd.addfav a {
+	background-image: url('http://static.zino.gr/phoenix/iconlist.png');
+	background-repeat: no-repeat;
+	padding-left: 18px;
+}
+div#pollview dl dd.addfav a.add {
+	background-position: 0 -1327px;
+}
+div#pollview dl dd.addfav a.isadded {
+	background-position: 0 -1261px;
+	cursor: default;
+}
