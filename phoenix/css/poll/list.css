@@ -4,7 +4,7 @@ div#polllist ul li h3 {
 }
 div#polllist ul {
 	list-style: none;
-	margin: 0 0 0 170px;
+	margin: 0;
 	padding: 0;
 }
 div#polllist ul li {
@@ -46,7 +46,6 @@ div.creationmockup div a.createpoll {
 	margin-left: 3px;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 0;
 	padding-left: 12px;
-	
 }
 div.creationmockup div.tip , div#polllist div.tip2 {
 	font-size: 90%;
