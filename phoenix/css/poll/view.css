@@ -7,11 +7,11 @@ div#journalview h2 {
 	margin: 0;
 	padding: 0 0 3px 0;
 }
-div#pollview {
+div#pollview div.poll {
 	margin-left: 170px;
 }
-div#pollview div.results {
-	margin-left: 170px;
+div#pollview div.poll div.results {
+	margin-bottom: 30px;
 }
 div#pollview div.comments {
 	margin-top: 50px;
