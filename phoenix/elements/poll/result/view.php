@@ -1,6 +1,6 @@
 <?php
     class ElementPollResultView extends Element {
-        public function Render() {
+        public function Render( $poll ) {
             ?><ul><?php
                 $finder = New PollOptionFinder();
                 $options = $finder->FindByPoll( $poll );
