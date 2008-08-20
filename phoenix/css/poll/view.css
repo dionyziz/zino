@@ -7,10 +7,10 @@ div#pollview h2 {
 	margin: 0;
 	padding: 0 0 3px 0;
 }
-div#pollview div.poll {
+div#pollview div.pollsmall {
 	margin-left: 170px;
 }
-div#pollview div.poll div.results {
+div#pollview div.pollsmall div.results {
 	margin-bottom: 30px;
 }
 div#pollview div.comments {

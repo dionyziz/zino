@@ -1,9 +1,7 @@
 div#polllist {
     border: 5px solid red;
-    background-color: green;
-	margin-bottom: 50px;
 }
-div#polllist ul li h3{
+div#polllist ul li h3 {
 	margin: 0;
 	padding: 0;
 }
