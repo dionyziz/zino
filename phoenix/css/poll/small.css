@@ -50,6 +50,7 @@ div.pollsmall div.results ul li dl dd div.option {
 div.pollsmall div.results ul li dl dd div.option div.percentagebar {
     float: left;
     height: 13px;
+    margin-right: 5px;
 }
 div.pollsmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;
