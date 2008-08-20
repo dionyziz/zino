@@ -7,11 +7,11 @@ div#journalview h2 {
 	margin: 0;
 	padding: 0 0 3px 0;
 }
-div#pollview div.pollsmall {
+div#pollview {
 	margin-left: 170px;
 }
-div#pollview div.pollsmall div.results {
-	margin-bottom: 30px;
+div#pollview div.results {
+	margin-left: 170px;
 }
 div#pollview div.comments {
 	margin-top: 50px;
@@ -24,7 +24,7 @@ div#pollview dl {
 	padding: 0;
 	margin: 0;
 }
-iv#pollview dd.delete {
+div#pollview dd.delete {
     display: inline;
     margin: 0;
     padding: 0 0 0 2px;

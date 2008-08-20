@@ -29,65 +29,63 @@
                     Element( 'user/sections' , 'poll' , $poll->User );
                     if ( !$poll->IsDeleted() ) {
                         $page->SetTitle( $poll->Question );
-                        ?><div id="pollview">
-                            <h2><?php
-                                echo htmlspecialchars( $poll->Question );
-                            ?></h2>
-                            <dl><?php
-                                ?><dd class="createdate"><?php
-                                Element( 'date/diff', $poll->Created );
+                        ?><h2><?php
+                            echo htmlspecialchars( $poll->Question );
+                        ?></h2>
+                        <dl><?php
+                            ?><dd class="createdate"><?php
+                            Element( 'date/diff', $poll->Created );
+                            ?></dd><?php
+                            if ( $poll->Numcomments > 0 ) {
+                                ?><dd class="commentsnum"><?php
+                                echo $poll->Numcomments;
+                                ?> σχόλι<?php
+                                if ( $poll->Numcomments == 1 ) {
+                                    ?>ο<?php
+                                }
+                                else {
+                                    ?>α<?php
+                                }
                                 ?></dd><?php
-                                if ( $poll->Numcomments > 0 ) {
-                                    ?><dd class="commentsnum"><?php
-                                    echo $poll->Numcomments;
-                                    ?> σχόλι<?php
-                                    if ( $poll->Numcomments == 1 ) {
-                                        ?>ο<?php
-                                    }
-                                    else {
-                                        ?>α<?php
-                                    }
-                                    ?></dd><?php
+                            }
+                            /*
+                            if ( $poll->User->Id != $user->Id ) {
+                                ?><dd class="addfav"><a href="" class="<?php
+                                if ( !$fav ) {
+                                    ?>add<?php
                                 }
-                                /*
-                                if ( $poll->User->Id != $user->Id ) {
-                                    ?><dd class="addfav"><a href="" class="<?php
-                                    if ( !$fav ) {
-                                        ?>add<?php
-                                    }
-                                    else {
-                                        ?>isadded<?php
-                                    }
-                                    ?>" title="<?php
-                                    if ( !$fav ) {
-                                        ?>Προσθήκη στα αγαπημένα<?php
-                                    }
-                                    else {
-                                        ?>Αγαπημένο<?php
-                                    }
-                                    ?>" onclick="PollView.AddFav( '<?php
+                                else {
+                                    ?>isadded<?php
+                                }
+                                ?>" title="<?php
+                                if ( !$fav ) {
+                                    ?>Προσθήκη στα αγαπημένα<?php
+                                }
+                                else {
+                                    ?>Αγαπημένο<?php
+                                }
+                                ?>" onclick="PollView.AddFav( '<?php
+                                echo $poll->Id;
+                                ?>' , this );return false;"><?php
+                                if ( !$fav ) {
+                                    ?>Προσθήκη στα αγαπημένα<?php
+                                }
+                                ?></a></dd><?php
+                            }
+                            */
+                            if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
+                                ?><dd class="delete">
+                                    <a href="" onclick="PollView.Delete( '<?php
                                     echo $poll->Id;
-                                    ?>' , this );return false;"><?php
-                                    if ( !$fav ) {
-                                        ?>Προσθήκη στα αγαπημένα<?php
-                                    }
-                                    ?></a></dd><?php
-                                }
-                                */
-                                if ( ( $poll->User->Id == $user->Id && $user->HasPermission( PERMISSION_POLL_DELETE ) ) || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
-                                    ?><dd class="delete">
-                                        <a href="" onclick="PollView.Delete( '<?php
-                                        echo $poll->Id;
-                                        ?>' );return false;"><span>&nbsp;</span>Διαγραφή
-                                        </a>
-                                    </dd><?php
-                                }
-                                ?></dl><div><div class="pollsmall">
-                                    <div class="results"><?php
-                                    Element( 'poll/result/view', $poll, $showresults );
-                                    Element( 'poll/vote' );
-                                    ?></div>
-                                </div>
+                                    ?>' );return false;"><span>&nbsp;</span>Διαγραφή
+                                    </a>
+                                </dd><?php
+                            }
+                            ?></dl><div><div class="pollsmall">
+                                <div class="results"><?php
+                                Element( 'poll/result/view', $poll, $showresults );
+                                Element( 'poll/vote' );
+                                ?></div>
                             </div>
                             <br /><?php
                             Element( 'ad/view', AD_POLL, $page->XMLStrict() );
