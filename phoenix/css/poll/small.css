@@ -23,10 +23,8 @@ div.pollsmall div.results ul li dl {
 }
 div.pollsmall div.results ul li dl dt.resultterm {
 	width: 275px;
-	clear: both;
-	float: right;
 	padding: 0;
-	margin: 0;
+	margin-left: 175px;
 }
 div.pollsmall div.results ul li dl dt.voteterm {
 	display: inline;
