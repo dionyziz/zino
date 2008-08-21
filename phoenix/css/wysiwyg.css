@@ -42,7 +42,7 @@ form.wysiwyg-control-image-start li {
 form.wysiwyg-control-image-album div.albumlist {
     float: left;
     border-right: 1px solid black;
-    width: 135px;
+    width: 140px;
     background-color: white;
     height: 500px;
     overflow: auto;
