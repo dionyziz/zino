@@ -76,8 +76,8 @@
     }
 
     function WYSIWYG_Links( $text ) {
-        $text = preg_replace(
-            '#\b(https?\://[a-z0-9.-]+(/[a-zA-Z0-9./+?=&\(\)_;\#~%-]*)?)#',
+        $text = preg_replace( // LOL is a special testcase -- when it exists within a link it should not be matched as a link, because it will be matched from the smiley code later
+            '#\b(https?\://[a-z0-9.-]+(/[a-zA-Z0-9./+?=&\(\)_;\#~%-]*(?!LOL))?)#',
             '<a href="\1">\1</a>',
             $text
         );
@@ -86,6 +86,9 @@
 
     function WYSIWYG_Smileys( $text ) {
         static $smileys = array( // do not include any & or ; characters in these literals
+                                 // these smileys must not contain ONLY characters allowed within links, because they are applied AFTER links
+                                 // and can cause HTML to break
+                                 // (LOL is a special case that is handled in a very specific way by the links code)
                                  // do not allow recursive replacement: make sure result literals cannot be re-replaced
               ":D" => "teeth" ,
               ":-)" => "smile" ,
