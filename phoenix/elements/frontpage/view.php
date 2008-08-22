@@ -141,7 +141,6 @@
                 </div>
             </div>
         </div>
-        Hello, world!
         <div class="eof"></div><?php
         }
     }
