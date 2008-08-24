@@ -55,7 +55,8 @@
             34 => 'EVENT_USERPROFILE_WEIGHT_UPDATED',
             35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
             36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
-            37 => 'EVENT_USER_CREATED'
+            37 => 'EVENT_USER_CREATED',
+	    38 => 'EVENT_TAG_CREATED'
         );
     }
 
@@ -342,6 +343,13 @@
                     $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Friendid;
                     $notif->Fromuserid = $this->Userid;
+                    $notif->Save();
+                    break;
+	        	case EVENT_TAG_CREATED:
+                    $notif = New Notification();
+                    $notif->Eventid = $this->Id;
+                    $notif->Touserid = $this->Item->Personid;
+                    $notif->Fromuserid = $this->Item->Ownerid;
                     $notif->Save();
                     break;
             }

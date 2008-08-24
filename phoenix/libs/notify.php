@@ -180,6 +180,9 @@
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
                     $target = 'notification/email/friend';
+                    break;
+                default:
+                    return;
             }
 
             ob_start();

@@ -8,6 +8,7 @@
             $this->Emailjournalcomment = 'yes';
             $this->Emailpollcomment = 'yes';
             $this->Emailphotocomment = 'yes';
+            $this->Emailphototag = 'yes';
             $this->Emailreply = 'yes';
             $this->Emailfriendaddition = 'yes';
             $this->Emailfriendjournal = 'no';
@@ -17,6 +18,7 @@
             $this->Notifyjournalcomment = 'yes';
             $this->Notifypollcomment = 'yes';
             $this->Notifyphotocomment = 'yes';
+            $this->Notifyphototag = 'yes';
             $this->Notifyreply = 'yes';
             $this->Notifyfriendaddition = 'yes';
             $this->Notifyfriendjournal = 'no';
