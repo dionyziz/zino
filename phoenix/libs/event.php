@@ -316,6 +316,7 @@
         protected function OnCreate() {
             global $user;
             global $libs;
+            global $water;
             $libs->Load( 'notify' );
 
             /* notification firing */
@@ -346,6 +347,7 @@
                     $notif->Save();
                     break;
 	        	case EVENT_IMAGETAG_CREATED:
+                    $water->Trace( "Starting Creation" );
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Personid;
