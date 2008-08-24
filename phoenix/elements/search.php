@@ -9,7 +9,7 @@
         <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
-            
+            <div class="body">
             <form>
                 <div class="gender search">
                     <h3>Φύλο:</h3>
@@ -195,7 +195,7 @@
                 
                 <input type="submit" value="Ψάξε!" class="submit" />
             </form>
-            
+            </div>
             <i class="bl"></i>
             <i class="br"></i>
         </div>
