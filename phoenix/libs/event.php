@@ -348,7 +348,6 @@
                     $notif->Save();
                     break;
 	        	case EVENT_IMAGETAG_CREATED:
-                    var_dump( $this->Item );
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Personid;
