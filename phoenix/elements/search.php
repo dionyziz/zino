@@ -4,7 +4,7 @@
             global $page;
             global $user;
             $page->AttachStylesheet( 'search.css' );
-            if ( $user->MSIE() ) {
+            if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'search-ie6.css' );
             }
 ?><div id="search">
