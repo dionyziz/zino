@@ -56,7 +56,7 @@
             35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
             36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
             37 => 'EVENT_USER_CREATED',
-	    38 => 'EVENT_TAG_CREATED'
+	    38 => 'EVENT_IMAGETAG_CREATED'
         );
     }
 

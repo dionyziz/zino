@@ -27,7 +27,7 @@
             $libs->Load( 'event' );
 
             $event = New Event();
-            $event->Typeid = EVENT_TAG_CREATED;
+            $event->Typeid = EVENT_IMAGETAG_CREATED;
             $event->Itemid = $this->Imageid;
             $event->Userid = $this->Ownerid;
             $event->Save();
