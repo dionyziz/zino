@@ -15,6 +15,8 @@ div#search div.ybubble form input.submit {
     background-image: url('http://static.zino.gr/phoenix/s_button.png');
     background-repeat: no-repeat;
     background-position: top;
+    position: relative;
+    top: 15px;
 }
 div#search div.ybubble form input.submit:hover {
     color: #000033;
