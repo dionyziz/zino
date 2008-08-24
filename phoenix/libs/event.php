@@ -345,7 +345,7 @@
                     $notif->Fromuserid = $this->Userid;
                     $notif->Save();
                     break;
-	        	case EVENT_TAG_CREATED:
+	        	case EVENT_IMAGETAG_CREATED:
                     $notif = New Notification();
                     $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Personid;
