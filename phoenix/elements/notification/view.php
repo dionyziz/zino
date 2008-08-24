@@ -42,19 +42,19 @@
                 ?>><?php
                     Element( 'user/avatar' , $notif->FromUser->Avatar->Id , $notif->FromUser->Id , $notif->FromUser->Avatar->Width , $notif->FromUser->Avatar->Height , $notif->FromUser->Name , 100 , 'avatar' , '' , true , 50 , 50 );
                     Element( 'user/name' , $notif->FromUser->Id , $notif->FromUser->Name , $notif->FromUser->Subdomain , false );
-                    if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+                    if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
+                        ?> σε πρόσθεσε στους φίλους:<?php
+                    }
+                    else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
+                        ?> σε αναγνώρισε στην εικόνα:<?php
+                    }
+                    else {
                         if ( $notif->Item->Parentid == 0 ) {
                             ?> έγραψε:<?php
                         }
                         else {
                             ?> απάντησε στο σχόλιό σου:<?php
                         }
-                    }
-                    else if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
-                        ?> σε πρόσθεσε στους φίλους:<?php
-                    }
-                    else {
-                        ?> σε αναγνώρισε στην εικόνα:<?php
                     }
                 ?></div>
                 <div class="subject"<?php
@@ -72,7 +72,34 @@
                     ?>' );"<?php
                 }
                 ?>><?php
-                    if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+                    if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
+                        $finder = New FriendRelationFinder();
+                        $res = $finder->FindFriendship( $user , $notif->FromUser );
+                        if ( !$res ) {
+                            ?><div class="addfriend" id="addfriend_<?php
+                            echo $notif->Fromuserid;
+                            ?>"><a href="" onclick="Notification.AddFriend( '<?php
+                            echo $notif->Event->Id;
+                            ?>' , '<?php
+                            echo $notif->FromUser->Id;
+                            ?>' );return false;">Πρόσθεσέ τ<?php
+                            if ( $notif->FromUser->Gender == 'f' ) {
+                                ?>η<?php
+                            }
+                            else {
+                                ?>o<?php
+                            }
+                            ?>ν στους φίλους</a></div><?php
+                        }
+                        ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+                        Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                        ?>' , '0' , '<?php
+                        echo $notif->Event->Id;
+                        ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
+                    }
+                    else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
+                    }
+                    else {
                         ?><p><span class="text">"<?php
                         $comment = $notif->Item;
                         $text = $comment->GetText( 30 );
@@ -123,34 +150,7 @@
                         }
                         ?></p>
                         <div class="eof"></div><?php
-                    }
-                    else if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
-                        $finder = New FriendRelationFinder();
-                        $res = $finder->FindFriendship( $user , $notif->FromUser );
-                        if ( !$res ) {
-                            ?><div class="addfriend" id="addfriend_<?php
-                            echo $notif->Fromuserid;
-                            ?>"><a href="" onclick="Notification.AddFriend( '<?php
-                            echo $notif->Event->Id;
-                            ?>' , '<?php
-                            echo $notif->FromUser->Id;
-                            ?>' );return false;">Πρόσθεσέ τ<?php
-                            if ( $notif->FromUser->Gender == 'f' ) {
-                                ?>η<?php
-                            }
-                            else {
-                                ?>o<?php
-                            }
-                            ?>ν στους φίλους</a></div><?php
-                        }
-                        ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
-                        Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
-                        ?>' , '0' , '<?php
-                        echo $notif->Event->Id;
-                        ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
-                    }
-                    else { // Photo Tag
-                    }    
+                    }  
                     ?><div class="eof"></div>
                 </div>
             </div><?php
