@@ -313,6 +313,7 @@
                 $this->Item = $this->HasOne( $model, 'Itemid' );
                 var_dump( $model );
                 var_dump( $this->Item );
+                die( "Trexo " );
             }
         }
         protected function OnCreate() {
