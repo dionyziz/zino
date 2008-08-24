@@ -94,6 +94,19 @@
                             }
                             ?>/></td>
                         </tr>
+                        <tr>
+                            <th>Νέες Σημάνσεις Φωτογραφιών:</th>
+                            <td><input id="emailtagcreation" type="checkbox" <?php
+                            if ( $user->Preferences->Emailphototag == 'yes' ) {
+                                ?>checked="checked"<?php
+                            }
+                            ?>/></td>
+                            <td><input id="notifytagcreation" type="checkbox" <?php
+                            if ( $user->Preferences->Notifyphototag == 'yes' ) {
+                                ?> checked="checked"<?php
+                            }
+                            ?>/></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

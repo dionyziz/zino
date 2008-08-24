@@ -1,6 +1,6 @@
 <?php
 
-    function UnitUserSettingsSave( tInteger $dobd, tInteger $dobm, tInteger $doby, tText $gender, tInteger $place, tInteger $education, tInteger $school, tInteger $mood, tText $sex, tText $religion, tText $politics, tText $slogan, tText $aboutme, tText $favquote, tText $haircolor, tText $eyecolor, tInteger $height, tInteger $weight, tText $smoker, tText $drinker, tText $email, tText $msn, tText $gtalk, tText $skype, tText $yahoo, tText $web, tText $oldpassword, tText $newpassword, tText $emailprofilecomment, tText $notifyprofilecomment, tText $emailphotocomment, tText $notifyphotocomment, tText $emailpollcomment, tText $notifypollcomment, tText $emailjournalcomment, tText $notifyjournalcomment, tText $emailreply, tText $notifyreply, tText $emailfriendaddition, tText $notifyfriendaddition ) {
+    function UnitUserSettingsSave( tInteger $dobd, tInteger $dobm, tInteger $doby, tText $gender, tInteger $place, tInteger $education, tInteger $school, tInteger $mood, tText $sex, tText $religion, tText $politics, tText $slogan, tText $aboutme, tText $favquote, tText $haircolor, tText $eyecolor, tInteger $height, tInteger $weight, tText $smoker, tText $drinker, tText $email, tText $msn, tText $gtalk, tText $skype, tText $yahoo, tText $web, tText $oldpassword, tText $newpassword, tText $emailprofilecomment, tText $notifyprofilecomment, tText $emailphotocomment, tText $notifyphotocomment, tText $emailpollcomment, tText $notifypollcomment, tText $emailjournalcomment, tText $notifyjournalcomment, tText $emailreply, tText $notifyreply, tText $emailfriendaddition, tText $notifyfriendaddition, tText $emailtagcreation, tText $notifytagcreation ) {
         global $user;
 
         if ( $user->Exists() ) {
@@ -44,6 +44,8 @@
             $notifyreply = $notifyreply->Get();
             $emailfriendaddition = $emailfriendaddition->Get();
             $notifyfriendaddition = $notifyfriendaddition->Get();
+            $emailtagcreation = $emailtagcreation->Get();
+            $notifytagcreation = $notifytagcreation->Get();
 
             if ( checkdate( $dobm , $dobd , $doby ) ) {
 				$user->Profile->BirthDay = $dobd;
@@ -235,6 +237,12 @@
             }
             if ( $notifyfriendaddition ) {
                 $user->Preferences->Notifyfriendaddition = $notifyfriendaddition;
+            }
+            if ( $emailtagcreation ) { 
+                $user->Preferences->Emailphototag = $emailtagcreation;
+            }
+            if ( $notifytagcreation ) {
+                $user->Preferences->Notifyphototag = $notifytagcreation;
             }
  
             $user->Save();
