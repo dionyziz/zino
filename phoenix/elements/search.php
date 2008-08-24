@@ -1,4 +1,10 @@
-<div id="search">
+<?php
+    class ElementUserSettingsSettings extends Element {
+        public function Render() {
+            global $page;
+            $page->AttachStylesheet( 'search.css' );
+            
+?><div id="search">
         <h2>Αναζήτηση ατόμων</h2>
         <div class="ybubble">
             <i class="tl"></i>
@@ -215,5 +221,7 @@
                 <span>βρέθηκαν 112 άτομα</span>
             </div>
         </div>
+    <?php
     }
+}
 ?>
