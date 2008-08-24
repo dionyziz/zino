@@ -15,15 +15,16 @@ div#search div.ybubble form input.submit {
     background-image: url('http://static.zino.gr/phoenix/s_button.png');
     background-repeat: no-repeat;
     background-position: top;
-    position: relative;
-    top: 15px;
+    /*position: relative;
+    top: 15px;*/
 }
 div#search div.ybubble form input.submit:hover {
     color: #000033;
 }
+/*
 div#search div.ybubble i.tl {
     background-image: url( 'http://staticzino.gr/phoenix/s_tl.png' );
 }
 div#search div.ybubble i.tr{
     background-image: url( 'http://staticzino.gr/phoenix/s_tr.png' );
-}
+}*/
