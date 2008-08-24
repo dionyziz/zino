@@ -309,8 +309,8 @@
             }
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
-                die ( var_dump( $model ) );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
+                die( var_dump( $this->Item ) );
             }
         }
         protected function OnCreate() {
