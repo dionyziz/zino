@@ -50,8 +50,11 @@
                             ?> απάντησε στο σχόλιό σου:<?php
                         }
                     }
-                    else {
+                    else if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
                         ?> σε πρόσθεσε στους φίλους:<?php
+                    }
+                    else {
+                        ?> σε αναγνώρισε στην εικόνα:<?php
                     }
                 ?></div>
                 <div class="subject"<?php
@@ -121,7 +124,7 @@
                         ?></p>
                         <div class="eof"></div><?php
                     }
-                    else {
+                    else if ( $notif->Event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
                         $finder = New FriendRelationFinder();
                         $res = $finder->FindFriendship( $user , $notif->FromUser );
                         if ( !$res ) {
@@ -146,6 +149,8 @@
                         echo $notif->Event->Id;
                         ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
                     }
+                    else { // Photo Tag
+                    }    
                     ?><div class="eof"></div>
                 </div>
             </div><?php
