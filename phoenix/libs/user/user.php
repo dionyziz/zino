@@ -142,7 +142,7 @@
         public function FindBySchool( $schoolid, $offset = 0, $limit = 10000 ) {
             $prototype = New User();
             $prototype->Schoolid = $schoolid;
-            return FindByPrototype( $prototype, $offset, $limit, 'Name' );
+            return $this->FindByPrototype( $prototype, $offset, $limit, 'Name' );
         }
         public function Count() {
             $query = $this->mDb->Prepare(

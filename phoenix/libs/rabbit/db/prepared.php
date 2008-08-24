@@ -29,8 +29,14 @@
                     return "'" . addslashes( ( string )$argument ) . "'";
             }
         }
+        private function EscapeLike( $argument ) {
+            return strtr( addslashes( ( string )$argument ), array( '%' => '\\%', '_' => '\\_' ) );
+        }
         public function Bind( $name, $argument ) {
             $this->mBindings[ ':' . ( string )$name ] = $this->Escape( $argument );
+        }
+        public function BindLike( $name, $argument ) {
+            $this->mBindings[ ':' . ( string )$name ] = $this->EscapeLike( $argument );
         }
         public function BindTable( /* $alias1, $alias2, ... */ ) {
             global $water;
