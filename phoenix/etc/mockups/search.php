@@ -3,7 +3,7 @@
     <div class="ybubble">
         <i class="tl"></i>
         <i class="tr"></i>
-        
+        <div class="body">
         <form action="">
             <div class="search">
                 <h3>Φύλο:</h3>
@@ -189,7 +189,7 @@
             
             <div><input type="submit" value="Ψάξε!" class="submit" /></div>
         </form>
-        
+        </div>
         <i class="bl"></i>
         <i class="br"></i>
     </div>
