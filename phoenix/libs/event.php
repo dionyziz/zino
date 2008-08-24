@@ -311,7 +311,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                //die( "Trexo " );
+                die( "Trexo " );
             }
         }
         protected function OnCreate() {
