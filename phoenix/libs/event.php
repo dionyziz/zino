@@ -305,13 +305,9 @@
             $libs->Load( 'relation/relation' );
 
             if ( $this->Exists() ) {
-                try {
-                    $model = Event_ModelByType( $this->Typeid );
-                } catch ( Exception $e ) {
-                    die( $e->GetMessage() );
-                }
+                $model = Event_ModelByType( $this->Typeid );
             }
-            
+            die( $model );
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
