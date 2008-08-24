@@ -307,7 +307,7 @@
             if ( $this->Exists() ) {
                 $model = Event_ModelByType( $this->Typeid );
             }
-            die( $model );
+            die( var_dump( $model ) );
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
