@@ -2,11 +2,7 @@
     class ElementSearch extends Element {
         public function Render() {
             global $page;
-            global $user;
             $page->AttachStylesheet( 'search.css' );
-            if ( UserBrowser() == "MSIE" ) {
-                $page->AttachStylesheet( 'search-ie6.css' );
-            }
 ?><div id="search">
         <h2>Αναζήτηση ατόμων</h2>
         <div class="ybubble">
