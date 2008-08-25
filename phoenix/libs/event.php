@@ -302,6 +302,7 @@
             global $libs;
 
             $libs->Load( 'comment' );
+            $libs->Load( 'image/tag' );
             $libs->Load( 'relation/relation' );
 
             if ( $this->Exists() ) {
