@@ -148,6 +148,9 @@
         else if ( $event->Typeid == EVENT_FRIENDRELATION_CREATED ) {
             return 'friendaddition';
         }
+        else if ( $event->Typeid == EVENT_IMAGETAG_CREATED ) {
+            return 'phototag';
+        }
 
         throw New Exception( 'Invalid event on Notification_FieldByEvent' );
     }
