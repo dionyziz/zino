@@ -2,9 +2,9 @@
     class ElementSearch extends Element {
         public function Render() {
             global $page;
-            $page->AttachStylesheet( 'search.css' );
+            $page->AttachStylesheet( 'css/search.css' );
             if ( UserBrowser() == "MSIE" ) {
-                $page->AttachStylesheet( 'search-ie.css' );
+                $page->AttachStylesheet( 'css/search-ie.css' );
             }
 ?><div id="search">
         <h2>Αναζήτηση ατόμων</h2>
