@@ -311,7 +311,7 @@
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
                 if ( empty( $this->Item->Id ) ) {
-                    die( var_dump( $this->Itemid ) );
+                    die( var_dump( $this->Item->Id ) );
                 }
             }
         }
