@@ -102,8 +102,7 @@
                         ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
                         echo $rabbit_settings[ 'webaddress' ];
                         ?>/?p=photo&amp;id=<?php
-                        $tag = New ImageTag( $notif->Event->Itemid );
-                        echo $tag->Imageid;
+                        echo $notif->Item->Imageid;
                         ?>' , '0' , '<?php
                         echo $notif->Event->Id;
                         ?>' , '0' );return false;">Προβολή εικόνας&raquo;</a></div><?php
