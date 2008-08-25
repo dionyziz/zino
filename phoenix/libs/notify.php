@@ -185,7 +185,8 @@
                     $target = 'notification/email/friend';
                     break;
                 case EVENT_IMAGETAG_CREATED:
-                    break; // TODO
+                    $target = 'notification/email/imagetag';
+                    break;
                 default:
                     return;
             }
