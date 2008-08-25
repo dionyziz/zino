@@ -6,6 +6,12 @@
             
             $libs->Load( 'image/tag' );
             
+            $finder = New ImageTagFinder();
+            $tags = $finder->FindByImage( New Image( 100292 ) );
+            foreach ( $tags as $tag ) {
+                $tag->Delete();
+            }
+            
             $tag = New ImageTag();
             $tag->Imageid = 100292;
             $tag->Personid = 791;
