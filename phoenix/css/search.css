@@ -21,6 +21,9 @@ div#search div.ybubble form input.submit {
 div#search div.ybubble form input.submit:hover {
     color: #000033;
 }
+div.ybubble form div.search {
+    width: 49%;
+}
 /*
 div#search div.ybubble i.tl {
     background-image: url( 'http://staticzino.gr/phoenix/s_tl.png' );
