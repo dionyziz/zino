@@ -93,9 +93,7 @@
                                 ?>checked="checked"<?php
                             }
                             ?>/></td>
-                        </tr
-                        <tr>
-                            <th>Νεες Σημανσεις>
+                        </tr>
                         <tr>
                             <th>Νέες Σημάνσεις Φωτογραφιών:</th>
                             <td><input id="emailtagcreation" type="checkbox" <?php
