@@ -21,15 +21,7 @@
 
     class ImageTag extends Satori {
         protected $mDbTableAlias = 'imagetags';
-        
-        protected function OnConstruct() {
-            global $water;
-            
-            var_dump( func_get_args() );
-            $water->callstack( $water->callstack_lastword( debug_backtrace()  ) );
-            
-            ?><br /><?php
-        }
+       
         protected function OnCreate() {
             global $libs;
             $libs->Load( 'event' );
