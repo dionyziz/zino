@@ -3,6 +3,9 @@
         public function Render() {
             global $page;
             $page->AttachStylesheet( 'search.css' );
+            if ( UserBrowser() == "MSIE" ) {
+                $page->AttachStylesheet( 'search-ie.css' );
+            }
 ?><div id="search">
         <h2>Αναζήτηση ατόμων</h2>
         <div class="ybubble">
