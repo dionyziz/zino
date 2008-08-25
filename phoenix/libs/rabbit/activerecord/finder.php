@@ -97,6 +97,18 @@
         protected function FindBySQLResource( DBResource $res ) {
             return $res->ToObjectsArray( $this->mModel );
         }
+        protected function Count() {
+            $query = $this->mDb->Prepare(
+                "SELECT
+                    COUNT( * ) AS numrows
+                FROM
+                    :" . $this->mDbTableAlias . ";"
+            );
+            $query->BindTable( $this->mDbTableAlias );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            return $row[ 'numrows' ];
+        }
         final public function __construct() {
             if ( empty( $this->mModel ) ) {
                 throw New SatoriException( 'mModel not defined for finder `' . get_class( $this ) . '\'' );

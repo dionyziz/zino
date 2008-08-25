@@ -21,7 +21,8 @@
                $clauses[] = '`profile_placeid` = :placeid';
            }
            if ( !empty( $name ) ) {
-               $clauses[] = '`user_name` LIKE "%'  . $name . '%"';
+               $clauses[] = '( `user_name` LIKE "%'  . $name . '%" 
+                             OR `user_email` LIKE "%' . $name . '%" )';
            }
            $where = implode( ' AND ', $clauses );
            $query = $this->mDb->Prepare(
