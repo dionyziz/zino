@@ -310,7 +310,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                print( $this->Item->Personid );
+                print( $this->Item->Id );
             }
         }
         protected function OnCreate() {
