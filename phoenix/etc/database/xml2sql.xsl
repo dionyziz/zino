@@ -110,6 +110,13 @@
                                     <a href="http://dev.mysql.com/doc/refman/5.1/en/example-auto-increment.html"><span class="keyword">AUTO_INCREMENT</span></a>
                                 </xsl:if>
                             </xsl:when>
+                            <xsl:when test="@type='float'">
+                                <a href="http://dev.mysql.com/doc/refman/5.0/en/numeric-type-overview.html"><span class="type">FLOAT</span></a> 
+                                <xsl:if test="@signed='no'">
+                                    UNSIGNED
+                                </xsl:if>
+                                <span class="type"> NOT NULL </span>
+                            </xsl:when>
                             <xsl:when test="@type='datetime'">
                                 <a href="http://dev.mysql.com/doc/refman/5.0/en/datetime.html"><span class="type">DATETIME</span></a> <span class="type"> NOT NULL </span>
                                 <a href="http://dev.mysql.com/doc/refman/5.1/en/data-type-defaults.html"><span class="keyword">DEFAULT</span></a>

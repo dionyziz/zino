@@ -26,7 +26,7 @@
             global $water;
             
             var_dump( func_get_args() );
-            $water->callstack( $water->callstack_lastword( $assertresult->Callstack ) );
+            $water->callstack( $water->callstack_lastword( debug_backtrace()  ) );
             
             ?><br /><?php
         }
