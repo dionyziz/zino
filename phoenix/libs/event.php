@@ -311,6 +311,7 @@
             if ( $this->Exists() ) {
                 echo 'READY TO GO!!';
                 $this->Item = $this->HasOne( $model, 'Itemid' );
+                $this->Item;
                 die( 'Last construction' );
             }
         }
