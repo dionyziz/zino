@@ -23,7 +23,7 @@
         protected $mDbTableAlias = 'imagetags';
         
         protected function OnConstruct() {
-            die( var_dump( func_get_args() ) );
+            var_dump( func_get_args() );
         }
         protected function OnCreate() {
             global $libs;
