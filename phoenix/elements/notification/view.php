@@ -29,7 +29,7 @@
                 if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
-                    Element( 'url' , $notif->Item );
+                    Element( 'url' , New Image( $notif->Item->Imageid ) );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>' , '<?php
                     echo $notif->Event->Item->Typeid;
