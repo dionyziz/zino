@@ -101,7 +101,7 @@
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
                         ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
                         echo $rabbit_settings[ 'webaddress' ];
-                        ?>/?p=photo&id=<?php
+                        ?>/?p=photo&amp;id=<?php
                         $tag = New ImageTag( $notif->Event->Itemid );
                         echo $tag->Imageid;
                         ?>' , '0' , '<?php
