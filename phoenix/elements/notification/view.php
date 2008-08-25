@@ -58,7 +58,7 @@
                     }
                 ?></div>
                 <div class="subject"<?php
-                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED && $notif->Event->Typeid != EVENT_IMAGETAG_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
                     Element( 'url' , $notif->Item );
