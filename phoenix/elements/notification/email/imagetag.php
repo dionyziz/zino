@@ -1,4 +1,5 @@
 <?php
+    /// Content-type: text/plain ///
     class ElementNotificationEmailImagetag extends Element {
         public function Render( Notification $notification ) {
             global $rabbit_settings;
