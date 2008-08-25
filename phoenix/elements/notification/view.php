@@ -7,6 +7,7 @@
             global $user;
             
             $libs->Load( 'relation/relation' );
+            $libs->Load( 'image/tag' );
 
             if ( !$notif->Event->Exists() ) {
                 return;
@@ -99,10 +100,13 @@
                     }
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
                         ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
-                        Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                        echo $rabbit_settings[ 'webaddress' ];
+                        ?>/?p=photo&id=<?php
+                        $tag = New ImageTag( $notif->Event->Itemid );
+                        echo $tag->Imageid;
                         ?>' , '0' , '<?php
                         echo $notif->Event->Id;
-                        ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
+                        ?>' , '0' );return false;">Προβολή εικόνας&raquo;</a></div><?php
                     }
                     else {
                         ?><p><span class="text">"<?php
