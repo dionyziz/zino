@@ -26,10 +26,10 @@
                     ?>delete.png" /></a>
                 </div>
                 <div class="who"<?php
-                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) {
+                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED && $notif->Event->Typeid != EVENT_IMAGETAG_CREATED ) {
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
-                    Element( 'url' , New Image( $notif->Item->Imageid ) );
+                    Element( 'url' , $notif->Item );
                     echo htmlspecialchars( ob_get_clean() );
                     ?>' , '<?php
                     echo $notif->Event->Item->Typeid;
