@@ -309,11 +309,8 @@
             }
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
-                try {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                } catch ( Exception $e ) {
-                    die( $e->GetMessage() );
-                }
+                print( get_class( $this->Item ) );
             }
         }
         protected function OnCreate() {
