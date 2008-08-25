@@ -309,6 +309,7 @@
             }
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
+                die( var_dump( $this->Itemid ) );
                 $this->Item = $this->HasOne( $model, 'Itemid' );
                 w_assert( !empty( $this->Item->Id ), "Pipa" );
             }
