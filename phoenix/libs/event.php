@@ -310,13 +310,16 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                die( var_dump( $this->Item ) );
+                echo "Trexo";
+                die( );
             }
         }
         protected function OnCreate() {
             global $user;
             global $libs;
+            
             $libs->Load( 'notify' );
+            $libs->Load( 'image/tag' );
 
             /* notification firing */
             switch ( $this->Typeid ) {
