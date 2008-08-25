@@ -1,5 +1,6 @@
 <?php
     global $libs;
+    global $water;
     
     $libs->Load( 'image/tag' );
     
