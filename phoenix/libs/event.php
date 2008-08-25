@@ -310,7 +310,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                echo "Trexo";
+                var_dump( $this->Item );
                 die( );
             }
         }
