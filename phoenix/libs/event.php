@@ -310,7 +310,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
                 $this->Item = $this->HasOne( $model, 'Itemid' );
-                w_assert( function_exists( $this->Item->Exists ), "Pipa" );
+                w_assert( is_empty( $this->Item->Id ) );
             }
         }
         protected function OnCreate() {
