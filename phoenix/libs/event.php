@@ -309,7 +309,9 @@
             }
             $this->User = $this->HasOne( 'User', 'Userid' );
             if ( $this->Exists() ) {
+                echo 'READY TO GO!!';
                 $this->Item = $this->HasOne( $model, 'Itemid' );
+                die( 'Last construction' );
             }
         }
         protected function OnCreate() {
