@@ -23,7 +23,12 @@
         protected $mDbTableAlias = 'imagetags';
         
         protected function OnConstruct() {
+            global $water;
+            
             var_dump( func_get_args() );
+            $water->callstack( $water->callstack_lastword( $assertresult->Callstack ) );
+            
+            ?><br /><?php
         }
         protected function OnCreate() {
             global $libs;
