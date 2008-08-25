@@ -36,7 +36,7 @@
 
             $event = New Event();
             $event->Typeid = EVENT_IMAGETAG_CREATED;
-            $event->Itemid = $this->Imageid;
+            $event->Itemid = $this->Id;
             $event->Userid = $this->Ownerid;
             $event->Save();
         }
