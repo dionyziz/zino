@@ -1,6 +1,6 @@
 <?php
     class ElementTest extends Element {
-        public function Render( $notif ) {
+        public function Render( ) {
             global $libs;
             global $water;
             
