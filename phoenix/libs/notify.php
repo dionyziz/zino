@@ -196,7 +196,7 @@
             global $water;
 
             if ( $this->Touserid == $this->Fromuserid ) {
-                die( "Touserid == Fromuserid" );
+                //die( "Touserid == Fromuserid" );
                 return false;
             }
 
@@ -218,11 +218,11 @@
                 if ( !is_object( $this->ToUser->Preferences ) ) {
                     die( "prefernces not an object" );
                 }
-                die( "Malakia" );
+                //die( "Malakia" );
                 return false;
             }
             // $water->Trace( "New notification for user " . $this->ToUser->Name, $this->ToUser->Preferences->$attribute );
-            die ( "Ola ok" );
+            //die ( "Ola ok" );
             return true;
         }
         public function Relations() {
