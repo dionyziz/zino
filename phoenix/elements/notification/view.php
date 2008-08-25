@@ -98,6 +98,11 @@
                         ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
                     }
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
+                        ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+                        Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
+                        ?>' , '0' , '<?php
+                        echo $notif->Event->Id;
+                        ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
                     }
                     else {
                         ?><p><span class="text">"<?php
