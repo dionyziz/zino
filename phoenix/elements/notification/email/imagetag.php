@@ -41,10 +41,9 @@
             ?> <?php
             echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
-            
 <?php
             echo $rabbit_settings[ 'webaddress' ];
-            ?>/?p=photo&amp;id=<?php
+            ?>/?p=photo&id=<?php
             echo $image->Id;
             
             Element( 'email/footer' );
