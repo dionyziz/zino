@@ -5,13 +5,14 @@
             ?><div class="people">
                 <ul><?php
                     foreach ( $relations as $relation ) {
+                        $theuser = ( get_class( $relation ) == "User" ) ? $relation : $relation->Friend;
                         ?><li><a href="<?php
-                        Element( 'user/url', $relation->Friend->Id , $relation->Friend->Subdomain );
+                        Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                         ?>"><?php
-                        Element( 'user/avatar', $relation->Friend->Avatar->Id , $relation->Friend->Id , $relation->Friend->Avatar->Width , $relation->Friend->Avatar->Height , $relation->Friend->Name , 100 , '' , '' , false , 0 , 0 );
+                        Element( 'user/avatar', $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 100 , '' , '' , false , 0 , 0 );
                         ?><strong><?php
-                        echo Element( 'user/name', $relation->Friend->Id , $relation->Friend->Name , $relation->Friend->Subdomain , false );
-                        ?></strong><span>Ï€ÏÎ¿Î²Î¿Î»Î® Ï€ÏÎ¿Ï†Î¯Î» &raquo;</span></a></li><?php
+                        echo Element( 'user/name', $theuser->Id , $theuser->Name , $theuser->Subdomain , false );
+                        ?></strong><span>¿¿¿¿¿¿¿ ¿¿¿¿¿¿ &raquo;</span></a></li><?php
                     }            
                 ?></ul>
                 <div class="eof"></div>
