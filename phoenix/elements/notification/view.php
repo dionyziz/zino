@@ -47,7 +47,7 @@
                         ?> σε πρόσθεσε στους φίλους:<?php
                     }
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
-                        ?> σε αναγνώρισε στην εικόνα:<?php
+                        ?> σε αναγνώρισε:<?php
                     }
                     else {
                         if ( $notif->Item->Parentid == 0 ) {
@@ -99,13 +99,36 @@
                         ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
                     }
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
-                        ?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
+                        /*?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
                         echo $rabbit_settings[ 'webaddress' ];
                         ?>/?p=photo&amp;id=<?php
                         echo $notif->Item->Imageid;
                         ?>' , '0' , '<?php
                         echo $notif->Event->Id;
-                        ?>' , '0' );return false;">Προβολή εικόνας&raquo;</a></div><?php
+                        ?>' , '0' );return false;">Προβολή εικόνας&raquo;</a></div><?php*/
+                        ?><p><?php
+                        $image = New Image( $notif->Item->Imageid );
+                        if ( $image->Name != '' ) {
+                            ?>στην εικόνα <?php
+                            echo $image->Name;
+                        }
+                        else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                            ?>στις φωτογραφίες <?php
+                            if ( $image->User->Gender == 'f' ) {
+                                ?>της <?php
+                            }
+                            else {
+                                ?>του <?php
+                            }
+                            echo $image->User->Name;
+                        }
+                        else {
+                            ?>σε μια εικόνα του Album "<?php
+                            echo $image->Album->Name;
+                            ?>"<?php
+                        }
+                        Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , $image->Name , '' , true , 75 , 75 );
+                        ?></p><?php
                     }
                     else {
                         ?><p><span class="text">"<?php
