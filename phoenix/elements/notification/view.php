@@ -59,7 +59,16 @@
                     }
                 ?></div>
                 <div class="subject"<?php
-                if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED && $notif->Event->Typeid != EVENT_IMAGETAG_CREATED ) {
+                if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
+                    ?> onclick="Notification.Visit( '<?php
+                    ob_start();
+                    Element( 'url', $notif->Item );
+                    echo htmlspecialchars( ob_get_clean() );
+                    ?>' , '0', '<?php
+                    echo $notif->Event->Id;
+                    ?>', '0' );"<?php
+                }
+                else if ( $notif->Event->Typeid != EVENT_FRIENDRELATION_CREATED ) { // Comment
                     ?> onclick="Notification.Visit( '<?php
                     ob_start();
                     Element( 'url' , $notif->Item );

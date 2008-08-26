@@ -16,6 +16,11 @@
                     ?>/?p=photo&id=<?php // do not escape this & -- we're in plaintext mode; use output buffering in your caller if you want to htmlspecialchars()
                     echo $target->Id;
                     return;
+                case 'ImageTag':
+                    echo $rabbit_settings[ 'webaddress' ];
+                    ?>/?p=photo&id=<?php
+                    echo $target->Imageid;
+                    return;
                 case 'Album':
                     echo $rabbit_settings[ 'webaddress' ];
                     ?>/?p=album&id=<?php
