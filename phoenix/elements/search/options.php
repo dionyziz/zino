@@ -6,7 +6,7 @@
             if ( UserBrowser() == "MSIE" ) {
                 $page->AttachStylesheet( 'css/search-ie.css' );
             }
-?><div id="search">
+?>
         <h2>ÎÎ½Î±Î¶Î®ÏÎ·ÏÎ· Î±ÏÏÎ¼ÏÎ½</h2>
         <div class="ybubble">
             <i class="tl"></i>
