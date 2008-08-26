@@ -20,12 +20,38 @@
             }
             ?> <?php
             echo $from->Name;
-            ?> σε αναγνώρισε σε μια εικόνα<?php
+            ?> σε αναγνώρισε <?php
+            if ( $image->Name != '' ) {
+                ?>στην εικόνα <?php
+                echo $image->Name;
+            }
+            else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                ?>στις φωτογραφίες <?php
+                if ( $image->User->Id == $user->Id ) {
+                    ?>σου<?php
+                }
+                else if ( $image->User->Gender == 'f' ) {
+                    ?>της <?php
+                }
+                else {
+                    ?>του <?php
+                }
+                if ( $image->User->Id != $user->Id ) {
+                    echo $image->User->Name;
+                }
+            }
+            else {
+                ?>σε μια εικόνα του Album "<?php
+                echo $image->Album->Name;
+                ?>"<?php
+            }
+            /*
+            σε μια εικόνα<?php
             if ( !empty( $image->Name ) ) {
                 ?>, την "<?php
                 echo $image->Name;
                 ?>"<?php
-            }
+            }*/
             $subject = ob_get_clean();
             echo $subject;
             
@@ -42,9 +68,7 @@
             echo $from->Name;
             ?> κάνε κλικ στον παρακάτω σύνδεσμο:
 <?php
-            echo $rabbit_settings[ 'webaddress' ];
-            ?>/?p=photo&id=<?php
-            echo $image->Id;
+            Element( 'url', $image );
             
             Element( 'email/footer' );
             

@@ -123,13 +123,18 @@
                         }
                         else if ( $image->Album->Id == $image->User->Egoalbumid ) {
                             ?>στις φωτογραφίες <?php
-                            if ( $image->User->Gender == 'f' ) {
+                            if ( $image->User->Id == $user->Id ) {
+                                ?>σου<?php
+                            }
+                            else if ( $image->User->Gender == 'f' ) {
                                 ?>της <?php
                             }
                             else {
                                 ?>του <?php
                             }
-                            echo $image->User->Name;
+                            if ( $image->User->Id != $user->Id ) {
+                                echo $image->User->Name;
+                            }
                         }
                         else {
                             ?>σε μια εικόνα του Album "<?php
