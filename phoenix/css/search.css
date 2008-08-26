@@ -30,6 +30,9 @@ div.ybubble div.body {
 div.ybubble i.tr, div.ybubble i.br {
 right: -10px;
 }
+div.ybubble i.tl {
+    height: 9px;
+}
 /*
 div#search div.ybubble i.tl {
     background-image: url( 'http://staticzino.gr/phoenix/s_tl.png' );
