@@ -23,8 +23,9 @@
             echo $from->Name;
             ?> σε αναγνώρισε <?php
             if ( $image->Name != '' ) {
-                ?>στην εικόνα <?php
+                ?>στην εικόνα "<?php
                 echo $image->Name;
+                ?>"<?php
             }
             else if ( $image->Album->Id == $image->User->Egoalbumid ) {
                 ?>στις φωτογραφίες <?php

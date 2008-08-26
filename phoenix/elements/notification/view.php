@@ -118,8 +118,9 @@
                         ?><p><?php
                         $image = New Image( $notif->Item->Imageid );
                         if ( $image->Name != '' ) {
-                            ?>στην εικόνα <?php
+                            ?>στην εικόνα "<?php
                             echo $image->Name;
+                            ?>"<?php
                         }
                         else if ( $image->Album->Id == $image->User->Egoalbumid ) {
                             ?>στις φωτογραφίες <?php
