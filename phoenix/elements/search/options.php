@@ -7,24 +7,24 @@
                 $page->AttachStylesheet( 'css/search-ie.css' );
             }
 ?>
-        <h2>ÎÎ½Î±Î¶Î®ÏÎ·ÏÎ· Î±ÏÏÎ¼ÏÎ½</h2>
+        <h2>Αναζήτηση ατόμων</h2>
         <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
             <form action="">
                 <div class="search">
-                    <h3>Î¦ÏÎ»Î¿:</h3>
-                    <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">ÎÎ³ÏÏÎ¹Î±</label>
-                    <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">ÎÎ¿ÏÎ­Î»ÎµÏ</label>
-                    <input type="radio" name="gender" value="male" id="gender_both" checked="checked" /><label for="gender_both">ÎÎ±Î¹ ÏÎ± Î´ÏÎ¿</label>
+                    <h3>Φύλο:</h3>
+                    <input type="radio" name="gender" value="male" id="gender_male" /><label for="gender_male">Αγόρια</label>
+                    <input type="radio" name="gender" value="female" id="gender_female" /><label for="gender_female">Κοπέλες</label>
+                    <input type="radio" name="gender" value="male" id="gender_both" checked="checked" /><label for="gender_both">Και τα δύο</label>
                 </div>
                 
                 <div class="search">
-                    <h3>ÎÎ»Î¹ÎºÎ¯Î±:</h3>
-                    Î±ÏÏ: 
+                    <h3>Ηλικία:</h3>
+                    από: 
                     <select name="minage">
-                        <option value="any">Î±Î´Î¹Î¬ÏÎ¿ÏÎ¿</option>
+                        <option value="any">αδιάφορο</option>
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
@@ -98,9 +98,9 @@
                         <option value="80">80</option>
                     </select> 
                     
-                    Î­ÏÏ: 
+                    έως: 
                     <select name="maxage">
-                        <option value="any">Î±Î´Î¹Î¬ÏÎ¿ÏÎ¿</option>
+                        <option value="any">αδιάφορο</option>
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
@@ -176,26 +176,26 @@
                 </div>
                 
                 <div class="search">
-                    <h3>Î ÎµÏÎ¹Î¿ÏÎ®:</h3>
+                    <h3>Περιοχή:</h3>
                     
                     <select name="location">
-                        <option value="0" selected="selected">ÎÏÏ ÏÎ±Î½ÏÎ¿Ï</option>
-                        <option value="117">ÎÏÏÎ±</option><option value="46">ÎÏÎ³Î¿Ï</option><option value="109">ÎÎ³Î¹Î¿Ï ÎÎ¹ÎºÏÎ»Î±Î¿Ï</option><option value="98">ÎÎ¼ÏÎ¹ÏÏÎ±</option><option value="146">ÎÎ´ÎµÏÏÎ±</option><option value="149">ÎÏÎ³Î¿ÏÏÏÎ»Î¹</option><option value="160">ÎÏÏÏÏÏÏÏÎ³Î¿Ï</option><option value="35">ÎÎ³ÏÎ¯Î½Î¹Î¿</option><option value="2">ÎÎ¸Î®Î½Î±</option><option value="113">ÎÎ»ÎµÎ¾Î±Î½Î´ÏÎ¿ÏÏÎ¿Î»Î·</option><option value="159">ÎÎ¼ÏÎ¹Î»Î¿ÏÎ¯Î±</option><option value="137">ÎÏÎ»Î¿Ï</option><option value="102">ÎÎ­ÏÎ¿Î¹Î±</option><option value="143">ÎÏÎµÎ²ÎµÎ½Î¬</option><option value="112">ÎÏÎ¬Î¼Î±</option><option value="37">ÎÏÎ­ÏÏÎ¹Î±</option><option value="133">ÎÏÎ¼Î¿ÏÏÎ¿Î»Î·</option><option value="157">ÎÎ»ÎµÏÏÎ¯Î½Î±</option><option value="124">ÎÎ¬ÎºÏÎ½Î¸Î¿Ï</option><option value="110">ÎÏÎ¬ÎºÎ»ÎµÎ¹Î¿</option><option value="120">ÎÎ³Î¿ÏÎ¼ÎµÎ½Î¯ÏÏÎ±</option><option value="154">ÎÎ®Î²Î±</option><option value="107">ÎÎµÏÏÎ±Î»Î¿Î½Î¯ÎºÎ·</option><option value="1">ÎÏÎ¬Î½Î½Î¹Î½Î±</option><option value="155">ÎÎµÏÎ¬ÏÎµÏÏÎ±</option><option value="130">ÎÏÏÎ¹Î½Î¸Î¿Ï</option><option value="26">ÎÏÏÏÎ¿Ï</option><option value="121">ÎÎ­ÏÎºÏÏÎ±</option><option value="97">ÎÎ±ÏÏÎµÎ½Î®ÏÎ¹</option><option value="135">ÎÎ±ÏÎ´Î¯ÏÏÎ±</option><option value="144">ÎÎ±ÏÏÎ¿ÏÎ¹Î¬</option><option value="105">ÎÎ±ÏÎµÏÎ¯Î½Î·</option><option value="114">ÎÎ±Î²Î¬Î»Î±</option><option value="132">ÎÎ±Î»Î±Î¼Î¬ÏÎ±</option><option value="122">ÎÎµÏÎ±Î»Î»Î¿Î½Î¹Î¬</option><option value="161">ÎÎ¹Î¬ÏÎ¿</option><option value="103">ÎÎ¹Î»ÎºÎ¯Ï</option><option value="145">ÎÎ¿Î¶Î¬Î½Î·</option><option value="115">ÎÎ¿Î¼Î¿ÏÎ·Î½Î®</option><option value="136">ÎÎ¬ÏÎ¹ÏÎ±</option><option value="126">ÎÎ­ÏÎ²Î¿Ï</option><option value="99">ÎÎ±Î¼Î¯Î±</option><option value="123">ÎÎµÏÎºÎ¬Î´Î±</option><option value="153">ÎÎ·Î¾Î¿ÏÏÎ¹</option><option value="100">ÎÎ¹Î²Î±Î´ÎµÎ¹Î¬</option><option value="147">ÎÏÏÎ¹Î»Î®Î½Î·</option><option value="158">ÎÎ­ÏÏÎ¿Î²Î¿</option><option value="140">ÎÎµÏÎ¿Î»ÏÎ³Î³Î¹</option><option value="152">ÎÎ¬Î¿ÏÏÎ±</option><option value="129">ÎÎ±ÏÏÎ»Î¹Î¿</option><option value="116">ÎÎ¬Î½Î¸Î·</option><option value="151">ÎÏÎµÏÏÎ¹Î¬Î´Î±</option><option value="119">Î ÏÎ­Î²ÎµÎ¶Î±</option><option value="141">Î ÏÏÎ³Î¿Ï</option><option value="139">Î Î¬ÏÏÎ±</option><option value="148">Î ÎµÎ¹ÏÎ±Î¹Î¬Ï</option><option value="101">Î Î¿Î»ÏÎ³ÏÏÎ¿Ï</option><option value="134">Î¡ÏÎ´Î¿Ï</option><option value="111">Î¡Î­Î¸ÏÎ¼Î½Î¿</option><option value="131">Î£ÏÎ¬ÏÏÎ·</option><option value="156">Î£ÏÎ­ÏÏÎµÏ</option><option value="150">Î£ÏÏÎ¿Ï</option><option value="127">Î£Î¬Î¼Î¿Ï</option><option value="106">Î£Î­ÏÏÎµÏ</option><option value="44">Î£ÎºÏÏÎ¿Ï</option><option value="128">Î¤ÏÎ¯ÏÎ¿Î»Î·</option><option value="138">Î¤ÏÎ¯ÎºÎ±Î»Î±</option><option value="142">Î¦Î»ÏÏÎ¹Î½Î±</option><option value="125">Î§Î¯Î¿Ï</option><option value="96">Î§Î±Î»ÎºÎ¯Î´Î±</option><option value="11">Î§Î±Î½Î¹Î¬</option>
+                        <option value="0" selected="selected">Από παντού</option>
+                        <option value="117">Άρτα</option><option value="46">Άργος</option><option value="109">Άγιος Νικόλαος</option><option value="98">Άμφισσα</option><option value="146">Έδεσσα</option><option value="149">Αργοστόλι</option><option value="160">Ασπρόπυργος</option><option value="35">Αγρίνιο</option><option value="2">Αθήνα</option><option value="113">Αλεξανδρούπολη</option><option value="159">Αμφιλοχία</option><option value="137">Βόλος</option><option value="102">Βέροια</option><option value="143">Γρεβενά</option><option value="112">Δράμα</option><option value="37">Ερέτρια</option><option value="133">Ερμούπολη</option><option value="157">Ελευσίνα</option><option value="124">Ζάκυνθος</option><option value="110">Ηράκλειο</option><option value="120">Ηγουμενίτσα</option><option value="154">Θήβα</option><option value="107">Θεσσαλονίκη</option><option value="1">Ιωάννινα</option><option value="155">Ιεράπετρα</option><option value="130">Κόρινθος</option><option value="26">Κύπρος</option><option value="121">Κέρκυρα</option><option value="97">Καρπενήσι</option><option value="135">Καρδίτσα</option><option value="144">Καστοριά</option><option value="105">Κατερίνη</option><option value="114">Καβάλα</option><option value="132">Καλαμάτα</option><option value="122">Κεφαλλονιά</option><option value="161">Κιάτο</option><option value="103">Κιλκίς</option><option value="145">Κοζάνη</option><option value="115">Κομοτηνή</option><option value="136">Λάρισα</option><option value="126">Λέσβος</option><option value="99">Λαμία</option><option value="123">Λευκάδα</option><option value="153">Ληξούρι</option><option value="100">Λιβαδειά</option><option value="147">Μυτιλήνη</option><option value="158">Μέτσοβο</option><option value="140">Μεσολόγγι</option><option value="152">Νάουσα</option><option value="129">Ναύπλιο</option><option value="116">Ξάνθη</option><option value="151">Ορεστιάδα</option><option value="119">Πρέβεζα</option><option value="141">Πύργος</option><option value="139">Πάτρα</option><option value="148">Πειραιάς</option><option value="101">Πολύγυρος</option><option value="134">Ρόδος</option><option value="111">Ρέθυμνο</option><option value="131">Σπάρτη</option><option value="156">Σπέτσες</option><option value="150">Σύρος</option><option value="127">Σάμος</option><option value="106">Σέρρες</option><option value="44">Σκύρος</option><option value="128">Τρίπολη</option><option value="138">Τρίκαλα</option><option value="142">Φλώρινα</option><option value="125">Χίος</option><option value="96">Χαλκίδα</option><option value="11">Χανιά</option>
                     </select>
                 </div>
 
                 <div class="search">
-                    <h3>Î£ÎµÎ¾Î¿ÏÎ±Î»Î¹ÎºÎ­Ï ÏÏÎ¿ÏÎ¹Î¼Î®ÏÎµÎ¹Ï:</h3>
+                    <h3>Σεξουαλικές προτιμήσεις:</h3>
                     
                     <select name="orientation">
-                        <option value="0">ÎÏÎ¹Î´Î®ÏÎ¿ÏÎµ</option>
+                        <option value="0">Οτιδήποτε</option>
                         <option value="straight">Straight</option>
                         <option value="bi">Bisexual</option>
                         <option value="gay">Gay/Lesbian</option>
                     </select>
                 </div>
                 
-                <div><input type="submit" value="Î¨Î¬Î¾Îµ!" class="submit" /></div>
+                <div><input type="submit" value="Ψάξε!" class="submit" /></div>
             </form>
             </div>
             <i class="bl"></i>
