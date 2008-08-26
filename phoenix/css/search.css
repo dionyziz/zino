@@ -24,6 +24,12 @@ div#search div.ybubble form input.submit:hover {
 div.ybubble form div.search {
     width: 49%;
 }
+div.ybubble div.body {
+    padding: 10px 0 0 10px;
+}
+div.ybubble i.tr, div.ybubble i.tl {
+right: -10px;
+}
 /*
 div#search div.ybubble i.tl {
     background-image: url( 'http://staticzino.gr/phoenix/s_tl.png' );
