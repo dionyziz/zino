@@ -122,7 +122,10 @@ Project_Destruct()' );
 			'favourites'		=> 'favourite/favourite',
             'allpolls'             => 'poll/recent/list',
             'alljournals'          => 'journal/recent/list',
-            'search'               => 'search'
+            'search2'               => 'search',
+            'search'                => 'search/view'
+
+
         );
     }
 ?>
