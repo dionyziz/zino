@@ -1,5 +1,5 @@
 <?php
-    class ElementSearch extends Element {
+    class ElementSearchView extends Element {
         public function Render() {
             Element( 'search/options' );
         }
