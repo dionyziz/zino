@@ -3,6 +3,7 @@
     class ElementNotificationEmailImagetag extends Element {
         public function Render( Notification $notification ) {
             global $rabbit_settings;
+            global $user;
         
             $image = New Image( $notification->Item->Imageid );
         
