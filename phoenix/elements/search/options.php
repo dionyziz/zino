@@ -1,5 +1,5 @@
 <?php
-    class ElementSearchSearch extends Element {
+    class ElementSearchOptions extends Element {
         public function Render() {
             global $page;
             $page->AttachStylesheet( 'css/search.css' );
