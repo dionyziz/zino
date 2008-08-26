@@ -18,6 +18,9 @@ div#search div.ybubble form input.submit {
     position: relative;
     top: 15px;
 }
+div#search div.ybubble i.tl {
+    height: 9px;
+}
 div#search div.ybubble form input.submit:hover {
     color: #000033;
 }

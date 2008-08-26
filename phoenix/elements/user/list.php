@@ -12,7 +12,7 @@
                         Element( 'user/avatar', $theuser->Avatar->Id , $theuser->Id , $theuser->Avatar->Width , $theuser->Avatar->Height , $theuser->Name , 100 , '' , '' , false , 0 , 0 );
                         ?><strong><?php
                         echo Element( 'user/name', $theuser->Id , $theuser->Name , $theuser->Subdomain , false );
-                        ?></strong><span>¿¿¿¿¿¿¿ ¿¿¿¿¿¿ &raquo;</span></a></li><?php
+                        ?></strong><span>Î ÏÎ¿Î²Î¿Î»Î® Ï€ÏÎ¿Ï†Î¯Î» &raquo;</span></a></li><?php
                     }            
                 ?></ul>
                 <div class="eof"></div>
