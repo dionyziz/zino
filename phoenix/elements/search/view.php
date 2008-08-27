@@ -33,7 +33,12 @@
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
             Element( 'user/list', $users );
             // Change the link
-            $link = $xc_settings[ 'webaddress' ] . "?p=search&" . implode( '&', compact( 'minage', 'maxage', 'placeid', 'gender', 'sexual' ) ) . "&pageno=";
+            $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'sexual' );
+            $searchargs = array();
+            foreach ( $args as $key => $arg ) {
+                $searchargs[] = $key . '=' . urlencode( $arg );
+            }
+            $link = $xc_settings[ 'webaddress' ] . "?p=search&" . implode( '&', $searchargs ) . "&pageno=";
             $pages = $finder->FoundRows() / $limit;
             Element( 'pagify', $pageno, $link, $pages );
         }
