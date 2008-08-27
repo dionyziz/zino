@@ -18,7 +18,8 @@
             }
             // Change the link
             $link = $xc_settings[ 'webaddress' ] . "?p=seach&pageno=";
-            Element( 'pagify', $pageno, $link, $users/$users_per_page );
+            $pages = $users/$users_per_page;
+            Element( 'pagify', $pageno, $link, $pages );
         }
     }
 ?>
