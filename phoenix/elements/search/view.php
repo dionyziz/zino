@@ -31,7 +31,13 @@
             // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
             $finder = New UserSearch();
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $orientation, '', $offset, $limit );
-            Element( 'user/list', $users );
+            if ( count( $users ) ) {
+                ?>Δεν βρέθηκαν άτομα με τα κριτήρια αναζήτησής σου.<br />
+                Δοκίμασε να αφαιρέσεις κάποιο κριτήριο ή να ψάξεις με πιο γενικούς όρους.<?php
+            }
+            else {
+                Element( 'user/list', $users );
+            }
             // Change the link
             $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'orientation' );
             $searchargs = array();
