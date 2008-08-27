@@ -33,7 +33,7 @@
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
             Element( 'user/list', $users );
             // Change the link
-            $link = $xc_settings[ 'webaddress' ] . "?p=search&pageno=";
+            $link = $xc_settings[ 'webaddress' ] . "?p=search&" . implode( '&', compact( 'minage', 'maxage', 'placeid', 'gender', 'sexual' ) ) . "&pageno=";
             $pages = $finder->FoundRows() / $limit;
             Element( 'pagify', $pageno, $link, $pages );
         }
