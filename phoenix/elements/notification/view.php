@@ -108,18 +108,11 @@
                         ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
                     }
                     else if ( $notif->Event->Typeid == EVENT_IMAGETAG_CREATED ) {
-                        /*?><div class="viewprofile"><a href="" onclick="Notification.Visit( '<?php
-                        echo $rabbit_settings[ 'webaddress' ];
-                        ?>/?p=photo&amp;id=<?php
-                        echo $notif->Item->Imageid;
-                        ?>' , '0' , '<?php
-                        echo $notif->Event->Id;
-                        ?>' , '0' );return false;">Προβολή εικόνας&raquo;</a></div><?php*/
                         ?><p><?php
                         $image = New Image( $notif->Item->Imageid );
                         if ( $image->Name != '' ) {
                             ?>στην εικόνα "<?php
-                            echo $image->Name;
+                            echo htmlspecialchars( $image->Name );
                             ?>"<?php
                         }
                         else if ( $image->Album->Id == $image->User->Egoalbumid ) {
@@ -134,12 +127,12 @@
                                 ?>του <?php
                             }
                             if ( $image->User->Id != $user->Id ) {
-                                echo $image->User->Name;
+                                echo htmlspecialchars( $image->User->Name );
                             }
                         }
                         else {
                             ?>σε μια εικόνα του Album "<?php
-                            echo $image->Album->Name;
+                            echo htmlspecialchars( $image->Album->Name );
                             ?>"<?php
                         }
                         Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_CROPPED_100x100 , '' , $image->Name , $image->Name , '' , true , 75 , 75 );
