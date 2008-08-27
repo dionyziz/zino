@@ -16,7 +16,7 @@
 	        ?><ul><?php
 		        ?><li><a href="?p=statistics" > Daily Statistics </a></li><?php
 		        ?><li><a href="?p=ban" > Ban list(not implemented yet) </a></li><?php
-		        ?><li><a href="?=admin_log" > Admin's log(not implemented yet) </a></li><?php
+		        ?><li><a href="?p=admin_log" > Admin's log(not implemented yet) </a></li><?php
 	        ?></ul><?php    
         }
     }
