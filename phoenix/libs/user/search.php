@@ -53,11 +53,10 @@
            $query->BindLike( 'name', $name );
 
            $res = $query->Execute(); 
-           return;
+           return $this->FindBySQLResource( $res );
 
            $this->mFoundRows = ( int )array_shift( $db->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
 
-           return $this->FindBySQLResource( $res );
        }
    }
 ?>
