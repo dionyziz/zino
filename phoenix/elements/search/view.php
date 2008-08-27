@@ -17,7 +17,7 @@
             if ( $pageno <= 0 ) {
                 $pageno = 1;
             }
-            $offset = ( $pageno - 1 ) * $usersperpage;
+            $offset = ( $pageno - 1 ) * $limit;
             ?><div id="search"><?php
             Element( 'search/options',
                 $minage, $maxage, $location, $gender, $sexual, $name,
