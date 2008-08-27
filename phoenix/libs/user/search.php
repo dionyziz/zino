@@ -12,11 +12,12 @@
            $minage = ( int )$minage;
            $maxage = ( int )$maxage;
            $clauses = array( 1 );
+           $age = "FLOOR( DATEDIFF( NOW(), `profile_dob` ) / 365.33 )";
            if ( $minage > 0 ) {
-               $clauses[] = 'age >= :minage';
+               $clauses[] = $age . ' >= :minage';
            }
            if ( $maxage > 0 ) {
-               $clauses[] = 'age <= :maxage';
+               $clauses[] = $age . ' <= :maxage';
            }
            if ( $gender == 'm' || $gender == 'f' ) {
                $clauses[] = '`user_gender` = :gender';
@@ -32,7 +33,7 @@
            $query = $this->mDb->Prepare(
                 "SELECT
                     SQL_CALC_FOUND_ROWS
-                    *, FLOOR( DATEDIFF( NOW(), `profile_dob` ) / 365.33 )  AS age
+                    *
                 FROM
                     :users CROSS JOIN :userprofiles
                         ON `user_id`=`profile_userid`
