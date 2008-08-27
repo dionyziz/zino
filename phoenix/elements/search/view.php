@@ -1,7 +1,7 @@
 <?php
     class ElementSearchView extends Element {
         public function Render(
-            tInteger $minage, tInteger $maxage, tInteger $placeid, tText $gender, tText $sexual, tText $name,
+            tInteger $minage, tInteger $maxage, tInteger $placeid, tText $gender, tText $orientation, tText $name,
             tInteger $limit, tInteger $pageno
         ) {
             global $xc_settings;
@@ -13,7 +13,7 @@
             $maxage = $maxage->Get();
             $placeid = $placeid->Get();
             $gender = $gender->Get();
-            $sexual = $sexual->Get();
+            $orientation = $orientation->Get();
             $name = $name->Get();
             $pageno = $pageno->Get();
             $limit = 25;
@@ -24,16 +24,16 @@
             ?><div id="search"><?php
             $location = New Place( $placeid );
             Element( 'search/options',
-                $minage, $maxage, $location, $gender, $sexual, $name,
+                $minage, $maxage, $location, $gender, $orientation, $name,
                 $offset, $limit
             );
             ?></div><?php
             // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
             $finder = New UserSearch();
-            $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
+            $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $orientation, '', $offset, $limit );
             Element( 'user/list', $users );
             // Change the link
-            $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'sexual' );
+            $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'orientation' );
             $searchargs = array();
             foreach ( $args as $key => $arg ) {
                 $searchargs[] = $key . '=' . urlencode( $arg );
