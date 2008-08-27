@@ -52,8 +52,8 @@
            $query->Bind( 'placeid', $location->Id );
            $query->BindLike( 'name', $name );
 
-           return;
            $res = $query->Execute(); 
+           return;
 
            $this->mFoundRows = ( int )array_shift( $db->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
 
