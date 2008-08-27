@@ -1,5 +1,4 @@
-<?php
-    
+<?php    
     class ElementAdminpanelView extends Element
     {
     
@@ -14,7 +13,7 @@
         
         $page->setTitle( 'Administration Panel' );
         
-        ?> <h2>Administrtion Panel</h2> <?php
+        ?> <h2>Administration Panel</h2> <?php
         
         ?> <ul> <?php
         ?> <li><a href="?p=statistics" > Daily Statistics </a></li> <?php
