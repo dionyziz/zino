@@ -118,7 +118,7 @@ Project_Destruct()' );
             'comments/recent'   => 'comment/recent/list',
             'mc'            => 'developer/memcache/view',
 	        'statistics'	=> 'statistics/view',
-	        'admin_panel' => 'admin_panel/view',
+	        'admin_panel' => 'adminpanel/view',
             'mcdelete'          => 'developer/abresas/mcdelete',
 			'favourites'		=> 'favourite/favourite',
             'allpolls'             => 'poll/recent/list',
