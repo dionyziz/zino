@@ -54,7 +54,7 @@
 
            $res = $query->Execute(); 
 
-           $this->mFoundRows = ( int )array_shift( $query->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
+           $this->mFoundRows = ( int )array_shift( $db->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
 
            return $this->FindBySQLResource( $res );
        }
