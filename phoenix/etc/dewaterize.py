@@ -10,11 +10,13 @@ functions = (
     '$water->Warning'
  )
 
-def optimize( filename ):
+def decommentized( f ):
+    
+
+def dewaterized( f ):
     new = []
     removeGlobal = True
     toAppend = True
-    f = open( filename )
     for line in f:
         stripped = line.strip()
         for func in functions:
@@ -24,17 +26,14 @@ def optimize( filename ):
             new.append( line )
         if stripped.endswith( ';' ):
             toAppend = True
-    f.close()
     for line in new:
         if '$water' in line:
             removeGlobal = False
             break
     contents = removeGlobal and [ line for line in new if 'global $water' not in line ] or new
-    f = open( filename, 'w' )
-    f.write( ''.join( contents ) )
-    f.close()
+    return ''.join( contents )
 
-def dewaterize( directory, extensions ):
+def optimized( directory, extensions ):
     for root, subdirs, files in os.walk( directory ):
         try:
             files.remove( 'water.php' )
@@ -43,7 +42,13 @@ def dewaterize( directory, extensions ):
         for filename in files:
             for ext in extensions:
                 if filename.endswith( ext ):
-                    optimize( os.path.join( root, filename ) )
+                    name = os.path.join( root, filename ) 
+                    f = open( name )
+                    filtered = dewaterized( decommentized( f.read() ) )
+                    f.close()
+                    f = open( name, 'w' )
+                    f.write( filtered )
+                    f.close()
                     break
 
 if __name__ == '__main__':
