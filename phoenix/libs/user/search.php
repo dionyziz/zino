@@ -18,8 +18,7 @@
            if ( $maxage > 0 ) {
                $clauses[] = 'age <= :maxage';
            }
-           if ( $gender !== false ) {
-               w_assert( $gender == 'm' || $gender == 'f' );
+           if ( $gender == 'm' || $gender == 'f' ) {
                $clauses[] = '`user_gender` = :gender';
            }
            if ( $location->Exists() ) {
