@@ -21,6 +21,7 @@
         ?> <li><a href="?=admin_log" > Admin's log(not implemented yet) </a></li> <?php
         ?> </ul> <?php
         
+        return;        
         }
     }
 ?>
