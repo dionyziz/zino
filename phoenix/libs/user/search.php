@@ -11,7 +11,7 @@
        ) {
            $minage = ( int )$minage;
            $maxage = ( int )$maxage;
-           $clauses = array();
+           $clauses = array( 1 );
            if ( $minage > 0 ) {
                $clauses[] = 'age >= :minage';
            }
