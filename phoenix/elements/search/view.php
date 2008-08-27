@@ -19,6 +19,7 @@
             }
             $offset = ( $pageno - 1 ) * $limit;
             ?><div id="search"><?php
+            $location = New Place( $placeid );
             Element( 'search/options',
                 $minage, $maxage, $location, $gender, $sexual, $name,
                 $offset, $limit
@@ -26,7 +27,6 @@
             ?></div><?php
             // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
             $finder = New UserSearch();
-            $location = New Place( $placeid );
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
             Element( 'user/list', $users );
             // Change the link
