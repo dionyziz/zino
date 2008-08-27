@@ -30,12 +30,14 @@
             ?></div><?php
             // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
             $finder = New UserSearch();
+            /*
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
             Element( 'user/list', $users );
             // Change the link
             $link = $xc_settings[ 'webaddress' ] . "?p=search&pageno=";
             $pages = $finder->FoundRows() / $limit;
             Element( 'pagify', $pageno, $link, $pages );
+            */
         }
     }
 ?>
