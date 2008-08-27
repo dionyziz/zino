@@ -32,8 +32,10 @@
             $finder = New UserSearch();
             $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $orientation, '', $offset, $limit );
             if ( !count( $users ) ) {
-                ?>Δεν βρέθηκαν άτομα με τα κριτήρια αναζήτησής σου.<br />
-                Δοκίμασε να αφαιρέσεις κάποιο κριτήριο ή να ψάξεις με πιο γενικούς όρους.<?php
+                ?><div style="text-align:center">
+                    <strong>Δεν βρέθηκαν άτομα με τα κριτήρια αναζήτησής σου.</strong><br />
+                    Δοκίμασε να αφαιρέσεις κάποιο κριτήριο ή να ψάξεις με πιο γενικούς όρους.
+                </div><?php
             }
             else {
                 Element( 'user/list', $users );
