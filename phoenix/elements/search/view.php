@@ -11,7 +11,7 @@
                 $users = array();
                 $users[] = New User( 1 );
                 $users[] = New User( 791 );
-                $users_per_page = 2;
+                $users_per_page = 1;
             Element( 'user/list', $users );
             if ( $pageno <= 0 ) {
                 $pageno = 1;
