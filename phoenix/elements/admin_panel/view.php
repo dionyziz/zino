@@ -3,7 +3,7 @@
     class ElementAdmin_panelView extends Element
     {
     
-        public function Render () {
+        public function Render() {
         global $page;
         global $user;
         
