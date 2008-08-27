@@ -95,7 +95,7 @@
                 <div class="search">
                     <h3>Περιοχή:</h3>
                     
-                    <select name="location">
+                    <select name="placeid">
                         <option value="0" selected="selected">Από παντού</option>
                         <?php
                         $placefinder = New PlaceFinder();
