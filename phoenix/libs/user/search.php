@@ -41,7 +41,7 @@
                 LIMIT
                     :offset, :limit;"
            );
-           $query->BindTable( 'users' );
+           $query->BindTable( 'users', 'userprofiles' );
 
            $query->Bind( 'offset', $offset );
            $query->Bind( 'limit', $limit );
