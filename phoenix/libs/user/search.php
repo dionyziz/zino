@@ -9,6 +9,8 @@
             $minage, $maxage, Place $location, $gender, $sexual, $name,
             $offset = 0, $limit = 25
        ) {
+           die( var_dump( $sexual ) );
+
            $minage = ( int )$minage;
            $maxage = ( int )$maxage;
            $clauses = array( 1 );
