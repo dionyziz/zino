@@ -17,7 +17,8 @@
                 $pageno = 1;
             }
             // Change the link
-            Element( 'pagify', $pageno, $xc_settings[ 'webaddress'] . "?p=search&pageno=", $users/$users_per_page );
+            $link = $xc_settings[ 'webaddress' ] . "?p=seach&pageno=";
+            Element( 'pagify', $pageno, $link, $users/$users_per_page );
         }
     }
 ?>
