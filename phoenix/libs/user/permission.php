@@ -47,8 +47,9 @@
     define( 'PERMISSION_MEMCACHE_VIEW', 50 );
     define( 'PERMISSION_MEMCACHE_DELETE', 50 );
 
-   //statistics permissions
-   define( 'PERMISSION_STATISTICS_VIEW', 50 );
+   //admin panel's permissions
+   define( 'PERMISSION_ADMIN_PANEL_VIEW', 50 );
+   define( 'PERMISSION_STATISTICS_VIEW', 50 );   
    
    //photo tagging permissions
    define( 'PERMISSION_TAG_CREATE', 30 );
