@@ -258,6 +258,7 @@
         protected function OnCreate() {
             global $libs;
 
+            $libs->Load( 'rabbit/helpers/email' );
             $libs->Load( 'pm/pm' );
             $libs->Load( 'event' );
 
@@ -281,7 +282,7 @@
                 $subject = Element( 'user/email/welcome', $this );
                 $text = ob_get_clean();
 
-                mail( $this->Profile->Email, $subject, $text, "From: Zino <noreply@zino.gr>" );
+                Email( $this->Name, $this->Profile->Email, $subject, $text, "Zino", "noreply@zino.gr" );
             }
         }
         protected function OnUpdate() {

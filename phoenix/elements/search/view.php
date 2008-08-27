@@ -7,11 +7,13 @@
             ?><div id="search"><?php
             Element( 'search/options' );
             ?></div><?php
-                // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
-                $users = array();
-                $users[] = New User( 1 );
-                $users[] = New User( 791 );
-                $users_per_page = 1;
+            // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
+            $finder = New UserSearch();
+            $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $sexual, '', $offset, $limit );
+            $users = array();
+            $users[] = New User( 1 );
+            $users[] = New User( 791 );
+            $users_per_page = 1;
             Element( 'user/list', $users );
             if ( $pageno <= 0 ) {
                 $pageno = 1;
