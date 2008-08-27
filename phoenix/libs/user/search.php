@@ -25,6 +25,9 @@
            if ( $location->Exists() ) {
                $clauses[] = '`profile_placeid` = :placeid';
            }
+           if ( $sexual != 0 ) {
+               $clauses[] = '`profile_sexualorientation` = :sexual';
+           }
            if ( !empty( $name ) ) {
                $clauses[] = '( `user_name` LIKE "%'  . $name . '%" 
                              OR `user_email` LIKE "%' . $name . '%" )';
@@ -51,6 +54,8 @@
            $query->Bind( 'maxage', $maxage );
            $query->Bind( 'gender', $gender );
            $query->Bind( 'placeid', $location->Id );
+           $query->Bind( 'sexual', $sexual );
+
            $query->BindLike( 'name', $name );
 
            $res = $query->Execute(); 
