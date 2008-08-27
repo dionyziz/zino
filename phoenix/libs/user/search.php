@@ -9,7 +9,6 @@
             $minage, $maxage, Place $location, $gender, $sexual, $name,
             $offset = 0, $limit = 25
        ) {
-           return;
            $minage = ( int )$minage;
            $maxage = ( int )$maxage;
            $clauses = array( 1 );
@@ -53,6 +52,7 @@
            $query->Bind( 'placeid', $location->Id );
            $query->BindLike( 'name', $name );
 
+           return;
            $res = $query->Execute(); 
 
            $this->mFoundRows = ( int )array_shift( $db->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
