@@ -42,6 +42,8 @@
                         ON `user_id`=`profile_userid`
                 WHERE
                     $where
+                ORDER BY
+                    `user_avatarid` = 0
                 LIMIT
                     :offset, :limit;"
            );
