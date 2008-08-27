@@ -47,5 +47,9 @@ def dewaterize( directory, extensions ):
                     break
 
 if __name__ == '__main__':
-    exts = sys.argv[ 1: ] or ( 'php', )
-    dewaterize( '.', exts )
+    try:
+        target = sys.argv[ 1 ]
+    except IndexError:
+        target = '.'
+    exts = sys.argv[ 2: ] or ( 'php', )
+    dewaterize( target, exts )
