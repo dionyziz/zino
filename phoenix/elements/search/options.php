@@ -52,11 +52,19 @@
                     από: 
                     <select name="minage"><?php
                         $ages = range( 10, 80 );
-                        ?><option value="any">αδιάφορο</option><?php
+                        ?><option value="any"<?php
+                        if ( $minage == 0 ) {
+                            ?> selected="selected"<?php
+                        }
+                        ?>>αδιάφορο</option><?php
                         foreach ( $ages as $age ) {
                             ?><option value="<?php
                             echo $age;
-                            ?>"><?php
+                            ?>"<?php
+                            if ( $minage == $age ) {
+                                ?> selected="selected"<?php
+                            }
+                            ?>><?php
                             echo $age;
                             ?></option><?php
                         }
@@ -65,11 +73,19 @@
                     έως: 
                     <select name="maxage"><?php
                         $ages = range( 10, 80 );
-                        ?><option value="any">αδιάφορο</option><?php
+                        ?><option value="any"<?php
+                        if ( $maxage == 0 ) {
+                            ?> selected="selected"<?php
+                        }
+                        ?>>αδιάφορο</option><?php
                         foreach ( $ages as $age ) {
                             ?><option value="<?php
                             echo $age;
-                            ?>"><?php
+                            ?>"<?php
+                            if ( $maxage == $age ) {
+                                ?> selected="selected"<?php
+                            }
+                            ?>><?php
                             echo $age;
                             ?></option><?php
                         }
@@ -84,10 +100,15 @@
                         <?php
                         $placefinder = New PlaceFinder();
                         $places = $placefinder->FindAll();
+                        $locationid = $location->Id;
                         foreach ( $places as $place ) {
                             ?><option value="<?php
                             echo $place->Id;
-                            ?>"><?php
+                            ?>"<?php
+                            if ( $place->Id == $locationid ) {
+                                ?> selected="selected"<?php
+                            }
+                            ?>><?php
                             echo htmlspecialchars( $place->Name );
                             ?></option><?php
                         }
@@ -98,12 +119,25 @@
                 <div class="search">
                     <h3>Σεξουαλικές προτιμήσεις:</h3>
                     
-                    <select name="orientation">
-                        <option value="0">Οτιδήποτε</option>
-                        <option value="straight">Straight</option>
-                        <option value="bi">Bisexual</option>
-                        <option value="gay">Gay/Lesbian</option>
-                    </select>
+                    <select name="orientation"><?php
+                        $orientations = array(
+                            0 => 'Οτιδήποτε',
+                            'straight' => 'Straight',
+                            'bi' => 'Bisexual',
+                            'gay' => 'Gay/Lesbian'
+                        );
+                        foreach ( $orientations as $key => $caption ) {
+                            ?><option value="<?php
+                            echo $key;
+                            ?>"<?php
+                            if ( $key == $sexual ) {
+                                ?> selected="selected"<?php
+                            }
+                            ?>><?php
+                            echo htmlspecialchars( $caption );
+                            ?></option><?php
+                        }
+                    ?></select>
                 </div>
                 
                 <div><input type="submit" value="Ψάξε!" class="submit" /></div>

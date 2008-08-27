@@ -1,5 +1,10 @@
 <?php
    class UserSearch extends UserFinder {
+       private $mFoundRows;
+
+       public function FoundRows() {
+           return $this->mFoundRows;
+       }
        public function FindByDetails(
             $minage, $maxage, Place $location, $gender, $sexual, $name,
             $offset = 0, $limit = 25
@@ -27,6 +32,7 @@
            $where = implode( ' AND ', $clauses );
            $query = $this->mDb->Prepare(
                 "SELECT
+                    SQL_CALC_FOUND_ROWS
                     *, FLOOR( DATEDIFF( NOW(), `profile_dob` ) / 365.33 )  AS age
                 FROM
                     :users CROSS JOIN :userprofiles
@@ -48,6 +54,8 @@
            $query->BindLike( 'name', $name );
 
            $res = $query->Execute(); 
+
+           $this->mFoundRows = ( int )array_shift( $query->Prepare( 'SELECT FOUND_ROWS();' )->Execute()->FetchArray() );
 
            return $this->FindBySQLResource( $res );
        }
