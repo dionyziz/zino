@@ -5,6 +5,9 @@
             tInteger $limit, tInteger $pageno
         ) {
             global $xc_settings;
+            global $libs;
+
+            $libs->Load( 'user/search' );
 
             $minage = $minage->Get();
             $maxage = $maxage->Get();
