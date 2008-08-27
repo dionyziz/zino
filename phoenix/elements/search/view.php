@@ -1,8 +1,9 @@
 <?php
     class ElementSearchView extends Element {
-        public function Render( $pageno ) {
+        public function Render( tInteger $pageno ) {
             global $xc_settings;
 
+            $pageno = $pageno->Get();
             ?><div id="search"><?php
             Element( 'search/options' );
             ?></div><?php
