@@ -121,7 +121,7 @@
                     
                     <select name="orientation"><?php
                         $orientations = array(
-                            0 => 'Οτιδήποτε',
+                            '' => 'Οτιδήποτε',
                             'straight' => 'Straight',
                             'bi' => 'Bisexual',
                             'gay' => 'Gay/Lesbian'

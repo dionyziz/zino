@@ -28,27 +28,30 @@
                 $offset, $limit
             );
             ?></div><?php
-            // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
-            $finder = New UserSearch();
-            $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $orientation, '', $offset, $limit );
-            if ( !count( $users ) ) {
-                ?><div style="text-align:center">
-                    <strong>Δεν βρέθηκαν άτομα με τα κριτήρια αναζήτησής σου.</strong><br />
-                    Δοκίμασε να αφαιρέσεις κάποιο κριτήριο ή να ψάξεις με πιο γενικούς όρους.
-                </div><?php
+            $searching = $minage > 0 || $maxage > 0 || $gender == 'm' || $gender == 'f' || $orientation !== '';
+            if ( $searching ) {
+                // Get $users by a finder using $users_per_page, $pageno in the LIMIT statement.
+                $finder = New UserSearch();
+                $users = $finder->FindByDetails( $minage, $maxage, $location, $gender, $orientation, '', $offset, $limit );
+                if ( !count( $users ) ) {
+                    ?><div style="text-align:center;margin-bottom:20px">
+                        <strong>Δεν βρέθηκαν άτομα με τα κριτήρια αναζήτησής σου.</strong><br />
+                        Δοκίμασε να αφαιρέσεις κάποιο κριτήριο ή να ψάξεις με πιο γενικούς όρους.
+                    </div><?php
+                }
+                else {
+                    Element( 'user/list', $users );
+                }
+                // Change the link
+                $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'orientation' );
+                $searchargs = array();
+                foreach ( $args as $key => $arg ) {
+                    $searchargs[] = $key . '=' . urlencode( $arg );
+                }
+                $link = $xc_settings[ 'webaddress' ] . "?p=search&" . implode( '&', $searchargs ) . "&pageno=";
+                $pages = $finder->FoundRows() / $limit;
+                Element( 'pagify', $pageno, $link, $pages );
             }
-            else {
-                Element( 'user/list', $users );
-            }
-            // Change the link
-            $args = compact( 'minage', 'maxage', 'placeid', 'gender', 'orientation' );
-            $searchargs = array();
-            foreach ( $args as $key => $arg ) {
-                $searchargs[] = $key . '=' . urlencode( $arg );
-            }
-            $link = $xc_settings[ 'webaddress' ] . "?p=search&" . implode( '&', $searchargs ) . "&pageno=";
-            $pages = $finder->FoundRows() / $limit;
-            Element( 'pagify', $pageno, $link, $pages );
         }
     }
 ?>

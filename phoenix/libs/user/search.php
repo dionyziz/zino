@@ -25,7 +25,7 @@
            if ( $location->Exists() ) {
                $clauses[] = '`profile_placeid` = :placeid';
            }
-           if ( $sexual !== '0' ) {
+           if ( $sexual !== '' ) {
                $clauses[] = '`profile_sexualorientation` = :sexual';
            }
            if ( !empty( $name ) ) {
