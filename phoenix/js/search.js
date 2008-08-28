@@ -5,7 +5,7 @@ var Search = {
             return true;
         }
         $( 'div.ybubble div.body form div.search select' ).each( function() {
-                if ( this.selectedIndex == 0 ) {
+                if ( this.selectedIndex === 0 ) {
                     check = true;
                 }
             } );
