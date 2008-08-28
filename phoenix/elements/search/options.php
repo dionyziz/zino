@@ -5,18 +5,13 @@
             $offset = 0, $limit = 25
         ) {
             global $page;
-
-            $page->AttachStylesheet( 'css/search.css' );
-            if ( UserBrowser() == "MSIE" ) {
-                $page->AttachStylesheet( 'css/search-ie.css' );
-            }
 ?>
         <h2>Αναζήτηση ατόμων</h2>
         <div class="ybubble">
             <i class="tl"></i>
             <i class="tr"></i>
             <div class="body">
-            <form action="" method="get">
+            <form action="" method="get" onsubmit="return Search.check()">
                 <input type="hidden" name="p" value="search" />
                 <div class="search">
                     <h3>Φύλο:</h3><?php

@@ -2,3 +2,7 @@
 span.imageview span.info {
     bottom: 0;
 }
+div#search div.ybubble form input.submit {
+    position: relative;
+    top: 35px;
+}
