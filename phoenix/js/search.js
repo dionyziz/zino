@@ -10,7 +10,7 @@ var Search = {
                 }
             } );
         if ( !check ) {
-            alert( "Please fill something" );
+            alert( "Όρισε κάποιες επιλογές για να πραγματοποιήσεις αναζήτηση ατόμων." );
             return false;
         }
         return true;
