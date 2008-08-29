@@ -134,6 +134,7 @@ var Tag = {
         divani.appendChild( divani2 );
         $( 'div.tanga' ).get( 0 ).appendChild( divani );
         
+		/*
         // Display correct text based on the number of people already tagged in the picture
         if ( Tag.already_tagged <= 2 ) {
             // TODO: Maybe the only user is a girl, not a boy
@@ -141,7 +142,7 @@ var Tag = {
         }
         else {
             $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
-        }
+        }*/
         
         // Show all the actual image tags    
         $( 'div.image_tags' ).show();
