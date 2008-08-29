@@ -134,16 +134,6 @@ var Tag = {
         divani.appendChild( divani2 );
         $( 'div.tanga' ).get( 0 ).appendChild( divani );
         
-		/*
-        // Display correct text based on the number of people already tagged in the picture
-        if ( Tag.already_tagged <= 2 ) {
-            // TODO: Maybe the only user is a girl, not a boy
-            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
-        }
-        else {
-            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχουν σε αυτήν την εικόνα οι: ";
-        }*/
-        
         // Show all the actual image tags    
         $( 'div.image_tags' ).show();
         
@@ -321,9 +311,7 @@ var Tag = {
         a.style.cursor = "pointer";
         a.className = "tag_del";
         $( a ).click( function() {
-                $( this ).parent().hide( 400, function() {
-                    $( this ).remove(); 
-                } ); 
+				Tag.parseDel( $( this ).parent() );
             } );
         
         a.appendChild( document.createTextNode( " " ) ); // Space needed for CSS Spriting
@@ -342,7 +330,29 @@ var Tag = {
         }
         //$( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
         $( node ).css( 'borderWidth', '0px' );
-    }
+    },
+	parseDel : function( par ) {
+		var deksia = par.nextAll().length;
+		if ( deksia === 0 ) { //last tag
+			if ( par.prevAll().length !== 0 ) { // there is some tag left to it
+				var neighbor = $( par ).prev().get( 0 );
+				neighbor.removeChild( neighbor.lastChild ); // remove "and" text
+				if ( $( neighbor ).prevAll().length !== 0 ) { // if there is something even lefter, append the text there
+					neighbor = neighbor.previousSibling;
+					neighbor.removeChild( neighbor.lastChild );
+					neighbor.appendChild( document.createTextNode( " και " ) );
+				}
+			}
+		}
+		else if ( deksia === 1 && par.prevAll().length !== 0 ) {
+			var neighbor = par.prev().get( 0 );
+			neighbor.removeChild( neighbor.lastChild );
+			neighbor.appendChild( document.createTextNode( " και " ) );
+		}
+		$( par ).hide( 400, function() {
+			$( this ).remove(); 
+		} );
+	}
 };
 $( document ).ready( function() {
         // Already Tagged people
@@ -370,27 +380,7 @@ $( document ).ready( function() {
                     } )( username );
             } );
         $( 'div.image_tags div a.tag_del' ).click( function() {
-				var par = $( this ).parent();
-				var deksia = par.nextAll().length;
-				if ( deksia === 0 ) { //last tag
-					if ( par.prevAll().length !== 0 ) { // there is some tag left to it
-						var neighbor = $( par ).prev().get( 0 );
-						neighbor.removeChild( neighbor.lastChild ); // remove "and" text
-						if ( $( neighbor ).prevAll().length !== 0 ) { // if there is something even lefter, append the text there
-							neighbor = neighbor.previousSibling;
-							neighbor.removeChild( neighbor.lastChild );
-							neighbor.appendChild( document.createTextNode( " και " ) );
-						}
-					}
-				}
-				else if ( deksia === 1 && par.prevAll().length !== 0 ) {
-					var neighbor = par.prev().get( 0 );
-					neighbor.removeChild( neighbor.lastChild );
-					neighbor.appendChild( document.createTextNode( " και " ) );
-				}
-                $( par ).hide( 400, function() {
-                    $( this ).remove(); 
-                } ); 
+				Tag.parseDel( $( this ).parent() );
             } );
         // Show/Hide tags when not tagging
         $( 'div.thephoto div.tanga div' ).mouseover( function(event) { Tag.showhideTag( this, true, event ); } );
