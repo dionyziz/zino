@@ -354,11 +354,12 @@ $( document ).ready( function() {
 				if ( par.nextAll().length === 0 ) { //last tag
 					alert( "Teleuteo tag" );
 					if ( par.prevAll().length !== 0 ) { // there is some tag left to it
-						var neighbor = $( par ).prev();
-						alert( "Sbino text" );
-						$( neighbor ).find( "*:last-child" ).remove(); // remove "and" text
+						var neighbor = $( par ).prev().get( 0 );
+						neighbor.removeChild( neighbor.lastChild ); // remove "and" text
 						if ( $( neighbor ).prevAll().length !== 0 ) { // if there is something even lefter, append the text there
-							$( neighbor ).prev().find( ":last-child" ).remove().get( 0 ).appendChild( document.createTextNode( "και " ) );
+							neighbor = neighbor.previousSibling;
+							neighbor.removeChild( neighbor.lastChild );
+							neighbor.appendChild( document.createTextNode( " και " ) );
 						}
 					}
 				}
