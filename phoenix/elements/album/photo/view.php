@@ -251,6 +251,7 @@
                         ?>style="display:none"<?php
                     }
                     ?>><?php
+					/*
                     if ( $tags_num == 1 ) {
                         ?>Υπάρχει σε αυτήν την εικόνα <?php
                         $atomo = New User( $tags[0]->Personid );
@@ -262,9 +263,9 @@
                             ?> ο <?php
                         }
                     }
-                    else {
+                    else{*/
                         ?>Σε αυτή την εικόνα είναι <?php
-                    }
+            //        }
                     for( $i=0; $i<$tags_num; ++$i ) {
                         ?><div><?php
 						if ( $unames[ $i ]->Gender == 'f' ) {
