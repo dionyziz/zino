@@ -76,8 +76,7 @@ var Tag = {
 			alert( "Δεν μπορείται να σημάνεται τον συγκεκριμένο χρήστη" );
 			return;
 		}
-		var gender = Tag.genders[ ind ];
-		alert( gender );
+		var gender = ( Tag.genders[ ind ] == 'f' )?"η ":"ο ";
 		
         $( node ).parent().hide(); // hide username from friends TODO: why not just remove?
         $( 'div.thephoto div.frienders form input' ).val( '' ); // clear the input field
@@ -85,6 +84,8 @@ var Tag = {
         
         // Add username to tagged people below the photo
         var div = document.createElement( 'div' );
+		div.appendChild( document.createTextNode( gender ) );
+		
         var a = document.createElement( 'a' );
         a.title = username;
         a.style.cursor = "pointer";
@@ -110,6 +111,16 @@ var Tag = {
         
         div.appendChild( a );
         
+		if ( $( 'div.image_tags' ).children().length !== 0 ) {
+			var las = $( 'div.image_tags:last-child' ).get( 0 );
+			las.appendChild( document.createTextNode( ' και ' ) );
+			if ( $( las ).prevAll().length !== 0 ) {
+				las = $( las ).prev().get( 0 );
+				las.removeChild( las.lastChild );
+				las.appendChild( document.createTextNode( ', ' ) );
+			}
+		}
+		
         $( 'div.image_tags' ).get( 0 ).appendChild( div );
         
         // Add a place on the image where the user appears
