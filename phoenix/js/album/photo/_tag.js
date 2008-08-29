@@ -353,7 +353,7 @@ $( document ).ready( function() {
 				var par = $( this ).parent();
 				if ( par.nextAll().length == 0 ) { //last tag
 					if ( par.prevAll().length != 0 ) { // there is some tag left to it
-						var neighbor = par.prev();
+						var neighbor = $( par ).prev();
 						neighbor.find( ":last-child" ).remove(); // remove "and" text
 						if ( $( neighbor ).prevAll().length != 0 ) { // if there is something even lefter, append the text there
 							$( neighbor ).prev().find( ":last-child" ).remove().get( 0 ).appendChild( document.createTextNode( "και " ) );
