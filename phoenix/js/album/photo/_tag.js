@@ -21,6 +21,7 @@ TODO:
 var Tag = {
     photoid : false, // set by view.php, contains the id of the current photo
     friends : [], // an array of all your mutual friends
+	genders : [], // an array of all your mutual friends' genders.  friends[ i ]  gender
     already_tagged : [], // an array of all the people tagged in this photo
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
     run : false, // when tagging action is enabled
@@ -70,7 +71,14 @@ var Tag = {
         // Get the current position of the tagging window
         var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
         var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
-        
+        var ind = $.inArray( username, Tag.friends );
+		if ( ind === -1 ) {
+			alert( "Δεν μπορείται να σημάνεται τον συγκεκριμένο χρήστη" );
+			return;
+		}
+		var gender = Tag.genders[ ind ];
+		alert( gender );
+		
         $( node ).parent().hide(); // hide username from friends TODO: why not just remove?
         $( 'div.thephoto div.frienders form input' ).val( '' ); // clear the input field
         Tag.already_tagged.push( username ); // add username to the array of the people tagged

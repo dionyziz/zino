@@ -266,7 +266,9 @@
                     else{*/
                         ?>Σε αυτή την φωτογραφία είναι <?php
             //        }
+					$jsarr2 = "Tag.genders = [ ";
                     for( $i=0; $i<$tags_num; ++$i ) {
+						$jsarr2 .= "'" . $unames[ $i ]->Gender . "', ";
                         ?><div><?php
 						if ( $unames[ $i ]->Gender == 'f' ) {
 							?>η <?php
@@ -296,6 +298,8 @@
 						}
                         ?></div><?php
                     }
+					$jsarr2 .= "'" . $user->Gender . "' ];";
+					$page->AttachInlineScript( $jsarr2 );
                     ?></div><?php
                 }
                 
