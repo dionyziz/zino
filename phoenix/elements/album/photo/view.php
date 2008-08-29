@@ -263,11 +263,17 @@
                         }
                     }
                     else {
-                        ?>Υπάρχουν σε αυτή την εικόνα οι: <?php
+                        ?>Σε αυτή την εικόνα είναι <?php
                     }
                     for( $i=0; $i<$tags_num; ++$i ) {
-                    // optimize by making finder return usernames
-                        ?><div><a href="http://<?php
+                        ?><div><?php
+						if ( $unames[ $i ]->Gender == 'f' ) {
+							?>η <?php
+						}
+						else {
+							?>o <?php
+						}
+						?><a href="http://<?php
                         echo $unames[ $i ]->Subdomain;
                         ?>.zino.gr" title="<?php
                         echo $unames[ $i ]->Name;
@@ -281,6 +287,12 @@
                             echo $unames[ $i ]->Name;
                             ?>' );return false;" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
                         }
+						if ( $i == $tags_num - 2 ) {
+							?> και <?php
+						}
+						else if ( $i != $tags_num - 1 ) {
+							?>, <?php
+						}
                         ?></div><?php
                     }
                     ?></div><?php
