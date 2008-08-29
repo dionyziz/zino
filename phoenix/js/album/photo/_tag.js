@@ -354,7 +354,7 @@ $( document ).ready( function() {
 				if ( par.nextAll().length == 0 ) { //last tag
 					if ( par.prevAll().length != 0 ) { // there is some tag left to it
 						var neighbor = par.prev().get( 0 );
-						neighbor.removeChild( neight.lastChild ); // remove "and" text
+						neighbor.removeChild( neighbor.lastChild ); // remove "and" text
 						if ( neighbor.prevAll().length != 0 ) { // if there is something even lefter, append the text there
 							neighbor = neighbor.prev().get( 0 );
 							neighbor.removeChild( neighbor.lastChild );
