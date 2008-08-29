@@ -22,13 +22,17 @@
             if ( $user->HasPermission( PERMISSION_TAG_CREATE ) ) {
                 $mutual = $relfinder->FindMutualByUser( $user );
                 $jsarr = "Tag.friends = [ ";
+				$jsarr2 = "Tag.genders = [ ";
                 foreach( $mutual as $mutual_friend ) {
-                    $jsarr .= "'" . $mutual_friend . "', ";
+                    $jsarr .= "'" . $mutual_friend[ 'user_name' ] . "', ";
+					$jsarr2 .= "'" . $mutual_friend[ 'user_gender'] . "', ";
                 }
                 $jsarr .= "'" . $user->Name . "'";
+				$jsarr2 .= "'" . $user->Gender . "' ];";
                 $jsarr .= " ];Tag.photoid = " . $id . ";";
                 
-                $page->AttachInlineScript( $jsarr );
+                $page->AttachInlineScript( $jsarr . $jsarr2 );
+				
             }
             
             if( !$image->Exists() ) {
@@ -268,7 +272,6 @@
             //        }
 					$jsarr2 = "Tag.genders = [ ";
                     for( $i=0; $i<$tags_num; ++$i ) {
-						$jsarr2 .= "'" . $unames[ $i ]->Gender . "', ";
                         ?><div><?php
 						if ( $unames[ $i ]->Gender == 'f' ) {
 							?>η <?php
@@ -298,8 +301,6 @@
 						}
                         ?></div><?php
                     }
-					$jsarr2 .= "'" . $user->Gender . "' ];";
-					$page->AttachInlineScript( $jsarr2 );
                     ?></div><?php
                 }
                 

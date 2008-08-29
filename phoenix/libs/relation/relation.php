@@ -52,7 +52,7 @@
             // Cool Query by kostis90gr and dionyziz
             $query = $this->mDb->Prepare( '
                 SELECT 
-                    `user_name`
+                    `user_name`, `user_gender`
                 FROM
                     :relations AS a
                     CROSS JOIN :relations AS b ON
@@ -76,7 +76,8 @@
             $res = $query->Execute();
             $ret = array();
             while( $row = $res->FetchArray() ) {
-                $ret[] = $row[ 'user_name' ];
+                //$ret[] = $row[ 'user_name' ];
+				$ret[] = $row;
             }
             
             $water->Trace( count( $ret ) );
