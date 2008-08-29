@@ -59,7 +59,6 @@ div.image_tags {
 }
 div.image_tags div {
     display: inline;
-    margin-left: 10px;
 }
 div.image_tags div a.tag_del {
     background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
