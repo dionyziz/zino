@@ -112,7 +112,7 @@ var Tag = {
         div.appendChild( a );
         
 		if ( $( 'div.image_tags' ).children().length !== 0 ) {
-			var las = $( 'div.image_tags:last-child' ).get( 0 );
+			var las = $( 'div.image_tags div:last' ).get( 0 );
 			las.appendChild( document.createTextNode( ' και ' ) );
 			if ( $( las ).prevAll().length !== 0 ) {
 				las = $( las ).prev().get( 0 );
