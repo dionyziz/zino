@@ -3,7 +3,6 @@ TODO:
     --Tagging Box Resizing
     --Resolve Overlapping Tags
     --Auto Scrolling
-    --To Iparxi se auti tn ikona o kostis90gr na gini: Se auti tn fotografia ine o kostis90gr, o finlandos kai i arianti
     --Sbise Tag Notifications otan diagrafonte ta tags
     --Meta to Tag creation na gini fadeIn to tag gia 2-3s
     --Otan iparxi ena Tag stn gonia ( i teleuteo tag? ) k to mouse plisiazi to onoma, emfanizi border
@@ -294,10 +293,6 @@ var Tag = {
         if ( count === 0 ) {
             $( 'div.image_tags' ).hide();
         }
-		/*
-        else if ( count == 1 ) {
-            $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
-        }*/
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
     // Appends Tag Id to tags below the image and links on the actual tags
@@ -331,9 +326,10 @@ var Tag = {
         //$( node ).css( { "borderWidth" : "0px", "cursor" : "default" } ); 
         $( node ).css( 'borderWidth', '0px' );
     },
+	// displays conjucates and punctuation correctly
 	parseDel : function( par ) {
 		var deksia = par.nextAll().length;
-		if ( deksia === 0 ) { //last tag
+		if ( deksia === 0 ) { // deleting last tag
 			if ( par.prevAll().length !== 0 ) { // there is some tag left to it
 				var neighbor = $( par ).prev().get( 0 );
 				neighbor.removeChild( neighbor.lastChild ); // remove "and" text
