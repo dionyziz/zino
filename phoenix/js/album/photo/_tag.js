@@ -351,8 +351,8 @@ $( document ).ready( function() {
             } );
         $( 'div.image_tags div a.tag_del' ).click( function() {
 				var par = $( this ).parent();
-				if ( par.nextAll().length === 0 ) { //last tag
-					alert( "Teleuteo tag" );
+				var deksia = par.nextAll().length;
+				if ( deksia === 0 ) { //last tag
 					if ( par.prevAll().length !== 0 ) { // there is some tag left to it
 						var neighbor = $( par ).prev().get( 0 );
 						neighbor.removeChild( neighbor.lastChild ); // remove "and" text
@@ -362,6 +362,11 @@ $( document ).ready( function() {
 							neighbor.appendChild( document.createTextNode( " και " ) );
 						}
 					}
+				}
+				else if ( deksia === 1 && par.prevAll().length !== 0 ) {
+					var neighbor = par.prev().get( 0 );
+					neighbor.removeChild( neighbor.lastChild );
+					neighbor.appendChild( document.createTextNode( " και " ) );
 				}
                 $( par ).hide( 400, function() {
                     $( this ).remove(); 
