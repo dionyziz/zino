@@ -254,22 +254,7 @@
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
                     }
-                    ?>><?php
-					/*
-                    if ( $tags_num == 1 ) {
-                        ?>Υπάρχει σε αυτήν την εικόνα <?php
-                        $atomo = New User( $tags[0]->Personid );
-                        $gender = $atomo->Gender;
-                        if ( $gender == 'f' ) {
-                            ?> η <?php
-                        }
-                        else {
-                            ?> ο <?php
-                        }
-                    }
-                    else{*/
-                        ?>Σε αυτή την φωτογραφία είναι <?php
-            //        }
+                    ?>>Σε αυτή την φωτογραφία είναι <?php
 					$jsarr2 = "Tag.genders = [ ";
                     for( $i=0; $i<$tags_num; ++$i ) {
                         ?><div><?php
