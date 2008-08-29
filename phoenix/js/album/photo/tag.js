@@ -284,9 +284,10 @@ var Tag = {
         if ( count === 0 ) {
             $( 'div.image_tags' ).hide();
         }
+		/*
         else if ( count == 1 ) {
             $( 'div.image_tags' ).get( 0 ).firstChild.nodeValue = "Υπάρχει σε αυτήν την εικόνα ο";
-        }
+        }*/
         Coala.Warm( 'album/photo/tag/delete', { 'id' : id } );
     },
     // Appends Tag Id to tags below the image and links on the actual tags
@@ -349,7 +350,9 @@ $( document ).ready( function() {
                     } )( username );
             } );
         $( 'div.image_tags div a.tag_del' ).click( function() {
-                $( this ).parent().hide( 400, function() {
+				var par = $( this ).parent();
+				alert( par.nextAll().length );
+                $( par ).hide( 400, function() {
                     $( this ).remove(); 
                 } ); 
             } );
