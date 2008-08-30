@@ -72,6 +72,8 @@ var Tag = {
         // Get the current position of the tagging window
         var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
         var top = parseInt( $( 'div.tagme' ).css( 'top' ), 10 );
+		var width = parseInt( $( 'div.tagme' ).css( 'width' ), 10 );
+		var height = parseInt( $( 'div.tagme' ).css( 'height'), 10 );
         var ind = $.inArray( username, Tag.friends );
 		if ( ind === -1 ) {
 			alert( "Δεν μπορείται να σημάνεται τον συγκεκριμένο χρήστη" );
@@ -142,6 +144,8 @@ var Tag = {
                                              'username' : username,
                                              'left' : left,
                                              'top' : top,
+											 'width' : width,
+											 'height' : height,
                                              'callback' : Tag.newCallback
                                             } );
         

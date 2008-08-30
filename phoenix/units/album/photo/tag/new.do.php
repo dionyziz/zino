@@ -1,5 +1,5 @@
 <?php
-    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username, tInteger $left, tInteger $top, tCoalaPointer $callback ) {
+    function UnitAlbumPhotoTagNew( tInteger $photoid, tText $username, tInteger $left, tInteger $top, tInteger $width, tInteger $height, tCoalaPointer $callback ) {
         global $user;
         global $libs;
 
@@ -15,6 +15,8 @@
         $username = $username->Get();
         $left = $left->Get();
         $top = $top->Get();
+		$width = $width->Get();
+		$height = $height->Get();
 
         $photo = New Image( $photoid );
         $userfinder = New UserFinder();
@@ -30,6 +32,11 @@
             window.location.reload();<?php
             return;
         }
+		if ( $width < 45 || $height < 45 ) {
+			?>alert( 'Οι συγκεκριμένες διαστάσεις δεν είναι έγκυρες' );
+			window.location.reload();<?php
+			return;
+		}
         // check for permissions
         $photoowner = $photo->User;
 
@@ -55,8 +62,8 @@
         $tag->Ownerid = $user->Id;
         $tag->Left = $left;
         $tag->Top = $top;
-        $tag->Width = 170;
-        $tag->Height = 170;
+        $tag->Width = $width;
+        $tag->Height = $height;
         $tag->Save();
         
         echo $callback;
