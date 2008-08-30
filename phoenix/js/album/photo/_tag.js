@@ -359,9 +359,21 @@ var Tag = {
 	resize_move : function( event ) {
 		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
             $( 'div.thephoto div.frienders' ).hide();
+			Tag.resize_do( event );
 			Tag.ekso( event );
             //Tag.focus( event );
         }
+	},
+	resize_do : function( event ) {
+		if ( !Tag.run ) {
+			return;
+		}
+		// Click position, relative to the image
+        var x = event.offsetX?(event.offsetX):event.pageX-$( "div.thephoto" ).get( 0 ).offsetLeft;
+        var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
+		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
+		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
+		$( 'div.tagme' ).css( { "width" : ( x - pos_x ) + 'px', "height" : ( y - pos_y ) + 'px' } );
 	}
 };
 $( document ).ready( function() {
