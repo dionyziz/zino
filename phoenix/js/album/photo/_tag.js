@@ -183,7 +183,7 @@ var Tag = {
             y = image_height - tag_height - border_width;
         }
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } ); // Move to new position
-        $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } ); // Move TagFriend window accordingly
+        $( 'div.thephoto div.frienders' ).css( { left: ( x + tag_width ) + 'px', top : y + 'px' } ); // Move TagFriend window accordingly
     },
     // Drags the tagging window while tagging, or shows tags otherwise
     drag : function( event ) {
@@ -429,5 +429,5 @@ $( document ).ready( function() {
         var x = ( image_width - tag_width - border_width )/2;
         var y = ( image_height - tag_height - border_width )*0.25; // 1/4
         $( 'div.tagme' ).css( { left : x + 'px', top : y + 'px' } );
-        $( 'div.thephoto div.frienders' ).css( { left: ( x + 170 ) + 'px', top : y + 'px' } );
+        $( 'div.thephoto div.frienders' ).css( { left: ( x + tag_width ) + 'px', top : y + 'px' } );
     } );
