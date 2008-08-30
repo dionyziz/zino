@@ -123,7 +123,7 @@
                     if ( $user->HasPermission( PERMISSION_TAG_CREATE )
                         && ( $image->User->Id == $user->Id || 
                              $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
-                        && $image->Width > 170 && $image->Height > 170 ) {
+                        && $image->Width > 45 && $image->Height > 45 ) {
                         ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false;">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php
@@ -211,7 +211,7 @@
                 echo $image->Height;
                 ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event );return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
-                    if ( $image->Width > 170 && $image->Height > 170 ) {
+                    if ( $image->Width > 45 && $image->Height > 45 ) {
                         ?><div class="tanga"><?php
                             $tagfinder = New ImageTagFinder();
                             $tags = $tagfinder->FindByImage( $image );
@@ -225,7 +225,11 @@
                                 echo $tag->Left;
                                 ?>px;top:<?php
                                 echo $tag->Top;
-                                ?>px;" onclick="document.location.href='http://<?php
+                                ?>px;width:<?php
+								echo $tag->Width;
+								?>px;height:<?php
+								echo $tag->Height;
+								?>px;" onclick="document.location.href='http://<?php
                                 echo $person->Subdomain;
                                 ?>.zino.gr';">
                                 <div><?php
@@ -251,7 +255,7 @@
                         </div><?php
                     }
                 ?></div><?php
-                if ( $image->Width > 170 && $image->Height > 170 ) {
+                if ( $image->Width > 45 && $image->Height > 45 ) {
                     ?><div class="image_tags" <?php
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
