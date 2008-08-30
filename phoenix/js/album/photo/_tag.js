@@ -10,6 +10,7 @@ TODO:
     --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
     --An kanis click kapou, dn mporis xoris na ksanakanis click, na kanis d&d
     --To box dn ginete panta hide me onmouseout
+    --Otan grafis kati k patas tab na kani autocomplete
     
     From IE7 with love:
         --To onoma dn emfanizete terma aristera, alla sto kentro i sta deksia
@@ -23,6 +24,7 @@ var Tag = {
 	genders : [], // an array of all your mutual friends' genders.  friends[ i ]  gender
     already_tagged : [], // an array of all the people tagged in this photo
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
+	resize : false, // true when the tag is resized
     run : false, // when tagging action is enabled
     // updates the friendlist and enables tagging
     start : function( kollitaria, keyword, aux ) {
@@ -204,6 +206,10 @@ var Tag = {
             $( 'div.thephoto div.frienders' ).hide();
             Tag.focus( event );
         }
+		else if ( Tag.resize ) {
+			$( 'div.thephoto div.frienders' ).hide();
+			Tag.resize_do( event );
+		}
     },
     // Works as event bubble canceling function, so that the rest of the events won't be triggered
     ekso : function( event, stop ) { 
@@ -356,15 +362,7 @@ var Tag = {
 			return;
 		}
 		Tag.ekso( event );
-		Tag.clicked = true;
-	},
-	resize_move : function( event ) {
-		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
-            $( 'div.thephoto div.frienders' ).hide();
-			Tag.resize_do( event );
-			Tag.ekso( event, true );
-            //Tag.focus( event );
-        }
+		Tag.resized = true;
 	},
 	resize_do : function( event ) {
 		if ( !Tag.run ) {

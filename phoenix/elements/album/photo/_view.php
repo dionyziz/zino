@@ -235,7 +235,7 @@
                             }
                         ?></div>
                         <div class="tagme">
-							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event );return false;" onmousemove="Tag.resize_move( event);return false;"></div>
+							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event );return false;"></div>
 						</div>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
