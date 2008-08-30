@@ -360,7 +360,7 @@ var Tag = {
 		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
             $( 'div.thephoto div.frienders' ).hide();
 			Tag.resize_do( event );
-			Tag.ekso( event );
+			//Tag.ekso( event );
             //Tag.focus( event );
         }
 	},
