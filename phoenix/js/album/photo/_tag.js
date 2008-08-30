@@ -358,7 +358,6 @@ var Tag = {
 	},
 	resize_move : function( event ) {
 		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
-			alert( 'trexo' );
             $( 'div.thephoto div.frienders' ).hide();
 			Tag.ekso( event );
             //Tag.focus( event );
