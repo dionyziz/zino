@@ -42,8 +42,8 @@ div.thephoto div.tagme div.resizer {
 	width: 10px;
 	height: 10px;
 	position: absolute;
-	top: 95%;
-	left: 95%;
+	top: 160px;
+	left: 160px;
 }
 div.thephoto div.tagme div:hover {
 	cursor: pointer;
