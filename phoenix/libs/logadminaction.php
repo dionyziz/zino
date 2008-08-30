@@ -31,9 +31,9 @@
         }
         
         $query = $db->Prepare( 
-                "INSERT INTO :adminactions VALUES ( ' ' , :user_id , :user_ip , NOW() , " . $actiontype . " , " . $targettype . " , :target_id )" 
+                "INSERT INTO `adminactions` VALUES ( ' ' , :user_id , :user_ip , NOW() , " . $actiontype . " , " . $targettype . " , :target_id )" 
         );
-        $query->BindTable( 'adminactions' );
+        //$query->BindTable( 'adminactions' );
         $query->Bind( 'user_id' , $userid );
         $query->Bind( 'user_ip' , $userip );
         $query->Bind( 'target_id' , $targetid );
