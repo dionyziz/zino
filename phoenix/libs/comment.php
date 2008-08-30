@@ -3,7 +3,6 @@
     global $libs;
 
     $libs->Load( 'poll/poll' );
-    $libs->Load( 'adminpanel/adminaction' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
@@ -444,6 +443,9 @@
         }
         protected function OnBeforeDelete() {
             global $user;
+            global $libs;
+            
+            $libs->Load( 'adminpanel/adminaction' );
             
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
@@ -529,6 +531,9 @@
         }
         public function OnBeforeUpdate() {
             global $user;
+            global $libs;
+            
+            $libs->Load( 'adminpanel/adminaction' );
                         
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
