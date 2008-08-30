@@ -20,6 +20,7 @@
     }
 
     class ImageTag extends Satori {
+        protected $mInsertIgnore = true;
         protected $mDbTableAlias = 'imagetags';
        
         protected function OnCreate() {

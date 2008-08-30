@@ -107,7 +107,7 @@
             $query->BindTable( $this->mDbTableAlias );
             $res = $query->Execute();
             $row = $res->FetchArray();
-            return $row[ 'numrows' ];
+            return ( int )$row[ 'numrows' ];
         }
         final public function __construct() {
             if ( empty( $this->mModel ) ) {

@@ -209,6 +209,7 @@
         private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         protected $mAllowRelationDefinition;
+        protected $mInsertIgnore = false;
        
         public function __get( $key ) {
             switch ( $key ) {
@@ -399,7 +400,7 @@
                     $inserts[ $fieldname ] = $this->mCurrentValues[ $attributename ];
                     $this->mPreviousValues[ $attributename ] = $this->mCurrentValues[ $attributename ];
                 }
-                $change = $this->mDbTable->InsertInto( $inserts );
+                $change = $this->mDbTable->InsertInto( $inserts, $this->mInsertIgnore );
                 if ( $change->Impact() ) {
                     if ( $this->mAutoIncrementField !== false ) {
                         $field = $this->mDbFields[ $this->mAutoIncrementField ];
