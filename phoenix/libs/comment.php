@@ -3,8 +3,7 @@
     global $libs;
 
     $libs->Load( 'poll/poll' );
-    //$libs->Load( 'adminpanel/adminaction' );
-    //$libs->Load('logadminaction');
+    $libs->Load( 'adminpanel/adminaction' );
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
@@ -445,14 +444,10 @@
         }
         protected function OnBeforeDelete() {
             global $user;
-            global $libs;
-            
-            $libs->Load( 'adminpanel/adminaction' );
             
             if ( $user->id != $this->userid ) {
-            $adminaction = new AdminAction();
-            //$adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
-            //AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
+                $adminaction = new AdminAction();
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
             }
             
             $this->Delid = 1;
@@ -534,14 +529,10 @@
         }
         public function OnBeforeUpdate() {
             global $user;
-            global $libs;
-            
-            $libs->Load( 'adminpanel/adminaction' );
-            
+                        
             if ( $user->id != $this->userid ) {
-            $adminaction = new AdminAction();
-            //$adminaction->saveAdminAction( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
-            //AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
+                $adminaction = new AdminAction();
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
             }
             
             $this->Bulk->Save();

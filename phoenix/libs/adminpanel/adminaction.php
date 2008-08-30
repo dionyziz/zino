@@ -2,7 +2,7 @@
     class AdminAction extends Satori {
         protected $mDbTableAlias = 'adminactions';
         
-        /*public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {
+        public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {
         
             $this->userid = $userid;
             $this->userip = $userip;
@@ -42,7 +42,7 @@
             $this->Save();
             
             return;        
-        }*/
+        }
         
     }
 ?>
