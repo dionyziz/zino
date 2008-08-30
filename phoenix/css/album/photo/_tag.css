@@ -36,6 +36,7 @@ div.thephoto div.tagme {
     left: 0px;
     top: 0px;
 }
+/*
 div.thephoto div.tagme div.resizer {
 	background-image: url( 'http://static.zino.gr/images/resize.jpg' );
 	display: inline;
@@ -44,6 +45,16 @@ div.thephoto div.tagme div.resizer {
 	position: absolute;
 	top: 160px;
 	left: 160px;
+}*/
+div.thephoto div.tagme div.resizer {
+	width: 1px;
+	height: 1px;
+	border-width: 10px;
+	border-style: solid;
+	border-top-style: transparent;
+	border-left-style: transparent;
+	border-color: black;
+	background-color: transparent;
 }
 div.thephoto div.tagme div:hover {
 	cursor: pointer;
