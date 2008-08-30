@@ -233,7 +233,8 @@ var Tag = {
         if ( !Tag.run ) {
             return;
         }
-        Tag.clicked=false;
+        Tag.clicked = false;
+		Tag.resized = false;
         $( 'div.thephoto div.frienders' ).show();
         $( 'div.thephoto div.frienders form input' ).focus();
     },
