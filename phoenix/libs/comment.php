@@ -445,12 +445,12 @@
         protected function OnBeforeDelete() {
             global $user;
             
+            AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
+            
             $this->Delid = 1;
             $this->Save();
 
             $this->User->OnCommentDelete();
-            
-            AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
 
             w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
             $this->Item->OnCommentDelete();
@@ -522,9 +522,15 @@
              */
             
             // Comment_RegenerateMemcache( $this->Item );
-            Sequence_Increment( TYPE_COMMENT );
+            Sequence_Increment( TYPE_COMMENT );            
         }
         public function OnBeforeUpdate() {
+            global $user;
+            
+            if ( $user->id != $this->userid ) {
+            AdminAction_Log( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
+            }
+            
             $this->Bulk->Save();
         }
         public function OnBeforeCreate() {
