@@ -1,6 +1,6 @@
 <?php
     class AdminAction extends Satori {
-        protected $mDbTabeAlias = 'adminactions';
+        protected $mDbTableAlias = 'adminactions';
         
         public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {
         
