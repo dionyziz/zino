@@ -1,7 +1,6 @@
 <?php
     
     global $libs;
-    global $user;
 
     $libs->Load( 'poll/poll' );
     $libs->Load('logadminaction');
@@ -444,6 +443,8 @@
             return $this->Delid > 0;
         }
         protected function OnBeforeDelete() {
+            global $user;
+            
             $this->Delid = 1;
             $this->Save();
 
