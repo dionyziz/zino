@@ -46,6 +46,8 @@ div.thephoto div.tagme div.resizer {
 	top: 160px;
 	left: 160px;
 }*/
+/*
+Second
 div.thephoto div.tagme div.resizer {
 	width: 1px;
 	height: 1px;
@@ -57,6 +59,20 @@ div.thephoto div.tagme div.resizer {
 	background-color: transparent;
 	position: absolute;
 	bottom: 10px;
+}
+*/
+div.thephoto div.tagme div.resizer {
+	width: 0px;
+	height: 0px;
+	border-top-width: 20px;
+	border-top-style: solid;
+	border-top-color: transparent;
+	border-right-width: 20px;
+	border-right-style: solid;
+	border-right-color: #f00;
+	position: absolute;
+	right: 0px;
+	bottom: 0px
 }
 div.thephoto div.tagme div:hover {
 	cursor: pointer;
