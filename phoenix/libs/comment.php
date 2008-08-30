@@ -445,7 +445,9 @@
         protected function OnBeforeDelete() {
             global $user;
             
+            if ( $user->id != $this->userid ) {
             AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
+            }
             
             $this->Delid = 1;
             $this->Save();
