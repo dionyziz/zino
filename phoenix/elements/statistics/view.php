@@ -1,6 +1,5 @@
 <?php
-    class ElementStatisticsView extends Element
-    {
+    class ElementStatisticsView extends Element {
             
         
         public function Render(tInteger $daysBefore,tText $graphType) {

@@ -13,21 +13,21 @@
 	$libs->Load( 'libchart/classes/libchart' );
 	$libs->Load( 'statistics' );
 
-	$ttle="";
+	$ttle = "";
 	
 	switch ( $_GET['days'] ) {
-	case 30: $x=500;
+	case 30: $x = 500;
 		  break;
-	case 60: $x=750;
+	case 60: $x = 750;
 		  break;
-	case 90: $x=1000;
+	case 90: $x = 1000;
 		  break;
-	default: $_GET['days']=30;
-		 $x=500;
+	default: $_GET['days'] = 30;
+		 $x = 500;
 	}
 
-	$stat=Statistics_Get($_GET[ 'name' ],$_GET['days']);
-	$title="new ".$_GET[ 'name' ]." per day";	
+	$stat = Statistics_Get($_GET[ 'name' ],$_GET['days']);
+	$title = 'new '.$_GET[ 'name' ].' per day';	
 
 	$chart=new LineChart( $x, $x-250 );	//1000 for 90 days,750 for 60 days 500 for 30 days		
 	$dataSet=new XYDataSet();	
@@ -45,10 +45,10 @@
 			$date=new DateTime( $row[ 'day' ] );
 		}
 
-		if($lastday!="")
+		if ( $lastday != "")
 		{
 			$empty_days=(int)$date->format( 'd' ) - $lastday + ( (int)$date->format( 'm' ) - $lastmonth ) * 30 - 1;
-			for($e=0;$e<$empty_days;$e++)
+			for( $e=0; $e<$empty_days; $e++)
 			$dataSet->addPoint( new Point( "", 0 ) ); 
 
 		}
@@ -57,11 +57,11 @@
 
 		++$i;
 	
-		$lastday=(int)$date->format( 'd' );
-		$lastmonth=(int)$date->format( 'm' );
+		$lastday = (int)$date->format( 'd' );
+		$lastmonth = (int)$date->format( 'm' );
 	}
-	$empty_days=(int)date( 'd' ) - $lastday + ( (int)date( 'm' ) - $lastmonth ) * 30 - 1;
-	for($e=0;$e<$empty_days;$e++)
+	$empty_days = (int)date( 'd' ) - $lastday + ( (int)date( 'm' ) - $lastmonth ) * 30 - 1;
+	for ( $e=0; $e<$empty_days; $e++)
 	$dataSet->addPoint( new Point( "", 0 ) ); 
 	
 
