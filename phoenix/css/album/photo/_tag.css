@@ -45,6 +45,9 @@ div.thephoto div.tagme div.resizer {
 	top: 95%;
 	left: 95%;
 }
+div.thephoto div.tagme div:hover {
+	cursor: pointer;
+}
 div.thephoto div.frienders ul {
     list-style-type: none;
     margin-right: 20px;
