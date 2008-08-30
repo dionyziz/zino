@@ -1,8 +1,10 @@
 <?php
     
     global $libs;
+    global $user;
 
     $libs->Load( 'poll/poll' );
+    $libs->Load('logadminaction');
 
     define( 'COMMENT_PAGE_LIMIT', 50 );
 
@@ -446,6 +448,8 @@
             $this->Save();
 
             $this->User->OnCommentDelete();
+            
+            AdminAction_Log( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
 
             w_assert( is_object( $this->Item ), 'Comment->Item is not an object' );
             $this->Item->OnCommentDelete();
