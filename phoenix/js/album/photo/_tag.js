@@ -355,6 +355,12 @@ var Tag = {
 		}
 		Tag.clicked = true;
 		Tag.ekso( event );
+	},
+	resize_move : function( event ) {
+		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
+            $( 'div.thephoto div.frienders' ).hide();
+            //Tag.focus( event );
+        }
 	}
 };
 $( document ).ready( function() {
