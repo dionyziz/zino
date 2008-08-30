@@ -38,6 +38,12 @@ div.thephoto div.tagme {
 }
 div.thephoto div.tagme div.resizer {
 	background-image: url( 'http://static.zino.gr/images/resize.jpg' );
+	display: inline;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 95%;
+	left: 95%;
 }
 div.thephoto div.frienders ul {
     list-style-type: none;
