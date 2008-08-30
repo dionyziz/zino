@@ -238,7 +238,11 @@
                                 </div><?php
                             }
                         ?></div>
-                        <div class="tagme">
+                        <div class="tagme"<?php
+						if ( $image->Height < 170 || $image->Width < 170 ) {
+							?> style="height:45px;width:45px;"<?php
+						}
+						?>>
 							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event );return false;"></div>
 						</div>
                         <div class="frienders">
