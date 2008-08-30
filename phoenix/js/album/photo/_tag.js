@@ -374,7 +374,11 @@ var Tag = {
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
-		$( 'div.tagme' ).css( { "width" : ( x - pos_x ) + 'px', "height" : ( y - pos_y ) + 'px' } );
+		var width = x - pos_x;
+		var height = y - pos_y;
+		$( 'div.tagme' ).css( { "width" : width + 'px', "height" : height + 'px' } );
+		var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
+		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
 	}
 };
 $( document ).ready( function() {
