@@ -131,6 +131,8 @@ var Tag = {
         divani.className = "tag";
         divani.style.left = left + 'px';
         divani.style.top = top + 'px';
+		divani.style.width = width + 'px';
+		divani.style.height = height + 'px';
         var divani2 = document.createElement( 'div' );
         // updates the friendlist and enables tagging
         divani2.appendChild( document.createTextNode( username ) );
@@ -197,7 +199,9 @@ var Tag = {
             $( 'div.tanga div' ).each( function( i ) { // Move through all the tags and display appropriate ones. Hide the rest
                 var left = parseInt( $( this ).css( 'left' ), 10 );
                 var top = parseInt( $( this ).css( 'top' ), 10 );
-                if ( x>left && x < left+170 && y > top && y < top+170 ) { // mouse is over the current tag area
+				var width = parseInt( $( this ).css( 'width' ), 10 );
+				var height = parseInt( $( this ).css( 'height' ), 10 );
+                if ( x>left && x < left + width && y > top && y < top + height ) { // mouse is over the current tag area
                     $( this ).css( { "borderWidth" : "2px", "cursor" : "pointer" } ).find( 'div' ).show();
                 }
                 else {
