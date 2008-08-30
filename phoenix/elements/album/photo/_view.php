@@ -234,7 +234,7 @@
                                 </div><?php
                             }
                         ?></div>
-                        <div class="tagme"></div>
+                        <div class="tagme"><div></div></div>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">
