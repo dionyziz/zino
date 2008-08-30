@@ -203,7 +203,6 @@ var Tag = {
             return;
         }
 		if ( Tag.resized ) {
-			alert( "trexo" );
 			$( 'div.thephoto div.frienders' ).hide();
 			Tag.resize_do( event );
 		}
