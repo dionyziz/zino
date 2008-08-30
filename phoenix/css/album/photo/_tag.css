@@ -55,6 +55,9 @@ div.thephoto div.tagme div.resizer {
 	border-left-style: transparent;
 	border-color: black;
 	background-color: transparent;
+	position: absolute;
+	top: 160px;
+	left: 160px;
 }
 div.thephoto div.tagme div:hover {
 	cursor: pointer;
