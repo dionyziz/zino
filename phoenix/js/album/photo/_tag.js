@@ -375,7 +375,7 @@ var Tag = {
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
 		
-		if ( pos_x >= x - 10 || pos_y >= y - 10 ) {
+		if ( x - pos_x < 150 || y - pos_y < 150 ) {
 			return;
 		}
 		
