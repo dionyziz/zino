@@ -202,14 +202,14 @@ var Tag = {
             } );
             return;
         }
-        if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
-            $( 'div.thephoto div.frienders' ).hide();
-            Tag.focus( event );
-        }
-		else if ( Tag.resize ) {
+		if ( Tag.resize ) {
 			$( 'div.thephoto div.frienders' ).hide();
 			Tag.resize_do( event );
 		}
+        else if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
+            $( 'div.thephoto div.frienders' ).hide();
+            Tag.focus( event );
+        }
     },
     // Works as event bubble canceling function, so that the rest of the events won't be triggered
     ekso : function( event, stop ) { 
