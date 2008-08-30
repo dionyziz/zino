@@ -234,7 +234,9 @@
                                 </div><?php
                             }
                         ?></div>
-                        <div class="tagme"><div class="resizer"></div></div>
+                        <div class="tagme">
+							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event );return false;"></div>
+						</div>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">

@@ -348,6 +348,13 @@ var Tag = {
 		$( par ).hide( 400, function() {
 			$( this ).remove(); 
 		} );
+	},
+	resize_down : function( event ) {
+		if ( !Tag.run ) {
+			return;
+		}
+		Tag.clicked = true;
+		Tag.ekso( event );
 	}
 };
 $( document ).ready( function() {
