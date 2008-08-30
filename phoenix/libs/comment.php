@@ -535,7 +535,7 @@
             
             $libs->Load( 'adminpanel/adminaction' );
                         
-            if ( $user->id != $this->userid ) {
+            if ( $user->id != $this->userid && $this->Delid == 0 ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
             }
