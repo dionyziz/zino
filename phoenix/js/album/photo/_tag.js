@@ -354,7 +354,7 @@ var Tag = {
 			return;
 		}
 		Tag.clicked = true;
-		Tag.ekso( event );
+		//Tag.ekso( event );
 	},
 	resize_move : function( event ) {
 		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
