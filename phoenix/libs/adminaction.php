@@ -1,5 +1,5 @@
 <?php
-
+/*
     function AdminAction_GetByAdmin( $admin ) {
         global $db;
         global $adminactions;
@@ -98,5 +98,5 @@
             $this->mAdmin = new User( $construct );
         }
     }
-
+*/
 ?>
