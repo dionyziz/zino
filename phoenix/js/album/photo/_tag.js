@@ -24,7 +24,7 @@ var Tag = {
 	genders : [], // an array of all your mutual friends' genders.  friends[ i ]  gender
     already_tagged : [], // an array of all the people tagged in this photo
     clicked : false, // true when the mouse is pressed on the image, false otherwiser
-	resize : false, // true when the tag is resized
+	resized : false, // true when the tag is resized
     run : false, // when tagging action is enabled
     // updates the friendlist and enables tagging
     start : function( kollitaria, keyword, aux ) {
@@ -202,8 +202,8 @@ var Tag = {
             } );
             return;
         }
-		alert( "Trexo" );
-		if ( Tag.resize ) {
+		if ( Tag.resized ) {
+			alert( "trexo" );
 			$( 'div.thephoto div.frienders' ).hide();
 			Tag.resize_do( event );
 		}
