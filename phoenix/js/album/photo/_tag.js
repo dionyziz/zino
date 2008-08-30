@@ -206,14 +206,16 @@ var Tag = {
         }
     },
     // Works as event bubble canceling function, so that the rest of the events won't be triggered
-    ekso : function( event ) { 
+    ekso : function( event, stop ) { 
         if ( $.browser.msie ) {
             event.cancelBubble = true;
         }
         else {
             event.stopPropagation();
         }
-        Tag.clicked=false; // Drop
+		if ( stop !== true ) {
+			Tag.clicked=false; // Drop
+		}
     },
     // Runs only when the input is focused
     focusInput : function( event ) {
@@ -360,7 +362,7 @@ var Tag = {
 		if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
             $( 'div.thephoto div.frienders' ).hide();
 			Tag.resize_do( event );
-			Tag.ekso( event );
+			Tag.ekso( event, true );
             //Tag.focus( event );
         }
 	},
