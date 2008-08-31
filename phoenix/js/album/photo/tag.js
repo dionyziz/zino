@@ -278,7 +278,6 @@ var Tag = {
             Tag.submitTag( event, Tag.friends[ index ], $( "div.thephoto div.frienders ul li:contains('" + Tag.friends[ index ] + "') a" ).get( 0 ) );
             return;
         }
-		alert( event.keyCode );
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
                         return ( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
