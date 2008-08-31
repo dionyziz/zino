@@ -106,6 +106,12 @@
             global $libs;
             $libs->Load( 'event' );
             $libs->Load( 'comment' );
+            $libs->Load( 'adminpanel/adminaction' );
+                        
+            if ( $user->id != $this->userid ) {
+                $adminaction = new AdminAction();
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'journall' , $this->id );
+            }
 
             --$this->User->Count->Journals;
             $this->User->Count->Save();
