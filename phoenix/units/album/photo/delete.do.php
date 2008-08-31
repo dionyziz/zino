@@ -4,7 +4,7 @@
         global $rabbit_settings;
         
         $image = New Image( $photoid->Get() );
-        if ( $image->User->Id == $user->Id ) {
+        if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
             $albumid = $image->Albumid;
             $image->Delete();
             if ( $albumid > 0 ) {

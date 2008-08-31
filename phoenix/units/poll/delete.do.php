@@ -7,7 +7,7 @@
         
         $libs->Load( 'poll/poll' );
         $poll = New Poll( $pollid->Get() );
-        if ( $poll->Userid == $user->Id ) {
+        if ( $poll->Userid == $user->Id || $user->HasPermission( PERMISSION_POLL_DELETE_ALL ) ) {
             $poll->Delete();
             ?>window.location.href = '<?php
             echo $rabbit_settings[ 'webaddress' ];
