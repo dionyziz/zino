@@ -215,6 +215,7 @@ var Tag = {
 			Tag.resize_do( event );
 		}
         else if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
+			alert( "asd" );
             $( 'div.thephoto div.frienders' ).hide();
             Tag.focus( event );
         }
