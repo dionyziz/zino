@@ -443,16 +443,15 @@
         }
         protected function OnBeforeDelete() {
             global $user;
-             global $libs;
-            
+            global $libs;            
 			
             $libs->Load( 'adminpanel/adminaction' );
             
-			/*
+			
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
-            }*/
+            }
             
             $this->Delid = 1;
             $this->Save();
@@ -536,11 +535,11 @@
             global $libs;
             
             $libs->Load( 'adminpanel/adminaction' );
-            /*            
+                       
             if ( $user->id != $this->userid && $this->Delid == 0 ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
-            }*/
+            }
             
             $this->Bulk->Save();
         }
