@@ -401,8 +401,8 @@ var Tag = {
 		if ( event.keyCode == 9 ) {
 			var node = $( "div.thephoto div.frienders ul li:first a" );
 			var text = node.text();
+			alert( text );
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
-				alert( "k pio kato" );
 				Tag.submitTag( event, text, node.get( 0 ) );
 			}
 			Tag.ekso( event );
