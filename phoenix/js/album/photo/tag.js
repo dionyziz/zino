@@ -397,6 +397,17 @@ var Tag = {
 		
 		var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
+	},
+	autocomplete : function( event ) {
+		if ( event.keyCode == 9 ) {
+			var node = $( "div.thephoto div.frienders ul li:first a" );
+			var text = node.text();
+            if ( $.inArray( text, Tag.friends ) !== -1 ) {
+				Tag.submitTag( event, text, node.get( 0 ) );
+			}
+			Tag.ekso( event );
+		}
+		
 	}
 };
 $( document ).ready( function() {
