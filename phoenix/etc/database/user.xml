@@ -10,7 +10,7 @@
             <field name="user_registerhost" type="int" signed="no" />
             <field name="user_created" type="datetime" />
             <field name="user_rights" type="int" />
-            <field name="user_icon" type="int" ref="images.image_id" />
+            <field name="user_icon" type="int" ref="images.image_id" /><!-- user avatar -->
             <field name="user_email" type="varchar" size="256" />
             <field name="user_emailverified" type="enum">
                 <value default="yes">no</value>
