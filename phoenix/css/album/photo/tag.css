@@ -60,7 +60,7 @@ div.thephoto div.tagme div.resizer {
 	bottom: 0px
 }*/
 div.thephoto div.tagme div:hover {
-	cursor: pointer;
+	cursor: nw-resize;
 }
 div.thephoto div.frienders ul {
     list-style-type: none;
