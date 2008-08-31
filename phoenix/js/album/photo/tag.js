@@ -1,6 +1,5 @@
 /*
 TODO:
-    --Tagging Box Resizing
     --Resolve Overlapping Tags
     --Auto Scrolling
     --Sbise Tag Notifications otan diagrafonte ta tags
@@ -8,10 +7,10 @@ TODO:
     --Otan iparxi ena Tag stn gonia ( i teleuteo tag? ) k to mouse plisiazi to onoma, emfanizi border
     --Ta onomata dn exoun style.cursor="pointer"
     --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
-    --An kanis click kapou, dn mporis xoris na ksanakanis click, na kanis d&d
     --To box dn ginete panta hide me onmouseout
     --Otan grafis kati k patas tab na kani autocomplete
-    
+    --Sbise ola ta tags otan diagrafete mia ikona
+	
     From IE7 with love:
         --To onoma dn emfanizete terma aristera, alla sto kentro i sta deksia
         --Otan ginete onmouseover pano sto onoma sto tag, anabosbini
@@ -279,6 +278,7 @@ var Tag = {
             Tag.submitTag( event, Tag.friends[ index ], $( "div.thephoto div.frienders ul li:contains('" + Tag.friends[ index ] + "') a" ).get( 0 ) );
             return;
         }
+		alert( event.keyCode );
         var friends = $.grep( Tag.friends, function( item, index ) { // select friends
                         return ( item.toUpperCase().substr( 0, text.length ) == text.toUpperCase() );
 		               } );
