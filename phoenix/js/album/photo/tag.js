@@ -399,10 +399,10 @@ var Tag = {
 	},
 	autocomplete : function( event ) {
 		if ( event.keyCode == 9 ) {
-			alert( 'k pefto' );
 			var node = $( "div.thephoto div.frienders ul li:first a" );
 			var text = node.text();
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
+				alert( "k pio kato" );
 				Tag.submitTag( event, text, node.get( 0 ) );
 			}
 			Tag.ekso( event );
