@@ -209,7 +209,7 @@
                 echo $image->Width;
                 ?>px;height:<?php
                 echo $image->Height;
-                ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event );$( 'div.messageboxer' ).get( 0 ).innerHTML += 'Tag.clicked = false apo tomegalo ekso';return false;" onmousemove="Tag.drag( event );return false;"><?php
+                ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event, true );$( 'div.messageboxer' ).get( 0 ).innerHTML += 'Tag.clicked = false apo tomegalo ekso';return false;" onmousemove="Tag.drag( event );return false;"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 45 && $image->Height > 45 ) {
                         ?><div class="tanga"><?php
@@ -243,7 +243,7 @@
 							?> style="height:45px;width:45px;"<?php
 						}
 						?>>
-							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event );return false;"></div>
+							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event, true );return false;"></div>
 						</div>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
