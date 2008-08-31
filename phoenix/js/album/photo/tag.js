@@ -399,7 +399,7 @@ var Tag = {
 	},
 	autocomplete : function( event ) {
 		if ( event.keyCode == 9 ) {
-			var node = $( "div.thephoto div.frienders ul li:first a" );
+			var node = $( "div.thephoto div.frienders ul li:first a:first" );
 			var text = node.text();
 			alert( text );
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
