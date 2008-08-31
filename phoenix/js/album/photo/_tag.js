@@ -215,7 +215,6 @@ var Tag = {
 			Tag.resize_do( event );
 		}
         else if ( Tag.clicked ) { // Click is pressed and tagging mode enabled. Drag
-			alert( "asd" );
             $( 'div.thephoto div.frienders' ).hide();
             Tag.focus( event );
         }
@@ -229,6 +228,7 @@ var Tag = {
             event.stopPropagation();
         }
 		if ( stop !== true ) {
+			alert( "Tag.clicked=false apo to ekso" );
 			Tag.clicked=false; // Drop
 		}
     },
@@ -242,6 +242,7 @@ var Tag = {
         if ( !Tag.run ) {
             return;
         }
+		alert( "Tag.clicked=false apo toshowSug" );
         Tag.clicked = false;
 		Tag.resized = false;
         $( 'div.thephoto div.frienders' ).show();
@@ -252,6 +253,7 @@ var Tag = {
         if ( !Tag.run ) {
             return;
         }
+		alert( "Tag.clicked=true apo tn katoPontike" );
         Tag.clicked=true;
         Tag.focus( event );
     },
