@@ -403,7 +403,7 @@ var Tag = {
 			var text = node.text();
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
 				Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "') a" ).get( 0 ) );
-				window.setTimeout( "$( 'div.thephoto' ).get( 0 ).scrollIntoView( true )", 10 );
+				window.setTimeout( "$( 'div.thephoto' ).get( 0 ).scrollIntoView( true )", 5 );
 			}
 			Tag.ekso( event );
 		}
