@@ -248,7 +248,7 @@
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
                             <form action="" onsubmit="return false;">
-                                <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeypress="Tag.autocomplete( event );" onkeyup="Tag.filterSug( event );" />
+                                <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeydown="Tag.autocomplete( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
                             <ul onmousedown="Tag.ekso( event );return false;">
                                 <li></li>
