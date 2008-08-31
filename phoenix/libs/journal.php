@@ -103,6 +103,7 @@
             Sequence_Increment( TYPE_JOURNAL );
         }
         protected function OnDelete() {
+            global $user;
             global $libs;
             $libs->Load( 'event' );
             $libs->Load( 'comment' );
