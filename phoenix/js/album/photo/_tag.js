@@ -383,7 +383,7 @@ var Tag = {
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
 		
-		if ( x - pos_x < 55 || y - pos_y < 55 ) {
+		if ( x - pos_x <= 45 || y - pos_y <= 45 ) {
 			return;
 		}
 		
@@ -392,7 +392,6 @@ var Tag = {
 		$( 'div.tagme' ).css( { "width" : width + 'px', "height" : height + 'px' } );
 		var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
-		//$( 'div.tagme div.resizer').css( { 'left' : ( width - 10 ) + 'px', 'top' : ( height - 10 ) + 'px' } );
 	}
 };
 $( document ).ready( function() {
