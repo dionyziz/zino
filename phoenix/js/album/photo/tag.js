@@ -398,7 +398,6 @@ var Tag = {
 		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
 	},
 	autocomplete : function( event ) {
-		alert( 'trexo' );
 		if ( event.keyCode == 9 ) {
 			alert( 'k pefto' );
 			var node = $( "div.thephoto div.frienders ul li:first a" );
@@ -408,7 +407,6 @@ var Tag = {
 			}
 			Tag.ekso( event );
 		}
-		
 	}
 };
 $( document ).ready( function() {
