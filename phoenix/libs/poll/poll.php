@@ -77,16 +77,6 @@
             return $this->Delid > 0;
         }
         public function OnBeforeDelete() {
-            global $user;
-            global $libs;
-            
-            $libs->Load( 'adminpanel/adminaction' );
-                        
-            if ( $user->id != $this->userid && $this->Delid == 0 ) {
-                $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'poll' , $this->id );
-            }
-        
             $this->Delid = 1;
             $this->Save();
 
