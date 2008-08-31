@@ -399,11 +399,11 @@ var Tag = {
 	},
 	autocomplete : function( event ) {
 		if ( event.keyCode == 9 ) {
-			var node = $( "div.thephoto div.frienders ul li:first a:first" );
+			var node = $( "div.thephoto div.frienders ul li div" );
 			var text = node.text();
 			alert( text );
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
-				Tag.submitTag( event, text, node.get( 0 ) );
+				Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "') a" ).get( 0 ) );
 			}
 			Tag.ekso( event );
 		}
