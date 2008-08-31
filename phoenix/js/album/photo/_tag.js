@@ -382,14 +382,16 @@ var Tag = {
         var y = event.offsetY?(event.offsetY):event.pageY-$( "div.thephoto" ).get( 0 ).offsetTop;
 		var pos_x = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		var pos_y = parseInt( $( 'div.tagme').css( 'top' ), 10 );
-		
-		if ( x - pos_x <= 35 || y - pos_y <= 35 ) {
-			return;
-		}
-		
 		var width = x - pos_x;
 		var height = y - pos_y;
-		$( 'div.tagme' ).css( { "width" : width + 'px', "height" : height + 'px' } );
+		
+		if ( width >= 45 ) {
+			$( 'div.tagme' ).css( { "width" : width + 'px' } );
+		}
+		if ( height >= 45 ) {
+			$( 'div.tagme' ).css( { "height" : height + 'px' } );
+		}
+		
 		var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
 	}
