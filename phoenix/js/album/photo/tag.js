@@ -401,7 +401,6 @@ var Tag = {
 		if ( event.keyCode == 9 ) {
 			var node = $( "div.thephoto div.frienders ul li div" );
 			var text = node.text();
-			alert( text );
             if ( $.inArray( text, Tag.friends ) !== -1 ) {
 				Tag.submitTag( event, text, $( "div.thephoto div.frienders ul li:contains('" + text + "') a" ).get( 0 ) );
 			}
