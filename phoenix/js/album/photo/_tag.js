@@ -228,7 +228,7 @@ var Tag = {
             event.stopPropagation();
         }
 		if ( stop !== true ) {
-			alert( "Tag.clicked=false apo to ekso" );
+			$( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />Tag.clicked=false apo to ekso";
 			Tag.clicked=false; // Drop
 		}
     },
@@ -242,7 +242,7 @@ var Tag = {
         if ( !Tag.run ) {
             return;
         }
-		alert( "Tag.clicked=false apo toshowSug" );
+		$( 'div.messageboxer' ).get( 0 ).innerHTML += "<br /> Tag.clicked=false apo toshowSug";
         Tag.clicked = false;
 		Tag.resized = false;
         $( 'div.thephoto div.frienders' ).show();
@@ -253,7 +253,7 @@ var Tag = {
         if ( !Tag.run ) {
             return;
         }
-		alert( "Tag.clicked=true apo tn katoPontike" );
+		$( 'div.messageboxer' ).get( 0 ).innerHTML += "<br />Tag.clicked=true apo tn katoPontike";
         Tag.clicked=true;
         Tag.focus( event );
     },

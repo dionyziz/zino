@@ -260,7 +260,9 @@
                     }
                 ?></div><?php
                 if ( $image->Width > 45 && $image->Height > 45 ) {
-                    ?><div class="image_tags" <?php
+                    ?>
+					<div class="messageboxer"></div>
+					<div class="image_tags" <?php
                     if ( $tags_num == 0 ) {
                         ?>style="display:none"<?php
                     }
