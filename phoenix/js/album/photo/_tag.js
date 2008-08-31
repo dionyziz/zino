@@ -392,7 +392,7 @@ var Tag = {
 		$( 'div.tagme' ).css( { "width" : width + 'px', "height" : height + 'px' } );
 		var left = parseInt( $( 'div.tagme' ).css( 'left' ), 10 );
 		$( 'div.thephoto div.frienders' ).css( 'left', ( left + width ) + 'px' );
-		$( 'div.tagme div.resizer').css( { 'left' : ( width - 10 ) + 'px', 'top' : ( height - 10 ) + 'px' } );
+		//$( 'div.tagme div.resizer').css( { 'left' : ( width - 10 ) + 'px', 'top' : ( height - 10 ) + 'px' } );
 	}
 };
 $( document ).ready( function() {
