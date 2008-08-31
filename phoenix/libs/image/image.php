@@ -217,6 +217,16 @@
             return $this->Save();
         }
         public function OnBeforeDelete() {
+            global $user;
+            global $libs;
+            
+            $libs->Load( 'adminpanel/adminaction' );
+                        
+            if ( $user->id != $this->userid ) {
+                $adminaction = new AdminAction();
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'image' , $this->id );
+            }
+        
             $this->Delid = 1;
             $this->Save();
 

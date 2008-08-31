@@ -73,7 +73,7 @@
             $this->Bulk->Save();
             $this->Bulkid = $this->Bulk->Id;
         }
-        public function OnUpdate() {
+        public function OnUpdate() {            
             $this->Bulk->Save();
         }
         public function OnCommentCreate() {
