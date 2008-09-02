@@ -432,14 +432,17 @@ final class PageCoala extends Page {
         
         parent::__construct();
     }
+    private function OutputHeaders() {
+        header( 'Content-type: text/javascript; charset=utf-8' );
+    }
     public function Output() {
         $this->GenerateBody();
         $this->OutputStart();
+        $this->OutputHeaders();
         $this->OutputPage();
         $this->OutputEnd();
     }
     protected function OutputPage() {
-        header( 'Content-type: text/javascript' );
         ?>while(1);<?php // JS hijacking prevention
         echo $this->mBody;
     }
