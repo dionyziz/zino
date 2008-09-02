@@ -28,7 +28,7 @@
                 $action->CopyUserFrom( new User( $users[ $action->userid ] ) );
             }
             
-            return $found;;
+            return $found;
         }
         
         public function Count () {
