@@ -77,7 +77,7 @@
         }  
         
         public function CopyUserFrom( $key ) {
-        $this->mRelation[ 'User' ]->CopyFrom( $key );
+        $this->mRelations[ 'User' ]->CopyFrom( $key );
         }
         
         protected function Relations() {
