@@ -124,7 +124,8 @@ Project_Destruct()' );
             'allpolls'             => 'poll/recent/list',
             'alljournals'          => 'journal/recent/list',
             'search2'               => 'search',
-            'search'                => 'search/view'
+            'search'                => 'search/view',
+            'adminlog'              => 'adminlog/view'
 
 
         );
