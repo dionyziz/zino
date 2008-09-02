@@ -54,5 +54,8 @@
             return;        
         }
         
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+        }
     }
 ?>
