@@ -1,6 +1,6 @@
 <?php
     class ElementAdminlogView extends Element {
-        public function Render() {
+        public function Render( tInteger $offset ) {
             global $user;
             global $libs;
             global $page;
@@ -15,8 +15,9 @@
             
             ?><h2>Logged admin actions</h2><?php 
             
+            $offset=$offset->Get();
             $adminFinder = new AdminActionFinder();
-            $admins = $adminFinder->FindAll( 0, 20 );            
+            $admins = $adminFinder->FindAll( $offset, 20 );            
            
             foreach ( $admins as $admin ) {
                 ?><p>User <?php
