@@ -20,7 +20,7 @@
             $query->Bind( 'userids',  $userids );
             
             $res = $query->Execute();
-            $adminactions = array();
+            $adminsactions = array();
             while( $row = $res->FetchArray() ) {
                 $admin = new AdminAction( $row );
                 $admin->CopyUserFrom( new User( $row ) );
