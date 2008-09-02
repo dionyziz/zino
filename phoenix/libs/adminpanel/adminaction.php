@@ -4,8 +4,30 @@
             
         public function FindAll ( $offset, $limit ) {
             $prototype = new AdminAction();
+            $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            $userids=array();
+            foreach( $found as $admin ) {
+            $userids[] = $admin->userid;            
+            }
+            
+            $query->mDb->Prepare( 
+                'SELECT * FROM :adminactions
+                LEFT JOIN :users ON `adminactions_userid`=`users_id`
+                WHERE `userid`  IN :userids'
+            );            
+            $query->BindTable( 'users', 'adminactions' );
+            $query->Bind( 'userids',  $userids );
+            
+            $res = $query->Execute();
+            $adminactions = array();
+            while( $row = $res->FetchArray() ) {
+                $admin = new AdminAction( $row );
+                $admin->CopyUserFrom( new User( $row ) );
+                $adminactions[] = $admin;
+            }
+            
+            return $adminsactions;
         }
         
         public function Count () {
@@ -52,7 +74,11 @@
             }
             
             return parent::__get( $key );
-        }        
+        }  
+        
+        public function CopyUserFrom( $key ) {
+        $this->mRelation[ 'User' ]->CopyFrom( $key );
+        }
         
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
