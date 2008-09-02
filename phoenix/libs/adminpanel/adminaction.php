@@ -58,8 +58,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
         
-        public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {
-        
+        public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {        
             $this->userid = $userid;
             $this->userip = $userip;
             $this->targetid = $targetid;
@@ -95,8 +94,7 @@
                     return;
             }
             
-            $this->Save();
-            
+            $this->Save();            
             return;        
         }
     }
