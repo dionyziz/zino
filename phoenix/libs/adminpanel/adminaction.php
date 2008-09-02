@@ -12,6 +12,37 @@
     class AdminAction extends Satori {
         protected $mDbTableAlias = 'adminactions';
         
+        public function __get( $key ) {
+            switch( $key ) {
+                case 'name':
+                    return $this->User->name;
+                case 'target_name':
+                    switch( $this->targettype ) {
+                        case 1:
+                            return 'comment';
+                        case 2:
+                            return 'poll';                        
+                        case 3:
+                            return 'journal';
+                        case 4:
+                            return 'image';
+                    }
+                case 'action':
+                    switch( $this->type ) {  
+                    case 1:
+                        return 'delete';
+                    case 2:
+                        return 'edit';
+                    }
+            }
+            
+            return parent::__get( $key );
+        }        
+        
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+        }
+        
         public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {
         
             $this->userid = $userid;
@@ -52,10 +83,6 @@
             $this->Save();
             
             return;        
-        }
-        
-        protected function Relations() {
-            $this->User = $this->HasOne( 'User', 'Userid' );
         }
     }
 ?>

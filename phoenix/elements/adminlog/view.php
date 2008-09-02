@@ -19,7 +19,7 @@
             $admins = $adminFinder->FindAll( 0, 20 );            
            
             foreach ( $admins as $admin ) {
-            echo '<p>' . $admin->id . ' ' . $admin->User->name. ' ' . $admin->date . '</p>';
+            echo '<p>' . $admin->name. ' ' . $admin->userip . ' ' . $admin->target . ' ' . $admin->action . ' ' . $admin->date . '</p>';
             }
                         
             return;
