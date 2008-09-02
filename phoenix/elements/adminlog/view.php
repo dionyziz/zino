@@ -15,9 +15,12 @@
             
             ?><h2>Logged admin actions</h2><?php 
             
-            $offset=$offset->Get();
+            $offset=$offset->Get();            
+            if ( $offset < 0 ) $offset = 0;
+            
             $adminFinder = new AdminActionFinder();
-            $admins = $adminFinder->FindAll( $offset, 20 );            
+            $admins = $adminFinder->FindAll( $offset, 20 );   
+            $numactions = $adminFinder->Count();         
            
             foreach ( $admins as $admin ) {
                 ?><p>User <?php
@@ -41,7 +44,12 @@
                 echo $admin->date;
                 ?>.</p><?php
             }
-                        
+            
+            for( $i=0 ; $i < $numactions ; $i += 20 ) {
+            echo $i.' ';
+            }
+            
+                       
             return;
         }
     }

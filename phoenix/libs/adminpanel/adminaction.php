@@ -7,6 +7,21 @@
             
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
+        
+        public function Count () {
+            $query = $this->mDb->Prepare(
+                'SELECT
+                    COUNT( * ) AS numactions
+                FROM
+                    :adminactions'
+            );
+            $query->BindTable( 'adminactions' );
+            $res = $query->Execute();
+            $row = $res->FetchArray();
+            $numactions = $row[ 'numactions' ];
+            
+            return $numactions;
+        }        
     }
 
     class AdminAction extends Satori {
