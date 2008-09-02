@@ -12,22 +12,23 @@
             }
             
             $query = $this->mDb->Prepare( 
-                'SELECT * FROM :adminactions
-                LEFT JOIN :users ON `adminactions_userid`=`user_id`
+                'SELECT * FROM :users
                 WHERE `user_id`  IN :userids'
             );            
-            $query->BindTable( 'users', 'adminactions' );
+            $query->BindTable( 'users' );
             $query->Bind( 'userids',  $userids );
             
             $res = $query->Execute();
-            $adminsactions = array();
+            $users = array();
             while( $row = $res->FetchArray() ) {
-                $admin = new AdminAction( $row );
-                $admin->CopyUserFrom( new User( $row ) );
-                $adminactions[] = $admin;
+                $users[ $row[ 'user_id' ] ] = new User( $row );
             }
             
-            return $adminsactions;
+            foreach( $found as $action ) {
+                $action->CopyUserFrom( new User( $users[ $action->userid ] ) );
+            }
+            
+            return $found;;
         }
         
         public function Count () {
