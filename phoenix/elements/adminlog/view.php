@@ -19,7 +19,26 @@
             $admins = $adminFinder->FindAll( 0, 20 );            
            
             foreach ( $admins as $admin ) {
-            echo '<p>' . $admin->name. ' ' . $admin->userip . ' ' . $admin->target . ' ' . $admin->action . ' ' . $admin->date . '</p>';
+                ?><p>User <?php
+                echo $admin->name;
+                ?> with ip <?php
+                echo long2ip($admin->userip);
+                ?> <?php
+                switch( $admin->action ) {
+                    case 'delete':
+                        echo 'deleted';
+                        break;
+                    case 'edit':
+                        echo 'edited';
+                        break;
+                    }
+                ?> <?php
+                echo $admin->target;
+                    ?> with id <?
+                echo $admin->targetid;
+                ?> at <?php
+                echo $admin->date;
+                ?>.<?php
             }
                         
             return;
