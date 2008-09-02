@@ -9,7 +9,18 @@ functions = ( 'w_assert',
     '$water->Hey' )
 
 def decommentized( source ):
-    pass # TODO
+    new = []
+    inString = False
+    inComment = False
+    commentStart = False
+    for line in source.splitlines():
+        backslashes = 0
+        for c in line:
+            if inString:
+                if c == symbol and backslashes % 2:
+                    inString = False
+            if inComment:
+                
 
 def dewaterized( source ):
     new = []
