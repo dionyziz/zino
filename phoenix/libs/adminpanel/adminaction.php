@@ -1,4 +1,14 @@
 <?php
+    class AdminActionFinder extends Finder {
+        protected $mModel = 'AdminAction';
+            
+        public function FindAll ( $offset, $limit ) {
+            $prototype = new AdminAction();
+            
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'id', 'DESC' ) );
+        }
+    }
+
     class AdminAction extends Satori {
         protected $mDbTableAlias = 'adminactions';
         
