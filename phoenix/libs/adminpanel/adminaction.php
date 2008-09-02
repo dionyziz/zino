@@ -11,7 +11,7 @@
             $userids[] = $admin->userid;            
             }
             
-            $query->mDb->Prepare( 
+            $query = $this->mDb->Prepare( 
                 'SELECT * FROM :adminactions
                 LEFT JOIN :users ON `adminactions_userid`=`users_id`
                 WHERE `userid`  IN :userids'
