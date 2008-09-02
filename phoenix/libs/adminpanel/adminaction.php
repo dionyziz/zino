@@ -16,7 +16,7 @@
             switch( $key ) {
                 case 'name':
                     return $this->User->name;
-                case 'target_name':
+                case 'target':
                     switch( $this->targettype ) {
                         case 1:
                             return 'comment';
