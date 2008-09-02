@@ -45,8 +45,9 @@
                 ?>.</p><?php
             }
             
+            ?><p><?php
             for( $i=0 ; $i < $numactions ; $i += 20 ) {
-            echo $i.' ';
+            ?><a href="?p=adminlog&amp;offset=?><?php echo $i;?>"><?php echo $i;?> </a><?php
             }
             
                        
