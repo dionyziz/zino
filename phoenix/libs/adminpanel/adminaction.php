@@ -5,7 +5,7 @@
         public function FindAll ( $offset, $limit ) {
             $prototype = new AdminAction();
             
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'id', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
     }
 
