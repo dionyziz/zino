@@ -38,7 +38,7 @@
                 echo $admin->targetid;
                 ?> at <?php
                 echo $admin->date;
-                ?>.<?php
+                ?>.</p><?php
             }
                         
             return;
