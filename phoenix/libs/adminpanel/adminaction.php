@@ -14,7 +14,7 @@
             $query = $this->mDb->Prepare( 
                 'SELECT * FROM :adminactions
                 LEFT JOIN :users ON `adminactions_userid`=`users_id`
-                WHERE `userid`  IN :userids'
+                WHERE `users_id`  IN :userids'
             );            
             $query->BindTable( 'users', 'adminactions' );
             $query->Bind( 'userids',  $userids );
