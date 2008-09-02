@@ -20,7 +20,13 @@
             
             $adminFinder = new AdminActionFinder();
             $admins = $adminFinder->FindAll( $offset, 20 );   
-            $numactions = $adminFinder->Count();         
+            $numactions = $adminFinder->Count();  
+            
+            ?><p><?php
+            for( $i=0 ; $i < $numactions ; $i += 20 ) {
+            ?><a href="?p=adminlog&amp;offset=<?php echo $i;?>"><?php echo $i;?> </a><?php
+            }
+            ?></p><?php       
            
             foreach ( $admins as $admin ) {
                 ?><p>User <?php
@@ -43,14 +49,7 @@
                 ?> at <?php
                 echo $admin->date;
                 ?>.</p><?php
-            }
-            
-            ?><p><?php
-            for( $i=0 ; $i < $numactions ; $i += 20 ) {
-            ?><a href="?p=adminlog&amp;offset=<?php echo $i;?>"><?php echo $i;?> </a><?php
-            }
-            ?></p><?php
-                       
+            }     
             return;
         }
     }
