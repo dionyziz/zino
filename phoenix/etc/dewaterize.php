@@ -2,23 +2,25 @@
 
 <?php
 
-    $functions = array( 'w_assert',
-        '$water->Notice',
-        '$water->Trace',
-        '$water->Warning' );
-
     function optimized( $source ) {
+        $methods = array( 'Notice', 'Trace', 'Warning' );
         $new = '';
         $append = true;
         $tokens = token_get_all( $source );
-        foreach ( $tokens as $token ) {
-            if ( is_array( $token ) ) {
-                $token = $token[ 1 ];
+        for ( $i = 0; $i < count( $tokens ); ++$i ) {
+            if ( is_array( $tokens[ $i ] ) ) {
+                $tokens[ $i ] = $tokens[ $i ][ 1 ];
             }
-            foreach ( $functions as $func ) {
-                if ( $token == $func ) {
-                    $append = false;
-                    break;
+        }
+        foreach ( $tokens as $i => $token ) {
+            if ( $token == 'w_assert' ) {
+                $append = false;
+            }
+            else if ( $token == '$water' && $tokens[ $i + 1 ] == '->' ) {
+                foreach ( $methods as $meth ) {
+                    if ( $tokens[ $i + 2 ] == $meth ) {
+                        $append = false;
+                    }
                 }
             }
             if ( $append ) {
