@@ -3,9 +3,9 @@
 <?php
 
     $functions = array( 'w_assert',
-        '$water->Foo',
-        '$water->Bar',
-        '$water->Hey' );
+        '$water->Notice',
+        '$water->Trace',
+        '$water->Warning' );
 
     function optimized( $source ) {
         $new = '';
@@ -32,9 +32,17 @@
     }
 
     function dewaterize( $directory, $extensions ) {
-        $dir = New RecursiveDirectoryIterator( $directory );
-        foreach ( $dir as $file ) {
-            echo $file;
+        $files = New RecursiveIteratorIterator( New RecursiveDirectoryIterator( $directory ) );
+        foreach ( $files as $file ) {
+            $filename = $file->getFilename();
+            if ( $filename != 'water.php' ) {
+                foreach ( $extensions as $ext ) {
+                    if ( substr( $filename, strlen( $filename ) - strlen( $ext ) ) == $ext ) {
+                        file_put_contents( $file, optimized( file_get_contents( $file ) ) );
+                        break;
+                    }
+                }
+            }
         }
     }
 
