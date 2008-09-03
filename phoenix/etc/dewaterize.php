@@ -32,18 +32,10 @@
     }
 
     function dewaterize( $directory, $extensions ) {
-        $dir = opendir( $directory );
-        while ( ( $file = readdir( $dir ) ) !== false ) {
-            if ( $file != 'water.php' ) {
-                foreach ( $extensions as $ext ) {
-                    if ( substr( $file, strlen( $file ) - strlen( $ext ) ) == $ext ) {
-                        file_put_contents( $file, optimized( file_get_contents( $file ) ) );
-                        break;
-                    }
-                }
-            }
+        $dir = New RecursiveDirectoryIterator( $directory );
+        foreach ( $dir as $file ) {
+            echo $file;
         }
-        closedir( $dir );
     }
 
     switch ( $argc ) {
