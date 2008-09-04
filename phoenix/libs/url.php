@@ -1,6 +1,6 @@
 <?php
 
-    function URLize( $text ) {
+    function URL_Format( $string ) {
         // TODO
     }
 
