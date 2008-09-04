@@ -1,5 +1,7 @@
 <?php
 
-    // TODO
+    function URLize( $text ) {
+        // TODO
+    }
 
 ?>
