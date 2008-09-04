@@ -44,7 +44,7 @@
                     }
                 ?> <?php
                 echo $admin->target;
-                    ?> with id <?
+                ?> with id <?php
                 echo $admin->targetid;
                 ?> at <?php
                 echo $admin->date;
