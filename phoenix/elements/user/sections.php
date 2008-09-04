@@ -37,14 +37,6 @@
                     ?>journals">Ημερολόγιο</a></li>
                     <li>·</li>
                     <li<?php
-                    if ( $section == 'space' ) {
-                        ?> class="selected"<?php
-                    }
-                    ?>><a href="<?php
-                    Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                    ?>space">Χώρος</a></li>
-                    <li>·</li>
-                    <li<?php
                     if ( $section == 'relations' ) {
                         ?> class="selected"<?php
                     }
