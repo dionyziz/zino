@@ -25,7 +25,7 @@
             }
             
             foreach( $found as $action ) {
-                $action->CopyUserFrom( new User( $users[ $action->userid ] ) );
+                $action->CopyUserFrom( $users[ $action->userid ] );
             }
             
             return $found;
