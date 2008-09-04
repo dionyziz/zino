@@ -69,9 +69,6 @@
                                                 ?>τη δημοσκόπηση<?php
                                             }
                                             break;
-                                        case EVENT_USERSPACE_UPDATED:
-                                            ?> ανανέωσε τον χώρο<?php
-                                            break;
                                         case 'profile_update':
                                             ?> ανανέωσε το προφίλ<?php
                                             break;
@@ -111,11 +108,6 @@
                                                 }
                                             }
                                             echo implode( ', ' , $helper );
-                                            break;
-                                        case EVENT_USERSPACE_UPDATED:
-                                            ?><a href="?p=space&amp;subdomain=<?php
-                                            echo $event->User->Name;
-                                            ?>">Προβολή χώρου</a><?php
                                             break;
                                         case EVENT_FRIENDRELATION_CREATED:
                                             foreach ( $eventlist as $one ) {

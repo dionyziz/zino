@@ -39,7 +39,7 @@
             18 => 'EVENT_POLLOPTION_DELETED', // not in use
             19 => 'EVENT_FRIENDRELATION_CREATED',
             20 => 'EVENT_FRIENDRELATION_UPDATED',
-            21 => 'EVENT_USERSPACE_UPDATED',
+            // 21 => 'EVENT_USERSPACE_UPDATED', // removed but reserved
             22 => 'EVENT_USERPROFILE_UPDATED', // not in use
             23 => 'EVENT_USERPROFILE_VISITED', // not in use
             24 => 'EVENT_USERPROFILE_EDUCATION_UPDATED',
