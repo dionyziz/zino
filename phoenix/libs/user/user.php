@@ -11,7 +11,6 @@
     $libs->Load( 'user/permission' );
     $libs->Load( 'user/settings' );
     $libs->Load( 'user/profile' );
-    $libs->Load( 'user/space' );
     $libs->Load( 'user/lastactive' );
     $libs->Load( 'user/count' );
     $libs->Load( 'image/image' );
