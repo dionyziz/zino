@@ -1,5 +1,5 @@
 <?php
-    class BanFinder extends Finder {
+   /* class BanFinder extends Finder {
         protected $mModel = 'Ban';
         
         public function FindByIp( $ip ) {
@@ -20,5 +20,5 @@
 
             return parent::__get( $key );
         }
-    }
+    }*/
 ?>
