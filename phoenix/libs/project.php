@@ -123,7 +123,8 @@ Project_Destruct()' );
             'alljournals'          => 'journal/recent/list',
             'search2'               => 'search',
             'search'                => 'search/view',
-            'adminlog'              => 'adminlog/view'
+            'adminlog'              => 'adminlog/view',
+            'banlist'               => 'banlist/view'
 
 
         );
