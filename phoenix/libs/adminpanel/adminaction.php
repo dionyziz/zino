@@ -1,4 +1,8 @@
 <?php
+    /* 
+        Developer:Pagio
+    */   
+
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
             
