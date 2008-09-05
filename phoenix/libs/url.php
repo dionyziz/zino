@@ -77,7 +77,8 @@
             ';' );
         $new = '';
         $putUnderscore = false;
-        foreach ( $string as $c ) {
+        for ( $i = 0; $i < strlen( $string ); ++$i ) {
+            $c = $string[ $i ];
             if ( isBetween( $c, 'A', 'z' ) ||
                 isBetween( $c, '0', '9' ) ||
                 in_array( $c, $punctuation ) ) {
