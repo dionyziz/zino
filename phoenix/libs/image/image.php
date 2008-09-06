@@ -221,10 +221,17 @@
             global $libs;
             
             $libs->Load( 'adminpanel/adminaction' );
+            $libs->Load( 'image/tag' );
                         
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
                 $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'image' , $this->id );
+            }
+            
+            $finder = New ImageTagFinder();
+            $tags = $finder->FindByImage( $this );
+            foreach( $tags as $tag ) {
+                $tag->Delete();
             }
         
             $this->Delid = 1;
