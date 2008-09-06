@@ -63,8 +63,7 @@ var Tag = {
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
         if ( aux === true ) {
             // $( 'div.thephoto' ).get(0).scrollIntoView( true );
-            var targetOffset = $( 'div.thephoto' ).offset().top;
-            $( 'html, body' ).animate( { scrollTop: targetOffset }, 1000 );
+            $( 'html, body' ).animate( { scrollTop: ( $( 'div.thephoto' ).offset().top - 20 ) }, 1000 );
         }
         $( 'div.thephoto div.frienders form input' ).focus();
         Tag.run = true; // Tagging is now fully enabled
