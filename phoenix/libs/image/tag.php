@@ -35,7 +35,7 @@
         }
         protected function OnDelete() {
             global $libs;
-            $libs->Load( 'event' );
+            $libs->Load( 'notify' );
             
             $finder = New NotificationFinder();
             $notif = $finder->FindByImageTags( $this );
