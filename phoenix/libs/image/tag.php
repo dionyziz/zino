@@ -33,5 +33,18 @@
             $event->Userid = $this->Ownerid;
             $event->Save();
         }
+        protected function OnDelete() {
+            global $libs;
+            $libs->Load( 'event' );
+            
+            $finder = New NotificationFinder();
+            $notif = $finder->FindByImageTags( $this );
+
+            if ( !is_object( $notif ) ) {
+                return;
+            }
+            
+            $notif->Delete();
+        }
     }
 ?>

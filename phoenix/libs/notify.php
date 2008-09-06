@@ -124,6 +124,35 @@
                 
             return false;
         }
+        public function FindByImageTags( ImageTag $tag ) {
+            global $water;
+        
+            $query = $this->mDb->Prepare( "SELECT
+                        *
+                    FROM
+                        :notify RIGHT JOIN :events
+                            ON notify_eventid = event_id
+                    WHERE
+                        `event_typeid` = :typeid AND
+                        `event_itemid` = :tagid
+                    LIMIT
+                        1;" );
+             
+            $query->BindTable( 'notify' );
+            $query->BindTable( 'events' );
+            $query->Bind( 'typeid', EVENT_IMAGETAG_CREATED );
+            $query->Bind( 'tagid', $tag->Id );
+            
+            $res = $query->Execute();
+            if ( $res->Results() ) {
+                return New Notification( $res->FetchArray() );
+            }
+            else {
+                $water->Warning( "No results for image tag " . $tag->Id );
+            }
+                
+            return false;
+        }
     }
 
     function Notification_FieldByEvent( $event ) {
