@@ -1,7 +1,6 @@
 /*
 TODO:
     --Resolve Overlapping Tags
-    --Auto Scrolling
     --Sbise Tag Notifications otan diagrafonte ta tags
     --Meta to Tag creation na gini fadeIn to tag gia 2-3s
     --Otan iparxi ena Tag stn gonia ( i teleuteo tag? ) k to mouse plisiazi to onoma, emfanizi border
