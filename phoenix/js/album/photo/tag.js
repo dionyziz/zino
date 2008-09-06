@@ -7,8 +7,6 @@ TODO:
     --Ta onomata dn exoun style.cursor="pointer"
     --An kanis drag to box os tn akri, k drop ektos ikonas, dn emfanizete sosta
     --To box dn ginete panta hide me onmouseout
-    --Otan grafis kati k patas tab na kani autocomplete
-    --Sbise ola ta tags otan diagrafete mia ikona
 	
     From IE7 with love:
         --To onoma dn emfanizete terma aristera, alla sto kentro i sta deksia
