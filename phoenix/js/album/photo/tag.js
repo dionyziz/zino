@@ -58,7 +58,7 @@ var Tag = {
         }
         $( 'dd.addtag' ).hide(); // Hide tagging button
         $( 'div.thephoto > div:not(.tanga)' ).show(); // Show tagging windows, but not image tags
-        if ( aux === true ) {
+        if ( aux === true ) { // Smooth Scrolling
             $( 'html, body' ).animate( { scrollTop: ( $( 'div.thephoto' ).offset().top - 20 ) }, 700 );
         }
         $( 'div.thephoto div.frienders form input' ).focus();
