@@ -35,18 +35,24 @@
                 $log = new LoginAttempt( $row );
                 $logs[] = $log->ip;
             }
-            return $logs;
             
             //ban this ips and ban user with this username
-            /*bannedip=new BannedIp();
-             bannedip->BanIps( $logs );
-             banneduser->DelId=1;
-             
-            */
-           
-            
+            $this->BanIps( $logs, $banneduser );
+            $banneduser->rigths=0;
+            $banneduser->Save();
             
             return true;
+        }
+        
+        protected function BanIps( $ips, $banneduser ) {
+            foreach( $ips as $ip ) {
+                $banip = new BannedIp( $ip );
+                $banip->userid = $banneduser->id;
+                $banip->started = NowDate();
+                $banip->expire = NowDate()+20;;
+                $banip->Save();
+            }
+            return;
         }
     }
 ?>
