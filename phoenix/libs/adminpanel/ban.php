@@ -50,7 +50,7 @@
                 $banip->ip = $ip;
                 $banip->userid = $banneduser->id;
                 $banip->started = NowDate();
-                $banip->expire = NowDate()+20;;
+                $banip->expire = NowDate()+20;;//<-fix this
                 $banip->Save();
             }
             return;

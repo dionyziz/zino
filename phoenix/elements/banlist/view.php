@@ -17,13 +17,14 @@
             ?><h2>Banned ips</h2><?php
             
             $ban = new Ban();
-            $res = $ban->BanUser( 'test5' );
+            $res = $ban->BanUser( '---' );
             
-            foreach( $res as $log ) {
-                ?><p>ip = <?php
-                echo long2ip($log);
-                ?></p><?php
+            if( $res ) {
+                ?><p>Success</p><?php
             }
+            else {
+                ?><p>Failure</p><?php
+            } 
             
             return;
         }
