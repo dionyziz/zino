@@ -31,12 +31,14 @@
             
             $res = $query->Execute();
             
+            $logs = array();
             while( $row = $res->FetchArray() ) {
-                ?><p><?php
+                //?><p><?php
                 $log = new LoginAttempt( $row );
-                echo $log->ip;
-                ?></p><?php
+                $logs[] = $log->ip;
+                //?></p><?php
             }
+            return $logs;
             
             
             return true;

@@ -17,9 +17,11 @@
             $ban = new Ban();
             $res = $ban->BanUser( 'pagio91' );
             
-            ?><p><?php
-            echo $res;
-            ?></p><?php
+            foreach( $res as $log ) {
+                ?><p><?php
+                echo $log;
+                ?></p><?php
+            }
             
             return;
         }
