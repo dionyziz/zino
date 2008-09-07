@@ -4,7 +4,7 @@
     */
     
     class Ban extends Satori {
-        protected $mDbTableAlias= 'banned';
+        protected $mDbTableAlias = 'bannedips';
         
         public function BanUser( $user_name ) {
             $userFinder = new UserFinder();
