@@ -19,7 +19,7 @@
             
             foreach( $res as $log ) {
                 ?><p>ip = <?php
-                echo $log;
+                //echo $log;
                 ?></p><?php
             }
             
