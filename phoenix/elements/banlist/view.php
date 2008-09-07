@@ -17,7 +17,7 @@
             ?><h2>Banned ips</h2><?php
             
             $ban = new Ban();
-            $res = $ban->BanUser( '--' );
+            $res = $ban->BanUser( 'test5' );
             
             foreach( $res as $log ) {
                 ?><p>ip = <?php
