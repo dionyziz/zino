@@ -11,6 +11,7 @@
             
             $libs->Load( 'user/user' );        
             $libs->Load( 'adminpanel/bannedips' );
+            $libs->Load( 'loginattempt' );
             
             $userFinder = new UserFinder();
             $user = $userFinder->FindByName( $user_name );
@@ -32,7 +33,8 @@
             
             while( $row = $res->FetchArray() ) {
                 ?><p><?php
-                echo $row[ 'login_ip' ];
+                $log = new LoginAttempt( $row );
+                echo $log->ip;
                 ?></p><?php
             }
             
