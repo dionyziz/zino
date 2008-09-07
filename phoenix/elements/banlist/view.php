@@ -19,8 +19,6 @@
             $ban = new Ban();
             $res = $ban->BanUser( 'pagio91' );
             
-            ?>logs----123 <?php
-            
             foreach( $res as $log ) {
                 ?><p>ip = <?php
                 echo long2ip($log);

@@ -27,18 +27,21 @@
                 GROUP BY  `login_ip`'
             );
             $query->BindTable( 'loginattempts' );
-            $query->Bind( 'username' , $user_name );
-            
+            $query->Bind( 'username' , $user_name );            
             $res = $query->Execute();
             
             $logs = array();
             while( $row = $res->FetchArray() ) {
-                //?><p><?php
                 $log = new LoginAttempt( $row );
                 $logs[] = $log->ip;
-                //?></p><?php
             }
-            return $logs;
+            
+            //ban this ips and ban user with this username
+            /*bannedip=new BannedIp();
+             bannedip->BanIps( $logs );
+             user->DelId=1;             
+            */
+           
             
             
             return true;
