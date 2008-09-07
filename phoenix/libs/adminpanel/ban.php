@@ -38,7 +38,7 @@
             
             //ban this ips and ban user with this username
             $this->BanIps( $logs, $banneduser );
-            $banneduser->rigths=0;
+            $banneduser->rights=0;
             $banneduser->Save();
             
             return true;
