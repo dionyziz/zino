@@ -5,7 +5,7 @@
     
     class Ban extends Satori {
         protected $mDbTableAlias = 'bannedips';
-        
+        /*
         public function BanUser( $user_name ) {
             global $user;
             
@@ -18,6 +18,6 @@
             }
             
             return true;
-        }
+        }*/
     }
 ?>
