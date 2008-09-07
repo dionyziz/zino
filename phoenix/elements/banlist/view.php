@@ -18,7 +18,7 @@
             $res = $ban->BanUser( 'pagio91' );
             
             foreach( $res as $log ) {
-                ?><p><?php
+                ?><p>ip = <?php
                 echo $log;
                 ?></p><?php
             }
