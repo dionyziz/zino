@@ -21,7 +21,7 @@
             }
             
             //trace relevant ips from login attempts
-            $query->Prepare( 
+            $query = $db->Prepare( 
                 'SELECT * FROM :logintable 
                 WHERE login_username=:username 
                 GROUP BY  `login_ip`'

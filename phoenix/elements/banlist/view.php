@@ -23,7 +23,7 @@
             
             foreach( $res as $log ) {
                 ?><p>ip = <?php
-                //echo $log;
+                echo long2ip($log);
                 ?></p><?php
             }
             
