@@ -5,10 +5,11 @@
     
     class Ban extends Satori {
         protected $mDbTableAlias = 'bannedips';
-        /*
+        
         public function BanUser( $user_name ) {
-            global $user;
+            global $libs;
             
+            $libs->Load( 'user/user' );        
             
             $userFinder = new UserFinder();
             $user = $userFinder->FindByName( $user_name );
@@ -18,6 +19,6 @@
             }
             
             return true;
-        }*/
+        }
     }
 ?>

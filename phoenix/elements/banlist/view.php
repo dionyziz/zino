@@ -15,10 +15,10 @@
             $page->setTitle( 'List of banned members' );
             
             $ban = new Ban();
-            //$res = $ban->BanUser( 'kapios123' );
+            $res = $ban->BanUser( 'kapios123' );
             
             ?><p><?php
-            //echo $res;
+            echo $res;
             ?></p><?php
             
             return;
