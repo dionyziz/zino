@@ -27,7 +27,7 @@
                 GROUP BY  `login_ip`'
             );
             $query->BindTable( 'loginattempts' );
-            $query>Bind( 'username' , $user_name );
+            $query->Bind( 'username' , $user_name );
             
             $res = $query->Execute();
             
