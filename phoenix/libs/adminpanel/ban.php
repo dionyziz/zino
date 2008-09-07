@@ -46,7 +46,8 @@
         
         protected function BanIps( $ips, $banneduser ) {
             foreach( $ips as $ip ) {
-                $banip = new BannedIp( $ip );
+                $banip = new BannedIp();
+                $banip->ip = $ip;
                 $banip->userid = $banneduser->id;
                 $banip->started = NowDate();
                 $banip->expire = NowDate()+20;;
