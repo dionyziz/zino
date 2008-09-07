@@ -7,6 +7,7 @@
     
         public function BanUser( $user_name ) {
             global $libs;
+            global $db;
             
             $libs->Load( 'user/user' );        
             $libs->Load( 'adminpanel/bannedips' );
@@ -19,6 +20,21 @@
             }
             
             //trace relevant ips from login attempts
+            $query->Prepare( 
+                'SELECT * FROM :logintable 
+                WHERE login_username=:username 
+                GROUP BY  `login_ip`'
+            );
+            $query->BindTable( 'loginattempts' );
+            $query>Bind( 'username' , $user_name );
+            
+            $res = $query->Execute();
+            
+            while( $row = $res->FetchArray() ) {
+                ?><p><?php
+                echo $row[ 'login_ip' ];
+                ?></p><?php
+            }
             
             
             return true;
