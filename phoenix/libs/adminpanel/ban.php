@@ -14,9 +14,9 @@
             $libs->Load( 'loginattempt' );
             
             $userFinder = new UserFinder();
-            $banneduser = $userFinder->FindByName( $user_name );
+            $user = $userFinder->FindByName( $user_name );
             
-            if ( !$banneduser ) {//if not existing user
+            if ( !$user ) {//if not existing user
                 return false;
             }
             
@@ -37,9 +37,10 @@
             }
             
             //ban this ips and ban user with this username
-            /*$bannedip=new BannedIp();
-             $bannedip->BanIps( $logs );
-             $banneduser->DelId=1;             
+            /*bannedip=new BannedIp();
+             bannedip->BanIps( $logs );
+             user->DelId=1;
+             
             */
            
             
