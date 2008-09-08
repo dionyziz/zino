@@ -12,18 +12,16 @@
         
         $libs->Load( 'loginattempt' );
         $loginattempt = New LoginAttempt();
+        $loginattempt->Username = $username;
         if ( $user === false ) {
-            $loginattempt->Username = $username;
             $loginattempt->Password = $password;
             $loginattempt->Save();
 
-            return Redirect( "?p=a" );
+            return Redirect( '?p=a' );
         }
-        $loginattempt->Username = $username;
         // don't store the password for security reasons
         $loginattempt->Success = 'yes';
         $loginattempt->Save();
-
         // else...
         $user->UpdateLastLogin();
         $user->RenewAuthtoken();
