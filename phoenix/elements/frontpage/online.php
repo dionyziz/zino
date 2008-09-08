@@ -2,18 +2,20 @@
    class ElementFrontpageOnline extends Element {
         public function Render() {
             $finder = New UserFinder();
-		    $users = $finder->FindOnline( 0 , 50 );
+		    $users = $finder->FindOnline( 0 , 70 );
+            $count = $users[ 1 ];
+            $users = $users[ 0 ];
             
-            if ( count( $users ) > 0 ) {        
+            if ( $count ) {        
                 ?><div class="onlineusers">
                     <h2<?php
-                        if ( count( $users ) > 1 ) {
+                        if ( $count > 1 ) {
                             ?> title="<?php
-                            echo count( $users );
+                            echo $count;
                             ?> άτομα είναι online"<?php
                         }
                         ?>>Είναι online τώρα (<?php
-                        echo count( $users );
+                        echo $count;
                         ?>)</h2>
                         <div class="list"><?php
                             foreach( $users as $onuser ) {

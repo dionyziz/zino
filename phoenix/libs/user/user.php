@@ -109,6 +109,7 @@
             
             $query = $this->mDb->Prepare(
                 'SELECT
+                    SQL_CALC_FOUND_ROWS
                     :users.*, :images.*
                 FROM
                     :users 
@@ -136,7 +137,14 @@
                 $users[] = $user;
             }
 
-            return $users;
+            $total = array_shift( $this->mDb->Prepare(
+                'SELECT FOUND_ROWS() AS foundrows;'
+            )->Execute()->FetchArray() );
+
+            return array(
+                $users,
+                $total
+            );
         }
         public function FindBySchool( $schoolid, $offset = 0, $limit = 10000 ) {
             $prototype = New User();
