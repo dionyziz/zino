@@ -17,7 +17,7 @@
             
             ?><h2>Banned users</h2><?php         
             
-            $bannedUserFinder = new BannedUserFinder();
+            /*$bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUsersFinder->FindAll( 0, 100 );
             
             foreach ( $bannedUsers as $bannedUser ) {
@@ -28,7 +28,7 @@
                 ?> and delalbum is <?php
                 echo $bannedUser->delalbums;
                 ?>.</p><?php
-            }
+            }*/
             
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
