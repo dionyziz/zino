@@ -17,18 +17,18 @@
             
             ?><h2>Banned users</h2><?php         
             
-            /*$bannedUserFinder = new BannedUserFinder();
-            $bannedUsers = $bannedUsersFinder->FindAll( 0, 100 );
+            $bannedUserFinder = new BannedUserFinder();
+            $bannedUsers = $bannedUsersFinder->FindAll( 0, 20 );
             
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><p>User <?php
-                echo $bannedUser->userId;
+                /*echo $bannedUser->userId;
                 ?> was banned at <?php
                 echo $bannedUser->started;
                 ?> and delalbum is <?php
-                echo $bannedUser->delalbums;
+                echo $bannedUser->delalbums;*/
                 ?>.</p><?php
-            }*/
+            }
             
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
