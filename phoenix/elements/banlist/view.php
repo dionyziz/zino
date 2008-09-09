@@ -22,7 +22,7 @@
             
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><p>User <?php
-                echo $bannedUser->userId;
+                echo $bannedUser->userid;
                 ?> was banned at <?php
                 echo $bannedUser->started;
                 ?> and delalbum is <?php
