@@ -14,7 +14,7 @@
             
             $page->setTitle( 'List of banned members' );
             
-            ?><h2>Banned ips</h2><?php
+            ?><h2>Banned users</h2><?php                    
             
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
