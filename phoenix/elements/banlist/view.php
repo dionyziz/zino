@@ -17,7 +17,7 @@
             ?><h2>Banned ips</h2><?php
             
             $ban = new Ban();
-            $res = $ban->BanUser( 'test5' );
+            $res = $ban->BanUser( '---' );
             
             if( $res ) {
                 ?><p>Success</p><?php
