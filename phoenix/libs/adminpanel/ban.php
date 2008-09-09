@@ -14,12 +14,22 @@
             $libs->Load( 'adminpanel/bannedusers' );
             $libs->Load( 'loginattempt' );
             
+            
+            //check if the user doesn't exist or is already banned
             $userFinder = new UserFinder();
             $b_user = $userFinder->FindByName( $user_name );
             
-            if ( !$b_user ) {//if not existing user
+            if ( !$b_user ) {
                 return false;
             }
+            
+            $bannedUserFinder = new BannedUserFinder();
+            $exists = $bannedUserFinder->FindByUserId( $b_user->id );
+            
+            if ( !exists ) {
+                return false;
+            }
+            //
             
             //trace relevant ips from login attempts
             $query = $db->Prepare( 
@@ -29,13 +39,14 @@
             );
             $query->BindTable( 'loginattempts' );
             $query->Bind( 'username' , $user_name );            
-            $res = $query->Execute();
+            $res = $query->Execute();            
             
             $logs = array();
             while( $row = $res->FetchArray() ) {
                 $log = new LoginAttempt( $row );
                 $logs[] = $log->ip;
             }
+            //
             
             //ban this ips and ban user with this username
             $this->BanIps( $logs, $b_user );
@@ -49,6 +60,7 @@
             $banneduser->expire = NowDate()+20;//<-fix this
             $banneduser->delalbums = 0;
             $banneduser->Save();
+            //
 
             return true;
         }
