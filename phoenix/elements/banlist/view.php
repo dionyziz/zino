@@ -26,7 +26,7 @@
                 ?> was banned at <?php
                 echo $bannedUser->started;
                 ?> and delalbum is <?php
-                echo $bannedUser->userId;
+                echo $bannedUser->delalbums;
                 ?>.</p><?php
             }
             
