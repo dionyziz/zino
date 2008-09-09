@@ -47,7 +47,7 @@
             $banneduser->userid = $b_user->id;
             $banneduser->started = NowDate();
             $banneduser->expire = NowDate()+20;//<-fix this
-            $banneduser->delalbum = 0;
+            $banneduser->delalbums = 0;
             $banneduser->Save();
 
             return true;
