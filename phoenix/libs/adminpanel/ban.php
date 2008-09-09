@@ -31,7 +31,7 @@
             }
             //
             
-            //trace relevant ips from login attempts
+            //trace relevant ips from login attempts --implement as Finder
             $query = $db->Prepare( 
                 'SELECT * FROM :loginattempts
                 WHERE login_username=:username 
