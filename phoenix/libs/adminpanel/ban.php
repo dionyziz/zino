@@ -11,12 +11,13 @@
             
             $libs->Load( 'user/user' );        
             $libs->Load( 'adminpanel/bannedips' );
+            $libs->Load( 'adminpanel/bannedusers' );
             $libs->Load( 'loginattempt' );
             
             $userFinder = new UserFinder();
-            $banneduser = $userFinder->FindByName( $user_name );
+            $b_user = $userFinder->FindByName( $user_name );
             
-            if ( !$banneduser ) {//if not existing user
+            if ( !$b_user ) {//if not existing user
                 return false;
             }
             
@@ -37,18 +38,26 @@
             }
             
             //ban this ips and ban user with this username
-            $this->BanIps( $logs, $banneduser );
-            $banneduser->rights=0;
-            $banneduser->Save();
+            $this->BanIps( $logs, $b_user );
             
+            $b_user->rights=0;
+            $b_user->Save();
+            
+            $banneduser = new BannedUser();
+            $banneduser->userid = $b_user->id;
+            $banneduser->started = NowDate();
+            $banneduser->expire = NowDate()+20;//<-fix this
+            $banneduser->delalbum = 0;
+            $banneduser->Save();
+
             return true;
         }
         
-        protected function BanIps( $ips, $banneduser ) {
+        protected function BanIps( $ips, $b_user ) {
             foreach( $ips as $ip ) {
                 $banip = new BannedIp();
                 $banip->ip = $ip;
-                $banip->userid = $banneduser->id;
+                $banip->userid = $b_user->id;
                 $banip->started = NowDate();
                 $banip->expire = NowDate()+20;;//<-fix this
                 $banip->Save();
