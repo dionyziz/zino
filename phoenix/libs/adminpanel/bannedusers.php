@@ -8,7 +8,7 @@
         
         public function FindAll( $offset, $limit ) {
             $prototype = new BannedUser();
-            $found = FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
+            $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
             return $found;
         }
