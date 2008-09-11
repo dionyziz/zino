@@ -391,3 +391,7 @@ div.comments h3 {
 div.comments div.pagifycomments {
 	text-align: center;
 }
+div#profile div.friends div.people {
+    height: 130px;
+}
+

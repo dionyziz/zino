@@ -21,8 +21,7 @@
             else {
                 ?>
                 <div class="questions">
-                    <h3>Ερωτήσεις <span>(
-                    <a href="<?php
+                    <h3>Ερωτήσεις <span>(<a href="<?php
                     Element( 'user/url', $theuser->Id , $theuser->Subdomain );
                     ?>questions">προβολή όλων</a>)</span>
                     </h3>
