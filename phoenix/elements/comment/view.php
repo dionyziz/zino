@@ -11,11 +11,11 @@
             
             ?><div id="comment_<?php
             echo $comment->Id;
-            ?>" class="comment" style="border-color:#dee;<?php
+            ?>" class="comment" style="border-color:#dee<?php
             if ( $indent > 0 ) {
                 ?>padding-left:<?php
                 echo $indent * 20;
-                ?>px;<?php
+                ?>px<?php
             }
             ?>">
                 <div class="toolbox">
@@ -25,7 +25,7 @@
                     } else {
                         echo "0";
                     }
-                    ?>px;" class="time"><?php
+                    ?>px" class="time"><?php
                     Element( 'date/diff', $comment->Created );
                     ?></span><?php
                     if ( $deletable ) {
