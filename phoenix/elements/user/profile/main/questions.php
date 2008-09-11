@@ -29,7 +29,7 @@
                     foreach ( $answers as $answer ) {
                         Element( 'question/answer/view', $answer );
                     }
-                    ?></ul><br />
+                    ?></ul>
                 </div><?php
             }
         }

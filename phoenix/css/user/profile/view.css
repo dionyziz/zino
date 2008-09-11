@@ -296,7 +296,6 @@ div#profile div.main div.friends a.button {
 	margin-left: 0;
 }
 div#profile div.main div.questions {
-	padding-bottom: 20px;
 	width: 70%;
 }
 div#profile div.main div.questions h3 {
@@ -323,9 +322,6 @@ div#profile div.main div.questions ul li p.answer {
 	padding: 0;
 	margin: 0;
 }
-div#profile div.main div.questions a.button {
-	margin-left: 0;
-}
 div#profile div.main div.lastpoll {
 	float: right;
 	padding-bottom: 20px;
@@ -351,9 +347,6 @@ div#profile div.main div.lastpoll div.nopolls {
 div#profile div.main div.lastpoll div.nopolls div {
 	margin-top: 5px;
 	font-weight: bold;
-}
-div#profile div.main div.lastjournal {
-	padding-bottom: 20px;
 }
 div#profile div.main div.lastjournal div.journalsmall {
 	margin-bottom: 10px;
