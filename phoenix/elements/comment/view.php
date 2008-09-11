@@ -11,7 +11,7 @@
             
             ?><div id="comment_<?php
             echo $comment->Id;
-            ?>" class="comment" style="border-color:#dee<?php
+            ?>" class="comment" style="border-color:#dee;<?php
             if ( $indent > 0 ) {
                 ?>padding-left:<?php
                 echo $indent * 20;
