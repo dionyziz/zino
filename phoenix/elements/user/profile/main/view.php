@@ -161,7 +161,7 @@
                     ?><div class="lastjournal">
                         <h3>Ημερολόγιο <?php
                         if ( $theuser->Count->Journals > 0 ) {
-                            ?>(<a href="?p=addjournal">Δημιουργία καταχώρησης</a>)<?php
+                            ?><span>(<a href="?p=addjournal">προβολή όλων</a>)</span><?php
                         }
                         ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
