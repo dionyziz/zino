@@ -126,7 +126,7 @@
                 if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
                     ?><div class="lastpoll">
                         <h3>Δημοσκοπήσεις<?php
-                        if ( $user->Count->Polls > 0 ) {
+                        if ( $theuser->Count->Polls > 0 ) {
                             ?> <span>(<a href="<?php
                             Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
                             ?>polls">προβολή όλων</a>)</span><?php
@@ -160,7 +160,7 @@
                 if ( !empty( $journals ) || ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) ) {
                     ?><div class="lastjournal">
                         <h3>Ημερολόγιο <?php
-                        if ( $user->Count->Journals > 0 ) {
+                        if ( $theuser->Count->Journals > 0 ) {
                             ?>(<a href="?p=addjournal">Δημιουργία καταχώρησης</a>)<?php
                         }
                         ?></h3><?php
@@ -173,9 +173,6 @@
                         }
                         else {
                             Element( 'journal/small' , $journals[ 0 ] );
-                            ?><a href="<?php
-                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                            ?>journals" class="button">Περισσότερες καταχωρήσεις&raquo;</a><?php
                         }    
                     ?></div>
                     <div class="barfade">
