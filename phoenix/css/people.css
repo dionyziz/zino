@@ -3,7 +3,7 @@ div.people ul {
 	padding: 0;
 	margin: 0;
     overflow: hidden;
-    height: 100px;
+    height: 110px;
 }
 div.people ul li { 
 	float: left;
