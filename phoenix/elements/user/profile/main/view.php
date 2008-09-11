@@ -104,11 +104,11 @@
                 
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
                     ?><div class="friends"><?php
-                        ?><h3>Οι φίλοι μου (<?php
+                        ?><h3>Οι φίλοι μου <span>(<?php
                         if ( $theuser->Count->Relations > 5 ) {
                             ?><a href="<?php
                             echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
-                            ?>">προβολή όλων</a>)<?php
+                            ?>">προβολή όλων</a>)</span><?php
                         }
                         ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
@@ -127,9 +127,9 @@
                     ?><div class="lastpoll">
                         <h3>Δημοσκοπήσεις<?php
                         if ( $user->Count->Polls > 0 ) {
-                            ?> (<a href="<?php
+                            ?> <span>(<a href="<?php
                             Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                            ?>polls" class="button">προβολή όλων</a>)<?php
+                            ?>polls">προβολή όλων</a>)</span><?php
                         }
                         ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) {
