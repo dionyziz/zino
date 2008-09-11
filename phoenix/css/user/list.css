@@ -5,23 +5,11 @@ div.people ul {
 }
 div.people ul li { 
 	float: left;
-	width: 290px;
-	height: 130px;
-}
-div.people ul li a {
-}
-div.people ul li a strong {
-	text-decoration: underline;
-	font-weight: bold;
-	display: block;
-	font-size: 120%;
-	padding-bottom: 5px;
-}
-div.people ul li a span {
-	font-size: 96%;
+	width: 100px;
+	height: 100px;
+    margin: 0 10px 10px 0;
 }
 div.people ul li a img {
 	float: left;
-	margin-right: 5px;
 	border: 1px solid #cce;
 }
