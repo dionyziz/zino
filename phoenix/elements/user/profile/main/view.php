@@ -104,9 +104,9 @@
                 
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
                     ?><div class="friends"><?php
-                        ?><h3>Οι φίλοι μου <span>(<?php
+                        ?><h3>Οι φίλοι μου<?php
                         if ( $theuser->Count->Relations > 5 ) {
-                            ?><a href="<?php
+                            ?> <span>(<a href="<?php
                             echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
                             ?>">προβολή όλων</a>)</span><?php
                         }
