@@ -21,15 +21,16 @@
             else {
                 ?>
                 <div class="questions">
-                    <h3>Ερωτήσεις</h3>
-                        <ul><?php
-                        foreach ( $answers as $answer ) {
-                            Element( 'question/answer/view', $answer );
-                        }
-                        ?></ul><br />
-                        <a href="<?php
-                        Element( 'user/url', $theuser->Id , $theuser->Subdomain );
-                        ?>questions" class="button">Περισσότερες ερωτήσεις&raquo;</a>
+                    <h3>Ερωτήσεις (
+                    <a href="<?php
+                    Element( 'user/url', $theuser->Id , $theuser->Subdomain );
+                    ?>questions" class="button">προβολή όλων</a>)
+                    </h3>
+                    <ul><?php
+                    foreach ( $answers as $answer ) {
+                        Element( 'question/answer/view', $answer );
+                    }
+                    ?></ul><br />
                 </div><?php
             }
         }

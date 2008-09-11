@@ -103,18 +103,19 @@
                 $friends = $finder->FindByUser( $theuser , 0 , 12 ); 
                 
                 if ( !empty( $friends ) || ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) ) { 
-                    ?><div class="friends">
-                        <h3>Οι φίλοι μου</h3><?php
+                    ?><div class="friends"><?php
+                        ?><h3>Οι φίλοι μου (<?php
+                        if ( $theuser->Count->Relations > 5 ) {
+                            ?><a href="<?php
+                            echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
+                            ?>">προβολή όλων</a>)<?php
+                        }
+                        ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Relations == 0 ) {
                             ?>Δεν έχεις προσθέσει κανέναν φίλο. Μπορείς να προσθέσεις φίλους από το προφίλ τους.<?php
                         }
                         else {
                             Element( 'user/list' , $friends );
-                        }
-                        if ( $theuser->Count->Relations > 5 ) {
-                            ?><a href="<?php
-                            echo str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends';
-                            ?>" class="button">Περισσότεροι φίλοι&raquo;</a><?php
                         }
                     ?></div>
                     <div class="barfade">
@@ -124,7 +125,13 @@
                 }
                 if ( !empty( $polls ) || ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) ) {
                     ?><div class="lastpoll">
-                        <h3>Δημοσκοπήσεις</h3><?php
+                        <h3>Δημοσκοπήσεις<?php
+                        if ( $user->Count->Polls > 0 ) {
+                            ?> (<a href="<?php
+                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                            ?>polls" class="button">προβολή όλων</a>)<?php
+                        }
+                        ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Polls == 0 ) {
                             ?><div class="nopolls">
                             Δεν έχεις καμία δημοσκόπηση. Κάνε click στο παρακάτω link για να μεταβείς στη σελίδα
@@ -138,10 +145,7 @@
                         else {
                             ?><div class="container"><?php
                             Element( 'poll/small' , $polls[ 0 ] , true );
-                            ?></div>
-                            <a href="<?php
-                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
-                            ?>polls" class="button">Περισσότερες δημοσκοπήσεις&raquo;</a><?php
+                            ?></div><?php
                         }
                     ?></div><?php
                 }
@@ -155,12 +159,16 @@
                 ?><div style="clear:right"></div><?php
                 if ( !empty( $journals ) || ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) ) {
                     ?><div class="lastjournal">
-                        <h3>Ημερολόγιο</h3><?php
+                        <h3>Ημερολόγιο <?php
+                        if ( $user->Count->Journals > 0 ) {
+                            ?>(<a href="?p=addjournal">Δημιουργία καταχώρησης</a>)<?php
+                        }
+                        ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
                             ?><div class="nojournals">
                             Δεν έχεις καμία καταχώρηση.<br />
                             Κανε click στο παρακάτω link για να δημιουργήσεις μια.
-                            <div><a href="?p=addjournal">Δημιουργία καταχώρησης</a></div>
+                            <div></div>
                             </div><?php
                         }
                         else {
