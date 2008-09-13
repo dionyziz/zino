@@ -16,6 +16,7 @@
             
             foreach( $ips as $ip ) {
                 $ip_d = new BannedIp( $ip->id );
+                //echo '<p>' . $ip_d->ip . '</p>';
                 $ip_d->Delete();
             }
             
@@ -23,7 +24,8 @@
             $users = $userFinder->FindByUserId( $userid );            
             
             foreach( $users as $user ) {
-                $user_d = new BannedIp( $user->id );
+                $user_d = new BannedUser( $user->id );
+                //echo '<p>' . $user_d-> . '</p>';
                 $user_d->Delete();
             }
             
