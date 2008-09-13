@@ -29,13 +29,9 @@
                 echo $bannedUser->delalbums;
                 ?>.</p><?php
             }
-            
-            $date = NowDate();
-            $dateend = date( 'Y-m-d H:i:s', time()+20*24*60*60);
-            echo '<p>' . $date . ' ' . $dateend . '</p>';
                         
             $ban = new Ban();
-            $res = $ban->BanUser( '---' );
+            $res = $ban->BanUser( 'test5' );
             
             if( $res ) {
                 ?><p>Success</p><?php

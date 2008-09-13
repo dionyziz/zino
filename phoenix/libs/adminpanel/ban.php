@@ -56,8 +56,8 @@
             
             $banneduser = new BannedUser();
             $banneduser->userid = $b_user->id;
-            $banneduser->started = NowDate();
-            $banneduser->expire = NowDate()+20;//<-fix this
+            $banneduser->started = date( 'Y-m-d H:i:s', time() );
+            $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->delalbums = 0;
             $banneduser->Save();
             //
@@ -66,12 +66,14 @@
         }
         
         protected function BanIps( $ips, $b_user ) {
+            $started = date( 'Y-m-d H:i:s', time() );
+            $expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             foreach( $ips as $ip ) {
                 $banip = new BannedIp();
                 $banip->ip = $ip;
                 $banip->userid = $b_user->id;
-                $banip->started = NowDate();
-                $banip->expire = NowDate()+20;;//<-fix this
+                $banneduser->started = $started;
+                $banneduser->expire = $expire;
                 $banip->Save();
             }
             return;
