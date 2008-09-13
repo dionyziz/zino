@@ -26,7 +26,7 @@
             $bannedUserFinder = new BannedUserFinder();
             $exists = $bannedUserFinder->FindByUserId( $b_user->id );
             
-            if ( !$exists ) {
+            if ( $exists ) {
                 return false;
             }
             //
