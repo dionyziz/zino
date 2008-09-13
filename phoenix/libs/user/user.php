@@ -234,7 +234,7 @@
         public function HasPermission( $permission ) {
             /*global $libs;
             
-            $libs->Load( 'adminpanel/ban' );//waiting to be completed
+            $libs->Load( 'adminpanel/ban' );//waiting to complete banning 
             
             $ban = new Ban();            
             if ( $ban->isBannedIp( UserIp() ) ) {

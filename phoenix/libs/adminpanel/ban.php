@@ -18,7 +18,7 @@
                }
                else {
                     if ( $res->expire < NowDate() ) {// if banning has expired
-                        //$this->unban user
+                        //$this->unban user <------------------------------to do
                         return false;
                     }
                     else {
