@@ -3,7 +3,32 @@
         Developer:Pagio
     */
     
-    class Ban {
+    class Ban {    
+    
+        protected function revoke( $userid ) {
+            global $libs;
+            
+            $libs->Load( 'adminpanel/bannedips' );
+            $libs->Load( 'adminpanel/bannedusers' );            
+            
+            $ipFinder = new BannedIpFinder();
+            $ips = $ipFinder->FindeByUserId( $userid );            
+            
+            foreach( $ips as $ip ) {
+                $ip_d = new BannedIp( $ip->id );
+                $ip_d->Delete();
+            }
+            
+            $userFinder = new BanneduserFinder();
+            $users = $userFinder->FindeByUserId( $userid );            
+            
+            foreach( $users as $user ) {
+                $user_d = new BannedIp( $user->id );
+                $user_d->Delete();
+            }
+            
+            return;
+        }
     
         public function isBannedIp( $ip ) {
                global $libs;     
@@ -18,7 +43,7 @@
                }
                else {
                     if ( $res->expire < NowDate() ) {// if banning has expired
-                        //$this->unban user <------------------------------to do
+                        $this->revoke( $res->userid );
                         return false;
                     }
                     else {
