@@ -17,13 +17,13 @@
                     return false;
                }
                else {
-                    if ( $res->expire < NowDate() ) {// if banning has expired
+                    /*if ( $res->expire < NowDate() ) {// if banning has expired
                         //$this->unban user
                         return false;
                     }
-                    else {
+                    else {*/
                         return true;
-                    }
+                    //}
                 }
         }
         
