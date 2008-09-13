@@ -32,6 +32,7 @@
                         
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
+            $ban->revoke( 4302 );
             
             if( $res ) {
                 ?><p>Success</p><?php
