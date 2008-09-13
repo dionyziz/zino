@@ -239,10 +239,7 @@
             $ban = new Ban();            
             if ( $ban->isBannedIp( UserIp() ) ) {
                 return false;
-            }
-            
-            echo '<p>' . UserIp() . '</p>';
-            
+            }            
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
