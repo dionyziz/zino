@@ -94,8 +94,8 @@
                 $banip = new BannedIp();
                 $banip->ip = $ip;
                 $banip->userid = $b_user->id;
-                $banneduser->started = $started;
-                $banneduser->expire = $expire;
+                $banip->started = $started;
+                $banip->expire = $expire;
                 $banip->Save();
             }
             return;
