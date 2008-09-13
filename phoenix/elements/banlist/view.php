@@ -31,8 +31,7 @@
             }
                         
             $ban = new Ban();
-            $res = $ban->BanUser( '---' );
-            $ban->revoke( 4302 );
+            $res = $ban->BanUser( 'test5' );
             
             if( $res ) {
                 ?><p>Success</p><?php
