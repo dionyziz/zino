@@ -31,8 +31,8 @@
             }
             
             $date = NowDate();
-            date_add($date,new DateInterval("P20D"));
-            echo '<p>' . $date . '</p>';
+            $dateend = date( 'Y-m-d H:i:s', time()+20*24*60*60);
+            echo '<p>' . $date . ' ' . $dateend . '</p>';
                         
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
