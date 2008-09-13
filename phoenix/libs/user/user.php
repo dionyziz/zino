@@ -232,14 +232,14 @@
             }
         }
         public function HasPermission( $permission ) {
-            global $libs;
+            /*global $libs;
             
-            $libs->Load( 'adminpanel/ban' );
+            $libs->Load( 'adminpanel/ban' );//waiting to be completed
             
             $ban = new Ban();            
             if ( $ban->isBannedIp( UserIp() ) ) {
                 return false;
-            }        
+            } */       
                 
             return $this->Rights >= $permission;
         }
