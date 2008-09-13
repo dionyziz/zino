@@ -241,6 +241,8 @@
                 return false;
             }
             
+            echo '<p>' . UserIp() . '</p>';
+            
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
