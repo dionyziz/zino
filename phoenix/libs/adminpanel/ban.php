@@ -10,7 +10,7 @@
                
                $libs->Load( 'adminpanel/bannedips' );
                
-               $ipFinder = newBannedIpFinder();
+               $ipFinder = new BannedIpFinder();
                $res = $ipFinder->FindByIp( $ip );
                
                if ( !$res ) {
