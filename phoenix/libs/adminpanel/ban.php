@@ -48,7 +48,7 @@
             $bannedUserFinder = new BannedUserFinder();
             $exists = $bannedUserFinder->FindByUserId( $b_user->id );
             
-            if ( $exists && $exists->expire > NowDate() ) {
+            if ( $exists ) {
                 return false;
             }
             //
