@@ -30,6 +30,10 @@
                 ?>.</p><?php
             }
             
+            $date = NowDate();
+            date_add($date,new DateInterval("P20D"));
+            echo '<p>' . $date . '</p>';
+                        
             $ban = new Ban();
             $res = $ban->BanUser( '---' );
             
