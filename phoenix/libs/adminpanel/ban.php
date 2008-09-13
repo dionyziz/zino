@@ -12,7 +12,7 @@
             $libs->Load( 'adminpanel/bannedusers' );            
             
             $ipFinder = new BannedIpFinder();
-            $ips = $ipFinder->FindeByUserId( $userid );            
+            $ips = $ipFinder->FindByUserId( $userid );            
             
             foreach( $ips as $ip ) {
                 $ip_d = new BannedIp( $ip->id );
@@ -20,7 +20,7 @@
             }
             
             $userFinder = new BanneduserFinder();
-            $users = $userFinder->FindeByUserId( $userid );            
+            $users = $userFinder->FindByUserId( $userid );            
             
             foreach( $users as $user ) {
                 $user_d = new BannedIp( $user->id );
