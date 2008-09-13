@@ -31,7 +31,7 @@
             }
                         
             $ban = new Ban();
-            $res = $ban->BanUser( '---' );
+            $res = $ban->BanUser( 'test5' );
             
             if( $res ) {
                 ?><p>Success</p><?php
