@@ -5,6 +5,28 @@
     
     class Ban {
     
+        public function isBannedIp( $ip ) {
+               global $libs;     
+               
+               $libs->Load( 'adminpanel/bannedips' );
+               
+               $ipFinder = newBannedIpFinder();
+               $res = $ipFinder->FindByIp( $ip );
+               
+               if ( !$res ) {
+                    return false;
+               }
+               else {
+                    if ( $res->expire < NowDate() ) {// if banning has expired
+                        //$this->unban user
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+        }
+        
         public function BanUser( $user_name ) {
             global $libs;
             global $db;
