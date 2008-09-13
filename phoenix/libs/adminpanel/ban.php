@@ -5,7 +5,7 @@
     
     class Ban {    
     
-        protected function revoke( $userid ) {
+        public function revoke( $userid ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
