@@ -28,9 +28,9 @@
                     echo $bannedUser->started;
                     ?> until <?php
                     echo $bannedUser->expire;                
-                    ?>.<?php
-                    ?><input type="submit" value="revoke" />
-                    ?><input type="hidden" name="userid" value= "<?php echo $bannedUser->userid; ?>" /><?php
+                    ?>.  <?php
+                    ?><input type="submit" value="revoke" /><?php
+                    ?><input type="hidden" name="userid" value="<?php echo $bannedUser->userid; ?>" /><?php
                     ?></p><?php
                 ?></form><?php
             }
