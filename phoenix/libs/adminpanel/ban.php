@@ -19,8 +19,8 @@
                     $ip_d->Delete();
                 }
             
-                $userFinder = new BanneduserFinder();
-                $users = $userFinder->FindByUserId( $userid );            
+                $b_userFinder = new BanneduserFinder();
+                $users = $b_userFinder->FindByUserId( $userid );            
                 
                 $rights = $users->rights;
             
@@ -28,6 +28,11 @@
                     $user_d = new BannedUser( $user->id );
                     $user_d->Delete();
                 }
+                
+                $userFinder = new UserFinder();
+                $user = $userFinder->FindById( $userid );
+                $user->rights = $rights;
+                $user->Save();
                 
                 return;
         }
