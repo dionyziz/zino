@@ -20,14 +20,12 @@
                 }
             
                 $b_userFinder = new BanneduserFinder();
-                $users = $b_userFinder->FindByUserId( $userid );            
+                $user_d = $b_userFinder->FindByUserId( $userid );            
                 
-                $rights = $users->rights;
+                $rights = $user_d->rights;
             
-                foreach( $users as $user ) {
-                    $user_d = new BannedUser( $user->id );
-                    $user_d->Delete();
-                }
+                $user_d = new BannedUser( $user_d->id );
+                $user_d->Delete();                
                 
                 $userFinder = new UserFinder();
                 $user = $userFinder->FindById( $userid );
