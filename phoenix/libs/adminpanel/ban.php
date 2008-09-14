@@ -24,6 +24,7 @@
                 
                 $rights = $user_d->rights;
                 
+                $user_d = new BannedUser( $user_d->id );
                 $user_d->Delete();
                 
                 $userFinder = new UserFinder();
