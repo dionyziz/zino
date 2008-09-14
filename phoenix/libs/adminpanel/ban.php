@@ -19,12 +19,11 @@
                     $ip_d->Delete();
                 }
             
-                $b_userFinder = new BanneduserFinder();
+                $b_userFinder = new BannedUserFinder();
                 $user_d = $b_userFinder->FindByUserId( $userid );            
                 
                 $rights = $user_d->rights;
                 
-                $user_d = new BannedUser( $user_d->id );
                 $user_d->Delete();
                 
                 $userFinder = new UserFinder();
