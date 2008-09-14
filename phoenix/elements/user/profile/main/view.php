@@ -161,7 +161,9 @@
                     ?><div class="lastjournal">
                         <h3>Ημερολόγιο <?php
                         if ( $theuser->Count->Journals > 0 ) {
-                            ?><span>(<a href="journals">προβολή όλων</a>)</span><?php
+                            ?><span>(<a href="<?php
+                            Element( 'user/url' , $theuser->Id , $theuser->Subdomain );
+                            ?>journals">προβολή όλων</a>)</span><?php
                         }
                         ?></h3><?php
                         if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
