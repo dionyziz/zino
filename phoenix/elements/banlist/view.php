@@ -29,16 +29,11 @@
                 echo $bannedUser->delalbums;
                 ?>.</p><?php
             }
-                        
-            $ban = new Ban();
-            $res = $ban->BanUser( 'test5' );
-            
-            if( $res ) {
-                ?><p>Success</p><?php
-            }
-            else {
-                ?><p>Failure</p><?php
-            } 
+
+            ?><form method="post" action="do/adminpanel/ban"><?php
+            ?><p>Ban user <input type="text" name="username" /> (username)</p><?php
+            ?><p><input type="submit" value="Ban" /></p><?php
+            ?></form><?php
             
             return;
         }
