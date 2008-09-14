@@ -5,28 +5,28 @@
     
     class Ban {    
             public function Revoke( $userid ) {
-            global $libs;
+                global $libs;
             
-            $libs->Load( 'adminpanel/bannedips' );
-            $libs->Load( 'adminpanel/bannedusers' );            
+                $libs->Load( 'adminpanel/bannedips' );
+                $libs->Load( 'adminpanel/bannedusers' );            
             
-            $ipFinder = new BannedIpFinder();
-            $ips = $ipFinder->FindByUserId( $userid );            
+                $ipFinder = new BannedIpFinder();
+                $ips = $ipFinder->FindByUserId( $userid );            
             
-            foreach( $ips as $ip ) {
-                $ip_d = new BannedIp( $ip->id );
-                $ip_d->Delete();
-            }
+                foreach( $ips as $ip ) {
+                    $ip_d = new BannedIp( $ip->id );
+                    $ip_d->Delete();
+                }
             
-            $userFinder = new BanneduserFinder();
-            $users = $userFinder->FindByUserId( $userid );            
+              $userFinder = new BanneduserFinder();
+              $users = $userFinder->FindByUserId( $userid );            
             
-            foreach( $users as $user ) {
-                $user_d = new BannedUser( $user->id );
-                $user_d->Delete();
-            }
+              foreach( $users as $user ) {
+                  $user_d = new BannedUser( $user->id );
+                  $user_d->Delete();
+              }
             
-            return;
+              return;
         }
     
         public function isBannedIp( $ip ) {
