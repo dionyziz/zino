@@ -115,6 +115,10 @@
         }
         
         protected function BanIps( $ips, $b_user ) {
+            global $libs;
+            
+            $libs->Load( 'adminpanel/bannedips' );
+        
             $started = date( 'Y-m-d H:i:s', time() );
             $expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             foreach( $ips as $ip ) {
