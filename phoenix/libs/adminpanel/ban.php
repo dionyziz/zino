@@ -4,9 +4,9 @@
     */
     
     class Ban {    
-            public function Revoke( $userid ) {
+        public function Revoke( $userid ) {
                 global $libs;
-            
+                        
                 $libs->Load( 'adminpanel/bannedips' );
                 $libs->Load( 'adminpanel/bannedusers' );    
                 $libs->Load( 'user/user' );        
@@ -22,7 +22,7 @@
                 $userFinder = new BanneduserFinder();
                 $users = $userFinder->FindByUserId( $userid );            
                 
-                $rights = $users->rights;
+                $rights = $users->oldrights;
             
                 foreach( $users as $user ) {
                     $user_d = new BannedUser( $user->id );
@@ -103,7 +103,7 @@
 
             $banneduser = new BannedUser();
             $banneduser->userid = $b_user->id;
-            $banneduser->rights = $b_user->rights;
+            $banneduser->oldrights = $b_user->rights;
             $banneduser->started = date( 'Y-m-d H:i:s', time() );
             $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->delalbums = 0;            
