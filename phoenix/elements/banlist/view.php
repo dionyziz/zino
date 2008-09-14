@@ -21,13 +21,17 @@
             $bannedUsers = $bannedUserFinder->FindAll( 0, 20 );
             
             foreach ( $bannedUsers as $bannedUser ) {
-                ?><p>User <?php
-                echo $bannedUser->userid;
-                ?> was banned at <?php
-                echo $bannedUser->started;
-                ?> and delalbum is <?php
-                echo $bannedUser->delalbums;
-                ?>.</p><?php
+                ?><form method="post" action="do/adminpanel/revoke"><?php
+                    ?><p>User <?php
+                    echo $bannedUser->userid;
+                    ?> was banned at <?php
+                    echo $bannedUser->started;
+                    ?> until <?php
+                    echo $bannedUser->expire;                
+                    ?>.<?php
+                    ?><input type="submit" value="revoke" />
+                    ?><input type="hidden" name="userid" value= "<?php echo $bannedUser->userid; ?>" /><?php
+                ?></form><?php
             }
 
             ?><form method="post" action="do/adminpanel/ban"><?php

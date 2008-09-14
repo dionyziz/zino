@@ -4,8 +4,7 @@
     */
     
     class Ban {    
-    
-        public function revoke( $userid ) {
+            public function Revoke( $userid ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
@@ -43,7 +42,7 @@
                }
                else {
                     if ( $res->expire < NowDate() ) {// if banning has expired
-                        $this->revoke( $res->userid );
+                        $this->Revoke( $res->userid );
                         return false;
                     }
                     else {
