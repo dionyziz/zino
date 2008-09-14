@@ -36,7 +36,7 @@
             }
 
             ?><form method="post" action="do/adminpanel/ban"><?php
-            ?><p>Ban user <input type="text" name="username" /> (username)</p><?php
+            ?><p>user name : <input type="text" name="username" /></p><?php
             ?><p><input type="submit" value="Ban" /></p><?php
             ?></form><?php
             
