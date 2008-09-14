@@ -9,7 +9,7 @@
             
                 $libs->Load( 'adminpanel/bannedips' );
                 $libs->Load( 'adminpanel/bannedusers' );    
-                $libs->Load( 'user/user' );      
+                $libs->Load( 'user/user' );        
             
                 $ipFinder = new BannedIpFinder();
                 $ips = $ipFinder->FindByUserId( $userid );            
@@ -19,17 +19,15 @@
                     $ip_d->Delete();
                 }
             
-                $b_userFinder = new BannedUserFinder();
-                $user_d = $b_userFinder->FindByUserId( $userid );            
+                $userFinder = new BanneduserFinder();
+                $user_d = $userFinder->FindByUserId( $userid );            
                 
-                //$rights = $user_d->rights;
-                
-                $user_d->Delete();
-                
-                /*$userFinder = new UserFinder();
-                $user = $userFinder->FindById();
-                $user->rights = $rights;
-                $user->Save();*/
+                $rights = $user_d->rights;
+            
+                foreach( $users as $user ) {
+                    $user_d = new BannedUser( $user->id );
+                    $user_d->Delete();
+                }
                 
                 return;
         }
@@ -111,7 +109,7 @@
             $banneduser->delalbums = 0;            
             $banneduser->Save();
             
-            $b_user->rights = 0;
+            $b_user->rights=0;
             $b_user->Save();
             //
 
