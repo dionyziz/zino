@@ -41,13 +41,16 @@
                     return false;
                }
                else {
-                    /*if ( $res->expire < NowDate() ) {// if banning has expired
+                    $today = strtotime( NowDate() );
+                    $expire = strtotime( $res->expire );
+                    $diff=$today - $expire;
+                    if ( $diff < 0 ) {// if banning has expired
                         $this->Revoke( $res->userid );
                         return false;
                     }
-                    else {*/
+                    else {
                         return true;
-                    //}
+                    }
                 }
         }
         
