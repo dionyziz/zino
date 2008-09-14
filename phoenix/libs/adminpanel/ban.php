@@ -8,7 +8,8 @@
                 global $libs;
             
                 $libs->Load( 'adminpanel/bannedips' );
-                $libs->Load( 'adminpanel/bannedusers' );            
+                $libs->Load( 'adminpanel/bannedusers' );    
+                $libs->Load( 'user/user' );      
             
                 $ipFinder = new BannedIpFinder();
                 $ips = $ipFinder->FindByUserId( $userid );            
@@ -18,15 +19,18 @@
                     $ip_d->Delete();
                 }
             
-              $userFinder = new BanneduserFinder();
-              $users = $userFinder->FindByUserId( $userid );            
-            
-              foreach( $users as $user ) {
-                  $user_d = new BannedUser( $user->id );
-                  $user_d->Delete();
-              }
-            
-              return;
+                $b_userFinder = new BanneduserFinder();
+                $user_d = $b_userFinder->FindByUserId( $userid );            
+                
+                $rights = $user_d->rights;
+                $user_d->Delete();
+                
+                $userFinder = new UserFinder();
+                $user = $userFinder->FindById();
+                $user->rights = $rights;
+                $user->Save();
+                
+                return;
         }
     
         public function isBannedIp( $ip ) {
@@ -97,16 +101,17 @@
             
             //ban this ips and ban user with this username
             $this->BanIps( $logs, $b_user );
+
+            $banneduser = new BannedUser();
+            $banneduser->userid = $b_user->id;
+            $banneduser->rights = $b_user->rights;
+            $banneduser->started = date( 'Y-m-d H:i:s', time() );
+            $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
+            $banneduser->delalbums = 0;            
+            $banneduser->Save();
             
             $b_user->rights=0;
             $b_user->Save();
-            
-            $banneduser = new BannedUser();
-            $banneduser->userid = $b_user->id;
-            $banneduser->started = date( 'Y-m-d H:i:s', time() );
-            $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
-            $banneduser->delalbums = 0;
-            $banneduser->Save();
             //
 
             return true;

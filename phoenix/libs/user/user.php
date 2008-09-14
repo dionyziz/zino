@@ -57,6 +57,11 @@
             }
             return false;
         }
+        public function FindById( $userid ) {
+            $prototype = New User();
+            $prototype->Id = $userid;            
+            return $this->FindByPrototype( $prototype );        
+        }
         public function FindByNameAndPassword( $username, $password ) {
             $prototype = New User();
             $prototype->Name = $username;
