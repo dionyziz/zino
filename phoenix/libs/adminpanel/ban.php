@@ -106,13 +106,13 @@
 
             $banneduser = new BannedUser();
             $banneduser->userid = $b_user->id;
-            $banneduser->rights = $b_user->rights;
+            //$banneduser->rights = $b_user->rights;
             $banneduser->started = date( 'Y-m-d H:i:s', time() );
             $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->delalbums = 0;            
             $banneduser->Save();
             
-            $b_user->rights=0;
+            $b_user->rights = 0;
             $b_user->Save();
             //
 
