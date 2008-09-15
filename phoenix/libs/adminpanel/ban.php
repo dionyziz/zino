@@ -26,7 +26,8 @@
                 return;
             }
             else if ( count( $bannedUsers ) == 1 ) {
-                $user_d = new BannedUser( key( $bannedUsers )->id );
+                $cur_user = current( $bannedUsers );
+                $user_d = new BannedUser( $cur_user->id );
                 $rights = $user_d->rights;
                 $user_d->Delete();                
             }
