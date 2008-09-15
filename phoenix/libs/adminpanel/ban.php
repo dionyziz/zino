@@ -11,7 +11,7 @@
             $libs->Load( 'adminpanel/bannedusers' );    
             $libs->Load( 'user/user' );        
             
-            $ipFinder = new BannedIpFinder();
+            $ipFinder = new BannedIpFinder();//delete related ips
             $ips = $ipFinder->FindByUserId( $userid );            
             
             foreach( $ips as $ip ) {
@@ -19,7 +19,7 @@
                 $ip_d->Delete();
             }
             
-            $bannedUserFinder = new BanneduserFinder();
+            $bannedUserFinder = new BanneduserFinder();//delete banneduser
             $bannedUsers = $bannedUserFinder->FindByUserId( $userid );            
             
             if ( !$bannedUsers ) {
@@ -32,7 +32,7 @@
                 $user_d->Delete();                
             }
                 
-            $userFinder = new UserFinder();
+            $userFinder = new UserFinder();//restore user rights
             $user = $userFinder->FindById( $userid );
             $user->rights = $rights;
             $user->Save();
@@ -52,7 +52,7 @@
                     return false;
                }
                else {
-                    /*$diff = NowDate() - $res->expire; 
+                    /*$diff = daysDiff( $res->expire );
                     if ( $diff > 0 ) {// if banning has expired
                         $this->Revoke( $res->userid );
                         return false;
