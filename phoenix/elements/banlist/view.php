@@ -31,7 +31,7 @@
                     ?>.  <?php
                     ?><input type="submit" value="revoke" /><?php
                     ?><input type="hidden" name="userid" value="<?php echo $bannedUser->userid; ?>" /><?php
-                    echo '<p>'. strtotime($bannedUser->expire) - strtotime(NowDate()) . '</p>';
+                    echo  strtotime($bannedUser->expire) . ' ' .strtotime(NowDate()) . ' ' . (strtotime($bannedUser->expire) - strtotime(NowDate()));
                     ?></p><?php
                 ?></form><?php
             }
