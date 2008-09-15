@@ -5,35 +5,45 @@
     
     class Ban {    
         public function Revoke( $userid ) {
-                global $libs;
+            global $libs;
                         
-                $libs->Load( 'adminpanel/bannedips' );
-                $libs->Load( 'adminpanel/bannedusers' );    
-                $libs->Load( 'user/user' );        
+            $libs->Load( 'adminpanel/bannedips' );
+            $libs->Load( 'adminpanel/bannedusers' );    
+            $libs->Load( 'user/user' );        
             
-                $ipFinder = new BannedIpFinder();
-                $ips = $ipFinder->FindByUserId( $userid );            
+            $ipFinder = new BannedIpFinder();
+            $ips = $ipFinder->FindByUserId( $userid );            
             
-                foreach( $ips as $ip ) {
-                    $ip_d = new BannedIp( $ip->id );
-                    $ip_d->Delete();
-                }
+            foreach( $ips as $ip ) {
+                $ip_d = new BannedIp( $ip->id );
+                $ip_d->Delete();
+            }
             
-                $b_userFinder = new BanneduserFinder();
-                $users = $b_userFinder->FindByUserId( $userid );            
-                
-                foreach( $users as $user ) {
+            $bannedUserFinder = new BanneduserFinder();
+            $bannedUsers = $bannedUserFinder->FindByUserId( $userid );            
+            
+            if ( !$bannedUsers ) {
+                return;
+            }
+            else if ( count( $bannedUsers ) == 1 ) {
+                $user_d = new BannedUser( key( $bannedUsers )->id );
+                $rights = $user_d->rights;
+                $user_d->Delete();                
+            }
+            else {
+                foreach( $bannedUsers as $user ) {
                     $user_d = new BannedUser( $user->id );
                     $rights = $user_d->rights;
                     $user_d->Delete();
                 }
+            }
                 
-                $userFinder = new UserFinder();
-                $user = $userFinder->FindById( $userid );
-                $user->rights = $rights;
-                $user->Save();
-                
-                return;
+            $userFinder = new UserFinder();
+            $user = $userFinder->FindById( $userid );
+            $user->rights = $rights;
+            $user->Save();
+              
+            return;
         }
     
         public function isBannedIp( $ip ) {
