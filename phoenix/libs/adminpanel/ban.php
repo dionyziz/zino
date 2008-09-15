@@ -48,19 +48,36 @@
                $ipFinder = new BannedIpFinder();
                $res = $ipFinder->FindByIp( $ip );
                
-               if ( !$res ) {
+               if ( !$res ) {               
                     return false;
                }
-               else {
-                    $diff = strtotime( NowDate() ) - strtotime( $res->expire );
-                    if ( $diff > 0 ) {// if banning has expired
-                        $this->Revoke( $res->userid );
-                        return false;
-                    }
-                    else {
-                        return true;
-                    }
+               else {                    
+                    return true;
                 }
+        }
+        
+        public function isBannedUser( $userid ) {
+            global $libs;
+            
+            $libs->Load( 'adminpanel/bannedusers' );
+            
+            $userFinder = new BannedUserFinder();
+            $res = $userFinder( $userid );
+            
+            if ( !$res ) {
+                return false;
+            }
+            else {
+                $user = current( $res );
+                $diff = strtotime( NowDate() ) - strtotime( $user->expire );
+                if ( diff > 0 ) {
+                    $this->Revoke( $user->id );
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
         }
         
         public function BanUser( $user_name ) {
