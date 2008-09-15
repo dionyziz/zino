@@ -31,13 +31,6 @@
                 $rights = $user_d->rights;
                 $user_d->Delete();                
             }
-            else {
-                foreach( $bannedUsers as $user ) {
-                    $user_d = new BannedUser( $user->id );
-                    $rights = $user_d->rights;
-                    $user_d->Delete();
-                }
-            }
                 
             $userFinder = new UserFinder();
             $user = $userFinder->FindById( $userid );
