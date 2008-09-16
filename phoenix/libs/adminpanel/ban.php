@@ -70,7 +70,7 @@
             else {
                 $user = current( $res );
                 $diff = strtotime( NowDate() ) - strtotime( $user->expire );
-                if ( diff > 0 ) {
+                if ( $diff > 0 ) {
                     $this->Revoke( $user->id );
                     return false;
                 }
