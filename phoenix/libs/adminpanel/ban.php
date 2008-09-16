@@ -62,7 +62,7 @@
             $libs->Load( 'adminpanel/bannedusers' );
             
             $userFinder = new BannedUserFinder();
-            $res = $userFinder( $userid );
+            $res = $userFinder->FindByUserId( $userid );
             
             if ( !$res ) {
                 return false;
