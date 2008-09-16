@@ -5,9 +5,9 @@
         $libs->Load( 'rabbit/helpers/validate' );
         
         // Hardcoded stuff
-        $to = "dionyziz@gmail.com, chrispappas12@gmail.com, dkaragasidis@gmail.com";
+        $to = "oniz@kamibu.com";
         $subject = "Zino: Επικοινωνία";
-        $header = "From: admin@zino.gr";
+        $header = "From: oniz@kamibu.com";
 
         // Get parameters
         $from = $from->Get();
