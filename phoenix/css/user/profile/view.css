@@ -385,6 +385,7 @@ div.comments div.pagifycomments {
 	text-align: center;
 }
 div#profile div.friends div.people {
-    height: 130px;
+    overflow: hidden;
+    height: 110px;
 }
 
