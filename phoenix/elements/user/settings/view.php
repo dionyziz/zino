@@ -20,7 +20,7 @@
                     <form id="characteristicsinfo" action="" style="display:none"><?php
                         Element( 'user/settings/characteristics/view' );
                     ?></form>
-                    <form id="interestsinfo" action="" style="display:none"><?php
+                    <form onsubmit="return false;" id="interestsinfo" action="" style="display:none"><?php
                         Element( 'user/settings/interests' );
                     ?></form>
                     <form id="contactinfo" action="" style="display:none"><?php
