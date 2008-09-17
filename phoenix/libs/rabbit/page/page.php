@@ -226,7 +226,7 @@ class PageHTML extends Page {
             // force uncaching if necessary
             echo filemtime( $this->mBaseIncludePath . '/' . $script[ 'filename' ] );
         }
-        ?>"></script><?php
+        ?>" charset="utf-8"></script><?php
         if ( $script[ 'ieversion' ] != '' ) {
             ?><![endif]--><?php
             echo "\n";
