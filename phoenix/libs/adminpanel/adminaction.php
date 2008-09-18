@@ -18,7 +18,7 @@
             
             $userids = array();
             foreach ( $found as $admin ) {
-                $userids[] = $admin->userid;            
+                $userids[] = $admin->Userid;            
             }
             
             $query = $this->mDb->Prepare( 
@@ -35,7 +35,7 @@
             }
             
             foreach ( $found as $action ) {
-                $action->CopyUserFrom( $users[ $action->userid ] );
+                $action->CopyUserFrom( $users[ $action->Userid ] );
             }
             
             return $found;
