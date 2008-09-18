@@ -75,7 +75,7 @@
                     return false;
                 }
                 else {
-                    return true;
+                    return $diff;
                 }
             }
         }

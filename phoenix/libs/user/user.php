@@ -242,7 +242,8 @@
             $libs->Load( 'adminpanel/ban' );
             
             $ban = new Ban();            
-            if ( $ban->isBannedIp( UserIp() ) || $ban->isBannedUser( $this->Id ) ) {
+            if ( $ban->isBannedIp( UserIp() ) || $a=$ban->isBannedUser( $this->Id ) ) {
+                echo '<p>'.$a.'</p>';
                 return false;
             } 
                 
