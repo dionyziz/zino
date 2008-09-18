@@ -64,8 +64,7 @@
                 ?></td><td class="numeric"><?php
                 echo $admin->targetid;
                 ?></td><td><?php
-                Element( 'date/diff', $comment->Created );
-                echo $admin->date;
+                Element( 'date/diff', $admin->Date );
                 ?></td></tr><?php
             }     
             ?></table><br /><?php
