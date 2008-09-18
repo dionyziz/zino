@@ -43,11 +43,11 @@
         protected $mDbTableAlias = 'adminactions';
         
         public function __get( $key ) {
-            switch( $key ) {
+            switch ( $key ) {
                 case 'Name':
                     return $this->User->name;
                 case 'Target':
-                    switch( $this->targettype ) {
+                    switch( $this->Targettype ) {
                         case 1: // TODO: use constants defined in libs/types
                             return 'comment';
                         case 2:
@@ -58,7 +58,7 @@
                             return 'image';
                     }
                 case 'Action':
-                    switch( $this->type ) {  
+                    switch ( $this->Type ) {  
                         case 1: // TODO: use constants instead?
                             return 'delete';
                         case 2:
@@ -70,20 +70,21 @@
         }  
         
         public function CopyUserFrom( $key ) {
-        $this->mRelations[ 'User' ]->CopyFrom( $key );
+            $this->mRelations[ 'User' ]->CopyFrom( $key );
         }
         
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
+            $this->Item = $this->HasOne( Type_GetClass( $this->Targettype ), 'Targetid' );
         }
         
         public function saveAdminAction( $userid , $userip , $actiontype , $targettype , $targetid ) {        
-            $this->userid = $userid;
-            $this->userip = $userip;
-            $this->targetid = $targetid;
+            $this->Userid = $userid;
+            $this->Userip = $userip;
+            $this->Targetid = $targetid;
             
             $today = date( 'Y-m-d H:i:s');
-            $this->date = $today;
+            $this->Date = $today;
         
             switch ( $actiontype ) {
                 case "delete":
