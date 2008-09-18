@@ -37,19 +37,21 @@
             foreach ( $admins as $admin ) {
                 ?><tr<?php
                 switch ( $admin->action ) {
-                    case 'deleted':
+                    case 'delete':
                         ?> class="deleted"<?php
                         break;
-                    case 'edited':
+                    case 'edit':
                         ?> class="edited"<?php
                         break;
                 }
-                ?>><td><?php
-                echo $admin->name;
-                ?></td><td><?php
+                ?>><td><a href="<?php
+                Element( 'user/url', $admin->User->Id, $admin->User->Subdomain );
+                ?>"><?php
+                echo $admin->User->Name;
+                ?></a></td><td><?php
                 echo long2ip( $admin->userip );
                 ?></td><td><?php
-                switch( $admin->action ) {
+                switch ( $admin->action ) {
                     case 'delete':
                         ?>deleted<?php
                         break;
@@ -62,13 +64,15 @@
                 ?></td><td class="numeric"><?php
                 echo $admin->targetid;
                 ?></td><td><?php
+                Element( 'date/diff', $comment->Created );
                 echo $admin->date;
                 ?></td></tr><?php
             }     
-            ?></table><?php
+            ?></table><br /><?php
             $numactions = $adminFinder->Count();  
             $totalpages = ceil( $numactions / $limit );
             Element( 'pagify', $pageno, "?p=adminlog&pageno=", $totalpages );
+            ?><br /><?php
         }
     }
 ?>

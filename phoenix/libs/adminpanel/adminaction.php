@@ -6,13 +6,13 @@
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
             
-        public function FindAll ( $offset, $limit ) {
+        public function FindAll( $offset, $limit ) {
             $prototype = new AdminAction();
             $found = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
             
-            $userids=array();
-            foreach( $found as $admin ) {
-            $userids[] = $admin->userid;            
+            $userids = array();
+            foreach ( $found as $admin ) {
+                $userids[] = $admin->userid;            
             }
             
             $query = $this->mDb->Prepare( 
@@ -24,30 +24,18 @@
             
             $res = $query->Execute();
             $users = array();
-            while( $row = $res->FetchArray() ) {
+            while ( $row = $res->FetchArray() ) {
                 $users[ $row[ 'user_id' ] ] = new User( $row );
             }
             
-            foreach( $found as $action ) {
+            foreach ( $found as $action ) {
                 $action->CopyUserFrom( $users[ $action->userid ] );
             }
             
             return $found;
         }
-        
-        public function Count () {
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    COUNT( * ) AS numactions
-                FROM
-                    :adminactions'
-            );
-            $query->BindTable( 'adminactions' );
-            $res = $query->Execute();
-            $row = $res->FetchArray();
-            $numactions = $row[ 'numactions' ];
-            
-            return $numactions;
+        public function Count() {
+            return parent::Count();
         }        
     }
 
@@ -56,11 +44,11 @@
         
         public function __get( $key ) {
             switch( $key ) {
-                case 'name':
+                case 'Name':
                     return $this->User->name;
-                case 'target':
+                case 'Target':
                     switch( $this->targettype ) {
-                        case 1:
+                        case 1: // TODO: use constants defined in libs/types
                             return 'comment';
                         case 2:
                             return 'poll';                        
@@ -69,12 +57,12 @@
                         case 4:
                             return 'image';
                     }
-                case 'action':
+                case 'Action':
                     switch( $this->type ) {  
-                    case 1:
-                        return 'delete';
-                    case 2:
-                        return 'edit';
+                        case 1: // TODO: use constants instead?
+                            return 'delete';
+                        case 2:
+                            return 'edit';
                     }
             }
             
@@ -89,7 +77,7 @@
             $this->User = $this->HasOne( 'User', 'Userid' );
         }
         
-        public function saveAdminAction ( $userid , $userip , $actiontype , $targettype , $targetid ) {        
+        public function saveAdminAction( $userid , $userip , $actiontype , $targettype , $targetid ) {        
             $this->userid = $userid;
             $this->userip = $userip;
             $this->targetid = $targetid;
