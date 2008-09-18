@@ -48,13 +48,13 @@
                     return $this->User->name;
                 case 'Target':
                     switch( $this->Targettype ) {
-                        case 1: // TODO: use constants defined in libs/types
+                        case TYPE_COMMENT:
                             return 'comment';
-                        case 2:
+                        case TYPE_POLL:
                             return 'poll';                        
-                        case 3:
+                        case TYPE_JOURNAL:
                             return 'journal';
-                        case 4:
+                        case TYPE_IMAGE:
                             return 'image';
                     }
                 case 'Action':
@@ -83,8 +83,7 @@
             $this->Userip = $userip;
             $this->Targetid = $targetid;
             
-            $today = date( 'Y-m-d H:i:s');
-            $this->Date = $today;
+            $this->Date = NowDate();
         
             switch ( $actiontype ) {
                 case "delete":
@@ -93,29 +92,10 @@
                 case "edit":
                     $this->type = 2;
                     break;
-                default:
-                    return;
-            }
-        
-            switch ( $targettype ) {
-                case "comment":
-                    $this->targettype = 1;
-                    break;
-                case "poll":
-                    $this->targettype = 2;
-                    break;
-                case "journal":
-                    $this->targettype = 3;
-                    break;
-                case "image":
-                    $this->targettype = 4;
-                    break;
-                default:
-                    return;
-            }
-            
+            } 
+
+            $this->Targettype = $targettype;
             $this->Save();            
-            return;        
         }
     }
 ?>

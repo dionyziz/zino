@@ -111,7 +111,7 @@
                         
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'journal' , $this->id );
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , TYPE_JOURNAL, $this->id );
             }
 
             --$this->User->Count->Journals;

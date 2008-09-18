@@ -450,7 +450,7 @@
 			
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , 'comment' , $this->id );
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , TYPE_COMMENT, $this->id );
             }
             
             $this->Delid = 1;
@@ -538,7 +538,7 @@
                        
             if ( $user->id != $this->userid && $this->Delid == 0 ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'edit' , 'comment' , $this->id );
+                $adminaction->saveAdminAction( $user->id , UserIp() , 'edit', TYPE_COMMENT, $this->id );
             }
             
             $this->Bulk->Save();
