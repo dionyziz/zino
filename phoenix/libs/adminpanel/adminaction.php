@@ -3,6 +3,12 @@
         Developer:Pagio
     */   
 
+    global $libs;
+
+    $libs->Load( 'poll/poll' );
+    $libs->Load( 'image/image' );
+    $libs->Load( 'journal' );
+
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
             
