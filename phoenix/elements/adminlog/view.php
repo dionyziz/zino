@@ -11,14 +11,14 @@
                 $pageno = 1;
             }
             $libs->Load( 'adminpanel/adminaction' );
-            $page->SetTitle( 'Logged admin actions' );
+            $page->SetTitle( 'Ενέργειες διαχειριστών' );
             
             if ( !$user->hasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                 ?>Permission Denied<?php
                 return;
             }
             
-            ?><h2>Logged admin actions</h2><?php 
+            ?><h2>Ενέργειες διαχειριστών</h2><?php 
             
             $adminFinder = new AdminActionFinder();
             $offset = ( $pageno - 1 ) * $limit;
@@ -26,12 +26,12 @@
             
             ?><table class="stats">
                 <tr>
-                    <th>Admin username</th>
+                    <th>Διαχειριστής</th>
                     <th>IP</th>
-                    <th>Action</th>
-                    <th>Target</th>
+                    <th>Ενέργεια</th>
+                    <th>Τύπος</th>
                     <th class="numeric">Id</th>
-                    <th>When</th>
+                    <th>Πότε</th>
                 </tr>
             <?php
             foreach ( $admins as $admin ) {
@@ -53,10 +53,10 @@
                 ?></td><td><?php
                 switch ( $admin->Action ) {
                     case 'delete':
-                        ?>deleted<?php
+                        ?>Διαγραφή<?php
                         break;
                     case 'edit':
-                        ?>edited<?php
+                        ?>Επεξεργασία<?php
                         break;
                 }
                 ?></td><td><?php
