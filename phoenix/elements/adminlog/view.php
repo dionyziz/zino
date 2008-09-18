@@ -64,7 +64,9 @@
                 ?></td><td><?php
                 echo $admin->Target;
                 ?></td><td class="numeric"><a href="<?php
+                ob_start();
                 Element( 'url', $admin->Item );
+                echo htmlspecialchars( ob_get_clean() );
                 echo $admin->Targetid;
                 ?></td></tr><?php
             }     
