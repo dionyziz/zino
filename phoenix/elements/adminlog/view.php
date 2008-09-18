@@ -67,8 +67,9 @@
                 ob_start();
                 Element( 'url', $admin->Item );
                 echo htmlspecialchars( ob_get_clean() );
+                ?>"><?php
                 echo $admin->Targetid;
-                ?></td></tr><?php
+                ?></a></td></tr><?php
             }     
             ?></table><br /><?php
             $numactions = $adminFinder->Count();  
