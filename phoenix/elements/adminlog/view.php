@@ -51,7 +51,7 @@
                 ?></a></td><td><?php
                 echo long2ip( $admin->userip );
                 ?></td><td><?php
-                switch ( $admin->action ) {
+                switch ( $admin->Action ) {
                     case 'delete':
                         ?>deleted<?php
                         break;
