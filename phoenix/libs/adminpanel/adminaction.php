@@ -75,7 +75,9 @@
         
         protected function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
-            $this->Item = $this->HasOne( Type_GetClass( $this->Targettype ), 'Targetid' );
+            if ( $this->Exists() ) {
+                $this->Item = $this->HasOne( Type_GetClass( $this->Targettype ), 'Targetid' );
+            }
         }
         
         public function saveAdminAction( $userid , $userip , $actiontype , $targettype , $targetid ) {        
