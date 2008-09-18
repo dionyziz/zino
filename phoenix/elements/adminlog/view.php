@@ -60,9 +60,9 @@
                         break;
                 }
                 ?></td><td><?php
-                echo $admin->target;
+                echo $admin->Target;
                 ?></td><td class="numeric"><?php
-                echo $admin->targetid;
+                echo $admin->Targetid;
                 ?></td><td><?php
                 Element( 'date/diff', $admin->Date );
                 ?></td></tr><?php
