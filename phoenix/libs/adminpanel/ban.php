@@ -51,8 +51,17 @@
                if ( !$res ) {               
                     return false;
                }
-               else {                    
-                    return true;
+               else { 
+                    $ip = cur( $res );
+                    $diff = strtotime( NowDate() ) - strtotime( $ip->Expire );
+                    
+                    if ( $diff>0 ) {
+                        $this->Revoke( $ip->Userid );
+                        return false;
+                    }
+                    else {
+                        return true;
+                   }
                 }
         }
         
@@ -70,6 +79,7 @@
             else {
                 $user = current( $res );
                 $diff = strtotime( NowDate() ) - strtotime( $user->Expire );
+                
                 if ( $diff > 0 ) {
                     $this->Revoke( $user->Userid );
                     return false;
