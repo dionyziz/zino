@@ -1,12 +1,17 @@
 <?php
     class ElementAdminlogView extends Element {
-        public function Render( tInteger $offset ) {
+        public function Render( tInteger $pageno ) {
             global $user;
             global $libs;
             global $page;
             
+            $limit = 20;
+            $pageno = $pageno->Get();
+            if ( $pageno < 1 ) {
+                $pageno = 1;
+            }
             $libs->Load( 'adminpanel/adminaction' );
-            $page->setTitle( 'Logged admin actions' );
+            $page->SetTitle( 'Logged admin actions' );
             
             if ( !$user->hasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
                 ?>Permission Denied<?php
@@ -15,20 +20,11 @@
             
             ?><h2>Logged admin actions</h2><?php 
             
-            $offset=$offset->Get();            
-            if ( $offset < 0 ) $offset = 0;
-            
             $adminFinder = new AdminActionFinder();
+            $offset = ( $pageno - 1 ) * $limit;
             $admins = $adminFinder->FindAll( $offset, 20 );   
-            $numactions = $adminFinder->Count();  
             
-            ?><p><?php
-            for ( $i = 0; $i < $numactions; $i += 20 ) {
-                ?><a href="?p=adminlog&amp;offset=<?php echo $i;?>"><?php echo $i;?> </a><?php
-            }
-            ?></p><?php
-           
-            ?><table>
+            ?><table style="width:100%">
                 <tr>
                     <th>Admin username</th>
                     <th>IP</th>
@@ -61,6 +57,9 @@
                 ?></td></tr><?php
             }     
             ?></table><?php
+            $numactions = $adminFinder->Count();  
+            $totalpages = ceil( $numactions / $limit );
+            Element( 'pagify', $pageno, "?p=adminlog&pageno=", $totalpages );
         }
     }
 ?>
