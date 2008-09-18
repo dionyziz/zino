@@ -29,9 +29,9 @@
                     <th>Διαχειριστής</th>
                     <th>IP</th>
                     <th>Ενέργεια</th>
+                    <th>Πότε</th>
                     <th>Τύπος</th>
                     <th class="numeric">Id</th>
-                    <th>Πότε</th>
                 </tr>
             <?php
             foreach ( $admins as $admin ) {
@@ -60,11 +60,12 @@
                         break;
                 }
                 ?></td><td><?php
-                echo $admin->Target;
-                ?></td><td class="numeric"><?php
-                echo $admin->Targetid;
-                ?></td><td><?php
                 Element( 'date/diff', $admin->Date );
+                ?></td><td><?php
+                echo $admin->Target;
+                ?></td><td class="numeric"><a href="<?php
+                Element( 'url', $admin->Item );
+                echo $admin->Targetid;
                 ?></td></tr><?php
             }     
             ?></table><br /><?php
