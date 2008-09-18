@@ -30,8 +30,9 @@
                     echo $bannedUser->Expire;                
                     ?>.  <?php
                     ?><input type="submit" value="revoke" /><?php
-                    ?><input type="hidden" name="userid" value="<?php echo $bannedUser->Userid; ?>" /><?php
-                    echo strtotime(NowDate()) .  ' ' . strtotime($bannedUser->Expire) . ' ' . (strtotime(NowDate())-strtotime($bannedUser->Expire)).' ';
+                    ?><input type="hidden" name="userid" value="<?php
+                    echo $bannedUser->Userid; 
+                    ?>" /><?php
                     ?></p><?php
                 ?></form><?php
             }
