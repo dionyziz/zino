@@ -52,7 +52,7 @@
                     return false;
                }
                else { 
-                    $ip = cur( $res );
+                    $ip = current( $res );
                     $diff = strtotime( NowDate() ) - strtotime( $ip->Expire );
                     
                     if ( $diff>0 ) {
