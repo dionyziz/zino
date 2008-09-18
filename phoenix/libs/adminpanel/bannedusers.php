@@ -15,7 +15,7 @@
         
         public function FindByUserID( $userid ) {
             $prototype = new BannedUser();
-            $prototype->userid = $userid;
+            $prototype->Userid = $userid;
             
             $res = $this->FindByPrototype( $prototype );
             return $res;

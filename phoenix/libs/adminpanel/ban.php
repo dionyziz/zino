@@ -15,7 +15,7 @@
             $ips = $ipFinder->FindByUserId( $userid );            
             
             foreach( $ips as $ip ) {
-                $ip_d = new BannedIp( $ip->id );
+                $ip_d = new BannedIp( $ip->Id );
                 $ip_d->Delete();
             }
             
@@ -27,14 +27,14 @@
             }
             else if ( count( $bannedUsers ) == 1 ) {
                 $cur_user = current( $bannedUsers );
-                $user_d = new BannedUser( $cur_user->id );
-                $rights = $user_d->rights;
+                $user_d = new BannedUser( $cur_user->Id );
+                $rights = $user_d->Rights;
                 $user_d->Delete();                
             }
                 
             $userFinder = new UserFinder();//restore user rights
             $user = $userFinder->FindById( $userid );
-            $user->rights = $rights;
+            $user->Rights = $rights;
             $user->Save();
               
             return;
@@ -69,9 +69,9 @@
             }
             else {
                 $user = current( $res );
-                $diff = strtotime( NowDate() ) - strtotime( $user->expire );
+                $diff = strtotime( NowDate() ) - strtotime( $user->Expire );
                 if ( $diff > 0 ) {
-                    $this->Revoke( $user->id );
+                    $this->Revoke( $user->Id );
                     return false;
                 }
                 else {
@@ -99,7 +99,7 @@
             }
             
             $bannedUserFinder = new BannedUserFinder();
-            $exists = $bannedUserFinder->FindByUserId( $b_user->id );
+            $exists = $bannedUserFinder->FindByUserId( $b_user->Id );
             
             if ( $exists ) {
                 return false;
@@ -117,9 +117,9 @@
             $res = $query->Execute();            
             
             $logs = array();
-            while( $row = $res->FetchArray() ) {
+            while ( $row = $res->FetchArray() ) {
                 $log = new LoginAttempt( $row );
-                $logs[] = $log->ip;
+                $logs[] = $log->Ip;
             }
             //
             
@@ -127,14 +127,14 @@
             $this->BanIps( $logs, $b_user );
 
             $banneduser = new BannedUser();
-            $banneduser->userid = $b_user->id;
-            $banneduser->rights = $b_user->rights;
-            $banneduser->started = date( 'Y-m-d H:i:s', time() );
-            $banneduser->expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
-            $banneduser->delalbums = 0;            
+            $banneduser->Userid = $b_user->Id;
+            $banneduser->Rights = $b_user->Rights;
+            $banneduser->Started = date( 'Y-m-d H:i:s', time() );
+            $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
+            $banneduser->Delalbums = 0;            
             $banneduser->Save();
             
-            $b_user->rights=0;
+            $b_user->Rights=0;
             $b_user->Save();
             //
 
@@ -150,10 +150,10 @@
             $expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             foreach( $ips as $ip ) {
                 $banip = new BannedIp();
-                $banip->ip = $ip;
-                $banip->userid = $b_user->id;
-                $banip->started = $started;
-                $banip->expire = $expire;
+                $banip->Ip = $ip;
+                $banip->Userid = $b_user->Id;
+                $banip->Started = $started;
+                $banip->Expire = $expire;
                 $banip->Save();
             }
             return;

@@ -8,7 +8,7 @@
         
         public function FindByIp( $ip ) {
             $prototype = new BannedIp();
-            $prototype->ip = $ip;
+            $prototype->Ip = $ip;
             
             $res = $this->FindByPrototype( $prototype );
             return $res;
@@ -16,7 +16,7 @@
         
         public function FindByUserId( $userid ) {
             $prototype = new BannedIp();
-            $prototype->userid = $userid;
+            $prototype->Userid = $userid;
             
             $res = $this->FindByPrototype( $prototype );
             return $res;
