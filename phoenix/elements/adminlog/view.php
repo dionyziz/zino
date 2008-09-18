@@ -36,7 +36,7 @@
             <?php
             foreach ( $admins as $admin ) {
                 ?><tr<?php
-                switch ( $admin->action ) {
+                switch ( $admin->Action ) {
                     case 'delete':
                         ?> class="deleted"<?php
                         break;
