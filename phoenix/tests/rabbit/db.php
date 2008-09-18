@@ -106,7 +106,6 @@
             $database = reset( $rabbit_settings[ 'databases' ] );
             $this->Assert( is_string( $key ), 'Each database alias should be a string' );
             $this->Assert( isset( $database[ 'name' ] ), '"name" attribute is obligatory for all databases' );
-            $this->Assert( isset( $database[ 'driver' ] ), '"driver" attribute is obligatory for all databases' );
             $this->Assert( isset( $database[ 'hostname' ] ), '"hostname" attribute is obligatory for all databases' );
             $this->Assert( isset( $GLOBALS[ $key ] ), 'Database was not imported into the global namespace' );
             $this->Assert( is_object( $GLOBALS[ $key ] ), 'Database imported into the global namespace was not an object' );
