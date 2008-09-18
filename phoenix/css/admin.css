@@ -8,6 +8,9 @@ table.stats tr th {
     background-color: #e5e5e5;
     padding: 3px;
 }
+table.stats tr td {
+    padding: 3px;
+}
 table.stats tr th.numeric, table.stats tr td.numeric {
     text-align: right;
 }
