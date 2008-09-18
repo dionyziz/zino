@@ -71,7 +71,7 @@
                 $user = current( $res );
                 $diff = strtotime( NowDate() ) - strtotime( $user->Expire );
                 if ( $diff > 0 ) {
-                    $this->Revoke( $user->Id );
+                    $this->Revoke( $user->Userid );
                     return false;
                 }
                 else {
