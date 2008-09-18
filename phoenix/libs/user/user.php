@@ -246,7 +246,7 @@
                 echo '<p>'.$a.'</p>';
                 return false;
             } 
-                
+             echo '<p>Rights</p>';    
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
