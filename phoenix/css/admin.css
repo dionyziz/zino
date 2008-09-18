@@ -1,0 +1,27 @@
+table.stats {
+    margin: 0 0 5px 0;
+    border-collapse: collapse;
+    font-size: 80%;
+    width: 100%;
+}
+table.stats tr th {
+    text-align: left;
+    background-color: #e5e5e5;
+    padding: 3px;
+}
+table.stats tr th.numeric, table.stats tr td.numeric {
+    text-align: right;
+}
+table.stats tr {
+    border-bottom: 1px solid #aaa;
+}
+table.stats tr.l {
+    background-color: #f9f9f9;
+}
+table.stats tr.deleted {
+    background-color: #ffe9e9;
+}
+table.stats tr.edited {
+    background-color: #e9e9ff;
+}
+

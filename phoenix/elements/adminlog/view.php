@@ -24,21 +24,30 @@
             $offset = ( $pageno - 1 ) * $limit;
             $admins = $adminFinder->FindAll( $offset, 20 );   
             
-            ?><table style="width:100%">
+            ?><table class="stats">
                 <tr>
                     <th>Admin username</th>
                     <th>IP</th>
                     <th>Action</th>
                     <th>Target</th>
-                    <th>Id</th>
+                    <th class="numeric">Id</th>
                     <th>When</th>
                 </tr>
             <?php
             foreach ( $admins as $admin ) {
-                ?><tr><td><?php
+                ?><tr<?php
+                switch ( $admin->action ) {
+                    case 'deleted':
+                        ?> class="deleted"<?php
+                        break;
+                    case 'edited':
+                        ?> class="edited"<?php
+                        break;
+                }
+                ?>><td><?php
                 echo $admin->name;
                 ?></td><td><?php
-                echo long2ip($admin->userip);
+                echo long2ip( $admin->userip );
                 ?></td><td><?php
                 switch( $admin->action ) {
                     case 'delete':
@@ -50,7 +59,7 @@
                 }
                 ?></td><td><?php
                 echo $admin->target;
-                ?></td><td><?php
+                ?></td><td class="numeric"><?php
                 echo $admin->targetid;
                 ?></td><td><?php
                 echo $admin->date;
