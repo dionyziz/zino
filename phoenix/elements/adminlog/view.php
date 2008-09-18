@@ -23,34 +23,44 @@
             $numactions = $adminFinder->Count();  
             
             ?><p><?php
-            for( $i=0 ; $i < $numactions ; $i += 20 ) {
-            ?><a href="?p=adminlog&amp;offset=<?php echo $i;?>"><?php echo $i;?> </a><?php
+            for ( $i = 0; $i < $numactions; $i += 20 ) {
+                ?><a href="?p=adminlog&amp;offset=<?php echo $i;?>"><?php echo $i;?> </a><?php
             }
-            ?></p><?php       
+            ?></p><?php
            
+            ?><table>
+                <tr>
+                    <th>Admin username</th>
+                    <th>IP</th>
+                    <th>Action</th>
+                    <th>Target</th>
+                    <th>Id</th>
+                    <th>When</th>
+                </tr>
+            <?php
             foreach ( $admins as $admin ) {
-                ?><p>User <?php
+                ?><tr><td><?php
                 echo $admin->name;
-                ?> with ip <?php
+                ?></td><td><?php
                 echo long2ip($admin->userip);
-                ?> <?php
+                ?></td><td><?php
                 switch( $admin->action ) {
                     case 'delete':
-                        echo 'deleted';
+                        ?>deleted<?php
                         break;
                     case 'edit':
-                        echo 'edited';
+                        ?>edited<?php
                         break;
-                    }
-                ?> <?php
+                }
+                ?></td><td><?php
                 echo $admin->target;
-                ?> with id <?php
+                ?></td><td><?php
                 echo $admin->targetid;
-                ?> at <?php
+                ?></td><td><?php
                 echo $admin->date;
-                ?>.</p><?php
+                ?></td></tr><?php
             }     
-            return;
+            ?></table><?php
         }
     }
 ?>
