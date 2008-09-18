@@ -244,8 +244,7 @@
             $ban = new Ban();            
             if ( $ban->isBannedIp( UserIp() ) || $ban->isBannedUser( $this->Id ) ) {
                 return false;
-            } 
-             echo '<p>Rights</p>';    
+            }   
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
