@@ -8,7 +8,10 @@
     $libs->Load( 'poll/poll' );
     $libs->Load( 'image/image' );
     $libs->Load( 'journal' );
-
+    
+    define( 'OPERATION_UPDATE', 3 );
+    define( 'OPERATION_DELETE', 4 );
+    
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
             
