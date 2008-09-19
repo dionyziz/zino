@@ -46,7 +46,7 @@
             }
             
             $finder = New FriendRelationFinder();
-            $friends = $finder->FindByUser( $theuser , ( $pageno - 1 )*20 , 20 );
+            $friends = $finder->FindByUser( $theuser , ( $pageno - 1 )*24 , 24 );
             Element( 'user/sections', 'relations' , $theuser );
             ?><div id="relations"><?php
                 if ( !empty( $friends ) ) {
@@ -59,7 +59,7 @@
                 
                 $link = str_replace( '*', urlencode( $theuser->Subdomain ), $xc_settings[ 'usersubdomains' ] ) . 'friends?pageno=';
                 $total_friends = $theuser->Count->Relations;
-                $total_pages = ceil( $total_friends / 20 );
+                $total_pages = ceil( $total_friends / 24 );
                 Element( 'pagify', $pageno, $link, $total_pages, "( " . $total_friends . " Φίλοι )" );
 
                 ?></div>
