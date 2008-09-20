@@ -130,16 +130,8 @@
             $this->BanIps( $logs, $b_user );            
             $this->addBannedUser( $b_user );
 
-            /*$banneduser = new BannedUser();
-            $banneduser->Userid = $b_user->Id;
-            $banneduser->Rights = $b_user->Rights;
-            $banneduser->Started = date( 'Y-m-d H:i:s', time() );
-            $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
-            $banneduser->Delalbums = 0;            
-            $banneduser->Save();
-            
             $b_user->Rights=0;
-            $b_user->Save();*/
+            $b_user->Save();
             //
 
             return true;
@@ -156,11 +148,7 @@
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
             $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->Delalbums = 0;            
-            $banneduser->Save();
-            
-            $user->Rights=0;
-            $user->Save();
-            
+            $banneduser->Save();            
             return;        
         }
         
