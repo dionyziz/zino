@@ -1,16 +1,18 @@
 <?php
     class ElementFavouriteView extends Element {
-        public function Render( tInteger $userid ) {
+        public function Render( tText $subdomain ) {
             global $libs;
 
             $libs->Load( 'favourite' );
             $libs->Load( 'journal' );
             
-            $userid = $userid->Get();
+            $subdomain = $subdomain->Get();
             
             // Find all user's favourite journals
-            $favfinder = new FavouriteFinder();
-            $favourites = $favfinder->FindByUserAndType( $userid, TYPE_JOURNAL );
+            $userfinder = New UserFinder();
+            $theuser = $userfinder->FindBySubdomain( $subdomain );
+            $favfinder = New FavouriteFinder();
+            $favourites = $favfinder->FindByUserAndType( $theuser->Id, TYPE_JOURNAL );
 
             // print what you have found
             foreach ( $favourites as $value ) {
