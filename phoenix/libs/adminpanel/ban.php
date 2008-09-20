@@ -137,14 +137,14 @@
             return true;
         }
         
-        protected function addBannedUser( $user ) {
+        protected function addBannedUser( $b_user ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedusers' );
             
             $banneduser = new BannedUser();
-            $banneduser->Userid = $user->Id;
-            $banneduser->Rights = $user->Rights;
+            $banneduser->Userid = $b_user->Id;
+            $banneduser->Rights = $b_user->Rights;
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
             $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
             $banneduser->Delalbums = 0;            
