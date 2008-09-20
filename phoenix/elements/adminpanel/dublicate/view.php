@@ -15,6 +15,8 @@
             
             $libs->Load( 'adminpanel/dublicate' );
             
+            ?><h2>Dublicate Accounts</h2><?php
+            
             $dub = new DublicateAccount();
             $res = $dub->getDublicateAccountsByUserName( 'pagio91' );
             

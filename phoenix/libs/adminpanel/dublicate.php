@@ -12,7 +12,7 @@
                         SELECT `login_ip`
                         FROM `loginattempts`
                         WHERE `login_username` = 'pagio91'
-                    )
+                    );
                 ");
                 $query->BindTable( 'loginattempts' );
                 $query->Bind( 'username', 'pagio91' );
