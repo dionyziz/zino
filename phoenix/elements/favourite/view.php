@@ -15,7 +15,7 @@
                     $type = TYPE_JOURNAL;
                     break;
                 case 'photos':
-                    $type = TYPE_PHOTO;
+                    $type = TYPE_IMAGE;
                     break;
                 default:
                     $type = false; // all
