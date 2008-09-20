@@ -13,13 +13,19 @@
             return $found;
         }
         
-        public function FindByUserID( $userid ) {
+        public function FindByUserId( $userid ) {
             $prototype = new BannedUser();
             $prototype->Userid = $userid;
             
             $res = $this->FindByPrototype( $prototype );
             return $res;
-        }        
+        } 
+        
+        public function FindNotExpiredByUserId( $userid ) {
+            global $db;
+            //ToDo!
+            return;
+        }
     }   
     
     class BannedUser extends Satori {
