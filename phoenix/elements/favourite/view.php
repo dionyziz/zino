@@ -39,17 +39,29 @@
                             ?>chart_bar-trans.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
                         */
                         ?>
-                        <li><a href="<?php
+                        <li<?php
+                        if ( $type === TYPE_JOURNAL ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
                         ?>favourites/journals"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>book.png" alt="Ημερολόγια" title="Ημερολόγια" /></a></li>
-                        <li><a href="<?php
+                        <li<?php
+                        if ( $type === TYPE_IMAGE ) {
+                            ?> class="selected"<?php
+                        }
+                        ?>><a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
                         ?>favourites/photos"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>photo.png" alt="Εικόνες" title="Εικόνες" /></a></li>
-                        <li class="selected" style="width:40px;">
+                        <li<?php
+                        if ( $type === false ) {
+                            ?> class="selected"<?php
+                        }
+                        ?> style="width:40px;">
                         <a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
                         ?>favourites">Όλα</a></li>
