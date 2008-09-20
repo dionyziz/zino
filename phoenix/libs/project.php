@@ -124,7 +124,8 @@ Project_Destruct()' );
             'search2'               => 'search',
             'search'                => 'search/view',
             'adminlog'              => 'adminlog/view',
-            'banlist'               => 'banlist/view'
+            'banlist'               => 'banlist/view',
+            'dublicate'             => 'adminpanel/dublicate/view'
 
 
         );

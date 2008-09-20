@@ -5,8 +5,8 @@
 	        global $user;
 	        
 	        if( ! $user->HasPermission( PERMISSION_ADMINPANEL_VIEW ) ) {
-	        ?> Permission Denied <?php
-	        return;
+	            ?> Permission Denied <?php
+	            return;
 	        }
 	        
 	        $page->setTitle( 'Administration Panel' );
