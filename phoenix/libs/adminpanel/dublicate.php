@@ -1,0 +1,24 @@
+<?php
+    class DublicateAccount {
+            public function getDublicateAccountsByUserName( $username ) {
+                global $db;
+                
+                $query = $db->Prepare( "
+                    SELECT *
+                    FROM :loginattempts
+                    WHERE `login_username` != :username
+                    AND `login_ip`
+                    IN (
+                        SELECT `login_ip`
+                        FROM `loginattempts`
+                        WHERE `login_username` = :username
+                    )
+                ");
+                $query->BindTable( 'loginattempts' );
+                $query->Bind( 'username', 'pagio91' );
+                $res = $query->Execute();
+                
+                return $res;
+            } 
+    }
+?>

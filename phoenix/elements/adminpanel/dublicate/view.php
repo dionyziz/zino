@@ -13,20 +13,10 @@
             
             $page->setTitle( 'Dublicate accounts' );
             
-            $query = $db->Prepare( "
-                SELECT *
-                FROM :loginattempts
-                WHERE `login_username` != :username
-                AND `login_ip`
-                IN (
-                    SELECT `login_ip`
-                    FROM `loginattempts`
-                    WHERE `login_username` = :username
-                )
-            ");
-            $query->BindTable( 'loginattempts' );
-            $query->Bind( 'username', 'pagio91' );
-            $res = $query->Execute();
+            $libs->Load( 'adminpanel/dublicate' );
+            
+            $dub = new DublicateAccount();
+            $res = $dub->getDublicateAccountsByUserName( 'pagio91' );
             
             foreach ( $res as $dub ) {
                 ?><p><?php
