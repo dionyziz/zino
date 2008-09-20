@@ -42,28 +42,28 @@
         }
     
         public function isBannedIp( $ip ) {
-               global $libs;     
+            global $libs;     
                
-               $libs->Load( 'adminpanel/bannedips' );
+            $libs->Load( 'adminpanel/bannedips' );
                
-               $ipFinder = new BannedIpFinder();
-               $res = $ipFinder->FindByIp( $ip );
+            $ipFinder = new BannedIpFinder();
+            $res = $ipFinder->FindByIp( $ip );
                
-               if ( !$res ) {               
-                    return false;
-               }
-               else { 
-                    $ip = current( $res );
-                    $diff = strtotime( NowDate() ) - strtotime( $ip->Expire );
+            if ( !$res ) {               
+                 return false;
+            }
+            else { 
+                 $ip = current( $res );
+                 $diff = strtotime( NowDate() ) - strtotime( $ip->Expire );
                     
-                    if ( $diff>0 ) {
-                        $this->Revoke( $ip->Userid );
-                        return false;
-                    }
-                    else {
-                        return true;
-                   }
+                 if ( $diff>0 ) {
+                     $this->Revoke( $ip->Userid );
+                     return false;
+                 }
+                 else {
+                     return true;
                 }
+             }
         }
         
         public function isBannedUser( $userid ) {
