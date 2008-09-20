@@ -9,7 +9,26 @@
                         
             $libs->Load( 'adminpanel/bannedips' );
             $libs->Load( 'adminpanel/bannedusers' );    
-            $libs->Load( 'user/user' );        
+            $libs->Load( 'user/user' );     
+            
+            $bannedUserFinder = new BanneduserFinder();//delete banneduser
+            $bannedUsers = $bannedUserFinder->FindByUserId( $userid );            
+            
+            
+            if ( count( $bannedUsers ) == 1 ) {
+                $cur_user = current( $bannedUsers );
+                $user_d = new BannedUser( $cur_user->Id );
+                $rights = $user_d->Rights;
+                $user_d->Delete();                
+            }
+            else {
+                return;
+            }
+                
+            $userFinder = new UserFinder();//restore user rights
+            $user = $userFinder->FindById( $userid );
+            $user->Rights = $rights;
+            $user->Save();   
             
             $ipFinder = new BannedIpFinder();//delete related ips
             $ips = $ipFinder->FindByUserId( $userid );            
@@ -18,25 +37,7 @@
                 $ip_d = new BannedIp( $ip->Id );
                 $ip_d->Delete();
             }
-            
-            $bannedUserFinder = new BanneduserFinder();//delete banneduser
-            $bannedUsers = $bannedUserFinder->FindByUserId( $userid );            
-            
-            if ( !$bannedUsers ) {
-                return;
-            }
-            else if ( count( $bannedUsers ) == 1 ) {
-                $cur_user = current( $bannedUsers );
-                $user_d = new BannedUser( $cur_user->Id );
-                $rights = $user_d->Rights;
-                $user_d->Delete();                
-            }
-                
-            $userFinder = new UserFinder();//restore user rights
-            $user = $userFinder->FindById( $userid );
-            $user->Rights = $rights;
-            $user->Save();
-              
+                          
             return;
         }
     
@@ -126,7 +127,7 @@
             //
             
             //ban this ips and ban user with this username
-            $this->BanIps( $logs, $b_user );            
+            $this->addBannedIps( $logs, $b_user );            
             $this->addBannedUser( $b_user );
 
             $b_user->Rights=0;
@@ -151,7 +152,7 @@
             return;        
         }
         
-        protected function BanIps( $ips, $b_user ) {
+        protected function addBannedIps( $ips, $b_user ) {
             global $libs;
             
             $libs->Load( 'adminpanel/bannedips' );
