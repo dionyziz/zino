@@ -92,7 +92,6 @@
         
         public function BanUser( $user_name ) {
             global $libs;
-            global $db;
             
             $libs->Load( 'user/user' );        
             $libs->Load( 'adminpanel/bannedips' );
@@ -100,7 +99,7 @@
             $libs->Load( 'loginattempt' );
             
             
-            //check if the user doesn't exist or is already banned
+            //check if the user doesn't exist or if he is already banned
             $userFinder = new UserFinder();
             $b_user = $userFinder->FindByName( $user_name );
             
