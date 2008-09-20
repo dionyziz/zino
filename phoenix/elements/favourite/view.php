@@ -25,7 +25,7 @@
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );
             $favfinder = New FavouriteFinder();
-            $favourites = $favfinder->FindByUserAndType( $theuser, false );
+            $favourites = $favfinder->FindByUserAndType( $theuser, $type );
 
             ?><div id="favourites">
                 <h2>Αγαπημένα</h2>
