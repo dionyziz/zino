@@ -169,7 +169,8 @@
                         if ( $user->Id == $theuser->Id && $user->Count->Journals == 0 ) {
                             ?><div class="nojournals">
                             Δεν έχεις καμία καταχώρηση.<br />
-                            Κανε click στο παρακάτω link για να δημιουργήσεις μια.
+                            Κανε click στο παρακάτω link για να δημιουργήσεις μια.<br />
+                            <a href="?p=addjournal">Καταχώρηση Ημερολογίου</a>
                             <div></div>
                             </div><?php
                         }
