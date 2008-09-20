@@ -130,9 +130,8 @@
             $res = $loginAttemptFinder->FindByUserName( $user_name );
             
             $logs = array();
-            while ( $row = $res->FetchArray() ) {
-                $log = new LoginAttempt( $row );
-                $logs[ $log->Ip ] = $log->Ip;
+            foreach ( $res as $row) {
+                $logs[ $row->Ip ] = $row->Ip;
             }
             //
             
