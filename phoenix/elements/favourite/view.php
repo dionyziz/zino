@@ -6,13 +6,13 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'journal' );
             
-            // $subdomain = $subdomain->Get();
+            $subdomain = $subdomain->Get();
             
             // Find all user's favourite journals
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );
             $favfinder = New FavouriteFinder();
-            $favourites = $favfinder->FindByUserAndType( $theuser->Id, TYPE_JOURNAL );
+            $favourites = $favfinder->FindByUserAndType( $theuser, TYPE_JOURNAL );
 
             // print what you have found
             foreach ( $favourites as $value ) {
