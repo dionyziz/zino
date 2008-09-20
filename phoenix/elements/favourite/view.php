@@ -1,6 +1,6 @@
 <?php
     class ElementFavouriteView extends Element {
-        public function Render( tText $subdomain, tInteger $type ) {
+        public function Render( tText $subdomain, tText $type ) {
             global $rabbit_settings;
             global $libs;
 
@@ -11,8 +11,11 @@
             $type = $type->Get();
 
             switch ( $type ) {
-                case TYPE_JOURNAL:
-                case TYPE_IMAGE:
+                case 'journals':
+                    $type = TYPE_JOURNAL;
+                    break;
+                case 'photos':
+                    $type = TYPE_PHOTO;
                     break;
                 default:
                     $type = false; // all
@@ -36,13 +39,20 @@
                             ?>chart_bar-trans.png" alt="Δημοσκοπήσεις" title="Δημοσκοπήσεις" /></a></li>
                         */
                         ?>
-                        <li><a href=""><img src="<?php
+                        <li><a href="<?php
+                        Element( 'user/url', $theuser->Id, $theuser->Subdomain );
+                        ?>favourites/journals"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>book.png" alt="Ημερολόγια" title="Ημερολόγια" /></a></li>
-                        <li><a href=""><img src="<?php
+                        <li><a href="<?php
+                        Element( 'user/url', $theuser->Id, $theuser->Subdomain );
+                        ?>favourites/photos"><img src="<?php
                         echo $rabbit_settings[ 'imagesurl' ];
                         ?>photo.png" alt="Εικόνες" title="Εικόνες" /></a></li>
-                        <li class="selected" style="width:40px;"><a href="">Όλα</a></li>
+                        <li class="selected" style="width:40px;">
+                        <a href="<?php
+                        Element( 'user/url', $theuser->Id, $theuser->Subdomain );
+                        ?>favourites">Όλα</a></li>
                     </ul>
                     <div class="eof"></div>
                     <ul class="events"><?php
@@ -73,11 +83,6 @@
                     ?></ul>
                 </div>
             </div><?php
-
-            // print what you have found
-            foreach ( $favourites as $value ) {
-                echo "id: " . $value->Itemid;
-            }
         }
     }
 ?>
