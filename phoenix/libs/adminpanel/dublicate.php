@@ -5,13 +5,13 @@
                 
                 $query = $db->Prepare( "
                     SELECT *
-                    FROM :loginattempts
-                    WHERE `login_username` != :username
+                    FROM `loginattempts`
+                    WHERE `login_username` != 'pagio91'
                     AND `login_ip`
                     IN (
                         SELECT `login_ip`
                         FROM `loginattempts`
-                        WHERE `login_username` = :username
+                        WHERE `login_username` = 'pagio91'
                     )
                 ");
                 $query->BindTable( 'loginattempts' );
