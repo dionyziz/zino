@@ -1,7 +1,7 @@
 <?php
     class ElementFavouriteView extends Element {
         public function Render( tText $subdomain, tInteger $type ) {
-            global $settings;
+            global $rabbit_settings;
             global $libs;
 
             $libs->Load( 'favourite' );
