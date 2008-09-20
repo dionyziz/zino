@@ -116,29 +116,21 @@
             }
             //
             
-            //trace relevant ips from login attempts --implement as Finder
-            /*$query = $db->Prepare( 
-                'SELECT * FROM :loginattempts
-                WHERE login_username=:username 
-                GROUP BY  `login_ip`'
-            );
-            $query->BindTable( 'loginattempts' );
-            $query->Bind( 'username' , $user_name );            
-            $res = $query->Execute();            */
-            
+            //trace relevant ips from login attempts            
             $loginAttemptFinder = new LoginAttemptFinder();
             $res = $loginAttemptFinder->FindByUserName( $user_name );
             
             $logs = array();
-            foreach ( $res as $row) {
-                $logs[ $row->Ip ] = $row->Ip;
+            foreach ( $res as $logginattempt) {
+                $logs[ $logginattempt->Ip ] = $logginattempt->Ip;
             }
             //
             
             //ban this ips and ban user with this username
-            $this->BanIps( $logs, $b_user );
+            $this->BanIps( $logs, $b_user );            
+            $this->addBannedUser( $b_user );
 
-            $banneduser = new BannedUser();
+            /*$banneduser = new BannedUser();
             $banneduser->Userid = $b_user->Id;
             $banneduser->Rights = $b_user->Rights;
             $banneduser->Started = date( 'Y-m-d H:i:s', time() );
@@ -147,10 +139,29 @@
             $banneduser->Save();
             
             $b_user->Rights=0;
-            $b_user->Save();
+            $b_user->Save();*/
             //
 
             return true;
+        }
+        
+        protected function addBannedUser( $user ) {
+            global $libs;
+            
+            $libs->Load( 'adminpanel/bannedusers' );
+            
+            $banneduser = new BannedUser();
+            $banneduser->Userid = $user->Id;
+            $banneduser->Rights = $user->Rights;
+            $banneduser->Started = date( 'Y-m-d H:i:s', time() );
+            $banneduser->Expire = date( 'Y-m-d H:i:s', time() + 20*24*60*60 );
+            $banneduser->Delalbums = 0;            
+            $banneduser->Save();
+            
+            $user->Rights=0;
+            $user->Save();
+            
+            return;        
         }
         
         protected function BanIps( $ips, $b_user ) {
