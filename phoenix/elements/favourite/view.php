@@ -6,7 +6,7 @@
             $libs->Load( 'favourite' );
             $libs->Load( 'journal' );
             
-            $subdomain = $subdomain->Get();
+            // $subdomain = $subdomain->Get();
             
             // Find all user's favourite journals
             $userfinder = New UserFinder();
