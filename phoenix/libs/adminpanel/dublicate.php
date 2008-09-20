@@ -2,6 +2,9 @@
     class DublicateAccount {
             public function getDublicateAccountsByUserName( $username ) {
                 global $db;
+                global $libs;
+                
+                $libs->Load( 'user/user' );
                 
                 $query = $db->Prepare( "
                     SELECT *
@@ -19,8 +22,8 @@
                 $res = $query->Execute();
                 
                 $dubs = array();
-                while ( $row = $res->FetchRow() ) {
-                    $dubs[] = $row;
+                while ( $row = $res->FetchArray() ) {
+                    $dubs[] = new User( $row->Id );
                 }
                 
                 return $dubs;
