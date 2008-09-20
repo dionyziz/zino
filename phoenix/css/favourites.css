@@ -57,16 +57,17 @@ div#favourites ul.events li div {
 	background-repeat: no-repeat;
 	padding-left: 20px;
 }
+/*
 div#favourites ul.events li.poll div {
 	background-image: url('images/chart_bar-trans.png');
 }
+*/
 div#favourites ul.events li.photo div {
-	background-image: url('images/photo.png');
+	background-image: url( 'http://static.zino.gr/phoenix/photo.png' );
 }
 div#favourites ul.events li.photo img {
-	/*display: block;*/
 	padding: 3px 3px 3px 0px;
 }
 div#favourites ul.events li.journal div {
-	background-image: url('images/book.png');
+	background-image: url( 'http://static.zino.gr/phoenix/book.png' );
 }
