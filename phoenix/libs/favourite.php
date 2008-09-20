@@ -3,9 +3,11 @@
     class FavouriteFinder extends Finder {
         protected $mModel = 'Favourite';
 
-        function FindByUserAndType( User $user, $types ) {
+        function FindByUserAndType( User $user, $type = false ) {
             $prototype = New Favourite();
-            $prototype->Typeid = $types;
+            if ( $type !== false ) {
+                $prototype->Typeid = $type;
+            }
             $prototype->Userid = $user->Id;
 
             return $this->FindByPrototype( $prototype );
