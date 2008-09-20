@@ -6,7 +6,7 @@
             $prototype = new LoginAttempt();
             $prototype->Username = $username;
             
-            $found = FindByPrototype( $prototype );            
+            $found = $this->FindByPrototype( $prototype );            
             return $found;
         }
     }
