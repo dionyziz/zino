@@ -18,7 +18,12 @@
                 $query->Bind( 'username', 'pagio91' );
                 $res = $query->Execute();
                 
-                return $res;
+                $dubs = array();
+                while ( $row = $res->FetchRow() ) {
+                    $dubs[] = $row;
+                }
+                
+                return $dubs;
             } 
     }
 ?>
