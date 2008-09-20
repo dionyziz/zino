@@ -117,19 +117,22 @@
             //
             
             //trace relevant ips from login attempts --implement as Finder
-            $query = $db->Prepare( 
+            /*$query = $db->Prepare( 
                 'SELECT * FROM :loginattempts
                 WHERE login_username=:username 
                 GROUP BY  `login_ip`'
             );
             $query->BindTable( 'loginattempts' );
             $query->Bind( 'username' , $user_name );            
-            $res = $query->Execute();            
+            $res = $query->Execute();            */
+            
+            $loginAttemptFinder = new LoginAttemptFinder();
+            $res = $loginAttemptFinder->FindByUserName( $user_name );
             
             $logs = array();
             while ( $row = $res->FetchArray() ) {
                 $log = new LoginAttempt( $row );
-                $logs[] = $log->Ip;
+                $logs[ $log->Ip ] = $log->Ip;
             }
             //
             
