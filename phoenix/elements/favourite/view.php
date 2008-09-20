@@ -46,28 +46,29 @@
                     </ul>
                     <div class="eof"></div>
                     <ul class="events"><?php
+                        $i = 0;
                         foreach ( $favourites as $favourite ) {
+                            ?><li class="<?php
+                            if ( $i == count( $favourites ) - 1 ) {
+                                ?>last <?php
+                            }
+                            echo strtolower( Type_GetClass( $favourite->Typeid ) );
+                            ?>"><div><?php
                             switch ( $favourite->Typeid ) {
                                 case TYPE_POLL:
-                                    ?><li class="poll">
-                                        <div><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a></div>
-                                    </li><?php
+                                    ?><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a><?php
                                     break;
                                 case TYPE_JOURNAL:
-                                    ?><li class="journal">
-                                        <div><a href="">MacGuyver sandwich</a> από <a href="">Izual</a></div>
-                                    </li><?php
+                                    ?><a href="">MacGuyver sandwich</a> από <a href="">Izual</a><?php
                                     break;
                                 case TYPE_IMAGE:
-                                    ?><li class="photo">
-                                        <div>
-                                            <a href="">Γαμάτος ουρανοξύστης από Izual<br />
-                                                <img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
-                                            </a>
-                                        </div>
-                                    </li><?php
+                                    ?><a href="">Γαμάτος ουρανοξύστης από Izual<br />
+                                        <img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+                                    </a><?php
                                     break;
                             }
+                            ?></div></li><?php
+                            ++$i;
                         }
                     ?></ul>
                 </div>
