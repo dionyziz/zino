@@ -3,6 +3,7 @@
         public function Render( tText $subdomain, tText $type ) {
             global $rabbit_settings;
             global $libs;
+            global $user;
 
             $libs->Load( 'favourite' );
             $libs->Load( 'journal' );
