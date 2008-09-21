@@ -71,7 +71,7 @@
                     <ul class="events"><?php
                         $i = 0;
                         if ( !count( $favourites ) ) {
-                            if ( $theuser->Id = $user->Id ) {
+                            if ( $theuser->Id == $user->Id ) {
                                 ?><li class="last">Δεν έχεις κάποια αγαπημένα.<br />
                                 Μπορείς να προσθέσεις μία φωτογραφία ή ένα ημερολόγιο που σου αρέσει στα αγαπημένα σου όταν το βλέπεις.</li><?php
                             }
