@@ -12,9 +12,7 @@
             $data = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
             $foundrows = $this->mFoundRows;
 
-            return array(
-                $data, $foundrows
-            );
+            return $data;
         }
         function FindByUserAndEntity( User $user, $entity ) {
             $prototype = New Favourite();
