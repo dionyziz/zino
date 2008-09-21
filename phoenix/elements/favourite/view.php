@@ -71,19 +71,21 @@
                     <ul class="events"><?php
                         $i = 0;
                         if ( !count( $favourites ) ) {
+                            ?><li class="last"><div><?php
                             if ( $theuser->Id == $user->Id ) {
-                                ?><li class="last">Δεν έχεις κάποια αγαπημένα.<br />
-                                Μπορείς να προσθέσεις μία φωτογραφία ή ένα ημερολόγιο που σου αρέσει στα αγαπημένα σου όταν το βλέπεις.</li><?php
+                                ?>Δεν έχεις κάποια αγαπημένα.<br />
+                                Μπορείς να προσθέσεις μία φωτογραφία ή ένα ημερολόγιο που σου αρέσει στα αγαπημένα σου όταν το βλέπεις.<?php
                             }
                             else {
                                 switch ( $theuser->Gender ) {
                                     case 'f':
-                                        ?>Η<?php
+                                        ?>Η <?php
                                         break;
                                     case 'm':
                                     default:
-                                        ?>O<?php
+                                        ?>O <?php
                                 }
+                                Element( 'user/name', $theuser->Id, $theuser->Name, $theuser->Subdomain );
                                 ?> δεν έχει αγαπημένα.<br />
                                 Πρότεινέ <?php
                                 switch ( $theuser->Gender ) {
@@ -96,6 +98,7 @@
                                 }
                                 ?> κάποιο ημερολόγιο ή φωτογραφία για να το προσθέσει.<?php
                             }
+                            ?></div></li><?php
                         }
                         else {
                             foreach ( $favourites as $favourite ) {
