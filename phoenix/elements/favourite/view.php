@@ -28,7 +28,7 @@
             $favfinder = New FavouriteFinder();
             $favourites = $favfinder->FindByUserAndType( $theuser, $type );
 
-            Element( 'user/sections', 'favourites', $image->User );
+            Element( 'user/sections', 'favourites', $theuser );
 
             ?><div id="favourites">
                 <div class="list">
