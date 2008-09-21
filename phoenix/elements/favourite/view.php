@@ -125,12 +125,12 @@
                                         break;
                                     case TYPE_IMAGE:
                                         if ( $favourite->Item->Name != '' ) {
-                                            ?>την εικόνα "<?php
+                                            ?>"<?php
                                             echo htmlspecialchars( $favourite->Item->Name );
                                             ?>"<?php
                                         }
                                         else if ( $favourite->Item->Album->Id == $favourite->Item->User->Egoalbumid ) {
-                                            ?>την φωτογραφία <?php
+                                            ?>Φωτογραφία <?php
                                             if ( $favourite->Item->User->Id == $user->Id ) {
                                                 ?>σου<?php
                                             }
@@ -145,7 +145,7 @@
                                             }
                                         }
                                         else {
-                                            ?>μια εικόνα του Album "<?php
+                                            ?>Μια εικόνα του Album "<?php
                                             echo htmlspecialchars( $favourite->Item->Album->Name );
                                             ?>"<?php
                                         }
