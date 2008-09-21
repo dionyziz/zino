@@ -28,9 +28,9 @@
             $favfinder = New FavouriteFinder();
             $favourites = $favfinder->FindByUserAndType( $theuser, $type );
 
+            Element( 'user/sections', 'favourites', $image->User );
+
             ?><div id="favourites">
-                <h2>Αγαπημένα</h2>
-                <div style="padding: 5px 0 0 20px;"><a href="">&laquo;Επιστροφή στο προφίλ</a></div>
                 <div class="list">
                     <ul class="favcategories">
                         <?php
