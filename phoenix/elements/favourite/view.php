@@ -189,7 +189,7 @@
                     }
                 }
                 $link .= "?pageno=";
-                Element( 'pagify', $pageno, $link, $total_pages );
+                // Element( 'pagify', $pageno, $link, $total_pages );
             ?></div><?php
         }
     }

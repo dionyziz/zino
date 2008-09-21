@@ -5,8 +5,9 @@
         protected $mDbIndexes;
         protected $mAttribute2DbField;
         protected $mDb;
+        protected $mFoundRows;
         
-        protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false ) {
+        protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false, $calcfoundrows = false ) {
             w_assert( $prototype instanceof $this->mModel, 'Prototype specified in FindByPrototype call in finder `' . get_class( $this ) . '\' must be an instance of `' . $this->mModel . '\'' );
             w_assert( is_int( $offset ), 'Offset must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\' ' . gettype( $offset ) . ' given' );
             w_assert( is_int( $limit ), 'Limit must be an integer in FindByPrototype call in finder `' . get_class( $this ) . '\', ' . gettype( $limit ) . ' given' );
@@ -36,7 +37,11 @@
                 }
             }
             
-            $sql = 'SELECT
+            $sql = 'SELECT ';
+            if ( $calcfoundrows ) {
+                $sql .= 'SQL_CALC_FOUND_ROWS()'; 
+            }
+            $sql .= '
                         *
                     FROM
                         :' . $prototype->DbTable->Alias;
@@ -85,6 +90,13 @@
             $query->Bind( '__offset', $offset );
             $query->Bind( '__limit', $limit );
             $res = $query->Execute();
+            if ( $calcfoundrows ) {
+                $this->mFoundRows = array_shift(
+                    $this->mDb->Prepare(
+                        'SELECT FOUND_ROWS()'
+                    )->Execute()->FetchArray()
+                );
+            }
             if ( $unique ) {
                 // lookup by primary key
                 if ( $res->Results() ) {
