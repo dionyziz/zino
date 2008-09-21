@@ -106,7 +106,14 @@
                                 if ( $i == count( $favourites ) - 1 ) {
                                     ?>last <?php
                                 }
-                                echo strtolower( Type_GetClass( $favourite->Typeid ) );
+                                switch ( $favourite->Typeid ) {
+                                    case TYPE_IMAGE:
+                                        ?>photo<?php
+                                        break;
+                                    case TYPE_JOURNAL
+                                        ?>journal<?php
+                                        break;
+                                }
                                 ?>"><div><a href="<?php
                                 ob_start();
                                 Element( 'url', $favourite->Item );
