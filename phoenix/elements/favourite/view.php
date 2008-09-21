@@ -107,17 +107,52 @@
                                     ?>last <?php
                                 }
                                 echo strtolower( Type_GetClass( $favourite->Typeid ) );
-                                ?>"><div><?php
+                                ?>"><div><a href="<?php
+                                ob_start();
+                                Element( 'url', $favourite->Item );
+                                echo htmlspecialchars( ob_get_clean() );
+                                ?>"><?php
                                 switch ( $favourite->Typeid ) {
+                                    /*
                                     case TYPE_POLL:
                                         ?><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a><?php
                                         break;
+                                    */
                                     case TYPE_JOURNAL:
-                                        ?><a href="">MacGuyver sandwich</a> από <a href="">Izual</a><?php
+                                        echo htmlspecialchars( $favourite->Item->Title );
+                                        ?></a> από <?php
+                                        Element( 'user/name', $favourite->Item->User->Id, $favourite->Item->User->Name, $favourite->Item->User->Subdomain, true );
                                         break;
                                     case TYPE_IMAGE:
-                                        ?><a href="">Γαμάτος ουρανοξύστης από Izual<br />
-                                            <img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+                                        if ( $favourite->Item->Name != '' ) {
+                                            ?>την εικόνα "<?php
+                                            echo htmlspecialchars( $favourite->Item->Name );
+                                            ?>"<?php
+                                        }
+                                        else if ( $favourite->Item->Album->Id == $favourite->Item->User->Egoalbumid ) {
+                                            ?>την φωτογραφία <?php
+                                            if ( $favourite->Item->User->Id == $user->Id ) {
+                                                ?>σου<?php
+                                            }
+                                            else if ( $favourite->Item->User->Gender == 'f' ) {
+                                                ?>της <?php
+                                            }
+                                            else {
+                                                ?>του <?php
+                                            }
+                                            if ( $favourite->Item->User->Id != $user->Id ) {
+                                                echo htmlspecialchars( $favourite->Item->User->Name );
+                                            }
+                                        }
+                                        else {
+                                            ?>μια εικόνα του Album "<?php
+                                            echo htmlspecialchars( $favourite->Item->Album->Name );
+                                            ?>"<?php
+                                        }
+                                        ?></a>
+                                            <br /><?php
+                                            Element( 'image/view' , $favourite->Item->Id , $favourite->Item->User->Id , $favourite->Item->Width , $favourite->Item->Height , IMAGE_CROPPED_100x100 , '' , $favourite->Item->Name , $favourite->Item->Name , '' , true , 75 , 75 );
+                                            ?>
                                         </a><?php
                                         break;
                                 }
