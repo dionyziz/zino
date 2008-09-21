@@ -85,7 +85,7 @@
                                     default:
                                         ?>O <?php
                                 }
-                                Element( 'user/name', $theuser->Id, $theuser->Name, $theuser->Subdomain );
+                                Element( 'user/name', $theuser->Id, $theuser->Name, $theuser->Subdomain, true );
                                 ?> δεν έχει αγαπημένα.<br />
                                 Πρότεινέ <?php
                                 switch ( $theuser->Gender ) {
