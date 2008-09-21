@@ -46,7 +46,7 @@
             }
 
             if ( $image->Name != "" ) {
-                $title = htmlspecialchars( $image->Name );
+                $title = $image->Name;
                 $page->SetTitle( $title );
             }
             else {
@@ -61,7 +61,7 @@
                 }    
                 else {
                     $page->SetTitle( $image->Album->Name );
-                    $title = htmlspecialchars( $image->Album->Name );
+                    $title = $image->Album->Name;
                 }
             }
             if ( $pageno <= 0 ) {
