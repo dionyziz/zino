@@ -236,15 +236,7 @@
                 $this->Preferences->Delete();
             }
         }
-        public function HasPermission( $permission ) {
-            global $libs;
-            
-            $libs->Load( 'adminpanel/ban' );
-            
-            $ban = new Ban();            
-            if ( $ban->isBannedIp( UserIp() ) || $ban->isBannedUser( $this->Id ) ) {
-                return false;
-            }   
+        public function HasPermission( $permission ) { 
             return $this->Rights >= $permission;
         }
         protected function LoadDefaults() {
