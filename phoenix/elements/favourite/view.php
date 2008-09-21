@@ -1,6 +1,6 @@
 <?php
     class ElementFavouriteView extends Element {
-        public function Render( tText $subdomain, tText $type ) {
+        public function Render( tText $subdomain, tText $type, tInteger $pageno ) {
             global $rabbit_settings;
             global $libs;
             global $user;
@@ -10,6 +10,13 @@
             
             $subdomain = $subdomain->Get();
             $type = $type->Get();
+            $pageno = $pageno->Get();
+
+            if ( $pageno < 1 ) {
+                $pageno = 1;
+            }
+            $limit = 25;
+            $offset = ( $pageno - 1 ) * $limit;
 
             switch ( $type ) {
                 case 'journals':
@@ -26,7 +33,7 @@
             $userfinder = New UserFinder();
             $theuser = $userfinder->FindBySubdomain( $subdomain );
             $favfinder = New FavouriteFinder();
-            $favourites = $favfinder->FindByUserAndType( $theuser, $type );
+            $favourites = $favfinder->FindByUserAndType( $theuser, $type, $offset, $limit );
 
             Element( 'user/sections', 'favourites', $theuser );
 
@@ -167,8 +174,23 @@
                             }
                         }
                     ?></ul>
-                </div>
-            </div><?php
+                </div><?php
+                ob_start();
+                Element( 'user/url', $theuser->Id, $theuser->Subdomain );
+                $link = ob_get_clean() . 'favourites';
+                if ( $type !== false ) {
+                    switch ( $type ) {
+                        case TYPE_IMAGE:
+                            $link .= '/photos';
+                            break;
+                        case TYPE_JOURNAL:
+                            $link .= '/journals';
+                            break;
+                    }
+                }
+                $link .= "?pageno=";
+                Element( 'pagify', $pageno, $link, $total_pages );
+            ?></div><?php
         }
     }
 ?>

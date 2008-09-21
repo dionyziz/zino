@@ -1,16 +1,15 @@
 <?php
-
     class FavouriteFinder extends Finder {
         protected $mModel = 'Favourite';
 
-        function FindByUserAndType( User $user, $type = false ) {
+        function FindByUserAndType( User $user, $type = false, $offset, $limit ) {
             $prototype = New Favourite();
             if ( $type !== false ) {
                 $prototype->Typeid = $type;
             }
             $prototype->Userid = $user->Id;
 
-            return $this->FindByPrototype( $prototype, 0, 20, array( 'Id', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         function FindByUserAndEntity( User $user, $entity ) {
             $prototype = New Favourite();
@@ -44,5 +43,4 @@
             $this->Userid = $user->Id;
         }
     }
-
 ?>
