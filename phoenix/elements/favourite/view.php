@@ -149,8 +149,7 @@
                                             echo htmlspecialchars( $favourite->Item->Album->Name );
                                             ?>"<?php
                                         }
-                                        ?></a>
-                                            <br /><?php
+                                        ?><br /><?php
                                             Element( 'image/view' , $favourite->Item->Id , $favourite->Item->User->Id , $favourite->Item->Width , $favourite->Item->Height , IMAGE_CROPPED_100x100 , '' , $favourite->Item->Name , $favourite->Item->Name , '' , true , 75 , 75 );
                                             ?>
                                         </a><?php
