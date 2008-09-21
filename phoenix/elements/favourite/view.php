@@ -69,28 +69,57 @@
                     <div class="eof"></div>
                     <ul class="events"><?php
                         $i = 0;
-                        foreach ( $favourites as $favourite ) {
-                            ?><li class="<?php
-                            if ( $i == count( $favourites ) - 1 ) {
-                                ?>last <?php
+                        if ( !count( $favourites ) ) {
+                            if ( $theuser->Id = $user->Id ) {
+                                ?><li class="last">Δεν έχεις κάποια αγαπημένα.<br />
+                                Μπορείς να προσθέσεις μία φωτογραφία ή ένα ημερολόγιο που σου αρέσει στα αγαπημένα σου όταν το βλέπεις.</li><?php
                             }
-                            echo strtolower( Type_GetClass( $favourite->Typeid ) );
-                            ?>"><div><?php
-                            switch ( $favourite->Typeid ) {
-                                case TYPE_POLL:
-                                    ?><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a><?php
-                                    break;
-                                case TYPE_JOURNAL:
-                                    ?><a href="">MacGuyver sandwich</a> από <a href="">Izual</a><?php
-                                    break;
-                                case TYPE_IMAGE:
-                                    ?><a href="">Γαμάτος ουρανοξύστης από Izual<br />
-                                        <img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
-                                    </a><?php
-                                    break;
+                            else {
+                                switch ( $theuser->Gender ) {
+                                    case 'f':
+                                        ?>Η<?php
+                                        break;
+                                    case 'm':
+                                    default:
+                                        ?>O<?php
+                                }
+                                ?> δεν έχει αγαπημένα.<br />
+                                Πρότεινέ <?php
+                                switch ( $theuser->Gender ) {
+                                    case 'f':
+                                        ?>της<?php
+                                        break;
+                                    case 'm':
+                                    default:
+                                        ?>του<?php
+                                }
+                                ?> κάποιο ημερολόγιο ή φωτογραφία για να το προσθέσει.<?php
                             }
-                            ?></div></li><?php
-                            ++$i;
+                        }
+                        else {
+                            foreach ( $favourites as $favourite ) {
+                                ?><li class="<?php
+                                if ( $i == count( $favourites ) - 1 ) {
+                                    ?>last <?php
+                                }
+                                echo strtolower( Type_GetClass( $favourite->Typeid ) );
+                                ?>"><div><?php
+                                switch ( $favourite->Typeid ) {
+                                    case TYPE_POLL:
+                                        ?><a href="">Πόσες φορές τη βδομάδα βαράς μαλακία;</a> από <a href="">dionyziz</a><?php
+                                        break;
+                                    case TYPE_JOURNAL:
+                                        ?><a href="">MacGuyver sandwich</a> από <a href="">Izual</a><?php
+                                        break;
+                                    case TYPE_IMAGE:
+                                        ?><a href="">Γαμάτος ουρανοξύστης από Izual<br />
+                                            <img src="images/ph3.jpg" alt="Γαμάτος ουρανοξύστης" title="Γαμάτος ουρανοξύστης" />
+                                        </a><?php
+                                        break;
+                                }
+                                ?></div></li><?php
+                                ++$i;
+                            }
                         }
                     ?></ul>
                 </div>
