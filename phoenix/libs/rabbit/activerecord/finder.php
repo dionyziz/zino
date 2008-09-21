@@ -39,7 +39,7 @@
             
             $sql = 'SELECT ';
             if ( $calcfoundrows ) {
-                $sql .= 'SQL_CALC_FOUND_ROWS()'; 
+                $sql .= 'SQL_CALC_FOUND_ROWS'; 
             }
             $sql .= '
                         *
@@ -93,7 +93,7 @@
             if ( $calcfoundrows ) {
                 $this->mFoundRows = array_shift(
                     $this->mDb->Prepare(
-                        'SELECT FOUND_ROWS()'
+                        'SELECT FOUND_ROWS();'
                     )->Execute()->FetchArray()
                 );
             }
