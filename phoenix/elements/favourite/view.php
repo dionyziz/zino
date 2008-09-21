@@ -67,7 +67,7 @@
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
                         ?>favourites">Όλα</a></li>
                     </ul>
-                    <div class="eof"></div>
+                    <div style="clear:right"></div>
                     <ul class="events"><?php
                         $i = 0;
                         if ( !count( $favourites ) ) {
