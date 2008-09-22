@@ -187,6 +187,19 @@
         }
     }
     
+    function Satori_GetPrototypeInstance( $classname ) {
+        // just a faster way of getting a prototype satori extension instance than instantiating every time
+        // this instance should only be used for information retrieval and should not be modified or made persistent
+
+        // TODO: Move this into a static method within class Satori once late static binding is available in PHP 5.3
+        static $instances;
+
+        if ( !isset( $instances[ $classname ] ) ) {
+            $instances[ $classname ] = New $classname();
+        }
+        return $instances[ $classname ];
+    }
+
     // Active Record Base
     abstract class Satori {
         protected $mDb; // database object referring to the database where the object is stored
@@ -209,7 +222,6 @@
         private $mOldRelations; // temporary holder of old relations while they are being redefined
         protected $mReadOnlyModified; // boolean; whether there has been an attempt to modify a read-only attribute (allowed providing the object is non-persistent and never made persistent)
         protected $mAllowRelationDefinition;
-        protected $mInsertIgnore = false;
        
         public function __get( $key ) {
             switch ( $key ) {
