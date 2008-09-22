@@ -25,7 +25,7 @@
                 
                 $dubs = array();
                 while ( $row = $res->FetchArray() ) {
-                    $dubs[] =  $row[ 'username' ] ;
+                    $dubs[] =  $row[ 'user_name' ] ;
                 }
                 
                 return $dubs;
