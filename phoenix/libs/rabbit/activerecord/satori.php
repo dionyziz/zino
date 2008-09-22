@@ -5,8 +5,8 @@
     
     global $libs;
     
-    // $libs->Load( 'rabbit/overloadable' );
     $libs->Load( 'rabbit/activerecord/finder' );
+    $libs->Load( 'rabbit/activerecord/collection' );
     
     class SatoriException extends Exception {
     }
@@ -710,8 +710,5 @@
             }
             return $str;
         }
-    }
-    
-    class Collection {
     }
 ?>

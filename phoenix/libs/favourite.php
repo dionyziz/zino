@@ -10,7 +10,6 @@
             $prototype->Userid = $user->Id;
 
             $data = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
-            $foundrows = $this->mFoundRows;
 
             return $data;
         }

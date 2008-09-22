@@ -5,7 +5,6 @@
         protected $mDbIndexes;
         protected $mAttribute2DbField;
         protected $mDb;
-        protected $mFoundRows;
         
         protected function FindByPrototype( $prototype, $offset = 0, $limit = 25, $order = false, $calcfoundrows = false ) {
             w_assert( $prototype instanceof $this->mModel, 'Prototype specified in FindByPrototype call in finder `' . get_class( $this ) . '\' must be an instance of `' . $this->mModel . '\'' );
@@ -38,7 +37,7 @@
             }
             
             $sql = 'SELECT ';
-            if ( $calcfoundrows ) {
+            if ( !$unique && $calcfoundrows ) {
                 $sql .= 'SQL_CALC_FOUND_ROWS'; 
             }
             $sql .= '
@@ -90,13 +89,6 @@
             $query->Bind( '__offset', $offset );
             $query->Bind( '__limit', $limit );
             $res = $query->Execute();
-            if ( $calcfoundrows ) {
-                $this->mFoundRows = array_shift(
-                    $this->mDb->Prepare(
-                        'SELECT FOUND_ROWS();'
-                    )->Execute()->FetchArray()
-                );
-            }
             if ( $unique ) {
                 // lookup by primary key
                 if ( $res->Results() ) {
@@ -106,7 +98,10 @@
             }
             return $this->FindBySQLResource( $res );
         }
-        protected function FindBySQLResource( DBResource $res ) {
+        protected function FindBySQLResource( DBResource $res, $totalcount = false ) {
+            if ( $totalcount !== false ) {
+                return New Collection( $res->ToObjectsArray( $this->mModel ), $totalcount );
+            }
             return $res->ToObjectsArray( $this->mModel );
         }
         protected function Count() {
