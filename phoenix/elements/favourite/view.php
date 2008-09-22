@@ -189,7 +189,8 @@
                     }
                 }
                 $link .= "?pageno=";
-                Element( 'pagify', $pageno, $link, $total_pages );
+                $totalpages = ceil( $favourites->TotalCount() / $limit );
+                Element( 'pagify', $pageno, $link, $totalpages );
             ?></div><?php
         }
     }
