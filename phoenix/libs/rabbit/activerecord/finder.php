@@ -98,7 +98,7 @@
             }
             $totalcount = false;
             if ( $calcfoundrows ) {
-                $totalcount = array_shift(
+                $totalcount = ( int )array_shift(
                     $this->mDb->Prepare(
                         'SELECT FOUND_ROWS();'
                     )->Execute()->FetchArray()
