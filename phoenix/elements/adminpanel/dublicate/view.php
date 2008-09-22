@@ -22,7 +22,7 @@
             
             foreach ( $res as $dub ) {
                 ?><p><?php
-                echo $dub->Name;                
+                echo $dub;                
                 ?></p><?php
             }
        }

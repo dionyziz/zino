@@ -23,12 +23,12 @@
                 //$query->Bind( 'username', 'pagio91' );
                 $res = $query->Execute();
                 
-                $dubs = array();
+                /*$dubs = array();
                 while ( $row = $res->FetchArray() ) {
                     $dubs[] = new User( $row[ 'loggn_username' ] );
-                }
+                }*/
                 
-                return $dubs;
+                return $res;
             } 
     }
 ?>
