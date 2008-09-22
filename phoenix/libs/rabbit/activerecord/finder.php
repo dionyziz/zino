@@ -96,7 +96,15 @@
                 }
                 return false;
             }
-            return $this->FindBySQLResource( $res );
+            $totalcount = false;
+            if ( $calcfoundrows ) {
+                $totalcount = array_shift(
+                    $this->mDb->Prepare(
+                        'SELECT FOUND_ROWS();'
+                    )->Execute()->FetchArray()
+                );
+            }
+            return $this->FindBySQLResource( $res, $totalcount );
         }
         protected function FindBySQLResource( DBResource $res, $totalcount = false ) {
             if ( $totalcount !== false ) {

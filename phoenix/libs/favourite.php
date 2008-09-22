@@ -9,9 +9,7 @@
             }
             $prototype->Userid = $user->Id;
 
-            $data = $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
-
-            return $data;
+            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
         }
         function FindByUserAndEntity( User $user, $entity ) {
             $prototype = New Favourite();
