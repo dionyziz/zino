@@ -35,9 +35,6 @@
             $favfinder = New FavouriteFinder();
             $favourites = $favfinder->FindByUserAndType( $theuser, $type, $offset, $limit );
 
-            var_dump( $favourites->TotalCount() );
-            die();
-
             Element( 'user/sections', 'favourites', $theuser );
 
             ?><div id="favourites">
