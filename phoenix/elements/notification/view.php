@@ -179,12 +179,13 @@
                                     
                                     break;
                                 case TYPE_JOURNAL:
+                                    $journal = $notif->Item->Item;
                                     ?>Το ημερολόγιό σου <a href="<?php
                                     ob_start();
-                                    Element( 'url', $notif->Item->Item );
+                                    Element( 'url', $journal );
                                     echo htmlspecialchars( ob_get_clean() );
                                     ?>"><?php
-                                    echo htmlspecialchars( $favourite->Item->Title );
+                                    echo htmlspecialchars( $journal->Title );
                                     ?></a><?php
                                     break;
                             }
