@@ -305,7 +305,8 @@
             $libs->Load( 'comment' );
             $libs->Load( 'image/tag' );
             $libs->Load( 'relation/relation' );
-
+            $libs->Load( 'favourite' );
+            
             if ( $this->Exists() ) {
                 $model = Event_ModelByType( $this->Typeid );
             }
