@@ -52,7 +52,7 @@
                             ?> σε αναγνώρισε:<?php
                             break;
                         case EVENT_FAVOURITE_CREATED:
-                            ?>πρόσθεσε στα αγαπημένα:<?php
+                            ?> πρόσθεσε στα αγαπημένα:<?php
                             break;
                         default:
                             if ( $notif->Item->Parentid == 0 ) {
