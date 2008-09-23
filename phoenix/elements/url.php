@@ -7,6 +7,8 @@
             w_assert( is_object( $target ) );
 
             switch ( get_class( $target ) ) {
+                case 'Favourite':
+                    return Element( 'url', $target->Item );
                 case 'UserProfile':
                     return Element( 'user/url', $target->User->Id , $target->User->Subdomain );
                 case 'User':

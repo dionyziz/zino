@@ -2,7 +2,7 @@
     class FavouriteFinder extends Finder {
         protected $mModel = 'Favourite';
 
-        function FindByUserAndType( User $user, $type = false, $offset, $limit ) {
+        public function FindByUserAndType( User $user, $type = false, $offset, $limit ) {
             $prototype = New Favourite();
             if ( $type !== false ) {
                 $prototype->Typeid = $type;
@@ -11,7 +11,7 @@
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
         }
-        function FindByUserAndEntity( User $user, $entity ) {
+        public function FindByUserAndEntity( User $user, $entity ) {
             $prototype = New Favourite();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
@@ -19,13 +19,14 @@
 
             return $this->FindByPrototype( $prototype );
         }
-        function FindByEntity( $entity ) {
+        public function FindByEntity( $entity ) {
             $prototype = New Favourite();
             $prototype->Typeid = Type_FromObject( $entity );
             $prototype->Itemid = $entity->Id;
 
             return $this->FindByPrototype( $prototype );
         }
+
     }
 
     class Favourite extends Satori {
@@ -41,6 +42,17 @@
             global $user;
 
             $this->Userid = $user->Id;
+        }
+        public function OnCreate() {
+            global $libs;
+
+            $libs->Load( 'event' );
+
+            $event = New Event();
+            $event->Typeid = EVENT_FAVOURITE_CREATED;
+            $event->Itemid = $this->Id;
+            $event->Userid = $this->Userid;
+            $event->Save();
         }
     }
 ?>

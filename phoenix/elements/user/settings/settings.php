@@ -107,6 +107,19 @@
                             }
                             ?>/></td>
                         </tr>
+                        <tr>
+                            <th>Προσθήκες αγαπημένων:</th>
+                            <td><input id="emailfavourite" type="checkbox" <?php
+                            if ( $user->Preferences->Emailfavourite == 'yes' ) {
+                                ?>checked="checked"<?php
+                            }
+                            ?>/></td>
+                            <td><input id="notifyfavourite" type="checkbox" <?php
+                            if ( $user->Preferences->Notifyfavourite == 'yes' ) {
+                                ?> checked="checked"<?php
+                            }
+                            ?>/></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

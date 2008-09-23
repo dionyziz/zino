@@ -56,7 +56,8 @@
             35 => 'EVENT_USERPROFILE_HAIRCOLOR_UPDATED',
             36 => 'EVENT_USERPROFILE_EYECOLOR_UPDATED',
             37 => 'EVENT_USER_CREATED',
-	    38 => 'EVENT_IMAGETAG_CREATED'
+            38 => 'EVENT_IMAGETAG_CREATED',
+            39 => 'EVENT_FAVOURITE_CREATED'
         );
     }
 
@@ -327,7 +328,6 @@
                     $entity = $comment->Item;
 
                     $notif = New Notification();
-                    $notif->Eventid = $this->Id;
                     if ( $comment->Parentid > 0 ) {
                         $notif->Touserid = $comment->Parent->Userid;
                     }
@@ -337,24 +337,26 @@
                     else {
                         $notif->Touserid = $entity->Userid;
                     }
-                    $notif->Fromuserid = $this->Userid;
-                    $notif->Save();
                     break;
                 case EVENT_FRIENDRELATION_CREATED:
                     $notif = New Notification();
-                    $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Friendid;
-                    $notif->Fromuserid = $this->Userid;
-                    $notif->Save();
                     break;
 	        	case EVENT_IMAGETAG_CREATED:
                     $notif = New Notification();
-                    $notif->Eventid = $this->Id;
                     $notif->Touserid = $this->Item->Personid;
-                    $notif->Fromuserid = $this->Item->Ownerid;
-                    $notif->Save();
                     break;
+                case EVENT_FAVOURITE_CREATE:
+                    $notif = New Notification();
+                    $notif->Touserid = $this->Item->Item->Userid;
+                    break;
+                default:
+                    return; // items that don't create any notifications don't need to be saved
+                    // for the rest that "break"ed, save the notification
             }
+            $notif->Eventid = $this->Id;
+            $notif->Fromuserid = $this->Userid;
+            $notif->Save();
         }
         protected function OnBeforeUpdate() {
             throw New Exception( 'Events cannot be updated' );

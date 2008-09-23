@@ -14,6 +14,7 @@
             $this->Emailfriendjournal = 'no';
             $this->Emailfriendphoto = 'no';
             $this->Emailfriendpoll = 'no';
+            $this->Emailfavourite = 'yes';
             $this->Notifyprofilecomment = 'yes';
             $this->Notifyjournalcomment = 'yes';
             $this->Notifypollcomment = 'yes';
@@ -24,6 +25,7 @@
             $this->Notifyfriendjournal = 'no';
             $this->Notifyfriendphoto = 'no';
             $this->Notifyfriendpoll = 'no';
+            $this->Notifyfavourite = 'yes';
         }
         public function Relations() {
             $this->User = $this->HasOne( 'User', 'Userid' );
