@@ -51,7 +51,7 @@
                         case EVENT_IMAGETAG_CREATED:
                             ?> σε αναγνώρισε:<?php
                             break;
-                        case EVENT_FAVOURITE_CREATE:
+                        case EVENT_FAVOURITE_CREATED:
                             ?>πρόσθεσε στα αγαπημένα:<?php
                             break;
                         default:
