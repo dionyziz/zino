@@ -346,7 +346,7 @@
                     $notif = New Notification();
                     $notif->Touserid = $this->Item->Personid;
                     break;
-                case EVENT_FAVOURITE_CREATE:
+                case EVENT_FAVOURITE_CREATED:
                     $notif = New Notification();
                     $notif->Touserid = $this->Item->Item->Userid;
                     break;
