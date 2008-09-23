@@ -180,6 +180,9 @@
         else if ( $event->Typeid == EVENT_IMAGETAG_CREATED ) {
             return 'phototag';
         }
+        else if ( $event->Typeid == EVENT_FAVOURITE_CREATED ) {
+            return 'favourite';
+        }
 
         throw New Exception( 'Invalid event on Notification_FieldByEvent' );
     }
