@@ -163,8 +163,8 @@
             return $query->Execute()->Impact();
         }
         public function CommentHasChildren( $comment ) {
-            $query = $this->mDb->Prepare( "
-                SELECT 
+            $query = $this->mDb->Prepare(
+                "SELECT 
                     COUNT( * ) AS childcount
                 FROM 
                     :comments

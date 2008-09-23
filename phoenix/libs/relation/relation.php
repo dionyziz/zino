@@ -12,8 +12,8 @@
         protected $mModel = 'FriendRelation';
 
         public function FindByUser( $user, $offset = 0, $limit = 10000 ) {
-            $query = $this->mDb->Prepare( '
-                SELECT
+            $query = $this->mDb->Prepare(
+                'SELECT
                     *
                 FROM
                     :relations

@@ -109,8 +109,8 @@
             global $user;
         
              $text .= "%";
-             $query = $this->mDb->Prepare("
-                 SELECT DISTINCT tag_text 
+             $query = $this->mDb->Prepare(
+                 "SELECT DISTINCT tag_text 
                  FROM :tags
                  WHERE 
                      `tag_text` LIKE :TagText

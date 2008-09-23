@@ -146,8 +146,8 @@
             return $ret;
         }
         public function Count() {
-            $query = $this->mDb->Prepare("
-                SELECT 
+            $query = $this->mDb->Prepare(
+                "SELECT 
                     COUNT(*) AS imagesnum
                 FROM 
                     :images

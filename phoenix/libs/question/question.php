@@ -27,8 +27,8 @@
             // This query is awesome, by dionyziz
             // OPTIMIZED: This query is awesome *now*, by abresas :)
             // FIXED: This query is aweseome *now* that works, by kostis90gr :-D
-            $query = $this->mDb->Prepare('
-                SELECT 
+            $query = $this->mDb->Prepare(
+                'SELECT 
                     *
                 FROM 
                     :questions

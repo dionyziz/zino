@@ -6,8 +6,8 @@
                 
                 $libs->Load( 'user/user' );
                 
-                $query = $db->Prepare( "
-                    SELECT a.user_name FROM :users AS a CROSS JOIN :loginattempts AS b
+                $query = $db->Prepare(
+                    "SELECT a.user_name FROM :users AS a CROSS JOIN :loginattempts AS b
                     ON b.login_username=a.user_name
                     WHERE b.login_username!='pagio91'
                     AND b.login_ip
