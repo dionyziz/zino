@@ -6,7 +6,6 @@
             global $user;
         
             $image = New Image( $notification->Item->Imageid );
-        
             $from = $notification->FromUser;
 
             w_assert( $from instanceof User );
@@ -21,38 +20,42 @@
             }
             ?> <?php
             echo $from->Name;
-            ?> σε αναγνώρισε <?php
-            if ( $image->Name != '' ) {
-                ?>στην εικόνα "<?php
-                echo $image->Name;
-                ?>"<?php
+            ?> πρόσθεσε στα αγαπημένα <?php
+            switch ( $notif->Item->Typeid ) {
+                case TYPE_IMAGE:
+                    $image = $notif->Item->Item;
+                    if ( $image->Name != '' ) {
+                        ?>την εικόνα σου "<?php
+                        echo $image->Name;
+                        ?>"<?php
+                    }
+                    else if ( $image->Album->Id == $image->User->Egoalbumid ) {
+                        ?>μια φωτογραφία σου<?php
+                    }
+                    else {
+                        ?>μια εικόνα από το album σου "<?php
+                        echo $image->Album->Name;
+                        ?>"<?php
+                    }
+                    break;
+                case TYPE_JOURNAL:
+                    ?>το ημερολόγιό σου "<?php
+                    echo $favourite->Item->Title;
+                    ?>"<?php
+                    break;
             }
-            else if ( $image->Album->Id == $image->User->Egoalbumid ) {
-                ?>στις φωτογραφίες <?php
-                if ( $image->User->Id == $user->Id ) {
-                    ?>σου<?php
-                }
-                else if ( $image->User->Gender == 'f' ) {
-                    ?>της <?php
-                }
-                else {
-                    ?>του <?php
-                }
-                if ( $image->User->Id != $user->Id ) {
-                    echo $image->User->Name;
-                }
-            }
-            else {
-                ?>σε μια εικόνα του Album "<?php
-                echo $image->Album->Name;
-                ?>"<?php
-            }
-            $subject = ob_get_clean();
-            echo $subject;
-            
             ?>.
             
-Για να δεις την εικόνα στην οποία σε αναγνώρισε <?php
+Για να δεις <?php
+            switch ( $notif->Item->Typeid ) {
+                case TYPE_IMAGE:
+                    ?>την εικόνα στην οποία<?php
+                    break;
+                case TYPE_JOURNAL:
+                    ?>το ημερολόγιο στο οποίο<?php
+                    break;
+            }
+            ?> σε αναγνώρισε <?php
             if ( $from->Gender == 'f' ) {
                 ?>η<?php
             }
