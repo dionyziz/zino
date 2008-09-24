@@ -1,6 +1,6 @@
 <?php
-
     global $libs;
+
     $libs->Load( 'bulk' );
 
     class JournalFinder extends Finder {
@@ -9,30 +9,25 @@
         public function FindById( $id ) {
             $prototype = New Journal();
             $prototype->Id = $id;
+            $prototype->Delid = 0;
+
             return $this->FindByPrototype( $prototype );
         }
         public function FindByUser( $user, $offset = 0, $limit = 25 ) {
             $prototype = New Journal();
             $prototype->Userid = $user->Id;
+            $prototype->Delid = 0;
 
             return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ) );
         }
         public function Count() {
-            $query = $this->mDb->Prepare(
-                'SELECT
-                    COUNT( * ) AS numjournals
-                FROM
-                    :journals'
-            );
-            $query->BindTable( 'journals' );
-            $res = $query->Execute();
-            $row = $res->FetchArray();
-            $numjournals = $row[ 'numjournals' ];
-
-            return $numjournals;
+            return parent::Count();
         }
         public function FindAll( $offset = 0, $limit = 20 ) {
-            return $this->FindByPrototype( New Journal(), $offset, $limit, array( 'Id', 'DESC' ) );
+            $journal = New Journal();
+            $journal->Delid = 0;
+
+            return $this->FindByPrototype( $journal, $offset, $limit, array( 'Id', 'DESC' ), true );
         }
     }
     
@@ -102,9 +97,18 @@
 
             Sequence_Increment( TYPE_JOURNAL );
         }
+        protected function OnBeforeDelete() {
+            $this->Delid = 1;
+            $this->Save();
+
+            $this->OnDelete();
+
+            return false;
+        }
         protected function OnDelete() {
             global $user;
             global $libs;
+
             $libs->Load( 'event' );
             $libs->Load( 'comment' );
             $libs->Load( 'adminpanel/adminaction' );
