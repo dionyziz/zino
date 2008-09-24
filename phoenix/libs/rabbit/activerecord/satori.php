@@ -375,7 +375,7 @@
                 $sql .= implode( ', ', $updates );
                 $sql .= ' WHERE ';
                 $conditions = array();
-                foreach ( $this->PrimaryKeyFields as $primarykeyfield ) {
+                foreach ( $this->mPrimaryKeyFields as $primarykeyfield ) {
                     $conditions[] = '`' . $primarykeyfield . '` = :_' . $primarykeyfield;
                 }
                 $sql .= implode( ' AND ', $conditions );
@@ -460,14 +460,14 @@
                         :' . $this->mDbTableAlias . '
                     WHERE ';
             $conditions = array();
-            foreach ( $this->PrimaryKeyFields as $primary ) {
+            foreach ( $this->mPrimaryKeyFields as $primary ) {
                 $conditions[] = '`' . $primary . '` = :' . $primary;
             }
             $sql .= implode( ' AND ', $conditions );
             $sql .= ' LIMIT 1';
             $query = $this->mDb->Prepare( $sql );
             $i = 0;
-            foreach ( $this->PrimaryKeyFields as $primary ) {
+            foreach ( $this->mPrimaryKeyFields as $primary ) {
                 // delete using the values of mPreviousValues in the primary key
                 $query->Bind( $primary, $this->mPreviousValues[ $this->mDbFields[ $primary ] ] );
                 ++$i;
@@ -661,7 +661,7 @@
                 $conditions = array();
                 $i = 0;
                 $invalid = false;
-                foreach ( $this->PrimaryKeyFields as $primary ) {
+                foreach ( $this->mPrimaryKeyFields as $primary ) {
                     if ( $this->mAutoIncrementField == $primary ) {
                         if ( $args[ $i ] == 0 ) { // autoincrement field is 0, object can't exist
                             // (this situation can be created by manually inserting a row with autoincrement set to 0, but it's a rare case and a good optimization to care about)
@@ -677,7 +677,7 @@
                     $sql .= ' LIMIT 1';
                     $query = $this->mDb->Prepare( $sql );
                     $i = 0;
-                    foreach ( $this->PrimaryKeyFields as $primary ) {
+                    foreach ( $this->mPrimaryKeyFields as $primary ) {
                         $query->Bind( $primary, $args[ $i ] );
                         ++$i;
                     }
