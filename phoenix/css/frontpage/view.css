@@ -163,6 +163,21 @@ div.frontpage div.notifications div.list div.event div.subject div.addfriend a {
     padding-left: 18px;
 }
 
+div.frontpage div.zinomeeting {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f7f7ff;
+    border-top: none;
+    margin: 0px auto;
+    width: 70%;
+    text-align: center;
+
+}
+div.frontpage div.zinomeeting h3 {
+    margin: 5px 0;
+    text-align: center;
+}
+
 /*  CSS FOR MASKED ELEMENT */
 div.onlinenow a {
     margin-right: 10px;

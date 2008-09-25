@@ -73,6 +73,11 @@
                     </div>
                 </div><?php
             }
+            ?><div class="zinomeeting">
+                <h3>Διαγωνισμός Avatars</h3>
+                Την <b>Δευτέρα 20 Οκτωβρίου</b> λήγει η προθεσμία αποστολής δηλώσεων συμμετοχής για τον μεγάλο διαγωνισμό σχεδιασμού Avatar στο Ζίνο.
+                Για περισσότερες πληροφορίες σχετικά με τον διαγωνισμό, κάντε click <b><a href="http://www.zino.gr/?p=journal&id=5231">Εδώ</a></b>.
+           </div><?php
             Element( 'frontpage/image/list' , $sequences[ TYPE_IMAGE ] );
             if ( !$user->Exists() ) {
                 ?><div class="members">
