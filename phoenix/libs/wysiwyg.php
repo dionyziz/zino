@@ -81,7 +81,7 @@
             '<a href="\1">\1</a>',
             $text
         );
-        $text = preg_replace( // LOL is a special testcase -- when it exists within a link it should not be matched as a link, because it will be matched from the smiley code later
+        $text = preg_replace(
             '#\b(https?+\://[a-z0-9.-]++(/([a-zA-Z0-9./+?=&\(\)_;\#~%-](?<!LOL))*+)?+)(?<=\.jpg|\.png|\.gif)#',
             '<img src="\1" alt="\1" />',
             $text
