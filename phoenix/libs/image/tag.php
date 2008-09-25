@@ -10,7 +10,7 @@
             $prototype = New ImageTag();
             $prototype->Imageid = $image->Id;
 
-            return $this->FindByPrototype( $prototype, 0, 20, array( 'Id', 'DESC' ) );
+            return $this->FindByPrototype( $prototype, 0, 40, array( 'Id', 'DESC' ) );
         }
         public function LoadDefaults() {
             global $user;
