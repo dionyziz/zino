@@ -214,7 +214,7 @@
                                         else {
                                             ?>του <?php
                                         }
-                                        if ( $notif->Fromuserid != $comment->Userid ) {
+                                        if ( $notif->Fromuserid != $comment->Item->Userid ) {
                                             ?><a href="<?php
                                             ob_start();
                                             Element( 'url', $comment );
