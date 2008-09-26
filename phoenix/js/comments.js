@@ -177,6 +177,7 @@ var Comments = {
 		Coala.Warm( 'comments/delete', { commentid : nodeid, 
 										callback : Comments.DeleteCommentCallback
 							} );
+        return false;
 	},
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
 		Comments.numchildren[ nodeid ] = -1;
