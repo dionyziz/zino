@@ -65,6 +65,8 @@
                             return 'journal';
                         case TYPE_IMAGE:
                             return 'image';
+                        default:
+                            return 'not found';
                     }
                 case 'Action':
                     switch ( $this->Type ) {  
