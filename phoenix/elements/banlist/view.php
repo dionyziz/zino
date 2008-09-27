@@ -13,28 +13,39 @@
             $libs->Load( 'adminpanel/ban' );
             $libs->Load( 'adminpanel/bannedusers' );
             
-            $page->setTitle( 'List of banned members' );
+            $page->setTitle( 'Λιστα Αποκλεισμένων χρηστων' );
             
-            ?><h2>Banned users</h2><?php     
+            ?><h2>Αποκλεισμένοι χρηστες</h2><?php     
             
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
+            ?><table>
+                <tr>
+                    <th>Χρήστης</th>
+                    <th>Πότε</th>
+                    <th>Εώς</th>
+                    <th>Ενέργεια</th>
+                </tr>
+            <?php
+            
             foreach ( $bannedUsers as $bannedUser ) {
+                ?><tr><?php
                 ?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?><p>User <?php
+                    ?><th><?php
                     echo $bannedUser->Name;
-                    ?> was banned at <?php
+                    ?></th><th><?php
                     echo $bannedUser->Started;
-                    ?> until <?php
+                    ?></th><th><?php
                     echo $bannedUser->Expire;                
-                    ?>.  <?php
+                    ?></th><th><?php
                     ?><input type="submit" value="revoke" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid; 
                     ?>" /><?php
-                    ?></p><?php
+                    ?></th><?php
                 ?></form><?php
+                ?></tr><?php
             }
 
             ?><form method="post" action="do/adminpanel/ban"><?php
