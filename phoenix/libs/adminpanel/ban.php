@@ -48,7 +48,7 @@
             $ipFinder = new BannedIpFinder();
             $res = $ipFinder->FindActiveByIp( $ip );
                
-            if ( !$res ) {               
+            if ( empty( $res ) ) {               
                  return false;
             }
             else { 

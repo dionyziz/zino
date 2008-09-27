@@ -17,6 +17,17 @@
             
             ?><h2>Αποκλεισμένοι χρηστες</h2><?php     
             
+            $ban = new Ban();
+            if($ban->isBannedIp( UserIp() ))
+            echo '<p>'.'isbannedip'.'</p>';
+            else
+            echo '<p>'.'isbanned not banned '.'</p>';
+            if($ban->isBannedIp( UserIp() ))
+            echo '<p>'.'isbanneduser'.'</p>';
+            else
+            echo '<p>'.'isbanned not banned user'.'</p>';
+            
+            
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
