@@ -32,21 +32,22 @@
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><tr><?php
                 ?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?><th><?php
+                    ?><td><?php
                     echo $bannedUser->Name;
-                    ?></th><th><?php
+                    ?></td><td><?php
                     echo $bannedUser->Started;
-                    ?></th><th><?php
+                    ?></td><td><?php
                     echo $bannedUser->Expire;                
-                    ?></th><th><?php
+                    ?></td><td><?php
                     ?><input type="submit" value="revoke" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid; 
                     ?>" /><?php
-                    ?></th><?php
+                    ?></td><?php
                 ?></form><?php
                 ?></tr><?php
             }
+            ?></table><?php
 
             ?><form method="post" action="do/adminpanel/ban"><?php
             ?><p>user name : <input type="text" name="username" /></p><?php
