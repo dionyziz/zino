@@ -17,6 +17,8 @@
             global $db;
             global $libs;
             
+            $libs->Load( 'user/user' );
+            
             $sql = $db->Prepare(
                 'SELECT *
                 FROM :bannedusers
@@ -29,6 +31,30 @@
             $users = array();
             while ( $row = $res->FetchArray() ) {
                 $users[] = new BannedUser( $row );
+            }
+            
+            $userids = array();
+            foreach ( $users as $banned ) {
+                $userids[] = $users->Userid;
+            }
+
+            $query = $db->Prepare(
+                'SELECT * 
+                FROM :users
+                WHERE `user_id` IN :userids
+                ;'
+            );
+            $query->BindTable( 'users' );
+            $query->Bind( 'userids', $userids );
+            $res = $query->Execute();
+            
+            $real_users = array();
+            while ( $row = $res->FetchArray() ) {
+                $real_users[ $row[ 'user_id' ] ] = new User( $row );
+            }
+            
+            foreach ( $users as $xrhsths ) {
+                $xrhsths->CopyUserFrom( $real_users[ $xrhsths->Userid ] );
             }
             
             return $users;
@@ -44,6 +70,22 @@
     }   
     
     class BannedUser extends Satori {
-        protected $mDbTableAlias = 'bannedusers';    
+        protected $mDbTableAlias = 'bannedusers'; 
+        
+        public function __get( $key ) {
+            switch ( $key ) {
+                case 'Name':
+                    return $this->User->Name;
+            }
+            return parent::__get( $key );
+        }
+        
+        public function CopyUserFrom( $key ) {
+            $this->mRelations[ 'User' ]->CopyFrom( $key );
+        }
+        
+        protected function Relations() {
+            $this->User = $this->HasOne( 'User', 'Userid' );
+        }        
     }
 ?>
