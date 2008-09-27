@@ -1,5 +1,10 @@
 <?php
 
+    define( 'OPERATION_CREATE', 1 );
+    define( 'OPERATION_READ', 2 );
+    define( 'OPERATION_UPDATE', 3 );
+    define( 'OPERATION_DELETE', 4 );
+
     function Type_Get() {
         return array(
             1 => array( 'TYPE_POLL', 'Poll' ),

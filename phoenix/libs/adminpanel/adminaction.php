@@ -10,11 +10,6 @@
     $libs->Load( 'journal' );
     $libs->Load( 'comment' );
     
-    /*define( 'OPERATION_CREATE', 1 );
-    define( 'OPERATION_READ', 2 );
-    define( 'OPERATION_UPDATE', 3 );
-    define( 'OPERATION_DELETE', 4 );*/
-    
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
             
