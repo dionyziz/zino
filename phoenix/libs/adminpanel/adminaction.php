@@ -10,8 +10,10 @@
     $libs->Load( 'journal' );
     $libs->Load( 'comment' );
     
-    define( 'OPERATION_UPDATE', 3 );
-    define( 'OPERATION_DELETE', 4 );
+    /*define( 'OPERATION_CREATE', 1 );
+    define( 'OPERATION_READ', 2 );*/
+    define( 'OPERATION_UPDATE', 2 );
+    define( 'OPERATION_DELETE', 1 );
     
     class AdminActionFinder extends Finder {
         protected $mModel = 'AdminAction';
@@ -71,9 +73,9 @@
                     }
                 case 'Action':
                     switch ( $this->Type ) {  
-                        case 1: // TODO: use constants instead?
+                        case OPERATION_DELETE: // TODO: use constants instead?
                             return 'delete';
-                        case 2:
+                        case OPERATION_UPDATE:
                             return 'edit';
                     }
             }
