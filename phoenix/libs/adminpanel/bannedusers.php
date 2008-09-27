@@ -32,9 +32,9 @@
                 $users[] = new BannedUser( $row );
             }
             
-            if ( count( $users ) == 0 ) {
+            /*if ( count( $users ) == 0 ) {
                 return false;
-            }            
+            } */           
             
             $userids = array();
             foreach ( $users as $banned ) {
