@@ -8,6 +8,9 @@
         
         public function FindActiveByIp( $ip ) {
             global $db;
+            global $libs;
+            
+            $libs->Load( 'adminpanel/bannedips' );
             
             $sql = $db->Prepare( 
                 'SELECT *
@@ -20,7 +23,12 @@
             $sql->Bind( 'ip', $ip );
             $res = $sql->Execute();
             
-            return $res;
+            $ips = array();
+            while ( $row = $res->FetchArray() ) {
+                $ips[] = new BannedIp( $row );
+            }
+            
+            return $ips;
         }
         
         public function FindByIp( $ip ) {
