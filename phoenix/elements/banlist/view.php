@@ -39,10 +39,10 @@
                     ?></td><td><?php
                     echo $bannedUser->Expire;                
                     ?></td><td><?php
-                    //?><input type="submit" value="revoke" /><?php
+                    /*?><input type="submit" value="revoke" /><?php
                     //?><input type="hidden" name="userid" value="<?php
                     //echo $bannedUser->Userid; 
-                    //?>" /><?php
+                    //?>" /><?php*/
                     ?></td><?php
                 ?></form><?php
                 ?></tr><?php
