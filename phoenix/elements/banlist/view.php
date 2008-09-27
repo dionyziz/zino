@@ -29,7 +29,7 @@
                     ?> μέχρι τις <?php
                     echo $bannedUser->Expire;                
                     ?>.  <?php
-                    ?><input type="submit" value="revoke" /><?php
+                    ?><input type="submit" value="Επαναφορά" /><?php
                     ?><input type="hidden" name="userid" value="<?php
                     echo $bannedUser->Userid; 
                     ?>" /><?php
