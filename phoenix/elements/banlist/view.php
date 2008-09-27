@@ -23,7 +23,7 @@
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><p>User <?php
-                    echo $bannedUser->Userid;
+                    echo $bannedUser->Name;
                     ?> was banned at <?php
                     echo $bannedUser->Started;
                     ?> until <?php
