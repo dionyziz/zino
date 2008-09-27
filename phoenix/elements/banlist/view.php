@@ -21,8 +21,8 @@
             if($ban->isBannedIp( UserIp() ))
             echo '<p>'.'isbannedip'.'</p>';
             else
-            echo '<p>'.'isbanned not banned '.'</p>';
-            if($ban->isBannedIp( UserIp() ))
+            echo '<p>'.'isbanned not banned ip'.'</p>';
+            if($ban->isBannedUser( $user->Id ))
             echo '<p>'.'isbanneduser'.'</p>';
             else
             echo '<p>'.'isbanned not banned user'.'</p>';
