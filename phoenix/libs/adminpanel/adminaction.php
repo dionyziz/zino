@@ -8,6 +8,7 @@
     $libs->Load( 'poll/poll' );
     $libs->Load( 'image/image' );
     $libs->Load( 'journal' );
+    $libs->Load( 'comment' );
     
     define( 'OPERATION_UPDATE', 3 );
     define( 'OPERATION_DELETE', 4 );
