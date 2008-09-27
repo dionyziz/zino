@@ -33,7 +33,7 @@
             }
             
             if ( count( $users ) == 0 ) {
-                return $users;
+                return false;
             }            
             
             $userids = array();
