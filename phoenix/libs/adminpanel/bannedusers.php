@@ -32,6 +32,10 @@
                 $users[] = new BannedUser( $row );
             }
             
+            if ( count( $users ) == 0 ) {
+                return $users;
+            }            
+            
             $userids = array();
             foreach ( $users as $banned ) {
                 $userids[] = $banned->Userid;
