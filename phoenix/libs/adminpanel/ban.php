@@ -47,23 +47,14 @@
             $libs->Load( 'adminpanel/bannedips' );
                
             $ipFinder = new BannedIpFinder();
-            $res = $ipFinder->FindByIp( $ip );
+            $res = $ipFinder->FindActiveByIp( $ip );
                
             if ( !$res ) {               
                  return false;
             }
             else { 
-                 $ip = current( $res );
-                 $diff = strtotime( NowDate() ) - strtotime( $ip->Expire );
-                    
-                 if ( $diff>0 ) {
-                     $this->Revoke( $ip->Userid );
-                     return false;
-                 }
-                 else {
-                     return true;
-                }
-             }
+                return true;
+            }
         }
         
         public function isBannedUser( $userid ) {

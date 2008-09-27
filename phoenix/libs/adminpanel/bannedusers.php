@@ -21,7 +21,7 @@
             return $res;
         } 
         
-        public function FindNotExpiredByUserId( $userid ) {
+        public function FindActiveByUserId( $userid ) {
             global $db;
             //ToDo!
             return;

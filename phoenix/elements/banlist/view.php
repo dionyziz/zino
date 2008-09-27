@@ -15,7 +15,13 @@
             
             $page->setTitle( 'List of banned members' );
             
-            ?><h2>Banned users</h2><?php         
+            ?><h2>Banned users</h2><?php     
+            
+            $isbanned = new Ban();
+            if( $isbanned->isBannepIp( UserIp() ) )
+            echo '<p>'.'is banned'.'</p>';
+            else
+            echo '<p>'.'is not banned'.'</p>';
             
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAll( 0, 20 );

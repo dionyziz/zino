@@ -6,6 +6,23 @@
     class BannedIpFinder extends Finder {
         protected $mModel = 'BannedIp';
         
+        public function FindActiveByIp( $ip ) {
+            global $db;
+            
+            $sql = $db->Prepare( 
+                'SELECT *
+                FROM :bannedips
+                WHERE `bannedips_expire` > NOW( )
+                AND `bannedips_ip` = :ip
+                ;'
+            );
+            $sql->BindTable( 'bannedips' );
+            $sql->Bind( 'ip', $ip );
+            $res = $sql->Execute();
+            
+            return $res;
+        }
+        
         public function FindByIp( $ip ) {
             $prototype = new BannedIp();
             $prototype->Ip = $ip;
