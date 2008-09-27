@@ -12,8 +12,7 @@
             $libs->Load( 'user/user' );     
             
             $bannedUserFinder = new BanneduserFinder();//delete banneduser
-            $bannedUsers = $bannedUserFinder->FindByUserId( $userid );            
-            
+            $bannedUsers = $bannedUserFinder->FindByUserId( $userid );
             
             if ( count( $bannedUsers ) == 1 ) {
                 $cur_user = current( $bannedUsers );
