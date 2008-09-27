@@ -48,7 +48,7 @@
         }
         
         $banChecker = new Ban();
-        if ( $banChecker->isBannedIp( UserIp() ) || $banChecker->isBannedUser( $user->Id ) ||  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
+        if ( /*$banChecker->isBannedIp( UserIp() ) || $banChecker->isBannedUser( $user->Id ) ||*/  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             exit();
