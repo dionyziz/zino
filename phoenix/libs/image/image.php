@@ -225,7 +225,7 @@
                         
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , TYPE_IMAGE, $this->id );
+                $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_IMAGE, $this->id );
             }
             
             $finder = New ImageTagFinder();

@@ -64,14 +64,16 @@
                         case TYPE_IMAGE:
                             return 'image';
                         default:
-                            return 'not found';
+                            return 'unknown type';
                     }
                 case 'Action':
                     switch ( $this->Type ) {  
-                        case 1: // TODO: use constants instead?
+                        case OPERATION_DELETE:
                             return 'delete';
-                        case 2:
+                        case OPERATION_UPDATE:
                             return 'edit';
+                        default:
+                            return 'unknown operation';
                     }
             }
             
@@ -89,22 +91,12 @@
             }
         }
         
-        public function saveAdminAction( $userid , $userip , $actiontype , $targettype , $targetid ) {        
+        public function saveAdminAction( $userid, $userip, $actiontype, $targettype, $targetid ) {        
             $this->Userid = $userid;
             $this->Userip = $userip;
-            $this->Targetid = $targetid;
-            
+            $this->Targetid = $targetid;            
             $this->Date = NowDate();
-        
-            switch ( $actiontype ) {
-                case "delete":
-                    $this->type = 1;
-                    break;
-                case "edit":
-                    $this->type = 2;
-                    break;
-            } 
-
+            $this->type = $actiontype;   
             $this->Targettype = $targettype;
             $this->Save();            
         }

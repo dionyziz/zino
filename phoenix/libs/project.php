@@ -16,7 +16,6 @@
         $libs->Load( 'magic' );
         $libs->Load( 'user/user' );
         $libs->Load( 'user/cookie' );
-        $libs->Load( 'ban' );
         $libs->Load( 'types' );
         $libs->Load( 'sequence' );
 

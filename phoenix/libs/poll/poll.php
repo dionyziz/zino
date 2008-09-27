@@ -84,7 +84,7 @@
                         
             if ( $user->id != $this->userid ) {
                 $adminaction = new AdminAction();
-                $adminaction->saveAdminAction( $user->id , UserIp() , 'delete' , TYPE_POLL, $this->id );
+                $adminaction->saveAdminAction( $user->id, UserIp(), OPERATION_DELETE, TYPE_POLL, $this->id );
             }
             
             $this->Delid = 1;
