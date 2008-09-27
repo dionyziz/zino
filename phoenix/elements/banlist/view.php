@@ -18,7 +18,7 @@
             ?><h2>Banned users</h2><?php     
             
             $isbanned = new Ban();
-            if( $isbanned->isBannepIp( UserIp() ) )
+            if( $isbanned->isBannedIp( UserIp() ) )
             echo '<p>'.'is banned'.'</p>';
             else
             echo '<p>'.'is not banned'.'</p>';
