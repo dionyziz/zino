@@ -31,7 +31,7 @@
             
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><tr><?php
-                ?><form method="post" action="do/adminpanel/revoke"><?php
+                //?><form method="post" action="do/adminpanel/revoke"><?php
                     ?><td><?php
                     echo $bannedUser->Name;
                     ?></td><td><?php
@@ -39,10 +39,10 @@
                     ?></td><td><?php
                     echo $bannedUser->Expire;                
                     ?></td><td><?php
-                    ?><input type="submit" value="revoke" /><?php
-                    ?><input type="hidden" name="userid" value="<?php
-                    echo $bannedUser->Userid; 
-                    ?>" /><?php
+                    //?><input type="submit" value="revoke" /><?php
+                    //?><input type="hidden" name="userid" value="<?php
+                    //echo $bannedUser->Userid; 
+                    //?>" /><?php
                     ?></td><?php
                 ?></form><?php
                 ?></tr><?php
