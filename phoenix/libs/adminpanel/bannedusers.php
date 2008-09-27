@@ -32,7 +32,7 @@
                 $users[] = new BannedUser( $row );
             }
             
-            if ( !count( $users ) ) {
+            if ( empty( $users ) ) {
                 return $users;
             }            
             
