@@ -18,6 +18,7 @@
         $libs->Load( 'user/cookie' );
         $libs->Load( 'types' );
         $libs->Load( 'sequence' );
+        $libs->Load( 'adminpanel/ban' );
 
         $xc_settings = $rabbit_settings[ '_excalibur' ];
       
@@ -45,8 +46,9 @@
                 }
             }
         }
-
-        if ( !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
+        
+        $banChecker = new Ban();
+        if ( $banChecker->isBannedIp( UserIp() ) || $banChecker->isBannedUser( $user->Id ) ||  !$user->HasPermission( PERMISSION_ACCESS_SITE ) ) {
             $page->AttachMainElement( 'user/banned', array() );
             $page->Output();
             exit();
