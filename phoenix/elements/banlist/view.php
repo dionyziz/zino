@@ -20,34 +20,22 @@
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
             
-            ?><table>
-                <tr>
-                    <th>Χρήστης</th>
-                    <th>Πότε</th>
-                    <th>Εώς</th>
-                    <th>Ενέργεια</th>
-                </tr>
-            <?php
-            
             foreach ( $bannedUsers as $bannedUser ) {
-                ?><tr><?php
-                //?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?><td><?php
+                ?><form method="post" action="do/adminpanel/revoke"><?php
+                    ?><p>User <?php
                     echo $bannedUser->Name;
-                    ?></td><td><?php
+                    ?> was banned at <?php
                     echo $bannedUser->Started;
-                    ?></td><td><?php
+                    ?> until <?php
                     echo $bannedUser->Expire;                
-                    ?></td><td><?php
-                    /*?><input type="submit" value="revoke" /><?php
-                    //?><input type="hidden" name="userid" value="<?php
-                    //echo $bannedUser->Userid; 
-                    //?>" /><?php*/
-                    ?></td><?php
+                    ?>.  <?php
+                    ?><input type="submit" value="revoke" /><?php
+                    ?><input type="hidden" name="userid" value="<?php
+                    echo $bannedUser->Userid; 
+                    ?>" /><?php
+                    ?></p><?php
                 ?></form><?php
-                ?></tr><?php
             }
-            ?></table><?php
 
             ?><form method="post" action="do/adminpanel/ban"><?php
             ?><p>user name : <input type="text" name="username" /></p><?php
