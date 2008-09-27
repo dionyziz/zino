@@ -22,11 +22,11 @@
             
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><form method="post" action="do/adminpanel/revoke"><?php
-                    ?><p>User <?php
+                    ?><p>Ο χρήστης <?php
                     echo $bannedUser->Name;
-                    ?> was banned at <?php
+                    ?> αποκλείστηκε στις <?php
                     echo $bannedUser->Started;
-                    ?> until <?php
+                    ?> μέχρι τις <?php
                     echo $bannedUser->Expire;                
                     ?>.  <?php
                     ?><input type="submit" value="revoke" /><?php
