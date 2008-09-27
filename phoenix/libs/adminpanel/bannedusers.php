@@ -14,12 +14,11 @@
         }
         
         public function FindAllActive() {
-            global $db;
             global $libs;
             
             $libs->Load( 'user/user' );
             
-            $sql = $db->Prepare(
+            $sql = $this->mDb->Prepare(
                 'SELECT *
                 FROM :bannedusers
                 WHERE `bannedusers_expire` > NOW( )
@@ -35,10 +34,10 @@
             
             $userids = array();
             foreach ( $users as $banned ) {
-                $userids[] = $users->Userid;
+                $userids[] = $banned->Userid;
             }
 
-            $query = $db->Prepare(
+            $query = $this->mDb->Prepare(
                 'SELECT * 
                 FROM :users
                 WHERE `user_id` IN :userids
