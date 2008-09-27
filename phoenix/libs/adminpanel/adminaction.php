@@ -96,7 +96,7 @@
             $this->Userip = $userip;
             $this->Targetid = $targetid;            
             $this->Date = NowDate();
-            $this->type = $actiontype;   
+            $this->Type = $actiontype;   
             $this->Targettype = $targettype;
             $this->Save();            
         }

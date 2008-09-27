@@ -24,7 +24,7 @@
             echo '<p>'.'is not banned'.'</p>';
             
             $bannedUserFinder = new BannedUserFinder();
-            $bannedUsers = $bannedUserFinder->FindAll( 0, 20 );
+            $bannedUsers = $bannedUserFinder->FindAllActive();
             
             foreach ( $bannedUsers as $bannedUser ) {
                 ?><form method="post" action="do/adminpanel/revoke"><?php

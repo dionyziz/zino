@@ -13,6 +13,27 @@
             return $found;
         }
         
+        public function FindAllActive() {
+            global $db;
+            global $libs;
+            
+            $sql = $db->Prepare(
+                'SELECT *
+                FROM :bannedusers
+                WHERE `bannedusers_expire` > NOW( )
+                ;'
+            );
+            $sql->BindTable( 'bannedusers' );
+            $res = $sql->Execute();
+            
+            $users = array();
+            while ( $row = $res->FetchArray() ) {
+                $users[] = new BannedUser( $row );
+            }
+            
+            return $users;
+        }
+        
         public function FindByUserId( $userid ) {
             $prototype = new BannedUser();
             $prototype->Userid = $userid;
@@ -20,12 +41,6 @@
             $res = $this->FindByPrototype( $prototype );
             return $res;
         } 
-        
-        public function FindActiveByUserId( $userid ) {
-            global $db;
-            //ToDo!
-            return;
-        }
     }   
     
     class BannedUser extends Satori {
