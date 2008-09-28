@@ -1,6 +1,8 @@
 <?php
     class DublicateAccount {
             public function getDublicateAccountsByUserName( $username ) {
+                return;
+            
                 global $db;
                 global $libs;
                 
