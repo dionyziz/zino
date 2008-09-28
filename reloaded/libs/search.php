@@ -44,9 +44,9 @@
 			
 			$this->mGetTotalLength = $yesorno;
 		}
-        public function Length() {
-            return $this->mLength;
-        }
+		public function Length() {
+			return $this->mLength;
+		}
 		protected function GetCached() {
 			return false;
 		}
@@ -57,14 +57,14 @@
 			global $db;
 			global $blk;
 			global $water;
-            
+			
 			$cached = $this->GetCached();
 			if ( $cached !== false ) {
 				return $cached;
 			}
 			
-            $water->Profile( 'Search ' . get_class( $this ) );
-            
+			$water->Profile( 'Search ' . get_class( $this ) );
+			
 			$tables = array();
 			$tablesstr = '';
 			foreach ( $this->mTables as $table ) {
@@ -176,14 +176,14 @@
 						" . $tablesstr . "
 					WHERE
 						" . $filtertext;
-            if ( $this->mGroupByField != '' ) {
-                w_assert( preg_match( '#^[A-Za-z0-9_]+$#', $this->mGroupByField ) );
-                $sql .= "
-    					GROUP BY
-    						`" . $this->mGroupByField . "`";
-            }
+			if ( $this->mGroupByField != '' ) {
+				w_assert( preg_match( '#^[A-Za-z0-9_]+$#', $this->mGroupByField ) );
+				$sql .= "
+						GROUP BY
+							`" . $this->mGroupByField . "`";
+			}
 			$sql .= "
-                    ORDER BY 
+					ORDER BY 
 						" . $this->mSortField . " " . $this->mSortOrder . "
 					LIMIT 
 						" . $this->mOffset . ", " . $this->mLimit . ";";
@@ -200,8 +200,8 @@
 			$ret = $this->Instantiate( $res );
 			$this->SaveCache( $ret );
 			
-            $water->ProfileEnd();
-            
+			$water->ProfileEnd();
+			
 			return $ret;
 		}
 		public function Search() {
@@ -212,5 +212,5 @@
 			$this->NeedTotalLength( false ); // by default, don't fetch the total length
 		}
 	}
-    
+	
 ?>

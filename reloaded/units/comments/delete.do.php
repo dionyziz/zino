@@ -3,8 +3,8 @@
 		global $user;
 		global $libs;
 		
-        $commentid = $commentid->Get();
-        
+		$commentid = $commentid->Get();
+		
 		$libs->Load( 'comment' );
 		
 		$comment = New Comment( $commentid );

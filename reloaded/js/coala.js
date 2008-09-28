@@ -1,48 +1,48 @@
 /*
-    Developer: dionyziz
+	Developer: dionyziz
 */
 
 var Coala = {
 	StoredObjects: [],
 	ThreadedRequests: [],
 	LazyCommit: null,
-    BaseURL: '',
-    Frozen: function ( unitid, parameters, failurecallback ) { // get, cacheable client-side (doesn't have to be public -- not necessarily squidable)
-        if ( Coala.ThreadedRequests.length ) {
-            // force commit of any queued requests
-            Coala.Commit();
-        }
-        // send frozen call separately
-        this._AppendRequest( unitid, parameters, 'frozen', failurecallback );
-        Coala.Commit();
-    },
+	BaseURL: '',
+	Frozen: function ( unitid, parameters, failurecallback ) { // get, cacheable client-side (doesn't have to be public -- not necessarily squidable)
+		if ( Coala.ThreadedRequests.length ) {
+			// force commit of any queued requests
+			Coala.Commit();
+		}
+		// send frozen call separately
+		this._AppendRequest( unitid, parameters, 'frozen', failurecallback );
+		Coala.Commit();
+	},
 	Cold: function ( unitid, parameters, failurecallback ) { // get, non-cacheable
-        this._AppendRequest( unitid, parameters, 'cold', failurecallback );
+		this._AppendRequest( unitid, parameters, 'cold', failurecallback );
 		this.LazyCommit = setTimeout( function () {
-            Coala.Commit();
-        }, 50 );
+			Coala.Commit();
+		}, 50 );
 	},
 	Warm: function ( unitid, parameters, failurecallback ) { // post
 		this._AppendRequest( unitid, parameters, 'warm', failurecallback );
 		this.LazyCommit = setTimeout( function () {
-            Coala.Commit();
-        }, 50 );
+			Coala.Commit();
+		}, 50 );
 	},
 	_AppendRequest: function ( unitid, parameters, type, failurecallback ) {
-        if ( typeof unitid === 'undefined' ) {
-            alert( 'No coala call unitid specified; aborting call' );
-            return;
-        }
-        if ( typeof parameters === 'undefined' ) {
-            alert( 'No coala call parameters specified; aborting call' );
-            return;
-        }
+		if ( typeof unitid === 'undefined' ) {
+			alert( 'No coala call unitid specified; aborting call' );
+			return;
+		}
+		if ( typeof parameters === 'undefined' ) {
+			alert( 'No coala call parameters specified; aborting call' );
+			return;
+		}
 		Coala.ThreadedRequests.push( 
 			{ 
-				'unitid'          : unitid , 
-				'parameters'      : parameters , 
-				'type'            : type ,
-                'failurecallback' : failurecallback
+				'unitid'		  : unitid , 
+				'parameters'	  : parameters , 
+				'type'			: type ,
+				'failurecallback' : failurecallback
 			}
 		);
 	},
@@ -55,33 +55,33 @@ var Coala = {
 		request = { 'ids' : '' };
 		ids = [];
 		warm = false;
-        failurecallbacks = [];
+		failurecallbacks = [];
 		for ( i in Coala.ThreadedRequests ) {
 			args = [];
-            if ( typeof Coala.ThreadedRequests[ i ].failurecallback !== 'undefined' ) {
-                failurecallbacks.push(
-                    Coala.ThreadedRequests[ i ].failurecallback
-                );
-            }
+			if ( typeof Coala.ThreadedRequests[ i ].failurecallback !== 'undefined' ) {
+				failurecallbacks.push(
+					Coala.ThreadedRequests[ i ].failurecallback
+				);
+			}
 			for ( j in Coala.ThreadedRequests[ i ].parameters ) {
-                switch ( typeof( Coala.ThreadedRequests[ i ].parameters[ j ] ) ) {
-                    case 'object': // object or array
-                    case 'function': // function
-                        // create coala pointer
-    					Coala.StoredObjects[ Coala.StoredObjects.length ] = Coala.ThreadedRequests[ i ].parameters[ j ];
-    					arg = 'Coala.StoredObjects[' + ( Coala.StoredObjects.length - 1 ) + ']';
-                        break;
-                    case 'boolean':
-                        if ( Coala.ThreadedRequests[ i ].parameters[ j ] ) {
-                            arg = 1;
-                        }
-                        else {
-                            arg = 0;
-                        }
-                        break;
-                    default: // scalar type
-                        arg = Coala.ThreadedRequests[ i ].parameters[ j ];
-                        break;
+				switch ( typeof( Coala.ThreadedRequests[ i ].parameters[ j ] ) ) {
+					case 'object': // object or array
+					case 'function': // function
+						// create coala pointer
+						Coala.StoredObjects[ Coala.StoredObjects.length ] = Coala.ThreadedRequests[ i ].parameters[ j ];
+						arg = 'Coala.StoredObjects[' + ( Coala.StoredObjects.length - 1 ) + ']';
+						break;
+					case 'boolean':
+						if ( Coala.ThreadedRequests[ i ].parameters[ j ] ) {
+							arg = 1;
+						}
+						else {
+							arg = 0;
+						}
+						break;
+					default: // scalar type
+						arg = Coala.ThreadedRequests[ i ].parameters[ j ];
+						break;
 				}
 				args.push( encodeURIComponent( j ) + '=' + encodeURIComponent( arg ) );
 			}
@@ -94,9 +94,9 @@ var Coala = {
 				case 'cold':
 					symbol = '~';
 					break;
-                case 'frozen':
-                    symbol = '_';
-                    break;
+				case 'frozen':
+					symbol = '_';
+					break;
 				default:
 					alert( 'Invalid coala call type' );
 			}
@@ -126,15 +126,15 @@ var Coala = {
 			realparameters.push( encodeURIComponent( parameter ) + '=' + encodeURIComponent( request[ parameter ] ) );
 		}
 		Socket.connect( this.BaseURL + "coala.php" , method , realparameters.join( '&' ) , function ( xh ) {
-            Coala._Callback( xh, failurecallbacks );
-        } );
+			Coala._Callback( xh, failurecallbacks );
+		} );
 		return true; // successfully pushed request
 	},
 	_Callback: function ( xh, failurecallbacks ) {
 		if ( xh.readyState != 4 ) {
-            for ( i = 0; i < failurecallbacks.length; ++i ) {
-                failurecallbacks[ i ]( 0 );
-            }
+			for ( i = 0; i < failurecallbacks.length; ++i ) {
+				failurecallbacks[ i ]( 0 );
+			}
 			return;
 		}
 		try {
@@ -146,31 +146,31 @@ var Coala = {
 			}
 		}
 		catch ( e ) {
-            httpStatus = 13030;
+			httpStatus = 13030;
 		}
-        
-        if ( httpStatus < 200 || httpStatus > 300 && httpStatus !== 1223 ) {
-            for ( i = 0; i < failurecallbacks.length; ++i ) {
-                failurecallbacks[ i ]( httpStatus );
-            }
-            return;
-        }
-        if ( typeof water_debug_data !== 'undefined' ) {
-            old_water_debug_data = water_debug_data;
-        }
-        else {
-            old_water_debug_data = {};
-        }
-        
+		
+		if ( httpStatus < 200 || httpStatus > 300 && httpStatus !== 1223 ) {
+			for ( i = 0; i < failurecallbacks.length; ++i ) {
+				failurecallbacks[ i ]( httpStatus );
+			}
+			return;
+		}
+		if ( typeof water_debug_data !== 'undefined' ) {
+			old_water_debug_data = water_debug_data;
+		}
+		else {
+			old_water_debug_data = {};
+		}
+		
 		// execute unit
-        resp = xh.responseText;
-        
-        if ( resp.substr( 0, 'while(1);'.length ) != 'while(1);' ) {
-            alert( 'Invalid Coala initization string: \n' + resp );
-            return;
-        }
-        
-        resp = resp.substr( 'while(1);'.length ); // JS hijacking prevention
+		resp = xh.responseText;
+		
+		if ( resp.substr( 0, 'while(1);'.length ) != 'while(1);' ) {
+			alert( 'Invalid Coala initization string: \n' + resp );
+			return;
+		}
+		
+		resp = resp.substr( 'while(1);'.length ); // JS hijacking prevention
 		eval( resp );
 		if ( typeof water_debug_data !== 'undefined' ) {
 			coala_water_debug_data = water_debug_data; // could be used later, if water improves
@@ -190,7 +190,7 @@ var Coala = {
 			if ( !xh ) {
 				// just return false
 				return false;
-            }
+			}
 			// okay, let's get started; operation hasn't been completed yet
 			bComplete = false;
 			// make sure the method is uppercase ("GET" or "POST")
@@ -260,7 +260,7 @@ var Coala = {
 		// no xmlhttp object was created, the constructor should return null
 		if ( !xh ) {
 			return null;
-        }
+		}
 		
 		// return the newly created class
 		return this;

@@ -2,7 +2,7 @@
 	function ElementArticleNewFilmstrip( $onlyalbum ) {
 		global $libs;
 		global $page;
-        global $user; 
+		global $user; 
 		global $xc_settings;
 
 		if ( $user->Rights() < $xc_settings[ 'allowuploads' ] ) {
@@ -11,12 +11,12 @@
 		
 		$libs->Load( 'image/image' );
 		$libs->Load( 'search' );
-        $page->AttachStylesheet( 'css/images.css' );
-        
+		$page->AttachStylesheet( 'css/images.css' );
+		
 		?><div class="filmstrip" id="filmstrip"><div class="strip"><?php
 		
-        $search = new Search_Images_Latest( $user->Id() , $onlyalbum );
-        $latest = $search->Get();
+		$search = new Search_Images_Latest( $user->Id() , $onlyalbum );
+		$latest = $search->Get();
 		
 		foreach ( $latest as $image ) {
 			?><div>

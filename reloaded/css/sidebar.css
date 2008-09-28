@@ -37,10 +37,10 @@ div.sidebar div.box div.body {
 	background-position: top;
 	background-color: #e8eaec;
 	padding: 5px 3px 3px 3px;
-    position: relative; /* flicker fix for ie */
+	position: relative; /* flicker fix for ie */
 }
 div.sidebar div.box div.body img {
-    position: relative;
+	position: relative;
 }
 div.sidebar div.shoutbox div.body div, div.sidebar div.latestcomments div.body div {
 	margin-bottom: 3px;

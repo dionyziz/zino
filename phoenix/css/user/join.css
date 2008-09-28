@@ -31,7 +31,7 @@ div.join div.bubble form.joinform div label {
 div.join div.bubble form.joinform div input {
 	display: inline;
 }
-div.join div.bubble form.joinform div > span 	{
+div.join div.bubble form.joinform div > span	 {
 	vertical-align: bottom;
 	display: none;
 }

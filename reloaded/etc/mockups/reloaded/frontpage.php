@@ -1,5 +1,5 @@
 <?php
-    $loggedin = true;
+	$loggedin = true;
 	include "banner.php";
 	include "home.php";
 ?>

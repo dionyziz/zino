@@ -102,20 +102,20 @@ var pms = {
 		Modals.Destroy();
 	}
 	,
-    ValidFolderName : function ( text ) {
+	ValidFolderName : function ( text ) {
 		var name = text.replace(/(\s+$)|(^\s+)/g , '');
 		if ( name == 'Εισερχόμενα' || name == 'Απεσταλμένα' ) {
-            return false;
+			return false;
 		}
 		else if ( name.length <= 2 ) {
-            return false;
+			return false;
 		}
 		else if ( name === '' ) {
-            return false;
+			return false;
 		}
-        return true;
-    }
-    ,
+		return true;
+	}
+	,
 	CreateNewFolder : function ( formnode ) {
 		//creating a new folder and showing it (using a coala call)
 		var formnodeinput = formnode.getElementsByTagName( 'input' );
@@ -124,10 +124,10 @@ var pms = {
 		if ( !pms.ValidFolderName( foldername ) ) {
 			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
 			inputbox.select();
-            return;
+			return;
 		}
-        pms.ShowAnimation( 'Δημιουργία φακέλου...' );
-        Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
+		pms.ShowAnimation( 'Δημιουργία φακέλου...' );
+		Coala.Warm( 'pm/makefolder' , { foldername : foldername } );
 	}
 	,
 	DeleteFolder : function( folderid ) {
@@ -143,22 +143,22 @@ var pms = {
 		} );
 	}
 	,
-    RenameFolder : function ( folderid ) {
-        var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
-        if ( name === null ) {
-            return;
-        }
-        if ( !pms.ValidFolderName( name ) ) {
-            alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
-            return;
-        }
-        Coala.Warm( 'pm/folder/rename', {
-            'folderid': folderid,
-            'newname': name
-        } );
-        $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
-    }
-    ,
+	RenameFolder : function ( folderid ) {
+		var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
+		if ( name === null ) {
+			return;
+		}
+		if ( !pms.ValidFolderName( name ) ) {
+			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
+			return;
+		}
+		Coala.Warm( 'pm/folder/rename', {
+			'folderid': folderid,
+			'newname': name
+		} );
+		$( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
+	}
+	,
 	NewMessage : function( touser , answertext ) {
 		pms.ClearMessages();
 		var receiversdiv = document.createElement( 'div' );

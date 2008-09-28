@@ -1,58 +1,58 @@
 <?php
-    class FavouriteFinder extends Finder {
-        protected $mModel = 'Favourite';
+	class FavouriteFinder extends Finder {
+		protected $mModel = 'Favourite';
 
-        public function FindByUserAndType( User $user, $type = false, $offset, $limit ) {
-            $prototype = New Favourite();
-            if ( $type !== false ) {
-                $prototype->Typeid = $type;
-            }
-            $prototype->Userid = $user->Id;
+		public function FindByUserAndType( User $user, $type = false, $offset, $limit ) {
+			$prototype = New Favourite();
+			if ( $type !== false ) {
+				$prototype->Typeid = $type;
+			}
+			$prototype->Userid = $user->Id;
 
-            return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
-        }
-        public function FindByUserAndEntity( User $user, $entity ) {
-            $prototype = New Favourite();
-            $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = $entity->Id;
-            $prototype->Userid = $user->Id;
+			return $this->FindByPrototype( $prototype, $offset, $limit, array( 'Id', 'DESC' ), true );
+		}
+		public function FindByUserAndEntity( User $user, $entity ) {
+			$prototype = New Favourite();
+			$prototype->Typeid = Type_FromObject( $entity );
+			$prototype->Itemid = $entity->Id;
+			$prototype->Userid = $user->Id;
 
-            return $this->FindByPrototype( $prototype );
-        }
-        public function FindByEntity( $entity ) {
-            $prototype = New Favourite();
-            $prototype->Typeid = Type_FromObject( $entity );
-            $prototype->Itemid = $entity->Id;
+			return $this->FindByPrototype( $prototype );
+		}
+		public function FindByEntity( $entity ) {
+			$prototype = New Favourite();
+			$prototype->Typeid = Type_FromObject( $entity );
+			$prototype->Itemid = $entity->Id;
 
-            return $this->FindByPrototype( $prototype );
-        }
+			return $this->FindByPrototype( $prototype );
+		}
 
-    }
+	}
 
-    class Favourite extends Satori {
-        protected $mDbTableAlias = 'favourites';
+	class Favourite extends Satori {
+		protected $mDbTableAlias = 'favourites';
 
-        public function Relations() {
-            $this->User = $this->HasOne( 'User', 'Userid' );
-            if ( $this->Exists() ) {
-                $this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
-            }
-        }
-        public function LoadDefaults() {
-            global $user;
+		public function Relations() {
+			$this->User = $this->HasOne( 'User', 'Userid' );
+			if ( $this->Exists() ) {
+				$this->Item = $this->HasOne( Type_GetClass( $this->Typeid ), 'Itemid' );
+			}
+		}
+		public function LoadDefaults() {
+			global $user;
 
-            $this->Userid = $user->Id;
-        }
-        public function OnCreate() {
-            global $libs;
+			$this->Userid = $user->Id;
+		}
+		public function OnCreate() {
+			global $libs;
 
-            $libs->Load( 'event' );
+			$libs->Load( 'event' );
 
-            $event = New Event();
-            $event->Typeid = EVENT_FAVOURITE_CREATED;
-            $event->Itemid = $this->Id;
-            $event->Userid = $this->Userid;
-            $event->Save();
-        }
-    }
+			$event = New Event();
+			$event->Typeid = EVENT_FAVOURITE_CREATED;
+			$event->Itemid = $this->Id;
+			$event->Userid = $this->Userid;
+			$event->Save();
+		}
+	}
 ?>

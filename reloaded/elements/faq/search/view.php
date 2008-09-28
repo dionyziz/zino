@@ -2,12 +2,12 @@
 	function ElementFaqSearchView( tString $q, tInteger $offset ) {
 		global $page;
 		
-        $q = $q->Get();
+		$q = $q->Get();
 		$offset = $offset->Get();
-        if ( !ValidId( $offset ) ) {
-            $offset = 1;
-        }
-        
+		if ( !ValidId( $offset ) ) {
+			$offset = 1;
+		}
+		
 		Element( 'faq/header' );
 		
 		$search = New Search_FAQQuestions();

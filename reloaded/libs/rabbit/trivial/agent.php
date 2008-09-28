@@ -4,9 +4,9 @@
 		global $userbrowser_version;
 		
 		$browser = array (
-			"MSIE",            // parent
+			"MSIE",			// parent
 			"OPERA",
-			"MOZILLA",        // parent
+			"MOZILLA",		// parent
 			"NETSCAPE",
 			"FIREFOX",
 			"SAFARI",
@@ -48,9 +48,9 @@
 	}
 	function BrowserByUseragent( $useragent ) {
 		$browser = array (
-			"MSIE",            // parent
+			"MSIE",			// parent
 			"OPERA",
-			"MOZILLA",        // parent
+			"MOZILLA",		// parent
 			"NETSCAPE",
 			"FIREFOX",
 			"SAFARI"
@@ -58,8 +58,8 @@
 		
 		$info['browser'] = "OTHER";
 		
-        $userbrowser_name = '';
-        $userbrowser_version = '0.0';
+		$userbrowser_name = '';
+		$userbrowser_version = '0.0';
 		foreach ($browser as $parent) {
 			$s = strpos(strtoupper($useragent), $parent);
 			$f = $s + strlen($parent);

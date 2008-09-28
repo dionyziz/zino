@@ -29,7 +29,7 @@
 	function dateDistance( $pastDate ) {
 		return dateDiff( $pastDate , NowDate() );
 	}
-    // TODO: make it non-greek-specific
+	// TODO: make it non-greek-specific
 	function dateDiff( $dateTimeBegin , $dateTimeEnd , $incseconds = false ) {
 		if( !$dateTimeBegin || !$dateTimeEnd )
 			return false;
@@ -176,12 +176,12 @@
 		if ( !$date || $date == "0000-00-00 00:00:00" )
 			return;
 			
-		$dateElements 			= split(' ', $date);
+		$dateElements			 = split(' ', $date);
 		ParseSolDate( $dateElements[ 0 ] , $year , $month , $day );
 
-		$dateTimeElements 		= split(':', $dateElements[ 1 ] );
+		$dateTimeElements		 = split(':', $dateElements[ 1 ] );
 		
-		$hour 	= $dateTimeElements[ 0 ];
+		$hour	 = $dateTimeElements[ 0 ];
 		$minute = $dateTimeElements[ 1 ];
 		$second = $dateTimeElements[ 2 ];
 	}
@@ -208,7 +208,7 @@
 		return date("Y-m-d", time() );
 	}
 	
-    // TODO: make it non-greek-specific
+	// TODO: make it non-greek-specific
 	function GrMonth( $month ) {
 		switch( $month ) {
 			case 1:

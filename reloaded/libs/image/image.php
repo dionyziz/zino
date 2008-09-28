@@ -12,31 +12,31 @@
 	
 	function Image_Added( $user ) {
 		global $users;
-        global $latestimages;
+		global $latestimages;
 		global $images;
-        global $user;
+		global $user;
 		global $db;
 		
-        $numimages = $user->CountImages() - 1;
+		$numimages = $user->CountImages() - 1;
 		$sql = "UPDATE `$users` SET `user_numimages` = `user_numimages` + 1 WHERE `user_id` = '" . $user->Id() . "' LIMIT 1;";
 		$change = $db->Query( $sql );
-       
-        if ( !$change->Impact() ) {
-            return false;
-        }
+	   
+		if ( !$change->Impact() ) {
+			return false;
+		}
 
-        if ( $numimages > 0 ) {
-            $sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_userid` = '" . $user->Id() . "' LIMIT 1;";
-            $res = $db->Query( $sql )->FetchArray();
-            $maximg = $res[ 'maximg' ];
+		if ( $numimages > 0 ) {
+			$sql = "SELECT max( `image_id` ) AS maximg FROM `$images` WHERE `image_userid` = '" . $user->Id() . "' LIMIT 1;";
+			$res = $db->Query( $sql )->FetchArray();
+			$maximg = $res[ 'maximg' ];
 
-            $sql = "UPDATE `$latestimages` SET `latest_imageid` = '" . $res[ 'maximg' ] . "' WHERE `latest_userid` = '" . $user->Id() . "';";
-            $change = $db->Query( $sql );
-        }
-        else {
-            $sql = "DELETE FROM `$latestimages` WHERE `latest_userid` = '" . $user->Id() . "';";
-            $change = $db->Query( $sql );
-        }
+			$sql = "UPDATE `$latestimages` SET `latest_imageid` = '" . $res[ 'maximg' ] . "' WHERE `latest_userid` = '" . $user->Id() . "';";
+			$change = $db->Query( $sql );
+		}
+		else {
+			$sql = "DELETE FROM `$latestimages` WHERE `latest_userid` = '" . $user->Id() . "';";
+			$change = $db->Query( $sql );
+		}
 		
 		return $change->Impact();
 	}
@@ -51,100 +51,100 @@
 		return $change->Impact();
 	}
 	
-    function Image_ById( $imageids ) {
-        global $db;
-        global $images;
-        
-        if ( is_array( $imageids ) ) {
-            if ( !count( $imageids ) ) {
-                return array();
-            }
-            $wasarray = true;
-        }
-        else {
-            $imageids = array( $imageids );
-            $wasarray = false;
-        }
-        foreach ( $imageids as $i => $imageid ) {
-            $imageids[ $i ] = ( integer )$imageid;
-        }
-        
-        $sql = "SELECT
-                    *
-                FROM
-                    `$images`
-                WHERE
-                    `image_id` IN (" . implode(',', $imageids) . ");";
-        $res = $db->Query( $sql );
-        
-        $rows = array();
-        while ( $row = $res->FetchArray() ) {
-            $rows[ $row[ 'image_id' ] ] = New Image( $row );
-        }
-        
-        if ( $wasarray ) {
-            return $rows;
-        }
-        if ( count( $rows ) ) {
-            return array_shift( $rows );
-        }
-        return array();
-    }
-    
+	function Image_ById( $imageids ) {
+		global $db;
+		global $images;
+		
+		if ( is_array( $imageids ) ) {
+			if ( !count( $imageids ) ) {
+				return array();
+			}
+			$wasarray = true;
+		}
+		else {
+			$imageids = array( $imageids );
+			$wasarray = false;
+		}
+		foreach ( $imageids as $i => $imageid ) {
+			$imageids[ $i ] = ( integer )$imageid;
+		}
+		
+		$sql = "SELECT
+					*
+				FROM
+					`$images`
+				WHERE
+					`image_id` IN (" . implode(',', $imageids) . ");";
+		$res = $db->Query( $sql );
+		
+		$rows = array();
+		while ( $row = $res->FetchArray() ) {
+			$rows[ $row[ 'image_id' ] ] = New Image( $row );
+		}
+		
+		if ( $wasarray ) {
+			return $rows;
+		}
+		if ( count( $rows ) ) {
+			return array_shift( $rows );
+		}
+		return array();
+	}
+	
 	function Image_Upload( $path, $tempfile, $resizeto = false ) {
-        global $xc_settings;
-        global $rabbit_settings;
-		global $user;              
+		global $xc_settings;
+		global $rabbit_settings;
+		global $user;			  
 
 		if ( $user->Rights() < $xc_settings[ "allowuploads" ] ) {
 			return -1; // disallowed uploads
 		}
-        
-        $curl = curl_init();
+		
+		$curl = curl_init();
 
-        $data = array(
-            'path' => $path,
-            'mime' => 'image/jpeg',
-            'uploadimage' => "@$tempfile"
-        );
+		$data = array(
+			'path' => $path,
+			'mime' => 'image/jpeg',
+			'uploadimage' => "@$tempfile"
+		);
 
-        if ( !$rabbit_settings[ 'production' ] ) {
-            $data[ 'sandbox' ] = 'yes';
-        }
+		if ( !$rabbit_settings[ 'production' ] ) {
+			$data[ 'sandbox' ] = 'yes';
+		}
 
-        $header[ 0 ] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
-        $header[] = "Accept-Language: en-us,en;q=0.5";
-        $header[] = "Accept-Encoding: gzip,deflate";
-        $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
-        $header[] = "Keep-Alive: 300";
-        $header[] = "Connection: keep-alive";
-        $header[] = "Expect:";
-    
-        $server = $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ];
-        curl_setopt( $curl, CURLOPT_URL, $server );
-        curl_setopt( $curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.8) Gecko/20071030 Firefox/2.0.0.8" );
-        curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
-        curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
-        curl_setopt( $curl, CURLOPT_AUTOREFERER, true );
-        curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt( $curl, CURLOPT_POST, 1 );
-        curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
+		$header[ 0 ] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
+		$header[] = "Accept-Language: en-us,en;q=0.5";
+		$header[] = "Accept-Encoding: gzip,deflate";
+		$header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+		$header[] = "Keep-Alive: 300";
+		$header[] = "Connection: keep-alive";
+		$header[] = "Expect:";
+	
+		$server = $xc_settings[ 'imagesupload' ][ 'host' ] . $xc_settings[ 'imagesupload' ][ 'url' ];
+		curl_setopt( $curl, CURLOPT_URL, $server );
+		curl_setopt( $curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.8) Gecko/20071030 Firefox/2.0.0.8" );
+		curl_setopt( $curl, CURLOPT_HTTPHEADER, $header );
+		curl_setopt( $curl, CURLOPT_ENCODING, 'gzip,deflate' );
+		curl_setopt( $curl, CURLOPT_AUTOREFERER, true );
+		curl_setopt( $curl, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt( $curl, CURLOPT_POST, 1 );
+		curl_setopt( $curl, CURLOPT_POSTFIELDS, $data );
 
 
-        // curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
+		// curl_setopt( $curl, CURLOPT_VERBOSE, 1 );
 
-        $data = curl_exec( $curl );
+		$data = curl_exec( $curl );
 
-        curl_close( $curl );
+		curl_close( $curl );
 
-        $upload = array();
+		$upload = array();
 
 		if ( strpos( $data, "error" ) !== false && $user->IsSysOp() ) {
 			die( $data );
 		}
 		else if ( strpos( $data, "error" ) !== false ) {
 			$upload[ 'successful' ] = false;
-            $upload[ 'error' ] = $data;
+			$upload[ 'error' ] = $data;
 		}
 		else if ( strpos( $data, "success" ) !== false ) {
 			$upload[ 'successful' ] = true;
@@ -153,17 +153,17 @@
 			$resolution = substr( $data, $start, strlen( $data ) - $start - 1 );
 			$split = explode( "," , $resolution );
 			$width = $split[ 0 ];
-            $height = $split[ 1 ];
+			$height = $split[ 1 ];
 			$filesize = $split[ 2 ];
 			$upload[ 'width' ] = (integer) $width;
 			$upload[ 'height' ] = (integer) $height;
 			$upload[ 'filesize' ] = (integer) $filesize;
 		}
-        else {
-            if ( $user->IsSysOp() ) {
-                die( $data );
-            }
-        }
+		else {
+			if ( $user->IsSysOp() ) {
+				die( $data );
+			}
+		}
 
 		return $upload;
 	}
@@ -180,7 +180,7 @@
 		
 		return $fetched;
 	}
-    function CountImages() {
+	function CountImages() {
 		global $images;
 		global $db;
 		
@@ -216,7 +216,7 @@
 		private $mPageviews;
 		private $mNumComments;
 		private $mDelId;
-        
+		
 		public function Exists() {
 			return $this->mExists;
 		}
@@ -318,23 +318,23 @@
 		}
 		
 		public function CommentAdded() {
-            global $db;
-            global $images;
+			global $db;
+			global $images;
 
-            $album = new Album( $this->mAlbumid );
-            $album->CommentAdded();
+			$album = new Album( $this->mAlbumid );
+			$album->CommentAdded();
 		   
-            ++$this->mNumComments;
+			++$this->mNumComments;
 		   
-            $sql = "UPDATE
-                        `$images`
-                    SET
-                        `image_numcomments` = `image_numcomments` + 1
-                    WHERE
-                        `image_id` = '" . $this->Id() . "'
-                    LIMIT 1;";
+			$sql = "UPDATE
+						`$images`
+					SET
+						`image_numcomments` = `image_numcomments` + 1
+					WHERE
+						`image_id` = '" . $this->Id() . "'
+					LIMIT 1;";
 		   
-            return $db->Query( $sql )->Impact();
+			return $db->Query( $sql )->Impact();
 		}
 		public function NumComments() {
 			return $this->mNumComments;
@@ -395,8 +395,8 @@
 			$sql = "UPDATE `$images` SET `image_delid` = '1' WHERE `image_id` = '".$this->Id()."' LIMIT 1;";
 			$db->Query( $sql );
 
-            $album = new Album( $this->mAlbumid );
-            $album->ImageDeleted( $this );
+			$album = new Album( $this->mAlbumid );
+			$album->ImageDeleted( $this );
 			
 			//update latest images
 			$sql = "SELECT
@@ -418,39 +418,39 @@
 				$sql = "DELETE FROM
 							`$latestimages`
 						WHERE
-							`latest_imageid` = 	'" . $this->Id() . "'
+							`latest_imageid` =	 '" . $this->Id() . "'
 						LIMIT 1;";
 						
 				$db->Query( $sql );
 			}
 			else {
 				while( $row = $res->FetchArray() ) {
-                    $sql = "REPLACE INTO
-                                `$latestimages`
-                                ( `latest_userid`,
-                                  `latest_imageid` )
-                            VALUES
-                                ( '" . $this->UserId() . "',
-                                  '" . $row[ 'image_id' ] . "' );";	
-                                  
-                    $db->Query( $sql );
+					$sql = "REPLACE INTO
+								`$latestimages`
+								( `latest_userid`,
+								  `latest_imageid` )
+							VALUES
+								( '" . $this->UserId() . "',
+								  '" . $row[ 'image_id' ] . "' );";	
+								  
+					$db->Query( $sql );
 				}
 			}
 		}
 		public function CommentKilled( ) {
 			global $db;
 			global $images;
-            
-            $album = new Album( $this->mAlbumid );
-            $album->CommentDeleted();
+			
+			$album = new Album( $this->mAlbumid );
+			$album->CommentDeleted();
 			
 			$sql = "UPDATE `$images` SET `image_numcomments` = '" . --$this->mNumComments . "' WHERE `image_id` = '" . $this->Id() . "' LIMIT 1;";
 			
 			return $db->Query( $sql )->Impact();
 		}
-        public function DelId() {
-            return $this->mDelId;
-        }
+		public function DelId() {
+			return $this->mDelId;
+		}
 		public function Image( $construct = false ) {
 			// New image( $id )
 			// New image( $fetch_array )
@@ -459,17 +459,17 @@
 			global $db;
 			global $water;
 			
-            if ( $construct === false ) { // empty/non-existing image
-                $imagearray = array();
-                $img_id = 0;
-            }
+			if ( $construct === false ) { // empty/non-existing image
+				$imagearray = array();
+				$img_id = 0;
+			}
 			else if ( is_array( $construct ) ) {
 				$imagearray = $construct;
 				$img_id = $construct[ 'image_id' ];
-                if ( $img_id == 0 ){    
-                    $this->mExists = false;
-                    return false;
-                }
+				if ( $img_id == 0 ){	
+					$this->mExists = false;
+					return false;
+				}
 				$this->mExists = true;
 			}
 			else {
@@ -486,20 +486,20 @@
 			}
 			
 			// Assign the values fetched from the database
-			$this->mId 			= $img_id;
-			$this->mUserId 		= isset( $imagearray[ "image_userid" ] )      ? $imagearray[ "image_userid" ] : 0;
-			$this->mDate 		= isset( $imagearray[ "image_created" ] )     ? $imagearray[ "image_created" ] : '0000-00-00 00:00:00';
-			$this->mHost 		= isset( $imagearray[ "image_userip" ] )      ? $imagearray[ "image_userip" ] : '0.0.0.0';
-			$this->mName 		= isset( $imagearray[ "image_name" ] )        ? $imagearray[ "image_name" ] : '';
-			$this->mWidth 		= isset( $imagearray[ "image_width" ] )       ? $imagearray[ "image_width" ] : 0;
-			$this->mHeight		= isset( $imagearray[ "image_height" ] )      ? $imagearray[ "image_height" ] : 0;
-			$this->mSize 		= isset( $imagearray[ "image_size" ] )        ? $imagearray[ "image_size" ] : 0;
-			$this->mMimeType 	= isset( $imagearray[ "image_mime" ] )        ? $imagearray[ "image_mime" ] : 'image/jpeg';
-			$this->mBinary 		= false;
-			$this->mAlbumid 	= isset( $imagearray[ "image_albumid" ] )     ? $imagearray[ "image_albumid" ] : 0;
+			$this->mId			 = $img_id;
+			$this->mUserId		 = isset( $imagearray[ "image_userid" ] )	  ? $imagearray[ "image_userid" ] : 0;
+			$this->mDate		 = isset( $imagearray[ "image_created" ] )	 ? $imagearray[ "image_created" ] : '0000-00-00 00:00:00';
+			$this->mHost		 = isset( $imagearray[ "image_userip" ] )	  ? $imagearray[ "image_userip" ] : '0.0.0.0';
+			$this->mName		 = isset( $imagearray[ "image_name" ] )		? $imagearray[ "image_name" ] : '';
+			$this->mWidth		 = isset( $imagearray[ "image_width" ] )	   ? $imagearray[ "image_width" ] : 0;
+			$this->mHeight		= isset( $imagearray[ "image_height" ] )	  ? $imagearray[ "image_height" ] : 0;
+			$this->mSize		 = isset( $imagearray[ "image_size" ] )		? $imagearray[ "image_size" ] : 0;
+			$this->mMimeType	 = isset( $imagearray[ "image_mime" ] )		? $imagearray[ "image_mime" ] : 'image/jpeg';
+			$this->mBinary		 = false;
+			$this->mAlbumid	 = isset( $imagearray[ "image_albumid" ] )	 ? $imagearray[ "image_albumid" ] : 0;
 			$this->mDescription = isset( $imagearray[ "image_description" ] ) ? $imagearray[ "image_description" ] : '';
 			$this->mNumComments = isset( $imagearray[ "image_numcomments" ] ) ? $imagearray[ "image_numcomments" ] : 0;
-            $this->mDelId       = isset( $imagearray[ 'image_delid' ] )       ? $imagearray[ 'image_delid' ]: 0;
+			$this->mDelId	   = isset( $imagearray[ 'image_delid' ] )	   ? $imagearray[ 'image_delid' ]: 0;
 			$this->mPageviews	= "";
 		}
 	}
@@ -508,7 +508,7 @@
 		global $user;
 		global $images;
 		global $latestimages;
-        global $rabbit_settings;
+		global $rabbit_settings;
 		global $db;
 		
 		if ( strlen( $filename ) > 96 ) {
@@ -532,29 +532,29 @@
 
 		$mime = mime_by_extension( $extension );
 		$sql = "INSERT INTO `$images` ( `image_id` , `image_userid` , `image_created` , `image_userip` , `image_name` , `image_mime` , `image_width` , `image_height` , `image_size` , `image_delid` , `image_albumid` , `image_description` , `image_numcomments` )
-							   VALUES (     '' ,       '$userid' ,     '$date' ,           '$host' ,      '$filename', '$mime' , '$width' , '$height' , '$size' , '0' , '$albumid' , '$description' , '0' );";
+							   VALUES (	 '' ,	   '$userid' ,	 '$date' ,		   '$host' ,	  '$filename', '$mime' , '$width' , '$height' , '$size' , '0' , '$albumid' , '$description' , '0' );";
 		$change = $db->Query( $sql );
 		$lastimgid = $change->InsertId();
 
 		$upload = Image_Upload( $userid."/".$lastimgid , $temp_location, $resizeto );
 		
-        if ( !is_array( $upload ) ) {
-            return array( 'errorcode' => $upload ); // errorcode
-        }
-        
+		if ( !is_array( $upload ) ) {
+			return array( 'errorcode' => $upload ); // errorcode
+		}
+		
 		if ( $upload[ 'successful' ] ) {
 			$sql = "UPDATE `$images` SET `image_width` = '" . myescape( $upload[ 'width' ] ) . "', `image_height` = '" . myescape( $upload[ 'height' ] ) . "', `image_size` = '" . myescape( $upload[ 'filesize' ] ) . "' WHERE `image_id` = '$lastimgid' LIMIT 1;";
 			$change = $db->Query( $sql );
 
 			if ( $change->Impact() ) {
-                $sql = "REPLACE INTO `$latestimages` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
-                $db->Query( $sql );
+				$sql = "REPLACE INTO `$latestimages` ( `latest_userid`, `latest_imageid` ) VALUES( '" . $user->Id() . "', '$lastimgid' );";
+				$db->Query( $sql );
 
 				return array( 'id' => $lastimgid );
 			}
-            return array( 'errorcode' => -64 );
+			return array( 'errorcode' => -64 );
 		}
-        return array( 'errorcode' => -65, 'error' => $upload[ 'error' ] );
+		return array( 'errorcode' => -65, 'error' => $upload[ 'error' ] );
 	}
 	
 	function delete_photo( $photo_id ) {
@@ -562,12 +562,12 @@
 		global $images;
 		global $db;
 		
-        // TODO: delete the actual file?
+		// TODO: delete the actual file?
 		//$photo_id = mysql_escape_string( $photo_id );
 		//we have to see if we 'll use another table for deleted images
 		//again suppose class user has been instanciated
 		$userid = $user->Id();
-        $photo_id = myescape( $photo_id );
+		$photo_id = myescape( $photo_id );
 		$sql = "UPDATE `$images` SET `image_delid`='1' WHERE `image_id`='$photo_id';";
 		$db->Query( $sql );
 	}
@@ -620,22 +620,22 @@
 	class Search_Images extends Search {
 		public function SetSortMethod( $field , $order ) {
 			static $fieldsmap = array(	
-				'date' 		=> '`image_id`'
+				'date'		 => '`image_id`'
 			);
 			
 			w_assert( isset( $fieldsmap[ $field ] ) );
 			$this->mSortField = $fieldsmap[ $field ];
 			$this->SetSortOrder( $order );
 		}
-        public function SetNegativeFilter( $key, $value ) {
-            static $keymap = array(
-                'albumid' => array( '`image_albumid`', 0 )
-            );
-            
-            w_assert( isset( $keymap[ $key ] ) );
-            
-            $this->mNegativeFilters[] = array( $keymap[ $key ][ 0 ], $keymap[ $key ][ 1 ], $value );
-        }
+		public function SetNegativeFilter( $key, $value ) {
+			static $keymap = array(
+				'albumid' => array( '`image_albumid`', 0 )
+			);
+			
+			w_assert( isset( $keymap[ $key ] ) );
+			
+			$this->mNegativeFilters[] = array( $keymap[ $key ][ 0 ], $keymap[ $key ][ 1 ], $value );
+		}
 		public function SetFilter( $key, $value ) {
 			// 0 -> equal, 1 -> LIKE
 			static $keymap = array(
@@ -643,7 +643,7 @@
 				'delid' => array( '`image_delid`', 0 ),
 				'mime' => array( '`image_mime`', 0 ),
 				'name' => array( '`image_name`', 1 ),
-                'albumid' => array( '`image_albumid`', 0 )
+				'albumid' => array( '`image_albumid`', 0 )
 			);
 
 			w_assert( isset( $keymap[ $key ] ) );
@@ -659,24 +659,24 @@
 				'`image_name`'			=> 'image_name',
 				'`image_mime`'			=> 'image_mime',
 				'`image_width`'			=> 'image_width',
-				'`image_height`' 		=> 'image_height',
+				'`image_height`'		 => 'image_height',
 				'`image_size`'			=> 'image_size',
 				'`image_delid`'			=> 'image_delid',
-                '`image_numcomments`'   => 'image_numcomments',
-                '`image_description`'   => 'image_description',
-                '`image_albumid`'       => 'image_albumid',
-				'`user_id`'           	=> 'user_id',
-				'`user_name`'         	=> 'user_name',
-				'`user_rights`'       	=> 'user_rights',
-				'`user_lastprofedit`' 	=> 'user_lastprofedit',
+				'`image_numcomments`'   => 'image_numcomments',
+				'`image_description`'   => 'image_description',
+				'`image_albumid`'	   => 'image_albumid',
+				'`user_id`'			   => 'user_id',
+				'`user_name`'			 => 'user_name',
+				'`user_rights`'		   => 'user_rights',
+				'`user_lastprofedit`'	 => 'user_lastprofedit',
 				'`user_icon`'			=> 'user_icon',
-                '`user_signature`'      => 'user_signature'
+				'`user_signature`'	  => 'user_signature'
 			);
 		}
 		public function Search_Images() {
 			global $images;
 			global $users;
-            
+			
 			$this->mRelations = array();
 			$this->mIndex = 'images';
 			$this->mTables = array(
@@ -691,9 +691,9 @@
 			global $blk;
 			
 			$ret = array();
-            while ( $row = $res->FetchArray() ) {
-                $ret[] = New Image( $row );
-            }
+			while ( $row = $res->FetchArray() ) {
+				$ret[] = New Image( $row );
+			}
 
 			return $ret;
 		}
@@ -702,7 +702,7 @@
 	class Search_Images_Latest extends Search_Images {
 		public function Search_Images_Latest( $userid , $onlyalbums = true ) {
 			$this->Search_Images(); // parent constructor
-            $this->SetFilter( 'delid' , 0 );
+			$this->SetFilter( 'delid' , 0 );
 			if ( $userid != 0 ) {
 				$this->SetFilter( 'user' , $userid );
 			}
@@ -716,8 +716,8 @@
 	
 	function Image_LatestUnique( $limit ) {
 		global $db;
-        global $users;
-        global $images;
+		global $users;
+		global $images;
 		global $latestimages;
 		
 		$limit = mysql_escape_string( $limit );
@@ -743,8 +743,8 @@
 		$rows = array();
 		
 		while ( $row = $res->FetchArray() ) {
-            $rows[] = New Image( $row[ 'latest_imageid' ] );
-        }
+			$rows[] = New Image( $row[ 'latest_imageid' ] );
+		}
 		
 		return $rows;
 	}

@@ -3,8 +3,8 @@
 		global $user;
 		global $libs;
 		
-        $relid = $relid->Get();
-        
+		$relid = $relid->Get();
+		
 		$libs->Load( 'relations' );
 		
 		if ( $user->CanModifyCategories() ) {

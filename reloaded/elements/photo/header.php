@@ -5,7 +5,7 @@
 		global $water;
 		global $libs;
 		global $xc_settings;
-        
+		
 		$libs->Load( 'albums' );
 		$libs->Load( 'image/image' );
 		$page->AttachStyleSheet( 'css/article.css' );
@@ -24,8 +24,8 @@
 					?><a href="" onclick="Photos.EditSmallPhoto( <?php
 					echo $photo->Id();
 					?> , 0 , this.parentNode );return false;" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" class="editinfos"><img src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
-                    ?>icons/edit.png" /></a><?php
+					echo $xc_settings[ 'staticimagesurl' ];
+					?>icons/edit.png" /></a><?php
 				}
 				?><div>
 					<small><?php
@@ -41,8 +41,8 @@
 							?><a href="" onclick="Photos.EditSmallPhoto( <?php
 							echo $photo->Id();
 							?> , 1 , this.parentNode );return false;" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" class="editinfos"><img src="<?php
-                            echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/edit.png" /></a><?php
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>icons/edit.png" /></a><?php
 						}
 						Element( "user/icon" , $photo->Creator() , true , true );
 						?>

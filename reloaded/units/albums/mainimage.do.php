@@ -5,9 +5,9 @@
 		global $water;
 		global $xc_settings;
 		
-        $albumid = $albumid->Get();
-        $photoid = $photoid->Get();
-        
+		$albumid = $albumid->Get();
+		$photoid = $photoid->Get();
+		
 		$libs->Load( 'albums' );
 		$libs->Load( 'image/image' );
 		$album = New album( $albumid );

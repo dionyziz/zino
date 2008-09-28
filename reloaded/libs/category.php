@@ -1,6 +1,6 @@
 <?php
-    // TODO: Satorify
-    
+	// TODO: Satorify
+	
 	// fetches all children (direct or not) of a given category (but not the category itself)
 	// returns an array of category class instances
 	function Subcategories() {
@@ -35,14 +35,14 @@
 		global $categories;
 		global $user;
 		global $db;
-        
+		
 		if ( $user->CanModifyCategories() ) {
 			/*if ( $id == $parentCategoryId ) { <--Removed it for category creation in General Categories
 				return 6;
 			}*/
 			$name = addslashes( $name );
 			$sql = "SELECT `category_id` FROM `$categories` WHERE `category_name`='$name' LIMIT 1;";
-            $res = $db->Query( $sql );
+			$res = $db->Query( $sql );
 			if ( $res->Results() ) {
 				// category exists
 				return 3;
@@ -50,7 +50,7 @@
 			$parentCategoryId = addslashes( $parentCategoryId );
 			if ( $parentCategoryId > 0 ) {
 				$sql = "SELECT `category_id` FROM `$categories` WHERE `category_id`='$parentCategoryId' LIMIT 1;";
-                $res = $db->Query( $sql );
+				$res = $db->Query( $sql );
 				if ( $res->NumRows() == 0 ) {
 					// invalid parent category
 					return 4;
@@ -61,7 +61,7 @@
 			$nowdate = NowDate();
 			$cui = $user->Id();
 			$sql = "INSERT INTO `$categories` ( `category_id` , `category_creatorid` , `category_name` , `category_description` , `category_created` , `category_parentid` , `category_icon` ) 
-										VALUES( ''   , '$cui'          , '$name', '$description', '$nowdate', '$parentCategoryId' , '$icon' );";
+										VALUES( ''   , '$cui'		  , '$name', '$description', '$nowdate', '$parentCategoryId' , '$icon' );";
 			// echo $sql;
 			$db->Query( $sql );
 			return 1;
@@ -76,20 +76,20 @@
 		global $categories;
 		global $user;
 		global $db;
-        
+		
 		if ( $user->CanModifyCategories() ) {
 			if ( $id == $parentCategoryId ) {
 				return 6;
 			}
 			$sql = "SELECT `category_id` FROM `$categories` WHERE `category_id`='$id' LIMIT 1;";
-            $res = $db->Query( $sql );
+			$res = $db->Query( $sql );
 			if ( !$res->Results() ) {
 				// category doesn't exist
 				return 5;
 			}
 			$name = addslashes( $name );
 			$sql = "SELECT `category_id` FROM `$categories` WHERE `category_name`='$name' AND `category_id`!='$id' LIMIT 1;";
-            $res = $db->Query( $sql );
+			$res = $db->Query( $sql );
 			if ( $res->Results() ) {
 				// category name exists
 				return 3;
@@ -97,7 +97,7 @@
 			$parentCategoryId = addslashes( $parentCategoryId );
 			if ( $parentCategoryId > 0 ) {
 				$sql = "SELECT `category_id` FROM `$categories` WHERE `category_id`='$id' LIMIT 1;";
-                $res = $db->Query( $sql );
+				$res = $db->Query( $sql );
 				if ( !$res->Results() ) {
 					// invalid parent category
 					return 4;
@@ -152,7 +152,7 @@
 		global $user;
 		global $categories;
 		global $db;
-        
+		
 		if ( $user->CanModifyCategories() ) {
 			$sql = "SELECT `category_id` FROM `$categories` WHERE `category_id`='$id' LIMIT 1;";
 			$sqlresult = $db->Query( $sql );
@@ -173,15 +173,15 @@
 		global $db;
 		
 		$sql = "SELECT 
-                    COUNT(*) AS numcats 
-                FROM 
-                    `$categories` 
-                WHERE 
-                    `category_parentid`='$parentid';";
+					COUNT(*) AS numcats 
+				FROM 
+					`$categories` 
+				WHERE 
+					`category_parentid`='$parentid';";
 		
 		$res = $db->Query( $sql );
 		$row = $res->FetchArray();
-        
+		
 		return $row[ 'numcats' ];
 	}
 	
@@ -197,7 +197,7 @@
 		private $mDelid;
 		private $mIconId;
 		private $mIcon;
-	 	
+		 
 		public function Id() {
 			return $this->mId;
 		}
@@ -258,10 +258,10 @@
 			global $articles;
 			global $revisions;
 
-            // seems like a totally wrong sql statement
-            // + causes unhandled exception
+			// seems like a totally wrong sql statement
+			// + causes unhandled exception
 
-            return 0;
+			return 0;
 			
 			$sql = "SELECT
 						`revision_categoryid`, COUNT(*) AS numarticles
@@ -274,9 +274,9 @@
 						AND `article_headrevision` = `revision_id`
 						)
 					WHERE
-				         `article_delid` = 0 AND
-				         `category_parentid` = '" . $this->Id() . "'
-				     GROUP BY
+						 `article_delid` = 0 AND
+						 `category_parentid` = '" . $this->Id() . "'
+					 GROUP BY
 						`revision_categoryid`;";
 			$res = $db->Query( $sql );
 			$numarticles = array();
@@ -295,18 +295,18 @@
 			global $db;
 			global $categories;
 			global $images;
-            
+			
 			$sql = "SELECT 
-                        `category_id`, `category_creatorid`, `category_name`,
-                        `category_description`, `category_created`, `category_parentid`,
-                        `category_icon`, `category_delid`
-                        `image_id`, `image_userid`, `image_created`
-                    FROM 
-                        `$categories` LEFT JOIN `$images`
-                            ON `category_icon` = `image_id`
-                    WHERE 
-                        `category_id` = '$id' 
-                    LIMIT 1;";
+						`category_id`, `category_creatorid`, `category_name`,
+						`category_description`, `category_created`, `category_parentid`,
+						`category_icon`, `category_delid`
+						`image_id`, `image_userid`, `image_created`
+					FROM 
+						`$categories` LEFT JOIN `$images`
+							ON `category_icon` = `image_id`
+					WHERE 
+						`category_id` = '$id' 
+					LIMIT 1;";
 			$res = $db->Query( $sql );
 			
 			return $res->FetchArray();
@@ -331,16 +331,16 @@
 				return;
 			}
 			
-            w_assert( isset( $fetched_array[ "category_id" ] ) );
-            w_assert( isset( $fetched_array[ "category_name" ] ) );
+			w_assert( isset( $fetched_array[ "category_id" ] ) );
+			w_assert( isset( $fetched_array[ "category_name" ] ) );
 
-			$this->mId 					= $fetched_array[ "category_id" ];
-			$this->mName 				= $fetched_array[ "category_name" ];
-			$this->mCreatorUserId		= isset( $fetched_array[ "category_creatorid" ]      ) ? $fetched_array[ "category_creatorid" ]      : "";
-			$this->mDescription			= isset( $fetched_array[ "category_description" ]    ) ? $fetched_array[ "category_description" ]    : "";
-			$this->mDateCreated			= isset( $fetched_array[ "category_created" ]        ) ? $fetched_array[ "category_created" ]        : '0000-00-00 00:00:00';
-			$this->mParentCategoryId	= isset( $fetched_array[ "category_parentid" ]       ) ? $fetched_array[ "category_parentid" ]       : 0;
-			$this->mIconId   			= isset( $fetched_array[ "category_icon" ]           ) ? $fetched_array[ "category_icon" ]           : 0;
+			$this->mId					 = $fetched_array[ "category_id" ];
+			$this->mName				 = $fetched_array[ "category_name" ];
+			$this->mCreatorUserId		= isset( $fetched_array[ "category_creatorid" ]	  ) ? $fetched_array[ "category_creatorid" ]	  : "";
+			$this->mDescription			= isset( $fetched_array[ "category_description" ]	) ? $fetched_array[ "category_description" ]	: "";
+			$this->mDateCreated			= isset( $fetched_array[ "category_created" ]		) ? $fetched_array[ "category_created" ]		: '0000-00-00 00:00:00';
+			$this->mParentCategoryId	= isset( $fetched_array[ "category_parentid" ]	   ) ? $fetched_array[ "category_parentid" ]	   : 0;
+			$this->mIconId			   = isset( $fetched_array[ "category_icon" ]		   ) ? $fetched_array[ "category_icon" ]		   : 0;
 			
 			if ( isset( $fetched_array[ 'image_id' ] ) ) {
 				$this->mIcon = New Image( $fetched_array );

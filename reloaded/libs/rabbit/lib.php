@@ -13,12 +13,12 @@
 					$this->mLoaded[ $which ] = true;
 					$this->LoadNotify( $which );
 					$this->Profile( $which );
-                    ob_start();
+					ob_start();
 					$ret = Rabbit_Include( "libs/$which" );
-                    $out = ob_get_clean();
-                    if ( strlen( $out ) ) {
-                        $water->Warning( 'Non-functional library output: ' . $which );
-                    }
+					$out = ob_get_clean();
+					if ( strlen( $out ) ) {
+						$water->Warning( 'Non-functional library output: ' . $which );
+					}
 					$this->ProfileEnd();
 					return $ret;
 				}

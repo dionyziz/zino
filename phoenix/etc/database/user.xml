@@ -1,203 +1,203 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
-    <database name="cclive" type="mysql">
-        <table name="users">
-            <field name="user_id" type="int" autoincrement="yes" />
-            <field name="user_name" type="char" size="32" />
-            <field name="user_password" type="char" size="32" />
-            <field name="user_authtoken" type="char" size="32" />
-            <field name="user_registerhost" type="int" signed="no" />
-            <field name="user_created" type="datetime" />
-            <field name="user_rights" type="int" />
-            <field name="user_icon" type="int" ref="images.image_id" /><!-- user avatar -->
-            <field name="user_email" type="varchar" size="256" />
-            <field name="user_emailverified" type="enum">
-                <value default="yes">no</value>
-                <value>yes</value>
-            </field>
+	<database name="cclive" type="mysql">
+		<table name="users">
+			<field name="user_id" type="int" autoincrement="yes" />
+			<field name="user_name" type="char" size="32" />
+			<field name="user_password" type="char" size="32" />
+			<field name="user_authtoken" type="char" size="32" />
+			<field name="user_registerhost" type="int" signed="no" />
+			<field name="user_created" type="datetime" />
+			<field name="user_rights" type="int" />
+			<field name="user_icon" type="int" ref="images.image_id" /><!-- user avatar -->
+			<field name="user_email" type="varchar" size="256" />
+			<field name="user_emailverified" type="enum">
+				<value default="yes">no</value>
+				<value>yes</value>
+			</field>
 			<field name="user_subdomain" type="char" size="32" />
-            <field name="user_gender" type="enum">
-                 <value>-</value>
-                 <value>m</value>
-                 <value>f</value>
-            </field>
-            <field name="user_lastlogin" type="datetime" />
-            <field name="user_egoalbumid" type="int" ref="albums.album_id" />
-            <index type="primary">
-                <indexfield>user_id</indexfield>
-            </index>
-            <index type="unique" name="name">
-                <indexfield>user_name</indexfield>
-            </index>
-            <index type="unique" name="subdomain">
-                <indexfield>user_subdomain</indexfield>
-            </index>
-        </table>
-        <table name="usersettings">
-            <field name="setting_userid" type="int" ref="users.user_id" />
-            <field name="setting_emailprofile" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_emailphotos" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_emailjournals" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_emailreplies" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_emailfriends" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_notifyprofile" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_notifyphotos" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_notifyjournals" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_notifyreplies" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <field name="setting_notifyfriends" type="enum">
-                <value>yes</value>
-                <value>no</value>
-            </field>
-            <index type="primary">
-                <indexfield>setting_userid</indexfield>
-            </index>
-        </table>
-        <table name="usercounts">
-            <field name="count_userid" type="int" ref="users.user_id" />
-            <field name="count_images" type="int" />
-            <field name="count_polls" type="int" />
-            <field name="count_journals" type="int" />
-            <field name="count_albums" type="int" />
-            <field name="count_comments" type="int" />
-            <field name="count_relations" type="int" />
-            <index type="primary">
-                <indexfield>count_userid</indexfield>
-            </index>
-        </table>
-        <table name="userprofiles">
-            <field name="profile_userid" type="int" ref="users.user_id" />
-            <field name="profile_placeid" type="int" ref="places.place_id" />
-            <field name="profile_dob" type="date" />
-            <field name="profile_slogan" type="varchar" length="511" />
-            <field name="profile_uniid" type="int" ref="universities.uni_id" />
-            <field name="profile_education" type="enum">
-                <value>-</value>
-                <value>elementary</value>
-                <value>gymnasium</value>
-                <value>TEE</value>
-                <value>lyceum</value>
-                <value>TEI</value>
-                <value>university</value>
-                <value>finished</value>
-            </field>
-            <field name="profile_sexualorientation" type="enum">
-                <value>-</value>
-                <value>straight</value>
-                <value>bi</value>
-                <value>gay</value>
-            </field>
-            <field name="profile_religion" type="enum">
-                <value>-</value>
-                <value>christian</value>
-                <value>muslim</value>
-                <value>atheist</value>  
-                <value>agnostic</value>
-                <value>nothing</value>
-            </field>
-            <field name="profile_politics" type="enum">
-                <value>-</value>
-                <value>right</value>
-                <value>left</value>
-                <value>center</value>
-                <value>radical left</value>
-                <value>radical right</value>
-                <value>center left</value>
-                <value>center right</value>
-                <value>nothing</value>
-            </field>
-            <field name="profile_aboutme" type="text" />
-            <field name="profile_moodid" type="int" ref="moods.mood_id" />
-            <field name="profile_eyecolor" type="enum">
-                <value>-</value>
-                <value>black</value>
-                <value>brown</value>
-                <value>green</value>
-                <value>blue</value>
-                <value>grey</value>
-            </field>
-            <field name="profile_haircolor" type="enum">
-                <value>-</value>
-                <value>black</value>
-                <value>brown</value>
-                <value>red</value>
-                <value>blond</value>
-                <value>highlights</value>
-                <value>dark</value>
-                <value>grey</value>
-                <value>skinhead</value>
-            </field>
-            <field name="profile_height" type="int" />
-            <field name="profile_weight" type="int" />
-            <field name="profile_smoker" type="enum">
-                <value>-</value>
-                <value>yes</value>
-                <value>no</value>
-                <value>socially</value>
-            </field>
-            <field name="profile_drinker" type="enum">
-                <value>-</value>
-                <value>yes</value>
-                <value>no</value>
-                <value>socially</value>
-            </field>
-            <field name="profile_favquote" type="text" />
-            <field name="profile_skype" type="varchar" size="256" />
-            <field name="profile_msn" type="varchar" size="256" />
-            <field name="profile_gtalk" type="varchar" size="256" />
-            <field name="profile_yim" type="varchar" size="256" />
-            <field name="profile_homepage" type="varchar" size="256" />
-            <field name="profile_firstname" type="varchar" size="256" />
-            <field name="profile_lastname" type="varchar" size="256" />
-            <field name="profile_updated" type="datetime" />
-            <index type="primary">
-                <indexfield>profile_userid</indexfield>
-            </index>
-        </table>
-        <table name="lastactive">
-            <field name="lastactive_userid" type="int" ref="users.user_id" />
-            <field name="lastactive_updated" type="datetime" />
-            <index type="primary">
-                <indexfield>lastactive_userid</indexfield>
-            </index>
-            <index type="index" name="online">
-                <indexfield>lastactive_updated</indexfield>
-            </index>
-        </table>
-        <table name="moods">
-            <field name="mood_id" type="int" autoincrement="yes" />
-            <field name="mood_label" type="text" />
-            <field name="mood_icon" type="int" ref="images.image_id" />
-            <index type="primary">
-                <indexfield>mood_id</indexfield>
-            </index>
-        </table>
-    </database>
+			<field name="user_gender" type="enum">
+				 <value>-</value>
+				 <value>m</value>
+				 <value>f</value>
+			</field>
+			<field name="user_lastlogin" type="datetime" />
+			<field name="user_egoalbumid" type="int" ref="albums.album_id" />
+			<index type="primary">
+				<indexfield>user_id</indexfield>
+			</index>
+			<index type="unique" name="name">
+				<indexfield>user_name</indexfield>
+			</index>
+			<index type="unique" name="subdomain">
+				<indexfield>user_subdomain</indexfield>
+			</index>
+		</table>
+		<table name="usersettings">
+			<field name="setting_userid" type="int" ref="users.user_id" />
+			<field name="setting_emailprofile" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_emailphotos" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_emailjournals" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_emailreplies" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_emailfriends" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_notifyprofile" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_notifyphotos" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_notifyjournals" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_notifyreplies" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<field name="setting_notifyfriends" type="enum">
+				<value>yes</value>
+				<value>no</value>
+			</field>
+			<index type="primary">
+				<indexfield>setting_userid</indexfield>
+			</index>
+		</table>
+		<table name="usercounts">
+			<field name="count_userid" type="int" ref="users.user_id" />
+			<field name="count_images" type="int" />
+			<field name="count_polls" type="int" />
+			<field name="count_journals" type="int" />
+			<field name="count_albums" type="int" />
+			<field name="count_comments" type="int" />
+			<field name="count_relations" type="int" />
+			<index type="primary">
+				<indexfield>count_userid</indexfield>
+			</index>
+		</table>
+		<table name="userprofiles">
+			<field name="profile_userid" type="int" ref="users.user_id" />
+			<field name="profile_placeid" type="int" ref="places.place_id" />
+			<field name="profile_dob" type="date" />
+			<field name="profile_slogan" type="varchar" length="511" />
+			<field name="profile_uniid" type="int" ref="universities.uni_id" />
+			<field name="profile_education" type="enum">
+				<value>-</value>
+				<value>elementary</value>
+				<value>gymnasium</value>
+				<value>TEE</value>
+				<value>lyceum</value>
+				<value>TEI</value>
+				<value>university</value>
+				<value>finished</value>
+			</field>
+			<field name="profile_sexualorientation" type="enum">
+				<value>-</value>
+				<value>straight</value>
+				<value>bi</value>
+				<value>gay</value>
+			</field>
+			<field name="profile_religion" type="enum">
+				<value>-</value>
+				<value>christian</value>
+				<value>muslim</value>
+				<value>atheist</value>  
+				<value>agnostic</value>
+				<value>nothing</value>
+			</field>
+			<field name="profile_politics" type="enum">
+				<value>-</value>
+				<value>right</value>
+				<value>left</value>
+				<value>center</value>
+				<value>radical left</value>
+				<value>radical right</value>
+				<value>center left</value>
+				<value>center right</value>
+				<value>nothing</value>
+			</field>
+			<field name="profile_aboutme" type="text" />
+			<field name="profile_moodid" type="int" ref="moods.mood_id" />
+			<field name="profile_eyecolor" type="enum">
+				<value>-</value>
+				<value>black</value>
+				<value>brown</value>
+				<value>green</value>
+				<value>blue</value>
+				<value>grey</value>
+			</field>
+			<field name="profile_haircolor" type="enum">
+				<value>-</value>
+				<value>black</value>
+				<value>brown</value>
+				<value>red</value>
+				<value>blond</value>
+				<value>highlights</value>
+				<value>dark</value>
+				<value>grey</value>
+				<value>skinhead</value>
+			</field>
+			<field name="profile_height" type="int" />
+			<field name="profile_weight" type="int" />
+			<field name="profile_smoker" type="enum">
+				<value>-</value>
+				<value>yes</value>
+				<value>no</value>
+				<value>socially</value>
+			</field>
+			<field name="profile_drinker" type="enum">
+				<value>-</value>
+				<value>yes</value>
+				<value>no</value>
+				<value>socially</value>
+			</field>
+			<field name="profile_favquote" type="text" />
+			<field name="profile_skype" type="varchar" size="256" />
+			<field name="profile_msn" type="varchar" size="256" />
+			<field name="profile_gtalk" type="varchar" size="256" />
+			<field name="profile_yim" type="varchar" size="256" />
+			<field name="profile_homepage" type="varchar" size="256" />
+			<field name="profile_firstname" type="varchar" size="256" />
+			<field name="profile_lastname" type="varchar" size="256" />
+			<field name="profile_updated" type="datetime" />
+			<index type="primary">
+				<indexfield>profile_userid</indexfield>
+			</index>
+		</table>
+		<table name="lastactive">
+			<field name="lastactive_userid" type="int" ref="users.user_id" />
+			<field name="lastactive_updated" type="datetime" />
+			<index type="primary">
+				<indexfield>lastactive_userid</indexfield>
+			</index>
+			<index type="index" name="online">
+				<indexfield>lastactive_updated</indexfield>
+			</index>
+		</table>
+		<table name="moods">
+			<field name="mood_id" type="int" autoincrement="yes" />
+			<field name="mood_label" type="text" />
+			<field name="mood_icon" type="int" ref="images.image_id" />
+			<index type="primary">
+				<indexfield>mood_id</indexfield>
+			</index>
+		</table>
+	</database>
 </project>

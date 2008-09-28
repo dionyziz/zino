@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="xml2sql.xsl"?>
 <project name="Excalibur" version="Phoenix 7.0" spec="https://code.kamibu.com/wiki/Phoenix/User">
-    <database name="zinophoenix" type="mysql">
-        <table name="schools">
-            <field name="school_id" type="int" autoincrement="yes" />
-            <field name="school_name" type="varchar" length="511" />
-            <field name="school_placeid" type="int" ref="places.place_id" />
-            <field name="school_typeid" type="int" />
-            <field name="school_created" type="datetime" />
-            <field name="school_approved" type="int" />
-            <index type="primary">
-                <indexfield>school_id</indexfield>
-            </index>
-            <index type="index" name="ATTRIBUTES">
-                <indexfield>school_placeid</indexfield>
-                <indexfield>school_typeid</indexfield>
-            </index>
-        </table>
-    </database>
+	<database name="zinophoenix" type="mysql">
+		<table name="schools">
+			<field name="school_id" type="int" autoincrement="yes" />
+			<field name="school_name" type="varchar" length="511" />
+			<field name="school_placeid" type="int" ref="places.place_id" />
+			<field name="school_typeid" type="int" />
+			<field name="school_created" type="datetime" />
+			<field name="school_approved" type="int" />
+			<index type="primary">
+				<indexfield>school_id</indexfield>
+			</index>
+			<index type="index" name="ATTRIBUTES">
+				<indexfield>school_placeid</indexfield>
+				<indexfield>school_typeid</indexfield>
+			</index>
+		</table>
+	</database>
 </project>

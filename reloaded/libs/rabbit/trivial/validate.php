@@ -4,7 +4,7 @@
 			$z = intval( $x );
 			return ( ( $z == $x ) && ( $z > 0 ) );
 		}
-        return false;
+		return false;
 	}
 
 	function ValidURL( $url ) {

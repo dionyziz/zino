@@ -78,7 +78,7 @@
 				
 				$photosnumdata = Albums_CountAlbumsPhotos( $keys );
 				
-                foreach ( $rows as $row ) {
+				foreach ( $rows as $row ) {
 					$row[ 'photosnum' ] = $photosnumdata[ $row[ 'album_id' ] ];
 					$ret[] = New Album( $row );
 				}
@@ -173,8 +173,8 @@
 			global $db;
 			global $albums;
 			
-            $newname = addslashes( $newname );
-            
+			$newname = addslashes( $newname );
+			
 			$sql = "UPDATE
 						`$albums`
 					SET
@@ -202,8 +202,8 @@
 			global $db;
 			global $albums;
 			
-            $newdescription = addslashes( $newdescription );
-            
+			$newdescription = addslashes( $newdescription );
+			
 			$sql = "UPDATE
 						`$albums`
 					SET
@@ -217,8 +217,8 @@
 		public function Delete() {
 			global $db;
 			global $albums;
-            global $images;
-            
+			global $images;
+			
 			$sql = "UPDATE 
 						`$albums`
 					SET 
@@ -253,7 +253,7 @@
 			
 			return $db->Query( $sql )->Impact();
 		}
-        public function CommentAdded() {
+		public function CommentAdded() {
 			global $db;
 			global $albums;
 			
@@ -262,8 +262,8 @@
 			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
 			
 			return $db->Query( $sql )->Impact();
-        }
-        public function CommentDeleted() {
+		}
+		public function CommentDeleted() {
 			global $db;
 			global $albums;
 			
@@ -272,17 +272,17 @@
 			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
 			
 			return $db->Query( $sql )->Impact();
-        }
-        public function ImageDeleted( $image ) {
-            global $db;
-            global $albums;
+		}
+		public function ImageDeleted( $image ) {
+			global $db;
+			global $albums;
 
-            $this->mNumComments -= $image->NumComments();
+			$this->mNumComments -= $image->NumComments();
 
 			$sql = "UPDATE `$albums` SET `album_numcomments` = '" . $this->mNumComments . "' WHERE `album_id` = '" . $this->Id() . "' LIMIT 1;";
 			
 			return $db->Query( $sql )->Impact();
-        }
+		}
 		public function Album( $construct ) {
 			global $db;
 			global $albums;
@@ -307,18 +307,18 @@
 			}
 			
 			$this->mAlbid				= isset( $construct[ "album_id" ] ) ? $construct[ "album_id" ] : 0;
-			$this->mAlbuserid 			= isset( $construct[ "album_userid" ] ) ? $construct[ "album_userid" ] : 0;
+			$this->mAlbuserid			 = isset( $construct[ "album_userid" ] ) ? $construct[ "album_userid" ] : 0;
 			$this->mAlbcreator			= isset( $construct[ "user_id" ] ) ? New User( $construct ) : "";
-			$this->mAlbcreated 			= isset( $construct[ "album_created" ] ) ? $construct[ "album_created" ] : "00:00:00 0000-00-00";
-			$this->mAlbhost 			= isset( $construct[ "album_submithost" ] ) ? $construct[ "album_submithost" ] : "";
-			$this->mAlbname 			= isset( $construct[ "album_name" ] ) ? $construct[ "album_name" ] : "";
-			$this->mAlbmainpic 			= isset( $construct[ "album_mainimage" ] ) ? $construct[ "album_mainimage" ] : 0;
-			$this->mAlbdescription 		= isset( $construct[ "album_description" ] ) ? $construct[ "album_description" ] : "";
-			$this->mAlbdelid 			= isset( $construct[ "album_delid" ] ) ? $construct[ "album_delid" ] : 0;
+			$this->mAlbcreated			 = isset( $construct[ "album_created" ] ) ? $construct[ "album_created" ] : "00:00:00 0000-00-00";
+			$this->mAlbhost			 = isset( $construct[ "album_submithost" ] ) ? $construct[ "album_submithost" ] : "";
+			$this->mAlbname			 = isset( $construct[ "album_name" ] ) ? $construct[ "album_name" ] : "";
+			$this->mAlbmainpic			 = isset( $construct[ "album_mainimage" ] ) ? $construct[ "album_mainimage" ] : 0;
+			$this->mAlbdescription		 = isset( $construct[ "album_description" ] ) ? $construct[ "album_description" ] : "";
+			$this->mAlbdelid			 = isset( $construct[ "album_delid" ] ) ? $construct[ "album_delid" ] : 0;
 			
 			$this->mPageviews			= isset( $construct[ "album_pageviews" ] ) ? $construct[ "album_pageviews" ] : 0;
-            $this->mNumComments         = isset( $construct[ "album_numcomments" ] ) ? $construct[ "album_numcomments" ] : 0;
-            
+			$this->mNumComments		 = isset( $construct[ "album_numcomments" ] ) ? $construct[ "album_numcomments" ] : 0;
+			
 			$this->mPhotosNum			= isset( $construct[ "photosnum" ] ) ? $construct[ "photosnum" ] : false;
 		}
 	}

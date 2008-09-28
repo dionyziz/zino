@@ -82,54 +82,54 @@ div.userprofile div.top div.tabs div.tab a:hover {
 	text-decoration: none;
 }
 div.userprofile div.profile div.info {
-    margin: 5px 0 0 0;
+	margin: 5px 0 0 0;
 }
 div.userprofile div.profile div.info ul li {
-    display: inline;
+	display: inline;
 	padding: 0;
 	margin: 0;
 }
 div.userprofile div.profile div.info ul li dl dt {
-    font-weight: normal;
-    float: left;
-    width: 100px;
-    display: inline;
-    clear: left;
-    padding-right: 10px;
-    color: midnightblue;
+	font-weight: normal;
+	float: left;
+	width: 100px;
+	display: inline;
+	clear: left;
+	padding-right: 10px;
+	color: midnightblue;
 }
 div.userprofile div.profile div.info ul li dl dd {
-    display: inline;
-    padding-left: 0;
-    margin-left: 20px;
+	display: inline;
+	padding-left: 0;
+	margin-left: 20px;
 }
 div.userprofile div.profile div.info h4 {
-    margin: 0;
-    padding: 3px 5px 3px 5px;
-    text-align: center;
-    width: 396px;
-    background-color: #dedede;
-    border-top: 1px solid #c0c0c0;
-    border-left: 1px solid #c0c0c0;
-    border-right: 1px solid #c0c0c0;
-    font-weight: bold;
-    font-size: 94%;
-    color: #333;
+	margin: 0;
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	width: 396px;
+	background-color: #dedede;
+	border-top: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
+	font-weight: bold;
+	font-size: 94%;
+	color: #333;
 }
 div.userprofile div.profile div.info ul li dl.l {
-    background-color: #ececec;
+	background-color: #ececec;
 }
 div.userprofile div.profile div.info ul {
-    width: 400px;
-    border: 1px solid #cecece;
-    padding: 3px;
+	width: 400px;
+	border: 1px solid #cecece;
+	padding: 3px;
 	margin: 0 0 10px 0;
 }
 div.userprofile div.profile div.info div.ccrelated {
-    width: 400px;
+	width: 400px;
 }
 div.userprofile div.profile div.info ul li {
-    clear: both;
+	clear: both;
 }
 div.userprofile div.profile ul li dl {
 	margin: 0;
@@ -138,70 +138,70 @@ div.userprofile div.profile ul li dl {
 
 
 div.userprofile div.profile div.statistics {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 div.userprofile div.profile div.statistics ul , div.userprofile div.profile div.contact ul {
-    padding: 0;
-    margin: 0 0 10px 0;
-}
-div.userprofile div.profile div.statistics ul li , div.userprofile div.profile div.contact ul li {
-    display: block;
-	height: 17px;
-}
-div.userprofile div.profile div.statistics ul li dl dt { 
-    font-weight: normal;
-    float: left;
-	width: 150px;
-    display: inline;
-    clear: left;
-    padding-right: 10px;
-    color: midnightblue;
-}
-div.userprofile div.profile div.contact ul li dl dt {
-    font-weight: normal;
-    float: left;
-	width: 20px;
-    display: inline;
-    clear: left;
-    padding-right: 10px;
-    color: midnightblue;
-}
-div.userprofile div.profile div.statistics ul li dl dd , div.userprofile div.profile div.contact ul li dl dd {
-    display: inline;
-    padding-left: 0;
-    margin: 0;
-}
-div.userprofile div.profile div.statistics h4 , div.userprofile div.profile div.contact h4{
-    margin: 0;
-    padding: 3px 5px 3px 5px;
-    text-align: center;
-    width: 396px;
-    background-color: #dedede;
-    border-top: 1px solid #c0c0c0;
-    border-left: 1px solid #c0c0c0;
-    border-right: 1px solid #c0c0c0;
-    font-weight: bold;
-    font-size: 94%;
-    color: #333;
-}
-div.userprofile div.profile div.statistics ul li dl.l {
-    background-color: #ececec;
-}
-div.userprofile div.profile div.statistics ul , div.userprofile div.profile div.contact ul{
-    width: 400px;
-    border: 1px solid #cecece;
-    padding: 3px;
+	padding: 0;
 	margin: 0 0 10px 0;
 }
 div.userprofile div.profile div.statistics ul li , div.userprofile div.profile div.contact ul li {
-    clear: both;
+	display: block;
+	height: 17px;
+}
+div.userprofile div.profile div.statistics ul li dl dt { 
+	font-weight: normal;
+	float: left;
+	width: 150px;
+	display: inline;
+	clear: left;
+	padding-right: 10px;
+	color: midnightblue;
+}
+div.userprofile div.profile div.contact ul li dl dt {
+	font-weight: normal;
+	float: left;
+	width: 20px;
+	display: inline;
+	clear: left;
+	padding-right: 10px;
+	color: midnightblue;
+}
+div.userprofile div.profile div.statistics ul li dl dd , div.userprofile div.profile div.contact ul li dl dd {
+	display: inline;
+	padding-left: 0;
+	margin: 0;
+}
+div.userprofile div.profile div.statistics h4 , div.userprofile div.profile div.contact h4{
+	margin: 0;
+	padding: 3px 5px 3px 5px;
+	text-align: center;
+	width: 396px;
+	background-color: #dedede;
+	border-top: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
+	font-weight: bold;
+	font-size: 94%;
+	color: #333;
+}
+div.userprofile div.profile div.statistics ul li dl.l {
+	background-color: #ececec;
+}
+div.userprofile div.profile div.statistics ul , div.userprofile div.profile div.contact ul{
+	width: 400px;
+	border: 1px solid #cecece;
+	padding: 3px;
+	margin: 0 0 10px 0;
+}
+div.userprofile div.profile div.statistics ul li , div.userprofile div.profile div.contact ul li {
+	clear: both;
 }
 div.userprofile div.profile div.statistics ul li dl.k, div.userprofile div.profile div.contact ul li dl.k {
-    background-color: #ececec;
+	background-color: #ececec;
 }
 div.userprofile div.profile div.rightbar {
-    float: right;
-    padding-top: 20px;
+	float: right;
+	padding-top: 20px;
 }
 div.tab2 div {
 	padding-bottom: 15px;

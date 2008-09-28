@@ -6,10 +6,10 @@
 		
 		$libs->Load( 'relations' );
 		
-        $friendid = $friendid->Get();
-        $friendtype = $friendtype->Get();
-        $wasfriend = false;
-        
+		$friendid = $friendid->Get();
+		$friendtype = $friendtype->Get();
+		$wasfriend = false;
+		
 		if ( $friendid == $user->Id() ) {
 			return;
 		}

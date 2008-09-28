@@ -2,17 +2,17 @@ var Relations = {
 	onedit : false // This variable is true when a relation is being edited and false otherwise
 	,deleteM : function( id ) {
 		Modals.Confirm( 
-            'Θέλεις σίγουρα να διαγράψεις τη συγκεκριμένη σχέση;',
-            function () { 
-                Relations.deleteR( id );
-            }
-        );
+			'Θέλεις σίγουρα να διαγράψεις τη συγκεκριμένη σχέση;',
+			function () { 
+				Relations.deleteR( id );
+			}
+		);
 	}
 	,deleteR : function( id ) {
 		var element = document.getElementById( 'relation_' + id );
 		element.style.display = 'none';
-        Coala.Warm( 'relations/delete' , { 'relid': id } );
-    }
+		Coala.Warm( 'relations/delete' , { 'relid': id } );
+	}
 	,edit : function( id ) {
 		if( Relations.onedit ) {
 			alert( "Μια άλλη σχέση βρίσκεται ήδη ύπο επεξεργασία" );

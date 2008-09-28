@@ -5,13 +5,13 @@
 		global $user;
 		global $libs;
 		global $xc_settings;
-        
+		
 		$libs->Load( 'albums' );
 		$libs->Load( 'image/image' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		$page->AttachStyleSheet( 'css/albums.css' );
 		$page->AttachScript( 'js/albums.js' );
-        $dummy = false;
+		$dummy = false;
 		if ( $dummy ) {
 			$mainimage = 0;
 			$name = '';
@@ -64,15 +64,15 @@
 									?><a href="" onclick="Albums.EditListAlbum( <?php
 									echo $albumid; 
 									?> , 0 );return false;" class="editinfos"><img src="<?php
-                                    echo $xc_settings[ 'staticimagesurl' ];
-                                    ?>icons/edit.png" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" /></a><?php
+									echo $xc_settings[ 'staticimagesurl' ];
+									?>icons/edit.png" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος" /></a><?php
 								}
 								if ( ( $albumuserid == $user->Id() || $user->CanModifyCategories() ) && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 									?><a href="" onclick="Albums.DeleteAlbum( '<?php
 									echo $albumid;
 									?>' );return false;" class="editinfos"><img src="<?php
-                                    echo $xc_settings[ 'staticimagesurl' ];
-                                    ?>icons/delete.png" alt="Διαγραφή album" title="Διαγραφή album" /></a><?php
+									echo $xc_settings[ 'staticimagesurl' ];
+									?>icons/delete.png" alt="Διαγραφή album" title="Διαγραφή album" /></a><?php
 								} ?>
 							</div><a href="index.php?p=album&amp;id=<?php
 							echo $albumid;
@@ -81,8 +81,8 @@
 							?>"><?php
 							if ( $mainimage == 0 ) {
 								?><img src="<?php
-                                echo $xc_settings[ 'staticimagesurl' ];
-                                ?>anonymousalbum.jpg" alt="Album" /><?php
+								echo $xc_settings[ 'staticimagesurl' ];
+								?>anonymousalbum.jpg" alt="Album" /><?php
 							}
 							else {
 								$thismainimage = New Image( $mainimage );
@@ -115,8 +115,8 @@
 								?><a href="" onclick="Albums.EditListAlbum( '<?php
 								echo $albumid;
 								?>' , '1' );return false;" class="editinfos"><img src="<?php
-                                echo $xc_settings[ 'staticimagesurl' ];
-                                ?>icons/edit.png" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" /></a><?php
+								echo $xc_settings[ 'staticimagesurl' ];
+								?>icons/edit.png" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής" /></a><?php
 							}
 						?></div><br />
 						<div class="albuminfo"><?php

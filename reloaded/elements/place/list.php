@@ -4,9 +4,9 @@
 		global $user;
 		global $libs;		
 		global $xc_settings;
-        
+		
 		if ( !( $user->CanModifyStories() ) || $user->Rights() < $xc_settings[ 'readonly' ] ) {
-            return Redirect();
+			return Redirect();
 		}
 		else {
 			$libs->Load( 'place' );
@@ -52,15 +52,15 @@
 						?>" style="cursor: pointer; display: none;" onclick="Places.edit( <?php
 						echo $place->Id;
 						?> )"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/edit.png" width="12" height="12" alt="Επεξεργασία" title="Επεξεργασία" /></a>
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/edit.png" width="12" height="12" alt="Επεξεργασία" title="Επεξεργασία" /></a>
 						<a id="pdeletelink_<?php
 						echo $place->Id;
 						?>" style="cursor: pointer; display: none;" onclick="Places.deletep( <?php
 						echo $place->Id;
 						?> )"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/delete.png" width="12" height="12" alt="Διαγραφή" title="Διαγραφή" /></a><?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/delete.png" width="12" height="12" alt="Διαγραφή" title="Διαγραφή" /></a><?php
 					}
 					?></li><?php
 				}

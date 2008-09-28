@@ -23,23 +23,23 @@
 	 * (of course this is subject to change in the future).
 	 *
 	 * output area------------------------------------------------|
-	 * |  (outer padding)                                         |
+	 * |  (outer padding)										 |
 	 * |  image area--------------------------------------------| |
-	 * |  | (title padding)                                     | |
+	 * |  | (title padding)									 | |
 	 * |  | title area----------------------------------------| | |
 	 * |  | |-------------------------------------------------| | |
-	 * |  |                                                     | |
-	 * |  | (graph padding)              (caption padding)      | |
+	 * |  |													 | |
+	 * |  | (graph padding)			  (caption padding)	  | |
 	 * |  | graph area----------------|  caption area---------| | |
-	 * |  | |                         |  |                    | | |
-	 * |  | |                         |  |                    | | |
-	 * |  | |                         |  |                    | | |
-	 * |  | |                         |  |                    | | |
-	 * |  | |                         |  |                    | | |
+	 * |  | |						 |  |					| | |
+	 * |  | |						 |  |					| | |
+	 * |  | |						 |  |					| | |
+	 * |  | |						 |  |					| | |
+	 * |  | |						 |  |					| | |
 	 * |  | |-------------------------|  |--------------------| | |
-	 * |  |                                                     | |
+	 * |  |													 | |
 	 * |  |-----------------------------------------------------| |
-	 * |                                                          |
+	 * |														  |
 	 * |----------------------------------------------------------|
 	 *
 	 * All area dimensions are known in advance , and the optional logo is drawn in absolute coordinates.

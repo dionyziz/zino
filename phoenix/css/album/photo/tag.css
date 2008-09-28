@@ -1,40 +1,40 @@
 div.thephoto div {
-    display: none;
+	display: none;
 }
 div.thephoto div.frienders {
-    position: absolute;
-    left: 170px;
-    top: 0px;
-    border-style: solid;
-    border-width: 1px;
-    background-color: white;
-    width: 250px;
-    margin-left: 20px;
-    opacity: 0.95;
+	position: absolute;
+	left: 170px;
+	top: 0px;
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+	width: 250px;
+	margin-left: 20px;
+	opacity: 0.95;
 }
 div.thephoto div.frienders div.closer {
-    text-align: center;
-    margin-bottom: 15px;
+	text-align: center;
+	margin-bottom: 15px;
 }
 div.thephoto div.frienders div {
-    display: block;
-    margin-top: 10px;
+	display: block;
+	margin-top: 10px;
 }
 div.thephoto div.frienders form {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 div.thephoto div.frienders form input {
-    width: 130px;
-    color: #777777;
+	width: 130px;
+	color: #777777;
 }
 div.thephoto div.tagme {
-    width: 170px;
-    height: 170px;
-    /* If you change border width, change js/album/photo/tag.js */
-    border: 3px dotted #FFFFBB;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+	width: 170px;
+	height: 170px;
+	/* If you change border width, change js/album/photo/tag.js */
+	border: 3px dotted #FFFFBB;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 }
 div.thephoto div.tagme div.resizer {
 	background-image: url( 'http://static.zino.gr/images/resize.png' );
@@ -63,54 +63,54 @@ div.thephoto div.tagme div:hover {
 	cursor: nw-resize;
 }
 div.thephoto div.frienders ul {
-    list-style-type: none;
-    margin-right: 20px;
-    text-align: left;
-    overflow: auto;
-    max-height: 270px;
+	list-style-type: none;
+	margin-right: 20px;
+	text-align: left;
+	overflow: auto;
+	max-height: 270px;
 }
 div.thephoto div.frienders ul li div {
-    display: inline;
-    color: #105CB6;
+	display: inline;
+	color: #105CB6;
 }
 div.thephoto div.frienders ul li div:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 div.thephoto div.frienders ul li div span {
-    font-weight: bold;
+	font-weight: bold;
 }
 div.image_tags {
-    margin-top: 10px;
-    text-align: center;
+	margin-top: 10px;
+	text-align: center;
 }
 div.image_tags div {
-    display: inline;
+	display: inline;
 }
 div.image_tags div a.tag_del {
-    background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
-    width: 15px;
-    height: 20px;
-    padding-left: 15px;
-    margin-left: 5px;
+	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -1477px;
+	width: 15px;
+	height: 20px;
+	padding-left: 15px;
+	margin-left: 5px;
 }
 div.thephoto div.tanga {
-    display: block;
+	display: block;
 }
 div.thephoto div.tanga div.tag {
-    position: absolute;
-    display: block;
-    border: 0 solid #FFFFBB;
-    width: 170px;
-    height: 170px;
-    text-align: center;
-    cursor: pointer;
+	position: absolute;
+	display: block;
+	border: 0 solid #FFFFBB;
+	width: 170px;
+	height: 170px;
+	text-align: center;
+	cursor: pointer;
 }
 div.thephoto div.tanga div.tag div {
-    position: absolute;
-    background-color: #FFFFBB;
-    color: #3366FF;
-    border: 1px solid black;
-    display: none;
-    padding: 0 5px 0 5px;
-    cursor: pointer;
+	position: absolute;
+	background-color: #FFFFBB;
+	color: #3366FF;
+	border: 1px solid black;
+	display: none;
+	padding: 0 5px 0 5px;
+	cursor: pointer;
 }

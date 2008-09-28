@@ -1,6 +1,6 @@
 <?php
 	//header( 'Content-type: application/xhtml+xml; charset=utf-8' );
-    header( 'Content-type: text/html; charset=utf-8' );
+	header( 'Content-type: text/html; charset=utf-8' );
 	echo '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -37,7 +37,7 @@
 							<li><a class="profile" href="https://beta.chit-chat.gr/user/izual">Προφίλ</a></li>
 							<li><a class="chat" href="" onclick="window.open('chat', 'ccchat');return false;">Chat</a></li>
 							<li><a href="javascript:Userbox.Animate();" class="arrow" style="visibility: hidden;" title="Προβολή κάρτας χρήστη" id="userboxshow"/></li>
-						</ul>        
+						</ul>		
 					</div>
 				</div>
 				<div class="spacer"> </div>
@@ -60,7 +60,7 @@
 						</li>
 						<li>
 							<a class="logout" href="https://beta.chit-chat.gr/do/user/logout">Έξοδος</a>
-						</li>            
+						</li>			
 					</ul>
 				</div>
 				*/

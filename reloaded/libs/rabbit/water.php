@@ -93,7 +93,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		private $mOutputSQL;
 		private $mSQLStartTime;
 		private $mSQLQuery;
-        private $mNumSQL;
+		private $mNumSQL;
 		private $mNumTraces;
 		private $mNumNotices;
 		private $mNumWarnings;
@@ -171,17 +171,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				return;
 			}
 			$endtime = microtime(true);
-            ++$this->mNumSQL;
-            if ( $this->mNumSQL > $this->mSettings[ 'loglimit' ] ) {
-                return;
-            }
-            $this->mOutputSQL[] = array(
-                'query' => $this->mSQLQuery,
-                'start' => $this->mSQLStartTime,
-                'end' => $endtime,
-                'time' => $endtime - $this->mSQLStartTime,
-                'calltrace' => $this->AlertCalltrace()
-            );
+			++$this->mNumSQL;
+			if ( $this->mNumSQL > $this->mSettings[ 'loglimit' ] ) {
+				return;
+			}
+			$this->mOutputSQL[] = array(
+				'query' => $this->mSQLQuery,
+				'start' => $this->mSQLStartTime,
+				'end' => $endtime,
+				'time' => $endtime - $this->mSQLStartTime,
+				'calltrace' => $this->AlertCalltrace()
+			);
 		}
 		public function AlreadyHandled( $errno, $errstr, $errfile, $errline ) {
 			if ( isset( $this->mHandledErrors[ $errno . ":" . $errstr ][ $errline . ":" . $errfile ] ) ) {
@@ -198,7 +198,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$this->mNumNotices  = 0;
 			$this->mNumWarnings = 0;
 			$this->mNumErrors   = 0;
-            $this->mNumSQL      = 0;
+			$this->mNumSQL	  = 0;
 			$this->mCurrentProfileIndex = 0;
 			$this->mDebugEnabled = false;
 			$this->mProfilesStack = array();
@@ -212,20 +212,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			else {
 				$this->mQuickDebugRequest = false;
 			}
-            
-            // default settings
-        	$this->SetSetting( 'window_url'   , 'water/debug.php' );
-        	$this->SetSetting( 'images_url'   , 'water/images/' );
-        	$this->SetSetting( 'css_url'      , 'water/css/water.css' );
-        	$this->SetSetting( 'server_root'  , '/var/www/localhost/htdocs' );
-        	$this->SetSetting( 'calltraces'   , true );
-            $this->SetSetting( 'calltracelvl' , 1 );
-        	$this->SetSetting( 'loglevel'     , 0 ); // traces and up
-            $this->SetSetting( 'loglimit'     , 400 );
-            $this->SetSetting( 'strict'       , true );
-            $this->SetSetting( 'sqlmaxlength' , 1000 );
-			$this->SetSetting( 'maxstring'    , 1200 );
-            $this->SetSetting( 'bottomdebug'  , true );
+			
+			// default settings
+			$this->SetSetting( 'window_url'   , 'water/debug.php' );
+			$this->SetSetting( 'images_url'   , 'water/images/' );
+			$this->SetSetting( 'css_url'	  , 'water/css/water.css' );
+			$this->SetSetting( 'server_root'  , '/var/www/localhost/htdocs' );
+			$this->SetSetting( 'calltraces'   , true );
+			$this->SetSetting( 'calltracelvl' , 1 );
+			$this->SetSetting( 'loglevel'	 , 0 ); // traces and up
+			$this->SetSetting( 'loglimit'	 , 400 );
+			$this->SetSetting( 'strict'	   , true );
+			$this->SetSetting( 'sqlmaxlength' , 1000 );
+			$this->SetSetting( 'maxstring'	, 1200 );
+			$this->SetSetting( 'bottomdebug'  , true );
 		}
 		public function Enable() {
 			$this->mDebugEnabled = true;
@@ -251,9 +251,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 			$this->mOutputAlerts[] = $alert;
 		}
-        private function AlertCalltrace()
-        {
-            $calltrace = array();
+		private function AlertCalltrace()
+		{
+			$calltrace = array();
 			if ( $this->mSettings[ 'calltraces' ] ) {
 				$lastword = $this->callstack_lastword();
 			}
@@ -261,7 +261,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				$lastword = array();
 			}
 
-            $i = 0;
+			$i = 0;
 			while ( $call = array_shift( $lastword ) ) {
 				$phpfunction = isset( $functions[ $call[ 'function' ] ] ); // if this is a php built-in function.
 				if ( $call['file'] == '<water>' ) { // skip water functions
@@ -279,22 +279,22 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				reset( $args );
 
 				$calltrace[] = array(
-                                      'file' => $call['file'], 
-                                      'line' => $call['line'], 
-                                      'class' => $call['class'], 
-                                      'name' => $call['function'], 
-                                      'depth' => $call['depth'], 
-                                      'phpfunction' => $phpfunction, 
-                                      'args' => $args 
-                                  );
-                ++$i;
-                if ( $i >= $this->mSettings[ 'calltracelvl' ] ) {
-                    break;
-                }
+									  'file' => $call['file'], 
+									  'line' => $call['line'], 
+									  'class' => $call['class'], 
+									  'name' => $call['function'], 
+									  'depth' => $call['depth'], 
+									  'phpfunction' => $phpfunction, 
+									  'args' => $args 
+								  );
+				++$i;
+				if ( $i >= $this->mSettings[ 'calltracelvl' ] ) {
+					break;
+				}
 			}
-            
-            return $calltrace;
-        }
+			
+			return $calltrace;
+		}
 		public function DebugThis() {
 			$this->GenerateJS();
 			?><br /><a href="" onclick="Water.OpenWindow();return false;">Debug this</a><?php
@@ -328,21 +328,21 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			}
 			$script = ob_get_clean();
 
-            if ( $this->mSettings[ 'strict' ] ) {
-                $script = htmlspecialchars( $script );
-            }
-            
+			if ( $this->mSettings[ 'strict' ] ) {
+				$script = htmlspecialchars( $script );
+			}
+			
 			echo $script;
 			?></script><?php
 			if ( $errtype ) {
 				?><div id="globalwarning" onmouseover="Water.HideGlobalWarningClear()" onmouseout="Water.HideGlobalWarningPrepare()" onclick="Water.OpenWindow();Water.HideGlobalWarning()" style="<?php
-                if ( $this->mSettings[ 'bottomdebug' ] ) {
-                    ?>bottom:0<?php
-                }
-                else {
-                    ?>top:0<?php
-                }
-                ?>"><img src="<?php
+				if ( $this->mSettings[ 'bottomdebug' ] ) {
+					?>bottom:0<?php
+				}
+				else {
+					?>top:0<?php
+				}
+				?>"><img src="<?php
 				echo $this->mSettings[ 'images_url' ];
 				switch ( $errtype ) {
 					case 3:
@@ -451,27 +451,27 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				,HideGlobalWarningAnimation: function () {
 					Water.GlobalWarningTop -= 3;
 					document.getElementById('globalwarning').style.<?php
-                    if ( $this->mSettings[ 'bottomdebug' ] ) {
-                        ?>bottom<?php
-                    }
-                    else {
-                        ?>top<?php
-                    }
-                    ?> = Water.GlobalWarningTop + 'px';
+					if ( $this->mSettings[ 'bottomdebug' ] ) {
+						?>bottom<?php
+					}
+					else {
+						?>top<?php
+					}
+					?> = Water.GlobalWarningTop + 'px';
 					if ( Water.GlobalWarningTop < -18 ) {
 						Water.GlobalWarningTop = -18;
 						document.getElementById('globalwarning').style.<?php
-                        if ( $this->mSettings[ 'bottomdebug' ] ) {
-                            ?>bottom<?php
-                        }
-                        else {
-                            ?>top<?php
-                        }
-                        ?> = Water.GlobalWarningTop + 'px';
+						if ( $this->mSettings[ 'bottomdebug' ] ) {
+							?>bottom<?php
+						}
+						else {
+							?>top<?php
+						}
+						?> = Water.GlobalWarningTop + 'px';
 						Water.onGlobalWarningShowAnimation = false;
 						document.getElementById('globalwarning').onmouseover = Water.ShowGlobalWarningPrepare;
 					}
-                    else {
+					else {
 						setTimeout('Water.HideGlobalWarningAnimation()', 50);
 					}
 				}
@@ -484,25 +484,25 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				,ShowGlobalWarningAnimation: function () {
 					Water.GlobalWarningTop += 3;
 					document.getElementById('globalwarning').style.<?php
-                    if ( $this->mSettings[ 'bottomdebug' ] ) {
-                        ?>bottom<?php
-                    }
-                    else {
-                        ?>top<?php
-                    }
-                    ?> = Water.GlobalWarningTop + 'px';
+					if ( $this->mSettings[ 'bottomdebug' ] ) {
+						?>bottom<?php
+					}
+					else {
+						?>top<?php
+					}
+					?> = Water.GlobalWarningTop + 'px';
 					if ( Water.GlobalWarningTop < 0 ) {
 						setTimeout('Water.ShowGlobalWarningAnimation()', 50);
 					}
 					else {
-                        document.getElementById('globalwarning').style.<?php
-                        if ( $this->mSettings[ 'bottomdebug' ] ) {
-                            ?>bottom<?php
-                        }
-                        else {
-                            ?>top<?php
-                        }
-                        ?> = '0px';
+						document.getElementById('globalwarning').style.<?php
+						if ( $this->mSettings[ 'bottomdebug' ] ) {
+							?>bottom<?php
+						}
+						else {
+							?>top<?php
+						}
+						?> = '0px';
 						document.getElementById('globalwarning').onmouseout = Water.HideGlobalWarningPrepare;
 					}
 				}
@@ -520,30 +520,30 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 				case E_ERROR:
 				case E_USER_ERROR:
 					++$this->mNumErrors;
-                    if ( $this->mSettings[ 'loglevel' ] > 3 || $this->mNumErrors > $this->mSettings[ 'loglimit' ] ) {
-                        return;
-                    }
+					if ( $this->mSettings[ 'loglevel' ] > 3 || $this->mNumErrors > $this->mSettings[ 'loglimit' ] ) {
+						return;
+					}
 					break;
 				case E_WARNING:
 				case E_USER_WARNING:
 					++$this->mNumWarnings;
-                    if ( $this->mSettings[ 'loglevel' ] > 2 || $this->mNumWarnings > $this->mSettings[ 'loglimit' ] ) {
-                        return;
-                    }
+					if ( $this->mSettings[ 'loglevel' ] > 2 || $this->mNumWarnings > $this->mSettings[ 'loglimit' ] ) {
+						return;
+					}
 					break;
 				case E_NOTICE:
 				case E_USER_NOTICE:
 				case E_STRICT:
 					++$this->mNumNotices;
-                    if ( $this->mSettings[ 'loglevel' ] > 1 || $this->mNumNotices > $this->mSettings[ 'loglimit' ] ) {
-                        return;
-                    }
+					if ( $this->mSettings[ 'loglevel' ] > 1 || $this->mNumNotices > $this->mSettings[ 'loglimit' ] ) {
+						return;
+					}
 					break;
 				case E_USER_TRACE:
 					++$this->mNumTraces;
-                    if ( $this->mSettings[ 'loglevel' ] > 0 || $this->mNumTraces > $this->mSettings[ 'loglimit' ] ) {
-                        return;
-                    }
+					if ( $this->mSettings[ 'loglevel' ] > 0 || $this->mNumTraces > $this->mSettings[ 'loglimit' ] ) {
+						return;
+					}
 			}
 			$this->AppendAlert( $errno , $errstr , $errdump );
 		}
@@ -553,16 +553,16 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		}
 		public function Assert( $expression, $reason = '' ) {
 			if ( !$expression ) {
-                $msg = 'Assertion failed';
-                if ( !empty( $reason ) ) {
-                    $msg .= ': ' . $reason;
-                }
+				$msg = 'Assertion failed';
+				if ( !empty( $reason ) ) {
+					$msg .= ': ' . $reason;
+				}
 				$this->ThrowException( $msg );
 			}
 		}
 		private function FatalError( $message , $data ) {
 			global $page;
-            
+			
 			if ( function_exists( 'UserIp' ) ) {
 				$userip = UserIp();
 			}
@@ -581,201 +581,201 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			$level = ob_get_level();
 			for ( $i = 0 ; $i < $level ; ++$i ) {
 				ob_end_clean();
-            }
-            
-            $quotes = array(
-                'To the strongest!',
-                'Wait a minute...',
-                'Am I dying, or is this my birthday?',
-                'Death seeks us all',
-                'Applaud, my friends, the comedy is finished.',
-                'Todo mortal...',
-                'No.',
-                'What is this?',
-                'Deem-me cafe, vou escrever!',
-                'Ah, that tastes nice. Thank you.',
-                'Vivo!',
-                'I\'m bored with it all.',
-                'So here it is!',
-                'That was the best ice-cream soda I ever tasted.',
-                'Where is my clock?',
-                'On the ground!',
-                'But how the devil do you think this could harm me?',
-                'Hit the water!...Hit the water!...Hit the water!...',
-                'Shakespeare, I come!',
-                'Adieu, mes amis, Je vais a la gloire!',
-                'Was ist mit mir geschehen?',
-                'Ich sterbe.',
-                'Es ist gar nichts... es ist gar nichts...',
-                'I\'d hate to die twice. It\'s so boring.',
-                'Das gute Essen',
-                'Kiss my ass.',
-                'Bakayaro! Bakayaro!',
-                'Goodbye.',
-                'This is funny.',
-                'Tvert imot!',
-                'Don\'t worry... it\'s not loaded...',
-                'No, you certainly can\'t.',
-                'Beautiful.',
-                'I think I\'m going to make it!',
-                'Cheerio!',
-                'Pee pee.',
-                'It tastes bad.',
-                'Excuse all the blood.',
-                'Me l\'aspettavo.',
-                'It\'s good.',
-                'No, I\'m not!',
-                'Go away. I\'m all right.',
-                'Leave me alone - I\'m fine.',
-                'Tell them I had a wonderful life.',
-                'Already?'
-            );
-            
-            $quote = array_rand( $quotes );
-            
-            if ( $page instanceof PageHTML ) {
-                $this->die_html( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
-            }
-            else {
-                $this->die_plaintext( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
-            }
+			}
+			
+			$quotes = array(
+				'To the strongest!',
+				'Wait a minute...',
+				'Am I dying, or is this my birthday?',
+				'Death seeks us all',
+				'Applaud, my friends, the comedy is finished.',
+				'Todo mortal...',
+				'No.',
+				'What is this?',
+				'Deem-me cafe, vou escrever!',
+				'Ah, that tastes nice. Thank you.',
+				'Vivo!',
+				'I\'m bored with it all.',
+				'So here it is!',
+				'That was the best ice-cream soda I ever tasted.',
+				'Where is my clock?',
+				'On the ground!',
+				'But how the devil do you think this could harm me?',
+				'Hit the water!...Hit the water!...Hit the water!...',
+				'Shakespeare, I come!',
+				'Adieu, mes amis, Je vais a la gloire!',
+				'Was ist mit mir geschehen?',
+				'Ich sterbe.',
+				'Es ist gar nichts... es ist gar nichts...',
+				'I\'d hate to die twice. It\'s so boring.',
+				'Das gute Essen',
+				'Kiss my ass.',
+				'Bakayaro! Bakayaro!',
+				'Goodbye.',
+				'This is funny.',
+				'Tvert imot!',
+				'Don\'t worry... it\'s not loaded...',
+				'No, you certainly can\'t.',
+				'Beautiful.',
+				'I think I\'m going to make it!',
+				'Cheerio!',
+				'Pee pee.',
+				'It tastes bad.',
+				'Excuse all the blood.',
+				'Me l\'aspettavo.',
+				'It\'s good.',
+				'No, I\'m not!',
+				'Go away. I\'m all right.',
+				'Leave me alone - I\'m fine.',
+				'Tell them I had a wonderful life.',
+				'Already?'
+			);
+			
+			$quote = array_rand( $quotes );
+			
+			if ( $page instanceof PageHTML ) {
+				$this->die_html( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
+			}
+			else {
+				$this->die_plaintext( $message, $data, $this->mSettings[ 'calltracelvl' ] > 0, $quotes[ $quote ] );
+			}
 			exit();
 		}
-        private function die_plaintext( $errmessage, $data, $trace, $quote ) {
-            if ( !headers_sent() ) {
-                header( 'Content-type: text/plain' );
-            }
-            
-            ?>Water: Unhandled Exception.<?php
-            echo "\n\n";
-            echo $errmessage;
-            echo "\n";
-            if ( !empty( $data ) ) {
-                echo "\n--------------------\n";
-                print_r( $data );
-                echo "\n--------------------\n";
-            }
-            if ( $trace ) {
-                echo "\n";
-                echo $this->DumpTrace();
-                echo "\n";
-            }
-            echo "\n";
-            echo $quote;
-        }
-        private function die_html( $errmessage, $data, $trace, $quote ) {
-            if ( !headers_sent() ) {
-                header( 'Content-type: text/xml' );
-            }
-            
-            echo "<?xml version='1.0'?>\n";
+		private function die_plaintext( $errmessage, $data, $trace, $quote ) {
+			if ( !headers_sent() ) {
+				header( 'Content-type: text/plain' );
+			}
+			
+			?>Water: Unhandled Exception.<?php
+			echo "\n\n";
+			echo $errmessage;
+			echo "\n";
+			if ( !empty( $data ) ) {
+				echo "\n--------------------\n";
+				print_r( $data );
+				echo "\n--------------------\n";
+			}
+			if ( $trace ) {
+				echo "\n";
+				echo $this->DumpTrace();
+				echo "\n";
+			}
+			echo "\n";
+			echo $quote;
+		}
+		private function die_html( $errmessage, $data, $trace, $quote ) {
+			if ( !headers_sent() ) {
+				header( 'Content-type: text/xml' );
+			}
+			
+			echo "<?xml version='1.0'?>\n";
 			?>
-            <html xmlns="http://www.w3.org/1999/xhtml" 
-                  xmlns:svg="http://www.w3.org/2000/svg">
-                <head>
-                    <title>Water: Unhandled Exception</title>
-                    <style>
-                        html {
-                            width: 100%;
-                            height: 100%;
-                        }
-                        body {
-                            background-color: lightyellow;
-                            width: 100%;
-                            height: 100%;
-                            margin: 0;
-                            padding: 0;
-                            font-family: Verdana;
-                            font-size: 80%;
-                        }
-                        h1 {
-                            display: block;
-                            font-size: 150%;
-                            margin: 0;
-                            padding: 0;
-                            color: red;
-                            font-weight: normal;
-                        }
-                        div.report {
-                            padding: 0 auto 0 auto;
-                            margin: 0 auto 0 auto;
-                            width: 700px;
-                            text-align: center;
-                            height: 100%;
-                            background-color: white;
-                            border-right: 1px solid #cecece;
-                            border-left: 1px solid #cecece;
-                            position: relative;
-                        }
-                        div.errmsg {
-                            font-weight: bold;
-                            margin-bottom: 20px;
-                        }
-                        table.callstack {
-                            text-align: left;
-                            border-collapse: collapse;
-                            border: 1px solid #5599cc;
-                            margin: auto;
-                            font-size: 100%;
-                        }
-                        table.callstack tr {
-                            background-color: #daf0ff;
-                        }
-                        table.callstack tr.title {
-                            background-color: #aaccff;
-                            border-bottom: 1px solid #5599cc;
-                        }
-                        table.callstack tr.title td {
-                            padding: 5px;
-                        }
-                        table.callstack tr td {
-                            padding: 3px;
-                        }
-                        div.quote {
-                            position: absolute;
-                            bottom: 0px;
-                            left: 0px;
-                            right: 0px;
-                            padding-top: 5px 0 0 10px;
-                            background-color: #cecece;
-                            font-style: italic;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="report"><br />
-                        <div class="log">
-                            <h1>Unhandled Water Exception</h1><br />
-                            <svg:svg width="20px" height="20px" viewBox="30 10 180 360"><svg:path
-                               style="fill:#3080ff;stroke:#253bda;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-                               d="M 60.445708,15.5 C 60.445708,15.5 90.445708,100.5 45.445708,180.5 C 8.5486677,246.09474 25.445708,295.5 35.445708,315.5 C 64.514588,373.63777 170,365 190.4457,305.5 C 210.99887,245.68723 209.06791,170.62949 60.445708,15.5 z " />
-                            </svg:svg>
-                        </div>
-                        <br /><br />
-                        <div class="errmsg"><?php
-        					echo $errmessage;
-                        ?></div><?php
-                        if ( !empty( $data ) ) {
-                            ?><br /><i><?php
-                            print_r( $data );
-                            ?></i><br /><?php
-                        }
-                        if ( $trace ) {
-                            echo $this->DumpTrace();
-                        }
-                        ?><br />
-                        <div class="quote"><?php
-                            echo $quote;
-                        ?></div>
-                    </div>
-                </body>
-            </html><?php
-        }
+			<html xmlns="http://www.w3.org/1999/xhtml" 
+				  xmlns:svg="http://www.w3.org/2000/svg">
+				<head>
+					<title>Water: Unhandled Exception</title>
+					<style>
+						html {
+							width: 100%;
+							height: 100%;
+						}
+						body {
+							background-color: lightyellow;
+							width: 100%;
+							height: 100%;
+							margin: 0;
+							padding: 0;
+							font-family: Verdana;
+							font-size: 80%;
+						}
+						h1 {
+							display: block;
+							font-size: 150%;
+							margin: 0;
+							padding: 0;
+							color: red;
+							font-weight: normal;
+						}
+						div.report {
+							padding: 0 auto 0 auto;
+							margin: 0 auto 0 auto;
+							width: 700px;
+							text-align: center;
+							height: 100%;
+							background-color: white;
+							border-right: 1px solid #cecece;
+							border-left: 1px solid #cecece;
+							position: relative;
+						}
+						div.errmsg {
+							font-weight: bold;
+							margin-bottom: 20px;
+						}
+						table.callstack {
+							text-align: left;
+							border-collapse: collapse;
+							border: 1px solid #5599cc;
+							margin: auto;
+							font-size: 100%;
+						}
+						table.callstack tr {
+							background-color: #daf0ff;
+						}
+						table.callstack tr.title {
+							background-color: #aaccff;
+							border-bottom: 1px solid #5599cc;
+						}
+						table.callstack tr.title td {
+							padding: 5px;
+						}
+						table.callstack tr td {
+							padding: 3px;
+						}
+						div.quote {
+							position: absolute;
+							bottom: 0px;
+							left: 0px;
+							right: 0px;
+							padding-top: 5px 0 0 10px;
+							background-color: #cecece;
+							font-style: italic;
+						}
+					</style>
+				</head>
+				<body>
+					<div class="report"><br />
+						<div class="log">
+							<h1>Unhandled Water Exception</h1><br />
+							<svg:svg width="20px" height="20px" viewBox="30 10 180 360"><svg:path
+							   style="fill:#3080ff;stroke:#253bda;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+							   d="M 60.445708,15.5 C 60.445708,15.5 90.445708,100.5 45.445708,180.5 C 8.5486677,246.09474 25.445708,295.5 35.445708,315.5 C 64.514588,373.63777 170,365 190.4457,305.5 C 210.99887,245.68723 209.06791,170.62949 60.445708,15.5 z " />
+							</svg:svg>
+						</div>
+						<br /><br />
+						<div class="errmsg"><?php
+							echo $errmessage;
+						?></div><?php
+						if ( !empty( $data ) ) {
+							?><br /><i><?php
+							print_r( $data );
+							?></i><br /><?php
+						}
+						if ( $trace ) {
+							echo $this->DumpTrace();
+						}
+						?><br />
+						<div class="quote"><?php
+							echo $quote;
+						?></div>
+					</div>
+				</body>
+			</html><?php
+		}
 		private function DumpTrace() {
 			ob_start();
-            
+			
 			$this->callstack_dump_lastword();
-            
+			
 			return ob_get_clean();
 		}
 		private function get_all_functions() {
@@ -838,14 +838,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			
 			return $lastword;
 		}
-        private function callstack_plaintext( $callstack ) {
-            $functions = $this->get_php_functions();
-            
+		private function callstack_plaintext( $callstack ) {
+			$functions = $this->get_php_functions();
+			
 			$calltrace_depth = 0;
-            $out = array();
-            $maxfunction = 0;
-            $maxsource   = 0;
-            $maxline     = 0;
+			$out = array();
+			$maxfunction = 0;
+			$maxsource   = 0;
+			$maxline	 = 0;
 			for ( $i = count( $callstack ) - 1 ; $i >= 0 ; --$i ) {
 				if ( isset( $callstack[ $i ] ) ) {
 					$info = $callstack[ $i ];
@@ -855,8 +855,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 						continue;
 					}
 					++$calltrace_depth;
-                    $me[ 'function' ] = '';
-                    echo "\n";
+					$me[ 'function' ] = '';
+					echo "\n";
 					if ( isset( $info[ 'depth' ] ) ) {
 						$me[ 'function' ] .= str_repeat( ' ' , $info[ 'depth' ] * 2 );
 					}
@@ -878,14 +878,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 					if ( isset( $info[ 'function' ] ) ) {
 						$phpfunction = isset( $functions[ $info[ 'function' ] ] );
 						if ( $phpfunction ) {
-                            $me[ 'function' ] .= '*';
+							$me[ 'function' ] .= '*';
 						}
-                        $me[ 'function' ] .= $info[ 'function' ];
+						$me[ 'function' ] .= $info[ 'function' ];
 						if ( $phpfunction ) {
 							$me[ 'function' ] .= '*';
 						}
 					}
-                    $me[ 'function' ] .= '(';
+					$me[ 'function' ] .= '(';
 					if ( isset( $info[ 'args' ] ) ) {
 						$j = 0;
 						$numargs = count( $info[ 'args' ] );
@@ -933,7 +933,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 										}
 								}
 							}
-                            $me[ 'function' ] .= ' ';
+							$me[ 'function' ] .= ' ';
 							++$j;
 							if ( $j != $numargs ) {
 								$me[ 'function' ] .= ',';
@@ -941,7 +941,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 						}
 					}
 					$me[ 'function' ] .= ')';
-                    $me[ 'source' ] = '';
+					$me[ 'source' ] = '';
 					if ( isset( $file ) ) {
 						if ( $calltrace_depth == 1 ) {
 							$me[ 'source' ] .= '*';
@@ -952,48 +952,48 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 						}
 					}
 					if ( isset( $info[ 'line' ] ) ) {
-                        $me[ 'line' ] = $info[ 'line' ];
+						$me[ 'line' ] = $info[ 'line' ];
 					}
 					else {
-                        $me[ 'line' ] = '-';
+						$me[ 'line' ] = '-';
 					}
-                    if ( $maxsource < strlen( $me[ 'source' ] ) ) {
-                        $maxsource = strlen( $me[ 'source' ] );
-                    }
-                    if ( $maxfunction < strlen( $me[ 'function' ] ) ) {
-                        $maxfunction = strlen( $me[ 'function' ] );
-                    }
-                    if ( $maxline < strlen( $me[ 'line' ] ) ) {
-                        $maxline = strlen( $me[ 'line' ] );
-                    }
-                    $out[] = $me;
-                }
+					if ( $maxsource < strlen( $me[ 'source' ] ) ) {
+						$maxsource = strlen( $me[ 'source' ] );
+					}
+					if ( $maxfunction < strlen( $me[ 'function' ] ) ) {
+						$maxfunction = strlen( $me[ 'function' ] );
+					}
+					if ( $maxline < strlen( $me[ 'line' ] ) ) {
+						$maxline = strlen( $me[ 'line' ] );
+					}
+					$out[] = $me;
+				}
 			}
-            
+			
 			?>function<?php
-            echo str_repeat( ' ', $maxfunction - strlen( 'function' ) + 2 );
-            ?>source<?php
-            echo str_repeat( ' ', $maxsource - strlen( 'source' ) + 2 );
-            ?>line<?php
-            
-            echo "\n";
-            echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
-            echo "\n";
-            foreach ( $out as $me ) {
-                echo $me[ 'function' ];
-                echo str_repeat( ' ', $maxfunction - strlen( $me[ 'function' ] ) + 2 );
-                echo $me[ 'source' ];
-                echo str_repeat( ' ', $maxsource - strlen( $me[ 'source' ] ) + 2 );
-                echo $me[ 'line' ];
-                echo "\n";
+			echo str_repeat( ' ', $maxfunction - strlen( 'function' ) + 2 );
+			?>source<?php
+			echo str_repeat( ' ', $maxsource - strlen( 'source' ) + 2 );
+			?>line<?php
+			
+			echo "\n";
+			echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
+			echo "\n";
+			foreach ( $out as $me ) {
+				echo $me[ 'function' ];
+				echo str_repeat( ' ', $maxfunction - strlen( $me[ 'function' ] ) + 2 );
+				echo $me[ 'source' ];
+				echo str_repeat( ' ', $maxsource - strlen( $me[ 'source' ] ) + 2 );
+				echo $me[ 'line' ];
+				echo "\n";
 			}
-            echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
-        }
+			echo str_repeat( '-', $maxfunction + $maxsource + $maxline + 6 );
+		}
 		private function callstack_html( $callstack ) {
 			$functions = $this->get_php_functions();
 	
 			?><div class="watertrace"><table class="callstack"><tr class="title">
-            <td class="title">function</td><td class="title">source</td><td class="title">line</td></tr><?php
+			<td class="title">function</td><td class="title">source</td><td class="title">line</td></tr><?php
 			$calltrace_depth = 0;
 			for ( $i = count( $callstack ) - 1 ; $i >= 0 ; --$i ) {
 				if ( isset( $callstack[ $i ] ) ) {
@@ -1118,19 +1118,19 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		private function callstack_dump_lastword() {
 			$this->callstack( $this->callstack_lastword() );
 		}
-        private function callstack( $callstack ) {
-            global $page;
-            
-            if ( $page instanceof PageHTML ) {
-                return $this->callstack_html( $callstack );
-            }
-            return $this->callstack_plaintext( $callstack );
-        }
+		private function callstack( $callstack ) {
+			global $page;
+			
+			if ( $page instanceof PageHTML ) {
+				return $this->callstack_html( $callstack );
+			}
+			return $this->callstack_plaintext( $callstack );
+		}
 		private function chopfile( $filename ) {
-            if ( $filename === __FILE__ ) {
-                return '<water>';
-            }
-            
+			if ( $filename === __FILE__ ) {
+				return '<water>';
+			}
+			
 			$beginpath = $this->mSettings[ 'server_root' ];
 			
 			if ( strtolower( substr( $filename, 0, strlen( $beginpath ) ) ) == $beginpath ) {

@@ -5,9 +5,9 @@
 		global $user;
 		global $page;
 		global $xc_settings;
-        
-        $id = $id->Get();
-        
+		
+		$id = $id->Get();
+		
 		Element( 'faq/header' );
 		
 		$faqq = New FAQ_Question( $id );
@@ -54,8 +54,8 @@
 									echo $faqq->Id();
 								?>" style="vertical-align: top;">
 									<img src="<?php
-                                    echo $xc_settings[ 'staticimagesurl' ];
-                                    ?>icons/icon_wand.gif" alt="Επεξεργασία Ερώτησης" style="width: 16px; height: 16px; vertical-align: bottom;" />Επεξεργασία
+									echo $xc_settings[ 'staticimagesurl' ];
+									?>icons/icon_wand.gif" alt="Επεξεργασία Ερώτησης" style="width: 16px; height: 16px; vertical-align: bottom;" />Επεξεργασία
 								</a>
 								&nbsp;<form action="do/faq/question/delete" method="post" style="display: inline;">
 									<input type="hidden" name="id" value="<?php
@@ -63,8 +63,8 @@
 									?>" />
 									<a style="cursor: pointer; vertical-align: top;" onclick="javascript:if( confirm( 'Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτήν την ερώτηση?' ) ) { this.parentNode.submit(); } return false;">
 										<img src="<?php
-                                        echo $xc_settings[ 'staticimagesurl' ];
-                                        ?>icons/page_cross.gif" alt="Διαγραφή Ερώτησης" style="width: 16px; height: 16px; vertical-align: bottom;" />Διαγραφή
+										echo $xc_settings[ 'staticimagesurl' ];
+										?>icons/page_cross.gif" alt="Διαγραφή Ερώτησης" style="width: 16px; height: 16px; vertical-align: bottom;" />Διαγραφή
 									</a>
 									<br /><br />
 								</form>

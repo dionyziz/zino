@@ -6,9 +6,9 @@
 		global $xc_settings;
 		
 		$libs->Load( 'place' );
-        $libs->Load( 'interesttag' );
+		$libs->Load( 'interesttag' );
 
-        $page->AttachScript( 'js/interesttag.js' );
+		$page->AttachScript( 'js/interesttag.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/universities.js' );
 		$page->AttachScript( 'js/coala.js' );
@@ -47,7 +47,7 @@
 				$gn = "Αγόρι";
 			}
 		}
-        $validdob = false;
+		$validdob = false;
 		if ( $theuser->DateOfBirth() != "0000-00-00" ) {
 			if ( $theuser->DateOfBirthYear() != "2005" ) {
 				$validdob = true;
@@ -110,7 +110,7 @@
 						$class = ' class="l"';
 						$classl = false;
 					}
-					else { 	
+					else {	 
 						$class = '';
 						$classl = true;
 					}
@@ -217,7 +217,7 @@
 					</dl></li><?php
 					$unishowing = true;
 				}
-                $tags = InterestTag_List( $theuser );
+				$tags = InterestTag_List( $theuser );
 				if ( !empty( $tags ) || $user->Id() == $theuser->Id() ) {
 					if ( $classl ) {
 						$class = ' class="l"';
@@ -234,19 +234,19 @@
 							$tagslen = count( $tags );
 							for ( $i = 0; $i < $tagslen;++$i ) {
 								?><a href="tag/<?php
-                                echo htmlspecialchars( urlencode( $tags[ $i ]->Text ) );
-                                ?>"><?php
-                                echo htmlspecialchars( $tags[ $i ]->Text );
-                                ?></a><?php
+								echo htmlspecialchars( urlencode( $tags[ $i ]->Text ) );
+								?>"><?php
+								echo htmlspecialchars( $tags[ $i ]->Text );
+								?></a><?php
 								if ( $i != $tagslen-1 ) {
 									?>, <?php
 								}
 							}
-                            if ( $theuser->Id() == $user->Id() ) {
-                            ?> <a href="" onclick="InterestTag.Create();return false;"><img src="<?php
-                            echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/page_new.gif" /></a><?php
-                            }
+							if ( $theuser->Id() == $user->Id() ) {
+							?> <a href="" onclick="InterestTag.Create();return false;"><img src="<?php
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>icons/page_new.gif" /></a><?php
+							}
 						?></dd>
 					</dl></li><?php
 				} 

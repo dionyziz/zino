@@ -2,7 +2,7 @@
 
 	function ElementShoutView( $shout ) {
 		global $user;
-        global $xc_settings;
+		global $xc_settings;
 		
 		?><div id="shout_<?php
 		echo $shout->Id(); 
@@ -11,11 +11,11 @@
 		Element( 'user/icon' , $shout->User() );
 		
 		?><div id="shouttext_<?php 
-        echo $shout->Id(); 
-        ?>"><?php
+		echo $shout->Id(); 
+		?>"><?php
 		echo $shout->TextFormatted();
 		
-        $canmodify = $user->CanModifyCategories() || $shout->UserId() == $user->Id();
+		$canmodify = $user->CanModifyCategories() || $shout->UserId() == $user->Id();
 
 		if ( $canmodify && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
 			?><a style="cursor: pointer;" onclick="Shoutbox.Edit( <?php

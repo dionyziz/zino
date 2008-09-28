@@ -107,20 +107,20 @@ var pms = {
 		Modals.Destroy();
 	}
 	,
-    ValidFolderName : function ( text ) {
+	ValidFolderName : function ( text ) {
 		var name = text.replace(/(\s+$)|(^\s+)/g , '');
 		if ( name == 'Εισερχόμενα' || name == 'Απεσταλμένα' ) {
-            return false;
+			return false;
 		}
 		else if ( name.length <= 2 ) {
-            return false;
+			return false;
 		}
 		else if ( name === '' ) {
-            return false;
+			return false;
 		}
-        return true;
-    }
-    ,
+		return true;
+	}
+	,
 	CreateNewFolder : function ( formnode ) {
 		//creating a new folder and showing it (using a coala call)
 		var formnodeinput = formnode.getElementsByTagName( 'input' );
@@ -129,10 +129,10 @@ var pms = {
 		if ( !pms.ValidFolderName( foldername ) ) {
 			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
 			inputbox.select();
-            return;
+			return;
 		}
-        pms.ShowAnimation( 'Δημιουργία φακέλου...' );
-        Coala.Warm( 'pm/folder/new' , { foldername : foldername } );
+		pms.ShowAnimation( 'Δημιουργία φακέλου...' );
+		Coala.Warm( 'pm/folder/new' , { foldername : foldername } );
 	}
 	,
 	DeleteFolder : function( folderid ) {
@@ -141,10 +141,10 @@ var pms = {
 			$( '#folder_' + folderid ).animate( { opacity : '0' , height : '0' } , function() {
 				$( this ).remove();
 				if ( !pms.writingnewpm ) {
-				    // Show inbox
-				    var inboxstring = $( $( '#folders div' )[ 0 ] ).attr("id");
-				    var inboxarr = inboxstring.split('_');
-				    var inboxid = inboxarr[1];
+					// Show inbox
+					var inboxstring = $( $( '#folders div' )[ 0 ] ).attr("id");
+					var inboxarr = inboxstring.split('_');
+					var inboxid = inboxarr[1];
 					pms.ShowFolderPm( $( '#folders div' )[ 0 ],  inboxid );
 				}
 			} );
@@ -152,22 +152,22 @@ var pms = {
 		} );
 	}
 	,
-    RenameFolder : function ( folderid ) {
-        var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
-        if ( name === null ) {
-            return;
-        }
-        if ( !pms.ValidFolderName( name ) ) {
-            alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
-            return;
-        }
-        Coala.Warm( 'pm/folder/rename', {
-            'folderid': folderid,
-            'newname': name
-        } );
-        $( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
-    }
-    ,
+	RenameFolder : function ( folderid ) {
+		var name = prompt( 'Πληκτρολόγησε ένα νέο όνομα για τον φάκελό σου' );
+		if ( name === null ) {
+			return;
+		}
+		if ( !pms.ValidFolderName( name ) ) {
+			alert( 'Δεν μπορείς να ονομάσεις έτσι τον φάκελό σου' );
+			return;
+		}
+		Coala.Warm( 'pm/folder/rename', {
+			'folderid': folderid,
+			'newname': name
+		} );
+		$( '#folder_' + folderid + ' a.folderlinks' ).empty().append( document.createTextNode( name ) );
+	}
+	,
 	NewMessage : function( touser , answertext ) {
 		pms.ClearMessages();
 		var receiversdiv = document.createElement( 'div' );
@@ -275,9 +275,9 @@ var pms = {
 			}
 		}
 		else {
-		    if ( specnumber == -1 && unreadpms == 1 ) {
-		        unreadpms = 0;
-		    }
+			if ( specnumber == -1 && unreadpms == 1 ) {
+				unreadpms = 0;
+			}
 			newtext = document.createTextNode( 'Εισερχόμενα' );
 			newtext2 = document.createTextNode( 'Μηνύματα' );
 		}
@@ -288,7 +288,7 @@ var pms = {
 		$( unreadmsgbanner ).append( bannerspan );
 		$( unreadmsgbanner ).append( newtext2 );
 		if ( unreadpms == 0 ) {
-		    $( unreadmsgbanner ).removeClass( "unread" );
+			$( unreadmsgbanner ).removeClass( "unread" );
 		}
 	}
 	,
@@ -324,25 +324,25 @@ var pms = {
 	}
 };
 $( document ).ready( function() {
-    if ( $( '#pms' )[ 0 ] ) {
-    	$( 'div.message' ).draggable( { 
-    		helper : 'original',
-    		revert : 'true',
-    		cursor : 'move'
-    	} );
-    	$( 'div.createdfolder' ).droppable( {
-    		accept: "div.message",
-    		hoverClass: "hoverfolder",
-    		tolerance: "pointer",
-    		drop : function(ev, ui) {
-    			Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
-    			ui.draggable.animate( { 
-    				opacity: "0",
-    				height: "0"
-    				} , 700 , function() {
-    					ui.draggable.remove();
-    			} );
-    		}
-    	} );
-    }
+	if ( $( '#pms' )[ 0 ] ) {
+		$( 'div.message' ).draggable( { 
+			helper : 'original',
+			revert : 'true',
+			cursor : 'move'
+		} );
+		$( 'div.createdfolder' ).droppable( {
+			accept: "div.message",
+			hoverClass: "hoverfolder",
+			tolerance: "pointer",
+			drop : function(ev, ui) {
+				Coala.Warm( 'pm/transfer' , { 'pmid' : ui.draggable.attr( "id" ).substring( 3 ) , 'folderid': $( 'div.activefolder' ).attr( "id" ).substring( 7 ), 'targetfolderid': $( this ).attr( "id" ).substring( 7 ) } );
+				ui.draggable.animate( { 
+					opacity: "0",
+					height: "0"
+					} , 700 , function() {
+						ui.draggable.remove();
+				} );
+			}
+		} );
+	}
 } );

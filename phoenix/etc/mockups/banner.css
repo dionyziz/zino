@@ -6,10 +6,10 @@ div.header {
 	margin: 0 30px 0 30px;
 }
 div.header a.novisual {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	display: block;
 }
 div.header a {
 	font-weight: bold;
@@ -25,8 +25,8 @@ div.header h1 {
 	font-weight: normal;
 	margin: 0;
 	padding: 0;
-    height: 50px;
-    width: 90px;
+	height: 50px;
+	width: 90px;
 	top: 0;
 	left: 0;
 	position: absolute;
@@ -36,13 +36,13 @@ div.header h1 {
 }
 div.header div.eof {
 	display: inline;
-    clear: none;
+	clear: none;
 	margin: 0;
 	padding: 0;
 	top: 0;
 	right: 0;
-    width: 71px;
-    height: 50px;
+	width: 71px;
+	height: 50px;
 	position: absolute;
 	background-image: url('images/banner-end2.jpg');
 	background-position: 0 0;
@@ -88,7 +88,7 @@ div.header ul li input {
 	border: 1px solid #999;
 }
 div.header ul li input.button {
-    background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 div.header div.search {
 	position: absolute;
@@ -112,15 +112,15 @@ div.header div.search input.text {
 	margin: 11px 16px 10px 23px;
 	width: 137px;
 	padding: 2px 2px 2px 4px;
-    background-image: url('images/shadowytxt.jpg');
-    background-position: top left;
-    background-repeat: no-repeat;
+	background-image: url('images/shadowytxt.jpg');
+	background-position: top left;
+	background-repeat: no-repeat;
 }
 div.header div.search input.submit {
 	display: none;
 }
 div.header a.logout {
-    z-index: 100;
+	z-index: 100;
 	position: absolute;
 	right: 8px;
 	top: 6px;

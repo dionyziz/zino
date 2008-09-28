@@ -26,8 +26,8 @@ var Comments = {
 		
 		var del = document.createElement( 'a' );
 		del.onclick = function() {
-            return false;
-        };
+			return false;
+		};
 		del.title = "Διαγραφή";
 		del.style.marginRight = (parentid===0)?0:(indent+1)*20+'px';
 		
@@ -66,7 +66,7 @@ var Comments = {
 		
 		var type = temp.find( "#type:first" ).text();
 		Comments.FixCommentsNumber( type, true );
-		Coala.Warm( 'comments/new', { 	text : texter, 
+		Coala.Warm( 'comments/new', {	 text : texter, 
 										parent : parentid,
 										compage : temp.find( "#item:first" ).text(),
 										type : type,
@@ -83,21 +83,21 @@ var Comments = {
 		var indent = ( parentid===0 )?-1:parseInt( $( "#comment_" + parentid ).css( "paddingLeft" ), 10 )/20;
 		node.attr( 'id', 'comment_' + id );
 		node.find( 'div.bottom' ).show().find( 'a' ).toggle( function() {
-                Comments.Reply( id, indent+1 );
-                return false;
-            }, function() {
-                $( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
-                return false;
-            }
-        );
+				Comments.Reply( id, indent+1 );
+				return false;
+			}, function() {
+				$( '#comment_reply_' + id ).hide( 300, function() { $(this).remove(); } );
+				return false;
+			}
+		);
 		node.find( 'div.text' ).html( newtext ).get( 0 ).ondblclick = function() {
-                Comments.Edit( id );
-                return false;
-            };
+				Comments.Edit( id );
+				return false;
+			};
 		node.find( 'div.toolbox a' ).get( 0 ).onclick = function() {
-            Comments.Delete( id, parentid );
-            return false;
-        };
+			Comments.Delete( id, parentid );
+			return false;
+		};
 	},
 	Reply : function( nodeid, indent ) {
 		// Atm prefer marginLeft. When the comment is created it will be converted to paddingLeft. Looks better
@@ -177,7 +177,7 @@ var Comments = {
 		Coala.Warm( 'comments/delete', { commentid : nodeid, 
 										callback : Comments.DeleteCommentCallback
 							} );
-        return false;
+		return false;
 	},
 	DeleteCommentCallback : function( nodeid, parentid, show ) {
 		Comments.numchildren[ nodeid ] = -1;

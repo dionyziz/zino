@@ -14,17 +14,17 @@ div.upperslide div.edge a span, div.upperslide ul.photolist1 li a span, div.righ
 	position: absolute;
 	bottom: 2px;
 	right: 13px;
-    height: 20px;
-    vertical-align: top;
-    line-height: 20px;
+	height: 20px;
+	vertical-align: top;
+	line-height: 20px;
 	background-color: #cecece;
 	opacity: 0.7;
 }
 div.upperslide div.edge a span {
-    bottom: 6px;
+	bottom: 6px;
 }
 div.rightslide ul.photolist2 li a span {
-    right: 10px;
+	right: 10px;
 }
 div.rightslide ul.photolist2 li a span {
 	bottom: 12px;
@@ -33,8 +33,8 @@ div.upperslide div.edge ul.photolist1 li a span img, div.upperslide ul.photolist
 	margin: 0;
 }
 div.upperslide div.edge ul.photolist1 li a, div.upperslide ul.photolist1 li a, div.rightslide ul.photolist2 li a {
-    position: relative;
-    _width: 110px;
+	position: relative;
+	_width: 110px;
 }
 div.rightslide {
 	float: right;
@@ -49,23 +49,23 @@ div.rightslide ul.photolist2 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-    height: 100%;
-    /* border: 1px solid green; */
+	height: 100%;
+	/* border: 1px solid green; */
 }
 div.rightslide ul.photolist2 li {
 	padding: 0;
 	margin: 0;
 	position: relative;
-    width: 100%;
-    height: 120px;
-    /* line-height: 100px; */
-    display: block;
-    /* border: 1px solid yellow; */
-    vertical-align: bottom;
+	width: 100%;
+	height: 120px;
+	/* line-height: 100px; */
+	display: block;
+	/* border: 1px solid yellow; */
+	vertical-align: bottom;
 }
 div.rightslide ul li a {
 	float: right;
-    position: relative;
+	position: relative;
 }
 div.rightslide ul.photolist2 li a img {
 	margin: 10px 9px 10px 0;
@@ -89,7 +89,7 @@ div.upperslide div.edge {
 	line-height: 200px;
 	vertical-align: bottom;
 	text-align: right;
-    position: relative;
+	position: relative;
 }
 div.upperslide div.edge a img {
 	margin-right: 12px;

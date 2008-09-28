@@ -3,10 +3,10 @@
 		global $user;
 		global $page;
 		
-        $nosuchuser = $nosuchuser->Get();
-        $invalidmail = $invalidmail->Get();
-        $sent = $sent->Get();
-        
+		$nosuchuser = $nosuchuser->Get();
+		$invalidmail = $invalidmail->Get();
+		$sent = $sent->Get();
+		
 		if ( $user->IsAnonymous() ) {
 			$page->SetTitle( "Ξέχασα τον Κωδικό μου!" );
 			
@@ -23,11 +23,11 @@
 			}
 			else {
 				?><br /><form action="do/user/lostpassword" method="post">
-                    Γράψε μας το όνομα χρήστη σου και, αν έχεις δηλώσει μία e-mail διεύθυνση θα σου
-                    στείλουμε εκεί οδηγίες για το πως να εισέλθεις! <br /><br />
-                    Όνομα Χρήστη <input type="text" class="bigtext" name="username" /><br />
-                    <input type="submit" class="mybutton" value="Αποστολή" />
-                </form><?php
+					Γράψε μας το όνομα χρήστη σου και, αν έχεις δηλώσει μία e-mail διεύθυνση θα σου
+					στείλουμε εκεί οδηγίες για το πως να εισέλθεις! <br /><br />
+					Όνομα Χρήστη <input type="text" class="bigtext" name="username" /><br />
+					<input type="submit" class="mybutton" value="Αποστολή" />
+				</form><?php
 			}
 		}
 		else {

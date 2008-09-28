@@ -10,7 +10,7 @@
 			<br />Αν δεν έχεις λογαριασμό χρήστη και δεν είσαι botaki, <b><a href="?p=n">μπορείς τώρα να δημιουργήσεις έναν</a></b>.</div><?php
 		}
 		else {
-            return Redirect();
+			return Redirect();
 		}
 	}
 ?>

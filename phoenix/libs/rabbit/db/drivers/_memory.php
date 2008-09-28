@@ -1,4 +1,4 @@
 <?php
-    class DBDriver_Memory implements DBDriver {
-    }
+	class DBDriver_Memory implements DBDriver {
+	}
 ?>

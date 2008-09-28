@@ -3,9 +3,9 @@
 		global $libs;
 		global $user;
 		
-        $notifyid = $notifyid->Get();
-        $navigate = $navigate->Get();
-        
+		$notifyid = $notifyid->Get();
+		$navigate = $navigate->Get();
+		
 		$libs->Load( 'notify' );
 		$libs->Load( 'comment' );
 		
@@ -14,32 +14,32 @@
 		if ( $notif->ToUserid() == $user->Id() ) {
 			$typeid = $notif->Typeid();
 			$comm = $notif->Page();
-            if ( $navigate ) {
+			if ( $navigate ) {
 				$notif->Read();
-    			?>document.location = "<?php
-    			switch ( $typeid ) {
-    				case 0:
-    					$artcl = $comm->Page();
-    					?>?p=story&id=<?php
-    					echo $artcl->Id();
-    					?>#comment_<?php
-    					echo $notif->Itemid();
-    					break;
-    				case 1: // Reply to Comment
-    				case 4: // Profile Comment
-    					?>user/<?php
-    					echo $comm->Page()->Username();
-    					?>#comment_<?php
-    					echo $notif->Itemid();
-    					break;
-    				case 2:
-                    case 5:
-    					$artcl = $comm->Page();
-    					?>?p=photo&id=<?php
-    					echo $artcl->Id();
-    					?>#comment_<?php
-    					echo $notif->Itemid();
-    					break;
+				?>document.location = "<?php
+				switch ( $typeid ) {
+					case 0:
+						$artcl = $comm->Page();
+						?>?p=story&id=<?php
+						echo $artcl->Id();
+						?>#comment_<?php
+						echo $notif->Itemid();
+						break;
+					case 1: // Reply to Comment
+					case 4: // Profile Comment
+						?>user/<?php
+						echo $comm->Page()->Username();
+						?>#comment_<?php
+						echo $notif->Itemid();
+						break;
+					case 2:
+					case 5:
+						$artcl = $comm->Page();
+						?>?p=photo&id=<?php
+						echo $artcl->Id();
+						?>#comment_<?php
+						echo $notif->Itemid();
+						break;
 					case 3:
 						$artcl = $comm->Page();
 						?>?p=poll&id=<?php
@@ -47,15 +47,15 @@
 						?>#comment_<?php
 						echo $notif->Itemid();
 						break;
-    				case 128:
-    					?>user/<?php
-    					echo $comm->Username();
-    					?>?viewfriends=yes<?php
-    					break;
-    			}
-        		?>";<?php
-            }
-            if ( $hidewhat->Exists() ) {
+					case 128:
+						?>user/<?php
+						echo $comm->Username();
+						?>?viewfriends=yes<?php
+						break;
+				}
+				?>";<?php
+			}
+			if ( $hidewhat->Exists() ) {
 				$notif->Delete();
 				?>linode = <?php
 				echo $hidewhat;
@@ -81,7 +81,7 @@
 				else {
 					liparent.removeChild( linode );
 				}<?php
-            }
+			}
 		}
 	}
 ?>

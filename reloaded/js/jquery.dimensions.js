@@ -23,8 +23,8 @@ $.each( [ 'Height', 'Width' ], function(i, name){
 	$.fn[ 'inner' + name ] = function() {
 		if (!this[0]) return;
 		
-		var torl = name == 'Height' ? 'Top'    : 'Left',  // top or left
-		    borr = name == 'Height' ? 'Bottom' : 'Right'; // bottom or right
+		var torl = name == 'Height' ? 'Top'	: 'Left',  // top or left
+			borr = name == 'Height' ? 'Bottom' : 'Right'; // bottom or right
 		
 		return this.css('display') != 'none' ? this[0]['client' + name] : num( this, name.toLowerCase() ) + num(this, 'padding' + torl) + num(this, 'padding' + borr);
 	};
@@ -33,8 +33,8 @@ $.each( [ 'Height', 'Width' ], function(i, name){
 	$.fn[ 'outer' + name ] = function(options) {
 		if (!this[0]) return;
 		
-		var torl = name == 'Height' ? 'Top'    : 'Left',  // top or left
-		    borr = name == 'Height' ? 'Bottom' : 'Right'; // bottom or right
+		var torl = name == 'Height' ? 'Top'	: 'Left',  // top or left
+			borr = name == 'Height' ? 'Bottom' : 'Right'; // bottom or right
 		
 		options = $.extend({ margin: false }, options || {});
 		
@@ -83,7 +83,7 @@ $.fn.extend({
 			offsetParent = this.offsetParent();
 			
 			// Get correct offsets
-			offset       = this.offset();
+			offset	   = this.offset();
 			parentOffset = offsetParent.offset();
 			
 			// Subtract element margins

@@ -21,9 +21,9 @@ tr.color {
 
 tr.titles {
 	background-color: #dedede;
-    border: 1px solid #c0c0c0;
-    font-size: 94%;
-    color: #333;	
+	border: 1px solid #c0c0c0;
+	font-size: 94%;
+	color: #333;	
 	}
 
 input.add, input.delete{

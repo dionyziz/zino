@@ -3,5 +3,5 @@
 	include "latestarticles.php";
 	include "rightbar.php";
 	include "populararticles.php";
-    include "notify.php";
+	include "notify.php";
 ?>

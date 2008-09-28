@@ -55,7 +55,7 @@ div.comments div.comment div.text {
 	background-color: #f6f6ee;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
-    padding-right: 60px;
+	padding-right: 60px;
 	overflow: auto;
 	_position: relative;
 	_bottom: -1px;
@@ -65,10 +65,10 @@ div.comments div.comment div.text div {
 	padding: 10px 5px 0px 5px;
 }
 div.comments div.comment div.text div div.sig {
-    color: #acacac;
-    display: inline;
-    margin: 0;
-    padding: 0;
+	color: #acacac;
+	display: inline;
+	margin: 0;
+	padding: 0;
 }
 div.comments div.comment div.avatar {
 	background-image: url( 'images/avatarbg.jpg' );

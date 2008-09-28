@@ -32,7 +32,7 @@ div#journalview div.journal dl {
 	margin: 0;
 }
 div#journalview div.journal dl dd.createdate {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 div#journalview div.journal dl dd.commentsnum {
 	margin: 0 5px 0 0;

@@ -1,27 +1,27 @@
 body {
-    margin: 0;
+	margin: 0;
 }
 div.modal {
 	background-position: top right;
 	background-repeat: repeat-x;
 	background-color: #e8eaec;
-    background-image: url('http://static.zino.gr/images/sorabody.jpg');
-    border: 1px solid #2e486c;
-    z-index: 1000;
-    margin: auto;
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    text-align: center;
-    vertical-align: middle;
+	background-image: url('http://static.zino.gr/images/sorabody.jpg');
+	border: 1px solid #2e486c;
+	z-index: 1000;
+	margin: auto;
+	top: 50%;
+	left: 50%;
+	position: fixed;
+	text-align: center;
+	vertical-align: middle;
 }
 div.modalbg {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 680;
-    background-image: url('http://static.zino.gr/images/modalbg.png');
-    background-repeat: repeat;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 680;
+	background-image: url('http://static.zino.gr/images/modalbg.png');
+	background-repeat: repeat;
 }

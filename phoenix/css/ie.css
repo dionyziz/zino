@@ -1,8 +1,8 @@
 /* this rule applies to the images in order to show the comments number in the right lower edge */
 span.imageview span.info {
-    bottom: 0;
+	bottom: 0;
 }
 div#search div.ybubble form input.submit {
-    position: relative;
-    top: 35px;
+	position: relative;
+	top: 35px;
 }

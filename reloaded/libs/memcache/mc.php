@@ -3,14 +3,14 @@
 		Developer: Dionyziz
 	*/
 	
-    interface MemCache {
-        public function get( $key );
-        public function get_multi( $keys );
-        public function add( $key, $value, $expires = 0 );
-        public function delete( $key, $aftertimeout = 0 );
-        public function replace( $key, $value );
-    }
-    
+	interface MemCache {
+		public function get( $key );
+		public function get_multi( $keys );
+		public function add( $key, $value, $expires = 0 );
+		public function delete( $key, $aftertimeout = 0 );
+		public function replace( $key, $value );
+	}
+	
 	final class MemCacheDummy implements MemCache {
 		public function MemCacheDummy() {
 		}
@@ -38,7 +38,7 @@
 		public function get( $key ) {
 			$multi = array( $key );
 			$ret = $this->get_multi( $multi );
-            
+			
 			return array_shift( $ret );
 		}
 		public function get_multi( $keys ) {
@@ -70,8 +70,8 @@
 				while ( $row = $res->FetchArray() ) {
 					$key = $row[ 'mc_key' ];
 					$value = $row[ 'mc_value' ];
-                    w_assert( isset( $ret[ $key ] ) );
-                    w_assert( $ret[ $key ] === false );
+					w_assert( isset( $ret[ $key ] ) );
+					w_assert( $ret[ $key ] === false );
 					$ret[ $key ] = $this->mRequestCaches[ $key ] = unserialize( $value );
 				}
 			}
@@ -148,25 +148,25 @@
 	
 	global $mc;
 	global $libs;
-    global $xc_settings;
-    
-    $libs->Load('memcache/memcached');
-    
+	global $xc_settings;
+	
+	$libs->Load('memcache/memcached');
+	
 	// until we get a proper memcache daemon
-    switch ( $xc_settings[ 'memcache' ][ 'type' ] ) {
-        case 'dummy':
-            $mc = New MemCacheDummy();
-            break;
-        case 'sql':
-    	    $mc = New MemCacheSQL();
-            break;
-        case 'memcached':
-            $server = $xc_settings[ 'memcache' ][ 'hostname' ] . ':' . $xc_settings[ 'memcache' ][ 'port' ];
-            $mc = New memcached(array(
-                    'servers' => array( $server ), 
-                    'debug' => false, 
-                    'compress_threshold' => 10240,
-                    'persistant' => true));
-            break;
-    }
+	switch ( $xc_settings[ 'memcache' ][ 'type' ] ) {
+		case 'dummy':
+			$mc = New MemCacheDummy();
+			break;
+		case 'sql':
+			$mc = New MemCacheSQL();
+			break;
+		case 'memcached':
+			$server = $xc_settings[ 'memcache' ][ 'hostname' ] . ':' . $xc_settings[ 'memcache' ][ 'port' ];
+			$mc = New memcached(array(
+					'servers' => array( $server ), 
+					'debug' => false, 
+					'compress_threshold' => 10240,
+					'persistant' => true));
+			break;
+	}
 ?>

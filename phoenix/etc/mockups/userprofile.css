@@ -154,7 +154,7 @@ div#profile div.sidebar div.notice span.online a {
 	padding-left: 20px;
 }
 div#profile div.sidebar div.eof {
-    float: right;
+	float: right;
 	position: relative;
 	top: 14px;
 	background-image: url('http://static.zino.gr/phoenix/sidebarend.jpg');

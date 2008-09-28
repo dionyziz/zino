@@ -3,55 +3,55 @@
 		Interest Tags (kostis90gr)
 	*/
 	global $libs;
-    
-    $libs->Load( 'image/image' ); // for usericons
-    $libs->Load( 'color' );
-    
-    function User_ByUsername( $usernames ) {
-        global $db;
-        global $users;
-        global $images;
-        
-        if ( is_array( $usernames ) ) {
-            $wasarray = true;
-        }
-        else {
-            $wasarray = false;
-            $usernames = array( $usernames );
-        }
-        
-        if ( !count( $usernames ) ) {
-            return array();
-        }
-        
-        foreach ( $usernames as $i => $username ) {
-            $usernames[ $i ] = addslashes( $username );
-        }
-        
-        $sql = "SELECT 
-                    `user_id`, `user_name`, `user_subdomain`,
-                    `image_id`, `image_userid`
-                FROM 
-                    `$users` LEFT JOIN `$images`
-                        ON `user_icon` = `image_id`
-                WHERE 
-                    `user_name` IN ('" . implode( "', '", $usernames ) . "');";
-        $res = $db->Query( $sql );
-        
-        $rows = array();
-        while ( $row = $res->FetchArray() ) {
-            $rows[ strtolower( $row[ 'user_name' ] ) ] = New User( $row );
-        }
-        
-        if ( $wasarray ) {
-            return $rows;
-        }
-        if ( count( $rows ) ) {
-            return array_shift( $rows );
-        }
-        return false;
-    }
-    
+	
+	$libs->Load( 'image/image' ); // for usericons
+	$libs->Load( 'color' );
+	
+	function User_ByUsername( $usernames ) {
+		global $db;
+		global $users;
+		global $images;
+		
+		if ( is_array( $usernames ) ) {
+			$wasarray = true;
+		}
+		else {
+			$wasarray = false;
+			$usernames = array( $usernames );
+		}
+		
+		if ( !count( $usernames ) ) {
+			return array();
+		}
+		
+		foreach ( $usernames as $i => $username ) {
+			$usernames[ $i ] = addslashes( $username );
+		}
+		
+		$sql = "SELECT 
+					`user_id`, `user_name`, `user_subdomain`,
+					`image_id`, `image_userid`
+				FROM 
+					`$users` LEFT JOIN `$images`
+						ON `user_icon` = `image_id`
+				WHERE 
+					`user_name` IN ('" . implode( "', '", $usernames ) . "');";
+		$res = $db->Query( $sql );
+		
+		$rows = array();
+		while ( $row = $res->FetchArray() ) {
+			$rows[ strtolower( $row[ 'user_name' ] ) ] = New User( $row );
+		}
+		
+		if ( $wasarray ) {
+			return $rows;
+		}
+		if ( count( $rows ) ) {
+			return array_shift( $rows );
+		}
+		return false;
+	}
+	
 	function User_DeriveSubdomain( $username ) {
 		/* RFC 1034 - They must start with a letter, 
 		end with a letter or digit,
@@ -66,30 +66,30 @@
 		return $matches[0];
 	}
 	
-    function User_BySubdomain( $subdomain ) {
-        global $db;
-        global $users;
+	function User_BySubdomain( $subdomain ) {
+		global $db;
+		global $users;
 		
 		if ( strlen( $subdomain ) < 1 ) {
 			return false;
 		}
 		$subdomain = myescape( $subdomain );
 		
-        $sql = "SELECT 
-                    `user_id`, `user_name`
-                FROM 
-                    `$users`
-                WHERE 
-                    `user_subdomain` = '$subdomain'
+		$sql = "SELECT 
+					`user_id`, `user_name`
+				FROM 
+					`$users`
+				WHERE 
+					`user_subdomain` = '$subdomain'
 				LIMIT 1;";
-        $res = $db->Query( $sql );
-        
-        $rows = array();
-        if ( $row = $res->FetchArray() ) {
-            return New User( $row[ 'user_id' ] );
-        }
-        
-        return false;
+		$res = $db->Query( $sql );
+		
+		$rows = array();
+		if ( $row = $res->FetchArray() ) {
+			return New User( $row[ 'user_id' ] );
+		}
+		
+		return false;
 	}
 	
 	function User_IpBan( $ip, $time, $sysopid = '' ) {
@@ -114,9 +114,9 @@
 		
 		return $db->Insert( $insert , $bans );
 	}
-    
-    function MakeUser( $username , $password , $email ) {
-        global $xc_settings;
+	
+	function MakeUser( $username , $password , $email ) {
+		global $xc_settings;
 		global $users;
 		global $db;
 		global $mc;
@@ -129,13 +129,13 @@
 			"servers" , "status" , "blogger", */
 			'anonymous', 'www', 'beta' );
 		
-        w_assert( $xc_settings[ "allowregisters" ] );
+		w_assert( $xc_settings[ "allowregisters" ] );
 		
 		$s_username = $username;
 		if ( !preg_match( "/^[A-Za-z][A-Za-z0-9_\-]+$/" , $username ) ) {
-            // Make sure the username contains valid characters
-            return 4;
-        }
+			// Make sure the username contains valid characters
+			return 4;
+		}
 		$subdomain = myescape( User_DeriveSubdomain( $username ) ); //is already escaped, but may be empty
 		$username = myescape( $username );
 		if ( mystrtolower( $username ) == "anonymous" ) { // The username anonymous is not allowed
@@ -161,26 +161,26 @@
 		$ip = UserIp();
 		$ip = addslashes( $ip );
 
-        // for security against spambot automated account creation
-        $sql = "SELECT 
-                    COUNT(*) AS numusers
-                FROM
-                    `$users`
-                WHERE
-                    `user_registerhost` = '$ip'
-                    AND `user_created` + INTERVAL 15 MINUTE > NOW()";
-        $sqlresult = $db->Query( $sql );
-        $row = $sqlresult->FetchArray();
-        if ( $row[ 'numusers' ] >= 2 ) {
-            return 5; // too many users from the same IP during the last 15 minutes
-        }
-        
+		// for security against spambot automated account creation
+		$sql = "SELECT 
+					COUNT(*) AS numusers
+				FROM
+					`$users`
+				WHERE
+					`user_registerhost` = '$ip'
+					AND `user_created` + INTERVAL 15 MINUTE > NOW()";
+		$sqlresult = $db->Query( $sql );
+		$row = $sqlresult->FetchArray();
+		if ( $row[ 'numusers' ] >= 2 ) {
+			return 5; // too many users from the same IP during the last 15 minutes
+		}
+		
 		$password = md5( $password );
 		$s_password = $password;
 		$password = addslashes( $password );
 		$email = addslashes( $email );
 		$sql = "INSERT INTO `$users` ( `user_id` , `user_name` , `user_password` , `user_created` , `user_registerhost` , `user_lastlogon` , `user_rights` , `user_email` , `user_subdomain` , `user_signature` , `user_icon` , `user_msn` , `user_yim` , `user_aim` , `user_icq` , `user_skype` )
-							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '30' , '$email' , '$subdomain' , '' , '' ,             ''    , ''    , ''    , '' , '' );";
+							   VALUES( '' , '$username' , '$password' , NOW(), '$ip' , '$nowdate' , '30' , '$email' , '$subdomain' , '' , '' ,			 ''	, ''	, ''	, '' , '' );";
 		$db->Query( $sql );
 		$_SESSION[ 's_username' ] = $s_username;
 		$_SESSION[ 's_password' ] = $s_password;
@@ -208,7 +208,7 @@
 			}
 			
 			$email		= myescape( $email );
-			$msn 		= ( $msn !== false ) ? myescape( $msn ) : myescape( $user->MSN() );
+			$msn		 = ( $msn !== false ) ? myescape( $msn ) : myescape( $user->MSN() );
 			$skype		= ( $skype !== false ) ? myescape( $skype ) : myescape( $user->Skype() );
 			$yim		= ( $yim !== false ) ? myescape( $yim ) : myescape( $user->YIM() );
 			$aim		= ( $aim !== false ) ? myescape( $aim ) : myescape( $user->AIM() );
@@ -241,7 +241,7 @@
 				$haircolor = myescape( $user->HairColor() );
 			}
 			else {
-				$haircolor 	= myescape( $haircolor );
+				$haircolor	 = myescape( $haircolor );
 			}
 			
 			if ( $gender != "-" && $gender != "male" && $gender != "female" ) {
@@ -351,14 +351,14 @@
 		global $db;
 		global $users;
 		global $mc;
-        global $water;
-        global $xc_settings;
+		global $water;
+		global $xc_settings;
 		
 		$latestusers = $mc->get( $key = 'latestusers' );
 		
 		if ( !is_array( $latestusers ) ) {
 			$sql = "SELECT 
-                        *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
 					FROM 
 						`$users` 
 					WHERE
@@ -368,10 +368,10 @@
 					DESC 
 					LIMIT 5;";
 			
-            $res = $db->Query( $sql );
+			$res = $db->Query( $sql );
 			$latestusers = array();
 			while ( $row = $res->FetchArray() ) {
-                $water->Trace( "user construct for new users", $row );
+				$water->Trace( "user construct for new users", $row );
 				$latestusers[] = New User( $row );
 			}
 			$mc->add( $key , $latestusers );
@@ -384,19 +384,19 @@
 		global $db;
 		global $users;
 		global $images;
-        global $water;
-        
+		global $water;
+		
 		$nowdate = NowDate();
-        
+		
 		$sql = "SELECT 
-                    * 
+					* 
 				FROM 
-                    `$users` LEFT JOIN `$images`
-                        ON `user_icon` = `image_id`
+					`$users` LEFT JOIN `$images`
+						ON `user_icon` = `image_id`
 				WHERE 
-                    ( '$nowdate' - INTERVAL 5 MINUTE ) < `user_lastactive` 
+					( '$nowdate' - INTERVAL 5 MINUTE ) < `user_lastactive` 
 				ORDER BY 
-                    `user_lastactive` DESC;";
+					`user_lastactive` DESC;";
 
 		$res = $db->Query( $sql );
 		$ret = array();
@@ -448,7 +448,7 @@
 		$sql = "SELECT 
 					`user_id`,
 					`user_name`,
-                    `user_subdomain`
+					`user_subdomain`
 				FROM 
 					`$users`
 				ORDER BY
@@ -518,21 +518,21 @@
 	
 	function CheckLogon( $logontype , $s_username = '' , $s_password = '' ) {
 		global $users;
-        global $images;
+		global $images;
 		global $user;
 		global $db;
 		global $xc_settings;
 		
 		if ( $logontype == "session" ) {
-            $s_username = myescape( $s_username );
-            $s_password = myescape( $s_password );
-            
+			$s_username = myescape( $s_username );
+			$s_password = myescape( $s_password );
+			
 			$sql = "SELECT 
 						*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
 
 					FROM 
 						`$users` LEFT JOIN `$images`
-                            ON `user_icon` = `image_id`
+							ON `user_icon` = `image_id`
 					WHERE 
 						`user_name`='$s_username' 
 						AND `user_password`='$s_password' 
@@ -562,17 +562,17 @@
 				$logininfos = explode( ':' , $logininfo );
 				$userid = $logininfos[ 0 ];
 				$userauth = $logininfos[ 1 ];
-                if ( strlen( $userauth ) != 32 ) {
-                    $user = new User( array() );
-                    return;
-                }
+				if ( strlen( $userauth ) != 32 ) {
+					$user = new User( array() );
+					return;
+				}
 				$userid = myescape( $userid );
 				$userauth = myescape( $userauth );
 				$sql = "SELECT 
 							* 
 						FROM 
 							`$users` LEFT JOIN `$images`
-                                ON `user_icon` = `image_id`
+								ON `user_icon` = `image_id`
 						WHERE 
 							`user_id`='$userid' 
 							AND `user_authtoken`='$userauth' 
@@ -596,13 +596,13 @@
 				}
 				else {
 					$user = new User( array() );
-                    return;
+					return;
 				}
 			}
 			else {
 				// anonymous 
 				$user = new User( array() );
-                return;
+				return;
 			}
 		}
 	}
@@ -612,11 +612,11 @@
 		global $user;
 		global $db;
 		global $water;
-        
-        if ( !is_object( $user ) ) {
-            $water->ThrowException( 'Uninitialized user object' );
-        }
-        
+		
+		if ( !is_object( $user ) ) {
+			$water->ThrowException( 'Uninitialized user object' );
+		}
+		
 		if ( !$user->CanModifyUsers() ) {
 			$ip = UserIp();
 			$sql = "SELECT 
@@ -681,10 +681,10 @@
 			
 			$res = $db->Query( $sql );
 			
-            $birthdays = array();
-            while ( $row = $res->FetchArray() ) {
-                $birthdays[] = New User( $row );
-            }
+			$birthdays = array();
+			while ( $row = $res->FetchArray() ) {
+				$birthdays[] = New User( $row );
+			}
 
 			$mc->add( $key , $birthdays );
 		}
@@ -729,7 +729,7 @@
 		private $mRegisterHost;
 		private $mQuestions, $mQIndex;
 		private $mAnsweredQuestions; // count
-        private $mUnansweredQuestions;
+		private $mUnansweredQuestions;
 		private $mPlace;
 		private $mLocation;
 		private $mLocationLoaded;
@@ -752,11 +752,11 @@
 		private $mWeight;
 		private $mEyeColor;
 		private $mHairColor;
-        private $mProfileColor;
+		private $mProfileColor;
 		private $mNumSmallNews;
 		private $mNumImages;
-        private $mUniid;
-        private $mFrel_type; // If the instance is a friend of the actual user
+		private $mUniid;
+		private $mFrel_type; // If the instance is a friend of the actual user
 		private $mSubdomain;
 		
 		public function Href() {
@@ -766,15 +766,15 @@
 			// $comment->Page()->Title()
 			return $this->Username();
 		}
-        public function Age() {
-            $nowdate = getdate();
-            $nowyear = $nowdate[ "year" ];
+		public function Age() {
+			$nowdate = getdate();
+			$nowyear = $nowdate[ "year" ];
 
-            return $nowyear - $this->mCreateYear;
-        }
-        public function Creation() {
-            return $this->mCreated;
-        }
+			return $nowyear - $this->mCreateYear;
+		}
+		public function Creation() {
+			return $this->mCreated;
+		}
 		public function Locked() {
 			return $this->mLocked;
 		}
@@ -916,14 +916,14 @@
 			return $this->mDOB;
 		}
 		public function Hobbies() {
-            global $libs;
+			global $libs;
 
 			if ( $this->mHobbies === false ) {
 				$libs->Load( 'interesttag' );
 				$tags = InterestTag_List( $this );
-                $hobbies = array();
+				$hobbies = array();
 				foreach ( $tags as $tag ) {
-                    $hobbies[] = $tag->Text;
+					$hobbies[] = $tag->Text;
 				}
 				$this->mHobbies = implode(', ', $hobbies);
 			}
@@ -950,59 +950,59 @@
 		public function Contribs() {
 			return $this->mContribs;
 		}
-        public function RenewAuthtoken() {
-            global $db;
-            global $users;
-            
-            // generate authtoken
-            // first generate 16 random bytes
-            // generate 8 pseurandom 2-byte sequences 
-            // (that's bad but generally conventional pseudorandom generation algorithms do not allow very high limits
-            // unless they repeatedly generate random numbers, so we'll have to go this way)
-            $bytes = array(); // the array of all our 16 bytes
-            for ( $i = 0; $i < 8 ; ++$i ) {
-                $bytesequence = rand(0, 65535); // generate a 2-bytes sequence
-                // split the two bytes
-                // lower-order byte
-                $a = $bytesequence & 255; // a will be 0...255
-                // higher-order byte
-                $b = $bytesequence >> 8; // b will also be 0...255
-                // append the bytes
-                $bytes[] = $a;
-                $bytes[] = $b;
-            }
-            // now that we have 16 "random" bytes, create a string of 32 characters,
-            // each of which will be a hex digit 0...f
-            $authtoken = ''; // start with an empty string
-            foreach ( $bytes as $byte ) {
-                // each byte is two authtoken digits
-                // split them up
-                $first = $byte & 15; // this will be 0...15
-                $second = $byte >> 4; // this will be 0...15 again
-                // convert decimal to hex and append
-                // order doesn't really matter, it's all random after all
-                $authtoken .= dechex($first) . dechex($second);
-            }
+		public function RenewAuthtoken() {
+			global $db;
+			global $users;
 			
-            $sql = "UPDATE `$users` SET `user_authtoken` = '$authtoken' WHERE `user_id` = '" . $this->Id() . "' LIMIT 1;";
-            $db->Query( $sql );
+			// generate authtoken
+			// first generate 16 random bytes
+			// generate 8 pseurandom 2-byte sequences 
+			// (that's bad but generally conventional pseudorandom generation algorithms do not allow very high limits
+			// unless they repeatedly generate random numbers, so we'll have to go this way)
+			$bytes = array(); // the array of all our 16 bytes
+			for ( $i = 0; $i < 8 ; ++$i ) {
+				$bytesequence = rand(0, 65535); // generate a 2-bytes sequence
+				// split the two bytes
+				// lower-order byte
+				$a = $bytesequence & 255; // a will be 0...255
+				// higher-order byte
+				$b = $bytesequence >> 8; // b will also be 0...255
+				// append the bytes
+				$bytes[] = $a;
+				$bytes[] = $b;
+			}
+			// now that we have 16 "random" bytes, create a string of 32 characters,
+			// each of which will be a hex digit 0...f
+			$authtoken = ''; // start with an empty string
+			foreach ( $bytes as $byte ) {
+				// each byte is two authtoken digits
+				// split them up
+				$first = $byte & 15; // this will be 0...15
+				$second = $byte >> 4; // this will be 0...15 again
+				// convert decimal to hex and append
+				// order doesn't really matter, it's all random after all
+				$authtoken .= dechex($first) . dechex($second);
+			}
+			
+			$sql = "UPDATE `$users` SET `user_authtoken` = '$authtoken' WHERE `user_id` = '" . $this->Id() . "' LIMIT 1;";
+			$db->Query( $sql );
 			
 			$this->mAuthtoken = $authtoken;
-        }
+		}
 		public function AddContrib() {
 			global $users;
 			global $db;
 			
-            $sql = "UPDATE `$users` SET `user_contribs` = `user_contribs` + 1 WHERE `user_id`='" . $this->Id() . "';";
+			$sql = "UPDATE `$users` SET `user_contribs` = `user_contribs` + 1 WHERE `user_id`='" . $this->Id() . "';";
 
 			$change = $db->Query( $sql );
 
-            if ( $change->Impact() ) {
-               ++$this->mContribs;
+			if ( $change->Impact() ) {
+			   ++$this->mContribs;
 
-               return true;
-            }
-            return false;
+			   return true;
+			}
+			return false;
 		}
 		public function RemoveContrib() {
 			global $users;
@@ -1012,12 +1012,12 @@
 
 			$change = $db->Query( $sql );
 
-            if ( $change->Impact() ) {
-                --$this->mContribs;
+			if ( $change->Impact() ) {
+				--$this->mContribs;
 
-                return true;
-            }
-            return false;
+				return true;
+			}
+			return false;
 		}
 		public function Description() {
 			// TODO: This function should be turned into an element
@@ -1042,7 +1042,7 @@
 			global $db;
 			
 			if ( !$this->mLocationLoaded ) {
-                $place = New Place( $this->mPlace );
+				$place = New Place( $this->mPlace );
 				$this->mLocation = $place->Name;
 				$this->mLocationLoaded = true;
 			}
@@ -1083,9 +1083,9 @@
 		public function CountImages() {
 			return $this->mNumImages;
 		}
-        public function CountPolls() {
-            return $this->mNumPolls; 
-        }
+		public function CountPolls() {
+			return $this->mNumPolls; 
+		}
 		public function GetFullContributions() {
 			global $comments;
 			global $users;
@@ -1102,17 +1102,17 @@
 			$this->mFullContributions = $sqlcontribs[ "contribs" ];
 		}
 		public function AnsweredQuestions() {
-            if ( $this->mAnsweredQuestions === false ) {
-                $this->GetUnansweredQuestion();
-            }
+			if ( $this->mAnsweredQuestions === false ) {
+				$this->GetUnansweredQuestion();
+			}
 			return $this->mAnsweredQuestions;
 		}
-        public function UnansweredQuestions() {
-            if ( $this->mUnansweredQuestions === false ) {
-                $this->GetUnansweredQuestion();
-            }
-            return $this->mUnansweredQuestions;
-        }
+		public function UnansweredQuestions() {
+			if ( $this->mUnansweredQuestions === false ) {
+				$this->GetUnansweredQuestion();
+			}
+			return $this->mUnansweredQuestions;
+		}
 		public function GetUnansweredQuestion() {
 			global $questions;
 			global $profileanswers;
@@ -1131,7 +1131,7 @@
 				return false;
 			}
 
-            $allquestions = array();
+			$allquestions = array();
 			while ( $row = $res->FetchArray() ) {
 				$allquestions[ $row[ 'profileq_id' ] ] = $row;
 			}
@@ -1150,9 +1150,9 @@
 			}
 			
 			if ( count( $allquestions ) > 0 ) {
-    			$selection = rand( 0, count( $allquestions ) - 1 );
-                $allquestions = array_values( $allquestions );
-		        return New Question( $allquestions[ $selection ] );
+				$selection = rand( 0, count( $allquestions ) - 1 );
+				$allquestions = array_values( $allquestions );
+				return New Question( $allquestions[ $selection ] );
 			}
 
 			return false;
@@ -1259,7 +1259,7 @@
 						
 						FROM
 							`$profileanswers` CROSS JOIN `$questions`
-                                ON `profile_questionid`=`profileq_id`
+								ON `profile_questionid`=`profileq_id`
 						WHERE
 							`profile_userid`='" . $this->mId . "' AND
 							`profile_delid`='0' AND
@@ -1469,18 +1469,18 @@
 			global $users;
 			global $images;
 			global $friendrel;
-            
+			
 			$userid = $this->Id();
 			
 			$sql = "SELECT 
 						`relation_userid`, `relation_created`, `user_id` , `user_name`, `user_subdomain`
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
-                        `image_id`, `image_userid`, `frel_type`
+						`image_id`, `image_userid`, `frel_type`
 					FROM 
 						`$relations`
 							RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
 							CROSS JOIN `$users` ON `relation_userid` = `user_id` 
-                            LEFT JOIN `$images` ON `user_icon` = `image_id`
+							LEFT JOIN `$images` ON `user_icon` = `image_id`
 					WHERE 
 						`relation_friendid` = '$userid'";
 						
@@ -1497,19 +1497,19 @@
 			global $db;
 			global $relations;
 			global $users;
-            global $images;
-            global $friendrel;
+			global $images;
+			global $friendrel;
 			
 			$userid = $this->Id();
 			$sql = "SELECT 
 						`relation_friendid`, `relation_created`, `user_id` , `user_name`, `user_subdomain`
 						`user_lastprofedit`, `user_icon`, `user_rights` , `user_hobbies`,
-                        `image_id`, `image_userid`, `frel_type`
+						`image_id`, `image_userid`, `frel_type`
 					FROM 
 						`$relations` 
 							RIGHT JOIN `$friendrel` ON `frel_id` = `relation_type`
 							CROSS JOIN `$users` ON `relation_friendid` = `user_id` 
-                            LEFT JOIN `$images` ON `user_icon` = `image_id`   
+							LEFT JOIN `$images` ON `user_icon` = `image_id`   
 					WHERE 
 						`relation_userid` = '$userid'";
 						
@@ -1785,32 +1785,32 @@
 		public function HairColor() {
 			return $this->mHairColor;
 		}
-        public function SetProfileColor( $color ) {
-            global $db;
-            global $users;
-            
-            w_assert( is_int( $color ) );
-            
-            return $db->Query(
-                "UPDATE
-                    `$users`
-                SET
-                    `user_profilecolor` = " . $color . "
-                WHERE
-                    `user_id` = " . $this->Id() . "
-                LIMIT 1"
-            )->Impact();
-        }
-        public function ProfileColor() {
-            return $this->mProfileColor;
-        }
+		public function SetProfileColor( $color ) {
+			global $db;
+			global $users;
+			
+			w_assert( is_int( $color ) );
+			
+			return $db->Query(
+				"UPDATE
+					`$users`
+				SET
+					`user_profilecolor` = " . $color . "
+				WHERE
+					`user_id` = " . $this->Id() . "
+				LIMIT 1"
+			)->Impact();
+		}
+		public function ProfileColor() {
+			return $this->mProfileColor;
+		}
 		public function User( $construct ) {
 			global $db;
 			global $users;
 			global $images;
 			global $water;
-            global $xc_settings;
-            
+			global $xc_settings;
+			
 			if ( is_array( $construct ) ) {
 				// fetched array
 				$fetched_array = $construct;
@@ -1819,25 +1819,25 @@
 				// by id
 				$id = myescape( $construct );
 				$sql = "SELECT 
-                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-                        FROM 
-                            `$users` LEFT JOIN `$images`
-                                ON `user_icon` = `image_id`
-                        WHERE 
-                            `user_id` = '$id' 
-                        LIMIT 1;";
+							*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+						FROM 
+							`$users` LEFT JOIN `$images`
+								ON `user_icon` = `image_id`
+						WHERE 
+							`user_id` = '$id' 
+						LIMIT 1;";
 			}
 			else {
 				// by username
-                $username = myescape( $construct );
+				$username = myescape( $construct );
 				$sql = "SELECT 
-                            *, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
-                        FROM 
-                            `$users` LEFT JOIN `$images`
-                                ON `user_icon` = `image_id`
-                        WHERE 
-                            `user_name`='$username' 
-                        LIMIT 1;";
+							*, ( `user_created` " . $xc_settings[ "mysql2phpdate" ] . " ) AS `user_cutedate`
+						FROM 
+							`$users` LEFT JOIN `$images`
+								ON `user_icon` = `image_id`
+						WHERE 
+							`user_name`='$username' 
+						LIMIT 1;";
 			}
 			if ( !isset( $fetched_array ) ) {
 				$res = $db->Query( $sql );
@@ -1848,57 +1848,57 @@
 				$fetched_array = $res->FetchArray();
 			}
 	
-			$this->mId		          	= isset( $fetched_array[ "user_id" ]                ) ? $fetched_array[ "user_id" ]               : 0;
-			$this->mRights		      	= isset( $fetched_array[ "user_rights" ]            ) ? $fetched_array[ "user_rights" ]           : 0;
-            if ( isset( $fetched_array[ 'image_id' ] ) ) {
-                $this->mIcon = New Image( $fetched_array );
-            }
-            if ( isset( $fetched_array[ 'frel_type' ] ) ) {
-            	$this->mFrel_type = $fetched_array[ 'frel_type' ];
-            }
-			$this->mPlace		      	= isset( $fetched_array[ "user_place" ]             ) ? $fetched_array[ "user_place" ]        		: 0;
-			$this->mUniid				= isset( $fetched_array[ "user_uniid" ] 			) ? $fetched_array[ "user_uniid" ]				: 0;
-			$this->mBlog		      	= isset( $fetched_array[ "user_blogid" ]            ) ? $fetched_array[ "user_blogid" ]       		: 0;
-			$this->mTemplate	      	= isset( $fetched_array[ "user_templateid" ]        ) ? $fetched_array[ "user_templateid" ]     	: 0;
-			$this->mICQ		          	= isset( $fetched_array[ "user_icq" ]               ) ? $fetched_array[ "user_icq" ]            	: '0';
-			$this->mUsername	      	= isset( $fetched_array[ "user_name" ]              ) ? $fetched_array[ "user_name" ]           	: '';
-			$this->mPassword	      	= isset( $fetched_array[ "user_password" ]          ) ? $fetched_array[ "user_password" ]        	: '';
-			$this->mSubdomain	      	= isset( $fetched_array[ "user_subdomain" ]         ) ? $fetched_array[ "user_subdomain" ]          : '';
-			$this->mSignature	      	= isset( $fetched_array[ "user_signature" ]         ) ? $fetched_array[ "user_signature" ]        	: '';
-			$this->mEmail		      	= isset( $fetched_array[ "user_email" ]             ) ? $fetched_array[ "user_email" ]            	: '';
-			$this->mMSN		          	= isset( $fetched_array[ "user_msn" ]               ) ? $fetched_array[ "user_msn" ]              	: '';
-			$this->mSkype				= isset( $fetched_array[ "user_skype" ]				) ? $fetched_array[ "user_skype" ]			  	: '';
-			$this->mYIM		          	= isset( $fetched_array[ "user_yim" ]               ) ? $fetched_array[ "user_yim" ]              	: '';
-			$this->mAIM		          	= isset( $fetched_array[ "user_aim" ]               ) ? $fetched_array[ "user_aim" ]              	: '';
-			$this->mGTalk		      	= isset( $fetched_array[ "user_gtalk" ]             ) ? $fetched_array[ "user_gtalk" ]            	: '';
-			$this->mHobbies		      	= false;
-			$this->mSubtitle	      	= isset( $fetched_array[ "user_subtitle" ]          ) ? $fetched_array[ "user_subtitle" ]         	: '';
-			$this->mLastLogon	      	= isset( $fetched_array[ "user_lastlogon" ]         ) ? $fetched_array[ "user_lastlogon" ]        	: '0000-00-00 00:00:00';
+			$this->mId					  = isset( $fetched_array[ "user_id" ]				) ? $fetched_array[ "user_id" ]			   : 0;
+			$this->mRights				  = isset( $fetched_array[ "user_rights" ]			) ? $fetched_array[ "user_rights" ]		   : 0;
+			if ( isset( $fetched_array[ 'image_id' ] ) ) {
+				$this->mIcon = New Image( $fetched_array );
+			}
+			if ( isset( $fetched_array[ 'frel_type' ] ) ) {
+				$this->mFrel_type = $fetched_array[ 'frel_type' ];
+			}
+			$this->mPlace				  = isset( $fetched_array[ "user_place" ]			 ) ? $fetched_array[ "user_place" ]				: 0;
+			$this->mUniid				= isset( $fetched_array[ "user_uniid" ]			 ) ? $fetched_array[ "user_uniid" ]				: 0;
+			$this->mBlog				  = isset( $fetched_array[ "user_blogid" ]			) ? $fetched_array[ "user_blogid" ]			   : 0;
+			$this->mTemplate			  = isset( $fetched_array[ "user_templateid" ]		) ? $fetched_array[ "user_templateid" ]		 : 0;
+			$this->mICQ					  = isset( $fetched_array[ "user_icq" ]			   ) ? $fetched_array[ "user_icq" ]				: '0';
+			$this->mUsername			  = isset( $fetched_array[ "user_name" ]			  ) ? $fetched_array[ "user_name" ]			   : '';
+			$this->mPassword			  = isset( $fetched_array[ "user_password" ]		  ) ? $fetched_array[ "user_password" ]			: '';
+			$this->mSubdomain			  = isset( $fetched_array[ "user_subdomain" ]		 ) ? $fetched_array[ "user_subdomain" ]		  : '';
+			$this->mSignature			  = isset( $fetched_array[ "user_signature" ]		 ) ? $fetched_array[ "user_signature" ]			: '';
+			$this->mEmail				  = isset( $fetched_array[ "user_email" ]			 ) ? $fetched_array[ "user_email" ]				: '';
+			$this->mMSN					  = isset( $fetched_array[ "user_msn" ]			   ) ? $fetched_array[ "user_msn" ]				  : '';
+			$this->mSkype				= isset( $fetched_array[ "user_skype" ]				) ? $fetched_array[ "user_skype" ]				  : '';
+			$this->mYIM					  = isset( $fetched_array[ "user_yim" ]			   ) ? $fetched_array[ "user_yim" ]				  : '';
+			$this->mAIM					  = isset( $fetched_array[ "user_aim" ]			   ) ? $fetched_array[ "user_aim" ]				  : '';
+			$this->mGTalk				  = isset( $fetched_array[ "user_gtalk" ]			 ) ? $fetched_array[ "user_gtalk" ]				: '';
+			$this->mHobbies				  = false;
+			$this->mSubtitle			  = isset( $fetched_array[ "user_subtitle" ]		  ) ? $fetched_array[ "user_subtitle" ]			 : '';
+			$this->mLastLogon			  = isset( $fetched_array[ "user_lastlogon" ]		 ) ? $fetched_array[ "user_lastlogon" ]			: '0000-00-00 00:00:00';
 
-            $this->mCreated		      	= isset( $fetched_array[ "user_cutedate" ]           ) ? $fetched_array[ "user_cutedate" ]          	: '0000-00-00 00:00:00';
-			$this->mDOB		         	= isset( $fetched_array[ "user_dob" ]               ) ? $fetched_array[ "user_dob" ]              	: '0000-00-00 00:00:00';
-			$this->mLPE		          	= isset( $fetched_array[ "user_lastprofedit" ]      ) ? $fetched_array[ "user_lastprofedit" ]     	: '0000-00-00 00:00:00';
-			$this->mLastActive        	= isset( $fetched_array[ "user_lastactive" ]        ) ? $fetched_array[ "user_lastactive" ]       	: '0000-00-00';
-			$this->mRegisterHost      	= isset( $fetched_array[ "user_registerhost" ]      ) ? $fetched_array[ "user_registerhost" ]     	: '0.0.0.0';
-			$this->mGender		      	= isset( $fetched_array[ "user_gender" ]            ) ? $fetched_array[ "user_gender" ]        		: 'male';
-			$this->mNumComments			= isset( $fetched_array[ "user_numcomments" ] 		) ? $fetched_array[ "user_numcomments" ]		: 0;
-			$this->mAuthtoken			= isseT( $fetched_array[ "user_authtoken" ] 		) ? $fetched_array[ "user_authtoken" ]			: "";
-			//$this->mLowRes		      	= isset( $fetched_array[ "user_lowres" ]            ) && $fetched_array[ "user_lowres" ]            == "yes";
-			$this->mLocked		      	= isset( $fetched_array[ "user_locked" ]            ) ? ( $fetched_array[ "user_locked" ]            == "yes" ) : false;
-			$this->mShoutboxActivated 	= isset( $fetched_array[ "user_shoutboxactivated" ] ) ? ( $fetched_array[ "user_shoutboxactivated" ] == "yes" ) : false;
-			$this->mHeight				= isset( $fetched_array[ "user_height" ] 			) ? $fetched_array[ "user_height" ]				: "";
+			$this->mCreated				  = isset( $fetched_array[ "user_cutedate" ]		   ) ? $fetched_array[ "user_cutedate" ]			  : '0000-00-00 00:00:00';
+			$this->mDOB					 = isset( $fetched_array[ "user_dob" ]			   ) ? $fetched_array[ "user_dob" ]				  : '0000-00-00 00:00:00';
+			$this->mLPE					  = isset( $fetched_array[ "user_lastprofedit" ]	  ) ? $fetched_array[ "user_lastprofedit" ]		 : '0000-00-00 00:00:00';
+			$this->mLastActive			= isset( $fetched_array[ "user_lastactive" ]		) ? $fetched_array[ "user_lastactive" ]		   : '0000-00-00';
+			$this->mRegisterHost		  = isset( $fetched_array[ "user_registerhost" ]	  ) ? $fetched_array[ "user_registerhost" ]		 : '0.0.0.0';
+			$this->mGender				  = isset( $fetched_array[ "user_gender" ]			) ? $fetched_array[ "user_gender" ]				: 'male';
+			$this->mNumComments			= isset( $fetched_array[ "user_numcomments" ]		 ) ? $fetched_array[ "user_numcomments" ]		: 0;
+			$this->mAuthtoken			= isseT( $fetched_array[ "user_authtoken" ]		 ) ? $fetched_array[ "user_authtoken" ]			: "";
+			//$this->mLowRes				  = isset( $fetched_array[ "user_lowres" ]			) && $fetched_array[ "user_lowres" ]			== "yes";
+			$this->mLocked				  = isset( $fetched_array[ "user_locked" ]			) ? ( $fetched_array[ "user_locked" ]			== "yes" ) : false;
+			$this->mShoutboxActivated	 = isset( $fetched_array[ "user_shoutboxactivated" ] ) ? ( $fetched_array[ "user_shoutboxactivated" ] == "yes" ) : false;
+			$this->mHeight				= isset( $fetched_array[ "user_height" ]			 ) ? $fetched_array[ "user_height" ]				: "";
 			$this->mWeight				= isset( $fetched_array[ "user_weight" ]			) ? $fetched_array[ "user_weight" ]				: "";
 			$this->mEyeColor			= isset( $fetched_array[ "user_eyecolor" ]			) ? $fetched_array[ "user_eyecolor" ]			: "";
 			$this->mHairColor			= isset( $fetched_array[ "user_haircolor" ]			) ? $fetched_array[ "user_haircolor" ]			: "";
-            $this->mProfileColor        = isset( $fetched_array[ "user_profilecolor" ]      ) ? $fetched_array[ "user_profilecolor" ]       : Color_Encode( 255, 255, 255 );
+			$this->mProfileColor		= isset( $fetched_array[ "user_profilecolor" ]	  ) ? $fetched_array[ "user_profilecolor" ]	   : Color_Encode( 255, 255, 255 );
 			$this->mNumSmallNews		= isset( $fetched_array[ "user_numsmallnews" ]		) ? $fetched_array[ "user_numsmallnews" ]		: 0;
-			$this->mPageviews		  	= isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
+			$this->mPageviews			  = isset( $fetched_array[ "user_profviews" ]			) ? $fetched_array[ "user_profviews" ]			: 0;
 			$this->mNumImages			= isset( $fetched_array[ "user_numimages" ]			) ? $fetched_array[ "user_numimages" ]			: 0;
-            $this->mNumPolls            = isset( $fetched_array[ "user_numpolls" ]          ) ? $fetched_array[ "user_numpolls" ]           : 0;
+			$this->mNumPolls			= isset( $fetched_array[ "user_numpolls" ]		  ) ? $fetched_array[ "user_numpolls" ]		   : 0;
 			
 			$this->mArticlesPageviews	= false;
-			$this->mPopularity 		  	= false;
-			$this->mContribs		 	= isset( $fetched_array[ "user_contribs" ] ) ? $fetched_array[ "user_contribs" ] : 0;
+			$this->mPopularity			   = false;
+			$this->mContribs			 = isset( $fetched_array[ "user_contribs" ] ) ? $fetched_array[ "user_contribs" ] : 0;
 			$this->mPositionPoints = intval( $this->mContribs * 0.5 );
 			$this->mArticlesNum			= false;
 			$this->mGotAnsweredQuestions = false;
@@ -1921,8 +1921,8 @@
 			$this->mDaysSinceRegister = daysDistance( $this->mCreated );
 			$this->mActiveSince = dateDiff( $this->mLastActive , NowDate() );
 			$this->mLogonDate = MakeDate( $this->mLastLogon );
-            $this->mAnsweredQuestions = false;
-            $this->mUnansweredQuestions = false;
+			$this->mAnsweredQuestions = false;
+			$this->mUnansweredQuestions = false;
 
 		}
 	}
@@ -2051,25 +2051,25 @@
 		
 		return $row[ 'user_profviews' ];
 	}
-    
-    // TODO: move into element
+	
+	// TODO: move into element
 	function RankToText( $rank ) {
 		if ( $rank < 10 ) {
 			return "Ύπαρξη"; // 0
-        }
+		}
 		if ( $rank >= 50 ) {
 			return "Δημοσιογράφος"; // 40
-        }
+		}
 		if ( $rank >= 40 ) {
 			return "Μέλος Ομάδας Δημοσίων Σχέσεων"; // 40
-        }
+		}
 		if ( $rank >= 30 ) {
 			return "Δημοσιογράφος"; // 30
-        }
+		}
 		if ( $rank >= 20 ) {
 			return "Διαχειριστής"; // 20
-        }
-        return "Χρήστης"; // 10
+		}
+		return "Χρήστης"; // 10
 	}	
 	
 	function Search_User( $q ) {

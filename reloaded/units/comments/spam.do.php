@@ -16,24 +16,24 @@
 		echo $id;
 		?>' );
 		
-        for ( i in element.childNodes ) {
-            child = element.childNodes[ i ];
-            if ( child.nodeType == 1 ) {
-                child.style.display = 'none';
-            }
-        }
-        
-        loading = document.createElement( 'span' );
-        loading.appendChild( document.createTextNode( 'Διαγραφή...' ) );
-        
-        element.appendChild( loading );<?php
+		for ( i in element.childNodes ) {
+			child = element.childNodes[ i ];
+			if ( child.nodeType == 1 ) {
+				child.style.display = 'none';
+			}
+		}
+		
+		loading = document.createElement( 'span' );
+		loading.appendChild( document.createTextNode( 'Διαγραφή...' ) );
+		
+		element.appendChild( loading );<?php
 		
 		$comment = new Comment( $id );
 		$comment->Kill();
 		
 		?>for ( i in loading.childNodes ) {
-            loading.removeChild( loading.childNodes[ i ] );
-        }
+			loading.removeChild( loading.childNodes[ i ] );
+		}
 		
 		loading.appendChild( document.createTextNode( 'Ban <?php
 		echo $comment->Ip();
@@ -42,8 +42,8 @@
 		User_IpBan( $comment->Ip(), "7" * 60 * 60 * 24 );
 		
 		?>for ( i in loading.childNodes ) {
-            loading.removeChild( loading.childNodes[ i ] );
-        }<?php
+			loading.removeChild( loading.childNodes[ i ] );
+		}<?php
 	}
 
 ?>

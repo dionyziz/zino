@@ -31,52 +31,52 @@
 		protected $mUpdateIp;
 		protected $mDelId;
 		
-        // no privcheck after this point
+		// no privcheck after this point
 		public function Delete() {
 			global $user;
-            global $users;
+			global $users;
 			global $db;
 			
-            $this->DelId = 1;
+			$this->DelId = 1;
 			$change = $this->Save();
-            
+			
 			if ( $change->Impact() ) {
 				$sql = "UPDATE 
-                            `$users` 
-                        SET 
-                            `user_place` = '0' 
-                        WHERE 
-                            `user_place` = '" . $this->Id . "';";
+							`$users` 
+						SET 
+							`user_place` = '0' 
+						WHERE 
+							`user_place` = '" . $this->Id . "';";
 				$db->Query( $sql );
 			}
-            return $change;
+			return $change;
 		}
 		public function Place( $construct = false ) {
 			global $db;
 			global $places;
 			global $user;
-            
-            $this->mDb = $db;
-            $this->mDbTable = $places;
-            $this->SetFields( array(
-                'place_id'           => 'Id',
-                'place_name'         => 'Name',
-                'place_x'            => 'X',
-                'place_y'            => 'Y',
-                'place_updateuserid' => 'UpdateUserId',
-                'place_updatedate'   => 'UpdateDate',
-                'place_updateip'     => 'UpdateIp',
-                'place_delid'        => 'DelId'
-            ) );
-            // defaults
-            $this->UpdateUserId = $user->Id();
-            $this->UpdateDate   = NowDate();
-            $this->UpdateIp     = UserIp();
-            $this->DelId        = 0;
-            $this->mX           = 0;
-            $this->mY           = 0;
-            
-            $this->Satori( $construct );
+			
+			$this->mDb = $db;
+			$this->mDbTable = $places;
+			$this->SetFields( array(
+				'place_id'		   => 'Id',
+				'place_name'		 => 'Name',
+				'place_x'			=> 'X',
+				'place_y'			=> 'Y',
+				'place_updateuserid' => 'UpdateUserId',
+				'place_updatedate'   => 'UpdateDate',
+				'place_updateip'	 => 'UpdateIp',
+				'place_delid'		=> 'DelId'
+			) );
+			// defaults
+			$this->UpdateUserId = $user->Id();
+			$this->UpdateDate   = NowDate();
+			$this->UpdateIp	 = UserIp();
+			$this->DelId		= 0;
+			$this->mX		   = 0;
+			$this->mY		   = 0;
+			
+			$this->Satori( $construct );
 		}
 	}
 ?>

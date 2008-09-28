@@ -3,7 +3,7 @@
 		global $user;
 		global $page;
 		global $xc_settings;
-        
+		
 		$page->SetTitle( 'Συχνές ερωτήσεις' );
 		
 		Element( 'faq/header' );
@@ -14,8 +14,8 @@
 				?><div style="100%; text-align: right; margin-bottom: 3px;">
 					<a href="?p=addfaqq" title="Νέα Ερώτηση">
 						<img style="width: 16px; height: 16px;" src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/page_new.gif" /> Νέα Ερώτηση
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/page_new.gif" /> Νέα Ερώτηση
 					</a>
 				</div><?php
 			}

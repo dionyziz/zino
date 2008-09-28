@@ -37,7 +37,7 @@
 								$hobsar = explode( ",", htmlspecialchars( $fan->Hobbies() ) );
 								$hobbis = "";
 								foreach ( $hobsar as $hob ) {
-                                    $hob = trim( $hob );
+									$hob = trim( $hob );
 									$hobbis .= "<a href='tag/" . htmlspecialchars( urlencode( $hob ) ) . "'>" . htmlspecialchars( $hob ) . "</a>,";
 								}
 								$hobbis[ strlen( $hobbis )-1 ] = " "; // Remove the last comma

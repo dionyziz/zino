@@ -981,7 +981,7 @@ jQuery.extend({
 					!tags.indexOf("<tr") &&
 					[ 2, "<table><tbody>", "</tbody></table>" ] ||
 					
-				 	// <thead> matched above
+					 // <thead> matched above
 					(!tags.indexOf("<td") || !tags.indexOf("<th")) &&
 					[ 3, "<table><tbody><tr>", "</tr></tbody></table>" ] ||
 					
@@ -3314,12 +3314,12 @@ jQuery.fn.offset = function() {
 	var left = 0, top = 0, elem = this[0], results;
 	
 	if ( elem ) with ( jQuery.browser ) {
-		var parent       = elem.parentNode, 
-		    offsetChild  = elem,
-		    offsetParent = elem.offsetParent, 
-		    doc          = elem.ownerDocument,
-		    safari2      = safari && parseInt(version) < 522 && !/adobeair/i.test(userAgent),
-		    fixed        = jQuery.css(elem, "position") == "fixed";
+		var parent	   = elem.parentNode, 
+			offsetChild  = elem,
+			offsetParent = elem.offsetParent, 
+			doc		  = elem.ownerDocument,
+			safari2	  = safari && parseInt(version) < 522 && !/adobeair/i.test(userAgent),
+			fixed		= jQuery.css(elem, "position") == "fixed";
 	
 		// Use getBoundingClientRect if available
 		if ( elem.getBoundingClientRect ) {
@@ -3409,7 +3409,7 @@ jQuery.fn.offset = function() {
 // Create innerHeight, innerWidth, outerHeight and outerWidth methods
 jQuery.each(["Height", "Width"], function(i, name){
 
-	var tl = name == "Height" ? "Top"    : "Left",  // top or left
+	var tl = name == "Height" ? "Top"	: "Left",  // top or left
 		br = name == "Height" ? "Bottom" : "Right"; // bottom or right
 	
 	// innerHeight and innerWidth

@@ -13,7 +13,7 @@
 		if ( !$res->Results() ) {
 			$sql = "INSERT INTO `$ricons`
 					( `ricon_id` , `ricon_imageid` , `ricon_adminid` , `ricon_date` , `ricon_adminhost` )
-					VALUES( '' ,      '$id' ,  '" . $user->Id() . "' , '" . NowDate() . "' , '" . UserIp() . "' ); ";
+					VALUES( '' ,	  '$id' ,  '" . $user->Id() . "' , '" . NowDate() . "' , '" . UserIp() . "' ); ";
 			$db->Query( $sql );
 		}
 	}

@@ -6,10 +6,10 @@ div.header {
 	margin: 0 30px 0 30px;
 }
 div.header a.novisual {
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	display: block;
 }
 div.header a {
 	font-weight: bold;
@@ -25,10 +25,10 @@ div.header h1 {
 	font-weight: normal;
 	margin: 0;
 	padding: 0;
-    height: 50px;
-    width: 90px;
+	height: 50px;
+	width: 90px;
 	top: 0;
-    _top: 3px;
+	_top: 3px;
 	left: 0;
 	position: absolute;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -512px;
@@ -38,14 +38,14 @@ div.header h1 {
 }
 div.header div.eof {
 	display: inline;
-    clear: none;
+	clear: none;
 	margin: 0;
 	padding: 0;
 	top: 0;
-    _top: 3px;
+	_top: 3px;
 	right: 0;
-    width: 71px;
-    height: 50px;
+	width: 71px;
+	height: 50px;
 	position: absolute;
 	background: url( 'http://static.zino.gr/phoenix/icons.jpg' ) no-repeat 0 -613px;
 	/*background-image: url('http://static.zino.gr/phoenix/banner-end2.jpg');
@@ -69,7 +69,7 @@ div.header ul li {
 	color: white;
 }
 div.header ul li a.unread {
-    color: #FF0044;
+	color: #FF0044;
 }
 div.header ul li a {
 	padding-left: 0;
@@ -90,9 +90,9 @@ div.header ul li a.login span {
 	/*background-image: url('http://static.zino.gr/phoenix/up.png');*/
 }
 div.header ul li a.profile img {
-    vertical-align: bottom;
-    margin-right: 6px;
-    border: 1px solid #eee;
+	vertical-align: bottom;
+	margin-right: 6px;
+	border: 1px solid #eee;
 }
 div.header ul li a.register span {
 	padding-left: 12px;
@@ -113,10 +113,10 @@ div.header ul li input {
 	border: 1px solid #999;
 }
 div.header ul li input.button {
-    background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
 div.header a.logout {
-    z-index: 100;
+	z-index: 100;
 	position: absolute;
 	right: 8px;
 	top: 6px;

@@ -40,14 +40,14 @@
 			foreach( $relations as $relation ) {
 				$id = $relation->Id;
 				?><li <?php
-                if ( $user->CanModifyCategories() ) {
-                    ?>onmouseout="Relations.hideLinks( <?php
-                        echo $id;
-                    ?> )" onmouseover="Relations.showLinks( <?php
-                        echo $id;
-                    ?> )" <?php
-                }
-                ?>id="relation_<?php
+				if ( $user->CanModifyCategories() ) {
+					?>onmouseout="Relations.hideLinks( <?php
+						echo $id;
+					?> )" onmouseover="Relations.showLinks( <?php
+						echo $id;
+					?> )" <?php
+				}
+				?>id="relation_<?php
 				echo $id;
 				?>"><span id="rraw_<?php
 				echo $id;

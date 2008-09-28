@@ -1,17 +1,17 @@
 <?php
 
-    class ElementDeveloperAbresasSearch extends Element {
-        public function Render() {
-            global $libs;
-            $libs->Load( 'search' );
+	class ElementDeveloperAbresasSearch extends Element {
+		public function Render() {
+			global $libs;
+			$libs->Load( 'search' );
 
-            $user = New User();
+			$user = New User();
 
-            $search = New Search( $user );
-            $users = $search->Get();
+			$search = New Search( $user );
+			$users = $search->Get();
 
-            print_r( $users );
-        }
+			print_r( $users );
+		}
 
-    }
+	}
 ?>

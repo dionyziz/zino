@@ -71,10 +71,10 @@ var Profileq = {
 		qform.appendChild( qcancel );
 		element.appendChild( qform );
 	},
-    EditCallback : function( id, answer, answerraw ) {
+	EditCallback : function( id, answer, answerraw ) {
 		var q = document.getElementById( 'qedit_' + id );
 		while ( q.firstChild ) {
-   			q.removeChild( q.firstChild );
+			   q.removeChild( q.firstChild );
 		}
 		
 		var l = document.createElement( 'a' );
@@ -106,9 +106,9 @@ var Profileq = {
 		q.appendChild( d.createTextNode( " " ) );
 		q.appendChild( qdeletelink );
 
-        g( 'qraw_' + id ).firstChild.nodeValue = answerraw;
-    },
-    EditCancel : function( id, answer ) {
+		g( 'qraw_' + id ).firstChild.nodeValue = answerraw;
+	},
+	EditCancel : function( id, answer ) {
 		var element = g( 'qedit_' + id );
 		while (element.firstChild) {
 			element.removeChild(element.firstChild);
@@ -183,25 +183,25 @@ var Profileq = {
 		}
 		element.removeChild(form);
 
-        var bigdiv = d.createElement( 'div' );
-        bigdiv.id = 'qedit_' + id;
-        bigdiv.innerHTML = answer;
+		var bigdiv = d.createElement( 'div' );
+		bigdiv.id = 'qedit_' + id;
+		bigdiv.innerHTML = answer;
 
-        var editb = d.createElement( 'a' );
-        editb.onclick = function () {
-                    Profileq.Edit(id);
-                    return false;
-                };
-        editb.href='';
-        editb.title='Επεξεργασία ερώτησης';
-        
-        var accept = d.createElement( 'img' );
-        accept.src = 'http://static.zino.gr/images/icons/icon_wand.gif';
-        accept.style.width = '16px';
-        accept.style.height = '16px';
-        accept.alt = 'Επεξεργασία ερώτησης';
-        
-        var qdeletelink = d.createElement( 'a' );
+		var editb = d.createElement( 'a' );
+		editb.onclick = function () {
+					Profileq.Edit(id);
+					return false;
+				};
+		editb.href='';
+		editb.title='Επεξεργασία ερώτησης';
+		
+		var accept = d.createElement( 'img' );
+		accept.src = 'http://static.zino.gr/images/icons/icon_wand.gif';
+		accept.style.width = '16px';
+		accept.style.height = '16px';
+		accept.alt = 'Επεξεργασία ερώτησης';
+		
+		var qdeletelink = d.createElement( 'a' );
 		qdeletelink.href="";
 		qdeletelink.onclick = function() { Profileq.Delete( id );return false; };
 		qdeletelink.title = "Διαγραφή Ερώτησης";
@@ -212,92 +212,92 @@ var Profileq = {
 		qdeleteimg.style.height = '12px';
 		qdeleteimg.alt = 'Διαγραφή Ερώτησης';
 
-        editb.appendChild( accept );
-        qdeletelink.appendChild( qdeleteimg );
-        bigdiv.appendChild( editb );
-        bigdiv.appendChild( d.createTextNode( " " ) );
-        bigdiv.appendChild( qdeletelink );
+		editb.appendChild( accept );
+		qdeletelink.appendChild( qdeleteimg );
+		bigdiv.appendChild( editb );
+		bigdiv.appendChild( d.createTextNode( " " ) );
+		bigdiv.appendChild( qdeletelink );
 
-        var raw = d.createElement( 'div' );
-        raw.id = 'qraw_' + id;
-        raw.style.display = 'none';
-        raw.appendChild( d.createTextNode( answerraw ) );
+		var raw = d.createElement( 'div' );
+		raw.id = 'qraw_' + id;
+		raw.style.display = 'none';
+		raw.appendChild( d.createTextNode( answerraw ) );
 
-        element.appendChild( bigdiv );
-        element.appendChild( raw );
-        element.id = '';
+		element.appendChild( bigdiv );
+		element.appendChild( raw );
+		element.id = '';
 
 	},
-    ShowNewQuestion : function ( id, question, preid ) {
-    	if ( g( 'newquest' ) !== null ) {
-    		return;
-    	}
-        var prequestion = g( 'qedit_' + preid );
-        var father = prequestion.parentNode.parentNode;
+	ShowNewQuestion : function ( id, question, preid ) {
+		if ( g( 'newquest' ) !== null ) {
+			return;
+		}
+		var prequestion = g( 'qedit_' + preid );
+		var father = prequestion.parentNode.parentNode;
 
-        var newquest = d.createElement( 'div' );
-        newquest.id = 'newquest';
+		var newquest = d.createElement( 'div' );
+		newquest.id = 'newquest';
 
-        var bold = d.createElement( 'b' );
-        bold.appendChild( d.createTextNode( question ) );
-        newquest.appendChild(bold);
-        newquest.appendChild( d.createElement( 'br' ) );
+		var bold = d.createElement( 'b' );
+		bold.appendChild( d.createTextNode( question ) );
+		newquest.appendChild(bold);
+		newquest.appendChild( d.createElement( 'br' ) );
 
-        var form = d.createElement( 'form' );
-        form.id = 'newquestform';
-        form.onkeypress = function (e) {
-                return submitenter( form, e );
-             };
-        form.onsubmit = function () {
-                Profileq.Save( id );
-                return false;
-            };
+		var form = d.createElement( 'form' );
+		form.id = 'newquestform';
+		form.onkeypress = function (e) {
+				return submitenter( form, e );
+			 };
+		form.onsubmit = function () {
+				Profileq.Save( id );
+				return false;
+			};
 
-        var input = d.createElement( 'input' );
-        input.type = 'text';
-        input.className = 'mybigtext';
-        input.size = 60;
-        input.id = 'qanswer';
+		var input = d.createElement( 'input' );
+		input.type = 'text';
+		input.className = 'mybigtext';
+		input.size = 60;
+		input.id = 'qanswer';
 
-        var link = d.createElement( 'a' );
-        link.href = '';
-        link.onclick = function () {
-                g( 'newquestform' ).onsubmit();
-                return false;
-            };
-        link.alt = "Αποθήκευση";
-        link.title = "Αποθήκευση";
+		var link = d.createElement( 'a' );
+		link.href = '';
+		link.onclick = function () {
+				g( 'newquestform' ).onsubmit();
+				return false;
+			};
+		link.alt = "Αποθήκευση";
+		link.title = "Αποθήκευση";
 
-        var image = d.createElement( 'img' );
-        image.src = 'http://static.zino.gr/images/icons/accept.png';
+		var image = d.createElement( 'img' );
+		image.src = 'http://static.zino.gr/images/icons/accept.png';
 
-        var other = d.createElement( 'a' );
-        other.href='';
-        other.onclick = function () {
-                Coala.Warm( 'question/changeq', { 'id':id, 'callback':Profileq.changeQuestionCallback } );
-                return false;
-            };
-        other.alt = "Αλλαγή Ερώτησης";
-        other.title = "Αλλαγή Ερώτησης";
+		var other = d.createElement( 'a' );
+		other.href='';
+		other.onclick = function () {
+				Coala.Warm( 'question/changeq', { 'id':id, 'callback':Profileq.changeQuestionCallback } );
+				return false;
+			};
+		other.alt = "Αλλαγή Ερώτησης";
+		other.title = "Αλλαγή Ερώτησης";
 
-        var changeimage = d.createElement( 'img' );
-        changeimage.src = 'http://static.zino.gr/images/icons/arrow_refresh.png';
+		var changeimage = d.createElement( 'img' );
+		changeimage.src = 'http://static.zino.gr/images/icons/arrow_refresh.png';
 
-        link.appendChild( image );
-        other.appendChild( changeimage );
-        form.appendChild( input );
-        form.appendChild( d.createTextNode( ' ' ) );
-        form.appendChild( link );
-        form.appendChild( d.createTextNode( ' ' ) );
-        form.appendChild( other );
-        newquest.appendChild( form );
-        father.insertBefore( newquest, father.childNodes[3] );
-        father.insertBefore( d.createElement( 'br' ), father.childNodes[3] );
-        input.focus();
-    },
-    Save : function( id ) {
-        g('qanswer').blur();
-        var answer=g('qanswer').value;
+		link.appendChild( image );
+		other.appendChild( changeimage );
+		form.appendChild( input );
+		form.appendChild( d.createTextNode( ' ' ) );
+		form.appendChild( link );
+		form.appendChild( d.createTextNode( ' ' ) );
+		form.appendChild( other );
+		newquest.appendChild( form );
+		father.insertBefore( newquest, father.childNodes[3] );
+		father.insertBefore( d.createElement( 'br' ), father.childNodes[3] );
+		input.focus();
+	},
+	Save : function( id ) {
+		g('qanswer').blur();
+		var answer=g('qanswer').value;
 		if( answer !== '' ) {
 			Profileq.Wait( );
 			Coala.Warm( 'question/answer', {'questionid': id, 'answer':answer, 'callback' : Profileq.AnswerCallback, 'newquest' : Profileq.ShowNewQuestion } );
@@ -308,40 +308,40 @@ var Profileq = {
 		}
 		return false;
 	},
-    changeQuestionCallback : function ( newid , newquestion ) {
-        var bigdiv = g('newquest');
-        // When the page is loaded there is an empty text node between the <div> and the <b>.This node is removed
-        // when a question is answered
-        var oldquestion = (bigdiv.firstChild.nodeName.toLowerCase() == "#text")?bigdiv.childNodes[1].firstChild:bigdiv.firstChild.firstChild;
-        oldquestion.nodeValue = newquestion;
+	changeQuestionCallback : function ( newid , newquestion ) {
+		var bigdiv = g('newquest');
+		// When the page is loaded there is an empty text node between the <div> and the <b>.This node is removed
+		// when a question is answered
+		var oldquestion = (bigdiv.firstChild.nodeName.toLowerCase() == "#text")?bigdiv.childNodes[1].firstChild:bigdiv.firstChild.firstChild;
+		oldquestion.nodeValue = newquestion;
 
-        var form = g('newquestform');
-        form.onsubmit = function () {
-                return Profileq.Save( newid );
-            };
+		var form = g('newquestform');
+		form.onsubmit = function () {
+				return Profileq.Save( newid );
+			};
 
-        var link = form.childNodes[4].nodeName.toLowerCase() == "#text"?form.childNodes[5]:form.childNodes[4];
-        link.onclick = function () {
-                Profileq.changeQuestion( newid );
-                return false;
-        };
-        g( 'qanswer' ).focus();
-        Profileq.pause = false;
-    },
-    changeQuestion : function( id ) {
-    	if ( Profileq.pause ) {
-    		return;
-    	}
-    	Profileq.pause = true;
-    	Coala.Warm( 'question/changeq', { 'id' : id, 'callback' : Profileq.changeQuestionCallback } );
-    	return false;
-    },
-    Wait : function ( ) {
-    	document.body.style.cursor = "wait";
-    	
-    	var element = g( 'newquestform' );
-    	for( var i in element.childNodes ) {
-    		var child = element.childNodes[ i ];
+		var link = form.childNodes[4].nodeName.toLowerCase() == "#text"?form.childNodes[5]:form.childNodes[4];
+		link.onclick = function () {
+				Profileq.changeQuestion( newid );
+				return false;
+		};
+		g( 'qanswer' ).focus();
+		Profileq.pause = false;
+	},
+	changeQuestion : function( id ) {
+		if ( Profileq.pause ) {
+			return;
+		}
+		Profileq.pause = true;
+		Coala.Warm( 'question/changeq', { 'id' : id, 'callback' : Profileq.changeQuestionCallback } );
+		return false;
+	},
+	Wait : function ( ) {
+		document.body.style.cursor = "wait";
+		
+		var element = g( 'newquestform' );
+		for( var i in element.childNodes ) {
+			var child = element.childNodes[ i ];
 			if( child.nodeType == 1 ) {
 				child.style.display = 'none';
 			}

@@ -9,7 +9,7 @@
 			?>water/";
 			var d = document;
 			var mywidth = screen.availWidth.toString() * 80/100;
-			var myspacer = "    ";
+			var myspacer = "	";
 			var page = opener.water_debug_uri;
 			var ulid = 0;
 			var previsarray = false;

@@ -38,61 +38,61 @@
 		return true;
 	}
 	
-    function Article_ById( $articleids ) {
-        global $db;
-        global $articles;
-        global $revisions;
-        global $categories;
-        global $images;
-        
-        if ( is_array( $articleids ) ) {
-            if ( !count( $articleids ) ) {
-                return array();
-            }
-            $wasarray = true;
-        }
-        else {
-            $articleids = array( $articleids );
-            $wasarray = false;
-        }
-        foreach ( $articleids as $i => $articleid ) {
-            $articleids[ $i ] = ( integer )$articleid;
-        }
-        
-        $sql = "SELECT
-                    `article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
-                    `revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, 
-                    `category_id`, `category_name`, `category_icon`,
-                    `$images`.`image_id`, `$images`.`image_userid`,
-                    `cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
-                FROM 
-                    `$articles` INNER JOIN `$revisions` 
-                        ON ( `article_id` = `revision_articleid` AND
-                             `article_headrevision` = `revision_id` )
-                    LEFT JOIN `$categories`
-                        ON ( `revision_categoryid` = `category_id` )
-                    LEFT JOIN `$images`
-                        ON ( `revision_iconid` = `$images`.`image_id` )
-                    LEFT JOIN `$images` AS cimages
-                        ON ( `category_icon` = cimages.`image_id` )
-                WHERE
-                    `article_id` IN (" . implode(',', $articleids) . ") AND
-                    `article_delid` = '0';";
-        $res = $db->Query( $sql );
-        
-        $rows = array();
-        while ( $row = $res->FetchArray() ) {
-            $rows[ $row[ 'article_id' ] ] = New Article( $row );
-        }
-        
-        if ( $wasarray ) {
-            return $rows;
-        }
-        if ( count( $row ) ) {
-            return array_shift( $row );
-        }
-    }
-    
+	function Article_ById( $articleids ) {
+		global $db;
+		global $articles;
+		global $revisions;
+		global $categories;
+		global $images;
+		
+		if ( is_array( $articleids ) ) {
+			if ( !count( $articleids ) ) {
+				return array();
+			}
+			$wasarray = true;
+		}
+		else {
+			$articleids = array( $articleids );
+			$wasarray = false;
+		}
+		foreach ( $articleids as $i => $articleid ) {
+			$articleids[ $i ] = ( integer )$articleid;
+		}
+		
+		$sql = "SELECT
+					`article_id`, `article_creatorid`, `article_headrevision`, `article_created`, `article_numcomments`, `article_numviews`, `revision_textid`, 
+					`revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, 
+					`category_id`, `category_name`, `category_icon`,
+					`$images`.`image_id`, `$images`.`image_userid`,
+					`cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
+				FROM 
+					`$articles` INNER JOIN `$revisions` 
+						ON ( `article_id` = `revision_articleid` AND
+							 `article_headrevision` = `revision_id` )
+					LEFT JOIN `$categories`
+						ON ( `revision_categoryid` = `category_id` )
+					LEFT JOIN `$images`
+						ON ( `revision_iconid` = `$images`.`image_id` )
+					LEFT JOIN `$images` AS cimages
+						ON ( `category_icon` = cimages.`image_id` )
+				WHERE
+					`article_id` IN (" . implode(',', $articleids) . ") AND
+					`article_delid` = '0';";
+		$res = $db->Query( $sql );
+		
+		$rows = array();
+		while ( $row = $res->FetchArray() ) {
+			$rows[ $row[ 'article_id' ] ] = New Article( $row );
+		}
+		
+		if ( $wasarray ) {
+			return $rows;
+		}
+		if ( count( $row ) ) {
+			return array_shift( $row );
+		}
+	}
+	
 	function MakeArticle( $title, $text, $icon, $emoticons, $categoryid ) {
 		global $db;
 		global $articles;
@@ -156,7 +156,7 @@
 			$keys = array( $keys );
 		}
 		
-        $newkeys = array();
+		$newkeys = array();
 		$mckeys = array();
 		foreach ( $keys as $i => $key ) {
 			$newkeys[ $key ] = true;
@@ -172,7 +172,7 @@
 		foreach ( $mcret as $mckey => $mcvalue ) {
 			if ( $mcvalue !== false ) {
 				$realkey = substr( $mckey, strlen( 'articleeditors:' ) );
-                w_assert( isset( $newkeys[ $realkey ] ) );
+				w_assert( isset( $newkeys[ $realkey ] ) );
 				unset( $newkeys[ $realkey ] );
 				$ret[ $realkey ] = $mcvalue;
 			}
@@ -183,7 +183,7 @@
 						`revision_articleid`,
 						`user_id` ,
 						`user_name` ,
-                        `user_subdomain` ,
+						`user_subdomain` ,
 						`user_rights` ,
 						`user_lastprofedit`,
 						`user_icon`
@@ -192,13 +192,13 @@
 							ON `revision_creatorid` = `user_id`
 					WHERE 
 						`revision_articleid` IN (" . implode( ", ", array_keys( $newkeys ) ) . ")
-                        AND `revision_minor` = 'no';";
+						AND `revision_minor` = 'no';";
 			$res = $db->Query( $sql );
 			
 			while ( $row = $res->FetchArray() ) {
-                if ( !isset( $ret[ $row[ 'revision_articleid' ] ] ) ) {
-                    $ret[ $row[ 'revision_articleid' ] ] = array();
-                }
+				if ( !isset( $ret[ $row[ 'revision_articleid' ] ] ) ) {
+					$ret[ $row[ 'revision_articleid' ] ] = array();
+				}
 				$ret[ $row[ "revision_articleid" ] ][ $row[ 'user_id' ] ] = New User( $row );
 			}
 			
@@ -206,7 +206,7 @@
 				$mc->add( "articleeditors:" . $article, $editors );
 			}
 		}
-        
+		
 		return $ret;
 	}
 	
@@ -233,7 +233,7 @@
 		private $mSmallStory;
 		private $mRevision;
 		private $mComment;
-        
+		
 		public function Id() {
 			return $this->mId;
 		}
@@ -266,10 +266,10 @@
 			return $this->mText;
 		}
 		public function SmallStory() {
-            global $water;
-            
+			global $water;
+			
 			if ( $this->mSmallStory === false ) {
-                $water->Notice( 'Inefficient call to formatting engine' );
+				$water->Notice( 'Inefficient call to formatting engine' );
 				$this->mSmallStory = array_shift( mformatsmallstories( array( $this->TextRaw() ) ) );
 			}
 			return $this->mSmallStory;
@@ -327,16 +327,16 @@
 		public function DelId() {
 			return $this->mDelId;
 		}
-        public function Icon() {
-            return $this->mIcon;
-        }
+		public function Icon() {
+			return $this->mIcon;
+		}
 		public function IconId() {
 			return $this->mIconId;
 		}
 		public function SetIconId( $newiconid ) {
 			if ( !is_numeric( $newiconid ) ) {
-                $newiconid = 0;
-            }
+				$newiconid = 0;
+			}
 			$this->mIconId = $newiconid;
 		}
 		public function Kill() {
@@ -452,7 +452,7 @@
 			global $water;
 			global $mc;
 			global $images;
-            
+			
 			if ( $this->mEditors === false ) {
 				$key = "articleeditors:" . $this->Id();
 				$ret = $mc->get( $key );
@@ -464,13 +464,13 @@
 								`user_rights` ,
 								`user_lastprofedit`,
 								`user_icon`,
-                                `image_id`,
-                                `image_userid`
+								`image_id`,
+								`image_userid`
 							FROM
 								`$revisions` CROSS JOIN `$users`
 									ON `revision_creatorid` = `user_id`
-                                LEFT JOIN `$images`
-                                    ON `user_icon` = `image_id`
+								LEFT JOIN `$images`
+									ON `user_icon` = `image_id`
 							WHERE 
 								`revision_articleid` = '$articleid' AND 
 								`revision_minor` = 'no'
@@ -593,16 +593,16 @@
 				}
 			}
 			
-            $sql = "UPDATE `merlin_articles` SET `article_numviews` = `article_numviews` + 1 WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
-            $change = $db->Query( $sql );
-            
-            if ( $change->Impact() ) {
-    			++$this->mPageviews;
+			$sql = "UPDATE `merlin_articles` SET `article_numviews` = `article_numviews` + 1 WHERE `article_id` = '" . $this->Id() . "' LIMIT 1;";
+			$change = $db->Query( $sql );
+			
+			if ( $change->Impact() ) {
+				++$this->mPageviews;
 
-                return true;
-            }
-            
-            return false;
+				return true;
+			}
+			
+			return false;
 		}
 		public function NumComments() {
 			return $this->mNumComments;
@@ -650,7 +650,7 @@
 			global $revisions;
 			global $categories;
 			global $images;
-            
+			
 			if ( !ValidId( $this->mRevision ) ) {
 				$revisionid = '`article_headrevision`';
 				$this->mRevision = $this->mHeadRevision;
@@ -664,18 +664,18 @@
 
 						`revision_title`, `revision_updated`, `revision_categoryid`, `revision_iconid`, `revision_showemoticons`, `revision_comment`,
 						`category_id`, `category_name`, `category_icon`,
-                        `$images`.`image_id`, `$images`.`image_userid`,
-                        `cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
+						`$images`.`image_id`, `$images`.`image_userid`,
+						`cimages`.`image_id` AS c_image_id, `cimages`.`image_userid` AS c_image_userid
 					FROM 
 						`$articles` INNER JOIN `$revisions` 
 							ON ( `article_id` = `revision_articleid` AND
 								 `revision_id` = $revisionid )
 						LEFT JOIN `$categories`
 							ON ( `revision_categoryid` = `category_id` )
-                        LEFT JOIN `$images`
-                            ON ( `revision_iconid` = `$images`.`image_id` )
-                        LEFT JOIN `$images` AS cimages
-                            ON ( `category_icon` = cimages.`image_id` )
+						LEFT JOIN `$images`
+							ON ( `revision_iconid` = `$images`.`image_id` )
+						LEFT JOIN `$images` AS cimages
+							ON ( `category_icon` = cimages.`image_id` )
 					WHERE
 						`article_id` = '$construct' AND
 						`article_delid` = '0'
@@ -685,14 +685,14 @@
 			if ( $res->Results() ) {
 				return $res->FetchArray();
 			}
-            return false;
+			return false;
 		}
 		public function Exists() {
 			return $this->mId > 0;
 		}
 		public function Article( $construct, $revisionid = false ) {
 			global $blk;
-            
+			
 			$this->mId = 0;
 			$array = $construct;
 			if ( is_int( $construct ) ) { // construct by articleid
@@ -709,35 +709,35 @@
 			$this->mTextId			= isset( $array[ "revision_textid" ] ) ? $array[ "revision_textid" ] : 0;
 			$this->mLastUpdate		= isset( $array[ "revision_updated" ] ) ? $array[ "revision_updated" ] : "0000-00-00 00:00:00";
 			$this->mIconId			= isset( $array[ "revision_iconid" ] ) ? $array[ "revision_iconid" ] : 0;
-            if ( isset( $array[ 'image_id' ] ) && $this->mIconId > 0 ) {
-                $this->mIcon = New Image( $array );
-            }
+			if ( isset( $array[ 'image_id' ] ) && $this->mIconId > 0 ) {
+				$this->mIcon = New Image( $array );
+			}
 			$this->mShowEmoticons	= isset( $array[ "revision_showemoticons" ] ) ? $array[ "revision_showemoticons" ] == "yes" : true;
 			$this->mCategoryId		= isset( $array[ "revision_categoryid" ] ) ? $array[ "revision_categoryid" ] : 0;
 			$this->mNumComments		= isset( $array[ 'article_numcomments' ] ) ? $array[ 'article_numcomments' ] : 0;
-            $this->mPageviews       = isset( $array[ 'article_numviews' ]    ) ? $array[ 'article_numviews'    ] : 0;
+			$this->mPageviews	   = isset( $array[ 'article_numviews' ]	) ? $array[ 'article_numviews'	] : 0;
 			$this->mText			= isset( $array[ "bulk_text" ] ) ? $array[ "bulk_text" ] : false;
 			$this->mComment			= isset( $array[ 'revision_comment' ] ) ? $array[ 'revision_comment' ] : false;
-            
-            if ( isset( $array[ 'category_id' ] ) ) {
-                $catarray = array(
-                    'category_id'   => $array[ 'category_id' ],
-                    'category_name' => $array[ 'category_name' ],
-                    'category_icon' => $array[ 'category_icon' ],
-                    'image_id'      => $array[ 'c_image_id' ],
-                    'image_userid'  => $array[ 'c_image_userid' ]
-                );
-                $this->mCategory = New Category( $catarray );
-            }
-            else {
-                $this->mCategory = false;
-            }
-            $this->mCreatorId		= isset( $array[ 'article_creatorid' ] ) ? $array[ 'article_creatorid' ] : 0;
+			
+			if ( isset( $array[ 'category_id' ] ) ) {
+				$catarray = array(
+					'category_id'   => $array[ 'category_id' ],
+					'category_name' => $array[ 'category_name' ],
+					'category_icon' => $array[ 'category_icon' ],
+					'image_id'	  => $array[ 'c_image_id' ],
+					'image_userid'  => $array[ 'c_image_userid' ]
+				);
+				$this->mCategory = New Category( $catarray );
+			}
+			else {
+				$this->mCategory = false;
+			}
+			$this->mCreatorId		= isset( $array[ 'article_creatorid' ] ) ? $array[ 'article_creatorid' ] : 0;
 			$this->mCreator			= isset( $array[ 'user_id' ] ) ? New User( $array ) : "";
 			$this->mEditors			= isset( $array[ 'editors' ] ) ? $array[ 'editors' ] : false;
-			$this->mTextFormatted 	= false;
+			$this->mTextFormatted	 = false;
 			$this->mSmallStory		= false;
-            
+			
 			ParseDate( $this->mLastUpdate ,
 						$this->mUpdateYear, $this->mUpdateMonth, $this->mUpdateDay ,
 						$this->mUpdateHour, $this->mUpdateMinute, $this->mUpdateSecond );
@@ -759,18 +759,18 @@
 			$this->mNegativeFilters[] = array( $keymap[ $key ][ 0 ], $keymap[ $key ][ 1 ], $value );
 		}
 		public function SetFilter( $key, $value ) {
-            switch ( $key ) {
-                case 'content':
-                case 'body': // need to join bulk
-    				$this->AddTable( 'bulk' );
-                    break;
-                case 'title':
-                case 'editor':
-                case 'revision_minor':
-                    $this->AddTable( 'allrevisions' );
-                    break;
-            }
-            
+			switch ( $key ) {
+				case 'content':
+				case 'body': // need to join bulk
+					$this->AddTable( 'bulk' );
+					break;
+				case 'title':
+				case 'editor':
+				case 'revision_minor':
+					$this->AddTable( 'allrevisions' );
+					break;
+			}
+			
 			static $keymap = array(
 				'body' => array( 'bulk.`bulk_text`', 1 ),
 				'title' => array( 'allrevisions.`revision_title`', 1 ),
@@ -818,8 +818,8 @@
 		private function AddTable( $table ) {
 			global $comments;
 			global $users;
-            global $revisions;
-            
+			global $revisions;
+			
 			if ( isset( $this->mTables[ $table ] ) ) {
 				return;
 			}
@@ -831,10 +831,10 @@
 				case 'bulk':
 					$this->mTables[ $table ] = array( 'name' => 'merlin_bulk', 'as' => 'bulk', 'jointype' => 'INNER JOIN', 'on' => '`bulk_id` = headrevision.`revision_textid`' );
 					break;
-                case 'allrevisions':
-    				$this->mTables[ $table ] = array( 'name' => $revisions, 'jointype' => 'INNER JOIN', 'as' => 'allrevisions', 'on' => 'allrevisions.`revision_articleid` = `article_id`' );
-        			$this->SetGroupByField( "article_id" );
-                    break;
+				case 'allrevisions':
+					$this->mTables[ $table ] = array( 'name' => $revisions, 'jointype' => 'INNER JOIN', 'as' => 'allrevisions', 'on' => 'allrevisions.`revision_articleid` = `article_id`' );
+					$this->SetGroupByField( "article_id" );
+					break;
 				default:
 					w_assert( false );
 					break;
@@ -844,18 +844,18 @@
 			$this->mFields = array(
 				'`article_id`'							=> 'article_id',
 				'`article_numcomments`'					=> 'article_numcomments',
-                '`article_numviews`'                    => 'article_numviews',
-				'headrevision.`revision_creatorid`'  	=> 'revision_creatorid',
+				'`article_numviews`'					=> 'article_numviews',
+				'headrevision.`revision_creatorid`'	  => 'revision_creatorid',
 				'`article_headrevision`'				=> 'article_headrevision',
-				'`article_created`'     				=> 'article_created',
-				'headrevision.`revision_title`'      	=> 'revision_title',
-				'headrevision.`revision_updated`'   	=> 'revision_updated',
-				'headrevision.`revision_textid`'     	=> 'revision_textid',
+				'`article_created`'					 => 'article_created',
+				'headrevision.`revision_title`'		  => 'revision_title',
+				'headrevision.`revision_updated`'	   => 'revision_updated',
+				'headrevision.`revision_textid`'		 => 'revision_textid',
 				'headrevision.`revision_categoryid`'	=> 'revision_categoryid',
 				'headrevision.`revision_iconid`'		=> 'revision_iconid',
 				'headrevision.`revision_minor`'			=> 'revision_minor',
-                '`image_id`'                            => 'image_id',
-                '`image_userid`'                        => 'image_userid'
+				'`image_id`'							=> 'image_id',
+				'`image_userid`'						=> 'image_userid'
 				// '`bulk_text`'				=> 'bulk_text'
 			);
 		}
@@ -864,7 +864,7 @@
 			
 			static $fieldsmap = array( 
 				'popularity' => 'article_numcomments',
-				'date' 		 => 'article_id'
+				'date'		  => 'article_id'
 			);
 			
 			w_assert( isset( $fieldsmap[ $field ] ) );
@@ -876,16 +876,16 @@
 			global $articles;
 			global $revisions;
 			global $images;
-            
+			
 			$this->mRelations = array();
 			
 			$this->mIndex = 'articles';
 			$this->mTables = array(
 				'articles' => array( 'name' => $articles ),
 				'headrevision' => array( 'name' => $revisions, 'jointype' => 'INNER JOIN', 'as' => 'headrevision', 'on' => '( headrevision.`revision_articleid` = `article_id` AND headrevision.`revision_id` = `article_headrevision` )' ),
-                'images' => array( 'name' => $images, 'jointype' => 'LEFT JOIN', 'on' => 'headrevision.`revision_iconid` = `image_id`' )
+				'images' => array( 'name' => $images, 'jointype' => 'LEFT JOIN', 'on' => 'headrevision.`revision_iconid` = `image_id`' )
 			);
-            
+			
 			$this->SetQueryFields();
 			$this->SetSortMethod( 'date', 'DESC' );
 			$this->mBulkNeeded = false;
@@ -927,9 +927,9 @@
 						$row[ 'pageviews' ] = $pageviewdata[ $row[ 'article_id' ] ];
 					}
 					if ( isset( $editorsdata ) ) {
-                        if ( !isset( $editorsdata[ $row[ 'article_id' ] ] ) ) {
-                            die( "Not set!<br /><b>" . $row[ 'article_id' ] . "</b><br /><br />" . implode( ', ', array_keys( $editorsdata ) ) );
-                        }
+						if ( !isset( $editorsdata[ $row[ 'article_id' ] ] ) ) {
+							die( "Not set!<br /><b>" . $row[ 'article_id' ] . "</b><br /><br />" . implode( ', ', array_keys( $editorsdata ) ) );
+						}
 						$row[ 'editors' ] = $editorsdata[ $row[ 'article_id' ] ];
 					}
 					$ret[] = New Article( $row );
@@ -975,13 +975,13 @@
 		
 			$res = $db->Query( $sql );
 			if ( $res->Results() ) {
-		        $rows = array();
-		        while ( $row = $res->FetchArray() ) {
+				$rows = array();
+				while ( $row = $res->FetchArray() ) {
 					$rows[] = $row;
-		        }
+				}
 
 				return $rows;
 			}
-            return false;
+			return false;
 	}
 ?>

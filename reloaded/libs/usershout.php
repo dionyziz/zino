@@ -3,7 +3,7 @@
 		global $usershout;
 		global $user;
 		global $db;
-        
+		
 		$nowdate = NowDate();
 		$ip = UserIp();
 		$text = myescape( $text );
@@ -11,8 +11,8 @@
 
 		$sql = "INSERT INTO
 					`$usershout`
-				(      `usershout_id` ,      `usershout_userid` ,       `usershout_shoutowner`,    `usershout_text` , `usershout_created` , `usershout_userip` )
-				VALUES( '' , '" . $user->Id() . "' , '$shoutowner' , '$text' , '$nowdate' ,     '$ip' );";
+				(	  `usershout_id` ,	  `usershout_userid` ,	   `usershout_shoutowner`,	`usershout_text` , `usershout_created` , `usershout_userip` )
+				VALUES( '' , '" . $user->Id() . "' , '$shoutowner' , '$text' , '$nowdate' ,	 '$ip' );";
 
 		$db->Query( $sql );
 	}
@@ -21,7 +21,7 @@
 		global $usershout;
 		global $user;
 		global $db;
-        
+		
 		$nowdate = NowDate();
 		$ip = UserIp();
 		$text = myescape( $text );

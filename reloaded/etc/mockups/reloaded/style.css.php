@@ -59,7 +59,7 @@ img.avatar {
 	include "css/faq.css.php";
 	include "css/pagify.css.php";
 	include "css/chess.css.php";
-    include "css/notify.css.php";
+	include "css/notify.css.php";
 	include "css/pmnew.css.php";
 ?>
 div.copy {

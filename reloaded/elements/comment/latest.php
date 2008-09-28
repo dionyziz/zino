@@ -4,7 +4,7 @@
 		global $page;
 		global $libs;
 		global $xc_settings;
-        
+		
 		$libs->Load( 'search' );
 		$libs->Load( 'comment' );
 		$libs->Load( 'article' );
@@ -15,11 +15,11 @@
 		?><div class="box latestcomments">
 			<div class="header">
 				<div style="float:right"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>soraright.jpg" alt="" /></div>
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>soraright.jpg" alt="" /></div>
 				<div style="float:left"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>soraleft.jpg" alt="" /></div>
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>soraleft.jpg" alt="" /></div>
 				<h3>Νεότερα σχόλια</h3>
 			</div>
 			<div class="body"><?php
@@ -27,12 +27,12 @@
 				
 				while ( $comment = array_shift( $latestcomments ) ) {
 					?><div><?php
-                        if ( $comment->User()->Id() ) {
-                            Element( "user/icon" , $comment->User() , true , true );
-                        }
-                        else {
-                            ?>Ανώνυμος <?php
-                        }
+						if ( $comment->User()->Id() ) {
+							Element( "user/icon" , $comment->User() , true , true );
+						}
+						else {
+							?>Ανώνυμος <?php
+						}
 						?> στ<?php
 						
 						switch ( $comment->TypeId() ) {
@@ -46,19 +46,19 @@
 							case 1:
 								if ( $comment->Page()->Gender() == 'female' ) {
 									?>η<?php
-                                    switch ( strtolower( substr( $comment->Page()->Username() , 0 , 1 ) ) ) {
-                                        case 'a':
-                                        case 'e':
-                                        case 'o':
-                                        case 'u':
-                                        case 'i':
-                                        case 't':
-                                        case 'p':
-                                        case 'k':
-                                            ?>ν<?php
-                                            break;
-                                        default:
-                                    }
+									switch ( strtolower( substr( $comment->Page()->Username() , 0 , 1 ) ) ) {
+										case 'a':
+										case 'e':
+										case 'o':
+										case 'u':
+										case 'i':
+										case 't':
+										case 'p':
+										case 'k':
+											?>ν<?php
+											break;
+										default:
+									}
 								}
 								else {
 									?>ον<?php
@@ -76,16 +76,16 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            case 3:
+							case 3:
 								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            default:
-                                ?><a>(error)<?php
-                                $water->Warning( 'Invalid comment typeid' );
+							default:
+								?><a>(error)<?php
+								$water->Warning( 'Invalid comment typeid' );
 						}
 						
 						echo htmlspecialchars( $comment->Page()->Title() );
@@ -109,12 +109,12 @@
 					
 					while ( $comment = array_shift( $latestcomments ) ) {
 					?><div><?php
-                        if ( $comment->User()->Id() == 0 ) {
-                            ?>Ανώνυμος <?php
-                        }
-                        else {
-                            Element( "user/icon" , $comment->User() , true , true );
-                        }
+						if ( $comment->User()->Id() == 0 ) {
+							?>Ανώνυμος <?php
+						}
+						else {
+							Element( "user/icon" , $comment->User() , true , true );
+						}
 						?> στ<?php
 						
 						switch ( $comment->TypeId() ) { // TODO: remove code duplication by splitting into new element
@@ -145,16 +145,16 @@
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            case 3:
+							case 3:
 								?>η δημοσκόπηση <a href="?p=poll&amp;id=<?php
 								echo $comment->Page()->Id();
 								?>#comment_<?php
 								echo $comment->Id();
 								?>"><?php
 								break;
-                            default:
-                                ?><a>(error)<?php
-                                $water->Warning( 'Invalid comment typeid' );
+							default:
+								?><a>(error)<?php
+								$water->Warning( 'Invalid comment typeid' );
 						}
 						
 						echo htmlspecialchars( $comment->Page()->Title() );

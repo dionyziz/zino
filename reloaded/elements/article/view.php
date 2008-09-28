@@ -6,8 +6,8 @@
 		global $page;
 		global $rabbit_settings;
 		
-        $id = $id->Get();
-        $oldcomments = $oldcomments->Get();
+		$id = $id->Get();
+		$oldcomments = $oldcomments->Get();
 
 		$libs->Load( 'search' );
 		$libs->Load( 'article' );
@@ -16,10 +16,10 @@
 		
 		$article = New Article( $id );
 		if ( !$article->Exists() ) {
-            $water->Notice( 'Article doesn\'t exist' , array( $arguments , $id , $oldcomments ) );
+			$water->Notice( 'Article doesn\'t exist' , array( $arguments , $id , $oldcomments ) );
 			// header( "Location: index.php" ); // TODO
 			// exit();
-            return;
+			return;
 		}
 		//$water->trace( "iconid: ".$iconid );
 		$articleid = $article->Id();
@@ -45,8 +45,8 @@
 		?><br />
 			<div class="tabs">
 			</div><br /><?php
-            Element( "ad/adbrite" );
-            ?><br />
+			Element( "ad/adbrite" );
+			?><br />
 			<div class="comments" id="comments"><?php	
 				$search = New Search_Comments();
 				$search->SetFilter( 'typeid', 0 ); // 0: article, 1: userspace
@@ -61,7 +61,7 @@
 				}
 				$comments = $search->GetParented(); //get comments
 				
-                Element( 'comment/import' );
+				Element( 'comment/import' );
 				Element( 'comment/list' , $comments , 0 , 0 );
 				Element( 'comment/reply', $article, 0 );
 			?></div>

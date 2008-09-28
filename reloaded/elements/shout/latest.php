@@ -6,8 +6,8 @@
 		global $water;
 		global $xc_settings;
 		
-        $offset = $offset->Get();
-        
+		$offset = $offset->Get();
+		
 		$libs->Load( 'shoutbox' );
 		$page->SetTitle( "Συζήτηση" );
 		$page->AttachStyleSheet( 'css/allshouts.css' );
@@ -30,11 +30,11 @@
 		
 		?><br /><br /><br /><br />
 		<span class="heading">Συζήτηση</span><br /><br /><div class="allshouts"><?php
-        $shouttexts = array();
-        foreach ( $shouts as $i => $thisshout ) {
-            $shouttexts[ $i ] = $thisshout->Text();
-        }
-        $shouttexts = mformatshouts( $shouttexts );
+		$shouttexts = array();
+		foreach ( $shouts as $i => $thisshout ) {
+			$shouttexts[ $i ] = $thisshout->Text();
+		}
+		$shouttexts = mformatshouts( $shouttexts );
 		foreach ( $shouts as $i => $thisshout ) {
 			?><div class="thisshout" style="clear:both;min-height:50px"><?php
 			?><span style="float:left;margin-right:3px;"><?php
@@ -60,6 +60,6 @@
 			?></div><?php
 		}
 		Element( 'pagify' , $offset , 'allshouts' , $shoutsnumber , 20 );
-        ?></div><?php
+		?></div><?php
 	}
 ?>

@@ -2,9 +2,9 @@
 	function ElementPhotoUploadForm( tInteger $albumid ) {
 		global $page;
 		global $water;
-        global $rabbit_settings;
-        
-        $albumid = $albumid->Get();
+		global $rabbit_settings;
+		
+		$albumid = $albumid->Get();
 		$page->AttachScript( 'js/photos.js' );
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		$page->AttachStyleSheet( 'css/images.css' );
@@ -44,9 +44,9 @@
 			</div>
 		</div>
 		<img src="<?php
-        echo $rabbit_settings[ 'imagesurl' ];
-        ?>ajax-loader.gif" style="display:none;" /><?php
-        
-        return array( 'tiny' => true );
+		echo $rabbit_settings[ 'imagesurl' ];
+		?>ajax-loader.gif" style="display:none;" /><?php
+		
+		return array( 'tiny' => true );
 	}
 ?>

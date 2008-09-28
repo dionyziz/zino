@@ -85,7 +85,7 @@ div.messages div.message div.text {
 	background-color: #f8f8f6;
 	border-left: 1px solid #cdcdcb;
 	border-right: 1px solid #cdcdcb;
-    padding-right: 60px;
+	padding-right: 60px;
 	overflow: auto;
 }
 div.messages div.message div.text div {

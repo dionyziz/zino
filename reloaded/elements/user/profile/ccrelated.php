@@ -8,24 +8,24 @@
 		echo $rabbit_settings[ 'applicationname' ];
 		?></h4>
 			<ul>
-                <?php
-                if ( $theuser->Username() == '_daemon_' || $theuser->Rights() < 20 ) {
-                    ?>
-    				<li><dl>
-    					<dt>ρόλος</dt>
-    					<dd><?php
-                            switch ( $theuser->Username() ) {
-                                case '_daemon_':
-                                    ?>The Fallen One<?php
-                                    break;
-                                default:
-            						echo mystrtolower( $theuser->Rank() );
-                                    break;
-                            }
-    					?></dd>
-    				</dl></li><?php
-                }
-                ?>
+				<?php
+				if ( $theuser->Username() == '_daemon_' || $theuser->Rights() < 20 ) {
+					?>
+					<li><dl>
+						<dt>ρόλος</dt>
+						<dd><?php
+							switch ( $theuser->Username() ) {
+								case '_daemon_':
+									?>The Fallen One<?php
+									break;
+								default:
+									echo mystrtolower( $theuser->Rank() );
+									break;
+							}
+						?></dd>
+					</dl></li><?php
+				}
+				?>
 				<li><dl class="l">
 					<dt>κατάταξη</dt>
 					<dd><?php

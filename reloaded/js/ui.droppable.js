@@ -166,9 +166,9 @@
 		if (!droppable.offset) return false;
 		
 		var x1 = (draggable.positionAbs || draggable.position.absolute).left, x2 = x1 + draggable.helperProportions.width,
-		    y1 = (draggable.positionAbs || draggable.position.absolute).top, y2 = y1 + draggable.helperProportions.height;
+			y1 = (draggable.positionAbs || draggable.position.absolute).top, y2 = y1 + draggable.helperProportions.height;
 		var l = droppable.offset.left, r = l + droppable.proportions.width,
-		    t = droppable.offset.top,  b = t + droppable.proportions.height;
+			t = droppable.offset.top,  b = t + droppable.proportions.height;
 		
 		switch (toleranceMode) {
 			case 'fit':
@@ -184,10 +184,10 @@
 				//	&& t < y1 && y2 < b);
 				break;
 			case 'intersect':
-				return (   l < x1 + (draggable.helperProportions.width  / 2)    // Right Half
-					&&     x2 - (draggable.helperProportions.width  / 2) < r    // Left Half
-					&& t < y1 + (draggable.helperProportions.height / 2)        // Bottom Half
-					&&     y2 - (draggable.helperProportions.height / 2) < b ); // Top Half
+				return (   l < x1 + (draggable.helperProportions.width  / 2)	// Right Half
+					&&	 x2 - (draggable.helperProportions.width  / 2) < r	// Left Half
+					&& t < y1 + (draggable.helperProportions.height / 2)		// Bottom Half
+					&&	 y2 - (draggable.helperProportions.height / 2) < b ); // Top Half
 				break;
 			case 'pointer':
 				return (   l < ((draggable.positionAbs || draggable.position.absolute).left + draggable.clickOffset.left) && ((draggable.positionAbs || draggable.position.absolute).left + draggable.clickOffset.left) < r

@@ -10,8 +10,8 @@
 		$page->AttachStylesheet( "css/banlist.css" );
 		
 		if ( !$user->CanModifyCategories() ) {
-            return Redirect();
-    	}
+			return Redirect();
+		}
 
 		$banlist = IPBan_List();
 		?> 
@@ -28,7 +28,7 @@
 				<tr>
 					<td colspan="2">
 						<form action="do/ip/ban" method="post">
-						<input type="submit" class="add" value="" style="background-image: 					
+						<input type="submit" class="add" value="" style="background-image:					 
 						url('<?php
 						echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/add.png');" />
@@ -46,8 +46,8 @@
 				
 				foreach( $banlist as $ban ) {
 					
-					$today 		= NowDate();
-					$date	    = $ban->Date;
+					$today		 = NowDate();
+					$date		= $ban->Date;
 					$expiration = $ban->ExpireDate;
 					
 					if ( $bgcolor == true ){
@@ -62,7 +62,7 @@
 					<td><form action="do/ip/unban" method="post">
 						<input type="hidden" name="id" value="<?php
 						echo $ban->Id;
-						?>" /><input type="submit" class="delete" value="" style="background-image: 					
+						?>" /><input type="submit" class="delete" value="" style="background-image:					 
 						url('<?php
 						echo $xc_settings[ 'staticimagesurl' ];
 						?>icons/delete.png');" />

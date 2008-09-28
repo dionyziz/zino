@@ -3,12 +3,12 @@
 		global $user;
 		global $water;
 		global $page;
-        global $libs;
+		global $libs;
 		global $xc_settings;
-        
-        $id = $id->Get();
-        $libs->Load( 'faq' );
-        
+		
+		$id = $id->Get();
+		$libs->Load( 'faq' );
+		
 		if ( !ValidId( $id ) ) {
 			return Element( '404' );
 		}
@@ -25,7 +25,7 @@
 		
 		$page->SetTitle( "Συχνές ερωτήσεις: " . $faqc->Name() );
 		
-        Element( 'faq/header' );
+		Element( 'faq/header' );
 				
 		?><div class="faqq">
 			<div class="header"><?php
@@ -47,8 +47,8 @@
 							echo $faqc->Id();
 						?>">
 							<img src="<?php
-                            echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/icon_wand.gif" alt="Επεξεργασία Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Επεξεργασία
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>icons/icon_wand.gif" alt="Επεξεργασία Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Επεξεργασία
 						</a>
 						&nbsp;<form action="do/faq/category/delete" method="post" style="display: inline;">
 							<input type="hidden" name="id" value="<?php
@@ -56,16 +56,16 @@
 							?>" />
 							<a style="cursor: pointer; vertical-align: top;" onclick="javascript:if( confirm( 'Είσαι σίγουρος ότι θέλεις να διαγράψεις αυτήν την κατηγορία?' ) ) { this.parentNode.submit(); } return false;">
 								<img src="<?php
-                                echo $xc_settings[ 'staticimagesurl' ];
-                                ?>icons/page_cross.gif" alt="Διαγραφή Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Διαγραφή
+								echo $xc_settings[ 'staticimagesurl' ];
+								?>icons/page_cross.gif" alt="Διαγραφή Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Διαγραφή
 							</a>
 						</form>
 						&nbsp;<a style="vertical-align:top;" href="?p=addfaqq&amp;category=<?php
 							echo $faqc->Id();
 						?>">
 							<img src="<?php
-                            echo $xc_settings[ 'staticimagesurl' ];
-                            ?>icons/page_new.gif" alt="Επεξεργασία Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Νέα ερώτηση
+							echo $xc_settings[ 'staticimagesurl' ];
+							?>icons/page_new.gif" alt="Επεξεργασία Κατηγορίας" style="width: 16px; height: 16px; vertical-align: bottom;" />Νέα ερώτηση
 						</a>
 						<br />
 					</small>

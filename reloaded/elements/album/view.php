@@ -6,9 +6,9 @@
 		global $user;
 		global $xc_settings;
 		
-        $id = $id->Get();
-        $offset = $offset->Get();
-        
+		$id = $id->Get();
+		$offset = $offset->Get();
+		
 		$libs->Load( 'albums' );
 		$libs->Load( 'image/image' );
 		
@@ -27,7 +27,7 @@
 		
 		$page->SetTitle( $album->Name() );
 		
-        $page->AttachScript( 'js/coala.js' );
+		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/animations.js' );
 		$page->AttachScript( 'js/photos.js' );
 		$page->AttachScript( 'js/albums.js' );
@@ -36,13 +36,13 @@
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		$page->AttachStyleSheet( 'css/photos.css' );
 		
-        if ( !ValidId( $offset ) ) {
-            $offset = 1;
-        }
+		if ( !ValidId( $offset ) ) {
+			$offset = 1;
+		}
 
-        if ( $album->Id() == 267 ) { // TODO: remove this after 1/11/2007
-            $page->AddMeta( 'GOOGLEBOT', 'NOARCHIVE' );
-        }
+		if ( $album->Id() == 267 ) { // TODO: remove this after 1/11/2007
+			$page->AddMeta( 'GOOGLEBOT', 'NOARCHIVE' );
+		}
 		
 		/*
 		$pages = intval( $albumphotosnumber / 16 );
@@ -81,9 +81,9 @@
 				echo $album->Creator()->Username();
 			?>?viewingalbums=yes" class="photolinks" style="margin-bottom: 20px; margin-top: 20px;">&#171;Επιστροφή στο προφίλ</a><br /><br /><?php
 				if ( $user->Id() == $album->UserId() && $user->Rights() >= $xc_settings[ "allowuploads" ] ) {
-                    /*
+					/*
 					?><small>Προσωρινά έχει περιοριστεί η δημιουργία εικόνων για τεχνικούς λόγους. Δοκιμάστε ξανά σε λίγες ώρες.</small><?php
-                    */
+					*/
 					?><a href="" onclick="Photos.Newphoto( this ); return false;" class="photolinks" id="newphotolink">Νέα φωτογραφία&#187;</a>
 					<br />
 					<div class="iframecontainer" id="newphoto" style="display:none">

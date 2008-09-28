@@ -32,56 +32,56 @@
 		?>		
 		<div class="leftbar" style="padding-top:20px">
 			<div class="info">
-	            <div class="ccrelated">
-	    			<h4>σχετικά με chit-chat</h4>
-	                <ul>
-	        			<li><dl>
-	        				<dt>ρόλος:</dt>
-	        				<dd>διοικητής</dd>
-	        			</dl></li>
-	        			<li><dl class="l">
-	        				<dt>κατάταξη:</dt>
-	        				<dd>γάτος των πάγων</dd>
-	        			</dl></li>
-	        			<li><dl>
-	        				<dt>μέλος:</dt>
-	        				<dd>εδώ και 11 μήνες και 2 μέρες</dd>
-	        			</dl></li>
-	        			<li><dl class="l">
-	        				<dt>συνδεδεμένος:</dt>
-	        				<dd>πριν 16 ώρες και ένα τέταρτο</dd>
-	        				<!-- or <div>τώρα</div> -->
-	        			</dl></li>
-	                </ul>
-	            </div>
-	            <div class="personal">
-	    			<h4>προσωπικές πληροφορίες</h4>
-	                <ul>
-	        			<li><dl>
-	        				<dt>φύλο</dt>
-	        				<dd>άνδρας</dd>
-	        			</dl></li>
-	        			<li><dl class="l">
-	        				<dt>ηλικία</dt>
-	        				<dd>16</dd>
-	        			</dl></li>
-	        			<li><dl>
-	        				<dt>γενέθλια</dt>
-	        				<dd>14 Φεβρουαρίου</dd>
-	        			</dl></li>
-	        			<li><dl class="l">
-	        				<dt>περιοχή</dt>
-	        				<dd>Ιωάννινα</dd>
-	        			</dl></li>
-	        			<li><dl>
-	        				<dt>ενδιαφέροντα</dt>
-	        				<dd>
-	        					Chit-Chatting, Magic The Gathering, Studying, Reading, Spending my time in front of my pc doing nothing, 
-	        					graffiti drawing, music, sleeping when there is time, science practice και πολλά άλλα που δεν μου έρχονται τώρα...
-	        				</dd>
-	        			</dl></li>
-	                </ul>
-	            </div>
+				<div class="ccrelated">
+					<h4>σχετικά με chit-chat</h4>
+					<ul>
+						<li><dl>
+							<dt>ρόλος:</dt>
+							<dd>διοικητής</dd>
+						</dl></li>
+						<li><dl class="l">
+							<dt>κατάταξη:</dt>
+							<dd>γάτος των πάγων</dd>
+						</dl></li>
+						<li><dl>
+							<dt>μέλος:</dt>
+							<dd>εδώ και 11 μήνες και 2 μέρες</dd>
+						</dl></li>
+						<li><dl class="l">
+							<dt>συνδεδεμένος:</dt>
+							<dd>πριν 16 ώρες και ένα τέταρτο</dd>
+							<!-- or <div>τώρα</div> -->
+						</dl></li>
+					</ul>
+				</div>
+				<div class="personal">
+					<h4>προσωπικές πληροφορίες</h4>
+					<ul>
+						<li><dl>
+							<dt>φύλο</dt>
+							<dd>άνδρας</dd>
+						</dl></li>
+						<li><dl class="l">
+							<dt>ηλικία</dt>
+							<dd>16</dd>
+						</dl></li>
+						<li><dl>
+							<dt>γενέθλια</dt>
+							<dd>14 Φεβρουαρίου</dd>
+						</dl></li>
+						<li><dl class="l">
+							<dt>περιοχή</dt>
+							<dd>Ιωάννινα</dd>
+						</dl></li>
+						<li><dl>
+							<dt>ενδιαφέροντα</dt>
+							<dd>
+								Chit-Chatting, Magic The Gathering, Studying, Reading, Spending my time in front of my pc doing nothing, 
+								graffiti drawing, music, sleeping when there is time, science practice και πολλά άλλα που δεν μου έρχονται τώρα...
+							</dd>
+						</dl></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div class="rightbar">
@@ -148,8 +148,8 @@
 			</div>
 		</div>
 
-        <div style="clear:both" />
-        
+		<div style="clear:both" />
+		
 		<br /><br />
 		<div class="comments">
 		<?php
@@ -599,7 +599,7 @@
 </div>
 
 <script type="text/javascript">/* <![CDATA[ */
-    // instant tab switching script
+	// instant tab switching script
 	var UserTabs = {
 		activated : 0,
 		Activate: function( tabindex ) {

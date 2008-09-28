@@ -5,10 +5,10 @@
 		<h3>Μικρά νέα</h3>
 	</div>
 	<div class="body" style="margin:0;">
-        <?php
-            if ( $loggedin ) { // && can_edit_shoutbox ...
-                ?><a href="" onclick="return false;" title="Προσθήκη μικρού νέου"><img class="newshout" src="images/icons/page_new.gif" /></a><?php
-            }
+		<?php
+			if ( $loggedin ) { // && can_edit_shoutbox ...
+				?><a href="" onclick="return false;" title="Προσθήκη μικρού νέου"><img class="newshout" src="images/icons/page_new.gif" /></a><?php
+			}
 		?><div>
 			<a href="" onclick="return false;" title="Thug"><img src="images/thug.jpg" class="avatar" /></a> Τι μας λες ρε Blink!
 			<div style="clear:left">

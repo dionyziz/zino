@@ -3,8 +3,8 @@
 	
 	global $water;
 	global $libs;
-    global $db;
-    
+	global $db;
+	
 	require 'header.php';
 
 	$libs->Load( 'graph' );
@@ -21,7 +21,7 @@
 	
 	
 
-    $livedb = New Database( 'excalibur-sandbox' );
+	$livedb = New Database( 'excalibur-sandbox' );
 	$livedb->Connect( 'localhost' );
 	$livedb->Authenticate( 'excalibursandbox' , 'viuhluqouhoa' );
 	$livedb->SetCharset( 'DEFAULT' );
@@ -71,8 +71,8 @@
 	$graph->SetSmoothing( $smooth );
 	$graph->Render();
 	
-    // ob_get_clean();
-    
+	// ob_get_clean();
+	
 	//$water->GenerateJS();
 ?>
 

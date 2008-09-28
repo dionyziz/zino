@@ -11,12 +11,12 @@ div.pagify a.previous {
 	padding: 0 0 0 16px;
 }
 div.pagify a.nextbacklinks, div.pagify strong {
-    padding-left: 4px;
-    padding-right: 4px;
+	padding-left: 4px;
+	padding-right: 4px;
 }
 div.pagify div.pagifycount {
-    color: #aaa;
-    font-size: small;
+	color: #aaa;
+	font-size: small;
 }
 div.pagify {
 	font-size: 11pt;

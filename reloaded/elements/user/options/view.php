@@ -3,12 +3,12 @@
 		global $user;
 		global $page;
 		
-        $saved = $saved->Get();
-    	$match = $match->Get();
-    	$invalid = $invalid->Get();
-    	$newpassword = $newpassword->Get();
-    	$sizeok = $sizeok->Get();
-    	$extok = $extok->Get();
+		$saved = $saved->Get();
+		$match = $match->Get();
+		$invalid = $invalid->Get();
+		$newpassword = $newpassword->Get();
+		$sizeok = $sizeok->Get();
+		$extok = $extok->Get();
 		
 		$page->SetTitle( "Επιλογές" );
 		$page->AttachStyleSheet( 'css/settings.css' );

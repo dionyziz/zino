@@ -4,45 +4,45 @@
 		Developer: dionyziz
 	*/
 	
-    global $libs;
-    
-    /*
-    interface DatabaseFieldInfo {
-        public $name;
-    }
-    */
-    
-    // implement this interface to add support for a different database
-    interface DatabaseDriver {
-        // returns number of affected rows by the last query performed
-        public function LastAffectedRows( $link );
-        // returns the insertid of the last query performed
-        public function LastInsertId( $link );
-        // executes an SQL query
-        public function Query( $sql, $link );
-        // selects a database for performing queries on
-        public function SelectDb( $name, $link );
-        // connects to the database and authenticates
-        public function Connect( $host, $username, $password, $persist = true );
-        // retrieves the last error number
-        public function LastErrorNumber( $link );
-        // retrieves the last error message as a user-friendly string
-        public function LastError( $link );
-        // retrieves the number of rows in the resultset identified by passed resource
-        public function NumRows( $driver_resource );
-        // retrieves the number of fields in the resultset identified by passed resource
-        public function NumFields( $driver_resource );
-        // fetches the next row of the resultset in an associative array, or returns boolean false 
-        // if there are no more rows
-        public function FetchAssociativeArray( $driver_resource );
-        // fetches information about field #offset in the resultset in the form of an object
-        public function FetchField( $driver_resource, $offset );
-        // retrieves a user-friendly name for this driver as a string
-        public function GetName();
-    }
-    
-    $libs->Load( 'rabbit/db/mysql' ); // load mysql support
-    
+	global $libs;
+	
+	/*
+	interface DatabaseFieldInfo {
+		public $name;
+	}
+	*/
+	
+	// implement this interface to add support for a different database
+	interface DatabaseDriver {
+		// returns number of affected rows by the last query performed
+		public function LastAffectedRows( $link );
+		// returns the insertid of the last query performed
+		public function LastInsertId( $link );
+		// executes an SQL query
+		public function Query( $sql, $link );
+		// selects a database for performing queries on
+		public function SelectDb( $name, $link );
+		// connects to the database and authenticates
+		public function Connect( $host, $username, $password, $persist = true );
+		// retrieves the last error number
+		public function LastErrorNumber( $link );
+		// retrieves the last error message as a user-friendly string
+		public function LastError( $link );
+		// retrieves the number of rows in the resultset identified by passed resource
+		public function NumRows( $driver_resource );
+		// retrieves the number of fields in the resultset identified by passed resource
+		public function NumFields( $driver_resource );
+		// fetches the next row of the resultset in an associative array, or returns boolean false 
+		// if there are no more rows
+		public function FetchAssociativeArray( $driver_resource );
+		// fetches information about field #offset in the resultset in the form of an object
+		public function FetchField( $driver_resource, $offset );
+		// retrieves a user-friendly name for this driver as a string
+		public function GetName();
+	}
+	
+	$libs->Load( 'rabbit/db/mysql' ); // load mysql support
+	
 	class Database {
 		protected $mDbName;
 		protected $mHost;
@@ -53,16 +53,16 @@
 		protected $mCharSetApplied;
 		protected $mConnected;
 		protected $mDriver;
-        
+		
 		public function Database( $dbname = false, $driver = false ) {
-            if ( $driver === false ) {
-                $this->mDriver = New DatabaseDriver_MySQL();
-            }
-            else {
-                $this->mDriver = $driver;
-            }
-            w_assert( $this->mDriver instanceof DatabaseDriver );
-            w_assert( $dbname === false || is_string( $dbname ) );
+			if ( $driver === false ) {
+				$this->mDriver = New DatabaseDriver_MySQL();
+			}
+			else {
+				$this->mDriver = $driver;
+			}
+			w_assert( $this->mDriver instanceof DatabaseDriver );
+			w_assert( $dbname === false || is_string( $dbname ) );
 			$this->mDbName = $dbname;
 			$this->mConnected = false;
 			$this->mCharSetApplied = true;
@@ -70,7 +70,7 @@
 		}
 		public function Connect( $host = 'localhost' ) {
 			$this->mHost = $host;
-            
+			
 			return true;
 		}
 		public function Authenticate( $username , $password ) {
@@ -79,30 +79,30 @@
 			
 			return true;
 		}
-        public function Name() {
-            return $this->mDbName;
-        }
-        public function Host() {
-            return $this->mHost;
-        }
-        public function Port() {
-            return $this->mPort;
-        }
-        public function SwitchDb( $dbname ) {
-            global $water;
-            
-            $this->mDbName = $dbname;
-            if ( $this->mConnected ) {
-                if ( $this->mDbName != '' ) {
-                    $selection = $this->mDriver->SelectDb( $this->mDbName, $this->mLink );
-                    if ( $selection === false ) {
-                        $water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->LastError( $this->mLink ) );
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
+		public function Name() {
+			return $this->mDbName;
+		}
+		public function Host() {
+			return $this->mHost;
+		}
+		public function Port() {
+			return $this->mPort;
+		}
+		public function SwitchDb( $dbname ) {
+			global $water;
+			
+			$this->mDbName = $dbname;
+			if ( $this->mConnected ) {
+				if ( $this->mDbName != '' ) {
+					$selection = $this->mDriver->SelectDb( $this->mDbName, $this->mLink );
+					if ( $selection === false ) {
+						$water->Warning( 'Failed to select the specified database:<br />' . $this->mDriver->LastError( $this->mLink ) );
+						return false;
+					}
+				}
+			}
+			return true;
+		}
 		protected function ActualConnect() {
 			global $water;
 			
@@ -112,11 +112,11 @@
 					$water->Warning( 'Connection to database failed:<br />' . $this->mDriver->LastError( $this->mLink ) );
 					return false;
 				}
-                $this->mConnected = true;
-                if ( empty( $this->mDbName ) ) {
-                    return true;
-                }
-                return $this->SwitchDb( $this->mDbName );
+				$this->mConnected = true;
+				if ( empty( $this->mDbName ) ) {
+					return true;
+				}
+				return $this->SwitchDb( $this->mDbName );
 			}
 			return false;
 		}
@@ -156,7 +156,7 @@
 			$water->LogSQLEnd();
 			if ( $res === false ) {
 				$water->ThrowException( 'Database query failed' , array( 'query' => $sql , 'error' => $this->mDriver->LastErrorNumber( $this->mLink ) . ': ' . $this->mDriver->LastError( $this->mLink ) ) );
-                return false;
+				return false;
 			}
 			else if ( $res === true ) {
 				return New DBChange( $this->mDriver, $this->mLink );
@@ -284,12 +284,12 @@
 
 	class DBResource {
 		protected $mSQLResource;
-        protected $mDriver;
+		protected $mDriver;
 		protected $mNumRows;
 		protected $mNumFields;
 		
 		public function DBResource( $sqlresource, DatabaseDriver $driver ) {
-            $this->mDriver = $driver;
+			$this->mDriver = $driver;
 			$this->mSQLResource = $sqlresource;
 			$this->mNumRows = $this->mDriver->NumRows( $sqlresource );
 			$this->mNumFields = $this->mDriver->NumFields( $sqlresource );

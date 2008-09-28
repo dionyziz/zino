@@ -23,7 +23,7 @@
 						</div>
 						<div class="rectanglesopts" style="min-height:70px;"><br /><?php
 							Element( 'user/display' , $friend );
-                            ?><br /><?php
+							?><br /><?php
 							if ( $friend->Hobbies() != "" ) { 
 								?><div style="overflow:hidden;width:90%;" title="Ενδιαφέροντα"><b>Ενδιαφέροντα:</b> <?php
 								$hobsar = explode( ",", htmlspecialchars( $friend->Hobbies() ) );
@@ -33,7 +33,7 @@
 									$hobbis[] = "<a href='tag/" . htmlspecialchars( urlencode( $hobbie ) ) . "'>" . htmlspecialchars( $hobbie ) . "</a>";
 								}
 								echo implode( ', ', $hobbis );
-                                ?></div><?php
+								?></div><?php
 							}
 							if ( $friend->Id() != $uid || !$tags ) {
 							?>

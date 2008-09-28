@@ -14,7 +14,7 @@ div.pollsmall div.results ul {
 div.pollsmall div.results ul li {
 	margin-bottom: 10px;
 	padding: 3px 0;
-    clear: both;
+	clear: both;
 }
 div.pollsmall div.results ul li dl {
 	padding: 0;
@@ -28,14 +28,14 @@ div.pollsmall div.results ul li dl dt.resultterm {
 }
 div.pollsmall div.results ul li dl dt.voteterm {
 	margin-right: 3px;
-    width: 20px;
-    float: left;
-    display: block;
+	width: 20px;
+	float: left;
+	display: block;
 }
 div.pollsmall div.results ul li dl dd.votedefinition {
 	display: block;
 	vertical-align: 3px;
-    margin-left: 23px;
+	margin-left: 23px;
 }
 div.pollsmall div.results ul li dl dd {
 	width: 270px;
@@ -50,9 +50,9 @@ div.pollsmall div.results ul li dl dd div.option {
 	float: left;
 }
 div.pollsmall div.results ul li dl dd div.option div.percentagebar {
-    float: left;
-    height: 13px;
-    margin-right: 10px;
+	float: left;
+	height: 13px;
+	margin-right: 10px;
 }
 div.pollsmall div.results ul li dl dd div.option div.percentagebar div.leftrounded {
 	float: left;

@@ -8,8 +8,8 @@
 		$offset = $offset->Get();
 		
 		if ( !ValidId( $offset ) ) {
-            $offset = 1;
-        }
+			$offset = 1;
+		}
 		
 		$libs->Load( 'interesttag' );
 		$page->SetTitle( 'Ενδιαφέροντα: ' . $text );
@@ -26,11 +26,11 @@
 			?><b>Λυπάμαι, δεν υπάρχουν χρήστες με τέτοια ενδιαφέροντα</b><?php
 			return;
 		}
-        
-        $tag_users = array();
-        foreach ( $tags as $tag ) {
-            $tag_users[] = $tag->User;
-        }
+		
+		$tag_users = array();
+		foreach ( $tags as $tag ) {
+			$tag_users[] = $tag->User;
+		}
 
 		Element( 'user/profile/friends' , $tag_users, $user->Id(), true, $text );
 		

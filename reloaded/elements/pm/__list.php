@@ -6,25 +6,25 @@
 		global $user;
 		global $xc_settings;
 		
-        if (!$user->Exists()) {
-            return;
-        }
-        
+		if (!$user->Exists()) {
+			return;
+		}
+		
 		$libs->Load( 'pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
-        
+		
 		$page->AttachStyleSheet( 'css/pmnew.css' );
 		$page->AttachStyleSheet( 'css/modal.css' );
-        
+		
 		$page->AttachScript( 'js/pmsnew.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
-        
+		
 		$userfolders = PM_UserFolders();
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
 		?><script type="text/javascript">
-	    var unreadpms = <?php
+		var unreadpms = <?php
 		echo $unreadmsgs;
 		?>;</script>
 		<script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo-dom-event/yahoo-dom-event.js" ></script>

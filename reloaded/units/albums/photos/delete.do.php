@@ -3,9 +3,9 @@
 		global $photo;
 		global $libs;
 		global $user;
-        
-        $photoid = $photoid->Get();
-        
+		
+		$photoid = $photoid->Get();
+		
 		$libs->Load( 'image/image' );
 		$photo = New Image( $photoid );
 		

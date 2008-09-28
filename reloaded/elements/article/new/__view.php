@@ -9,8 +9,8 @@
 			return;
 		}
 		
-        $id = $id->Get();
-        $preview = $preview->Get();
+		$id = $id->Get();
+		$preview = $preview->Get();
 		$page->AttachStylesheet( 'css/newarticle.css' );
 		$page->AttachScript( 'js/newarticle.js' );
 		$page->AttachScript( 'js/photos.js' );
@@ -34,12 +34,12 @@
 		}
 		
 		if ( $preview ) {
-			$article->SetTitle(         $_SESSION[ 's_sname' ]                   );
-			$article->SetText(          $_SESSION[ 's_sarticlehtml' ]            );
-			$article->SetCategoryId(    $_SESSION[ 's_scategoryid' ]             );
+			$article->SetTitle(		 $_SESSION[ 's_sname' ]				   );
+			$article->SetText(		  $_SESSION[ 's_sarticlehtml' ]			);
+			$article->SetCategoryId(	$_SESSION[ 's_scategoryid' ]			 );
 			$article->SetShowEmoticons( $_SESSION[ 's_sshowemoticons' ] === true );
-			$article->SetIconId(        $_SESSION[ 's_sicon' ]                   );
-			$id =                       $_SESSION[ 's_seid' ];
+			$article->SetIconId(		$_SESSION[ 's_sicon' ]				   );
+			$id =					   $_SESSION[ 's_seid' ];
 			
 			$page->AttachStyleSheet( 'css/article.css' );
 
@@ -54,7 +54,7 @@
 				/* Element( 'article/main' , 0 , $article->Title() , $article->IconId() , mformatstory( $article->TextRaw() , $article->ShowEmoticons() , $article->SubmitDate() 
 										, $article->Pageviews() , $creator , false , $article->Category()->Id() , $article->Category()->Icon()
 										, $article->Category()->Name() , $article->NumComments() , -1 ); */
-                Element( 'article/main' , $article, $creator, false , -1 );
+				Element( 'article/main' , $article, $creator, false , -1 );
 			?></div><hr size="1" /><br /><?php
 		}
 		?><div class="newarticle" id="newarticle">
@@ -89,10 +89,10 @@
 					?><a href="" onclick="Photos.Newphoto( this );return false;" class="addphoto" id="newphotolink">Νέα φωτογραφία&#187;</a>
 					<br /><br /><div style="padding-left:30px;width:350px;height:100px;display:none;" id="newphoto">
 					<iframe src="?p=uploadframe&amp;albumid=0" frameborder="no" style="width:350px;height:100px;overflow:hidden;"></iframe>
-	                </div><?php
+					</div><?php
 				}
-                Element( 'wysiwyg' , 'articlehtml' , $article->Text() ); 
-                ?><br />
+				Element( 'wysiwyg' , 'articlehtml' , $article->Text() ); 
+				?><br />
 				<input type="checkbox" id="showemoticons" name="showemoticons" value="1" <?php
 				if ( $article->ShowEmoticons() ) {
 					?>checked="checked"<?php

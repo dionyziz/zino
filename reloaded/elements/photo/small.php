@@ -3,7 +3,7 @@
 		global $user;
 		global $page;
 		global $xc_settings;
-        
+		
 		$photoname = NoExtensionName( htmlspecialchars( $photo->Name() ) );
 		$photodescription = htmlspecialchars( $photo->Description() );
 		//$page->AttachScript( 'js/photos.js' );
@@ -50,8 +50,8 @@
 				?><a href="" onclick="Photos.EditListPhoto( this.parentNode, <?php
 				echo $photo->Id();
 				?> , 0 );return false;" class="editinfos" alt="Επεξεργασία ονόματος" title="Επεξεργασία ονόματος"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/edit.png" /></a> 
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>icons/edit.png" /></a> 
 				<?php
 				if ( $album->MainImage() != $photo->Id() ) {
 					?><a href="" onclick="Albums.MainImage( '<?php
@@ -59,8 +59,8 @@
 					?>' , '<?php
 					echo $photo->Id();
 					?>' , this.parentNode );return false;" class="editinfosmainimg" alt="Ορισμός προεπιλεγμένης φωτογραφίας album" title="Ορισμός προεπιλεγμένης φωτογραφίας album"><img src="<?php
-                    echo $xc_settings[ 'staticimagesurl' ];
-                    ?>icons/vcard.png" /></a><?php
+					echo $xc_settings[ 'staticimagesurl' ];
+					?>icons/vcard.png" /></a><?php
 				}
 				else {
 					?><a></a><?php
@@ -72,8 +72,8 @@
 				?>' , '<?php
 				echo $album->Id();
 				?>' );return false;" class="editinfos" alt="Διαγραφή φωτογραφίας" title="Διαγραφή φωτογραφίας"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/delete.png" /></a><?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>icons/delete.png" /></a><?php
 			}
 			?><br /><a href="index.php?p=photo&amp;id=<?php
 			echo $photo->Id();
@@ -124,11 +124,11 @@
 				?>
 			</span><?php
 			if ( $photo->UserId() == $user->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
-    			?><a href="" onclick="Photos.EditListPhoto( this.parentNode , '<?php
-    			echo $photo->Id();
-    			?>' , '1' );return false;" class="editinfos" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής"><img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>icons/edit.png" /></a><?php
+				?><a href="" onclick="Photos.EditListPhoto( this.parentNode , '<?php
+				echo $photo->Id();
+				?>' , '1' );return false;" class="editinfos" alt="Επεξεργασία περιγραφής" title="Επεξεργασία περιγραφής"><img src="<?php
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>icons/edit.png" /></a><?php
 			}
 			?><div>
 				<span class="photodetail"><?php

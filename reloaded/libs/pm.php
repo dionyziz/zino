@@ -1,10 +1,10 @@
 <?php
 
-    /* 
-        Developer: Abresas 
+	/* 
+		Developer: Abresas 
 
-        Library for Personal Messages. (Unstable)
-    */
+		Library for Personal Messages. (Unstable)
+	*/
 
 	define( 'PM_MAX_RECEIVERS', 10 );
 
@@ -71,18 +71,18 @@
 		protected $mFolderId;
 		protected $mDelId;
 		protected $mUser;
-        protected $mUserId;
+		protected $mUserId;
 		protected $mDbTable;
 		protected $mDb;
 		
 		public function IsRead() {
 			return $this->DelId >= 1;
 		}
-        protected function SetText( $value ) {
-            $this->mTextFormatted = array_shift( mformatpms( array( $value ) ) );
-            $this->mText = $value;
-            return true;
-        }
+		protected function SetText( $value ) {
+			$this->mTextFormatted = array_shift( mformatpms( array( $value ) ) );
+			$this->mText = $value;
+			return true;
+		}
 		protected function GetSender() {
 			if ( $this->mSender === false ) {
 				if ( $this->UserIsSender() ) {
@@ -102,10 +102,10 @@
 		}
 		protected function GetReceivers() {
 			global $users;
-            global $pmmessageinfolder;
-            global $db;
+			global $pmmessageinfolder;
+			global $db;
 
-            if ( $this->mReceivers === false ) {
+			if ( $this->mReceivers === false ) {
 				$sql = "SELECT 
 							*
 						FROM 
@@ -118,7 +118,7 @@
 							" . PM_MAX_RECEIVERS . "
 						;";
 				
-                // die( $sql );
+				// die( $sql );
 				$res = $db->Query( $sql );
 				
 				$this->mReceivers = array();
@@ -156,7 +156,7 @@
 			$this->mFolderId = $folderid;
 		}
 		protected function SetReceivers( $receivers ) {
-            $this->mReceivers = $receivers;
+			$this->mReceivers = $receivers;
 		}
 		protected function SetUser( $pmuser ) {
 			w_assert( $pmuser instanceof User );
@@ -169,10 +169,10 @@
 			return $user->Id() == $this->SenderId;
 		}
 		public function AddReceiver( $receiver ) {
-            global $water;
-            
+			global $water;
+			
 			if ( count( $this->mReceivers ) >= PM_MAX_RECEIVERS ) {
-                $water->Notice( 'Max receivers exceeded for message!' );
+				$water->Notice( 'Max receivers exceeded for message!' );
 				return false;
 			}
 			if ( !is_object( $receiver ) ) {
@@ -185,7 +185,7 @@
 			global $pmmessageinfolder;
 			global $db;
 			global $water;
-            
+			
 			if ( $this->Exists() ) { // update
 				$sql = "UPDATE
 							`$pmmessages`, `$pmmessageinfolder`
@@ -201,74 +201,74 @@
 							`pm_id` = '" . $this->mPreviousValues[ 'mId' ] . "' AND
 							`pmif_id` = `pm_id` AND
 							`pmif_userid` = '" . $this->mPreviousValues[ 'mUserId' ] . "' AND
-                            `pmif_folderid` = '" . $this->mPreviousValues[ 'mFolderId' ] . "'
+							`pmif_folderid` = '" . $this->mPreviousValues[ 'mFolderId' ] . "'
 						;";
 
-                $this->mPreviousValues[ 'mId' ] = $this->Id;
-                $this->mPreviousValues[ 'mUserId' ] = $this->UserId;
-                $this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
+				$this->mPreviousValues[ 'mId' ] = $this->Id;
+				$this->mPreviousValues[ 'mUserId' ] = $this->UserId;
+				$this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
 				
 				$change = $db->Query( $sql );
-                
-                return $change;
+				
+				return $change;
 			}
-            // else insert
+			// else insert
 
 			if ( empty( $this->Date ) ) {
 				$this->Date = NowDate();
 			}
-            
-            $sqlarray = array(
-                'pm_senderid' => $this->SenderId,
-                'pm_text' => $this->Text,
-                'pm_textformatted' => $this->TextFormatted,
-                'pm_date' => $this->Date
-            );
-            
-            $change = $db->Insert( $sqlarray, $pmmessages );
-            
-            if ( $change === false ) {
-                return false;
-            }
-            
-            $this->mId = $change->InsertId();
-            
-            $inserts = array();
-            
-            $sqlarray = array(
-                'pmif_id' => $this->mId, 
-                'pmif_userid' => $this->mSenderId,
-                'pmif_folderid' => -2,
-                'pmif_delid' => 0
-            );
-            
-            $inserts[] = $db->Insert( $sqlarray, $pmmessageinfolder );
-            
-            $sqlarrays = array();
-            foreach ( $this->mReceivers as $receiver ) {
-                $sqlarrays[] = array(
-                    'pmif_id' => $this->mId, 
-                    'pmif_userid' => $receiver->Id(),
-                    'pmif_folderid' => -1,
-                    'pmif_delid' => 0
-                );
-            }
-            
-            // client-check should've been performed
-            w_assert( count( $sqlarrays ), 'No receipients specified for message!' );
-            
-            $change = $db->Insert( $sqlarrays, $pmmessageinfolder );
-            
-            return $change;
+			
+			$sqlarray = array(
+				'pm_senderid' => $this->SenderId,
+				'pm_text' => $this->Text,
+				'pm_textformatted' => $this->TextFormatted,
+				'pm_date' => $this->Date
+			);
+			
+			$change = $db->Insert( $sqlarray, $pmmessages );
+			
+			if ( $change === false ) {
+				return false;
+			}
+			
+			$this->mId = $change->InsertId();
+			
+			$inserts = array();
+			
+			$sqlarray = array(
+				'pmif_id' => $this->mId, 
+				'pmif_userid' => $this->mSenderId,
+				'pmif_folderid' => -2,
+				'pmif_delid' => 0
+			);
+			
+			$inserts[] = $db->Insert( $sqlarray, $pmmessageinfolder );
+			
+			$sqlarrays = array();
+			foreach ( $this->mReceivers as $receiver ) {
+				$sqlarrays[] = array(
+					'pmif_id' => $this->mId, 
+					'pmif_userid' => $receiver->Id(),
+					'pmif_folderid' => -1,
+					'pmif_delid' => 0
+				);
+			}
+			
+			// client-check should've been performed
+			w_assert( count( $sqlarrays ), 'No receipients specified for message!' );
+			
+			$change = $db->Insert( $sqlarrays, $pmmessageinfolder );
+			
+			return $change;
 		}
 		public function Delete() {
 			$this->DelId = 2;
 			
 			return $this->Save();
 		}
-        protected function LoadDefaults() {
-            $this->Date = NowDate();
-        }
+		protected function LoadDefaults() {
+			$this->Date = NowDate();
+		}
 		public function PM( $construct = array(), $pmuser = false ) {
 			global $user;
 			global $db;
@@ -315,20 +315,20 @@
 				'pm_date' => 'Date',
 				'pmif_folderid' => 'FolderId',
 				'pmif_delid' => 'DelId',
-                'pmif_userid' => 'UserId'
+				'pmif_userid' => 'UserId'
 			) );
 			
 			$this->User			= $pmuser;
 
-			$this->Sender 		= isset( $construct[ 'user_id' ] 		) ? New User( $construct ) 		: false;
-			$this->Folder 		= isset( $construct[ 'pmfolder_id' ]	) ? New PMFolder( $construct ) 	: false;
-			$this->Receivers 	= isset( $construct[ 'receivers' ] 		) ? $construct[ 'receivers' ] 	: false;
+			$this->Sender		 = isset( $construct[ 'user_id' ]		 ) ? New User( $construct )		 : false;
+			$this->Folder		 = isset( $construct[ 'pmfolder_id' ]	) ? New PMFolder( $construct )	 : false;
+			$this->Receivers	 = isset( $construct[ 'receivers' ]		 ) ? $construct[ 'receivers' ]	 : false;
 			
 			$this->Satori( $construct );
 
-            $this->mPreviousValues[ 'mId' ] = $this->Id;
-            $this->mPreviousValues[ 'mUserId' ] = $this->UserId;
-            $this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
+			$this->mPreviousValues[ 'mId' ] = $this->Id;
+			$this->mPreviousValues[ 'mUserId' ] = $this->UserId;
+			$this->mPreviousValues[ 'mFolderId' ] = $this->FolderId;
 		}
 	}
 

@@ -6,12 +6,12 @@
 		$libs->Load( 'question' );
 
 		if( !( $user->CanModifyCategories() ) ) {
-            return Redirect();
-    	}
-    	$question	= $question->Get();
-        $eid		= $eid->Get();
-        if( trim( $question ) != '' && $eid != 0 ) {
-        	UpdateQuestion( $eid, $question );
-        }
-    }
+			return Redirect();
+		}
+		$question	= $question->Get();
+		$eid		= $eid->Get();
+		if( trim( $question ) != '' && $eid != 0 ) {
+			UpdateQuestion( $eid, $question );
+		}
+	}
 ?>

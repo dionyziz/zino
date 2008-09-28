@@ -1,9 +1,9 @@
 <?php
 	function ActionArticleEditoradd( tInteger $id, tString $u ) {
-    	global $libs;
+		global $libs;
 		global $user;
-    	
-    	$libs->Load( 'article' );
+		
+		$libs->Load( 'article' );
 		$libs->Load( 'user' );
 		
 		$articleid = $id->Get();

@@ -1,5 +1,5 @@
 <?php
-    function ElementBanner() {
+	function ElementBanner() {
 		global $page;
 		global $user;
 		global $libs;
@@ -7,9 +7,9 @@
 		global $rabbit_settings;
 		
 		$libs->Load( 'pm' );
-        
+		
 		$page->AttachStylesheet( 'css/banner.css' );
-        $page->AttachScript( 'js/search.js' );
+		$page->AttachScript( 'js/search.js' );
 		$page->AttachScript( 'js/animations.js' );
 		$page->Attachscript( 'js/user.js' );
 		
@@ -17,35 +17,35 @@
 			Element( 'user/box' );
 		?></div>
 		<div class="spacer">&nbsp;</div>
-        <div class="roxas">
+		<div class="roxas">
 			<div style="float:right">
 				<img src="<?php
-                echo $xc_settings[ 'staticimagesurl' ];
-                ?>roxasend.jpg" alt="" />
+				echo $xc_settings[ 'staticimagesurl' ];
+				?>roxasend.jpg" alt="" />
 			</div>
 			<a href="<?php
-            echo $rabbit_settings[ 'webaddress' ];
-            ?>/"><img src="<?php
-            echo $xc_settings[ 'staticimagesurl' ];
-            ?>logo<?php
-            if ( !$rabbit_settings[ 'production' ] ) {
-                ?>-xc<?php
-            }
-            else {
-            	?>-zino<?php 
-            }
-            ?>.jpg" alt="<?php
-            echo $rabbit_settings[ 'applicationname' ];
-            ?>" class="logo" /></a>
+			echo $rabbit_settings[ 'webaddress' ];
+			?>/"><img src="<?php
+			echo $xc_settings[ 'staticimagesurl' ];
+			?>logo<?php
+			if ( !$rabbit_settings[ 'production' ] ) {
+				?>-xc<?php
+			}
+			else {
+				?>-zino<?php 
+			}
+			?>.jpg" alt="<?php
+			echo $rabbit_settings[ 'applicationname' ];
+			?>" class="logo" /></a>
 			<ul>
-                <li>
-<!--                    <form action="" method="get">
-                        <input type="hidden" name="p" value="search" />
-                        <input type="text" name="q" id="q" value="Αναζήτηση" class="text" onfocus="Search.Focus(this)" onblur="Search.Blur(this);" /><a href="?p=search" onclick="this.parentNode.submit();return false;"><img src="<?php
-                        echo $xc_settings[ 'staticimagesurl' ];
-                        ?>icons/magnifier.png" alt="Ψάξε" title="Αναζήτηση" /></a>
-                    </form> -->
-                </li><?php
+				<li>
+<!--					<form action="" method="get">
+						<input type="hidden" name="p" value="search" />
+						<input type="text" name="q" id="q" value="Αναζήτηση" class="text" onfocus="Search.Focus(this)" onblur="Search.Blur(this);" /><a href="?p=search" onclick="this.parentNode.submit();return false;"><img src="<?php
+						echo $xc_settings[ 'staticimagesurl' ];
+						?>icons/magnifier.png" alt="Ψάξε" title="Αναζήτηση" /></a>
+					</form> -->
+				</li><?php
 				if ( !$user->IsAnonymous() ) {
 					$ureadpms = PM_UserCountUnreadPms( $user );
 					
@@ -59,8 +59,8 @@
 					}
 					else {
 						?><li><a class="messages messagesunread" href="?p=pms" id="messagesunread"><?php 
-                        echo $ureadpms; 
-                        ?> Νέα Μηνύματα</a></li><?php
+						echo $ureadpms; 
+						?> Νέα Μηνύματα</a></li><?php
 					}
 					?><li><a href="?p=faq" style="padding: 2px;" title="Πληροφορίες">
 						<img src="<?php
@@ -76,12 +76,12 @@
 						?>icons/help.png" alt="Πληροφορίες" style="width: 16px; height: 16px;vertical-align:bottom;" />
 					</a></li><?php
 
-                    if ( $xc_settings[ 'readonly' ] >= 0 ) {
-					    ?><li><a href="?p=register" class="register">Νέος χρήστης</a></li><?php
-                    }
+					if ( $xc_settings[ 'readonly' ] >= 0 ) {
+						?><li><a href="?p=register" class="register">Νέος χρήστης</a></li><?php
+					}
 				}
 			?>
-            </ul>
+			</ul>
 		</div>
 		<br /><?php
 	}

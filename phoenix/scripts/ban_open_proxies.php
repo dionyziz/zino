@@ -1,16 +1,16 @@
 <?php
-    set_include_path( '../:./' );
+	set_include_path( '../:./' );
 
-    global $water;
-    global $libs;
-    global $db;
-    global $user;
-    
-    require 'libs/rabbit/rabbit.php';
+	global $water;
+	global $libs;
+	global $db;
+	global $user;
+	
+	require 'libs/rabbit/rabbit.php';
 
-    Rabbit_Construct( 'empty' );
+	Rabbit_Construct( 'empty' );
 
-    $proxies = "7763  82.127.76.7:80
+	$proxies = "7763  82.127.76.7:80
 66  82.127.91.227:80
 95  82.129.167.187:80
 5812  82.129.167.188:80
@@ -1973,26 +1973,26 @@ $proxies = explode("\n", $proxies);
 
 $j = 0;
 foreach ($proxies as $proxydata) {
-    $proxydata = explode(' ', $proxydata);
-    $i = 0;
-    foreach ($proxydata as $proxy) {
-        $proxy = trim($proxy);
-        if (!empty($proxy)) {
-            ++$i;
-            if ($i == 2) {
-                $proxy = explode(':', $proxy);
-                $proxy = trim($proxy[0]);
-                echo "Banning $proxy.<br />";
-                $sql = "INSERT IGNORE INTO 
-                            `merlin_ipban`
-                        (`ipban_ip`, `ipban_date`, `ipban_expiredate`, `ipban_sysopid`, `ipban_reason`) VALUES
-                        ('$proxy'  , NOW()       , NOW() + INTERVAL 2 YEAR, 1         , 'Known open proxy');";
-                $db->Query($sql);
-                ++$j;
-                break;
-            }
-        }
-    }
+	$proxydata = explode(' ', $proxydata);
+	$i = 0;
+	foreach ($proxydata as $proxy) {
+		$proxy = trim($proxy);
+		if (!empty($proxy)) {
+			++$i;
+			if ($i == 2) {
+				$proxy = explode(':', $proxy);
+				$proxy = trim($proxy[0]);
+				echo "Banning $proxy.<br />";
+				$sql = "INSERT IGNORE INTO 
+							`merlin_ipban`
+						(`ipban_ip`, `ipban_date`, `ipban_expiredate`, `ipban_sysopid`, `ipban_reason`) VALUES
+						('$proxy'  , NOW()	   , NOW() + INTERVAL 2 YEAR, 1		 , 'Known open proxy');";
+				$db->Query($sql);
+				++$j;
+				break;
+			}
+		}
+	}
 }
 
 echo "<br />$j open proxies have been IP-banned.<br />";
