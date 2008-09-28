@@ -42,7 +42,7 @@
             ?><h2>Friend Recommendations</h2>
             <h4>Powered by Bennu</h4>
 
-            <form action="" method="get" style="background-color: #F8FBE2; padding: 5px;">
+            <form action="" method="get" style="background-color: #F8FBE2; padding: 5px">
                 <input type="hidden" name="p" value="bennu" />
                 Preferred Age: 
                 <select name="age"><?php
@@ -74,7 +74,7 @@
                 <input type="submit" value="submit" /><br />
             </form>
 
-            <ul style="list-style-type: none;"><?php
+            <ul style="list-style-type: none"><?php
 
             // die( print_r( $scores ) . "<br /><br />" . print_r( $users ) );
 

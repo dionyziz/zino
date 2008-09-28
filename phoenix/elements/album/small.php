@@ -30,7 +30,7 @@
 								echo htmlspecialchars( $albumname );
 								?>" title="<?php
 								echo htmlspecialchars( $albumname );
-								?>" style="width:100px;height:100px;" /><?php
+								?>" style="width:100px;height:100px" /><?php
                             }
                         ?></span>
                         <span class="desc"><?php

@@ -5,7 +5,7 @@
             global $user;
             
             if ( !$empty ) {
-                ?><div class="comment" style="border-color: #dee;" id="s_<?php
+                ?><div class="comment" style="border-color: #dee" id="s_<?php
                 echo $shout->Id;
                 ?>">
                     <div class="who"><?php

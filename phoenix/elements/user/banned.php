@@ -7,13 +7,13 @@
             
             $page->SetTitle( 'Ο λογαριασμός έχει τεθεί εκτός λειτουργίας' );
             
-            ?><div style="margin:10px auto 0 auto;padding:10px;width:70%;">
+            ?><div style="margin:10px auto 0 auto;padding:10px;width:70%">
                 <img src="<?php
                 echo $xc_settings[ 'staticimagesurl' ];
                 ?>zino-150-reflection.jpg" alt="<?php 
                 echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] ); 
-                ?>" style="float:left;margin:10px;" />
-                <div style="margin-left:170px;">
+                ?>" style="float:left;margin:10px" />
+                <div style="margin-left:170px">
                     <br />Το σύστημά μας παρατήρησε ότι πραγματοποιείς ασυνήθιστη χρήση του λογαριασμού σου. Προκειμένου να προστατευθούν οι χρήστες του <?php 
                     echo htmlspecialchars( $rabbit_settings[ 'applicationname' ] );
                     ?> από την ενδεχομένως επιβλαβή χρήση του <?php

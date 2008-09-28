@@ -27,7 +27,7 @@
                     ?><h2><?php
                     echo htmlspecialchars( $journal->Title );
                     ?></h2>
-                    <div class="journal" style="clear:none;">    
+                    <div class="journal" style="clear:none">    
                         <dl><?php
                             ?><dd class="createdate"><?php
                             Element( 'date/diff', $journal->Created );

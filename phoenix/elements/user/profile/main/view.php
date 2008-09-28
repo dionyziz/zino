@@ -151,7 +151,7 @@
                 }
                 Element( 'user/profile/main/questions' , $theuser );
                 if ( !empty( $polls ) /*or not empty questions*/ ) {
-                    ?><div class="barfade" style="margin-top:20px;clear:right;">
+                    ?><div class="barfade" style="margin-top:20px;clear:right">
                         <div class="leftbar"></div>
                         <div class="rightbar"></div>
                     </div><?php

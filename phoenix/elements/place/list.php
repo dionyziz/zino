@@ -20,14 +20,14 @@
                 if ( count( $places ) ) {
                     ?><br />
                     <a href="javascript:Places.create()" id="newp">Δημιούργησε μία Περιοχή</a><br />
-                    <form id="newpform" action="do/place/new" method="post" style="display: none;" onkeypress="return submitenter(this, event);">
+                    <form id="newpform" action="do/place/new" method="post" style="display: none" onkeypress="return submitenter(this, event);">
                         <input type="hidden" name="action" value="create" />
                         <input type="text" name="name" class="bigtext" value="Γράψε εδώ την νέα Περιοχή!" onfocus="((this.value=='Γράψε εδώ την νέα Περιοχή!') ? this.value='' : this.value=this.value);" /> 
                         <input type="submit" value="Δημιουργία" class="mybutton" onclick="Places.create(this.form);" />
                         <input type="button" value="Ακύρωση" class="mybutton" onclick="Places.cancelCreate(this.form);" />
                     </form>
                     <br /><br />
-                    <ul id="places" style="list-style-type: none;"><?php
+                    <ul id="places" style="list-style-type: none"><?php
                     
                     foreach ( $places as $place ) {
                         ?><li <?php
@@ -48,14 +48,14 @@
                         if ( $user->CanModifyCategories() ) {
                             ?>&nbsp;<a id="peditlink_<?php
                             echo $place->Id;
-                            ?>" style="cursor: pointer; display: none;" onclick="Places.edit( <?php
+                            ?>" style="cursor: pointer; display: none" onclick="Places.edit( <?php
                             echo $place->Id;
                             ?> )"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>icons/edit.png" width="12" height="12" alt="Επεξεργασία" title="Επεξεργασία" /></a>
                             <a id="pdeletelink_<?php
                             echo $place->Id;
-                            ?>" style="cursor: pointer; display: none;" onclick="Places.deletep( <?php
+                            ?>" style="cursor: pointer; display: none" onclick="Places.deletep( <?php
                             echo $place->Id;
                             ?> )"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];

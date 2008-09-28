@@ -45,7 +45,7 @@
                         ?></div>
                     </form>
                 </div>
-                <div style="text-align:center;">
+                <div style="text-align:center">
                     <a href="" class="button button_big">Συνέχεια &raquo;</a>
                 </div>
             </div><?php

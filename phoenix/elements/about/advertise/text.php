@@ -63,9 +63,9 @@
                     <br/><br/>
                     <form action="do/about/advertisemail/sendmail" method="post">
                         Email<br />
-                        <input type="text" name="from" style="width:250px;" /><br /><br />
+                        <input type="text" name="from" style="width:250px" /><br /><br />
                         Σχόλια (προαιρετικό)<br />
-                        <textarea name="text" style="width:400px;height:200px;"></textarea><br /><br />
+                        <textarea name="text" style="width:400px;height:200px"></textarea><br /><br />
                         <input type="submit" value="&#187;Αποστολή" />
                     </form>
                 </p>

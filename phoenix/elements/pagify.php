@@ -17,7 +17,7 @@
             if ( $pageno > 1 ) { /* left arrow */
                 ?><span class="leftpage"><a href="<?php
                 echo htmlspecialchars( $link . ( $pageno - 1 ) );
-                ?>" class="previous" title="Προηγούμενη" style="padding-right:10px;">&nbsp;</a></span><?php
+                ?>" class="previous" title="Προηγούμενη" style="padding-right:10px">&nbsp;</a></span><?php
             }
             
             ?><span><?php

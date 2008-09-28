@@ -47,7 +47,7 @@
                             <span>Πρέπει να δώσεις έναν κωδικό πρόσβασης με τουλάχιστον 4 χαρακτήρες!</span>
                             </span>
                             <div>
-                                <label for="join_repwd" style="padding-top: 5px;">Πληκτρολόγησε τον ξανά:</label>
+                                <label for="join_repwd" style="padding-top: 5px">Πληκτρολόγησε τον ξανά:</label>
                                 <input type="password" value="" id="join_repwd" />
                                 <span><img src="<?php
                                 echo $rabbit_settings[ 'imagesurl' ];
@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <label for="join_email">E-mail (προαιρετικά):</label>
-                            <input type="text" value="" style="width:200px;" id="join_email" />
+                            <input type="text" value="" style="width:200px" id="join_email" />
                             <span><img src="<?php
                             echo $rabbit_settings[ 'imagesurl' ];
                             ?>exclamation.png" alt="Προσοχή" title="Προσοχή" />
@@ -67,7 +67,7 @@
                             <p>Αν συμπληρώσεις το e-mail σου θα μπορείς να επαναφέρεις τον κωδικό σου σε περίπτωση που τον ξεχάσεις.</p>
                         </div>
                         <p>Η δημιουργία λογαριασμού συνεπάγεται την ανεπιφύλακτη αποδοχή των <a href="tos">όρων χρήσης</a>.</p>
-                        <div style="text-align:center;">
+                        <div style="text-align:center">
                             <a href="" class="button">Δημιουργία &raquo;</a>
                             <noscript>
                                 <input type="submit" value="Δημιουργία &raquo;" />
@@ -78,7 +78,7 @@
                     <i class="qbottom"></i>
                     <i class="bl"></i><i class="br"></i>
                 </div>
-                <img src="images/button_ok_16.png" alt="Σωστή επαλήθευση" title="Σωστή επαλήθευση" style="display:none;" />
+                <img src="images/button_ok_16.png" alt="Σωστή επαλήθευση" title="Σωστή επαλήθευση" style="display:none" />
             </div>
             <div id="join_tos">
                 <div><?php

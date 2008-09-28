@@ -8,7 +8,7 @@
 
             w_assert( is_object( $pm->Sender ) );
 
-            ?><div class="message" style="width:620px;" id="pm_<?php
+            ?><div class="message" style="width:620px" id="pm_<?php
                 echo $pm->Pmid;
                 ?>">
                 <div class="infobar<?php
@@ -16,7 +16,7 @@
                     ?> received"<?php
                 }
                 else {
-                    ?>" style="cursor:default;"<?php
+                    ?>" style="cursor:default"<?php
                 }
                 ?>><?php
                     if ( !$pm->IsSender( $user ) ) {
@@ -106,18 +106,18 @@
                     echo $pm->Pmid;
                     ?>, <?php
                     echo $folder->Id; 
-                    ?>);return false" style="display:inline;" class="infobar_info">, <?php
+                    ?>);return false" style="display:inline" class="infobar_info">, <?php
                     Element( 'date/diff', $pm->Created );
                     ?></div>
                 </div>
 
-                <div class="text" style="background-color: #f8f8f6;display:none;">
+                <div class="text" style="background-color: #f8f8f6;display:none">
                     <div><?php
                         echo $pm->Text;
                     ?><br /><br /><br /><br />
                     </div>
                 </div>
-                <div class="lowerline" style="background-color: #f8f8f6;display:none;">
+                <div class="lowerline" style="background-color: #f8f8f6;display:none">
                     <div class="leftcorner"></div>
                     <div class="rightcorner"></div>
                     <div class="middle"></div>

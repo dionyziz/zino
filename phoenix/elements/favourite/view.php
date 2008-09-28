@@ -69,7 +69,7 @@
                         if ( $type === false ) {
                             ?> class="selected"<?php
                         }
-                        ?> style="width:40px;">
+                        ?> style="width:40px">
                         <a href="<?php
                         Element( 'user/url', $theuser->Id, $theuser->Subdomain );
                         ?>favourites">Όλα</a></li>
