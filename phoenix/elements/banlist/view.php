@@ -15,7 +15,11 @@
             
             $page->setTitle( 'Λιστα Αποκλεισμένων χρηστων' );
             
-            ?><h2>Αποκλεισμένοι χρηστες</h2><?php     
+            ?><h2>Αποκλεισμένοι χρηστες</h2><?php  
+            
+            $ban = new Ban();
+            if( $ban->isBannedIp( UserIp() ) ) echo '<p>'.'your ip is banned'.'</p>';
+            if( $ban->isBannedUser( $user->Id ) ) echo '<p>'.'your banned'.'</p>';
             
             $bannedUserFinder = new BannedUserFinder();
             $bannedUsers = $bannedUserFinder->FindAllActive();
