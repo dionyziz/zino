@@ -106,9 +106,9 @@ var Colorpicker = {
 	Let y be a real number in [0,1] and x be an integer in [0,255].
 	The following ratio appears:
 
-		 1	 255
+		 1     255
 		--- = -----
-		 y	  x
+		 y      x
 		 
 	<=>  x = 255*y
 	Since x belongs to Z, x = parseInt( 255*y );

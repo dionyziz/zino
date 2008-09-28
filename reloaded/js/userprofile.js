@@ -1,10 +1,10 @@
 var Profile = {
-	ChangeColor: function () {
-		Colorpicker.Create( function ( r, g, b ) {
-			Coala.Warm( "users/options/profilecolor", { 'r': r, 'g': g, 'b': b } );
-			document.getElementById( 'tab0' ).style.backgroundImage = 'url("http://images.zino.gr/gradient/' + r + '/' + g + '/' + b + '")';
-		}, function () {}, "Διάλεξε ένα χρώμα για το προφίλ σου:" );
-	}
+    ChangeColor: function () {
+        Colorpicker.Create( function ( r, g, b ) {
+            Coala.Warm( "users/options/profilecolor", { 'r': r, 'g': g, 'b': b } );
+            document.getElementById( 'tab0' ).style.backgroundImage = 'url("http://images.zino.gr/gradient/' + r + '/' + g + '/' + b + '")';
+        }, function () {}, "Διάλεξε ένα χρώμα για το προφίλ σου:" );
+    }
 };
 
 // instant tab switching script
@@ -53,14 +53,14 @@ for ( i = 0; i < children_divs.length; ++i ) {
 Coala.BaseURL = window.location.protocol + '//' + window.location.host + '/';
 
 if ( g( 'userprofile_viewingtabs' ) ) {
-	var viewingTabs = g( 'userprofile_viewingtabs' ).childNodes[ 0 ].nodeValue;
-	if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
-		UserTabs.Activate( viewingTabs );
-	}
+    var viewingTabs = g( 'userprofile_viewingtabs' ).childNodes[ 0 ].nodeValue;
+    if ( g( 'userprofile_viewalbums' ).childNodes[ 0 ].nodeValue == 'yes' ) {
+    	UserTabs.Activate( viewingTabs );
+    }
 }
 if ( g( 'userprofile_friendstab' ) ) {
-	var friendsTab = g( 'userprofile_friendstab' ).childNodes[ 0 ].nodeValue;
-	if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
-		UserTabs.Activate( friendsTab );
-	}
+    var friendsTab = g( 'userprofile_friendstab' ).childNodes[ 0 ].nodeValue;
+    if ( g( 'userprofile_viewfriends' ).childNodes[ 0 ].nodeValue == 'yes' ) {
+    	UserTabs.Activate( friendsTab );
+    }
 }

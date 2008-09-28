@@ -17,8 +17,8 @@ div.albumshow div a:hover {
 div.mainalbum {
 	border-left: 1px solid #d4d4d4;
 	border-right: 1px solid #d4d4d4;
-	background-color: #f8f7f3;
-	padding: 0 10px 0 10px;
+    background-color: #f8f7f3;
+    padding: 0 10px 0 10px;
 }
 div.mainalbum div.albuminfo {
 	color: #c2c3c4;

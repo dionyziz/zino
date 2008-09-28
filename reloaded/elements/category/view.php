@@ -4,10 +4,10 @@
 		global $libs;
 		global $user;
 		global $water;
-		global $xc_settings;
-		
-		$catid = $id->Get();
-		
+	    global $xc_settings;
+        
+        $catid = $id->Get();
+        
 		$page->AttachStyleSheet( 'css/rounded.css' );
 		$page->AttachStyleSheet( 'css/category.css' );
 		
@@ -60,7 +60,7 @@
 						<div class="rectanglesopts" style="height:100px;padding:2px 1px 2px 1px;">
 							<a href="index.php?p=category&amp;id=<?php
 							echo $category->Id(); 
-							?>" class="categorylink"><?php
+                            ?>" class="categorylink"><?php
 							Element( 'image' , $category->Icon() ); 
 							echo htmlspecialchars( $category->Name() );
 							?></a><br /><span class="categorydescription"><?php

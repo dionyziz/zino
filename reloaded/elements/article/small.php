@@ -2,15 +2,15 @@
 	function ElementArticleSmall( $article ) {
 		global $user;
 		global $page;
-		global $xc_settings;
-		
+        global $xc_settings;
+        
 		$page->AttachStylesheet( 'css/articles.css' );
 		
 		?><div><br />
 			<h2><a href="?p=story&amp;id=<?php 
 			echo $article->Id(); 
 			?>"><?php
-			//Element( 'image', $article->Icon(), 100, 100, 'storyicon', '', $article->Title(), $article->Title() );
+            //Element( 'image', $article->Icon(), 100, 100, 'storyicon', '', $article->Title(), $article->Title() );
 			echo htmlspecialchars( $article->Title() );
 			?></a></h2><br />
 			<small>από <?php
@@ -28,7 +28,7 @@
 			echo $article->SmallStory();
 			?></div>
 			<div class="stuff"><?php
-			?><span><?php
+            ?><span><?php
 			echo $article->NumComments();
 			?> σχόλι<?php
 			echo( $article->NumComments() != 1 ? "α" : "o" );

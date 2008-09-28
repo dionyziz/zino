@@ -2,7 +2,7 @@
 
 	function ElementUserArticles( $theuser , $articles ) {
 		global $user;
-		global $xc_settings;
+        global $xc_settings;
 		/*
 		if ( $user->CanModifyStories() ) {
 			?><br />

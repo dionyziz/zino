@@ -6,9 +6,9 @@
 		global $user;
 		global $rabbit_settings;
 		
-		$photoid = $id->Get();
-		$oldcomments = $oldcomments->Get();
-		
+        $photoid = $id->Get();
+        $oldcomments = $oldcomments->Get();
+        
 		if ( !ValidId( $photoid ) ) {
 			$page->SetTitle( 'Λάθος φωτογραφία' );
 			return;
@@ -23,10 +23,10 @@
 			?>Αυτή η φωτογραφία δεν ανήκει σε κανένα album.<?php
 			return;
 		}
-		if ( $photo->DelId() > 0 ) {
+        if ( $photo->DelId() > 0 ) {
 			?>Αυτή η φωτογραφία έχει διαγραφεί.<?php
 			return;
-		}
+        }
 		$photoname = NoExtensionName( $photo->Name() );
 		$page->SetTitle( $photoname );
 		$page->AttachScript( 'js/photos.js' );
@@ -85,7 +85,7 @@
 					$search->SetLimit( 50 );  //show no more than 50 comments
 				}
 				$comments = $search->GetParented( true ); //get comments
-				Element( 'comment/import' );
+                Element( 'comment/import' );
 				Element( 'comment/reply' , $photo , 2 );
 				Element( 'comment/list' , $comments , 0 , 0 );
 			?></div>
@@ -93,6 +93,6 @@
 		<a href="index.php?p=advertise">&#187;Διαφημιστείτε στο <?php
 		echo $rabbit_settings[ 'applicationname' ];
 		?></a><br /><br /><?php
-		Element( "ad/leaderboard" );
+        Element( "ad/leaderboard" );
 	}
 ?>

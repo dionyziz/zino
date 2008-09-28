@@ -7,7 +7,7 @@
 		$libs->Load( 'notify' );
 		$page->AttachStyleSheet( 'css/notify.css' );
 		$page->AttachScript( 'js/coala.js' );
-		
+        
 		$notifies = Notify_GetByUser( $user->Id() , 1 , 5 , true );
 		if ( count( $notifies ) > 0 ) {
 			?><div id="notify">
@@ -26,27 +26,27 @@
 								?>friend<?php
 							}
 							?>"><a href="" class="hide" title="Απόκρυψη" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
-							echo $notif->Id();
-							?> , navigate : false , hidewhat : this.parentNode } );return false;"></a><?php
-							if ( $fromuser->Exists() ) {
-								if ( $fromuser->Gender() == 'female' ) {
-									?>H<?php
-								}
-								else {
-									?>Ο<?php
-								}
-								?> <?php
-								Element( 'user/static' , $fromuser , true , false );
-								if ( $notif->Typeid() < 4 ) {
-									?> απάντησε <?php
-								}
-								else if ( $notif->Typeid() == 4 || $notif->Typeid() == 5 ) {
-									?> σχολίασε <?php
-								}
-							}
-							else {
-								?>Απάντηση <?php
-							}
+                            echo $notif->Id();
+                            ?> , navigate : false , hidewhat : this.parentNode } );return false;"></a><?php
+                            if ( $fromuser->Exists() ) {
+    							if ( $fromuser->Gender() == 'female' ) {
+    								?>H<?php
+    							}
+    							else {
+    								?>Ο<?php
+    							}
+    							?> <?php
+    							Element( 'user/static' , $fromuser , true , false );
+    							if ( $notif->Typeid() < 4 ) {
+                                    ?> απάντησε <?php
+                                }
+                                else if ( $notif->Typeid() == 4 || $notif->Typeid() == 5 ) {
+                                	?> σχολίασε <?php
+                                }
+                            }
+                            else {
+                                ?>Απάντηση <?php
+                            }
 							if ( $notif->Typeid() <= 3 ) {
 								?> στο <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
 								echo $notif->Id();
@@ -57,8 +57,8 @@
 								echo $notif->Id();
 								?> , navigate : true , hidewhat : false } );return false;">προφίλ σου</a><?php
 							}
-							else if ( $notif->Typeid() == 5 ) {
-								?> στην <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
+                            else if ( $notif->Typeid() == 5 ) {
+                            	?> στην <a href="" onclick="Coala.Warm( 'notify/markasread' , { notifyid : <?php
 								echo $notif->Id();
 								?> , navigate : true , hidewhat : false } );return false;">εικόνα σου</a><?php
 							}

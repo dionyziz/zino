@@ -1,7 +1,7 @@
 <?php
 	function ElementSearchSearch( tString $q ) { 
-	
-		return false;
+    
+        return false;
 
 		global $page;
 		global $water;

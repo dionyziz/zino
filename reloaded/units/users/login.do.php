@@ -7,9 +7,9 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 	$libs->Load( 'loginattempt' );
 	
 	if ( LoginAttempt_checkBot( UserIp() ) ) {
-		?>window.location.href = '?p=oust';<?php
-		return;
-	}
+    	?>window.location.href = '?p=oust';<?php
+    	return;
+    }
 	
 	$s_username = $username->Get();
 	$s_password = $password->Get();
@@ -32,7 +32,7 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 		?>Animations.Break ( <?php
 		echo $timer;
 		?> );
-		window.location.href = '?p=a';
+        window.location.href = '?p=a';
 		/* inputs = <?php
 		echo $form;
 		?>.getElementsByTagName( 'input' );
@@ -54,25 +54,25 @@ function UnitUsersLogin( tString $username , tString $password , tCoalaPointer $
 		$user->RenewAuthtoken();
 		$user->SetCookie();
 		?>roku = parentdiv = parentdiv.parentNode.parentNode.parentNode.parentNode;
-		while ( roku = roku.nextSibling ) {
-			if ( roku.className == 'roxas' ) {
-				break;
-			}
-		}
-		roxas = roku;
-		ul = roxas.getElementsByTagName( 'ul' )[ 0 ];
-		for ( i in ul.childNodes ) {
-			li = ul.childNodes[ i ];
-			if ( li.nodeType == 1 && li.nodeName.toLowerCase() == 'li' ) {
-				lli = li;
-			}
-		}
-		a = lli.getElementsByTagName( 'a' )[ 0 ];
-		with ( a ) {
-			className = 'logout';
-			href = 'do/user/logout';
-			childNodes[ 0 ].nodeValue = 'Έξοδος';
-		}
+        while ( roku = roku.nextSibling ) {
+            if ( roku.className == 'roxas' ) {
+                break;
+            }
+        }
+        roxas = roku;
+        ul = roxas.getElementsByTagName( 'ul' )[ 0 ];
+        for ( i in ul.childNodes ) {
+            li = ul.childNodes[ i ];
+            if ( li.nodeType == 1 && li.nodeName.toLowerCase() == 'li' ) {
+                lli = li;
+            }
+        }
+        a = lli.getElementsByTagName( 'a' )[ 0 ];
+        with ( a ) {
+            className = 'logout';
+            href = 'do/user/logout';
+            childNodes[ 0 ].nodeValue = 'Έξοδος';
+        }
 		parentdiv.innerHTML += <?php
 		ob_start();
 		Element( 'user/box' , true );

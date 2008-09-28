@@ -22,15 +22,15 @@
 				?><link href="style.css.php" rel="stylesheet" type="text/css" /><?php
 			}
 		?>
-		<script type="text/javascript" src="../../../js/animations.js"></script>
+        <script type="text/javascript" src="../../../js/animations.js"></script>
 		<script type="text/javascript" src="js/chess.js"></script>
 	</head>
 	<body>
 		<div class="axel">
 			<?php
-				if ( !isset( $_GET[ 'p' ] ) ) {
-					$_GET[ 'p' ] = '';
-				}
+                if ( !isset( $_GET[ 'p' ] ) ) {
+                    $_GET[ 'p' ] = '';
+                }
 				switch ( $_GET[ 'p' ] ) {
 					case 'chess':
 						include 'chess.php';

@@ -5,41 +5,41 @@
 	$libs->Load( 'article' );
 	$libs->Load( 'image/image' );
 	$libs->Load( 'search' );
-	$libs->Load( 'poll' );
+    $libs->Load( 'poll' );
 	
 
-	function Comment_UserIsSpambot( $text ) {
-		return false;
+    function Comment_UserIsSpambot( $text ) {
+        return false;
 
-		global $db;
-		global $comments;
+        global $db;
+        global $comments;
 
-		$sql = "SELECT
-					*
-				FROM
-					`$comments`
-				WHERE
-					`comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
-					`comment_userip` = '" . UserIp() . "'
-				;";
+        $sql = "SELECT
+                    *
+                FROM
+                    `$comments`
+                WHERE
+                    `comment_created` > ( NOW() - INTERVAL 15 SECOND ) AND
+                    `comment_userip` = '" . UserIp() . "'
+                ;";
 
-		$res = $db->Query( $sql );
+        $res = $db->Query( $sql );
 
-		echo "alert( \"" . str_replace( "\n", "", $sql ) . "\" );";
-		
-		if ( $res->Results() ) {
-			die( "go away" );
-			// email dio
-			$subject = "WARNING! Comment spambot detected!";
-			$message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
+        echo "alert( \"" . str_replace( "\n", "", $sql ) . "\" );";
+        
+        if ( $res->Results() ) {
+            die( "go away" );
+            // email dio
+            $subject = "WARNING! Comment spambot detected!";
+            $message = "Text submitted: $text\n\n SpamBot Ip: " . UserIp();
 
-			mail( 'dionyziz@gmail.com', $subject, $message );
+            mail( 'dionyziz@gmail.com', $subject, $message );
 
-			return true;
-		}
+            return true;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
 	function Comment_FormatSearchMulti( &$comments, $searchterm ) {
 		$texts = array();
@@ -101,9 +101,9 @@
 					case 2:
 						$this->mPage = New Image( $this->PageId() );
 						break;
-					case 3:
-						$this->mPage = New Poll( $this->PageId() );
-						break;
+                    case 3:
+                        $this->mPage = New Poll( $this->PageId() );
+                        break;
 				}
 				return $this->mPage;
 			}
@@ -143,12 +143,12 @@
 		}
 		public function User() {
 			if( !$this->mUser ) {
-				if ( $this->mUserId == 0 ) {
-					$this->mUser = New User( array() );
-				}
-				else {
-					$this->mUser = New User( $this->mUserId );
-				}
+                if ( $this->mUserId == 0 ) {
+                    $this->mUser = New User( array() );
+                }
+                else {
+                    $this->mUser = New User( $this->mUserId );
+                }
 			}
 			return $this->mUser;
 		}
@@ -195,7 +195,7 @@
 			global $db;
 			global $comments;
 			global $user;
-			
+            
 			if ( $userid == false ) {
 				$userid = $this->UserId();
 			}
@@ -206,19 +206,19 @@
 				return 2;
 			}
 			
-			if ( $user->CanModifyStories() || ( $user->Exists() && $this->User()->Id() == $user->Id() && daysDistance( $this->SQLDate() ) < 1 ) ) {
-				if ( !$this->Exists() ) {
-					die( 'Trying to edit a non-existing comment' );
-				}
-				else if ( $this->IsDeleted() ) {
-					die( 'Trying to edit a deleted comment!' );
-				}
-			}
+    		if ( $user->CanModifyStories() || ( $user->Exists() && $this->User()->Id() == $user->Id() && daysDistance( $this->SQLDate() ) < 1 ) ) {
+    			if ( !$this->Exists() ) {
+    				die( 'Trying to edit a non-existing comment' );
+    			}
+    			else if ( $this->IsDeleted() ) {
+    				die( 'Trying to edit a deleted comment!' );
+    			}
+            }
 			else {
 				die( 'get outta here' );
 			}
-			
-			$id = $this->Id();
+            
+            $id = $this->Id();
 			$textraw = myescape( $text );
 			$formatted = mformatcomments( array( $text ) );
 			$text = myescape( $formatted[ 0 ] );
@@ -259,7 +259,7 @@
 			
 			if ( $change->Impact() ) {
 				$this->Page()->CommentAdded();
-				$user->AddContrib();
+                $user->AddContrib();
 				return 1;
 			}
 			else {
@@ -293,7 +293,7 @@
 			
 			if ( $change->Impact() ) {
 				$this->Page()->CommentKilled();
-				$user->RemoveContrib();
+                $user->RemoveContrib();
 				return 1;
 			}
 			else {
@@ -342,9 +342,9 @@
 			
 			return $commentsfoo;
 		}
-		public function Exists() {
-			return $this->mId > 0;
-		}
+        public function Exists() {
+            return $this->mId > 0;
+        }
 		private function Construct( $id ) {
 			global $db;
 			global $comments;
@@ -368,11 +368,11 @@
 					return;
 				}
 			}
-			$this->mId				 = isset( $fetched_array[ "comment_id" ] ) ? $fetched_array[ "comment_id" ] : 0;
-			$this->mUserId			 = isset( $fetched_array[ "comment_userid" ] ) ? $fetched_array[ "comment_userid" ] : 0;
+			$this->mId 				= isset( $fetched_array[ "comment_id" ] ) ? $fetched_array[ "comment_id" ] : 0;
+			$this->mUserId 			= isset( $fetched_array[ "comment_userid" ] ) ? $fetched_array[ "comment_userid" ] : 0;
 			$this->mSubmitDate		= isset( $fetched_array[ "comment_created" ] ) ? $fetched_array[ "comment_created" ] : '0000-00-00 00:00:00';
 			$this->mSubmitHost		= isset( $fetched_array[ "comment_userip" ] ) ? $fetched_array[ "comment_userip" ] : '0.0.0.0';
-			$this->mComment		 = isset( $fetched_array[ "comment_text" ] ) ? $fetched_array[ "comment_text" ] : '';
+			$this->mComment 		= isset( $fetched_array[ "comment_text" ] ) ? $fetched_array[ "comment_text" ] : '';
 			$this->mCommentRaw		= isset( $fetched_array[ "comment_textraw" ] ) ? $fetched_array[ "comment_textraw" ] : '';
 			$this->mPageId			= isset( $fetched_array[ "comment_storyid" ] ) ? ( integer )$fetched_array[ "comment_storyid" ] : 0 ;
 			$this->mParentCommentId	= isset( $fetched_array[ "comment_parentid" ] ) ? $fetched_array[ "comment_parentid" ] : 0 ;
@@ -386,7 +386,7 @@
 			$realstars = isset( $fetched_array[ "comment_stars" ] ) ? intval( $fetched_array[ "comment_stars" ] ) : 0;
 			$realvotes = isset( $fetched_array[ "comment_votes" ] ) ? intval( $fetched_array[ "comment_votes" ] ) : 0;
 			$this->mVotes = $realvotes;
-			$this->mTypeId			 = isset( $fetched_array[ "comment_typeid" ] ) ? $fetched_array[ "comment_typeid" ] : 0;
+			$this->mTypeId 			= isset( $fetched_array[ "comment_typeid" ] ) ? $fetched_array[ "comment_typeid" ] : 0;
 			
 			if( $realstars != 0 ) {
 				$this->mStars = round( $realstars / $realvotes );
@@ -429,10 +429,10 @@
 			header( "Location: index.php" );
 		}
 
-		if ( Comment_UserIsSpambot( $text ) ) {
-			die( "Get out." );
-			return;
-		}
+        if ( Comment_UserIsSpambot( $text ) ) {
+            die( "Get out." );
+            return;
+        }
 
 		
 		switch ( $type ) {
@@ -447,19 +447,19 @@
 				if ( !$theuser->Exists() ) {
 					die( 'Invalid profile' );
 				}
-				break;
-			case 2: // image
-				$photo = New Image( $compage );
-				if ( !$photo->AlbumId() ) {
-					die( 'Photo not in album or does not exist' );
-				}
-				break;
-			case 3: // poll
-				$poll = New Poll( $compage );
-				if ( !$poll->Exists() ) {
-					die( 'Invalid poll' );
-				}
-				break;
+                break;
+            case 2: // image
+                $photo = New Image( $compage );
+                if ( !$photo->AlbumId() ) {
+                    die( 'Photo not in album or does not exist' );
+                }
+                break;
+            case 3: // poll
+                $poll = New Poll( $compage );
+                if ( !$poll->Exists() ) {
+                    die( 'Invalid poll' );
+                }
+                break;
 		}
 		
 		$textraw = $text;
@@ -494,14 +494,14 @@
 		else if ( $type == 1 ) {
 			// CCAnnounce( "Νέο σχόλιο στο προφίλ [merlin:link ?p=user&id=" . $comment->Page()->Id() . "#comment_" . $comment->Id() . "|" . myescape( $comment->Page()->Username() ) . "] από $uname" );
 		}
-		$mc->delete( 'latestcomments' );
+        $mc->delete( 'latestcomments' );
 		$user->AddContrib();
 		$newcommentid = $change->InsertId();
 		if ( $parent != 0 ) {
 			$userclass = New Comment( $parent );
 			$touser = $userclass->UserId();
 			Notify_Create( $user->Id() , $touser , $newcommentid , $type );
-			Notify_CommentRead( $user->Id(), $parent, $type );
+            Notify_CommentRead( $user->Id(), $parent, $type );
 		}
 		else if ( $type == 1 ) { // Comment to Profile without parent (not a reply)
 			Notify_Create( $user->Id(), $compage, $newcommentid, 4 );
@@ -532,36 +532,36 @@
 		}
 		private function SetQueryFields() {
 			$this->mFields = array(
-				'`comment_id`'		  => 'comment_id', 
-				'`comment_created`'	   => 'comment_created',
-				'`comment_parentid`'	 => 'comment_parentid',
-				'`comment_text`'		 => 'comment_text',
-				'`comment_textraw`'	 => 'comment_textraw',
+				'`comment_id`'          => 'comment_id', 
+				'`comment_created`'   	=> 'comment_created',
+				'`comment_parentid`' 	=> 'comment_parentid',
+				'`comment_text`' 		=> 'comment_text',
+				'`comment_textraw`' 	=> 'comment_textraw',
 				'`comment_userip`'		=> 'comment_userip',
 				'`comment_storyid`'		=> 'comment_storyid',
-				'`user_id`'			   => 'user_id',
-				'`user_name`'			 => 'user_name',
-				'`user_subdomain`'	  => 'user_subdomain',
-				'`user_rights`'		   => 'user_rights',
-				'`user_lastprofedit`'	 => 'user_lastprofedit',
+				'`user_id`'           	=> 'user_id',
+				'`user_name`'         	=> 'user_name',
+                '`user_subdomain`'      => 'user_subdomain',
+				'`user_rights`'       	=> 'user_rights',
+				'`user_lastprofedit`' 	=> 'user_lastprofedit',
 				'`user_icon`'			=> 'user_icon',
-				'`user_signature`'	  => 'user_signature',
-				'`image_id`'			=> 'image_id', /* user icon */
-				'`image_userid`'		=> 'image_userid'
+                '`user_signature`'      => 'user_signature',
+                '`image_id`'            => 'image_id', /* user icon */
+                '`image_userid`'        => 'image_userid'
 			);
 		}
 		public function SetNegativeRequirement( $key ) {
 			static $keymap = array(
-				'comment_created'	 => '`comment_created`',
-				'comment_parentid'	 => '`comment_parentid`',
-				'comment_text'		 => '`comment_text`',
-				'comment_textraw'	 => '`comment_textraw`',
-				'comment_userip'	 => '`comment_userip`',
+				'comment_created' 	=> '`comment_created`',
+				'comment_parentid' 	=> '`comment_parentid`',
+				'comment_text' 		=> '`comment_text`',
+				'comment_textraw' 	=> '`comment_textraw`',
+				'comment_userip' 	=> '`comment_userip`',
 				'comment_storyid'	=> '`comment_storyid`',
-				'user_name'		 => '`user_name`',
-				'user_rights'		 => '`user_rights`',
+				'user_name' 		=> '`user_name`',
+				'user_rights' 		=> '`user_rights`',
 				'user_lastprofedit' => '`user_lastprofedit`',
-				'user_icon'		 => '`user_icon`'
+				'user_icon' 		=> '`user_icon`'
 			);
 			
 			w_assert( isset( $keymap[ $key ] ) );
@@ -608,7 +608,7 @@
 		}
 		public function SetSortMethod( $field , $order ) {
 			static $fieldsmap = array(	
-				'date'		 => '`comment_id`'
+				'date' 		=> '`comment_id`'
 			);
 			
 			w_assert( isset( $fieldsmap[ $field ] ) );
@@ -619,9 +619,9 @@
 			$comments = $this->Get();
 			
 			$parented = array();
-			if ( !is_array( $comments ) ) {
-				return $parented;
-			}
+            if ( !is_array( $comments ) ) {
+                return $parented;
+            }
 
 			foreach( $comments as $comment ) {
 				if ( !isset( $parented[ $comment->ParentId() ] ) || empty( $parented[ $comment->ParentId() ] ) ) {
@@ -686,51 +686,51 @@
 				$res = $db->Query( $sql );
 				foreach ( $res as $row ) {
 					$imagesdata[ $row[ 'image_id' ] ] = new Image( $row );
-				}
+		        }
 			}
-			
-			return array( 
-				'articlesdata'  => $articlesdata, 
-				'profilesdata'  => $profilesdata, 
-				'imagesdata'	=> $imagesdata 
-			);
+            
+            return array( 
+                'articlesdata'  => $articlesdata, 
+                'profilesdata'  => $profilesdata, 
+                'imagesdata'    => $imagesdata 
+            );
 		}
 
 		protected function Instantiate( $res ) {
-			$rows = array();
-			while ( $row = $res->FetchArray() ) {
-				$rows[] = $row;
-			}
+            $rows = array();
+            while ( $row = $res->FetchArray() ) {
+                $rows[] = $row;
+            }
 
-			if ( $this->mPageDataNeeded ) {
-				$pagedata = $this->GetPageData( $rows );
-				
-				foreach ( $rows as $row ) {
-					switch ( $row[ 'comment_typeid' ] ) {
-						case 0:
-							$row[ 'page' ] = $pagedata[ 'articlesdata' ][ $row[ 'comment_storyid' ] ];
-							break;
-						case 1:
-							$row[ 'page' ] = $pagedata[ 'profilesdata' ][ $row[ 'comment_storyid' ] ];
-							break;
-						case 2:
-							$row[ 'page' ] = $pagedata[ 'imagesdata' ][ $row[ 'comment_storyid' ] ];
-							break;
-					}
-				}
-			}
+            if ( $this->mPageDataNeeded ) {
+    			$pagedata = $this->GetPageData( $rows );
+                
+    			foreach ( $rows as $row ) {
+	    			switch ( $row[ 'comment_typeid' ] ) {
+		    			case 0:
+			    			$row[ 'page' ] = $pagedata[ 'articlesdata' ][ $row[ 'comment_storyid' ] ];
+				    		break;
+    					case 1:
+	    					$row[ 'page' ] = $pagedata[ 'profilesdata' ][ $row[ 'comment_storyid' ] ];
+		    				break;
+			    		case 2:
+				    		$row[ 'page' ] = $pagedata[ 'imagesdata' ][ $row[ 'comment_storyid' ] ];
+					    	break;
+	    			}
+		    	}
+            }
 
-			$comments = array(); 
-			foreach ( $rows as $row ) {
-				$comments[] = new Comment( $row );
-			}
+            $comments = array(); 
+            foreach ( $rows as $row ) {
+			    $comments[] = new Comment( $row );
+            }
 			
 			return $comments;
 		}
 		public function Search_Comments() { // constructor
 			global $comments;
 			global $users;
-			global $images;
+            global $images;
 			global $articles;
 			global $revisions;
 			
@@ -739,7 +739,7 @@
 			$this->mTables = array(
 				'comments' => array( 'name' => $comments ),
 				'users' => array( 'name' => $users , 'jointype' => 'LEFT JOIN' , 'on' => '`user_id` = `comment_userid`' ),
-				'images' => array( 'name' => $images , 'jointype' => 'LEFT JOIN' , 'on' => '`image_id` = `user_icon`' )
+                'images' => array( 'name' => $images , 'jointype' => 'LEFT JOIN' , 'on' => '`image_id` = `user_icon`' )
 			);
 			$this->mPageDataNeeded = false;
 			

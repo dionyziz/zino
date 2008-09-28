@@ -47,19 +47,19 @@ var Tween = {
 			}
 		}
 	},
-	GetValue: function( start, end, percentage ) {
-		// multivalue tween
-		if ( start instanceof Array ) {
-			ret = [];
-			for ( i in start ) {
-				// RECURSE! to any depth
-				ret[ i ] = Tween.GetValue( start[ i ], end[ i ], percentage );
-			}
-			return ret;
-		}
-		// traditional tween function here
-		return start + percentage * ( end - start );
-	}
+    GetValue: function( start, end, percentage ) {
+        // multivalue tween
+        if ( start instanceof Array ) {
+            ret = [];
+            for ( i in start ) {
+                // RECURSE! to any depth
+                ret[ i ] = Tween.GetValue( start[ i ], end[ i ], percentage );
+            }
+            return ret;
+        }
+        // traditional tween function here
+        return start + percentage * ( end - start );
+    }
 };
 
 var Interpolators = {
@@ -83,10 +83,10 @@ var Interpolators = {
 		if ( x < 1 ) {
 			return x - ( 1 - Math.exp( -x ) );
 		}
-		var start = Math.exp( -1 );
-		x -= 1;
-		var expx = 1 - Math.exp( -x );
-		return start + ( expx * ( 1 - start ) );
+        var start = Math.exp( -1 );
+        x -= 1;
+        var expx = 1 - Math.exp( -x );
+        return start + ( expx * ( 1 - start ) );
 	},
 	PulseNormalize: 1,
 	Pulse: function ( x ) {
@@ -110,8 +110,8 @@ var Animations = {
 		if ( start === false ) {
 			start = Animations.GetAttribute( node , attribute );
 		}
-		start = Animations.GetValue( start );
-		end   = Animations.GetValue( end   );
+        start = Animations.GetValue( start );
+        end   = Animations.GetValue( end   );
 		index = Animations.Current.length;
 		Animations.Current[ index ] = {
 			'Object': node,
@@ -127,26 +127,26 @@ var Animations = {
 						};
 					}( index ) )
 		};
-		return index;
+        return index;
 	},
-	GetValue: function ( target ) {
-		if ( typeof target == 'number' ) {
-			return target;
-		}
-		if ( typeof target == 'string' ) {
-			// #c010le
-			if ( target.substr( 0, 1 ) == '#' ) {
-				target = target.substr( 1, 6 );
-				return [
-					parseInt( target.substr( 0, 2 ), 16 ),
-					parseInt( target.substr( 2, 2 ), 16 ),
-					parseInt( target.substr( 4, 2 ), 16 )
-				];
-			}
-		}
-		// fallback
-		return target;
-	},
+    GetValue: function ( target ) {
+        if ( typeof target == 'number' ) {
+            return target;
+        }
+        if ( typeof target == 'string' ) {
+            // #c010le
+            if ( target.substr( 0, 1 ) == '#' ) {
+                target = target.substr( 1, 6 );
+                return [
+                    parseInt( target.substr( 0, 2 ), 16 ),
+                    parseInt( target.substr( 2, 2 ), 16 ),
+                    parseInt( target.substr( 4, 2 ), 16 )
+                ];
+            }
+        }
+        // fallback
+        return target;
+    },
 	Break: function ( id ) {
 		return Tween.Break( Animations.Current[ id ].Tween );
 	},
@@ -157,39 +157,39 @@ var Animations = {
 		switch ( attribute ) {
 			case 'left':
 			case 'top':
-			case 'bottom':
-			case 'right':
+            case 'bottom':
+            case 'right':
 			case 'width':
 			case 'height':
 				object.style[ attribute ] = value + 'px';
 				break;
 			case 'opacity':
 				object.style[ attribute ] = value;
-				if (object.style.filter !== null) {
+                if (object.style.filter !== null) {
 					if ( value == 1 ) {
 						object.style.filter = '';
 					}
 					else {
 						object.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
 					}
-				}
+                }
 				break;
-			case 'background-color':
-				object.style.backgroundColor = 'rgb(' 
-												+ Math.round( value[ 0 ] ) + ',' 
-												+ Math.round( value[ 1 ] ) + ',' 
-												+ Math.round( value[ 2 ] ) 
-												+ ')';
-				break;
-			case 'color':
-				object.style.color = 'rgb(' 
-									 + Math.round( value[ 0 ] ) + ',' 
-									 + Math.round( value[ 1 ] ) + ',' 
-									 + Math.round( value[ 2 ] ) 
-									 + ')';
-				break;
-			case 'font-size':
-				object.style.fontSize = value;
+            case 'background-color':
+                object.style.backgroundColor = 'rgb(' 
+                                                + Math.round( value[ 0 ] ) + ',' 
+                                                + Math.round( value[ 1 ] ) + ',' 
+                                                + Math.round( value[ 2 ] ) 
+                                                + ')';
+                break;
+            case 'color':
+                object.style.color = 'rgb(' 
+                                     + Math.round( value[ 0 ] ) + ',' 
+                                     + Math.round( value[ 1 ] ) + ',' 
+                                     + Math.round( value[ 2 ] ) 
+                                     + ')';
+                break;
+            case 'font-size':
+                object.style.fontSize = value;
 		}
 	},
 	GetAttribute: function ( object , attribute ) {
@@ -201,15 +201,15 @@ var Animations = {
 				return object.style[ attribute ].substr( 0 , object.style[ attribute ].length - 2 ); // -px
 			case 'opacity':
 				return object.style[ attribute ];
-			case 'fontsize':
-				return object.style.fontSize;
+            case 'fontsize':
+                return object.style.fontSize;
 			default:
 		}
 	},
 	Callback_OnDone: function ( id ) {
-		if ( typeof Animations.Current[ id ].Callback_OnDone == 'function' ) {
-			Animations.Current[ id ].Callback_OnDone();
-		}
+        if ( typeof Animations.Current[ id ].Callback_OnDone == 'function' ) {
+            Animations.Current[ id ].Callback_OnDone();
+        }
 	},
 	Init: function () {
 		// pass

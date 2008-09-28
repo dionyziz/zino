@@ -4,7 +4,7 @@
 		global $chats;
 		global $users;
 		global $db;
-		
+        
 		if ( !is_numeric( $lastid ) ) {
 			return array();
 		}
@@ -43,7 +43,7 @@
 		global $chats;
 		global $user;
 		global $db;
-		
+        
 		if ( $userid === false ) {
 			$userid = $user->Id();
 		}
@@ -63,8 +63,8 @@
 	
 	function UsersInChat() {
 		global $users;
-		global $db;
-		
+        global $db;
+        
 		$sql = "SELECT 
 					`user_id` AS user_id,
 					`user_name`,
@@ -85,7 +85,7 @@
 		global $chats;
 		global $users;
 		global $db;
-		
+        
 		$sql = "SELECT 
 				`chat_message`,
 				(`chat_date` + INTERVAL 2 HOUR) AS `chat_cutedate`,

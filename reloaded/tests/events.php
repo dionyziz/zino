@@ -1,11 +1,11 @@
 <?php
 
-	global $libs;
-	$libs->Load( 'interesttag' );
+    global $libs;
+    $libs->Load( 'interesttag' );
 
-	class TestEvent extends TestCase {
-	};
+    class TestEvent extends TestCase {
+    };
 
-	return New TestEvent();
+    return New TestEvent();
 
 ?>

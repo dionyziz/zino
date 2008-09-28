@@ -4,11 +4,11 @@
 		global $libs;
 		global $user;
 		
-		$eid = $eid->Get();
-		$noname = $noname->Get();
-		$nodescription = $nodescription->Get();
-		$noparent = $noparent->Get();
-		
+        $eid = $eid->Get();
+        $noname = $noname->Get();
+        $nodescription = $nodescription->Get();
+        $noparent = $noparent->Get();
+        
 		$libs->Load( 'faq' );
 		$page->AttachStylesheet( 'css/faq.css' );
 		

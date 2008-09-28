@@ -27,7 +27,7 @@
 		protected $mCreateYear, $mCreateMonth, $mCreateDay, $mCreateHour, $mCreateMinute, $mCreateSecond;
 		protected $mType;
 		protected $mCreatorIp;
-		
+        
 		
 		public function Relation( $construct = false ) {
 			global $db;

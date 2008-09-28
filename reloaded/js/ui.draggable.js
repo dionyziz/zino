@@ -452,12 +452,12 @@
 
 			var d = ui.options.snapTolerance || 20;
 			var x1 = ui.absolutePosition.left, x2 = x1 + ui.instance.helperProportions.width,
-				y1 = ui.absolutePosition.top, y2 = y1 + ui.instance.helperProportions.height;
+			    y1 = ui.absolutePosition.top, y2 = y1 + ui.instance.helperProportions.height;
 
 			for (var i = ui.instance.snapElements.length - 1; i >= 0; i--){
 
 				var l = ui.instance.snapElements[i].left, r = l + ui.instance.snapElements[i].width, 
-					t = ui.instance.snapElements[i].top,  b = t + ui.instance.snapElements[i].height;
+				    t = ui.instance.snapElements[i].top,  b = t + ui.instance.snapElements[i].height;
 
 				//Yes, I know, this is insane ;)
 				if(!((l-d < x1 && x1 < r+d && t-d < y1 && y1 < b+d) || (l-d < x1 && x1 < r+d && t-d < y2 && y2 < b+d) || (l-d < x2 && x2 < r+d && t-d < y1 && y1 < b+d) || (l-d < x2 && x2 < r+d && t-d < y2 && y2 < b+d))) continue;

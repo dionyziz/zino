@@ -1,9 +1,9 @@
 <?php
 	function ActionArticleRevert( tInteger $id, tInteger $r ) {
-		global $libs;
+    	global $libs;
 		global $user;
-		
-		$libs->Load( 'article' );
+    	
+    	$libs->Load( 'article' );
 		$articleid = $id->Get();
 		$revision = $r->Get();
 		

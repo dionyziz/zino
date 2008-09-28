@@ -16,22 +16,22 @@
 	header( "Pragma: " );
 	header( "Content-Type: image/png" );
 	
-	$livedb = New Database( 'excalibur-sandbox' );
+    $livedb = New Database( 'excalibur-sandbox' );
 	$livedb->Connect( 'localhost' );
 	$livedb->Authenticate( 'excalibursandbox' , 'viuhluqouhoa' );
 	$livedb->SetCharset( 'DEFAULT' );
 	
-	$sql = 'SELECT
-				UNIX_TIMESTAMP() AS nowstamp';
-				
-	$res = $db->Query( $sql );
-	$row = $res->FetchArray();
-	$nowstamp = $row[ 'nowstamp' ];
-	
+    $sql = 'SELECT
+                UNIX_TIMESTAMP() AS nowstamp';
+                
+    $res = $db->Query( $sql );
+    $row = $res->FetchArray();
+    $nowstamp = $row[ 'nowstamp' ];
+    
 	$sql = "SELECT
 				COUNT(*) AS newusers,
 				DATE( `user_created` ) AS day,
-				UNIX_TIMESTAMP( `user_created` ) AS diffseconds
+                UNIX_TIMESTAMP( `user_created` ) AS diffseconds
 			FROM
 				`$users`
 			WHERE
@@ -47,10 +47,10 @@
 	for ( $i = 0; $i < 92; ++$i ) {
 		$days[ 91 - $i ] = 0;
 	}
-	$nowday = floor( $nowstamp / ( 24 * 60 * 60 ) );
+    $nowday = floor( $nowstamp / ( 24 * 60 * 60 ) );
 
 	while ( $row = $res->FetchArray() ) {
-		$numdays = $nowday - floor( $row[ 'diffseconds' ] / ( 24 * 60 * 60 ) );
+        $numdays = $nowday - floor( $row[ 'diffseconds' ] / ( 24 * 60 * 60 ) );
 		$days[ $numdays ] = $row[ 'newusers' ];
 	}
 	

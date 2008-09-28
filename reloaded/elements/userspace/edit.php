@@ -55,8 +55,8 @@
 				/* End Photo Uploading */
 
 				?><textarea name="text"><?php 
-				echo htmlspecialchars( $userspace->TextRaw() ); 
-				?></textarea><br />
+                echo htmlspecialchars( $userspace->TextRaw() ); 
+                ?></textarea><br />
 				<input type="hidden" name="userid" value="<?php
 				echo $user->Id();
 				?>" />

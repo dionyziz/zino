@@ -4,8 +4,8 @@
 		global $water;
 		global $page;
 		
-		$offset = $offset->Get();
-		
+        $offset = $offset->Get();
+        
 		$page->SetTitle( 'Άρθρα' );
 		$page->AttachStyleSheet( 'css/articles.css' );
 		$libs->Load( 'search' );
@@ -16,7 +16,7 @@
 		}
 		$testing = $offset*$length - $length;
 		$search = New Search_Articles();
-		$search->SetSortMethod( 'date', 'DESC' );
+	    $search->SetSortMethod( 'date', 'DESC' );
 		$search->SetFilter( 'typeid', 0 );
 		$search->SetFilter( 'delid', 0 );
 		$search->SetNegativeFilter( 'category', 0 );

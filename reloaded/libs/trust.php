@@ -9,31 +9,31 @@
 		return $hash;
 	}
 
-	function Trust_GetUntrusted() {
-		global $db;
-		
-		$sql = "SELECT 
-					*, COUNT( * ) AS howmany
-				FROM 
-					`merlin_ddos`
-				WHERE 
-					`session_jsconfirmed` = 'no'
-				GROUP BY 
-					`session_ip`
-				HAVING 
-					howmany > 10
-				ORDER BY 
-					`howmany` DESC
-				LIMIT 100;";
-		$res = $db->Query( $sql );
-		
-		$ips = array();
-		while ( $row = $res->FetchArray() ) {
-			$ips[] = long2ip( $row[ 'session_ip' ] );
-		}
-		return $ips;
-	}
-	
+    function Trust_GetUntrusted() {
+        global $db;
+        
+        $sql = "SELECT 
+                    *, COUNT( * ) AS howmany
+                FROM 
+                    `merlin_ddos`
+                WHERE 
+                    `session_jsconfirmed` = 'no'
+                GROUP BY 
+                    `session_ip`
+                HAVING 
+                    howmany > 10
+                ORDER BY 
+                    `howmany` DESC
+                LIMIT 100;";
+        $res = $db->Query( $sql );
+        
+        $ips = array();
+        while ( $row = $res->FetchArray() ) {
+            $ips[] = long2ip( $row[ 'session_ip' ] );
+        }
+        return $ips;
+    }
+    
 	function Trust_HashInUse( $hash ) {
 		global $db;
 
@@ -58,8 +58,8 @@
 			'session_hash' => $hash,
 			'session_ip' => $ip,
 			'session_jsconfirmed' => 'no',
-			'session_querystring' => $_SERVER[ 'REQUEST_URI' ],
-			'session_date' => NowDate()
+            'session_querystring' => $_SERVER[ 'REQUEST_URI' ],
+            'session_date' => NowDate()
 		);
 
 		$db->Insert( $insert, 'merlin_ddos' );

@@ -2,10 +2,10 @@
 	function UnitShoutEdit( tInteger $id, tString $shouttext, tCoalaPointer $callback ) {
 		global $user;
 		global $libs;
-		
-		$id = $id->Get();
-		$shouttext = $shouttext->Get();
-		
+        
+        $id = $id->Get();
+        $shouttext = $shouttext->Get();
+        
 		$libs->Load( 'shoutbox' );
 		if ( $user->IsModerator() ) {
 			if( empty( $id ) && $id != 0 ) {
@@ -29,17 +29,17 @@
 				MakeShout( $shouttext );
 			}
 
-			echo $callback;
-			?>( <?php
-			echo $id;
-			?>, <?php
-			echo w_json_encode( $shouttext );
-			?>, <?php
-			$temp = mformatcomments( array( $shouttext ) );
-			$temp = nl2br( $temp[0] );
-			echo w_json_encode( $temp );
-			?> );<?php
+            echo $callback;
+            ?>( <?php
+            echo $id;
+            ?>, <?php
+            echo w_json_encode( $shouttext );
+            ?>, <?php
+            $temp = mformatcomments( array( $shouttext ) );
+            $temp = nl2br( $temp[0] );
+            echo w_json_encode( $temp );
+            ?> );<?php
 
 		}
-	}
+    }
 ?>

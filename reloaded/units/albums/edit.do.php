@@ -11,11 +11,11 @@
 				true -> albumlist
 				false -> albumsmall
 		*/
-		
-		$albumid = $albumid->Get();
-		$newtext = $newtext->Get();
-		$typeid = $typeid->Get();
-		
+        
+        $albumid = $albumid->Get();
+        $newtext = $newtext->Get();
+        $typeid = $typeid->Get();
+        
 		$libs->Load( 'albums' );
 		$album = New Album( $albumid );
 		if ( $album->UserId() == $user->Id() ) {

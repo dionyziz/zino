@@ -10,13 +10,13 @@ function parseTable( table ) {
 	table.cellspacing="0";
 	table.style.borderCollapse = "collapse";
 	table.style.margin = "auto";
-	table.style.cursor = "pointer";
+    table.style.cursor = "pointer";
 }
 
 function createRainbow() {
 	var table = document.getElementById( 'table' );
 	parseTable( table );
-	var tbody = document.createElement( 'tbody' );
+    var tbody = document.createElement( 'tbody' );
 	var s,v;
 	s=v=1;
 	for(var h=0;h<360;h+=4 ) {
@@ -64,9 +64,9 @@ Notice the domain of r,g,b values!In computer technology the domain of r,g,b is 
 Let y be a real number in [0,1] and x be an integer in [0,255].
 The following ratio appears:
 
-	 1	 255
+	 1     255
 	--- = -----
-	 y	  x
+	 y      x
 	 
 <=>  x = 255*y
 Since x belongs to Z, x = parseInt( 255*y );

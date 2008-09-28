@@ -14,31 +14,31 @@ div.opties {
 div.rectanglesopts {
 	border-left: 1px solid #d4d4d4;
 	border-right: 1px solid #d4d4d4;
-	background-color: #f8f7f3;
-	padding: 0 10px 0 10px;
-	_position: relative;
-	left: 3px;
-	_margin-right: 6px;
+    background-color: #f8f7f3;
+    padding: 0 10px 0 10px;
+    _position: relative;
+    left: 3px;
+    _margin-right: 6px;
 }
 div.upperline {
 	background-color: #f8f7f3;
-	height: 9px;
-	overflow: hidden;
+    height: 9px;
+    overflow: hidden;
 }
 div.upperline div.middle {
 	border-top: 1px solid #cac9c7;
 	background-color: #f8f7f3;
-	height: 1px;
+    height: 1px;
 }
 div.downline {
 	background-color: white;
 }
 div.middledowncss {
-	background-image: url( 'http://static.zino.gr/images/repeat.jpg' );
-	background-repeat: repeat-x;
-	background-position: top;
-	height: 15px;
-	background-color: #ffffff;
+    background-image: url( 'http://static.zino.gr/images/repeat.jpg' );
+    background-repeat: repeat-x;
+    background-position: top;
+    height: 15px;
+    background-color: #ffffff;
 }  
 div.leftupcorner {
 	float: left;
@@ -48,8 +48,8 @@ div.leftupcorner {
 	height: 9px;
 	padding: 0;
 	margin: 0;
-	_position: relative;
-	left: 3px;
+    _position: relative;
+    left: 3px;
 }
 div.rightupcorner {
 	float: right;
@@ -59,8 +59,8 @@ div.rightupcorner {
 	height: 9px;
 	padding: 0;
 	margin: 0;
-	_position: relative;
-	left: -3px;
+    _position: relative;
+    left: -3px;
 }
 div.leftdowncorner {
 	float: left;
@@ -70,8 +70,8 @@ div.leftdowncorner {
 	height: 13px;
 	padding: 0;
 	margin: 0;
-	_position: relative;
-	left: 3px;
+    _position: relative;
+    left: 3px;
 }
 div.rightdowncorner {
 	float: right;
@@ -81,8 +81,8 @@ div.rightdowncorner {
 	height: 13px;
 	padding: 0;
 	margin: 0;
-	_position: relative;
-	left: -3px;
+    _position: relative;
+    left: -3px;
 }
 span.directions {
 	font-weight: bold;

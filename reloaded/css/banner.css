@@ -35,15 +35,15 @@ div.roxas ul {
 div.roxas li {
 	display: inline;
 	height: 25px;
-	font-size: 80%;
+    font-size: 80%;
 }
 div.roxas ul li a, div.roxas ul li a:link, div.roxas ul li a:visited, div.roxas ul li a:active {
 	color: white;
 	font-weight: bold;
 	margin-top: 5px;
 	padding-right: 20px;
-	padding-left: 20px;
-	font-size: 80%;
+    padding-left: 20px;
+    font-size: 80%;
 	height: 20px;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -69,17 +69,17 @@ div.roxas ul li a.register {
 	background-image: url('http://static.zino.gr/images/icons/icon_user.gif');
 }
 div.roxas ul li form {
-	display: inline;
+    display: inline;
 }
 div.roxas ul li form input.text {
-	border: 1px solid black;
-	margin-right: 5px;
-	padding-left: 2px;
-	color: #777777;
+    border: 1px solid black;
+    margin-right: 5px;
+    padding-left: 2px;
+    color: #777777;
 }
 div.roxas ul li form a img {
-	position: relative;
-	top: 2px;
+    position: relative;
+    top: 2px;
 }
 div.roku {
 	width: 250px;
@@ -118,7 +118,7 @@ div.axel div.akuloggedout div.content div div.small label {
 	width: 60px;
 	height: 20px;
 	vertical-align: bottom;
-	display: block;
+    display: block;
 }
 div.axel div.akuloggedout div.content div div.small div.field {
 	height: 20px;

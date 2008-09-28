@@ -6,8 +6,8 @@ function ElementPmOnepm( $pmobj , $folder ) {
 
 	$usersended = $pmobj->Sender;
 	?><div class="message" style="width:620px;" id="pm_<?php
-		echo $pmobj->Id;
-		?>">
+        echo $pmobj->Id;
+        ?>">
 		<div class="infobar"<?php
 		if ( $folder != -2 ) {
 			?> onmousedown="pms.DragPm( 'pm_<?php
@@ -53,51 +53,51 @@ function ElementPmOnepm( $pmobj , $folder ) {
 			echo $pmobj->Id;
 			?> );return false;"><?php
 			if ( $folder != -2 ) {
-				?> από τ<?php
-				$pmuser = $pmobj->Sender;
+                ?> από τ<?php
+                $pmuser = $pmobj->Sender;
 			}
 			else {
 				?> προς τ<?php
-				$pmuser = $pmobj->Receivers;
+                $pmuser = $pmobj->Receivers;
 			}
-			if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) {
-				?>ους<?php
-			}
-			else if ( is_array( $pmuser ) ) {
-				$pmuser = $pmuser[ 0 ];
-			}
-			if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender() == 'female' ) {
-				?>η<?php
-				switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
-					case 'a':
-					case 'e':
-					case 'o':
-					case 'u':
-					case 'i':
-					case 't':
-					case 'p':
-					case 'k':
-						?>ν<?php
-						break;
-					default:
-				}
-			}
-			else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
-				?>ο<?php
-				switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
-					case 'a':
-					case 'e':
-					case 'o':
-					case 'u':
-					case 'i':
-					case 't':
-					case 'p':
-					case 'k':
-						?>ν<?php
-						break;
-					default:
-				}
-			}
+            if ( is_array( $pmuser ) && count( $pmuser ) > 1 ) {
+                ?>ους<?php
+            }
+            else if ( is_array( $pmuser ) ) {
+                $pmuser = $pmuser[ 0 ];
+            }
+            if ( !is_array( $pmuser ) && is_object( $pmuser) && $pmuser->Gender() == 'female' ) {
+                ?>η<?php
+                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
+                    case 'a':
+                    case 'e':
+                    case 'o':
+                    case 'u':
+                    case 'i':
+                    case 't':
+                    case 'p':
+                    case 'k':
+                        ?>ν<?php
+                        break;
+                    default:
+                }
+            }
+            else if ( !is_array( $pmuser ) && is_object( $pmuser ) ) {
+                ?>ο<?php
+                switch ( strtolower( substr( $pmuser->Username() , 0 , 1 ) ) ) {
+                    case 'a':
+                    case 'e':
+                    case 'o':
+                    case 'u':
+                    case 'i':
+                    case 't':
+                    case 'p':
+                    case 'k':
+                        ?>ν<?php
+                        break;
+                    default:
+                }
+            }
 			?> </div><div style="display:inline" class="infobar_info"><?php
 			if ( $folder != -2 ) {
 				Element( 'user/static' , $pmobj->Sender );
@@ -106,9 +106,9 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				$receivers = $pmobj->Receivers;
 				while ( $receiver = array_shift( $receivers ) ) {
 					Element( 'user/static' , $receiver );
-					if ( count( $receivers ) ) {
-						?>, <?php
-					}
+                    if ( count( $receivers ) ) {
+                        ?>, <?php
+                    }
 				}
 			}
 			?></div><div onclick="pms.ExpandPm( this , <?php
@@ -130,7 +130,7 @@ function ElementPmOnepm( $pmobj , $folder ) {
 				<?php
 				echo nl2br( htmlspecialchars( $pmobj->Text ) );
 				?><br /><br /><br /><br />
-			</div>
+            </div>
 		</div>
 		<div class="lowerline" style="background-color: #f8f8f6;display:none;">
 			<div class="leftcorner"> </div>

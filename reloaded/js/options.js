@@ -66,9 +66,9 @@ var ProfileOptions = {
 			elements[ i ].style.height = '100%';
 			elements[ i ].style.backgroundColor = '#ececec';
 		
-			input			 = d.createElement( "input" );
+			input 			= d.createElement( "input" );
 			input.type		= "text";
-			input.name		 = elements[ i ].id.substring( 13 ); // user_options_foo -> user_foo
+			input.name 		= elements[ i ].id.substring( 13 ); // user_options_foo -> user_foo
 			input.className = "user_options";
 			input.value		= content;
 			if ( content === "" ) {

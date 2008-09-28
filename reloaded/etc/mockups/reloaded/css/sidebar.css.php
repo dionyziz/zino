@@ -39,7 +39,7 @@ div.sidebar div.box div.body {
 	padding: 5px 3px 3px 3px;
 }
 div.shoutbox {
-	overflow: hidden;
+    overflow: hidden;
 }
 div.sidebar div.shoutbox div.body div, div.sidebar div.latestcomments div.body div {
 	margin-bottom: 3px;

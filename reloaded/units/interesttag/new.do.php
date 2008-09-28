@@ -1,8 +1,8 @@
 <?php
 
-	function UnitInterestTagNew( tString $text ) {
-		global $libs;
-		global $user;
+    function UnitInterestTagNew( tString $text ) {
+        global $libs;
+        global $user;
 
 		$libs->Load( 'interesttag' );
 
@@ -15,10 +15,10 @@
 			return;
 		}
 
-		$tag = new InterestTag();
-		$tag->User = $user;
-		$tag->Text = $text;
-		$tag->Save();
-	}
+        $tag = new InterestTag();
+        $tag->User = $user;
+        $tag->Text = $text;
+        $tag->Save();
+    }
 
 ?>

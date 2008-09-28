@@ -2,10 +2,10 @@
 	function ElementUserOnline() {
 		global $user;
 		global $page;
-		global $xc_settings;
-		
-		$page->AttachScript( 'js/frontpage.js' );
-		
+        global $xc_settings;
+        
+        $page->AttachScript( 'js/frontpage.js' );
+        
 		$onlineusers = findOnlineUsers();
 		$newusers = getNewUsers();
 		
@@ -16,11 +16,11 @@
 		?><div class="box onlinenow">
 			<div class="header">
 				<div style="float:right"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>soraright.jpg" alt="" /></div>
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>soraright.jpg" alt="" /></div>
 				<div style="float:left"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>soraleft.jpg" alt="" /></div>
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>soraleft.jpg" alt="" /></div>
 				<h3>
 					<span id="onlineuheader" style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);opacity: 1; cursor: pointer" onclick="Frontpage.SwitchOnlineUsersBox( 'online' );">Συνδεδεμένοι τώρα</span> /
 					<span id="newuheader" style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);opacity: 0.3; cursor: pointer;" onclick="Frontpage.SwitchOnlineUsersBox( 'new' );">Νεότεροι</span>

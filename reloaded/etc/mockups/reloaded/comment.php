@@ -28,10 +28,10 @@
 				<?php
 					echo $text;
 				?><br /><br /><br />
-				<div class="sig">
+                <div class="sig">
 					If you think you can, you can. And if you think you can't, you 're right.<br />
-				</div>
-			</div>
+                </div>
+            </div>
 		</div>
 		<div class="lowerline">
 			<div class="leftcorner">&nbsp;</div>

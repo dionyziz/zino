@@ -1,11 +1,11 @@
 <?php
-	// Shows any instant messaging accounts the user has. $classk is a variable used for changing the background of the line where the account appears,so that first time msn
-	// appears with white background and at the next line,yim appears with grey background
+    // Shows any instant messaging accounts the user has. $classk is a variable used for changing the background of the line where the account appears,so that first time msn
+    // appears with white background and at the next line,yim appears with grey background
 	function ElementUserProfileContact( $theuser ) {
-		global $xc_settings;
+        global $xc_settings;
 		global $user;
 		global $page;
-		
+        
 		if ( $theuser->Id() == $user->Id() || $theuser->MSN() || $theuser->YIM() || $theuser->AIM() || $theuser->ICQ() || $theuser->GTalk() || $theuser->Skype() ) {
 			
 			if ( $user->Id() == $theuser->Id() && $user->Rights() >= $xc_settings[ 'readonly' ] ) {
@@ -27,8 +27,8 @@
 						} ?>
 					<li><dl>
 						<dt><img src="<?php
-						echo $xc_settings[ 'staticimagesurl' ];
-						?>messenger/msn.png" alt="MSN" title="MSN Messenger" /></dt>
+                        echo $xc_settings[ 'staticimagesurl' ];
+                        ?>messenger/msn.png" alt="MSN" title="MSN Messenger" /></dt>
 						<dd id="user_options_msn"><?php
 							echo htmlspecialchars( $theuser->MSN() );
 						?></dd>
@@ -47,8 +47,8 @@
 							echo $class; 
 							?>>
 							<dt><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>messenger/yahoo.png" alt="Yahoo" title="Yahoo! Messenger" /></dt>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>messenger/yahoo.png" alt="Yahoo" title="Yahoo! Messenger" /></dt>
 							<dd id="user_options_yim"><?php
 								echo htmlspecialchars( $theuser->YIM() );
 							?></dd>
@@ -64,11 +64,11 @@
 							$classk = true;
 						}
 						?><li><dl<?php 
-							echo $class; 
-							?>>
+                            echo $class; 
+                            ?>>
 							<dt><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>messenger/aim.png" alt="AIM" title="AIM" /></dt>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>messenger/aim.png" alt="AIM" title="AIM" /></dt>
 							<dd id="user_options_aim"><?php	
 								echo htmlspecialchars( $theuser->AIM() );
 							?></dd>
@@ -84,11 +84,11 @@
 							$classk = true;
 						}
 						?><li><dl<?php 
-							echo $class; 
-							?>>
+                            echo $class; 
+                            ?>>
 							<dt><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>messenger/skype.png" alt="Skype" title="Skype" /></dt>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>messenger/skype.png" alt="Skype" title="Skype" /></dt>
 							<dd id="user_options_skype"><?php	
 								echo htmlspecialchars( $theuser->Skype() );
 							?></dd>
@@ -107,8 +107,8 @@
 							echo $class; 
 							?>>
 							<dt><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>messenger/icq.png" alt="ICQ" title="ICQ" /></dt>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>messenger/icq.png" alt="ICQ" title="ICQ" /></dt>
 							<dd id="user_options_icq"><?php
 								echo htmlspecialchars( $theuser->ICQ() );
 							?></dd>
@@ -127,10 +127,10 @@
 							echo $class; 
 							?>>
 							<dt><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>messenger/gtalk.png" alt="gtalk" title="Google Talk" /></dt>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>messenger/gtalk.png" alt="gtalk" title="Google Talk" /></dt>
 							<dd id="user_options_gtalk"><?php
-								echo htmlspecialchars( $theuser->Gtalk() );
+                                echo htmlspecialchars( $theuser->Gtalk() );
 							?></dd>
 						</dl></li><?php
 					} 

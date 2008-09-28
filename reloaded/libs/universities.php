@@ -28,7 +28,7 @@
 		else {
 			$sql = "SELECT
 						*
-					FROM	 
+					FROM 	
 						`$universities`
 					WHERE `uni_delid` = '0' ORDER BY `uni_name` ASC";
 		}

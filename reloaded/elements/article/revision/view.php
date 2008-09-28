@@ -4,9 +4,9 @@
 		global $libs;
 		global $user;
 		
-		$id = $id->Get();
-		$revisionid = $r->Get();
-		$skip = $skip->Get();
+        $id = $id->Get();
+        $revisionid = $r->Get();
+        $skip = $skip->Get();
 
 		if ( !( $id > 0 ) ) {
 			return;
@@ -119,18 +119,18 @@
 		if ( $revisionvalid ) {
 			//Display given revision
 			?><br />
-			<span style="float:right;">
-				<form action="do/article/revert" method="post">
-					<input type="hidden" name="id" value="<?php echo $id; ?>" />
-					<input type="hidden" name="r" value="<?php echo $revisionid; ?>" />
-					<input type="submit" value="Επαναφορά" />
-				</form>
-			</span><?php
+            <span style="float:right;">
+            	<form action="do/article/revert" method="post">
+            		<input type="hidden" name="id" value="<?php echo $id; ?>" />
+            		<input type="hidden" name="r" value="<?php echo $revisionid; ?>" />
+            		<input type="submit" value="Επαναφορά" />
+            	</form>
+            </span><?php
 			?><h4>Έκδοση <?php
-			echo $revisionid;
-			?>η, <?php
-			echo $revision['revision_updated'];
-			?></h4><?php
+            echo $revisionid;
+            ?>η, <?php
+            echo $revision['revision_updated'];
+            ?></h4><?php
 
 			$article = New Article( $id, $revisionid );
 			if ( !$article->Exists() ) {
@@ -139,8 +139,8 @@
 			}
 
 			?><hr /><br /><h3><?php
-			echo htmlspecialchars( $article->Title() );
-			?></h3><?php
+            echo htmlspecialchars( $article->Title() );
+            ?></h3><?php
 			$formatted = mformatstories( array( $article->TextRaw() ) , $article->ShowEmoticons() );
 			echo $formatted[ 0 ];
 		}

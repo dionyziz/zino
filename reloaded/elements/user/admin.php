@@ -4,8 +4,8 @@
 		global $user;
 		global $page;
 		
-		$uid = $id->Get();
-		
+        $uid = $id->Get();
+        
 		if ( !$user->CanModifyCategories() ) {
 			Element( '404' );
 		}
@@ -39,8 +39,8 @@
 					?>><?php
 					echo RankToText( $i );
 					?> (<?php
-					echo $i;
-					?>)</option><?php
+                    echo $i;
+                    ?>)</option><?php
 				}
 			}
 			?></select><br /><input type="submit" value="Αποθήκευση" /></form><?php

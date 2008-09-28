@@ -3,8 +3,8 @@
 		global $user;
 		global $libs;
 		
-		$questionid = $questionid->Get();
-		
+        $questionid = $questionid->Get();
+        
 		$libs->Load( 'question' );
 		
 		if ( $user->CanModifyCategories() ) {

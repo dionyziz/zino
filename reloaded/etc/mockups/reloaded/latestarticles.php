@@ -46,12 +46,12 @@
 		<div class="stuff">στο <a href="" onclick="">Νέες Προβολές</a><span>, 32 σχόλια<span>, 201 προβολές</span></span></div>
 		<div style="clear:both"></div>
 	</div>
-	<?php
-		if ( $loggedin ) { // && can_edit_articles...
-			?><a class="newarticle" href="" onclick="return false;" title="Νέο άρθρο"><img class="newshout" src="images/icons/page_new.gif" /> Νέο Άρθρο</a><?php
-		}
-		else {
-			?><br /><?php
-		}
-	?>
+    <?php
+        if ( $loggedin ) { // && can_edit_articles...
+            ?><a class="newarticle" href="" onclick="return false;" title="Νέο άρθρο"><img class="newshout" src="images/icons/page_new.gif" /> Νέο Άρθρο</a><?php
+        }
+        else {
+            ?><br /><?php
+        }
+    ?>
 </div>

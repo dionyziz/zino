@@ -3,8 +3,8 @@
 	function UnitUsersOptions( tString $input_name, tString $input_value ) {
 		global $user;
 		
-		$input_name	 = $input_name->Get();
-		$input_value	 = $input_value->Get();
+		$input_name 	= $input_name->Get();
+		$input_value 	= $input_value->Get();
 		
 		$signature		= $user->Signature();
 		$newpassword	= "";

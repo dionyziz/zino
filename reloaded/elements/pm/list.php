@@ -6,21 +6,21 @@
 		global $user;
 		global $xc_settings;
 		
-		if (!$user->Exists()) {
-			return;
-		}
-		
+        if (!$user->Exists()) {
+            return;
+        }
+        
 		$libs->Load( 'pm' );
 		$page->SetTitle( 'Προσωπικά μηνύματα' );
-		
+        
 		$page->AttachStyleSheet( 'css/pm.css' );
 		$page->AttachStyleSheet( 'css/modal.css' );
-		
+        
 		$page->AttachScript( 'js/pm.js' );
 		$page->AttachScript( 'js/coala.js' );
 		$page->AttachScript( 'js/modal.js' );
 		$page->AttachScript( 'js/animations.js' );
-		//$page->AttachScript( 'js/jquery.js' );
+        //$page->AttachScript( 'js/jquery.js' );
 		$page->AttachScript( 'js/ui.base.js' );
 		$page->AttachScript( 'js/ui.draggable.js' );
 		$page->AttachScript( 'js/ui.droppable.js' );
@@ -30,13 +30,13 @@
 		$unreadmsgs = PM_UserCountUnreadPms( $user );
 		?>
 		<script type="text/javascript">
-		var unreadpms = <?php
+	    var unreadpms = <?php
 		echo $unreadmsgs;
 		?></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script> <?php
 		/*
-		<script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
-		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
+        <script src="http://jqueryjs.googlecode.com/svn/trunk/plugins/dimensions/jquery.dimensions.js" type="text/javascript"></script>
+        <script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.base.js"></script>
 		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.js"></script>
 		<script src="http://jqueryjs.googlecode.com/svn/trunk/ui/ui.draggable.ext.js"></script>
 		*/?>

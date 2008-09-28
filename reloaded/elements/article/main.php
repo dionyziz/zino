@@ -2,12 +2,12 @@
 	function ElementArticleMain( $articleid , $articletitle , $articleicon , $articletext , $articledate , 
 								$articlepageviews , $articleeditors , $articlemodifyuser , $cid,
 								$cicon , $cname , $commentsnum , $oldcomments ) {
-		global $xc_settings;
-		global $user;
-		
+        global $xc_settings;
+        global $user;
+        
 		?><div class="header">
-			<?php
-			Element( 'image', $articleicon, 100, 100, "articleicon", '', $articletitle, $articletitle );
+            <?php
+            Element( 'image', $articleicon, 100, 100, "articleicon", '', $articletitle, $articletitle );
 			?><h2><?php 
 			echo htmlspecialchars( $articletitle ); 
 			?></h2><br />
@@ -15,7 +15,7 @@
 				<small><?php
 					foreach ( $articleeditors as $editor ) {
 						Element( "user/icon", $editor, true, true );
-					}
+                    }
 					?><span class="description">από <?php
 					while( $editor = array_shift( $articleeditors ) ) {
 						Element( "user/static", $editor );
@@ -37,8 +37,8 @@
 						?><a href="?p=category&amp;id=<?php
 						echo $cid;
 						?>"><?php
-						Element( 'image', $cicon, 20, 20, 'categoryicon' );
-						?></a><?php
+                        Element( 'image', $cicon, 20, 20, 'categoryicon' );
+                        ?></a><?php
 					}
 					?><span class="description"><?php
 						if ( $cid > 0 ) {
@@ -94,16 +94,16 @@
 							<li><a href="?p=addstory&amp;id=<?php
 							echo $articleid;
 							?>"><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/icon_wand.gif" /> Επεξεργασία</a></li>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/icon_wand.gif" /> Επεξεργασία</a></li>
 							<li><a href="" onclick="if (confirm('Θέλεις σίγουρα να διαγράψεις αυτό το άρθρο;')) {document.getElementById('deleteform').submit();};return false;"><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/page_cross.gif" /> Διαγραφή</a></li>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/page_cross.gif" /> Διαγραφή</a></li>
 							<li><a href="?p=revisions&amp;id=<?php
 							echo $articleid;
 							?>"><img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>icons/time.png" /> Ιστορικό</a></li>
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>icons/time.png" /> Ιστορικό</a></li>
 						</ul><?php
 					}
 				?></small>

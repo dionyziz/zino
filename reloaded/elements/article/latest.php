@@ -4,8 +4,8 @@
 		global $page;
 		global $libs;
 		global $xc_settings;
-		
-		$stickyarticle = 0;
+        
+        $stickyarticle = 0;
 
 		$libs->Load( 'search' );
 		$libs->Load( 'article' );
@@ -19,33 +19,33 @@
 		$search->SetRequirement( 'text' );
 		$search->SetRequirement( 'pageviews' );
 		$search->SetRequirement( 'editors' );
-		$search->SetLimit( 4 );
+        $search->SetLimit( 4 );
 		$latest = $search->Get();
 
-		if ( $stickyarticle > 0 ) {
-			foreach ( $latest as $i => $article ) {
-				if ( $article->Id() == $stickyarticle ) {
-					unset( $latest[ $i ] );
-					break;
-				}
-			}
-			array_unshift( $latest, New Article( $stickyarticle ) );
-		}
+        if ( $stickyarticle > 0 ) {
+            foreach ( $latest as $i => $article ) {
+                if ( $article->Id() == $stickyarticle ) {
+                    unset( $latest[ $i ] );
+                    break;
+                }
+            }
+            array_unshift( $latest, New Article( $stickyarticle ) );
+        }
 
 		$latestids = array();
 		?><div class="articles newestarticles"><?php
 			Article_FormatSmallMulti( $latest );
 			
-			foreach ( $latest as $article ) {
-				$latestids[ $article->Id() ] = true;
-				Element( "article/small", $article );
-			}
-			if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
+            foreach ( $latest as $article ) {
+                $latestids[ $article->Id() ] = true;
+                Element( "article/small", $article );
+            }
+		    if ( $user->CanModifyStories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 				?><a class="newarticle" href="?p=addstory&amp;id=0"><img class="newshout" src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>icons/page_new.gif" title="Νέο άρθρο" alt="+" /> Νέο Άρθρο</a><?php
-			}
-			else {
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>icons/page_new.gif" title="Νέο άρθρο" alt="+" /> Νέο Άρθρο</a><?php
+		    }
+		    else {
 				?><br /><?php
 			}
 		?><br /><a href="?p=allarticles&amp;offset=1" style="padding-left:5px;">Παλαιότερα άρθρα</a>

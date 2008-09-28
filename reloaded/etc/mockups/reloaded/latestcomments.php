@@ -33,32 +33,32 @@
 ob_start();
 ?>
 function ShowLatestComments() {
-	shoutbox = document.getElementById( 'shoutbox' );
+    shoutbox = document.getElementById( 'shoutbox' );
 	onlinenow = document.getElementById( 'onlinenow' );
-	latest = document.getElementById('latestcomments');
-	inith = shoutbox.offsetHeight;
-	Animations.Create( shoutbox, 'opacity', 1000, 1, 0, new Function (), Interpolators.Sin );
+    latest = document.getElementById('latestcomments');
+    inith = shoutbox.offsetHeight;
+    Animations.Create( shoutbox, 'opacity', 1000, 1, 0, new Function (), Interpolators.Sin );
 	Animations.Create( onlinenow, 'opacity', 1000, 1, 0, new Function (), Interpolators.Sin );
-	Animations.Create( shoutbox, 'height', 3000, inith, 0, new Function (), Interpolators.Pulse );
-	divs = latest.getElementsByTagName('div');
-	for ( i in divs ) {
-		div = divs[ i ];
-		if ( div.className == 'body' ) {
-			firstcomment = div.getElementsByTagName( 'div' )[ 0 ];
-			for ( i = 0 ; i < 10 ; ++i ) {
-				div.appendChild( firstcomment.cloneNode( true ) );
-			}
-			break;
-		}
-	}
-	as = latest.getElementsByTagName('a');
-	for ( i in as ) {
-		a = as[ i ];
-		if ( a.className == 'arrow' ) {
-			a.style.display = 'none';
-			break;
-		}
-	}
+    Animations.Create( shoutbox, 'height', 3000, inith, 0, new Function (), Interpolators.Pulse );
+    divs = latest.getElementsByTagName('div');
+    for ( i in divs ) {
+        div = divs[ i ];
+        if ( div.className == 'body' ) {
+            firstcomment = div.getElementsByTagName( 'div' )[ 0 ];
+            for ( i = 0 ; i < 10 ; ++i ) {
+                div.appendChild( firstcomment.cloneNode( true ) );
+            }
+            break;
+        }
+    }
+    as = latest.getElementsByTagName('a');
+    for ( i in as ) {
+        a = as[ i ];
+        if ( a.className == 'arrow' ) {
+            a.style.display = 'none';
+            break;
+        }
+    }
 }
 <?php
 $js = ob_get_clean();

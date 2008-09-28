@@ -1,7 +1,7 @@
 <?php
-	// DEPRECATED and unused
-	return;
-	
+    // DEPRECATED and unused
+    return;
+    
 	function css_filter( $str ) {
 		/*
 			Decrease loading time by removing unnecessary CSS whitespace

@@ -1,36 +1,36 @@
 <?php
 
 	function ElementUserNew( 
-			tBoolean $nopassword, tBoolean $passwordmismatch, 
-			tBoolean $usernametaken, tBoolean $usernameexists, 
-			tBoolean $usernameinvalid, tBoolean $emailexists,
-			tBoolean $screwyou, tBoolean $recaptcha
-		) {
+            tBoolean $nopassword, tBoolean $passwordmismatch, 
+            tBoolean $usernametaken, tBoolean $usernameexists, 
+            tBoolean $usernameinvalid, tBoolean $emailexists,
+            tBoolean $screwyou, tBoolean $recaptcha
+        ) {
 		global $rabbit_settings;
-		global $xc_settings;
+        global $xc_settings;
 		global $page;
 		global $user;
-		global $libs;
+        global $libs;
 		global $water;
-		
-		$libs->Load( 'dictionary' );
-		$libs->Load( 'captcha' );
-		
-		if ( $xc_settings[ 'readonly' ] > 0 ) {
-			Redirect( "" );
-		}
+        
+        $libs->Load( 'dictionary' );
+        $libs->Load( 'captcha' );
+        
+        if ( $xc_settings[ 'readonly' ] > 0 ) {
+            Redirect( "" );
+        }
 
-		$captcha = '';
-		while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
-			$captcha = Dictionary_GetRandomWord();
-		}
-		$_SESSION[ 'captcha_word'  ] = $captcha;
-		$captcha_image = Captcha_Image( $captcha );
+        $captcha = '';
+        while ( strlen( $captcha ) < 1 || strlen( $captcha ) > 10 ) {
+            $captcha = Dictionary_GetRandomWord();
+        }
+        $_SESSION[ 'captcha_word'  ] = $captcha;
+        $captcha_image = Captcha_Image( $captcha );
 
-		$water->Profile( 'CAPTCHA Session Storage' );
-		$_SESSION[ 'captcha_image' ] = $captcha_image;
-		$water->ProfileEnd();
-		
+        $water->Profile( 'CAPTCHA Session Storage' );
+        $_SESSION[ 'captcha_image' ] = $captcha_image;
+        $water->ProfileEnd();
+        
 		$page->AttachStylesheet( 'css/rounded.css' );
 		$page->SetTitle( "Νέος Χρήστης" );
 		
@@ -40,8 +40,8 @@
 		$usernameexists = $usernameexists->Get();
 		$usernameinvalid = $usernameinvalid->Get();
 		$emailexists = $emailexists->Get();
-		$screwyou = $screwyou->Get(); // too many accounts from the same IP in a short period of time
-		$recaptcha = $recaptcha->Get();
+        $screwyou = $screwyou->Get(); // too many accounts from the same IP in a short period of time
+        $recaptcha = $recaptcha->Get();
 		//--------------------------
 		
 		?><br /><br /><br /><br /><br /><br /><br /><?php
@@ -63,18 +63,18 @@
 			echo $rabbit_settings[ 'applicationname' ];
 			?>.</b><?php
 		}
-		else if ( $recaptcha ) {
-			?><b>Επιβεβαίωσε ότι έχεις πληκτολογήσει σωστά την λέξη της εικόνας.</b><?php
-		}
-		else if ( $screwyou ) {
-			?><b>Δεν ήταν δυνατή η δημιουργία λογαριασμού αυτή τη στιγμή. Ξαναδοκίμασε σε 2 λεπτά.</b><?php
-		}
+        else if ( $recaptcha ) {
+            ?><b>Επιβεβαίωσε ότι έχεις πληκτολογήσει σωστά την λέξη της εικόνας.</b><?php
+        }
+        else if ( $screwyou ) {
+            ?><b>Δεν ήταν δυνατή η δημιουργία λογαριασμού αυτή τη στιγμή. Ξαναδοκίμασε σε 2 λεπτά.</b><?php
+        }
 		?>
 		<br /><br /><?php
 		if ( !( $user->IsAnonymous() ) ) {
-			?><b>Έχεις ήδη εισέλθει στο <?php
-			echo $rabbit_settings[ 'applicationname' ]; 
-			?>.</b><?php
+            ?><b>Έχεις ήδη εισέλθει στο <?php
+            echo $rabbit_settings[ 'applicationname' ]; 
+            ?>.</b><?php
 		}
 		else {
 			?>
@@ -89,8 +89,8 @@
 						</div>
 						<div class="rectanglesopts">
 							<img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>no1tip.png" />
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>no1tip.png" />
 							<span class="directions">Διάλεξε ένα όνομα χρήστη</span><br />
 							<span class="tip">(με αυτό το όνομα θα εμφανίζεσαι στο <?php
 		echo $rabbit_settings[ 'applicationname' ];
@@ -114,8 +114,8 @@
 						</div>
 						<div class="rectanglesopts">
 							<img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>no2tip.png" />
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>no2tip.png" />
 							<span class="directions">Επέλεξε έναν κωδικό πρόσβασης</span><br />
 							<span class="tip">(θα τον πληκτρολογείς για να επιβεβαιώνεις την ταυτότητά σου)</span><br />
 							<input type="password" tabindex="0" name="password" /><br />
@@ -145,28 +145,28 @@
 						</div>
 						<div class="rectanglesopts">
 							<img src="<?php
-							echo $xc_settings[ 'staticimagesurl' ];
-							?>no3tip.png" />
+                            echo $xc_settings[ 'staticimagesurl' ];
+                            ?>no3tip.png" />
 							<span class="directions">Πληκτρολόγησε το email σου</span><br />
 							<a href="faq/whymail_spam_showmail" style="font-size:80%;">Γιατί ζητάτε το email μου?</a> <span class="tip">(άμα ξεχάσεις τον κωδικό σου θα σου στείλουμε έναν νέο εκεί)</span><br />
 							<input type="text" tabindex="0" name="email"/><br /><br />
 							<span class="littletip">Δε θα χρησιμοποιήσουμε το email σου για άλλους σκοπούς χωρίς τη δική σου άδεια.</span>
 							<br />
-							
-							<br />
+                            
+                            <br />
 					
 							<span class="directions" style="padding-left:20px">Πληκτρολόγησε την λέξη που βλέπεις παρακάτω</span><br />
 							<span class="tip" style="padding-left:20px">(χρησιμοποίησε μόνο κεφαλαία ελληνικά γράμματα χωρίς τόνους)</span><br />
-							<br />
+                            <br />
 							<input type="text" tabindex="0" name="captcha" /><br /><br />
-							<br />
-							<div style="border:1px solid #ccc; text-align:center; padding:5px; background-color:#eee; width:250px; margin-left:20px;  font-size: 80%">
-								<img src="images/captcha.png?<?php
-								echo time();
-								?>" alt="CAPTCHA" style="margin: 10px; float: none" /><br />
-								ελληνικοί κεφαλαίοι χαρακτήρες
-							</div>
-							<br />
+                            <br />
+                            <div style="border:1px solid #ccc; text-align:center; padding:5px; background-color:#eee; width:250px; margin-left:20px;  font-size: 80%">
+                                <img src="images/captcha.png?<?php
+                                echo time();
+                                ?>" alt="CAPTCHA" style="margin: 10px; float: none" /><br />
+                                ελληνικοί κεφαλαίοι χαρακτήρες
+                            </div>
+                            <br />
 							<span class="littletip">Για να επιβεβαιώσουμε ότι είσαι άνθρωπος και όχι κάποιο αυτοματοποιημένο πρόγραμμα</span>
 							<br />
 						</div>

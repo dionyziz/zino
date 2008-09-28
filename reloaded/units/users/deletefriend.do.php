@@ -3,9 +3,9 @@
 		global $user;
 		global $xc_settings;
 		
-		$friendid = $friendid->Get();
-		
-		$type = $user->GetRelId( $friendid );
+        $friendid = $friendid->Get();
+        
+        $type = $user->GetRelId( $friendid );
 		$user->DeleteFriend( $friendid );
 		
 		?>g( 'frel_<?php

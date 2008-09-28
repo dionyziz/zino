@@ -5,15 +5,15 @@
 		global $libs;
 		global $page;
 		
-		$id = $id->Get();
+        $id = $id->Get();
 
 		$libs->Load( 'article' );
 		$page->AttachStyleSheet( 'css/article.css' );
 
 		$article = New Article( $id );
 		if ( !$article->Exists() ) {
-			$water->Notice( 'Article doesn\'t exist' , array( $id ) );
-			return;
+            $water->Notice( 'Article doesn\'t exist' , array( $id ) );
+            return;
 		}
 
 		$articleeditors = $article->Editors();

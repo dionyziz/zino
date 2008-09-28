@@ -1,9 +1,9 @@
 <?php
 
 	function Question_FormatMulti( &$questions ) {
-		if ( !is_array( $questions ) ) {
-			return false;
-		}
+        if ( !is_array( $questions ) ) {
+            return false;
+        }
 
 		$answers = array();
 		foreach ( $questions as $question ) {
@@ -162,9 +162,9 @@
 			$res = $db->Query( $sql );
 			return $res->FetchArray();
 		}
-		public function Exists() {
-			return $this->mId > 0;
-		}
+        public function Exists() {
+            return $this->mId > 0;
+        }
 		public function Question( $fetched_array = "" ) {
 			if ( $fetched_array == "" ) {
 				// Question() function, NOT constructor

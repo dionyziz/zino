@@ -17,9 +17,9 @@
 		$libs->Load( 'albums' );
 		
 		if ( empty( $icon[ 'name' ] ) ) {
-			return -1;
+	        return -1;
 		}
-		
+	    
 		$imagename = mystrtolower( basename( $icon['name'] ) );
 		$extension = getextension( $imagename );
 		
@@ -50,7 +50,7 @@
 		}
 		
 		$res = submit_photo( $imagename ,$tempfile ,0 , '' );
-		return $res[ 'id' ];
+        return $res[ 'id' ];
 	}
 	function FAQ_CanModify( $theuser ) {
 		return $theuser->CanModifyCategories();
@@ -187,7 +187,7 @@
 		global $db;
 		global $faqcategories;
 		
-		if ( $hidedeleted ) {							 // if we do not need deleted categories
+		if ( $hidedeleted ) {					 		// if we do not need deleted categories
 			$where = "WHERE `faqcategory_delid` = '0'"; // create the where clause 
 		}			
 		else {											// else
@@ -223,7 +223,7 @@
 			return $this->mId;
 		}
 		public function Category() { 
-			if ( empty( $this->mCategory ) ) {								 // if category object is not yet created
+			if ( empty( $this->mCategory ) ) { 								// if category object is not yet created
 				$this->mCategory = New FAQ_Category( $this->CategoryId() ); // instantiate category class
 			}
 			return $this->mCategory;
@@ -235,7 +235,7 @@
 			return $this->mCreated;
 		}
 		public function Creator() {
-			if ( empty( $this->mCreator ) ) {					  // if creator object is not yet created
+			if ( empty( $this->mCreator ) ) { 					 // if creator object is not yet created
 				$this->mCreator = New User( $this->CreatorId() ); // instantiate user class
 			}
 			return $this->mCreator;
@@ -306,7 +306,7 @@
 				return -1; // category doesn't exist
 			}
 			
-			$question	 = myescape( $question );
+			$question 	= myescape( $question );
 			$answer		= myescape( $answer );
 			$formatted  = mformatstories( array( $answer ) );
 			$answerformatted = myescape( $formatted[ 0 ] );
@@ -398,22 +398,22 @@
 				}
 			}
 			
-			$this->mId				= isset( $fetched_array[ 'faqquestion_id' ]			  ) ? $fetched_array[ 'faqquestion_id' ]				 : 0;
-			$this->mCategoryId		 = isset( $fetched_array[ 'faqquestion_categoryid' ]	  ) ? $fetched_array[ 'faqquestion_categoryid' ]		 : 0;
-			$this->mCreated		 = isset( $fetched_array[ 'faqquestion_created' ]		  ) ? $fetched_array[ 'faqquestion_created' ]		 : '0000-00-00 00:00:00';
-			$this->mCreatorId		 = isset( $fetched_array[ 'faqquestion_creatorid' ]		  ) ? $fetched_array[ 'faqquestion_creatorid' ]		 : 0;
-			$this->mCreatorIp		 = isset( $fetched_array[ 'faqquestion_creatorip' ]		  ) ? $fetched_array[ 'faqquestion_creatorip' ]		: "";
-			$this->mQuestion		 = isset( $fetched_array[ 'faqquestion_question' ]		  ) ? $fetched_array[ 'faqquestion_question' ]		 : "";
-			$this->mAnswer			 = isset( $fetched_array[ 'faqquestion_answer' ]		  ) ? $fetched_array[ 'faqquestion_answer' ]			 : "";
+			$this->mId			    = isset( $fetched_array[ 'faqquestion_id' ] 			 ) ? $fetched_array[ 'faqquestion_id' ] 			    : 0;
+			$this->mCategoryId 	    = isset( $fetched_array[ 'faqquestion_categoryid' ] 	 ) ? $fetched_array[ 'faqquestion_categoryid' ] 	    : 0;
+			$this->mCreated 	    = isset( $fetched_array[ 'faqquestion_created' ] 		 ) ? $fetched_array[ 'faqquestion_created' ] 	    : '0000-00-00 00:00:00';
+			$this->mCreatorId 	    = isset( $fetched_array[ 'faqquestion_creatorid' ] 		 ) ? $fetched_array[ 'faqquestion_creatorid' ] 	    : 0;
+			$this->mCreatorIp 	    = isset( $fetched_array[ 'faqquestion_creatorip' ] 		 ) ? $fetched_array[ 'faqquestion_creatorip' ]    	: "";
+			$this->mQuestion 	    = isset( $fetched_array[ 'faqquestion_question' ] 		 ) ? $fetched_array[ 'faqquestion_question' ] 	    : "";
+			$this->mAnswer 		    = isset( $fetched_array[ 'faqquestion_answer' ] 		 ) ? $fetched_array[ 'faqquestion_answer' ] 		    : "";
 			$this->mAnswerFormatted = isset( $fetched_array[ 'faqquestion_answerformatted' ] ) ? $fetched_array[ 'faqquestion_answerformatted' ] : "";
-			$this->mDelid			 = isset( $fetched_array[ 'faqquestion_delid' ]			 ) ? $fetched_array[ 'faqquestion_delid' ]			: 0;
-			$this->mKeyword			= isset( $fetched_array[ 'faqquestion_keyword' ]		 ) ? $fetched_array[ 'faqquestion_keyword' ]			: "";
-			$this->mPageviews		= isset( $fetched_array[ 'faqquestion_pageviews' ]		  ) ? $fetched_array[ 'faqquestion_pageviews' ]		: 0;
+			$this->mDelid 		    = isset( $fetched_array[ 'faqquestion_delid' ]			 ) ? $fetched_array[ 'faqquestion_delid' ]		    : 0;
+			$this->mKeyword		    = isset( $fetched_array[ 'faqquestion_keyword' ]		 ) ? $fetched_array[ 'faqquestion_keyword' ]		    : "";
+			$this->mPageviews	    = isset( $fetched_array[ 'faqquestion_pageviews' ] 		 ) ? $fetched_array[ 'faqquestion_pageviews' ]	    : 0;
 			
 			// If we have taken the data for category or creator of the question, create the objects
 			// Else, leave the variables empty, and let the the proper functions instantiate the classes.
-			$this->mCategory	= isset( $fetched_array[ 'faqcategory_id' ]	 ) ? New FAQ_Category( $fetched_array )	 : "";
-			$this->mCreator		= isset( $fetched_array[ 'user_id' ]			 ) ? New User( $fetched_array )			 : "";
+			$this->mCategory	= isset( $fetched_array[ 'faqcategory_id' ] 	) ? New FAQ_Category( $fetched_array ) 	: "";
+			$this->mCreator		= isset( $fetched_array[ 'user_id' ] 			) ? New User( $fetched_array ) 			: "";
 		}
 	}
 	
@@ -435,8 +435,8 @@
 			return $this->mId;
 		}
 		public function Creator() {
-			if ( empty( $this->mCreator ) ) {						  // if creator object is not yet created
-				$this->mCreator = New User( $this->CreatorId() );	 // instantiate user class
+			if ( empty( $this->mCreator ) ) { 					 	// if creator object is not yet created
+				$this->mCreator = New User( $this->CreatorId() ); 	// instantiate user class
 			}
 			return $this->mCreator;
 		}
@@ -459,8 +459,8 @@
 			return $this->mCreated;
 		}
 		public function ParentCategory() {
-			if ( empty( $this->mParent ) ) {								  // if parent category object is not yet created
-				$this->mParent = New FAQ_Category( $this->ParentId() );	 // instantiate FAQ_Category class
+			if ( empty( $this->mParent ) ) { 					 			// if parent category object is not yet created
+				$this->mParent = New FAQ_Category( $this->ParentId() ); 	// instantiate FAQ_Category class
 			}
 			return $this->mParent;
 		}
@@ -492,9 +492,9 @@
 				$iconid = $this->IconId();
 			}
 			
-			$name			 = myescape( $name );
-			$description	 = myescape( $description );
-			$iconid		 = myescape( $iconid );
+			$name 			= myescape( $name );
+			$description 	= myescape( $description );
+			$iconid 		= myescape( $iconid );
 			
 			$sql = "UPDATE 
 						`$faqcategories` 
@@ -542,19 +542,19 @@
 				}
 			}
 			
-			$this->mId			= isset( $fetched_array[ 'faqcategory_id' ]			 ) ? $fetched_array[ 'faqcategory_id' ]			 : 0;
-			$this->mCreatorId	 = isset( $fetched_array[ 'faqcategory_creatorid' ]		 ) ? $fetched_array[ 'faqcategory_creatorid' ]	: 0;
-			$this->mCreated	 = isset( $fetched_array[ 'faqcategory_created' ]		 ) ? $fetched_array[ 'faqcategory_created' ]	 : '0000-00-00 00:00:00';
-			$this->mName		 = isset( $fetched_array[ 'faqcategory_name' ]			 ) ? $fetched_array[ 'faqcategory_name' ]		 : "";
+			$this->mId			= isset( $fetched_array[ 'faqcategory_id' ] 			) ? $fetched_array[ 'faqcategory_id' ] 			: 0;
+			$this->mCreatorId 	= isset( $fetched_array[ 'faqcategory_creatorid' ] 		) ? $fetched_array[ 'faqcategory_creatorid' ]	: 0;
+			$this->mCreated 	= isset( $fetched_array[ 'faqcategory_created' ] 		) ? $fetched_array[ 'faqcategory_created' ] 	: '0000-00-00 00:00:00';
+			$this->mName 		= isset( $fetched_array[ 'faqcategory_name' ] 			) ? $fetched_array[ 'faqcategory_name' ] 		: "";
 			$this->mDescription = isset( $fetched_array[ 'faqcategory_description' ]	) ? $fetched_array[ 'faqcategory_description' ]	: "";
-			$this->mParentId	 = isset( $fetched_array[ 'faqcategory_parentid' ]		 ) ? $fetched_array[ 'faqcategory_parentid' ]	 : "";
-			$this->mDelid		 = isset( $fetched_array[ 'faqcategory_delid' ]			) ? $fetched_array[ 'faqcategory_delid' ]		: 0;
+			$this->mParentId 	= isset( $fetched_array[ 'faqcategory_parentid' ] 		) ? $fetched_array[ 'faqcategory_parentid' ] 	: "";
+			$this->mDelid 		= isset( $fetched_array[ 'faqcategory_delid' ]			) ? $fetched_array[ 'faqcategory_delid' ]		: 0;
 			$this->mIconId		= isset( $fetched_array[ 'faqcategory_iconid' ]			) ? $fetched_array[ 'faqcategory_iconid' ]		: "";	
 			$this->mIcon		= new Image( $this->mIconId );
 			
 			// If we have taken the data for category or creator of the question, create the objects
 			// Else, leave the variables empty, and let the the proper functions instantiate the classes.
-			$this->mCreator		= isset( $fetched_array[ 'user_id' ]					 ) ? New User( $fetched_array )					 : "";
+			$this->mCreator		= isset( $fetched_array[ 'user_id' ] 					) ? New User( $fetched_array ) 					: "";
 		}
 	}
 	
@@ -562,7 +562,7 @@
 		public function SetSortMethod( $field, $order ) {
 			static $fieldsmap = array(
 				'date'			=> '`faqquestion_id`',
-				'popularity'	 => '`faqquestion_pageviews`'
+				'popularity' 	=> '`faqquestion_pageviews`'
 			);
 			
 			w_assert( isset( $fieldsmap[ $field ] ) );
@@ -572,8 +572,8 @@
 		public function SetFilter( $key, $value ) {
 			// 0 -> equal, 1 -> LIKE
 			static $keymap = array(
-				'user'		 => array( '`faqquestion_creatorid`'	, 0 ),
-				'question'	 => array( '`faqquestion_question`'		, 1 ),
+				'user' 		=> array( '`faqquestion_creatorid`'	, 0 ),
+				'question' 	=> array( '`faqquestion_question`'		, 1 ),
 				'answer'	=> array( '`faqquestion_answer`'		, 1 ),
 				'delid'		=> array( '`faqquestion_delid`'		, 0 ),
 				'category'	=> array( '`faqquestion_categoryid`'	, 0 ),

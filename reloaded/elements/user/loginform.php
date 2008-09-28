@@ -2,7 +2,7 @@
 function ElementUserLoginform() {
 	global $page;
 	
-	$page->AttachScript( 'js/coala.js' );
+    $page->AttachScript( 'js/coala.js' );
 	$page->AttachScript( 'js/user.js' );
 	?><form onkeypress="return submitenter(this,event)" id="loginform" action="do/user/logon" method="post">
 		<div style="height:50px;_height:95px;">

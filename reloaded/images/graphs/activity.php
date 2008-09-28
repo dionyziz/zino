@@ -3,21 +3,21 @@
 
 	global $water;
 	global $libs;
-	global $db;
-	global $user;
-	
+    global $db;
+    global $user;
+    
 	require 'libs/rabbit/rabbit.php';
 
-	Rabbit_Construct( 'empty' );
+    Rabbit_Construct( 'empty' );
 
-	if ( !$user->CanModifyCategories() ) {
-		return false;
-	}
-	
+    if ( !$user->CanModifyCategories() ) {
+        return false;
+    }
+    
 	$libs->Load( 'graph' );
 	
 	if ( false ) { // for now
-		header( 'HTTP/1.1 304 Not Modified' );
+        header( 'HTTP/1.1 304 Not Modified' );
 	}
 		
 	header( 'Cache-Control: Public' );
@@ -37,7 +37,7 @@
 				`log_date` >= NOW() - INTERVAL $months MONTH
 				AND ( `log_requesturi` LIKE '%/?%'
 				OR `log_requesturi` LIKE '%/index.php%' 
-				OR `log_requesturi` LIKE '%/' )
+                OR `log_requesturi` LIKE '%/' )
 			GROUP BY
 				day
 			ORDER BY
@@ -74,8 +74,8 @@
 	$graph->SetSize( $width, $height );
 	$graph->SetTime( $months * 30 );
 	// $graph->SetSmoothing( $smooth );
-	$graph->HighlightLast();
+    $graph->HighlightLast();
 	$graph->Render();
 	
-	Rabbit_Destruct();
+    Rabbit_Destruct();
 ?>

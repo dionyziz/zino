@@ -1,6 +1,6 @@
 <?php
 
-	class Favourite extends Satori {
-	}
+    class Favourite extends Satori {
+    }
 
 ?>

@@ -5,9 +5,9 @@
 		global $page;
 		global $user;
 		
-		$id = $id->Get();
-		$preview = $preview->Get();
-		
+        $id = $id->Get();
+        $preview = $preview->Get();
+        
 		if ( !$user->CanModifyStories() ) {
 			return;
 		}
@@ -94,14 +94,14 @@
 				Element( 'article/new/filmstrip' , false );
 				?><br /><?php
 				if ( $user->CanModifyStories() ) {
-					?><a href="" onclick="Photos.Newphoto( this );return false;" class="addphoto" id="newphotolink">Νέα φωτογραφία&#187;</a>
-					<br /><br /><div style="padding-left:30px;width:410px;height:100px;display:none;" id="newphoto">
-					<iframe src="?p=uploadframe&amp;albumid=0" frameborder="no" style="width:410px;height:100px;overflow:hidden;"></iframe>
-					</div><?php
+                    ?><a href="" onclick="Photos.Newphoto( this );return false;" class="addphoto" id="newphotolink">Νέα φωτογραφία&#187;</a>
+                    <br /><br /><div style="padding-left:30px;width:410px;height:100px;display:none;" id="newphoto">
+                    <iframe src="?p=uploadframe&amp;albumid=0" frameborder="no" style="width:410px;height:100px;overflow:hidden;"></iframe>
+                    </div><?php
 				}
 				?><textarea name="story"><?php 
-				echo htmlspecialchars( $article->TextRaw() ); 
-				?></textarea><br />
+                echo htmlspecialchars( $article->TextRaw() ); 
+                ?></textarea><br />
 				<input type="checkbox" id="showemoticons" name="showemoticons" value="1" <?php
 				if ( $article->ShowEmoticons() ) {
 					?>checked="checked"<?php

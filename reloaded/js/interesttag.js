@@ -1,18 +1,18 @@
 var InterestTag = {
-	Create : function() {
-		var div = d.createElement( 'div' );
-		
-		// Create the place in where the interests are stored
-		var ul = d.createElement( 'ul' );
-		ul.className = "allinterests";
-		
-		// Start creating the close link
-		var closeimg = d.createElement( 'img' );
+    Create : function() {
+    	var div = d.createElement( 'div' );
+    	
+    	// Create the place in where the interests are stored
+    	var ul = d.createElement( 'ul' );
+    	ul.className = "allinterests";
+    	
+    	// Start creating the close link
+    	var closeimg = d.createElement( 'img' );
 		closeimg.src = "http://static.zino.gr/images/colorpicker/close.png";
 		closeimg.alt = "Κλείσιμο";
 		closeimg.title = "Κλείσιμο";
-		
-		var close = d.createElement( 'a' );
+    	
+    	var close = d.createElement( 'a' );
 		close.onclick = ( function( ul ) {
 				return function() {
 					return InterestTag.Close( ul );
@@ -25,16 +25,16 @@ var InterestTag = {
 		anchor.id = "hereiam";
 		
 		// Fill in the interests
-		var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
-		var allinterests = new Array();
-		for ( var i=0;i<allinterlinks.length-1;++i ) {
-			allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
-		}
-		for ( var i in allinterests ) {
-			if ( allinterests[i] === "" ) {
-				continue;
-			}
-			
+    	var allinterlinks = g( 'interests' ).getElementsByTagName( 'a' );
+    	var allinterests = new Array();
+    	for ( var i=0;i<allinterlinks.length-1;++i ) {
+    		allinterests.push( allinterlinks.item(i).firstChild.nodeValue );
+    	}
+    	for ( var i in allinterests ) {
+    		if ( allinterests[i] === "" ) {
+    			continue;
+    		}
+    		
 			var li = InterestTag.createLi( allinterests[i] );
 			li.style.backgroundColor = (i%2) ? "rgb( 201, 201, 201 )" : "rgb( 150, 150, 150 )";
 			li.appendChild( d.createElement( 'br' ) );
@@ -109,7 +109,7 @@ var InterestTag = {
 		
 		var input2 = d.createElement( 'input' );
 		input2.type = "button";
-		input2.value = "	 Αποθήκευση	 ";
+		input2.value = "     Αποθήκευση     ";
 		input2.onclick = ( function( ul ) {
 				return function() {
 					return InterestTag.Close( ul );
@@ -135,7 +135,7 @@ var InterestTag = {
 		div.appendChild( d.createElement( 'br' ) );
 		div.appendChild( form2 );
 		Modals.Create( div, 300, 330 );
-	},
+    },
 	createLi : function ( text ) {
 		var li = d.createElement( 'li' );
 		li.className = "interesttag";
@@ -162,24 +162,24 @@ var InterestTag = {
 		return li; 
 	},
 	is_valid : function( val ) {
-		if ( val.length === 0 ) {
-			alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
-			return false;
-		}
-		if ( val.length > 25 ) {
-			alert( "Δεν επιτρέπεται να έχεις ενδιαφέρον με μήκος μεγαλύτερο των 25 χαρακτήρων" );
-			return false;
-		}
-		if ( val.indexOf( ',' ) != -1 ) {
-			alert( "Δεν επιτρέπεται να χρησιμοποιήσεις κόμματα (,)" );
-			return false;
-		}
-		if ( val.indexOf( '\t' ) != -1 ) {
-			alert( "Δεν επιτρέπεται να χρησιμοποιήσεις τον χαρακτήρα tab" );
-			return false;
-		}
-		return true;
-	},
+    	if ( val.length === 0 ) {
+    		alert( "Δεν μπορείς να δημιουργήσεις κενό ενδιαφέρον" );
+    		return false;
+    	}
+    	if ( val.length > 25 ) {
+    		alert( "Δεν επιτρέπεται να έχεις ενδιαφέρον με μήκος μεγαλύτερο των 25 χαρακτήρων" );
+    		return false;
+    	}
+    	if ( val.indexOf( ',' ) != -1 ) {
+    		alert( "Δεν επιτρέπεται να χρησιμοποιήσεις κόμματα (,)" );
+    		return false;
+    	}
+    	if ( val.indexOf( '\t' ) != -1 ) {
+    		alert( "Δεν επιτρέπεται να χρησιμοποιήσεις τον χαρακτήρα tab" );
+        	return false;
+        }
+        return true;
+    },
 	Delete : function( li ) {
 		var text = li.childNodes[2].nodeValue;
 		Coala.Warm( 'interesttag/delete', { 'text' : text } );

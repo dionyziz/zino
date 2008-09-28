@@ -17,17 +17,17 @@ var Comments = {
 			comment.onsubmit = function () {
 					Comments.Wait( false, nodeid );
 					Coala.Warm( 
-						'comments/new', { 
-							'text' : comment.getElementsByTagName( 'textarea' )[0].value, 
-							'parent' : nodeid, 
-							'compage' : g( 'compage' ).value, 
-							'type' : g( 'type' ).value, 
-							'indent' : indent+1, 
-							'callback' : Comments.NewCommentCallback
-						}, function () {
-							alert( 'Δεν ήταν δυνατή η καταχώρηση του σχόλιού σου αυτή τη στιγμή. Δοκίμασε ξανά σε λίγο.' );
-						}
-					);
+                        'comments/new', { 
+                            'text' : comment.getElementsByTagName( 'textarea' )[0].value, 
+                            'parent' : nodeid, 
+                            'compage' : g( 'compage' ).value, 
+                            'type' : g( 'type' ).value, 
+                            'indent' : indent+1, 
+                            'callback' : Comments.NewCommentCallback
+                        }, function () {
+                            alert( 'Δεν ήταν δυνατή η καταχώρηση του σχόλιού σου αυτή τη στιγμή. Δοκίμασε ξανά σε λίγο.' );
+                        }
+                    );
 					return false;
 				};
 			
@@ -64,9 +64,9 @@ var Comments = {
 		element.appendChild( loading );
 		
 		Coala.Cold( 'comments/text', {
-			"commentid": id,
-			"callback": Comments.EditCallback
-		} );
+            "commentid": id,
+            "callback": Comments.EditCallback
+        } );
 	},
 	EditCallback : function( id, text ) {
 		document.body.style.cursor = "default";
@@ -182,41 +182,41 @@ var Comments = {
 		comment.parentNode.removeChild( comment );
 	},
 	DeleteModal : function( id ) {
-		Modals.Confirm( 
-			'Θέλεις σίγουρα να διαγράψεις το συγκεκριμένο σχόλιο;',
-			function () { 
-				Comments.DeleteReal( id );
-			}
-		);
+        Modals.Confirm( 
+            'Θέλεις σίγουρα να διαγράψεις το συγκεκριμένο σχόλιο;',
+            function () { 
+                Comments.DeleteReal( id );
+            }
+        );
 	},
-	Delete: function ( id ) {
-		element = document.getElementById( 'comment_' + id );
-		element.style.display = 'none';
-		
-		loading = document.createElement( 'div' );
+    Delete: function ( id ) {
+        element = document.getElementById( 'comment_' + id );
+        element.style.display = 'none';
+        
+        loading = document.createElement( 'div' );
 		loading.style.width = '100%';
 		loading.style.textAlign = 'center';
 		loading.style.paddingBottom = '5px';
 		loading.id = 'comment_loading_delete_' + id;
-		loading.appendChild( document.createTextNode( 'Διαγραφή...' ) );
+        loading.appendChild( document.createTextNode( 'Διαγραφή...' ) );
+        
+        element.parentNode.insertBefore( loading, element.nextSibling );
 		
-		element.parentNode.insertBefore( loading, element.nextSibling );
-		
-		Coala.Warm( 'comments/delete' , { 'commentid': id } );
-		
-		Comments.DisplayComments( false );
-	},
+        Coala.Warm( 'comments/delete' , { 'commentid': id } );
+        
+        Comments.DisplayComments( false );
+    },
 	UndoDelete: function ( id ) {
 		Coala.Warm( 'comments/undodelete', { 'commentid' : id } );
 		Comments.DisplayComments( true );
 	},
 	MarkAsSpam : function( id ) {
 		Modals.Confirm( 
-			"Θέλεις σίγουρα να σημειώσεις το συγκεκριμένο σχόλιο ως spam;",
-			function () { 
-				Coala.Warm( 'comments/spam' , { 'commentid': id } );
-			}
-		);
+            "Θέλεις σίγουρα να σημειώσεις το συγκεκριμένο σχόλιο ως spam;",
+            function () { 
+                Coala.Warm( 'comments/spam' , { 'commentid': id } );
+            }
+        );
 	},
 	NewCommentCallback : function ( newcomm, parent, type ) {
 		var comments = g( 'comments' );
@@ -282,7 +282,7 @@ var Comments = {
 		}
 		
 		for ( var i in element.childNodes ) {
-			var child = element.childNodes[ i ];
+    		var child = element.childNodes[ i ];
 			if ( child.nodeType == 1 ) {
 				child.style.display = (un)?'':'none';
 			}

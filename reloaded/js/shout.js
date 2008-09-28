@@ -97,56 +97,56 @@ var Shoutbox = {
 		element.appendChild( d.createTextNode( textn ) );
 
 		var stext = g( 'shouttext_' + id );
-		if( textformat !== undefined ) {
-			stext.innerHTML = textformat;
-			
+        if( textformat !== undefined ) {
+            stext.innerHTML = textformat;
+            
 
-			var editsh = d.createElement( 'a' );
-			editsh.setAttribute("style","cursor: pointer;");
-			editsh.onclick=(function( id ) {
-							return function() { 
-								Shoutbox.Edit(id);
-								return false;
-							};
-						})(id);
-			editsh.href="";
-			editsh.title="Επεξεργασία Μικρού Νέου";
+    		var editsh = d.createElement( 'a' );
+    		editsh.setAttribute("style","cursor: pointer;");
+    		editsh.onclick=(function( id ) {
+    						return function() { 
+    							Shoutbox.Edit(id);
+    							return false;
+    						};
+    					})(id);
+    		editsh.href="";
+    		editsh.title="Επεξεργασία Μικρού Νέου";
 
-			var editimg = d.createElement( 'img' );
-			editimg.width=16;
-			editimg.height=16;
-			editimg.src="http://static.zino.gr/images/icons/icon_wand.gif";
-			editimg.alt="Επεξεργασία Μικρού Νέου";
-			
-			var delsh = d.createElement( 'a' );
-			delsh.setAttribute("style","cursor: pointer;");
-			delsh.onclick=(function( id ) {
-							return function() {
-								Shoutbox.deleteShout( id );
-								return false;
-							};
-						})(id);
-			delsh.href="";
-			delsh.title="Διαγραφή Μικρού Νέου";
+    		var editimg = d.createElement( 'img' );
+    		editimg.width=16;
+    		editimg.height=16;
+    		editimg.src="http://static.zino.gr/images/icons/icon_wand.gif";
+    		editimg.alt="Επεξεργασία Μικρού Νέου";
+    		
+    		var delsh = d.createElement( 'a' );
+    		delsh.setAttribute("style","cursor: pointer;");
+    		delsh.onclick=(function( id ) {
+    						return function() {
+    							Shoutbox.deleteShout( id );
+    							return false;
+    						};
+    					})(id);
+    		delsh.href="";
+    		delsh.title="Διαγραφή Μικρού Νέου";
 
-			var delimg = d.createElement( 'img' );
-			delimg.src="http://static.zino.gr/images/icons/delete_sm.png";
-			delimg.alt="Διαγραφή Μικρού Νέου";
+    		var delimg = d.createElement( 'img' );
+    		delimg.src="http://static.zino.gr/images/icons/delete_sm.png";
+    		delimg.alt="Διαγραφή Μικρού Νέου";
 
-			editsh.appendChild( editimg );
-			delsh.appendChild( delimg );
-			stext.appendChild( editsh );
-			stext.appendChild( delsh );
-		}	
-		stext.style.display = 'block';
+    		editsh.appendChild( editimg );
+    		delsh.appendChild( delimg );
+    		stext.appendChild( editsh );
+    		stext.appendChild( delsh );
+    	}	
+    	stext.style.display = 'block';
 	}
 	,deleteShout : function( id ) {
 		Modals.Confirm( 'Θέλεις σίγουρα να διαγράψεις το συγκεκριμένο νέο;', function () {
-			Coala.Warm( 'shout/delete', {'id':id} );
-			element = g( 'shout_' + id );
-			while( element.firstChild ) {
-				element.removeChild( element.firstChild );
-			}
+            Coala.Warm( 'shout/delete', {'id':id} );
+            element = g( 'shout_' + id );
+            while( element.firstChild ) {
+                element.removeChild( element.firstChild );
+            }
 		} );
 	}
 	,checkSize : function( e ) {

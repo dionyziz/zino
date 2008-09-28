@@ -3,33 +3,33 @@
 		global $user;
 		global $libs;
 		global $page;
-		global $xc_settings;
-		
+        global $xc_settings;
+        
 		$libs->Load( 'category' );
 
 		?><div class="box categorybox">
 			<div class="header">
 				<div style="float:right"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>soraright.jpg" alt="" /></div>
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>soraright.jpg" alt="" /></div>
 				<div style="float:left"><img src="<?php
-				echo $xc_settings[ 'staticimagesurl' ];
-				?>soraleft.jpg" alt="" /></div>
+                echo $xc_settings[ 'staticimagesurl' ];
+                ?>soraleft.jpg" alt="" /></div>
 				<h3>Κατηγορίες</h3>
 			</div>
 			<div class="body"><?php
 				if ( $user->CanModifyCategories() && $xc_settings[ 'readonly' ] <= $user->Rights() ) {
 					?><a href="?p=nc"><img class="newcategory" src="<?php
-					echo $xc_settings[ 'staticimagesurl' ];
-					?>icons/page_new.gif" title="Νέα Κατηγορία" alt="+" /></a><?php
+                    echo $xc_settings[ 'staticimagesurl' ];
+                    ?>icons/page_new.gif" title="Νέα Κατηγορία" alt="+" /></a><?php
 				}
 				
 				$parented = Subcategories();
 				
 				if ( !is_array( $parented ) || count( $parented ) == 0 || count( $parented[ 0 ] )  == 0 ) {
 					?><br />&nbsp;&nbsp;Δεν υπάρχει καμία κατηγορία.<br /><br />
-					</div></div><?php
-					return true;
+                    </div></div><?php
+                    return true;
 				}
 
 				$maincategoriescnt = count( $parented[ 0 ] );
@@ -41,21 +41,21 @@
 					}
 					?><div class="category">
 						<a href="?p=category&amp;id=<?php 
-							echo $category->Id(); 
-							?>" title="<?php 
-							echo htmlspecialchars( $category->Name() );
-							?>"><?php
-							Element( 'image', $category->Icon(), 50, 50, 'avatar', '', $category->Name(), $category->Name );
-							?>
-						</a>
+                            echo $category->Id(); 
+                            ?>" title="<?php 
+                            echo htmlspecialchars( $category->Name() );
+                            ?>"><?php
+                            Element( 'image', $category->Icon(), 50, 50, 'avatar', '', $category->Name(), $category->Name );
+                            ?>
+                        </a>
 							<h3><a href="?p=category&amp;id=<?php 
-							echo $category->Id(); 
-							?>" title="<?php 
-							echo htmlspecialchars( $category->Name() );
-							?>"><?php 
-							echo htmlspecialchars( $category->Name() ); 
-							?></a></h3>
-							<br /><?php
+                            echo $category->Id(); 
+                            ?>" title="<?php 
+                            echo htmlspecialchars( $category->Name() );
+                            ?>"><?php 
+                            echo htmlspecialchars( $category->Name() ); 
+                            ?></a></h3>
+						    <br /><?php
 							if ( isset( $parented[ $category->Id() ] ) ) {
 								$j = 1;
 								foreach( $parented[ $category->Id() ] as $subcategory ) { // show every category that has the current category as parent
@@ -63,10 +63,10 @@
 										?>, <?php
 									}
 									?><a href="?p=category&amp;id=<?php 
-									echo $subcategory->Id(); 
-									?>"><?php
-									echo $subcategory->Name(); 
-									?></a><?php
+                                    echo $subcategory->Id(); 
+                                    ?>"><?php
+                                    echo $subcategory->Name(); 
+                                    ?></a><?php
 									++$j;
 								}
 							}

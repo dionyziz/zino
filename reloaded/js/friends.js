@@ -17,40 +17,40 @@ var Friends = {
 	FriendAdded : function ( userid, friendid, avatar, hobbies, friendtype ) {
 		if ( avatar !== '' || hobbies !== '' ) { // If the user didn't have a previous relation with you
 			var newfan = document.getElementById( 'newfan' );
-			newfan.id = "fan_" + userid;
-			var content = document.getElementById( 'newfancontent' );
-			while ( content.firstChild ) {
-				content.removeChild( content.firstChild );
-			}
-			content.appendChild( document.createElement( 'br' ) );
-			var avie = document.createElement( 'span' );
-			avie.innerHTML = avatar; // duh
-			content.appendChild( avie );
-			content.appendChild( document.createElement( 'br' ) );
-/*			var role = document.createElement( 'b' );
-			role.appendChild( document.createTextNode( 'Ρόλος: ' ) );
-			content.appendChild( role );
-			content.appendChild( document.createTextNode( rank ) );
-			content.appendChild( document.createElement( 'br' ) );*/
-			if ( hobbies !== '' ) {
-				var interests = document.createElement( 'b' );
-				interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
-				content.appendChild( interests );
-				content.innerHTML += hobbies + "<br />";
-			}
-			var relation = document.createElement( 'b' );
-			relation.appendChild( document.createTextNode( 'Σχέση: ' ) );
-			content.appendChild( relation );
-			content.appendChild( document.createTextNode( g( 'frel_' + friendtype ).firstChild.nodeValue ) );
-			content.appendChild( document.createElement( 'br' ) );
-			
-			newfan.style.display = 'block';
+	        newfan.id = "fan_" + userid;
+	        var content = document.getElementById( 'newfancontent' );
+	        while ( content.firstChild ) {
+	            content.removeChild( content.firstChild );
+	        }
+	        content.appendChild( document.createElement( 'br' ) );
+	        var avie = document.createElement( 'span' );
+	        avie.innerHTML = avatar; // duh
+	        content.appendChild( avie );
+	        content.appendChild( document.createElement( 'br' ) );
+/*	        var role = document.createElement( 'b' );
+	        role.appendChild( document.createTextNode( 'Ρόλος: ' ) );
+	        content.appendChild( role );
+	        content.appendChild( document.createTextNode( rank ) );
+	        content.appendChild( document.createElement( 'br' ) );*/
+	        if ( hobbies !== '' ) {
+	            var interests = document.createElement( 'b' );
+	            interests.appendChild( document.createTextNode( 'Ενδιαφέροντα: ' ) );
+	            content.appendChild( interests );
+	            content.innerHTML += hobbies + "<br />";
+	        }
+	        var relation = document.createElement( 'b' );
+	        relation.appendChild( document.createTextNode( 'Σχέση: ' ) );
+	        content.appendChild( relation );
+	        content.appendChild( document.createTextNode( g( 'frel_' + friendtype ).firstChild.nodeValue ) );
+	        content.appendChild( document.createElement( 'br' ) );
+	        
+	        newfan.style.display = 'block';
 		}
-		Friends.processing = false;
-	  Friends.ShowAll( false );
-	},
-	FriendDeleted : function( userid ) {
-		var div = document.getElementById( 'newfancontent' );
+        Friends.processing = false;
+      Friends.ShowAll( false );
+    },
+    FriendDeleted : function( userid ) {
+    	var div = document.getElementById( 'newfancontent' );
 		div.innerHTML = "";
 		
 		var outerdiv = document.getElementById( 'fan_' + userid );

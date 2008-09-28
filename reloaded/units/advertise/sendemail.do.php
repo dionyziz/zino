@@ -11,7 +11,7 @@
 		?>var msg = document.createElement( 'div' );<?php
 		if ( mail( $to , $subject , $text , $headers ) ) {
 			?>msg.appendChild( document.createTextNode( 'Ευχαριστούμε για το ενδιαφέρον σας' ) );<?php
-		}
+    	}
 		else {
 			?>msg.appendChild( document.createTextNode( 'Παρουσιάσθηκε σφάλμα κατά την αποστολή' ) );<?php
 		}

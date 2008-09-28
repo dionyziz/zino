@@ -1,17 +1,17 @@
 <?php
-	global $page;
-	global $user;
-	global $rabbit_settings;
-	
+    global $page;
+    global $user;
+    global $rabbit_settings;
+    
 	require_once 'libs/rabbit/rabbit.php';
-	
-	Rabbit_Construct();
+    
+    Rabbit_Construct();
 
-	if ( $user->IsAnonymous() ) {
-		header( 'Location: /?p=register' );
-	}
-	else {
-		header( 'Location: /user/' . $user->Username() . '?viewingalbums=yes' );
-	}
+    if ( $user->IsAnonymous() ) {
+        header( 'Location: /?p=register' );
+    }
+    else {
+        header( 'Location: /user/' . $user->Username() . '?viewingalbums=yes' );
+    }
 
 ?>

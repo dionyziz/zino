@@ -5,10 +5,10 @@
 			<h3>Κατηγορίες</h3>
 		</div>
 		<div class="body">
-			<?php
-				if ( $loggedin ) { // && can_edit_categories ...
-					?><a href="" onclick="return false;" title="Νέα Κατηγορία"><img class="newcategory" src="images/icons/page_new.gif" /></a><?php
-				}
+            <?php
+                if ( $loggedin ) { // && can_edit_categories ...
+                    ?><a href="" onclick="return false;" title="Νέα Κατηγορία"><img class="newcategory" src="images/icons/page_new.gif" /></a><?php
+                }
 			?><div class="category">
 				<a href="" onclick="return false;" title="Μουσική"><img src="images/music.jpg" class="avatar" />
 					<h3>Μουσική</h3></a><br />

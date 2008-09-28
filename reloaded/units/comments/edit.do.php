@@ -1,12 +1,12 @@
 <?php
 
-	function UnitCommentsEdit( tString $text, tInteger $eid, tCoalaPointer $callback ) {
-		global $libs;
+    function UnitCommentsEdit( tString $text, tInteger $eid, tCoalaPointer $callback ) {
+        global $libs;
 
-		$libs->Load( 'comment' );
-		
-		$text = $text->Get();
-		$eid = $eid->Get();
+        $libs->Load( 'comment' );
+        
+        $text = $text->Get();
+        $eid = $eid->Get();
 
 		if( $text != '' ) {
 			if( $eid != 0 ) {

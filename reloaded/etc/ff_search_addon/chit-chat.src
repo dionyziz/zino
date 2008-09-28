@@ -6,7 +6,7 @@
 	description="Chit-Chat Search Engine AddOn"
 	action="http://www.chit-chat.gr/"
 	searchForm="http://www.chit-chat.gr/"
-		method="GET"
+        method="GET"
 >
 
 <input name="p" value="search">

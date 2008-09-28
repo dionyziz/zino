@@ -1,11 +1,11 @@
 <?php
 
-	function ActionTestmc( tString $value ) {
-		global $mc;
+    function ActionTestmc( tString $value ) {
+        global $mc;
 
-		$mc->add( 'abresas', $value->Get() );
+        $mc->add( 'abresas', $value->Get() );
 
-		return Redirect( '?p=testmc' );
-	}
+        return Redirect( '?p=testmc' );
+    }
 
 ?>

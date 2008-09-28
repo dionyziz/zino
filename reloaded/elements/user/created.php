@@ -8,12 +8,12 @@
 		
 		?><div style="width:70%;">
 			Συγχαρητήρια, <?php 
-			echo $user->Username(); 
-			?>! Μόλις
+            echo $user->Username(); 
+            ?>! Μόλις
 			δημιούργησες ένα καινούργιο όνομα χρήστη. Την
 			επόμενη φορά που θα επισκευθείς το <?php 
-			echo $rabbit_settings['applicationname']; 
-			?> μπορείς
+            echo $rabbit_settings['applicationname']; 
+            ?> μπορείς
 			να το χρησιμοποιήσεις για να εισέλθεις.
 			<br /><br />
 			<a href="?p=faq">Μάθε πώς μπορείς να γράφεις

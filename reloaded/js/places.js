@@ -53,10 +53,10 @@ var Places = {
 		pcancel.type = 'button';
 		pcancel.value = 'Ακύρωση';
 		pcancel.onclick = ( function( id ) { 
-			return function() { 
-				Places.cancelEdit( id );
-			};
-		} )( id );
+            return function() { 
+                Places.cancelEdit( id );
+            };
+        } )( id );
 		
 		pform.appendChild( pid );
 		pform.appendChild( pinput );

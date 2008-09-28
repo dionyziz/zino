@@ -1,17 +1,17 @@
 <?php
-	function ActionQuestionNew( tString $question ) {
-		global $user;
-		global $libs;
+    function ActionQuestionNew( tString $question ) {
+    	global $user;
+    	global $libs;
 
-		$libs->Load( 'question' );
+    	$libs->Load( 'question' );
 
-		if ( !( $user->CanModifyCategories() ) ) {
-			return Redirect();
-		}
+    	if ( !( $user->CanModifyCategories() ) ) {
+            return Redirect();
+    	}
 		$question = $question->Get();
-		if ( trim( $question ) != '' ) {
+        if ( trim( $question ) != '' ) {
 			$eid = AddQuestion( $question );
-		}
-		return Redirect( '?p=questions' );
-	}
+        }
+        return Redirect( '?p=questions' );
+    }
 ?>

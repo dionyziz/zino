@@ -4,13 +4,13 @@
 		global $libs;
 		global $user;
 		
-		$eid = $eid->Get();
-		$selectedcat = $category->Get();
-		$nocategory = $nocategory->Get();
-		$noquestion = $noquestion->Get();
-		$noanswer = $noanswer->Get();
-		$keywordused = $keywordused->Get();
-		
+        $eid = $eid->Get();
+        $selectedcat = $category->Get();
+        $nocategory = $nocategory->Get();
+        $noquestion = $noquestion->Get();
+        $noanswer = $noanswer->Get();
+        $keywordused = $keywordused->Get();
+        
 		$libs->Load( 'faq' );
 		$page->AttachStylesheet( 'css/faq.css' );
 		

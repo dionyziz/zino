@@ -6,7 +6,7 @@
 	*/
 	
 	global $libs;
-	
+    
 	$libs->Load( 'bulk' );
 	$libs->Load( 'search' );
 	
@@ -24,7 +24,7 @@
 		
 		return true;
 	}
-	
+    
 	final class Userspace {
 		private $mId;
 		private $mRevisionId;
@@ -123,11 +123,11 @@
 			global $user;
 			
 			$sqlarray = array(
-				'article_id'			 => '',
-				'article_creatorid'	 => $this->UserId(),
-				'article_headrevision'	 => 1,
-				'article_typeid'		 => 2,
-				'article_delid'		 => 0
+				'article_id' 			=> '',
+				'article_creatorid' 	=> $this->UserId(),
+				'article_headrevision' 	=> 1,
+				'article_typeid' 		=> 2,
+				'article_delid' 		=> 0
 			);
 			
 			$change = $db->Insert( $sqlarray, $userspaces );
@@ -138,7 +138,7 @@
 			
 			$spaceid = $change->InsertId();
 			$sqlarray = array(
-				'revision_articleid'	 => $spaceid,
+				'revision_articleid' 	=> $spaceid,
 				'revision_id'			=> 1,
 				'revision_textid'		=> 0,
 				'revision_updated'		=> NowDate()				
@@ -218,13 +218,13 @@
 				$fetched_array = $construct;
 			}
 			
-			$this->mId			= isset( $fetched_array[ 'uspace_id' ] )			 ? $fetched_array[ 'uspace_id' ]		 : 0;
+			$this->mId			= isset( $fetched_array[ 'uspace_id' ] ) 			? $fetched_array[ 'uspace_id' ] 		: 0;
 			$this->mRevisionId	= isset( $fetched_array[ 'usrevision_id' ] )		? $fetched_array[ 'usrevision_id' ]		: 0;
 			$this->mTextId		= isset( $fetched_array[ 'usrevision_textid' ] )	? $fetched_array[ 'usrevision_textid' ] : 0;
-			$this->mTextRaw		= isset( $fetched_array[ 'bulk_text' ] )			 ? $fetched_array[ 'bulk_text' ]		 : $blk->Get( $this->mTextId ); 
+			$this->mTextRaw		= isset( $fetched_array[ 'bulk_text' ] ) 			? $fetched_array[ 'bulk_text' ] 		: $blk->Get( $this->mTextId ); 
 			$this->mTextFormatted = false;
 			$this->mSearchText	= '';
-			$this->mDate		= isset( $fetched_array[ 'usrevision_updated' ] )	 ? $fetched_array[ 'usrevision_updated' ]: '0000-00-00 00:00:00';
+			$this->mDate		= isset( $fetched_array[ 'usrevision_updated' ] ) 	? $fetched_array[ 'usrevision_updated' ]: '0000-00-00 00:00:00';
 			if ( !isset( $this->mUserId ) ) {
 				$this->mUserId		= is_array( $construct ) ? $fetched_array[ 'uspace_userid' ] : $construct; // keep it this way - we need to know the userid even when the space is not created (for creating it)
 			
@@ -321,12 +321,12 @@
 			$this->mFields = array(
 				'`article_id`'							=> 'article_id',
 				'`article_numcomments`'					=> 'article_numcomments',
-				'headrevision.`revision_creatorid`'	  => 'revision_creatorid',
+				'headrevision.`revision_creatorid`'  	=> 'revision_creatorid',
 				'`article_headrevision`'				=> 'article_headrevision',
-				'`article_created`'					 => 'article_created',
-				'headrevision.`revision_title`'		  => 'revision_title',
-				'headrevision.`revision_updated`'	   => 'revision_updated',
-				'headrevision.`revision_textid`'		 => 'revision_textid',
+				'`article_created`'     				=> 'article_created',
+				'headrevision.`revision_title`'      	=> 'revision_title',
+				'headrevision.`revision_updated`'   	=> 'revision_updated',
+				'headrevision.`revision_textid`'     	=> 'revision_textid',
 				'headrevision.`revision_categoryid`'	=> 'revision_categoryid',
 				'headrevision.`revision_iconid`'		=> 'revision_iconid',
 				'headrevision.`revision_minor`'			=> 'revision_minor'
@@ -338,7 +338,7 @@
 			
 			static $fieldsmap = array( 
 				'popularity' => 'article_numcomments',
-				'date'		  => 'article_id'
+				'date' 		 => 'article_id'
 			);
 			
 			w_assert( isset( $fieldsmap[ $field ] ) );
@@ -417,5 +417,5 @@
 			return $ret;
 		}
 	}
-	
+    
 ?>

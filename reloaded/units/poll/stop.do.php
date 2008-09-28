@@ -1,18 +1,18 @@
 <?php
 
-	function UnitPollStop( tInteger $pollid ) {
-		global $libs;
-		global $user;
-		
-		$libs->Load( 'poll' );
+    function UnitPollStop( tInteger $pollid ) {
+        global $libs;
+        global $user;
+        
+        $libs->Load( 'poll' );
 
-		$poll = new Poll( $pollid );
+        $poll = new Poll( $pollid );
 
-		if ( !$poll->Exists() || $poll->UserId != $user->Id() ) {
-			return;
-		}
+        if ( !$poll->Exists() || $poll->UserId != $user->Id() ) {
+            return;
+        }
 
-		$poll->Stop();
-	}
+        $poll->Stop();
+    }
 
 ?>

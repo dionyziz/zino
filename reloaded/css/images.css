@@ -59,20 +59,20 @@ div.filmstrip {
 	background-color: #eeeeee;
 }
 div.bumpstrip {
-	width: 100%;
-	position: relative;
+    width: 100%;
+    position: relative;
 	overflow: hidden;
 	border-top: 1px solid #cccccc;
 	border-bottom: 1px solid #cccccc;
 	background-color: #eeeeee;
-	margin-top: 55px;
+    margin-top: 55px;
 }
 div.filmstrip div.strip {
 	width: 1740px;
 }
 div.bumpstrip div.strip {
-	position: relative;
-	width: 1740px;
+    position: relative;
+    width: 1740px;
 }
 div.filmstrip div.strip div {
 	position: relative;
@@ -82,7 +82,7 @@ div.filmstrip div.strip div {
 }
 div.bumpstrip div.strip div {
 	position: relative;
-	float: left;
+    float: left;
 }
 div.filmstrip div.strip div img {
 	width: 100px;
@@ -91,9 +91,9 @@ div.filmstrip div.strip div img {
 	cursor: pointer;
 }
 div.bumpstrip div.strip div img {
-	margin: 7px;
-	border: 1px solid #cccccc;
-	cursor: pointer;
+    margin: 7px;
+    border: 1px solid #cccccc;
+    cursor: pointer;
 }
 div.filmstrip div.strip div a span {
 	position: absolute;
@@ -103,12 +103,12 @@ div.filmstrip div.strip div a span {
 	opacity: 0.7;
 }
 div.bumpstrip div.strip div a span {
-	position: absolute;
-	bottom: 9px;
-	right: 7px;
+    position: absolute;
+    bottom: 9px;
+    right: 7px;
 	background-color: #cecece;
 	opacity: 0.7;
 }
 div.bumpstrip div.strip div a span img {
-	margin: 0;
+    margin: 0;
 }

@@ -4,9 +4,9 @@
 		global $water;
 		global $rabbit_settings;
 		
-		$albumname = $albumname->Get();
-		$albumdescription = $albumdescription->Get();
-		
+        $albumname = $albumname->Get();
+        $albumdescription = $albumdescription->Get();
+        
 		$libs->Load( 'albums' );
 		$newalbumid = Albums_CreateAlbum( $albumname , $albumdescription );
 		?>location.href = '<?php

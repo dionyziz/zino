@@ -44,7 +44,7 @@
 				unset( $ids[ $gotit ] );
 			}
 			if ( count( $ids ) ) { // if there are more keys requested that haven't been cached, fetch them
-				// + operator between arrays -- merges arrays preserving keys
+                // + operator between arrays -- merges arrays preserving keys
 				$ret = $ret + $this->Fetch( $ids ); // return the combination of the cached ones and the fetched ones
 			}
 			if ( $was_array ) {
