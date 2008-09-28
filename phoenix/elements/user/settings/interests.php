@@ -41,7 +41,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $hobbie->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -49,7 +49,7 @@
                     ?></ul>
                     <div class="add hobbies">
                         <input type="text"/>
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $song->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -78,7 +78,7 @@
                     ?></ul>
                     <div class="add songs">
                         <input type="text"/>
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $movie->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -107,7 +107,7 @@
                     ?></ul>
                     <div class="add movies">
                         <input type="text"/>
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $show->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -136,7 +136,7 @@
                     ?></ul>
                     <div class="add shows">
                         <input type="text"/>
-						<a href="" onclick="return false;" title="Προσθήκη"></a>
+						<a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $book->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -165,7 +165,7 @@
                     ?></ul>
                     <div class="add books">
                         <input type="text"/>
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -186,7 +186,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $artist->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -194,7 +194,7 @@
                     ?></ul>
                     <div class="add artists">
                         <input type="text"/>
-                        <a href="" onclick="return false;" title="Προσθήκη"></a>
+                        <a href="" onclick="return false" title="Προσθήκη"></a>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                                     ?></span>
 									<a href="" onclick="Settings.RemoveInterest( '<?php
                                     echo $game->Id;
-                                    ?>' , this );return false;" class="delete">&nbsp;</a>
+                                    ?>' , this );return false" class="delete">&nbsp;</a>
                                     <span class="aplbubbleright">&nbsp;</span>
                                 </div>
                             </li><?php
@@ -223,7 +223,7 @@
                     ?></ul>
                     <div class="add games">
                         <input type="text"/>
-						<a href="" onclick="return false;" title="Προσθήκη"></a>		
+						<a href="" onclick="return false" title="Προσθήκη"></a>		
                     </div>
                 </div>
             </div>

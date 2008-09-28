@@ -42,7 +42,7 @@
                 if ( ( $user->Id == $comment->User->Id && ( time()-strtotime( $comment->Created ) < 900 ) ) || $user->HasPermission( PERMISSION_COMMENT_EDIT_ALL )  ) {
                     ?> ondblclick="Comments.Edit( <?php
                     echo $comment->Id;
-                    ?> );return false;"<?php
+                    ?> );return false"<?php
                 }
                 ?>><?php
                     echo $comment->Text; // no htmlspecialchars(); the text is already sanitized

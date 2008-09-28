@@ -113,7 +113,7 @@
                         }
                         ?>" onclick="PhotoView.AddFav( '<?php
                         echo $image->Id;
-                        ?>' , this );return false;"><?php
+                        ?>' , this );return false"><?php
                         if ( !$fav ) {
                             ?>Προσθήκη στα αγαπημένα<?php
                         }
@@ -124,7 +124,7 @@
                         && ( $image->User->Id == $user->Id || 
                              $relfinder->IsFriend( $image->User, $user ) == FRIENDS_BOTH )
                         && $image->Width > 45 && $image->Height > 45 ) {
-                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false;">Γνωρίζεις κάποιον;</a></dd><?php
+                        ?><dd class="addtag"><a href="" title="Ποιος είναι στην φωτογραφία" onclick="Tag.start( false, '', true );return false">Γνωρίζεις κάποιον;</a></dd><?php
                     }
                  ?></dl><?php
                 if ( $image->User->Id == $user->Id || $user->HasPermission( PERMISSION_IMAGE_DELETE_ALL ) ) {
@@ -133,7 +133,7 @@
                         echo $image->Id;
                         ?>' , <?php
                         echo htmlspecialchars( w_json_encode( $image->Album->Name ) );
-                        ?> );return false;"><?php
+                        ?> );return false"><?php
                         if ( $image->Name == '' ) {
                             ?>Όρισε όνομα<?php
                         }
@@ -143,11 +143,11 @@
                         ?></a></div>
                         <div class="delete"><a href="" onclick="PhotoView.Delete( '<?php
                         echo $image->Id;
-                        ?>' );return false;">Διαγραφή</a></div><?php
+                        ?>' );return false">Διαγραφή</a></div><?php
                         if ( $image->Album->Mainimageid != $image->Id ) {
                             ?><div class="mainimage"><a href="" onclick="PhotoView.MainImage( '<?php
                             echo $image->Id;
-                            ?>' );return false;">
+                            ?>' );return false">
                             Ορισμός προεπιλεγμένης</a>
                             </div><?php
                         }
@@ -209,7 +209,7 @@
                 echo $image->Width;
                 ?>px;height:<?php
                 echo $image->Height;
-                ?>px;" onmousedown="Tag.katoPontike( event );return false;" onmouseup="Tag.showSug( event );return false;" onmouseout="Tag.ekso( event, true );return false;" onmousemove="Tag.drag( event );return false;"><?php
+                ?>px;" onmousedown="Tag.katoPontike( event );return false" onmouseup="Tag.showSug( event );return false" onmouseout="Tag.ekso( event, true );return false" onmousemove="Tag.drag( event );return false"><?php
                     Element( 'image/view' , $image->Id , $image->User->Id , $image->Width , $image->Height , IMAGE_FULLVIEW, '' , $title , '' , false , 0 , 0 );
                     if ( $image->Width > 45 && $image->Height > 45 ) {
                         ?><div class="tanga"><?php
@@ -243,18 +243,18 @@
 							?> style="height:45px;width:45px;"<?php
 						}
 						?>>
-							<div class="resizer" onmousedown="Tag.resize_down( event );return false;" onmouseout="Tag.ekso( event, true );return false;"></div>
+							<div class="resizer" onmousedown="Tag.resize_down( event );return false" onmouseout="Tag.ekso( event, true );return false"></div>
 						</div>
                         <div class="frienders">
                             <div>Ποιός είναι αυτός;</div>
-                            <form action="" onsubmit="return false;">
+                            <form action="" onsubmit="return false">
                                 <input type="text" value="" onmousedown="Tag.focusInput( event );" onkeydown="Tag.autocomplete( event );" onkeyup="Tag.filterSug( event );" />
                             </form>
-                            <ul onmousedown="Tag.ekso( event );return false;">
+                            <ul onmousedown="Tag.ekso( event );return false">
                                 <li></li>
                             </ul>
                             <div class="closer">
-                                <a href="" class="button" onmousedown="Tag.close();return false;">Ακύρωση</a>
+                                <a href="" class="button" onmousedown="Tag.close();return false">Ακύρωση</a>
                             </div>
                         </div><?php
                     }
@@ -288,7 +288,7 @@
                             echo $tags[ $i ]->Id;
                             ?>, '<?php
                             echo $unames[ $i ]->Name;
-                            ?>' );return false;" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
+                            ?>' );return false" title="Διαγραφή"> </a><?php // Space needed for CSS Spriting
                         }
 						if ( $i == $tags_num - 2 ) {
 							?> και <?php

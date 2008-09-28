@@ -33,7 +33,7 @@
                         ?></option><?php
                     }
                 ?></select><br /><br />
-                <input type="button" value="Δημιουργία" onclick="Uni.Create();return false;" /><br />            
+                <input type="button" value="Δημιουργία" onclick="Uni.Create();return false" /><br />            
                 <br /><br />
                 <div class="unilist" id="unilist"><?php
                 foreach( $allunis as $uni ) {
@@ -51,10 +51,10 @@
                     echo $uni->Place->Name;
                     ?> <a href="" onclick="Uni.Edit( '<?php
                     echo $uni->Id;
-                    ?>' );return false;"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a> 
+                    ?>' );return false"><img src="http://static.chit-chat.gr/images/icons/edit.png" alt="Επεξεργασία" title="Επεξεργασία" /></a> 
                     <a href="" onclick="Uni.Delete( '<?php
                     echo $uni->Id;
-                    ?>' );return false;"><img src="http://static.chit-chat.gr/images/icons/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
+                    ?>' );return false"><img src="http://static.chit-chat.gr/images/icons/delete.png" alt="Διαγραφή" title="Διαγραφή" /></a>
                     <span style="display:none" id="name<?php
                     echo $uni->Id;
                     ?>"><?php

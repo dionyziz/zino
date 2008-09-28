@@ -31,7 +31,7 @@
                         else {
                             ?>false<?php
                         }
-                        ?>' );return false;">&nbsp;</a><?php
+                        ?>' );return false">&nbsp;</a><?php
                     }
                     if ( !$pm->IsRead() && !$pm->IsSender( $user ) ) {
                         ?><span class="unreadpm">&nbsp;</span><?php
@@ -52,7 +52,7 @@
                     echo $pm->Pmid;
                     ?>, <?php
                     echo $folder->Id;
-                    ?> );return false;"><?php
+                    ?> );return false"><?php
                     if ( $pm->IsSender( $user ) ) {
                         ?> προς τ<?php
                         $pmuser = $pm->Receivers;
@@ -106,7 +106,7 @@
                     echo $pm->Pmid;
                     ?>, <?php
                     echo $folder->Id; 
-                    ?>);return false;" style="display:inline;" class="infobar_info">, <?php
+                    ?>);return false" style="display:inline;" class="infobar_info">, <?php
                     Element( 'date/diff', $pm->Created );
                     ?></div>
                 </div>

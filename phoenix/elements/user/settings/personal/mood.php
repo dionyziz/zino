@@ -9,7 +9,7 @@
             ?>
             <div class="moodpicker" style="overflow:hidden">
                 <div class="view" onclick="MoodDropdown.Push( this.parentNode );">
-                    <a href="" onclick="return false;">
+                    <a href="" onclick="return false">
                         <img src="<?php
                         echo $xc_settings[ 'staticimagesurl' ];
                         ?>dropdown.png" alt="v" />
@@ -40,7 +40,7 @@
                         foreach ( $moods as $mood ) {
                             ?><li><a href="" onclick="MoodDropdown.Select( 'moodid', <?php
                             echo $mood->Id;
-                            ?>, this );return false;"><img src="<?php
+                            ?>, this );return false"><img src="<?php
                             echo $xc_settings[ 'staticimagesurl' ];
                             ?>moods/<?php
                             echo $mood->Url;

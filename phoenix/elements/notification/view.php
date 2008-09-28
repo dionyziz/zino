@@ -21,7 +21,7 @@
                     ?></span>
                     <a href="" onclick="Notification.Delete( '<?php
                     echo $notif->Event->Id;
-                    ?>' );return false;" title="Διαγραφή"><img src="<?php
+                    ?>' );return false" title="Διαγραφή"><img src="<?php
                     echo $rabbit_settings[ 'imagesurl' ];
                     ?>delete.png" /></a>
                 </div>
@@ -112,7 +112,7 @@
                                 echo $notif->Event->Id;
                                 ?>' , '<?php
                                 echo $notif->FromUser->Id;
-                                ?>' );return false;">Πρόσθεσέ τ<?php
+                                ?>' );return false">Πρόσθεσέ τ<?php
                                 if ( $notif->FromUser->Gender == 'f' ) {
                                     ?>η<?php
                                 }
@@ -125,7 +125,7 @@
                             Element( 'user/url' , $notif->FromUser->Id , $notif->FromUser->Subdomain );
                             ?>' , '0' , '<?php
                             echo $notif->Event->Id;
-                            ?>' , '0' );return false;">Προβολή προφίλ&raquo;</a></div><?php
+                            ?>' , '0' );return false">Προβολή προφίλ&raquo;</a></div><?php
                             break;
                         case EVENT_IMAGETAG_CREATED:
                             ?><p><?php

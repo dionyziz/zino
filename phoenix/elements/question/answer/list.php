@@ -57,18 +57,18 @@
                 <p class="question"><?php
                 echo htmlspecialchars( $question->Text );
                 ?></p>
-                <p class="answer"><form id="newanswer" onsubmit="Questions.Answer();return false;">
+                <p class="answer"><form id="newanswer" onsubmit="Questions.Answer();return false">
                     <input type="hidden" value="<?php
                     echo $question->Id;
                     ?>" />
-                    <input type="text" /> <a href="" title="Απάντησε" onclick="Questions.Answer();return false;"><img src="<?php
+                    <input type="text" /> <a href="" title="Απάντησε" onclick="Questions.Answer();return false"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>accept.png" alt="Απάντησε" title="Απάντησε" /></a> 
                     <a href="" title="Αλλαγή Ερώτησης" onclick="Coala.Cold( 'question/get', { 
                             'callback': Questions.Renew,
                             'excludeid' : <?php
                             echo $question->Id;
-                            ?>} );return false;"><img src="<?php
+                            ?>} );return false"><img src="<?php
                     echo $xc_settings[ 'staticimagesurl' ];
                     ?>arrow_refresh.png" alt="Αλλαγή Ερώτησης" title="Αλλαγή Ερώτησης" /></a>
                 </form></p>

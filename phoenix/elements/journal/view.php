@@ -61,7 +61,7 @@
                                 }
                                 ?>" onclick="JournalView.AddFav( '<?php
                                 echo $journal->Id;
-                                ?>' , this );return false;"><?php
+                                ?>' , this );return false"><?php
                                 if ( !$fav ) {
                                     ?>Προσθήκη στα αγαπημένα<?php
                                 }
@@ -78,7 +78,7 @@
                                     <div class="delete">
                                         <a href="" onclick="JournalView.Delete( '<?php
                                         echo $journal->Id;
-                                        ?>' );return false;">Διαγραφή
+                                        ?>' );return false">Διαγραφή
                                         </a>
                                     </div>                        
                                 </div><?php

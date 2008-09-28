@@ -65,11 +65,11 @@
                         ?><div class="owner">
                             <div class="edit"><a href="" onclick="PhotoList.Rename( '<?php
                             echo $album->Id;
-                            ?>' );return false;">Μετονομασία</a>
+                            ?>' );return false">Μετονομασία</a>
                             </div>
                             <div class="delete"><a href="" onclick="PhotoList.Delete( '<?php
                             echo $album->Id;
-                            ?>' );return false;">Διαγραφή</a></div>
+                            ?>' );return false">Διαγραφή</a></div>
                         </div><?php
                     }
                 }

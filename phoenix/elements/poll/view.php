@@ -67,7 +67,7 @@
                                 }
                                 ?>" onclick="PollView.AddFav( '<?php
                                 echo $poll->Id;
-                                ?>' , this );return false;"><?php
+                                ?>' , this );return false"><?php
                                 if ( !$fav ) {
                                     ?>Προσθήκη στα αγαπημένα<?php
                                 }
@@ -78,7 +78,7 @@
                                 ?><dd class="delete">
                                     <a href="" onclick="PollView.Delete( '<?php
                                     echo $poll->Id;
-                                    ?>' );return false;"><span>&nbsp;</span>Διαγραφή
+                                    ?>' );return false"><span>&nbsp;</span>Διαγραφή
                                     </a>
                                 </dd><?php
                             }

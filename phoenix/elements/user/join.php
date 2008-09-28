@@ -84,7 +84,7 @@
                 <div><?php
                 Element( 'about/tos/text' );
                 ?></div>
-                <a href="" class="button" onclick="Modals.Destroy();return false;">Κλείσιμο</a>
+                <a href="" class="button" onclick="Modals.Destroy();return false">Κλείσιμο</a>
             </div><?php
         }
     }
